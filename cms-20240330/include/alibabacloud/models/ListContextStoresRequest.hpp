@@ -72,7 +72,7 @@ namespace Models
     shared_ptr<string> contextType_ {};
     // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next page of results.
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
   };
 

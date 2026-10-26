@@ -66,9 +66,11 @@ namespace Models
 
 
   protected:
+    // The maximum number of instances to return per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The namespace of the cloud product. This parameter is optional.
+    // The optional cloud services.
     shared_ptr<string> namespace_ {};
+    // The next paging token for the paged query.
     shared_ptr<string> nextToken_ {};
     // The tenant ID.
     shared_ptr<string> tenantId_ {};

@@ -33,6 +33,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(contentTemplate, contentTemplate_);
       DARABONBA_PTR_TO_JSON(datasourceConfig, datasourceConfig_);
       DARABONBA_PTR_TO_JSON(displayName, displayName_);
+      DARABONBA_PTR_TO_JSON(drillEvalTime, drillEvalTime_);
+      DARABONBA_PTR_TO_JSON(drillMode, drillMode_);
+      DARABONBA_PTR_TO_JSON(drillTimeRange, drillTimeRange_);
       DARABONBA_PTR_TO_JSON(enabled, enabled_);
       DARABONBA_PTR_TO_JSON(labels, labels_);
       DARABONBA_PTR_TO_JSON(notifyConfig, notifyConfig_);
@@ -57,6 +60,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(contentTemplate, contentTemplate_);
       DARABONBA_PTR_FROM_JSON(datasourceConfig, datasourceConfig_);
       DARABONBA_PTR_FROM_JSON(displayName, displayName_);
+      DARABONBA_PTR_FROM_JSON(drillEvalTime, drillEvalTime_);
+      DARABONBA_PTR_FROM_JSON(drillMode, drillMode_);
+      DARABONBA_PTR_FROM_JSON(drillTimeRange, drillTimeRange_);
       DARABONBA_PTR_FROM_JSON(enabled, enabled_);
       DARABONBA_PTR_FROM_JSON(labels, labels_);
       DARABONBA_PTR_FROM_JSON(notifyConfig, notifyConfig_);
@@ -82,12 +88,54 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class DrillTimeRange : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const DrillTimeRange& obj) { 
+        DARABONBA_PTR_TO_JSON(endTime, endTime_);
+        DARABONBA_PTR_TO_JSON(startTime, startTime_);
+      };
+      friend void from_json(const Darabonba::Json& j, DrillTimeRange& obj) { 
+        DARABONBA_PTR_FROM_JSON(endTime, endTime_);
+        DARABONBA_PTR_FROM_JSON(startTime, startTime_);
+      };
+      DrillTimeRange() = default ;
+      DrillTimeRange(const DrillTimeRange &) = default ;
+      DrillTimeRange(DrillTimeRange &&) = default ;
+      DrillTimeRange(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~DrillTimeRange() = default ;
+      DrillTimeRange& operator=(const DrillTimeRange &) = default ;
+      DrillTimeRange& operator=(DrillTimeRange &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->endTime_ == nullptr
+        && this->startTime_ == nullptr; };
+      // endTime Field Functions 
+      bool hasEndTime() const { return this->endTime_ != nullptr;};
+      void deleteEndTime() { this->endTime_ = nullptr;};
+      inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+      inline DrillTimeRange& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
+      // startTime Field Functions 
+      bool hasStartTime() const { return this->startTime_ != nullptr;};
+      void deleteStartTime() { this->startTime_ = nullptr;};
+      inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+      inline DrillTimeRange& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
+
+
+    protected:
+      shared_ptr<int64_t> endTime_ {};
+      shared_ptr<int64_t> startTime_ {};
+    };
+
     virtual bool empty() const override { return this->action_ == nullptr
         && this->actionIntegrationConfig_ == nullptr && this->annotations_ == nullptr && this->armsIntegrationConfig_ == nullptr && this->bizSource_ == nullptr && this->conditionConfig_ == nullptr
-        && this->contentTemplate_ == nullptr && this->datasourceConfig_ == nullptr && this->displayName_ == nullptr && this->enabled_ == nullptr && this->labels_ == nullptr
-        && this->notifyConfig_ == nullptr && this->observeResourceConfig_ == nullptr && this->observeResourceInstanceId_ == nullptr && this->observeResourceType_ == nullptr && this->queryConfig_ == nullptr
-        && this->rcaConfig_ == nullptr && this->regionId_ == nullptr && this->scheduleConfig_ == nullptr && this->uuid_ == nullptr && this->uuidList_ == nullptr
-        && this->workspace_ == nullptr; };
+        && this->contentTemplate_ == nullptr && this->datasourceConfig_ == nullptr && this->displayName_ == nullptr && this->drillEvalTime_ == nullptr && this->drillMode_ == nullptr
+        && this->drillTimeRange_ == nullptr && this->enabled_ == nullptr && this->labels_ == nullptr && this->notifyConfig_ == nullptr && this->observeResourceConfig_ == nullptr
+        && this->observeResourceInstanceId_ == nullptr && this->observeResourceType_ == nullptr && this->queryConfig_ == nullptr && this->rcaConfig_ == nullptr && this->regionId_ == nullptr
+        && this->scheduleConfig_ == nullptr && this->uuid_ == nullptr && this->uuidList_ == nullptr && this->workspace_ == nullptr; };
     // action Field Functions 
     bool hasAction() const { return this->action_ != nullptr;};
     void deleteAction() { this->action_ = nullptr;};
@@ -159,6 +207,29 @@ namespace Models
     void deleteDisplayName() { this->displayName_ = nullptr;};
     inline string getDisplayName() const { DARABONBA_PTR_GET_DEFAULT(displayName_, "") };
     inline ManageAlertRulesUnifiedActionInput& setDisplayName(string displayName) { DARABONBA_PTR_SET_VALUE(displayName_, displayName) };
+
+
+    // drillEvalTime Field Functions 
+    bool hasDrillEvalTime() const { return this->drillEvalTime_ != nullptr;};
+    void deleteDrillEvalTime() { this->drillEvalTime_ = nullptr;};
+    inline int64_t getDrillEvalTime() const { DARABONBA_PTR_GET_DEFAULT(drillEvalTime_, 0L) };
+    inline ManageAlertRulesUnifiedActionInput& setDrillEvalTime(int64_t drillEvalTime) { DARABONBA_PTR_SET_VALUE(drillEvalTime_, drillEvalTime) };
+
+
+    // drillMode Field Functions 
+    bool hasDrillMode() const { return this->drillMode_ != nullptr;};
+    void deleteDrillMode() { this->drillMode_ = nullptr;};
+    inline string getDrillMode() const { DARABONBA_PTR_GET_DEFAULT(drillMode_, "") };
+    inline ManageAlertRulesUnifiedActionInput& setDrillMode(string drillMode) { DARABONBA_PTR_SET_VALUE(drillMode_, drillMode) };
+
+
+    // drillTimeRange Field Functions 
+    bool hasDrillTimeRange() const { return this->drillTimeRange_ != nullptr;};
+    void deleteDrillTimeRange() { this->drillTimeRange_ = nullptr;};
+    inline const ManageAlertRulesUnifiedActionInput::DrillTimeRange & getDrillTimeRange() const { DARABONBA_PTR_GET_CONST(drillTimeRange_, ManageAlertRulesUnifiedActionInput::DrillTimeRange) };
+    inline ManageAlertRulesUnifiedActionInput::DrillTimeRange getDrillTimeRange() { DARABONBA_PTR_GET(drillTimeRange_, ManageAlertRulesUnifiedActionInput::DrillTimeRange) };
+    inline ManageAlertRulesUnifiedActionInput& setDrillTimeRange(const ManageAlertRulesUnifiedActionInput::DrillTimeRange & drillTimeRange) { DARABONBA_PTR_SET_VALUE(drillTimeRange_, drillTimeRange) };
+    inline ManageAlertRulesUnifiedActionInput& setDrillTimeRange(ManageAlertRulesUnifiedActionInput::DrillTimeRange && drillTimeRange) { DARABONBA_PTR_SET_RVALUE(drillTimeRange_, drillTimeRange) };
 
 
     // enabled Field Functions 
@@ -287,6 +358,9 @@ namespace Models
     shared_ptr<DatasourceConfigUnified> datasourceConfig_ {};
     // The display name.
     shared_ptr<string> displayName_ {};
+    shared_ptr<int64_t> drillEvalTime_ {};
+    shared_ptr<string> drillMode_ {};
+    shared_ptr<ManageAlertRulesUnifiedActionInput::DrillTimeRange> drillTimeRange_ {};
     // Specifies whether the rule is enabled.
     shared_ptr<bool> enabled_ {};
     // The labels.

@@ -191,7 +191,7 @@ namespace Models
         protected:
           // The run mode.
           shared_ptr<string> runMode_ {};
-          // The read start point.
+          // The starting point for reading.
           shared_ptr<string> startFrom_ {};
           // The backfill time range.
           shared_ptr<Config::TimeRange> timeRange_ {};
@@ -293,11 +293,11 @@ namespace Models
         shared_ptr<vector<string>> datasets_ {};
         // SLS Logstore
         shared_ptr<string> logstore_ {};
-        // The name of the output destination.
+        // The name of the data sink.
         shared_ptr<string> name_ {};
         // SLS Project
         shared_ptr<string> project_ {};
-        // The type of the output destination.
+        // The type of the data sink.
         shared_ptr<string> type_ {};
       };
 
@@ -425,7 +425,7 @@ namespace Models
 
 
           protected:
-            // The list of service names.
+            // The service name list.
             shared_ptr<vector<string>> serviceNames_ {};
           };
 
@@ -540,7 +540,7 @@ namespace Models
             protected:
               // The match type.
               shared_ptr<string> matchType_ {};
-              // The metric name.
+              // The metric names.
               shared_ptr<vector<string>> values_ {};
             };
 
@@ -787,15 +787,15 @@ namespace Models
 
 
           protected:
-            // The retained prefix length.
+            // The prefix retention length.
             shared_ptr<int32_t> keepPrefix_ {};
-            // The retained suffix length.
+            // The suffix retention length.
             shared_ptr<int32_t> keepSuffix_ {};
             // The sensitive keywords.
             shared_ptr<vector<string>> keys_ {};
             // The mask character.
             shared_ptr<string> maskChar_ {};
-            // The masking mode.
+            // The data masking mode.
             shared_ptr<string> mode_ {};
             // The built-in sensitive types.
             shared_ptr<vector<string>> types_ {};
@@ -1000,9 +1000,9 @@ namespace Models
           Darabonba::Json parameters_ {};
           // The field projection list.
           shared_ptr<vector<Config::Projections>> projections_ {};
-          // The masking rule list.
+          // The data masking rule list.
           shared_ptr<vector<Config::Rules>> rules_ {};
-          // The scope in which the pipeline processing processor takes effect.
+          // The effective scope of pipeline processing.
           shared_ptr<Config::Scope> scope_ {};
           // The SPL script.
           shared_ptr<string> script_ {};
@@ -1191,7 +1191,7 @@ namespace Models
 
 
             protected:
-              // The list of service names.
+              // The service name list.
               shared_ptr<vector<string>> serviceNames_ {};
             };
 
@@ -1306,7 +1306,7 @@ namespace Models
               protected:
                 // The match type.
                 shared_ptr<string> matchType_ {};
-                // The metric name.
+                // The metric names.
                 shared_ptr<vector<string>> values_ {};
               };
 
@@ -1553,15 +1553,15 @@ namespace Models
 
 
             protected:
-              // The retained prefix length.
+              // The prefix retention length.
               shared_ptr<int32_t> keepPrefix_ {};
-              // The retained suffix length.
+              // The suffix retention length.
               shared_ptr<int32_t> keepSuffix_ {};
               // The sensitive keywords.
               shared_ptr<vector<string>> keys_ {};
               // The mask character.
               shared_ptr<string> maskChar_ {};
-              // The masking mode.
+              // The data masking mode.
               shared_ptr<string> mode_ {};
               // The built-in sensitive types.
               shared_ptr<vector<string>> types_ {};
@@ -1766,9 +1766,9 @@ namespace Models
             Darabonba::Json parameters_ {};
             // The field projection list.
             shared_ptr<vector<Config::Projections>> projections_ {};
-            // The masking rule list.
+            // The data masking rule list.
             shared_ptr<vector<Config::Rules>> rules_ {};
-            // The scope in which the pipeline processing processor takes effect.
+            // The pipeline processing scope.
             shared_ptr<Config::Scope> scope_ {};
             // The SPL script.
             shared_ptr<string> script_ {};
@@ -1941,7 +1941,7 @@ namespace Models
 
 
     protected:
-      // The creation time.
+      // The creation time in ISO 8601 format in UTC, such as 2026-08-10T05:00:00Z.
       // 
       // This parameter is required.
       // 
@@ -1957,7 +1957,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<vector<Pipeline::Outputs>> outputs_ {};
-      // The pipeline name.
+      // The name of the pipeline.
       // 
       // This parameter is required.
       shared_ptr<string> pipelineName_ {};
@@ -1969,7 +1969,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> signalType_ {};
-      // The output destinations.
+      // The data sinks.
       // 
       // This parameter is required.
       shared_ptr<vector<Pipeline::Sinks>> sinks_ {};
@@ -1983,7 +1983,7 @@ namespace Models
       shared_ptr<string> status_ {};
       // The status message.
       shared_ptr<string> statusMessage_ {};
-      // The update time.
+      // The update time in ISO 8601 format in UTC, such as 2026-08-10T05:10:00Z.
       // 
       // This parameter is required.
       // 

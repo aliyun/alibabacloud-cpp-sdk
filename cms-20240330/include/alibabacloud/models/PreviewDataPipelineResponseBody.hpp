@@ -99,9 +99,9 @@ namespace Models
 
 
       protected:
-        // The field name.
+        // The name of the field.
         shared_ptr<string> name_ {};
-        // The field type.
+        // The type of the field.
         shared_ptr<string> type_ {};
       };
 
@@ -144,7 +144,7 @@ namespace Models
       shared_ptr<vector<Darabonba::Json>> data_ {};
       // The field metadata.
       shared_ptr<vector<Datasets::Meta>> meta_ {};
-      // The dataset name.
+      // The name of the dataset.
       shared_ptr<string> name_ {};
       // The number of samples.
       shared_ptr<int64_t> sampleCount_ {};
@@ -187,9 +187,9 @@ namespace Models
   protected:
     // The dataset preview results.
     shared_ptr<vector<PreviewDataPipelineResponseBody::Datasets>> datasets_ {};
-    // The aggregated diagnostics.
+    // The aggregation diagnostics.
     Darabonba::Json diagnostics_ {};
-    // The effective SPL script.
+    // The effective SPL.
     shared_ptr<string> effectiveScript_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

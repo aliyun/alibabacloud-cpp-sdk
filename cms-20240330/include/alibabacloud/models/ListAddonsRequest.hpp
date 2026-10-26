@@ -14,12 +14,14 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListAddonsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(aliyunLang, aliyunLang_);
+      DARABONBA_PTR_TO_JSON(apiVersion, apiVersion_);
       DARABONBA_PTR_TO_JSON(category, category_);
       DARABONBA_PTR_TO_JSON(regexp, regexp_);
       DARABONBA_PTR_TO_JSON(search, search_);
     };
     friend void from_json(const Darabonba::Json& j, ListAddonsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(aliyunLang, aliyunLang_);
+      DARABONBA_PTR_FROM_JSON(apiVersion, apiVersion_);
       DARABONBA_PTR_FROM_JSON(category, category_);
       DARABONBA_PTR_FROM_JSON(regexp, regexp_);
       DARABONBA_PTR_FROM_JSON(search, search_);
@@ -36,12 +38,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aliyunLang_ == nullptr
-        && this->category_ == nullptr && this->regexp_ == nullptr && this->search_ == nullptr; };
+        && this->apiVersion_ == nullptr && this->category_ == nullptr && this->regexp_ == nullptr && this->search_ == nullptr; };
     // aliyunLang Field Functions 
     bool hasAliyunLang() const { return this->aliyunLang_ != nullptr;};
     void deleteAliyunLang() { this->aliyunLang_ = nullptr;};
     inline string getAliyunLang() const { DARABONBA_PTR_GET_DEFAULT(aliyunLang_, "") };
     inline ListAddonsRequest& setAliyunLang(string aliyunLang) { DARABONBA_PTR_SET_VALUE(aliyunLang_, aliyunLang) };
+
+
+    // apiVersion Field Functions 
+    bool hasApiVersion() const { return this->apiVersion_ != nullptr;};
+    void deleteApiVersion() { this->apiVersion_ = nullptr;};
+    inline string getApiVersion() const { DARABONBA_PTR_GET_DEFAULT(apiVersion_, "") };
+    inline ListAddonsRequest& setApiVersion(string apiVersion) { DARABONBA_PTR_SET_VALUE(apiVersion_, apiVersion) };
 
 
     // category Field Functions 
@@ -66,13 +75,14 @@ namespace Models
 
 
   protected:
-    // The language. Valid values: zh and en. The default value is zh.
+    // The locale. Valid values: zh and en. Default value: zh.
     shared_ptr<string> aliyunLang_ {};
-    // Tag filtering.
+    shared_ptr<string> apiVersion_ {};
+    // The tag filter.
     shared_ptr<string> category_ {};
-    // Specifies whether to use regular expressions for the search. The default value is false.
+    // Specifies whether to use regular expression matching for the query field. Default value: false.
     shared_ptr<bool> regexp_ {};
-    // The search keyword. You can search for add-ons by name, description, or keyword.
+    // The search query. Supports searching by add-on name, description, or keyword.
     shared_ptr<string> search_ {};
   };
 

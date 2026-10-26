@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The summary of the aggregation task group configuration.
+    // The hash of the aggregation task group configuration.
     shared_ptr<string> aggTaskGroupConfigHash_ {};
     // The ID of the aggregation task group.
     shared_ptr<string> aggTaskGroupId_ {};

@@ -119,7 +119,7 @@ namespace Models
     shared_ptr<string> type_ {};
     // The webhook URL of the robot.
     shared_ptr<string> url_ {};
-    // The workspace name.
+    // The name of the workspace.
     shared_ptr<string> workspace_ {};
   };
 

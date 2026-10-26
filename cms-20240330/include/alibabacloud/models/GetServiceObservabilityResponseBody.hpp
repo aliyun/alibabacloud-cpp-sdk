@@ -102,13 +102,13 @@ namespace Models
 
 
     protected:
-      // The authentication token for reporting data.
+      // The authentication token for data reporting.
       shared_ptr<string> authToken_ {};
-      // The internal endpoint.
+      // The internal-facing access address.
       shared_ptr<string> privateDomain_ {};
-      // The Simple Log Service project.
+      // SLS Project
       shared_ptr<string> project_ {};
-      // The public endpoint.
+      // The public network access address.
       shared_ptr<string> publicDomain_ {};
     };
 
@@ -189,17 +189,17 @@ namespace Models
     shared_ptr<GetServiceObservabilityResponseBody::EntryPointInfo> entryPointInfo_ {};
     // The billing type.
     shared_ptr<string> feeType_ {};
-    // The quota configuration.
+    // The quota configurations.
     shared_ptr<map<string, string>> quotas_ {};
     // The region.
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The system configuration.
+    // The system configurations.
     shared_ptr<map<string, string>> settings_ {};
     // The resource initialization status.
     shared_ptr<string> status_ {};
-    // The type of application observability.
+    // The application observability type.
     shared_ptr<string> type_ {};
     // The workspace name.
     shared_ptr<string> workspace_ {};

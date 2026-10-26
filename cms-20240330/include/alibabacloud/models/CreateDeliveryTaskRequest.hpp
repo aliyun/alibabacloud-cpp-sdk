@@ -131,9 +131,9 @@ namespace Models
 
 
     protected:
-      // The configuration for the sink, specified as key-value pairs. The valid keys and values depend on the value of `sinkType`.
+      // The detailed configuration of the delivery destination. The meanings of the key and value vary based on the sinkType. For more information, see the following descriptions.
       shared_ptr<map<string, string>> sinkConfigs_ {};
-      // The type of the delivery destination (sink).
+      // The type of the delivery destination.
       // 
       // This parameter is required.
       shared_ptr<string> sinkType_ {};
@@ -214,25 +214,25 @@ namespace Models
 
 
   protected:
-    // The ID of the Prometheus instance that serves as the data source.
+    // The ID of the data source, which is the ID of the Prometheus instance.
     // 
     // This parameter is required.
     shared_ptr<string> dataSourceId_ {};
-    // A map of key-value pairs to attach as additional labels to all delivered metrics.
+    // The additional labels attached to all delivered metrics. The key is the label name, and the value is the label value.
     shared_ptr<map<string, string>> externalLabels_ {};
-    // The label conditions for filtering metrics. The key is the label name and the value is the value to match. The filtering behavior is controlled by `labelFiltersType`.
+    // The metric filtering conditions. This parameter is used together with labelFiltersType. The key is the metric label name, and the value is the match value.
     shared_ptr<map<string, string>> labelFilters_ {};
-    // The mode for applying the label filters.
+    // The metric filtering mode.
     shared_ptr<string> labelFiltersType_ {};
     // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // An array of delivery destination objects.
+    // The list of delivery destinations.
     // 
     // This parameter is required.
     shared_ptr<vector<CreateDeliveryTaskRequest::SinkList>> sinkList_ {};
-    // An array of resource tags.
+    // The tags of the resource.
     shared_ptr<vector<CreateDeliveryTaskRequest::Tags>> tags_ {};
-    // The task description.
+    // The description of the task.
     shared_ptr<string> taskDescription_ {};
     // The name of the task. The name can contain Chinese characters, English letters, underscores (_), and hyphens (-).
     // 

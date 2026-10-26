@@ -66,11 +66,11 @@ namespace Models
 
 
   protected:
-    // The name of the addon release.
+    // The addon release name.
     shared_ptr<string> addonReleaseName_ {};
-    // The identifier of the collector. If a release exists, pass the release name. If no release exists, pass the component name.
+    // The collector identifier. If a release is available, specify the release name. Otherwise, specify the component name.
     shared_ptr<string> collectorReleaseName_ {};
-    // Specifies whether to encrypt the YAML.
+    // Specifies whether to encrypt the YAML content.
     shared_ptr<bool> encryptYaml_ {};
     // The namespace.
     shared_ptr<string> namespace_ {};

@@ -95,9 +95,9 @@ namespace Models
     shared_ptr<string> namespace_ {};
     // The CloudMonitor product category.
     shared_ptr<string> productCategory_ {};
-    // The relation type. TAG is supported only for alert rules where datasourceConfig.type is set to APM and queryConfig.type is set to APM_MULTI_QUERY. UMODEL_ENTITY does not support writes and is used only for reading existing data.
+    // The relation type. TAG is supported only for alert rules where datasourceConfig.type is APM and queryConfig.type is APM_MULTI_QUERY. UMODEL_ENTITY does not support write operations and is used only to read existing data.
     shared_ptr<string> relationType_ {};
-    // The list of resources. If relationType is set to ALL, this parameter can be left empty, which indicates all resources. If relationType is set to TAG, this parameter is a list of labels in key=value format (such as ["env=prod", "app=foo"]). This is supported only for APM data sources with APM_MULTI_QUERY.
+    // The resource list. This field can be left empty when relationType is set to ALL, which indicates all resources. When relationType is set to TAG, this field is a list of tags in the key=value format, such as ["env=prod", "app=foo"]. Only the APM data source and APM_MULTI_QUERY are supported.
     shared_ptr<vector<string>> resources_ {};
   };
 

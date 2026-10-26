@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The robot ID.
+    // The ID of the robot.
     shared_ptr<string> alertRobotId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -113,7 +113,7 @@ namespace Models
 
 
     protected:
-      // The days of the week when the policy is effective.
+      // The effective days of the week (Monday to Sunday).
       shared_ptr<vector<int32_t>> dayInWeek_ {};
       // The end time in minutes.
       shared_ptr<int32_t> endTimeInMinute_ {};
@@ -223,33 +223,33 @@ namespace Models
 
 
   protected:
-    // The time when the policy was created.
+    // The creation time.
     shared_ptr<string> createTime_ {};
     // The description.
     shared_ptr<string> description_ {};
-    // The effective time range.
+    // The effective period range.
     shared_ptr<MaintainWindowForView::EffectTimeRange> effectTimeRange_ {};
     // The crontab expression.
     shared_ptr<string> effective_ {};
-    // Indicates whether the policy is enabled.
+    // Indicates whether the mute policy is enabled.
     shared_ptr<bool> enable_ {};
-    // The end time of the effective period.
+    // The effective end time.
     shared_ptr<string> endTime_ {};
     // The filter conditions.
     shared_ptr<FilterSetting> filterSetting_ {};
-    // The UUID.
+    // UUID
     shared_ptr<string> maintainWindowId_ {};
     // The name.
     // 
     // This parameter is required.
     shared_ptr<string> maintainWindowName_ {};
-    // The start time of the effective period.
+    // The effective start time.
     shared_ptr<string> startTime_ {};
-    // The last time the resource was updated.
+    // The update time.
     shared_ptr<string> updateTime_ {};
     // The user ID.
     shared_ptr<string> userId_ {};
-    // The workspace.
+    // workspace
     shared_ptr<string> workspace_ {};
   };
 

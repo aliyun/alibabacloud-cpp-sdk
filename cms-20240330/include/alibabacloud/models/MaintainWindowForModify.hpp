@@ -101,7 +101,7 @@ namespace Models
 
 
     protected:
-      // The days of the week when the policy is effective (Monday to Sunday).
+      // The effective days (Monday to Sunday).
       shared_ptr<vector<int32_t>> dayInWeek_ {};
       // The end time in minutes.
       shared_ptr<int32_t> endTimeInMinute_ {};
@@ -170,11 +170,11 @@ namespace Models
   protected:
     // The description.
     shared_ptr<string> description_ {};
-    // The effective time range.
+    // The effective period range.
     shared_ptr<MaintainWindowForModify::EffectTimeRange> effectTimeRange_ {};
     // The Crontab expression.
     shared_ptr<string> effective_ {};
-    // The time when the policy stops taking effect.
+    // The effective end time.
     shared_ptr<string> endTime_ {};
     // The filter conditions.
     shared_ptr<FilterSetting> filterSetting_ {};
@@ -182,7 +182,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> maintainWindowName_ {};
-    // The time when the policy starts to take effect.
+    // The effective start time.
     shared_ptr<string> startTime_ {};
   };
 

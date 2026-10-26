@@ -91,11 +91,17 @@ namespace Models
 
 
   protected:
+    // The evaluator configuration parameters.
     Darabonba::Json config_ {};
+    // The evaluation filter conditions.
     shared_ptr<map<string, string>> filters_ {};
+    // The evaluator name.
     shared_ptr<string> name_ {};
+    // The evaluation result name.
     shared_ptr<string> resultName_ {};
+    // The evaluation result type.
     shared_ptr<string> resultType_ {};
+    // The evaluation variable mapping.
     shared_ptr<map<string, string>> variableMapping_ {};
   };
 

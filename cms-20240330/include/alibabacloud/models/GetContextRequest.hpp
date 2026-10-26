@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Whether to return the context in a formatted structure. Valid values: `true` and `false`. Default value: `false`.
+    // Specifies whether to format the context.
     shared_ptr<bool> formatted_ {};
   };
 

@@ -76,9 +76,9 @@ namespace Models
 
 
     protected:
-      // The key of the tag.
+      // The tag key.
       shared_ptr<string> key_ {};
-      // The value of the tag.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -122,17 +122,17 @@ namespace Models
 
 
   protected:
-    // The description of the workspace.
+    // The workspace description.
     shared_ptr<string> description_ {};
     // The display name of the workspace.
     shared_ptr<string> displayName_ {};
-    // The ID of the resource group specified when the workspace is created.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The name of the Simple Log Service project.
+    // The Simple Log Service project name.
     // 
     // This parameter is required.
     shared_ptr<string> slsProject_ {};
-    // The tags bound to the workspace when it is created.
+    // The tags.
     shared_ptr<vector<PutWorkspaceRequest::Tags>> tags_ {};
   };
 

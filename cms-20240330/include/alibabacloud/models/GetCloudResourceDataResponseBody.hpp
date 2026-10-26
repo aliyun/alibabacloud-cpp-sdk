@@ -125,7 +125,7 @@ namespace Models
         shared_ptr<string> level_ {};
         // The message content.
         shared_ptr<string> message_ {};
-        // The suggestion when an execution error occurs.
+        // The suggestions provided when an execution error occurs.
         shared_ptr<string> suggestion_ {};
       };
 
@@ -169,7 +169,7 @@ namespace Models
 
 
     protected:
-      // The information during execution.
+      // The information during the execution process.
       shared_ptr<string> executionStates_ {};
       // The status level.
       shared_ptr<string> level_ {};
@@ -218,9 +218,9 @@ namespace Models
 
 
   protected:
-    // The total list of returned data.
+    // The total number of returned data records.
     shared_ptr<vector<vector<string>>> data_ {};
-    // The list of headers.
+    // The list of request headers.
     shared_ptr<vector<string>> header_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

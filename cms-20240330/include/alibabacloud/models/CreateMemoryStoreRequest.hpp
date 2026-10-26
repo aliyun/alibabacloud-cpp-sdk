@@ -90,11 +90,11 @@ namespace Models
 
 
     protected:
-      // Specifies whether to include the output in the trace.
+      // Specifies whether to include the large language model (LLM) output in memory extraction.
       shared_ptr<bool> includeOutput_ {};
-      // The query to filter traces.
+      // The Simple Log Service (SLS) query statement used to filter traces.
       shared_ptr<string> query_ {};
-      // The name of the workspace that contains the trace source.
+      // The workspace where the trace is located.
       shared_ptr<string> workspace_ {};
     };
 
@@ -157,23 +157,23 @@ namespace Models
 
 
   protected:
-    // A list of custom extraction strategies.
+    // The custom extraction strategies.
     shared_ptr<vector<CustomExtractionStrategy>> customExtractionStrategies_ {};
-    // The description of the MemoryStore.
+    // The description.
     shared_ptr<string> description_ {};
-    // The extraction strategies to use. Valid values include `Episodic`, `Summary`, and `Fact`.
+    // The extraction strategies. Valid values: Episodic, Summary, and Fact.
     shared_ptr<vector<string>> extractionStrategies_ {};
-    // The name of the MemoryStore. The name must be unique within the workspace.
+    // The name of the memory store.
     // 
     // This parameter is required.
     shared_ptr<string> memoryStoreName_ {};
-    // The short-term TTL, which is the number of conversation rounds to retain.
+    // The retention period for short-term memory.
     // 
     // This parameter is required.
     shared_ptr<int32_t> shortTermTtl_ {};
-    // The source type of the memory. Valid values are `None` and `Trace`.
+    // The source of the memory.
     shared_ptr<string> sourceType_ {};
-    // Configuration for the trace source. Required if `sourceType` is `Trace`.
+    // The configuration when the sourceType is Trace.
     shared_ptr<CreateMemoryStoreRequest::TraceSourceConfig> traceSourceConfig_ {};
   };
 

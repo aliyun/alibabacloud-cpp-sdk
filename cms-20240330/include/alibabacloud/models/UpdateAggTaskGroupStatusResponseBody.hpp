@@ -90,9 +90,9 @@ namespace Models
     shared_ptr<string> aggTaskGroupId_ {};
     // The name of the aggregation task group.
     shared_ptr<string> aggTaskGroupName_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The ID of the source Prometheus instance for the aggregation task group.
+    // The source Prometheus instance ID of the aggregation node group.
     shared_ptr<string> sourcePrometheusId_ {};
     // The current status of the aggregation task group.
     shared_ptr<string> status_ {};

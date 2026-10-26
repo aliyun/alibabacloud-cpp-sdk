@@ -109,19 +109,19 @@ namespace Models
 
 
   protected:
-    // The alert contact list of the rule contains any value in the array (OR semantics), corresponding to V1 notification.contacts.
+    // The list of notification contacts in the rule contains any value in the array. This uses OR logic and corresponds to notification.contacts in V1.
     shared_ptr<vector<string>> containsContacts_ {};
-    // The custom webhook list of the rule contains any value in the array (OR semantics), corresponding to V1 notification.customWebhooks.
+    // The list of custom webhooks in the rule contains any value in the array. This uses OR logic and corresponds to notification.customWebhooks in V1.
     shared_ptr<vector<string>> containsCustomWebhooks_ {};
-    // The DingTalk webhook list of the rule contains any value in the array (OR semantics), corresponding to V1 notification.dingWebhooks.
+    // The list of DingTalk webhooks in the rule contains any value in the array. This uses OR logic and corresponds to notification.dingWebhooks in V1.
     shared_ptr<vector<string>> containsDingWebhooks_ {};
-    // The Lark webhook list of the rule contains any value in the array (OR semantics), corresponding to V1 notification.fsWebhooks.
+    // The list of Lark webhooks in the rule contains any value in the array. This uses OR logic and corresponds to notification.fsWebhooks in V1.
     shared_ptr<vector<string>> containsFsWebhooks_ {};
-    // The alert contact group list of the rule contains any value in the array (OR semantics), corresponding to V1 notification.groups.
+    // The list of contact groups in the rule contains any value in the array. This uses OR logic and corresponds to notification.groups in V1.
     shared_ptr<vector<string>> containsGroups_ {};
-    // The Slack webhook list of the rule contains any value in the array (OR semantics), corresponding to V1 notification.slackWebhooks.
+    // The list of Slack webhooks in the rule contains any value in the array. This uses OR logic and corresponds to notification.slackWebhooks in V1.
     shared_ptr<vector<string>> containsSlackWebhooks_ {};
-    // The WeCom webhook list of the rule contains any value in the array (OR semantics), corresponding to V1 notification.wxWebhooks.
+    // The list of WeCom webhooks in the rule contains any value in the array. This uses OR logic and corresponds to notification.wxWebhooks in V1.
     shared_ptr<vector<string>> containsWxWebhooks_ {};
   };
 

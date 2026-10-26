@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The dimension of the filter condition.
+    // The filter condition dimension.
     // 
     // This parameter is required.
     shared_ptr<string> dim_ {};
-    // The operator for the filter condition.
+    // The filter condition operator.
     // 
     // This parameter is required.
     shared_ptr<string> opt_ {};
-    // The value of the filter condition.
+    // The filter condition value.
     shared_ptr<string> value_ {};
   };
 

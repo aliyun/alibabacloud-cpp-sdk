@@ -61,13 +61,13 @@ namespace Models
 
 
   protected:
-    // The name of the dataset.
+    // The dataset name.
     // 
     // This parameter is required.
     shared_ptr<string> datasetName_ {};
-    // The description of the dataset.
+    // The description.
     shared_ptr<string> description_ {};
-    // The schema of the dataset.
+    // The table schema.
     // 
     // This parameter is required.
     shared_ptr<map<string, IndexKey>> schema_ {};

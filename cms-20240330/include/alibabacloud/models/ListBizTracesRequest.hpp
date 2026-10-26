@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The maximum number of results to return. The maximum value is 100.
+    // The maximum number of results to return. Maximum value: 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next page of results.
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
     // The name of the workspace.
     shared_ptr<string> workspace_ {};

@@ -68,7 +68,7 @@ namespace Models
 
 
     protected:
-      // The common Umodel Schema group.
+      // The public Umodel schema group.
       shared_ptr<string> group_ {};
       // The version.
       shared_ptr<string> version_ {};
@@ -85,7 +85,7 @@ namespace Models
 
 
   protected:
-    // The referenced common Umodel Schema.
+    // The referenced public Umodel schema.
     shared_ptr<vector<GetUmodelCommonSchemaRefResponseBody::CommonSchemaRef>> commonSchemaRef_ {};
   };
 

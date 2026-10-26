@@ -123,9 +123,9 @@ namespace Models
         shared_ptr<string> code_ {};
         // The status level.
         shared_ptr<string> level_ {};
-        // The execution information.
+        // The computation execution information.
         shared_ptr<string> message_ {};
-        // The suggestion provided when an execution fault occurs.
+        // The suggestions provided when an execution error occurs.
         shared_ptr<string> suggestion_ {};
       };
 
@@ -169,7 +169,7 @@ namespace Models
 
 
     protected:
-      // Information about the execution procedure.
+      // The information during the execution process.
       shared_ptr<string> executionStates_ {};
       // The status level.
       shared_ptr<string> level_ {};
@@ -177,7 +177,7 @@ namespace Models
       shared_ptr<string> result_ {};
       // The retry policy.
       shared_ptr<string> retryPolicy_ {};
-      // A list of detailed status information.
+      // The list of detailed status information.
       shared_ptr<vector<ResponseStatus::StatusItem>> statusItem_ {};
     };
 
@@ -218,7 +218,7 @@ namespace Models
 
 
   protected:
-    // The list of returned data.
+    // The total count of the returned data list.
     shared_ptr<vector<vector<string>>> data_ {};
     // The list of request headers.
     shared_ptr<vector<string>> header_ {};

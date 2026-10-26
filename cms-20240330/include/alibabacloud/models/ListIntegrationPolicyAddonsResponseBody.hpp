@@ -236,7 +236,7 @@ namespace Models
 
 
           protected:
-            // The PromQL search statements.
+            // The PromQL query statement.
             shared_ptr<vector<string>> promQl_ {};
           };
 
@@ -297,15 +297,15 @@ namespace Models
 
 
         protected:
-          // The default status of the alert rule policy.
+          // The enabled status of the default alert rule policy.
           shared_ptr<string> alertDefaultStatus_ {};
-          // Indicates whether the add-on is installed by default.
+          // Specifies whether the add-on is installed by default.
           shared_ptr<bool> defaultInstall_ {};
-          // Indicates whether to assign a Service Account for communication with the console API.
+          // Specifies whether a service account is assigned for communication with the console API.
           shared_ptr<bool> enableServiceAccount_ {};
           // The metric check rule.
           shared_ptr<Policies::MetricCheckRule> metricCheckRule_ {};
-          // Indicates whether a pod restart is required after the add-on is installed.
+          // Specifies whether the pod restart guide is triggered immediately after the plug-in is installed during integration.
           shared_ptr<bool> needRestartAfterIntegration_ {};
           // The protocols.
           shared_ptr<vector<Policies::Protocols>> protocols_ {};
@@ -427,13 +427,13 @@ namespace Models
         shared_ptr<Environments::Dependencies> dependencies_ {};
         // The description.
         shared_ptr<string> description_ {};
-        // Indicates whether the feature is enabled.
+        // Indicates whether the environment is enabled.
         shared_ptr<bool> enable_ {};
         // The display name of the environment.
         shared_ptr<string> label_ {};
-        // The name of the environment.
+        // The environment name.
         shared_ptr<string> name_ {};
-        // The policy.
+        // The policies.
         shared_ptr<Environments::Policies> policies_ {};
       };
 
@@ -488,7 +488,7 @@ namespace Models
         shared_ptr<string> description_ {};
         // The name.
         shared_ptr<string> name_ {};
-        // The URL of the dashboard.
+        // The dashboard URL.
         shared_ptr<string> url_ {};
       };
 
@@ -607,27 +607,27 @@ namespace Models
       shared_ptr<string> alias_ {};
       // The categories.
       shared_ptr<vector<string>> categories_ {};
-      // A list of dashboards.
+      // The list of dashboards.
       shared_ptr<vector<Addons::Dashboards>> dashboards_ {};
       // The description.
       shared_ptr<string> description_ {};
-      // A list of supported environments.
+      // The list of supported environments.
       shared_ptr<vector<Addons::Environments>> environments_ {};
-      // The icon of the add-on.
+      // The component icon.
       shared_ptr<string> icon_ {};
       // The keywords.
       shared_ptr<vector<string>> keywords_ {};
       // The language.
       shared_ptr<string> language_ {};
-      // The time when the latest version was created.
+      // The latest release creation time.
       shared_ptr<string> latestReleaseCreateTime_ {};
-      // The name of the add-on.
+      // The add-on name.
       shared_ptr<string> name_ {};
-      // Indicates whether the add-on can be installed only once.
+      // Specifies whether the add-on can be installed only once.
       shared_ptr<bool> once_ {};
-      // The scenario of the add-on.
+      // The component scenario.
       shared_ptr<string> scene_ {};
-      // The version of the add-on.
+      // The component version.
       shared_ptr<string> version_ {};
       // The weight.
       shared_ptr<int32_t> weight_ {};
@@ -659,9 +659,9 @@ namespace Models
 
 
   protected:
-    // A list of add-ons.
+    // The list of add-ons.
     shared_ptr<vector<ListIntegrationPolicyAddonsResponseBody::Addons>> addons_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
     // The total number of entries.
     shared_ptr<int64_t> total_ {};

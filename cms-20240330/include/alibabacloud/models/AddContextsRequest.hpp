@@ -211,37 +211,37 @@ namespace Models
 
 
     protected:
-      // The unique agent ID.
+      // The agent ID of the application.
       shared_ptr<string> agentId_ {};
       // The application ID.
       shared_ptr<string> appId_ {};
-      // A list of categories to apply to the context item.
+      // The categories.
       shared_ptr<vector<string>> categories_ {};
-      // The content of the context item.
+      // The content.
       shared_ptr<string> content_ {};
-      // The custom instructions for processing the context.
+      // The custom instructions.
       shared_ptr<string> customInstructions_ {};
-      // An object containing experience information for the context.
+      // The experience.
       Darabonba::Json experience_ {};
-      // The expiration timestamp for the context item.
+      // The expiration date.
       shared_ptr<string> expirationDate_ {};
-      // Specifies whether the context item is immutable. If set to `true`, the item cannot be changed after it is created. The default value is `false`.
+      // The mutability.
       shared_ptr<bool> immutable_ {};
-      // Specifies whether to perform inference based on the context. The default value is `false`.
+      // The inference.
       shared_ptr<bool> infer_ {};
-      // A map of key-value pairs to apply as labels.
+      // The labels.
       shared_ptr<map<string, string>> labels_ {};
-      // An array of message objects.
+      // The messages.
       shared_ptr<vector<Darabonba::Json>> messages_ {};
-      // Key-value pairs to store as metadata.
+      // The metadata.
       Darabonba::Json metadata_ {};
       // The run ID.
       shared_ptr<string> runId_ {};
-      // The timestamp of the context item.
+      // The timestamp.
       shared_ptr<int64_t> timestamp_ {};
-      // The condition that triggers the context.
+      // The trigger condition.
       shared_ptr<string> triggerCondition_ {};
-      // The unique user ID.
+      // The user ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -275,7 +275,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> contextType_ {};
-    // An array of context items.
+    // The context information.
     // 
     // This parameter is required.
     shared_ptr<vector<AddContextsRequest::Items>> items_ {};

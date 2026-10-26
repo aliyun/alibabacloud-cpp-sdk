@@ -106,9 +106,9 @@ namespace Models
 
 
     protected:
-      // The tag key.
+      // 标签键。
       shared_ptr<string> tagKey_ {};
-      // The tag value.
+      // 标签值。
       shared_ptr<string> tagValue_ {};
     };
 
@@ -168,13 +168,13 @@ namespace Models
 
 
     protected:
-      // The entity category.
+      // 实体分类。
       shared_ptr<string> entityCategory_ {};
-      // The number of entities.
+      // 实体数量。
       shared_ptr<int32_t> entityCount_ {};
-      // The entity domain.
+      // 实体域。
       shared_ptr<string> entityDomain_ {};
-      // The entity type.
+      // 实体类型。
       shared_ptr<string> entityType_ {};
     };
 
@@ -325,44 +325,42 @@ namespace Models
 
 
   protected:
-    // The UID of the Alibaba Cloud account to which the group belongs.
+    // 分组归属的阿里云主账号 UID。
     shared_ptr<string> aliUid_ {};
-    // The time when the group was created, in UTC format (yyyy-MM-ddTHH:mm:ssZ).
+    // 创建时间，UTC 格式 yyyy-MM-ddTHH:mm:ssZ。
     shared_ptr<string> createTime_ {};
-    // The description of the observability group, which explains its business purpose.
+    // 观测分组描述（业务用途说明）。
     shared_ptr<string> description_ {};
-    // The list of entity discovery rules that define which entities the group automatically matches.
+    // 实体发现规则列表，定义分组自动匹配哪些实体。
     shared_ptr<vector<ObserveGroupDiscoverRule>> discoverRules_ {};
-    // The statistics of entities in the group, categorized by entity type.
+    // 分组内实体按类型的统计。
     shared_ptr<vector<ObserveGroupDetail::EntitySummaries>> entitySummaries_ {};
-    // The extended information in JSON string format, which carries alert templates, alert contact groups, suspension policies, and other configurations.
+    // 扩展信息（JSON 字符串，承载告警模板/联系人组/暂停策略等）。
     shared_ptr<string> extraInfo_ {};
-    // Indicates whether the current user has followed the group.
+    // 当前用户是否已关注该分组。
     shared_ptr<bool> favorited_ {};
     shared_ptr<string> groupId_ {};
-    // The name of the observability group. The name must be unique within the same workspace.
+    // 观测分组名称（同 workspace 下唯一）。
     shared_ptr<string> groupName_ {};
-    // The type of the observability group.
+    // 观测分组类型。
     shared_ptr<string> groupType_ {};
-    // The time when the group was last modified, in UTC format (yyyy-MM-ddTHH:mm:ssZ). This value is automatically updated when any property of the resource changes.
+    // 最后修改时间，UTC 格式 yyyy-MM-ddTHH:mm:ssZ。资源任意属性变更时自动更新。
     shared_ptr<string> modifyTime_ {};
-    // Specifies whether to enable the og_entity_info metric output. When enabled, the data plane writes the group ownership information to the target Prometheus instance.
+    // 是否开启 og_entity_info 指标输出。开启后数据面会把本分组归属写入目标 Prometheus 实例。
     shared_ptr<bool> ogEntityInfoEnabled_ {};
-    // The set of Prometheus instances to which og_entity_info is written. This includes two source types: system (automatically identified by the system) and custom (user-defined).
+    // 写入 og_entity_info 的 Prometheus 实例集合，包含系统自动识别(system)和用户自定义(custom)两类来源。
     shared_ptr<vector<ObserveGroupPromInstance>> ogEntityInfoPromInstances_ {};
-    // The product_group.id of the version 1.0 application group. This parameter is valid only when sourceOrigin is set to synced_from_1_0.
+    // 仅 synced_from_1_0 时填值，存 1.0 应用分组的 product_group.id。
     shared_ptr<string> originGroupId_ {};
-    // The region ID of the group.
+    // 分组所属地域 ID。
     shared_ptr<string> regionId_ {};
-    // The Alibaba Cloud resource group ID.
+    // 阿里云资源组 ID。
     shared_ptr<string> resourceGroupId_ {};
-    // The data source. Valid values:
-    // - native_2_0: created natively in version 2.0.
-    // - synced_from_1_0: synchronized from a version 1.0 application group.
+    // 数据来源：native_2_0（2.0 原生）/ synced_from_1_0（从 1.0 应用分组同步）。
     shared_ptr<string> sourceOrigin_ {};
-    // The resource tags (Alibaba Cloud standard tags), represented as an array of key-value pairs.
+    // 资源标签（阿里云标准标签），键值对数组。
     shared_ptr<vector<ObserveGroupDetail::Tags>> tags_ {};
-    // The workspace ID to which the group belongs. This value is set at the workspace level and cannot be changed after the group is created.
+    // 分组归属的 workspace ID（workspace 级归属，创建后不可变）。
     shared_ptr<string> workspaceId_ {};
   };
 

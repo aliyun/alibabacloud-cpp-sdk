@@ -135,27 +135,27 @@ namespace Models
 
 
   protected:
-    // The entity category (adapted by entityType).
+    // 实体分类（由 entityType 适配）。
     shared_ptr<string> category_ {};
-    // The key-value pairs of monitoring dimensions.
+    // 监控维度键值对。
     shared_ptr<map<string, string>> dimension_ {};
-    // The entity domain (such as acs).
+    // 实体域（如 acs）。
     shared_ptr<string> entityDomain_ {};
-    // The entity type (such as acs.ecs.instance).
+    // 实体类型（如 acs.ecs.instance）。
     shared_ptr<string> entityType_ {};
-    // The ID of the observation group to which the entity belongs.
+    // 所属观测分组 ID。
     shared_ptr<string> groupId_ {};
-    // The instance ID.
+    // 实例 ID。
     shared_ptr<string> instanceId_ {};
-    // The instance name.
+    // 实例名称。
     shared_ptr<string> instanceName_ {};
-    // The region ID of the instance.
+    // 实例所属地域 ID。
     shared_ptr<string> regionId_ {};
-    // The resource group ID of the instance.
+    // 实例所属资源组 ID。
     shared_ptr<string> resourceGroupId_ {};
-    // The key-value pairs of instance tags.
+    // 实例标签键值对。
     shared_ptr<map<string, string>> tags_ {};
-    // The UID of the user to which the instance belongs.
+    // 实例归属的用户 UID。
     shared_ptr<string> userId_ {};
   };
 

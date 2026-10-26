@@ -82,7 +82,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Write to the context
+ * @summary Writes context.
  *
  * @param request AddContextsRequest
  * @param headers map
@@ -123,7 +123,7 @@ AddContextsResponse Client::addContextsWithOptions(const string &workspace, cons
 }
 
 /**
- * @summary Write to the context
+ * @summary Writes context.
  *
  * @param request AddContextsRequest
  * @return AddContextsResponse
@@ -135,7 +135,7 @@ AddContextsResponse Client::addContexts(const string &workspace, const string &c
 }
 
 /**
- * @summary Add new facts, messages, or metadata to a user’s memory store. The AddMemories endpoint accepts raw text or conversation turns and commits them asynchronously, preparing the memories for subsequent search, retrieval, and graph queries.
+ * @summary Adds new facts, messages, or metadata to the memory store of a user. The Add Memory endpoint accepts raw text or conversation turns and uses an asynchronous commit to commit them so that the memory is ready to search, retrieve, and run graph queries.
  *
  * @param request AddMemoriesRequest
  * @param headers map
@@ -204,7 +204,7 @@ AddMemoriesResponse Client::addMemoriesWithOptions(const string &workspace, cons
 }
 
 /**
- * @summary Add new facts, messages, or metadata to a user’s memory store. The AddMemories endpoint accepts raw text or conversation turns and commits them asynchronously, preparing the memories for subsequent search, retrieval, and graph queries.
+ * @summary Adds new facts, messages, or metadata to the memory store of a user. The Add Memory endpoint accepts raw text or conversation turns and uses an asynchronous commit to commit them so that the memory is ready to search, retrieve, and run graph queries.
  *
  * @param request AddMemoriesRequest
  * @return AddMemoriesResponse
@@ -269,7 +269,7 @@ ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGrou
 }
 
 /**
- * @summary Installs an access component, which represents a single access operation.
+ * @summary Installs an add-on component, which represents an integration operation.
  *
  * @description Creates a site monitoring task.
  *
@@ -287,6 +287,10 @@ CreateAddonReleaseResponse Client::createAddonReleaseWithOptions(const string &p
 
   if (!!request.hasAliyunLang()) {
     body["aliyunLang"] = request.getAliyunLang();
+  }
+
+  if (!!request.hasApiVersion()) {
+    body["apiVersion"] = request.getApiVersion();
   }
 
   if (!!request.hasDryRun()) {
@@ -340,7 +344,7 @@ CreateAddonReleaseResponse Client::createAddonReleaseWithOptions(const string &p
 }
 
 /**
- * @summary Installs an access component, which represents a single access operation.
+ * @summary Installs an add-on component, which represents an integration operation.
  *
  * @description Creates a site monitoring task.
  *
@@ -354,7 +358,7 @@ CreateAddonReleaseResponse Client::createAddonRelease(const string &policyId, co
 }
 
 /**
- * @summary Create an aggregation task group.
+ * @summary Creates an aggregation task group.
  *
  * @param request CreateAggTaskGroupRequest
  * @param headers map
@@ -453,7 +457,7 @@ CreateAggTaskGroupResponse Client::createAggTaskGroupWithOptions(const string &i
 }
 
 /**
- * @summary Create an aggregation task group.
+ * @summary Creates an aggregation task group.
  *
  * @param request CreateAggTaskGroupRequest
  * @return CreateAggTaskGroupResponse
@@ -773,7 +777,7 @@ CreateContextStoreResponse Client::createContextStore(const string &workspace, c
 }
 
 /**
- * @summary Creates an API key for a context store.
+ * @summary Creates an API key.
  *
  * @param request CreateContextStoreAPIKeyRequest
  * @param headers map
@@ -806,7 +810,7 @@ CreateContextStoreAPIKeyResponse Client::createContextStoreAPIKeyWithOptions(con
 }
 
 /**
- * @summary Creates an API key for a context store.
+ * @summary Creates an API key.
  *
  * @param request CreateContextStoreAPIKeyRequest
  * @return CreateContextStoreAPIKeyResponse
@@ -818,7 +822,7 @@ CreateContextStoreAPIKeyResponse Client::createContextStoreAPIKey(const string &
 }
 
 /**
- * @summary Creates a DataPipeline.
+ * @summary Creates a data pipeline.
  *
  * @description Creates a data pipeline in a specified workspace.
  *
@@ -877,7 +881,7 @@ CreateDataPipelineResponse Client::createDataPipelineWithOptions(const string &w
 }
 
 /**
- * @summary Creates a DataPipeline.
+ * @summary Creates a data pipeline.
  *
  * @description Creates a data pipeline in a specified workspace.
  *
@@ -944,7 +948,7 @@ CreateDatasetResponse Client::createDataset(const string &workspace, const Creat
 }
 
 /**
- * @summary Create a data delivery task to deliver metric data from a data source to a storage destination or message queue. This task supports three delivery types: Prometheus Remote Write, Kafka, and MaxCompute. You can also use tags to filter which metrics are delivered and attach custom tags to them.
+ * @summary Creates a data delivery node that delivers metric data from a specified data source to a destination storage service or MSMQ. This operation supports three delivery types: Prometheus Remote Write, Kafka, and MaxCompute. You can use labels to filter the metrics to be delivered and attach custom labels to the delivered metrics.
  *
  * @param request CreateDeliveryTaskRequest
  * @param headers map
@@ -1009,7 +1013,7 @@ CreateDeliveryTaskResponse Client::createDeliveryTaskWithOptions(const CreateDel
 }
 
 /**
- * @summary Create a data delivery task to deliver metric data from a data source to a storage destination or message queue. This task supports three delivery types: Prometheus Remote Write, Kafka, and MaxCompute. You can also use tags to filter which metrics are delivered and attach custom tags to them.
+ * @summary Creates a data delivery node that delivers metric data from a specified data source to a destination storage service or MSMQ. This operation supports three delivery types: Prometheus Remote Write, Kafka, and MaxCompute. You can use labels to filter the metrics to be delivered and attach custom labels to the delivered metrics.
  *
  * @param request CreateDeliveryTaskRequest
  * @return CreateDeliveryTaskResponse
@@ -1021,7 +1025,7 @@ CreateDeliveryTaskResponse Client::createDeliveryTask(const CreateDeliveryTaskRe
 }
 
 /**
- * @summary Creates storage for an EntityStore.
+ * @summary Creates EntityStore-related storage.
  *
  * @param request CreateEntityStoreRequest
  * @param headers map
@@ -1048,7 +1052,7 @@ CreateEntityStoreResponse Client::createEntityStoreWithOptions(const string &wor
 }
 
 /**
- * @summary Creates storage for an EntityStore.
+ * @summary Creates EntityStore-related storage.
  *
  * @param request CreateEntityStoreRequest
  * @return CreateEntityStoreResponse
@@ -1060,7 +1064,7 @@ CreateEntityStoreResponse Client::createEntityStore(const string &workspaceName,
 }
 
 /**
- * @summary Creates an Integration Center policy.
+ * @summary Creates an access center policy.
  *
  * @description This operation creates an event integration.
  *
@@ -1072,6 +1076,10 @@ CreateEntityStoreResponse Client::createEntityStore(const string &workspaceName,
 CreateIntegrationPolicyResponse Client::createIntegrationPolicyWithOptions(const CreateIntegrationPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasApiVersion()) {
+    body["apiVersion"] = request.getApiVersion();
+  }
+
   if (!!request.hasEntityGroup()) {
     body["entityGroup"] = request.getEntityGroup();
   }
@@ -1115,7 +1123,7 @@ CreateIntegrationPolicyResponse Client::createIntegrationPolicyWithOptions(const
 }
 
 /**
- * @summary Creates an Integration Center policy.
+ * @summary Creates an access center policy.
  *
  * @description This operation creates an event integration.
  *
@@ -1131,8 +1139,7 @@ CreateIntegrationPolicyResponse Client::createIntegrationPolicy(const CreateInte
 /**
  * @summary Creates a silence policy.
  *
- * @description Creates a silence policy in a specified workspace. A silence policy uses filterSetting to filter events. When the policy is enabled and the current time hits the configured effective rules, hit events do not trigger subscribe notifications, direct notifications, or global subscribe notifications. The events are still Normal and stored in the database.
- * When you create a silence policy, maintainWindowName and filterSetting are required. filterSetting must contain at least one condition. You do not have to configure any effective period. In this case, the policy does not hit any events. If you configure effective, you must also configure at least one of startTime, endTime, or effectTimeRange. Otherwise, the validation is failed. If a policy name already exists in the same workspace, the InvalidParameterValue error is returned. After the policy is created, the silence policy ID is returned.
+ * @description Creates a silence policy in a specified workspace. A silence policy filters events by using filterSetting. When the policy is enabled and the current time hits the configured effective period, the hit events do not trigger subscribe notifications, direct notifications, or global subscribe notifications, but the events are still stored normally. When you create a policy, maintainWindowName and filterSetting are required, and filterSetting must contain at least one condition. You can leave the effective period unconfigured, in which case the policy does not hit any events. If you configure effective, you must also configure at least one of startTime, endTime, or effectTimeRange. Otherwise, the validation failed. If the policy name already exists in the same workspace, InvalidParameterValue is returned. After the policy is created, the silence policy ID is returned.
  *
  * @param request CreateMaintainWindowRequest
  * @param headers map
@@ -1168,8 +1175,7 @@ CreateMaintainWindowResponse Client::createMaintainWindowWithOptions(const Creat
 /**
  * @summary Creates a silence policy.
  *
- * @description Creates a silence policy in a specified workspace. A silence policy uses filterSetting to filter events. When the policy is enabled and the current time hits the configured effective rules, hit events do not trigger subscribe notifications, direct notifications, or global subscribe notifications. The events are still Normal and stored in the database.
- * When you create a silence policy, maintainWindowName and filterSetting are required. filterSetting must contain at least one condition. You do not have to configure any effective period. In this case, the policy does not hit any events. If you configure effective, you must also configure at least one of startTime, endTime, or effectTimeRange. Otherwise, the validation is failed. If a policy name already exists in the same workspace, the InvalidParameterValue error is returned. After the policy is created, the silence policy ID is returned.
+ * @description Creates a silence policy in a specified workspace. A silence policy filters events by using filterSetting. When the policy is enabled and the current time hits the configured effective period, the hit events do not trigger subscribe notifications, direct notifications, or global subscribe notifications, but the events are still stored normally. When you create a policy, maintainWindowName and filterSetting are required, and filterSetting must contain at least one condition. You can leave the effective period unconfigured, in which case the policy does not hit any events. If you configure effective, you must also configure at least one of startTime, endTime, or effectTimeRange. Otherwise, the validation failed. If the policy name already exists in the same workspace, InvalidParameterValue is returned. After the policy is created, the silence policy ID is returned.
  *
  * @param request CreateMaintainWindowRequest
  * @return CreateMaintainWindowResponse
@@ -1181,7 +1187,7 @@ CreateMaintainWindowResponse Client::createMaintainWindow(const CreateMaintainWi
 }
 
 /**
- * @summary Creates a MemoryStore.
+ * @summary Creates a memory store.
  *
  * @param request CreateMemoryStoreRequest
  * @param headers map
@@ -1238,7 +1244,7 @@ CreateMemoryStoreResponse Client::createMemoryStoreWithOptions(const string &wor
 }
 
 /**
- * @summary Creates a MemoryStore.
+ * @summary Creates a memory store.
  *
  * @param request CreateMemoryStoreRequest
  * @return CreateMemoryStoreResponse
@@ -1252,7 +1258,7 @@ CreateMemoryStoreResponse Client::createMemoryStore(const string &workspace, con
 /**
  * @summary Creates a notification policy.
  *
- * @description Creates a notification policy in a specified workspace. The notifyStrategy field in the request body NotifyPolicyConfig is required, while subscription and responsePlan are optional. After the policy is created, the generated policy UUID and complete policy details are returned. If a policy with the same Policy Name already exists in the workspace, a ConflictName error is returned.
+ * @description Creates a notification policy in a specified workspace. In the request body NotifyPolicyConfig, notifyStrategy is required, while subscription and responsePlan are optional. Upon successful creation, the generated policy UUID and complete policy details are returned. If a duplicate policy name exists in the same workspace, ConflictName is returned.
  *
  * @param request CreateNotifyPolicyRequest
  * @param headers map
@@ -1288,7 +1294,7 @@ CreateNotifyPolicyResponse Client::createNotifyPolicyWithOptions(const CreateNot
 /**
  * @summary Creates a notification policy.
  *
- * @description Creates a notification policy in a specified workspace. The notifyStrategy field in the request body NotifyPolicyConfig is required, while subscription and responsePlan are optional. After the policy is created, the generated policy UUID and complete policy details are returned. If a policy with the same Policy Name already exists in the workspace, a ConflictName error is returned.
+ * @description Creates a notification policy in a specified workspace. In the request body NotifyPolicyConfig, notifyStrategy is required, while subscription and responsePlan are optional. Upon successful creation, the generated policy UUID and complete policy details are returned. If a duplicate policy name exists in the same workspace, ConflictName is returned.
  *
  * @param request CreateNotifyPolicyRequest
  * @return CreateNotifyPolicyResponse
@@ -2020,7 +2026,7 @@ DeleteAggTaskGroupResponse Client::deleteAggTaskGroup(const string &instanceId, 
 }
 
 /**
- * @summary Deletes an alert chatbot.
+ * @summary Deletes a chatbot.
  *
  * @param tmpReq DeleteAlertRobotsRequest
  * @param headers map
@@ -2063,7 +2069,7 @@ DeleteAlertRobotsResponse Client::deleteAlertRobotsWithOptions(const DeleteAlert
 }
 
 /**
- * @summary Deletes an alert chatbot.
+ * @summary Deletes a chatbot.
  *
  * @param request DeleteAlertRobotsRequest
  * @return DeleteAlertRobotsResponse
@@ -3626,7 +3632,7 @@ EnableNotifyPolicyResponse Client::enableNotifyPolicy(const string &uuid, const 
 }
 
 /**
- * @summary Executes SQL and SPL queries.
+ * @summary Executes SQL, SPL, and other queries.
  *
  * @param request ExecuteQueryRequest
  * @param headers map
@@ -3663,7 +3669,7 @@ ExecuteQueryResponse Client::executeQueryWithOptions(const string &workspace, co
 }
 
 /**
- * @summary Executes SQL and SPL queries.
+ * @summary Executes SQL, SPL, and other queries.
  *
  * @param request ExecuteQueryRequest
  * @return ExecuteQueryResponse
@@ -3840,6 +3846,10 @@ GetAddonSchemaResponse Client::getAddonSchemaWithOptions(const string &addonName
     query["aliyunLang"] = request.getAliyunLang();
   }
 
+  if (!!request.hasApiVersion()) {
+    query["apiVersion"] = request.getApiVersion();
+  }
+
   if (!!request.hasEnvironmentType()) {
     query["environmentType"] = request.getEnvironmentType();
   }
@@ -3997,11 +4007,11 @@ GetCloudResourceResponse Client::getCloudResource() {
 /**
  * @summary Queries all entity information of a specific cloud service within a specified time range.
  *
- * @description ## Operation description
- * - This operation queries all entities of a specific cloud service within a specified time range.
- * - The `from` and `to` parameters specify the time range of the query in seconds-level timestamps.
- * - The `spl` parameter supports entityStore query statements to filter or select the required entities and their properties.
- * - If you need only specific fields, use the `project` clause in `spl` to filter them.
+ * @description ## Request description
+ * - This operation queries all entities under a specific cloud service within a specified time range.
+ * - The `from` and `to` parameters specify the time range for the query, represented by timestamps in seconds.
+ * - The `spl` parameter supports filtering or selecting required entities and their properties by using entityStore query statements.
+ * - If only specific fields are required, you can use the `project` clause in `spl` to filter them.
  * - The response contains the specific property values of each entity and the corresponding list of property names for easy parsing and processing.
  *
  * @param request GetCloudResourceDataRequest
@@ -4045,11 +4055,11 @@ GetCloudResourceDataResponse Client::getCloudResourceDataWithOptions(const GetCl
 /**
  * @summary Queries all entity information of a specific cloud service within a specified time range.
  *
- * @description ## Operation description
- * - This operation queries all entities of a specific cloud service within a specified time range.
- * - The `from` and `to` parameters specify the time range of the query in seconds-level timestamps.
- * - The `spl` parameter supports entityStore query statements to filter or select the required entities and their properties.
- * - If you need only specific fields, use the `project` clause in `spl` to filter them.
+ * @description ## Request description
+ * - This operation queries all entities under a specific cloud service within a specified time range.
+ * - The `from` and `to` parameters specify the time range for the query, represented by timestamps in seconds.
+ * - The `spl` parameter supports filtering or selecting required entities and their properties by using entityStore query statements.
+ * - If only specific fields are required, you can use the `project` clause in `spl` to filter them.
  * - The response contains the specific property values of each entity and the corresponding list of property names for easy parsing and processing.
  *
  * @param request GetCloudResourceDataRequest
@@ -4115,7 +4125,7 @@ GetCmsServiceResponse Client::getCmsService(const GetCmsServiceRequest &request)
 }
 
 /**
- * @summary Retrieves a single context.
+ * @summary Queries a single context.
  *
  * @param request GetContextRequest
  * @param headers map
@@ -4148,7 +4158,7 @@ GetContextResponse Client::getContextWithOptions(const string &workspace, const 
 }
 
 /**
- * @summary Retrieves a single context.
+ * @summary Queries a single context.
  *
  * @param request GetContextRequest
  * @return GetContextResponse
@@ -4199,7 +4209,7 @@ GetContextStoreResponse Client::getContextStore(const string &workspace, const s
 }
 
 /**
- * @summary Queries a DataPipeline.
+ * @summary Queries a data pipeline.
  *
  * @description Queries the configuration and running status of a data pipeline in a specified workspace.
  *
@@ -4228,7 +4238,7 @@ GetDataPipelineResponse Client::getDataPipelineWithOptions(const string &workspa
 }
 
 /**
- * @summary Queries a DataPipeline.
+ * @summary Queries a data pipeline.
  *
  * @description Queries the configuration and running status of a data pipeline in a specified workspace.
  *
@@ -4363,7 +4373,7 @@ GetEntityStoreResponse Client::getEntityStore(const string &workspaceName, const
 }
 
 /**
- * @summary Queries the entity and relational data in a specified workspace to retrieve entity data for a specific time range.
+ * @summary Queries the entity and relationship data in a specified workspace, and returns the entity data within a specific time range.
  *
  * @param request GetEntityStoreDataRequest
  * @param headers GetEntityStoreDataHeaders
@@ -4413,7 +4423,7 @@ GetEntityStoreDataResponse Client::getEntityStoreDataWithOptions(const string &w
 }
 
 /**
- * @summary Queries the entity and relational data in a specified workspace to retrieve entity data for a specific time range.
+ * @summary Queries the entity and relationship data in a specified workspace, and returns the entity data within a specific time range.
  *
  * @param request GetEntityStoreDataRequest
  * @return GetEntityStoreDataResponse
@@ -4813,7 +4823,7 @@ GetNotifyPolicyResponse Client::getNotifyPolicy(const GetNotifyPolicyRequest &re
 }
 
 /**
- * @summary Query pipeline
+ * @summary Queries a pipeline.
  *
  * @param request GetPipelineRequest
  * @param headers map
@@ -4840,7 +4850,7 @@ GetPipelineResponse Client::getPipelineWithOptions(const string &workspace, cons
 }
 
 /**
- * @summary Query pipeline
+ * @summary Queries a pipeline.
  *
  * @param request GetPipelineRequest
  * @return GetPipelineResponse
@@ -5042,7 +5052,7 @@ GetServiceResponse Client::getService(const string &workspace, const string &ser
 }
 
 /**
- * @summary Retrieves an application observability instance.
+ * @summary Retrieves the application observability instance.
  *
  * @param request GetServiceObservabilityRequest
  * @param headers map
@@ -5069,7 +5079,7 @@ GetServiceObservabilityResponse Client::getServiceObservabilityWithOptions(const
 }
 
 /**
- * @summary Retrieves an application observability instance.
+ * @summary Retrieves the application observability instance.
  *
  * @param request GetServiceObservabilityRequest
  * @return GetServiceObservabilityResponse
@@ -5181,9 +5191,9 @@ GetServiceTaskResponse Client::getServiceTask(const string &workspace, const str
 }
 
 /**
- * @summary Retrieves the configuration of a Umodel.
+ * @summary Retrieves Umodel configuration information.
  *
- * @description Retrieves the configuration of a Umodel.
+ * @description Retrieves Umodel configuration information.
  *
  * @param request GetUmodelRequest
  * @param headers map
@@ -5210,9 +5220,9 @@ GetUmodelResponse Client::getUmodelWithOptions(const string &workspace, const Ge
 }
 
 /**
- * @summary Retrieves the configuration of a Umodel.
+ * @summary Retrieves Umodel configuration information.
  *
- * @description Retrieves the configuration of a Umodel.
+ * @description Retrieves Umodel configuration information.
  *
  * @param request GetUmodelRequest
  * @return GetUmodelResponse
@@ -5224,7 +5234,7 @@ GetUmodelResponse Client::getUmodel(const string &workspace, const GetUmodelRequ
 }
 
 /**
- * @summary Retrieves the referenced common Umodel schema.
+ * @summary Retrieves the referenced public Umodel schema.
  *
  * @param request GetUmodelCommonSchemaRefRequest
  * @param headers map
@@ -5251,7 +5261,7 @@ GetUmodelCommonSchemaRefResponse Client::getUmodelCommonSchemaRefWithOptions(con
 }
 
 /**
- * @summary Retrieves the referenced common Umodel schema.
+ * @summary Retrieves the referenced public Umodel schema.
  *
  * @param request GetUmodelCommonSchemaRefRequest
  * @return GetUmodelCommonSchemaRefResponse
@@ -5357,9 +5367,9 @@ GetWorkspaceResponse Client::getWorkspace(const string &workspaceName, const Get
 }
 
 /**
- * @summary Lists the releases for an add-on.
+ * @summary Lists the releases of an add-on.
  *
- * @description This operation retrieves a list of integration configurations.
+ * @description Queries the list of integration configurations.
  *
  * @param request ListAddonReleasesRequest
  * @param headers map
@@ -5404,9 +5414,9 @@ ListAddonReleasesResponse Client::listAddonReleasesWithOptions(const string &pol
 }
 
 /**
- * @summary Lists the releases for an add-on.
+ * @summary Lists the releases of an add-on.
  *
- * @description This operation retrieves a list of integration configurations.
+ * @description Queries the list of integration configurations.
  *
  * @param request ListAddonReleasesRequest
  * @return ListAddonReleasesResponse
@@ -5418,9 +5428,9 @@ ListAddonReleasesResponse Client::listAddonReleases(const string &policyId, cons
 }
 
 /**
- * @summary Lists the products in the new Integration Center by group.
+ * @summary Queries the grouped product list of the new integration center.
  *
- * @description Creates a site monitoring job.
+ * @description Creates a site monitoring task.
  *
  * @param request ListAddonsRequest
  * @param headers map
@@ -5432,6 +5442,10 @@ ListAddonsResponse Client::listAddonsWithOptions(const ListAddonsRequest &reques
   json query = {};
   if (!!request.hasAliyunLang()) {
     query["aliyunLang"] = request.getAliyunLang();
+  }
+
+  if (!!request.hasApiVersion()) {
+    query["apiVersion"] = request.getApiVersion();
   }
 
   if (!!request.hasCategory()) {
@@ -5465,9 +5479,9 @@ ListAddonsResponse Client::listAddonsWithOptions(const ListAddonsRequest &reques
 }
 
 /**
- * @summary Lists the products in the new Integration Center by group.
+ * @summary Queries the grouped product list of the new integration center.
  *
- * @description Creates a site monitoring job.
+ * @description Creates a site monitoring task.
  *
  * @param request ListAddonsRequest
  * @return ListAddonsResponse
@@ -5771,7 +5785,7 @@ ListAlertWebhooksResponse Client::listAlertWebhooks(const ListAlertWebhooksReque
 }
 
 /**
- * @summary Lists business traces.
+ * @summary Queries the list of business links.
  *
  * @param request ListBizTracesRequest
  * @param headers map
@@ -5812,7 +5826,7 @@ ListBizTracesResponse Client::listBizTracesWithOptions(const ListBizTracesReques
 }
 
 /**
- * @summary Lists business traces.
+ * @summary Queries the list of business links.
  *
  * @param request ListBizTracesRequest
  * @return ListBizTracesResponse
@@ -5982,7 +5996,7 @@ ListContactsResponse Client::listContacts(const ListContactsRequest &request) {
 }
 
 /**
- * @summary Lists API keys.
+ * @summary Retrieves a list of API keys.
  *
  * @param request ListContextStoreAPIKeysRequest
  * @param headers map
@@ -6019,7 +6033,7 @@ ListContextStoreAPIKeysResponse Client::listContextStoreAPIKeysWithOptions(const
 }
 
 /**
- * @summary Lists API keys.
+ * @summary Retrieves a list of API keys.
  *
  * @param request ListContextStoreAPIKeysRequest
  * @return ListContextStoreAPIKeysResponse
@@ -6031,7 +6045,7 @@ ListContextStoreAPIKeysResponse Client::listContextStoreAPIKeys(const string &wo
 }
 
 /**
- * @summary Retrieves a list of context stores.
+ * @summary Queries the list of context stores.
  *
  * @param request ListContextStoresRequest
  * @param headers map
@@ -6076,7 +6090,7 @@ ListContextStoresResponse Client::listContextStoresWithOptions(const string &wor
 }
 
 /**
- * @summary Retrieves a list of context stores.
+ * @summary Queries the list of context stores.
  *
  * @param request ListContextStoresRequest
  * @return ListContextStoresResponse
@@ -6088,7 +6102,7 @@ ListContextStoresResponse Client::listContextStores(const string &workspace, con
 }
 
 /**
- * @summary Queries a list of DataPipelines.
+ * @summary Queries data pipelines.
  *
  * @description Queries data pipelines in a specified workspace by using paging.
  *
@@ -6127,7 +6141,7 @@ ListDataPipelinesResponse Client::listDataPipelinesWithOptions(const string &wor
 }
 
 /**
- * @summary Queries a list of DataPipelines.
+ * @summary Queries data pipelines.
  *
  * @description Queries data pipelines in a specified workspace by using paging.
  *
@@ -6141,7 +6155,7 @@ ListDataPipelinesResponse Client::listDataPipelines(const string &workspace, con
 }
 
 /**
- * @summary Retrieves a list of datasets in a specified workspace.
+ * @summary Lists datasets.
  *
  * @param request ListDatasetsRequest
  * @param headers map
@@ -6182,7 +6196,7 @@ ListDatasetsResponse Client::listDatasetsWithOptions(const string &workspace, co
 }
 
 /**
- * @summary Retrieves a list of datasets in a specified workspace.
+ * @summary Lists datasets.
  *
  * @param request ListDatasetsRequest
  * @return ListDatasetsResponse
@@ -6194,7 +6208,7 @@ ListDatasetsResponse Client::listDatasets(const string &workspace, const ListDat
 }
 
 /**
- * @summary Retrieves the list of data delivery tasks.
+ * @summary Retrieves a list of data delivery tasks.
  *
  * @param tmpReq ListDeliveryTasksRequest
  * @param headers map
@@ -6249,7 +6263,7 @@ ListDeliveryTasksResponse Client::listDeliveryTasksWithOptions(const ListDeliver
 }
 
 /**
- * @summary Retrieves the list of data delivery tasks.
+ * @summary Retrieves a list of data delivery tasks.
  *
  * @param request ListDeliveryTasksRequest
  * @return ListDeliveryTasksResponse
@@ -6368,9 +6382,9 @@ ListIntegrationPoliciesResponse Client::listIntegrationPolicies(const ListIntegr
 }
 
 /**
- * @summary Lists the add-ons that are installed for a specified policy.
+ * @summary Retrieves the list of add-ons installed for the current policy.
  *
- * @description Lists the add-ons that are installed for a specified policy.
+ * @description Retrieves the list of add-ons installed for the current policy.
  *
  * @param request ListIntegrationPolicyAddonsRequest
  * @param headers map
@@ -6397,9 +6411,9 @@ ListIntegrationPolicyAddonsResponse Client::listIntegrationPolicyAddonsWithOptio
 }
 
 /**
- * @summary Lists the add-ons that are installed for a specified policy.
+ * @summary Retrieves the list of add-ons installed for the current policy.
  *
- * @description Lists the add-ons that are installed for a specified policy.
+ * @description Retrieves the list of add-ons installed for the current policy.
  *
  * @param request ListIntegrationPolicyAddonsRequest
  * @return ListIntegrationPolicyAddonsResponse
@@ -6521,9 +6535,9 @@ ListIntegrationPolicyCustomScrapeJobRulesResponse Client::listIntegrationPolicyC
 }
 
 /**
- * @summary Queries a list of integration policy dashboards.
+ * @summary Queries the list of dashboards.
  *
- * @description This topic provides an example of how to query a list of integration policy dashboards.
+ * @description This topic provides an example of querying the alert template list. The response shows that the list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
  *
  * @param request ListIntegrationPolicyDashboardsRequest
  * @param headers map
@@ -6564,9 +6578,9 @@ ListIntegrationPolicyDashboardsResponse Client::listIntegrationPolicyDashboardsW
 }
 
 /**
- * @summary Queries a list of integration policy dashboards.
+ * @summary Queries the list of dashboards.
  *
- * @description This topic provides an example of how to query a list of integration policy dashboards.
+ * @description This topic provides an example of querying the alert template list. The response shows that the list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
  *
  * @param request ListIntegrationPolicyDashboardsRequest
  * @return ListIntegrationPolicyDashboardsResponse
@@ -6578,9 +6592,9 @@ ListIntegrationPolicyDashboardsResponse Client::listIntegrationPolicyDashboards(
 }
 
 /**
- * @summary Retrieves the PodMonitor resources of an access center policy.
+ * @summary Retrieves the PodMonitor resources of an Integration Center policy.
  *
- * @description This topic provides an example on how to query the list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
+ * @description This topic provides an example of querying alert templates. The response indicates that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
  *
  * @param request ListIntegrationPolicyPodMonitorsRequest
  * @param headers map
@@ -6625,9 +6639,9 @@ ListIntegrationPolicyPodMonitorsResponse Client::listIntegrationPolicyPodMonitor
 }
 
 /**
- * @summary Retrieves the PodMonitor resources of an access center policy.
+ * @summary Retrieves the PodMonitor resources of an Integration Center policy.
  *
- * @description This topic provides an example on how to query the list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
+ * @description This topic provides an example of querying alert templates. The response indicates that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
  *
  * @param request ListIntegrationPolicyPodMonitorsRequest
  * @return ListIntegrationPolicyPodMonitorsResponse
@@ -6834,7 +6848,7 @@ ListMaintainWindowsResponse Client::listMaintainWindows(const ListMaintainWindow
 }
 
 /**
- * @summary Retrieves a list of memory stores.
+ * @summary Queries the list of memory stores.
  *
  * @param request ListMemoryStoresRequest
  * @param headers map
@@ -6875,7 +6889,7 @@ ListMemoryStoresResponse Client::listMemoryStoresWithOptions(const string &works
 }
 
 /**
- * @summary Retrieves a list of memory stores.
+ * @summary Queries the list of memory stores.
  *
  * @param request ListMemoryStoresRequest
  * @return ListMemoryStoresResponse
@@ -7750,7 +7764,7 @@ OpenCmsServiceResponse Client::openCmsService(const OpenCmsServiceRequest &reque
 /**
  * @summary Previews a data pipeline.
  *
- * @description Compiles a candidate configuration and queries read-only samples grouped by dataset within a specified time window.
+ * @description Compiles candidate configurations and queries read-only samples grouped by dataset within a specified time window.
  *
  * @param request PreviewDataPipelineRequest
  * @param headers map
@@ -7817,7 +7831,7 @@ PreviewDataPipelineResponse Client::previewDataPipelineWithOptions(const string 
 /**
  * @summary Previews a data pipeline.
  *
- * @description Compiles a candidate configuration and queries read-only samples grouped by dataset within a specified time window.
+ * @description Compiles candidate configurations and queries read-only samples grouped by dataset within a specified time window.
  *
  * @param request PreviewDataPipelineRequest
  * @return PreviewDataPipelineResponse
@@ -7892,7 +7906,7 @@ PutWorkspaceResponse Client::putWorkspace(const string &workspaceName, const Put
 /**
  * @summary Queries alert rules.
  *
- * @description This topic provides an example of querying an alert template list. The response shows that the list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
+ * @description This topic provides an example of querying the list of alert templates. The response shows that the list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
  *
  * @param tmpReq QueryAlertRulesRequest
  * @param headers map
@@ -7951,7 +7965,7 @@ QueryAlertRulesResponse Client::queryAlertRulesWithOptions(const QueryAlertRules
 /**
  * @summary Queries alert rules.
  *
- * @description This topic provides an example of querying an alert template list. The response shows that the list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
+ * @description This topic provides an example of querying the list of alert templates. The response shows that the list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
  *
  * @param request QueryAlertRulesRequest
  * @return QueryAlertRulesResponse
@@ -8296,7 +8310,7 @@ UpdateAddonReleaseResponse Client::updateAddonRelease(const string &releaseName,
 }
 
 /**
- * @summary Updates an aggregation task group.
+ * @summary Applies an aggregation task group.
  *
  * @param request UpdateAggTaskGroupRequest
  * @param headers map
@@ -8389,7 +8403,7 @@ UpdateAggTaskGroupResponse Client::updateAggTaskGroupWithOptions(const string &i
 }
 
 /**
- * @summary Updates an aggregation task group.
+ * @summary Applies an aggregation task group.
  *
  * @param request UpdateAggTaskGroupRequest
  * @return UpdateAggTaskGroupResponse
@@ -8757,9 +8771,9 @@ UpdateContextStoreResponse Client::updateContextStore(const string &workspace, c
 }
 
 /**
- * @summary Updates a DataPipeline.
+ * @summary Updates a data pipeline.
  *
- * @description Modifies a specified data pipeline by using a complete candidate configuration.
+ * @description Updates the specified data pipeline with a full candidate configuration.
  *
  * @param request UpdateDataPipelineRequest
  * @param headers map
@@ -8816,9 +8830,9 @@ UpdateDataPipelineResponse Client::updateDataPipelineWithOptions(const string &w
 }
 
 /**
- * @summary Updates a DataPipeline.
+ * @summary Updates a data pipeline.
  *
- * @description Modifies a specified data pipeline by using a complete candidate configuration.
+ * @description Updates the specified data pipeline with a full candidate configuration.
  *
  * @param request UpdateDataPipelineRequest
  * @return UpdateDataPipelineResponse
@@ -9110,7 +9124,7 @@ UpdateMemoryResponse Client::updateMemory(const string &workspace, const string 
 }
 
 /**
- * @summary Modify a memory store.
+ * @summary Modifies a memory store.
  *
  * @param request UpdateMemoryStoreRequest
  * @param headers map
@@ -9155,7 +9169,7 @@ UpdateMemoryStoreResponse Client::updateMemoryStoreWithOptions(const string &wor
 }
 
 /**
- * @summary Modify a memory store.
+ * @summary Modifies a memory store.
  *
  * @param request UpdateMemoryStoreRequest
  * @return UpdateMemoryStoreResponse

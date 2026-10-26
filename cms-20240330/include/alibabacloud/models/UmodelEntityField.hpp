@@ -48,9 +48,7 @@ namespace Models
 
 
   protected:
-    // The name of the entity field.
     shared_ptr<string> field_ {};
-    // The field alias or display value.
     shared_ptr<string> value_ {};
   };
 

@@ -91,11 +91,11 @@ namespace Models
 
 
     protected:
-      // The display name in Chinese.
+      // The Chinese display name.
       shared_ptr<string> displayNameCn_ {};
-      // The display name in English.
+      // The English display name.
       shared_ptr<string> displayNameEn_ {};
-      // The matching value.
+      // The match value.
       shared_ptr<string> value_ {};
     };
 
@@ -163,19 +163,19 @@ namespace Models
   protected:
     // The dimension in APM metrics.
     shared_ptr<string> dim_ {};
-    // If set to \\`true\\`, the filter item does not appear in the \\`group by\\` clause of a PromQL query.
+    // Specifies whether to disable the dimension. If set to true, the filter item does not appear in the group by clause of PromQL.
     shared_ptr<bool> dimDisabled_ {};
-    // The display name in Chinese.
+    // The Chinese display name.
     shared_ptr<string> displayNameCn_ {};
-    // The display name in English.
+    // The English display name.
     shared_ptr<string> displayNameEn_ {};
-    // Specifies whether to hide the filter. If hidden, the filter does not appear in the frontend UI. However, its value can be uploaded when rendering a PromQL query. For example, in an Application Performance Management (APM) scenario, the pid filter is typically hidden from the configuration UI. The frontend displays it as a separate application search list.
+    // Specifies whether to hide the filter. If hidden, the filter is not displayed in frontend interactions, but its value can be passed when rendering PromQL. A typical example is the pid filter in APM scenarios, which is typically not displayed through configuration but shown as a separate application search list in the frontend.
     shared_ptr<bool> hidden_ {};
-    // If set to \\`true\\`, the filter item does not appear in the label filter of a PromQL query.
+    // Specifies whether to disable the label. If set to true, the filter item does not appear in the label filter of PromQL.
     shared_ptr<bool> labelDisabled_ {};
-    // The operator for the filter condition.
+    // The filter condition operator.
     shared_ptr<string> opt_ {};
-    // A list of supported options.
+    // The list of supported options.
     shared_ptr<vector<AlertRuleAlertMetricFilterDef::SupportedOpts>> supportedOpts_ {};
   };
 

@@ -191,7 +191,7 @@ namespace Models
         protected:
           // The run mode.
           shared_ptr<string> runMode_ {};
-          // The read start point.
+          // The start position.
           shared_ptr<string> startFrom_ {};
           // The backfill time range.
           shared_ptr<Config::TimeRange> timeRange_ {};
@@ -218,7 +218,7 @@ namespace Models
       protected:
         // The datasource config.
         shared_ptr<Source::Config> config_ {};
-        // The type of the data source.
+        // The data source type.
         shared_ptr<string> type_ {};
       };
 
@@ -289,15 +289,15 @@ namespace Models
 
 
       protected:
-        // The list of datasets.
+        // The dataset list.
         shared_ptr<vector<string>> datasets_ {};
         // SLS Logstore
         shared_ptr<string> logstore_ {};
-        // The name of the output destination.
+        // The output destination name.
         shared_ptr<string> name_ {};
         // SLS Project
         shared_ptr<string> project_ {};
-        // The type of the output destination.
+        // The output destination type.
         shared_ptr<string> type_ {};
       };
 
@@ -425,7 +425,7 @@ namespace Models
 
 
           protected:
-            // The list of service names.
+            // The service name list.
             shared_ptr<vector<string>> serviceNames_ {};
           };
 
@@ -492,7 +492,7 @@ namespace Models
 
 
             protected:
-              // The matching method.
+              // The match type.
               shared_ptr<string> matchType_ {};
               // The match values.
               shared_ptr<vector<string>> values_ {};
@@ -538,7 +538,7 @@ namespace Models
 
 
             protected:
-              // The matching method.
+              // The match type.
               shared_ptr<string> matchType_ {};
               // The metric names.
               shared_ptr<vector<string>> values_ {};
@@ -629,7 +629,7 @@ namespace Models
                 shared_ptr<string> container_ {};
                 // The reference data type.
                 shared_ptr<string> kind_ {};
-                // The field or dimension name.
+                // The name of the field or dimension.
                 shared_ptr<string> name_ {};
                 // The JSON literal key path.
                 shared_ptr<vector<string>> path_ {};
@@ -665,7 +665,7 @@ namespace Models
             protected:
               // The field reference.
               shared_ptr<Conditions::Field> field_ {};
-              // The matching method.
+              // The match type.
               shared_ptr<string> matchType_ {};
               // The match values.
               shared_ptr<vector<string>> values_ {};
@@ -787,17 +787,17 @@ namespace Models
 
 
           protected:
-            // The length of the prefix to retain.
+            // The length of the retained prefix.
             shared_ptr<int32_t> keepPrefix_ {};
-            // The length of the suffix to retain.
+            // The length of the retained suffix.
             shared_ptr<int32_t> keepSuffix_ {};
             // The sensitive keywords.
             shared_ptr<vector<string>> keys_ {};
             // The mask character.
             shared_ptr<string> maskChar_ {};
-            // The masking mode.
+            // The data masking mode.
             shared_ptr<string> mode_ {};
-            // The built-in sensitive types.
+            // The built-in sensitive data types.
             shared_ptr<vector<string>> types_ {};
           };
 
@@ -1000,9 +1000,9 @@ namespace Models
           Darabonba::Json parameters_ {};
           // The list of field projections.
           shared_ptr<vector<Config::Projections>> projections_ {};
-          // The list of masking rules.
+          // The list of data masking rules.
           shared_ptr<vector<Config::Rules>> rules_ {};
-          // The scope in which the pipeline processing processor takes effect.
+          // The effective scope of the pipeline processing.
           shared_ptr<Config::Scope> scope_ {};
           // The SPL script.
           shared_ptr<string> script_ {};
@@ -1191,7 +1191,7 @@ namespace Models
 
 
             protected:
-              // The list of service names.
+              // The service name list.
               shared_ptr<vector<string>> serviceNames_ {};
             };
 
@@ -1258,7 +1258,7 @@ namespace Models
 
 
               protected:
-                // The matching method.
+                // The match type.
                 shared_ptr<string> matchType_ {};
                 // The match values.
                 shared_ptr<vector<string>> values_ {};
@@ -1304,7 +1304,7 @@ namespace Models
 
 
               protected:
-                // The matching method.
+                // The match type.
                 shared_ptr<string> matchType_ {};
                 // The metric names.
                 shared_ptr<vector<string>> values_ {};
@@ -1395,7 +1395,7 @@ namespace Models
                   shared_ptr<string> container_ {};
                   // The reference data type.
                   shared_ptr<string> kind_ {};
-                  // The field or dimension name.
+                  // The name of the field or dimension.
                   shared_ptr<string> name_ {};
                   // The JSON literal key path.
                   shared_ptr<vector<string>> path_ {};
@@ -1431,7 +1431,7 @@ namespace Models
               protected:
                 // The field reference.
                 shared_ptr<Conditions::Field> field_ {};
-                // The matching method.
+                // The match type.
                 shared_ptr<string> matchType_ {};
                 // The match values.
                 shared_ptr<vector<string>> values_ {};
@@ -1553,17 +1553,17 @@ namespace Models
 
 
             protected:
-              // The length of the prefix to retain.
+              // The length of the retained prefix.
               shared_ptr<int32_t> keepPrefix_ {};
-              // The length of the suffix to retain.
+              // The length of the retained suffix.
               shared_ptr<int32_t> keepSuffix_ {};
               // The sensitive keywords.
               shared_ptr<vector<string>> keys_ {};
               // The mask character.
               shared_ptr<string> maskChar_ {};
-              // The masking mode.
+              // The data masking mode.
               shared_ptr<string> mode_ {};
-              // The built-in sensitive types.
+              // The built-in sensitive data types.
               shared_ptr<vector<string>> types_ {};
             };
 
@@ -1766,9 +1766,9 @@ namespace Models
             Darabonba::Json parameters_ {};
             // The list of field projections.
             shared_ptr<vector<Config::Projections>> projections_ {};
-            // The list of masking rules.
+            // The list of data masking rules.
             shared_ptr<vector<Config::Rules>> rules_ {};
-            // The scope in which the pipeline processing processor takes effect.
+            // The effective scope of pipeline processing.
             shared_ptr<Config::Scope> scope_ {};
             // The SPL script.
             shared_ptr<string> script_ {};
@@ -1831,7 +1831,7 @@ namespace Models
 
 
       protected:
-        // The output name.
+        // The name of the output.
         shared_ptr<string> name_ {};
         // The branch processors.
         shared_ptr<vector<Outputs::Processors>> processors_ {};
@@ -1941,15 +1941,15 @@ namespace Models
 
 
     protected:
-      // The time when the data pipeline was created.
+      // The creation time in UTC format based on the ISO 8601 standard, such as 2026-08-10T05:00:00Z.
       // 
       // This parameter is required.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mmZ
       shared_ptr<string> createTime_ {};
-      // The pipeline description.
+      // The description of the pipeline.
       shared_ptr<string> description_ {};
-      // The pipeline type.
+      // The type of the pipeline.
       // 
       // This parameter is required.
       shared_ptr<string> kind_ {};
@@ -1957,7 +1957,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<vector<Pipeline::Outputs>> outputs_ {};
-      // The pipeline name.
+      // The name of the pipeline.
       // 
       // This parameter is required.
       shared_ptr<string> pipelineName_ {};
@@ -1983,7 +1983,7 @@ namespace Models
       shared_ptr<string> status_ {};
       // The status message.
       shared_ptr<string> statusMessage_ {};
-      // The update time.
+      // The update time in ISO 8601 format in UTC, such as 2026-08-10T05:10:00Z.
       // 
       // This parameter is required.
       // 

@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The number of entries per page.
+    // The maximum number of entries per page.
     // Default value:
     // 	50
     // Maximum value:
@@ -104,13 +104,13 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The region.
     shared_ptr<string> region_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     // The tags.
     shared_ptr<string> tagsShrink_ {};
-    // The workspace name. Fuzzy match is used.
+    // The workspace name. Fuzzy match is supported.
     shared_ptr<string> workspaceName_ {};
-    // The workspace name. Exact match is used.
+    // The names of the workspaces. Exact match is supported.
     shared_ptr<string> workspaceNameListShrink_ {};
   };
 

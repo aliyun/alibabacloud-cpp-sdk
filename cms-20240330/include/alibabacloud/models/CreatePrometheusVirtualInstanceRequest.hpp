@@ -48,10 +48,11 @@ namespace Models
 
 
   protected:
-    // Each cloud product supports only one virtual instance per region.
+    // Each cloud service can create only one virtual instance in each region.
     // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};
+    // The tenant ID.
     shared_ptr<string> tenantId_ {};
   };
 

@@ -231,33 +231,33 @@ namespace Models
       shared_ptr<string> aggTaskGroupName_ {};
       // The cron expression of the aggregation task group when the scheduling mode is set to Cron.
       shared_ptr<string> cronExpr_ {};
-      // The fixed scheduling delay, in seconds.
+      // The fixed delay time for scheduling, in seconds.
       shared_ptr<int32_t> delay_ {};
       // The description of the aggregation task group.
       shared_ptr<string> description_ {};
-      // The UNIX timestamp that indicates the scheduling start time, in seconds.
+      // The UNIX timestamp of the start time for scheduling, in seconds.
       shared_ptr<int64_t> fromTime_ {};
       // The scheduling interval.
       shared_ptr<string> interval_ {};
       // The maximum number of retries for executing the aggregation task.
       shared_ptr<int32_t> maxRetries_ {};
-      // The maximum retry time for executing the aggregation task, in seconds.
+      // The maximum retry time to execute the aggregation node, in seconds.
       shared_ptr<int32_t> maxRunTimeInSeconds_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
       // The scheduling mode.
       shared_ptr<string> scheduleMode_ {};
-      // The schedule time expression.
+      // The scheduling time expression.
       shared_ptr<string> scheduleTimeExpr_ {};
-      // The instance ID of the source Managed Service for Prometheus instance for the aggregation node group.
+      // The instance ID of the source Prometheus instance for the aggregation node group.
       shared_ptr<string> sourcePrometheusId_ {};
       // The status of the aggregation task group.
       shared_ptr<string> status_ {};
-      // The instance ID of the target Managed Service for Prometheus instance for the aggregation node group.
+      // The instance ID of the target Prometheus instance for the aggregation node group.
       shared_ptr<string> targetPrometheusId_ {};
-      // The UNIX timestamp that indicates the scheduling end time, in seconds.
+      // The UNIX timestamp of the end time for scheduling, in seconds.
       shared_ptr<int64_t> toTime_ {};
-      // The time when the aggregation task group was last updated, in UNIX timestamp format.
+      // The update time of the aggregation task group. The value is a UNIX timestamp.
       shared_ptr<string> updateTime_ {};
     };
 

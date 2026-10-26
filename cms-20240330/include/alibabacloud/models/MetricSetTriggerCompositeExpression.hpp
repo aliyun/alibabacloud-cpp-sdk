@@ -61,14 +61,11 @@ namespace Models
 
 
   protected:
-    // The list of sub-conditions. Each item is a simple comparison expression.
+    // The list of sub-conditions, where each item is a simple comparison expression.
     shared_ptr<vector<MetricSetTriggerSimpleExpression>> conditions_ {};
-    // The expression type, fixed as COMPOSITE.
+    // The expression type, which is fixed to COMPOSITE.
     shared_ptr<string> expressionType_ {};
-    // The logical operator. Valid values:
-    // - AND: All conditions are met.
-    // - OR: Any condition is met.
-    // - UNLESS: The first condition is met and none of the remaining conditions are met.
+    // The logical operator. Valid values: AND (all conditions are met), OR (any condition is met), and UNLESS (the first condition is met and none of the others are met).
     shared_ptr<string> logicOperator_ {};
   };
 

@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(alertRule, alertRule_);
       DARABONBA_PTR_TO_JSON(deletedCount, deletedCount_);
       DARABONBA_PTR_TO_JSON(deletedUuidList, deletedUuidList_);
+      DARABONBA_PTR_TO_JSON(drillUuid, drillUuid_);
       DARABONBA_PTR_TO_JSON(updatedCount, updatedCount_);
       DARABONBA_PTR_TO_JSON(updatedUuidList, updatedUuidList_);
     };
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(alertRule, alertRule_);
       DARABONBA_PTR_FROM_JSON(deletedCount, deletedCount_);
       DARABONBA_PTR_FROM_JSON(deletedUuidList, deletedUuidList_);
+      DARABONBA_PTR_FROM_JSON(drillUuid, drillUuid_);
       DARABONBA_PTR_FROM_JSON(updatedCount, updatedCount_);
       DARABONBA_PTR_FROM_JSON(updatedUuidList, updatedUuidList_);
     };
@@ -40,7 +42,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->alertRule_ == nullptr
-        && this->deletedCount_ == nullptr && this->deletedUuidList_ == nullptr && this->updatedCount_ == nullptr && this->updatedUuidList_ == nullptr; };
+        && this->deletedCount_ == nullptr && this->deletedUuidList_ == nullptr && this->drillUuid_ == nullptr && this->updatedCount_ == nullptr && this->updatedUuidList_ == nullptr; };
     // alertRule Field Functions 
     bool hasAlertRule() const { return this->alertRule_ != nullptr;};
     void deleteAlertRule() { this->alertRule_ = nullptr;};
@@ -66,6 +68,13 @@ namespace Models
     inline ManageAlertRulesResult& setDeletedUuidList(vector<string> && deletedUuidList) { DARABONBA_PTR_SET_RVALUE(deletedUuidList_, deletedUuidList) };
 
 
+    // drillUuid Field Functions 
+    bool hasDrillUuid() const { return this->drillUuid_ != nullptr;};
+    void deleteDrillUuid() { this->drillUuid_ = nullptr;};
+    inline string getDrillUuid() const { DARABONBA_PTR_GET_DEFAULT(drillUuid_, "") };
+    inline ManageAlertRulesResult& setDrillUuid(string drillUuid) { DARABONBA_PTR_SET_VALUE(drillUuid_, drillUuid) };
+
+
     // updatedCount Field Functions 
     bool hasUpdatedCount() const { return this->updatedCount_ != nullptr;};
     void deleteUpdatedCount() { this->updatedCount_ = nullptr;};
@@ -83,15 +92,16 @@ namespace Models
 
 
   protected:
-    // The alert rule V2.
+    // The V2 alert rule.
     shared_ptr<AlertRuleV2> alertRule_ {};
-    // The number of rules that were successfully deleted.
+    // The number of successfully deleted rules.
     shared_ptr<int32_t> deletedCount_ {};
-    // The list of UUIDs of rules that were successfully deleted.
+    // The list of UUIDs of successfully deleted rules.
     shared_ptr<vector<string>> deletedUuidList_ {};
-    // The number of rules that were successfully enabled or disabled.
+    shared_ptr<string> drillUuid_ {};
+    // The number of successfully enabled or disabled rules.
     shared_ptr<int32_t> updatedCount_ {};
-    // The list of UUIDs of rules that were successfully enabled or disabled.
+    // The list of UUIDs of successfully enabled or disabled rules.
     shared_ptr<vector<string>> updatedUuidList_ {};
   };
 

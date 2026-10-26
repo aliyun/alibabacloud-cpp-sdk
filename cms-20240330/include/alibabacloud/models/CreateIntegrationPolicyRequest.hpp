@@ -14,6 +14,7 @@ namespace Models
   class CreateIntegrationPolicyRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateIntegrationPolicyRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(apiVersion, apiVersion_);
       DARABONBA_PTR_TO_JSON(entityGroup, entityGroup_);
       DARABONBA_PTR_TO_JSON(policyName, policyName_);
       DARABONBA_PTR_TO_JSON(policyType, policyType_);
@@ -22,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(workspace, workspace_);
     };
     friend void from_json(const Darabonba::Json& j, CreateIntegrationPolicyRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(apiVersion, apiVersion_);
       DARABONBA_PTR_FROM_JSON(entityGroup, entityGroup_);
       DARABONBA_PTR_FROM_JSON(policyName, policyName_);
       DARABONBA_PTR_FROM_JSON(policyType, policyType_);
@@ -78,9 +80,9 @@ namespace Models
 
 
     protected:
-      // The key of the tag.
+      // The tag key.
       shared_ptr<string> key_ {};
-      // The value of the tag.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -168,23 +170,31 @@ namespace Models
 
 
     protected:
-      // The cluster entity type. Examples: acs.ack.cluster, acs.one.cluster, and acs.asi.cluster.
+      // The cluster entity type, such as acs.ack.cluster, acs.one.cluster, acs.asi.cluster, or others.
       shared_ptr<string> clusterEntityType_ {};
       // The cluster ID.
       shared_ptr<string> clusterId_ {};
       shared_ptr<string> clusterNamespace_ {};
-      // Specifies whether to disable unique policy binding. If this parameter is set to true, you can create multiple policies for a container cluster.
+      // Specifies whether to disable the unique binding of the policy. If this parameter is set to true, you can create multiple policies for a container cluster.
       shared_ptr<bool> disablePolicyShare_ {};
       // The entity group ID.
       shared_ptr<string> entityGroupId_ {};
-      // The ID of the user who owns the cluster.
+      // The ID of the user to which the cluster belongs.
       shared_ptr<string> entityUserId_ {};
-      // The virtual private cloud (VPC) ID.
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
     };
 
-    virtual bool empty() const override { return this->entityGroup_ == nullptr
-        && this->policyName_ == nullptr && this->policyType_ == nullptr && this->resourceGroupId_ == nullptr && this->tags_ == nullptr && this->workspace_ == nullptr; };
+    virtual bool empty() const override { return this->apiVersion_ == nullptr
+        && this->entityGroup_ == nullptr && this->policyName_ == nullptr && this->policyType_ == nullptr && this->resourceGroupId_ == nullptr && this->tags_ == nullptr
+        && this->workspace_ == nullptr; };
+    // apiVersion Field Functions 
+    bool hasApiVersion() const { return this->apiVersion_ != nullptr;};
+    void deleteApiVersion() { this->apiVersion_ = nullptr;};
+    inline string getApiVersion() const { DARABONBA_PTR_GET_DEFAULT(apiVersion_, "") };
+    inline CreateIntegrationPolicyRequest& setApiVersion(string apiVersion) { DARABONBA_PTR_SET_VALUE(apiVersion_, apiVersion) };
+
+
     // entityGroup Field Functions 
     bool hasEntityGroup() const { return this->entityGroup_ != nullptr;};
     void deleteEntityGroup() { this->entityGroup_ = nullptr;};
@@ -232,7 +242,8 @@ namespace Models
 
 
   protected:
-    // The entity group used to create the policy. You can quickly create a policy using an entity group. The clusterId and vpcId parameters are independent of each other.
+    shared_ptr<string> apiVersion_ {};
+    // The entity group used to create the policy. You can quickly create the policy by using the entity group. The clusterId and vpcId parameters are independent of each other.
     shared_ptr<CreateIntegrationPolicyRequest::EntityGroup> entityGroup_ {};
     // The policy name.
     shared_ptr<string> policyName_ {};

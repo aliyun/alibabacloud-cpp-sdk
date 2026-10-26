@@ -42,6 +42,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Policies& obj) { 
         DARABONBA_PTR_TO_JSON(addonNames, addonNames_);
+        DARABONBA_PTR_TO_JSON(apiVersion, apiVersion_);
         DARABONBA_PTR_TO_JSON(bindResource, bindResource_);
         DARABONBA_PTR_TO_JSON(csUmodelStatus, csUmodelStatus_);
         DARABONBA_PTR_TO_JSON(entityGroup, entityGroup_);
@@ -58,6 +59,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, Policies& obj) { 
         DARABONBA_PTR_FROM_JSON(addonNames, addonNames_);
+        DARABONBA_PTR_FROM_JSON(apiVersion, apiVersion_);
         DARABONBA_PTR_FROM_JSON(bindResource, bindResource_);
         DARABONBA_PTR_FROM_JSON(csUmodelStatus, csUmodelStatus_);
         DARABONBA_PTR_FROM_JSON(entityGroup, entityGroup_);
@@ -783,9 +785,9 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->addonNames_ == nullptr
-        && this->bindResource_ == nullptr && this->csUmodelStatus_ == nullptr && this->entityGroup_ == nullptr && this->feePackage_ == nullptr && this->managedInfo_ == nullptr
-        && this->policyId_ == nullptr && this->policyName_ == nullptr && this->policyType_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->subAddonRelease_ == nullptr && this->userId_ == nullptr && this->workspace_ == nullptr; };
+        && this->apiVersion_ == nullptr && this->bindResource_ == nullptr && this->csUmodelStatus_ == nullptr && this->entityGroup_ == nullptr && this->feePackage_ == nullptr
+        && this->managedInfo_ == nullptr && this->policyId_ == nullptr && this->policyName_ == nullptr && this->policyType_ == nullptr && this->regionId_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->subAddonRelease_ == nullptr && this->userId_ == nullptr && this->workspace_ == nullptr; };
       // addonNames Field Functions 
       bool hasAddonNames() const { return this->addonNames_ != nullptr;};
       void deleteAddonNames() { this->addonNames_ = nullptr;};
@@ -793,6 +795,13 @@ namespace Models
       inline vector<string> getAddonNames() { DARABONBA_PTR_GET(addonNames_, vector<string>) };
       inline Policies& setAddonNames(const vector<string> & addonNames) { DARABONBA_PTR_SET_VALUE(addonNames_, addonNames) };
       inline Policies& setAddonNames(vector<string> && addonNames) { DARABONBA_PTR_SET_RVALUE(addonNames_, addonNames) };
+
+
+      // apiVersion Field Functions 
+      bool hasApiVersion() const { return this->apiVersion_ != nullptr;};
+      void deleteApiVersion() { this->apiVersion_ = nullptr;};
+      inline string getApiVersion() const { DARABONBA_PTR_GET_DEFAULT(apiVersion_, "") };
+      inline Policies& setApiVersion(string apiVersion) { DARABONBA_PTR_SET_VALUE(apiVersion_, apiVersion) };
 
 
       // bindResource Field Functions 
@@ -897,6 +906,7 @@ namespace Models
     protected:
       // The names of all add-ons installed in this policy.
       shared_ptr<vector<string>> addonNames_ {};
+      shared_ptr<string> apiVersion_ {};
       // The information about the bound resources.
       shared_ptr<Policies::BindResource> bindResource_ {};
       // The installation status of umodel in the container environment.

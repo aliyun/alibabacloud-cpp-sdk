@@ -14,11 +14,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GetAddonSchemaRequest& obj) { 
       DARABONBA_PTR_TO_JSON(aliyunLang, aliyunLang_);
+      DARABONBA_PTR_TO_JSON(apiVersion, apiVersion_);
       DARABONBA_PTR_TO_JSON(environmentType, environmentType_);
       DARABONBA_PTR_TO_JSON(version, version_);
     };
     friend void from_json(const Darabonba::Json& j, GetAddonSchemaRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(aliyunLang, aliyunLang_);
+      DARABONBA_PTR_FROM_JSON(apiVersion, apiVersion_);
       DARABONBA_PTR_FROM_JSON(environmentType, environmentType_);
       DARABONBA_PTR_FROM_JSON(version, version_);
     };
@@ -34,12 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aliyunLang_ == nullptr
-        && this->environmentType_ == nullptr && this->version_ == nullptr; };
+        && this->apiVersion_ == nullptr && this->environmentType_ == nullptr && this->version_ == nullptr; };
     // aliyunLang Field Functions 
     bool hasAliyunLang() const { return this->aliyunLang_ != nullptr;};
     void deleteAliyunLang() { this->aliyunLang_ = nullptr;};
     inline string getAliyunLang() const { DARABONBA_PTR_GET_DEFAULT(aliyunLang_, "") };
     inline GetAddonSchemaRequest& setAliyunLang(string aliyunLang) { DARABONBA_PTR_SET_VALUE(aliyunLang_, aliyunLang) };
+
+
+    // apiVersion Field Functions 
+    bool hasApiVersion() const { return this->apiVersion_ != nullptr;};
+    void deleteApiVersion() { this->apiVersion_ = nullptr;};
+    inline string getApiVersion() const { DARABONBA_PTR_GET_DEFAULT(apiVersion_, "") };
+    inline GetAddonSchemaRequest& setApiVersion(string apiVersion) { DARABONBA_PTR_SET_VALUE(apiVersion_, apiVersion) };
 
 
     // environmentType Field Functions 
@@ -59,6 +68,7 @@ namespace Models
   protected:
     // The language of the response. Valid values: \\`zh\\` and \\`en\\`. The default value is \\`zh\\`.
     shared_ptr<string> aliyunLang_ {};
+    shared_ptr<string> apiVersion_ {};
     // The environment type. Valid values: \\`CS\\` (container) and \\`ECS\\`.
     shared_ptr<string> environmentType_ {};
     // The version of the component.

@@ -66,11 +66,13 @@ namespace Models
 
 
   protected:
-    // The name of the add-on.
+    // The add-on name.
     shared_ptr<string> addonName_ {};
+    // The maximum number of results to return.
     shared_ptr<string> maxResults_ {};
+    // The next token for pagination.
     shared_ptr<string> nextToken_ {};
-    // The parent AddonRelease ID.
+    // The parent add-on release ID.
     shared_ptr<string> parentAddonReleaseId_ {};
   };
 

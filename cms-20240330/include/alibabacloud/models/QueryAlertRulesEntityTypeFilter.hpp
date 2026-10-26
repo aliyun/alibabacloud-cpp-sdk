@@ -53,9 +53,9 @@ namespace Models
 
 
   protected:
-    // Matches any value in the set (OR semantics).
+    // The match for any item in the set (OR semantics).
     shared_ptr<vector<string>> in_ {};
-    // Excludes any value in the set (NOT IN semantics).
+    // The exclusion of any item in the set (NOT IN semantics).
     shared_ptr<vector<string>> notIn_ {};
   };
 

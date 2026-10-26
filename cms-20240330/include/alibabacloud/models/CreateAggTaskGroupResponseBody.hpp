@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // Digest of the aggregation task group configuration.
+    // The hash of the aggregation task group configuration.
     shared_ptr<string> aggTaskGroupConfigHash_ {};
-    // Aggregation task group ID.
+    // The ID of the aggregation task group.
     shared_ptr<string> aggTaskGroupId_ {};
-    // Aggregation task group name.
+    // The name of the aggregation task group.
     shared_ptr<string> aggTaskGroupName_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Source Prometheus instance ID of the aggregation task group.
+    // The source Prometheus instance ID of the aggregation node group.
     shared_ptr<string> sourcePrometheusId_ {};
-    // Current status of the aggregation task group.
+    // The current status of the aggregation task group.
     shared_ptr<string> status_ {};
   };
 

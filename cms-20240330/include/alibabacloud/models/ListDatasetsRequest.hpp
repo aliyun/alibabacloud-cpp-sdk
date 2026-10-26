@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The name of the dataset.
+    // The dataset name.
     shared_ptr<string> datasetName_ {};
-    // The maximum number of results to return per page.
+    // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for retrieving the next page of results. A `nextToken` is included in the response when the result set is truncated. To continue pagination, provide the `nextToken` from the previous response.
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
   };
 

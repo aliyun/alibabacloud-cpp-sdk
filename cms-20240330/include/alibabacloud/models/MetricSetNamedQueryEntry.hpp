@@ -70,13 +70,13 @@ namespace Models
 
 
   protected:
-    // The label filter conditions. This parameter is optional and independent for each query.
+    // The optional label filter conditions, which are independent for each query.
     shared_ptr<vector<LabelFilters>> labelFilters_ {};
     // The metric name.
     shared_ptr<string> metric_ {};
     // The metric set name.
     shared_ptr<string> metricSet_ {};
-    // The query name, such as $A or $B, referenced by condition triggers.
+    // The query name, such as $A or $B, referenced by the condition trigger.
     shared_ptr<string> name_ {};
   };
 

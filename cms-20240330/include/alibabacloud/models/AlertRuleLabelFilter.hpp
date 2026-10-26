@@ -53,7 +53,7 @@ namespace Models
   protected:
     // The label filter.
     shared_ptr<map<string, string>> labels_ {};
-    // The relationship operator between multiple labels.
+    // The relational operator between multiple labels.
     shared_ptr<string> opt_ {};
   };
 

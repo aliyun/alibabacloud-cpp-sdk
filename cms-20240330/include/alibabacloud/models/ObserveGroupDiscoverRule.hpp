@@ -126,11 +126,11 @@ namespace Models
 
 
       protected:
-        // The matching operation.
+        // 匹配操作。
         shared_ptr<string> op_ {};
-        // The tag key.
+        // 标签键。
         shared_ptr<string> tagKey_ {};
-        // The tag value list.
+        // 标签值列表。
         shared_ptr<vector<string>> tagValues_ {};
       };
 
@@ -153,9 +153,9 @@ namespace Models
 
 
     protected:
-      // The tag matching logic.
+      // 标签匹配逻辑。
       shared_ptr<string> op_ {};
-      // The tag condition list.
+      // 标签条件列表。
       shared_ptr<vector<TagRules::Tags>> tags_ {};
     };
 
@@ -220,9 +220,9 @@ namespace Models
 
 
       protected:
-        // The matching operation.
+        // 匹配操作。
         shared_ptr<string> op_ {};
-        // The matching value list.
+        // 匹配值列表。
         shared_ptr<vector<string>> tagValues_ {};
       };
 
@@ -245,9 +245,9 @@ namespace Models
 
 
     protected:
-      // The name matching logic.
+      // 名称匹配逻辑。
       shared_ptr<string> op_ {};
-      // The name condition list.
+      // 名称条件列表。
       shared_ptr<vector<NameRules::Tags>> tags_ {};
     };
 
@@ -364,33 +364,33 @@ namespace Models
 
 
   protected:
-    // Indicates whether the rule is enabled. If set to false, the data plane skips this rule and does not perform matching, tagging, or delivery.
+    // 规则是否启用；false 时数据面跳过该规则（不匹配 / 不打标 / 不下发）。
     shared_ptr<bool> enabled_ {};
-    // The entity type (legacy). Retained for backward compatibility. Use entityTypes instead.
+    // （旧）单实体类型，向后兼容，优先用 entityTypes。
     shared_ptr<string> entityType_ {};
-    // The list of entity types. A single rule can match multiple types, such as acs.ecs.instance, acs.rds.instance, and acs.arms.service.
+    // 实体类型列表，支持一条规则跨多类型匹配（如 acs.ecs.instance/acs.rds.instance/acs.arms.service）。
     shared_ptr<vector<string>> entityTypes_ {};
-    // The time when the rule was created, in UNIX millisecond timestamp format. This value is used for display in the console.
+    // 规则创建时间（Unix 毫秒时间戳），控制台展示用。
     shared_ptr<int64_t> gmtCreate_ {};
-    // The list of manually specified instance IDs in enumeration mode, including instances synchronized manually in version 1.0.
+    // 手动指定的实例 ID 列表（枚举型，含 1.0 手动实例同步）。
     shared_ptr<vector<string>> instanceIds_ {};
-    // The name matching rules.
+    // 名称匹配规则。
     shared_ptr<ObserveGroupDiscoverRule::NameRules> nameRules_ {};
-    // The list of region IDs used for filtering by region.
+    // 按地域过滤的 region ID 列表。
     shared_ptr<vector<string>> regionIds_ {};
-    // The resource group ID used for filtering.
+    // 按资源组过滤。
     shared_ptr<string> resourceGroupId_ {};
-    // The stable rule ID used as an anchor for editing, deleting, and enabling or disabling operations. Format: dr-<16-character hash>.
+    // 规则稳定 ID（编辑/删除/启停锚点），格式 dr-<16位hash>。
     shared_ptr<string> ruleId_ {};
-    // The matching method. Valid values: byTag, byResourceGroup, byInstanceName, byManual, and bySpl.
+    // 匹配方式：byTag / byResourceGroup / byInstanceName / byManual / bySpl。
     shared_ptr<string> ruleType_ {};
-    // The applicable scope. Valid values: all (all entity types, exclusive) and entity (specified entity types).
+    // 适用范围：all（全部实体类型，独占）/ entity（指定实体类型）。
     shared_ptr<string> scope_ {};
-    // The full SPL expression for advanced configuration. If this parameter is not empty, it takes precedence over other filter fields.
+    // 完整 SPL 表达式（高级配置）；非空时优先生效，覆盖其它过滤字段。
     shared_ptr<string> spl_ {};
-    // The tag matching rules.
+    // 标签匹配规则。
     shared_ptr<ObserveGroupDiscoverRule::TagRules> tagRules_ {};
-    // The UID of the user to whom the rule belongs.
+    // 规则所属用户 UID。
     shared_ptr<string> userId_ {};
   };
 

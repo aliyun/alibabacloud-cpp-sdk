@@ -69,13 +69,13 @@ namespace Models
 
 
   protected:
-    // The days of the week.
+    // The day of the week.
     shared_ptr<vector<int32_t>> dayOfWeek_ {};
-    // The end time. The format is HH:mm.
+    // The end time in HH:mm format.
     shared_ptr<string> endTime_ {};
-    // The default value is +0800 (UTC+8).
+    // The default UTC+8 offset: +0800.
     shared_ptr<string> gmtOffset_ {};
-    // The start time. The format is HH:mm.
+    // The start time in HH:mm format.
     shared_ptr<string> startTime_ {};
   };
 

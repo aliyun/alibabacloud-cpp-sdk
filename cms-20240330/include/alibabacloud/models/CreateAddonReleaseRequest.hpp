@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateAddonReleaseRequest& obj) { 
       DARABONBA_PTR_TO_JSON(addonName, addonName_);
       DARABONBA_PTR_TO_JSON(aliyunLang, aliyunLang_);
+      DARABONBA_PTR_TO_JSON(apiVersion, apiVersion_);
       DARABONBA_PTR_TO_JSON(dryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(entityRules, entityRules_);
       DARABONBA_PTR_TO_JSON(envType, envType_);
@@ -28,6 +29,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, CreateAddonReleaseRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(addonName, addonName_);
       DARABONBA_PTR_FROM_JSON(aliyunLang, aliyunLang_);
+      DARABONBA_PTR_FROM_JSON(apiVersion, apiVersion_);
       DARABONBA_PTR_FROM_JSON(dryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(entityRules, entityRules_);
       DARABONBA_PTR_FROM_JSON(envType, envType_);
@@ -49,8 +51,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->addonName_ == nullptr
-        && this->aliyunLang_ == nullptr && this->dryRun_ == nullptr && this->entityRules_ == nullptr && this->envType_ == nullptr && this->parentAddonReleaseId_ == nullptr
-        && this->releaseName_ == nullptr && this->values_ == nullptr && this->version_ == nullptr && this->workspace_ == nullptr; };
+        && this->aliyunLang_ == nullptr && this->apiVersion_ == nullptr && this->dryRun_ == nullptr && this->entityRules_ == nullptr && this->envType_ == nullptr
+        && this->parentAddonReleaseId_ == nullptr && this->releaseName_ == nullptr && this->values_ == nullptr && this->version_ == nullptr && this->workspace_ == nullptr; };
     // addonName Field Functions 
     bool hasAddonName() const { return this->addonName_ != nullptr;};
     void deleteAddonName() { this->addonName_ = nullptr;};
@@ -63,6 +65,13 @@ namespace Models
     void deleteAliyunLang() { this->aliyunLang_ = nullptr;};
     inline string getAliyunLang() const { DARABONBA_PTR_GET_DEFAULT(aliyunLang_, "") };
     inline CreateAddonReleaseRequest& setAliyunLang(string aliyunLang) { DARABONBA_PTR_SET_VALUE(aliyunLang_, aliyunLang) };
+
+
+    // apiVersion Field Functions 
+    bool hasApiVersion() const { return this->apiVersion_ != nullptr;};
+    void deleteApiVersion() { this->apiVersion_ = nullptr;};
+    inline string getApiVersion() const { DARABONBA_PTR_GET_DEFAULT(apiVersion_, "") };
+    inline CreateAddonReleaseRequest& setApiVersion(string apiVersion) { DARABONBA_PTR_SET_VALUE(apiVersion_, apiVersion) };
 
 
     // dryRun Field Functions 
@@ -124,25 +133,26 @@ namespace Models
 
 
   protected:
-    // The name of the addon component to be connected to monitoring.
+    // The name of the add-on component to be integrated for monitoring.
     // 
     // This parameter is required.
     shared_ptr<string> addonName_ {};
     // The language type of the component.
     shared_ptr<string> aliyunLang_ {};
+    shared_ptr<string> apiVersion_ {};
     // Specifies whether to perform a dry run. Default value: false.
     shared_ptr<bool> dryRun_ {};
     // The field rules.
     shared_ptr<EntityDiscoverRule> entityRules_ {};
-    // The environment type. If the policy type is CS or ECS, the corresponding value is used. For other types, the value is Cloud.
+    // The environment type. If the policy type is CS or ECS, the corresponding environment type is used. For other policy types, the value is uniformly set to Cloud.
     shared_ptr<string> envType_ {};
-    // The parent AddonReleaseId.
+    // The parent add-on release ID.
     shared_ptr<string> parentAddonReleaseId_ {};
-    // The name of the plugin after access. If this parameter is not specified, a default rule name is generated.
+    // The name of the plug-in after integration. If you do not specify this parameter, a default rule name is generated.
     shared_ptr<string> releaseName_ {};
     // The input metadata.
     shared_ptr<string> values_ {};
-    // The version of the addon component to be connected to monitoring.
+    // The version of the add-on component to be integrated for monitoring.
     // 
     // This parameter is required.
     shared_ptr<string> version_ {};

@@ -77,7 +77,7 @@ namespace Models
   protected:
     // The request body for querying alert rules.
     shared_ptr<string> bodyShrink_ {};
-    // The client token that is used to ensure idempotence.
+    // The client token that is used to ensure the idempotence of the request.
     shared_ptr<string> clientToken_ {};
     // The maximum number of data records to return in the current read operation.
     shared_ptr<int32_t> maxResults_ {};

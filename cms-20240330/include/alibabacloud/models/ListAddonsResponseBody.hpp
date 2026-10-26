@@ -198,13 +198,13 @@ namespace Models
 
 
           protected:
-            // Protocol description.
+            // The protocol description.
             shared_ptr<string> description_ {};
-            // Icon URL.
+            // The icon URL.
             shared_ptr<string> icon_ {};
-            // Protocol display name.
+            // The display name of the protocol.
             shared_ptr<string> label_ {};
-            // Protocol name.
+            // The protocol name.
             shared_ptr<string> name_ {};
           };
 
@@ -238,7 +238,7 @@ namespace Models
 
 
           protected:
-            // A list of Prometheus Query Language (PromQL) statements.
+            // The list of PromQL query statements.
             shared_ptr<vector<string>> promQL_ {};
           };
 
@@ -299,17 +299,17 @@ namespace Models
 
 
         protected:
-          // The default status of the alert rule policy.
+          // The enabling status of the default policy for alert rules.
           shared_ptr<string> alertDefaultStatus_ {};
-          // Indicates whether the add-on is installed by default.
+          // Specifies whether to install the component by default.
           shared_ptr<bool> defaultInstall_ {};
-          // Indicates whether to assign a Service Account to communicate with the Console API.
+          // Specifies whether to assign a service account for communication with the console API.
           shared_ptr<bool> enableServiceAccount_ {};
-          // Metric check rule.
+          // The metric check rule.
           shared_ptr<Policies::MetricCheckRule> metricCheckRule_ {};
-          // Indicates whether to guide the user to restart pods after the add-on is installed.
+          // Specifies whether to trigger a pod restart guide immediately after the plug-in installation is completed during integration.
           shared_ptr<bool> needRestartAfterIntegration_ {};
-          // The supported protocol types.
+          // The supported protocol types in the configuration.
           shared_ptr<vector<Policies::Protocols>> protocols_ {};
           // The name of the target add-on.
           shared_ptr<string> targetAddonName_ {};
@@ -368,11 +368,11 @@ namespace Models
 
 
         protected:
-          // Supported cluster types.
+          // The supported cluster types.
           shared_ptr<vector<string>> clusterTypes_ {};
-          // The probes on which the integration depends.
+          // The probes required for integration dependencies.
           shared_ptr<map<string, bool>> features_ {};
-          // A list of dependent services.
+          // The list of dependent services.
           shared_ptr<vector<string>> services_ {};
         };
 
@@ -414,9 +414,9 @@ namespace Models
 
 
         protected:
-          // The group name of the Common Schema.
+          // The group name of the common schema.
           shared_ptr<string> group_ {};
-          // The version of the Common Schema.
+          // The version of the common schema.
           shared_ptr<string> version_ {};
         };
 
@@ -486,21 +486,21 @@ namespace Models
 
 
       protected:
-        // A list of associated Common Schemas.
+        // The list of associated common schemas.
         shared_ptr<vector<Environments::CommonSchemaRefs>> commonSchemaRefs_ {};
-        // A list of dependencies for the add-on.
+        // The list of dependencies for the integration component.
         shared_ptr<Environments::Dependencies> dependencies_ {};
         // The description of the integration policy type.
         shared_ptr<string> description_ {};
-        // Indicates whether the add-on is enabled.
+        // Specifies whether the integration policy type is enabled.
         shared_ptr<bool> enable_ {};
         // The label of the integration policy type.
         shared_ptr<string> label_ {};
         // The name of the integration policy type.
         shared_ptr<string> name_ {};
-        // Integration policy configuration.
+        // The integration policy configurations.
         shared_ptr<Environments::Policies> policies_ {};
-        // Integration Center policy type.
+        // The integration center policy type.
         shared_ptr<string> policyType_ {};
       };
 
@@ -551,11 +551,11 @@ namespace Models
 
 
       protected:
-        // Dashboard description.
+        // The dashboard description.
         shared_ptr<string> description_ {};
-        // Dashboard name.
+        // The dashboard name.
         shared_ptr<string> name_ {};
-        // The URL of the dashboard\\"s preview image.
+        // The URL of the dashboard preview image.
         shared_ptr<string> url_ {};
       };
 
@@ -670,33 +670,33 @@ namespace Models
 
 
     protected:
-      // The alias of the add-on.
+      // The alias of the integration component.
       shared_ptr<string> alias_ {};
-      // A list of tags for the add-on.
+      // The list of tags for the integration component.
       shared_ptr<vector<string>> categories_ {};
-      // A list of dashboards.
+      // The list of dashboards.
       shared_ptr<vector<Addons::Dashboards>> dashboards_ {};
-      // Description
+      // The description.
       shared_ptr<string> description_ {};
-      // A list of supported integration policy types.
+      // The list of supported integration policy types.
       shared_ptr<vector<Addons::Environments>> environments_ {};
-      // The URL of the icon.
+      // The icon URL.
       shared_ptr<string> icon_ {};
-      // A list of keywords.
+      // The list of keywords.
       shared_ptr<vector<string>> keywords_ {};
-      // Language.
+      // The language.
       shared_ptr<string> language_ {};
-      // The time when the latest version was created.
+      // The latest release creation time.
       shared_ptr<string> latestReleaseCreateTime_ {};
-      // The name of the add-on.
+      // The name of the integration component.
       shared_ptr<string> name_ {};
-      // Indicates whether the add-on can be installed only once.
+      // Specifies whether the component can be installed only once.
       shared_ptr<bool> once_ {};
-      // The scenario of the component.
+      // The component scenario.
       shared_ptr<string> scene_ {};
-      // The version of the component.
+      // The component version.
       shared_ptr<string> version_ {};
-      // The display weight of the add-on.
+      // The display weight of the integration component.
       shared_ptr<string> weight_ {};
     };
 
@@ -719,7 +719,7 @@ namespace Models
 
 
   protected:
-    // A list of available add-ons.
+    // The list of available integration components.
     shared_ptr<vector<ListAddonsResponseBody::Addons>> addons_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

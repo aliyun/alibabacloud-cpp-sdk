@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The display name of the API key. Use this name to identify its purpose.
+    // The display name of the API key, used to identify its purpose.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};

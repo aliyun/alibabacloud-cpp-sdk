@@ -85,7 +85,7 @@ namespace Models
     protected:
       // The entity type.
       shared_ptr<string> entityType_ {};
-      // The Structured Process Language (SPL) search statement.
+      // The SPL query statement.
       shared_ptr<string> spl_ {};
     };
 
@@ -159,9 +159,9 @@ namespace Models
     shared_ptr<string> entityGroupId_ {};
     // The entity name.
     shared_ptr<string> entityGroupName_ {};
-    // A collection of entity query rules.
+    // The entity query rule set.
     shared_ptr<vector<EntityGroupBase::EntityQueries>> entityQueries_ {};
-    // The rule for entity discovery.
+    // The rules used for entity discovery.
     shared_ptr<EntityDiscoverRule> entityRules_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

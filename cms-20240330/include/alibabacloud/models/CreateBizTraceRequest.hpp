@@ -75,13 +75,13 @@ namespace Models
 
 
   protected:
-    // The advanced configuration.
+    // The advanced configurations.
     shared_ptr<string> advancedConfig_ {};
-    // The identifier for the business trace. It can contain only letters, digits, and underscores (_). The first character must be a lowercase letter.
+    // The business trace code. The code can contain only letters, digits, and underscores (_), and must start with a lowercase letter.
     shared_ptr<string> bizTraceCode_ {};
     // The name of the business trace.
     shared_ptr<string> bizTraceName_ {};
-    // The configuration rules.
+    // The list of configuration rules.
     shared_ptr<string> ruleConfig_ {};
     // The workspace.
     shared_ptr<string> workspace_ {};

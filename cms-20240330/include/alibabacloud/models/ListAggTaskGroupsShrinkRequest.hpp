@@ -103,26 +103,21 @@ namespace Models
 
 
   protected:
-    // The list of aggregation task group IDs. The value must be a JSON-parsable string.
+    // The list of IDs of the aggregation task groups. The value must be in JSON format.
     shared_ptr<string> filterAggTaskGroupIds_ {};
-    // The list of aggregation task group names. The value must be a JSON-parsable string.
+    // The list of names of the aggregation task groups. The value must be in JSON format.
     shared_ptr<string> filterAggTaskGroupNames_ {};
     // The maximum number of records to return.
     shared_ptr<int32_t> maxResults_ {};
     // The query token.
     shared_ptr<string> nextToken_ {};
-    // The name to search for. Fuzzy match is supported.
+    // The search keyword for names. Fuzzy match is supported.
     shared_ptr<string> query_ {};
-    // The status of the aggregation task group. Valid values:
-    // 
-    // - Running
-    // - Stopped
-    // 
-    // Default value: Running.
+    // The status of the aggregation task group. Valid values: Running and Stopped. Default value: Running.
     shared_ptr<string> status_ {};
-    // The resource group tags.
+    // The tags of the resource group.
     shared_ptr<string> tagsShrink_ {};
-    // The instance ID of the target Managed Service for Prometheus instance for the aggregation node group.
+    // The instance ID of the target Prometheus instance for the aggregation node group.
     shared_ptr<string> targetPrometheusId_ {};
   };
 

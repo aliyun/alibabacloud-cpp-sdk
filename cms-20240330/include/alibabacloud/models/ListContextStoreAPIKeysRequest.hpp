@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries to return in a single request. If this parameter is not specified, the service returns a default number of entries.
+    // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token used to retrieve the next page of results. Leave this parameter empty to retrieve the first page.
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
   };
 

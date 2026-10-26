@@ -57,11 +57,8 @@ namespace Models
 
 
   protected:
-    // The field name to filter on.
     shared_ptr<string> field_ {};
-    // The comparison operator to use. Supported operators include `=`, `>`, `<`, `!=`, `IN`, and `NOT IN`.
     shared_ptr<string> operator_ {};
-    // The value to compare the field against.
     shared_ptr<string> value_ {};
   };
 

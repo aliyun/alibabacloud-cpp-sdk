@@ -53,7 +53,7 @@ namespace Models
   protected:
     // The request body. This parameter is required by the backend. Pass in a complete MaintainWindowForModify configuration object.
     shared_ptr<MaintainWindowForModify> body_ {};
-    // The workspace name. This parameter is required by the backend and is used to isolate silence policy resources across different business spaces.
+    // The name of the workspace. This parameter is required by the backend and is used to isolate silence policy resources across different business workspaces.
     shared_ptr<string> workspace_ {};
   };
 

@@ -99,13 +99,13 @@ namespace Models
 
 
   protected:
-    // A list of unique identifiers for the members in the group.
+    // The list of unique identifiers for members in the group.
     shared_ptr<vector<string>> contacts_ {};
-    // An extension field that stores additional information.
+    // The extension field used to store additional information.
     Darabonba::Json extend_ {};
-    // The time when the contact group was created.
+    // The creation time.
     shared_ptr<string> gmtCreate_ {};
-    // The time when the contact group was last modified.
+    // The last modification time.
     shared_ptr<string> gmtModified_ {};
     // The unique identifier of the contact group.
     shared_ptr<string> identifier_ {};

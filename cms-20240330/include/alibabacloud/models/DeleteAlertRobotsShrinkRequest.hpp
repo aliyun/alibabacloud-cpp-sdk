@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The chatbot ID.
+    // The chatbot IDs.
     // 
     // This parameter is required.
     shared_ptr<string> robotIdsShrink_ {};

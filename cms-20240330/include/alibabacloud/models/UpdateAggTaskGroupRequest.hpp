@@ -98,9 +98,9 @@ namespace Models
 
 
     protected:
-      // The key of the resource group tag.
+      // The key of the tag.
       shared_ptr<string> key_ {};
-      // The value of the resource group tag.
+      // The value of the tag.
       shared_ptr<string> value_ {};
     };
 
@@ -223,41 +223,41 @@ namespace Models
 
 
   protected:
-    // The configuration of the aggregation task group. Currently, only the RecordingRuleYaml format is supported. The configuration must comply with the RecordingRule format of open source Prometheus.
+    // The configuration of the aggregation task group. Only the RecordingRuleYaml format is supported. The configuration must meet the format requirements of RecordingRule in open-source Prometheus.
     // 
     // This parameter is required.
     shared_ptr<string> aggTaskGroupConfig_ {};
-    // The type of the aggregation task group configuration. The default value is RecordingRuleYaml, which is the RecordingRule format of open source Prometheus.
+    // The configuration type of the aggregation task group. Default value: RecordingRuleYaml, which is the RecordingRule format of open-source Prometheus.
     shared_ptr<string> aggTaskGroupConfigType_ {};
     // The name of the aggregation task group.
     shared_ptr<string> aggTaskGroupName_ {};
-    // The cron expression for scheduling when the scheduling mode is set to Cron. For example, \\`0/1 \\* \\* \\* \\*\\` indicates that the task is scheduled every 1 minute, starting from the 0th minute.
+    // The cron expression used when the scheduling mode is set to Cron. For example, 0/1 * * * * indicates that the task is scheduled every 1 minute starting from minute 0.
     shared_ptr<string> cronExpr_ {};
-    // The fixed delay for scheduling. Unit: seconds. The default value is 30.
+    // The fixed delay time for scheduling, in seconds. Default value: 30.
     shared_ptr<int32_t> delay_ {};
     // The description of the aggregation task group.
     shared_ptr<string> description_ {};
-    // The UNIX timestamp in seconds that indicates the start time of the scheduling.
+    // The timestamp of the scheduling start time, in seconds.
     shared_ptr<int64_t> fromTime_ {};
-    // The maximum number of retries to execute the aggregation task. The default value is 20.
+    // The maximum number of retries for executing the aggregation task. Default value: 20.
     shared_ptr<int32_t> maxRetries_ {};
-    // The maximum retry time to execute the aggregation task. Unit: seconds. The default value is 600.
+    // The maximum retry time to execute the aggregation node, in seconds. Default value: 600.
     shared_ptr<int32_t> maxRunTimeInSeconds_ {};
-    // The dry run configuration. This parameter is not configured by default. The input string must be a valid JSON string.
+    // The precheck configuration. By default, this parameter is not configured. The input string must be a valid JSON string.
     shared_ptr<string> precheckString_ {};
-    // The scheduling mode. Valid values: Cron and FixedRate. The default value is FixedRate.
+    // The scheduling mode. Valid values: Cron and FixedRate. Default value: FixedRate.
     shared_ptr<string> scheduleMode_ {};
-    // The scheduling time expression. Recommended values are \\`@s\\` and \\`@m\\`. This expression indicates the granularity at which the scheduling time window is snapped. The default value is \\`@m\\`.
+    // The scheduling time expression. Use @s or @m to specify the alignment granularity of the scheduling time window. Default value: @m.
     shared_ptr<string> scheduleTimeExpr_ {};
-    // The status of the aggregation task group. Valid values: Running and Stopped. The default value is Running.
+    // The status of the aggregation task group. Valid values: Running and Stopped. Default value: Running.
     shared_ptr<string> status_ {};
     // The tags of the resource group.
     shared_ptr<vector<UpdateAggTaskGroupRequest::Tags>> tags_ {};
-    // The ID of the target Prometheus instance for the aggregation task group.
+    // The target Prometheus instance ID of the aggregation node group.
     // 
     // This parameter is required.
     shared_ptr<string> targetPrometheusId_ {};
-    // The UNIX timestamp in seconds that indicates the end time of the scheduling. A value of 0 indicates that the scheduling does not stop.
+    // The timestamp of the scheduling end time, in seconds. A value of 0 indicates that the scheduling does not stop.
     shared_ptr<int64_t> toTime_ {};
   };
 

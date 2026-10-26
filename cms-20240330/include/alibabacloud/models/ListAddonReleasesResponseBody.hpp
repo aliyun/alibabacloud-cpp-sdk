@@ -150,7 +150,7 @@ namespace Models
       protected:
         // The number of ready sub-releases.
         shared_ptr<int32_t> ready_ {};
-        // The total number of sub-releases.
+        // The number of sub-releases.
         shared_ptr<int32_t> total_ {};
       };
 
@@ -219,15 +219,15 @@ namespace Models
 
 
       protected:
-        // The timestamp of the first status transition.
+        // The time of the first transition.
         shared_ptr<string> firstTransitionTime_ {};
-        // The timestamp of the last status transition.
+        // The time of the last transition.
         shared_ptr<string> lastTransitionTime_ {};
-        // A detailed message about the status.
+        // The detailed information.
         shared_ptr<string> message_ {};
-        // The status of the condition.
+        // The status of the phase.
         shared_ptr<string> status_ {};
-        // The type of the condition.
+        // The type of the phase.
         shared_ptr<string> type_ {};
       };
 
@@ -445,35 +445,35 @@ namespace Models
       shared_ptr<string> addonName_ {};
       // The number of alert rules.
       shared_ptr<int64_t> alertRuleCount_ {};
-      // The API version.
+      // The version number.
       shared_ptr<string> apiVersion_ {};
-      // The conditions of the release.
+      // The summary of installation phase conditions.
       shared_ptr<vector<Releases::Conditions>> conditions_ {};
-      // The configuration of the add-on.
+      // The configuration information of the component.
       shared_ptr<string> config_ {};
-      // The installation time of the add-on.
+      // The onboarding time.
       shared_ptr<string> createTime_ {};
       // The number of dashboards.
       shared_ptr<int64_t> dashboardCount_ {};
-      // Details of the entity rules.
+      // The entity details.
       shared_ptr<EntityGroupBase> entityRules_ {};
-      // The environment type.
+      // The type of the environment.
       shared_ptr<string> envType_ {};
       // The environment ID.
       shared_ptr<string> environmentId_ {};
       // The number of exporters.
       shared_ptr<int64_t> exporterCount_ {};
-      // Indicates whether a configuration exists.
+      // Indicates whether a configuration is available.
       shared_ptr<bool> haveConfig_ {};
-      // The ID of the user who installed the add-on.
+      // The ID of the onboarding user.
       shared_ptr<string> installUserId_ {};
       // The language.
       shared_ptr<string> language_ {};
-      // Indicates whether the add-on is managed.
+      // Indicates whether the component is managed.
       shared_ptr<bool> managed_ {};
-      // The next available version of the add-on.
+      // The starting version number for the remaining list.
       shared_ptr<string> nextVersion_ {};
-      // The ID of the parent release.
+      // The parent add-on release ID.
       shared_ptr<string> parentAddonReleaseId_ {};
       // The policy ID.
       shared_ptr<string> policyId_ {};
@@ -481,21 +481,21 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The release ID.
       shared_ptr<string> releaseId_ {};
-      // The release name.
+      // The name of the release.
       shared_ptr<string> releaseName_ {};
-      // The usage scenario of the add-on.
+      // The scenario of the component.
       shared_ptr<string> scene_ {};
-      // The status of the release.
+      // The status.
       shared_ptr<string> status_ {};
-      // Statistics about sub-releases.
+      // The statistics information of sub-add-on releases.
       shared_ptr<Releases::SubAddonRelease> subAddonRelease_ {};
-      // The last update time.
+      // The update time.
       shared_ptr<string> updateTime_ {};
-      // The ID of the owner.
+      // The ID of the owning user.
       shared_ptr<string> userId_ {};
-      // The version of the add-on.
+      // The version of the component.
       shared_ptr<string> version_ {};
-      // The name of the workspace.
+      // The workspace.
       shared_ptr<string> workspace_ {};
     };
 
@@ -532,13 +532,13 @@ namespace Models
 
 
   protected:
-    // A pagination token to retrieve the next page of results. If this field is empty, no more results are available.
+    // The next page token.
     shared_ptr<string> nextToken_ {};
-    // The list of add-on releases.
+    // The collection of onboarded component information.
     shared_ptr<vector<ListAddonReleasesResponseBody::Releases>> releases_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of add-on releases that match the query.
+    // The number of components.
     shared_ptr<int64_t> total_ {};
   };
 

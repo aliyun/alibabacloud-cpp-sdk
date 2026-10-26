@@ -95,11 +95,11 @@ namespace Models
     shared_ptr<vector<TransformAction>> actions_ {};
     // The description.
     shared_ptr<string> description_ {};
-    // The filter criteria.
+    // The filter conditions.
     shared_ptr<FilterSetting> filterSetting_ {};
-    // Specifies whether to exit after a match is processed.
+    // Specifies whether to exit after match processing.
     shared_ptr<bool> quitAfterMatch_ {};
-    // The sort number.
+    // The sort order.
     shared_ptr<int32_t> sortId_ {};
     // The name.
     // 

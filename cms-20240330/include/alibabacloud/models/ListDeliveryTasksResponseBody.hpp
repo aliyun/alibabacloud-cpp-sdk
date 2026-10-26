@@ -168,9 +168,9 @@ namespace Models
 
 
       protected:
-        // The detailed configuration of the delivery target. The meanings of key/value pairs vary depending on the sinkType.
+        // The detailed configuration of the delivery sink. The meanings of the key and value vary based on the sinkType.
         shared_ptr<map<string, string>> sinkConfigs_ {};
-        // The delivery target type.
+        // The type of the delivery sink.
         shared_ptr<string> sinkType_ {};
       };
 
@@ -321,39 +321,35 @@ namespace Models
 
 
     protected:
-      // The creation time.
-      // 
-      // The time is in the ISO 8601 standard format (YYYY-MM-DDThh:mm:ssZ) in UTC.
+      // The creation time. The time is displayed in the ISO 8601 standard format (YYYY-MM-DDThh:mm:ssZ) in UTC.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> createTime_ {};
-      // The data source ID (Prometheus instance ID).
+      // The ID of the data source, which is the ID of the Prometheus instance.
       shared_ptr<string> dataSourceId_ {};
-      // The additional labels attached to all delivered metrics. The key is the label name and the value is the label value.
+      // The additional labels attached to all delivered metrics. The key is the label name, and the value is the label value.
       shared_ptr<map<string, string>> externalLabels_ {};
       // The extended information.
       shared_ptr<DeliveryTasks::ExtraInfo> extraInfo_ {};
-      // The metric filter conditions. Used together with labelFiltersType. The key is the metric label name and the value is the match value.
+      // The metric filtering conditions, used in conjunction with labelFiltersType. The key is the metric label name, and the value is the matching value.
       shared_ptr<map<string, string>> labelFilters_ {};
       // The metric filtering mode.
       shared_ptr<string> labelFiltersType_ {};
-      // The resource group ID.
+      // The ID of the resource group.
       shared_ptr<string> resourceGroupId_ {};
-      // The list of delivery targets. Multiple sinks can be configured.
+      // The list of delivery sinks. You can configure multiple sinks.
       shared_ptr<vector<DeliveryTasks::SinkList>> sinkList_ {};
       // The current status of the task.
       shared_ptr<string> status_ {};
       // The tags.
       shared_ptr<vector<DeliveryTasks::Tags>> tags_ {};
-      // The task description.
+      // The description of the task.
       shared_ptr<string> taskDescription_ {};
-      // The task ID.
+      // The ID of the task.
       shared_ptr<string> taskId_ {};
-      // The task name.
+      // The name of the task.
       shared_ptr<string> taskName_ {};
-      // The update time.
-      // 
-      // The time is in the ISO 8601 standard format (YYYY-MM-DDThh:mm:ssZ) in UTC.
+      // The update time. The time is displayed in the ISO 8601 standard format (YYYY-MM-DDThh:mm:ssZ) in UTC.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> updateTime_ {};
@@ -401,11 +397,11 @@ namespace Models
   protected:
     // The list of delivery tasks.
     shared_ptr<vector<ListDeliveryTasksResponseBody::DeliveryTasks>> deliveryTasks_ {};
-    // The maximum number of entries returned. Maximum value: 100.
+    // The maximum number of results returned. Maximum value: 100.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token for the next page.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The total number of tasks.
     shared_ptr<int32_t> totalCount_ {};

@@ -232,7 +232,7 @@ namespace Models
       shared_ptr<string> addonReleaseName_ {};
       // The addon version.
       shared_ptr<string> addonVersion_ {};
-      // The configuration YAML.
+      // The YAML configuration.
       shared_ptr<string> configYaml_ {};
       // The enabling status.
       shared_ptr<string> enableStatus_ {};
@@ -283,7 +283,7 @@ namespace Models
   protected:
     // The cluster ID.
     shared_ptr<string> clusterId_ {};
-    // The list of PodMonitors.
+    // The PodMonitor list.
     shared_ptr<vector<ListIntegrationPolicyPodMonitorsResponseBody::PodMonitors>> podMonitors_ {};
     // The policy ID.
     shared_ptr<string> policyId_ {};
