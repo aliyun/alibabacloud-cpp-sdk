@@ -307,22 +307,22 @@ namespace Models
 
     protected:
       // The instance edition. Valid values:
-      // * **Basic**: Basic Edition.
-      // * **HighAvailability**: High-availability Edition.
-      // * **AlwaysOn**: Cluster Edition.
-      // * **Finance**: RDS Enterprise Edition.
+      // * **Basic**: Basic Edition
+      // * **HighAvailability**: High-availability Edition
+      // * **AlwaysOn**: Cluster Edition
+      // * **Finance**: Enterprise Edition
       shared_ptr<string> category_ {};
       // The billing method. Valid values:
-      // - POSTPAY: pay-as-you-go.
-      // - PREPAY: subscription.
+      // - POSTPAY: pay-as-you-go
+      // - PREPAY: subscription
       shared_ptr<string> chargeType_ {};
-      // The instance type. For more information, see [Primary instance types](https://help.aliyun.com/document_detail/26312.html) and [Read-only instance types](https://help.aliyun.com/document_detail/145759.html).
+      // The instance type code. For more information, see [Primary instance types](https://help.aliyun.com/document_detail/26312.html) and [Read-only instance types](https://help.aliyun.com/document_detail/145759.html).
       shared_ptr<string> classCode_ {};
       // The instance family. For more information, see [Instance families](https://help.aliyun.com/document_detail/57184.html).
       shared_ptr<string> classGroup_ {};
-      // The number of CPU cores for the instance type. Unit: cores.
+      // The number of CPU cores for the instance type.
       shared_ptr<string> cpu_ {};
-      // The disk storage size per node. Unit: GB.
+      // The storage capacity per node. Unit: GB.
       shared_ptr<int32_t> diskSize_ {};
       // The database engine. Valid values:
       // - MySQL
@@ -339,34 +339,34 @@ namespace Models
       shared_ptr<string> instanceName_ {};
       // The maximum number of concurrent connections.
       shared_ptr<int32_t> maxConnections_ {};
-      // The maximum I/O bandwidth. Unit: Mbit/s.
+      // The maximum I/O throughput.
       shared_ptr<int32_t> maxIombps_ {};
       // The maximum IOPS.
       shared_ptr<int32_t> maxIops_ {};
       // The memory size.
       shared_ptr<int64_t> memory_ {};
       // The instance storage type. Valid values:
-      // * **local_ssd**: local SSD.
-      // * **cloud_ssd**: standard SSD cloud disk.
-      // * **cloud_essd**: PL1 ESSD cloud disk.
-      // * **cloud_essd2**: PL2 ESSD cloud disk.
-      // * **cloud_essd3**: PL3 ESSD cloud disk.
+      // * **local_ssd**: local SSD
+      // * **cloud_ssd**: standard SSD cloud disk
+      // * **cloud_essd**: PL1 ESSD cloud disk
+      // * **cloud_essd2**: PL2 ESSD cloud disk
+      // * **cloud_essd3**: PL3 ESSD cloud disk
       shared_ptr<string> storageType_ {};
-      // The upgrade instance edition.
+      // The instance edition after the upgrade.
       shared_ptr<string> upgradeCategory_ {};
-      // The upgrade instance type.
+      // The instance type code after the upgrade.
       shared_ptr<string> upgradeClassCode_ {};
-      // The upgrade instance family.
+      // The instance family after the upgrade.
       shared_ptr<string> upgradeClassGroup_ {};
       // The number of CPU cores after the upgrade.
       shared_ptr<string> upgradeCpu_ {};
       // The upgrade description.
       shared_ptr<string> upgradeDescContent_ {};
-      // The disk size after the upgrade.
+      // The storage capacity after the upgrade.
       shared_ptr<int32_t> upgradeDiskSize_ {};
       // The maximum number of concurrent connections after the upgrade.
       shared_ptr<int32_t> upgradeMaxConnections_ {};
-      // The maximum I/O bandwidth after the upgrade. Unit: Mbit/s.
+      // The maximum I/O throughput after the upgrade.
       shared_ptr<int32_t> upgradeMaxIombps_ {};
       // The maximum IOPS after the upgrade.
       shared_ptr<int32_t> upgradeMaxIops_ {};
@@ -420,7 +420,7 @@ namespace Models
   protected:
     // The Alibaba Cloud account ID.
     shared_ptr<int64_t> aliUid_ {};
-    // - Chinese site: 26842
+    // - China site: 26842
     // - International site: 26888
     shared_ptr<string> bid_ {};
     // The campaign parameters.

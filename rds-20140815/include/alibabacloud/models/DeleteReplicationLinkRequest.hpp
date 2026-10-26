@@ -61,7 +61,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // Specifies whether to delete the data synchronization link between the primary instance and the disaster recovery instance and promote the disaster recovery instance to a primary instance. Valid values:
+    // Specifies whether to delete the data synchronization link between the primary instance and the disaster recovery instance, and promote the disaster recovery instance to a primary instance. Valid values:
     // 
     // - **true**: Yes.
     // - **false**: No.

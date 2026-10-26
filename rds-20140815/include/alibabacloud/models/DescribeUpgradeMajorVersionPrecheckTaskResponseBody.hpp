@@ -158,45 +158,40 @@ namespace Models
 
 
     protected:
-      // The check time.
-      // 
-      // The value is a UNIX timestamp. Unit: milliseconds.
+      // The time when the check is performed. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<string> checkTime_ {};
-      // The content of the major engine version upgrade check report.
+      // The content of the check report for the major engine version upgrade.
       shared_ptr<string> detail_ {};
-      // The expiration time of the check report.
-      // 
-      // The value is a UNIX timestamp. Unit: milliseconds.
+      // The expiration time of the check report. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<string> effectiveTime_ {};
       // The recommended minimum disk capacity for the upgrade. Unit: GB.
       // 
       // > This parameter is returned only for ApsaraDB RDS for PostgreSQL instances.
       shared_ptr<int32_t> recommendDiskSize_ {};
-      // The recommended minimum memory for the upgrade. Unit: GB.
+      // The recommended minimum memory size for the upgrade. Unit: GB.
       // 
       // > This parameter is returned only for ApsaraDB RDS for PostgreSQL instances.
       shared_ptr<int32_t> recommendLeastMemSize_ {};
-      // The recommended memory for the upgrade. Unit: GB.
+      // The recommended memory size for the upgrade. Unit: GB.
       // 
-      // If the memory of the instance is greater than or equal to the recommended memory, the upgrade is performed at the fastest speed to minimize the read-only duration of the instance.
+      // If the memory size of the instance is greater than or equal to the recommended memory size, the upgrade is performed at the maximum speed to minimize the read-only duration of the instance.
       // 
       // > This parameter is returned only for ApsaraDB RDS for PostgreSQL instances.
       shared_ptr<int32_t> recommendMemSize_ {};
-      // The result of major engine version upgrade check.
+      // The result of the check for the major engine version upgrade. Valid values:
+      // - Success: The check is successful.
+      // - Fail: The check fails.
+      // - warning: A warning is returned. You must check the report to determine whether to continue the upgrade.
       // 
-      // Valid values:
-      // - Success: The check is passed.
-      // - Fail: The check failed.
-      // - warning: The check returned warnings. Review the report to determine whether to proceed with the upgrade.
-      // 
-      // > If the check result is **Fail**, check the value of the **Detail** parameter, resolve the errors, and try again. For common errors and solutions, see [Understand major engine version upgrade check report for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/218391.html).
+      // > If the check result is **Fail**, check the value of the **Detail** parameter, troubleshoot the error, and try again. For more information about common errors and solutions, see [Interpret check reports for major engine version upgrades of ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/218391.html).
       shared_ptr<string> result_ {};
       // The current major engine version of the instance.
       shared_ptr<string> sourceMajorVersion_ {};
-      // The target instance version.
+      // The major engine version of the target instance.
       shared_ptr<string> targetMajorVersion_ {};
-      // The node ID of the major engine version upgrade pre-check task.
+      // The ID of the check task before the major engine version upgrade.
       shared_ptr<int32_t> taskId_ {};
+      // The mode of the major engine version upgrade.
       shared_ptr<string> upgradeMode_ {};
     };
 
@@ -240,11 +235,11 @@ namespace Models
 
 
   protected:
-    // The property list of the major engine version upgrade check report. Each attribute column contains the details of a check report entry.
+    // The list of attributes in the check reports for major engine version upgrades.
     shared_ptr<vector<DescribeUpgradeMajorVersionPrecheckTaskResponseBody::Items>> items_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries returned per page.
     shared_ptr<int32_t> pageRecordCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

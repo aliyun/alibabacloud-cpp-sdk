@@ -70,9 +70,9 @@ namespace Models
     shared_ptr<string> DBInstanceName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The task ID.
+    // The ID of the task.
     shared_ptr<int64_t> taskId_ {};
-    // The task name.
+    // The name of the task.
     shared_ptr<string> taskName_ {};
   };
 

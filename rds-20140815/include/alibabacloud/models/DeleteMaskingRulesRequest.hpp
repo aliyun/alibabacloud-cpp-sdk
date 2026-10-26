@@ -98,7 +98,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
-    // The database name.
+    // The name of the database.
     shared_ptr<string> DBName_ {};
     shared_ptr<string> ownerId_ {};
     // The region ID.

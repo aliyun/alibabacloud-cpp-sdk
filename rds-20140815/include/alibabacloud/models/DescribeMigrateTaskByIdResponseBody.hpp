@@ -121,36 +121,37 @@ namespace Models
 
 
   protected:
-    // The type of the backup migration task. Valid values:
+    // The type of the OSS backup migration task. Valid values:
     // 
-    // - **FULL**: The restore operation is performed by using a full backup file.
-    // - **UPDF**: The incremental data is restored by using an incremental backup file or log file.
+    // - **FULL**: restores data by using a full log file.
+    // - **UPDF**: restores incremental data by using differential or log log files.
     shared_ptr<string> backupMode_ {};
-    // The time when the backup migration task was created. The time follows the ISO 8601 standard in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
+    // The time when the OSS backup migration task was created. The time follows the ISO 8601 standard in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
     shared_ptr<string> createTime_ {};
     // The instance ID.
     shared_ptr<string> DBInstanceName_ {};
-    // The database name.
+    // The name of the database.
     shared_ptr<string> DBName_ {};
-    // The description of the backup migration task.
+    // The description of the OSS backup migration task.
     shared_ptr<string> description_ {};
-    // The time when the backup migration task ended. The time follows the ISO 8601 standard in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
+    // The time when the OSS backup migration task ended. The time follows the ISO 8601 standard in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
     shared_ptr<string> endTime_ {};
-    // Indicates whether the import is an overwrite import. Valid values: 
+    // Specifies whether the import overwrites the existing database. Valid values: 
     // 
-    // - **False**: No.
-    // - **True**: Yes.
+    // - **False**: no
+    // - **True**: yes
     shared_ptr<string> isDBReplaced_ {};
     // The ID of the OSS backup migration task.
     shared_ptr<string> migrateTaskId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The status of the backup migration task. Valid values:
-    // - **NoStart**: Not started.
-    // - **Running**: Running.
-    // - **Success**: Succeeded.
-    // - **Failed**: Failed.
-    // - **Waiting**: Waiting for incremental backup file import.
+    // The status of the OSS backup migration task. Valid values:
+    // 
+    // - **NoStart**: The task is not started.
+    // - **Running**: The task is running.
+    // - **Success**: The task is successful.
+    // - **Failed**: The task failed.
+    // - **Waiting**: The task is waiting for the import of incremental backup files.
     shared_ptr<string> status_ {};
   };
 

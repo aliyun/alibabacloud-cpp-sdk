@@ -68,7 +68,7 @@ namespace Models
   protected:
     // A reserved parameter. This parameter is not supported.
     shared_ptr<bool> deleteWithInstance_ {};
-    // The ID of the cloud disk to be detached.
+    // The ID of the cloud disk to detach.
     // 
     // This parameter is required.
     shared_ptr<string> diskId_ {};
@@ -76,7 +76,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region ID. You can call the DescribeRegions operation to query available region IDs.
+    // The region ID. You can call the DescribeRegions operation to view available region IDs.
     shared_ptr<string> regionId_ {};
   };
 

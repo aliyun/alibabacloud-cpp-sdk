@@ -81,13 +81,13 @@ namespace Models
 
 
     protected:
-      // The status code returned.
+      // The returned status code.
       shared_ptr<string> code_ {};
-      // The RDS Custom instance ID.
+      // The instance ID of the RDS Custom instance.
       shared_ptr<string> instanceId_ {};
-      // The message returned for the request.
+      // The returned message of the request.
       // 
-      // > If the request is successful, **Successful** is returned. If the request fails, exception information such as an error code is returned.
+      // > If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
       shared_ptr<string> message_ {};
     };
 

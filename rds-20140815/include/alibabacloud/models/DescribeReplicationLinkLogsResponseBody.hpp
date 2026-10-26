@@ -204,17 +204,17 @@ namespace Models
     protected:
       // The task details.
       shared_ptr<string> detail_ {};
-      // The creation time in UTC.
+      // The creation time (UTC).
       shared_ptr<string> gmtCreated_ {};
-      // The modification time in UTC.
+      // The modification time (UTC).
       shared_ptr<string> gmtModified_ {};
       // The synchronization information. This is a reserved field.
       shared_ptr<string> replicationInfo_ {};
-      // The synchronization status. Valid values:
+      // The synchronization state. Valid values:
       // 
-      // - **steaming**: Synchronizing.
-      // - **finish**: Completed.
-      // - **disconnect**: Disconnected.
+      // - **steaming**: Synchronization is in progress.
+      // - **finish**: Synchronization is completed.
+      // - **disconnect**: Synchronization is disconnected.
       shared_ptr<string> replicationState_ {};
       // The database account used for data synchronization.
       shared_ptr<string> replicatorAccount_ {};
@@ -224,8 +224,8 @@ namespace Models
       shared_ptr<string> sourceAddress_ {};
       // The category of the source instance. Valid values:
       // 
-      // - other: Other.
-      // - aliyunRDS: ApsaraDB RDS instance.
+      // - other: The source instance is of another type.
+      // - aliyunRDS: The source instance is an ApsaraDB RDS instance.
       shared_ptr<string> sourceCategory_ {};
       // The port of the source instance.
       shared_ptr<int64_t> sourcePort_ {};
@@ -235,22 +235,22 @@ namespace Models
       shared_ptr<int64_t> taskId_ {};
       // The task name.
       shared_ptr<string> taskName_ {};
-      // The task stage. Valid values:
+      // The node stage. Valid values:
       // 
-      // - **precheck**: Dry run.
-      // - **basebackup**: Basic backup.
-      // - **startup**: Startup.
-      // - **increment**: Incremental synchronization.
+      // - **precheck**: The node is in the dry run stage.
+      // - **basebackup**: The node is in the basic backup stage.
+      // - **startup**: The node is in the startup stage.
+      // - **increment**: The node is in the incremental synchronization stage.
       shared_ptr<string> taskStage_ {};
       // The task status. Valid values:
       // 
-      // - **success**: Succeeded.
-      // - **failure**: Failed.
-      // - **running**: Running.
+      // - **success**: The task is successful.
+      // - **failure**: The task failed.
+      // - **running**: The task is running.
       shared_ptr<string> taskStatus_ {};
       // The task type. Valid values:
-      // - **create**: Create a replication link.
-      // - **create-dryrun**: Dry run for creating a replication link.
+      // - **create**: Creates a synchronization link.
+      // - **create-dryrun**: Performs a precheck for creating a synchronization link.
       shared_ptr<string> taskType_ {};
     };
 

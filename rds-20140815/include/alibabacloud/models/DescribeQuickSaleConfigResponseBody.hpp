@@ -62,9 +62,10 @@ namespace Models
     // The commodity code. Valid values:
     // 
     // - rds: subscription
+    // 
     // - bards: pay-as-you-go
     shared_ptr<string> commodity_ {};
-    // The commodity configuration details.
+    // The product configuration details.
     Darabonba::Json items_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

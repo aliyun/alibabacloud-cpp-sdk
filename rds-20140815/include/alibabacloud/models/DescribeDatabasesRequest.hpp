@@ -112,20 +112,20 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can call DescribeDBInstances to obtain the instance ID.
+    // Instance ID of the instance. You can call the DescribeDBInstances operation to obtain instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The database name.
+    // The name of the database.
     shared_ptr<string> DBName_ {};
-    // The database status. Valid values:
+    // The status of the database. Valid values:
     // * **Creating**: The database is being created.
-    // * **Running**: The database is running.
+    // * **Running**: The database is in use.
     // * **Deleting**: The database is being deleted.
     shared_ptr<string> DBStatus_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type.
+    // The page number. Valid values: any integer greater than 0 and less than or equal to the maximum integer value.
     // 
     // Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};

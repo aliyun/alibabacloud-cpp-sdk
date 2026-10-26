@@ -72,7 +72,7 @@ namespace Models
     shared_ptr<string> orderId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Reserved parameter.
+    // A reserved parameter.
     shared_ptr<int64_t> taskId_ {};
   };
 

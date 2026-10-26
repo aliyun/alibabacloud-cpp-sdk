@@ -107,7 +107,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
-    // The page number. Valid values: integers greater than 0 and up to the maximum value of the Integer type. Default value: **1**.
+    // The page number. Valid values: any positive integer up to the maximum value of the Integer type. Default value: **1**.
     // 
     // This parameter is required.
     shared_ptr<int64_t> pageNumber_ {};
@@ -120,13 +120,13 @@ namespace Models
     // The internal IP address or public IP address of the self-managed PostgreSQL database.
     // 
     // - In the one-click cloud migration scenario for a self-managed PostgreSQL database on an ECS instance, set this parameter to the private IP address of the ECS instance. For more information about how to obtain the IP address, see [View IP addresses](https://help.aliyun.com/document_detail/273914.html).
-    // - In the one-click cloud migration scenario for a self-managed PostgreSQL database in an on-premises data center, set this parameter to the internal IP address of the on-premises data center.
+    // - In the one-click cloud migration scenario for a self-managed PostgreSQL database in a data center, set this parameter to the internal IP address of the data center.
     shared_ptr<string> sourceIpAddress_ {};
-    // The port of the self-managed PostgreSQL database. You can run the netstat -a | grep PGSQL command to view the port.
+    // The port of the self-managed PostgreSQL database. You can run the `netstat -a | grep PGSQL` command to view the port.
     shared_ptr<int64_t> sourcePort_ {};
-    // The ID of the task. You can obtain the task ID from the response message after you call the CreateCloudMigrationPrecheckTask operation to create a pre-check task for one-click cloud migration.
+    // The ID of the task. You can obtain the task ID from the response message when you call the CreateCloudMigrationPrecheckTask operation to create a pre-check task for one-click cloud migration.
     shared_ptr<int64_t> taskId_ {};
-    // The name of the task. You can obtain the task name from the response message after you call the CreateCloudMigrationPrecheckTask operation to create a pre-check task for one-click cloud migration.
+    // The name of the task. You can obtain the task name from the response message when you call the CreateCloudMigrationPrecheckTask operation to create a pre-check task for one-click cloud migration.
     shared_ptr<string> taskName_ {};
   };
 

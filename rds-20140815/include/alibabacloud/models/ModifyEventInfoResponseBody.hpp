@@ -83,7 +83,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The number of successful records.
     shared_ptr<int32_t> successCount_ {};
-    // The successful event ID.
+    // The success event ID.
     shared_ptr<string> successEventId_ {};
   };
 

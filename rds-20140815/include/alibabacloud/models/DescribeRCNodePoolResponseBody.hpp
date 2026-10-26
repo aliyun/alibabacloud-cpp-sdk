@@ -200,14 +200,14 @@ namespace Models
 
 
       protected:
-        // The type of the system cloud disk. Only **cloud_essd** (Enterprise SSD (ESSD)) is supported.
+        // The category of the system cloud disk. Only **cloud_essd** (ESSD) is supported.
         shared_ptr<string> category_ {};
-        // The performance level (PL) of the standard SSD. Valid values:
+        // The performance level of the ESSD cloud disk. Valid values:
         // 
-        // - **PL0**: A maximum of 10,000 random read/write IOPS per cloud disk.
-        // - **PL1**: A maximum of 50,000 random read/write IOPS per cloud disk.
-        // - **PL2**: A maximum of 100,000 random read/write IOPS per cloud disk.
-        // - **PL3**: A maximum of 1,000,000 random read/write IOPS per cloud disk.
+        // - **PL0**: A single cloud disk delivers up to 10,000 random read/write IOPS.
+        // - **PL1**: A single cloud disk delivers up to 50,000 random read/write IOPS.
+        // - **PL2**: A single cloud disk delivers up to 100,000 random read/write IOPS.
+        // - **PL3**: A single cloud disk delivers up to 1,000,000 random read/write IOPS.
         shared_ptr<string> performanceLevel_ {};
         // The size of the system cloud disk. Unit: GiB.
         shared_ptr<int32_t> size_ {};
@@ -278,21 +278,21 @@ namespace Models
 
 
       protected:
-        // The type of the data cloud disk. Only **cloud_essd** (ESSD cloud disk) is supported.
+        // The category of the data cloud disk. Only **cloud_essd** (ESSD cloud disk) is supported.
         shared_ptr<string> category_ {};
         // A reserved parameter. This parameter is not supported.
         shared_ptr<bool> deleteWithInstance_ {};
         // Indicates whether the cloud disk is encrypted. Valid values:
         // 
-        // - **true**: Encrypted.
-        // - **false** (default): Not encrypted.
+        // - **true**: The cloud disk is encrypted.
+        // - **false** (default): The cloud disk is not encrypted.
         shared_ptr<string> encrypted_ {};
-        // The performance level (PL) of the standard SSD. Valid values:
+        // The performance level of the ESSD cloud disk. Valid values:
         // 
-        // - **PL0**: A maximum of 10,000 random read/write IOPS per cloud disk.
-        // - **PL1**: A maximum of 50,000 random read/write IOPS per cloud disk.
-        // - **PL2**: A maximum of 100,000 random read/write IOPS per cloud disk.
-        // - **PL3**: A maximum of 1,000,000 random read/write IOPS per cloud disk.
+        // - **PL0**: A single cloud disk delivers up to 10,000 random read/write IOPS.
+        // - **PL1**: A single cloud disk delivers up to 50,000 random read/write IOPS.
+        // - **PL2**: A single cloud disk delivers up to 100,000 random read/write IOPS.
+        // - **PL3**: A single cloud disk delivers up to 1,000,000 random read/write IOPS.
         shared_ptr<string> performanceLevel_ {};
         // The size of the data cloud disk. Unit: GiB.
         shared_ptr<int32_t> size_ {};
@@ -524,32 +524,32 @@ namespace Models
     protected:
       // Indicates whether automatic payment is enabled. Valid values:
       // - **true** (default): Automatic payment is enabled. Make sure that your account balance is sufficient.
-      // - **false**: Only an order is generated. No payment is made.
+      // - **false**: Only an order is generated and no payment is made.
       shared_ptr<bool> autoPay_ {};
       // Indicates whether auto-renewal is enabled for the instance. Valid values:
       // 
-      // * **true** (default): Enabled.
-      // * **false**: Disabled.
+      // * **true** (default): Auto-renewal is enabled.
+      // * **false**: Auto-renewal is disabled.
       shared_ptr<bool> autoRenew_ {};
       // The ID of the RDS Custom container cluster.
       shared_ptr<string> clusterId_ {};
-      // Indicates whether the node is allowed to join an ACK cluster.
+      // Indicates whether joining an ACK cluster is allowed.
       shared_ptr<string> createMode_ {};
       // The list of data cloud disks.
       shared_ptr<vector<NodePoolList::DataDisk>> dataDisk_ {};
-      // The deployment set ID.
+      // The ID of the deployment set.
       shared_ptr<string> deploymentSetId_ {};
-      // The instance description.
+      // The description of the instance.
       shared_ptr<string> description_ {};
       // The hostname of the instance.
       shared_ptr<string> hostName_ {};
       // The ID of the image used by the instance.
       shared_ptr<string> imageId_ {};
       // The billing method. Valid values:
-      // * **Prepaid**: subscription.
-      // * **Postpaid**: pay-as-you-go.
+      // * **Prepaid**: Subscription.
+      // * **Postpaid**: Pay-as-you-go.
       shared_ptr<string> instanceChargeType_ {};
-      // The instance name.
+      // The name of the instance.
       shared_ptr<string> instanceName_ {};
       // The instance type.
       shared_ptr<string> instanceType_ {};
@@ -561,29 +561,29 @@ namespace Models
       shared_ptr<string> ioOptimized_ {};
       // The name of the key pair.
       shared_ptr<string> keyPairName_ {};
-      // The node pool ID.
+      // The ID of the node pool.
       shared_ptr<string> nodePoolId_ {};
       // The name of the node pool.
       shared_ptr<string> nodePoolName_ {};
-      // The password of the root account of the instance.
+      // The password of the root account for the instance.
       shared_ptr<string> password_ {};
-      // The subscription duration of the resource.
+      // The subscription duration.
       shared_ptr<int32_t> period_ {};
-      // The unit of the subscription billable methods duration. Valid values:
-      // - **Year**: year.
-      // - **Month** (default): month.
+      // The unit of the subscription duration for the subscription Billable methods. Valid values:
+      // - **Year**: Year.
+      // - **Month** (default): Month.
       shared_ptr<string> periodUnit_ {};
       // The region ID of the instance.
       shared_ptr<string> regionId_ {};
-      // The resource group ID.
+      // The ID of the resource group.
       shared_ptr<string> resourceGroupId_ {};
       // A reserved parameter. This parameter is not supported.
       shared_ptr<string> securityEnhancementStrategy_ {};
-      // The security group ID.
+      // The ID of the security group.
       shared_ptr<string> securityGroupId_ {};
       // A reserved parameter. This parameter is not supported.
       shared_ptr<string> spotStrategy_ {};
-      // The system cloud disk specifications.
+      // The specifications of the system cloud disk.
       shared_ptr<NodePoolList::SystemDisk> systemDisk_ {};
       // The list of tags.
       shared_ptr<vector<NodePoolList::Tag>> tag_ {};

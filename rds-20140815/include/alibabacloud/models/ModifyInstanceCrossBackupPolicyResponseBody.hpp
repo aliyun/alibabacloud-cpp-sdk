@@ -112,27 +112,27 @@ namespace Models
 
 
   protected:
-    // The status of the cross-region backup feature. Valid values:
-    // * **Disable**: Disabled.
-    // * **Enable**: Enabled.
+    // Indicates whether the overall cross-region backup feature is enabled. Valid values:
+    // * **Disable**: The feature is disabled.
+    // * **Enable**: The feature is enabled.
     shared_ptr<string> backupEnabled_ {};
     // The ID of the destination region for cross-region backup.
     shared_ptr<string> crossBackupRegion_ {};
-    // The type of cross-region backup retention. Default value: **1**, which indicates that all backups are retained.
+    // The retention type of cross-region backups. Default value: **1**, which indicates that all backups are retained.
     shared_ptr<string> crossBackupType_ {};
     // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // The status of cross-region log backup. Valid values:
-    // * **Disable**: Disabled.
-    // * **Enable**: Enabled.
+    // Indicates whether cross-region log backup is enabled. Valid values:
+    // * **Disable**: Cross-region log backup is disabled.
+    // * **Enable**: Cross-region log backup is enabled.
     shared_ptr<string> logBackupEnabled_ {};
-    // The region ID of the source instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
+    // The region ID of the source instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query region IDs.
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The cross-region backup retention method. Default value: **1**, which indicates retention by duration.
+    // The retention method for cross-region backups. Default value: **1**, which indicates that backups are retained based on a specified retention period.
     shared_ptr<int32_t> retentType_ {};
-    // The number of days for which cross-region backups are retained. Valid values: **7 to 1825**.
+    // The retention period of cross-region backups. Valid values: **7 to 1825**. Unit: days.
     shared_ptr<int32_t> retention_ {};
   };
 

@@ -112,7 +112,7 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can generate the value of this parameter on the client side. The value must be unique across different requests and can be up to 64 ASCII characters in length. The value cannot contain non-ASCII characters.
     shared_ptr<string> clientToken_ {};
     // The commodity code of the instance to query.
     // 
@@ -131,8 +131,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> commodityCode_ {};
-    // The instance ID. You can call DescribeDBInstances to obtain the instance ID.
-    // >This parameter is required when you query the instance type list for read-only instances, which means you set the **CommodityCode** parameter to a commodity code for read-only instances.
+    // The instance ID. You can call the DescribeDBInstances operation to obtain the instance ID.
+    // > When you query the list of instance types for read-only instances, which means you specify the commodity code of a read-only instance for the **CommodityCode** parameter, this parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     // The database engine type. Valid values:
     // * **MySQL**
@@ -140,17 +140,17 @@ namespace Models
     // * **PostgreSQL**
     // * **MariaDB**
     shared_ptr<string> engine_ {};
-    // The type of order to query. Valid values:
-    // * **BUY**: New purchase.
-    // * **UPGRADE**: Configuration change.
+    // The order type to query. Valid values:
+    // * **BUY**: Purchase.
+    // * **UPGRADE**: Upgrade.
     // * **RENEW**: Renewal.
-    // * **CONVERT**: Billing method change.
+    // * **CONVERT**: Billing method conversion.
     // 
     // This parameter is required.
     shared_ptr<string> orderType_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call DescribeRegions to obtain the region ID.
-    // >This parameter is required if you use an Alibaba Cloud International Website account.
+    // The region ID. You can call the DescribeRegions operation to obtain the region ID.
+    // > If you use an Alibaba Cloud international site account, this parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

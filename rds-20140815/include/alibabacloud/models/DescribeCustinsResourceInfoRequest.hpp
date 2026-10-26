@@ -75,12 +75,12 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can call [DescribeDBInstances](https://help.aliyun.com/document_detail/26232.html) to query the instance ID.
+    // The instance IDs. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/26232.html) operation to query the instance IDs.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceIds_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

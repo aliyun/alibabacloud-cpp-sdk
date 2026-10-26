@@ -68,9 +68,9 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // The start time of the restorable time range for backups.
+    // The start time of the restorable time range.
     shared_ptr<string> recoveryBeginTime_ {};
-    // The end time of the restorable time range for backups.
+    // The end time of the restorable time range.
     shared_ptr<string> recoveryEndTime_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

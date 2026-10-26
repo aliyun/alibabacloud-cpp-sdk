@@ -75,11 +75,11 @@ namespace Models
 
 
   protected:
-    // The beginning of the time range to query. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+    // The start time of the query. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> from_ {};
-    // The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type.
+    // The page number. Valid values: integers greater than **0** and less than or equal to the maximum value of the Integer type.
     // 
     // Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
@@ -90,14 +90,14 @@ namespace Models
     // 
     // Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
-    // The end of the time range to query. The end time must be later than the start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+    // The end time of the query. The end time must be later than the start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> to_ {};
-    // Specifies whether to include confirmed notifications in the query results. Valid values:
-    // - **true**: Include confirmed notifications.
-    // - **false**: Do not include confirmed notifications.
-    // >Confirmed notifications are notifications that have been marked as confirmed by calling the ConfirmNotify operation.
+    // Specifies whether the query results include confirmed notifications. Valid values:
+    // - **true**: Includes confirmed notifications.
+    // - **false**: Does not include confirmed notifications.
+    // > Confirmed notifications are those that have been marked as confirmed by calling the ConfirmNotify operation.
     // 
     // This parameter is required.
     shared_ptr<bool> withConfirmed_ {};

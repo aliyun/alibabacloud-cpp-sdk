@@ -77,7 +77,7 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // The response message.
+    // The returned message.
     shared_ptr<string> message_ {};
     // The order ID.
     shared_ptr<string> orderId_ {};

@@ -147,7 +147,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeDBInstanceIPArrayListResponseBody::Items> items_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

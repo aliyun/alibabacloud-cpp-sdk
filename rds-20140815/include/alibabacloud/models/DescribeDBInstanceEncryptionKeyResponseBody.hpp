@@ -172,27 +172,27 @@ namespace Models
       shared_ptr<string> aliasName_ {};
       // The creator of the key.
       shared_ptr<string> creator_ {};
-      // The scheduled time when the key is to be deleted. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // The estimated time when the key is deleted. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
       shared_ptr<string> deleteDate_ {};
       // The description of the key.
       shared_ptr<string> description_ {};
       // The key ID.
       shared_ptr<string> encryptionKey_ {};
       // The status of the key. Valid values:
-      // - **Enabled**: Enabled.
-      // - **Disabled**: Disabled.
+      // - **Enabled**: The key is enabled.
+      // - **Disabled**: The key is disabled.
       shared_ptr<string> encryptionKeyStatus_ {};
       // The type of the key. Valid values:
-      // - CMK: customer master key (CMK).
-      // - ServiceKey: service key.
+      // - CMK: customer master key
+      // - ServiceKey: service key
       shared_ptr<string> keyType_ {};
-      // The purpose of the key.
+      // The usage of the key.
       shared_ptr<string> keyUsage_ {};
-      // The expiration time of the key material. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // The expiration time of the key material. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
       shared_ptr<string> materialExpireTime_ {};
       // The source of the key.
       shared_ptr<string> origin_ {};
-      // The usage of the key. Valid values:
+      // The usage of the key:
       // 
       // - **TDE**: transparent data encryption.
       // - **DiskEncryption**: cloud disk encryption.
@@ -277,7 +277,7 @@ namespace Models
   protected:
     // The creator of the key.
     shared_ptr<string> creator_ {};
-    // The scheduled time when the key is to be deleted. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+    // The estimated time when the key is deleted. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
     shared_ptr<string> deleteDate_ {};
     // The description of the key.
     shared_ptr<string> description_ {};
@@ -286,12 +286,12 @@ namespace Models
     // The list of keys.
     shared_ptr<vector<DescribeDBInstanceEncryptionKeyResponseBody::EncryptionKeyList>> encryptionKeyList_ {};
     // The status of the key. Valid values:
-    // - **Enabled**: Enabled.
-    // - **Disabled**: Disabled.
+    // - **Enabled**: The key is enabled.
+    // - **Disabled**: The key is disabled.
     shared_ptr<string> encryptionKeyStatus_ {};
-    // The purpose of the key.
+    // The usage of the key.
     shared_ptr<string> keyUsage_ {};
-    // The expiration time of the key material. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+    // The expiration time of the key material. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
     shared_ptr<string> materialExpireTime_ {};
     // The source of the key.
     shared_ptr<string> origin_ {};

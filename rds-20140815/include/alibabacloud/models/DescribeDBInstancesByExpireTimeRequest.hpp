@@ -140,7 +140,7 @@ namespace Models
 
 
   protected:
-    // The remaining available days of the instance. Valid values: **0** to **180**.
+    // The number of remaining available days of the instance. Valid values: **0** to **180**.
     shared_ptr<int32_t> expirePeriod_ {};
     // The expiration status of the instance. Valid values:
     // 
@@ -149,7 +149,7 @@ namespace Models
     shared_ptr<bool> expired_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. The value must be greater than **0** and must not exceed the maximum value of the Integer data type.
+    // The page number. Valid values: an integer greater than **0** and less than or equal to the maximum value of the Integer data type.
     // 
     // Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
@@ -157,15 +157,15 @@ namespace Models
     // 
     // Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID. You can call DescribeRegions to obtain the region ID.
+    // The region ID. You can call the DescribeRegions operation to query the region ID.
     shared_ptr<string> regionId_ {};
-    // The resource group ID. You can call DescribeDBInstanceAttribute to obtain the resource group ID.
+    // The resource group ID. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The tags that are bound to the instance, including TagKey and TagValue. You can specify up to 5 tag pairs at a time. Format: `{"key1":"value1","key2":"value2"...}`.
+    // The tags added to the instances to be queried, including TagKey and TagValue. You can specify up to 5 tags in a single request. Format: `{"key1":"value1","key2":"value2"...}`.
     shared_ptr<string> tags_ {};
-    // A deprecated parameter. You do not need to configure this parameter.
+    // **[Deprecated]** This parameter is deprecated and does not need to be configured.
     shared_ptr<string> proxyId_ {};
   };
 

@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The scope of the modification. Valid values:
     // * **instance**: instance level.

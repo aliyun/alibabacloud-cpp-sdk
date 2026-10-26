@@ -136,7 +136,7 @@ namespace Models
 
   protected:
     shared_ptr<PreCheckCreateOrderForDeleteDBNodesResponseBody::Failures> failures_ {};
-    // The precheck result.
+    // The pre-check result.
     shared_ptr<bool> preCheckResult_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

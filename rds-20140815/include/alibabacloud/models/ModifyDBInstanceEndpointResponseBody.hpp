@@ -69,7 +69,7 @@ namespace Models
 
 
     protected:
-      // The endpoint ID of the instance.
+      // The ID of the endpoint.
       shared_ptr<string> DBInstanceEndpointId_ {};
       // The instance ID.
       shared_ptr<string> DBInstanceName_ {};
@@ -94,9 +94,9 @@ namespace Models
 
 
   protected:
-    // The returned fields.
+    // The list of returned fields.
     shared_ptr<ModifyDBInstanceEndpointResponseBody::Data> data_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

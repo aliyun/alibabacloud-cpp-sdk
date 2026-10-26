@@ -488,11 +488,11 @@ namespace Models
     shared_ptr<string> pageNumber_ {};
     // The number of backup sets on the current page.
     shared_ptr<string> pageRecordCount_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The size of the snapshot chain of the instance. Unit: bytes.
+    // The size of the snapshot chain for the instance. Unit: bytes.
     shared_ptr<int64_t> totalEcsSnapshotSize_ {};
-    // The total number of records.
+    // The total number of entries.
     shared_ptr<string> totalRecordCount_ {};
   };
 

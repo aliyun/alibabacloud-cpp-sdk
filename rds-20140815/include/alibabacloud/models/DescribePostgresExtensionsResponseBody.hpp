@@ -138,7 +138,7 @@ namespace Models
 
 
     protected:
-      // The extension category.
+      // The category of the extension.
       shared_ptr<string> category_ {};
       // The purpose of the extension.
       shared_ptr<string> comment_ {};
@@ -146,17 +146,17 @@ namespace Models
       shared_ptr<string> defaultVersion_ {};
       // The currently installed version of the extension.
       shared_ptr<string> installedVersion_ {};
-      // The extension name.
+      // The name of the extension.
       shared_ptr<string> name_ {};
-      // The user to which the extension belongs.
+      // The owner of the extension.
       shared_ptr<string> owner_ {};
-      // The extension priority.
+      // The priority of the extension.
       shared_ptr<string> priority_ {};
-      // The extensions on which this extension depends during installation.
+      // The extensions on which this extension depends when it is installed.
       shared_ptr<string> requires_ {};
       // The Alibaba Cloud account ID.
       // 
-      // > This parameter is returned only for exclusive extensions (extensions written by the user). Each Alibaba Cloud account can view only its own exclusive extensions.
+      // > This parameter is returned only for exclusive extensions (extensions written by users). Each Alibaba Cloud account displays only its own exclusive extensions.
       shared_ptr<string> uid_ {};
     };
 
@@ -262,19 +262,19 @@ namespace Models
 
 
     protected:
-      // The extension category. Valid values:
+      // The category of the extension. Valid values:
       // 
-      // - **external_access**: external access.
-      // - **index_support**: index support.
-      // - **information_stat**: information statistics.
-      // - **geography_space**: geospatial.
-      // - **vector_engine**: vector engine.
-      // - **timing_engine**: time series engine.
-      // - **data_type**: data type.
-      // - **encrypt_secure**: encryption and security.
-      // - **text_process**: text processing.
-      // - **operation_maintenance**: application O&M.
-      // - **self_develop**: self-developed.
+      // - **external_access**: external access
+      // - **index_support**: index support
+      // - **information_sta**t: information statistics
+      // - **geography_space**: geospatial
+      // - **vector_engine**: vector engine
+      // - **timing_engine**: time series engine
+      // - **data_type**: data type
+      // - **encrypt_secure**: encryption and security
+      // - **text_process**: text processing
+      // - **operation_maintenance**: application O&M
+      // - **self_develop**: self-developed
       shared_ptr<string> category_ {};
       // The purpose of the extension.
       shared_ptr<string> comment_ {};
@@ -282,20 +282,20 @@ namespace Models
       shared_ptr<string> defaultVersion_ {};
       // The currently installed version of the extension.
       shared_ptr<string> installedVersion_ {};
-      // The extension name.
+      // The name of the extension.
       shared_ptr<string> name_ {};
-      // The user to which the extension belongs.
+      // The owner of the extension.
       shared_ptr<string> owner_ {};
-      // The extension priority. Valid values:
+      // The priority of the extension. Valid values:
       // 
-      // - **0**: displayed by default.
-      // - **1**: displayed with priority.
+      // - **0**: displayed by default
+      // - **1**: displayed with priority
       shared_ptr<string> priority_ {};
-      // The extensions on which this extension depends during installation.
+      // The extensions on which this extension depends when it is installed.
       shared_ptr<string> requires_ {};
       // The Alibaba Cloud account ID.
       // 
-      // > This parameter is returned only for exclusive extensions (extensions written by the user). Each Alibaba Cloud account can view only its own exclusive extensions.
+      // > This parameter is returned only for exclusive extensions (extensions written by users). Each Alibaba Cloud account displays only its own exclusive extensions.
       shared_ptr<string> uid_ {};
     };
 
@@ -338,7 +338,7 @@ namespace Models
   protected:
     // The list of installed extensions in the specified database.
     shared_ptr<vector<DescribePostgresExtensionsResponseBody::InstalledExtensions>> installedExtensions_ {};
-    // The overview information about extensions.
+    // The overview information about the extensions.
     Darabonba::Json overview_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

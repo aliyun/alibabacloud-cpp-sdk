@@ -245,7 +245,7 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of queried entries.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalSize_ {};
   };
 

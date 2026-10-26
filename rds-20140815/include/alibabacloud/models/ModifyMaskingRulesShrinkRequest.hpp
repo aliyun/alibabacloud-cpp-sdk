@@ -140,7 +140,7 @@ namespace Models
     shared_ptr<string> defaultAlgo_ {};
     // Specifies whether the rule is enabled. Valid values: true and false.
     shared_ptr<string> enabled_ {};
-    // The rule algorithms. You can specify multiple algorithms. Masking algorithms can include additional parameters. Format: {name: algorithm1}, {name: algorithm2, params: {encryption position, encryption length}}.
+    // The rule algorithms. You can specify multiple algorithms and add extra parameters for masking algorithms. Format: {name: Algorithm 1}, {name: Algorithm 2, params: {encryption position, number of encrypted digits}}.
     shared_ptr<string> maskingAlgo_ {};
     shared_ptr<string> ownerId_ {};
     // The region ID.
@@ -149,7 +149,7 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The rule configuration in JSON string format.
     shared_ptr<string> ruleConfigShrink_ {};
-    // The name of the rule to modify.
+    // The name of the rule to be modified.
     // 
     // This parameter is required.
     shared_ptr<string> ruleName_ {};

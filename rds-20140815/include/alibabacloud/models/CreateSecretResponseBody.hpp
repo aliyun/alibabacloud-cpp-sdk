@@ -68,14 +68,14 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The user credential of the created Data API account.
+    // The ARN of the created Data API user credential.
     shared_ptr<string> secretArn_ {};
     // The name of the user credential.
     shared_ptr<string> secretName_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // - **true**: The request was successful.
-    // - **false**: The request failed.
+    // - **true**: The request is successful.
+    // - **false**: The request fails.
     shared_ptr<bool> success_ {};
   };
 

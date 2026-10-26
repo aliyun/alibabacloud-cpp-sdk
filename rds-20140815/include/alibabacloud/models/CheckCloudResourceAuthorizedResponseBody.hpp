@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The authorization status. Valid values:
     // - **1**: Authorized.
-    // - **0**: Not authorized.
+    // - **0**: Unauthorized.
     shared_ptr<int32_t> authorizationState_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

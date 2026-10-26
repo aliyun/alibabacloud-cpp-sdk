@@ -167,44 +167,44 @@ namespace Models
 
 
   protected:
-    // The business extension parameter.
+    // The business extension parameters.
     shared_ptr<string> businessInfo_ {};
-    // The client token that is used to ensure the idempotence of the request.
+    // Ensures the idempotence of the request.
     shared_ptr<string> clientToken_ {};
-    // The instance type. For more information, see [Primary instance types](https://help.aliyun.com/document_detail/26312.html). Default value: the current instance type.
+    // The instance type. For more information about instance types, see [Primary instance types](https://help.aliyun.com/document_detail/26312.html). Default value: the current instance type.
     shared_ptr<string> DBInstanceClass_ {};
-    // The instance ID. You can call DescribeDBInstances to obtain the instance ID.
+    // Instance ID of the instance. You can call the DescribeDBInstances operation to obtain instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The order type. The only valid value is **BUY**.
+    // The order type. Valid value: **BUY**.
     shared_ptr<string> orderType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The billing method of the instance. Valid values:
     // 
-    // * **Postpaid**: pay-as-you-go
-    // * **Prepaid**: subscription
+    // * **Postpaid**: pay-as-you-go.
+    // * **Prepaid**: subscription.
     shared_ptr<string> payType_ {};
     // The number of instances. Default value: **1**.
     shared_ptr<int32_t> quantity_ {};
-    // The region ID. You can call DescribeRegions to obtain the region ID.
+    // The ID of the region. You can call the DescribeRegions operation to obtain the ID.
     shared_ptr<string> regionId_ {};
-    // The resource group ID. You can call DescribeDBInstanceAttribute to obtain the resource group ID.
+    // The ID of the resource group. You can call the DescribeDBInstanceAttribute operation to obtain the ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The subscription type of the instance. Valid values:
+    // The unit of the subscription duration. Valid values:
     // 
-    // * **Year**: yearly subscription
-    // * **Month**: monthly subscription
+    // * **Year**: year.
+    // * **Month**: month.
     // 
     // This parameter is required.
     shared_ptr<string> timeType_ {};
     // The subscription duration of the instance. Valid values:
     // 
-    // * If **TimeType** is set to **Year**, the value ranges from **1 to 3**.
-    // * If **TimeType** is set to **Month**, the value ranges from **1 to 9**.
+    // * If the **TimeType** parameter is set to **Year**, valid values are **1 to 3**.
+    // * If the **TimeType** parameter is set to **Month**, valid values are **1 to 9**.
     // 
     // This parameter is required.
     shared_ptr<int32_t> usedTime_ {};

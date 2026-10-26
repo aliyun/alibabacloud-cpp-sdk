@@ -109,7 +109,7 @@ namespace Models
       shared_ptr<string> status_ {};
       // The effective period of the parameter modification.
       shared_ptr<string> switchTime_ {};
-      // The ID of the scheduled task for parameter modification.
+      // The ID of the scheduled parameter modification task.
       shared_ptr<string> taskId_ {};
     };
 

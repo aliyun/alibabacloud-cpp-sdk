@@ -80,7 +80,7 @@ namespace Models
     protected:
       // The number of nodes created by this call.
       shared_ptr<string> createMemberCount_ {};
-      // The GAD cluster ID.
+      // The ID of the global active database cluster.
       shared_ptr<string> gadInstanceName_ {};
       // The task ID.
       shared_ptr<string> taskID_ {};

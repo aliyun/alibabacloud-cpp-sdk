@@ -105,14 +105,14 @@ namespace Models
   protected:
     // The system architecture of the image. Valid values:
     // 
-    // - x86_64.
-    // - arm64.
+    // - x86_64
+    // - arm64
     shared_ptr<string> architecture_ {};
     // The image ID.
     shared_ptr<string> imageId_ {};
     // The image name.
     shared_ptr<string> imageName_ {};
-    // Queries available images for the specified instance type.
+    // The instance type for which to query available images.
     shared_ptr<string> instanceType_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

@@ -138,13 +138,13 @@ namespace Models
       protected:
         // The primary key of the data table.
         shared_ptr<int32_t> id_ {};
-        // The IP address list.
+        // The list of IP addresses.
         shared_ptr<string> ips_ {};
-        // The whitelist template ID.
+        // The ID of the whitelist template.
         shared_ptr<int32_t> templateId_ {};
-        // The whitelist template name.
+        // The name of the whitelist template.
         shared_ptr<string> templateName_ {};
-        // The user ID.
+        // The ID of the user.
         shared_ptr<int32_t> userId_ {};
       };
 
@@ -203,23 +203,25 @@ namespace Models
 
 
     protected:
-      // The page number.
+      // The current page number.
       shared_ptr<int32_t> currPageNumbers_ {};
-      // Indicates whether there is a next page of data that meets the conditions. Valid values:
+      // Indicates whether the queried data has a next page. Valid values:
+      // 
       // - **true**: Yes.
       // - **false**: No.
       shared_ptr<bool> hasNext_ {};
-      // Indicates whether there is a previous page of data that meets the conditions. Valid values:
+      // Indicates whether the queried data has a previous page. Valid values:
+      // 
       // - **true**: Yes.
       // - **false**: No.
       shared_ptr<bool> hasPrev_ {};
-      // The number of records per page.
+      // The number of entries per page.
       shared_ptr<int32_t> maxRecordsPerPage_ {};
-      // The whitelist template information returned by page.
+      // The whitelist templates returned on the current page.
       shared_ptr<vector<Data::Templates>> templates_ {};
       // The total number of pages.
       shared_ptr<int32_t> totalPageNumbers_ {};
-      // The total number of records.
+      // The total number of entries.
       shared_ptr<int32_t> totalRecords_ {};
     };
 
@@ -271,22 +273,24 @@ namespace Models
 
   protected:
     // The response code. Valid values:
+    // 
     // - **200**: Normal.
-    // - **400**: Client fault.
-    // - **401**: Authentication failed.
-    // - **404**: Request page not found.
-    // - **500**: Server fault.
+    // - **400**: Client error.
+    // - **401**: Failed to authenticate.
+    // - **404**: Requested page not found.
+    // - **500**: Server error.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<DescribeAllWhitelistTemplateResponseBody::Data> data_ {};
     // The HTTP status code. Valid values:
-    // - **200**: Success.
+    // 
+    // - **200**: Normal.
     // - **400**: Client error.
     // - **500**: Server error.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The returned message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 

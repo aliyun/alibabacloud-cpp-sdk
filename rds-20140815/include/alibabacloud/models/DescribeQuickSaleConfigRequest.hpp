@@ -60,15 +60,16 @@ namespace Models
     // The commodity code. Valid values:
     // 
     // - rds: subscription
+    // 
     // - bards: pay-as-you-go
     shared_ptr<string> commodity_ {};
-    // The database engine. Valid values:
+    // The database engine type. Valid values:
     // * **MySQL**
     // * **SQLServer**
     // * **PostgreSQL**
     // * **MariaDB**
     shared_ptr<string> engine_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the available regions.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the region ID.
     shared_ptr<string> regionId_ {};
   };
 

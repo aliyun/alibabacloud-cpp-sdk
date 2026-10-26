@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The user backup ID.
+    // The ID of the user backup.
     shared_ptr<string> backupId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

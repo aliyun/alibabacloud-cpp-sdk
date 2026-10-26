@@ -89,15 +89,15 @@ namespace Models
     // The IP address of the AD domain server.
     shared_ptr<string> ADServerIpAddress_ {};
     // The status of the AD domain. Valid values:
-    // * **-1**: The instance is being joined to the AD domain.
-    // * **0**: Failed to join the AD domain.
-    // * **1**: Joined the AD domain.
+    // * **-1**: The instance is joining the AD domain.
+    // * **0**: The instance failed to join the AD domain.
+    // * **1**: The instance joined the AD domain.
     shared_ptr<string> ADStatus_ {};
-    // The reason for the exception.
+    // The cause of the exception.
     shared_ptr<string> abnormalReason_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The username of the AD domain.
+    // The username for the AD domain.
     shared_ptr<string> userName_ {};
   };
 

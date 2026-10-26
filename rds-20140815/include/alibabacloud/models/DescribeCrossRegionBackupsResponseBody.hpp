@@ -392,7 +392,7 @@ namespace Models
     // The end time of the query.
     shared_ptr<string> endTime_ {};
     shared_ptr<DescribeCrossRegionBackupsResponseBody::Items> items_ {};
-    // The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type.
+    // The page number. Valid values: any integer greater than 0 and less than or equal to the maximum value of the Integer type.
     // 
     // Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
@@ -404,7 +404,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The start time of the query.
     shared_ptr<string> startTime_ {};
-    // The total number of records.
+    // The total number of entries.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

@@ -121,29 +121,29 @@ namespace Models
 
 
   protected:
-    // The backup set ID.
+    // The ID of the backup set.
     shared_ptr<string> backupId_ {};
     // The backup mode. Valid values:
     // * **Automated**: automatic backup
     // * **Manual**: manual backup
     shared_ptr<string> backupMode_ {};
     // The status of the backup set. Valid values:
-    // * **Success**: The backup is complete.
+    // * **Success**: The backup is completed.
     // * **Failed**: The backup failed.
     shared_ptr<string> backupStatus_ {};
     // The backup type. Valid values:
     // * **FullBackup**: full backup
     // * **IncrementalBackup**: incremental backup
     shared_ptr<string> backupType_ {};
-    // The instance ID. You can call DescribeDBInstances to obtain the instance ID.
+    // Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The end time of the query. The end time must be later than the start time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z (UTC).
+    // The end time of the query. The end time must be later than the start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
     // 
-    // > Narrow down the time range when you use this operation to query backup sets. A large time range may cause a timeout.
+    // > When you call this operation to query backup sets, keep the time range short. A long time range may cause a timeout.
     shared_ptr<string> endTime_ {};
-    // The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type.
+    // The page number. Valid values: an integer greater than 0 and less than or equal to the maximum integer value.
     // 
     // Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
@@ -155,7 +155,7 @@ namespace Models
     // Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The start time of the query. Format: <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z (UTC).
+    // The start time of the query. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
     shared_ptr<string> startTime_ {};
   };
 

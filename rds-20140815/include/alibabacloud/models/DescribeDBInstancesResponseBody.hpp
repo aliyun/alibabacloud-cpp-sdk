@@ -810,17 +810,19 @@ namespace Models
 
   protected:
     shared_ptr<DescribeDBInstancesResponseBody::Items> items_ {};
-    // The pagination token. If the results are displayed on multiple pages, pass this value in the **NextToken** parameter in the next request to display the next page.
+    // The pagination token. If the response is paginated, you can pass this value to the **NextToken** parameter in the next call to retrieve the next page.
     shared_ptr<string> nextToken_ {};
     // The page number.
-    // > If you specify the **MaxResults** or **NextToken** parameter, only **1** is returned for this parameter. You can ignore this return value.
+    // 
+    // > If you specify the **MaxResults** or **NextToken** parameter, this parameter returns only **1** and can be ignored.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of instances on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of records.
-    // > If you specify the **MaxResults** or **NextToken** parameter, only the number of records on the current page is returned for this parameter. You can ignore this return value.
+    // 
+    // > If you specify the **MaxResults** or **NextToken** parameter, this parameter returns only the number of records on the current page and can be ignored.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

@@ -339,62 +339,62 @@ namespace Models
 
 
       protected:
-        // The cloud service type of the application group. Valid values:
-        // - **web**: web application.
-        // - **native**: on-premises application.
+        // The type of the cloud service for the application group. Valid values:
+        // - **web**: web application
+        // - **native**: native application
         shared_ptr<string> cmsProduct_ {};
-        // The database type.
+        // The type of the database.
         shared_ptr<string> dbType_ {};
         // The pagination parameter.
         shared_ptr<string> detailImpact_ {};
-        // The instance operation details.
+        // The details of the instance operation.
         shared_ptr<string> detailReason_ {};
-        // The alert end time.
+        // The end time of the alert.
         shared_ptr<string> endTime_ {};
         // The system event categorization. Valid values:
-        // - **Exception**: abnormal event.
-        // - **Optimize**: optimization events.
-        // - **Notification**: notification event.
-        // - **Maintenance**: scheduled maintenance event.
+        // - **Exception**: abnormal event
+        // - **Optimize**: optimization events
+        // - **Notification**: notification event
+        // - **Maintenance**: scheduled maintenance event
         shared_ptr<string> eventCategory_ {};
         // The event code.
         shared_ptr<string> eventCode_ {};
         // The event details.
         shared_ptr<string> eventDetail_ {};
-        // The event ID.
+        // The ID of the event.
         shared_ptr<string> eventId_ {};
-        // The event impact overview.
+        // The impact overview of the event.
         shared_ptr<string> eventImpact_ {};
         // The event level. Valid values:
-        // - **INFO**: notification.
-        // - **WARN**: warning.
-        // - **CRITICAL**: critical.
+        // - **INFO**: information
+        // - **WARN**: warning
+        // - **CRITICAL**: critical
         shared_ptr<string> eventLevel_ {};
         // The source of the event operation.
         shared_ptr<string> eventReason_ {};
-        // The event status. Valid values:
-        // - **Inquiring**: inquiring.
-        // - **Scheduled**: scheduled.
-        // - **Running**: running.
-        // - **Succeed**: completed.
-        // - **Failed**: failed.
-        // - **Canceled**: canceled.
+        // The status of the event. Valid values:
+        // - **Inquiring**: inquiring
+        // - **Scheduled**: scheduled
+        // - **Running**: running
+        // - **Succeed**: succeeded
+        // - **Failed**: failed
+        // - **Canceled**: canceled
         shared_ptr<string> eventStatus_ {};
         // The system event type. Valid values: 
         // - **SystemMaintenance.Reboot**: The instance is restarted due to system maintenance.
-        // - **SystemMaintenance.Redeploy**: The instance is redeployed due to system maintenance.
-        // - **SystemFailure.Reboot**: The instance is restarted due to a system error.
-        // - **SystemFailure.Redeploy**: The instance is redeployed due to a system error.
-        // - **SystemFailure.Delete**: The instance is released due to an instance creation failure.
-        // - **InstanceFailure.Reboot**: The instance is restarted due to an instance error.
-        // - **InstanceExpiration.Stop**: The instance is stopped due to subscription expiration.
-        // - **InstanceExpiration.Delete**: The instance is released due to subscription expiration.
+        // - **SystemMaintenance.Redeploy**: The instance undergoes redeployment due to system maintenance.
+        // - **SystemFailure.Reboot**: The instance is restarted due to a system fault.
+        // - **SystemFailure.Redeploy**: The instance undergoes redeployment due to a system fault.
+        // - **SystemFailure.Delete**: The instance is released because instance creation failed.
+        // - **InstanceFailure.Reboot**: The instance is restarted due to an instance fault.
+        // - **InstanceExpiration.Stop**: The subscription instance is stopped due to expiration.
+        // - **InstanceExpiration.Delete**: The subscription instance is released due to expiration.
         // - **AccountUnbalanced.Stop**: The pay-as-you-go instance is stopped due to an overdue payment.
         // - **AccountUnbalanced.Delete**: The pay-as-you-go instance is released due to an overdue payment.
         shared_ptr<string> eventType_ {};
-        // The time when the event was created.
+        // The creation time of the event.
         shared_ptr<string> gmtCreated_ {};
-        // The time when the event was last updated.
+        // The update time of the event.
         shared_ptr<string> gmtModified_ {};
         // The handling status.
         shared_ptr<string> handleStatus_ {};
@@ -402,26 +402,26 @@ namespace Models
         shared_ptr<int32_t> hasLifeCycle_ {};
         // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // The instance name.
+        // The name of the instance.
         shared_ptr<string> instanceName_ {};
-        // Indicates whether the event is closed. Valid values:
-        // - **0**: closed.
-        // - **1**: open.
+        // Indicates whether the event is successfully closed. Valid values:
+        // - **0**: closed
+        // - **1**: open
         shared_ptr<int32_t> isClosed_ {};
-        // The product name.
+        // The name of the product.
         shared_ptr<string> product_ {};
         // The region ID.
         shared_ptr<string> regionId_ {};
-        // The resource type. Valid values:
-        // - **Instance**: instance resource.
-        // - **Host**: host resource.
-        // - **User**: user resource.
+        // The type of the resource. Valid values:
+        // - **Instance**: instance
+        // - **Host**: host
+        // - **User**: user
         shared_ptr<string> resourceType_ {};
         // The type of the source data.
         shared_ptr<string> sourceType_ {};
         // The start time.
         shared_ptr<string> startTime_ {};
-        // The ID of the user who owns the resource.
+        // The ID of the user to which the resource belongs.
         shared_ptr<string> uid_ {};
       };
 
@@ -489,17 +489,17 @@ namespace Models
     protected:
       // The data overview.
       shared_ptr<Items::Data> data_ {};
-      // The task ID.
+      // The ID of the task.
       shared_ptr<string> id_ {};
       // The region.
       shared_ptr<string> region_ {};
-      // The event source.
+      // The source of the event.
       shared_ptr<string> source_ {};
       // The database version.
       shared_ptr<string> specversion_ {};
       // The name of the pending event.
       shared_ptr<string> subject_ {};
-      // The elapsed time of the query task. Unit: seconds.
+      // The running duration of the query task. Unit: seconds.
       shared_ptr<string> time_ {};
       // The event type.
       shared_ptr<string> type_ {};
@@ -545,13 +545,13 @@ namespace Models
 
 
   protected:
-    // The event list.
+    // The list of events.
     shared_ptr<vector<DescribeHistoryEventsResponseBody::Items>> items_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};

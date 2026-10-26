@@ -66,18 +66,18 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can call DescribeDBInstances to obtain the instance ID.
+    // Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The network type of the whitelist. Valid values:
-    // * **Classic**: classic network in the enhanced whitelist mode.
-    // * **VPC**: virtual private cloud (VPC) in the enhanced whitelist mode.
-    // * **MIX**: general whitelist mode.
+    // * **Classic**: the classic network in enhanced whitelist mode
+    // * **VPC**: the VPC in enhanced whitelist mode
+    // * **MIX**: the standard whitelist mode
     // 
-    // By default, the IP whitelist of all network types is returned.
+    // By default, the IP addresses in the whitelists of all network types are returned.
     shared_ptr<string> whitelistNetworkType_ {};
   };
 

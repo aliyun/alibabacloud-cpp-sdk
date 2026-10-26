@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // The name of the replication channel, which identifies the replication task.
+    // The name of the replication channel, which is used to identify the replication task.
     shared_ptr<string> channelName_ {};
-    // The instance ID. You can call DescribeDBInstances to query the instance ID.
+    // The instance ID. You can call the DescribeDBInstances operation to obtain the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> dbInstanceId_ {};
     // 阿里云账号ID，用于指定资源的所有者
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call DescribeRegions to query the most recent region list.
+    // The region ID. You can call the DescribeRegions operation to obtain the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

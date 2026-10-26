@@ -179,49 +179,49 @@ namespace Models
     // Specifies whether the task can be canceled. Default value: -1. Valid values:
     // 
     // - **-1**: all tasks.
-    // - **0**: Only tasks that cannot be canceled are returned.
-    // - **1**: Only tasks that can be canceled are returned.
+    // - **0**: tasks that cannot be canceled.
+    // - **1**: tasks that can be canceled.
     shared_ptr<int32_t> allowCancel_ {};
-    // Specifies whether the task time can be modified. Default value: -1. Valid values:
+    // Specifies whether the execution time can be modified. Default value: -1. Valid values:
     // - **-1**: all tasks.
-    // - **0**: Only tasks whose time cannot be modified are returned.
-    // - **1**: Only tasks whose time can be modified are returned.
+    // - **0**: tasks whose execution time cannot be modified.
+    // - **1**: tasks whose execution time can be modified.
     shared_ptr<int32_t> allowChange_ {};
     // The task level. Default value: all. Valid values:
     // 
-    // - **all**: all levels.
-    // - **S0**: Only tasks at the exception recovery level are returned.
-    // - **S1**: Only tasks at the system O&M level are returned.
+    // - **all**: all tasks.
+    // - **S0**: exception recovery tasks.
+    // - **S1**: system O&M tasks.
     shared_ptr<string> changeLevel_ {};
-    // The database type. Default value: all. Valid values: mysql, pgsql, and mssql.
+    // The database engine. Default value: all. Valid values: mysql, pgsql, mssql, and others.
     shared_ptr<string> dbType_ {};
-    // The instance name. This parameter is optional. You can specify at most one instance name.
+    // The instance name. This parameter is optional. If you specify this parameter, you can specify only one instance name.
     shared_ptr<string> insName_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. The value must be greater than 0. Default value: 1.
+    // The page number, which must be greater than 0. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 25. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The product name. Valid values: RDS, POLARDB, MongoDB, and Redis. For ApsaraDB RDS instances, set this parameter to RDS.
+    // The product name. Valid values: RDS, POLARDB, MongoDB, and Redis. For an ApsaraDB RDS instance, set the value to RDS.
     shared_ptr<string> productId_ {};
-    // The region ID of the pending event. You can call the DescribeRegions operation to query the most recent region list.
-    // > Set this parameter to **all** to specify all region IDs.
+    // The region ID of the pending event. You can call the DescribeRegions operation to query the region ID.
+    // > A value of **all** specifies all region IDs.
     shared_ptr<string> region_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // The task status. This parameter is used to filter the returned tasks. Valid values:
+    // The task status, which is used to filter the returned tasks. Valid values:
     // * **-1**: all tasks.
     // * **3**: pending tasks.
-    // * **4**: in-progress tasks.
-    // * **5**: succeeded tasks.
+    // * **4**: tasks in progress.
+    // * **5**: successfully completed tasks.
     // * **6**: failed tasks.
     // * **7**: canceled tasks.
     shared_ptr<int32_t> status_ {};
     // The task type. Valid values:
     // 
-    // * **rds_apsaradb_ha**: primary/secondary node switch.
+    // * **rds_apsaradb_ha**: primary and secondary node switch.
     // * **rds_apsaradb_transfer**: instance migration.
     // * **rds_apsaradb_upgrade**: minor engine version update.
     // * **rds_apsaradb_maxscale**: proxy minor version upgrade.

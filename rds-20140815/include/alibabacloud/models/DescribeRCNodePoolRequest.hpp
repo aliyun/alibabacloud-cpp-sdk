@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The ID of the RDS Custom container cluster.
     shared_ptr<string> clusterId_ {};
-    // The node pool ID.
+    // The ID of the node pool.
     shared_ptr<string> nodePoolId_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

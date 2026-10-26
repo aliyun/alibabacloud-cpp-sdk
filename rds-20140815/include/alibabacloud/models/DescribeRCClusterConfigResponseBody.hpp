@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The cluster access configuration.
     shared_ptr<string> config_ {};
-    // The expiration time of the KubeConfig. Format: UTC time in RFC 3339 format.
+    // The expiration time of the KubeConfig. The time is in UTC and follows the RFC 3339 format.
     shared_ptr<string> expiration_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

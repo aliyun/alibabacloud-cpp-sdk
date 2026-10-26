@@ -135,16 +135,16 @@ namespace Models
       protected:
         // The instance ID.
         shared_ptr<string> DBInstanceName_ {};
-        // The dedicated cluster ID.
-        // >This parameter is empty for non-dedicated cluster instances.
+        // The ID of the dedicated cluster.
+        // > An empty value is returned for instances that are not deployed in a dedicated cluster.
         shared_ptr<string> dedicatedHostGroupId_ {};
-        // The host ID in the dedicated cluster.
-        // >This parameter is empty for non-dedicated cluster instances.
+        // The ID of the host in the dedicated cluster.
+        // > An empty value is returned for instances that are not deployed in a dedicated cluster.
         shared_ptr<string> dedicatedHostId_ {};
         // The unique identifier of the instance.
-        // >This parameter returns **-1** for non-dedicated cluster instances.
+        // > **-1** is returned for instances that are not deployed in a dedicated cluster.
         shared_ptr<string> nodeId_ {};
-        // The node type. Valid values:
+        // The role of the node. Valid values:
         // * **Master**: primary node.
         // * **Slave**: secondary node.
         shared_ptr<string> role_ {};
@@ -249,11 +249,11 @@ namespace Models
 
 
     protected:
-      // The network connectivity information of the instance.
+      // The list of network connection information for the instance.
       shared_ptr<vector<Data::Connections>> connections_ {};
       // The instance ID.
       shared_ptr<string> DBInstanceName_ {};
-      // The node list.
+      // The nodes.
       shared_ptr<vector<Data::Nodes>> nodes_ {};
     };
 

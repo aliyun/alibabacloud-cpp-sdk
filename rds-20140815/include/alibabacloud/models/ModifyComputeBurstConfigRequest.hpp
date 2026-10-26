@@ -204,15 +204,15 @@ namespace Models
 
 
   protected:
-    // Set this parameter to **disabled** to disable the committed serverless feature.
+    // To disable the provisioned Serverless feature, set this parameter to **disabled**.
     shared_ptr<string> burstStatus_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can generate the value of this parameter on the client side. The value must be unique across different requests and can contain a maximum of 64 ASCII characters. The value cannot contain non-ASCII characters.
     shared_ptr<string> clientToken_ {};
     // The CPU utilization threshold for elastic **scale-out**. Valid values: 60 to 90. Unit: %.
     shared_ptr<string> cpuEnlargeThreshold_ {};
     // The CPU utilization threshold for elastic **scale-in**. Valid values: 30 to 55. Unit: %.
     shared_ptr<string> cpuShrinkThreshold_ {};
-    // A reserved parameter. This parameter is not supported.
+    // The reserved parameter. This parameter is not supported.
     shared_ptr<string> crontabJobId_ {};
     // The instance ID.
     // 
@@ -227,21 +227,23 @@ namespace Models
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
-    // The maximum number of CPUs for elastic scale-out. The value can be up to twice the initial CPU configuration of the instance.
+    // The upper limit of CPUs for elastic scale-out. The value can be up to twice the initial CPU configuration of the instance.
     shared_ptr<string> scaleMaxCpus_ {};
-    // The maximum memory for elastic scale-out. The value can be up to twice the initial memory configuration of the instance. Unit: GB. The value is adjusted in increments of 2 GB.
+    // The upper limit of memory for elastic scale-out. The value can be up to twice the initial memory configuration of the instance. Unit: GB. The adjustment increment is 2 GB.
     shared_ptr<string> scaleMaxMemory_ {};
+    // The upper limit of RCU scaling for ApsaraDB RDS for MySQL provisioned Serverless.
     shared_ptr<double> scaleMaxRcu_ {};
+    // The lower limit of RCU scaling for ApsaraDB RDS for MySQL provisioned Serverless.
     shared_ptr<double> scaleMinRcu_ {};
-    // The specified time at which the modification takes effect. Format: `yyyy-MM-ddTHH:mm:ssZ` (UTC).
-    // > This parameter is required when **SwitchTimeMode** is set to **2**.
+    // The specified time when the modification takes effect. Specify the time in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+    // >This parameter is required when **SwitchTimeMode** is set to **2**.
     shared_ptr<string> switchTime_ {};
     // The effective policy. Valid values:
-    // - **0**: The modification takes effect immediately.
-    // - **1**: The modification takes effect during the maintenance window. You can call the **ModifyDBInstanceMaintainTime** operation to modify the maintenance window.
-    // - **2**: The modification takes effect at a specified point in time.
+    // - **0**: Takes effect immediately.
+    // - **1**: Takes effect within the maintenance window. You can call the **ModifyDBInstanceMaintainTime** operation to modify the maintenance window.
+    // - **2**: Takes effect at a specified point in time.
     shared_ptr<string> switchTimeMode_ {};
-    // A reserved parameter. This parameter is not supported.
+    // The reserved parameter. This parameter is not supported.
     shared_ptr<string> taskId_ {};
   };
 

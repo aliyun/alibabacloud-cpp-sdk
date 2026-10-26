@@ -155,25 +155,25 @@ namespace Models
 
 
     protected:
-      // The discount amount for the maximum RCU.
+      // The discount amount for the maximum number of RCUs.
       shared_ptr<float> RCUDiscountMaxAmount_ {};
-      // The discount amount for the minimum RCU.
+      // The discount amount for the minimum number of RCUs.
       shared_ptr<float> RCUDiscountMinAmount_ {};
-      // The original price for the maximum RCU.
+      // The original price for the maximum number of RCUs.
       shared_ptr<float> RCUOriginalMaxAmount_ {};
-      // The original price for the minimum RCU.
+      // The original price for the minimum number of RCUs.
       shared_ptr<float> RCUOriginalMinAmount_ {};
-      // The original price of the disk.
+      // The original price of the cloud disk.
       shared_ptr<float> storageOriginalAmount_ {};
-      // The maximum total price before discount.
+      // The maximum total original price before discount.
       shared_ptr<float> totalOriginalMaxAmount_ {};
-      // The minimum total price before discount.
+      // The minimum total original price before discount.
       shared_ptr<float> totalOriginalMinAmount_ {};
-      // The trade price for the maximum RCU.
+      // The final price for the maximum number of RCUs.
       shared_ptr<float> tradeMaxRCUAmount_ {};
-      // The trade price for the minimum RCU.
+      // The final price for the minimum number of RCUs.
       shared_ptr<float> tradeMinRCUAmount_ {};
-      // The discount price of the disk.
+      // The discount amount for the cloud disk.
       shared_ptr<float> storageDiscountAmount_ {};
     };
 
@@ -474,11 +474,11 @@ namespace Models
 
 
       protected:
-        // The error description.
+        // The error message.
         shared_ptr<string> checkErrMsg_ {};
         // The error code.
         shared_ptr<string> errorCode_ {};
-        // Indicates whether the request was successful.
+        // Indicates whether the request is successful.
         shared_ptr<string> success_ {};
       };
 
@@ -564,23 +564,23 @@ namespace Models
 
 
     protected:
-      // The price information.
+      // The pricing information.
       shared_ptr<PriceInfo::ActivityInfo> activityInfo_ {};
       shared_ptr<PriceInfo::Coupons> coupons_ {};
       // The currency unit.
       shared_ptr<string> currency_ {};
-      // The discount.
+      // The discount amount.
       shared_ptr<float> discountPrice_ {};
       // The order information.
       Darabonba::Json orderLines_ {};
       // The original price.
       shared_ptr<float> originalPrice_ {};
       shared_ptr<PriceInfo::RuleIds> ruleIds_ {};
-      // The estimated hourly fee calculated based on the maximum RCU selected by the user.
+      // The estimated hourly fee calculated based on the maximum number of RCUs selected by the user.
       shared_ptr<float> tradeMaxRCUAmount_ {};
-      // The estimated hourly fee calculated based on the minimum RCU selected by the user.
+      // The estimated hourly fee calculated based on the minimum number of RCUs selected by the user.
       shared_ptr<float> tradeMinRCUAmount_ {};
-      // The final price, which is the original price minus the discount.
+      // The final price, which is the original price minus the discount amount.
       shared_ptr<float> tradePrice_ {};
     };
 
@@ -653,18 +653,18 @@ namespace Models
     // The order parameters.
     // > This parameter is returned only when the **OrderParamOut** parameter is set to **true**.
     shared_ptr<string> orderParams_ {};
-    // The price information.
+    // The pricing information.
     shared_ptr<DescribePriceResponseBody::PriceInfo> priceInfo_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribePriceResponseBody::Rules> rules_ {};
-    // The serverless price information.
+    // The pricing information of the serverless instance.
     shared_ptr<DescribePriceResponseBody::ServerlessPrice> serverlessPrice_ {};
     // Indicates whether discounts are allowed.
     shared_ptr<bool> showDiscount_ {};
-    // The estimated hourly fee calculated based on the maximum RCU selected by the user.
+    // The estimated hourly fee calculated based on the maximum number of RCUs selected by the user.
     shared_ptr<float> tradeMaxRCUAmount_ {};
-    // The estimated hourly fee calculated based on the minimum RCU selected by the user.
+    // The estimated hourly fee calculated based on the minimum number of RCUs selected by the user.
     shared_ptr<float> tradeMinRCUAmount_ {};
   };
 

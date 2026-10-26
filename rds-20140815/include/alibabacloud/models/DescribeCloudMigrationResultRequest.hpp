@@ -103,7 +103,7 @@ namespace Models
 
 
   protected:
-    // The target instance ID. You can invoke the DescribeDBInstances operation to query the instance ID.
+    // The ID of the target instance. You can invoke the DescribeDBInstances operation to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
@@ -118,14 +118,14 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The internal IP address of the self-managed PostgreSQL database.
     // 
-    // - For a one-click cloud migration of a self-managed PostgreSQL database on an ECS instance, set this parameter to the private IP address of the ECS instance. For more information, see [View IP addresses](https://help.aliyun.com/document_detail/273914.html).
-    // - For a one-click cloud migration of a self-managed PostgreSQL database in an IDC, set this parameter to the internal IP address of the IDC.
+    // - In the scenario of migrating a self-managed PostgreSQL database on an ECS instance to the cloud with one click, set this parameter to the private IP address of the ECS instance. For more information about how to obtain the IP address, see [View IP addresses](https://help.aliyun.com/document_detail/273914.html).
+    // - In the scenario of migrating a self-managed PostgreSQL database in an on-premises data center to the cloud with one click, set this parameter to the internal IP address of the data center.
     shared_ptr<string> sourceIpAddress_ {};
-    // The port of the self-managed PostgreSQL database. You can run the netstat -a | grep PGSQL command to query the port.
+    // The port of the self-managed PostgreSQL database. You can run the netstat -a | grep PGSQL command to view the port.
     shared_ptr<int64_t> sourcePort_ {};
-    // The task ID. You can obtain the task ID from the response of the CreateCloudMigrationTask operation when you create an RDS PostgreSQL cloud migration task.
+    // The ID of the task. You can obtain the task ID from the response when you call the CreateCloudMigrationTask operation to create an ApsaraDB RDS for PostgreSQL cloud migration task.
     shared_ptr<int64_t> taskId_ {};
-    // The task name. You can obtain the task name from the response of the CreateCloudMigrationTask operation when you create an RDS PostgreSQL cloud migration task.
+    // The name of the task. You can obtain the task name from the response when you call the CreateCloudMigrationTask operation to create an ApsaraDB RDS for PostgreSQL cloud migration task.
     shared_ptr<string> taskName_ {};
   };
 

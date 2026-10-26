@@ -75,13 +75,13 @@ namespace Models
 
 
   protected:
-    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) to query the region ID.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query region IDs.
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The whitelist template ID. You can call [DescribeAllWhitelistTemplate](~~2aboralibabacloud~~) to obtain the ID.
+    // The ID of the whitelist template. You can call the DescribeAllWhitelistTemplate operation to obtain the ID.
     // 
     // This parameter is required.
     shared_ptr<int32_t> templateId_ {};

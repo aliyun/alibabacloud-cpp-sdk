@@ -199,15 +199,15 @@ namespace Models
     shared_ptr<int64_t> backupLogSize_ {};
     // The backup size. Unit: MB.
     shared_ptr<int64_t> backupSize_ {};
-    // The disk capacity.
+    // The storage capacity.
     shared_ptr<int64_t> dbInstanceStorage_ {};
-    // The name of the database proxy instance.
+    // The name of the proxy instance.
     shared_ptr<string> dbProxyInstanceName_ {};
-    // The used storage space, which consists of the space occupied by data files and log files. Unit: bytes. A value of -1 indicates that no data is available.
+    // The used storage space, which consists of the space occupied by data files and logs. Unit: bytes. A value of -1 indicates that no data is available.
     shared_ptr<int64_t> diskUsed_ {};
     // The instance storage type.
     shared_ptr<string> instanceStorageType_ {};
-    // The RDS whitelist group specifications.
+    // The whitelist group specifications.
     shared_ptr<vector<DescribeResourceDetailsResponseBody::RdsEcsSecurityGroupRel>> rdsEcsSecurityGroupRel_ {};
     // The region ID.
     shared_ptr<string> region_ {};
@@ -215,17 +215,17 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The [IP whitelist](https://help.aliyun.com/document_detail/43185.html) of the instance. Separate multiple entries with commas (,). Each entry must be unique. A maximum of 1,000 entries are supported. The following two formats are supported:
+    // The [IP address whitelist](https://help.aliyun.com/document_detail/43185.html) of the instance. Separate multiple entries with commas (,). Duplicate entries are not allowed. You can add up to 1,000 entries. The following two formats are supported:
     // * IP address format, such as 10.10.XX.XX.
-    // * CIDR format, such as 10.10.XX.XX/24, where 24 indicates the length of the prefix in the IP address. The prefix length ranges from 1 to 32.
+    // * CIDR format, such as 10.10.XX.XX/24. In this format, 24 indicates the length of the prefix in the IP address, and the value ranges from 1 to 32.
     // 
-    // If this parameter is not specified, the whitelist information of the default group of the original instance is used.
+    // If this parameter is not specified, the default whitelist of the original instance is used.
     shared_ptr<string> securityIPList_ {};
     // The vSwitch ID.
     // 
-    // > The vSwitch must belong to the same zone as the ApsaraDB RDS instance.
+    // > The vSwitch must reside in the same zone as the ApsaraDB RDS instance.
     shared_ptr<string> vSwitchId_ {};
-    // VPC ID。
+    // The VPC ID.
     shared_ptr<string> vpcId_ {};
   };
 

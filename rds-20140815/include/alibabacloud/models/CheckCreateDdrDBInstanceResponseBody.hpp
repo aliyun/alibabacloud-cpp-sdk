@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // Indicates whether the disaster recovery instance can be created. Valid values:
+    // Indicates whether a disaster recovery instance can be created. Valid values:
     // - **true**
     // - **false**
     shared_ptr<string> isValid_ {};

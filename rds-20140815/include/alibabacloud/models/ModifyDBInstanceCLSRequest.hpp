@@ -159,18 +159,19 @@ namespace Models
     // - SM4_128_CTR
     // - SM4_128_ECB
     shared_ptr<string> encryptionAlgorithm_ {};
-    // The encryption key ID. This parameter is required when you use a KMS key.
+    // The ID of the encryption key. This parameter is required when you use a KMS key.
     shared_ptr<string> encryptionKey_ {};
     // The column encryption key mode. Valid values:
     // 
-    // - client_key: configures a user-generated random key on the client side.
-    // - kms_key: configures a custom key by using Alibaba Cloud Key Management Service (KMS).
+    // - client_key: A user-generated random key configured on the client side.
+    // - kms_key: A custom key configured by using Alibaba Cloud KMS.
     // 
-    // >  After an instance is configured to use KMS for key management, you can no longer switch to the client-side random key mode.
+    // Note
+    // After an instance is configured to use a KMS key, you can no longer use a random key configured on the client side.
     shared_ptr<string> encryptionKeyMode_ {};
     // The column encryption status. Valid values:
-    // -  1: Encryption is enabled.
-    // -  0: Encryption is disabled.
+    // - 1: Encryption is enabled.
+    // - 0: Encryption is disabled.
     // 
     // This parameter is required.
     shared_ptr<string> encryptionStatus_ {};
@@ -180,9 +181,9 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The global resource descriptor of the RAM role, used to specify the role to assume. For details, see RAM role overview.
-    // 
-    // >  This parameter takes effect only when the column encryption key pattern is set to kms_key. If you do not specify this parameter, the internal default value is used.
+    // The global resource descriptor of the role, used to specify the specific role. For details, see RAM role overview.
+    // Note
+    // This parameter takes effect only when the column encryption key pattern is set to kms_key. If you do not specify this parameter, the internal default value is used.
     shared_ptr<string> roleArn_ {};
     // Specifies whether to enable the whitelist mode. A value of true indicates that only columns in the whitelist are encrypted. A value of false indicates that all columns are encrypted.
     shared_ptr<bool> whiteListMode_ {};

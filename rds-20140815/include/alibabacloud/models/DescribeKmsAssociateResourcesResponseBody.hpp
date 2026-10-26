@@ -93,13 +93,14 @@ namespace Models
       // The instance ID.
       shared_ptr<string> DBInstanceName_ {};
       // The database engine. Valid values:
+      // 
       // - **MySQL**
       // - **SQLServer**
       // - **PostgreSQL**
       shared_ptr<string> engine_ {};
-      // The purpose of the key. Valid values:
+      // The usage of the key. Valid values:
       // 
-      // - **DiskEncryption**: cloud disk data encryption.
+      // - **DiskEncryption**: cloud disk encryption.
       // - **TDE**: transparent data encryption.
       shared_ptr<string> keyUsedBy_ {};
       // The instance status. Valid values:
@@ -108,10 +109,10 @@ namespace Models
       // - **ACTIVATION**: The instance is running.
       // - **DELETING**: The instance is being deleted.
       // - **RESTARTING**: The instance is being restarted.
-      // - **CLASS_CHANGING**: The instance specifications are being changed.
-      // - **INS_MAINTAINING**: The instance is being maintained.
-      // - **BACKUP_RECOVERING**: A backup is being restored.
-      // - **NET_MODIFYING**: The network is being changed.
+      // - **CLASS_CHANGING**: The instance is undergoing a specification change.
+      // - **INS_MAINTAINING**: The instance is undergoing maintenance.
+      // - **BACKUP_RECOVERING**: The instance is being restored from a backup.
+      // - **NET_MODIFYING**: The network configuration of the instance is being changed.
       shared_ptr<string> status_ {};
     };
 
@@ -145,10 +146,10 @@ namespace Models
     shared_ptr<vector<DescribeKmsAssociateResourcesResponseBody::AssociateDBInstances>> associateDBInstances_ {};
     // Indicates whether associated ApsaraDB RDS instances exist.
     // 
-    // - **true**: Associated instances exist.
-    // - **false**: No associated instances exist.
+    // - **true**: Yes.
+    // - **false**: No.
     shared_ptr<bool> associateStatus_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

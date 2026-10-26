@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // This parameter is supported only for dedicated cluster instances. The migration task ID.
+    // The ID of the migration task. This parameter is only supported for instances in a dedicated cluster.
     shared_ptr<int32_t> migrationId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

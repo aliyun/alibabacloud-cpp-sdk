@@ -262,33 +262,47 @@ namespace Models
 
 
     protected:
+      // The name of the replication channel.
       shared_ptr<string> channelName_ {};
+      // The executed GTID set.
       shared_ptr<string> executedGtidSet_ {};
-      // A value of 0 indicates no error. Other values indicate specific error codes.
+      // The last error code.
       shared_ptr<int32_t> lastErrno_ {};
-      // A value of 0 indicates no error. Other values indicate error codes of the I/O thread.
+      // The last error code of the I/O thread.
       shared_ptr<int32_t> lastIoErrno_ {};
-      // The error message description of the I/O thread.
+      // The last error message of the I/O thread.
       shared_ptr<string> lastIoError_ {};
-      // A value of 0 indicates no error. Other values indicate error codes of the SQL thread.
+      // The last error code of the SQL thread.
       shared_ptr<int32_t> lastSqlErrno_ {};
-      // The error message description of the SQL thread.
+      // The last error message of the SQL thread.
       shared_ptr<string> lastSqlError_ {};
+      // The address of the primary database.
       shared_ptr<string> masterHost_ {};
+      // The account of the primary database.
       shared_ptr<string> masterUser_ {};
+      // The UUID of the primary database.
       shared_ptr<string> masterUuid_ {};
+      // The databases included in replication.
       shared_ptr<string> replicateDoDb_ {};
+      // The tables included in replication.
       shared_ptr<string> replicateDoTable_ {};
+      // The databases ignored in replication.
       shared_ptr<string> replicateIgnoreDb_ {};
+      // The tables ignored in replication.
       shared_ptr<string> replicateIgnoreTable_ {};
+      // The tables included in replication. Wildcards are supported.
       shared_ptr<string> replicateWildDoTable_ {};
+      // The tables ignored in replication. Wildcards are supported.
       shared_ptr<string> replicateWildIgnoreTable_ {};
+      // The data delay, in seconds.
       shared_ptr<int32_t> secondsBehindMaster_ {};
-      // Valid values: Yes (running) and No (stopped).
+      // The running status of the replication I/O thread.
       shared_ptr<string> slaveIoRunning_ {};
+      // The state of the replication I/O thread.
       shared_ptr<string> slaveIoState_ {};
-      // Valid values: Yes (running) and No (stopped).
+      // The running status of the replication SQL thread.
       shared_ptr<string> slaveSqlRunning_ {};
+      // The running status of the replication SQL thread.
       shared_ptr<string> slaveSqlRunningState_ {};
     };
 
@@ -391,9 +405,9 @@ namespace Models
     shared_ptr<string> replicationIp_ {};
     // The port of the replication endpoint.
     shared_ptr<string> replicationPort_ {};
-    // The replication source of native replication.
+    // The replication source for native replication.
     shared_ptr<string> replicationSource_ {};
-    // The current replication status. Valid values:
+    // The current replication state. Valid values:
     // 
     // - **Running**: Running.
     // - **Connecting**: Connecting.
@@ -402,6 +416,7 @@ namespace Models
     shared_ptr<string> replicationState_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
+    // The replication status information returned by the SHOW SLAVE STATUS statement for the instance.
     shared_ptr<vector<DescribeDBInstanceReplicationResponseBody::SlaveStatusList>> slaveStatusList_ {};
   };
 

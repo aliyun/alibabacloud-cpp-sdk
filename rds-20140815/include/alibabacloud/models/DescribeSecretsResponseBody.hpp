@@ -112,13 +112,13 @@ namespace Models
     protected:
       // The Alibaba Cloud account ID.
       shared_ptr<string> accountId_ {};
-      // The description of the credential.
+      // The description of the credential provided by the user.
       shared_ptr<string> description_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The user credential of the Data API account.
+      // The user credential of the created Data API account.
       shared_ptr<string> secretArn_ {};
-      // The credential name.
+      // The name of the user credential.
       shared_ptr<string> secretName_ {};
       // The database username.
       shared_ptr<string> username_ {};
@@ -157,7 +157,7 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The page number of the query result.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};

@@ -75,13 +75,13 @@ namespace Models
 
 
   protected:
-    // Specifies whether to perform a dry run for this release operation. Valid values:
-    // * **true**: Performs a dry run without releasing the instance.
-    // * **false** (default): Sends a normal request and directly releases the instance after the request passes the check.
+    // Specifies whether to perform a precheck before releasing the instances. Valid values:
+    // * **true**: Performs a precheck and does not release the instances.
+    // * **false** (default): Sends a normal request and directly releases the instances after the check passes.
     shared_ptr<bool> dryRun_ {};
-    // Specifies whether to forcefully release running instances. Valid values:
-    // * **Yes**: Forcefully releases the instances.
-    // * **No** (default): Does not forcefully release the instances.
+    // Specifies whether to forcibly release running instances. Valid values:
+    // * **Yes**: Forcibly releases the instances.
+    // * **No** (default): Does not forcibly release the instances.
     shared_ptr<bool> force_ {};
     // The instance details.
     // 
@@ -89,7 +89,7 @@ namespace Models
     shared_ptr<string> instanceIdShrink_ {};
     // The region ID of the instance.
     shared_ptr<string> regionId_ {};
-    // A reserved parameter.
+    // The reserved parameter.
     shared_ptr<bool> terminateSubscription_ {};
   };
 

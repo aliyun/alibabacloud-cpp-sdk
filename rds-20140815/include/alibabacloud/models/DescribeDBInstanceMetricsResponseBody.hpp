@@ -138,28 +138,28 @@ namespace Models
 
 
     protected:
-      // The description of the enhanced monitoring metric.
+      // The description of the enhanced metric.
       shared_ptr<string> description_ {};
-      // The category of the enhanced monitoring metric. Valid values:
-      // - **os**: operating system metric.
-      // - **db**: database metric.
+      // The category of the enhanced metric. Valid values:
+      // - **os**: operating system metrics.
+      // - **db**: database metrics.
       shared_ptr<string> dimension_ {};
-      // The key of the group to which the enhanced monitoring metric belongs.
+      // The key of the group to which the enhanced metric belongs.
       shared_ptr<string> groupKey_ {};
-      // The name of the group to which the enhanced monitoring metric belongs.
+      // The name of the group to which the enhanced metric belongs.
       shared_ptr<string> groupKeyType_ {};
-      // The statistical method of the enhanced monitoring metric. Valid values:
+      // The statistical method for the enhanced metric. Valid values:
       // - **avg**: average value.
       // - **min**: minimum value.
       // - **max**: maximum value.
       shared_ptr<string> method_ {};
-      // The key of the enhanced monitoring metric.
+      // The key of the enhanced metric.
       shared_ptr<string> metricsKey_ {};
-      // The alias of the enhanced monitoring metric.
+      // The alias of the enhanced metric.
       shared_ptr<string> metricsKeyAlias_ {};
-      // The sequence number of the enhanced monitoring metric.
+      // The sequence number of the enhanced metric.
       shared_ptr<int32_t> sortRule_ {};
-      // The unit of the enhanced monitoring metric.
+      // The unit of the enhanced metric.
       shared_ptr<string> unit_ {};
     };
 
@@ -198,11 +198,11 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> DBInstanceName_ {};
-    // The list of enhanced monitoring metrics that are enabled for the instance.
+    // The list of enhanced metrics that are enabled for the instance.
     shared_ptr<vector<DescribeDBInstanceMetricsResponseBody::Items>> items_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of enhanced monitoring metrics that are enabled for the instance.
+    // The total number of enhanced metrics that are enabled for the instance.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

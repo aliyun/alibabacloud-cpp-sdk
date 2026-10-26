@@ -75,11 +75,11 @@ namespace Models
 
 
   protected:
-    // The ID of the ApsaraDB RDS for SQL Server instance. You can call DescribeDBInstances to query the instance ID.
+    // Instance ID of the ApsaraDB RDS for SQL Server instance. You can call the DescribeDBInstances operation to query instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The ID of the backup migration task. You can call DescribeMigrateTasks to query the task ID.
+    // The ID of the backup migration task. You can call the DescribeMigrateTasks operation to query the ID.
     // 
     // This parameter is required.
     shared_ptr<string> migrateTaskId_ {};

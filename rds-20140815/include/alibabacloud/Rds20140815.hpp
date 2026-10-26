@@ -38,12 +38,12 @@ namespace Rds20140815
       Models::AcceptRCInquiredSystemEventResponse acceptRCInquiredSystemEvent(const Models::AcceptRCInquiredSystemEventRequest &request);
 
       /**
-       * @summary Performs a cloud migration switchover for an ApsaraDB RDS for PostgreSQL instance to promote it to the primary instance and start providing services.
+       * @summary Performs a cloud migration switchover for an ApsaraDB RDS for PostgreSQL instance and promotes it to the primary database to provide services.
        *
-       * @description ### Applicable engine
+       * @description ### Supported database engines
        * - ApsaraDB RDS for PostgreSQL
        * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the documentation to fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, read the feature documentation carefully to ensure that you fully understand the prerequisites and the impacts of the operation.</notice>
        * [One-click cloud migration](https://help.aliyun.com/document_detail/365562.html)
        *
        * @param request ActivateMigrationTargetInstanceRequest
@@ -53,12 +53,12 @@ namespace Rds20140815
       Models::ActivateMigrationTargetInstanceResponse activateMigrationTargetInstanceWithOptions(const Models::ActivateMigrationTargetInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a cloud migration switchover for an ApsaraDB RDS for PostgreSQL instance to promote it to the primary instance and start providing services.
+       * @summary Performs a cloud migration switchover for an ApsaraDB RDS for PostgreSQL instance and promotes it to the primary database to provide services.
        *
-       * @description ### Applicable engine
+       * @description ### Supported database engines
        * - ApsaraDB RDS for PostgreSQL
        * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the documentation to fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, read the feature documentation carefully to ensure that you fully understand the prerequisites and the impacts of the operation.</notice>
        * [One-click cloud migration](https://help.aliyun.com/document_detail/365562.html)
        *
        * @param request ActivateMigrationTargetInstanceRequest
@@ -69,8 +69,7 @@ namespace Rds20140815
       /**
        * @summary Adds instances to a deployment set.
        *
-       * @description Instances with local disks are not allowed to join a deployment set by default, and the error UNSUPPORTED_DBINSTANCE_OPERATEION is returned. To add such instances, contact technical support. Ask the administrator to add the UID to the whitelist. Cloud disk instances do not have this restriction.
-       * Forcibly adding instances to a deployment set may cause instance restarts. Use this feature with caution.
+       * @description By default, instances with local disks are not allowed to be added to a deployment set, and the UNSUPPORTED_DBINSTANCE_OPERATEION error is returned. To add such an instance, contact the administrator to add your UID to the whitelist. This restriction does not apply to cloud disk instances. Forcibly adding an instance to a deployment set may cause the instance to restart. Proceed with caution.
        *
        * @param request AddRCInstancesToDeploymentSetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -81,8 +80,7 @@ namespace Rds20140815
       /**
        * @summary Adds instances to a deployment set.
        *
-       * @description Instances with local disks are not allowed to join a deployment set by default, and the error UNSUPPORTED_DBINSTANCE_OPERATEION is returned. To add such instances, contact technical support. Ask the administrator to add the UID to the whitelist. Cloud disk instances do not have this restriction.
-       * Forcibly adding instances to a deployment set may cause instance restarts. Use this feature with caution.
+       * @description By default, instances with local disks are not allowed to be added to a deployment set, and the UNSUPPORTED_DBINSTANCE_OPERATEION error is returned. To add such an instance, contact the administrator to add your UID to the whitelist. This restriction does not apply to cloud disk instances. Forcibly adding an instance to a deployment set may cause the instance to restart. Proceed with caution.
        *
        * @param request AddRCInstancesToDeploymentSetRequest
        * @return AddRCInstancesToDeploymentSetResponse
@@ -90,19 +88,19 @@ namespace Rds20140815
       Models::AddRCInstancesToDeploymentSetResponse addRCInstancesToDeploymentSet(const Models::AddRCInstancesToDeploymentSetRequest &request);
 
       /**
-       * @summary Binds tags to an instance.
+       * @summary Binds tags to one or more instances.
        *
-       * @description ### Supported engines
+       * @description ### Applicable engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * - ApsaraDB RDS for MariaDB
-       * ### Precautions
+       * ### Usage notes
        * * Each tag consists of a tag key (TagKey) and a tag value (TagValue). TagKey cannot be empty, but TagValue can be empty.
        * * The values of TagKey and TagValue cannot start with aliyun.
        * * TagKey and TagValue are case-insensitive.
-       * * TagKey can be up to 64 characters in length. TagValue can be up to 128 characters in length.
-       * * Each instance can have up to 10 tags. The TagKey of each tag bound to an instance must be unique. If you bind a tag that has the same TagKey as an existing tag, the new tag overwrites the existing tag.
+       * * TagKey can be up to 64 characters in length, and TagValue can be up to 128 characters in length.
+       * * You can bind up to 10 tags to each instance, and the TagKeys bound to an instance must be unique. If you bind a tag with a duplicate TagKey, the newly bound tag overwrites the previously bound tag.
        *
        * @param request AddTagsToResourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -111,19 +109,19 @@ namespace Rds20140815
       Models::AddTagsToResourceResponse addTagsToResourceWithOptions(const Models::AddTagsToResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Binds tags to an instance.
+       * @summary Binds tags to one or more instances.
        *
-       * @description ### Supported engines
+       * @description ### Applicable engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * - ApsaraDB RDS for MariaDB
-       * ### Precautions
+       * ### Usage notes
        * * Each tag consists of a tag key (TagKey) and a tag value (TagValue). TagKey cannot be empty, but TagValue can be empty.
        * * The values of TagKey and TagValue cannot start with aliyun.
        * * TagKey and TagValue are case-insensitive.
-       * * TagKey can be up to 64 characters in length. TagValue can be up to 128 characters in length.
-       * * Each instance can have up to 10 tags. The TagKey of each tag bound to an instance must be unique. If you bind a tag that has the same TagKey as an existing tag, the new tag overwrites the existing tag.
+       * * TagKey can be up to 64 characters in length, and TagValue can be up to 128 characters in length.
+       * * You can bind up to 10 tags to each instance, and the TagKeys bound to an instance must be unique. If you bind a tag with a duplicate TagKey, the newly bound tag overwrites the previously bound tag.
        *
        * @param request AddTagsToResourceRequest
        * @return AddTagsToResourceResponse
@@ -223,16 +221,16 @@ namespace Rds20140815
       Models::AllocateReadWriteSplittingConnectionResponse allocateReadWriteSplittingConnection(const Models::AllocateReadWriteSplittingConnectionRequest &request);
 
       /**
-       * @summary Associates an elastic IP address (EIP) with an RDS Custom instance.
+       * @summary Attaches an EIP to an RDS Custom instance.
        *
-       * @description ### Applicable engines
+       * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for SQL Server
        * ### Related feature documentation
        * - [Introduction to RDS Custom for MySQL](https://help.aliyun.com/document_detail/2844223.html)
        * - [Introduction to RDS Custom for SQL Server](https://help.aliyun.com/document_detail/2864363.html)
        * ### Precautions
-       * If the RDS Custom instance has a public IP address enabled, the existing public IP address undergoes automatic release after you associate an EIP with the instance.
+       * If an RDS Custom instance has a public IP address enabled, the public IP address is automatically released after you attach an EIP.
        *
        * @param request AssociateEipAddressWithRCInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -241,16 +239,16 @@ namespace Rds20140815
       Models::AssociateEipAddressWithRCInstanceResponse associateEipAddressWithRCInstanceWithOptions(const Models::AssociateEipAddressWithRCInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Associates an elastic IP address (EIP) with an RDS Custom instance.
+       * @summary Attaches an EIP to an RDS Custom instance.
        *
-       * @description ### Applicable engines
+       * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for SQL Server
        * ### Related feature documentation
        * - [Introduction to RDS Custom for MySQL](https://help.aliyun.com/document_detail/2844223.html)
        * - [Introduction to RDS Custom for SQL Server](https://help.aliyun.com/document_detail/2864363.html)
        * ### Precautions
-       * If the RDS Custom instance has a public IP address enabled, the existing public IP address undergoes automatic release after you associate an EIP with the instance.
+       * If an RDS Custom instance has a public IP address enabled, the public IP address is automatically released after you attach an EIP.
        *
        * @param request AssociateEipAddressWithRCInstanceRequest
        * @return AssociateEipAddressWithRCInstanceResponse
@@ -260,18 +258,18 @@ namespace Rds20140815
       /**
        * @summary Attaches a pay-as-you-go data cloud disk or a system cloud disk to an RDS Custom instance. The instance and the cloud disk must be in the same zone.
        *
-       * @description When you invoke this operation, take note of the following items:
+       * @description When you call this operation, take note of the following items:
        * - The cloud disk must be in the Available state.
-       * - When you mount a data cloud disk:
+       * - When you attach a data cloud disk:
        *   - The destination RDS Custom instance must be in the Running or Stopped state.
-       *   - If the cloud disk is purchased separately, the billable methods must be pay-as-you-go.
-       *   - If a system cloud disk detached from an RDS Custom instance is mounted as a data cloud disk, no billing method restriction applies.
-       *   - An elastic ephemeral disk can be remounted only to its original instance after it is uninstalled.
-       * - When you mount a system cloud disk:
+       *   - If the cloud disk was purchased separately, its billing method must be pay-as-you-go.
+       *   - If a system cloud disk detached from an RDS Custom instance is attached as a data cloud disk, its billing method is not limited.
+       *   - Once an elastic ephemeral disk is detached, it can only be reattached to its original instance.
+       * - When you attach a system cloud disk:
        *   - The destination RDS Custom instance must be the source instance from which the system cloud disk was detached.
        *   - The destination RDS Custom instance must be in the Stopped state.
-       *   - You must configure the logon credentials for the instance under Settings.
-       *   - Elastic ephemeral disks cannot be mounted as system cloud disks.
+       *   - You must configure the instance logon credentials.
+       *   - Elastic ephemeral disks cannot be attached as system cloud disks.
        *
        * @param request AttachRCDiskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -282,18 +280,18 @@ namespace Rds20140815
       /**
        * @summary Attaches a pay-as-you-go data cloud disk or a system cloud disk to an RDS Custom instance. The instance and the cloud disk must be in the same zone.
        *
-       * @description When you invoke this operation, take note of the following items:
+       * @description When you call this operation, take note of the following items:
        * - The cloud disk must be in the Available state.
-       * - When you mount a data cloud disk:
+       * - When you attach a data cloud disk:
        *   - The destination RDS Custom instance must be in the Running or Stopped state.
-       *   - If the cloud disk is purchased separately, the billable methods must be pay-as-you-go.
-       *   - If a system cloud disk detached from an RDS Custom instance is mounted as a data cloud disk, no billing method restriction applies.
-       *   - An elastic ephemeral disk can be remounted only to its original instance after it is uninstalled.
-       * - When you mount a system cloud disk:
+       *   - If the cloud disk was purchased separately, its billing method must be pay-as-you-go.
+       *   - If a system cloud disk detached from an RDS Custom instance is attached as a data cloud disk, its billing method is not limited.
+       *   - Once an elastic ephemeral disk is detached, it can only be reattached to its original instance.
+       * - When you attach a system cloud disk:
        *   - The destination RDS Custom instance must be the source instance from which the system cloud disk was detached.
        *   - The destination RDS Custom instance must be in the Stopped state.
-       *   - You must configure the logon credentials for the instance under Settings.
-       *   - Elastic ephemeral disks cannot be mounted as system cloud disks.
+       *   - You must configure the instance logon credentials.
+       *   - Elastic ephemeral disks cannot be attached as system cloud disks.
        *
        * @param request AttachRCDiskRequest
        * @return AttachRCDiskResponse
@@ -301,7 +299,7 @@ namespace Rds20140815
       Models::AttachRCDiskResponse attachRCDisk(const Models::AttachRCDiskRequest &request);
 
       /**
-       * @summary Adds RDS Custom instances to an ACK cluster.
+       * @summary Adds an RDS Custom instance to an ACK cluster.
        *
        * @param tmpReq AttachRCInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -310,7 +308,7 @@ namespace Rds20140815
       Models::AttachRCInstancesResponse attachRCInstancesWithOptions(const Models::AttachRCInstancesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds RDS Custom instances to an ACK cluster.
+       * @summary Adds an RDS Custom instance to an ACK cluster.
        *
        * @param request AttachRCInstancesRequest
        * @return AttachRCInstancesResponse
@@ -320,10 +318,10 @@ namespace Rds20140815
       /**
        * @summary Associates a whitelist template with an instance.
        *
-       * @description ### Supported engines
-       * - ApsaraDB RDS for MySQL
-       * - ApsaraDB RDS for PostgreSQL
-       * - ApsaraDB RDS for SQL Server
+       * @description ### Applicable engines
+       * - RDS MySQL
+       * - RDS PostgreSQL
+       * - RDS SQL Server
        *
        * @param request AttachWhitelistTemplateToInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -334,10 +332,10 @@ namespace Rds20140815
       /**
        * @summary Associates a whitelist template with an instance.
        *
-       * @description ### Supported engines
-       * - ApsaraDB RDS for MySQL
-       * - ApsaraDB RDS for PostgreSQL
-       * - ApsaraDB RDS for SQL Server
+       * @description ### Applicable engines
+       * - RDS MySQL
+       * - RDS PostgreSQL
+       * - RDS SQL Server
        *
        * @param request AttachWhitelistTemplateToInstanceRequest
        * @return AttachWhitelistTemplateToInstanceResponse
@@ -345,7 +343,7 @@ namespace Rds20140815
       Models::AttachWhitelistTemplateToInstanceResponse attachWhitelistTemplateToInstance(const Models::AttachWhitelistTemplateToInstanceRequest &request);
 
       /**
-       * @summary Creates the service-linked role AliyunServiceRoleForRdsBackupEncryption for backup encryption.
+       * @summary Creates the AliyunServiceRoleForRdsBackupEncryption service-linked role for backup encryption.
        *
        * @param request AuthorizeBackupEncryptionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -354,7 +352,7 @@ namespace Rds20140815
       Models::AuthorizeBackupEncryptionResponse authorizeBackupEncryptionWithOptions(const Models::AuthorizeBackupEncryptionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates the service-linked role AliyunServiceRoleForRdsBackupEncryption for backup encryption.
+       * @summary Creates the AliyunServiceRoleForRdsBackupEncryption service-linked role for backup encryption.
        *
        * @param request AuthorizeBackupEncryptionRequest
        * @return AuthorizeBackupEncryptionResponse
@@ -379,17 +377,17 @@ namespace Rds20140815
       Models::AuthorizeRCSecurityGroupPermissionResponse authorizeRCSecurityGroupPermission(const Models::AuthorizeRCSecurityGroupPermissionRequest &request);
 
       /**
-       * @summary Queries the system-assigned weight values.
+       * @summary Queries the system weight allocation values.
        *
-       * @description ### Applicable engines
+       * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for SQL Server
-       * ### Feature description
-       * When [read/write splitting](https://help.aliyun.com/document_detail/51073.html) is enabled, this operation calculates the system-assigned weights. To query custom read weights, see [DescribeDBInstanceNetInfo](https://help.aliyun.com/document_detail/610423.html).
-       * ### Before you begin
-       * When you invoke this operation, the instance must meet the following conditions. Otherwise, the operation fails:
-       * * The MySQL instance uses a shared database proxy.
-       * * The instance runs one of the following editions:
+       * ### Description
+       * When [read/write splitting](https://help.aliyun.com/document_detail/51073.html) is enabled, this operation calculates the system-assigned weights. For custom read weights, refer to [DescribeDBInstanceNetInfo](https://help.aliyun.com/document_detail/610423.html).
+       * ### Prerequisites
+       * When you call this operation, the instance must meet the following requirements. Otherwise, the operation fails:
+       * * The MySQL instance uses the shared database proxy.
+       * * The instance runs one of the following engine versions:
        *     * MySQL 5.7 High-availability Edition (local SSDs)
        *     * MySQL 5.6
        *     * SQL Server Cluster Edition
@@ -401,17 +399,17 @@ namespace Rds20140815
       Models::CalculateDBInstanceWeightResponse calculateDBInstanceWeightWithOptions(const Models::CalculateDBInstanceWeightRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the system-assigned weight values.
+       * @summary Queries the system weight allocation values.
        *
-       * @description ### Applicable engines
+       * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for SQL Server
-       * ### Feature description
-       * When [read/write splitting](https://help.aliyun.com/document_detail/51073.html) is enabled, this operation calculates the system-assigned weights. To query custom read weights, see [DescribeDBInstanceNetInfo](https://help.aliyun.com/document_detail/610423.html).
-       * ### Before you begin
-       * When you invoke this operation, the instance must meet the following conditions. Otherwise, the operation fails:
-       * * The MySQL instance uses a shared database proxy.
-       * * The instance runs one of the following editions:
+       * ### Description
+       * When [read/write splitting](https://help.aliyun.com/document_detail/51073.html) is enabled, this operation calculates the system-assigned weights. For custom read weights, refer to [DescribeDBInstanceNetInfo](https://help.aliyun.com/document_detail/610423.html).
+       * ### Prerequisites
+       * When you call this operation, the instance must meet the following requirements. Otherwise, the operation fails:
+       * * The MySQL instance uses the shared database proxy.
+       * * The instance runs one of the following engine versions:
        *     * MySQL 5.7 High-availability Edition (local SSDs)
        *     * MySQL 5.6
        *     * SQL Server Cluster Edition
@@ -422,24 +420,24 @@ namespace Rds20140815
       Models::CalculateDBInstanceWeightResponse calculateDBInstanceWeight(const Models::CalculateDBInstanceWeightRequest &request);
 
       /**
-       * @summary Cancels O&M tasks that have not yet started.
+       * @summary Cancels proactive O&M tasks that have not yet started.
        *
-       * @description ### Applicable engines
+       * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * - ApsaraDB RDS for MariaDB
        * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-       * - [Scheduled events of ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/104183.html)
-       * - [Scheduled events of ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/104452.html)
-       * - [Scheduled events of ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/104451.html)
-       * - [Scheduled events of ApsaraDB RDS for MariaDB](https://help.aliyun.com/document_detail/104454.html)
+       * >Notice: Before you call this operation, read the feature documentation carefully to ensure that you fully understand the prerequisites and the impacts of this operation.
+       * - [Scheduled events for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/104183.html)
+       * - [Scheduled events for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/104452.html)
+       * - [Scheduled events for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/104451.html)
+       * - [Scheduled events for ApsaraDB RDS for MariaDB](https://help.aliyun.com/document_detail/104454.html)
        * ### Limits
-       * A task cannot be canceled in the following cases:
-       * - The value of allowCancel is 0.
+       * You cannot cancel a task in the following scenarios:
+       * - The allowCancel parameter is set to 0.
        * - The current time is later than the task start time.
-       * - The task status is not 3 (waiting for execution).
+       * - The task status is not 3 (Pending Execution).
        *
        * @param request CancelActiveOperationTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -448,24 +446,24 @@ namespace Rds20140815
       Models::CancelActiveOperationTasksResponse cancelActiveOperationTasksWithOptions(const Models::CancelActiveOperationTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Cancels O&M tasks that have not yet started.
+       * @summary Cancels proactive O&M tasks that have not yet started.
        *
-       * @description ### Applicable engines
+       * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * - ApsaraDB RDS for MariaDB
        * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-       * - [Scheduled events of ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/104183.html)
-       * - [Scheduled events of ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/104452.html)
-       * - [Scheduled events of ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/104451.html)
-       * - [Scheduled events of ApsaraDB RDS for MariaDB](https://help.aliyun.com/document_detail/104454.html)
+       * >Notice: Before you call this operation, read the feature documentation carefully to ensure that you fully understand the prerequisites and the impacts of this operation.
+       * - [Scheduled events for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/104183.html)
+       * - [Scheduled events for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/104452.html)
+       * - [Scheduled events for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/104451.html)
+       * - [Scheduled events for ApsaraDB RDS for MariaDB](https://help.aliyun.com/document_detail/104454.html)
        * ### Limits
-       * A task cannot be canceled in the following cases:
-       * - The value of allowCancel is 0.
+       * You cannot cancel a task in the following scenarios:
+       * - The allowCancel parameter is set to 0.
        * - The current time is later than the task start time.
-       * - The task status is not 3 (waiting for execution).
+       * - The task status is not 3 (Pending Execution).
        *
        * @param request CancelActiveOperationTasksRequest
        * @return CancelActiveOperationTasksResponse
@@ -502,7 +500,7 @@ namespace Rds20140815
       Models::CheckAccountNameAvailableResponse checkAccountNameAvailable(const Models::CheckAccountNameAvailableRequest &request);
 
       /**
-       * @summary Checks whether the service-linked role AliyunServiceRoleForRdsBackupEncryption is associated with Cloud Hardware Security Module (CloudHSM) for backup encryption under the current account.
+       * @summary Checks whether the backup encryption service-linked role AliyunServiceRoleForRdsBackupEncryption is created for the user account.
        *
        * @param request CheckBackupEncryptionAuthorizedRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -511,7 +509,7 @@ namespace Rds20140815
       Models::CheckBackupEncryptionAuthorizedResponse checkBackupEncryptionAuthorizedWithOptions(const Models::CheckBackupEncryptionAuthorizedRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Checks whether the service-linked role AliyunServiceRoleForRdsBackupEncryption is associated with Cloud Hardware Security Module (CloudHSM) for backup encryption under the current account.
+       * @summary Checks whether the backup encryption service-linked role AliyunServiceRoleForRdsBackupEncryption is created for the user account.
        *
        * @param request CheckBackupEncryptionAuthorizedRequest
        * @return CheckBackupEncryptionAuthorizedResponse
@@ -548,17 +546,17 @@ namespace Rds20140815
       Models::CheckCloudResourceAuthorizedResponse checkCloudResourceAuthorized(const Models::CheckCloudResourceAuthorizedRequest &request);
 
       /**
-       * @summary Prechecks whether an ApsaraDB RDS instance can be restored across regions by using a cross-region backup set.
+       * @summary Checks whether an ApsaraDB RDS instance can be restored across regions by using a cross-region backup set.
        *
        * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
-       * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts of this operation.
-       * - [MySQL cross-region backup](https://help.aliyun.com/document_detail/120824.html) and [MySQL cross-region restoration](https://help.aliyun.com/document_detail/120875.html)
-       * - [PostgreSQL cross-region backup](https://help.aliyun.com/document_detail/206671.html) and [PostgreSQL cross-region restoration](https://help.aliyun.com/document_detail/206662.html)
-       * - [SQL Server cross-region backup](https://help.aliyun.com/document_detail/187923.html) and [SQL Server cross-region restoration](https://help.aliyun.com/document_detail/187924.html)
+       * ### Related feature documentation
+       * >Notice: Before you call this operation, read the feature documentation carefully to ensure that you fully understand the prerequisites and the impacts of this operation.</notice>
+       * - [Cross-region backup for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/120824.html), [Cross-region restoration for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/120875.html)
+       * - [Cross-region backup for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/206671.html), [Cross-region restoration for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/206662.html)
+       * - [Cross-region backup for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/187923.html), [Cross-region restoration for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/187924.html)
        *
        * @param request CheckCreateDdrDBInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -567,17 +565,17 @@ namespace Rds20140815
       Models::CheckCreateDdrDBInstanceResponse checkCreateDdrDBInstanceWithOptions(const Models::CheckCreateDdrDBInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Prechecks whether an ApsaraDB RDS instance can be restored across regions by using a cross-region backup set.
+       * @summary Checks whether an ApsaraDB RDS instance can be restored across regions by using a cross-region backup set.
        *
        * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
-       * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts of this operation.
-       * - [MySQL cross-region backup](https://help.aliyun.com/document_detail/120824.html) and [MySQL cross-region restoration](https://help.aliyun.com/document_detail/120875.html)
-       * - [PostgreSQL cross-region backup](https://help.aliyun.com/document_detail/206671.html) and [PostgreSQL cross-region restoration](https://help.aliyun.com/document_detail/206662.html)
-       * - [SQL Server cross-region backup](https://help.aliyun.com/document_detail/187923.html) and [SQL Server cross-region restoration](https://help.aliyun.com/document_detail/187924.html)
+       * ### Related feature documentation
+       * >Notice: Before you call this operation, read the feature documentation carefully to ensure that you fully understand the prerequisites and the impacts of this operation.</notice>
+       * - [Cross-region backup for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/120824.html), [Cross-region restoration for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/120875.html)
+       * - [Cross-region backup for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/206671.html), [Cross-region restoration for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/206662.html)
+       * - [Cross-region backup for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/187923.html), [Cross-region restoration for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/187924.html)
        *
        * @param request CheckCreateDdrDBInstanceRequest
        * @return CheckCreateDdrDBInstanceResponse
@@ -660,7 +658,7 @@ namespace Rds20140815
       Models::CheckRdsCustomInitResponse checkRdsCustomInit(const Models::CheckRdsCustomInitRequest &request);
 
       /**
-       * @summary Checks whether backup encryption is supported in the current region.
+       * @summary Checks whether the current region supports backup encryption.
        *
        * @param request CheckRegionSupportBackupEncryptionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -669,7 +667,7 @@ namespace Rds20140815
       Models::CheckRegionSupportBackupEncryptionResponse checkRegionSupportBackupEncryptionWithOptions(const Models::CheckRegionSupportBackupEncryptionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Checks whether backup encryption is supported in the current region.
+       * @summary Checks whether the current region supports backup encryption.
        *
        * @param request CheckRegionSupportBackupEncryptionRequest
        * @return CheckRegionSupportBackupEncryptionResponse
@@ -702,17 +700,17 @@ namespace Rds20140815
       /**
        * @summary Restores historical data to a new instance, also known as a clone instance.
        *
-       * @description ### Supported database engines
+       * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * - ApsaraDB RDS for MariaDB
-       * ### Related documentation
-       * >Notice: Before you call this operation, read the documentation carefully to fully understand the prerequisites and impacts.
-       * - [Restore data for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/96147.html)
-       * - [Restore data for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/96776.html)
-       * - [Restore data for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/95722.html)
-       * - [Restore data for ApsaraDB RDS for MariaDB](https://help.aliyun.com/document_detail/97151.html)
+       * ### Related feature documentation
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.
+       * - [Restore data for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96147.html)
+       * - [Restore data for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96776.html)
+       * - [Restore data for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95722.html)
+       * - [Restore data for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97151.html)
        *
        * @param tmpReq CloneDBInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -723,17 +721,17 @@ namespace Rds20140815
       /**
        * @summary Restores historical data to a new instance, also known as a clone instance.
        *
-       * @description ### Supported database engines
+       * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * - ApsaraDB RDS for MariaDB
-       * ### Related documentation
-       * >Notice: Before you call this operation, read the documentation carefully to fully understand the prerequisites and impacts.
-       * - [Restore data for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/96147.html)
-       * - [Restore data for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/96776.html)
-       * - [Restore data for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/95722.html)
-       * - [Restore data for ApsaraDB RDS for MariaDB](https://help.aliyun.com/document_detail/97151.html)
+       * ### Related feature documentation
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.
+       * - [Restore data for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96147.html)
+       * - [Restore data for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96776.html)
+       * - [Restore data for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95722.html)
+       * - [Restore data for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97151.html)
        *
        * @param request CloneDBInstanceRequest
        * @return CloneDBInstanceResponse
@@ -774,7 +772,7 @@ namespace Rds20140815
       Models::CloneParameterGroupResponse cloneParameterGroup(const Models::CloneParameterGroupRequest &request);
 
       /**
-       * @summary Confirms a carousel notification in the ApsaraDB RDS console for the China site (aliyun.com) under the China site account.
+       * @summary Confirms the carousel messages in the ApsaraDB RDS console for the Alibaba Cloud account.
        *
        * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
@@ -782,7 +780,7 @@ namespace Rds20140815
        * - ApsaraDB RDS for SQL Server
        * - ApsaraDB RDS for MariaDB
        * ### Description
-       * Call [QueryNotify](https://help.aliyun.com/document_detail/610443.html) to query notifications, and then call this operation to mark a notification as confirmed, which indicates that you have acknowledged the notification content.
+       * You can call [QueryNotify](https://help.aliyun.com/document_detail/610443.html) to query notifications, and then call this operation to mark a notification as confirmed, which indicates that you have acknowledged the content of the notification.
        *
        * @param tmpReq ConfirmNotifyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -791,7 +789,7 @@ namespace Rds20140815
       Models::ConfirmNotifyResponse confirmNotifyWithOptions(const Models::ConfirmNotifyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Confirms a carousel notification in the ApsaraDB RDS console for the China site (aliyun.com) under the China site account.
+       * @summary Confirms the carousel messages in the ApsaraDB RDS console for the Alibaba Cloud account.
        *
        * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
@@ -799,7 +797,7 @@ namespace Rds20140815
        * - ApsaraDB RDS for SQL Server
        * - ApsaraDB RDS for MariaDB
        * ### Description
-       * Call [QueryNotify](https://help.aliyun.com/document_detail/610443.html) to query notifications, and then call this operation to mark a notification as confirmed, which indicates that you have acknowledged the notification content.
+       * You can call [QueryNotify](https://help.aliyun.com/document_detail/610443.html) to query notifications, and then call this operation to mark a notification as confirmed, which indicates that you have acknowledged the content of the notification.
        *
        * @param request ConfirmNotifyRequest
        * @return ConfirmNotifyResponse
@@ -826,18 +824,18 @@ namespace Rds20140815
       /**
        * @summary Copies a database between ApsaraDB RDS for SQL Server instances.
        *
-       * @description ### Applicable engine
-       * RDS SQL Server.
+       * @description ### Supported engine
+       * ApsaraDB RDS for SQL Server.
        * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-       * [Copy a database between ApsaraDB RDS for SQL Server instances](https://help.aliyun.com/document_detail/95702.html)
+       * >Notice: Before you call this operation, read the related documentation to understand the prerequisites and impacts.
+       * [Copy databases between ApsaraDB RDS for SQL Server instances](https://help.aliyun.com/document_detail/95702.html)
        * ### Limits
        * - The source and target instances must belong to the same Alibaba Cloud account.
-       * - The target instance **must not contain** a database that has the same name as the database to be copied from the source instance.
-       * - The available storage of the target instance **must be greater than** the storage used by the database to be copied from the source instance. If the storage is insufficient, [expand the storage](https://help.aliyun.com/document_detail/95665.html) in a timely manner.
-       * - The source and target instances must be in the same region (zones can be different) and must use the same network type.
-       * - The source and target instances do not support [serverless instances](https://help.aliyun.com/document_detail/603466.html). To migrate a serverless instance, [use DTS](https://help.aliyun.com/document_detail/210947.html).
-       * - You **must specify** either BackupId or RestoreTime. An error is returned if neither parameter is specified.
+       * - The target instance **must not contain** a database that has the same name as the source database to be copied.
+       * - The available storage space of the target instance **must be greater than** the space occupied by the source database to be copied. If the storage space is insufficient, [scale up the storage capacity](https://help.aliyun.com/document_detail/95665.html).
+       * - The source and target instances must be deployed in the same region. They can be deployed in different zones but must have the same network type.
+       * - The source and target instances do not support the [serverless instance](https://help.aliyun.com/document_detail/603466.html) type. To migrate a serverless instance, [use DTS](https://help.aliyun.com/document_detail/210947.html).
+       * - When you call this operation, you **must specify** either the BackupId or RestoreTime parameter. If neither is specified, an error is returned.
        *
        * @param request CopyDatabaseBetweenInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -848,18 +846,18 @@ namespace Rds20140815
       /**
        * @summary Copies a database between ApsaraDB RDS for SQL Server instances.
        *
-       * @description ### Applicable engine
-       * RDS SQL Server.
+       * @description ### Supported engine
+       * ApsaraDB RDS for SQL Server.
        * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-       * [Copy a database between ApsaraDB RDS for SQL Server instances](https://help.aliyun.com/document_detail/95702.html)
+       * >Notice: Before you call this operation, read the related documentation to understand the prerequisites and impacts.
+       * [Copy databases between ApsaraDB RDS for SQL Server instances](https://help.aliyun.com/document_detail/95702.html)
        * ### Limits
        * - The source and target instances must belong to the same Alibaba Cloud account.
-       * - The target instance **must not contain** a database that has the same name as the database to be copied from the source instance.
-       * - The available storage of the target instance **must be greater than** the storage used by the database to be copied from the source instance. If the storage is insufficient, [expand the storage](https://help.aliyun.com/document_detail/95665.html) in a timely manner.
-       * - The source and target instances must be in the same region (zones can be different) and must use the same network type.
-       * - The source and target instances do not support [serverless instances](https://help.aliyun.com/document_detail/603466.html). To migrate a serverless instance, [use DTS](https://help.aliyun.com/document_detail/210947.html).
-       * - You **must specify** either BackupId or RestoreTime. An error is returned if neither parameter is specified.
+       * - The target instance **must not contain** a database that has the same name as the source database to be copied.
+       * - The available storage space of the target instance **must be greater than** the space occupied by the source database to be copied. If the storage space is insufficient, [scale up the storage capacity](https://help.aliyun.com/document_detail/95665.html).
+       * - The source and target instances must be deployed in the same region. They can be deployed in different zones but must have the same network type.
+       * - The source and target instances do not support the [serverless instance](https://help.aliyun.com/document_detail/603466.html) type. To migrate a serverless instance, [use DTS](https://help.aliyun.com/document_detail/210947.html).
+       * - When you call this operation, you **must specify** either the BackupId or RestoreTime parameter. If neither is specified, an error is returned.
        *
        * @param request CopyDatabaseBetweenInstancesRequest
        * @return CopyDatabaseBetweenInstancesResponse
@@ -911,22 +909,22 @@ namespace Rds20140815
        * @summary Creates a backup set for an ApsaraDB RDS instance.
        *
        * @description ### Supported engines
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * - RDS SQL Server
-       * - RDS MariaDB
-       * ### Description
-       * This operation calls the built-in backup feature of ApsaraDB RDS. You can also use Database Backup Service (DBS). For more information, <props="china">refer to [DBS API overview](https://help.aliyun.com/document_detail/2841997.html)<props="intl">refer to [DBS API overview](https://help.aliyun.com/document_detail/2402073.html).
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * - ApsaraDB RDS for SQL Server
+       * - ApsaraDB RDS for MariaDB
+       * ### Feature description
+       * This operation calls the built-in backup feature of ApsaraDB RDS. You can also use Database Backup (DBS). For more information, <props="china">see [DBS API overview](https://help.aliyun.com/document_detail/2841997.html)<props="intl">see [DBS API overview](https://help.aliyun.com/document_detail/2402073.html).
        * ### Precautions
-       * When you invoke this operation, the instance must meet the following conditions. Otherwise, the operation is failed:
+       * When you invoke this operation, the instance must meet the following conditions. Otherwise, the operation will be failed:
        * - The instance status is Running.
-       * - No backup node is being executed.
-       * - A maximum of 20 backup sets can be created for a single instance per day.
+       * - No backup nodes are being executed.
+       * - The number of backup sets that can be created for a single instance within a day does not exceed 20. For MySQL DPI engine instances, there is no limit on the number of backup sets that can be created within a day.
        * ### Related documentation
-       * - [Back up an RDS MySQL instance](https://help.aliyun.com/document_detail/378074.html)
-       * - [Back up an RDS PostgreSQL instance](https://help.aliyun.com/document_detail/96772.html)
-       * - [Back up an RDS SQL Server instance](https://help.aliyun.com/document_detail/95717.html)
-       * - [Back up an RDS MariaDB instance](https://help.aliyun.com/document_detail/97147.html)
+       * - [Back up data for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/378074.html)
+       * - [Back up data for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/96772.html)
+       * - [Back up data for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/95717.html)
+       * - [Back up data for ApsaraDB RDS for MariaDB](https://help.aliyun.com/document_detail/97147.html)
        *
        * @param request CreateBackupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -938,22 +936,22 @@ namespace Rds20140815
        * @summary Creates a backup set for an ApsaraDB RDS instance.
        *
        * @description ### Supported engines
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * - RDS SQL Server
-       * - RDS MariaDB
-       * ### Description
-       * This operation calls the built-in backup feature of ApsaraDB RDS. You can also use Database Backup Service (DBS). For more information, <props="china">refer to [DBS API overview](https://help.aliyun.com/document_detail/2841997.html)<props="intl">refer to [DBS API overview](https://help.aliyun.com/document_detail/2402073.html).
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * - ApsaraDB RDS for SQL Server
+       * - ApsaraDB RDS for MariaDB
+       * ### Feature description
+       * This operation calls the built-in backup feature of ApsaraDB RDS. You can also use Database Backup (DBS). For more information, <props="china">see [DBS API overview](https://help.aliyun.com/document_detail/2841997.html)<props="intl">see [DBS API overview](https://help.aliyun.com/document_detail/2402073.html).
        * ### Precautions
-       * When you invoke this operation, the instance must meet the following conditions. Otherwise, the operation is failed:
+       * When you invoke this operation, the instance must meet the following conditions. Otherwise, the operation will be failed:
        * - The instance status is Running.
-       * - No backup node is being executed.
-       * - A maximum of 20 backup sets can be created for a single instance per day.
+       * - No backup nodes are being executed.
+       * - The number of backup sets that can be created for a single instance within a day does not exceed 20. For MySQL DPI engine instances, there is no limit on the number of backup sets that can be created within a day.
        * ### Related documentation
-       * - [Back up an RDS MySQL instance](https://help.aliyun.com/document_detail/378074.html)
-       * - [Back up an RDS PostgreSQL instance](https://help.aliyun.com/document_detail/96772.html)
-       * - [Back up an RDS SQL Server instance](https://help.aliyun.com/document_detail/95717.html)
-       * - [Back up an RDS MariaDB instance](https://help.aliyun.com/document_detail/97147.html)
+       * - [Back up data for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/378074.html)
+       * - [Back up data for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/96772.html)
+       * - [Back up data for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/95717.html)
+       * - [Back up data for ApsaraDB RDS for MariaDB](https://help.aliyun.com/document_detail/97147.html)
        *
        * @param request CreateBackupRequest
        * @return CreateBackupResponse
@@ -961,13 +959,13 @@ namespace Rds20140815
       Models::CreateBackupResponse createBackup(const Models::CreateBackupRequest &request);
 
       /**
-       * @summary Creates a pre-check task for one-click migration to ApsaraDB RDS for PostgreSQL.
+       * @summary Creates a pre-check task for one-click cloud migration of an ApsaraDB RDS for PostgreSQL instance.
        *
-       * @description ### Applicable engine
-       * - RDS PostgreSQL
-       * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation to fully understand the prerequisites and impacts of this operation.
-       * [One-click migration to RDS](https://help.aliyun.com/document_detail/365562.html)
+       * @description ### Applicable engines
+       * - ApsaraDB RDS for PostgreSQL
+       * ### Related feature documentation
+       * >Notice: Before you call this operation, read the feature documentation carefully to fully understand the prerequisites and impacts of this operation.
+       * [One-click cloud migration](https://help.aliyun.com/document_detail/365562.html)
        *
        * @param request CreateCloudMigrationPrecheckTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -976,13 +974,13 @@ namespace Rds20140815
       Models::CreateCloudMigrationPrecheckTaskResponse createCloudMigrationPrecheckTaskWithOptions(const Models::CreateCloudMigrationPrecheckTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a pre-check task for one-click migration to ApsaraDB RDS for PostgreSQL.
+       * @summary Creates a pre-check task for one-click cloud migration of an ApsaraDB RDS for PostgreSQL instance.
        *
-       * @description ### Applicable engine
-       * - RDS PostgreSQL
-       * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation to fully understand the prerequisites and impacts of this operation.
-       * [One-click migration to RDS](https://help.aliyun.com/document_detail/365562.html)
+       * @description ### Applicable engines
+       * - ApsaraDB RDS for PostgreSQL
+       * ### Related feature documentation
+       * >Notice: Before you call this operation, read the feature documentation carefully to fully understand the prerequisites and impacts of this operation.
+       * [One-click cloud migration](https://help.aliyun.com/document_detail/365562.html)
        *
        * @param request CreateCloudMigrationPrecheckTaskRequest
        * @return CreateCloudMigrationPrecheckTaskResponse
@@ -990,13 +988,13 @@ namespace Rds20140815
       Models::CreateCloudMigrationPrecheckTaskResponse createCloudMigrationPrecheckTask(const Models::CreateCloudMigrationPrecheckTaskRequest &request);
 
       /**
-       * @summary Creates a migration-to-cloud task for an ApsaraDB RDS for PostgreSQL instance.
+       * @summary Creates a cloud migration task for ApsaraDB RDS for PostgreSQL.
        *
-       * @description ### Applicable engine
-       * - RDS PostgreSQL
-       * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts of this operation.
-       * [Migrate to the cloud](https://help.aliyun.com/document_detail/365562.html)
+       * @description ### Supported engines
+       * - ApsaraDB RDS for PostgreSQL
+       * ### Related feature documentation
+       * >Notice: Before you call this operation, read the feature documentation to understand the prerequisites and impacts.
+       * [One-click cloud migration](https://help.aliyun.com/document_detail/365562.html)
        *
        * @param request CreateCloudMigrationTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1005,13 +1003,13 @@ namespace Rds20140815
       Models::CreateCloudMigrationTaskResponse createCloudMigrationTaskWithOptions(const Models::CreateCloudMigrationTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a migration-to-cloud task for an ApsaraDB RDS for PostgreSQL instance.
+       * @summary Creates a cloud migration task for ApsaraDB RDS for PostgreSQL.
        *
-       * @description ### Applicable engine
-       * - RDS PostgreSQL
-       * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts of this operation.
-       * [Migrate to the cloud](https://help.aliyun.com/document_detail/365562.html)
+       * @description ### Supported engines
+       * - ApsaraDB RDS for PostgreSQL
+       * ### Related feature documentation
+       * >Notice: Before you call this operation, read the feature documentation to understand the prerequisites and impacts.
+       * [One-click cloud migration](https://help.aliyun.com/document_detail/365562.html)
        *
        * @param request CreateCloudMigrationTaskRequest
        * @return CreateCloudMigrationTaskResponse
@@ -1028,7 +1026,7 @@ namespace Rds20140815
        * - ApsaraDB RDS for MariaDB
        * ### Related documentation
        * >Warning: This API operation incurs fees. Read the related documentation carefully before you proceed.
-       * If an error occurs when you call the API operation, you can search for the error message to identify the cause.
+       * If an error occurs when you call the API operation, you can search for the error message to view the cause.
        * - [Create an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/148036.html)
        * - [Create an ApsaraDB RDS for MySQL Serverless instance](https://help.aliyun.com/document_detail/412231.html)
        * - [Create an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/148038.html)
@@ -1054,7 +1052,7 @@ namespace Rds20140815
        * - ApsaraDB RDS for MariaDB
        * ### Related documentation
        * >Warning: This API operation incurs fees. Read the related documentation carefully before you proceed.
-       * If an error occurs when you call the API operation, you can search for the error message to identify the cause.
+       * If an error occurs when you call the API operation, you can search for the error message to view the cause.
        * - [Create an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/148036.html)
        * - [Create an ApsaraDB RDS for MySQL Serverless instance](https://help.aliyun.com/document_detail/412231.html)
        * - [Create an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/148038.html)
@@ -1070,18 +1068,18 @@ namespace Rds20140815
       Models::CreateDBInstanceResponse createDBInstance(const Models::CreateDBInstanceRequest &request);
 
       /**
-       * @summary Creates an endpoint for an ApsaraDB RDS instance that runs the Cluster Edition.
+       * @summary Creates an endpoint for an ApsaraDB RDS Cluster Edition instance.
        *
        * @description ### Supported engines
        * <props="china">
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * <props="intl">RDS MySQL
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * <props="intl">ApsaraDB RDS for MySQL
        * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, carefully read the documentation to fully understand the prerequisites and the impacts of the operation.</notice>
        * <props="china">
-       * - RDS MySQL: [Add a cluster read-only endpoint](https://help.aliyun.com/document_detail/464132.html)
-       * - RDS PostgreSQL: [Add a cluster read-only endpoint](https://help.aliyun.com/document_detail/96788.html)
+       * - ApsaraDB RDS for MySQL: [Add a cluster read-only endpoint](https://help.aliyun.com/document_detail/464132.html)
+       * - ApsaraDB RDS for PostgreSQL: [Add a cluster read-only endpoint](https://help.aliyun.com/document_detail/96788.html)
        * <props="intl">
        * [Add a cluster read-only endpoint](https://help.aliyun.com/document_detail/464132.html)
        *
@@ -1092,18 +1090,18 @@ namespace Rds20140815
       Models::CreateDBInstanceEndpointResponse createDBInstanceEndpointWithOptions(const Models::CreateDBInstanceEndpointRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an endpoint for an ApsaraDB RDS instance that runs the Cluster Edition.
+       * @summary Creates an endpoint for an ApsaraDB RDS Cluster Edition instance.
        *
        * @description ### Supported engines
        * <props="china">
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * <props="intl">RDS MySQL
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * <props="intl">ApsaraDB RDS for MySQL
        * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, carefully read the documentation to fully understand the prerequisites and the impacts of the operation.</notice>
        * <props="china">
-       * - RDS MySQL: [Add a cluster read-only endpoint](https://help.aliyun.com/document_detail/464132.html)
-       * - RDS PostgreSQL: [Add a cluster read-only endpoint](https://help.aliyun.com/document_detail/96788.html)
+       * - ApsaraDB RDS for MySQL: [Add a cluster read-only endpoint](https://help.aliyun.com/document_detail/464132.html)
+       * - ApsaraDB RDS for PostgreSQL: [Add a cluster read-only endpoint](https://help.aliyun.com/document_detail/96788.html)
        * <props="intl">
        * [Add a cluster read-only endpoint](https://help.aliyun.com/document_detail/464132.html)
        *
@@ -1113,16 +1111,16 @@ namespace Rds20140815
       Models::CreateDBInstanceEndpointResponse createDBInstanceEndpoint(const Models::CreateDBInstanceEndpointRequest &request);
 
       /**
-       * @summary Creates a public endpoint for an endpoint of an ApsaraDB RDS instance that uses the Cluster Edition.
+       * @summary Creates a public endpoint for an endpoint of an ApsaraDB RDS Cluster Edition instance.
        *
        * @description ### Supported engines
        * <props="china">
        * - RDS MySQL
        * - RDS PostgreSQL
        * <props="intl">RDS MySQL
-       * ### Before you begin
-       * - You can create a public endpoint for an endpoint only when the endpoint does not have a public endpoint.
-       * - The configurations such as traffic distribution weights are the same as those of the internal endpoint of the endpoint. Each endpoint can have only one public endpoint and one internal endpoint.
+       * ### Precautions
+       * - You can create a public endpoint for an endpoint only if the endpoint does not already have a public endpoint.
+       * - Configurations such as the traffic distribution weight are the same as those of the internal endpoint. Each endpoint can have only one public endpoint and one internal endpoint.
        *
        * @param request CreateDBInstanceEndpointAddressRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1131,16 +1129,16 @@ namespace Rds20140815
       Models::CreateDBInstanceEndpointAddressResponse createDBInstanceEndpointAddressWithOptions(const Models::CreateDBInstanceEndpointAddressRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a public endpoint for an endpoint of an ApsaraDB RDS instance that uses the Cluster Edition.
+       * @summary Creates a public endpoint for an endpoint of an ApsaraDB RDS Cluster Edition instance.
        *
        * @description ### Supported engines
        * <props="china">
        * - RDS MySQL
        * - RDS PostgreSQL
        * <props="intl">RDS MySQL
-       * ### Before you begin
-       * - You can create a public endpoint for an endpoint only when the endpoint does not have a public endpoint.
-       * - The configurations such as traffic distribution weights are the same as those of the internal endpoint of the endpoint. Each endpoint can have only one public endpoint and one internal endpoint.
+       * ### Precautions
+       * - You can create a public endpoint for an endpoint only if the endpoint does not already have a public endpoint.
+       * - Configurations such as the traffic distribution weight are the same as those of the internal endpoint. Each endpoint can have only one public endpoint and one internal endpoint.
        *
        * @param request CreateDBInstanceEndpointAddressRequest
        * @return CreateDBInstanceEndpointAddressResponse
@@ -1150,17 +1148,17 @@ namespace Rds20140815
       /**
        * @summary Rebuilds an instance that has been moved to the recycle bin.
        *
-       * @description ### Supported database engines
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * - RDS SQL Server
-       * - RDS MariaDB
+       * @description ### Supported engines
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * - ApsaraDB RDS for SQL Server
+       * - ApsaraDB RDS for MariaDB
        * ### Related feature documentation
-       * >Warning: This API operation involves fees. Read the related feature documentation carefully before you perform this operation.
-       * - [Rebuild an RDS MySQL instance from the recycle bin](https://help.aliyun.com/document_detail/96065.html)
-       * - [Rebuild an RDS PostgreSQL instance from the recycle bin](https://help.aliyun.com/document_detail/96752.html)
-       * - [Rebuild an RDS SQL Server instance from the recycle bin](https://help.aliyun.com/document_detail/95669.html)
-       * - [Rebuild an RDS MariaDB instance from the recycle bin](https://help.aliyun.com/document_detail/97131.html)
+       * >Warning: This API operation incurs fees. Read the related feature documentation carefully before you call this operation.
+       * - [Rebuild an ApsaraDB RDS for MySQL instance from the recycle bin](https://help.aliyun.com/document_detail/96065.html)
+       * - [Rebuild an ApsaraDB RDS for PostgreSQL instance from the recycle bin](https://help.aliyun.com/document_detail/96752.html)
+       * - [Rebuild an ApsaraDB RDS for SQL Server instance from the recycle bin](https://help.aliyun.com/document_detail/95669.html)
+       * - [Rebuild an ApsaraDB RDS for MariaDB instance from the recycle bin](https://help.aliyun.com/document_detail/97131.html)
        *
        * @param request CreateDBInstanceForRebuildRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1171,17 +1169,17 @@ namespace Rds20140815
       /**
        * @summary Rebuilds an instance that has been moved to the recycle bin.
        *
-       * @description ### Supported database engines
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * - RDS SQL Server
-       * - RDS MariaDB
+       * @description ### Supported engines
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * - ApsaraDB RDS for SQL Server
+       * - ApsaraDB RDS for MariaDB
        * ### Related feature documentation
-       * >Warning: This API operation involves fees. Read the related feature documentation carefully before you perform this operation.
-       * - [Rebuild an RDS MySQL instance from the recycle bin](https://help.aliyun.com/document_detail/96065.html)
-       * - [Rebuild an RDS PostgreSQL instance from the recycle bin](https://help.aliyun.com/document_detail/96752.html)
-       * - [Rebuild an RDS SQL Server instance from the recycle bin](https://help.aliyun.com/document_detail/95669.html)
-       * - [Rebuild an RDS MariaDB instance from the recycle bin](https://help.aliyun.com/document_detail/97131.html)
+       * >Warning: This API operation incurs fees. Read the related feature documentation carefully before you call this operation.
+       * - [Rebuild an ApsaraDB RDS for MySQL instance from the recycle bin](https://help.aliyun.com/document_detail/96065.html)
+       * - [Rebuild an ApsaraDB RDS for PostgreSQL instance from the recycle bin](https://help.aliyun.com/document_detail/96752.html)
+       * - [Rebuild an ApsaraDB RDS for SQL Server instance from the recycle bin](https://help.aliyun.com/document_detail/95669.html)
+       * - [Rebuild an ApsaraDB RDS for MariaDB instance from the recycle bin](https://help.aliyun.com/document_detail/97131.html)
        *
        * @param request CreateDBInstanceForRebuildRequest
        * @return CreateDBInstanceForRebuildResponse
@@ -1206,12 +1204,12 @@ namespace Rds20140815
       Models::CreateDBInstanceReplicationResponse createDBInstanceReplication(const Models::CreateDBInstanceReplicationRequest &request);
 
       /**
-       * @summary Adds security group rules to an ApsaraDB RDS for SQL Server instance.
+       * @summary Adds a security group rule to an ApsaraDB RDS for SQL Server instance.
        *
-       * @description ### Supported engine
+       * @description ### Supported engines
        * ApsaraDB RDS for SQL Server
        * ### Related documentation
-       * [Configure security group rules for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/2392322.html)
+       * [Configure security group rules for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/2392322.html)
        *
        * @param request CreateDBInstanceSecurityGroupRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1220,12 +1218,12 @@ namespace Rds20140815
       Models::CreateDBInstanceSecurityGroupRuleResponse createDBInstanceSecurityGroupRuleWithOptions(const Models::CreateDBInstanceSecurityGroupRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds security group rules to an ApsaraDB RDS for SQL Server instance.
+       * @summary Adds a security group rule to an ApsaraDB RDS for SQL Server instance.
        *
-       * @description ### Supported engine
+       * @description ### Supported engines
        * ApsaraDB RDS for SQL Server
        * ### Related documentation
-       * [Configure security group rules for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/2392322.html)
+       * [Configure security group rules for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/2392322.html)
        *
        * @param request CreateDBInstanceSecurityGroupRuleRequest
        * @return CreateDBInstanceSecurityGroupRuleResponse
@@ -1233,20 +1231,20 @@ namespace Rds20140815
       Models::CreateDBInstanceSecurityGroupRuleResponse createDBInstanceSecurityGroupRule(const Models::CreateDBInstanceSecurityGroupRuleRequest &request);
 
       /**
-       * @summary Adds nodes to an ApsaraDB RDS instance that runs the Cluster Edition.
+       * @summary Adds a node to an ApsaraDB RDS Cluster Edition instance.
        *
        * @description ### Supported engines
        * <props="china">
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * <props="intl">RDS MySQL
-       * ### Related feature documentation
-       * >Notice: Before you call this operation, read the following feature documentation carefully to fully understand the prerequisites and impacts of this operation.
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * <props="intl">ApsaraDB RDS for MySQL
+       * ### Related documentation
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and impacts.
        * <props="china">
-       * - RDS MySQL: [Add nodes to an ApsaraDB RDS for MySQL instance that runs the Cluster Edition](https://help.aliyun.com/document_detail/464129.html)
-       * - RDS PostgreSQL: [Add nodes to an ApsaraDB RDS for PostgreSQL instance that runs the Cluster Edition](https://help.aliyun.com/document_detail/2778876.html)
+       * - ApsaraDB RDS for MySQL: [Add nodes to an ApsaraDB RDS for MySQL Cluster Edition instance](https://help.aliyun.com/document_detail/464129.html)
+       * - ApsaraDB RDS for PostgreSQL: [Add nodes to an ApsaraDB RDS for PostgreSQL Cluster Edition instance](https://help.aliyun.com/document_detail/2778876.html)
        * <props="intl">
-       * [Add nodes to an ApsaraDB RDS for MySQL instance that runs the Cluster Edition](https://help.aliyun.com/document_detail/464129.html)
+       * [Add nodes to an ApsaraDB RDS for MySQL Cluster Edition instance](https://help.aliyun.com/document_detail/464129.html)
        *
        * @param tmpReq CreateDBNodesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1255,20 +1253,20 @@ namespace Rds20140815
       Models::CreateDBNodesResponse createDBNodesWithOptions(const Models::CreateDBNodesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds nodes to an ApsaraDB RDS instance that runs the Cluster Edition.
+       * @summary Adds a node to an ApsaraDB RDS Cluster Edition instance.
        *
        * @description ### Supported engines
        * <props="china">
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * <props="intl">RDS MySQL
-       * ### Related feature documentation
-       * >Notice: Before you call this operation, read the following feature documentation carefully to fully understand the prerequisites and impacts of this operation.
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * <props="intl">ApsaraDB RDS for MySQL
+       * ### Related documentation
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and impacts.
        * <props="china">
-       * - RDS MySQL: [Add nodes to an ApsaraDB RDS for MySQL instance that runs the Cluster Edition](https://help.aliyun.com/document_detail/464129.html)
-       * - RDS PostgreSQL: [Add nodes to an ApsaraDB RDS for PostgreSQL instance that runs the Cluster Edition](https://help.aliyun.com/document_detail/2778876.html)
+       * - ApsaraDB RDS for MySQL: [Add nodes to an ApsaraDB RDS for MySQL Cluster Edition instance](https://help.aliyun.com/document_detail/464129.html)
+       * - ApsaraDB RDS for PostgreSQL: [Add nodes to an ApsaraDB RDS for PostgreSQL Cluster Edition instance](https://help.aliyun.com/document_detail/2778876.html)
        * <props="intl">
-       * [Add nodes to an ApsaraDB RDS for MySQL instance that runs the Cluster Edition](https://help.aliyun.com/document_detail/464129.html)
+       * [Add nodes to an ApsaraDB RDS for MySQL Cluster Edition instance](https://help.aliyun.com/document_detail/464129.html)
        *
        * @param request CreateDBNodesRequest
        * @return CreateDBNodesResponse
@@ -1279,12 +1277,12 @@ namespace Rds20140815
        * @summary Creates a database proxy endpoint for an ApsaraDB RDS instance.
        *
        * @description ### Supported database engines
-       * - RDS MySQL
-       * - RDS PostgreSQL
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
        * ### Related feature documentation
-       * >Notice: Before you invoke this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-       * - [Create an internal or public database proxy endpoint for an RDS MySQL instance](https://help.aliyun.com/document_detail/184921.html)
-       * - [Create an internal or public database proxy endpoint for an RDS PostgreSQL instance](https://help.aliyun.com/document_detail/418274.html)
+       * >Notice: Before you call this operation, read the feature documentation to fully understand the prerequisites and impacts.</notice>
+       * - [Create internal and public database proxy endpoints for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/184921.html)
+       * - [Create internal and public database proxy endpoints for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418274.html)
        *
        * @param request CreateDBProxyEndpointAddressRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1296,12 +1294,12 @@ namespace Rds20140815
        * @summary Creates a database proxy endpoint for an ApsaraDB RDS instance.
        *
        * @description ### Supported database engines
-       * - RDS MySQL
-       * - RDS PostgreSQL
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
        * ### Related feature documentation
-       * >Notice: Before you invoke this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-       * - [Create an internal or public database proxy endpoint for an RDS MySQL instance](https://help.aliyun.com/document_detail/184921.html)
-       * - [Create an internal or public database proxy endpoint for an RDS PostgreSQL instance](https://help.aliyun.com/document_detail/418274.html)
+       * >Notice: Before you call this operation, read the feature documentation to fully understand the prerequisites and impacts.</notice>
+       * - [Create internal and public database proxy endpoints for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/184921.html)
+       * - [Create internal and public database proxy endpoints for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418274.html)
        *
        * @param request CreateDBProxyEndpointAddressRequest
        * @return CreateDBProxyEndpointAddressResponse
@@ -1350,16 +1348,16 @@ namespace Rds20140815
       Models::CreateDatabaseResponse createDatabase(const Models::CreateDatabaseRequest &request);
 
       /**
-       * @summary Restores data to a new instance across regions.
+       * @summary Restores data across regions to a new instance.
        *
-       * @description ### Suggestions
-       * Before you perform a restoration, call the CheckCreateDdrDBInstance operation to check whether the cross-region backup set of the destination ApsaraDB RDS instance can be used for cross-region restoration.
+       * @description ### Recommendations
+       * Before restoration, call the CheckCreateDdrDBInstance operation to check whether the cross-region backup set of the destination ApsaraDB RDS instance can be used for cross-region restoration.
        * ### Supported engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you use this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of using this operation.
        * - [Cross-region backup for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/120824.html)
        * - [Cross-region backup for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/206671.html)
        * - [Cross-region backup for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/187923.html)
@@ -1371,16 +1369,16 @@ namespace Rds20140815
       Models::CreateDdrInstanceResponse createDdrInstanceWithOptions(const Models::CreateDdrInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Restores data to a new instance across regions.
+       * @summary Restores data across regions to a new instance.
        *
-       * @description ### Suggestions
-       * Before you perform a restoration, call the CheckCreateDdrDBInstance operation to check whether the cross-region backup set of the destination ApsaraDB RDS instance can be used for cross-region restoration.
+       * @description ### Recommendations
+       * Before restoration, call the CheckCreateDdrDBInstance operation to check whether the cross-region backup set of the destination ApsaraDB RDS instance can be used for cross-region restoration.
        * ### Supported engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you use this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of using this operation.
        * - [Cross-region backup for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/120824.html)
        * - [Cross-region backup for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/206671.html)
        * - [Cross-region backup for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/187923.html)
@@ -1391,14 +1389,14 @@ namespace Rds20140815
       Models::CreateDdrInstanceResponse createDdrInstance(const Models::CreateDdrInstanceRequest &request);
 
       /**
-       * @summary Creates a Global Active Database (GAD) cluster for ApsaraDB RDS.
+       * @summary Creates an ApsaraDB RDS global active database cluster.
        *
-       * @description ### Applicable engine
-       * - RDS MySQL
+       * @description ### Supported engines
+       * - ApsaraDB RDS for MySQL
        * <props="china">
        * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation to fully understand the prerequisites and impacts of this operation.
-       * [Create and release a GAD cluster](https://help.aliyun.com/document_detail/328592.html)
+       * >Notice: Before you call this operation, read the documentation to fully understand the prerequisites and impacts.
+       * [Create and release a global active database cluster](https://help.aliyun.com/document_detail/328592.html)
        *
        * @param request CreateGADInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1407,14 +1405,14 @@ namespace Rds20140815
       Models::CreateGADInstanceResponse createGADInstanceWithOptions(const Models::CreateGADInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a Global Active Database (GAD) cluster for ApsaraDB RDS.
+       * @summary Creates an ApsaraDB RDS global active database cluster.
        *
-       * @description ### Applicable engine
-       * - RDS MySQL
+       * @description ### Supported engines
+       * - ApsaraDB RDS for MySQL
        * <props="china">
        * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation to fully understand the prerequisites and impacts of this operation.
-       * [Create and release a GAD cluster](https://help.aliyun.com/document_detail/328592.html)
+       * >Notice: Before you call this operation, read the documentation to fully understand the prerequisites and impacts.
+       * [Create and release a global active database cluster](https://help.aliyun.com/document_detail/328592.html)
        *
        * @param request CreateGADInstanceRequest
        * @return CreateGADInstanceResponse
@@ -1424,10 +1422,10 @@ namespace Rds20140815
       /**
        * @summary Adds a node to an ApsaraDB RDS global active database cluster.
        *
-       * @description ### Supported engine
-       * - RDS MySQL
+       * @description ### Supported engines
+       * - ApsaraDB RDS for MySQL
        * ### Related documentation
-       * >Notice: Before calling this operation, carefully read the documentation to fully understand the prerequisites and potential impacts, and then proceed.
+       * >Notice: Before you call this operation, read the documentation to fully understand the prerequisites and impacts.</notice>
        * <props="china">[Add or remove unit nodes](https://help.aliyun.com/document_detail/331851.html)
        *
        * @param request CreateGadInstanceMemberRequest
@@ -1439,10 +1437,10 @@ namespace Rds20140815
       /**
        * @summary Adds a node to an ApsaraDB RDS global active database cluster.
        *
-       * @description ### Supported engine
-       * - RDS MySQL
+       * @description ### Supported engines
+       * - ApsaraDB RDS for MySQL
        * ### Related documentation
-       * >Notice: Before calling this operation, carefully read the documentation to fully understand the prerequisites and potential impacts, and then proceed.
+       * >Notice: Before you call this operation, read the documentation to fully understand the prerequisites and impacts.</notice>
        * <props="china">[Add or remove unit nodes](https://help.aliyun.com/document_detail/331851.html)
        *
        * @param request CreateGadInstanceMemberRequest
@@ -1453,7 +1451,7 @@ namespace Rds20140815
       /**
        * @summary Creates a data import task.
        *
-       * @description Creates a data import task for importing data to an ApsaraDB RDS for MySQL instance with native replication.
+       * @description Creates a data import task to import data into an ApsaraDB RDS for MySQL instance that uses native replication.
        *
        * @param request CreateImportTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1464,7 +1462,7 @@ namespace Rds20140815
       /**
        * @summary Creates a data import task.
        *
-       * @description Creates a data import task for importing data to an ApsaraDB RDS for MySQL instance with native replication.
+       * @description Creates a data import task to import data into an ApsaraDB RDS for MySQL instance that uses native replication.
        *
        * @param request CreateImportTaskRequest
        * @return CreateImportTaskResponse
@@ -1472,11 +1470,11 @@ namespace Rds20140815
       Models::CreateImportTaskResponse createImportTask(const Models::CreateImportTaskRequest &request);
 
       /**
-       * @summary Creates an encryption or masking rule for a specified instance.
+       * @summary Creates a new encryption or masking rule for a specified instance.
        *
        * @description ## Request description
-       * - Before invoking this operation, make sure that the column encryption service is activated in DAS Security Center.
-       * - If you receive the fault message ColumnEncryptionErrorCode.NOT_PURCHASED when you invoke this operation, go to Database Autonomy Service (DAS) Security Center to purchase and activate the column encryption service through Cloud Hardware Security Module (CloudHSM) before trying again.
+       * - Before you invoke this operation, make sure that column encryption is activated in the DAS Security Center.
+       * - If you receive the ColumnEncryptionErrorCode.NOT_PURCHASED error message when invoking this operation, go to the Database Autonomy Service (DAS) Security Center to purchase and activate column encryption.
        *
        * @param tmpReq CreateMaskingRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1485,11 +1483,11 @@ namespace Rds20140815
       Models::CreateMaskingRulesResponse createMaskingRulesWithOptions(const Models::CreateMaskingRulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an encryption or masking rule for a specified instance.
+       * @summary Creates a new encryption or masking rule for a specified instance.
        *
        * @description ## Request description
-       * - Before invoking this operation, make sure that the column encryption service is activated in DAS Security Center.
-       * - If you receive the fault message ColumnEncryptionErrorCode.NOT_PURCHASED when you invoke this operation, go to Database Autonomy Service (DAS) Security Center to purchase and activate the column encryption service through Cloud Hardware Security Module (CloudHSM) before trying again.
+       * - Before you invoke this operation, make sure that column encryption is activated in the DAS Security Center.
+       * - If you receive the ColumnEncryptionErrorCode.NOT_PURCHASED error message when invoking this operation, go to the Database Autonomy Service (DAS) Security Center to purchase and activate column encryption.
        *
        * @param request CreateMaskingRulesRequest
        * @return CreateMaskingRulesResponse
@@ -1573,10 +1571,10 @@ namespace Rds20140815
       /**
        * @summary Deletes nodes from an ApsaraDB RDS for MySQL Cluster Edition instance.
        *
-       * @description ### Applicable engine
+       * @description ### Supported engine
        * ApsaraDB RDS for MySQL
        * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of this operation.
        * [Delete nodes from an ApsaraDB RDS for MySQL Cluster Edition instance](https://help.aliyun.com/document_detail/464130.html)
        *
        * @param tmpReq CreateOrderForDeleteDBNodesRequest
@@ -1588,10 +1586,10 @@ namespace Rds20140815
       /**
        * @summary Deletes nodes from an ApsaraDB RDS for MySQL Cluster Edition instance.
        *
-       * @description ### Applicable engine
+       * @description ### Supported engine
        * ApsaraDB RDS for MySQL
        * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of this operation.
        * [Delete nodes from an ApsaraDB RDS for MySQL Cluster Edition instance](https://help.aliyun.com/document_detail/464130.html)
        *
        * @param request CreateOrderForDeleteDBNodesRequest
@@ -1633,18 +1631,18 @@ namespace Rds20140815
       Models::CreateParameterGroupResponse createParameterGroup(const Models::CreateParameterGroupRequest &request);
 
       /**
-       * @summary Installs a specified extension in a target database.
+       * @summary Installs a specified plug-in in a destination database.
        *
-       * @description <props="china">You can join the RDS PostgreSQL extension exchange DingTalk group (103525002795) to consult, communicate, provide feedback, and obtain more information about extensions.
-       * ### Applicable engine
-       * RDS PostgreSQL
+       * @description <props="china">You can join the RDS PostgreSQL plug-in communication DingTalk group (103525002795) for consultation, communication, and feedback to obtain more information about plug-ins.
+       * ### Supported engines
+       * ApsaraDB RDS for PostgreSQL
        * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation to fully understand the prerequisites and potential impacts. Proceed only after you understand the information.
-       * [Manage extensions](https://help.aliyun.com/document_detail/2402409.html)
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impact of this operation.
+       * [Manage plug-ins](https://help.aliyun.com/document_detail/2402409.html)
        * ### Precautions
-       * You can install only extensions that are supported by the major engine version of the instance. Otherwise, the installation fails.
-       * - For information about supported extensions, see [Supported extensions](https://help.aliyun.com/document_detail/142340.html).
-       * - You can call [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/610394.html) to query the major engine version of the instance.
+       * You can only install plug-ins that are supported by the major engine version of the instance. Otherwise, the installation fails.
+       * - For information about supported plug-ins, see [Supported plug-ins](https://help.aliyun.com/document_detail/142340.html).
+       * - You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/610394.html) operation to query the major engine version of the instance.
        *
        * @param request CreatePostgresExtensionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1653,18 +1651,18 @@ namespace Rds20140815
       Models::CreatePostgresExtensionsResponse createPostgresExtensionsWithOptions(const Models::CreatePostgresExtensionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Installs a specified extension in a target database.
+       * @summary Installs a specified plug-in in a destination database.
        *
-       * @description <props="china">You can join the RDS PostgreSQL extension exchange DingTalk group (103525002795) to consult, communicate, provide feedback, and obtain more information about extensions.
-       * ### Applicable engine
-       * RDS PostgreSQL
+       * @description <props="china">You can join the RDS PostgreSQL plug-in communication DingTalk group (103525002795) for consultation, communication, and feedback to obtain more information about plug-ins.
+       * ### Supported engines
+       * ApsaraDB RDS for PostgreSQL
        * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation to fully understand the prerequisites and potential impacts. Proceed only after you understand the information.
-       * [Manage extensions](https://help.aliyun.com/document_detail/2402409.html)
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impact of this operation.
+       * [Manage plug-ins](https://help.aliyun.com/document_detail/2402409.html)
        * ### Precautions
-       * You can install only extensions that are supported by the major engine version of the instance. Otherwise, the installation fails.
-       * - For information about supported extensions, see [Supported extensions](https://help.aliyun.com/document_detail/142340.html).
-       * - You can call [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/610394.html) to query the major engine version of the instance.
+       * You can only install plug-ins that are supported by the major engine version of the instance. Otherwise, the installation fails.
+       * - For information about supported plug-ins, see [Supported plug-ins](https://help.aliyun.com/document_detail/142340.html).
+       * - You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/610394.html) operation to query the major engine version of the instance.
        *
        * @param request CreatePostgresExtensionsRequest
        * @return CreatePostgresExtensionsResponse
@@ -1689,12 +1687,12 @@ namespace Rds20140815
       Models::CreateRCDeploymentSetResponse createRCDeploymentSet(const Models::CreateRCDeploymentSetRequest &request);
 
       /**
-       * @summary Calls the CreateDisk operation to create an RDS Custom data cloud disk.
+       * @summary Creates an RDS Custom data cloud disk.
        *
-       * @description -  Supported cloud disk types: ultra cloud disk, standard SSD, ESSD, and premium performance disk (default).
-       * -  If the billing method of the cloud disk is subscription (**Prepaid**), you must specify the instance ID of a subscription instance (**InstanceId**) to which the cloud disk is mounted. The expiration time of the cloud disk is the same as that of the instance.
-       * - You can create a pay-as-you-go (**Postpaid**) cloud disk separately without mounting it to an instance. You can also mount it to an instance of any billing method during creation as needed.
-       * - The cloud disk types and the number of cloud disks that can be mounted vary based on instance specifications.
+       * @description - Supported cloud disk types: ultra disk, standard SSD, ESSD, and premium performance disk (default).
+       * - When the billing method of the cloud disk is subscription (**Prepaid**), you must specify the instance ID of a subscription instance (**InstanceId**) to which the cloud disk is mounted. The expiration time of the cloud disk is the same as that of the mounted instance.
+       * - You can create a pay-as-you-go (**Postpaid**) cloud disk separately without mounting it to an instance. You can also mount it to an instance of any billing method when you create it as needed.
+       * - The types and number of cloud disks that can be mounted vary based on the instance type.
        *
        * @param request CreateRCDiskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1703,12 +1701,12 @@ namespace Rds20140815
       Models::CreateRCDiskResponse createRCDiskWithOptions(const Models::CreateRCDiskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Calls the CreateDisk operation to create an RDS Custom data cloud disk.
+       * @summary Creates an RDS Custom data cloud disk.
        *
-       * @description -  Supported cloud disk types: ultra cloud disk, standard SSD, ESSD, and premium performance disk (default).
-       * -  If the billing method of the cloud disk is subscription (**Prepaid**), you must specify the instance ID of a subscription instance (**InstanceId**) to which the cloud disk is mounted. The expiration time of the cloud disk is the same as that of the instance.
-       * - You can create a pay-as-you-go (**Postpaid**) cloud disk separately without mounting it to an instance. You can also mount it to an instance of any billing method during creation as needed.
-       * - The cloud disk types and the number of cloud disks that can be mounted vary based on instance specifications.
+       * @description - Supported cloud disk types: ultra disk, standard SSD, ESSD, and premium performance disk (default).
+       * - When the billing method of the cloud disk is subscription (**Prepaid**), you must specify the instance ID of a subscription instance (**InstanceId**) to which the cloud disk is mounted. The expiration time of the cloud disk is the same as that of the mounted instance.
+       * - You can create a pay-as-you-go (**Postpaid**) cloud disk separately without mounting it to an instance. You can also mount it to an instance of any billing method when you create it as needed.
+       * - The types and number of cloud disks that can be mounted vary based on the instance type.
        *
        * @param request CreateRCDiskRequest
        * @return CreateRCDiskResponse
@@ -1719,14 +1717,14 @@ namespace Rds20140815
        * @summary Creates a custom image for an RDS Custom instance.
        *
        * @description ### Supported engines
-       * - ApsaraDB RDS for MySQL
-       * - ApsaraDB RDS for SQL Server
+       * - RDS MySQL
+       * - RDS SQL Server
        * ### Related documentation
        * - [Introduction to RDS Custom for MySQL](https://help.aliyun.com/document_detail/2844223.html)
        * - [Introduction to RDS Custom for SQL Server](https://help.aliyun.com/document_detail/2864363.html)
-       * ### Usage notes
-       * - Method 1: Create a custom image from a snapshot of the **system cloud disk**. Specify SnapshotId and ImageName together.
-       * - Method 2: Create a custom image from an RDS Custom instance. Specify InstanceId and ImageName together.
+       * ### Usage
+       * - Method 1: Create a custom image from a snapshot generated from a **system cloud disk**. When passing values, use SnapshotId and ImageName together.
+       * - Method 2: Create a custom image from an RDS Custom instance. When passing values, use InstanceId and ImageName together.
        *
        * @param request CreateRCImageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1738,14 +1736,14 @@ namespace Rds20140815
        * @summary Creates a custom image for an RDS Custom instance.
        *
        * @description ### Supported engines
-       * - ApsaraDB RDS for MySQL
-       * - ApsaraDB RDS for SQL Server
+       * - RDS MySQL
+       * - RDS SQL Server
        * ### Related documentation
        * - [Introduction to RDS Custom for MySQL](https://help.aliyun.com/document_detail/2844223.html)
        * - [Introduction to RDS Custom for SQL Server](https://help.aliyun.com/document_detail/2864363.html)
-       * ### Usage notes
-       * - Method 1: Create a custom image from a snapshot of the **system cloud disk**. Specify SnapshotId and ImageName together.
-       * - Method 2: Create a custom image from an RDS Custom instance. Specify InstanceId and ImageName together.
+       * ### Usage
+       * - Method 1: Create a custom image from a snapshot generated from a **system cloud disk**. When passing values, use SnapshotId and ImageName together.
+       * - Method 2: Create a custom image from an RDS Custom instance. When passing values, use InstanceId and ImageName together.
        *
        * @param request CreateRCImageRequest
        * @return CreateRCImageResponse
@@ -1772,15 +1770,15 @@ namespace Rds20140815
       /**
        * @summary Creates a snapshot for a cloud disk.
        *
-       * @description You cannot create a snapshot for a cloud disk in the following scenarios:
-       * - The number of manual snapshots retained for the cloud disk has reached 256.
-       * - The previous snapshot has not been created yet.
-       * - The instance to which the cloud disk is mounted has never been started.
-       * - The instance to which the cloud disk is mounted is not in the **Stopped** or **Running** instance status.
-       * When you create a snapshot, take note of the following items:
-       * - If the snapshot has not been created, the snapshot cannot be used to create a custom image (CreateImage).
-       * - If the cloud disk is mounted to an RDS Custom instance, do not change the instance status while the snapshot is being created.
-       * - You can create snapshots for cloud disks in the **Expired** state. If the cloud disk reaches its expiration release time while the snapshot is being created, the cloud disk is released and the snapshot in the Creating state is also deleted.
+       * @description You cannot create a snapshot for a specified cloud disk in the following scenarios:
+       * - The cloud disk has reached the limit of 256 manual snapshots.
+       * - The previous snapshot is still being created.
+       * - The instance on which the cloud disk is mounted has never been started.
+       * - The instance on which the cloud disk is mounted is not in the **Stopped** or **Running** state.
+       * Note the following when you create a snapshot:
+       * - If the snapshot is still being created, you cannot use it to create a custom image by calling the CreateImage operation.
+       * - If the cloud disk is mounted on an RDS Custom instance, do not change the instance status during snapshot creation.
+       * - You can create snapshots for cloud disks in the **Expired** state. If a cloud disk reaches its expiration and release time exactly when a snapshot is being created, the snapshot in the **Creating** state is deleted along with the cloud disk.
        *
        * @param request CreateRCSnapshotRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1791,15 +1789,15 @@ namespace Rds20140815
       /**
        * @summary Creates a snapshot for a cloud disk.
        *
-       * @description You cannot create a snapshot for a cloud disk in the following scenarios:
-       * - The number of manual snapshots retained for the cloud disk has reached 256.
-       * - The previous snapshot has not been created yet.
-       * - The instance to which the cloud disk is mounted has never been started.
-       * - The instance to which the cloud disk is mounted is not in the **Stopped** or **Running** instance status.
-       * When you create a snapshot, take note of the following items:
-       * - If the snapshot has not been created, the snapshot cannot be used to create a custom image (CreateImage).
-       * - If the cloud disk is mounted to an RDS Custom instance, do not change the instance status while the snapshot is being created.
-       * - You can create snapshots for cloud disks in the **Expired** state. If the cloud disk reaches its expiration release time while the snapshot is being created, the cloud disk is released and the snapshot in the Creating state is also deleted.
+       * @description You cannot create a snapshot for a specified cloud disk in the following scenarios:
+       * - The cloud disk has reached the limit of 256 manual snapshots.
+       * - The previous snapshot is still being created.
+       * - The instance on which the cloud disk is mounted has never been started.
+       * - The instance on which the cloud disk is mounted is not in the **Stopped** or **Running** state.
+       * Note the following when you create a snapshot:
+       * - If the snapshot is still being created, you cannot use it to create a custom image by calling the CreateImage operation.
+       * - If the cloud disk is mounted on an RDS Custom instance, do not change the instance status during snapshot creation.
+       * - You can create snapshots for cloud disks in the **Expired** state. If a cloud disk reaches its expiration and release time exactly when a snapshot is being created, the snapshot in the **Creating** state is deleted along with the cloud disk.
        *
        * @param request CreateRCSnapshotRequest
        * @return CreateRCSnapshotResponse
@@ -1877,8 +1875,8 @@ namespace Rds20140815
       /**
        * @summary Creates a Data API user credential.
        *
-       * @description ### Applicable engines
-       * - RDS MySQL
+       * @description ### Supported engines
+       * - ApsaraDB RDS for MySQL
        *
        * @param request CreateSecretRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1889,8 +1887,8 @@ namespace Rds20140815
       /**
        * @summary Creates a Data API user credential.
        *
-       * @description ### Applicable engines
-       * - RDS MySQL
+       * @description ### Supported engines
+       * - ApsaraDB RDS for MySQL
        *
        * @param request CreateSecretRequest
        * @return CreateSecretResponse
@@ -1958,7 +1956,7 @@ namespace Rds20140815
       Models::CreateTempDBInstanceResponse createTempDBInstance(const Models::CreateTempDBInstanceRequest &request);
 
       /**
-       * @summary Claims a coupon.
+       * @summary Redeems a coupon.
        *
        * @param request CreateYouhuiForOrderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1967,7 +1965,7 @@ namespace Rds20140815
       Models::CreateYouhuiForOrderResponse createYouhuiForOrderWithOptions(const Models::CreateYouhuiForOrderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Claims a coupon.
+       * @summary Redeems a coupon.
        *
        * @param request CreateYouhuiForOrderRequest
        * @return CreateYouhuiForOrderResponse
@@ -1975,10 +1973,10 @@ namespace Rds20140815
       Models::CreateYouhuiForOrderResponse createYouhuiForOrder(const Models::CreateYouhuiForOrderRequest &request);
 
       /**
-       * @summary Removes the current ApsaraDB RDS for SQL Server instance from its Active Directory (AD) domain.
+       * @summary Removes the current ApsaraDB RDS for SQL Server instance from its domain.
        *
-       * @description ### Applicable engine
-       * - RDS SQL Server
+       * @description ### Supported engines
+       * - ApsaraDB RDS for SQL Server
        *
        * @param request DeleteADSettingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1987,10 +1985,10 @@ namespace Rds20140815
       Models::DeleteADSettingResponse deleteADSettingWithOptions(const Models::DeleteADSettingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes the current ApsaraDB RDS for SQL Server instance from its Active Directory (AD) domain.
+       * @summary Removes the current ApsaraDB RDS for SQL Server instance from its domain.
        *
-       * @description ### Applicable engine
-       * - RDS SQL Server
+       * @description ### Supported engines
+       * - ApsaraDB RDS for SQL Server
        *
        * @param request DeleteADSettingRequest
        * @return DeleteADSettingResponse
@@ -2146,7 +2144,7 @@ namespace Rds20140815
       Models::DeleteDBInstanceResponse deleteDBInstance(const Models::DeleteDBInstanceRequest &request);
 
       /**
-       * @summary Deletes an endpoint of an ApsaraDB RDS instance that runs the Cluster Edition.
+       * @summary Deletes the endpoint of an ApsaraDB RDS Cluster Edition instance.
        *
        * @description ### Supported engines
        * <props="china">
@@ -2154,12 +2152,12 @@ namespace Rds20140815
        * - ApsaraDB RDS for PostgreSQL
        * <props="intl">ApsaraDB RDS for MySQL
        * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of this operation.</notice>
        * <props="china">
-       * - ApsaraDB RDS for MySQL: [Delete a cluster read-only endpoint](https://help.aliyun.com/document_detail/464133.html)
-       * - ApsaraDB RDS for PostgreSQL: [Delete a cluster read-only endpoint](https://help.aliyun.com/document_detail/96788.html)
+       * - ApsaraDB RDS for MySQL: [Delete the read-only routing endpoint of a cluster](https://help.aliyun.com/document_detail/464133.html)
+       * - ApsaraDB RDS for PostgreSQL: [Delete the read-only routing endpoint of a cluster](https://help.aliyun.com/document_detail/96788.html)
        * <props="intl">
-       * ApsaraDB RDS for MySQL: [Delete a cluster read-only endpoint](https://help.aliyun.com/document_detail/464133.html)
+       * ApsaraDB RDS for MySQL: [Delete the read-only routing endpoint of a cluster](https://help.aliyun.com/document_detail/464133.html)
        *
        * @param request DeleteDBInstanceEndpointRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2168,7 +2166,7 @@ namespace Rds20140815
       Models::DeleteDBInstanceEndpointResponse deleteDBInstanceEndpointWithOptions(const Models::DeleteDBInstanceEndpointRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an endpoint of an ApsaraDB RDS instance that runs the Cluster Edition.
+       * @summary Deletes the endpoint of an ApsaraDB RDS Cluster Edition instance.
        *
        * @description ### Supported engines
        * <props="china">
@@ -2176,12 +2174,12 @@ namespace Rds20140815
        * - ApsaraDB RDS for PostgreSQL
        * <props="intl">ApsaraDB RDS for MySQL
        * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of this operation.</notice>
        * <props="china">
-       * - ApsaraDB RDS for MySQL: [Delete a cluster read-only endpoint](https://help.aliyun.com/document_detail/464133.html)
-       * - ApsaraDB RDS for PostgreSQL: [Delete a cluster read-only endpoint](https://help.aliyun.com/document_detail/96788.html)
+       * - ApsaraDB RDS for MySQL: [Delete the read-only routing endpoint of a cluster](https://help.aliyun.com/document_detail/464133.html)
+       * - ApsaraDB RDS for PostgreSQL: [Delete the read-only routing endpoint of a cluster](https://help.aliyun.com/document_detail/96788.html)
        * <props="intl">
-       * ApsaraDB RDS for MySQL: [Delete a cluster read-only endpoint](https://help.aliyun.com/document_detail/464133.html)
+       * ApsaraDB RDS for MySQL: [Delete the read-only routing endpoint of a cluster](https://help.aliyun.com/document_detail/464133.html)
        *
        * @param request DeleteDBInstanceEndpointRequest
        * @return DeleteDBInstanceEndpointResponse
@@ -2189,15 +2187,15 @@ namespace Rds20140815
       Models::DeleteDBInstanceEndpointResponse deleteDBInstanceEndpoint(const Models::DeleteDBInstanceEndpointRequest &request);
 
       /**
-       * @summary Releases the public endpoint of an endpoint for an ApsaraDB RDS instance in the Cluster Edition.
+       * @summary Releases the public endpoint of an endpoint for an ApsaraDB RDS Cluster Edition instance.
        *
-       * @description ### Supported engines
+       * @description ### Applicable engines
        * <props="china">
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * <props="intl">RDS MySQL
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * <props="intl">ApsaraDB RDS for MySQL
        * ### Precautions
-       * You can delete only the public endpoint from an endpoint. To delete the internal endpoint, delete the endpoint directly.
+       * Currently, you can only release the public address of an endpoint. To release the internal address, delete the endpoint directly.
        *
        * @param request DeleteDBInstanceEndpointAddressRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2206,15 +2204,15 @@ namespace Rds20140815
       Models::DeleteDBInstanceEndpointAddressResponse deleteDBInstanceEndpointAddressWithOptions(const Models::DeleteDBInstanceEndpointAddressRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Releases the public endpoint of an endpoint for an ApsaraDB RDS instance in the Cluster Edition.
+       * @summary Releases the public endpoint of an endpoint for an ApsaraDB RDS Cluster Edition instance.
        *
-       * @description ### Supported engines
+       * @description ### Applicable engines
        * <props="china">
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * <props="intl">RDS MySQL
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * <props="intl">ApsaraDB RDS for MySQL
        * ### Precautions
-       * You can delete only the public endpoint from an endpoint. To delete the internal endpoint, delete the endpoint directly.
+       * Currently, you can only release the public address of an endpoint. To release the internal address, delete the endpoint directly.
        *
        * @param request DeleteDBInstanceEndpointAddressRequest
        * @return DeleteDBInstanceEndpointAddressResponse
@@ -2222,7 +2220,7 @@ namespace Rds20140815
       Models::DeleteDBInstanceEndpointAddressResponse deleteDBInstanceEndpointAddress(const Models::DeleteDBInstanceEndpointAddressRequest &request);
 
       /**
-       * @summary Deletes a replication task from a native replication instance.
+       * @summary Deletes the native replication task of an instance.
        *
        * @param request DeleteDBInstanceReplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2231,7 +2229,7 @@ namespace Rds20140815
       Models::DeleteDBInstanceReplicationResponse deleteDBInstanceReplicationWithOptions(const Models::DeleteDBInstanceReplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a replication task from a native replication instance.
+       * @summary Deletes the native replication task of an instance.
        *
        * @param request DeleteDBInstanceReplicationRequest
        * @return DeleteDBInstanceReplicationResponse
@@ -2266,20 +2264,20 @@ namespace Rds20140815
       Models::DeleteDBInstanceSecurityGroupRuleResponse deleteDBInstanceSecurityGroupRule(const Models::DeleteDBInstanceSecurityGroupRuleRequest &request);
 
       /**
-       * @summary Deletes nodes from an ApsaraDB RDS instance that runs Cluster Edition.
+       * @summary Deletes nodes from an ApsaraDB RDS Cluster Edition instance.
        *
        * @description ### Supported engines
        * <props="china">
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * <props="intl">RDS MySQL
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * <props="intl">ApsaraDB RDS for MySQL
        * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of this operation.
        * <props="china">
-       * - RDS MySQL: [Delete nodes from an ApsaraDB RDS for MySQL instance that runs Cluster Edition](https://help.aliyun.com/document_detail/464130.html)
-       * - RDS PostgreSQL: [Delete nodes from an ApsaraDB RDS for PostgreSQL instance that runs Cluster Edition](https://help.aliyun.com/document_detail/2778876.html)
+       * - ApsaraDB RDS for MySQL: [Delete nodes from an ApsaraDB RDS for MySQL Cluster Edition instance](https://help.aliyun.com/document_detail/464130.html)
+       * - ApsaraDB RDS for PostgreSQL: [Delete nodes from an ApsaraDB RDS for PostgreSQL Cluster Edition instance](https://help.aliyun.com/document_detail/2778876.html)
        * <props="intl">
-       * [Delete nodes from an ApsaraDB RDS for MySQL instance that runs Cluster Edition](https://help.aliyun.com/document_detail/464130.html)
+       * [Delete nodes from an ApsaraDB RDS for MySQL Cluster Edition instance](https://help.aliyun.com/document_detail/464130.html)
        *
        * @param tmpReq DeleteDBNodesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2288,20 +2286,20 @@ namespace Rds20140815
       Models::DeleteDBNodesResponse deleteDBNodesWithOptions(const Models::DeleteDBNodesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes nodes from an ApsaraDB RDS instance that runs Cluster Edition.
+       * @summary Deletes nodes from an ApsaraDB RDS Cluster Edition instance.
        *
        * @description ### Supported engines
        * <props="china">
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * <props="intl">RDS MySQL
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * <props="intl">ApsaraDB RDS for MySQL
        * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of this operation.
        * <props="china">
-       * - RDS MySQL: [Delete nodes from an ApsaraDB RDS for MySQL instance that runs Cluster Edition](https://help.aliyun.com/document_detail/464130.html)
-       * - RDS PostgreSQL: [Delete nodes from an ApsaraDB RDS for PostgreSQL instance that runs Cluster Edition](https://help.aliyun.com/document_detail/2778876.html)
+       * - ApsaraDB RDS for MySQL: [Delete nodes from an ApsaraDB RDS for MySQL Cluster Edition instance](https://help.aliyun.com/document_detail/464130.html)
+       * - ApsaraDB RDS for PostgreSQL: [Delete nodes from an ApsaraDB RDS for PostgreSQL Cluster Edition instance](https://help.aliyun.com/document_detail/2778876.html)
        * <props="intl">
-       * [Delete nodes from an ApsaraDB RDS for MySQL instance that runs Cluster Edition](https://help.aliyun.com/document_detail/464130.html)
+       * [Delete nodes from an ApsaraDB RDS for MySQL Cluster Edition instance](https://help.aliyun.com/document_detail/464130.html)
        *
        * @param request DeleteDBNodesRequest
        * @return DeleteDBNodesResponse
@@ -2309,15 +2307,15 @@ namespace Rds20140815
       Models::DeleteDBNodesResponse deleteDBNodes(const Models::DeleteDBNodesRequest &request);
 
       /**
-       * @summary Deletes a database proxy endpoint of an ApsaraDB RDS instance.
+       * @summary Deletes the database proxy endpoint of an ApsaraDB RDS instance.
        *
        * @description ### Supported database engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * ### Related feature documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-       * - [Settings for database proxy endpoints for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/184921.html)
-       * - [Settings for database proxy endpoints for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/418274.html)
+       * >Notice: Before you call this operation, read the feature documentation carefully to fully understand the prerequisites and impacts.</notice>
+       * - [Configure the database proxy endpoint for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/184921.html)
+       * - [Configure the database proxy endpoint for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418274.html)
        *
        * @param request DeleteDBProxyEndpointAddressRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2326,15 +2324,15 @@ namespace Rds20140815
       Models::DeleteDBProxyEndpointAddressResponse deleteDBProxyEndpointAddressWithOptions(const Models::DeleteDBProxyEndpointAddressRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a database proxy endpoint of an ApsaraDB RDS instance.
+       * @summary Deletes the database proxy endpoint of an ApsaraDB RDS instance.
        *
        * @description ### Supported database engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * ### Related feature documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-       * - [Settings for database proxy endpoints for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/184921.html)
-       * - [Settings for database proxy endpoints for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/418274.html)
+       * >Notice: Before you call this operation, read the feature documentation carefully to fully understand the prerequisites and impacts.</notice>
+       * - [Configure the database proxy endpoint for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/184921.html)
+       * - [Configure the database proxy endpoint for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418274.html)
        *
        * @param request DeleteDBProxyEndpointAddressRequest
        * @return DeleteDBProxyEndpointAddressResponse
@@ -2412,11 +2410,11 @@ namespace Rds20140815
       Models::DeleteGadInstanceResponse deleteGadInstance(const Models::DeleteGadInstanceRequest &request);
 
       /**
-       * @summary Deletes an encryption or masking rule for a specified instance.
+       * @summary Deletes the encryption or data masking rule for a specified instance.
        *
-       * @description ## Description
-       * - Before invoking this operation, make sure that you have activated the column encryption feature in DAS Security Center.
-       * - If you receive the fault message ColumnEncryptionErrorCode.NOT_PURCHASED when invoking this operation, go to Database Autonomy Service (DAS) Security Center to purchase and activate the column encryption feature in Cloud Hardware Security Module (CloudHSM).
+       * @description ## Request description
+       * - Before you invoke this operation, make sure that the column encryption service is enabled in the DAS Security Center.
+       * - If you receive the ColumnEncryptionErrorCode.NOT_PURCHASED error message when you invoke this operation, go to the Database Autonomy Service (DAS) Security Center to purchase and enable the column encryption service.
        *
        * @param request DeleteMaskingRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2425,11 +2423,11 @@ namespace Rds20140815
       Models::DeleteMaskingRulesResponse deleteMaskingRulesWithOptions(const Models::DeleteMaskingRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an encryption or masking rule for a specified instance.
+       * @summary Deletes the encryption or data masking rule for a specified instance.
        *
-       * @description ## Description
-       * - Before invoking this operation, make sure that you have activated the column encryption feature in DAS Security Center.
-       * - If you receive the fault message ColumnEncryptionErrorCode.NOT_PURCHASED when invoking this operation, go to Database Autonomy Service (DAS) Security Center to purchase and activate the column encryption feature in Cloud Hardware Security Module (CloudHSM).
+       * @description ## Request description
+       * - Before you invoke this operation, make sure that the column encryption service is enabled in the DAS Security Center.
+       * - If you receive the ColumnEncryptionErrorCode.NOT_PURCHASED error message when you invoke this operation, go to the Database Autonomy Service (DAS) Security Center to purchase and enable the column encryption service.
        *
        * @param request DeleteMaskingRulesRequest
        * @return DeleteMaskingRulesResponse
@@ -2470,15 +2468,15 @@ namespace Rds20140815
       Models::DeleteParameterGroupResponse deleteParameterGroup(const Models::DeleteParameterGroupRequest &request);
 
       /**
-       * @summary Deletes a scheduled task for modifying instance parameters.
+       * @summary Deletes the scheduled task for modifying instance parameters.
        *
        * @description ### Applicable engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
-       * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-       * - [Set instance parameters for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/96063.html)
-       * - [Set instance parameters for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/96751.html)
+       * ### Related feature documentation
+       * <notice>Before you use this operation, read the feature documentation to fully understand the prerequisites and the impacts of using this operation.</notice>
+       * - [Set the parameters of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96063.html)
+       * - [Set the parameters of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96751.html)
        *
        * @param request DeleteParameterTimedScheduleTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2487,15 +2485,15 @@ namespace Rds20140815
       Models::DeleteParameterTimedScheduleTaskResponse deleteParameterTimedScheduleTaskWithOptions(const Models::DeleteParameterTimedScheduleTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a scheduled task for modifying instance parameters.
+       * @summary Deletes the scheduled task for modifying instance parameters.
        *
        * @description ### Applicable engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
-       * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-       * - [Set instance parameters for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/96063.html)
-       * - [Set instance parameters for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/96751.html)
+       * ### Related feature documentation
+       * <notice>Before you use this operation, read the feature documentation to fully understand the prerequisites and the impacts of using this operation.</notice>
+       * - [Set the parameters of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96063.html)
+       * - [Set the parameters of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96751.html)
        *
        * @param request DeleteParameterTimedScheduleTaskRequest
        * @return DeleteParameterTimedScheduleTaskResponse
@@ -2503,13 +2501,13 @@ namespace Rds20140815
       Models::DeleteParameterTimedScheduleTaskResponse deleteParameterTimedScheduleTask(const Models::DeleteParameterTimedScheduleTaskRequest &request);
 
       /**
-       * @summary Deletes a specified extension from a target database of an instance.
+       * @summary Deletes a specified extension from the target database of an instance.
        *
-       * @description <props="china">You can join the RDS PostgreSQL extension exchange DingTalk group (103525002795) to consult, communicate, provide feedback, and obtain more information about extensions.
-       * ### Applicable engine
-       * RDS PostgreSQL
+       * @description <props="china">You can join the RDS PostgreSQL extension communication DingTalk group (103525002795) for consultation, communication, and feedback to obtain more information about extensions.
+       * ### Supported engines
+       * ApsaraDB RDS for PostgreSQL
        * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation to fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.
        * [Manage extensions](https://help.aliyun.com/document_detail/2402409.html)
        *
        * @param request DeletePostgresExtensionsRequest
@@ -2519,13 +2517,13 @@ namespace Rds20140815
       Models::DeletePostgresExtensionsResponse deletePostgresExtensionsWithOptions(const Models::DeletePostgresExtensionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a specified extension from a target database of an instance.
+       * @summary Deletes a specified extension from the target database of an instance.
        *
-       * @description <props="china">You can join the RDS PostgreSQL extension exchange DingTalk group (103525002795) to consult, communicate, provide feedback, and obtain more information about extensions.
-       * ### Applicable engine
-       * RDS PostgreSQL
+       * @description <props="china">You can join the RDS PostgreSQL extension communication DingTalk group (103525002795) for consultation, communication, and feedback to obtain more information about extensions.
+       * ### Supported engines
+       * ApsaraDB RDS for PostgreSQL
        * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation to fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.
        * [Manage extensions](https://help.aliyun.com/document_detail/2402409.html)
        *
        * @param request DeletePostgresExtensionsRequest
@@ -2551,7 +2549,7 @@ namespace Rds20140815
       Models::DeleteRCClusterNodesResponse deleteRCClusterNodes(const Models::DeleteRCClusterNodesRequest &request);
 
       /**
-       * @summary Deletes an RDS Custom deployment set by specifying parameters such as RegionId and DeploymentSetId.
+       * @summary Deletes an RDS Custom deployment set.
        *
        * @param request DeleteRCDeploymentSetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2560,7 +2558,7 @@ namespace Rds20140815
       Models::DeleteRCDeploymentSetResponse deleteRCDeploymentSetWithOptions(const Models::DeleteRCDeploymentSetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an RDS Custom deployment set by specifying parameters such as RegionId and DeploymentSetId.
+       * @summary Deletes an RDS Custom deployment set.
        *
        * @param request DeleteRCDeploymentSetRequest
        * @return DeleteRCDeploymentSetResponse
@@ -2568,12 +2566,12 @@ namespace Rds20140815
       Models::DeleteRCDeploymentSetResponse deleteRCDeploymentSet(const Models::DeleteRCDeploymentSetRequest &request);
 
       /**
-       * @summary Releases a pay-as-you-go data cloud disk. Cloud disk types include basic cloud disks, ultra cloud disks, standard SSDs, and ESSDs.
+       * @summary Releases a pay-as-you-go data cloud disk. Supported disk types include basic cloud disks, ultra cloud disks, standard SSDs, and ESSDs.
        *
-       * @description When you call this operation, take note of the following items:
-       * - Manual snapshots of the cloud disk are retained.
-       * - When you release a cloud disk, the cloud disk must be in the **Unattached** (Available) state.
-       * - If the cloud disk with the specified ID does not exist, the request is ignored.
+       * @description When you call this operation, note the following items:
+       * - Manual snapshots of the disk are retained.
+       * - The disk must be in the Available state when it is released.
+       * - If the disk with the specified ID does not exist, the request is ignored.
        *
        * @param request DeleteRCDiskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2582,12 +2580,12 @@ namespace Rds20140815
       Models::DeleteRCDiskResponse deleteRCDiskWithOptions(const Models::DeleteRCDiskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Releases a pay-as-you-go data cloud disk. Cloud disk types include basic cloud disks, ultra cloud disks, standard SSDs, and ESSDs.
+       * @summary Releases a pay-as-you-go data cloud disk. Supported disk types include basic cloud disks, ultra cloud disks, standard SSDs, and ESSDs.
        *
-       * @description When you call this operation, take note of the following items:
-       * - Manual snapshots of the cloud disk are retained.
-       * - When you release a cloud disk, the cloud disk must be in the **Unattached** (Available) state.
-       * - If the cloud disk with the specified ID does not exist, the request is ignored.
+       * @description When you call this operation, note the following items:
+       * - Manual snapshots of the disk are retained.
+       * - The disk must be in the Available state when it is released.
+       * - If the disk with the specified ID does not exist, the request is ignored.
        *
        * @param request DeleteRCDiskRequest
        * @return DeleteRCDiskResponse
@@ -2612,9 +2610,9 @@ namespace Rds20140815
       Models::DeleteRCInstanceResponse deleteRCInstance(const Models::DeleteRCInstanceRequest &request);
 
       /**
-       * @summary Releases one or more subscription RDS Custom instances by calling the DeleteRCInstance operation.
+       * @summary Releases one or more subscription RDS Custom instances.
        *
-       * @description After an instance is released, all physical resources used by the instance are reclaimed, and all related data is permanently lost and cannot be recovered.
+       * @description After the instances are released, the physical resources used by the instances are reclaimed, and all related data is lost and cannot be recovered.
        *
        * @param tmpReq DeleteRCInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2623,9 +2621,9 @@ namespace Rds20140815
       Models::DeleteRCInstancesResponse deleteRCInstancesWithOptions(const Models::DeleteRCInstancesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Releases one or more subscription RDS Custom instances by calling the DeleteRCInstance operation.
+       * @summary Releases one or more subscription RDS Custom instances.
        *
-       * @description After an instance is released, all physical resources used by the instance are reclaimed, and all related data is permanently lost and cannot be recovered.
+       * @description After the instances are released, the physical resources used by the instances are reclaimed, and all related data is lost and cannot be recovered.
        *
        * @param request DeleteRCInstancesRequest
        * @return DeleteRCInstancesResponse
@@ -2694,9 +2692,9 @@ namespace Rds20140815
       Models::DeleteRCVClusterResponse deleteRCVCluster(const Models::DeleteRCVClusterRequest &request);
 
       /**
-       * @summary Deletes the data synchronization link of a disaster recovery RDS instance and promotes the disaster recovery instance to a primary instance.
+       * @summary Deletes the data synchronization link of a disaster recovery instance and promotes the disaster recovery instance to a primary instance.
        *
-       * @description ### Applicable engines
+       * @description ### Supported engines
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        *
@@ -2707,9 +2705,9 @@ namespace Rds20140815
       Models::DeleteReplicationLinkResponse deleteReplicationLinkWithOptions(const Models::DeleteReplicationLinkRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes the data synchronization link of a disaster recovery RDS instance and promotes the disaster recovery instance to a primary instance.
+       * @summary Deletes the data synchronization link of a disaster recovery instance and promotes the disaster recovery instance to a primary instance.
        *
-       * @description ### Applicable engines
+       * @description ### Supported engines
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        *
@@ -2736,12 +2734,12 @@ namespace Rds20140815
       Models::DeleteSecretResponse deleteSecret(const Models::DeleteSecretRequest &request);
 
       /**
-       * @summary Deletes a specified replication slot from an instance.
+       * @summary Deletes a specified replication slot of an instance.
        *
-       * @description ### Applicable engine
-       * - RDS PostgreSQL
+       * @description ### Applicable engines
+       * - ApsaraDB RDS for PostgreSQL
        * ### Precautions
-       * A replication slot can be deleted only when its status (SlotStatus) is **INACTIVE**. You can call the DescribeSlots operation to query the replication slot status.
+       * A replication slot can be deleted only when its status (SlotStatus) is **INACTIVE**. You can call the DescribeSlots operation to query the status of the replication slot.
        *
        * @param request DeleteSlotRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2750,12 +2748,12 @@ namespace Rds20140815
       Models::DeleteSlotResponse deleteSlotWithOptions(const Models::DeleteSlotRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a specified replication slot from an instance.
+       * @summary Deletes a specified replication slot of an instance.
        *
-       * @description ### Applicable engine
-       * - RDS PostgreSQL
+       * @description ### Applicable engines
+       * - ApsaraDB RDS for PostgreSQL
        * ### Precautions
-       * A replication slot can be deleted only when its status (SlotStatus) is **INACTIVE**. You can call the DescribeSlots operation to query the replication slot status.
+       * A replication slot can be deleted only when its status (SlotStatus) is **INACTIVE**. You can call the DescribeSlots operation to query the status of the replication slot.
        *
        * @param request DeleteSlotRequest
        * @return DeleteSlotResponse
@@ -2763,13 +2761,13 @@ namespace Rds20140815
       Models::DeleteSlotResponse deleteSlot(const Models::DeleteSlotRequest &request);
 
       /**
-       * @summary Deletes a user backup of an ApsaraDB RDS for MySQL instance.
+       * @summary Deletes a specified user backup of an ApsaraDB RDS for MySQL instance.
        *
-       * @description ### Applicable engine
-       * - RDS MySQL
-       * ### Description
-       * * A user backup is a full backup of a self-managed MySQL database. You can restore a user backup to the cloud. For more information, see [Migrate the full data of a self-managed MySQL 5.7 database to the cloud](https://help.aliyun.com/document_detail/251779.html).
-       * * This operation only deletes the specified user backup from the ApsaraDB RDS console and does not affect the original backup file in Object Storage Service (OSS). After the deletion, you can call the ImportUserBackupFile operation to re-import the user backup.
+       * @description ### Supported database engines
+       * - ApsaraDB RDS for MySQL
+       * ### Features
+       * * A user backup is a full backup of a self-managed MySQL database. You can restore the user backup to the cloud. For more information, see [Migrate full data from a self-managed MySQL 5.7 database to the cloud](https://help.aliyun.com/document_detail/251779.html).
+       * * This operation only deletes the specified user backup from the ApsaraDB RDS console and does not affect the original backup file in OSS. After the deletion, you can call the ImportUserBackupFile operation to re-import the user backup.
        *
        * @param request DeleteUserBackupFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2778,13 +2776,13 @@ namespace Rds20140815
       Models::DeleteUserBackupFileResponse deleteUserBackupFileWithOptions(const Models::DeleteUserBackupFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a user backup of an ApsaraDB RDS for MySQL instance.
+       * @summary Deletes a specified user backup of an ApsaraDB RDS for MySQL instance.
        *
-       * @description ### Applicable engine
-       * - RDS MySQL
-       * ### Description
-       * * A user backup is a full backup of a self-managed MySQL database. You can restore a user backup to the cloud. For more information, see [Migrate the full data of a self-managed MySQL 5.7 database to the cloud](https://help.aliyun.com/document_detail/251779.html).
-       * * This operation only deletes the specified user backup from the ApsaraDB RDS console and does not affect the original backup file in Object Storage Service (OSS). After the deletion, you can call the ImportUserBackupFile operation to re-import the user backup.
+       * @description ### Supported database engines
+       * - ApsaraDB RDS for MySQL
+       * ### Features
+       * * A user backup is a full backup of a self-managed MySQL database. You can restore the user backup to the cloud. For more information, see [Migrate full data from a self-managed MySQL 5.7 database to the cloud](https://help.aliyun.com/document_detail/251779.html).
+       * * This operation only deletes the specified user backup from the ApsaraDB RDS console and does not affect the original backup file in OSS. After the deletion, you can call the ImportUserBackupFile operation to re-import the user backup.
        *
        * @param request DeleteUserBackupFileRequest
        * @return DeleteUserBackupFileResponse
@@ -2815,10 +2813,10 @@ namespace Rds20140815
       Models::DescibeImportsFromDatabaseResponse descibeImportsFromDatabase(const Models::DescibeImportsFromDatabaseRequest &request);
 
       /**
-       * @summary Queries the Active Directory (AD) domain information of the current instance, including whether the instance has joined a domain, the domain name, and the account used.
+       * @summary Queries the Active Directory (AD) domain information of the current instance, including the domain join status, domain name, and associated account.
        *
-       * @description ### Supported engine
-       * - RDS SQL Server
+       * @description ### Supported engines
+       * - ApsaraDB RDS for SQL Server
        *
        * @param request DescribeADInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2827,10 +2825,10 @@ namespace Rds20140815
       Models::DescribeADInfoResponse describeADInfoWithOptions(const Models::DescribeADInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the Active Directory (AD) domain information of the current instance, including whether the instance has joined a domain, the domain name, and the account used.
+       * @summary Queries the Active Directory (AD) domain information of the current instance, including the domain join status, domain name, and associated account.
        *
-       * @description ### Supported engine
-       * - RDS SQL Server
+       * @description ### Supported engines
+       * - ApsaraDB RDS for SQL Server
        *
        * @param request DescribeADInfoRequest
        * @return DescribeADInfoResponse
@@ -2838,11 +2836,11 @@ namespace Rds20140815
       Models::DescribeADInfoResponse describeADInfo(const Models::DescribeADInfoRequest &request);
 
       /**
-       * @summary Queries the encryption or data masking permission configurations of accounts in a specified instance.
+       * @summary Queries the encryption or masking permission configurations for accounts in a specified instance.
        *
        * @description ## Request description
-       * - Before you invoke this operation, make sure that you have activated the column encryption feature in DAS Security Center.
-       * - If you receive the error message ColumnEncryptionErrorCode.NOT_PURCHASED when you invoke this operation, go to Database Autonomy Service (DAS) Security Center to purchase and activate the column encryption feature before using it.
+       * - Before you call this operation, make sure that you have activated the column encryption service in the DAS Security Center.
+       * - If you receive the error message ColumnEncryptionErrorCode.NOT_PURCHASED when calling this operation, go to the Database Autonomy Service (DAS) Security Center to purchase and activate the column encryption service before you proceed.
        *
        * @param request DescribeAccountMaskingPrivilegeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2851,11 +2849,11 @@ namespace Rds20140815
       Models::DescribeAccountMaskingPrivilegeResponse describeAccountMaskingPrivilegeWithOptions(const Models::DescribeAccountMaskingPrivilegeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the encryption or data masking permission configurations of accounts in a specified instance.
+       * @summary Queries the encryption or masking permission configurations for accounts in a specified instance.
        *
        * @description ## Request description
-       * - Before you invoke this operation, make sure that you have activated the column encryption feature in DAS Security Center.
-       * - If you receive the error message ColumnEncryptionErrorCode.NOT_PURCHASED when you invoke this operation, go to Database Autonomy Service (DAS) Security Center to purchase and activate the column encryption feature before using it.
+       * - Before you call this operation, make sure that you have activated the column encryption service in the DAS Security Center.
+       * - If you receive the error message ColumnEncryptionErrorCode.NOT_PURCHASED when calling this operation, go to the Database Autonomy Service (DAS) Security Center to purchase and activate the column encryption service before you proceed.
        *
        * @param request DescribeAccountMaskingPrivilegeRequest
        * @return DescribeAccountMaskingPrivilegeResponse
@@ -2921,7 +2919,7 @@ namespace Rds20140815
       Models::DescribeActionEventPolicyResponse describeActionEventPolicy(const Models::DescribeActionEventPolicyRequest &request);
 
       /**
-       * @summary Retrieves the proactive O&M configuration of a user, which currently includes the scheduled event cycle window information.
+       * @summary Retrieves the O&M configuration information of a user, which currently includes the cycle window information for scheduled events.
        *
        * @param request DescribeActiveOperationMaintainConfRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2930,7 +2928,7 @@ namespace Rds20140815
       Models::DescribeActiveOperationMaintainConfResponse describeActiveOperationMaintainConfWithOptions(const Models::DescribeActiveOperationMaintainConfRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the proactive O&M configuration of a user, which currently includes the scheduled event cycle window information.
+       * @summary Retrieves the O&M configuration information of a user, which currently includes the cycle window information for scheduled events.
        *
        * @param request DescribeActiveOperationMaintainConfRequest
        * @return DescribeActiveOperationMaintainConfResponse
@@ -2945,8 +2943,8 @@ namespace Rds20140815
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * - ApsaraDB RDS for MariaDB
-       * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts of this operation.
+       * ### Related feature documentation
+       * >Notice: Before you call this operation, carefully read the feature documentation to fully understand the prerequisites and impacts.
        * - [Scheduled events for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/104183.html)
        * - [Scheduled events for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/104452.html)
        * - [Scheduled events for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/104451.html)
@@ -2966,8 +2964,8 @@ namespace Rds20140815
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * - ApsaraDB RDS for MariaDB
-       * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts of this operation.
+       * ### Related feature documentation
+       * >Notice: Before you call this operation, carefully read the feature documentation to fully understand the prerequisites and impacts.
        * - [Scheduled events for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/104183.html)
        * - [Scheduled events for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/104452.html)
        * - [Scheduled events for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/104451.html)
@@ -2979,12 +2977,12 @@ namespace Rds20140815
       Models::DescribeActiveOperationTasksResponse describeActiveOperationTasks(const Models::DescribeActiveOperationTasksRequest &request);
 
       /**
-       * @summary Retrieves whitelist templates in batches with support for fuzzy search.
+       * @summary Queries whitelist templates in batches and supports fuzzy match.
        *
-       * @description ### Applicable engines
-       * - ApsaraDB RDS for MySQL
-       * - ApsaraDB RDS for PostgreSQL
-       * - ApsaraDB RDS for SQL Server
+       * @description ### Supported engines
+       * - RDS MySQL
+       * - RDS PostgreSQL
+       * - RDS SQL Server
        *
        * @param request DescribeAllWhitelistTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2993,12 +2991,12 @@ namespace Rds20140815
       Models::DescribeAllWhitelistTemplateResponse describeAllWhitelistTemplateWithOptions(const Models::DescribeAllWhitelistTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves whitelist templates in batches with support for fuzzy search.
+       * @summary Queries whitelist templates in batches and supports fuzzy match.
        *
-       * @description ### Applicable engines
-       * - ApsaraDB RDS for MySQL
-       * - ApsaraDB RDS for PostgreSQL
-       * - ApsaraDB RDS for SQL Server
+       * @description ### Supported engines
+       * - RDS MySQL
+       * - RDS PostgreSQL
+       * - RDS SQL Server
        *
        * @param request DescribeAllWhitelistTemplateRequest
        * @return DescribeAllWhitelistTemplateResponse
@@ -3033,9 +3031,9 @@ namespace Rds20140815
       Models::DescribeAnalyticdbByPrimaryDBInstanceResponse describeAnalyticdbByPrimaryDBInstance(const Models::DescribeAnalyticdbByPrimaryDBInstanceRequest &request);
 
       /**
-       * @summary Queries the instance types and storage capacity to which an ApsaraDB RDS instance can be changed.
+       * @summary Queries the available specifications and storage space of an ApsaraDB RDS instance.
        *
-       * @description ### Applicable engines
+       * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
@@ -3048,9 +3046,9 @@ namespace Rds20140815
       Models::DescribeAvailableClassesResponse describeAvailableClassesWithOptions(const Models::DescribeAvailableClassesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the instance types and storage capacity to which an ApsaraDB RDS instance can be changed.
+       * @summary Queries the available specifications and storage space of an ApsaraDB RDS instance.
        *
-       * @description ### Applicable engines
+       * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
@@ -3101,10 +3099,10 @@ namespace Rds20140815
       /**
        * @summary Retrieves all enhanced monitoring metrics supported by an ApsaraDB RDS for PostgreSQL instance.
        *
-       * @description ### Applicable engine
-       * - RDS PostgreSQL
-       * ### Related documentation
-       * >Notice: Before calling this operation, carefully read the following documentation to fully understand the prerequisites and potential impacts.
+       * @description ### Applicable engines
+       * - ApsaraDB RDS for PostgreSQL
+       * ### Related feature documentation
+       * >Notice: Before you call this operation, read the feature documentation carefully to fully understand the prerequisites and impacts of this operation.</notice>
        * [View enhanced monitoring](https://help.aliyun.com/document_detail/299200.html).
        *
        * @param request DescribeAvailableMetricsRequest
@@ -3116,10 +3114,10 @@ namespace Rds20140815
       /**
        * @summary Retrieves all enhanced monitoring metrics supported by an ApsaraDB RDS for PostgreSQL instance.
        *
-       * @description ### Applicable engine
-       * - RDS PostgreSQL
-       * ### Related documentation
-       * >Notice: Before calling this operation, carefully read the following documentation to fully understand the prerequisites and potential impacts.
+       * @description ### Applicable engines
+       * - ApsaraDB RDS for PostgreSQL
+       * ### Related feature documentation
+       * >Notice: Before you call this operation, read the feature documentation carefully to fully understand the prerequisites and impacts of this operation.</notice>
        * [View enhanced monitoring](https://help.aliyun.com/document_detail/299200.html).
        *
        * @param request DescribeAvailableMetricsRequest
@@ -3128,13 +3126,13 @@ namespace Rds20140815
       Models::DescribeAvailableMetricsResponse describeAvailableMetrics(const Models::DescribeAvailableMetricsRequest &request);
 
       /**
-       * @summary Queries the restorable time range of a cross-region backup file.
+       * @summary Queries the time range to which data can be restored from a specified cross-region backup file.
        *
-       * @description > To query the restorable time range of a regular backup file, see DescribeBackups.
-       * ### Applicable engine
-       * ApsaraDB RDS for MySQL (with Premium Local SSDs)
-       * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation to fully understand the prerequisites and impacts of this operation.
+       * @description > To view the time range to which data can be restored from a regular backup file, see DescribeBackups.
+       * ### Supported engines
+       * ApsaraDB RDS for MySQL (instances with Premium Local SSDs)
+       * ### Related feature documentation
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of this operation.
        * [Cross-region backup for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/120824.html)
        *
        * @param request DescribeAvailableRecoveryTimeRequest
@@ -3144,13 +3142,13 @@ namespace Rds20140815
       Models::DescribeAvailableRecoveryTimeResponse describeAvailableRecoveryTimeWithOptions(const Models::DescribeAvailableRecoveryTimeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the restorable time range of a cross-region backup file.
+       * @summary Queries the time range to which data can be restored from a specified cross-region backup file.
        *
-       * @description > To query the restorable time range of a regular backup file, see DescribeBackups.
-       * ### Applicable engine
-       * ApsaraDB RDS for MySQL (with Premium Local SSDs)
-       * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation to fully understand the prerequisites and impacts of this operation.
+       * @description > To view the time range to which data can be restored from a regular backup file, see DescribeBackups.
+       * ### Supported engines
+       * ApsaraDB RDS for MySQL (instances with Premium Local SSDs)
+       * ### Related feature documentation
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of this operation.
        * [Cross-region backup for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/120824.html)
        *
        * @param request DescribeAvailableRecoveryTimeRequest
@@ -3162,11 +3160,11 @@ namespace Rds20140815
        * @summary Queries the available zone resources for ApsaraDB RDS.
        *
        * @description ### Supported engines
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       *   > This operation is used only to query available zone resources and is not used for the sales of ApsaraDB RDS for PostgreSQL on the console. Due to differences in actual sales policies, some parameter values on the buy page may slightly differ. When making a purchase, refer to the [buy page](https://rdsbuy.console.aliyun.com/create/rds/PostgreSQL).
-       * - RDS SQL Server
-       * - RDS MariaDB
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       *   > This operation is only used to query available zone resources and is not used for the sales of ApsaraDB RDS for PostgreSQL in the console. The purchase page may have slightly different parameter values based on actual sales strategies. When you make a purchase, refer to the [purchase page](https://rdsbuy.console.aliyun.com/create/rds/PostgreSQL).
+       * - ApsaraDB RDS for SQL Server
+       * - ApsaraDB RDS for MariaDB
        *
        * @param request DescribeAvailableZonesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3178,11 +3176,11 @@ namespace Rds20140815
        * @summary Queries the available zone resources for ApsaraDB RDS.
        *
        * @description ### Supported engines
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       *   > This operation is used only to query available zone resources and is not used for the sales of ApsaraDB RDS for PostgreSQL on the console. Due to differences in actual sales policies, some parameter values on the buy page may slightly differ. When making a purchase, refer to the [buy page](https://rdsbuy.console.aliyun.com/create/rds/PostgreSQL).
-       * - RDS SQL Server
-       * - RDS MariaDB
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       *   > This operation is only used to query available zone resources and is not used for the sales of ApsaraDB RDS for PostgreSQL in the console. The purchase page may have slightly different parameter values based on actual sales strategies. When you make a purchase, refer to the [purchase page](https://rdsbuy.console.aliyun.com/create/rds/PostgreSQL).
+       * - ApsaraDB RDS for SQL Server
+       * - ApsaraDB RDS for MariaDB
        *
        * @param request DescribeAvailableZonesRequest
        * @return DescribeAvailableZonesResponse
@@ -3267,11 +3265,11 @@ namespace Rds20140815
       /**
        * @summary Queries the backup sets of an ApsaraDB RDS instance.
        *
-       * @description ### Supported engines
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * - RDS SQL Server
-       * - RDS MariaDB
+       * @description ### Applicable engines
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * - ApsaraDB RDS for SQL Server
+       * - ApsaraDB RDS for MariaDB
        *
        * @param request DescribeBackupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3282,11 +3280,11 @@ namespace Rds20140815
       /**
        * @summary Queries the backup sets of an ApsaraDB RDS instance.
        *
-       * @description ### Supported engines
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * - RDS SQL Server
-       * - RDS MariaDB
+       * @description ### Applicable engines
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * - ApsaraDB RDS for SQL Server
+       * - ApsaraDB RDS for MariaDB
        *
        * @param request DescribeBackupsRequest
        * @return DescribeBackupsResponse
@@ -3360,9 +3358,9 @@ namespace Rds20140815
       Models::DescribeCharacterSetNameResponse describeCharacterSetName(const Models::DescribeCharacterSetNameRequest &request);
 
       /**
-       * @summary Queries the details of an instance type by instance type code.
+       * @summary Queries the details of an instance type by using the instance type code.
        *
-       * @description ### Applicable engines
+       * @description ### Supported engines
        * - RDS MySQL
        * - RDS PostgreSQL
        * - RDS SQL Server
@@ -3375,9 +3373,9 @@ namespace Rds20140815
       Models::DescribeClassDetailsResponse describeClassDetailsWithOptions(const Models::DescribeClassDetailsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of an instance type by instance type code.
+       * @summary Queries the details of an instance type by using the instance type code.
        *
-       * @description ### Applicable engines
+       * @description ### Supported engines
        * - RDS MySQL
        * - RDS PostgreSQL
        * - RDS SQL Server
@@ -3391,7 +3389,7 @@ namespace Rds20140815
       /**
        * @summary Queries the details of the pre-check report for one-click cloud migration.
        *
-       * @description ### Supported engines
+       * @description ### Applicable engines
        * - ApsaraDB RDS for PostgreSQL
        *
        * @param request DescribeCloudMigrationPrecheckResultRequest
@@ -3403,7 +3401,7 @@ namespace Rds20140815
       /**
        * @summary Queries the details of the pre-check report for one-click cloud migration.
        *
-       * @description ### Supported engines
+       * @description ### Applicable engines
        * - ApsaraDB RDS for PostgreSQL
        *
        * @param request DescribeCloudMigrationPrecheckResultRequest
@@ -3412,10 +3410,10 @@ namespace Rds20140815
       Models::DescribeCloudMigrationPrecheckResultResponse describeCloudMigrationPrecheckResult(const Models::DescribeCloudMigrationPrecheckResultRequest &request);
 
       /**
-       * @summary Queries the details of a cloud migration task for an ApsaraDB RDS for PostgreSQL instance.
+       * @summary Queries the details of an ApsaraDB RDS for PostgreSQL cloud migration task.
        *
-       * @description ### Applicable engine
-       * - RDS PostgreSQL
+       * @description ### Supported engines
+       * - ApsaraDB RDS for PostgreSQL
        *
        * @param request DescribeCloudMigrationResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3424,10 +3422,10 @@ namespace Rds20140815
       Models::DescribeCloudMigrationResultResponse describeCloudMigrationResultWithOptions(const Models::DescribeCloudMigrationResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a cloud migration task for an ApsaraDB RDS for PostgreSQL instance.
+       * @summary Queries the details of an ApsaraDB RDS for PostgreSQL cloud migration task.
        *
-       * @description ### Applicable engine
-       * - RDS PostgreSQL
+       * @description ### Supported engines
+       * - ApsaraDB RDS for PostgreSQL
        *
        * @param request DescribeCloudMigrationResultRequest
        * @return DescribeCloudMigrationResultResponse
@@ -3458,12 +3456,12 @@ namespace Rds20140815
       Models::DescribeCollationTimeZonesResponse describeCollationTimeZones(const Models::DescribeCollationTimeZonesRequest &request);
 
       /**
-       * @summary Queries the configuration of the committed serverless feature.
+       * @summary Queries the configuration of the committed Serverless feature.
        *
-       * @description ### Applicable engine
-       * RDS PostgreSQL
-       * ### Related documentation
-       * [Committed serverless](https://help.aliyun.com/document_detail/2928780.html)
+       * @description ### Supported engines
+       * ApsaraDB RDS for PostgreSQL
+       * ### Related feature documentation
+       * [Committed Serverless](https://help.aliyun.com/document_detail/2928780.html)
        *
        * @param request DescribeComputeBurstConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3472,12 +3470,12 @@ namespace Rds20140815
       Models::DescribeComputeBurstConfigResponse describeComputeBurstConfigWithOptions(const Models::DescribeComputeBurstConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the configuration of the committed serverless feature.
+       * @summary Queries the configuration of the committed Serverless feature.
        *
-       * @description ### Applicable engine
-       * RDS PostgreSQL
-       * ### Related documentation
-       * [Committed serverless](https://help.aliyun.com/document_detail/2928780.html)
+       * @description ### Supported engines
+       * ApsaraDB RDS for PostgreSQL
+       * ### Related feature documentation
+       * [Committed Serverless](https://help.aliyun.com/document_detail/2928780.html)
        *
        * @param request DescribeComputeBurstConfigRequest
        * @return DescribeComputeBurstConfigResponse
@@ -3485,17 +3483,17 @@ namespace Rds20140815
       Models::DescribeComputeBurstConfigResponse describeComputeBurstConfig(const Models::DescribeComputeBurstConfigRequest &request);
 
       /**
-       * @summary Queries the database and table information of a cross-region backup for an ApsaraDB RDS instance.
+       * @summary Queries the database and table information of cross-region backups for an ApsaraDB RDS instance.
        *
-       * @description ### Applicable engines
+       * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-       * - [Cross-region backup for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/120824.html)
-       * - [Cross-region backup for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/206671.html)
-       * - [Cross-region backup for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/187923.html)
+       * >Notice: Before you call this operation, read the documentation to fully understand the prerequisites and impacts of the operation.
+       * - [Cross-region backups for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/120824.html)
+       * - [Cross-region backups for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/206671.html)
+       * - [Cross-region backups for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/187923.html)
        *
        * @param request DescribeCrossBackupMetaListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3504,17 +3502,17 @@ namespace Rds20140815
       Models::DescribeCrossBackupMetaListResponse describeCrossBackupMetaListWithOptions(const Models::DescribeCrossBackupMetaListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the database and table information of a cross-region backup for an ApsaraDB RDS instance.
+       * @summary Queries the database and table information of cross-region backups for an ApsaraDB RDS instance.
        *
-       * @description ### Applicable engines
+       * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-       * - [Cross-region backup for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/120824.html)
-       * - [Cross-region backup for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/206671.html)
-       * - [Cross-region backup for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/187923.html)
+       * >Notice: Before you call this operation, read the documentation to fully understand the prerequisites and impacts of the operation.
+       * - [Cross-region backups for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/120824.html)
+       * - [Cross-region backups for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/206671.html)
+       * - [Cross-region backups for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/187923.html)
        *
        * @param request DescribeCrossBackupMetaListRequest
        * @return DescribeCrossBackupMetaListResponse
@@ -3529,7 +3527,7 @@ namespace Rds20140815
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, read the documentation carefully to fully understand the prerequisites and impacts.</notice>
        * - [Cross-region backup for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/120824.html)
        * - [Cross-region backup for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/206671.html)
        * - [Cross-region backup for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/187923.html)
@@ -3548,7 +3546,7 @@ namespace Rds20140815
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, read the documentation carefully to fully understand the prerequisites and impacts.</notice>
        * - [Cross-region backup for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/120824.html)
        * - [Cross-region backup for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/206671.html)
        * - [Cross-region backup for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/187923.html)
@@ -3562,15 +3560,15 @@ namespace Rds20140815
        * @summary Queries the cross-region data backup files of an ApsaraDB RDS instance.
        *
        * @description ### Supported engines
-       * - ApsaraDB RDS for MySQL ([storage type](https://help.aliyun.com/document_detail/69795.html) must be **Premium Local SSDs**. Cloud disks are not supported.)
+       * - ApsaraDB RDS for MySQL (The [storage type](https://help.aliyun.com/document_detail/69795.html) must be **Premium Local SSDs**. Cloud disks are not supported.)
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
-       * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts of this operation.
+       * ### Related feature documentation
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.
        * - [Cross-region backup for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/120824.html)
        * - [Cross-region backup for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/187923.html)
        * - [Cross-region backup for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/206671.html)
-       * > To query cross-region log backup files, refer to DescribeCrossRegionLogBackupFiles.
+       * > To query cross-region log backup files, see DescribeCrossRegionLogBackupFiles.
        *
        * @param request DescribeCrossRegionBackupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3582,15 +3580,15 @@ namespace Rds20140815
        * @summary Queries the cross-region data backup files of an ApsaraDB RDS instance.
        *
        * @description ### Supported engines
-       * - ApsaraDB RDS for MySQL ([storage type](https://help.aliyun.com/document_detail/69795.html) must be **Premium Local SSDs**. Cloud disks are not supported.)
+       * - ApsaraDB RDS for MySQL (The [storage type](https://help.aliyun.com/document_detail/69795.html) must be **Premium Local SSDs**. Cloud disks are not supported.)
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
-       * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts of this operation.
+       * ### Related feature documentation
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.
        * - [Cross-region backup for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/120824.html)
        * - [Cross-region backup for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/187923.html)
        * - [Cross-region backup for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/206671.html)
-       * > To query cross-region log backup files, refer to DescribeCrossRegionLogBackupFiles.
+       * > To query cross-region log backup files, see DescribeCrossRegionLogBackupFiles.
        *
        * @param request DescribeCrossRegionBackupsRequest
        * @return DescribeCrossRegionBackupsResponse
@@ -3654,7 +3652,7 @@ namespace Rds20140815
       Models::DescribeCurrentModifyOrderResponse describeCurrentModifyOrder(const Models::DescribeCurrentModifyOrderRequest &request);
 
       /**
-       * @summary Queries the resource usage of an instance.
+       * @summary Queries the resource usage of instances.
        *
        * @param request DescribeCustinsResourceInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3663,7 +3661,7 @@ namespace Rds20140815
       Models::DescribeCustinsResourceInfoResponse describeCustinsResourceInfoWithOptions(const Models::DescribeCustinsResourceInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the resource usage of an instance.
+       * @summary Queries the resource usage of instances.
        *
        * @param request DescribeCustinsResourceInfoRequest
        * @return DescribeCustinsResourceInfoResponse
@@ -3700,13 +3698,13 @@ namespace Rds20140815
       Models::DescribeDBInstanceAttributeResponse describeDBInstanceAttribute(const Models::DescribeDBInstanceAttributeRequest &request);
 
       /**
-       * @summary Queries the tags that are bound to an instance.
+       * @summary Retrieves the tags bound to an instance.
        *
-       * @description ### Applicable engines
-       * - ApsaraDB RDS for MySQL
-       * - ApsaraDB RDS for PostgreSQL
-       * - ApsaraDB RDS for SQL Server
-       * - ApsaraDB RDS for MariaDB
+       * @description ### Supported engines
+       * - RDS MySQL
+       * - RDS PostgreSQL
+       * - RDS SQL Server
+       * - RDS MariaDB
        *
        * @param request DescribeDBInstanceByTagsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3715,13 +3713,13 @@ namespace Rds20140815
       Models::DescribeDBInstanceByTagsResponse describeDBInstanceByTagsWithOptions(const Models::DescribeDBInstanceByTagsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the tags that are bound to an instance.
+       * @summary Retrieves the tags bound to an instance.
        *
-       * @description ### Applicable engines
-       * - ApsaraDB RDS for MySQL
-       * - ApsaraDB RDS for PostgreSQL
-       * - ApsaraDB RDS for SQL Server
-       * - ApsaraDB RDS for MariaDB
+       * @description ### Supported engines
+       * - RDS MySQL
+       * - RDS PostgreSQL
+       * - RDS SQL Server
+       * - RDS MariaDB
        *
        * @param request DescribeDBInstanceByTagsRequest
        * @return DescribeDBInstanceByTagsResponse
@@ -3732,8 +3730,8 @@ namespace Rds20140815
        * @summary Queries the column encryption algorithm configuration of a specified instance.
        *
        * @description ## Request description
-       * - Before you invoke this operation, make sure that you have activated the column encryption feature in DAS Security Center.
-       * - If you receive the fault message ColumnEncryptionErrorCode.NOT_PURCHASED when invoking this operation, go to Database Autonomy Service (DAS) Security Center to purchase and activate the column encryption feature.
+       * - Before you use this operation, make sure that the column encryption service is enabled in the DAS Security Center.
+       * - If you receive the error message ColumnEncryptionErrorCode.NOT_PURCHASED when you call this operation, go to the Database Autonomy Service (DAS) Security Center to purchase and enable the column encryption service.
        *
        * @param request DescribeDBInstanceCLSRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3745,8 +3743,8 @@ namespace Rds20140815
        * @summary Queries the column encryption algorithm configuration of a specified instance.
        *
        * @description ## Request description
-       * - Before you invoke this operation, make sure that you have activated the column encryption feature in DAS Security Center.
-       * - If you receive the fault message ColumnEncryptionErrorCode.NOT_PURCHASED when invoking this operation, go to Database Autonomy Service (DAS) Security Center to purchase and activate the column encryption feature.
+       * - Before you use this operation, make sure that the column encryption service is enabled in the DAS Security Center.
+       * - If you receive the error message ColumnEncryptionErrorCode.NOT_PURCHASED when you call this operation, go to the Database Autonomy Service (DAS) Security Center to purchase and enable the column encryption service.
        *
        * @param request DescribeDBInstanceCLSRequest
        * @return DescribeDBInstanceCLSResponse
@@ -3754,7 +3752,7 @@ namespace Rds20140815
       Models::DescribeDBInstanceCLSResponse describeDBInstanceCLS(const Models::DescribeDBInstanceCLSRequest &request);
 
       /**
-       * @summary Retrieves link diagnostics information for an instance.
+       * @summary Retrieves the connectivity diagnostics information for an instance.
        *
        * @param request DescribeDBInstanceConnectivityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3763,7 +3761,7 @@ namespace Rds20140815
       Models::DescribeDBInstanceConnectivityResponse describeDBInstanceConnectivityWithOptions(const Models::DescribeDBInstanceConnectivityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves link diagnostics information for an instance.
+       * @summary Retrieves the connectivity diagnostics information for an instance.
        *
        * @param request DescribeDBInstanceConnectivityRequest
        * @return DescribeDBInstanceConnectivityResponse
@@ -3773,8 +3771,8 @@ namespace Rds20140815
       /**
        * @summary Queries the details of an ApsaraDB RDS for SQL Server instance.
        *
-       * @description ### Supported engine
-       * RDS SQL Server.
+       * @description ### Applicable engine
+       * ApsaraDB RDS for SQL Server.
        *
        * @param request DescribeDBInstanceDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3785,8 +3783,8 @@ namespace Rds20140815
       /**
        * @summary Queries the details of an ApsaraDB RDS for SQL Server instance.
        *
-       * @description ### Supported engine
-       * RDS SQL Server.
+       * @description ### Applicable engine
+       * ApsaraDB RDS for SQL Server.
        *
        * @param request DescribeDBInstanceDetailRequest
        * @return DescribeDBInstanceDetailResponse
@@ -3794,9 +3792,9 @@ namespace Rds20140815
       Models::DescribeDBInstanceDetailResponse describeDBInstanceDetail(const Models::DescribeDBInstanceDetailRequest &request);
 
       /**
-       * @summary Queries whether cloud disk encryption is enabled for an ApsaraDB RDS instance and the encryption key details.
+       * @summary Queries whether cloud disk encryption is enabled for an ApsaraDB RDS instance and retrieves the key details.
        *
-       * @description ### Applicable engines
+       * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
@@ -3808,9 +3806,9 @@ namespace Rds20140815
       Models::DescribeDBInstanceEncryptionKeyResponse describeDBInstanceEncryptionKeyWithOptions(const Models::DescribeDBInstanceEncryptionKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries whether cloud disk encryption is enabled for an ApsaraDB RDS instance and the encryption key details.
+       * @summary Queries whether cloud disk encryption is enabled for an ApsaraDB RDS instance and retrieves the key details.
        *
-       * @description ### Applicable engines
+       * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
@@ -3853,11 +3851,11 @@ namespace Rds20140815
        * @summary Queries the high-availability mode and data replication mode of an ApsaraDB RDS instance.
        *
        * @description ### Supported engines
-       * - ApsaraDB RDS for MySQL
-       * - ApsaraDB RDS for PostgreSQL
-       * - ApsaraDB RDS for SQL Server
+       * - RDS MySQL
+       * - RDS PostgreSQL
+       * - RDS SQL Server
        * ### Related documentation
-       * >Notice: Before calling this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts of this operation before you proceed.
+       * >Notice: Before you call this operation, read the feature documentation to understand the prerequisites and impacts.</notice>
        * - [Query the data replication mode of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96055.html)
        * - [Query the data replication mode of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/151265.html)
        * - [Query the data replication mode of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/415433.html)
@@ -3872,11 +3870,11 @@ namespace Rds20140815
        * @summary Queries the high-availability mode and data replication mode of an ApsaraDB RDS instance.
        *
        * @description ### Supported engines
-       * - ApsaraDB RDS for MySQL
-       * - ApsaraDB RDS for PostgreSQL
-       * - ApsaraDB RDS for SQL Server
+       * - RDS MySQL
+       * - RDS PostgreSQL
+       * - RDS SQL Server
        * ### Related documentation
-       * >Notice: Before calling this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts of this operation before you proceed.
+       * >Notice: Before you call this operation, read the feature documentation to understand the prerequisites and impacts.</notice>
        * - [Query the data replication mode of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96055.html)
        * - [Query the data replication mode of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/151265.html)
        * - [Query the data replication mode of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/415433.html)
@@ -3887,7 +3885,7 @@ namespace Rds20140815
       Models::DescribeDBInstanceHAConfigResponse describeDBInstanceHAConfig(const Models::DescribeDBInstanceHAConfigRequest &request);
 
       /**
-       * @summary Queries the IP whitelist of an ApsaraDB RDS instance.
+       * @summary Queries the IP address whitelists of an ApsaraDB RDS instance.
        *
        * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
@@ -3902,7 +3900,7 @@ namespace Rds20140815
       Models::DescribeDBInstanceIPArrayListResponse describeDBInstanceIPArrayListWithOptions(const Models::DescribeDBInstanceIPArrayListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the IP whitelist of an ApsaraDB RDS instance.
+       * @summary Queries the IP address whitelists of an ApsaraDB RDS instance.
        *
        * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
@@ -3955,12 +3953,12 @@ namespace Rds20140815
       Models::DescribeDBInstanceIpHostnameResponse describeDBInstanceIpHostname(const Models::DescribeDBInstanceIpHostnameRequest &request);
 
       /**
-       * @summary Queries the enhanced monitoring metrics that are enabled for an ApsaraDB RDS for PostgreSQL instance.
+       * @summary Queries the enhanced metrics that are enabled and displayed for an ApsaraDB RDS for PostgreSQL instance.
        *
-       * @description ### Applicable engine
-       * - RDS PostgreSQL
+       * @description ### Supported engines
+       * - ApsaraDB RDS for PostgreSQL
        * ### Related documentation
-       * >Notice: Before calling this operation, carefully read the following documentation to fully understand the prerequisites and potential impacts.
+       * >Notice: Before you use this operation, read the feature documentation carefully to ensure that you fully understand the prerequisites and the impacts of using this operation.</notice>
        * [View enhanced monitoring](https://help.aliyun.com/document_detail/299200.html).
        *
        * @param request DescribeDBInstanceMetricsRequest
@@ -3970,12 +3968,12 @@ namespace Rds20140815
       Models::DescribeDBInstanceMetricsResponse describeDBInstanceMetricsWithOptions(const Models::DescribeDBInstanceMetricsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the enhanced monitoring metrics that are enabled for an ApsaraDB RDS for PostgreSQL instance.
+       * @summary Queries the enhanced metrics that are enabled and displayed for an ApsaraDB RDS for PostgreSQL instance.
        *
-       * @description ### Applicable engine
-       * - RDS PostgreSQL
+       * @description ### Supported engines
+       * - ApsaraDB RDS for PostgreSQL
        * ### Related documentation
-       * >Notice: Before calling this operation, carefully read the following documentation to fully understand the prerequisites and potential impacts.
+       * >Notice: Before you use this operation, read the feature documentation carefully to ensure that you fully understand the prerequisites and the impacts of using this operation.</notice>
        * [View enhanced monitoring](https://help.aliyun.com/document_detail/299200.html).
        *
        * @param request DescribeDBInstanceMetricsRequest
@@ -4071,11 +4069,11 @@ namespace Rds20140815
       /**
        * @summary Queries the performance data of an instance.
        *
-       * @description ### Applicable engines
-       * - ApsaraDB RDS for MySQL
-       * - ApsaraDB RDS for PostgreSQL
-       * - ApsaraDB RDS for SQL Server
-       * - ApsaraDB RDS for MariaDB
+       * @description ### Supported engines
+       * - RDS MySQL
+       * - RDS PostgreSQL
+       * - RDS SQL Server
+       * - RDS MariaDB
        *
        * @param request DescribeDBInstancePerformanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4086,11 +4084,11 @@ namespace Rds20140815
       /**
        * @summary Queries the performance data of an instance.
        *
-       * @description ### Applicable engines
-       * - ApsaraDB RDS for MySQL
-       * - ApsaraDB RDS for PostgreSQL
-       * - ApsaraDB RDS for SQL Server
-       * - ApsaraDB RDS for MariaDB
+       * @description ### Supported engines
+       * - RDS MySQL
+       * - RDS PostgreSQL
+       * - RDS SQL Server
+       * - RDS MariaDB
        *
        * @param request DescribeDBInstancePerformanceRequest
        * @return DescribeDBInstancePerformanceResponse
@@ -4100,9 +4098,9 @@ namespace Rds20140815
       /**
        * @deprecated OpenAPI DescribeDBInstancePromoteActivity is deprecated
        *
-       * @summary This operation is no longer maintained. You can still call this operation, but it is no longer maintained.
+       * @summary Queries the promotional activities applied to an instance. This operation is deprecated and no longer maintained, but remains callable.
        *
-       * @description This operation is no longer maintained. **You can still call this operation, but Alibaba Cloud no longer maintains it**.
+       * @description This operation is deprecated: **you can still call this operation, but Alibaba Cloud no longer maintains it**.
        *
        * @param request DescribeDBInstancePromoteActivityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4113,9 +4111,9 @@ namespace Rds20140815
       /**
        * @deprecated OpenAPI DescribeDBInstancePromoteActivity is deprecated
        *
-       * @summary This operation is no longer maintained. You can still call this operation, but it is no longer maintained.
+       * @summary Queries the promotional activities applied to an instance. This operation is deprecated and no longer maintained, but remains callable.
        *
-       * @description This operation is no longer maintained. **You can still call this operation, but Alibaba Cloud no longer maintains it**.
+       * @description This operation is deprecated: **you can still call this operation, but Alibaba Cloud no longer maintains it**.
        *
        * @param request DescribeDBInstancePromoteActivityRequest
        * @return DescribeDBInstancePromoteActivityResponse
@@ -4154,13 +4152,13 @@ namespace Rds20140815
       Models::DescribeDBInstanceProxyConfigurationResponse describeDBInstanceProxyConfiguration(const Models::DescribeDBInstanceProxyConfigurationRequest &request);
 
       /**
-       * @summary Queries the instance status and configuration of a native replication instance.
+       * @summary Queries the status and configuration of a native replication instance.
        *
-       * @description ### Applicable engine
+       * @description ### Supported engines
        * ApsaraDB RDS for MySQL
-       * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts of this operation before you proceed.
-       * [RDS MySQL native replication instance](https://help.aliyun.com/document_detail/2856487.html)
+       * ### Related feature documentation
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.
+       * [Native replication instances of ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/2856487.html)
        *
        * @param request DescribeDBInstanceReplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4169,13 +4167,13 @@ namespace Rds20140815
       Models::DescribeDBInstanceReplicationResponse describeDBInstanceReplicationWithOptions(const Models::DescribeDBInstanceReplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the instance status and configuration of a native replication instance.
+       * @summary Queries the status and configuration of a native replication instance.
        *
-       * @description ### Applicable engine
+       * @description ### Supported engines
        * ApsaraDB RDS for MySQL
-       * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts of this operation before you proceed.
-       * [RDS MySQL native replication instance](https://help.aliyun.com/document_detail/2856487.html)
+       * ### Related feature documentation
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.
+       * [Native replication instances of ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/2856487.html)
        *
        * @param request DescribeDBInstanceReplicationRequest
        * @return DescribeDBInstanceReplicationResponse
@@ -4221,9 +4219,9 @@ namespace Rds20140815
        * @summary Queries the security group rules of an ApsaraDB RDS for SQL Server instance.
        *
        * @description ### Applicable engine
-       * RDS SQL Server
+       * ApsaraDB RDS for SQL Server
        * ### Related documentation
-       * [Configure security group rules for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/2392322.html)
+       * [Configure security group rules for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/2392322.html)
        *
        * @param request DescribeDBInstanceSecurityGroupRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4235,9 +4233,9 @@ namespace Rds20140815
        * @summary Queries the security group rules of an ApsaraDB RDS for SQL Server instance.
        *
        * @description ### Applicable engine
-       * RDS SQL Server
+       * ApsaraDB RDS for SQL Server
        * ### Related documentation
-       * [Configure security group rules for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/2392322.html)
+       * [Configure security group rules for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/2392322.html)
        *
        * @param request DescribeDBInstanceSecurityGroupRuleRequest
        * @return DescribeDBInstanceSecurityGroupRuleResponse
@@ -4268,7 +4266,7 @@ namespace Rds20140815
       /**
        * @summary Queries the Transparent Data Encryption (TDE) status of an ApsaraDB RDS instance.
        *
-       * @description ### Applicable engines
+       * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
@@ -4282,7 +4280,7 @@ namespace Rds20140815
       /**
        * @summary Queries the Transparent Data Encryption (TDE) status of an ApsaraDB RDS instance.
        *
-       * @description ### Applicable engines
+       * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
@@ -4293,7 +4291,7 @@ namespace Rds20140815
       Models::DescribeDBInstanceTDEResponse describeDBInstanceTDE(const Models::DescribeDBInstanceTDERequest &request);
 
       /**
-       * @summary Queries a list of ApsaraDB RDS instances.
+       * @summary Queries ApsaraDB RDS instances.
        *
        * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
@@ -4308,7 +4306,7 @@ namespace Rds20140815
       Models::DescribeDBInstancesResponse describeDBInstancesWithOptions(const Models::DescribeDBInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of ApsaraDB RDS instances.
+       * @summary Queries ApsaraDB RDS instances.
        *
        * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
@@ -4324,9 +4322,9 @@ namespace Rds20140815
       /**
        * @deprecated OpenAPI DescribeDBInstancesAsCsv is deprecated, please use Rds::2014-08-15::DescribeDBInstances instead.
        *
-       * @summary Queries a list of instances. This operation is no longer maintained but can still be called.
+       * @summary Queries a list of instances. This operation is deprecated and no longer maintained, but can still be called.
        *
-       * @description This operation is no longer maintained: **the operation can still be called, but Alibaba Cloud no longer maintains it**. Use the **DescribeDBInstances** operation instead.
+       * @description This operation is deprecated: **You can still call this operation, but Alibaba Cloud no longer maintains it**. Use the **DescribeDBInstances** operation instead.
        *
        * @param request DescribeDBInstancesAsCsvRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4337,9 +4335,9 @@ namespace Rds20140815
       /**
        * @deprecated OpenAPI DescribeDBInstancesAsCsv is deprecated, please use Rds::2014-08-15::DescribeDBInstances instead.
        *
-       * @summary Queries a list of instances. This operation is no longer maintained but can still be called.
+       * @summary Queries a list of instances. This operation is deprecated and no longer maintained, but can still be called.
        *
-       * @description This operation is no longer maintained: **the operation can still be called, but Alibaba Cloud no longer maintains it**. Use the **DescribeDBInstances** operation instead.
+       * @description This operation is deprecated: **You can still call this operation, but Alibaba Cloud no longer maintains it**. Use the **DescribeDBInstances** operation instead.
        *
        * @param request DescribeDBInstancesAsCsvRequest
        * @return DescribeDBInstancesAsCsvResponse
@@ -4347,9 +4345,9 @@ namespace Rds20140815
       Models::DescribeDBInstancesAsCsvResponse describeDBInstancesAsCsv(const Models::DescribeDBInstancesAsCsvRequest &request);
 
       /**
-       * @summary Queries information about ApsaraDB RDS instances based on the remaining available time of subscription instances.
+       * @summary Queries the details of ApsaraDB RDS instances based on the remaining available time of subscription instances.
        *
-       * @description ### Applicable engines
+       * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
@@ -4362,9 +4360,9 @@ namespace Rds20140815
       Models::DescribeDBInstancesByExpireTimeResponse describeDBInstancesByExpireTimeWithOptions(const Models::DescribeDBInstancesByExpireTimeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about ApsaraDB RDS instances based on the remaining available time of subscription instances.
+       * @summary Queries the details of ApsaraDB RDS instances based on the remaining available time of subscription instances.
        *
-       * @description ### Applicable engines
+       * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
@@ -4395,7 +4393,7 @@ namespace Rds20140815
       /**
        * @deprecated OpenAPI DescribeDBInstancesForClone is deprecated, please use Rds::2014-08-15::DescribeDBInstances instead.
        *
-       * @summary Queries clone database instances. This operation is no longer maintained but can still be called.
+       * @summary Queries cloned database instances. **[Deprecated]** This operation can still be called, but it is no longer maintained.
        *
        * @description This operation is no longer maintained: **the operation can still be called, but Alibaba Cloud no longer maintains it**. Use the [DescribeDBInstances](https://help.aliyun.com/document_detail/610396.html) operation to query the details of new instances.
        *
@@ -4408,7 +4406,7 @@ namespace Rds20140815
       /**
        * @deprecated OpenAPI DescribeDBInstancesForClone is deprecated, please use Rds::2014-08-15::DescribeDBInstances instead.
        *
-       * @summary Queries clone database instances. This operation is no longer maintained but can still be called.
+       * @summary Queries cloned database instances. **[Deprecated]** This operation can still be called, but it is no longer maintained.
        *
        * @description This operation is no longer maintained: **the operation can still be called, but Alibaba Cloud no longer maintains it**. Use the [DescribeDBInstances](https://help.aliyun.com/document_detail/610396.html) operation to query the details of new instances.
        *
@@ -4447,11 +4445,11 @@ namespace Rds20140815
       Models::DescribeDBMiniEngineVersionsResponse describeDBMiniEngineVersions(const Models::DescribeDBMiniEngineVersionsRequest &request);
 
       /**
-       * @summary Queries the details of the database proxy settings of an ApsaraDB RDS instance.
+       * @summary Queries the details of the database proxy settings for an ApsaraDB RDS instance.
        *
        * @description ### Supported engines
-       * - ApsaraDB RDS for MySQL
-       * - ApsaraDB RDS for PostgreSQL
+       * - RDS MySQL
+       * - RDS PostgreSQL
        *
        * @param request DescribeDBProxyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4460,11 +4458,11 @@ namespace Rds20140815
       Models::DescribeDBProxyResponse describeDBProxyWithOptions(const Models::DescribeDBProxyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of the database proxy settings of an ApsaraDB RDS instance.
+       * @summary Queries the details of the database proxy settings for an ApsaraDB RDS instance.
        *
        * @description ### Supported engines
-       * - ApsaraDB RDS for MySQL
-       * - ApsaraDB RDS for PostgreSQL
+       * - RDS MySQL
+       * - RDS PostgreSQL
        *
        * @param request DescribeDBProxyRequest
        * @return DescribeDBProxyResponse
@@ -4500,13 +4498,13 @@ namespace Rds20140815
        * @summary Queries the performance data of the database proxy for an ApsaraDB RDS instance.
        *
        * @description ### Supported engines
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * > Starting from October 17, 2023, ApsaraDB RDS for MySQL Cluster Edition instances are progressively provided with a complimentary dedicated proxy service with one proxy node across regions. For more information, see [ApsaraDB RDS for MySQL Cluster Edition complimentary dedicated proxy service with one proxy node](https://help.aliyun.com/document_detail/2555466.html).
-       * ### Related feature documentation
-       * >Notice: Before you call this operation, read the following feature documentation to fully understand the prerequisites and impacts of this operation.
-       * - [View monitoring data for RDS MySQL](https://help.aliyun.com/document_detail/194241.html)
-       * - [View monitoring data for RDS PostgreSQL](https://help.aliyun.com/document_detail/418275.html)
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * > Starting from October 17, 2023, ApsaraDB RDS for MySQL Cluster Edition gradually provides a free dedicated dedicated proxy with one proxy node in each unit. For more information, see [Free dedicated dedicated proxy with one proxy node for ApsaraDB RDS for MySQL Cluster Edition](https://help.aliyun.com/document_detail/2555466.html).
+       * ### Related documentation
+       * >Notice: Before you call this operation, read the documentation carefully to fully understand the prerequisites and the impacts of this operation.
+       * - [View monitoring data for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/194241.html)
+       * - [View monitoring data for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/418275.html)
        *
        * @param request DescribeDBProxyPerformanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4518,13 +4516,13 @@ namespace Rds20140815
        * @summary Queries the performance data of the database proxy for an ApsaraDB RDS instance.
        *
        * @description ### Supported engines
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * > Starting from October 17, 2023, ApsaraDB RDS for MySQL Cluster Edition instances are progressively provided with a complimentary dedicated proxy service with one proxy node across regions. For more information, see [ApsaraDB RDS for MySQL Cluster Edition complimentary dedicated proxy service with one proxy node](https://help.aliyun.com/document_detail/2555466.html).
-       * ### Related feature documentation
-       * >Notice: Before you call this operation, read the following feature documentation to fully understand the prerequisites and impacts of this operation.
-       * - [View monitoring data for RDS MySQL](https://help.aliyun.com/document_detail/194241.html)
-       * - [View monitoring data for RDS PostgreSQL](https://help.aliyun.com/document_detail/418275.html)
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * > Starting from October 17, 2023, ApsaraDB RDS for MySQL Cluster Edition gradually provides a free dedicated dedicated proxy with one proxy node in each unit. For more information, see [Free dedicated dedicated proxy with one proxy node for ApsaraDB RDS for MySQL Cluster Edition](https://help.aliyun.com/document_detail/2555466.html).
+       * ### Related documentation
+       * >Notice: Before you call this operation, read the documentation carefully to fully understand the prerequisites and the impacts of this operation.
+       * - [View monitoring data for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/194241.html)
+       * - [View monitoring data for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/418275.html)
        *
        * @param request DescribeDBProxyPerformanceRequest
        * @return DescribeDBProxyPerformanceResponse
@@ -4532,12 +4530,12 @@ namespace Rds20140815
       Models::DescribeDBProxyPerformanceResponse describeDBProxyPerformance(const Models::DescribeDBProxyPerformanceRequest &request);
 
       /**
-       * @summary Queries the distributed transaction whitelist of an ApsaraDB RDS for SQL Server instance.
+       * @summary Queries the distributed transaction whitelist information of an ApsaraDB RDS for SQL Server instance.
        *
-       * @description ### Applicable engine
-       * RDS SQL Server
+       * @description ### Supported engine
+       * ApsaraDB RDS for SQL Server
        * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of this operation.
        * [Configure a distributed transaction whitelist for SQL Server](https://help.aliyun.com/document_detail/124321.html)
        *
        * @param request DescribeDTCSecurityIpHostsForSQLServerRequest
@@ -4547,12 +4545,12 @@ namespace Rds20140815
       Models::DescribeDTCSecurityIpHostsForSQLServerResponse describeDTCSecurityIpHostsForSQLServerWithOptions(const Models::DescribeDTCSecurityIpHostsForSQLServerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the distributed transaction whitelist of an ApsaraDB RDS for SQL Server instance.
+       * @summary Queries the distributed transaction whitelist information of an ApsaraDB RDS for SQL Server instance.
        *
-       * @description ### Applicable engine
-       * RDS SQL Server
+       * @description ### Supported engine
+       * ApsaraDB RDS for SQL Server
        * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of this operation.
        * [Configure a distributed transaction whitelist for SQL Server](https://help.aliyun.com/document_detail/124321.html)
        *
        * @param request DescribeDTCSecurityIpHostsForSQLServerRequest
@@ -4590,9 +4588,9 @@ namespace Rds20140815
       Models::DescribeDatabasesResponse describeDatabases(const Models::DescribeDatabasesRequest &request);
 
       /**
-       * @summary Queries information about an ApsaraDB RDS dedicated cluster.
+       * @summary Queries the details of ApsaraDB RDS dedicated clusters.
        *
-       * @description The dedicated cluster feature allows you to manage instances in batches by cluster. You can create multiple dedicated clusters in a region. A dedicated cluster contains multiple hosts, and a host contains multiple instances. For more information, see [Overview of dedicated clusters](https://help.aliyun.com/document_detail/141455.html).
+       * @description The dedicated cluster feature allows you to manage instances in batches as clusters. You can create multiple dedicated clusters in a region. Each dedicated cluster contains multiple hosts, and each host contains multiple instances. For more information, see [Overview of dedicated clusters](https://help.aliyun.com/document_detail/141455.html).
        *
        * @param request DescribeDedicatedHostGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4601,9 +4599,9 @@ namespace Rds20140815
       Models::DescribeDedicatedHostGroupsResponse describeDedicatedHostGroupsWithOptions(const Models::DescribeDedicatedHostGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about an ApsaraDB RDS dedicated cluster.
+       * @summary Queries the details of ApsaraDB RDS dedicated clusters.
        *
-       * @description The dedicated cluster feature allows you to manage instances in batches by cluster. You can create multiple dedicated clusters in a region. A dedicated cluster contains multiple hosts, and a host contains multiple instances. For more information, see [Overview of dedicated clusters](https://help.aliyun.com/document_detail/141455.html).
+       * @description The dedicated cluster feature allows you to manage instances in batches as clusters. You can create multiple dedicated clusters in a region. Each dedicated cluster contains multiple hosts, and each host contains multiple instances. For more information, see [Overview of dedicated clusters](https://help.aliyun.com/document_detail/141455.html).
        *
        * @param request DescribeDedicatedHostGroupsRequest
        * @return DescribeDedicatedHostGroupsResponse
@@ -4613,7 +4611,7 @@ namespace Rds20140815
       /**
        * @summary Queries the host information in a dedicated cluster.
        *
-       * @description The dedicated cluster feature allows you to manage instances in batches by cluster. You can create multiple dedicated clusters in a region. A dedicated cluster contains multiple hosts, and a host contains multiple instances. For more information, see [Overview of dedicated clusters](https://help.aliyun.com/document_detail/141455.html).
+       * @description The dedicated cluster feature manages instances in batches in the form of clusters. You can create multiple dedicated clusters in a region. A dedicated cluster contains multiple hosts, and a host contains multiple instances. For more information, see [Overview of dedicated clusters](https://help.aliyun.com/document_detail/141455.html).
        *
        * @param request DescribeDedicatedHostsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4624,7 +4622,7 @@ namespace Rds20140815
       /**
        * @summary Queries the host information in a dedicated cluster.
        *
-       * @description The dedicated cluster feature allows you to manage instances in batches by cluster. You can create multiple dedicated clusters in a region. A dedicated cluster contains multiple hosts, and a host contains multiple instances. For more information, see [Overview of dedicated clusters](https://help.aliyun.com/document_detail/141455.html).
+       * @description The dedicated cluster feature manages instances in batches in the form of clusters. You can create multiple dedicated clusters in a region. A dedicated cluster contains multiple hosts, and a host contains multiple instances. For more information, see [Overview of dedicated clusters](https://help.aliyun.com/document_detail/141455.html).
        *
        * @param request DescribeDedicatedHostsRequest
        * @return DescribeDedicatedHostsResponse
@@ -4632,13 +4630,13 @@ namespace Rds20140815
       Models::DescribeDedicatedHostsResponse describeDedicatedHosts(const Models::DescribeDedicatedHostsRequest &request);
 
       /**
-       * @summary Queries the backup sets of released ApsaraDB RDS for MySQL instances.
+       * @summary Queries the backup sets of a released ApsaraDB RDS for MySQL instance.
        *
-       * @description ### Applicable engine
-       * RDS MySQL
+       * @description ### Supported database engine
+       * ApsaraDB RDS for MySQL
        * ### Related feature documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-       * [Set the backup retention policy after an instance is released](https://help.aliyun.com/document_detail/2836955.html)
+       * >Notice: Before you call this operation, read the feature documentation carefully to fully understand the prerequisites and impacts of this operation.
+       * [Configure the backup retention policy for a released instance](https://help.aliyun.com/document_detail/2836955.html)
        *
        * @param request DescribeDetachedBackupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4647,13 +4645,13 @@ namespace Rds20140815
       Models::DescribeDetachedBackupsResponse describeDetachedBackupsWithOptions(const Models::DescribeDetachedBackupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the backup sets of released ApsaraDB RDS for MySQL instances.
+       * @summary Queries the backup sets of a released ApsaraDB RDS for MySQL instance.
        *
-       * @description ### Applicable engine
-       * RDS MySQL
+       * @description ### Supported database engine
+       * ApsaraDB RDS for MySQL
        * ### Related feature documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-       * [Set the backup retention policy after an instance is released](https://help.aliyun.com/document_detail/2836955.html)
+       * >Notice: Before you call this operation, read the feature documentation carefully to fully understand the prerequisites and impacts of this operation.
+       * [Configure the backup retention policy for a released instance](https://help.aliyun.com/document_detail/2836955.html)
        *
        * @param request DescribeDetachedBackupsRequest
        * @return DescribeDetachedBackupsResponse
@@ -4661,13 +4659,13 @@ namespace Rds20140815
       Models::DescribeDetachedBackupsResponse describeDetachedBackups(const Models::DescribeDetachedBackupsRequest &request);
 
       /**
-       * @summary Queries the error logs of an instance within a specified time range.
+       * @summary Queries the error logs of an instance within a specified time period.
        *
-       * @description ### Applicable engines
-       * - ApsaraDB RDS for MySQL
-       * - ApsaraDB RDS for PostgreSQL
-       * - ApsaraDB RDS for SQL Server
-       * - ApsaraDB RDS for MariaDB
+       * @description ### Supported engines
+       * - RDS MySQL
+       * - RDS PostgreSQL
+       * - RDS SQL Server
+       * - RDS MariaDB
        *
        * @param request DescribeErrorLogsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4676,13 +4674,13 @@ namespace Rds20140815
       Models::DescribeErrorLogsResponse describeErrorLogsWithOptions(const Models::DescribeErrorLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the error logs of an instance within a specified time range.
+       * @summary Queries the error logs of an instance within a specified time period.
        *
-       * @description ### Applicable engines
-       * - ApsaraDB RDS for MySQL
-       * - ApsaraDB RDS for PostgreSQL
-       * - ApsaraDB RDS for SQL Server
-       * - ApsaraDB RDS for MariaDB
+       * @description ### Supported engines
+       * - RDS MySQL
+       * - RDS PostgreSQL
+       * - RDS SQL Server
+       * - RDS MariaDB
        *
        * @param request DescribeErrorLogsRequest
        * @return DescribeErrorLogsResponse
@@ -4690,19 +4688,19 @@ namespace Rds20140815
       Models::DescribeErrorLogsResponse describeErrorLogs(const Models::DescribeErrorLogsRequest &request);
 
       /**
-       * @summary Queries the list of historical event records for an ApsaraDB RDS instance.
+       * @summary Queries a list of historical event records for ApsaraDB RDS.
        *
        * @description ### Supported engines
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * - RDS SQL Server
-       * - RDS MariaDB
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * - ApsaraDB RDS for SQL Server
+       * - ApsaraDB RDS for MariaDB
        * ### Related documentation
-       * >Notice: Before calling this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts of this operation before proceeding.
-       * - [RDS MySQL historical events](https://help.aliyun.com/document_detail/468953.html)
-       * - [RDS PostgreSQL historical events](https://help.aliyun.com/document_detail/2569306.html)
-       * - [RDS SQL Server historical events](https://help.aliyun.com/document_detail/2571444.html)
-       * - [RDS MariaDB historical events](https://help.aliyun.com/document_detail/2571339.html)
+       * >Notice: Before you call this operation, read the documentation carefully to fully understand the prerequisites and the impact of this operation.
+       * - [Historical events for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/468953.html)
+       * - [Historical events for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/2569306.html)
+       * - [Historical events for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/2571444.html)
+       * - [Historical events for ApsaraDB RDS for MariaDB](https://help.aliyun.com/document_detail/2571339.html)
        *
        * @param request DescribeEventsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4711,19 +4709,19 @@ namespace Rds20140815
       Models::DescribeEventsResponse describeEventsWithOptions(const Models::DescribeEventsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of historical event records for an ApsaraDB RDS instance.
+       * @summary Queries a list of historical event records for ApsaraDB RDS.
        *
        * @description ### Supported engines
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * - RDS SQL Server
-       * - RDS MariaDB
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * - ApsaraDB RDS for SQL Server
+       * - ApsaraDB RDS for MariaDB
        * ### Related documentation
-       * >Notice: Before calling this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts of this operation before proceeding.
-       * - [RDS MySQL historical events](https://help.aliyun.com/document_detail/468953.html)
-       * - [RDS PostgreSQL historical events](https://help.aliyun.com/document_detail/2569306.html)
-       * - [RDS SQL Server historical events](https://help.aliyun.com/document_detail/2571444.html)
-       * - [RDS MariaDB historical events](https://help.aliyun.com/document_detail/2571339.html)
+       * >Notice: Before you call this operation, read the documentation carefully to fully understand the prerequisites and the impact of this operation.
+       * - [Historical events for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/468953.html)
+       * - [Historical events for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/2569306.html)
+       * - [Historical events for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/2571444.html)
+       * - [Historical events for ApsaraDB RDS for MariaDB](https://help.aliyun.com/document_detail/2571339.html)
        *
        * @param request DescribeEventsRequest
        * @return DescribeEventsResponse
@@ -4731,10 +4729,10 @@ namespace Rds20140815
       Models::DescribeEventsResponse describeEvents(const Models::DescribeEventsRequest &request);
 
       /**
-       * @summary Queries the list of active geo-redundancy database clusters for ApsaraDB RDS for MySQL or the details of a specified cluster.
+       * @summary Queries a list of ApsaraDB RDS for MySQL global active database (GAD) clusters or the details of a specified cluster.
        *
-       * @description ### Supported engine
-       * - RDS MySQL
+       * @description ### Supported engines
+       * - ApsaraDB RDS for MySQL
        *
        * @param request DescribeGadInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4743,10 +4741,10 @@ namespace Rds20140815
       Models::DescribeGadInstancesResponse describeGadInstancesWithOptions(const Models::DescribeGadInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of active geo-redundancy database clusters for ApsaraDB RDS for MySQL or the details of a specified cluster.
+       * @summary Queries a list of ApsaraDB RDS for MySQL global active database (GAD) clusters or the details of a specified cluster.
        *
-       * @description ### Supported engine
-       * - RDS MySQL
+       * @description ### Supported engines
+       * - ApsaraDB RDS for MySQL
        *
        * @param request DescribeGadInstancesRequest
        * @return DescribeGadInstancesResponse
@@ -4754,15 +4752,15 @@ namespace Rds20140815
       Models::DescribeGadInstancesResponse describeGadInstances(const Models::DescribeGadInstancesRequest &request);
 
       /**
-       * @summary Queries the availability check method of an ApsaraDB RDS instance.
+       * @summary Queries the availability detection method of an ApsaraDB RDS instance.
        *
-       * @description ### Applicable engines
+       * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * - ApsaraDB RDS for MariaDB
        * ### Related documentation
-       * [What is an availability check method](https://help.aliyun.com/document_detail/207467.html)
+       * [What is the availability detection method?](https://help.aliyun.com/document_detail/207467.html)
        *
        * @param request DescribeHADiagnoseConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4771,15 +4769,15 @@ namespace Rds20140815
       Models::DescribeHADiagnoseConfigResponse describeHADiagnoseConfigWithOptions(const Models::DescribeHADiagnoseConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the availability check method of an ApsaraDB RDS instance.
+       * @summary Queries the availability detection method of an ApsaraDB RDS instance.
        *
-       * @description ### Applicable engines
+       * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * - ApsaraDB RDS for MariaDB
        * ### Related documentation
-       * [What is an availability check method](https://help.aliyun.com/document_detail/207467.html)
+       * [What is the availability detection method?](https://help.aliyun.com/document_detail/207467.html)
        *
        * @param request DescribeHADiagnoseConfigRequest
        * @return DescribeHADiagnoseConfigResponse
@@ -4816,7 +4814,7 @@ namespace Rds20140815
       Models::DescribeHASwitchConfigResponse describeHASwitchConfig(const Models::DescribeHASwitchConfigRequest &request);
 
       /**
-       * @summary Queries the event list in Event Center.
+       * @summary Queries the events in the Event Center.
        *
        * @param request DescribeHistoryEventsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4825,7 +4823,7 @@ namespace Rds20140815
       Models::DescribeHistoryEventsResponse describeHistoryEventsWithOptions(const Models::DescribeHistoryEventsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the event list in Event Center.
+       * @summary Queries the events in the Event Center.
        *
        * @param request DescribeHistoryEventsRequest
        * @return DescribeHistoryEventsResponse
@@ -4833,7 +4831,7 @@ namespace Rds20140815
       Models::DescribeHistoryEventsResponse describeHistoryEvents(const Models::DescribeHistoryEventsRequest &request);
 
       /**
-       * @summary Queries historical event statistics from the Event Center.
+       * @summary Counts historical events in the event center.
        *
        * @param request DescribeHistoryEventsStatRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4842,7 +4840,7 @@ namespace Rds20140815
       Models::DescribeHistoryEventsStatResponse describeHistoryEventsStatWithOptions(const Models::DescribeHistoryEventsStatRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries historical event statistics from the Event Center.
+       * @summary Counts historical events in the event center.
        *
        * @param request DescribeHistoryEventsStatRequest
        * @return DescribeHistoryEventsStatResponse
@@ -4850,17 +4848,17 @@ namespace Rds20140815
       Models::DescribeHistoryEventsStatResponse describeHistoryEventsStat(const Models::DescribeHistoryEventsStatRequest &request);
 
       /**
-       * @summary Retrieves historical task records, supporting tasks created within the last 30 days.
+       * @summary Queries historical task records created within the last 30 days.
        *
        * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
-       * ### Related documentation
-       * >Notice: Before calling this operation, carefully read the following documentation to fully understand the prerequisites and potential impacts.
-       * - [Task list of ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/474275.html)
-       * - [Task list of ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/474537.html)
-       * - [Task list of ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/614826.html)
+       * ### Related feature documentation
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and impacts.
+       * - [ApsaraDB RDS for MySQL task list](https://help.aliyun.com/document_detail/474275.html)
+       * - [ApsaraDB RDS for PostgreSQL task list](https://help.aliyun.com/document_detail/474537.html)
+       * - [ApsaraDB RDS for SQL Server task list](https://help.aliyun.com/document_detail/614826.html)
        *
        * @param request DescribeHistoryTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4869,17 +4867,17 @@ namespace Rds20140815
       Models::DescribeHistoryTasksResponse describeHistoryTasksWithOptions(const Models::DescribeHistoryTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves historical task records, supporting tasks created within the last 30 days.
+       * @summary Queries historical task records created within the last 30 days.
        *
        * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
-       * ### Related documentation
-       * >Notice: Before calling this operation, carefully read the following documentation to fully understand the prerequisites and potential impacts.
-       * - [Task list of ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/474275.html)
-       * - [Task list of ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/474537.html)
-       * - [Task list of ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/614826.html)
+       * ### Related feature documentation
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and impacts.
+       * - [ApsaraDB RDS for MySQL task list](https://help.aliyun.com/document_detail/474275.html)
+       * - [ApsaraDB RDS for PostgreSQL task list](https://help.aliyun.com/document_detail/474537.html)
+       * - [ApsaraDB RDS for SQL Server task list](https://help.aliyun.com/document_detail/614826.html)
        *
        * @param request DescribeHistoryTasksRequest
        * @return DescribeHistoryTasksResponse
@@ -4921,20 +4919,20 @@ namespace Rds20140815
       Models::DescribeHostGroupElasticStrategyParametersResponse describeHostGroupElasticStrategyParameters(const Models::DescribeHostGroupElasticStrategyParametersRequest &request);
 
       /**
-       * @summary Queries the WebShell logon information for the host of an ApsaraDB RDS for SQL Server instance.
+       * @summary Queries the host WebShell logon information of an ApsaraDB RDS for SQL Server instance.
        *
-       * @description ### Supported engine
-       * - RDS SQL Server
+       * @description ### Supported engines
+       * - ApsaraDB RDS for SQL Server
        * ### Before you begin
-       * - The RDS instance must meet the following conditions:
-       *   - Region: All regions except China (Zhangjiakou) support this feature.
-       *   - Instance edition: Basic Edition, high-availability series (SQL Server 2012 or later), or Cluster Edition.
-       *   - Instance type: general-purpose or dedicated. Shared instance types are not supported.
+       * - The ApsaraDB RDS instance must meet the following requirements:
+       *   - Region: This feature is supported in all regions except China (Zhangjiakou).
+       *   - Instance edition: Basic Edition, High Availability Edition (SQL Server 2012 or later), and Cluster Edition.
+       *   - Instance type: General-purpose and dedicated instance types. Shared instance types are not supported.
        *   - Network type: VPC. To change the network type, see [Change the network type](https://help.aliyun.com/document_detail/95707.html).
-       *   - Instance creation time: High-availability series and Cluster Edition instances must be created on or after January 1, 2021. Basic Edition instances must be created on or after September 2, 2022. You can view the **creation time** in the **Running Status** section on the **Basic Information** page.
-       * - You must log on with an **Alibaba Cloud account**.
+       *   - Creation time: High Availability Edition and Cluster Edition instances must be created on or after January 1, 2021. Basic Edition instances must be created on or after September 2, 2022. You can view the **creation time** of an instance in the **Running Status** section of the **Basic Information** page.
+       * - The logon account must be an **Alibaba Cloud account**.
        * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, read the documentation to fully understand the prerequisites and impacts.
        * [Create a host account and log on](https://help.aliyun.com/document_detail/354862.html)
        *
        * @param request DescribeHostWebShellRequest
@@ -4944,20 +4942,20 @@ namespace Rds20140815
       Models::DescribeHostWebShellResponse describeHostWebShellWithOptions(const Models::DescribeHostWebShellRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the WebShell logon information for the host of an ApsaraDB RDS for SQL Server instance.
+       * @summary Queries the host WebShell logon information of an ApsaraDB RDS for SQL Server instance.
        *
-       * @description ### Supported engine
-       * - RDS SQL Server
+       * @description ### Supported engines
+       * - ApsaraDB RDS for SQL Server
        * ### Before you begin
-       * - The RDS instance must meet the following conditions:
-       *   - Region: All regions except China (Zhangjiakou) support this feature.
-       *   - Instance edition: Basic Edition, high-availability series (SQL Server 2012 or later), or Cluster Edition.
-       *   - Instance type: general-purpose or dedicated. Shared instance types are not supported.
+       * - The ApsaraDB RDS instance must meet the following requirements:
+       *   - Region: This feature is supported in all regions except China (Zhangjiakou).
+       *   - Instance edition: Basic Edition, High Availability Edition (SQL Server 2012 or later), and Cluster Edition.
+       *   - Instance type: General-purpose and dedicated instance types. Shared instance types are not supported.
        *   - Network type: VPC. To change the network type, see [Change the network type](https://help.aliyun.com/document_detail/95707.html).
-       *   - Instance creation time: High-availability series and Cluster Edition instances must be created on or after January 1, 2021. Basic Edition instances must be created on or after September 2, 2022. You can view the **creation time** in the **Running Status** section on the **Basic Information** page.
-       * - You must log on with an **Alibaba Cloud account**.
+       *   - Creation time: High Availability Edition and Cluster Edition instances must be created on or after January 1, 2021. Basic Edition instances must be created on or after September 2, 2022. You can view the **creation time** of an instance in the **Running Status** section of the **Basic Information** page.
+       * - The logon account must be an **Alibaba Cloud account**.
        * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, read the documentation to fully understand the prerequisites and impacts.
        * [Create a host account and log on](https://help.aliyun.com/document_detail/354862.html)
        *
        * @param request DescribeHostWebShellRequest
@@ -4966,9 +4964,9 @@ namespace Rds20140815
       Models::DescribeHostWebShellResponse describeHostWebShell(const Models::DescribeHostWebShellRequest &request);
 
       /**
-       * @summary Queries the details of a data import task for a native replication ApsaraDB RDS instance.
+       * @summary Queries the details of a data import task for an ApsaraDB RDS instance that uses native replication.
        *
-       * @description Queries the details of a data import task.
+       * @description Queries the details of an import task.
        *
        * @param request DescribeImportTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4977,9 +4975,9 @@ namespace Rds20140815
       Models::DescribeImportTaskResponse describeImportTaskWithOptions(const Models::DescribeImportTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a data import task for a native replication ApsaraDB RDS instance.
+       * @summary Queries the details of a data import task for an ApsaraDB RDS instance that uses native replication.
        *
-       * @description Queries the details of a data import task.
+       * @description Queries the details of an import task.
        *
        * @param request DescribeImportTaskRequest
        * @return DescribeImportTaskResponse
@@ -4987,9 +4985,9 @@ namespace Rds20140815
       Models::DescribeImportTaskResponse describeImportTask(const Models::DescribeImportTaskRequest &request);
 
       /**
-       * @summary Queries the details of an import task dry run, including the specific check items and check results.
+       * @summary Queries the precheck details of an import task, including specific precheck items and check results.
        *
-       * @description Queries the details of an import task dry run.
+       * @description Queries the precheck details of an import task.
        *
        * @param request DescribeImportTaskValidationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4998,9 +4996,9 @@ namespace Rds20140815
       Models::DescribeImportTaskValidationResponse describeImportTaskValidationWithOptions(const Models::DescribeImportTaskValidationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of an import task dry run, including the specific check items and check results.
+       * @summary Queries the precheck details of an import task, including specific precheck items and check results.
        *
-       * @description Queries the details of an import task dry run.
+       * @description Queries the precheck details of an import task.
        *
        * @param request DescribeImportTaskValidationRequest
        * @return DescribeImportTaskValidationResponse
@@ -5074,7 +5072,7 @@ namespace Rds20140815
       Models::DescribeInstanceCrossBackupPolicyResponse describeInstanceCrossBackupPolicy(const Models::DescribeInstanceCrossBackupPolicyRequest &request);
 
       /**
-       * @summary Queries the reserved keywords of an ApsaraDB RDS instance, which are keywords that cannot be used when you create databases or accounts.
+       * @summary Queries the reserved keywords of an ApsaraDB RDS instance, which are prohibited from being used as database or account names.
        *
        * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
@@ -5089,7 +5087,7 @@ namespace Rds20140815
       Models::DescribeInstanceKeywordsResponse describeInstanceKeywordsWithOptions(const Models::DescribeInstanceKeywordsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the reserved keywords of an ApsaraDB RDS instance, which are keywords that cannot be used when you create databases or accounts.
+       * @summary Queries the reserved keywords of an ApsaraDB RDS instance, which are prohibited from being used as database or account names.
        *
        * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
@@ -5103,12 +5101,12 @@ namespace Rds20140815
       Models::DescribeInstanceKeywordsResponse describeInstanceKeywords(const Models::DescribeInstanceKeywordsRequest &request);
 
       /**
-       * @summary Queries the whitelist templates associated with an instance by instance name.
+       * @summary Queries the whitelist templates associated with an instance based on the instance name.
        *
-       * @description ### Supported engines
-       * - ApsaraDB RDS for MySQL
-       * - ApsaraDB RDS for PostgreSQL
-       * - ApsaraDB RDS for SQL Server
+       * @description ### Applicable engines
+       * - RDS MySQL
+       * - RDS PostgreSQL
+       * - RDS SQL Server
        *
        * @param request DescribeInstanceLinkedWhitelistTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5117,12 +5115,12 @@ namespace Rds20140815
       Models::DescribeInstanceLinkedWhitelistTemplateResponse describeInstanceLinkedWhitelistTemplateWithOptions(const Models::DescribeInstanceLinkedWhitelistTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the whitelist templates associated with an instance by instance name.
+       * @summary Queries the whitelist templates associated with an instance based on the instance name.
        *
-       * @description ### Supported engines
-       * - ApsaraDB RDS for MySQL
-       * - ApsaraDB RDS for PostgreSQL
-       * - ApsaraDB RDS for SQL Server
+       * @description ### Applicable engines
+       * - RDS MySQL
+       * - RDS PostgreSQL
+       * - RDS SQL Server
        *
        * @param request DescribeInstanceLinkedWhitelistTemplateRequest
        * @return DescribeInstanceLinkedWhitelistTemplateResponse
@@ -5130,9 +5128,9 @@ namespace Rds20140815
       Models::DescribeInstanceLinkedWhitelistTemplateResponse describeInstanceLinkedWhitelistTemplate(const Models::DescribeInstanceLinkedWhitelistTemplateRequest &request);
 
       /**
-       * @summary Queries whether a specified Key Management Service (KMS) resource is associated with ApsaraDB RDS instances.
+       * @summary Queries whether a specified Key Management Service (KMS) resource is associated with an ApsaraDB RDS instance.
        *
-       * @description ### Applicable engines
+       * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
@@ -5144,9 +5142,9 @@ namespace Rds20140815
       Models::DescribeKmsAssociateResourcesResponse describeKmsAssociateResourcesWithOptions(const Models::DescribeKmsAssociateResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries whether a specified Key Management Service (KMS) resource is associated with ApsaraDB RDS instances.
+       * @summary Queries whether a specified Key Management Service (KMS) resource is associated with an ApsaraDB RDS instance.
        *
-       * @description ### Applicable engines
+       * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
@@ -5157,7 +5155,7 @@ namespace Rds20140815
       Models::DescribeKmsAssociateResourcesResponse describeKmsAssociateResources(const Models::DescribeKmsAssociateResourcesRequest &request);
 
       /**
-       * @summary Queries the restorable time range of backups for an ApsaraDB RDS instance.
+       * @summary Queries the restorable time range for backups of an ApsaraDB RDS instance.
        *
        * @description ### Applicable engines
        * - ApsaraDB RDS for MySQL
@@ -5171,7 +5169,7 @@ namespace Rds20140815
       Models::DescribeLocalAvailableRecoveryTimeResponse describeLocalAvailableRecoveryTimeWithOptions(const Models::DescribeLocalAvailableRecoveryTimeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the restorable time range of backups for an ApsaraDB RDS instance.
+       * @summary Queries the restorable time range for backups of an ApsaraDB RDS instance.
        *
        * @description ### Applicable engines
        * - ApsaraDB RDS for MySQL
@@ -5209,7 +5207,7 @@ namespace Rds20140815
       Models::DescribeLogBackupFilesResponse describeLogBackupFiles(const Models::DescribeLogBackupFilesRequest &request);
 
       /**
-       * @summary Retrieves information about instances that are pending upgrade in an RDS marketing campaign.
+       * @summary Retrieves information about instances pending upgrade in RDS marketing campaigns.
        *
        * @param request DescribeMarketingActivityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5218,7 +5216,7 @@ namespace Rds20140815
       Models::DescribeMarketingActivityResponse describeMarketingActivityWithOptions(const Models::DescribeMarketingActivityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves information about instances that are pending upgrade in an RDS marketing campaign.
+       * @summary Retrieves information about instances pending upgrade in RDS marketing campaigns.
        *
        * @param request DescribeMarketingActivityRequest
        * @return DescribeMarketingActivityResponse
@@ -5226,11 +5224,11 @@ namespace Rds20140815
       Models::DescribeMarketingActivityResponse describeMarketingActivity(const Models::DescribeMarketingActivityRequest &request);
 
       /**
-       * @summary Queries the encryption or masking rules of a specified instance.
+       * @summary Queries a list of encryption or masking rules for a specified instance.
        *
-       * @description ## Request description
-       * - Before invoking this operation, make sure that you have activated the column encryption feature in DAS Security Center.
-       * - If you receive the fault message ColumnEncryptionErrorCode.NOT_PURCHASED when you invoke this operation, go to Database Autonomy Service (DAS) Security Center to purchase and activate the column Cloud Hardware Security Module (CloudHSM) feature.
+       * @description ## Request notes
+       * - Before you invoke this operation, make sure that column encryption is enabled in the DAS Security Center.
+       * - If you receive the ColumnEncryptionErrorCode.NOT_PURCHASED error message when invoking this operation, go to the Database Autonomy Service (DAS) Security Center to purchase and enable column encryption.
        *
        * @param request DescribeMaskingRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5239,11 +5237,11 @@ namespace Rds20140815
       Models::DescribeMaskingRulesResponse describeMaskingRulesWithOptions(const Models::DescribeMaskingRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the encryption or masking rules of a specified instance.
+       * @summary Queries a list of encryption or masking rules for a specified instance.
        *
-       * @description ## Request description
-       * - Before invoking this operation, make sure that you have activated the column encryption feature in DAS Security Center.
-       * - If you receive the fault message ColumnEncryptionErrorCode.NOT_PURCHASED when you invoke this operation, go to Database Autonomy Service (DAS) Security Center to purchase and activate the column Cloud Hardware Security Module (CloudHSM) feature.
+       * @description ## Request notes
+       * - Before you invoke this operation, make sure that column encryption is enabled in the DAS Security Center.
+       * - If you receive the ColumnEncryptionErrorCode.NOT_PURCHASED error message when invoking this operation, go to the Database Autonomy Service (DAS) Security Center to purchase and enable column encryption.
        *
        * @param request DescribeMaskingRulesRequest
        * @return DescribeMaskingRulesResponse
@@ -5251,13 +5249,13 @@ namespace Rds20140815
       Models::DescribeMaskingRulesResponse describeMaskingRules(const Models::DescribeMaskingRulesRequest &request);
 
       /**
-       * @summary Queries the information about the databases and tables that can be restored from a specified backup set.
+       * @summary Queries the information about databases and tables that can be restored from a specified backup set.
        *
-       * @description ### Supported engines
+       * @description ### Applicable engines
        * ApsaraDB RDS for MySQL
        * > Only MySQL 8.0, 5.7, and 5.6 High-availability Edition instances with local SSDs are supported.
        * ### Feature description
-       * Before you call the [RestoreTable](https://help.aliyun.com/document_detail/131510.html) operation to [restore individual databases and tables in ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/103175.html), you can call this operation to query the information about the databases and tables that can be restored.
+       * Before you call the [RestoreTable](https://help.aliyun.com/document_detail/131510.html) operation to [restore an individual database and table of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/103175.html), you can call this operation to query the information about databases and tables that can be restored.
        *
        * @param request DescribeMetaListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5266,13 +5264,13 @@ namespace Rds20140815
       Models::DescribeMetaListResponse describeMetaListWithOptions(const Models::DescribeMetaListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about the databases and tables that can be restored from a specified backup set.
+       * @summary Queries the information about databases and tables that can be restored from a specified backup set.
        *
-       * @description ### Supported engines
+       * @description ### Applicable engines
        * ApsaraDB RDS for MySQL
        * > Only MySQL 8.0, 5.7, and 5.6 High-availability Edition instances with local SSDs are supported.
        * ### Feature description
-       * Before you call the [RestoreTable](https://help.aliyun.com/document_detail/131510.html) operation to [restore individual databases and tables in ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/103175.html), you can call this operation to query the information about the databases and tables that can be restored.
+       * Before you call the [RestoreTable](https://help.aliyun.com/document_detail/131510.html) operation to [restore an individual database and table of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/103175.html), you can call this operation to query the information about databases and tables that can be restored.
        *
        * @param request DescribeMetaListRequest
        * @return DescribeMetaListResponse
@@ -5280,10 +5278,10 @@ namespace Rds20140815
       Models::DescribeMetaListResponse describeMetaList(const Models::DescribeMetaListRequest &request);
 
       /**
-       * @summary Queries information about an Object Storage Service (OSS) backup migration task for an ApsaraDB RDS for SQL Server instance.
+       * @summary Queries the details of an OSS backup migration task for an ApsaraDB RDS for SQL Server instance.
        *
-       * @description ### Supported engine
-       * - RDS SQL Server
+       * @description ### Supported engines
+       * - ApsaraDB RDS for SQL Server
        *
        * @param request DescribeMigrateTaskByIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5292,10 +5290,10 @@ namespace Rds20140815
       Models::DescribeMigrateTaskByIdResponse describeMigrateTaskByIdWithOptions(const Models::DescribeMigrateTaskByIdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about an Object Storage Service (OSS) backup migration task for an ApsaraDB RDS for SQL Server instance.
+       * @summary Queries the details of an OSS backup migration task for an ApsaraDB RDS for SQL Server instance.
        *
-       * @description ### Supported engine
-       * - RDS SQL Server
+       * @description ### Supported engines
+       * - ApsaraDB RDS for SQL Server
        *
        * @param request DescribeMigrateTaskByIdRequest
        * @return DescribeMigrateTaskByIdResponse
@@ -5303,14 +5301,14 @@ namespace Rds20140815
       Models::DescribeMigrateTaskByIdResponse describeMigrateTaskById(const Models::DescribeMigrateTaskByIdRequest &request);
 
       /**
-       * @summary Queries the list of backup data migration tasks for an ApsaraDB RDS for SQL Server instance.
+       * @summary Queries the backup data migration tasks of an ApsaraDB RDS for SQL Server instance.
        *
-       * @description ### Applicable engine
-       * - RDS SQL Server
+       * @description ### Applicable engines
+       * - ApsaraDB RDS for SQL Server
        * ### Description
-       * This operation queries backup data migration task records for an instance within the last week.
+       * This operation queries the backup data migration tasks of an instance within the last week.
        * ### Precautions
-       * * The source backup file for backup data migration must be a full backup (FULL) file.
+       * * The source backup file for a backup data migration task must be a full backup file.
        * * ApsaraDB RDS for SQL Server 2017 Cluster Edition instances are not supported.
        *
        * @param request DescribeMigrateTasksRequest
@@ -5320,14 +5318,14 @@ namespace Rds20140815
       Models::DescribeMigrateTasksResponse describeMigrateTasksWithOptions(const Models::DescribeMigrateTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of backup data migration tasks for an ApsaraDB RDS for SQL Server instance.
+       * @summary Queries the backup data migration tasks of an ApsaraDB RDS for SQL Server instance.
        *
-       * @description ### Applicable engine
-       * - RDS SQL Server
+       * @description ### Applicable engines
+       * - ApsaraDB RDS for SQL Server
        * ### Description
-       * This operation queries backup data migration task records for an instance within the last week.
+       * This operation queries the backup data migration tasks of an instance within the last week.
        * ### Precautions
-       * * The source backup file for backup data migration must be a full backup (FULL) file.
+       * * The source backup file for a backup data migration task must be a full backup file.
        * * ApsaraDB RDS for SQL Server 2017 Cluster Edition instances are not supported.
        *
        * @param request DescribeMigrateTasksRequest
@@ -5382,12 +5380,12 @@ namespace Rds20140815
       Models::DescribeModifyParameterLogResponse describeModifyParameterLog(const Models::DescribeModifyParameterLogRequest &request);
 
       /**
-       * @summary Queries the file details of a backup data upload task for an ApsaraDB RDS for SQL Server instance.
+       * @summary Queries the file details of a backup data migration task for an ApsaraDB RDS for SQL Server instance.
        *
-       * @description ### Applicable engine
-       * - RDS SQL Server
-       * ### Before you begin
-       * This operation does not support SQL Server 2017 Enterprise Edition or SQL Server 2019 Enterprise Edition Enterprise instances.
+       * @description ### Supported engines
+       * - ApsaraDB RDS for SQL Server
+       * ### Precautions
+       * This operation does not support ApsaraDB RDS for SQL Server 2017 Enterprise Edition and 2019 Enterprise Edition instances.
        *
        * @param request DescribeOssDownloadsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5396,12 +5394,12 @@ namespace Rds20140815
       Models::DescribeOssDownloadsResponse describeOssDownloadsWithOptions(const Models::DescribeOssDownloadsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the file details of a backup data upload task for an ApsaraDB RDS for SQL Server instance.
+       * @summary Queries the file details of a backup data migration task for an ApsaraDB RDS for SQL Server instance.
        *
-       * @description ### Applicable engine
-       * - RDS SQL Server
-       * ### Before you begin
-       * This operation does not support SQL Server 2017 Enterprise Edition or SQL Server 2019 Enterprise Edition Enterprise instances.
+       * @description ### Supported engines
+       * - ApsaraDB RDS for SQL Server
+       * ### Precautions
+       * This operation does not support ApsaraDB RDS for SQL Server 2017 Enterprise Edition and 2019 Enterprise Edition instances.
        *
        * @param request DescribeOssDownloadsRequest
        * @return DescribeOssDownloadsResponse
@@ -5495,10 +5493,10 @@ namespace Rds20140815
        * @summary Queries database parameter templates.
        *
        * @description ### Applicable engines
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * - RDS SQL Server
-       * - RDS MariaDB
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * - ApsaraDB RDS for SQL Server
+       * - ApsaraDB RDS for MariaDB
        *
        * @param request DescribeParameterTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5510,10 +5508,10 @@ namespace Rds20140815
        * @summary Queries database parameter templates.
        *
        * @description ### Applicable engines
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * - RDS SQL Server
-       * - RDS MariaDB
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * - ApsaraDB RDS for SQL Server
+       * - ApsaraDB RDS for MariaDB
        *
        * @param request DescribeParameterTemplatesRequest
        * @return DescribeParameterTemplatesResponse
@@ -5524,12 +5522,12 @@ namespace Rds20140815
        * @summary Queries the details of a scheduled task for modifying instance parameters.
        *
        * @description ### Applicable engines
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts of this operation.
-       * - [Set instance parameters for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96063.html)
-       * - [Set instance parameters for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96751.html)
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * ### Related feature documentation
+       * >Notice: Before you call this operation, read the feature documentation to ensure that you fully understand the prerequisites and impacts.
+       * - [Set the parameters of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96063.html)
+       * - [Set the parameters of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96751.html)
        *
        * @param request DescribeParameterTimedScheduleTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5541,12 +5539,12 @@ namespace Rds20140815
        * @summary Queries the details of a scheduled task for modifying instance parameters.
        *
        * @description ### Applicable engines
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts of this operation.
-       * - [Set instance parameters for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96063.html)
-       * - [Set instance parameters for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96751.html)
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * ### Related feature documentation
+       * >Notice: Before you call this operation, read the feature documentation to ensure that you fully understand the prerequisites and impacts.
+       * - [Set the parameters of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96063.html)
+       * - [Set the parameters of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96751.html)
        *
        * @param request DescribeParameterTimedScheduleTaskRequest
        * @return DescribeParameterTimedScheduleTaskResponse
@@ -5556,7 +5554,7 @@ namespace Rds20140815
       /**
        * @summary Queries the current parameter settings of an instance.
        *
-       * @description ### Applicable engines
+       * @description ### Supported database engines
        * - RDS MySQL
        * - RDS PostgreSQL
        * - RDS SQL Server
@@ -5571,7 +5569,7 @@ namespace Rds20140815
       /**
        * @summary Queries the current parameter settings of an instance.
        *
-       * @description ### Applicable engines
+       * @description ### Supported database engines
        * - RDS MySQL
        * - RDS PostgreSQL
        * - RDS SQL Server
@@ -5583,13 +5581,13 @@ namespace Rds20140815
       Models::DescribeParametersResponse describeParameters(const Models::DescribeParametersRequest &request);
 
       /**
-       * @summary Retrieves information about all extensions in a specified database of an instance.
+       * @summary Retrieves information about all extensions in the specified database of an instance.
        *
-       * @description <props="china">You can join the RDS PostgreSQL extension exchange DingTalk group (103525002795) to consult, communicate, provide feedback, and obtain more information about extensions.
-       * ### Applicable engine
-       * RDS PostgreSQL
+       * @description <props="china">You can join the RDS PostgreSQL extension communication DingTalk group (103525002795) for consultation, communication, and feedback to obtain more information about extensions.
+       * ### Supported engines
+       * ApsaraDB RDS for PostgreSQL
        * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.
        * [Manage extensions](https://help.aliyun.com/document_detail/2402409.html)
        *
        * @param request DescribePostgresExtensionsRequest
@@ -5599,13 +5597,13 @@ namespace Rds20140815
       Models::DescribePostgresExtensionsResponse describePostgresExtensionsWithOptions(const Models::DescribePostgresExtensionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves information about all extensions in a specified database of an instance.
+       * @summary Retrieves information about all extensions in the specified database of an instance.
        *
-       * @description <props="china">You can join the RDS PostgreSQL extension exchange DingTalk group (103525002795) to consult, communicate, provide feedback, and obtain more information about extensions.
-       * ### Applicable engine
-       * RDS PostgreSQL
+       * @description <props="china">You can join the RDS PostgreSQL extension communication DingTalk group (103525002795) for consultation, communication, and feedback to obtain more information about extensions.
+       * ### Supported engines
+       * ApsaraDB RDS for PostgreSQL
        * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.
        * [Manage extensions](https://help.aliyun.com/document_detail/2402409.html)
        *
        * @param request DescribePostgresExtensionsRequest
@@ -5614,13 +5612,13 @@ namespace Rds20140815
       Models::DescribePostgresExtensionsResponse describePostgresExtensions(const Models::DescribePostgresExtensionsRequest &request);
 
       /**
-       * @summary Queries the price information of an ApsaraDB RDS instance.
+       * @summary Queries the pricing information of an ApsaraDB RDS instance.
        *
        * @description ### Supported engines
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * - RDS SQL Server
-       * - RDS MariaDB
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * - ApsaraDB RDS for SQL Server
+       * - ApsaraDB RDS for MariaDB
        *
        * @param tmpReq DescribePriceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5629,13 +5627,13 @@ namespace Rds20140815
       Models::DescribePriceResponse describePriceWithOptions(const Models::DescribePriceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the price information of an ApsaraDB RDS instance.
+       * @summary Queries the pricing information of an ApsaraDB RDS instance.
        *
        * @description ### Supported engines
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * - RDS SQL Server
-       * - RDS MariaDB
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * - ApsaraDB RDS for SQL Server
+       * - ApsaraDB RDS for MariaDB
        *
        * @param request DescribePriceRequest
        * @return DescribePriceResponse
@@ -5696,7 +5694,7 @@ namespace Rds20140815
       /**
        * @summary Queries the KubeConfig of an RDS Custom ACK cluster.
        *
-       * @description KubeConfig is used to configure access credentials for an ACK cluster on the client. It contains identity and authentication data for accessing the target cluster. When you use kubectl for cluster management, you need to connect through KubeConfig. Properly manage the KubeConfig credentials of the cluster and revoke them promptly when they are no longer needed to avoid security risks such as data leaks caused by KubeConfig exposure.
+       * @description KubeConfig is used to configure access credentials for an ACK cluster on the client side. It contains information such as the identity and authentication data for accessing the target cluster. When you use kubectl for cluster management, you must connect to the cluster by using KubeConfig. Properly manage the KubeConfig credentials of the cluster and revoke them promptly when they are no longer needed to prevent security risks such as data leaks caused by KubeConfig leaks.
        *
        * @param request DescribeRCClusterConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5707,7 +5705,7 @@ namespace Rds20140815
       /**
        * @summary Queries the KubeConfig of an RDS Custom ACK cluster.
        *
-       * @description KubeConfig is used to configure access credentials for an ACK cluster on the client. It contains identity and authentication data for accessing the target cluster. When you use kubectl for cluster management, you need to connect through KubeConfig. Properly manage the KubeConfig credentials of the cluster and revoke them promptly when they are no longer needed to avoid security risks such as data leaks caused by KubeConfig exposure.
+       * @description KubeConfig is used to configure access credentials for an ACK cluster on the client side. It contains information such as the identity and authentication data for accessing the target cluster. When you use kubectl for cluster management, you must connect to the cluster by using KubeConfig. Properly manage the KubeConfig credentials of the cluster and revoke them promptly when they are no longer needed to prevent security risks such as data leaks caused by KubeConfig leaks.
        *
        * @param request DescribeRCClusterConfigRequest
        * @return DescribeRCClusterConfigResponse
@@ -5766,7 +5764,7 @@ namespace Rds20140815
       Models::DescribeRCDeploymentSetsResponse describeRCDeploymentSets(const Models::DescribeRCDeploymentSetsRequest &request);
 
       /**
-       * @summary Queries the disk information of an RDS Custom instance by calling the DescribeRCDisks operation.
+       * @summary Queries the disk information of an RDS Custom instance.
        *
        * @param request DescribeRCDisksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5775,7 +5773,7 @@ namespace Rds20140815
       Models::DescribeRCDisksResponse describeRCDisksWithOptions(const Models::DescribeRCDisksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the disk information of an RDS Custom instance by calling the DescribeRCDisks operation.
+       * @summary Queries the disk information of an RDS Custom instance.
        *
        * @param request DescribeRCDisksRequest
        * @return DescribeRCDisksResponse
@@ -5800,7 +5798,7 @@ namespace Rds20140815
       Models::DescribeRCElasticScalingResponse describeRCElasticScaling(const Models::DescribeRCElasticScalingRequest &request);
 
       /**
-       * @summary Queries the list of custom images available for creating RDS Custom instances by calling the DescribeRCImageList operation. You can specify parameters such as RegionId.
+       * @summary Queries the custom images available for creating RDS Custom instances.
        *
        * @param request DescribeRCImageListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5809,7 +5807,7 @@ namespace Rds20140815
       Models::DescribeRCImageListResponse describeRCImageListWithOptions(const Models::DescribeRCImageListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of custom images available for creating RDS Custom instances by calling the DescribeRCImageList operation. You can specify parameters such as RegionId.
+       * @summary Queries the custom images available for creating RDS Custom instances.
        *
        * @param request DescribeRCImageListRequest
        * @return DescribeRCImageListResponse
@@ -5834,14 +5832,14 @@ namespace Rds20140815
       Models::DescribeRCInstanceAttributeResponse describeRCInstanceAttribute(const Models::DescribeRCInstanceAttributeRequest &request);
 
       /**
-       * @summary Queries the number of DDoS attacks on an RDS Custom for SQL Server instance to monitor the security status of database instances in real time and assess potential security risks.
+       * @summary Queries the number of DDoS attacks on RDS Custom for SQL Server instances and monitors the security status of database instances in real time to evaluate potential security risks.
        *
-       * @description ### Applicable engine
-       * RDS SQL Server
+       * @description ### Supported engine
+       * ApsaraDB RDS for SQL Server
        * ### Related feature documentation
-       * [Introduction to RDS Custom](https://help.aliyun.com/document_detail/2864363.html)
+       * [RDS Custom overview](https://help.aliyun.com/document_detail/2864363.html)
        * <props="china">
-       * > A DDoS attack, short for Distributed Denial of Service attack, is a common Network Security attack method. This type of attack primarily consumes the resources of networks or network devices through malicious traffic, causing websites to malfunction or online services to become unavailable. For information about the causes of DDoS attacks, common Attack Type, and methods to identify and mitigate DDoS attacks, see [DDoS attacks](https://www.aliyun.com/getting-started/what-is/what-is-ddos).
+       * > A distributed denial-of-service (DDoS) attack is a common network security attack method. This type of attack primarily consumes network or network device resources with malicious traffic, causing websites or online services to become unavailable. For more information about the causes, common DDoS attack types, and methods to identify and mitigate DDoS attacks, see [DDoS attacks](https://www.aliyun.com/getting-started/what-is/what-is-ddos).
        *
        * @param request DescribeRCInstanceDdosCountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5850,14 +5848,14 @@ namespace Rds20140815
       Models::DescribeRCInstanceDdosCountResponse describeRCInstanceDdosCountWithOptions(const Models::DescribeRCInstanceDdosCountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the number of DDoS attacks on an RDS Custom for SQL Server instance to monitor the security status of database instances in real time and assess potential security risks.
+       * @summary Queries the number of DDoS attacks on RDS Custom for SQL Server instances and monitors the security status of database instances in real time to evaluate potential security risks.
        *
-       * @description ### Applicable engine
-       * RDS SQL Server
+       * @description ### Supported engine
+       * ApsaraDB RDS for SQL Server
        * ### Related feature documentation
-       * [Introduction to RDS Custom](https://help.aliyun.com/document_detail/2864363.html)
+       * [RDS Custom overview](https://help.aliyun.com/document_detail/2864363.html)
        * <props="china">
-       * > A DDoS attack, short for Distributed Denial of Service attack, is a common Network Security attack method. This type of attack primarily consumes the resources of networks or network devices through malicious traffic, causing websites to malfunction or online services to become unavailable. For information about the causes of DDoS attacks, common Attack Type, and methods to identify and mitigate DDoS attacks, see [DDoS attacks](https://www.aliyun.com/getting-started/what-is/what-is-ddos).
+       * > A distributed denial-of-service (DDoS) attack is a common network security attack method. This type of attack primarily consumes network or network device resources with malicious traffic, causing websites or online services to become unavailable. For more information about the causes, common DDoS attack types, and methods to identify and mitigate DDoS attacks, see [DDoS attacks](https://www.aliyun.com/getting-started/what-is/what-is-ddos).
        *
        * @param request DescribeRCInstanceDdosCountRequest
        * @return DescribeRCInstanceDdosCountResponse
@@ -5882,13 +5880,13 @@ namespace Rds20140815
       Models::DescribeRCInstanceHistoryEventsResponse describeRCInstanceHistoryEvents(const Models::DescribeRCInstanceHistoryEventsRequest &request);
 
       /**
-       * @summary Queries the DDoS mitigation information of an RDS Custom for SQL Server instance and the details of the associated Anti-DDoS Origin instance.
+       * @summary Queries the DDoS mitigation information of an ApsaraDB RDS Custom for SQL Server instance and the details of the associated Anti-DDoS Origin instance.
        *
-       * @description ### Applicable DPI engine
-       * RDS SQL Server
+       * @description ### Supported engine
+       * ApsaraDB RDS for SQL Server
        * ### Related feature documentation
        * [Introduction to RDS Custom](https://help.aliyun.com/document_detail/2864363.html)
-       * > When an [Anti-DDoS Origin](https://help.aliyun.com/document_detail/63643.html) instance contains one or more assets that are assigned public IP addresses, you can invoke this operation to query the DDoS mitigation information of RDS Custom for SQL Server instances under the current Alibaba Cloud account and the details of the associated Anti-DDoS Origin instance, such as the basic DDoS Mitigation Threshold, traffic scrubbing threshold, DDoS mitigation status of assets that are assigned public IP addresses, instance ID, and instance mitigation status.
+       * > If an [Anti-DDoS Origin](https://help.aliyun.com/document_detail/63643.html) instance protects one or more assets that are assigned public IP addresses, you can call this operation to query the DDoS mitigation information of ApsaraDB RDS Custom for SQL Server instances and the details of the associated Anti-DDoS Origin instances within the current Alibaba Cloud account. The information includes the basic Mitigation Threshold, traffic scrubbing threshold, DDoS mitigation status of the assets that are assigned public IP addresses, instance IDs, and instance mitigation status.
        *
        * @param request DescribeRCInstanceIpAddressRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5897,13 +5895,13 @@ namespace Rds20140815
       Models::DescribeRCInstanceIpAddressResponse describeRCInstanceIpAddressWithOptions(const Models::DescribeRCInstanceIpAddressRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the DDoS mitigation information of an RDS Custom for SQL Server instance and the details of the associated Anti-DDoS Origin instance.
+       * @summary Queries the DDoS mitigation information of an ApsaraDB RDS Custom for SQL Server instance and the details of the associated Anti-DDoS Origin instance.
        *
-       * @description ### Applicable DPI engine
-       * RDS SQL Server
+       * @description ### Supported engine
+       * ApsaraDB RDS for SQL Server
        * ### Related feature documentation
        * [Introduction to RDS Custom](https://help.aliyun.com/document_detail/2864363.html)
-       * > When an [Anti-DDoS Origin](https://help.aliyun.com/document_detail/63643.html) instance contains one or more assets that are assigned public IP addresses, you can invoke this operation to query the DDoS mitigation information of RDS Custom for SQL Server instances under the current Alibaba Cloud account and the details of the associated Anti-DDoS Origin instance, such as the basic DDoS Mitigation Threshold, traffic scrubbing threshold, DDoS mitigation status of assets that are assigned public IP addresses, instance ID, and instance mitigation status.
+       * > If an [Anti-DDoS Origin](https://help.aliyun.com/document_detail/63643.html) instance protects one or more assets that are assigned public IP addresses, you can call this operation to query the DDoS mitigation information of ApsaraDB RDS Custom for SQL Server instances and the details of the associated Anti-DDoS Origin instances within the current Alibaba Cloud account. The information includes the basic Mitigation Threshold, traffic scrubbing threshold, DDoS mitigation status of the assets that are assigned public IP addresses, instance IDs, and instance mitigation status.
        *
        * @param request DescribeRCInstanceIpAddressRequest
        * @return DescribeRCInstanceIpAddressResponse
@@ -5947,7 +5945,7 @@ namespace Rds20140815
       /**
        * @summary Queries the VNC logon URL of an RDS Custom instance.
        *
-       * @description The VNC logon URL is time-sensitive and valid for 15 seconds. If you do not use the URL within 15 seconds after the call succeeds, the URL automatically expires. In this case, call the operation again to obtain a new URL.
+       * @description The VNC logon URL is time-sensitive and valid for 15 seconds. If the URL is not used within 15 seconds after a successful API call, it automatically expires. You must call the API operation again to obtain a new URL.
        *
        * @param request DescribeRCInstanceVncUrlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5958,7 +5956,7 @@ namespace Rds20140815
       /**
        * @summary Queries the VNC logon URL of an RDS Custom instance.
        *
-       * @description The VNC logon URL is time-sensitive and valid for 15 seconds. If you do not use the URL within 15 seconds after the call succeeds, the URL automatically expires. In this case, call the operation again to obtain a new URL.
+       * @description The VNC logon URL is time-sensitive and valid for 15 seconds. If the URL is not used within 15 seconds after a successful API call, it automatically expires. You must call the API operation again to obtain a new URL.
        *
        * @param request DescribeRCInstanceVncUrlRequest
        * @return DescribeRCInstanceVncUrlResponse
@@ -5966,7 +5964,7 @@ namespace Rds20140815
       Models::DescribeRCInstanceVncUrlResponse describeRCInstanceVncUrl(const Models::DescribeRCInstanceVncUrlRequest &request);
 
       /**
-       * @summary Calls the DescribeRCInstances operation to query the list of specified RDS Custom instances. If no instance ID (InstanceId) is specified, the operation returns information about all RDS Custom instances in the specified region.
+       * @summary Queries a list of RDS Custom instances. If no instance ID is specified, this operation returns a list of all RDS Custom instances in the specified region.
        *
        * @param request DescribeRCInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5975,7 +5973,7 @@ namespace Rds20140815
       Models::DescribeRCInstancesResponse describeRCInstancesWithOptions(const Models::DescribeRCInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Calls the DescribeRCInstances operation to query the list of specified RDS Custom instances. If no instance ID (InstanceId) is specified, the operation returns information about all RDS Custom instances in the specified region.
+       * @summary Queries a list of RDS Custom instances. If no instance ID is specified, this operation returns a list of all RDS Custom instances in the specified region.
        *
        * @param request DescribeRCInstancesRequest
        * @return DescribeRCInstancesResponse
@@ -6000,7 +5998,7 @@ namespace Rds20140815
       Models::DescribeRCInvocationResultsResponse describeRCInvocationResults(const Models::DescribeRCInvocationResultsRequest &request);
 
       /**
-       * @summary Queries the monitoring data of a specified monitoring metrics for a target RDS Custom instance.
+       * @summary Queries the monitoring data of specified monitoring metrics for an RDS Custom instance.
        *
        * @param request DescribeRCMetricListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6009,7 +6007,7 @@ namespace Rds20140815
       Models::DescribeRCMetricListResponse describeRCMetricListWithOptions(const Models::DescribeRCMetricListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the monitoring data of a specified monitoring metrics for a target RDS Custom instance.
+       * @summary Queries the monitoring data of specified monitoring metrics for an RDS Custom instance.
        *
        * @param request DescribeRCMetricListRequest
        * @return DescribeRCMetricListResponse
@@ -6034,7 +6032,7 @@ namespace Rds20140815
       Models::DescribeRCNetworkInterfacesResponse describeRCNetworkInterfaces(const Models::DescribeRCNetworkInterfacesRequest &request);
 
       /**
-       * @summary Queries the configuration of an RDS Custom edge node pool.
+       * @summary Queries the configuration information of an RDS Custom edge node pool.
        *
        * @param request DescribeRCNodePoolRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6043,7 +6041,7 @@ namespace Rds20140815
       Models::DescribeRCNodePoolResponse describeRCNodePoolWithOptions(const Models::DescribeRCNodePoolRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the configuration of an RDS Custom edge node pool.
+       * @summary Queries the configuration information of an RDS Custom edge node pool.
        *
        * @param request DescribeRCNodePoolRequest
        * @return DescribeRCNodePoolResponse
@@ -6102,7 +6100,7 @@ namespace Rds20140815
       Models::DescribeRCSecurityGroupPermissionResponse describeRCSecurityGroupPermission(const Models::DescribeRCSecurityGroupPermissionRequest &request);
 
       /**
-       * @summary Queries information about snapshots, such as snapshot status, remaining time for a snapshot that is being created, and the retention period of automatic snapshots.
+       * @summary Queries the details of a list of snapshots, such as the snapshot status, the remaining time for snapshot creation, and the retention period of automatic snapshots.
        *
        * @param request DescribeRCSnapshotsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6111,7 +6109,7 @@ namespace Rds20140815
       Models::DescribeRCSnapshotsResponse describeRCSnapshotsWithOptions(const Models::DescribeRCSnapshotsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about snapshots, such as snapshot status, remaining time for a snapshot that is being created, and the retention period of automatic snapshots.
+       * @summary Queries the details of a list of snapshots, such as the snapshot status, the remaining time for snapshot creation, and the retention period of automatic snapshots.
        *
        * @param request DescribeRCSnapshotsRequest
        * @return DescribeRCSnapshotsResponse
@@ -6138,9 +6136,9 @@ namespace Rds20140815
       /**
        * @deprecated OpenAPI DescribeRdsResourceSettings is deprecated
        *
-       * @summary Retrieves the notification settings of instance resources. This operation is no longer maintained but can still be called.
+       * @summary Retrieves the notification settings for instance resources. This API operation is deprecated: it can still be called, but is no longer maintained.
        *
-       * @description This operation is no longer maintained. You can still call this operation, but Alibaba Cloud no longer maintains it.
+       * @description This API operation is deprecated: it can still be called normally, but Alibaba Cloud no longer maintains it.
        *
        * @param request DescribeRdsResourceSettingsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6151,9 +6149,9 @@ namespace Rds20140815
       /**
        * @deprecated OpenAPI DescribeRdsResourceSettings is deprecated
        *
-       * @summary Retrieves the notification settings of instance resources. This operation is no longer maintained but can still be called.
+       * @summary Retrieves the notification settings for instance resources. This API operation is deprecated: it can still be called, but is no longer maintained.
        *
-       * @description This operation is no longer maintained. You can still call this operation, but Alibaba Cloud no longer maintains it.
+       * @description This API operation is deprecated: it can still be called normally, but Alibaba Cloud no longer maintains it.
        *
        * @param request DescribeRdsResourceSettingsRequest
        * @return DescribeRdsResourceSettingsResponse
@@ -6244,9 +6242,9 @@ namespace Rds20140815
       Models::DescribeRegionsResponse describeRegions(const Models::DescribeRegionsRequest &request);
 
       /**
-       * @summary Queries the renewal fees for a subscription ApsaraDB RDS instance.
+       * @summary Queries the renewal fee for a subscription ApsaraDB RDS instance.
        *
-       * @description ### Supported engines
+       * @description ### Applicable engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
@@ -6259,9 +6257,9 @@ namespace Rds20140815
       Models::DescribeRenewalPriceResponse describeRenewalPriceWithOptions(const Models::DescribeRenewalPriceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the renewal fees for a subscription ApsaraDB RDS instance.
+       * @summary Queries the renewal fee for a subscription ApsaraDB RDS instance.
        *
-       * @description ### Supported engines
+       * @description ### Applicable engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
@@ -6273,9 +6271,9 @@ namespace Rds20140815
       Models::DescribeRenewalPriceResponse describeRenewalPrice(const Models::DescribeRenewalPriceRequest &request);
 
       /**
-       * @summary Queries the operation logs of a data synchronization link for a specified ApsaraDB RDS instance.
+       * @summary Queries the operation logs of the data synchronization link for a specified ApsaraDB RDS instance.
        *
-       * @description ### Applicable engine
+       * @description ### Supported engines
        * - RDS PostgreSQL
        *
        * @param request DescribeReplicationLinkLogsRequest
@@ -6285,9 +6283,9 @@ namespace Rds20140815
       Models::DescribeReplicationLinkLogsResponse describeReplicationLinkLogsWithOptions(const Models::DescribeReplicationLinkLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the operation logs of a data synchronization link for a specified ApsaraDB RDS instance.
+       * @summary Queries the operation logs of the data synchronization link for a specified ApsaraDB RDS instance.
        *
-       * @description ### Applicable engine
+       * @description ### Supported engines
        * - RDS PostgreSQL
        *
        * @param request DescribeReplicationLinkLogsRequest
@@ -6296,7 +6294,7 @@ namespace Rds20140815
       Models::DescribeReplicationLinkLogsResponse describeReplicationLinkLogs(const Models::DescribeReplicationLinkLogsRequest &request);
 
       /**
-       * @summary Resource details on the overview page.
+       * @summary Retrieves the resource details on the overview page.
        *
        * @param request DescribeResourceDetailsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6305,7 +6303,7 @@ namespace Rds20140815
       Models::DescribeResourceDetailsResponse describeResourceDetailsWithOptions(const Models::DescribeResourceDetailsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Resource details on the overview page.
+       * @summary Retrieves the resource details on the overview page.
        *
        * @param request DescribeResourceDetailsRequest
        * @return DescribeResourceDetailsResponse
@@ -6313,9 +6311,9 @@ namespace Rds20140815
       Models::DescribeResourceDetailsResponse describeResourceDetails(const Models::DescribeResourceDetailsRequest &request);
 
       /**
-       * @summary Queries the storage usage of an ApsaraDB RDS instance.
+       * @summary Queries the storage usage information of an ApsaraDB RDS instance.
        *
-       * @description ### Supported engines
+       * @description ### Applicable engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
@@ -6328,9 +6326,9 @@ namespace Rds20140815
       Models::DescribeResourceUsageResponse describeResourceUsageWithOptions(const Models::DescribeResourceUsageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the storage usage of an ApsaraDB RDS instance.
+       * @summary Queries the storage usage information of an ApsaraDB RDS instance.
        *
-       * @description ### Supported engines
+       * @description ### Applicable engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
@@ -6342,9 +6340,9 @@ namespace Rds20140815
       Models::DescribeResourceUsageResponse describeResourceUsage(const Models::DescribeResourceUsageRequest &request);
 
       /**
-       * @summary End of maintenance: This operation can be called as expected but is no longer maintained. Queries whether the SQL Explorer (SQL Audit) feature is enabled for an ApsaraDB RDS instance.
+       * @summary **[Deprecated]** This operation can still be called but is no longer maintained. Queries whether the SQL Explorer (SQL Audit) feature is enabled for an ApsaraDB RDS instance.
        *
-       * @description This operation is no longer maintained. You can still call this operation, but Alibaba Cloud no longer maintains it. Use the [DescribeSqlLogConfig](https://help.aliyun.com/document_detail/2778837.html) operation instead.
+       * @description This operation is deprecated. You can still call this operation, but Alibaba Cloud no longer maintains it. Use the [DescribeSqlLogConfig](https://help.aliyun.com/document_detail/2778837.html) operation instead.
        *
        * @param request DescribeSQLCollectorPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6353,9 +6351,9 @@ namespace Rds20140815
       Models::DescribeSQLCollectorPolicyResponse describeSQLCollectorPolicyWithOptions(const Models::DescribeSQLCollectorPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary End of maintenance: This operation can be called as expected but is no longer maintained. Queries whether the SQL Explorer (SQL Audit) feature is enabled for an ApsaraDB RDS instance.
+       * @summary **[Deprecated]** This operation can still be called but is no longer maintained. Queries whether the SQL Explorer (SQL Audit) feature is enabled for an ApsaraDB RDS instance.
        *
-       * @description This operation is no longer maintained. You can still call this operation, but Alibaba Cloud no longer maintains it. Use the [DescribeSqlLogConfig](https://help.aliyun.com/document_detail/2778837.html) operation instead.
+       * @description This operation is deprecated. You can still call this operation, but Alibaba Cloud no longer maintains it. Use the [DescribeSqlLogConfig](https://help.aliyun.com/document_detail/2778837.html) operation instead.
        *
        * @param request DescribeSQLCollectorPolicyRequest
        * @return DescribeSQLCollectorPolicyResponse
@@ -6363,9 +6361,9 @@ namespace Rds20140815
       Models::DescribeSQLCollectorPolicyResponse describeSQLCollectorPolicy(const Models::DescribeSQLCollectorPolicyRequest &request);
 
       /**
-       * @summary End of maintenance: This operation can be invoked as Normal but is no longer maintained. Queries the log retention period of SQL Explorer logs for an ApsaraDB RDS instance.
+       * @summary Queries the SQL Explorer log retention period for an ApsaraDB RDS instance. This operation is deprecated and no longer maintained, but can still be called.
        *
-       * @description This operation is no longer maintained. You can still call this operation, but Alibaba Cloud no longer maintains it. Use the [DescribeSqlLogConfig](https://help.aliyun.com/document_detail/2778837.html) operation instead.
+       * @description This operation is deprecated. It can still be called normally, but Alibaba Cloud no longer maintains it. Use the [DescribeSqlLogConfig](https://help.aliyun.com/document_detail/2778837.html) operation instead.
        *
        * @param request DescribeSQLCollectorRetentionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6374,9 +6372,9 @@ namespace Rds20140815
       Models::DescribeSQLCollectorRetentionResponse describeSQLCollectorRetentionWithOptions(const Models::DescribeSQLCollectorRetentionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary End of maintenance: This operation can be invoked as Normal but is no longer maintained. Queries the log retention period of SQL Explorer logs for an ApsaraDB RDS instance.
+       * @summary Queries the SQL Explorer log retention period for an ApsaraDB RDS instance. This operation is deprecated and no longer maintained, but can still be called.
        *
-       * @description This operation is no longer maintained. You can still call this operation, but Alibaba Cloud no longer maintains it. Use the [DescribeSqlLogConfig](https://help.aliyun.com/document_detail/2778837.html) operation instead.
+       * @description This operation is deprecated. It can still be called normally, but Alibaba Cloud no longer maintains it. Use the [DescribeSqlLogConfig](https://help.aliyun.com/document_detail/2778837.html) operation instead.
        *
        * @param request DescribeSQLCollectorRetentionRequest
        * @return DescribeSQLCollectorRetentionResponse
@@ -6384,18 +6382,18 @@ namespace Rds20140815
       Models::DescribeSQLCollectorRetentionResponse describeSQLCollectorRetention(const Models::DescribeSQLCollectorRetentionRequest &request);
 
       /**
-       * @summary Queries the list of exported SQL Explorer (SQL Audit) files. This operation does not support querying SQL Explorer log files that are manually exported from the console. This operation supports querying only the list of SQL Explorer files that are generated by calling the DescribeSQLLogRecords operation with the Form request parameter set to File.
+       * @summary Queries the list of exported files for SQL Explorer (SQL Audit). This operation does not support querying SQL Explorer log files that are manually exported from the console. It only supports querying SQL Explorer files generated by calling the DescribeSQLLogRecords operation with the Form request parameter set to File.
        *
-       * @description ### Supported engines
+       * @description ### Applicable engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        *   > Only SQL Server 2008 R2 is supported.
        * ### Precautions
-       * - This operation does not support querying the SQL Explorer list for the trial edition of SQL Explorer on ApsaraDB RDS for MySQL instances.
-       * - This operation does not support querying SQL Explorer log files that are manually exported from the console. This operation supports querying only the list of SQL Explorer files that are generated by calling the [DescribeSQLLogRecords](https://help.aliyun.com/document_detail/610533.html) operation with the **Form** request parameter set to **File**.
-       * - The exported files are retained for only 2 days.
-       *   > If DAS Enterprise Edition V2 or Enterprise Edition V3 is enabled and you use the SQL Explorer and Audit feature provided by DAS Enterprise Edition, the exported files are retained for 7 days. You can call [DescribeSqlLogConfig](https://help.aliyun.com/document_detail/2778837.html) to query the enabled DAS Enterprise Edition information.
+       * - This operation does not support querying the SQL Explorer list for the SQL Explorer Trial Edition of MySQL instances.
+       * - This operation does not support querying SQL Explorer log files that are manually exported from the console. It only supports querying SQL Explorer files generated by calling the [DescribeSQLLogRecords](https://help.aliyun.com/document_detail/610533.html) operation with the **Form** request parameter set to **File**.
+       * - Files exported by using this operation are retained for only 2 days.
+       *   > If DAS Enterprise Edition V2 or V3 is activated and its SQL Explorer and Audit feature is used, the exported files are retained for 7 days. You can call the [DescribeSqlLogConfig](https://help.aliyun.com/document_detail/2778837.html) operation to query the activated Enterprise Edition information.
        *
        * @param request DescribeSQLLogFilesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6404,18 +6402,18 @@ namespace Rds20140815
       Models::DescribeSQLLogFilesResponse describeSQLLogFilesWithOptions(const Models::DescribeSQLLogFilesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of exported SQL Explorer (SQL Audit) files. This operation does not support querying SQL Explorer log files that are manually exported from the console. This operation supports querying only the list of SQL Explorer files that are generated by calling the DescribeSQLLogRecords operation with the Form request parameter set to File.
+       * @summary Queries the list of exported files for SQL Explorer (SQL Audit). This operation does not support querying SQL Explorer log files that are manually exported from the console. It only supports querying SQL Explorer files generated by calling the DescribeSQLLogRecords operation with the Form request parameter set to File.
        *
-       * @description ### Supported engines
+       * @description ### Applicable engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        *   > Only SQL Server 2008 R2 is supported.
        * ### Precautions
-       * - This operation does not support querying the SQL Explorer list for the trial edition of SQL Explorer on ApsaraDB RDS for MySQL instances.
-       * - This operation does not support querying SQL Explorer log files that are manually exported from the console. This operation supports querying only the list of SQL Explorer files that are generated by calling the [DescribeSQLLogRecords](https://help.aliyun.com/document_detail/610533.html) operation with the **Form** request parameter set to **File**.
-       * - The exported files are retained for only 2 days.
-       *   > If DAS Enterprise Edition V2 or Enterprise Edition V3 is enabled and you use the SQL Explorer and Audit feature provided by DAS Enterprise Edition, the exported files are retained for 7 days. You can call [DescribeSqlLogConfig](https://help.aliyun.com/document_detail/2778837.html) to query the enabled DAS Enterprise Edition information.
+       * - This operation does not support querying the SQL Explorer list for the SQL Explorer Trial Edition of MySQL instances.
+       * - This operation does not support querying SQL Explorer log files that are manually exported from the console. It only supports querying SQL Explorer files generated by calling the [DescribeSQLLogRecords](https://help.aliyun.com/document_detail/610533.html) operation with the **Form** request parameter set to **File**.
+       * - Files exported by using this operation are retained for only 2 days.
+       *   > If DAS Enterprise Edition V2 or V3 is activated and its SQL Explorer and Audit feature is used, the exported files are retained for 7 days. You can call the [DescribeSqlLogConfig](https://help.aliyun.com/document_detail/2778837.html) operation to query the activated Enterprise Edition information.
        *
        * @param request DescribeSQLLogFilesRequest
        * @return DescribeSQLLogFilesResponse
@@ -6423,13 +6421,13 @@ namespace Rds20140815
       Models::DescribeSQLLogFilesResponse describeSQLLogFiles(const Models::DescribeSQLLogFilesRequest &request);
 
       /**
-       * @summary Discontinued: This operation can still be called but is no longer maintained. Queries the SQL Explorer (SQL Audit) logs of an ApsaraDB RDS instance.
+       * @summary **[Deprecated]** Queries the SQL Explorer (SQL Audit) logs of an ApsaraDB RDS instance. This API operation is no longer maintained but remains callable.
        *
-       * @description This operation has been discontinued: The operation can still be invoked normally, but Alibaba Cloud no longer maintains it. Use the [GetDasSQLLogHotData](https://help.aliyun.com/document_detail/2360999.html) operation instead.
+       * @description This API operation is deprecated. It can still be invoked normally, but Alibaba Cloud no longer provides maintenance for it. Use the [GetDasSQLLogHotData](https://help.aliyun.com/document_detail/2360999.html) operation instead.
        * ### Precautions
-       * - Regardless of whether this operation is invoked successfully or failed, a single user (including the Alibaba Cloud account and Resource Access Management (RAM) users) can invoke this operation up to 1,000 times per minute.
-       * - This operation does not support querying SQL Explorer logs for the trial edition of SQL Explorer for MySQL instances.
-       * - When this operation generates an audit file (the **Form** request parameter is set to **File**), a maximum of 1,000,000 log entries are recorded, and keyword-based log filtering is not supported.
+       * - Each user (including the Alibaba Cloud account and Resource Access Management (RAM) users) can invoke this API operation up to 1,000 times per minute, regardless of whether the invocation succeeded or failed.
+       * - This API operation does not support querying SQL Explorer logs for the SQL Explorer trial edition of ApsaraDB RDS for MySQL instances.
+       * - When this API operation generates an audit file (the **Form** request parameter is set to **File**), it records up to 1 million log entries and does not support filtering logs by keyword.
        *
        * @param request DescribeSQLLogRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6438,13 +6436,13 @@ namespace Rds20140815
       Models::DescribeSQLLogRecordsResponse describeSQLLogRecordsWithOptions(const Models::DescribeSQLLogRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Discontinued: This operation can still be called but is no longer maintained. Queries the SQL Explorer (SQL Audit) logs of an ApsaraDB RDS instance.
+       * @summary **[Deprecated]** Queries the SQL Explorer (SQL Audit) logs of an ApsaraDB RDS instance. This API operation is no longer maintained but remains callable.
        *
-       * @description This operation has been discontinued: The operation can still be invoked normally, but Alibaba Cloud no longer maintains it. Use the [GetDasSQLLogHotData](https://help.aliyun.com/document_detail/2360999.html) operation instead.
+       * @description This API operation is deprecated. It can still be invoked normally, but Alibaba Cloud no longer provides maintenance for it. Use the [GetDasSQLLogHotData](https://help.aliyun.com/document_detail/2360999.html) operation instead.
        * ### Precautions
-       * - Regardless of whether this operation is invoked successfully or failed, a single user (including the Alibaba Cloud account and Resource Access Management (RAM) users) can invoke this operation up to 1,000 times per minute.
-       * - This operation does not support querying SQL Explorer logs for the trial edition of SQL Explorer for MySQL instances.
-       * - When this operation generates an audit file (the **Form** request parameter is set to **File**), a maximum of 1,000,000 log entries are recorded, and keyword-based log filtering is not supported.
+       * - Each user (including the Alibaba Cloud account and Resource Access Management (RAM) users) can invoke this API operation up to 1,000 times per minute, regardless of whether the invocation succeeded or failed.
+       * - This API operation does not support querying SQL Explorer logs for the SQL Explorer trial edition of ApsaraDB RDS for MySQL instances.
+       * - When this API operation generates an audit file (the **Form** request parameter is set to **File**), it records up to 1 million log entries and does not support filtering logs by keyword.
        *
        * @param request DescribeSQLLogRecordsRequest
        * @return DescribeSQLLogRecordsResponse
@@ -6481,10 +6479,10 @@ namespace Rds20140815
       Models::DescribeSQLLogReportListResponse describeSQLLogReportList(const Models::DescribeSQLLogReportListRequest &request);
 
       /**
-       * @summary Describes the versions to which a SQL Server instance or a specified SQL Server version can be upgraded.
+       * @summary Queries the target versions to which an ApsaraDB RDS for SQL Server instance or a specified SQL Server version can be upgraded.
        *
-       * @description Applicable engine:
-       * * SQL Server (only versions 2016 and earlier are supported)
+       * @description Supported engine:
+       * * SQL Server (only SQL Server 2016 and earlier versions are supported)
        *
        * @param request DescribeSQLServerUpgradeVersionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6493,10 +6491,10 @@ namespace Rds20140815
       Models::DescribeSQLServerUpgradeVersionsResponse describeSQLServerUpgradeVersionsWithOptions(const Models::DescribeSQLServerUpgradeVersionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Describes the versions to which a SQL Server instance or a specified SQL Server version can be upgraded.
+       * @summary Queries the target versions to which an ApsaraDB RDS for SQL Server instance or a specified SQL Server version can be upgraded.
        *
-       * @description Applicable engine:
-       * * SQL Server (only versions 2016 and earlier are supported)
+       * @description Supported engine:
+       * * SQL Server (only SQL Server 2016 and earlier versions are supported)
        *
        * @param request DescribeSQLServerUpgradeVersionsRequest
        * @return DescribeSQLServerUpgradeVersionsResponse
@@ -6506,7 +6504,7 @@ namespace Rds20140815
       /**
        * @summary Queries Data API user credentials.
        *
-       * @description ### Applicable engines
+       * @description ### Supported engines
        * - RDS MySQL
        *
        * @param request DescribeSecretsRequest
@@ -6518,7 +6516,7 @@ namespace Rds20140815
       /**
        * @summary Queries Data API user credentials.
        *
-       * @description ### Applicable engines
+       * @description ### Supported engines
        * - RDS MySQL
        *
        * @param request DescribeSecretsRequest
@@ -6566,8 +6564,8 @@ namespace Rds20140815
       /**
        * @summary Queries all replication slots of an instance.
        *
-       * @description ### Applicable engine
-       * - RDS PostgreSQL
+       * @description ### Supported engines
+       * - ApsaraDB RDS for PostgreSQL
        *
        * @param request DescribeSlotsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6578,8 +6576,8 @@ namespace Rds20140815
       /**
        * @summary Queries all replication slots of an instance.
        *
-       * @description ### Applicable engine
-       * - RDS PostgreSQL
+       * @description ### Supported engines
+       * - ApsaraDB RDS for PostgreSQL
        *
        * @param request DescribeSlotsRequest
        * @return DescribeSlotsResponse
@@ -6590,14 +6588,14 @@ namespace Rds20140815
        * @summary Queries the slow query log details of an instance.
        *
        * @description ### Supported engines
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * - RDS SQL Server
-       * - RDS MariaDB
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * - ApsaraDB RDS for SQL Server
+       * - ApsaraDB RDS for MariaDB
        * ### Precautions
-       * - The response parameters of this operation are updated every minute.
-       * - A certain delay may occur when you call this operation to retrieve data. Wait for the response to be returned.
-       * - Starting from September 1, 2024, due to the optimization of the SQL template algorithm, the value of the SQLHash field will change when you call this operation. For more information, see [Notice: Optimization of the SQL template algorithm for slow SQL statements](https://help.aliyun.com/document_detail/2845725.html).
+       * - The response parameters of this API operation are updated every minute.
+       * - There may be a delay when you call this API operation to retrieve data. Wait for the response.
+       * - Starting September 1, 2024, due to the optimization of the SQL template algorithm, the value of the SQLHash field will change when you call this operation. For more information, see [Notice: Optimization of the SQL template algorithm for slow SQL queries](https://help.aliyun.com/document_detail/2845725.html).
        *
        * @param request DescribeSlowLogRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6609,14 +6607,14 @@ namespace Rds20140815
        * @summary Queries the slow query log details of an instance.
        *
        * @description ### Supported engines
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * - RDS SQL Server
-       * - RDS MariaDB
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * - ApsaraDB RDS for SQL Server
+       * - ApsaraDB RDS for MariaDB
        * ### Precautions
-       * - The response parameters of this operation are updated every minute.
-       * - A certain delay may occur when you call this operation to retrieve data. Wait for the response to be returned.
-       * - Starting from September 1, 2024, due to the optimization of the SQL template algorithm, the value of the SQLHash field will change when you call this operation. For more information, see [Notice: Optimization of the SQL template algorithm for slow SQL statements](https://help.aliyun.com/document_detail/2845725.html).
+       * - The response parameters of this API operation are updated every minute.
+       * - There may be a delay when you call this API operation to retrieve data. Wait for the response.
+       * - Starting September 1, 2024, due to the optimization of the SQL template algorithm, the value of the SQLHash field will change when you call this operation. For more information, see [Notice: Optimization of the SQL template algorithm for slow SQL queries](https://help.aliyun.com/document_detail/2845725.html).
        *
        * @param request DescribeSlowLogRecordsRequest
        * @return DescribeSlowLogRecordsResponse
@@ -6626,16 +6624,16 @@ namespace Rds20140815
       /**
        * @summary Queries slow query log statistics.
        *
-       * @description ### Applicable engines
+       * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
        *   > MySQL 5.7 Basic Edition is not supported.
        * - ApsaraDB RDS for SQL Server
        *   > Only SQL Server 2008 R2 is supported.
        * - ApsaraDB RDS for MariaDB
-       * ### Before you begin
-       * - Slow query log statistics are not collected in real time. A latency of 6 to 8 hours may occur.
-       * - If the response is empty, check whether the values of StartTime and EndTime are in the required UTC format. If the values are valid, no slow query logs exist within the specified time range.
-       * - Starting from September 1, 2024, the value of the **SQLHash** field will change when you call this operation due to the optimization of the SQL template algorithm. For more information, see [Notice: SQL template algorithm optimization](https://help.aliyun.com/document_detail/2845725.html).
+       * ### Precautions
+       * - Slow query log statistics are not collected in real time. A delay of 6 to 8 hours may occur.
+       * - If the response is empty, check whether the StartTime and EndTime parameters meet the UTC format requirements. If they do, no slow query logs exist within the specified time range.
+       * - Starting September 1, 2024, the value of the **SQLHash** field will change when you call this operation due to the optimization of the SQL template algorithm. For more information, see [Notice: Optimization of the SQL template algorithm](https://help.aliyun.com/document_detail/2845725.html).
        *
        * @param request DescribeSlowLogsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6646,16 +6644,16 @@ namespace Rds20140815
       /**
        * @summary Queries slow query log statistics.
        *
-       * @description ### Applicable engines
+       * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
        *   > MySQL 5.7 Basic Edition is not supported.
        * - ApsaraDB RDS for SQL Server
        *   > Only SQL Server 2008 R2 is supported.
        * - ApsaraDB RDS for MariaDB
-       * ### Before you begin
-       * - Slow query log statistics are not collected in real time. A latency of 6 to 8 hours may occur.
-       * - If the response is empty, check whether the values of StartTime and EndTime are in the required UTC format. If the values are valid, no slow query logs exist within the specified time range.
-       * - Starting from September 1, 2024, the value of the **SQLHash** field will change when you call this operation due to the optimization of the SQL template algorithm. For more information, see [Notice: SQL template algorithm optimization](https://help.aliyun.com/document_detail/2845725.html).
+       * ### Precautions
+       * - Slow query log statistics are not collected in real time. A delay of 6 to 8 hours may occur.
+       * - If the response is empty, check whether the StartTime and EndTime parameters meet the UTC format requirements. If they do, no slow query logs exist within the specified time range.
+       * - Starting September 1, 2024, the value of the **SQLHash** field will change when you call this operation due to the optimization of the SQL template algorithm. For more information, see [Notice: Optimization of the SQL template algorithm](https://help.aliyun.com/document_detail/2845725.html).
        *
        * @param request DescribeSlowLogsRequest
        * @return DescribeSlowLogsResponse
@@ -6665,8 +6663,8 @@ namespace Rds20140815
       /**
        * @summary Queries whether an ApsaraDB RDS for SQL Server instance supports online storage expansion.
        *
-       * @description ### Applicable engine
-       * RDS SQL Server.
+       * @description ### Supported engines
+       * ApsaraDB RDS for SQL Server.
        *
        * @param request DescribeSupportOnlineResizeDiskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6677,8 +6675,8 @@ namespace Rds20140815
       /**
        * @summary Queries whether an ApsaraDB RDS for SQL Server instance supports online storage expansion.
        *
-       * @description ### Applicable engine
-       * RDS SQL Server.
+       * @description ### Supported engines
+       * ApsaraDB RDS for SQL Server.
        *
        * @param request DescribeSupportOnlineResizeDiskRequest
        * @return DescribeSupportOnlineResizeDiskResponse
@@ -6686,7 +6684,7 @@ namespace Rds20140815
       Models::DescribeSupportOnlineResizeDiskResponse describeSupportOnlineResizeDisk(const Models::DescribeSupportOnlineResizeDiskRequest &request);
 
       /**
-       * @summary Queries the tag information of an ApsaraDB RDS instance.
+       * @summary Queries the tag information of ApsaraDB RDS instances.
        *
        * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
@@ -6694,8 +6692,8 @@ namespace Rds20140815
        * - ApsaraDB RDS for SQL Server
        * - ApsaraDB RDS for MariaDB
        * ### Precautions
-       * * If you specify an instance ID, all tags of the instance are returned and other filter conditions are ignored.
-       * * If you specify only a tag key (TagKey) without a tag value (TagValue), all results that match the tag key are returned. If you specify both a tag key and a tag value, only results that match both conditions are returned.
+       * * If a specific instance ID is specified, all tags of the instance are queried, and other filter conditions become invalid.
+       * * If only a tag key (TagKey) is specified without a tag value (TagValue) when querying tags, all results that match the tag key are returned. If both a tag key and a tag value are specified, only results that match both conditions are returned.
        *
        * @param request DescribeTagsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6704,7 +6702,7 @@ namespace Rds20140815
       Models::DescribeTagsResponse describeTagsWithOptions(const Models::DescribeTagsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the tag information of an ApsaraDB RDS instance.
+       * @summary Queries the tag information of ApsaraDB RDS instances.
        *
        * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
@@ -6712,8 +6710,8 @@ namespace Rds20140815
        * - ApsaraDB RDS for SQL Server
        * - ApsaraDB RDS for MariaDB
        * ### Precautions
-       * * If you specify an instance ID, all tags of the instance are returned and other filter conditions are ignored.
-       * * If you specify only a tag key (TagKey) without a tag value (TagValue), all results that match the tag key are returned. If you specify both a tag key and a tag value, only results that match both conditions are returned.
+       * * If a specific instance ID is specified, all tags of the instance are queried, and other filter conditions become invalid.
+       * * If only a tag key (TagKey) is specified without a tag value (TagValue) when querying tags, all results that match the tag key are returned. If both a tag key and a tag value are specified, only results that match both conditions are returned.
        *
        * @param request DescribeTagsRequest
        * @return DescribeTagsResponse
@@ -6721,11 +6719,11 @@ namespace Rds20140815
       Models::DescribeTagsResponse describeTags(const Models::DescribeTagsRequest &request);
 
       /**
-       * @summary Queries the tasks that are in the pending or running state for an ApsaraDB RDS for SQL Server instance.
+       * @summary Queries the pending and running tasks of an ApsaraDB RDS for SQL Server instance.
        *
-       * @description ### Applicable engine
+       * @description ### Supported database engines
        * ApsaraDB RDS for SQL Server
-       * > For ApsaraDB RDS for MySQL and ApsaraDB RDS for PostgreSQL instances, use [DescribeHistoryTasks](https://help.aliyun.com/document_detail/2627863.html) to query tasks.
+       * > For ApsaraDB RDS for MySQL and ApsaraDB RDS for PostgreSQL instances, use [DescribeHistoryTasks](https://help.aliyun.com/document_detail/2627863.html).
        *
        * @param request DescribeTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6734,11 +6732,11 @@ namespace Rds20140815
       Models::DescribeTasksResponse describeTasksWithOptions(const Models::DescribeTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the tasks that are in the pending or running state for an ApsaraDB RDS for SQL Server instance.
+       * @summary Queries the pending and running tasks of an ApsaraDB RDS for SQL Server instance.
        *
-       * @description ### Applicable engine
+       * @description ### Supported database engines
        * ApsaraDB RDS for SQL Server
-       * > For ApsaraDB RDS for MySQL and ApsaraDB RDS for PostgreSQL instances, use [DescribeHistoryTasks](https://help.aliyun.com/document_detail/2627863.html) to query tasks.
+       * > For ApsaraDB RDS for MySQL and ApsaraDB RDS for PostgreSQL instances, use [DescribeHistoryTasks](https://help.aliyun.com/document_detail/2627863.html).
        *
        * @param request DescribeTasksRequest
        * @return DescribeTasksResponse
@@ -6746,16 +6744,16 @@ namespace Rds20140815
       Models::DescribeTasksResponse describeTasks(const Models::DescribeTasksRequest &request);
 
       /**
-       * @summary Queries the pre-upgrade check report for a major engine version upgrade of an ApsaraDB RDS for MySQL or ApsaraDB RDS for PostgreSQL instance.
+       * @summary Queries the check reports for major engine version upgrades of ApsaraDB RDS for MySQL and ApsaraDB RDS for PostgreSQL.
        *
-       * @description ### Applicable DPI engines
+       * @description ### Applicable engines
        * ApsaraDB RDS for MySQL
        * ApsaraDB RDS for PostgreSQL
-       * ### Related feature documentation
-       * >Notice: Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts of this operation before you proceed.
-       * - [Major engine version upgrade check report for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/2794383.html)
-       * - [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL database](https://help.aliyun.com/document_detail/203309.html)
-       * - [Understand the major engine version upgrade check report for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/218391.html)
+       * ### Related documentation
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.</notice>
+       * - [Check reports major engine version upgrades of ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/2794383.html)
+       * - [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/203309.html)
+       * - [Interpret check reports major engine version upgrades of ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/218391.html)
        *
        * @param request DescribeUpgradeMajorVersionPrecheckTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6764,16 +6762,16 @@ namespace Rds20140815
       Models::DescribeUpgradeMajorVersionPrecheckTaskResponse describeUpgradeMajorVersionPrecheckTaskWithOptions(const Models::DescribeUpgradeMajorVersionPrecheckTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the pre-upgrade check report for a major engine version upgrade of an ApsaraDB RDS for MySQL or ApsaraDB RDS for PostgreSQL instance.
+       * @summary Queries the check reports for major engine version upgrades of ApsaraDB RDS for MySQL and ApsaraDB RDS for PostgreSQL.
        *
-       * @description ### Applicable DPI engines
+       * @description ### Applicable engines
        * ApsaraDB RDS for MySQL
        * ApsaraDB RDS for PostgreSQL
-       * ### Related feature documentation
-       * >Notice: Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts of this operation before you proceed.
-       * - [Major engine version upgrade check report for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/2794383.html)
-       * - [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL database](https://help.aliyun.com/document_detail/203309.html)
-       * - [Understand the major engine version upgrade check report for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/218391.html)
+       * ### Related documentation
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.</notice>
+       * - [Check reports major engine version upgrades of ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/2794383.html)
+       * - [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/203309.html)
+       * - [Interpret check reports major engine version upgrades of ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/218391.html)
        *
        * @param request DescribeUpgradeMajorVersionPrecheckTaskRequest
        * @return DescribeUpgradeMajorVersionPrecheckTaskResponse
@@ -6781,9 +6779,9 @@ namespace Rds20140815
       Models::DescribeUpgradeMajorVersionPrecheckTaskResponse describeUpgradeMajorVersionPrecheckTask(const Models::DescribeUpgradeMajorVersionPrecheckTaskRequest &request);
 
       /**
-       * @summary Queries the historical tasks of major engine version upgrades for an ApsaraDB RDS for PostgreSQL instance.
+       * @summary Queries the historical major engine version upgrade tasks for an ApsaraDB RDS for PostgreSQL instance.
        *
-       * @description ### Supported engine
+       * @description ### Applicable engine
        * ApsaraDB RDS for PostgreSQL.
        *
        * @param request DescribeUpgradeMajorVersionTasksRequest
@@ -6793,9 +6791,9 @@ namespace Rds20140815
       Models::DescribeUpgradeMajorVersionTasksResponse describeUpgradeMajorVersionTasksWithOptions(const Models::DescribeUpgradeMajorVersionTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the historical tasks of major engine version upgrades for an ApsaraDB RDS for PostgreSQL instance.
+       * @summary Queries the historical major engine version upgrade tasks for an ApsaraDB RDS for PostgreSQL instance.
        *
-       * @description ### Supported engine
+       * @description ### Applicable engine
        * ApsaraDB RDS for PostgreSQL.
        *
        * @param request DescribeUpgradeMajorVersionTasksRequest
@@ -6850,7 +6848,7 @@ namespace Rds20140815
       Models::DescribeVSwitchesResponse describeVSwitches(const Models::DescribeVSwitchesRequest &request);
 
       /**
-       * @summary Queries the list of virtual private clouds (VPCs) under your Alibaba Cloud account.
+       * @summary Queries a list of virtual private clouds (VPCs) in an Alibaba Cloud account.
        *
        * @param request DescribeVpcsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6859,7 +6857,7 @@ namespace Rds20140815
       Models::DescribeVpcsResponse describeVpcsWithOptions(const Models::DescribeVpcsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of virtual private clouds (VPCs) under your Alibaba Cloud account.
+       * @summary Queries a list of virtual private clouds (VPCs) in an Alibaba Cloud account.
        *
        * @param request DescribeVpcsRequest
        * @return DescribeVpcsResponse
@@ -6867,12 +6865,12 @@ namespace Rds20140815
       Models::DescribeVpcsResponse describeVpcs(const Models::DescribeVpcsRequest &request);
 
       /**
-       * @summary Retrieves information about a specified whitelist template.
+       * @summary Retrieves the information about a specified whitelist template.
        *
-       * @description ### Applicable engines
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * - RDS SQL Server
+       * @description ### Supported engines
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * - ApsaraDB RDS for SQL Server
        *
        * @param request DescribeWhitelistTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6881,12 +6879,12 @@ namespace Rds20140815
       Models::DescribeWhitelistTemplateResponse describeWhitelistTemplateWithOptions(const Models::DescribeWhitelistTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves information about a specified whitelist template.
+       * @summary Retrieves the information about a specified whitelist template.
        *
-       * @description ### Applicable engines
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * - RDS SQL Server
+       * @description ### Supported engines
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * - ApsaraDB RDS for SQL Server
        *
        * @param request DescribeWhitelistTemplateRequest
        * @return DescribeWhitelistTemplateResponse
@@ -6894,12 +6892,12 @@ namespace Rds20140815
       Models::DescribeWhitelistTemplateResponse describeWhitelistTemplate(const Models::DescribeWhitelistTemplateRequest &request);
 
       /**
-       * @summary Queries instances associated with a whitelist template.
+       * @summary Queries the instances associated with a whitelist template.
        *
        * @description ### Supported engines
-       * - ApsaraDB RDS for MySQL
-       * - ApsaraDB RDS for PostgreSQL
-       * - ApsaraDB RDS for SQL Server
+       * - RDS MySQL
+       * - RDS PostgreSQL
+       * - RDS SQL Server
        *
        * @param request DescribeWhitelistTemplateLinkedInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6908,12 +6906,12 @@ namespace Rds20140815
       Models::DescribeWhitelistTemplateLinkedInstanceResponse describeWhitelistTemplateLinkedInstanceWithOptions(const Models::DescribeWhitelistTemplateLinkedInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries instances associated with a whitelist template.
+       * @summary Queries the instances associated with a whitelist template.
        *
        * @description ### Supported engines
-       * - ApsaraDB RDS for MySQL
-       * - ApsaraDB RDS for PostgreSQL
-       * - ApsaraDB RDS for SQL Server
+       * - RDS MySQL
+       * - RDS PostgreSQL
+       * - RDS SQL Server
        *
        * @param request DescribeWhitelistTemplateLinkedInstanceRequest
        * @return DescribeWhitelistTemplateLinkedInstanceResponse
@@ -6985,9 +6983,9 @@ namespace Rds20140815
        * @summary Disassociates a whitelist template from an instance.
        *
        * @description ### Supported engines
-       * - ApsaraDB RDS for MySQL
-       * - ApsaraDB RDS for PostgreSQL
-       * - ApsaraDB RDS for SQL Server
+       * - RDS MySQL
+       * - RDS PostgreSQL
+       * - RDS SQL Server
        *
        * @param request DetachWhitelistTemplateToInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6999,9 +6997,9 @@ namespace Rds20140815
        * @summary Disassociates a whitelist template from an instance.
        *
        * @description ### Supported engines
-       * - ApsaraDB RDS for MySQL
-       * - ApsaraDB RDS for PostgreSQL
-       * - ApsaraDB RDS for SQL Server
+       * - RDS MySQL
+       * - RDS PostgreSQL
+       * - RDS SQL Server
        *
        * @param request DetachWhitelistTemplateToInstanceRequest
        * @return DetachWhitelistTemplateToInstanceResponse
@@ -7009,7 +7007,7 @@ namespace Rds20140815
       Models::DetachWhitelistTemplateToInstanceResponse detachWhitelistTemplateToInstance(const Models::DetachWhitelistTemplateToInstanceRequest &request);
 
       /**
-       * @summary Enables backup encryption for an instance.
+       * @summary Enables backup encryption.
        *
        * @param request EnableBackupEncryptionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7018,7 +7016,7 @@ namespace Rds20140815
       Models::EnableBackupEncryptionResponse enableBackupEncryptionWithOptions(const Models::EnableBackupEncryptionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables backup encryption for an instance.
+       * @summary Enables backup encryption.
        *
        * @param request EnableBackupEncryptionRequest
        * @return EnableBackupEncryptionResponse
@@ -7026,7 +7024,7 @@ namespace Rds20140815
       Models::EnableBackupEncryptionResponse enableBackupEncryption(const Models::EnableBackupEncryptionRequest &request);
 
       /**
-       * @summary Evaluates the available disk space that can be unlocked by performing an emergency local disk expansion.
+       * @summary Evaluates the available disk space that can be unlocked by emergency local disk scaling.
        *
        * @param request EvaluateLocalExtendDiskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7035,7 +7033,7 @@ namespace Rds20140815
       Models::EvaluateLocalExtendDiskResponse evaluateLocalExtendDiskWithOptions(const Models::EvaluateLocalExtendDiskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Evaluates the available disk space that can be unlocked by performing an emergency local disk expansion.
+       * @summary Evaluates the available disk space that can be unlocked by emergency local disk scaling.
        *
        * @param request EvaluateLocalExtendDiskRequest
        * @return EvaluateLocalExtendDiskResponse
@@ -7045,8 +7043,8 @@ namespace Rds20140815
       /**
        * @summary Queries the topology of an ApsaraDB RDS instance.
        *
-       * @description ### Applicable engine
-       * RDS MySQL.
+       * @description ### Supported engines
+       * ApsaraDB RDS for MySQL.
        *
        * @param request GetDBInstanceTopologyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7057,8 +7055,8 @@ namespace Rds20140815
       /**
        * @summary Queries the topology of an ApsaraDB RDS instance.
        *
-       * @description ### Applicable engine
-       * RDS MySQL.
+       * @description ### Supported engines
+       * ApsaraDB RDS for MySQL.
        *
        * @param request GetDBInstanceTopologyRequest
        * @return GetDBInstanceTopologyResponse
@@ -7066,7 +7064,7 @@ namespace Rds20140815
       Models::GetDBInstanceTopologyResponse getDBInstanceTopology(const Models::GetDBInstanceTopologyRequest &request);
 
       /**
-       * @summary Queries the Secure Sockets Layer (SSL) encryption information of database proxy endpoints for an ApsaraDB RDS for MySQL database instance.
+       * @summary Queries the Secure Sockets Layer (SSL) encryption information of the database proxy endpoint for an ApsaraDB RDS for MySQL instance.
        *
        * @description ### Applicable engine
        * ApsaraDB RDS for MySQL.
@@ -7078,7 +7076,7 @@ namespace Rds20140815
       Models::GetDbProxyInstanceSslResponse getDbProxyInstanceSslWithOptions(const Models::GetDbProxyInstanceSslRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the Secure Sockets Layer (SSL) encryption information of database proxy endpoints for an ApsaraDB RDS for MySQL database instance.
+       * @summary Queries the Secure Sockets Layer (SSL) encryption information of the database proxy endpoint for an ApsaraDB RDS for MySQL instance.
        *
        * @description ### Applicable engine
        * ApsaraDB RDS for MySQL.
@@ -7133,12 +7131,12 @@ namespace Rds20140815
        * @summary Grants permissions to a service account.
        *
        * @description ### Applicable engines
-       * - ApsaraDB RDS for MySQL
-       * - ApsaraDB RDS for SQL Server
+       * - RDS MySQL
+       * - RDS SQL Server
        * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-       * - [Grant permissions to a service account for MySQL](https://help.aliyun.com/document_detail/96102.html)
-       * - [Grant permissions to a service account for SQL Server](https://help.aliyun.com/document_detail/95693.html)
+       * >Notice: Before you call this operation, read the documentation to understand the prerequisites and impacts.
+       * - [Grant permissions to a service account for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96102.html)
+       * - [Grant permissions to a service account for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95693.html)
        *
        * @param request GrantOperatorPermissionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7150,12 +7148,12 @@ namespace Rds20140815
        * @summary Grants permissions to a service account.
        *
        * @description ### Applicable engines
-       * - ApsaraDB RDS for MySQL
-       * - ApsaraDB RDS for SQL Server
+       * - RDS MySQL
+       * - RDS SQL Server
        * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-       * - [Grant permissions to a service account for MySQL](https://help.aliyun.com/document_detail/96102.html)
-       * - [Grant permissions to a service account for SQL Server](https://help.aliyun.com/document_detail/95693.html)
+       * >Notice: Before you call this operation, read the documentation to understand the prerequisites and impacts.
+       * - [Grant permissions to a service account for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96102.html)
+       * - [Grant permissions to a service account for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95693.html)
        *
        * @param request GrantOperatorPermissionRequest
        * @return GrantOperatorPermissionResponse
@@ -7163,16 +7161,16 @@ namespace Rds20140815
       Models::GrantOperatorPermissionResponse grantOperatorPermission(const Models::GrantOperatorPermissionRequest &request);
 
       /**
-       * @summary Imports backup data from a self-managed MySQL 5.7 database into ApsaraDB RDS by using the data import feature.
+       * @summary Performs a data import of backup data from a self-managed MySQL 5.7 database to ApsaraDB RDS.
        *
-       * @description ### Applicable engine
+       * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
-       * ### Description
-       * A user backup is a full backup of a self-managed MySQL database. You can restore a user backup to the cloud.
-       * ### Before you begin
-       * **To call this operation, the following conditions must be met:**
-       * * You have backed up a self-managed MySQL 5.7 or 8.0 database by using XtraBackup, and the backup file name ends with `_qp.xb`. For more information, see [Full migration of self-managed MySQL 5.7 or 8.0 databases to the cloud](https://help.aliyun.com/document_detail/251779.html).
-       * * You have uploaded the backup file of the self-managed MySQL 5.7 or 8.0 database to an OSS bucket in the corresponding region. For more information, see [Full migration of self-managed MySQL 5.7 or 8.0 databases to the cloud](https://help.aliyun.com/document_detail/251779.html).
+       * ### Feature description
+       * A user backup is a full backup of a self-managed MySQL database. You can restore user backups to the cloud.
+       * ### Precautions
+       * **Before you call this operation, make sure that the following conditions are met:**
+       * * You have used XtraBackup to back up the self-managed MySQL 5.7 or 8.0 database, and the backup file name ends with `_qp.xb`. For more information, see [Migrate full data from a self-managed MySQL 5.7 or 8.0 database to the cloud](https://help.aliyun.com/document_detail/251779.html).
+       * * You have uploaded the backup file of the self-managed MySQL 5.7 or 8.0 database to an OSS bucket in the corresponding region. For more information, see [Migrate full data from a self-managed MySQL 5.7 or 8.0 database to the cloud](https://help.aliyun.com/document_detail/251779.html).
        *
        * @param request ImportUserBackupFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7181,16 +7179,16 @@ namespace Rds20140815
       Models::ImportUserBackupFileResponse importUserBackupFileWithOptions(const Models::ImportUserBackupFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Imports backup data from a self-managed MySQL 5.7 database into ApsaraDB RDS by using the data import feature.
+       * @summary Performs a data import of backup data from a self-managed MySQL 5.7 database to ApsaraDB RDS.
        *
-       * @description ### Applicable engine
+       * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
-       * ### Description
-       * A user backup is a full backup of a self-managed MySQL database. You can restore a user backup to the cloud.
-       * ### Before you begin
-       * **To call this operation, the following conditions must be met:**
-       * * You have backed up a self-managed MySQL 5.7 or 8.0 database by using XtraBackup, and the backup file name ends with `_qp.xb`. For more information, see [Full migration of self-managed MySQL 5.7 or 8.0 databases to the cloud](https://help.aliyun.com/document_detail/251779.html).
-       * * You have uploaded the backup file of the self-managed MySQL 5.7 or 8.0 database to an OSS bucket in the corresponding region. For more information, see [Full migration of self-managed MySQL 5.7 or 8.0 databases to the cloud](https://help.aliyun.com/document_detail/251779.html).
+       * ### Feature description
+       * A user backup is a full backup of a self-managed MySQL database. You can restore user backups to the cloud.
+       * ### Precautions
+       * **Before you call this operation, make sure that the following conditions are met:**
+       * * You have used XtraBackup to back up the self-managed MySQL 5.7 or 8.0 database, and the backup file name ends with `_qp.xb`. For more information, see [Migrate full data from a self-managed MySQL 5.7 or 8.0 database to the cloud](https://help.aliyun.com/document_detail/251779.html).
+       * * You have uploaded the backup file of the self-managed MySQL 5.7 or 8.0 database to an OSS bucket in the corresponding region. For more information, see [Migrate full data from a self-managed MySQL 5.7 or 8.0 database to the cloud](https://help.aliyun.com/document_detail/251779.html).
        *
        * @param request ImportUserBackupFileRequest
        * @return ImportUserBackupFileResponse
@@ -7215,13 +7213,13 @@ namespace Rds20140815
       Models::InstallRCCloudAssistantResponse installRCCloudAssistant(const Models::InstallRCCloudAssistantRequest &request);
 
       /**
-       * @summary Queries the details of all instance types for an ApsaraDB RDS instance.
+       * @summary Queries the details of all instance types for ApsaraDB RDS instances.
        *
        * @description ### Supported engines
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * - RDS SQL Server
-       * - RDS MariaDB
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * - ApsaraDB RDS for SQL Server
+       * - ApsaraDB RDS for MariaDB
        *
        * @param request ListClassesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7230,13 +7228,13 @@ namespace Rds20140815
       Models::ListClassesResponse listClassesWithOptions(const Models::ListClassesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of all instance types for an ApsaraDB RDS instance.
+       * @summary Queries the details of all instance types for ApsaraDB RDS instances.
        *
        * @description ### Supported engines
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * - RDS SQL Server
-       * - RDS MariaDB
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * - ApsaraDB RDS for SQL Server
+       * - ApsaraDB RDS for MariaDB
        *
        * @param request ListClassesRequest
        * @return ListClassesResponse
@@ -7244,9 +7242,9 @@ namespace Rds20140815
       Models::ListClassesResponse listClasses(const Models::ListClassesRequest &request);
 
       /**
-       * @summary Queries a list of native replication data import tasks.
+       * @summary Lists native replication data import tasks.
        *
-       * @description Queries a list of data import tasks for native replication instances.
+       * @description Lists data import tasks for native replication instances.
        *
        * @param request ListImportTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7255,9 +7253,9 @@ namespace Rds20140815
       Models::ListImportTasksResponse listImportTasksWithOptions(const Models::ListImportTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of native replication data import tasks.
+       * @summary Lists native replication data import tasks.
        *
-       * @description Queries a list of data import tasks for native replication instances.
+       * @description Lists data import tasks for native replication instances.
        *
        * @param request ListImportTasksRequest
        * @return ListImportTasksResponse
@@ -7311,14 +7309,14 @@ namespace Rds20140815
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
 
       /**
-       * @summary Queries the details of all user backups that have been imported to ApsaraDB RDS.
+       * @summary Queries the details of all user backups imported to ApsaraDB RDS.
        *
-       * @description ### Applicable engine
+       * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
-       * ### Description
-       * * A user backup is a full backup of a self-managed MySQL database. You can restore a user backup to the cloud. For more information, see [Migrate the full data of a self-managed MySQL 5.7 database to the cloud](https://help.aliyun.com/document_detail/251779.html).
-       * * When you call the [CreateDBInstance](https://help.aliyun.com/document_detail/26228.html) operation to create an ApsaraDB RDS for MySQL instance from a backup, you can call this operation to query the user backup ID.
-       * * You can call the [ImportUserBackupFile](https://help.aliyun.com/document_detail/260266.html) operation to import a user backup to ApsaraDB RDS.
+       * ### Features
+       * * A user backup is a full backup of a self-managed MySQL database. You can restore user backups to the cloud. For more information, see [Migrate full data from a self-managed MySQL 5.7 database to the cloud](https://help.aliyun.com/document_detail/251779.html).
+       * * When you call the [CreateDBInstance](https://help.aliyun.com/document_detail/26228.html) operation to create an ApsaraDB RDS for MySQL instance for backup migration to the cloud, you can call this operation to query the user backup ID.
+       * * You can call the [ImportUserBackupFile](https://help.aliyun.com/document_detail/260266.html) operation to import user backups to ApsaraDB RDS.
        *
        * @param request ListUserBackupFilesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7327,14 +7325,14 @@ namespace Rds20140815
       Models::ListUserBackupFilesResponse listUserBackupFilesWithOptions(const Models::ListUserBackupFilesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of all user backups that have been imported to ApsaraDB RDS.
+       * @summary Queries the details of all user backups imported to ApsaraDB RDS.
        *
-       * @description ### Applicable engine
+       * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
-       * ### Description
-       * * A user backup is a full backup of a self-managed MySQL database. You can restore a user backup to the cloud. For more information, see [Migrate the full data of a self-managed MySQL 5.7 database to the cloud](https://help.aliyun.com/document_detail/251779.html).
-       * * When you call the [CreateDBInstance](https://help.aliyun.com/document_detail/26228.html) operation to create an ApsaraDB RDS for MySQL instance from a backup, you can call this operation to query the user backup ID.
-       * * You can call the [ImportUserBackupFile](https://help.aliyun.com/document_detail/260266.html) operation to import a user backup to ApsaraDB RDS.
+       * ### Features
+       * * A user backup is a full backup of a self-managed MySQL database. You can restore user backups to the cloud. For more information, see [Migrate full data from a self-managed MySQL 5.7 database to the cloud](https://help.aliyun.com/document_detail/251779.html).
+       * * When you call the [CreateDBInstance](https://help.aliyun.com/document_detail/26228.html) operation to create an ApsaraDB RDS for MySQL instance for backup migration to the cloud, you can call this operation to query the user backup ID.
+       * * You can call the [ImportUserBackupFile](https://help.aliyun.com/document_detail/260266.html) operation to import user backups to ApsaraDB RDS.
        *
        * @param request ListUserBackupFilesRequest
        * @return ListUserBackupFilesResponse
@@ -7373,12 +7371,12 @@ namespace Rds20140815
       /**
        * @summary Migrates an ApsaraDB RDS instance to a different zone.
        *
-       * @description ### Supported engines
+       * @description ### Applicable engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
-       * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+       * ### Related feature documentation
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.
        * - [Migrate an ApsaraDB RDS for MySQL instance across zones](https://help.aliyun.com/document_detail/96746.html)
        * - [Migrate an ApsaraDB RDS for PostgreSQL instance across zones](https://help.aliyun.com/document_detail/96746.html)
        * - [Migrate an ApsaraDB RDS for SQL Server instance across zones](https://help.aliyun.com/document_detail/95658.html)
@@ -7392,12 +7390,12 @@ namespace Rds20140815
       /**
        * @summary Migrates an ApsaraDB RDS instance to a different zone.
        *
-       * @description ### Supported engines
+       * @description ### Applicable engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
-       * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+       * ### Related feature documentation
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.
        * - [Migrate an ApsaraDB RDS for MySQL instance across zones](https://help.aliyun.com/document_detail/96746.html)
        * - [Migrate an ApsaraDB RDS for PostgreSQL instance across zones](https://help.aliyun.com/document_detail/96746.html)
        * - [Migrate an ApsaraDB RDS for SQL Server instance across zones](https://help.aliyun.com/document_detail/95658.html)
@@ -7408,9 +7406,9 @@ namespace Rds20140815
       Models::MigrateConnectionToOtherZoneResponse migrateConnectionToOtherZone(const Models::MigrateConnectionToOtherZoneRequest &request);
 
       /**
-       * @summary Migrates an ApsaraDB RDS instance within a dedicated cluster by calling the MigrateDBInstance operation.
+       * @summary Migrates an ApsaraDB RDS instance within a dedicated cluster.
        *
-       * @description The dedicated cluster feature allows you to manage instances in batches in the form of clusters. You can create multiple dedicated clusters in a region. A dedicated cluster contains multiple hosts, and a host contains multiple instances. For more information, see [Overview of dedicated clusters](https://help.aliyun.com/document_detail/141455.html).
+       * @description The dedicated cluster feature allows you to manage instances in batches as clusters. You can create multiple dedicated clusters in a region. A dedicated cluster contains multiple hosts, and a host contains multiple instances. For more information, see [Overview of dedicated clusters](https://help.aliyun.com/document_detail/141455.html).
        *
        * @param request MigrateDBInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7419,9 +7417,9 @@ namespace Rds20140815
       Models::MigrateDBInstanceResponse migrateDBInstanceWithOptions(const Models::MigrateDBInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Migrates an ApsaraDB RDS instance within a dedicated cluster by calling the MigrateDBInstance operation.
+       * @summary Migrates an ApsaraDB RDS instance within a dedicated cluster.
        *
-       * @description The dedicated cluster feature allows you to manage instances in batches in the form of clusters. You can create multiple dedicated clusters in a region. A dedicated cluster contains multiple hosts, and a host contains multiple instances. For more information, see [Overview of dedicated clusters](https://help.aliyun.com/document_detail/141455.html).
+       * @description The dedicated cluster feature allows you to manage instances in batches as clusters. You can create multiple dedicated clusters in a region. A dedicated cluster contains multiple hosts, and a host contains multiple instances. For more information, see [Overview of dedicated clusters](https://help.aliyun.com/document_detail/141455.html).
        *
        * @param request MigrateDBInstanceRequest
        * @return MigrateDBInstanceResponse
@@ -7429,7 +7427,7 @@ namespace Rds20140815
       Models::MigrateDBInstanceResponse migrateDBInstance(const Models::MigrateDBInstanceRequest &request);
 
       /**
-       * @summary Changes the zones of nodes in an ApsaraDB RDS for MySQL Cluster Edition instance.
+       * @summary Changes the zone of a node in an ApsaraDB RDS for MySQL Cluster Edition instance.
        *
        * @param tmpReq MigrateDBNodesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7438,7 +7436,7 @@ namespace Rds20140815
       Models::MigrateDBNodesResponse migrateDBNodesWithOptions(const Models::MigrateDBNodesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the zones of nodes in an ApsaraDB RDS for MySQL Cluster Edition instance.
+       * @summary Changes the zone of a node in an ApsaraDB RDS for MySQL Cluster Edition instance.
        *
        * @param request MigrateDBNodesRequest
        * @return MigrateDBNodesResponse
@@ -7486,7 +7484,7 @@ namespace Rds20140815
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, read the documentation carefully to fully understand the prerequisites and impacts.</notice>
        * - [Migrate an ApsaraDB RDS for MySQL instance across zones](https://help.aliyun.com/document_detail/96053.html)
        * - [Migrate an ApsaraDB RDS for PostgreSQL instance across zones](https://help.aliyun.com/document_detail/96746.html)
        * - [Migrate an ApsaraDB RDS for SQL Server instance across zones](https://help.aliyun.com/document_detail/95658.html)
@@ -7505,7 +7503,7 @@ namespace Rds20140815
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, read the documentation carefully to fully understand the prerequisites and impacts.</notice>
        * - [Migrate an ApsaraDB RDS for MySQL instance across zones](https://help.aliyun.com/document_detail/96053.html)
        * - [Migrate an ApsaraDB RDS for PostgreSQL instance across zones](https://help.aliyun.com/document_detail/96746.html)
        * - [Migrate an ApsaraDB RDS for SQL Server instance across zones](https://help.aliyun.com/document_detail/95658.html)
@@ -7518,10 +7516,10 @@ namespace Rds20140815
       /**
        * @summary Modifies the Active Directory (AD) domain information of an ApsaraDB RDS for SQL Server instance.
        *
-       * @description ### Applicable engine
-       * - RDS SQL Server
-       * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+       * @description ### Supported engines
+       * - ApsaraDB RDS for SQL Server
+       * ### Related feature documentation
+       * >Notice: Before calling this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of this operation.
        * - [Connect an ApsaraDB RDS for SQL Server instance to a self-managed domain](https://help.aliyun.com/document_detail/170734.html)
        *
        * @param request ModifyADInfoRequest
@@ -7533,10 +7531,10 @@ namespace Rds20140815
       /**
        * @summary Modifies the Active Directory (AD) domain information of an ApsaraDB RDS for SQL Server instance.
        *
-       * @description ### Applicable engine
-       * - RDS SQL Server
-       * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+       * @description ### Supported engines
+       * - ApsaraDB RDS for SQL Server
+       * ### Related feature documentation
+       * >Notice: Before calling this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of this operation.
        * - [Connect an ApsaraDB RDS for SQL Server instance to a self-managed domain](https://help.aliyun.com/document_detail/170734.html)
        *
        * @param request ModifyADInfoRequest
@@ -7545,11 +7543,11 @@ namespace Rds20140815
       Models::ModifyADInfoResponse modifyADInfo(const Models::ModifyADInfoRequest &request);
 
       /**
-       * @summary Modifies the password policy of an account for an ApsaraDB RDS for SQL Server instance.
+       * @summary Modifies the account password policy of an ApsaraDB RDS for SQL Server instance.
        *
-       * @description ### Supported engine
-       * ApsaraDB RDS for SQL Server (shared instance types and 2008 R2 instances are not supported)
-       * > Before calling this operation, set the SQL Server account password policy. For more information, see [ModifyAccountSecurityPolicy](https://help.aliyun.com/document_detail/2848321.html).
+       * @description ### Supported engines
+       * ApsaraDB RDS for SQL Server (Shared instances and instances running SQL Server 2008 R2 are not supported)
+       * > Before calling this operation, you must configure the account password policy for SQL Server. For more information, see [ModifyAccountSecurityPolicy](https://help.aliyun.com/document_detail/2848321.html).
        * ### Related documentation
        * [Custom account password policies for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/2845728.html)
        *
@@ -7560,11 +7558,11 @@ namespace Rds20140815
       Models::ModifyAccountCheckPolicyResponse modifyAccountCheckPolicyWithOptions(const Models::ModifyAccountCheckPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the password policy of an account for an ApsaraDB RDS for SQL Server instance.
+       * @summary Modifies the account password policy of an ApsaraDB RDS for SQL Server instance.
        *
-       * @description ### Supported engine
-       * ApsaraDB RDS for SQL Server (shared instance types and 2008 R2 instances are not supported)
-       * > Before calling this operation, set the SQL Server account password policy. For more information, see [ModifyAccountSecurityPolicy](https://help.aliyun.com/document_detail/2848321.html).
+       * @description ### Supported engines
+       * ApsaraDB RDS for SQL Server (Shared instances and instances running SQL Server 2008 R2 are not supported)
+       * > Before calling this operation, you must configure the account password policy for SQL Server. For more information, see [ModifyAccountSecurityPolicy](https://help.aliyun.com/document_detail/2848321.html).
        * ### Related documentation
        * [Custom account password policies for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/2845728.html)
        *
@@ -7606,8 +7604,8 @@ namespace Rds20140815
        * @summary Modifies the encryption or data masking permissions of an account in a specified instance.
        *
        * @description ## Request description
-       * - Before you invoke this operation, make sure that you have activated the column encryption feature in DAS Security Center.
-       * - If you receive the fault message ColumnEncryptionErrorCode.NOT_PURCHASED when you invoke this operation, go to Database Autonomy Service (DAS) Security Center to purchase and activate the column encryption feature before trying again.
+       * - Before you invoke this API operation, make sure that the column encryption service is enabled in the DAS Security Center.
+       * - If you receive the ColumnEncryptionErrorCode.NOT_PURCHASED error message when you invoke this API operation, go to the Database Autonomy Service (DAS) Security Center to purchase and enable the column encryption service.
        *
        * @param request ModifyAccountMaskingPrivilegeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7619,8 +7617,8 @@ namespace Rds20140815
        * @summary Modifies the encryption or data masking permissions of an account in a specified instance.
        *
        * @description ## Request description
-       * - Before you invoke this operation, make sure that you have activated the column encryption feature in DAS Security Center.
-       * - If you receive the fault message ColumnEncryptionErrorCode.NOT_PURCHASED when you invoke this operation, go to Database Autonomy Service (DAS) Security Center to purchase and activate the column encryption feature before trying again.
+       * - Before you invoke this API operation, make sure that the column encryption service is enabled in the DAS Security Center.
+       * - If you receive the ColumnEncryptionErrorCode.NOT_PURCHASED error message when you invoke this API operation, go to the Database Autonomy Service (DAS) Security Center to purchase and enable the column encryption service.
        *
        * @param request ModifyAccountMaskingPrivilegeRequest
        * @return ModifyAccountMaskingPrivilegeResponse
@@ -7628,13 +7626,13 @@ namespace Rds20140815
       Models::ModifyAccountMaskingPrivilegeResponse modifyAccountMaskingPrivilege(const Models::ModifyAccountMaskingPrivilegeRequest &request);
 
       /**
-       * @summary Modifies the password policy for an account of an ApsaraDB RDS for SQL Server instance.
+       * @summary Modifies the account password policy of an ApsaraDB RDS for SQL Server instance.
        *
-       * @description ### Applicable engine
-       * ApsaraDB RDS for SQL Server (shared instance types and the 2008 R2 edition are not supported)
+       * @description ### Supported engines
+       * ApsaraDB RDS for SQL Server (Shared instances and SQL Server 2008 R2 are not supported)
        * ### Related feature documentation
-       * >Notice: Before you call this operation, read the following feature documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-       * [Custom password policies for ApsaraDB RDS for SQL Server accounts](https://help.aliyun.com/document_detail/95640.html)
+       * >Notice: Before you call this operation, read the feature documentation to understand the prerequisites and impacts.
+       * [Custom password policy for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/95640.html)
        *
        * @param request ModifyAccountSecurityPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7643,13 +7641,13 @@ namespace Rds20140815
       Models::ModifyAccountSecurityPolicyResponse modifyAccountSecurityPolicyWithOptions(const Models::ModifyAccountSecurityPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the password policy for an account of an ApsaraDB RDS for SQL Server instance.
+       * @summary Modifies the account password policy of an ApsaraDB RDS for SQL Server instance.
        *
-       * @description ### Applicable engine
-       * ApsaraDB RDS for SQL Server (shared instance types and the 2008 R2 edition are not supported)
+       * @description ### Supported engines
+       * ApsaraDB RDS for SQL Server (Shared instances and SQL Server 2008 R2 are not supported)
        * ### Related feature documentation
-       * >Notice: Before you call this operation, read the following feature documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-       * [Custom password policies for ApsaraDB RDS for SQL Server accounts](https://help.aliyun.com/document_detail/95640.html)
+       * >Notice: Before you call this operation, read the feature documentation to understand the prerequisites and impacts.
+       * [Custom password policy for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/95640.html)
        *
        * @param request ModifyAccountSecurityPolicyRequest
        * @return ModifyAccountSecurityPolicyResponse
@@ -7742,12 +7740,12 @@ namespace Rds20140815
        * @summary Modifies the backup policy settings of an ApsaraDB RDS instance.
        *
        * @description ### Supported engines
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * - RDS SQL Server
-       * - RDS MariaDB
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * - ApsaraDB RDS for SQL Server
+       * - ApsaraDB RDS for MariaDB
        * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, read the documentation to understand the prerequisites and impacts.</notice>
        * - [Configure an automatic backup policy for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/98818.html)
        * - [Configure an automatic backup policy for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96772.html)
        * - [Configure an automatic backup policy for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95717.html)
@@ -7763,12 +7761,12 @@ namespace Rds20140815
        * @summary Modifies the backup policy settings of an ApsaraDB RDS instance.
        *
        * @description ### Supported engines
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * - RDS SQL Server
-       * - RDS MariaDB
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * - ApsaraDB RDS for SQL Server
+       * - ApsaraDB RDS for MariaDB
        * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, read the documentation to understand the prerequisites and impacts.</notice>
        * - [Configure an automatic backup policy for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/98818.html)
        * - [Configure an automatic backup policy for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96772.html)
        * - [Configure an automatic backup policy for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95717.html)
@@ -7782,11 +7780,11 @@ namespace Rds20140815
       /**
        * @summary Extends the expiration time of a single-database backup set (physical backup, full backup, or single-database backup) generated by a manual backup.
        *
-       * @description ### Applicable engine
-       * RDS SQL Server
+       * @description ### Supported engines
+       * ApsaraDB RDS for SQL Server
        * ### Related feature documentation
-       * >Notice: Before you invoke this operation, carefully read the feature documentation to fully understand the prerequisites and impacts. Then proceed with the operation.
-       * [Manual backup of SQL Server data](https://help.aliyun.com/document_detail/95717.html)
+       * >Notice: Before you call this operation, read the feature documentation carefully to fully understand the prerequisites and impacts.
+       * [Manually back up ApsaraDB RDS for SQL Server data](https://help.aliyun.com/document_detail/95717.html)
        *
        * @param request ModifyBackupSetExpireTimeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7797,11 +7795,11 @@ namespace Rds20140815
       /**
        * @summary Extends the expiration time of a single-database backup set (physical backup, full backup, or single-database backup) generated by a manual backup.
        *
-       * @description ### Applicable engine
-       * RDS SQL Server
+       * @description ### Supported engines
+       * ApsaraDB RDS for SQL Server
        * ### Related feature documentation
-       * >Notice: Before you invoke this operation, carefully read the feature documentation to fully understand the prerequisites and impacts. Then proceed with the operation.
-       * [Manual backup of SQL Server data](https://help.aliyun.com/document_detail/95717.html)
+       * >Notice: Before you call this operation, read the feature documentation carefully to fully understand the prerequisites and impacts.
+       * [Manually back up ApsaraDB RDS for SQL Server data](https://help.aliyun.com/document_detail/95717.html)
        *
        * @param request ModifyBackupSetExpireTimeRequest
        * @return ModifyBackupSetExpireTimeResponse
@@ -7838,12 +7836,12 @@ namespace Rds20140815
       Models::ModifyCollationTimeZoneResponse modifyCollationTimeZone(const Models::ModifyCollationTimeZoneRequest &request);
 
       /**
-       * @summary Modifies or disables the committed serverless feature.
+       * @summary Modifies or disables the provisioned Serverless feature.
        *
        * @description ### Applicable engine
-       * RDS PostgreSQL
-       * ### Related documentation
-       * [Committed Serverless](https://help.aliyun.com/document_detail/2928780.html)
+       * ApsaraDB RDS for PostgreSQL
+       * ### Related feature documentation
+       * [Provisioned Serverless](https://help.aliyun.com/document_detail/2928780.html)
        *
        * @param request ModifyComputeBurstConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7852,12 +7850,12 @@ namespace Rds20140815
       Models::ModifyComputeBurstConfigResponse modifyComputeBurstConfigWithOptions(const Models::ModifyComputeBurstConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies or disables the committed serverless feature.
+       * @summary Modifies or disables the provisioned Serverless feature.
        *
        * @description ### Applicable engine
-       * RDS PostgreSQL
-       * ### Related documentation
-       * [Committed Serverless](https://help.aliyun.com/document_detail/2928780.html)
+       * ApsaraDB RDS for PostgreSQL
+       * ### Related feature documentation
+       * [Provisioned Serverless](https://help.aliyun.com/document_detail/2928780.html)
        *
        * @param request ModifyComputeBurstConfigRequest
        * @return ModifyComputeBurstConfigResponse
@@ -7884,11 +7882,11 @@ namespace Rds20140815
       /**
        * @summary Modifies the description of a database.
        *
-       * @description ### Supported engines
-       * - ApsaraDB RDS for MySQL
-       * - ApsaraDB RDS for PostgreSQL
-       * - ApsaraDB RDS for SQL Server
-       * - ApsaraDB RDS for MariaDB
+       * @description ### Applicable engines
+       * - RDS MySQL
+       * - RDS PostgreSQL
+       * - RDS SQL Server
+       * - RDS MariaDB
        *
        * @param request ModifyDBDescriptionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7899,11 +7897,11 @@ namespace Rds20140815
       /**
        * @summary Modifies the description of a database.
        *
-       * @description ### Supported engines
-       * - ApsaraDB RDS for MySQL
-       * - ApsaraDB RDS for PostgreSQL
-       * - ApsaraDB RDS for SQL Server
-       * - ApsaraDB RDS for MariaDB
+       * @description ### Applicable engines
+       * - RDS MySQL
+       * - RDS PostgreSQL
+       * - RDS SQL Server
+       * - RDS MariaDB
        *
        * @param request ModifyDBDescriptionRequest
        * @return ModifyDBDescriptionResponse
@@ -7961,11 +7959,11 @@ namespace Rds20140815
       Models::ModifyDBInstanceAutoUpgradeMinorVersionResponse modifyDBInstanceAutoUpgradeMinorVersion(const Models::ModifyDBInstanceAutoUpgradeMinorVersionRequest &request);
 
       /**
-       * @summary Modifies the column encryption algorithm configuration of a specified instance.
+       * @summary Modifies the column encryption algorithm configuration for a specified instance.
        *
        * @description ## Request description
-       * - Before invoking this operation, make sure that you have activated the column encryption feature in DAS Security Center.
-       * - If you receive a fault message when invoking this operation, go to Database Autonomy Service (DAS) Security Center to purchase and activate the column encryption feature before trying again.
+       * - Before you use this operation, make sure that you have activated the Cloud Hardware Security Module (CloudHSM) for column encryption in the DAS Security Center.
+       * - If you receive an error message when you invoke this operation, go to the DAS (Database Autonomy Service) Security Center to purchase and activate the Cloud Hardware Security Module (CloudHSM) for column encryption before use.
        *
        * @param request ModifyDBInstanceCLSRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7974,11 +7972,11 @@ namespace Rds20140815
       Models::ModifyDBInstanceCLSResponse modifyDBInstanceCLSWithOptions(const Models::ModifyDBInstanceCLSRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the column encryption algorithm configuration of a specified instance.
+       * @summary Modifies the column encryption algorithm configuration for a specified instance.
        *
        * @description ## Request description
-       * - Before invoking this operation, make sure that you have activated the column encryption feature in DAS Security Center.
-       * - If you receive a fault message when invoking this operation, go to Database Autonomy Service (DAS) Security Center to purchase and activate the column encryption feature before trying again.
+       * - Before you use this operation, make sure that you have activated the Cloud Hardware Security Module (CloudHSM) for column encryption in the DAS Security Center.
+       * - If you receive an error message when you invoke this operation, go to the DAS (Database Autonomy Service) Security Center to purchase and activate the Cloud Hardware Security Module (CloudHSM) for column encryption before use.
        *
        * @param request ModifyDBInstanceCLSRequest
        * @return ModifyDBInstanceCLSResponse
@@ -8091,11 +8089,11 @@ namespace Rds20140815
        * - ApsaraDB RDS for SQL Server
        * - ApsaraDB RDS for MariaDB
        * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-       * - [Enable and disable instance release protection for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/414512.html)
-       * - [Enable and disable instance release protection for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/471512.html)
-       * - [Enable and disable instance release protection for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/416209.html)
-       * - [Enable and disable instance release protection for ApsaraDB RDS for MariaDB](https://help.aliyun.com/document_detail/414512.html)
+       * >Notice: Before you call this operation, read the documentation carefully to fully understand the prerequisites and impacts.
+       * - [Enable and disable release protection for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/414512.html)
+       * - [Enable and disable release protection for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/471512.html)
+       * - [Enable and disable release protection for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/416209.html)
+       * - [Enable and disable release protection for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/414512.html)
        *
        * @param request ModifyDBInstanceDeletionProtectionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8112,11 +8110,11 @@ namespace Rds20140815
        * - ApsaraDB RDS for SQL Server
        * - ApsaraDB RDS for MariaDB
        * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-       * - [Enable and disable instance release protection for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/414512.html)
-       * - [Enable and disable instance release protection for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/471512.html)
-       * - [Enable and disable instance release protection for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/416209.html)
-       * - [Enable and disable instance release protection for ApsaraDB RDS for MariaDB](https://help.aliyun.com/document_detail/414512.html)
+       * >Notice: Before you call this operation, read the documentation carefully to fully understand the prerequisites and impacts.
+       * - [Enable and disable release protection for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/414512.html)
+       * - [Enable and disable release protection for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/471512.html)
+       * - [Enable and disable release protection for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/416209.html)
+       * - [Enable and disable release protection for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/414512.html)
        *
        * @param request ModifyDBInstanceDeletionProtectionRequest
        * @return ModifyDBInstanceDeletionProtectionResponse
@@ -8153,13 +8151,13 @@ namespace Rds20140815
       Models::ModifyDBInstanceDescriptionResponse modifyDBInstanceDescription(const Models::ModifyDBInstanceDescriptionRequest &request);
 
       /**
-       * @summary Modifies the endpoint weight information of an ApsaraDB RDS instance in the Cluster Edition.
+       * @summary Modifies the endpoint weight information of an ApsaraDB RDS Cluster Edition instance.
        *
-       * @description ### Applicable engines
+       * @description ### Supported engines
        * <props="china">
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * <props="intl">RDS MySQL
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * <props="intl">ApsaraDB RDS for MySQL
        *
        * @param tmpReq ModifyDBInstanceEndpointRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8168,13 +8166,13 @@ namespace Rds20140815
       Models::ModifyDBInstanceEndpointResponse modifyDBInstanceEndpointWithOptions(const Models::ModifyDBInstanceEndpointRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the endpoint weight information of an ApsaraDB RDS instance in the Cluster Edition.
+       * @summary Modifies the endpoint weight information of an ApsaraDB RDS Cluster Edition instance.
        *
-       * @description ### Applicable engines
+       * @description ### Supported engines
        * <props="china">
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * <props="intl">RDS MySQL
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * <props="intl">ApsaraDB RDS for MySQL
        *
        * @param request ModifyDBInstanceEndpointRequest
        * @return ModifyDBInstanceEndpointResponse
@@ -8182,16 +8180,16 @@ namespace Rds20140815
       Models::ModifyDBInstanceEndpointResponse modifyDBInstanceEndpoint(const Models::ModifyDBInstanceEndpointRequest &request);
 
       /**
-       * @summary Modifies the endpoint connection information of an ApsaraDB RDS instance in Cluster Edition.
+       * @summary Modifies the endpoint connection address of an ApsaraDB RDS Cluster Edition instance.
        *
        * @description ### Supported DPI engines
        * <props="china">
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * <props="intl">RDS MySQL
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * <props="intl">ApsaraDB RDS for MySQL
        * ### Precautions
-       * - You can modify endpoint connection information, including the connection string and port for public and internal network endpoints, and the VPC, vSwitch, and IP address for internal network connections.
-       * - When modifying, VpcId and VSwitchId are treated as a group. The internal network connection parameters (VpcId, VSwitchId, and PrivateIpAddress) and the connection parameters (ConnectionStringPrefix and Port) cannot be specified at the same time. However, you must specify at least one of them.
+       * - You can modify the endpoint connection address, including the connection strings and ports for both public and internal networks, as well as the VPC, vSwitch, and IP address for the internal network connection.
+       * - When you modify the endpoint, VpcId and VSwitchId are treated as a group. For an internal endpoint, you cannot specify VpcId, VSwitchId, or PrivateIpAddress together with ConnectionStringPrefix or Port. However, you must specify at least one of these parameters.
        *
        * @param request ModifyDBInstanceEndpointAddressRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8200,16 +8198,16 @@ namespace Rds20140815
       Models::ModifyDBInstanceEndpointAddressResponse modifyDBInstanceEndpointAddressWithOptions(const Models::ModifyDBInstanceEndpointAddressRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the endpoint connection information of an ApsaraDB RDS instance in Cluster Edition.
+       * @summary Modifies the endpoint connection address of an ApsaraDB RDS Cluster Edition instance.
        *
        * @description ### Supported DPI engines
        * <props="china">
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * <props="intl">RDS MySQL
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * <props="intl">ApsaraDB RDS for MySQL
        * ### Precautions
-       * - You can modify endpoint connection information, including the connection string and port for public and internal network endpoints, and the VPC, vSwitch, and IP address for internal network connections.
-       * - When modifying, VpcId and VSwitchId are treated as a group. The internal network connection parameters (VpcId, VSwitchId, and PrivateIpAddress) and the connection parameters (ConnectionStringPrefix and Port) cannot be specified at the same time. However, you must specify at least one of them.
+       * - You can modify the endpoint connection address, including the connection strings and ports for both public and internal networks, as well as the VPC, vSwitch, and IP address for the internal network connection.
+       * - When you modify the endpoint, VpcId and VSwitchId are treated as a group. For an internal endpoint, you cannot specify VpcId, VSwitchId, or PrivateIpAddress together with ConnectionStringPrefix or Port. However, you must specify at least one of these parameters.
        *
        * @param request ModifyDBInstanceEndpointAddressRequest
        * @return ModifyDBInstanceEndpointAddressResponse
@@ -8293,11 +8291,11 @@ namespace Rds20140815
       /**
        * @summary Modifies the enhanced monitoring metrics displayed for an ApsaraDB RDS for PostgreSQL instance.
        *
-       * @description ### Applicable engine
-       * - RDS PostgreSQL
+       * @description ### Supported engines
+       * - ApsaraDB RDS for PostgreSQL
        * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation to fully understand the prerequisites and impacts of this operation.
-       * [View enhanced monitoring](https://help.aliyun.com/document_detail/299200.html).
+       * >Notice: Before you call this operation, read the documentation to understand the prerequisites and impacts.
+       * [Enhanced monitoring](https://help.aliyun.com/document_detail/299200.html).
        *
        * @param request ModifyDBInstanceMetricsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8308,11 +8306,11 @@ namespace Rds20140815
       /**
        * @summary Modifies the enhanced monitoring metrics displayed for an ApsaraDB RDS for PostgreSQL instance.
        *
-       * @description ### Applicable engine
-       * - RDS PostgreSQL
+       * @description ### Supported engines
+       * - ApsaraDB RDS for PostgreSQL
        * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation to fully understand the prerequisites and impacts of this operation.
-       * [View enhanced monitoring](https://help.aliyun.com/document_detail/299200.html).
+       * >Notice: Before you call this operation, read the documentation to understand the prerequisites and impacts.
+       * [Enhanced monitoring](https://help.aliyun.com/document_detail/299200.html).
        *
        * @param request ModifyDBInstanceMetricsRequest
        * @return ModifyDBInstanceMetricsResponse
@@ -8320,17 +8318,17 @@ namespace Rds20140815
       Models::ModifyDBInstanceMetricsResponse modifyDBInstanceMetrics(const Models::ModifyDBInstanceMetricsRequest &request);
 
       /**
-       * @summary Modifies the monitoring frequency of an instance.
+       * @summary Modifies the monitoring frequency.
        *
-       * @description ### Applicable engines
+       * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for SQL Server
        * ### Precautions
-       * Second-level monitoring for ApsaraDB RDS for MySQL incurs additional fees. Before using this operation, make sure that you fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/45020.html) of ApsaraDB RDS.
+       * Second-level monitoring for ApsaraDB RDS for MySQL incurs additional fees. Make sure that you fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/45020.html) of ApsaraDB RDS before you call this operation.
        * ### Related documentation
-       * >Notice: Before using this operation, carefully read the following documentation to fully understand the prerequisites and potential impacts, and then proceed.
-       * - [Set the monitoring frequency for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/96112.html)
-       * - [Set the monitoring frequency for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/95710.html)
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.
+       * - [Set the monitoring frequency for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96112.html)
+       * - [Set the monitoring frequency for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95710.html)
        *
        * @param request ModifyDBInstanceMonitorRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8339,17 +8337,17 @@ namespace Rds20140815
       Models::ModifyDBInstanceMonitorResponse modifyDBInstanceMonitorWithOptions(const Models::ModifyDBInstanceMonitorRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the monitoring frequency of an instance.
+       * @summary Modifies the monitoring frequency.
        *
-       * @description ### Applicable engines
+       * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for SQL Server
        * ### Precautions
-       * Second-level monitoring for ApsaraDB RDS for MySQL incurs additional fees. Before using this operation, make sure that you fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/45020.html) of ApsaraDB RDS.
+       * Second-level monitoring for ApsaraDB RDS for MySQL incurs additional fees. Make sure that you fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/45020.html) of ApsaraDB RDS before you call this operation.
        * ### Related documentation
-       * >Notice: Before using this operation, carefully read the following documentation to fully understand the prerequisites and potential impacts, and then proceed.
-       * - [Set the monitoring frequency for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/96112.html)
-       * - [Set the monitoring frequency for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/95710.html)
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.
+       * - [Set the monitoring frequency for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96112.html)
+       * - [Set the monitoring frequency for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95710.html)
        *
        * @param request ModifyDBInstanceMonitorRequest
        * @return ModifyDBInstanceMonitorResponse
@@ -8388,14 +8386,14 @@ namespace Rds20140815
       Models::ModifyDBInstanceNetworkExpireTimeResponse modifyDBInstanceNetworkExpireTime(const Models::ModifyDBInstanceNetworkExpireTimeRequest &request);
 
       /**
-       * @summary Switches an ApsaraDB RDS instance from the classic network to a VPC. This operation is used for instance switchover from the classic network to a VPC.
+       * @summary Switches the network type of an ApsaraDB RDS instance from the classic network to a VPC through an instance switchover.
        *
-       * @description ### Supported engines
+       * @description ### Supported database engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, read the documentation carefully to fully understand the prerequisites and impacts.
        * - [Change the network type of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96109.html)
        * - [Change the network type of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96761.html)
        * - [Change the network type of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95707.html)
@@ -8407,14 +8405,14 @@ namespace Rds20140815
       Models::ModifyDBInstanceNetworkTypeResponse modifyDBInstanceNetworkTypeWithOptions(const Models::ModifyDBInstanceNetworkTypeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Switches an ApsaraDB RDS instance from the classic network to a VPC. This operation is used for instance switchover from the classic network to a VPC.
+       * @summary Switches the network type of an ApsaraDB RDS instance from the classic network to a VPC through an instance switchover.
        *
-       * @description ### Supported engines
+       * @description ### Supported database engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, read the documentation carefully to fully understand the prerequisites and impacts.
        * - [Change the network type of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96109.html)
        * - [Change the network type of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96761.html)
        * - [Change the network type of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95707.html)
@@ -8497,17 +8495,17 @@ namespace Rds20140815
       Models::ModifyDBInstanceReplicationSwitchResponse modifyDBInstanceReplicationSwitch(const Models::ModifyDBInstanceReplicationSwitchRequest &request);
 
       /**
-       * @summary Modifies the SSL link configuration of an ApsaraDB RDS instance.
+       * @summary Modifies the SSL configuration of an ApsaraDB RDS instance.
        *
        * @description ### Supported DPI engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * ### Related feature documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-       * - [Settings for Secure Sockets Layer (SSL) encryption for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96120.html)
-       * - [Settings for Secure Sockets Layer (SSL) encryption for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/229517.html)
-       * - [Settings for Secure Sockets Layer (SSL) encryption for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95715.html)
+       * >Notice: Before you call this operation, read the feature documentation to fully understand the prerequisites and impacts.</notice>
+       * - [Secure Sockets Layer (SSL) encryption settings for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/96120.html)
+       * - [Secure Sockets Layer (SSL) encryption settings for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/229517.html)
+       * - [Secure Sockets Layer (SSL) encryption settings for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/95715.html)
        *
        * @param request ModifyDBInstanceSSLRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8516,17 +8514,17 @@ namespace Rds20140815
       Models::ModifyDBInstanceSSLResponse modifyDBInstanceSSLWithOptions(const Models::ModifyDBInstanceSSLRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the SSL link configuration of an ApsaraDB RDS instance.
+       * @summary Modifies the SSL configuration of an ApsaraDB RDS instance.
        *
        * @description ### Supported DPI engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * ### Related feature documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-       * - [Settings for Secure Sockets Layer (SSL) encryption for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96120.html)
-       * - [Settings for Secure Sockets Layer (SSL) encryption for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/229517.html)
-       * - [Settings for Secure Sockets Layer (SSL) encryption for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95715.html)
+       * >Notice: Before you call this operation, read the feature documentation to fully understand the prerequisites and impacts.</notice>
+       * - [Secure Sockets Layer (SSL) encryption settings for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/96120.html)
+       * - [Secure Sockets Layer (SSL) encryption settings for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/229517.html)
+       * - [Secure Sockets Layer (SSL) encryption settings for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/95715.html)
        *
        * @param request ModifyDBInstanceSSLRequest
        * @return ModifyDBInstanceSSLResponse
@@ -8536,10 +8534,10 @@ namespace Rds20140815
       /**
        * @summary Modifies the security group rules of an ApsaraDB RDS for SQL Server instance.
        *
-       * @description ### Applicable engine
+       * @description ### Supported engines
        * ApsaraDB RDS for SQL Server
        * ### Related documentation
-       * [Configure security group rules for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/2392322.html)
+       * [Configure security group rules for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/2392322.html)
        *
        * @param request ModifyDBInstanceSecurityGroupRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8550,10 +8548,10 @@ namespace Rds20140815
       /**
        * @summary Modifies the security group rules of an ApsaraDB RDS for SQL Server instance.
        *
-       * @description ### Applicable engine
+       * @description ### Supported engines
        * ApsaraDB RDS for SQL Server
        * ### Related documentation
-       * [Configure security group rules for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/2392322.html)
+       * [Configure security group rules for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/2392322.html)
        *
        * @param request ModifyDBInstanceSecurityGroupRuleRequest
        * @return ModifyDBInstanceSecurityGroupRuleResponse
@@ -8569,7 +8567,7 @@ namespace Rds20140815
        * - ApsaraDB RDS for SQL Server
        * - ApsaraDB RDS for MariaDB
        * ### Billing
-       * This API operation incurs [specification change fees](https://help.aliyun.com/document_detail/57178.html). Read the relevant feature documentation before you proceed.
+       * This API operation involves [specification change fees](https://help.aliyun.com/document_detail/57178.html). Read the relevant feature documentation before you proceed.
        * ### Relevant feature documentation
        * - [Change the specifications of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96061.html)
        * - [Change the specifications of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96750.html)
@@ -8591,7 +8589,7 @@ namespace Rds20140815
        * - ApsaraDB RDS for SQL Server
        * - ApsaraDB RDS for MariaDB
        * ### Billing
-       * This API operation incurs [specification change fees](https://help.aliyun.com/document_detail/57178.html). Read the relevant feature documentation before you proceed.
+       * This API operation involves [specification change fees](https://help.aliyun.com/document_detail/57178.html). Read the relevant feature documentation before you proceed.
        * ### Relevant feature documentation
        * - [Change the specifications of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96061.html)
        * - [Change the specifications of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96750.html)
@@ -8604,17 +8602,17 @@ namespace Rds20140815
       Models::ModifyDBInstanceSpecResponse modifyDBInstanceSpec(const Models::ModifyDBInstanceSpecRequest &request);
 
       /**
-       * @summary Enables or modifies the Transparent Data Encryption (TDE) feature for an ApsaraDB RDS instance.
+       * @summary Enables the transparent data encryption (TDE) feature for an ApsaraDB RDS instance and allows you to modify the encrypt status.
        *
-       * @description ### Applicable DPI engine
-       * - ApsaraDB RDS for MySQL
-       * - ApsaraDB RDS for PostgreSQL
-       * - ApsaraDB RDS for SQL Server
+       * @description ### Applicable DPI engines
+       * - RDS MySQL
+       * - RDS PostgreSQL
+       * - RDS SQL Server
        * ### Related feature documentation
-       * >Notice: Before you call this operation, read the feature documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-       * - [Settings for transparent data encryption TDE on ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/96121.html)
-       * - [Settings for transparent data encryption TDE on ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/465652.html)
-       * - [Settings for transparent data encryption TDE on ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/95716.html)
+       * >Notice: Before you call this operation, read the feature documentation to fully understand the prerequisites and impacts of the encrypt operation.
+       * - [Settings for transparent data encryption (TDE) for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/96121.html)
+       * - [Settings for transparent data encryption (TDE) for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/465652.html)
+       * - [Settings for transparent data encryption (TDE) for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/95716.html)
        *
        * @param request ModifyDBInstanceTDERequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8623,17 +8621,17 @@ namespace Rds20140815
       Models::ModifyDBInstanceTDEResponse modifyDBInstanceTDEWithOptions(const Models::ModifyDBInstanceTDERequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables or modifies the Transparent Data Encryption (TDE) feature for an ApsaraDB RDS instance.
+       * @summary Enables the transparent data encryption (TDE) feature for an ApsaraDB RDS instance and allows you to modify the encrypt status.
        *
-       * @description ### Applicable DPI engine
-       * - ApsaraDB RDS for MySQL
-       * - ApsaraDB RDS for PostgreSQL
-       * - ApsaraDB RDS for SQL Server
+       * @description ### Applicable DPI engines
+       * - RDS MySQL
+       * - RDS PostgreSQL
+       * - RDS SQL Server
        * ### Related feature documentation
-       * >Notice: Before you call this operation, read the feature documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-       * - [Settings for transparent data encryption TDE on ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/96121.html)
-       * - [Settings for transparent data encryption TDE on ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/465652.html)
-       * - [Settings for transparent data encryption TDE on ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/95716.html)
+       * >Notice: Before you call this operation, read the feature documentation to fully understand the prerequisites and impacts of the encrypt operation.
+       * - [Settings for transparent data encryption (TDE) for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/96121.html)
+       * - [Settings for transparent data encryption (TDE) for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/465652.html)
+       * - [Settings for transparent data encryption (TDE) for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/95716.html)
        *
        * @param request ModifyDBInstanceTDERequest
        * @return ModifyDBInstanceTDEResponse
@@ -8672,11 +8670,11 @@ namespace Rds20140815
       /**
        * @summary Modifies the specifications, storage type, and storage capacity of nodes in an ApsaraDB RDS for MySQL Cluster Edition instance.
        *
-       * @description ### Applicable engine
-       * - RDS MySQL
+       * @description ### Supported engines
+       * - ApsaraDB RDS for MySQL
        * ### Related documentation
        *  [Modify node configurations](https://help.aliyun.com/document_detail/2627998.html)
-       * >Warning: This API operation involves fees. Read the related documentation carefully before you perform this operation.
+       * >Warning: This API operation incurs fees. Read the related documentation carefully before you call this operation.</warning>
        *
        * @param tmpReq ModifyDBNodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8687,11 +8685,11 @@ namespace Rds20140815
       /**
        * @summary Modifies the specifications, storage type, and storage capacity of nodes in an ApsaraDB RDS for MySQL Cluster Edition instance.
        *
-       * @description ### Applicable engine
-       * - RDS MySQL
+       * @description ### Supported engines
+       * - ApsaraDB RDS for MySQL
        * ### Related documentation
        *  [Modify node configurations](https://help.aliyun.com/document_detail/2627998.html)
-       * >Warning: This API operation involves fees. Read the related documentation carefully before you perform this operation.
+       * >Warning: This API operation incurs fees. Read the related documentation carefully before you call this operation.</warning>
        *
        * @param request ModifyDBNodeRequest
        * @return ModifyDBNodeResponse
@@ -8701,14 +8699,14 @@ namespace Rds20140815
       /**
        * @summary Enables or modifies the database proxy instance feature for an ApsaraDB RDS instance.
        *
-       * @description ### Applicable engines
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * > Starting from October 17, 2023, ApsaraDB RDS for MySQL Cluster Edition instances are progressively granted a complimentary dedicated proxy service with one proxy node across regions. For details, see [ApsaraDB RDS for MySQL Cluster Edition complimentary dedicated proxy service with one proxy node](https://help.aliyun.com/document_detail/2555466.html).
+       * @description ### Supported engines
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * > Starting from October 17, 2023, ApsaraDB RDS for MySQL Cluster Edition gradually provides a free dedicated proxy service with one proxy instance across all units. For details, see [Promotion: ApsaraDB RDS for MySQL Cluster Edition provides a free dedicated proxy service with one proxy instance](https://help.aliyun.com/document_detail/2555466.html).
        * ### Related feature documentation
-       * >Notice: Before you invoke this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-       * - [Enable database proxy for RDS MySQL](https://help.aliyun.com/document_detail/197456.html)
-       * - [Enable database proxy for RDS PostgreSQL](https://help.aliyun.com/document_detail/418272.html)
+       * >Notice: Before you use this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.
+       * - [Enable the database proxy for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/197456.html)
+       * - [Enable the database proxy for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/418272.html)
        *
        * @param tmpReq ModifyDBProxyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8719,14 +8717,14 @@ namespace Rds20140815
       /**
        * @summary Enables or modifies the database proxy instance feature for an ApsaraDB RDS instance.
        *
-       * @description ### Applicable engines
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * > Starting from October 17, 2023, ApsaraDB RDS for MySQL Cluster Edition instances are progressively granted a complimentary dedicated proxy service with one proxy node across regions. For details, see [ApsaraDB RDS for MySQL Cluster Edition complimentary dedicated proxy service with one proxy node](https://help.aliyun.com/document_detail/2555466.html).
+       * @description ### Supported engines
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * > Starting from October 17, 2023, ApsaraDB RDS for MySQL Cluster Edition gradually provides a free dedicated proxy service with one proxy instance across all units. For details, see [Promotion: ApsaraDB RDS for MySQL Cluster Edition provides a free dedicated proxy service with one proxy instance](https://help.aliyun.com/document_detail/2555466.html).
        * ### Related feature documentation
-       * >Notice: Before you invoke this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-       * - [Enable database proxy for RDS MySQL](https://help.aliyun.com/document_detail/197456.html)
-       * - [Enable database proxy for RDS PostgreSQL](https://help.aliyun.com/document_detail/418272.html)
+       * >Notice: Before you use this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.
+       * - [Enable the database proxy for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/197456.html)
+       * - [Enable the database proxy for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/418272.html)
        *
        * @param request ModifyDBProxyRequest
        * @return ModifyDBProxyResponse
@@ -8734,13 +8732,13 @@ namespace Rds20140815
       Models::ModifyDBProxyResponse modifyDBProxy(const Models::ModifyDBProxyRequest &request);
 
       /**
-       * @summary Configures the access policy for a database proxy endpoint of an ApsaraDB RDS instance.
+       * @summary Configures the access policy for the database proxy endpoint of an ApsaraDB RDS instance.
        *
        * @description ### Supported database engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * ### Related feature documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, read the feature documentation carefully to fully understand the prerequisites and the impacts of this operation.
        * - [Configure the access policy for a database proxy endpoint of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/2621331.html)
        * - [Configure the access policy for a database proxy endpoint of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418273.html)
        *
@@ -8751,13 +8749,13 @@ namespace Rds20140815
       Models::ModifyDBProxyEndpointResponse modifyDBProxyEndpointWithOptions(const Models::ModifyDBProxyEndpointRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures the access policy for a database proxy endpoint of an ApsaraDB RDS instance.
+       * @summary Configures the access policy for the database proxy endpoint of an ApsaraDB RDS instance.
        *
        * @description ### Supported database engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * ### Related feature documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, read the feature documentation carefully to fully understand the prerequisites and the impacts of this operation.
        * - [Configure the access policy for a database proxy endpoint of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/2621331.html)
        * - [Configure the access policy for a database proxy endpoint of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418273.html)
        *
@@ -8772,8 +8770,8 @@ namespace Rds20140815
        * @description ### Supported database engines
        * - RDS MySQL
        * - RDS PostgreSQL
-       * ### Related feature documentation
-       * >Notice: Before calling this operation, carefully read the following documentation, make sure that you fully understand the prerequisites and impacts of this operation, and then proceed.
+       * ### Related documentation
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.</notice>
        * - [Configure the database proxy endpoint for RDS MySQL](https://help.aliyun.com/document_detail/184921.html)
        * - [Configure the database proxy endpoint for RDS PostgreSQL](https://help.aliyun.com/document_detail/418274.html)
        *
@@ -8789,8 +8787,8 @@ namespace Rds20140815
        * @description ### Supported database engines
        * - RDS MySQL
        * - RDS PostgreSQL
-       * ### Related feature documentation
-       * >Notice: Before calling this operation, carefully read the following documentation, make sure that you fully understand the prerequisites and impacts of this operation, and then proceed.
+       * ### Related documentation
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.</notice>
        * - [Configure the database proxy endpoint for RDS MySQL](https://help.aliyun.com/document_detail/184921.html)
        * - [Configure the database proxy endpoint for RDS PostgreSQL](https://help.aliyun.com/document_detail/418274.html)
        *
@@ -8803,9 +8801,9 @@ namespace Rds20140815
        * @summary Modifies the configurations of an ApsaraDB RDS database proxy instance.
        *
        * @description ### Supported engines
-       * - ApsaraDB RDS for MySQL
-       * - ApsaraDB RDS for PostgreSQL
-       * > Starting from October 17, 2023, ApsaraDB RDS for MySQL Cluster Edition progressively provides a complimentary dedicated proxy service with one proxy node across regions. For more information, see [ApsaraDB RDS for MySQL Cluster Edition complimentary dedicated proxy service with one proxy node](https://help.aliyun.com/document_detail/2555466.html).
+       * - RDS MySQL
+       * - RDS PostgreSQL
+       * > Starting from October 17, 2023, ApsaraDB RDS for MySQL Cluster Edition gradually provides a free dedicated dedicated proxy with one proxy instance across units. For more information, see [Promotion: Free dedicated dedicated proxy with one proxy instance for ApsaraDB RDS for MySQL Cluster Edition](https://help.aliyun.com/document_detail/2555466.html).
        *
        * @param tmpReq ModifyDBProxyInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8817,9 +8815,9 @@ namespace Rds20140815
        * @summary Modifies the configurations of an ApsaraDB RDS database proxy instance.
        *
        * @description ### Supported engines
-       * - ApsaraDB RDS for MySQL
-       * - ApsaraDB RDS for PostgreSQL
-       * > Starting from October 17, 2023, ApsaraDB RDS for MySQL Cluster Edition progressively provides a complimentary dedicated proxy service with one proxy node across regions. For more information, see [ApsaraDB RDS for MySQL Cluster Edition complimentary dedicated proxy service with one proxy node](https://help.aliyun.com/document_detail/2555466.html).
+       * - RDS MySQL
+       * - RDS PostgreSQL
+       * > Starting from October 17, 2023, ApsaraDB RDS for MySQL Cluster Edition gradually provides a free dedicated dedicated proxy with one proxy instance across units. For more information, see [Promotion: Free dedicated dedicated proxy with one proxy instance for ApsaraDB RDS for MySQL Cluster Edition](https://help.aliyun.com/document_detail/2555466.html).
        *
        * @param request ModifyDBProxyInstanceRequest
        * @return ModifyDBProxyInstanceResponse
@@ -8911,11 +8909,11 @@ namespace Rds20140815
       /**
        * @summary Modifies the attributes of an ApsaraDB RDS for SQL Server database.
        *
-       * @description ### Applicable engine
-       * - RDS SQL Server
+       * @description ### Supported engines
+       * - ApsaraDB RDS for SQL Server
        * ### Related feature documentation
-       * This operation supports the following features: [Modify SQL Server database attributes](https://help.aliyun.com/document_detail/2401398.html) and [Archive cloud disk data to OSS](https://help.aliyun.com/document_detail/2767189.html). Before using the data archiving to OSS feature through the API, enable the data archiving feature in the console first.
-       * >Notice: Before calling this operation, carefully read the feature documentation to fully understand the prerequisites and potential impacts, and then proceed.
+       * The features supported by this operation include [Modifying the attributes of an SQL Server database](https://help.aliyun.com/document_detail/2401398.html) and [Archiving cloud disk data to OSS](https://help.aliyun.com/document_detail/2767189.html). Before you use the data archiving to OSS feature by calling this API operation, you must enable the data archiving feature in the console.
+       * >Notice: Before you call this API operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.
        *
        * @param request ModifyDatabaseConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8926,11 +8924,11 @@ namespace Rds20140815
       /**
        * @summary Modifies the attributes of an ApsaraDB RDS for SQL Server database.
        *
-       * @description ### Applicable engine
-       * - RDS SQL Server
+       * @description ### Supported engines
+       * - ApsaraDB RDS for SQL Server
        * ### Related feature documentation
-       * This operation supports the following features: [Modify SQL Server database attributes](https://help.aliyun.com/document_detail/2401398.html) and [Archive cloud disk data to OSS](https://help.aliyun.com/document_detail/2767189.html). Before using the data archiving to OSS feature through the API, enable the data archiving feature in the console first.
-       * >Notice: Before calling this operation, carefully read the feature documentation to fully understand the prerequisites and potential impacts, and then proceed.
+       * The features supported by this operation include [Modifying the attributes of an SQL Server database](https://help.aliyun.com/document_detail/2401398.html) and [Archiving cloud disk data to OSS](https://help.aliyun.com/document_detail/2767189.html). Before you use the data archiving to OSS feature by calling this API operation, you must enable the data archiving feature in the console.
+       * >Notice: Before you call this API operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.
        *
        * @param request ModifyDatabaseConfigRequest
        * @return ModifyDatabaseConfigResponse
@@ -8938,13 +8936,13 @@ namespace Rds20140815
       Models::ModifyDatabaseConfigResponse modifyDatabaseConfig(const Models::ModifyDatabaseConfigRequest &request);
 
       /**
-       * @summary Sets SSL encryption for a database proxy endpoint of an ApsaraDB RDS for MySQL database.
+       * @summary Configures Secure Sockets Layer (SSL) encryption for the database proxy endpoint of an ApsaraDB RDS for MySQL instance.
        *
-       * @description ### Applicable engine
+       * @description ### Supported engines
        * ApsaraDB RDS for MySQL
-       * ### Related feature documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-       * [Settings for database proxy SSL encryption of an ApsaraDB RDS for MySQL database](https://help.aliyun.com/document_detail/188164.html)
+       * ### Related documentation
+       * >Notice: Before you call this operation, read the feature documentation to ensure that you fully understand the prerequisites and impacts.</notice>
+       * [Configure Secure Sockets Layer (SSL) encryption for the database proxy of ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/188164.html)
        *
        * @param request ModifyDbProxyInstanceSslRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8953,13 +8951,13 @@ namespace Rds20140815
       Models::ModifyDbProxyInstanceSslResponse modifyDbProxyInstanceSslWithOptions(const Models::ModifyDbProxyInstanceSslRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sets SSL encryption for a database proxy endpoint of an ApsaraDB RDS for MySQL database.
+       * @summary Configures Secure Sockets Layer (SSL) encryption for the database proxy endpoint of an ApsaraDB RDS for MySQL instance.
        *
-       * @description ### Applicable engine
+       * @description ### Supported engines
        * ApsaraDB RDS for MySQL
-       * ### Related feature documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-       * [Settings for database proxy SSL encryption of an ApsaraDB RDS for MySQL database](https://help.aliyun.com/document_detail/188164.html)
+       * ### Related documentation
+       * >Notice: Before you call this operation, read the feature documentation to ensure that you fully understand the prerequisites and impacts.</notice>
+       * [Configure Secure Sockets Layer (SSL) encryption for the database proxy of ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/188164.html)
        *
        * @param request ModifyDbProxyInstanceSslRequest
        * @return ModifyDbProxyInstanceSslResponse
@@ -8967,7 +8965,7 @@ namespace Rds20140815
       Models::ModifyDbProxyInstanceSslResponse modifyDbProxyInstanceSsl(const Models::ModifyDbProxyInstanceSslRequest &request);
 
       /**
-       * @summary Modifies event information in Event Center.
+       * @summary Modifies the event information in the event center.
        *
        * @param request ModifyEventInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8976,7 +8974,7 @@ namespace Rds20140815
       Models::ModifyEventInfoResponse modifyEventInfoWithOptions(const Models::ModifyEventInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies event information in Event Center.
+       * @summary Modifies the event information in the event center.
        *
        * @param request ModifyEventInfoRequest
        * @return ModifyEventInfoResponse
@@ -8984,16 +8982,16 @@ namespace Rds20140815
       Models::ModifyEventInfoResponse modifyEventInfo(const Models::ModifyEventInfoRequest &request);
 
       /**
-       * @summary Modifies the availability detection method of an ApsaraDB RDS instance.
+       * @summary Modifies the availability check method of an ApsaraDB RDS instance.
        *
-       * @description ### Applicable engines
+       * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * - ApsaraDB RDS for MariaDB
        * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-       * [What is the availability detection method](https://help.aliyun.com/document_detail/207467.html).
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and impacts.
+       * [What is the availability check method?](https://help.aliyun.com/document_detail/207467.html).
        *
        * @param request ModifyHADiagnoseConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9002,16 +9000,16 @@ namespace Rds20140815
       Models::ModifyHADiagnoseConfigResponse modifyHADiagnoseConfigWithOptions(const Models::ModifyHADiagnoseConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the availability detection method of an ApsaraDB RDS instance.
+       * @summary Modifies the availability check method of an ApsaraDB RDS instance.
        *
-       * @description ### Applicable engines
+       * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * - ApsaraDB RDS for MariaDB
        * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-       * [What is the availability detection method](https://help.aliyun.com/document_detail/207467.html).
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and impacts.
+       * [What is the availability check method?](https://help.aliyun.com/document_detail/207467.html).
        *
        * @param request ModifyHADiagnoseConfigRequest
        * @return ModifyHADiagnoseConfigResponse
@@ -9083,17 +9081,17 @@ namespace Rds20140815
       /**
        * @summary Modifies the auto-renewal configuration of an ApsaraDB RDS instance.
        *
-       * @description ### Supported engines
+       * @description ### Applicable engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * - ApsaraDB RDS for MariaDB
-       * ### Related documentation
-       * >Warning: This API operation involves fees. Read the related documentation carefully before you perform this operation.
-       * - [Auto-renewal of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96049.html)
-       * - [Auto-renewal of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96740.html)
-       * - [Auto-renewal of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95635.html)
-       * - [Auto-renewal of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97121.html)
+       * ### Related feature documentation
+       * >Warning: This API operation involves fees. Read the related feature documentation carefully before you perform this operation.
+       * - [Auto-renewal for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/96049.html)
+       * - [Auto-renewal for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/96740.html)
+       * - [Auto-renewal for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/95635.html)
+       * - [Auto-renewal for ApsaraDB RDS for MariaDB](https://help.aliyun.com/document_detail/97121.html)
        *
        * @param request ModifyInstanceAutoRenewalAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9104,17 +9102,17 @@ namespace Rds20140815
       /**
        * @summary Modifies the auto-renewal configuration of an ApsaraDB RDS instance.
        *
-       * @description ### Supported engines
+       * @description ### Applicable engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * - ApsaraDB RDS for MariaDB
-       * ### Related documentation
-       * >Warning: This API operation involves fees. Read the related documentation carefully before you perform this operation.
-       * - [Auto-renewal of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96049.html)
-       * - [Auto-renewal of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96740.html)
-       * - [Auto-renewal of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95635.html)
-       * - [Auto-renewal of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97121.html)
+       * ### Related feature documentation
+       * >Warning: This API operation involves fees. Read the related feature documentation carefully before you perform this operation.
+       * - [Auto-renewal for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/96049.html)
+       * - [Auto-renewal for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/96740.html)
+       * - [Auto-renewal for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/95635.html)
+       * - [Auto-renewal for ApsaraDB RDS for MariaDB](https://help.aliyun.com/document_detail/97121.html)
        *
        * @param request ModifyInstanceAutoRenewalAttributeRequest
        * @return ModifyInstanceAutoRenewalAttributeResponse
@@ -9124,12 +9122,12 @@ namespace Rds20140815
       /**
        * @summary Modifies the cross-region backup settings of an ApsaraDB RDS instance.
        *
-       * @description ### Supported engines
+       * @description ### Supported database engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and impacts of this operation.</notice>
        * - [Cross-region backup for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/120824.html)
        * - [Cross-region backup for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/206671.html)
        * - [Cross-region backup for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/187923.html)
@@ -9143,12 +9141,12 @@ namespace Rds20140815
       /**
        * @summary Modifies the cross-region backup settings of an ApsaraDB RDS instance.
        *
-       * @description ### Supported engines
+       * @description ### Supported database engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and impacts of this operation.</notice>
        * - [Cross-region backup for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/120824.html)
        * - [Cross-region backup for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/206671.html)
        * - [Cross-region backup for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/187923.html)
@@ -9159,11 +9157,11 @@ namespace Rds20140815
       Models::ModifyInstanceCrossBackupPolicyResponse modifyInstanceCrossBackupPolicy(const Models::ModifyInstanceCrossBackupPolicyRequest &request);
 
       /**
-       * @summary Modifies the encryption or masking rule of a specified instance.
+       * @summary Modifies the encryption or masking rules for a specified instance.
        *
        * @description ## Request description
-       * - Before invoking this operation, make sure that the column encryption service is activated in DAS Security Center.
-       * - If you receive the fault message ColumnEncryptionErrorCode.NOT_PURCHASED when you invoke this operation, go to Database Autonomy Service (DAS) Security Center to purchase and activate the column encryption service before trying again.
+       * - Before you invoke this operation, make sure that the Cloud Hardware Security Module (CloudHSM) column encryption feature is enabled in the DAS Security Center.
+       * - If you receive the error message ColumnEncryptionErrorCode.NOT_PURCHASED when invoking this operation, go to the Database Autonomy Service (DAS) Security Center to purchase and enable the Cloud Hardware Security Module (CloudHSM) column encryption feature.
        *
        * @param tmpReq ModifyMaskingRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9172,11 +9170,11 @@ namespace Rds20140815
       Models::ModifyMaskingRulesResponse modifyMaskingRulesWithOptions(const Models::ModifyMaskingRulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the encryption or masking rule of a specified instance.
+       * @summary Modifies the encryption or masking rules for a specified instance.
        *
        * @description ## Request description
-       * - Before invoking this operation, make sure that the column encryption service is activated in DAS Security Center.
-       * - If you receive the fault message ColumnEncryptionErrorCode.NOT_PURCHASED when you invoke this operation, go to Database Autonomy Service (DAS) Security Center to purchase and activate the column encryption service before trying again.
+       * - Before you invoke this operation, make sure that the Cloud Hardware Security Module (CloudHSM) column encryption feature is enabled in the DAS Security Center.
+       * - If you receive the error message ColumnEncryptionErrorCode.NOT_PURCHASED when invoking this operation, go to the Database Autonomy Service (DAS) Security Center to purchase and enable the Cloud Hardware Security Module (CloudHSM) column encryption feature.
        *
        * @param request ModifyMaskingRulesRequest
        * @return ModifyMaskingRulesResponse
@@ -9275,15 +9273,15 @@ namespace Rds20140815
       Models::ModifyParameterGroupResponse modifyParameterGroup(const Models::ModifyParameterGroupRequest &request);
 
       /**
-       * @summary Modifies the effective period in a scheduled node for parameter modification.
+       * @summary Modifies the effective time of a scheduled parameter modification task.
        *
-       * @description ### Supported engines
+       * @description ### Applicable engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
-       * ### Related feature documentation
-       * >Notice: Before you call this operation, carefully read the feature documentation to fully understand the prerequisites and impacts of calling this operation.
-       * - [Set instance parameters for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/96063.html)
-       * - [Set instance parameters for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/96751.html)
+       * ### Related documentation
+       * >Notice: Before you call this operation, read the feature documentation to fully understand the prerequisites and impacts.
+       * - [Set the parameters of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96063.html)
+       * - [Set the parameters of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96751.html)
        *
        * @param request ModifyParameterTimedScheduleTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9292,15 +9290,15 @@ namespace Rds20140815
       Models::ModifyParameterTimedScheduleTaskResponse modifyParameterTimedScheduleTaskWithOptions(const Models::ModifyParameterTimedScheduleTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the effective period in a scheduled node for parameter modification.
+       * @summary Modifies the effective time of a scheduled parameter modification task.
        *
-       * @description ### Supported engines
+       * @description ### Applicable engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
-       * ### Related feature documentation
-       * >Notice: Before you call this operation, carefully read the feature documentation to fully understand the prerequisites and impacts of calling this operation.
-       * - [Set instance parameters for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/96063.html)
-       * - [Set instance parameters for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/96751.html)
+       * ### Related documentation
+       * >Notice: Before you call this operation, read the feature documentation to fully understand the prerequisites and impacts.
+       * - [Set the parameters of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96063.html)
+       * - [Set the parameters of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96751.html)
        *
        * @param request ModifyParameterTimedScheduleTaskRequest
        * @return ModifyParameterTimedScheduleTaskResponse
@@ -9325,9 +9323,9 @@ namespace Rds20140815
       Models::ModifyRCDeploymentSetAttributeResponse modifyRCDeploymentSetAttribute(const Models::ModifyRCDeploymentSetAttributeRequest &request);
 
       /**
-       * @summary Modifies the name, description, release behavior, automatic snapshot deletion behavior, automatic snapshot policy, performance burst settings, and other attributes of a block storage device.
+       * @summary Modifies the attributes of a block storage device, such as the name, description, release behavior with the instance, automatic snapshot deletion behavior with the disk, automatic snapshot policy, and performance burst feature.
        *
-       * @description You can call this operation with the DiskId parameter to modify the name, description, release behavior, and other attributes of a block storage device.
+       * @description You can specify the DiskId parameter to modify the attributes of a block storage device, such as the name, description, and release behavior with the instance.
        *
        * @param request ModifyRCDiskAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9336,9 +9334,9 @@ namespace Rds20140815
       Models::ModifyRCDiskAttributeResponse modifyRCDiskAttributeWithOptions(const Models::ModifyRCDiskAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the name, description, release behavior, automatic snapshot deletion behavior, automatic snapshot policy, performance burst settings, and other attributes of a block storage device.
+       * @summary Modifies the attributes of a block storage device, such as the name, description, release behavior with the instance, automatic snapshot deletion behavior with the disk, automatic snapshot policy, and performance burst feature.
        *
-       * @description You can call this operation with the DiskId parameter to modify the name, description, release behavior, and other attributes of a block storage device.
+       * @description You can specify the DiskId parameter to modify the attributes of a block storage device, such as the name, description, and release behavior with the instance.
        *
        * @param request ModifyRCDiskAttributeRequest
        * @return ModifyRCDiskAttributeResponse
@@ -9363,14 +9361,14 @@ namespace Rds20140815
       Models::ModifyRCDiskChargeTypeResponse modifyRCDiskChargeType(const Models::ModifyRCDiskChargeTypeRequest &request);
 
       /**
-       * @summary Changes the cloud disk type or performance level (PL) of an RDS Custom instance.
+       * @summary Modifies the cloud disk category or performance level (PL) of an ApsaraDB RDS Custom instance.
        *
-       * @description >Notice: To minimize the impact of Upgrade/Downgrade operations on your business, perform this operation during off-peak hours.
+       * @description >Notice: To minimize the impact on your business, perform Upgrade/Downgrade operations during off-peak hours.
        * When you invoke this operation, take note of the following items:
-       * - ESSD cloud disks support upgrading and lowering performance levels (PLs), but you cannot decrease the quota to PL0.
+       * - ESSD cloud disks support upgrading and downgrading performance levels, but do not support downgrading to PL0.
        * - The ESSD cloud disk must be in the In_Use or Available state.
-       * - If the ESSD cloud disk is mounted to an instance, the instance must be in the Running or Stopped state and cannot have an overdue payment or be expired.
-       * - Because the performance level (PL) of an ESSD cloud disk is limited by its capacity, if you cannot upgrade the performance level (PL), expand the disk capacity and try again.
+       * - If the ESSD cloud disk is mounted to an instance, the instance must be in the Running or Stopped state. The instance cannot be expired or have an overdue payment.
+       * - The performance level of an ESSD cloud disk is limited by its capacity. If you cannot upgrade the performance level, expand the capacity and try again.
        *
        * @param request ModifyRCDiskSpecRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9379,14 +9377,14 @@ namespace Rds20140815
       Models::ModifyRCDiskSpecResponse modifyRCDiskSpecWithOptions(const Models::ModifyRCDiskSpecRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the cloud disk type or performance level (PL) of an RDS Custom instance.
+       * @summary Modifies the cloud disk category or performance level (PL) of an ApsaraDB RDS Custom instance.
        *
-       * @description >Notice: To minimize the impact of Upgrade/Downgrade operations on your business, perform this operation during off-peak hours.
+       * @description >Notice: To minimize the impact on your business, perform Upgrade/Downgrade operations during off-peak hours.
        * When you invoke this operation, take note of the following items:
-       * - ESSD cloud disks support upgrading and lowering performance levels (PLs), but you cannot decrease the quota to PL0.
+       * - ESSD cloud disks support upgrading and downgrading performance levels, but do not support downgrading to PL0.
        * - The ESSD cloud disk must be in the In_Use or Available state.
-       * - If the ESSD cloud disk is mounted to an instance, the instance must be in the Running or Stopped state and cannot have an overdue payment or be expired.
-       * - Because the performance level (PL) of an ESSD cloud disk is limited by its capacity, if you cannot upgrade the performance level (PL), expand the disk capacity and try again.
+       * - If the ESSD cloud disk is mounted to an instance, the instance must be in the Running or Stopped state. The instance cannot be expired or have an overdue payment.
+       * - The performance level of an ESSD cloud disk is limited by its capacity. If you cannot upgrade the performance level, expand the capacity and try again.
        *
        * @param request ModifyRCDiskSpecRequest
        * @return ModifyRCDiskSpecResponse
@@ -9463,13 +9461,13 @@ namespace Rds20140815
       Models::ModifyRCInstanceAttributeResponse modifyRCInstanceAttribute(const Models::ModifyRCInstanceAttributeRequest &request);
 
       /**
-       * @summary Modifies the billing method of an RDS Custom instance or a cloud disk. You can use this operation to switch between pay-as-you-go instances and subscription instances.
+       * @summary Modifies the billing method of an RDS Custom instance or a cloud disk. You can use this operation to convert a pay-as-you-go instance to a subscription instance and vice versa.
        *
        * @description ### Precautions
-       * - Before you call this operation, make sure that you fully understand the subscription and pay-as-you-go billing methods and pricing of RDS Custom.
-       * - Make sure that the target instance is in the **Running** or **Stopped** state and that your account does not have an overdue payment.
-       * - Make sure that the cloud disk is in the **In_use** state and that the billing method of the cloud disk has not been successfully changed within the last 15 minutes.
-       * - After the billing method is changed, fees are automatically deducted by default. Make sure that your account balance is sufficient. Otherwise, an abnormal order is generated, and you can only void the order.
+       * - Before you call this operation, make sure that you fully understand the billing methods and pricing of RDS Custom, including subscription and pay-as-you-go.
+       * - Make sure that the target instance is in the **Running** or **Stopped** state and your account has no overdue payments.
+       * - Make sure that the cloud disk is in the **In_use** state and its billing method has not been modified in the last 15 minutes.
+       * - After you change the billing method, fees are automatically deducted by default. Make sure that your account balance is sufficient. Otherwise, an abnormal order is generated and can only be canceled.
        * ### Before you begin
        * Refer to the corresponding feature documentation:
        * - [Change the billing method of an instance](https://help.aliyun.com/document_detail/2878542.html)
@@ -9482,13 +9480,13 @@ namespace Rds20140815
       Models::ModifyRCInstanceChargeTypeResponse modifyRCInstanceChargeTypeWithOptions(const Models::ModifyRCInstanceChargeTypeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the billing method of an RDS Custom instance or a cloud disk. You can use this operation to switch between pay-as-you-go instances and subscription instances.
+       * @summary Modifies the billing method of an RDS Custom instance or a cloud disk. You can use this operation to convert a pay-as-you-go instance to a subscription instance and vice versa.
        *
        * @description ### Precautions
-       * - Before you call this operation, make sure that you fully understand the subscription and pay-as-you-go billing methods and pricing of RDS Custom.
-       * - Make sure that the target instance is in the **Running** or **Stopped** state and that your account does not have an overdue payment.
-       * - Make sure that the cloud disk is in the **In_use** state and that the billing method of the cloud disk has not been successfully changed within the last 15 minutes.
-       * - After the billing method is changed, fees are automatically deducted by default. Make sure that your account balance is sufficient. Otherwise, an abnormal order is generated, and you can only void the order.
+       * - Before you call this operation, make sure that you fully understand the billing methods and pricing of RDS Custom, including subscription and pay-as-you-go.
+       * - Make sure that the target instance is in the **Running** or **Stopped** state and your account has no overdue payments.
+       * - Make sure that the cloud disk is in the **In_use** state and its billing method has not been modified in the last 15 minutes.
+       * - After you change the billing method, fees are automatically deducted by default. Make sure that your account balance is sufficient. Otherwise, an abnormal order is generated and can only be canceled.
        * ### Before you begin
        * Refer to the corresponding feature documentation:
        * - [Change the billing method of an instance](https://help.aliyun.com/document_detail/2878542.html)
@@ -9602,19 +9600,19 @@ namespace Rds20140815
       Models::ModifyRCVClusterResponse modifyRCVCluster(const Models::ModifyRCVClusterRequest &request);
 
       /**
-       * @summary Modifies the latency threshold and read weights of instances on a read/write splitting link.
+       * @summary Modifies the latency threshold of a read/write splitting link and the read weights of instances.
        *
-       * @description ### Applicable engines
-       * - RDS MySQL
-       * - RDS SQL Server
+       * @description ### Supported engines
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for SQL Server
        * ### Before you begin
-       * The instance must meet the following conditions when you invoke this operation. Otherwise, the operation fails:
+       * When you call this operation, the instance must meet the following conditions. Otherwise, the operation fails:
        * * The MySQL instance uses a shared database proxy.
        * * Read/write splitting is enabled for the MySQL instance.
-       * * The instance runs one of the following versions:
-       *     * MySQL 5.7 high-availability series (local SSDs)
+       * * The instance runs one of the following editions:
+       *     * MySQL 5.7 high availability series (with local SSDs)
        *     * MySQL 5.6
-       *     * SQL Server on RDS Cluster Edition
+       *     * SQL Server Cluster Edition
        *
        * @param request ModifyReadWriteSplittingConnectionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9623,19 +9621,19 @@ namespace Rds20140815
       Models::ModifyReadWriteSplittingConnectionResponse modifyReadWriteSplittingConnectionWithOptions(const Models::ModifyReadWriteSplittingConnectionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the latency threshold and read weights of instances on a read/write splitting link.
+       * @summary Modifies the latency threshold of a read/write splitting link and the read weights of instances.
        *
-       * @description ### Applicable engines
-       * - RDS MySQL
-       * - RDS SQL Server
+       * @description ### Supported engines
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for SQL Server
        * ### Before you begin
-       * The instance must meet the following conditions when you invoke this operation. Otherwise, the operation fails:
+       * When you call this operation, the instance must meet the following conditions. Otherwise, the operation fails:
        * * The MySQL instance uses a shared database proxy.
        * * Read/write splitting is enabled for the MySQL instance.
-       * * The instance runs one of the following versions:
-       *     * MySQL 5.7 high-availability series (local SSDs)
+       * * The instance runs one of the following editions:
+       *     * MySQL 5.7 high availability series (with local SSDs)
        *     * MySQL 5.6
-       *     * SQL Server on RDS Cluster Edition
+       *     * SQL Server Cluster Edition
        *
        * @param request ModifyReadWriteSplittingConnectionRequest
        * @return ModifyReadWriteSplittingConnectionResponse
@@ -9707,9 +9705,9 @@ namespace Rds20140815
       Models::ModifyResourceGroupResponse modifyResourceGroup(const Models::ModifyResourceGroupRequest &request);
 
       /**
-       * @summary Enables or disables the SQL Explorer (SQL Audit) feature for an instance. This operation is no longer maintained but can still be called.
+       * @summary Enables or disables the SQL Explorer (SQL Audit) feature for an instance. This operation is deprecated. You can still call this operation, but it is no longer maintained.
        *
-       * @description This operation is no longer maintained. You can still call this operation, but Alibaba Cloud no longer maintains it. Use the [ModifySqlLogConfig](https://help.aliyun.com/document_detail/2778835.html) operation instead.
+       * @description This operation is deprecated. You can still call this operation, but Alibaba Cloud no longer maintains it. Use the [ModifySqlLogConfig](https://help.aliyun.com/document_detail/2778835.html) operation instead.
        *
        * @param request ModifySQLCollectorPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9718,9 +9716,9 @@ namespace Rds20140815
       Models::ModifySQLCollectorPolicyResponse modifySQLCollectorPolicyWithOptions(const Models::ModifySQLCollectorPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables or disables the SQL Explorer (SQL Audit) feature for an instance. This operation is no longer maintained but can still be called.
+       * @summary Enables or disables the SQL Explorer (SQL Audit) feature for an instance. This operation is deprecated. You can still call this operation, but it is no longer maintained.
        *
-       * @description This operation is no longer maintained. You can still call this operation, but Alibaba Cloud no longer maintains it. Use the [ModifySqlLogConfig](https://help.aliyun.com/document_detail/2778835.html) operation instead.
+       * @description This operation is deprecated. You can still call this operation, but Alibaba Cloud no longer maintains it. Use the [ModifySqlLogConfig](https://help.aliyun.com/document_detail/2778835.html) operation instead.
        *
        * @param request ModifySQLCollectorPolicyRequest
        * @return ModifySQLCollectorPolicyResponse
@@ -9728,9 +9726,9 @@ namespace Rds20140815
       Models::ModifySQLCollectorPolicyResponse modifySQLCollectorPolicy(const Models::ModifySQLCollectorPolicyRequest &request);
 
       /**
-       * @summary No longer maintained: can be invoked normally but is no longer maintained. Modifies the log retention period of SQL Explorer for an ApsaraDB RDS instance.
+       * @summary Modifies the log retention period of SQL Explorer for an ApsaraDB RDS instance. This operation is deprecated and no longer maintained, but can still be invoked normally.
        *
-       * @description This operation is no longer maintained: the operation can still be called normally, but Alibaba Cloud no longer maintains it. Use the [ModifySqlLogConfig](https://help.aliyun.com/document_detail/2778835.html) operation instead.
+       * @description This operation is deprecated and no longer maintained by Alibaba Cloud, but remains available for use. Use the [ModifySqlLogConfig](https://help.aliyun.com/document_detail/2778835.html) operation instead.
        *
        * @param request ModifySQLCollectorRetentionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9739,9 +9737,9 @@ namespace Rds20140815
       Models::ModifySQLCollectorRetentionResponse modifySQLCollectorRetentionWithOptions(const Models::ModifySQLCollectorRetentionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary No longer maintained: can be invoked normally but is no longer maintained. Modifies the log retention period of SQL Explorer for an ApsaraDB RDS instance.
+       * @summary Modifies the log retention period of SQL Explorer for an ApsaraDB RDS instance. This operation is deprecated and no longer maintained, but can still be invoked normally.
        *
-       * @description This operation is no longer maintained: the operation can still be called normally, but Alibaba Cloud no longer maintains it. Use the [ModifySqlLogConfig](https://help.aliyun.com/document_detail/2778835.html) operation instead.
+       * @description This operation is deprecated and no longer maintained by Alibaba Cloud, but remains available for use. Use the [ModifySqlLogConfig](https://help.aliyun.com/document_detail/2778835.html) operation instead.
        *
        * @param request ModifySQLCollectorRetentionRequest
        * @return ModifySQLCollectorRetentionResponse
@@ -9786,19 +9784,19 @@ namespace Rds20140815
       Models::ModifySecurityGroupConfigurationResponse modifySecurityGroupConfiguration(const Models::ModifySecurityGroupConfigurationRequest &request);
 
       /**
-       * @summary Modifies the IP whitelist configuration of a specified ApsaraDB RDS instance. Three modification modes are supported: overwrite, append, and delete.
+       * @summary Modifies the IP address whitelist configuration of a specified ApsaraDB RDS instance. This operation supports three modification modes: overwrite, append, and delete.
        *
        * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * - ApsaraDB RDS for MariaDB
-       * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-       * - [Configure an IP whitelist for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96118.html)
-       * - [Configure an IP whitelist for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/43187.html)
-       * - [Configure an IP whitelist for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/43186.html)
-       * - [Configure an IP whitelist for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/90336.html)
+       * ### Related feature documentation
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of this operation.
+       * - [Configure an IP address whitelist for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96118.html)
+       * - [Configure an IP address whitelist for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/43187.html)
+       * - [Configure an IP address whitelist for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/43186.html)
+       * - [Configure an IP address whitelist for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/90336.html)
        *
        * @param request ModifySecurityIpsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9807,19 +9805,19 @@ namespace Rds20140815
       Models::ModifySecurityIpsResponse modifySecurityIpsWithOptions(const Models::ModifySecurityIpsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the IP whitelist configuration of a specified ApsaraDB RDS instance. Three modification modes are supported: overwrite, append, and delete.
+       * @summary Modifies the IP address whitelist configuration of a specified ApsaraDB RDS instance. This operation supports three modification modes: overwrite, append, and delete.
        *
        * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * - ApsaraDB RDS for MariaDB
-       * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-       * - [Configure an IP whitelist for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96118.html)
-       * - [Configure an IP whitelist for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/43187.html)
-       * - [Configure an IP whitelist for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/43186.html)
-       * - [Configure an IP whitelist for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/90336.html)
+       * ### Related feature documentation
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of this operation.
+       * - [Configure an IP address whitelist for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96118.html)
+       * - [Configure an IP address whitelist for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/43187.html)
+       * - [Configure an IP address whitelist for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/43186.html)
+       * - [Configure an IP address whitelist for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/90336.html)
        *
        * @param request ModifySecurityIpsRequest
        * @return ModifySecurityIpsResponse
@@ -9827,7 +9825,7 @@ namespace Rds20140815
       Models::ModifySecurityIpsResponse modifySecurityIps(const Models::ModifySecurityIpsRequest &request);
 
       /**
-       * @summary Modifies the information of a historical task in the task center.
+       * @summary Modifies the historical task information in the task center.
        *
        * @param request ModifyTaskInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9836,7 +9834,7 @@ namespace Rds20140815
       Models::ModifyTaskInfoResponse modifyTaskInfoWithOptions(const Models::ModifyTaskInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the information of a historical task in the task center.
+       * @summary Modifies the historical task information in the task center.
        *
        * @param request ModifyTaskInfoRequest
        * @return ModifyTaskInfoResponse
@@ -9844,12 +9842,12 @@ namespace Rds20140815
       Models::ModifyTaskInfoResponse modifyTaskInfo(const Models::ModifyTaskInfoRequest &request);
 
       /**
-       * @summary Edits a whitelist template, including creating, modifying, or deleting a whitelist template.
+       * @summary Edits a whitelist template, including creating, modifying, and deleting whitelist templates.
        *
-       * @description ### Applicable engines
-       * - ApsaraDB RDS for MySQL
-       * - ApsaraDB RDS for PostgreSQL
-       * - ApsaraDB RDS for SQL Server
+       * @description ### Supported engines
+       * - RDS MySQL
+       * - RDS PostgreSQL
+       * - RDS SQL Server
        *
        * @param request ModifyWhitelistTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9858,12 +9856,12 @@ namespace Rds20140815
       Models::ModifyWhitelistTemplateResponse modifyWhitelistTemplateWithOptions(const Models::ModifyWhitelistTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Edits a whitelist template, including creating, modifying, or deleting a whitelist template.
+       * @summary Edits a whitelist template, including creating, modifying, and deleting whitelist templates.
        *
-       * @description ### Applicable engines
-       * - ApsaraDB RDS for MySQL
-       * - ApsaraDB RDS for PostgreSQL
-       * - ApsaraDB RDS for SQL Server
+       * @description ### Supported engines
+       * - RDS MySQL
+       * - RDS PostgreSQL
+       * - RDS SQL Server
        *
        * @param request ModifyWhitelistTemplateRequest
        * @return ModifyWhitelistTemplateResponse
@@ -9871,7 +9869,7 @@ namespace Rds20140815
       Models::ModifyWhitelistTemplateResponse modifyWhitelistTemplate(const Models::ModifyWhitelistTemplateRequest &request);
 
       /**
-       * @summary Performs a precheck for a delete node order.
+       * @summary Performs a pre-check for creating an order to delete a node.
        *
        * @param tmpReq PreCheckCreateOrderForDeleteDBNodesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9880,7 +9878,7 @@ namespace Rds20140815
       Models::PreCheckCreateOrderForDeleteDBNodesResponse preCheckCreateOrderForDeleteDBNodesWithOptions(const Models::PreCheckCreateOrderForDeleteDBNodesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a precheck for a delete node order.
+       * @summary Performs a pre-check for creating an order to delete a node.
        *
        * @param request PreCheckCreateOrderForDeleteDBNodesRequest
        * @return PreCheckCreateOrderForDeleteDBNodesResponse
@@ -9888,11 +9886,11 @@ namespace Rds20140815
       Models::PreCheckCreateOrderForDeleteDBNodesResponse preCheckCreateOrderForDeleteDBNodes(const Models::PreCheckCreateOrderForDeleteDBNodesRequest &request);
 
       /**
-       * @summary Checks whether an ApsaraDB RDS for PostgreSQL primary instance meets the prerequisites for creating a DuckDB-based analytical instance. For conditions that are not met, the operation returns the failure reasons and provides solutions or recommended target values.
+       * @summary Checks whether an ApsaraDB RDS for PostgreSQL primary instance meets the prerequisites for creating a DuckDB-based analytical instance. For conditions that are not met, it returns the failure reasons and provides solutions or recommended target values.
        *
        * @description ### Applicable engine
        * ApsaraDB RDS for PostgreSQL
-       * ### Related documentation
+       * ### Related feature documentation
        * [DuckDB-based analytical instance](https://help.aliyun.com/document_detail/2977241.html)
        *
        * @param request PrecheckDuckDBDependencyRequest
@@ -9902,11 +9900,11 @@ namespace Rds20140815
       Models::PrecheckDuckDBDependencyResponse precheckDuckDBDependencyWithOptions(const Models::PrecheckDuckDBDependencyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Checks whether an ApsaraDB RDS for PostgreSQL primary instance meets the prerequisites for creating a DuckDB-based analytical instance. For conditions that are not met, the operation returns the failure reasons and provides solutions or recommended target values.
+       * @summary Checks whether an ApsaraDB RDS for PostgreSQL primary instance meets the prerequisites for creating a DuckDB-based analytical instance. For conditions that are not met, it returns the failure reasons and provides solutions or recommended target values.
        *
        * @description ### Applicable engine
        * ApsaraDB RDS for PostgreSQL
-       * ### Related documentation
+       * ### Related feature documentation
        * [DuckDB-based analytical instance](https://help.aliyun.com/document_detail/2977241.html)
        *
        * @param request PrecheckDuckDBDependencyRequest
@@ -9954,16 +9952,16 @@ namespace Rds20140815
       Models::PurgeDBInstanceLogResponse purgeDBInstanceLog(const Models::PurgeDBInstanceLogRequest &request);
 
       /**
-       * @summary Queries notifications for ApsaraDB RDS.
+       * @summary Queries ApsaraDB RDS notifications.
        *
        * @description ### Supported engines
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * - RDS SQL Server
-       * - RDS MariaDB
-       * ### Description
-       * ApsaraDB RDS notifications are displayed in a highlighted banner at the top of the ApsaraDB RDS console. Notifications include renewal reminders and instance creation failure alerts.
-       * After you query notifications by calling this operation, you can call [ConfirmNotify](https://help.aliyun.com/document_detail/610444.html) to mark a notification as confirmed, which indicates that you have acknowledged the notification.
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * - ApsaraDB RDS for SQL Server
+       * - ApsaraDB RDS for MariaDB
+       * ### Feature description
+       * ApsaraDB RDS notifications are highlighted at the top of the ApsaraDB RDS console. These notifications include renewal reminders and instance creation failure reminders.
+       * After you query notifications by calling this operation, you can call the [ConfirmNotify](https://help.aliyun.com/document_detail/610444.html) operation to mark a notification as confirmed. This indicates that you have acknowledged the content of the notification.
        *
        * @param request QueryNotifyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9972,16 +9970,16 @@ namespace Rds20140815
       Models::QueryNotifyResponse queryNotifyWithOptions(const Models::QueryNotifyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries notifications for ApsaraDB RDS.
+       * @summary Queries ApsaraDB RDS notifications.
        *
        * @description ### Supported engines
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * - RDS SQL Server
-       * - RDS MariaDB
-       * ### Description
-       * ApsaraDB RDS notifications are displayed in a highlighted banner at the top of the ApsaraDB RDS console. Notifications include renewal reminders and instance creation failure alerts.
-       * After you query notifications by calling this operation, you can call [ConfirmNotify](https://help.aliyun.com/document_detail/610444.html) to mark a notification as confirmed, which indicates that you have acknowledged the notification.
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * - ApsaraDB RDS for SQL Server
+       * - ApsaraDB RDS for MariaDB
+       * ### Feature description
+       * ApsaraDB RDS notifications are highlighted at the top of the ApsaraDB RDS console. These notifications include renewal reminders and instance creation failure reminders.
+       * After you query notifications by calling this operation, you can call the [ConfirmNotify](https://help.aliyun.com/document_detail/610444.html) operation to mark a notification as confirmed. This indicates that you have acknowledged the content of the notification.
        *
        * @param request QueryNotifyRequest
        * @return QueryNotifyResponse
@@ -9989,7 +9987,7 @@ namespace Rds20140815
       Models::QueryNotifyResponse queryNotify(const Models::QueryNotifyRequest &request);
 
       /**
-       * @summary Queries the hot topics of the ApsaraDB RDS chatbot.
+       * @summary Queries the hot issues of the RDS bot.
        *
        * @param request QueryRecommendByCodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9998,7 +9996,7 @@ namespace Rds20140815
       Models::QueryRecommendByCodeResponse queryRecommendByCodeWithOptions(const Models::QueryRecommendByCodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the hot topics of the ApsaraDB RDS chatbot.
+       * @summary Queries the hot issues of the RDS bot.
        *
        * @param request QueryRecommendByCodeRequest
        * @return QueryRecommendByCodeResponse
@@ -10078,10 +10076,10 @@ namespace Rds20140815
       Models::RebuildDBInstanceResponse rebuildDBInstance(const Models::RebuildDBInstanceRequest &request);
 
       /**
-       * @summary Rebuilds the data synchronization link for a disaster recovery instance.
+       * @summary Rebuilds the data synchronization link for an RDS disaster recovery instance.
        *
-       * @description ### Applicable engine
-       * - RDS PostgreSQL
+       * @description ### Applicable engines
+       * - ApsaraDB RDS for PostgreSQL
        *
        * @param request RebuildReplicationLinkRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -10090,10 +10088,10 @@ namespace Rds20140815
       Models::RebuildReplicationLinkResponse rebuildReplicationLinkWithOptions(const Models::RebuildReplicationLinkRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Rebuilds the data synchronization link for a disaster recovery instance.
+       * @summary Rebuilds the data synchronization link for an RDS disaster recovery instance.
        *
-       * @description ### Applicable engine
-       * - RDS PostgreSQL
+       * @description ### Applicable engines
+       * - ApsaraDB RDS for PostgreSQL
        *
        * @param request RebuildReplicationLinkRequest
        * @return RebuildReplicationLinkResponse
@@ -10124,12 +10122,12 @@ namespace Rds20140815
       Models::ReceiveDBInstanceResponse receiveDBInstance(const Models::ReceiveDBInstanceRequest &request);
 
       /**
-       * @summary Restores RDS SQL Server backup data to an existing instance or a new instance.
+       * @summary Restores the backup data of an ApsaraDB RDS for SQL Server instance to an existing instance or a new instance.
        *
-       * @description ### Applicable engine
-       * RDS SQL Server (instances running SQL Server 2012 or later) 
+       * @description ### Supported engines
+       * ApsaraDB RDS for SQL Server (instances of SQL Server 2012 and later) 
        * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, carefully read the documentation to ensure that you fully understand the prerequisites and impacts.
        * [Restore SQL Server data](https://help.aliyun.com/document_detail/95722.html)
        *
        * @param request RecoveryDBInstanceRequest
@@ -10139,12 +10137,12 @@ namespace Rds20140815
       Models::RecoveryDBInstanceResponse recoveryDBInstanceWithOptions(const Models::RecoveryDBInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Restores RDS SQL Server backup data to an existing instance or a new instance.
+       * @summary Restores the backup data of an ApsaraDB RDS for SQL Server instance to an existing instance or a new instance.
        *
-       * @description ### Applicable engine
-       * RDS SQL Server (instances running SQL Server 2012 or later) 
+       * @description ### Supported engines
+       * ApsaraDB RDS for SQL Server (instances of SQL Server 2012 and later) 
        * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, carefully read the documentation to ensure that you fully understand the prerequisites and impacts.
        * [Restore SQL Server data](https://help.aliyun.com/document_detail/95722.html)
        *
        * @param request RecoveryDBInstanceRequest
@@ -10250,17 +10248,17 @@ namespace Rds20140815
       Models::ReleaseInstancePublicConnectionResponse releaseInstancePublicConnection(const Models::ReleaseInstancePublicConnectionRequest &request);
 
       /**
-       * @summary Releases a read/write splitting endpoint.
+       * @summary Releases the read/write splitting endpoint.
        *
-       * @description ### Applicable engines
+       * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for SQL Server
-       * ### Before you begin
-       * Before you call this operation, make sure that the instance meets the following requirements. Otherwise, the operation fails:
-       * * The MySQL instance uses a shared database proxy.
+       * ### Prerequisites
+       * When you call this operation, the instance must meet the following requirements. Otherwise, the operation fails:
+       * * The MySQL instance uses the shared database proxy.
        * * Read/write splitting is enabled for the instance.
-       * * The instance runs one of the following versions:
-       *     * MySQL 5.7 on RDS High-availability Edition with local SSDs
+       * * The instance runs one of the following editions:
+       *     * MySQL 5.7 High-availability Edition (with local SSDs)
        *     * MySQL 5.6
        *     * SQL Server Cluster Edition
        *
@@ -10271,17 +10269,17 @@ namespace Rds20140815
       Models::ReleaseReadWriteSplittingConnectionResponse releaseReadWriteSplittingConnectionWithOptions(const Models::ReleaseReadWriteSplittingConnectionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Releases a read/write splitting endpoint.
+       * @summary Releases the read/write splitting endpoint.
        *
-       * @description ### Applicable engines
+       * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for SQL Server
-       * ### Before you begin
-       * Before you call this operation, make sure that the instance meets the following requirements. Otherwise, the operation fails:
-       * * The MySQL instance uses a shared database proxy.
+       * ### Prerequisites
+       * When you call this operation, the instance must meet the following requirements. Otherwise, the operation fails:
+       * * The MySQL instance uses the shared database proxy.
        * * Read/write splitting is enabled for the instance.
-       * * The instance runs one of the following versions:
-       *     * MySQL 5.7 on RDS High-availability Edition with local SSDs
+       * * The instance runs one of the following editions:
+       *     * MySQL 5.7 High-availability Edition (with local SSDs)
        *     * MySQL 5.6
        *     * SQL Server Cluster Edition
        *
@@ -10291,9 +10289,9 @@ namespace Rds20140815
       Models::ReleaseReadWriteSplittingConnectionResponse releaseReadWriteSplittingConnection(const Models::ReleaseReadWriteSplittingConnectionRequest &request);
 
       /**
-       * @summary Removes instances from a deployment set.
+       * @summary Removes an RDS custom instance from a deployment set.
        *
-       * @description Removing instances from a deployment set is a non-disruptive operation and does not cause instance restarts.
+       * @description Removing an RDS custom instance from a deployment set is a non-disruptive operation and does not cause the instance to restart.
        *
        * @param request RemoveRCInstancesFromDeploymentSetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -10302,9 +10300,9 @@ namespace Rds20140815
       Models::RemoveRCInstancesFromDeploymentSetResponse removeRCInstancesFromDeploymentSetWithOptions(const Models::RemoveRCInstancesFromDeploymentSetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes instances from a deployment set.
+       * @summary Removes an RDS custom instance from a deployment set.
        *
-       * @description Removing instances from a deployment set is a non-disruptive operation and does not cause instance restarts.
+       * @description Removing an RDS custom instance from a deployment set is a non-disruptive operation and does not cause the instance to restart.
        *
        * @param request RemoveRCInstancesFromDeploymentSetRequest
        * @return RemoveRCInstancesFromDeploymentSetResponse
@@ -10412,7 +10410,7 @@ namespace Rds20140815
        * @summary Reinstalls the operating system of an RDS Custom instance.
        *
        * @description - The instance must be in the Stopped state.
-       * - Reinstalling the operating system deletes all data on the original system cloud disk. Proceed with caution.
+       * - Reinstalling the operating system causes data loss on the original system cloud disk. Proceed with caution.
        *
        * @param request ReplaceRCInstanceSystemDiskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -10424,7 +10422,7 @@ namespace Rds20140815
        * @summary Reinstalls the operating system of an RDS Custom instance.
        *
        * @description - The instance must be in the Stopped state.
-       * - Reinstalling the operating system deletes all data on the original system cloud disk. Proceed with caution.
+       * - Reinstalling the operating system causes data loss on the original system cloud disk. Proceed with caution.
        *
        * @param request ReplaceRCInstanceSystemDiskRequest
        * @return ReplaceRCInstanceSystemDiskResponse
@@ -10506,9 +10504,9 @@ namespace Rds20140815
       Models::ResetAccountPasswordResponse resetAccountPassword(const Models::ResetAccountPasswordRequest &request);
 
       /**
-       * @summary Expands the instance storage of an RDS Custom instance.
+       * @summary Expands the instance storage of an ApsaraDB RDS Custom instance.
        *
-       * @description Instances with local disks do not support storage space changes.
+       * @description Storage space changes are not supported for instances with local disks.
        *
        * @param request ResizeRCInstanceDiskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -10517,9 +10515,9 @@ namespace Rds20140815
       Models::ResizeRCInstanceDiskResponse resizeRCInstanceDiskWithOptions(const Models::ResizeRCInstanceDiskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Expands the instance storage of an RDS Custom instance.
+       * @summary Expands the instance storage of an ApsaraDB RDS Custom instance.
        *
-       * @description Instances with local disks do not support storage space changes.
+       * @description Storage space changes are not supported for instances with local disks.
        *
        * @param request ResizeRCInstanceDiskRequest
        * @return ResizeRCInstanceDiskResponse
@@ -10568,13 +10566,13 @@ namespace Rds20140815
       Models::RestartDBInstanceResponse restartDBInstance(const Models::RestartDBInstanceRequest &request);
 
       /**
-       * @summary Restores data to an existing instance across regions.
+       * @summary Restores data across regions to an existing instance.
        *
        * @description > Before the restoration, you can call the CheckCreateDdrDBInstance operation to check whether an ApsaraDB RDS instance can be restored across regions by using a cross-region backup set.
-       * ### Applicable engine
+       * ### Supported engines
        * ApsaraDB RDS for MySQL
        * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, read the documentation to understand the prerequisites and impacts.</notice>
        * - [Cross-region backup for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/120824.html)
        * - [Cross-region restoration for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/120875.html)
        *
@@ -10585,13 +10583,13 @@ namespace Rds20140815
       Models::RestoreDdrTableResponse restoreDdrTableWithOptions(const Models::RestoreDdrTableRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Restores data to an existing instance across regions.
+       * @summary Restores data across regions to an existing instance.
        *
        * @description > Before the restoration, you can call the CheckCreateDdrDBInstance operation to check whether an ApsaraDB RDS instance can be restored across regions by using a cross-region backup set.
-       * ### Applicable engine
+       * ### Supported engines
        * ApsaraDB RDS for MySQL
        * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, read the documentation to understand the prerequisites and impacts.</notice>
        * - [Cross-region backup for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/120824.html)
        * - [Cross-region restoration for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/120875.html)
        *
@@ -10793,7 +10791,7 @@ namespace Rds20140815
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, read the documentation to understand the prerequisites and impacts.
        * <props="china">
        * - [Start an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/427093.html)
        * - [Start an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/452314.html)
@@ -10815,7 +10813,7 @@ namespace Rds20140815
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, read the documentation to understand the prerequisites and impacts.
        * <props="china">
        * - [Start an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/427093.html)
        * - [Start an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/452314.html)
@@ -10829,7 +10827,7 @@ namespace Rds20140815
       Models::StartDBInstanceResponse startDBInstance(const Models::StartDBInstanceRequest &request);
 
       /**
-       * @summary Starts an RDS Custom instance that is in the Stopped state. After the operation is called, the instance enters the Starting state and then transitions to the Running state.
+       * @summary Starts an RDS Custom instance that is in the Stopped state. After the API call succeeds, the instance transitions from the Starting state to the Running state.
        *
        * @param request StartRCInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -10838,7 +10836,7 @@ namespace Rds20140815
       Models::StartRCInstanceResponse startRCInstanceWithOptions(const Models::StartRCInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Starts an RDS Custom instance that is in the Stopped state. After the operation is called, the instance enters the Starting state and then transitions to the Running state.
+       * @summary Starts an RDS Custom instance that is in the Stopped state. After the API call succeeds, the instance transitions from the Starting state to the Running state.
        *
        * @param request StartRCInstanceRequest
        * @return StartRCInstanceResponse
@@ -10906,7 +10904,7 @@ namespace Rds20140815
       Models::StopDBInstanceResponse stopDBInstance(const Models::StopDBInstanceRequest &request);
 
       /**
-       * @summary Stops a running RDS Custom instance. After the API is called, the instance transitions from the Stopping state to the Stopped state.
+       * @summary Stops a running RDS Custom instance. After a successful call, the instance transitions from the Stopping state to the Stopped state.
        *
        * @param request StopRCInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -10915,7 +10913,7 @@ namespace Rds20140815
       Models::StopRCInstanceResponse stopRCInstanceWithOptions(const Models::StopRCInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stops a running RDS Custom instance. After the API is called, the instance transitions from the Stopping state to the Stopped state.
+       * @summary Stops a running RDS Custom instance. After a successful call, the instance transitions from the Stopping state to the Stopped state.
        *
        * @param request StopRCInstanceRequest
        * @return StopRCInstanceResponse
@@ -11020,17 +11018,17 @@ namespace Rds20140815
       Models::SwitchDBInstanceNetTypeResponse switchDBInstanceNetType(const Models::SwitchDBInstanceNetTypeRequest &request);
 
       /**
-       * @summary Switches the virtual private cloud (VPC) and vSwitch of an ApsaraDB RDS instance.
+       * @summary Switches the VPC and vSwitch of an ApsaraDB RDS instance.
        *
-       * @description ### Supported engines
+       * @description ### Applicable engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-       * - [Switch the VPC and vSwitch of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/137567.html)
-       * - [Switch the vSwitch of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146885.html)
-       * - [Switch the VPC and vSwitch of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/347675.html)
+       * >Notice: Before you call this operation, read the feature documentation to ensure that you fully understand the prerequisites and impacts.
+       * - [Change the VPC and vSwitch of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/137567.html)
+       * - [Change the vSwitch of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146885.html)
+       * - [Change the VPC and vSwitch of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/347675.html)
        *
        * @param request SwitchDBInstanceVpcRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -11039,17 +11037,17 @@ namespace Rds20140815
       Models::SwitchDBInstanceVpcResponse switchDBInstanceVpcWithOptions(const Models::SwitchDBInstanceVpcRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Switches the virtual private cloud (VPC) and vSwitch of an ApsaraDB RDS instance.
+       * @summary Switches the VPC and vSwitch of an ApsaraDB RDS instance.
        *
-       * @description ### Supported engines
+       * @description ### Applicable engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-       * - [Switch the VPC and vSwitch of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/137567.html)
-       * - [Switch the vSwitch of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146885.html)
-       * - [Switch the VPC and vSwitch of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/347675.html)
+       * >Notice: Before you call this operation, read the feature documentation to ensure that you fully understand the prerequisites and impacts.
+       * - [Change the VPC and vSwitch of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/137567.html)
+       * - [Change the vSwitch of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146885.html)
+       * - [Change the VPC and vSwitch of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/347675.html)
        *
        * @param request SwitchDBInstanceVpcRequest
        * @return SwitchDBInstanceVpcResponse
@@ -11057,10 +11055,10 @@ namespace Rds20140815
       Models::SwitchDBInstanceVpcResponse switchDBInstanceVpc(const Models::SwitchDBInstanceVpcRequest &request);
 
       /**
-       * @summary Switches traffic for zero-downtime major engine version upgrades of ApsaraDB RDS for PostgreSQL instances.
+       * @summary Switches traffic for zero-downtime major engine version upgrades of ApsaraDB RDS for PostgreSQL.
        *
-       * @description Applicable engine:
-       * * RDS PostgreSQL
+       * @description Applicable engines:
+       * * ApsaraDB RDS for PostgreSQL
        *
        * @param request SwitchOverMajorVersionUpgradeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -11069,10 +11067,10 @@ namespace Rds20140815
       Models::SwitchOverMajorVersionUpgradeResponse switchOverMajorVersionUpgradeWithOptions(const Models::SwitchOverMajorVersionUpgradeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Switches traffic for zero-downtime major engine version upgrades of ApsaraDB RDS for PostgreSQL instances.
+       * @summary Switches traffic for zero-downtime major engine version upgrades of ApsaraDB RDS for PostgreSQL.
        *
-       * @description Applicable engine:
-       * * RDS PostgreSQL
+       * @description Applicable engines:
+       * * ApsaraDB RDS for PostgreSQL
        *
        * @param request SwitchOverMajorVersionUpgradeRequest
        * @return SwitchOverMajorVersionUpgradeResponse
@@ -11082,8 +11080,8 @@ namespace Rds20140815
       /**
        * @summary Switches the replication task of an ApsaraDB RDS for SQL Server primary instance to a disaster recovery instance.
        *
-       * @description ### Supported engine
-       * RDS SQL Server.
+       * @description ### Applicable engine
+       * ApsaraDB RDS for SQL Server.
        *
        * @param request SwitchReplicationLinkRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -11094,8 +11092,8 @@ namespace Rds20140815
       /**
        * @summary Switches the replication task of an ApsaraDB RDS for SQL Server primary instance to a disaster recovery instance.
        *
-       * @description ### Supported engine
-       * RDS SQL Server.
+       * @description ### Applicable engine
+       * ApsaraDB RDS for SQL Server.
        *
        * @param request SwitchReplicationLinkRequest
        * @return SwitchReplicationLinkResponse
@@ -11137,15 +11135,15 @@ namespace Rds20140815
       Models::SyncRCSecurityGroupResponse syncRCSecurityGroup(const Models::SyncRCSecurityGroupRequest &request);
 
       /**
-       * @summary Creates and binds tags to a specified ApsaraDB RDS instance.
+       * @summary Creates and binds tags to specified ApsaraDB RDS instances.
        *
-       * @description ### Supported engines
+       * @description ### Supported database engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * - ApsaraDB RDS for MariaDB
        * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts of this operation before you proceed.
+       * >Notice: Before you call this operation, read the related documentation to fully understand the prerequisites and impacts.
        * - [Create tags for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96149.html)
        * - [Create tags for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96777.html)
        * - [Create tags for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95726.html)
@@ -11158,15 +11156,15 @@ namespace Rds20140815
       Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates and binds tags to a specified ApsaraDB RDS instance.
+       * @summary Creates and binds tags to specified ApsaraDB RDS instances.
        *
-       * @description ### Supported engines
+       * @description ### Supported database engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * - ApsaraDB RDS for MariaDB
        * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts of this operation before you proceed.
+       * >Notice: Before you call this operation, read the related documentation to fully understand the prerequisites and impacts.
        * - [Create tags for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96149.html)
        * - [Create tags for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96777.html)
        * - [Create tags for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95726.html)
@@ -11180,8 +11178,8 @@ namespace Rds20140815
       /**
        * @summary Terminates an ongoing backup migration task for an ApsaraDB RDS for SQL Server instance.
        *
-       * @description ### Supported engine
-       * - RDS SQL Server
+       * @description ### Supported engines
+       * - ApsaraDB RDS for SQL Server
        *
        * @param request TerminateMigrateTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -11192,8 +11190,8 @@ namespace Rds20140815
       /**
        * @summary Terminates an ongoing backup migration task for an ApsaraDB RDS for SQL Server instance.
        *
-       * @description ### Supported engine
-       * - RDS SQL Server
+       * @description ### Supported engines
+       * - ApsaraDB RDS for SQL Server
        *
        * @param request TerminateMigrateTaskRequest
        * @return TerminateMigrateTaskResponse
@@ -11201,7 +11199,7 @@ namespace Rds20140815
       Models::TerminateMigrateTaskResponse terminateMigrateTask(const Models::TerminateMigrateTaskRequest &request);
 
       /**
-       * @summary Changes the billing method of an ApsaraDB RDS instance.
+       * @summary Modifies the billing method of an ApsaraDB RDS instance.
        *
        * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
@@ -11209,7 +11207,7 @@ namespace Rds20140815
        * - ApsaraDB RDS for SQL Server
        * - ApsaraDB RDS for MariaDB
        * ### Related documentation
-       * >Warning: This API operation involves fees. Read the related documentation carefully before you perform this operation.
+       * >Warning: This API operation involves fees. Read the related documentation carefully before you call this operation.</warning>
        * - [Change the billing method of an ApsaraDB RDS for MySQL instance from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/96048.html) and [Change the billing method of an ApsaraDB RDS for MySQL instance from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/161875.html)
        * - [Change the billing method of an ApsaraDB RDS for PostgreSQL instance from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/96743.html) and [Change the billing method of an ApsaraDB RDS for PostgreSQL instance from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/162756.html)
        * - [Change the billing method of an ApsaraDB RDS for SQL Server instance from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/95631.html) and [Change the billing method of an ApsaraDB RDS for SQL Server instance from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/162755.html)
@@ -11222,7 +11220,7 @@ namespace Rds20140815
       Models::TransformDBInstancePayTypeResponse transformDBInstancePayTypeWithOptions(const Models::TransformDBInstancePayTypeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the billing method of an ApsaraDB RDS instance.
+       * @summary Modifies the billing method of an ApsaraDB RDS instance.
        *
        * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
@@ -11230,7 +11228,7 @@ namespace Rds20140815
        * - ApsaraDB RDS for SQL Server
        * - ApsaraDB RDS for MariaDB
        * ### Related documentation
-       * >Warning: This API operation involves fees. Read the related documentation carefully before you perform this operation.
+       * >Warning: This API operation involves fees. Read the related documentation carefully before you call this operation.</warning>
        * - [Change the billing method of an ApsaraDB RDS for MySQL instance from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/96048.html) and [Change the billing method of an ApsaraDB RDS for MySQL instance from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/161875.html)
        * - [Change the billing method of an ApsaraDB RDS for PostgreSQL instance from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/96743.html) and [Change the billing method of an ApsaraDB RDS for PostgreSQL instance from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/162756.html)
        * - [Change the billing method of an ApsaraDB RDS for SQL Server instance from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/95631.html) and [Change the billing method of an ApsaraDB RDS for SQL Server instance from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/162755.html)
@@ -11288,16 +11286,16 @@ namespace Rds20140815
       Models::UnlockAccountResponse unlockAccount(const Models::UnlockAccountRequest &request);
 
       /**
-       * @summary Unbinds tags from a specified ApsaraDB RDS instance.
+       * @summary Removes tags from a specified ApsaraDB RDS instance.
        *
-       * @description ### Supported engines
+       * @description ### Supported database engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * - ApsaraDB RDS for MariaDB
        * ### Precautions
-       * * You can unbind up to 20 tags at a time.
-       * * If a tag is unbound from an instance and is not bound to any other instances, the tag is automatically deleted.
+       * * You can remove up to 20 tags at a time.
+       * * If a tag is removed from an instance and is not attached to any other instances, the tag is automatically deleted.
        *
        * @param request UntagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -11306,16 +11304,16 @@ namespace Rds20140815
       Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Unbinds tags from a specified ApsaraDB RDS instance.
+       * @summary Removes tags from a specified ApsaraDB RDS instance.
        *
-       * @description ### Supported engines
+       * @description ### Supported database engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * - ApsaraDB RDS for MariaDB
        * ### Precautions
-       * * You can unbind up to 20 tags at a time.
-       * * If a tag is unbound from an instance and is not bound to any other instances, the tag is automatically deleted.
+       * * You can remove up to 20 tags at a time.
+       * * If a tag is removed from an instance and is not attached to any other instances, the tag is automatically deleted.
        *
        * @param request UntagResourcesRequest
        * @return UntagResourcesResponse
@@ -11323,13 +11321,13 @@ namespace Rds20140815
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
-       * @summary Updates a replication channel for a native replication instance.
+       * @summary Updates the replication channel of a native replication instance.
        *
-       * @description ### Applicable engine
-       * ApsaraDB RDS for MySQL
-       * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-       * [RDS MySQL native replication instance](https://help.aliyun.com/document_detail/2856487.html)
+       * @description ### Applicable engines
+       * RDS MySQL
+       * ### Related feature documentation
+       * >Notice: Before you use this API operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.</notice>
+       * [Native replication instances of ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/2856487.html)
        *
        * @param request UpdateDBInstanceReplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -11338,13 +11336,13 @@ namespace Rds20140815
       Models::UpdateDBInstanceReplicationResponse updateDBInstanceReplicationWithOptions(const Models::UpdateDBInstanceReplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a replication channel for a native replication instance.
+       * @summary Updates the replication channel of a native replication instance.
        *
-       * @description ### Applicable engine
-       * ApsaraDB RDS for MySQL
-       * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-       * [RDS MySQL native replication instance](https://help.aliyun.com/document_detail/2856487.html)
+       * @description ### Applicable engines
+       * RDS MySQL
+       * ### Related feature documentation
+       * >Notice: Before you use this API operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.</notice>
+       * [Native replication instances of ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/2856487.html)
        *
        * @param request UpdateDBInstanceReplicationRequest
        * @return UpdateDBInstanceReplicationResponse
@@ -11352,14 +11350,14 @@ namespace Rds20140815
       Models::UpdateDBInstanceReplicationResponse updateDBInstanceReplication(const Models::UpdateDBInstanceReplicationRequest &request);
 
       /**
-       * @summary Upgrades a specified extension in a destination database.
+       * @summary Upgrades specified plug-ins in a specified database.
        *
-       * @description <props="china">You can join the RDS PostgreSQL extension exchange DingTalk group (103525002795) to consult, communicate, provide feedback, and obtain more information about extensions.
-       * ### Applicable engine
+       * @description <props="china">You can join the RDS PostgreSQL plug-in DingTalk group (103525002795) for consultation, discussion, and feedback to get more information about plug-ins.
+       * ### Supported engine
        * RDS PostgreSQL
        * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation to fully understand the prerequisites and impacts of this operation.
-       * [Manage extensions](https://help.aliyun.com/document_detail/2402409.html)
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.
+       * [Manage plug-ins](https://help.aliyun.com/document_detail/2402409.html)
        *
        * @param request UpdatePostgresExtensionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -11368,14 +11366,14 @@ namespace Rds20140815
       Models::UpdatePostgresExtensionsResponse updatePostgresExtensionsWithOptions(const Models::UpdatePostgresExtensionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Upgrades a specified extension in a destination database.
+       * @summary Upgrades specified plug-ins in a specified database.
        *
-       * @description <props="china">You can join the RDS PostgreSQL extension exchange DingTalk group (103525002795) to consult, communicate, provide feedback, and obtain more information about extensions.
-       * ### Applicable engine
+       * @description <props="china">You can join the RDS PostgreSQL plug-in DingTalk group (103525002795) for consultation, discussion, and feedback to get more information about plug-ins.
+       * ### Supported engine
        * RDS PostgreSQL
        * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation to fully understand the prerequisites and impacts of this operation.
-       * [Manage extensions](https://help.aliyun.com/document_detail/2402409.html)
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.
+       * [Manage plug-ins](https://help.aliyun.com/document_detail/2402409.html)
        *
        * @param request UpdatePostgresExtensionsRequest
        * @return UpdatePostgresExtensionsResponse
@@ -11385,11 +11383,11 @@ namespace Rds20140815
       /**
        * @summary Modifies the description and retention period of a user backup.
        *
-       * @description ### Applicable engine
+       * @description ### Supported engines
        * ApsaraDB RDS for MySQL
-       * ### Related feature documentation
-       * A user backup is a full backup of a self-managed MySQL database. You can restore a user backup to the cloud. For more information, see [Migrate the full data of a self-managed MySQL 5.7 or 8.0 database to the cloud](https://help.aliyun.com/document_detail/251779.html).
-       * >Notice: Before you call this operation, carefully read the feature documentation to fully understand the prerequisites and impacts of this operation.
+       * ### Related documentation
+       * A user backup is a full backup of a self-managed MySQL database. You can restore the user backup to Alibaba Cloud. For more information, see [Migrate full data from self-managed MySQL 5.7 and 8.0 databases to the cloud](https://help.aliyun.com/document_detail/251779.html).
+       * >Notice: Before you call this operation, read the related documentation to ensure that you fully understand the prerequisites and impacts of this operation.</notice>
        *
        * @param request UpdateUserBackupFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -11400,11 +11398,11 @@ namespace Rds20140815
       /**
        * @summary Modifies the description and retention period of a user backup.
        *
-       * @description ### Applicable engine
+       * @description ### Supported engines
        * ApsaraDB RDS for MySQL
-       * ### Related feature documentation
-       * A user backup is a full backup of a self-managed MySQL database. You can restore a user backup to the cloud. For more information, see [Migrate the full data of a self-managed MySQL 5.7 or 8.0 database to the cloud](https://help.aliyun.com/document_detail/251779.html).
-       * >Notice: Before you call this operation, carefully read the feature documentation to fully understand the prerequisites and impacts of this operation.
+       * ### Related documentation
+       * A user backup is a full backup of a self-managed MySQL database. You can restore the user backup to Alibaba Cloud. For more information, see [Migrate full data from self-managed MySQL 5.7 and 8.0 databases to the cloud](https://help.aliyun.com/document_detail/251779.html).
+       * >Notice: Before you call this operation, read the related documentation to ensure that you fully understand the prerequisites and impacts of this operation.</notice>
        *
        * @param request UpdateUserBackupFileRequest
        * @return UpdateUserBackupFileResponse
@@ -11443,12 +11441,12 @@ namespace Rds20140815
       /**
        * @summary Upgrades the minor engine version of an ApsaraDB RDS instance.
        *
-       * @description ### Supported engines
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * - RDS SQL Server
+       * @description ### Supported database engines
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * - ApsaraDB RDS for SQL Server
        * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, carefully read the documentation to ensure that you fully understand the prerequisites and impacts.
        * - [Upgrade the minor engine version of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96059.html)
        * - [Upgrade the minor engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146895.html)
        * - [Upgrade the minor engine version of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/213582.html)
@@ -11462,12 +11460,12 @@ namespace Rds20140815
       /**
        * @summary Upgrades the minor engine version of an ApsaraDB RDS instance.
        *
-       * @description ### Supported engines
-       * - RDS MySQL
-       * - RDS PostgreSQL
-       * - RDS SQL Server
+       * @description ### Supported database engines
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * - ApsaraDB RDS for SQL Server
        * ### Related documentation
-       * >Notice: Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, carefully read the documentation to ensure that you fully understand the prerequisites and impacts.
        * - [Upgrade the minor engine version of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96059.html)
        * - [Upgrade the minor engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146895.html)
        * - [Upgrade the minor engine version of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/213582.html)
@@ -11480,10 +11478,10 @@ namespace Rds20140815
       /**
        * @summary Initiates a major engine version upgrade task for an ApsaraDB RDS for PostgreSQL instance.
        *
-       * @description ### Applicable engine
+       * @description ### Supported engine
        * ApsaraDB RDS for PostgreSQL
        * ### Related documentation
-       * This API operation involves fees. Carefully read the related documentation to fully understand the fees, prerequisites, and impacts before you proceed.
+       * This API operation incurs fees. Carefully read the related documentation to fully understand the fees, prerequisites, and impacts before you proceed.
        * [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/203309.html)
        *
        * @param request UpgradeDBInstanceMajorVersionRequest
@@ -11495,10 +11493,10 @@ namespace Rds20140815
       /**
        * @summary Initiates a major engine version upgrade task for an ApsaraDB RDS for PostgreSQL instance.
        *
-       * @description ### Applicable engine
+       * @description ### Supported engine
        * ApsaraDB RDS for PostgreSQL
        * ### Related documentation
-       * This API operation involves fees. Carefully read the related documentation to fully understand the fees, prerequisites, and impacts before you proceed.
+       * This API operation incurs fees. Carefully read the related documentation to fully understand the fees, prerequisites, and impacts before you proceed.
        * [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/203309.html)
        *
        * @param request UpgradeDBInstanceMajorVersionRequest
@@ -11546,7 +11544,7 @@ namespace Rds20140815
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * ### Related feature documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, read the feature documentation to understand the prerequisites and impacts.
        * - [Upgrade the minor engine version of the database proxy for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/197465.html)
        * - [Upgrade the minor engine version of the database proxy for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418469.html)
        *
@@ -11563,7 +11561,7 @@ namespace Rds20140815
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * ### Related feature documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, read the feature documentation to understand the prerequisites and impacts.
        * - [Upgrade the minor engine version of the database proxy for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/197465.html)
        * - [Upgrade the minor engine version of the database proxy for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418469.html)
        *
@@ -11573,9 +11571,9 @@ namespace Rds20140815
       Models::UpgradeDBProxyInstanceKernelVersionResponse upgradeDBProxyInstanceKernelVersion(const Models::UpgradeDBProxyInstanceKernelVersionRequest &request);
 
       /**
-       * @summary Performs a precheck for a data import task of an ApsaraDB RDS for MySQL native replication instance.
+       * @summary Pre-checks the data import task for an ApsaraDB RDS for MySQL native replication instance.
        *
-       * @description Performs a precheck for a data import task of an ApsaraDB RDS for MySQL native replication instance.
+       * @description Pre-checks the data import task for an ApsaraDB RDS for MySQL native replication instance.
        *
        * @param request ValidateImportTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -11584,9 +11582,9 @@ namespace Rds20140815
       Models::ValidateImportTaskResponse validateImportTaskWithOptions(const Models::ValidateImportTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a precheck for a data import task of an ApsaraDB RDS for MySQL native replication instance.
+       * @summary Pre-checks the data import task for an ApsaraDB RDS for MySQL native replication instance.
        *
-       * @description Performs a precheck for a data import task of an ApsaraDB RDS for MySQL native replication instance.
+       * @description Pre-checks the data import task for an ApsaraDB RDS for MySQL native replication instance.
        *
        * @param request ValidateImportTaskRequest
        * @return ValidateImportTaskResponse

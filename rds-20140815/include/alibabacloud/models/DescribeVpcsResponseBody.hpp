@@ -180,7 +180,7 @@ namespace Models
         shared_ptr<bool> isDefault_ {};
         // The zone ID.
         shared_ptr<string> izNo_ {};
-        // The vSwitch status.
+        // The status of the vSwitch.
         shared_ptr<string> status_ {};
         // The vSwitch ID.
         shared_ptr<string> vSwitchId_ {};
@@ -285,7 +285,7 @@ namespace Models
       shared_ptr<bool> isDefault_ {};
       // The region ID.
       shared_ptr<string> regionNo_ {};
-      // The VPC status.
+      // The status of the VPC.
       shared_ptr<string> status_ {};
       // The vSwitch information.
       shared_ptr<vector<Vpcs::VSwitchs>> vSwitchs_ {};

@@ -148,26 +148,26 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> dedicatedHostGroupId_ {};
-    // The migration time. Valid values:
-    // * **Immediately**: migrates the instance immediately. This is the default value.
-    // * **MaintainTime**: migrates the instance during the maintenance window.
-    // * **Specified**: migrates the instance at a specified time.
+    // The time when the migration takes effect. Valid values:
+    // * **Immediately**: The migration takes effect immediately. This is the default value.
+    // * **MaintainTime**: The migration takes effect within the maintenance window.
+    // * **Specified**: The migration takes effect at a specified time.
     shared_ptr<string> effectiveTime_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID. You can call the DescribeRegions operation to query the region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The specified switchover time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
-    // >This parameter is required when **EffectiveTime** is set to **Specified**.
+    // The specified time for the migration. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+    // > This parameter is required when **EffectiveTime** is set to **Specified**.
     shared_ptr<string> specifiedTime_ {};
-    // The ID of the destination host to which the primary instance is migrated. You can call the DescribeDedicatedHosts operation to query the host ID.
+    // The ID of the destination host to which the primary instance is to be migrated. You can call the DescribeDedicatedHosts operation to query the host ID.
     shared_ptr<string> targetDedicatedHostIdForMaster_ {};
-    // The ID of the destination host to which the secondary instance is migrated. You can call the DescribeDedicatedHosts operation to query the host ID.
+    // The ID of the destination host to which the secondary instance is to be migrated. You can call the DescribeDedicatedHosts operation to query the host ID.
     shared_ptr<string> targetDedicatedHostIdForSlave_ {};
     // The zone ID of the secondary node.
     shared_ptr<string> zoneIdForFollower_ {};
-    // The zone ID of the log node.
+    // The zone ID of the logger node.
     shared_ptr<string> zoneIdForLog_ {};
   };
 

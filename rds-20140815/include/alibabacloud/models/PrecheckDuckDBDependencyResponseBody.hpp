@@ -97,13 +97,13 @@ namespace Models
 
 
     protected:
-      // Indicates whether the item can be fixed with one click.
+      // Indicates whether the issue can be fixed with one click.
       // 
-      // - **true**: The item can be fixed with one click by calling the [ModifyDBInstanceConfig](https://help.aliyun.com/document_detail/2623684.html) operation.
-      // - **false**: The item cannot be fixed with one click.
+      // - **true**: Yes. You can call the [ModifyDBInstanceConfig](https://help.aliyun.com/document_detail/2623684.html) operation to fix the issue with one click.
+      // - **false**: No.
       // 
       // 
-      // >Notice: If the major engine version of the database instance does not meet the requirements, you must perform a [manual upgrade](https://help.aliyun.com/document_detail/2623684.html).
+      // >Notice: If the major version of the database instance does not meet the requirements, you must [manually upgrade](https://help.aliyun.com/document_detail/2623684.html) the major version.
       shared_ptr<bool> allowAutoModify_ {};
       // The current value of the check item.
       shared_ptr<string> currentValue_ {};
@@ -111,11 +111,11 @@ namespace Models
       shared_ptr<string> name_ {};
       // The target value or target range of the check item.
       shared_ptr<string> requiredValue_ {};
-      // The check item type. Valid values:
+      // The check item. Valid values:
       // 
       // - **Parameter**: parameter.
       // - **MinorVersion**: minor engine version.
-      // - **MajorVersion**: major engine version.
+      // - **MajorVersion**: major database version.
       shared_ptr<string> type_ {};
     };
 
@@ -138,12 +138,12 @@ namespace Models
 
 
   protected:
-    // The items that do not meet the prerequisites for creating a DuckDB-based analytical instance.
+    // The check items that do not meet the prerequisites for creating a DuckDB-based analytical instance.
     shared_ptr<vector<PrecheckDuckDBDependencyResponseBody::FailedCheckItems>> failedCheckItems_ {};
-    // Indicates whether the prerequisite check for creating a DuckDB-based analytical instance is passed. Valid values:
+    // Indicates whether the precheck for creating a DuckDB-based analytical instance is passed. Valid values:
     // 
-    // - **true**: The check is passed.
-    // - **false**: The check is not passed.
+    // - **true**: Yes.
+    // - **false**: No.
     shared_ptr<bool> result_ {};
   };
 

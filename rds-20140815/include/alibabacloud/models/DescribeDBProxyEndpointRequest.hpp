@@ -103,18 +103,18 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can call [DescribeDBInstances](https://help.aliyun.com/document_detail/610396.html) to query the instance ID.
+    // Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The proxy endpoint. You can call the [DescribeDBProxy](https://help.aliyun.com/document_detail/610507.html) operation to query the proxy endpoint.
+    // The proxy endpoint. You can call the DescribeDBProxy operation to query the endpoint.
     shared_ptr<string> DBProxyConnectString_ {};
-    // The proxy endpoint name. You can call the [DescribeDBProxy](https://help.aliyun.com/document_detail/610507.html) operation to query the proxy endpoint name.
+    // The name of the proxy endpoint. You can call the DescribeDBProxy operation to query the name.
     shared_ptr<string> DBProxyEndpointId_ {};
-    // A reserved parameter. You do not need to configure this parameter.
+    // A reserved parameter. No configuration is required.
     shared_ptr<string> DBProxyEngineType_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/610399.html) to query the region ID.
+    // The region ID. You can call the DescribeRegions operation to query the region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

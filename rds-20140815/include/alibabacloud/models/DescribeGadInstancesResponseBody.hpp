@@ -158,11 +158,11 @@ namespace Models
       protected:
         // The ID of the node in the cluster.
         shared_ptr<string> DBInstanceID_ {};
-        // A JSON array that contains DTS synchronization information.
-        // >Each unit node (secondary node) synchronizes data with the central node (primary node) through DTS. This parameter contains the synchronization task ID and request ID of DTS.
+        // The JSON array that contains the Data Transmission Service (DTS) synchronization information.
+        // > Each unit node (secondary node) synchronizes data with the central node (primary node) through DTS. This parameter contains the DTS synchronization link ID and request ID.
         shared_ptr<string> dtsInstance_ {};
         // The database engine of the node in the cluster.
-        // >Only **mysql** is supported.
+        // > Only **mysql** is supported.
         shared_ptr<string> engine_ {};
         // The database engine version of the node in the cluster.
         shared_ptr<string> engineVersion_ {};
@@ -170,13 +170,13 @@ namespace Models
         shared_ptr<string> regionId_ {};
         // The resource group ID.
         shared_ptr<string> resourceGroupId_ {};
-        // The node type in the active geo-redundancy database cluster. Valid values:
-        // * **CENTRAL**: central node. The only primary node in the cluster. All unit nodes synchronize data from this node.
-        // * **UNIT**: unit node. A cluster can contain up to 10 unit nodes. All unit nodes synchronize data from the central node.
+        // The role of the node in the GAD cluster. Valid values:
+        // * **CENTRAL**: the central node, which is the only primary node in the cluster. All unit nodes synchronize data from this node.
+        // * **UNIT**: the unit node. A cluster can have up to 10 unit nodes, and all unit nodes synchronize data from the central node.
         shared_ptr<string> role_ {};
-        // The node status. Valid values:
-        // * **activation**: running.
-        // * **creating**: being created.
+        // The status of the node. Valid values:
+        // * **activation**: running
+        // * **creating**: being created
         shared_ptr<string> status_ {};
       };
 
@@ -237,21 +237,21 @@ namespace Models
     protected:
       // The time when the cluster was created. The time follows the ISO 8601 standard in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
       shared_ptr<string> creationTime_ {};
-      // The cluster name.
+      // The name of the cluster.
       shared_ptr<string> description_ {};
       // The list of nodes in the cluster.
       shared_ptr<vector<GadInstances::GadInstanceMembers>> gadInstanceMembers_ {};
-      // The ID of the active geo-redundancy database cluster.
+      // The ID of the GAD cluster.
       shared_ptr<string> gadInstanceName_ {};
       // The time when the cluster was last modified. The time follows the ISO 8601 standard in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
       shared_ptr<string> modificationTime_ {};
-      // The engine of the active geo-redundancy database cluster.
-      // >Only **mysql** is supported.
+      // The database engine of the GAD cluster.
+      // > Only **mysql** is supported.
       shared_ptr<string> service_ {};
-      // The cluster status. Valid values:
-      // * **activation**: running.
-      // * **creating**: being created.
-      // * **replica_adding**: a node is being added.
+      // The status of the cluster. Valid values:
+      // * **activation**: running
+      // * **creating**: being created
+      // * **replica_adding**: adding nodes
       shared_ptr<string> status_ {};
     };
 
@@ -274,7 +274,7 @@ namespace Models
 
 
   protected:
-    // The list of active geo-redundancy database clusters.
+    // The list of GAD clusters.
     shared_ptr<vector<DescribeGadInstancesResponseBody::GadInstances>> gadInstances_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

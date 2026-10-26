@@ -94,15 +94,15 @@ namespace Models
 
 
   protected:
-    // The database description.
+    // The description of the database.
     // 
     // This parameter is required.
     shared_ptr<string> DBDescription_ {};
-    // The instance ID. You can call DescribeDBInstances to obtain the instance ID.
+    // Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The database name.
+    // The name of the database.
     // 
     // This parameter is required.
     shared_ptr<string> DBName_ {};

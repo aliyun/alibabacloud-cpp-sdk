@@ -198,9 +198,9 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of instances on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of instances returned by the query.
+    // The total number of queried instances.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

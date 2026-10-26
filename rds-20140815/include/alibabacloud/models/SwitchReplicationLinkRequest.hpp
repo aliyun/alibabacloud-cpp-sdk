@@ -66,16 +66,16 @@ namespace Models
 
 
   protected:
-    // The ID of the source instance, which is the primary instance ID.
+    // The source instance ID, which is the primary instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The name of the target disaster recovery instance to which you want to switch.
+    // The name of the target disaster recovery instance.
     // 
     // This parameter is required.
     shared_ptr<string> targetInstanceName_ {};
-    // The region of the target disaster recovery instance to which you want to switch.
+    // The region ID of the target disaster recovery instance.
     // 
     // This parameter is required.
     shared_ptr<string> targetInstanceRegionId_ {};

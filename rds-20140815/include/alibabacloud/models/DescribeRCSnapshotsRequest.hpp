@@ -80,9 +80,9 @@ namespace Models
 
 
     protected:
-      // The tag value.
-      shared_ptr<string> key_ {};
       // The tag key.
+      shared_ptr<string> key_ {};
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -143,16 +143,15 @@ namespace Models
   protected:
     // The ID of the cloud disk.
     shared_ptr<string> diskId_ {};
+    // The ID of the RDS Custom instance.
     shared_ptr<string> instanceId_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page. Valid values: **30** to **100**. Default value: **30**.
     shared_ptr<int64_t> pageSize_ {};
-    // The region ID. You can call DescribeRegions to query available regions.
+    // The region ID. You can call the DescribeRegions operation to query the region ID.
     shared_ptr<string> regionId_ {};
-    // The IDs of snapshots.
-    // 
-    // You can specify multiple snapshot IDs separated by commas (,). A maximum of 100 IDs can be specified.
+    // The snapshot IDs. You can specify up to 100 IDs. Separate multiple IDs with commas (,).
     shared_ptr<string> snapshotIds_ {};
     // The tag details.
     shared_ptr<vector<DescribeRCSnapshotsRequest::Tag>> tag_ {};

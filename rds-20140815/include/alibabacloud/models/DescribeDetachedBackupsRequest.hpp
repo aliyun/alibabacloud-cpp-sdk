@@ -130,24 +130,24 @@ namespace Models
 
 
   protected:
-    // The backup set ID.
+    // The ID of the backup set.
     shared_ptr<string> backupId_ {};
     // The backup mode. Valid values:
     // 
-    // - **Automated**: automatic backup.
-    // - **Manual**: manual backup.
+    // - **Automated**: automatic backup
+    // - **Manual**: manual backup
     shared_ptr<string> backupMode_ {};
-    // The backup set status. Valid values:
-    // - **Success**: The backup is complete.
+    // The status of the backup set. Valid values:
+    // - **Success**: The backup is completed.
     // - **Failed**: The backup failed.
     shared_ptr<string> backupStatus_ {};
-    // The instance ID. You can call DescribeDBInstances to query the instance ID.
+    // Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
     shared_ptr<string> DBInstanceId_ {};
     // The end time of the query. The end time must be later than the start time.
     // 
-    // Format: <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z (UTC).
+    // Format: <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z (UTC time).
     shared_ptr<string> endTime_ {};
-    // The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type.
+    // The page number. Valid values: any integer greater than 0 and less than or equal to the maximum integer value.
     // 
     // > Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
@@ -158,16 +158,16 @@ namespace Models
     // 
     // > Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
-    // The region in which the instance resides.
+    // The region where the instance resides.
     // 
     // This parameter is required.
     shared_ptr<string> region_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The start time of the query.
     // 
-    // Format: <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z (UTC).
+    // Format: <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z (UTC time).
     shared_ptr<string> startTime_ {};
   };
 

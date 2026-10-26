@@ -311,9 +311,9 @@ namespace Models
     shared_ptr<string> pageNumber_ {};
     // The number of backup sets on the current page.
     shared_ptr<string> pageRecordCount_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of records.
+    // The total number of entries.
     shared_ptr<string> totalRecordCount_ {};
   };
 

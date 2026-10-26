@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The backup task ID.
+    // The ID of the backup task.
     shared_ptr<string> backupJobId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

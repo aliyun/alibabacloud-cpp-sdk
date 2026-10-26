@@ -167,47 +167,51 @@ namespace Models
 
 
   protected:
+    // The RDS Custom container cluster ID used to filter instances.
     shared_ptr<string> clusterId_ {};
+    // The description used to filter instances.
     shared_ptr<string> description_ {};
+    // The keyword used to perform a fuzzy match on the instance description.
     shared_ptr<string> descriptionForFuzzy_ {};
-    // Queries instances by host IP address.
+    // The host IP address used to filter instances.
     shared_ptr<string> hostIp_ {};
+    // The image ID used to filter instances.
     shared_ptr<string> imageId_ {};
     // The instance ID. This parameter is used to query a single instance.
     // 
-    // > If no instance ID is specified (neither **InstanceId** nor **InstanceIds** is passed), the operation returns detailed information about all RDS Custom instances in the specified region.
+    // > If no instance ID is specified (neither **InstanceId** nor **InstanceIds** is specified), the details of all RDS Custom instances in the specified region are returned.
     shared_ptr<string> instanceId_ {};
     // The instance IDs.
     // 
-    // This parameter is used to query multiple instances at a time. Separate multiple instance IDs with commas (,). A maximum of 100 IDs are supported. Input format: `["InstanceID1","InstanceID2"]`.
+    // This parameter is used to query multiple instances at a time. Separate multiple instance IDs with commas (,). You can specify up to 100 instance IDs. Input format: `["InstanceId1","InstanceId2"]`.
     // 
-    // > If both **InstanceIds** and **InstanceId** are specified, the value of **InstanceIds** takes precedence.
+    // > If both **InstanceIds** and **InstanceId** are specified, the value of **InstanceIds** prevails.
     shared_ptr<string> instanceIds_ {};
     // The instance name.
     shared_ptr<string> instanceName_ {};
     // The page number of the instance status list.
     // 
-    // Minimum value: 1. Default value: 1.
+    // Starting value: 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page for a paged query.
+    // The number of entries per page in a paging query.
     // 
     // Maximum value: 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // Queries instances by public IP address.
+    // The public IP address used to filter instances.
     shared_ptr<string> publicIp_ {};
     // The region ID. This parameter is required.
     shared_ptr<string> regionId_ {};
     // The instance status. Valid values:
     // 
-    // - **Pending**: Being created.
-    // - **Running**: Running.
-    // - **Starting**: Being started.
-    // - **Stopping**: Being stopped.
-    // - **Stopped**: Stopped.
+    // - **Pending**: The instance is being created.
+    // - **Running**: The instance is running.
+    // - **Starting**: The instance is starting.
+    // - **Stopping**: The instance is being stopped.
+    // - **Stopped**: The instance is stopped.
     shared_ptr<string> status_ {};
-    // Queries instances by the specified tag. Input format: `{"TagKey":"TagValue"}`.
+    // The tags used to filter instances. Input format: `{"TagKey":"TagValue"}`.
     shared_ptr<string> tag_ {};
-    // The ID of the virtual private cloud (VPC).
+    // The ID of the VPC.
     shared_ptr<string> vpcId_ {};
   };
 

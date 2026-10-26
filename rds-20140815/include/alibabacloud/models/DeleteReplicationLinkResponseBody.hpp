@@ -68,11 +68,11 @@ namespace Models
   protected:
     // The instance ID of the disaster recovery instance.
     shared_ptr<string> DBInstanceId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The task ID.
+    // The ID of the task.
     shared_ptr<int64_t> taskId_ {};
-    // The task name.
+    // The name of the task.
     shared_ptr<string> taskName_ {};
   };
 

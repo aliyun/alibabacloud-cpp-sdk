@@ -241,22 +241,22 @@ namespace Models
 
 
     protected:
-      // The allowed operation information. When used, the system matches the Action based on currentStepName and status in this information. If no Action is matched, the task does not support operations in its current state. Example:
+      // The allowed operation information. In actual use, the operation action is matched in this information based on currentStepName and status. If no action is matched, the current status of the task does not support the operation. Example:
       // ```
       //   "steps": [
       //     {
-      //       "step_name": "exec_task", // Step name, matched with currentStepName
-      //       "action_info": {    // Operations supported by the step
-      //         "Waiting": [      // Status, matched with status
-      //           "modifySwitchTime" // Action. Multiple actions may be available.
+      //       "step_name": "exec_task", // The step name, which matches currentStepName.
+      //       "action_info": {    // The operations supported by the step.
+      //         "Waiting": [      // The status, which matches status.
+      //           "modifySwitchTime" // The operation action. Multiple actions indicate that multiple operations are supported.
       //         ]
       //       }
       //     },
       //     {
-      //       "step_name": "init_task", // Step name
-      //       "action_info": {    // Operations supported by the step
-      //         "Running": [      // Status
-      //           "cancel",       // Action
+      //       "step_name": "init_task", // The step name.
+      //       "action_info": {    // The operations supported by the step.
+      //         "Running": [      // The status.
+      //           "cancel",       // The operation.
       //           "pause"
       //         ]
       //       }
@@ -265,22 +265,22 @@ namespace Models
       // }
       // ```
       // 
-      // Supported operations:
+      // Operations supported by the system:
       // - **retry**: Retry.
       // - **cancel**: Cancel.
       // - **modifySwitchTime**: Modify the switchover time or recovery time.
       shared_ptr<string> actionInfo_ {};
-      // The request user ID. If callerSource is User, this value indicates the user UID.
+      // The ID of the requesting user. If callerSource is User, this parameter represents the user UID.
       shared_ptr<string> callerSource_ {};
       // The request source. Valid values:
       // - **System**: System.
       // - **User**: User.
       shared_ptr<string> callerUid_ {};
-      // The name of the current step being executed. An empty value indicates that the task has not started.
+      // The name of the current step. If this parameter is empty, the task has not started.
       shared_ptr<string> currentStepName_ {};
       // The database type.
       shared_ptr<string> dbType_ {};
-      // The task end time.
+      // The end time of the task.
       shared_ptr<string> endTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
@@ -292,21 +292,21 @@ namespace Models
       shared_ptr<string> product_ {};
       // The current progress.
       shared_ptr<float> progress_ {};
-      // The reason why the current task was initiated.
+      // The cause of the current task.
       shared_ptr<string> reasonCode_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
       // The estimated remaining execution time. Unit: seconds.
       shared_ptr<int32_t> remainTime_ {};
-      // The task start time.
+      // The start time of the task.
       shared_ptr<string> startTime_ {};
       // The task status. Valid values:
-      // - Scheduled: Waiting to be executed.
+      // - Scheduled: Pending execution.
       // - Running: Running.
       // - Succeed: Succeeded.
       // - Failed: Failed.
-      // - Cancelling: Being terminated.
-      // - Canceled: Terminated.
+      // - Cancelling: Cancelling.
+      // - Canceled: Canceled.
       // - Waiting: Waiting for the scheduled time.
       shared_ptr<string> status_ {};
       // The task details.
@@ -315,7 +315,7 @@ namespace Models
       shared_ptr<string> taskId_ {};
       // The task type.
       shared_ptr<string> taskType_ {};
-      // The user ID of the resource owner.
+      // The ID of the user to which the resource belongs.
       shared_ptr<string> uid_ {};
     };
 
@@ -361,13 +361,13 @@ namespace Models
   protected:
     // The task list.
     shared_ptr<vector<DescribeHistoryTasksResponseBody::Items>> items_ {};
-    // The page number of the returned page.
+    // The page number of the query result.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID. If you encounter an issue, provide this request ID for troubleshooting.
+    // The unique request ID. If you encounter any issues, provide this request ID for troubleshooting.
     shared_ptr<string> requestId_ {};
-    // The total number of tasks that meet the filter conditions, regardless of pagination.
+    // The total number of tasks that meet the specified conditions, regardless of pagination.
     shared_ptr<int32_t> totalCount_ {};
   };
 

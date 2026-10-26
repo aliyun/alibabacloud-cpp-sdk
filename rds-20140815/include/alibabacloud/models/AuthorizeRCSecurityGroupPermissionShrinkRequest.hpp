@@ -66,10 +66,10 @@ namespace Models
 
 
   protected:
-    // The direction of the rule. Valid values:
+    // The rule direction. Valid values:
     // 
-    // - **ingress**: inbound.
-    // - **egress**: outbound.
+    // - **ingress**: inbound traffic to the security group.
+    // - **egress**: outbound traffic from the security group.
     shared_ptr<string> direction_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

@@ -265,11 +265,11 @@ namespace Models
     protected:
       // The deadline for CPU adjustment.
       shared_ptr<string> cpuAdjustDeadline_ {};
-      // The maximum adjustable CPU ratio.
+      // The maximum adjustable ratio for the CPU.
       shared_ptr<string> cpuAdjustableMaxRatio_ {};
       // The maximum CPU usage.
       shared_ptr<string> cpuAdjustableMaxValue_ {};
-      // The CPU usage.
+      // The CPU increase ratio.
       shared_ptr<string> cpuIncreaseRatio_ {};
       // The CPU usage. Unit: %.
       shared_ptr<string> cpuIncreaseRatioValue_ {};
@@ -291,7 +291,7 @@ namespace Models
       shared_ptr<string> maxIopsIncreaseRatio_ {};
       // The maximum number of I/O requests per second.
       shared_ptr<string> maxIopsIncreaseRatioValue_ {};
-      // The maximum adjustable memory ratio.
+      // The maximum adjustable ratio for the memory.
       shared_ptr<string> memAdjustableMaxRatio_ {};
       // The maximum value of the resource to be evaluated.
       shared_ptr<string> memAdjustableMaxValue_ {};
@@ -301,13 +301,13 @@ namespace Models
       shared_ptr<string> memoryIncreaseRatio_ {};
       // The memory usage. Unit: MB.
       shared_ptr<string> memoryIncreaseRatioValue_ {};
-      // The number of CPU cores of the instance.
+      // The number of CPUs of the instance.
       shared_ptr<string> originCpu_ {};
       // The maximum number of concurrent connections.
       shared_ptr<string> originMaxConn_ {};
       // The maximum number of I/O requests per second.
       shared_ptr<string> originMaxIops_ {};
-      // The actual memory usage. Unit: MB.
+      // The actual memory used. Unit: MB.
       shared_ptr<string> originMemory_ {};
     };
 
@@ -332,7 +332,7 @@ namespace Models
   protected:
     // The returned data.
     shared_ptr<vector<DescribeCustinsResourceInfoResponseBody::Data>> data_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

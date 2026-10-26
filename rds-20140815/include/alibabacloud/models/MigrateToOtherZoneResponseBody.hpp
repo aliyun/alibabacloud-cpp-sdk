@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // The order ID. This parameter is applicable only to ApsaraDB RDS for MySQL instances.
+    // The order ID. This parameter is only applicable to ApsaraDB RDS for MySQL instances.
     shared_ptr<int64_t> orderId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

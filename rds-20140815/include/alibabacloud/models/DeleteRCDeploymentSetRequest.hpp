@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The deployment set ID.
+    // The ID of the deployment set.
     // 
     // This parameter is required.
     shared_ptr<string> deploymentSetId_ {};

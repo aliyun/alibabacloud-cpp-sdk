@@ -186,23 +186,23 @@ namespace Models
 
 
   protected:
-    // The minimum execution duration used to filter tasks. Only tasks whose execution duration is greater than this value are returned. Unit: seconds. Default value: 0, which indicates no restriction.
+    // The minimum execution duration of the task. This parameter is used to filter tasks whose execution duration is greater than the specified value. Unit: seconds. Default value: 0, which indicates no limit.
     shared_ptr<int32_t> fromExecTime_ {};
-    // The beginning of the time range to query based on task start time. Only tasks that started after this time are returned. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0. The earliest supported time is 30 days before the current time. If a time earlier than 30 days is specified, it is automatically converted to 30 days before the current time.
+    // The start time of the time range to query the task start time. This parameter specifies that the start time of the task is later than the specified time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. The earliest supported time is 30 days ago. If the specified time is more than 30 days ago, it is automatically converted to 30 days ago.
     // 
     // This parameter is required.
     shared_ptr<string> fromStartTime_ {};
-    // The instance ID. Separate multiple instance IDs with commas (,). A maximum of 30 instance IDs are supported. Default value: empty, which indicates no restriction.
+    // The instance ID, which is used to query the tasks of the corresponding instance. Separate multiple instance IDs with commas (,). You can specify up to 30 instance IDs. If this parameter is left empty, no limit is applied.
     shared_ptr<string> instanceId_ {};
-    // Currently, only Instance is supported.
+    // The instance type. Only Instance is supported.
     shared_ptr<string> instanceType_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Valid values: positive integers.
+    // The page number of the query result. Valid values: positive integers.
     // Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Valid values: **10 to 100**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the pending event. You can call the DescribeRegions operation to query the most recent region list.
+    // The region ID of the pending event. You can call the DescribeRegions operation to obtain the region ID.
     shared_ptr<string> regionId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
@@ -210,23 +210,23 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
     // The task status. Valid values:
-    // - **Scheduled**: Waiting to be executed.
+    // - **Scheduled**: Pending execution.
     // - **Running**: Running.
     // - **Succeed**: Succeeded.
     // - **Failed**: Failed.
-    // - **Cancelling**: Being terminated.
-    // - **Canceled**: Terminated.
+    // - **Cancelling**: Cancelling.
+    // - **Canceled**: Canceled.
     // - **Waiting**: Waiting for the scheduled time.
     // 
-    // To query multiple statuses, separate them with commas (,). Default value: empty, which indicates all statuses.
+    // Separate multiple values with commas (,). If this parameter is left empty, all statuses are queried.
     shared_ptr<string> status_ {};
-    // The task ID. You can call the DescribeTasks operation to obtain the task ID. Separate multiple task IDs with commas (,). A maximum of 30 task IDs are supported. Default value: empty, which indicates no restriction.
+    // The task ID. You can call the DescribeTasks operation to query the task ID. Separate multiple task IDs with commas (,). You can specify up to 30 task IDs. If this parameter is left empty, no limit is applied.
     shared_ptr<string> taskId_ {};
-    // The task type. Separate multiple task types with commas (,). A maximum of 30 task types are supported. Default value: empty, which indicates no restriction.
+    // The task type, which is used to query tasks of a specific type. Separate multiple task types with commas (,). You can specify up to 30 task types. If this parameter is left empty, no limit is applied.
     shared_ptr<string> taskType_ {};
-    // The maximum execution duration used to filter tasks. Only tasks whose execution duration is not less than this value are returned. Unit: seconds. Default value: 0, which indicates no restriction.
+    // The maximum execution duration of the task. This parameter is used to filter tasks whose execution duration is greater than or equal to the specified value. Unit: seconds. Default value: 0, which indicates no limit.
     shared_ptr<int32_t> toExecTime_ {};
-    // The end of the time range to query based on task start time. Only tasks that started before this time are returned. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+    // The end time of the time range to query the task start time. This parameter specifies that the start time of the task is earlier than the specified time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> toStartTime_ {};

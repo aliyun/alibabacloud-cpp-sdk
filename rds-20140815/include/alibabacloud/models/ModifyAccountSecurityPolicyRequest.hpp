@@ -103,17 +103,17 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The instance ID. You can call [DescribeDBInstances](https://help.aliyun.com/document_detail/2628785.html) to query the instance ID.
+    // Instance ID of the instance. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/2628785.html) operation to query instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The custom password policy for ApsaraDB RDS for SQL Server accounts. The following policies are supported:
+    // The custom account password policy for ApsaraDB RDS for SQL Server. Supported policies:
     // 
-    // - Set only the maximum password age. After this period expires, the password must be changed: `{"accountSecurityPolicy": {"MaximumPasswordAge": Specify the maximum age}}`
-    // - Set only the minimum password age. The password cannot be changed again within this period: `{"accountSecurityPolicy": {"MaximumPasswordAge": Specify the minimum age}}`
-    // - Set both the maximum and minimum password ages: `{"accountSecurityPolicy": {"MaximumPasswordAge": Specify the maximum age, "MinimumPasswordAge": Specify the minimum age}}`
+    // - Set only the maximum password age. The password must be changed after this period: `{"accountSecurityPolicy": {"MaximumPasswordAge": <maximum_age>}}`
+    // - Set only the minimum password age. The password cannot be changed again within this period: `{"accountSecurityPolicy": {"MinimumPasswordAge": <minimum_age>}}`
+    // - Set both the maximum and minimum password ages: `{"accountSecurityPolicy": {"MaximumPasswordAge": <maximum_age>, "MinimumPasswordAge": <minimum_age>}}`
     // 
     // > The minimum password age (valid values: 0 to 998) cannot be greater than the maximum password age (valid values: 0 to 999).
     // 
@@ -121,7 +121,7 @@ namespace Models
     shared_ptr<string> groupPolicy_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

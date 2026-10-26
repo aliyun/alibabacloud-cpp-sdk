@@ -103,7 +103,7 @@ namespace Models
 
 
   protected:
-    // The name of the account that is used to log on to the host of the RDS instance.
+    // The name of the account used to log on to the host of the ApsaraDB RDS instance.
     // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};

@@ -388,7 +388,7 @@ namespace Models
 
 
   protected:
-    // The timeout period for consistency reads. Unit: milliseconds. Default value: **10**. Valid values: **0 to 60000**.
+    // The timeout period for consistent reads. Unit: milliseconds. Default value: **10**. Valid values: **0** to **60000**.
     shared_ptr<string> causalConsistReadTimeout_ {};
     // The proxy endpoint.
     shared_ptr<string> DBProxyConnectString_ {};
@@ -399,6 +399,7 @@ namespace Models
     shared_ptr<string> DBProxyConnectStringNetType_ {};
     // The port of the proxy endpoint.
     shared_ptr<string> DBProxyConnectStringPort_ {};
+    // The execution cost threshold for SQL statements in automatic request distribution among row store and column store nodes for HTAP.
     shared_ptr<string> DBProxyEndpointCostThresholdForDuckdb_ {};
     // The ID of the proxy endpoint.
     shared_ptr<string> DBProxyEndpointId_ {};
@@ -406,22 +407,22 @@ namespace Models
     shared_ptr<string> DBProxyEndpointMinSlaveCount_ {};
     // An internal parameter. You can ignore this parameter.
     shared_ptr<string> DBProxyEngineType_ {};
-    // The settings of the proxy endpoint in JSON format. The following parameters are included:
-    // * **TransactionReadSqlRouteOptimizeStatus**: the transaction splitting setting. The value is **0** (disabled) or **1** (enabled).
-    // * **ConnectionPersist**: the connection pool setting. The value is **0** (disabled), **1** (session-level connection pool), or **2** (transaction-level connection pooling).
-    // * **ReadWriteSpliting**: the read/write splitting setting. The value is **0** (disabled) or **1** (enabled).
-    // * **AZProximityAccess**: the nearest access feature. The value is **0** (disabled) or **1** (enabled).
-    // * **CausalConsistRead**: the read consistency setting. The value is **0** (eventual consistency), **1** (session consistency), or **2** (global consistency).
-    // * **HtapFilter**: the automatic request distribution among row store and column store nodes setting. The value is **0** (disabled) or **1** (enabled).
-    // * **PinPreparedStmt**: visible only for ApsaraDB RDS for PostgreSQL. This is an internal parameter.
+    // The settings of the proxy endpoint. The value is in JSON format and includes the following parameters:
+    // * **TransactionReadSqlRouteOptimizeStatus**: the transaction splitting setting. Valid values: **0** (disabled) and **1** (enabled).
+    // * **ConnectionPersist**: the connection pool setting. Valid values: **0** (disabled), **1** (session-level connection pool), and **2** (transaction-level connection pooling).
+    // * **ReadWriteSpliting**: the read/write splitting setting. Valid values: **0** (disabled) and **1** (enabled).
+    // * **AZProximityAccess**: the nearest access setting. Valid values: **0** (disabled) and **1** (enabled).
+    // * **CausalConsistRead**: the read consistency setting. Valid values: **0** (eventual consistency), **1** (session consistency), and **2** (global consistency).
+    // * **HtapFilter**: the automatic request distribution among row store and column store nodes for HTAP setting. Valid values: **0** (disabled) and **1** (enabled).
+    // * **PinPreparedStmt**: an internal parameter visible only in ApsaraDB RDS for PostgreSQL.
     // 
-    // > ApsaraDB RDS for PostgreSQL supports modification of only **ReadWriteSpliting**. **TransactionReadSqlRouteOptimizeStatus** and **PinPreparedStmt** are set to 1 by default.
+    // > For ApsaraDB RDS for PostgreSQL, only **ReadWriteSpliting** can be modified. **TransactionReadSqlRouteOptimizeStatus** and **PinPreparedStmt** are set to 1 by default.
     shared_ptr<string> DBProxyFeatures_ {};
     shared_ptr<DescribeDBProxyEndpointResponseBody::DBProxyNodes> DBProxyNodes_ {};
     // The description of the proxy endpoint.
     shared_ptr<string> dbProxyEndpointAliases_ {};
-    // The read/write type of the proxy endpoint. Valid values:
-    // * **ReadWrite**: read/write splitting mode.
+    // The read/write mode of the proxy endpoint. Valid values:
+    // * **ReadWrite**: read/write mode.
     // * **ReadOnly**: read-only mode.
     shared_ptr<string> dbProxyEndpointReadWriteMode_ {};
     // The VPC ID of the proxy endpoint.
@@ -433,19 +434,19 @@ namespace Models
     shared_ptr<DescribeDBProxyEndpointResponseBody::EndpointConnectItems> endpointConnectItems_ {};
     // The read weight distribution mode. For more information, see [Read weight distribution](https://help.aliyun.com/document_detail/96076.html). Valid values:
     // 
-    // * **Standard**: automatically distributes weights based on instance specifications.
-    // * **Custom**: uses custom weight distribution.
+    // * **Standard**: automatic allocation based on instance specifications
+    // * **Custom**: custom weight allocation
     shared_ptr<string> readOnlyInstanceDistributionType_ {};
-    // The latency threshold for read/write splitting. When the latency of a read-only instance exceeds this threshold, read traffic is not routed to the instance. Unit: seconds.
+    // The latency threshold for read/write splitting. If the latency of a read-only instance exceeds this threshold, read traffic is not routed to the instance. Unit: seconds.
     shared_ptr<string> readOnlyInstanceMaxDelayTime_ {};
-    // The read weight distribution information, which specifies the read request weights of the primary instance and read-only instances. The value is in JSON format and includes the following parameters:
-    // * **DBInstanceId**: the instance ID.
-    // * **DBInstanceType**: the instance type. The value is **Master** (primary instance) or **ReadOnly** (read-only instance).
-    // * **NodeID**: the node ID of the primary node or secondary node of the primary instance in the Cluster Edition.
-    // * **NodeType**: the node type in the Cluster Edition. The value is **Primary** (primary node of the primary instance) or **Secondary** (secondary node of the primary instance).
-    // * **Weight**: the read request weight. The value increases in increments of **100**. Maximum value: **10000**.
+    // The read weight distribution information, which specifies the read request weights of the primary and read-only instances. The value is in JSON format and includes the following parameters:
+    // * **DBInstanceId**: instance ID of the instance.
+    // * **DBInstanceType**: the type of the instance. Valid values: **Master** (primary instance) and **ReadOnly** (read-only instance).
+    // * **NodeID**: instance IDs of the primary and secondary nodes of the primary instance in the Cluster Edition.
+    // * **NodeType**: the type of the node in the Cluster Edition. Valid values: **Primary** (primary node of the primary instance) and **Secondary** (secondary node of the primary instance).
+    // * **Weight**: the read request weight. The weight increases in increments of **100**, and the maximum value is **10000**.
     shared_ptr<string> readOnlyInstanceWeight_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

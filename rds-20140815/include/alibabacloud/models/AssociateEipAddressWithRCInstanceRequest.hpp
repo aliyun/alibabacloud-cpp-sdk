@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // The ID of the EIP.
+    // The ID of the elastic IP address (EIP).
     // 
     // > If you do not have an EIP, [create an EIP](https://help.aliyun.com/document_detail/292841.html) first.
     shared_ptr<string> allocationId_ {};
-    // The instance ID of the RDS Custom instance.
+    // The RDS Custom instance ID.
     shared_ptr<string> instanceId_ {};
-    // The region ID. You can call DescribeRegions to query the available regions.
+    // The region ID. You can call the DescribeRegions operation to query available regions.
     shared_ptr<string> regionId_ {};
   };
 

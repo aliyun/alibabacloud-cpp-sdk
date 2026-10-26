@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The code.
     shared_ptr<string> code_ {};
-    // The response message.
+    // The returned message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

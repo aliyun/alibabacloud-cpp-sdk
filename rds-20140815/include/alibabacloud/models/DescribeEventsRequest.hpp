@@ -103,10 +103,10 @@ namespace Models
 
 
   protected:
-    // The end time of the query. The end time must be later than the start time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+    // The end time of the query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time must be in UTC.
     shared_ptr<string> endTime_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Valid values: any integer greater than 0 that does not exceed the maximum value of Integer.
+    // The page number. Valid values: any integer greater than 0 and less than or equal to the maximum integer value.
     // 
     // Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
@@ -117,13 +117,13 @@ namespace Models
     // 
     // Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID. You can call DescribeRegions to query the available regions.
+    // The region ID. You can call the DescribeRegions operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The start time of the query. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+    // The start time of the query. Specify the time in the ISO 8601 standard in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time must be in UTC.
     shared_ptr<string> startTime_ {};
   };
 

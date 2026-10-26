@@ -226,13 +226,13 @@ namespace Models
     // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<DescribeMigrateTasksResponseBody::Items> items_ {};
-    // The page number of the returned page.
+    // The number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries returned per page.
     shared_ptr<int32_t> pageRecordCount_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of entries that meet the specified conditions.
+    // The total number of entries that meet the query conditions.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

@@ -325,7 +325,7 @@ namespace Models
 
 
       protected:
-        // The error description.
+        // The error message.
         shared_ptr<string> checkErrMsg_ {};
         // The error code.
         shared_ptr<string> errorCode_ {};
@@ -392,17 +392,17 @@ namespace Models
 
 
     protected:
-      // The promotion information.
+      // The pricing information.
       shared_ptr<PriceInfo::ActivityInfo> activityInfo_ {};
       shared_ptr<PriceInfo::Coupons> coupons_ {};
-      // The currency unit.
+      // The currency.
       shared_ptr<string> currency_ {};
-      // The discount amount.
+      // The discount.
       shared_ptr<float> discountPrice_ {};
       // The original price.
       shared_ptr<float> originalPrice_ {};
       shared_ptr<PriceInfo::RuleIds> ruleIds_ {};
-      // The final price, which is the original price minus the discount amount.
+      // The final price, which is the original price minus the discount.
       shared_ptr<float> tradePrice_ {};
     };
 
@@ -436,7 +436,7 @@ namespace Models
   protected:
     // The pricing information.
     shared_ptr<DescribeRenewalPriceResponseBody::PriceInfo> priceInfo_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeRenewalPriceResponseBody::Rules> rules_ {};
   };

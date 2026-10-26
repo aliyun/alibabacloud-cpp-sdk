@@ -84,16 +84,16 @@ namespace Models
 
 
   protected:
-    // The ID of the ticket that was created.
+    // The ID of the created ticket.
     // 
     // This parameter is required.
     shared_ptr<int64_t> activityId_ {};
     shared_ptr<string> ownerId_ {};
-    // The promotion ID. You can call the GetResourcePrice operation to obtain this value.
+    // The promotion ID. You can call the GetResourcePrice operation to obtain the promotion ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> promotionId_ {};
-    // The region ID. You can call the DescribeRegions operation to query available region IDs.
+    // The region ID. You can call the DescribeRegions operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

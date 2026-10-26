@@ -63,7 +63,7 @@ namespace Models
     shared_ptr<string> authorizationState_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The Alibaba Resource Name (ARN) of the service-linked role associated with Cloud Hardware Security Module (CloudHSM) for backup encryption.
+    // The ARN of the backup encryption service-linked role.
     shared_ptr<string> roleARN_ {};
   };
 

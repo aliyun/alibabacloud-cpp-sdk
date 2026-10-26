@@ -103,7 +103,7 @@ namespace Models
 
 
   protected:
-    // The ID of the target instance. You can invoke the DescribeDBInstances operation to query the instance ID.
+    // The instance ID of the destination instance. You can call the DescribeDBInstances operation to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
@@ -112,17 +112,16 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> sourceAccount_ {};
-    // The category of the source instance.
-    // 
-    // - **aliyunRDS**: ApsaraDB RDS instance.
-    // - **other**: other.
+    // The category of the source instance. Valid values:
+    // - **aliyunRDS**: Alibaba Cloud RDS instance.
+    // - **other**: Other.
     // 
     // This parameter is required.
     shared_ptr<string> sourceCategory_ {};
     // The internal or public IP address of the self-managed PostgreSQL database.
     // 
-    // - To migrate a self-managed PostgreSQL database on an ECS instance to the cloud, set this parameter to the private IP address of the ECS instance. For more information about how to obtain the IP address, see [View IP addresses](https://help.aliyun.com/document_detail/98677.html).
-    // - To migrate a self-managed PostgreSQL database in an Internet Data Center (IDC) to the cloud, set this parameter to the internal IP address of the IDC.
+    // - For the one-click cloud migration scenario of a self-managed PostgreSQL database on an ECS instance, set this parameter to the private IP address of the ECS instance. For more information, see [View IP addresses](https://help.aliyun.com/document_detail/98677.html).
+    // - For the one-click cloud migration scenario of a self-managed PostgreSQL database in an IDC, set this parameter to the internal IP address of the IDC.
     // 
     // This parameter is required.
     shared_ptr<string> sourceIpAddress_ {};
@@ -134,7 +133,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> sourcePort_ {};
-    // The task name. You can specify a custom name. If you do not specify this parameter, the system automatically generates a name.
+    // The name of the task. You can specify a custom name. If you do not specify a name, the system automatically generates one.
     shared_ptr<string> taskName_ {};
   };
 

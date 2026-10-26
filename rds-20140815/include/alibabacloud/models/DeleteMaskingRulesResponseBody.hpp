@@ -73,7 +73,7 @@ namespace Models
     shared_ptr<map<string, string>> data_ {};
     // The returned message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the operation was successful.
     shared_ptr<string> success_ {};

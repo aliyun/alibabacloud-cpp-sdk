@@ -140,9 +140,9 @@ namespace Models
 
 
   protected:
-    // The edition. Valid values:
+    // The instance edition. Valid values:
     // * **Basic**: Basic Edition
-    // * **HighAvailability**: High-availability Edition
+    // * **HighAvailability**: high availability series
     // * **AlwaysOn**: Cluster Edition
     // * **Finance**: RDS Enterprise Edition
     shared_ptr<string> category_ {};
@@ -150,7 +150,7 @@ namespace Models
     shared_ptr<string> classCode_ {};
     // The instance family.
     shared_ptr<string> classGroup_ {};
-    // The number of CPU cores for the instance type. Unit: cores.
+    // The number of CPU cores of the instance type. Unit: cores.
     shared_ptr<string> cpu_ {};
     // The storage type. Valid values:
     // * **local_ssd**: local SSD
@@ -159,23 +159,23 @@ namespace Models
     // * **cloud_essd2**: PL2 ESSD
     // * **cloud_essd3**: PL3 ESSD
     shared_ptr<string> DBInstanceStorageType_ {};
-    // The architecture.
+    // The instruction set architecture.
     shared_ptr<string> instructionSetArch_ {};
     // The maximum number of connections.
     shared_ptr<string> maxConnections_ {};
-    // The maximum I/O bandwidth for the instance type. Unit: Mbit/s.
+    // The maximum I/O bandwidth of the instance type. Unit: Mbit/s.
     shared_ptr<string> maxIOMBPS_ {};
-    // The maximum IOPS for the instance type. Unit: operations per second.
+    // The maximum IOPS of the instance type. Unit: operations per second.
     shared_ptr<string> maxIOPS_ {};
     // The memory capacity. Unit: GB.
     shared_ptr<string> memoryClass_ {};
-    // The price.
+    // The reference price.
     // 
     // <props="china">Unit: cents (CNY).
     // <props="intl">Unit: cents (USD).
     // 
-    // > * If you set the CommodityCode parameter to a pay-as-you-go commodity code, the hourly price is returned.
-    // > * If you set the CommodityCode parameter to a subscription commodity code, the monthly price is returned.
+    // >* If you specify a pay-as-you-go commodity code in the CommodityCode parameter, the hourly price is displayed.
+    // >* If you specify a subscription commodity code in the CommodityCode parameter, the monthly price is displayed.
     shared_ptr<string> referencePrice_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

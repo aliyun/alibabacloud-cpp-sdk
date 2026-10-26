@@ -68,11 +68,11 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> DBInstanceName_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The target minor engine version to which the instance is upgraded.
+    // The target minor engine version.
     shared_ptr<string> targetMinorVersion_ {};
-    // The task ID.
+    // The ID of the task.
     shared_ptr<string> taskId_ {};
   };
 

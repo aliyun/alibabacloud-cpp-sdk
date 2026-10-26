@@ -125,20 +125,20 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
-    // The database name.
+    // The name of the database.
     shared_ptr<string> DBName_ {};
     // The name of the default encryption or masking algorithm.
     shared_ptr<string> defaultAlgo_ {};
-    // The rule algorithms. You can specify multiple algorithms. Masking algorithms can include additional parameters. Format: {name: algorithm1}, {name: algorithm2, params: {encryption position, encryption length}}.
+    // The rule algorithm. You can specify multiple algorithms. Additional parameters can be added for masking algorithms. Format: {name: Algorithm 1}, {name: Algorithm 2, params: {encryption position, number of encrypted digits}}.
     shared_ptr<string> maskingAlgo_ {};
     shared_ptr<string> ownerId_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The rule configuration in JSON string format, which contains matching rules for databases, tables, and columns.
+    // The rule configuration. The value is a JSON string that contains the matching rules for databases, tables, and columns.
     shared_ptr<string> ruleConfigShrink_ {};
-    // The rule name. Only one rule name can be specified at a time.
+    // The name of the rule. Only one rule name can be specified at a time.
     // 
     // This parameter is required.
     shared_ptr<string> ruleName_ {};

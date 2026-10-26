@@ -357,7 +357,7 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // The database engine type.
+    // The database engine.
     shared_ptr<string> engine_ {};
     shared_ptr<DescribeSlowLogRecordsResponseBody::Items> items_ {};
     // The page number.

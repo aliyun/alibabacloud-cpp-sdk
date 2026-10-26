@@ -120,13 +120,13 @@ namespace Models
 
 
     protected:
-      // The creation time in UTC. The time follows the format of YYYY-MM-DDTHH:mm:ssZ.
+      // The creation time. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> createdTime_ {};
       // The kernel version number.
       shared_ptr<string> dbVersion_ {};
       // The task status.
       shared_ptr<string> status_ {};
-      // The instance ID of the target instance.
+      // The ID of the target instance.
       shared_ptr<string> targetInstanceName_ {};
       // The task ID.
       shared_ptr<int64_t> taskId_ {};
@@ -174,7 +174,7 @@ namespace Models
     // The number of entries per page. Valid values: **1 to 100**.
     // 
     // Default value: **30**.
-    // >If you specify this parameter, the **PageSize** and **PageNumber** parameters are not available.
+    // > If you specify this parameter, the **PageSize** and **PageNumber** parameters are unavailable.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token.
     shared_ptr<string> nextToken_ {};

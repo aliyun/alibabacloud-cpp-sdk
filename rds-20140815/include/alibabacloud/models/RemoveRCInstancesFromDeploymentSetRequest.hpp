@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The deployment set ID.
+    // The ID of the deployment set.
     // 
     // This parameter is required.
     shared_ptr<string> deploymentSetId_ {};
-    // The instance ID.
+    // The instance IDs.
     // 
     // This parameter is required.
     shared_ptr<string> RCInstanceIds_ {};
-    // The region ID. You can call DescribeRegions to query the most recent region list.
+    // The region ID. You can call the DescribeRegions operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

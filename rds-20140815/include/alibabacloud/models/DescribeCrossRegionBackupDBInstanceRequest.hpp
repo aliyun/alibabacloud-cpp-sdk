@@ -97,7 +97,7 @@ namespace Models
     // The instance ID. You can specify up to 30 instance IDs at a time. Separate multiple instance IDs with commas (,).
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Valid values: any integer greater than 0 that does not exceed the maximum value of the Integer data type.
+    // The page number. Valid values: any integer greater than 0 and less than or equal to the maximum value of the Integer type.
     // 
     // Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};

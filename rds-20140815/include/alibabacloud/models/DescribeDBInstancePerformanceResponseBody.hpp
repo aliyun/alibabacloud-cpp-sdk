@@ -261,14 +261,14 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // The end time of the query. Format: <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z (UTC).
+    // The end time of the query. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format (UTC).
     shared_ptr<string> endTime_ {};
     // The database engine type.
     shared_ptr<string> engine_ {};
     shared_ptr<DescribeDBInstancePerformanceResponseBody::PerformanceKeys> performanceKeys_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The start time of the query. Format: <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z (UTC).
+    // The start time of the query. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format (UTC).
     shared_ptr<string> startTime_ {};
   };
 

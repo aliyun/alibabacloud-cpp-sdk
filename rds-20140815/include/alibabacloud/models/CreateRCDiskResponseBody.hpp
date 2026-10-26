@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The cloud disk ID.
+    // The ID of the cloud disk.
     shared_ptr<string> diskId_ {};
-    // The order ID.
+    // The ID of the order.
     shared_ptr<string> orderId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

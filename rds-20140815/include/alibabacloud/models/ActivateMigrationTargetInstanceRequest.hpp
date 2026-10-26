@@ -79,14 +79,14 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
-    // Set this parameter to 1, which specifies a forced switchover.
+    // Set the value to 1, which specifies a forced switchover.
     shared_ptr<string> forceSwitch_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // A reserved parameter. This parameter does not take effect.
+    // The reserved parameter. This parameter does not take effect.
     shared_ptr<string> switchTime_ {};
     // The switchover time mode for cloud migration.
     // 
-    // Set this parameter to 0, which specifies an immediate switchover.
+    // Set the value to 0, which specifies an immediate switchover.
     shared_ptr<string> switchTimeMode_ {};
   };
 

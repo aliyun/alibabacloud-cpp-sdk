@@ -96,10 +96,10 @@ namespace Models
   protected:
     // The Alibaba Cloud account ID.
     shared_ptr<string> aliUid_ {};
-    // - Chinese site: 26842
+    // - China site: 26842
     // - International site: 26888
     shared_ptr<string> bid_ {};
-    // The instance ID. You can call [DescribeDBInstances](https://help.aliyun.com/document_detail/610396.html) to query the instance ID.
+    // The instance ID. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/610396.html) operation to query the ID.
     shared_ptr<string> DBInstanceId_ {};
     // The instance name.
     shared_ptr<string> DBInstanceName_ {};
@@ -108,7 +108,7 @@ namespace Models
     // * **PostgreSQL**
     // * **Oracle**
     shared_ptr<string> DBType_ {};
-    // The dynamic property of the instance. For more information, see [Instance dynamics](https://help.aliyun.com/document_detail/2391834.html).
+    // The dynamic attributes of the instance. For more information, see [Instance dynamics](https://help.aliyun.com/document_detail/2391834.html).
     shared_ptr<string> isActivity_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

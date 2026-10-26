@@ -161,25 +161,25 @@ namespace Models
   protected:
     // The description of the snapshot. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
     // 
-    // Default value: null.
+    // Default value: empty.
     shared_ptr<string> description_ {};
     // The cloud disk ID.
     shared_ptr<string> diskId_ {};
-    // This parameter is deprecated and does not need to be specified.
+    // This parameter is deprecated. You do not need to specify it.
     shared_ptr<bool> instantAccess_ {};
-    // This parameter is deprecated and does not need to be specified.
+    // This parameter is deprecated. You do not need to specify it.
     shared_ptr<int32_t> instantAccessRetentionDays_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // Settings for the retention period of the snapshot. Unit: days. The snapshot is subject to automatic release after the retention period expires. Valid values: 1 to 65536.
+    // Settings for the retention period of the snapshot. Unit: days. After the retention period expires, the snapshot is subject to automatic release. Valid values: 1 to 65536.
     // 
-    // Default value: null, which indicates that the snapshot is not subject to automatic release.
+    // Default value: empty, which indicates that the snapshot is not subject to automatic release.
     shared_ptr<int32_t> retentionDays_ {};
     // The tag details.
     shared_ptr<vector<CreateRCSnapshotRequest::Tag>> tag_ {};
-    // This parameter is deprecated and does not need to be specified.
+    // This parameter is deprecated. You do not need to specify it.
     shared_ptr<string> zoneId_ {};
   };
 

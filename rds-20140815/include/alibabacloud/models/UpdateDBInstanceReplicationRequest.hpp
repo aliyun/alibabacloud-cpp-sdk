@@ -118,15 +118,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> dbInstanceId_ {};
-    // The host address of the primary database. IP addresses and domain names are supported.
+    // The host address of the primary database, which supports an IP address or a domain name.
     shared_ptr<string> masterHost_ {};
     // The password of the primary database, which is used to authenticate the replication user. The password must be Base64-encoded in advance.
     shared_ptr<string> masterPassword_ {};
-    // The port number of the primary database. The default port is 3306 for MySQL.
+    // The port number of the primary database, which is typically 3306 for MySQL.
     shared_ptr<int32_t> masterPort_ {};
     // The username of the primary database, which is used to establish a replication connection. Specify this parameter only when an update is required.
     shared_ptr<string> masterUser_ {};
-    // The operation type. Specifies the operation to perform on the replication channel.
+    // The operation type, which specifies the operation to be performed on the replication channel.
     // 
     // This parameter is required.
     shared_ptr<string> operation_ {};

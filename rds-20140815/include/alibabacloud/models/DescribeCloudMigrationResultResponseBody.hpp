@@ -208,33 +208,33 @@ namespace Models
       shared_ptr<string> detail_ {};
       // The time when the task was created.
       shared_ptr<string> gmtCreated_ {};
-      // The time when the task was last modified.
+      // The time when the task was modified.
       shared_ptr<string> gmtModified_ {};
       // The migration stage. Valid values:
       // 
-      // - **precheck**: Precheck.
-      // - **basebackup**: Full backup.
-      // - **startup**: Link setup.
-      // - **increment**: Incremental synchronization.
-      // - **switch**: Cloud switchover.
-      // - **success**: Migration completed.
+      // - **precheck**: precheck
+      // - **basebackup**: full backup
+      // - **startup**: link setup
+      // - **increment**: incremental synchronization
+      // - **switch**: cloud cutover
+      // - **success**: cloud migration completed
       shared_ptr<string> migrateStage_ {};
       // The replication task information.
       shared_ptr<string> replicationInfo_ {};
-      // The replication status. Valid values:
+      // The replication state. Valid values:
       // 
-      // - **unstarted**: Not started.
-      // - **catchup**: Catching up.
-      // - **streaming**: Streaming.
-      // - **disconnect**: Disconnected.
-      // - **finish**: Completed.
+      // - **unstarted**: not started
+      // - **catchup**: catching up
+      // - **streaming**: streaming
+      // - **disconnect**: disconnected
+      // - **finish**: completed
       shared_ptr<string> replicationState_ {};
       // The username.
       shared_ptr<string> sourceAccount_ {};
       // The type of the self-managed PostgreSQL database. Valid values:
       // 
-      // - **idcOnVpc**: A self-managed PostgreSQL database in an IDC that is connected to a VPC.
-      // - **ecsOnVpc**: A self-managed PostgreSQL database on an Alibaba Cloud ECS instance.
+      // - **idcOnVpc**: self-managed PostgreSQL database in an on-premises data center that is connected to a VPC
+      // - **ecsOnVpc**: self-managed PostgreSQL database on an Alibaba Cloud ECS instance
       shared_ptr<string> sourceCategory_ {};
       // The internal IP address of the self-managed PostgreSQL database.
       shared_ptr<string> sourceIpAddress_ {};
@@ -242,15 +242,15 @@ namespace Models
       shared_ptr<string> sourcePassword_ {};
       // The port of the self-managed PostgreSQL database.
       shared_ptr<int64_t> sourcePort_ {};
-      // The switchover time.
+      // The cutover time.
       shared_ptr<string> switchTime_ {};
-      // A reserved parameter. The query result is empty.
+      // A reserved parameter. The value is empty.
       shared_ptr<string> targetEip_ {};
       // The instance ID of the target instance.
       shared_ptr<string> targetInstanceName_ {};
-      // The task ID.
+      // The ID of the task.
       shared_ptr<int64_t> taskId_ {};
-      // The task name.
+      // The name of the task.
       shared_ptr<string> taskName_ {};
     };
 
@@ -302,7 +302,7 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of queried entries.
     shared_ptr<int32_t> totalSize_ {};
   };
 

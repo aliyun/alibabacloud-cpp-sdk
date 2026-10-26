@@ -67,9 +67,9 @@ namespace Models
 
 
     protected:
-      // The return status. Valid values:
-      // - **ok**: Normal return.
-      // - **error**: Error return.
+      // The returned status. Valid values:
+      // - **ok**: Normal response.
+      // - **error**: Error response.
       shared_ptr<string> status_ {};
     };
 
@@ -124,10 +124,10 @@ namespace Models
     // - **200**: Normal.
     // - **400**: Client error.
     // - **401**: Authentication failed.
-    // - **404**: Request page not found.
+    // - **404**: The requested page is not found.
     // - **500**: Server error.
     shared_ptr<string> code_ {};
-    // The returned data list.
+    // The list of returned data.
     shared_ptr<ModifyWhitelistTemplateResponseBody::Data> data_ {};
     // The HTTP status code. Valid values:
     // - **200**: Normal.
@@ -136,12 +136,12 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The returned message.
     shared_ptr<string> message_ {};
-    // The request ID. Each request has a unique ID, which facilitates troubleshooting.
+    // The request ID. The ID is unique for each request and can be used for troubleshooting.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // - **true**: Successful.
-    // - **false**: Failed.
+    // - **true**: The request was successful.
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

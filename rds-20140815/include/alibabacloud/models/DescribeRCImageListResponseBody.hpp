@@ -140,7 +140,7 @@ namespace Models
         shared_ptr<string> device_ {};
         // The size of the cloud disk. Unit: GiB.
         shared_ptr<string> size_ {};
-        // The type of the cloud disk.
+        // The attribute of the cloud disk. Valid values:
         // 
         // - **system**: System cloud disk.
         // - **data**: Data cloud disk.
@@ -268,14 +268,14 @@ namespace Models
     protected:
       // The system architecture of the image. Valid values:
       // 
-      // - x86_64.
-      // - arm64.
+      // - x86_64
+      // - arm64
       shared_ptr<string> architecture_ {};
-      // The time when the image was created.
+      // The creation time of the image.
       shared_ptr<string> creationTime_ {};
       // The description of the image.
       shared_ptr<string> description_ {};
-      // The mapping between cloud disks and snapshots in the image.
+      // The mappings between cloud disks and snapshots included in the image.
       shared_ptr<vector<Images::DiskDeviceMappings>> diskDeviceMappings_ {};
       // The image ID.
       shared_ptr<string> imageId_ {};
@@ -283,24 +283,24 @@ namespace Models
       shared_ptr<string> imageName_ {};
       // The image version.
       shared_ptr<string> imageVersion_ {};
-      // Indicates whether the image is a public image. Public images include Alibaba Cloud-provided public images and custom images that you have published as community images.
+      // Indicates whether the image is public. Public images include public images provided by Alibaba Cloud and custom images that you have published as community images. Valid values:
       // 
-      // - **true**: The image is a public image.
-      // - **false**: The image is not a public image.
+      // - **true**: The image is public.
+      // - **false**: The image is not public.
       shared_ptr<bool> isPublic_ {};
       // Indicates whether the image supports RDS Custom instances. Valid values:
       // 
-      // - **true**: Supported.
-      // - **false**: Not supported.
+      // - **true**: Yes.
+      // - **false**: No.
       shared_ptr<bool> isSupportRdsCustom_ {};
       // The Chinese display name of the operating system.
       shared_ptr<string> OSName_ {};
       // The English display name of the operating system.
       shared_ptr<string> OSNameEn_ {};
-      // The type of the operating system. Valid values:
+      // The operating system type. Valid values:
       // 
-      // - **windows**.
-      // - **linux**.
+      // - **windows**
+      // - **linux**
       shared_ptr<string> OSType_ {};
       // The operating system platform.
       shared_ptr<string> platform_ {};
@@ -308,15 +308,15 @@ namespace Models
       shared_ptr<int64_t> size_ {};
       // The status of the image. Valid values:
       // 
-      // - **UnAvailable**: Unavailable.
-      // - **Available**: Available.
-      // - **Creating**: Being created.
-      // - **CreateFailed**: Creation failed.
+      // - **UnAvailable**: The image is unavailable.
+      // - **Available**: The image is available.
+      // - **Creating**: The image is being created.
+      // - **CreateFailed**: The image failed to be created.
       shared_ptr<string> status_ {};
       // Indicates whether the image is used by RDS Custom instances. Valid values:
       // 
-      // - **instance**: One or more RDS Custom instances have been created.
-      // - **none**: No RDS Custom instances have been created.
+      // - **instance**: One or more RDS Custom instances are created.
+      // - **none**: No RDS Custom instances are created.
       shared_ptr<string> usage_ {};
     };
 

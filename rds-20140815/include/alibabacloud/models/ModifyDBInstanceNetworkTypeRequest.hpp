@@ -149,37 +149,37 @@ namespace Models
 
 
   protected:
-    // The number of days for which the classic network address reservation is retained. Valid values: **1 to 120**. Unit: days. Default value: **7**.
-    // >This parameter is required if **RetainClassic** is set to **True**.
+    // The number of days for the classic network address reservation. Valid values: **1** to **120**. Unit: days. Default value: **7**.
+    // >This parameter is required when the **RetainClassic** parameter is set to **True**.
     shared_ptr<string> classicExpiredDays_ {};
-    // The instance ID. You can call DescribeDBInstances to obtain the instance ID.
+    // Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The target network type. Set the value to **VPC**.
+    // The target network type. Set the value to **VPC**, which indicates a virtual private cloud (VPC).
     // 
     // This parameter is required.
     shared_ptr<string> instanceNetworkType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // Settings for the internal network IP address of the instance. The IP address must be within the address range of the specified vSwitch. By default, the system automatically allocates an IP address based on the values of **VPCId** and **VSwitchId**.
+    // Settings for the internal network IP address of the instance. The IP address must be within the address range of the specified vSwitch. By default, the system automatically allocates an IP address based on the **VPCId** and **VSwitchId** parameters.
     shared_ptr<string> privateIpAddress_ {};
-    // The number of days for which the read/write splitting endpoint of the classic network type is retained for address reservation. Valid values: **1 to 120**. Unit: days. Default value: **7**.
-    // >This parameter takes effect only when the instance has a classic network type read/write splitting endpoint and **RetainClassic** is set to **True**.
+    // The number of days for the classic network address reservation for read/write splitting. Valid values: **1** to **120**. Unit: days. Default value: **7**.
+    // >This parameter takes effect only when the instance has a read/write splitting address of the classic network type and the **RetainClassic** parameter is set to **True**.
     shared_ptr<int32_t> readWriteSplittingClassicExpiredDays_ {};
-    // Settings for the internal network read/write splitting IP address of the instance. The IP address must be within the address range of the specified vSwitch. By default, the system automatically allocates an IP address based on the values of **VPCId** and **VSwitchId**.
+    // Settings for the internal network IP address of the read/write splitting endpoint for the instance. The IP address must be within the address range of the specified vSwitch. By default, the system automatically allocates an IP address based on the **VPCId** and **VSwitchId** parameters.
     // 
-    // >This parameter takes effect only when the instance has a classic network type read/write splitting endpoint.
+    // >This parameter takes effect only when the instance has a read/write splitting address of the classic network type.
     shared_ptr<string> readWriteSplittingPrivateIpAddress_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // Specifies whether to retain the classic network endpoint. Valid values:
-    // * **True**: The classic network endpoint is retained.
-    // * **False** (default): The classic network endpoint is not retained.
+    // * **True**: Retains the classic network endpoint.
+    // * **False**: Does not retain the classic network endpoint. This is the default value.
     shared_ptr<string> retainClassic_ {};
-    // VPC ID。
+    // The VPC ID.
     shared_ptr<string> VPCId_ {};
-    // The vSwitch ID. This parameter is required if **VPCId** is specified.
+    // The ID of the vSwitch. This parameter is required when the **VPCId** parameter is specified.
     shared_ptr<string> vSwitchId_ {};
   };
 

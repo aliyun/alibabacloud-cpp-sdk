@@ -136,16 +136,16 @@ namespace Models
     protected:
       // The tag key. You can specify this parameter to bind a tag to the instance.
       // 
-      // * If the specified tag key already exists, the tag key is directly bound to the instance. You can call the ListTagResources operation to query created tags.
+      // * If the specified tag key already exists, the tag key is directly bound to the instance. You can call the ListTagResources operation to query the created tags.
       // * If the specified tag key does not exist, the tag key is created and then bound to the instance.
-      // * The tag key cannot be an empty string.
-      // * This parameter must be used together with the **Tag.Value** parameter.
+      // * Empty strings are not allowed.
+      // * This parameter must be used together with the **Tag.Value** parameter and cannot be used alone.
       shared_ptr<string> key_ {};
       // The tag value that corresponds to the tag key. You can specify this parameter to bind a tag to the instance.
       // 
-      // * If the specified tag value already exists for the corresponding tag key, the tag value is directly bound to the instance. You can call the ListTagResources operation to query created tags.
+      // * If the specified tag value already exists for the corresponding tag key, the tag value is directly bound to the instance. You can call the ListTagResources operation to query the created tags.
       // * If the specified tag value does not exist for the corresponding tag key, the tag value is created and then bound to the instance.
-      // * This parameter must be used together with the **Tag.Key** parameter.
+      // * This parameter must be used together with the **Tag.Key** parameter and cannot be used alone.
       shared_ptr<string> value_ {};
     };
 
@@ -466,143 +466,144 @@ namespace Models
     // 
     // 1. **true**: enables automatic payment. Make sure that your account balance is sufficient.
     // 
-    // 1. **false**: generates an unpaid order without deducting fees.
+    // 1. **false**: generates an order but does not deduct fees.
     // 
-    // > Default value: true. If your payment method has an insufficient balance, you can set the AutoPay parameter to false. In this case, an unpaid order is generated, and you can log on to the ApsaraDB RDS console to pay the order.
+    // > Default value: true. If your payment method has an insufficient balance, you can set the AutoPay parameter to false. In this case, an unpaid order is generated, and you can log on to the ApsaraDB RDS console to complete the payment.
     shared_ptr<bool> autoPay_ {};
     // The ID of the backup set.
     // 
-    // You can call the DescribeBackups operation to query backup sets.
+    // You can call the DescribeBackups operation to query the backup sets.
     // 
     // >You must specify at least one of the **BackupId** and **RestoreTime** parameters.
     shared_ptr<string> backupId_ {};
     // The backup type. Valid values:
     // 
-    // * **FullBackup**: full backup
-    // * **IncrementalBackup**: incremental backup
+    // * **FullBackup**: full backup.
+    // * **IncrementalBackup**: incremental backup.
     shared_ptr<string> backupType_ {};
     shared_ptr<string> bpeEnabled_ {};
-    // Specifies whether to enable the I/O performance burst feature for cloud disks. Valid values:
+    // Specifies whether to enable the I/O performance burst feature for Premium ESSD cloud disks. Valid values:
     // * **true**: enables the feature.
-    // * **false**: disables the feature.
-    // > For more information about the I/O performance burst feature, see [What is Premium ESSD?](https://help.aliyun.com/document_detail/2340501.html).
+    // * **false**: shutdown.
+    // > For more information about the I/O performance burst feature, see [What is a premium performance disk](https://help.aliyun.com/document_detail/2340501.html).
     shared_ptr<bool> burstingEnabled_ {};
     // The instance edition. Valid values:
     // 
-    // - **Basic**: Basic Edition
-    // - **HighAvailability**: High-availability Edition
-    // - **AlwaysOn**: Cluster Edition (SQL Server)
-    // - **cluster**: Cluster Edition (MySQL)
-    // - **Finance**: Finance Edition (supported only on the China site)
+    // - **Basic**: Basic Edition.
+    // - **HighAvailability**: high availability Edition (active).
+    // - **AlwaysOn**: Cluster Edition (SQL Server).
+    // - **cluster**: Cluster Edition (MySQL).
+    // - **Finance**: Finance Edition (supported only on the China site).
     // 
     // **Serverless instances**
-    // - **serverless_basic**: Serverless Basic Edition (supported only for MySQL and PostgreSQL)
-    // - **serverless_standard**: MySQL Serverless High-availability Edition
-    // - **serverless_ha**: SQL Server Serverless High-availability Edition
+    // - **serverless_basic**: Serverless Basic Edition (applicable only to MySQL and PostgreSQL).
+    // - **serverless_standard**: MySQL Serverless high availability Edition (active).
+    // - **serverless_ha**: SQL Server Serverless high availability Edition (active).
     // > You do not need to specify this parameter. The cloned instance inherits the edition of the source instance.
     shared_ptr<string> category_ {};
-    // Ensures the idempotence of the request and prevents duplicate submissions. The value is generated by the client and must be unique across different requests. The value can be up to 64 ASCII characters in length and cannot contain non-ASCII characters.
+    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can use the client to generate the value, but you must ensure that the value is unique among different requests. The value can be up to 64 ASCII characters in length and cannot contain non-ASCII characters.
     shared_ptr<string> clientToken_ {};
+    // The internal reserved field. You do not need to specify this parameter.
     shared_ptr<string> customExtraInfo_ {};
     // The instance type. For more information, see [Instance types](https://help.aliyun.com/document_detail/26312.html).
     // 
-    // >Default value: the instance type of the source instance.
+    // >Default value: the instance type of the primary instance.
     shared_ptr<string> DBInstanceClass_ {};
-    // The description of the instance. The description must be 2 to 255 characters in length. It must start with a Chinese character or a letter and can contain digits, Chinese characters, letters, underscores (_), and hyphens (-).
-    // >The description cannot start with http:// or https://.
+    // The instance name. It must be 2 to 255 characters in length. It must start with a letter or a Chinese character and can contain letters, digits, Chinese characters, underscores (_), and hyphens (-).
+    // >It cannot start with http:// or https://.
     shared_ptr<string> DBInstanceDescription_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     // Instance storage capacity of the instance. Unit: GB. Instance storage capacity increases in increments of 5 GB. For more information, see [Instance types](https://help.aliyun.com/document_detail/26312.html).
-    // >Default value: instance storage capacity of the source instance.
+    // >Default value: instance storage capacity of the primary instance.
     shared_ptr<int32_t> DBInstanceStorage_ {};
     // The instance storage type. Valid values:
     // 
-    // * **general_essd**: Premium ESSD (recommended)
-    // * **local_ssd**: local SSD
-    // * **cloud_ssd**: standard SSD
-    // * **cloud_essd**: PL1 ESSD
-    // * **cloud_essd2**: PL2 ESSD
-    // * **cloud_essd3**: PL3 ESSD
+    // * **general_essd**: Premium ESSD (recommended).
+    // * **local_ssd**: premium local disk.
+    // * **cloud_ssd**: standard SSD.
+    // * **cloud_essd**: PL1 ESSD.
+    // * **cloud_essd2**: PL2 ESSD.
+    // * **cloud_essd3**: PL3 ESSD.
     // 
     // > Serverless instances support only PL1 ESSD and Premium ESSD.
     shared_ptr<string> DBInstanceStorageType_ {};
-    // The names of the databases to restore. Format: `OriginalDatabaseName1,OriginalDatabaseName2`.
+    // The names of the databases. Format: `Original database name 1,Original database name 2`.
     shared_ptr<string> dbNames_ {};
     // The ID of the dedicated cluster.
     shared_ptr<string> dedicatedHostGroupId_ {};
-    // Specifies whether to enable release protection. Valid values:
-    // * **true**: enables release protection.
-    // * **false** (default): disables release protection.
+    // Specifies whether to enable the release protection feature. Valid values:
+    // * **true**: enables the feature.
+    // * **false** (default): disables the feature.
     shared_ptr<bool> deletionProtection_ {};
     // The network type of the instance. Valid values:
-    // * **VPC**: Virtual Private Cloud (VPC)
-    // * **Classic**: classic network
+    // * **VPC**: Virtual Private Cloud (VPC).
+    // * **Classic**: classic network.
     // 
-    // >Default value: the network type of the source instance.
+    // >Default value: the network type of the primary instance.
     shared_ptr<string> instanceNetworkType_ {};
-    // Specifies whether to enable the Buffer Pool Extension (BPE) feature for cloud disks. Valid values:
+    // Specifies whether to enable the Buffer Pool Extension (BPE) feature for Premium ESSD cloud disks. Valid values:
     // 
     //  - **1**: enables the feature.
     //  - **0**: disables the feature.
     // 
     // > For more information about the BPE feature, see [Buffer Pool Extension (BPE)](https://help.aliyun.com/document_detail/2527067.html).
     shared_ptr<string> ioAccelerationEnabled_ {};
-    // The billing method. Valid values:
-    // * **Postpaid**: pay-as-you-go
-    // * **Prepaid**: subscription
-    // * **Serverless**: serverless. This billing method is not supported for ApsaraDB RDS for MariaDB instances. For more information, see [Overview of serverless ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/411291.html), [Overview of serverless ApsaraDB RDS for SQL Server instances](https://help.aliyun.com/document_detail/604344.html), and [Overview of serverless ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/607742.html).
+    // The billing method of the instance. Valid values:
+    // * **Postpaid**: pay-as-you-go.
+    // * **Prepaid**: subscription.
+    // * **Serverless**: serverless. This value is not supported for ApsaraDB RDS for MariaDB instances. For more information, see [Overview of serverless ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/411291.html), [Overview of serverless ApsaraDB RDS for SQL Server instances](https://help.aliyun.com/document_detail/604344.html), and [Overview of serverless ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/607742.html).
     // 
     // This parameter is required.
     shared_ptr<string> payType_ {};
     // The subscription period of the subscription instance. Valid values:
-    // * **Year**: yearly
-    // * **Month**: monthly
+    // * **Year**: yearly subscription.
+    // * **Month**: monthly subscription.
     // 
-    // > This parameter is required if the **PayType** parameter is set to **Prepaid**.
+    // > This parameter is required when the billing method is set to **Prepaid**.
     shared_ptr<string> period_ {};
-    // The internal IP address of the new instance. The IP address must be within the IP address range of the specified vSwitch. By default, the system automatically allocates an IP address based on the **VPCId** and **VSwitchId** parameters.
+    // The internal network IP address of the new instance. The IP address must be within the IP address range of the specified vSwitch. By default, the system automatically allocates an IP address based on the **VPCId** and **VSwitchId** parameters.
     shared_ptr<string> privateIpAddress_ {};
-    // The region ID. You can call the DescribeRegions operation to query region IDs.
+    // The region ID. You can call the DescribeRegions operation to view the region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Specifies whether to restore individual databases and tables. Set the value to **true** to restore individual databases and tables. Otherwise, leave this parameter empty.
+    // Specifies whether to restore individual databases and tables. A value of **true** specifies that individual databases and tables are restored. If you do not want to restore individual databases and tables, leave this parameter empty.
     shared_ptr<string> restoreTable_ {};
-    // The point in time to which you want to restore data. The point in time must be within the backup retention period. Specify the time in the ISO 8601 standard in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time must be in UTC.
+    // The point in time to which you want to restore the instance. The point in time must be within the backup retention period. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time must be in UTC.
     // 
     // >You must specify at least one of the **BackupId** and **RestoreTime** parameters.
     shared_ptr<string> restoreTime_ {};
     shared_ptr<CloneDBInstanceRequest::ServerlessConfig> serverlessConfig_ {};
-    // The information about the databases and tables to restore. This parameter is required when you restore individual databases and tables. Format:
-    // ```[{"type":"db","name":"Original database 1 name","newname":"New database 1 name","tables":[{"type":"table","name":"Table 1 name in database 1","newname":"New table 1 name"},{"type":"table","name":"Table 2 name in database 1","newname":"New table 2 name"}]},{"type":"db","name":"Original database 2 name","newname":"New database 2 name","tables":[{"type":"table","name":"Table 1 name in database 2","newname":"New table 1 name"},{"type":"table","name":"Table 2 name in database 2","newname":"New table 2 name"}]}]```
+    // The information about the databases and tables that you want to restore. This parameter is required when you restore individual databases and tables. Format:
+    // ```[{"type":"db","name":"Name of database 1","newname":"New name of database 1","tables":[{"type":"table","name":"Name of table 1 in database 1","newname":"New name of table 1"},{"type":"table","name":"Name of table 2 in database 1","newname":"New name of table 2"}]},{"type":"db","name":"Name of database 2","newname":"New name of database 2","tables":[{"type":"table","name":"Name of table 1 in database 2","newname":"New name of table 1"},{"type":"table","name":"Name of table 2 in database 2","newname":"New name of table 2"}]}]```
     shared_ptr<string> tableMeta_ {};
     // The list of tags.
     shared_ptr<vector<CloneDBInstanceRequest::Tag>> tag_ {};
     // The subscription duration. Valid values:
-    // * If the **Period** parameter is set to **Year**, the value of the UsedTime parameter ranges from **1** to **3**.
-    // * If the **Period** parameter is set to **Month**, the value of the UsedTime parameter ranges from **1** to **9**.
+    // * Valid values when the **Period** parameter is set to **Year**: **1**, **2**, and **3**.
+    // * Valid values when the **Period** parameter is set to **Month**: **1** to **9**.
     // 
-    // > This parameter is required if the **PayType** parameter is set to **Prepaid**.
+    // > This parameter is required when the billing method is set to **Prepaid**.
     shared_ptr<int32_t> usedTime_ {};
-    // The ID of the VPC.
-    // >Make sure that the VPC belongs to the specified region.
+    // The VPC ID.
+    // >Make sure that the VPC belongs to the region where the instance is deployed.
     shared_ptr<string> VPCId_ {};
-    // The vSwitch ID. The zone where the vSwitch resides must correspond to the zone ID specified in **ZoneId**.
+    // The vSwitch ID. The zone (active zone) where the vSwitch is located must match the zone (active zone) ID specified in **ZoneId**.
     // 
     // - The network type **InstanceNetworkType** must be set to **VPC**.
-    // - If you specify **ZoneSlaveId1** (secondary zone ID), you must specify two vSwitch IDs and separate them with a comma (,).
+    // - If you specify **ZoneSlaveId1** (the secondary active zone ID), you must specify two vSwitch IDs and separate them with commas (,).
     shared_ptr<string> vSwitchId_ {};
-    // The primary zone ID. You can call the DescribeRegions operation to query zone IDs.
+    // The primary zone ID. You can call the DescribeRegions operation to view the zone ID.
     // 
     // >Default value: the zone ID of the source instance.
     shared_ptr<string> zoneId_ {};
-    // The zone ID of the secondary node. If this parameter is set to the same value as the **ZoneId** parameter, it is a single-zone deployment. If this parameter is set to a different value from the **ZoneId** parameter, it is a multi-zone deployment.
+    // The secondary zone (active zone) ID. If this parameter is set to the same value as the **ZoneId** parameter, the instance uses a single-zone (active zone) deployment. If this parameter is set to a different value from the **ZoneId** parameter, the instance uses a multi-zone (active zone) deployment.
     shared_ptr<string> zoneIdSlave1_ {};
-    // <props="intl">The zone ID of the logger node. If this parameter is set to the same value as the **ZoneId** parameter, it is a single-zone deployment. If this parameter is set to a different value from the **ZoneId** parameter, it is a multi-zone deployment.
+    // <props="intl">The logger zone (active zone) ID. If this parameter is set to the same value as the **ZoneId** parameter, the instance uses a single-zone (active zone) deployment. If this parameter is set to a different value from the **ZoneId** parameter, the instance uses a multi-zone (active zone) deployment.
     // 
-    // <props="china">The zone ID of the secondary node or logger node. If this parameter is set to the same value as the **ZoneId** parameter, it is a single-zone deployment. If this parameter is set to a different value from the **ZoneId** parameter, it is a multi-zone deployment.
+    // <props="china">The secondary zone (active zone) ID or logger zone (active zone) ID. If this parameter is set to the same value as the **ZoneId** parameter, the instance uses a single-zone (active zone) deployment. If this parameter is set to a different value from the **ZoneId** parameter, the instance uses a multi-zone (active zone) deployment.
     shared_ptr<string> zoneIdSlave2_ {};
   };
 

@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The instance name.
+    // The name of the instance.
     shared_ptr<string> DBInstanceName_ {};
     // The ID of the scheduled task for parameter modification.
     shared_ptr<int64_t> taskId_ {};

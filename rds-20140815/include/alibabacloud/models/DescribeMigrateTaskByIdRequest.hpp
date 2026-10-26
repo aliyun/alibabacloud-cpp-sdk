@@ -84,16 +84,16 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can call DescribeDBInstances to query the instance ID.
+    // Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The ID of the backup migration task. You can call DescribeMigrateTasks to query the task ID.
+    // The ID of the OSS backup migration task. You can call the DescribeMigrateTasks operation to query the ID.
     // 
     // This parameter is required.
     shared_ptr<string> migrateTaskId_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

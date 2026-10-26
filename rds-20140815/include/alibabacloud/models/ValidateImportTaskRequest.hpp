@@ -140,43 +140,43 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can call the DescribeDBInstances operation to obtain this parameter.
+    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> dbInstanceId_ {};
-    // The estimated instance size. Unit: GB.
+    // The estimated size of the instance. Unit: GB.
     shared_ptr<int32_t> estimatedSize_ {};
-    // The address of the source MySQL instance.
+    // The address of the source MySQL database.
     // 
     // This parameter is required.
     shared_ptr<string> host_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The password of the source MySQL user, encoded in Base64.
+    // The Base64-encoded password of the source MySQL database user.
     // 
     // This parameter is required.
     shared_ptr<string> password_ {};
-    // The port number of the source MySQL instance.
+    // The port number of the source MySQL database.
     // 
     // This parameter is required.
     shared_ptr<int32_t> port_ {};
-    // The region ID. You can call DescribeRegions to obtain this parameter.
+    // The region ID. You can call the DescribeRegions operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The ID of the source cloud instance.
     shared_ptr<string> sourceInstanceId_ {};
-    // The type of the source instance. Valid values:
+    // The type of the source platform. Valid values:
     // - ECS
     shared_ptr<string> sourcePlatform_ {};
     // The port number for backup transmission.
     // 
     // This parameter is required.
     shared_ptr<int32_t> streamPort_ {};
-    // The username of the source MySQL instance.
+    // The username of the source MySQL database.
     // 
     // This parameter is required.
     shared_ptr<string> user_ {};
-    // The path of the Xtrabackup tool on the source instance.
+    // The path to the XtraBackup tool on the source instance.
     shared_ptr<string> xtrabackupPath_ {};
   };
 

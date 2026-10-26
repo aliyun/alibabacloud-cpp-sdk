@@ -176,41 +176,41 @@ namespace Models
 
 
   protected:
-    // The storage consumed by archived backups. Unit: bytes.
+    // The storage space occupied by archive backups. Unit: bytes.
     shared_ptr<int64_t> archiveBackupSize_ {};
-    // The total storage consumed by data backups, excluding archived backups. Unit: bytes.
+    // The total storage space occupied by data backups, excluding archive backups. Unit: bytes.
     // 
-    // > For **SQL Server** instances, this value indicates the total size of physical backups and snapshot backups.
+    // > For **SQL Server** instances, this parameter indicates the total size of physical backups and snapshot backups.
     shared_ptr<int64_t> backupDataSize_ {};
-    // The storage consumed by snapshot backups for **SQL Server instances**. Unit: bytes. A value of 0 indicates no data.
+    // The storage space occupied by snapshot backups of **SQL Server** instances. Unit: bytes. A value of 0 indicates that no data is available.
     shared_ptr<string> backupEcsSnapshotSize_ {};
-    // The total storage consumed by log backups, excluding archived backups. Unit: bytes.
+    // The total storage space occupied by log backups, excluding archive backups. Unit: bytes.
     shared_ptr<int64_t> backupLogSize_ {};
-    // The size of data files in backup sets stored in OSS. Unit: bytes. A value of 0 indicates no data.
+    // The size of data files in backup sets stored in OSS. Unit: bytes. A value of 0 indicates that no data is available.
     // 
-    // > For **SQL Server** instances, this value indicates the storage consumed by physical backups.
+    // > For **SQL Server** instances, this parameter indicates the storage space occupied by physical backups.
     shared_ptr<int64_t> backupOssDataSize_ {};
-    // The size of log files in backup sets stored in OSS. Unit: bytes. A value of 0 indicates no data.
+    // The size of log files in backup sets stored in OSS. Unit: bytes. A value of 0 indicates that no data is available.
     shared_ptr<int64_t> backupOssLogSize_ {};
-    // The storage consumed by backups (data backups + log backups). Unit: bytes. A value of -1 indicates no data.
+    // The storage space occupied by backups, including data backups and log backups. Unit: bytes. A value of -1 indicates that no data is available.
     shared_ptr<int64_t> backupSize_ {};
-    // The storage consumed by cold backups. Unit: bytes. A value of -1 indicates no data.
+    // The storage space occupied by cold backups. Unit: bytes. A value of -1 indicates that no data is available.
     shared_ptr<int64_t> coldBackupSize_ {};
     // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // The storage consumed by data files. Unit: bytes. A value of -1 indicates no data.
+    // The storage space occupied by data files. Unit: bytes. A value of -1 indicates that no data is available.
     shared_ptr<int64_t> dataSize_ {};
-    // The used storage (DataSize + LogSize). Unit: bytes. A value of -1 indicates no data.
+    // The used storage space, which is the sum of DataSize and LogSize. Unit: bytes. A value of -1 indicates that no data is available.
     shared_ptr<int64_t> diskUsed_ {};
-    // The database engine type.
+    // The database engine.
     shared_ptr<string> engine_ {};
-    // The storage consumed by log files. Unit: bytes. A value of -1 indicates no data.
+    // The storage space occupied by logs. Unit: bytes. A value of -1 indicates that no data is available.
     shared_ptr<int64_t> logSize_ {};
-    // The billable storage consumed by backups after the free quota is deducted. Unit: bytes.
+    // The storage space occupied by backups that you are billed for after the free quota is deducted. Unit: bytes.
     shared_ptr<int64_t> paidBackupSize_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The storage consumed by SQL data. Unit: bytes. A value of -1 indicates no data.
+    // The storage space occupied by SQL data. Unit: bytes. A value of -1 indicates that no data is available.
     shared_ptr<int64_t> SQLSize_ {};
   };
 

@@ -144,9 +144,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> dbInstanceId_ {};
-    // The estimated data space. Unit: GB.
+    // The estimated data size. Unit: GB.
     shared_ptr<int32_t> estimatedSize_ {};
-    // The host IP address of the source MySQL instance. ApsaraDB RDS accesses this IP address to obtain the backup.
+    // The IP address of the source MySQL host. ApsaraDB RDS accesses this IP address to retrieve backups.
     // 
     // This parameter is required.
     shared_ptr<string> host_ {};
@@ -155,11 +155,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> password_ {};
-    // The port of the source MySQL instance.
+    // The port of the source MySQL database.
     // 
     // This parameter is required.
     shared_ptr<int32_t> port_ {};
-    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/610399.html) to query available regions.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/610399.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -167,11 +167,11 @@ namespace Models
     shared_ptr<string> sourceInstanceId_ {};
     // The type of the source cloud instance.
     shared_ptr<string> sourcePlatform_ {};
-    // The streaming port used to transfer the backup.
+    // The streaming port used to transfer backups.
     // 
     // This parameter is required.
     shared_ptr<int32_t> streamPort_ {};
-    // The account of the source MySQL instance. The account must have permissions to create backups and set up replication. Refer to the following SQL statements for granting permissions:
+    // The source MySQL account. The account must have the permissions to create backups and configure replication. Refer to the following SQL statements for granting permissions:
     // ```
     // -- MySQL 5.7
     // mysql> CREATE USER \\"myadmin\\"@\\"%\\" IDENTIFIED BY \\"s3cret\\";
@@ -185,10 +185,11 @@ namespace Models
     // mysql> GRANT SELECT ON performance_schema.keyring_component_status TO myadmin@\\"%\\";
     // mysql> GRANT SELECT ON performance_schema.replication_group_members TO myadmin@\\"%\\";
     // mysql> FLUSH PRIVILEGES;
+    // ```
     // 
     // This parameter is required.
     shared_ptr<string> user_ {};
-    // The installation path of xtrabackup on the source instance.
+    // The installation path of XtraBackup on the source instance.
     shared_ptr<string> xtrabackupPath_ {};
   };
 

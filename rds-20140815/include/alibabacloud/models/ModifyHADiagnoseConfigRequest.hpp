@@ -84,20 +84,20 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can call DescribeDBInstances to obtain the instance ID.
+    // The instance ID. You can call the DescribeDBInstances operation to query the ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call DescribeRegions to obtain the region ID.
+    // The region ID. You can call the DescribeRegions operation to query the ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The availability detection method of the instance. Valid values:
-    // - **SHORT**: short-lived connection
-    // - **LONG**: persistent connection
+    // The availability check method of the instance. Valid values:
+    // - **SHORT**: Short connection.
+    // - **LONG**: Long connection.
     shared_ptr<string> tcpConnectionType_ {};
   };
 

@@ -653,7 +653,7 @@ namespace Models
     shared_ptr<string> DBInstanceId_ {};
     // The end date of the query.
     shared_ptr<string> endTime_ {};
-    // The database engine type.
+    // The database engine.
     shared_ptr<string> engine_ {};
     shared_ptr<DescribeSlowLogsResponseBody::Items> items_ {};
     // The page number.

@@ -103,14 +103,14 @@ namespace Models
 
 
   protected:
-    // A deprecated parameter. You do not need to configure this parameter.
+    // **[Deprecated]** This parameter is deprecated. You do not need to configure it.
     shared_ptr<bool> cachedAsync_ {};
-    // The instance ID. You can call DescribeDBInstances to query instance IDs.
+    // The instance ID. You can call the DescribeDBInstances operation to obtain the instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // A deprecated parameter. You do not need to configure this parameter.
+    // **[Deprecated]** This parameter is deprecated. You do not need to configure it.
     shared_ptr<string> exportKey_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call DescribeRegions to query available region IDs.
+    // The region ID. You can call the DescribeRegions operation to obtain the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

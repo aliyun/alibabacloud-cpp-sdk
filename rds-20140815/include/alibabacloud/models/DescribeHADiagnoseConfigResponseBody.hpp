@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The availability check method that Alibaba Cloud uses for the ApsaraDB RDS instance. Valid values:
+    // The availability detection method used by Alibaba Cloud for the ApsaraDB RDS instance. Valid values:
     // - **LONG**: persistent connection.
     // - **SHORT**: short-lived connection.
     shared_ptr<string> tcpConnectionType_ {};

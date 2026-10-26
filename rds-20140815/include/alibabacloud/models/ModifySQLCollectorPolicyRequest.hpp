@@ -94,17 +94,17 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can call DescribeDBInstances to obtain the instance ID.
+    // Instance ID of the instance. You can call the DescribeDBInstances operation to obtain instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The resource group ID. You can call DescribeDBInstanceAttribute to obtain the resource group ID.
+    // The ID of the resource group. You can call the DescribeDBInstanceAttribute operation to obtain the ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Specifies whether to enable or disable SQL Explorer (SQL Audit). Valid values:
+    // Specifies whether to enable or disable the SQL Explorer (SQL Audit) feature. Valid values:
     // - **Enable**
     // - **Disabled**
     // 

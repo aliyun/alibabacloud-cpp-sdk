@@ -75,13 +75,13 @@ namespace Models
 
 
   protected:
-    // The error code of the connection diagnostics. Valid values:
+    // The connectivity diagnostic error code. Valid values:
     // * **SRC_IP_NOT_IN_USER_WHITELIST**: The source IP address is not added to the whitelist.
-    // * **CONNECTION_ABNORMAL**: The connection is normal.
+    // * **CONNECTION_ABNORMAL**: The connection is abnormal.
     shared_ptr<string> connCheckErrorCode_ {};
-    // The error message of the connection diagnostics.
+    // The connectivity diagnostic error message.
     shared_ptr<string> connCheckErrorMessage_ {};
-    // The result of the connection diagnostics. Valid values:
+    // The connectivity diagnostic result. Valid values:
     // * **Success**
     // * **Failed**
     shared_ptr<string> connCheckResult_ {};

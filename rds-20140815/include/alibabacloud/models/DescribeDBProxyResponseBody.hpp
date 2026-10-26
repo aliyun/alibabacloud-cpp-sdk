@@ -600,7 +600,7 @@ namespace Models
   protected:
     shared_ptr<DescribeDBProxyResponseBody::DBProxyAVZones> DBProxyAVZones_ {};
     shared_ptr<DescribeDBProxyResponseBody::DBProxyConnectStringItems> DBProxyConnectStringItems_ {};
-    // An internal parameter. You can ignore this parameter.
+    // This is an internal parameter and can be ignored.
     shared_ptr<string> DBProxyEngineType_ {};
     // The current minor version of the proxy instance.
     shared_ptr<string> DBProxyInstanceCurrentMinorVersion_ {};
@@ -611,41 +611,41 @@ namespace Models
     shared_ptr<string> DBProxyInstanceName_ {};
     // The number of enabled proxy instances.
     shared_ptr<int32_t> DBProxyInstanceNum_ {};
-    // This parameter is supported only for ApsaraDB RDS for PostgreSQL. The actual specification size of the proxy instance.
+    // This parameter is supported only by ApsaraDB RDS for PostgreSQL. It indicates the actual specifications of the proxy instance.
     // 
     // Format: `CPU/Memory`.
     // 
     // Example: 4/8 indicates 4 CPU cores and 8 GB of memory.
     shared_ptr<string> DBProxyInstanceSize_ {};
     // The running status of the proxy instance. Valid values:
-    // - DBInstanceClassChanging: The specification is being changed.
+    // - DBInstanceClassChanging: The specifications are being changed.
     // - Creating: The instance is being created.
     // - Running: The instance is running.
     // - Deleting: The instance is being deleted.
     shared_ptr<string> DBProxyInstanceStatus_ {};
     // The type of the proxy service. Valid values:
-    // - 1: shared database proxy
-    // - 2: dedicated database proxy
+    // - 1: shared proxy
+    // - 2: dedicated proxy
     // - 3: general-purpose database proxy
     // 
-    // > ApsaraDB RDS for PostgreSQL does not support shared database proxies.
+    // > ApsaraDB RDS for PostgreSQL does not support shared proxies.
     shared_ptr<string> DBProxyInstanceType_ {};
-    // An internal parameter. You can ignore this parameter.
+    // This is an internal parameter and can be ignored.
     shared_ptr<string> DBProxyKindCode_ {};
     shared_ptr<DescribeDBProxyResponseBody::DBProxyNodes> DBProxyNodes_ {};
-    // The persistent connection status. Valid values:
-    // - **Enabled**: Persistent connections are enabled.
-    // - **Disabled**: Persistent connections are disabled.
-    // - **Unsupported**: The instance does not support persistent connections.
+    // The status of connection persistence. Valid values:
+    // - **Enabled**: enabled
+    // - **Disabled**: disabled
+    // - **Unsupported**: The instance does not support connection persistence.
     shared_ptr<string> DBProxyPersistentConnectionStatus_ {};
     // The status of the database proxy feature. Valid values:
     // - Shutdown: disabled
     // - Startup: enabled
     shared_ptr<string> DBProxyServiceStatus_ {};
     shared_ptr<DescribeDBProxyResponseBody::DbProxyEndpointItems> dbProxyEndpointItems_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
   };
 

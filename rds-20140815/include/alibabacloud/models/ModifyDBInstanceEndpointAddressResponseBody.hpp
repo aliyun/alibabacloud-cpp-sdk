@@ -94,9 +94,9 @@ namespace Models
 
 
   protected:
-    // The returned fields.
+    // The list of returned fields.
     shared_ptr<ModifyDBInstanceEndpointAddressResponseBody::Data> data_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

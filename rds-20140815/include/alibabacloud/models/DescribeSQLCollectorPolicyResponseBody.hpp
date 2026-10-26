@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The status of the SQL Explorer (SQL Audit) feature. Valid values:
-    // * **Enable**: enabled.
-    // * **Disabled**: disabled.
+    // * **Enable**: Enabled.
+    // * **Disabled**: Disabled.
     shared_ptr<string> SQLCollectorStatus_ {};
     // A reserved parameter.
     shared_ptr<int32_t> storagePeriod_ {};

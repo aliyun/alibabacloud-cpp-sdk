@@ -104,21 +104,21 @@ namespace Models
 
   protected:
     // The log retention period of SQL Explorer. Valid values:
-    // - 30: 30 days
-    // - 180: 180 days
-    // - 365: 1 year
-    // - 1095: 3 years
-    // - 1825: 5 years
+    // - 30: 30 days.
+    // - 180: 180 days.
+    // - 365: 1 year.
+    // - 1095: 3 years.
+    // - 1825: 5 years.
     // 
     // This parameter is required.
     shared_ptr<string> configValue_ {};
-    // The instance ID. You can call DescribeDBInstances to obtain the instance ID.
+    // Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The resource group ID. You can call DescribeDBInstanceAttribute to obtain the resource group ID.
+    // The ID of the resource group. You can call the DescribeDBInstanceAttribute operation to query the ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

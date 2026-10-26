@@ -73,8 +73,8 @@ namespace Models
       // The instance ID.
       shared_ptr<string> RCInstanceId_ {};
       // The node status. Valid values:
-      // * **Success**: Succeeded.
-      // * **Failed**: Failed.
+      // * **Success**: successful
+      // *  **Failed**: failed
       shared_ptr<string> status_ {};
     };
 
@@ -97,9 +97,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The call results of the operation.
+    // The results of the API call.
     shared_ptr<vector<RemoveRCInstancesFromDeploymentSetResponseBody::Results>> results_ {};
   };
 

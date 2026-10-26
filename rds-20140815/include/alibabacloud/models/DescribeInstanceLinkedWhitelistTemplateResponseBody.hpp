@@ -128,13 +128,13 @@ namespace Models
       protected:
         // The primary key of the data table.
         shared_ptr<int32_t> id_ {};
-        // The IP address list.
+        // The list of IP addresses.
         shared_ptr<string> ips_ {};
-        // The whitelist template ID.
+        // The ID of the whitelist template.
         shared_ptr<int32_t> templateId_ {};
-        // The whitelist template name.
+        // The name of the whitelist template.
         shared_ptr<string> templateName_ {};
-        // The user ID.
+        // The ID of the user.
         shared_ptr<int32_t> userId_ {};
       };
 
@@ -157,9 +157,9 @@ namespace Models
 
 
     protected:
-      // The instance name.
+      // The name of the instance.
       shared_ptr<string> insName_ {};
-      // The whitelist template information returned in a paged manner.
+      // The paginated whitelist template information.
       shared_ptr<vector<Data::Templates>> templates_ {};
     };
 
@@ -212,25 +212,25 @@ namespace Models
   protected:
     // The response code. Valid values:
     // - **200**: Normal.
-    // - **400**: Client fault.
+    // - **400**: Client error.
     // - **401**: Authentication failed.
-    // - **404**: Request page not found.
-    // - **500**: Server fault.
+    // - **404**: The requested page is not found.
+    // - **500**: Server error.
     shared_ptr<string> code_ {};
-    // The returned data list.
+    // The list of returned data.
     shared_ptr<DescribeInstanceLinkedWhitelistTemplateResponseBody::Data> data_ {};
     // The HTTP status code. Valid values:
-    // - **200**: Success.
+    // - **200**: Normal.
     // - **400**: Client error.
     // - **500**: Server error.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The returned message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // - **true**: The request was successful.
+    // - **true**: The request is successful.
     // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };

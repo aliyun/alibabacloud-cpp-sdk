@@ -158,16 +158,16 @@ namespace Models
 
 
   protected:
-    // The minimum execution duration. Tasks whose execution duration is greater than this value are returned. Unit: seconds. Default value: 0, which indicates no limit.
+    // The minimum execution duration of the task. This parameter is used to filter tasks whose execution duration is greater than the specified value. Unit: seconds. Default value: 0, which indicates that no limit is applied.
     shared_ptr<int32_t> fromExecTime_ {};
-    // The start time of the query. Format: <i>yyyy-mm-dd</i>t<i>hh:mm</i>z (UTC).
+    // The start time of the query. Specify the time in the <i>yyyy-mm-dd</i>T<i>hh:mm</i>Z format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> fromStartTime_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call DescribeRegions to query the available regions.
+    // The region ID. You can call the DescribeRegions operation to obtain the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -177,23 +177,23 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
     // The task status. Valid values:
-    // - **Scheduled**: Waiting to be executed.
-    // - **Running**: Running.
-    // - **Succeed**: Succeeded.
-    // - **Failed**: Failed.
-    // - **Cancelling**: Being stopped.
-    // - **Canceled**: Stopped.
-    // - **Waiting**: Waiting for the scheduled time.
+    // - **Scheduled**: pending execution
+    // - **Running**: running
+    // - **Succeed**: succeeded
+    // - **Failed**: failed
+    // - **Cancelling**: being canceled
+    // - **Canceled**: canceled
+    // - **Waiting**: waiting for the scheduled time
     // 
-    // Separate multiple statuses with commas (,). Default value: empty, which indicates all statuses.
+    // Separate multiple values with commas (,). If this parameter is left empty, all statuses are queried.
     shared_ptr<string> status_ {};
     // The task ID.
     shared_ptr<string> taskId_ {};
     // The task type.
     shared_ptr<string> taskType_ {};
-    // The maximum execution duration. Tasks whose execution duration is not less than this value are returned. Unit: seconds. Default value: 0, which indicates no limit.
+    // The maximum execution duration of the task. This parameter is used to filter tasks whose execution duration is not less than the specified value. Unit: seconds. Default value: 0, which indicates that no limit is applied.
     shared_ptr<int32_t> toExecTime_ {};
-    // The end of the time range for the task start time. Tasks whose start time is earlier than this time are queried. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+    // The end time of the task start time range. This parameter specifies that only tasks started before this time are queried. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> toStartTime_ {};

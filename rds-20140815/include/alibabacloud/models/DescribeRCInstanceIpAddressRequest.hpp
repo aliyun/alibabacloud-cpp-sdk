@@ -121,26 +121,26 @@ namespace Models
 
 
   protected:
-    // The page number of the page to return. Default value: 1, which indicates that the first page is returned.
+    // The number of the page to return. Default value: 1.
     shared_ptr<int32_t> currentPage_ {};
     // The region ID of the assets that are assigned public IP addresses to query.
     shared_ptr<string> ddosRegionId_ {};
     // The DDoS mitigation status of the assets that are assigned public IP addresses to query. Valid values:
     // 
-    // - **defense**: Cleaning. Assets that are assigned public IP addresses for which Anti-DDoS Origin scrubs traffic are queried.
-    // - **blackhole**: Black Hole Activated. Assets that are assigned public IP addresses that are in the blackhole filtering status are queried.
+    // - **defense**: Cleaning. Queries assets that are assigned public IP addresses and for which the system scrubs traffic.
+    // - **blackhole**: Black Hole Activated. Queries assets that are assigned public IP addresses and are under the blackhole filtering status.
     shared_ptr<string> ddosStatus_ {};
-    // The instance ID of the Custom instance to which the assets that are assigned public IP addresses belong.
+    // The instance ID of the RDS Custom instance to which the assets that are assigned public IP addresses belong.
     shared_ptr<string> instanceId_ {};
     // The IP address of the assets that are assigned public IP addresses to query.
     shared_ptr<string> instanceIp_ {};
-    // The name of the Custom instance to which the assets that are assigned public IP addresses belong.
+    // The name of the RDS Custom instance to which the assets that are assigned public IP addresses belong.
     shared_ptr<string> instanceName_ {};
     // The instance type of the assets that are assigned public IP addresses to query. Set the value to **ecs**.
     shared_ptr<string> instanceType_ {};
-    // Settings for paged query. The number of instances to return on each page for paging.
+    // The number of instances per page in a paged query.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the Custom instance.
+    // The region ID of the RDS Custom instance.
     shared_ptr<string> regionId_ {};
     // The resource type. Set the value to **ecs**.
     shared_ptr<string> resourceType_ {};

@@ -121,20 +121,19 @@ namespace Models
 
 
   protected:
-    // Queries the monitoring data of specified resources in batches for Custom for SQL Server.
-    // Format: a collection of `key:value` pairs.
+    // The dimensions used to query the monitoring data of specified resources in batches for Custom for SQL Server. Format: a collection of `key:value` pairs.
     shared_ptr<string> dimensions_ {};
-    // The end of the time range to query. Specify the time in the `2024-08-06 10:15:00` format. The end time must be later than the start time.
+    // The end time of the query. Format: `2024-08-06 10:15:00`. The end time must be later than the start time.
     shared_ptr<string> endTime_ {};
-    // A reserved parameter.
+    // The reserved parameter.
     shared_ptr<string> express_ {};
     // The instance ID. This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of records per page for paging query.
+    // The number of records to return on each page for paging in a paged query.
     // 
     // Default value: 1000.
     shared_ptr<string> length_ {};
-    // The [monitoring metric](https://cms.console.aliyun.com/metric-meta/acs_ecs_dashboard/ecs).
+    // The [monitored metrics](https://cms.console.aliyun.com/metric-meta/acs_ecs_dashboard/ecs).
     // 
     // This parameter is required.
     shared_ptr<string> metricName_ {};
@@ -143,11 +142,11 @@ namespace Models
     // The statistical period of the monitoring data. Unit: seconds. Valid values:
     // 
     // - 60 (default)
-    // - An integer multiple of 60
+    // - Any integer multiple of 60
     shared_ptr<string> period_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The beginning of the time range to query. Specify the time in the `2024-08-06 10:05:00` format.
+    // The start time of the query. Format: `2024-08-06 10:05:00`.
     shared_ptr<string> startTime_ {};
   };
 

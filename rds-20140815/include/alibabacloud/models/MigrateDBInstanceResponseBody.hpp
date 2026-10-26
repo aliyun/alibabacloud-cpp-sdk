@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The migration queue number. When the number is 0, the migration switchover is performed.
+    // The migration queue number. When the value is 0, the migration and switchover are performed.
     shared_ptr<int32_t> migrationId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
