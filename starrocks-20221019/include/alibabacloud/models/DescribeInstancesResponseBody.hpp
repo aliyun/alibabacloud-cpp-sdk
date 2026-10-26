@@ -57,6 +57,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(EnableSSL, enableSSL_);
         DARABONBA_PTR_TO_JSON(EnabledAuditLoader, enabledAuditLoader_);
         DARABONBA_PTR_TO_JSON(Encrypted, encrypted_);
+        DARABONBA_PTR_TO_JSON(EosDate, eosDate_);
         DARABONBA_PTR_TO_JSON(ExpireTime, expireTime_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
@@ -78,6 +79,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Tags, tags_);
         DARABONBA_PTR_TO_JSON(VSwitches, vSwitches_);
         DARABONBA_PTR_TO_JSON(Version, version_);
+        DARABONBA_PTR_TO_JSON(VersionLifecycleStatus, versionLifecycleStatus_);
         DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
@@ -93,6 +95,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(EnableSSL, enableSSL_);
         DARABONBA_PTR_FROM_JSON(EnabledAuditLoader, enabledAuditLoader_);
         DARABONBA_PTR_FROM_JSON(Encrypted, encrypted_);
+        DARABONBA_PTR_FROM_JSON(EosDate, eosDate_);
         DARABONBA_PTR_FROM_JSON(ExpireTime, expireTime_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
@@ -114,6 +117,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Tags, tags_);
         DARABONBA_PTR_FROM_JSON(VSwitches, vSwitches_);
         DARABONBA_PTR_FROM_JSON(Version, version_);
+        DARABONBA_PTR_FROM_JSON(VersionLifecycleStatus, versionLifecycleStatus_);
         DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
       };
       Data() = default ;
@@ -229,11 +233,11 @@ namespace Models
       virtual bool empty() const override { return this->aclId_ == nullptr
         && this->aiFunctionClusterId_ == nullptr && this->aiFunctionEndpoint_ == nullptr && this->aiFunctionInstanceId_ == nullptr && this->architecture_ == nullptr && this->beginTime_ == nullptr
         && this->enableAiFunction_ == nullptr && this->enableAutoMinorVersionUpgrade_ == nullptr && this->enableMultiAz_ == nullptr && this->enableSSL_ == nullptr && this->enabledAuditLoader_ == nullptr
-        && this->encrypted_ == nullptr && this->expireTime_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->instanceStatus_ == nullptr
-        && this->isolateLeader_ == nullptr && this->kmsKeyId_ == nullptr && this->maintainablePeriod_ == nullptr && this->minorVersion_ == nullptr && this->monitorType_ == nullptr
-        && this->ossLocation_ == nullptr && this->packageType_ == nullptr && this->payType_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->runMode_ == nullptr && this->runningTime_ == nullptr && this->securityGroupManaged_ == nullptr && this->sgId_ == nullptr && this->tags_ == nullptr
-        && this->vSwitches_ == nullptr && this->version_ == nullptr && this->vpcId_ == nullptr; };
+        && this->encrypted_ == nullptr && this->eosDate_ == nullptr && this->expireTime_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr
+        && this->instanceStatus_ == nullptr && this->isolateLeader_ == nullptr && this->kmsKeyId_ == nullptr && this->maintainablePeriod_ == nullptr && this->minorVersion_ == nullptr
+        && this->monitorType_ == nullptr && this->ossLocation_ == nullptr && this->packageType_ == nullptr && this->payType_ == nullptr && this->regionId_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->runMode_ == nullptr && this->runningTime_ == nullptr && this->securityGroupManaged_ == nullptr && this->sgId_ == nullptr
+        && this->tags_ == nullptr && this->vSwitches_ == nullptr && this->version_ == nullptr && this->versionLifecycleStatus_ == nullptr && this->vpcId_ == nullptr; };
       // aclId Field Functions 
       bool hasAclId() const { return this->aclId_ != nullptr;};
       void deleteAclId() { this->aclId_ = nullptr;};
@@ -316,6 +320,13 @@ namespace Models
       void deleteEncrypted() { this->encrypted_ = nullptr;};
       inline bool getEncrypted() const { DARABONBA_PTR_GET_DEFAULT(encrypted_, false) };
       inline Data& setEncrypted(bool encrypted) { DARABONBA_PTR_SET_VALUE(encrypted_, encrypted) };
+
+
+      // eosDate Field Functions 
+      bool hasEosDate() const { return this->eosDate_ != nullptr;};
+      void deleteEosDate() { this->eosDate_ = nullptr;};
+      inline string getEosDate() const { DARABONBA_PTR_GET_DEFAULT(eosDate_, "") };
+      inline Data& setEosDate(string eosDate) { DARABONBA_PTR_SET_VALUE(eosDate_, eosDate) };
 
 
       // expireTime Field Functions 
@@ -469,6 +480,13 @@ namespace Models
       inline Data& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
 
 
+      // versionLifecycleStatus Field Functions 
+      bool hasVersionLifecycleStatus() const { return this->versionLifecycleStatus_ != nullptr;};
+      void deleteVersionLifecycleStatus() { this->versionLifecycleStatus_ = nullptr;};
+      inline string getVersionLifecycleStatus() const { DARABONBA_PTR_GET_DEFAULT(versionLifecycleStatus_, "") };
+      inline Data& setVersionLifecycleStatus(string versionLifecycleStatus) { DARABONBA_PTR_SET_VALUE(versionLifecycleStatus_, versionLifecycleStatus) };
+
+
       // vpcId Field Functions 
       bool hasVpcId() const { return this->vpcId_ != nullptr;};
       void deleteVpcId() { this->vpcId_ = nullptr;};
@@ -505,6 +523,7 @@ namespace Models
       shared_ptr<bool> enabledAuditLoader_ {};
       // Specifies whether encryption is enabled.
       shared_ptr<bool> encrypted_ {};
+      shared_ptr<string> eosDate_ {};
       // The expiration time of the cluster.
       shared_ptr<int64_t> expireTime_ {};
       // The instance ID.
@@ -605,6 +624,7 @@ namespace Models
       shared_ptr<vector<Data::VSwitches>> vSwitches_ {};
       // The cluster version.
       shared_ptr<string> version_ {};
+      shared_ptr<string> versionLifecycleStatus_ {};
       // The VPC ID.
       shared_ptr<string> vpcId_ {};
     };
