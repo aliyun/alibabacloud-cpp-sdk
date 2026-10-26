@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(LoginAttribute, loginAttribute_);
       DARABONBA_PTR_TO_JSON(Password, password_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateDatabaseAccountRequest& obj) { 
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(LoginAttribute, loginAttribute_);
       DARABONBA_PTR_FROM_JSON(Password, password_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
     CreateDatabaseAccountRequest() = default ;
@@ -43,7 +45,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->databaseAccountName_ == nullptr
         && this->databaseId_ == nullptr && this->databaseSchema_ == nullptr && this->instanceId_ == nullptr && this->loginAttribute_ == nullptr && this->password_ == nullptr
-        && this->regionId_ == nullptr; };
+        && this->projectId_ == nullptr && this->regionId_ == nullptr; };
     // databaseAccountName Field Functions 
     bool hasDatabaseAccountName() const { return this->databaseAccountName_ != nullptr;};
     void deleteDatabaseAccountName() { this->databaseAccountName_ = nullptr;};
@@ -86,6 +88,13 @@ namespace Models
     inline CreateDatabaseAccountRequest& setPassword(string password) { DARABONBA_PTR_SET_VALUE(password_, password) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline CreateDatabaseAccountRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -94,35 +103,32 @@ namespace Models
 
 
   protected:
-    // The username of the database account to be created. The username can be up to 128 characters in length.
+    // The name of the database account to create. The name can be up to 128 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> databaseAccountName_ {};
-    // The ID of the database for which you want to create a database account.
-    // 
-    // > You can call the [ListDatabaseAccounts](https://help.aliyun.com/document_detail/2758839.html) operation to query the database account ID.
+    // The instance ID of the database for which you want to create an account.
+    // > You can invoke the [ListDatabaseAccounts](https://help.aliyun.com/document_detail/2758839.html) operation to query this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> databaseId_ {};
-    // The name of the database. This parameter is required for PostgreSQL and Oracle databases.
+    // The database name. This parameter is required when the database that corresponds to DatabaseId is PostgreSQL or Oracle.
     shared_ptr<string> databaseSchema_ {};
-    // The ID of the bastion host for which you want to create a database account.
-    // 
-    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+    // The ID of the bastion host instance for which you want to create a database account.
+    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The logon attribute. This parameter is required for Oracle databases. Valid values:
-    // 
+    // The logon property. This parameter is required for Oracle databases. Valid values:
     // - SERVICENAME
-    // 
     // - SID
     shared_ptr<string> loginAttribute_ {};
-    // The password of the database account to be created.
+    // The password of the database account to create.
     shared_ptr<string> password_ {};
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
     // The region ID of the bastion host for which you want to create a database account.
-    // 
-    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
   };
 

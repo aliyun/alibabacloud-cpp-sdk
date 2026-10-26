@@ -81,9 +81,9 @@ namespace Models
 
 
     protected:
-      // The remarks of the host group.
+      // The description of the host group.
       shared_ptr<string> comment_ {};
-      // The host group ID.
+      // The ID of the host group.
       shared_ptr<string> hostGroupId_ {};
       // The name of the host group.
       shared_ptr<string> hostGroupName_ {};
@@ -115,9 +115,9 @@ namespace Models
 
 
   protected:
-    // The host groups returned.
+    // The list of host groups returned.
     shared_ptr<vector<ListHostGroupsForUserResponseBody::HostGroups>> hostGroups_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The total number of host groups returned.
     shared_ptr<int32_t> totalCount_ {};

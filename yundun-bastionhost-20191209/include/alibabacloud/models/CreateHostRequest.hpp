@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceRegionId, instanceRegionId_);
       DARABONBA_PTR_TO_JSON(NetworkDomainId, networkDomainId_);
       DARABONBA_PTR_TO_JSON(OSType, OSType_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(Source, source_);
       DARABONBA_PTR_TO_JSON(SourceInstanceId, sourceInstanceId_);
@@ -38,6 +39,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceRegionId, instanceRegionId_);
       DARABONBA_PTR_FROM_JSON(NetworkDomainId, networkDomainId_);
       DARABONBA_PTR_FROM_JSON(OSType, OSType_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(Source, source_);
       DARABONBA_PTR_FROM_JSON(SourceInstanceId, sourceInstanceId_);
@@ -55,8 +57,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->activeAddressType_ == nullptr
         && this->comment_ == nullptr && this->hostName_ == nullptr && this->hostPrivateAddress_ == nullptr && this->hostPublicAddress_ == nullptr && this->instanceId_ == nullptr
-        && this->instanceMemberId_ == nullptr && this->instanceRegionId_ == nullptr && this->networkDomainId_ == nullptr && this->OSType_ == nullptr && this->regionId_ == nullptr
-        && this->source_ == nullptr && this->sourceInstanceId_ == nullptr; };
+        && this->instanceMemberId_ == nullptr && this->instanceRegionId_ == nullptr && this->networkDomainId_ == nullptr && this->OSType_ == nullptr && this->projectId_ == nullptr
+        && this->regionId_ == nullptr && this->source_ == nullptr && this->sourceInstanceId_ == nullptr; };
     // activeAddressType Field Functions 
     bool hasActiveAddressType() const { return this->activeAddressType_ != nullptr;};
     void deleteActiveAddressType() { this->activeAddressType_ = nullptr;};
@@ -127,6 +129,13 @@ namespace Models
     inline CreateHostRequest& setOSType(string OSType) { DARABONBA_PTR_SET_VALUE(OSType_, OSType) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline CreateHostRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -149,69 +158,57 @@ namespace Models
 
 
   protected:
-    // The address type of the host. Valid values:
-    // 
-    // - **Public**: a public address
-    // 
-    // - **Private**: a private address
+    // The address type of the host to create. Valid values:
+    // - **Public**: public address.
+    // - **Private**: private network address.
     // 
     // This parameter is required.
     shared_ptr<string> activeAddressType_ {};
-    // The comment for the host. The comment can be up to 500 characters in length.
+    // The description of the host. The description can be up to 500 characters in length.
     shared_ptr<string> comment_ {};
-    // The name of the host. The name can be up to 128 characters in length.
+    // The name of the host to create. The name can be up to 128 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> hostName_ {};
-    // The private address of the host. You can use a domain name or an IP address.
-    // 
-    // > This parameter is required when **ActiveAddressType** is set to **Private**.
+    // The private network address of the host to create. You can set this parameter to a domain name or an IP address.
+    // > This parameter is required if **ActiveAddressType** is set to **Private**.
     shared_ptr<string> hostPrivateAddress_ {};
-    // The public address of the host. You can use a domain name or an IP address.
-    // 
-    // > This parameter is required when **ActiveAddressType** is set to **Public**.
+    // The public address of the host to create. You can set this parameter to a domain name or an IP address.
+    // > This parameter is required if **ActiveAddressType** is set to **Public**.
     shared_ptr<string> hostPublicAddress_ {};
     // The ID of the Bastionhost instance where you want to create the host.
-    // 
-    // > Call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
+    // > You can call [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The ID of the Alibaba Cloud account to which the ECS instance belongs.
     shared_ptr<int64_t> instanceMemberId_ {};
-    // The region ID of the ECS instance or the host in the dedicated cluster.
-    // 
-    // > This parameter is required when **Source** is set to **Ecs** or **Rds**.
+    // The region ID of the ECS instance or the host in the dedicated cluster.  
+    // > This parameter is required if **Source** is set to **Ecs** or **Rds**.
     shared_ptr<string> instanceRegionId_ {};
-    // The ID of the network domain to which the host belongs.
-    // 
-    // > Call the [ListNetworkDomains ](https://help.aliyun.com/document_detail/2758827.html)operation to obtain this parameter.
+    // The ID of the network domain to which the host to create belongs.
+    // > You can call [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) to query the network domain ID.
     shared_ptr<string> networkDomainId_ {};
-    // The operating system of the host. Valid values:
-    // 
+    // The operating system of the host to create. Valid values:
     // - **Linux**
-    // 
     // - **Windows**
     // 
     // This parameter is required.
     shared_ptr<string> OSType_ {};
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
     // The region ID of the Bastionhost instance where you want to create the host.
-    // 
-    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
-    // The source of the host. Valid values:
-    // 
-    // - **Local**: a local host
-    // 
-    // - **Ecs**: an ECS instance
-    // 
-    // - **Rds**: a host in an ApsaraDB RDS dedicated cluster
+    // The source of the host to create. Valid values:
+    // - **Local**: on-premises host.
+    // - **Ecs**: ECS instance.
+    // - **Rds**: host in an ApsaraDB RDS dedicated cluster.
     // 
     // This parameter is required.
     shared_ptr<string> source_ {};
-    // The ID of the ECS instance or the host in the dedicated cluster.
-    // 
-    // > This parameter is required when **Source** is set to **Ecs** or **Rds**.
+    // The instance ID of the ECS instance or the host in the dedicated cluster.  
+    // > This parameter is required if **Source** is set to **Ecs** or **Rds**.
     shared_ptr<string> sourceInstanceId_ {};
   };
 

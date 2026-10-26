@@ -105,9 +105,9 @@ namespace Models
 
 
       protected:
-        // Indicates whether SFTP channels are enabled for the account.
+        // Indicates whether the SFTP channel is enabled for the account.
         shared_ptr<bool> enableSFTPChannel_ {};
-        // Indicates whether SSH channels are enabled for the account.
+        // Indicates whether the SSH channel is enabled for the account.
         shared_ptr<bool> enableSSHChannel_ {};
       };
 
@@ -173,29 +173,26 @@ namespace Models
 
 
     protected:
-      // Indicates whether a password is configured for the host account.
+      // Indicates whether a password is set for the host account.
       // 
-      // - **true**
-      // 
-      // - **false**
+      // - **true**: A password is set.
+      // - **false**: No password is set.
       shared_ptr<bool> hasPassword_ {};
-      // The host account ID.
+      // The ID of the host account.
       shared_ptr<string> hostAccountId_ {};
-      // The host account name.
+      // The name of the host account.
       shared_ptr<string> hostAccountName_ {};
-      // The host ID.
+      // The ID of the host.
       shared_ptr<string> hostId_ {};
-      // The ID of the shared key that is associated with the host.
+      // The ID of the host shared key.
       shared_ptr<string> hostShareKeyId_ {};
       // The fingerprint of the private key for the host account.
       shared_ptr<string> privateKeyFingerprint_ {};
-      // The protocol that is used by the host account.
-      // 
+      // The protocol name of the host account.
       // - **SSH**
-      // 
       // - **RDP**
       shared_ptr<string> protocolName_ {};
-      // Indicates whether the Secure File Transfer Protocol (SFTP) channels or the SSH channels are enabled for the host account that uses the SSH protocol.
+      // The O&M permissions of the SSH account.
       shared_ptr<HostAccounts::SSHConfig> SSHConfig_ {};
     };
 
@@ -225,11 +222,11 @@ namespace Models
 
 
   protected:
-    // The host accounts returned.
+    // The host accounts.
     shared_ptr<vector<ListOperationHostAccountsResponseBody::HostAccounts>> hostAccounts_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of host accounts returned.
+    // The total number of host accounts.
     shared_ptr<int64_t> totalCount_ {};
   };
 

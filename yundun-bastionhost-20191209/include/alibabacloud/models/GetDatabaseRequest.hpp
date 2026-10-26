@@ -15,11 +15,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const GetDatabaseRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DatabaseId, databaseId_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, GetDatabaseRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DatabaseId, databaseId_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
     GetDatabaseRequest() = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->databaseId_ == nullptr
-        && this->instanceId_ == nullptr && this->regionId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->projectId_ == nullptr && this->regionId_ == nullptr; };
     // databaseId Field Functions 
     bool hasDatabaseId() const { return this->databaseId_ != nullptr;};
     void deleteDatabaseId() { this->databaseId_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     inline GetDatabaseRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline GetDatabaseRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -58,20 +67,19 @@ namespace Models
 
   protected:
     // The ID of the database to query.
-    // 
-    // > You can call the [ListDatabases](https://help.aliyun.com/document_detail/2758822.html) operation to query the database ID.
+    // > You can call the [ListDatabases](https://help.aliyun.com/document_detail/2758822.html) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> databaseId_ {};
-    // The ID of the bastion host that manages the database to query.
-    // 
-    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+    // The instance ID of the bastion host where the database resides.
+    // > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region ID of the bastion host that manages the database to query.
-    // 
-    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
+    // The region ID of the bastion host where the database resides.
+    // > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
   };
 

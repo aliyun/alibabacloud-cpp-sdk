@@ -15,12 +15,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListHostGroupAccountNamesForUserRequest& obj) { 
       DARABONBA_PTR_TO_JSON(HostGroupId, hostGroupId_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(UserId, userId_);
     };
     friend void from_json(const Darabonba::Json& j, ListHostGroupAccountNamesForUserRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(HostGroupId, hostGroupId_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(UserId, userId_);
     };
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->hostGroupId_ == nullptr
-        && this->instanceId_ == nullptr && this->regionId_ == nullptr && this->userId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->projectId_ == nullptr && this->regionId_ == nullptr && this->userId_ == nullptr; };
     // hostGroupId Field Functions 
     bool hasHostGroupId() const { return this->hostGroupId_ != nullptr;};
     void deleteHostGroupId() { this->hostGroupId_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     void deleteInstanceId() { this->instanceId_ = nullptr;};
     inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ListHostGroupAccountNamesForUserRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline ListHostGroupAccountNamesForUserRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // regionId Field Functions 
@@ -66,25 +75,23 @@ namespace Models
 
 
   protected:
-    // The ID of the host group.
-    // 
-    // > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the ID of the host group.
+    // The ID of the host group to query.
+    // > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> hostGroupId_ {};
-    // The ID of the bastion host to which the user belongs.
-    // 
-    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+    // The instance ID of the Bastionhost instance to which the user belongs.
+    // > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region ID of the bastion host to which the user belongs.
-    // 
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
+    // The region ID of the Bastionhost instance to which the user belongs.
     // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
-    // The ID of the user.
-    // 
-    // > You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to query the ID of the user.
+    // The ID of the user to query.
+    // > You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> userId_ {};

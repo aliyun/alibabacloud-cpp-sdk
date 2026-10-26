@@ -15,11 +15,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const AcceptApproveCommandRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CommandId, commandId_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, AcceptApproveCommandRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CommandId, commandId_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
     AcceptApproveCommandRequest() = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->commandId_ == nullptr
-        && this->instanceId_ == nullptr && this->regionId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->projectId_ == nullptr && this->regionId_ == nullptr; };
     // commandId Field Functions 
     bool hasCommandId() const { return this->commandId_ != nullptr;};
     void deleteCommandId() { this->commandId_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     inline AcceptApproveCommandRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline AcceptApproveCommandRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -57,21 +66,20 @@ namespace Models
 
 
   protected:
-    // The ID of the command that you want to approve.
-    // 
-    // > You can call the [ListApproveCommands](https://help.aliyun.com/document_detail/2584310.html) operation to query the IDs of all commands that need to be reviewed.
+    // The ID of the command to be approved for execution.
+    // > You can call the [ListApproveCommands](https://help.aliyun.com/document_detail/2584310.html) operation to query the IDs of all commands that require approval.
     // 
     // This parameter is required.
     shared_ptr<string> commandId_ {};
-    // The ID of the bastion host.
-    // 
-    // > You can call the DescribeInstances operation to query the ID of the bastion host.
+    // The instance ID of the bastion host.
+    // > You can call the DescribeInstances operation to query the bastion host instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
     // The region ID of the bastion host.
-    // 
-    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
   };
 

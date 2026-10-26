@@ -227,68 +227,61 @@ namespace Models
 
 
         protected:
+          // Specifies whether to allow TCP tunneling.
           shared_ptr<string> allowDirectTcp_ {};
+          // Specifies whether to allow TCP forwarding.
           shared_ptr<string> allowTcpForwarding_ {};
-          // Indicates whether remote command execution is enabled. Valid values:
+          // The remote command execution configuration. Valid values:
           // 
-          // - `Enable`
-          // 
-          // - `Disable`
+          // - Enable: Enabled.
+          // - Disable: Disabled.
           shared_ptr<string> execCommand_ {};
-          // Indicates whether the SFTP channel is enabled. Valid values:
+          // The SFTP channel configuration. Valid values:
           // 
-          // - `Enable`
-          // 
-          // - `Disable`
+          // - Enable: Enabled.
+          // - Disable: Disabled.
           shared_ptr<string> SFTPChannel_ {};
-          // Indicates whether file downloads over SFTP are enabled. Valid values:
+          // The SFTP file download configuration. Valid values:
           // 
-          // - `Enable`
-          // 
-          // - `Disable`
+          // - Enable: Enabled.
+          // - Disable: Disabled.
           shared_ptr<string> SFTPDownloadFile_ {};
-          // Indicates whether directory creation over SFTP is enabled. Valid values:
+          // The SFTP folder creation configuration. Valid values:
           // 
-          // - `Enable`
-          // 
-          // - `Disable`
+          // - Enable: Enabled.
+          // - Disable: Disabled.
           shared_ptr<string> SFTPMkdir_ {};
-          // Indicates whether file deletion over SFTP is enabled. Valid values:
+          // The SFTP file deletion configuration. Valid values:
           // 
-          // - `Enable`
-          // 
-          // - `Disable`
+          // - Enable: Enabled.
+          // - Disable: Disabled.
           shared_ptr<string> SFTPRemoveFile_ {};
-          // Indicates whether file renaming over SFTP is enabled. Valid values:
+          // The SFTP file rename configuration. Valid values:
           // 
-          // - `Enable`
-          // 
-          // - `Disable`
+          // - Enable: Enabled.
+          // - Disable: Disabled.
           shared_ptr<string> SFTPRenameFile_ {};
-          // Indicates whether directory deletion over SFTP is enabled. Valid values:
+          // The SFTP folder deletion configuration. Valid values:
           // 
-          // - `Enable`
-          // 
-          // - `Disable`
+          // - Enable: Enabled.
+          // - Disable: Disabled.
           shared_ptr<string> SFTPRmdir_ {};
-          // Indicates whether file uploads over SFTP are enabled. Valid values:
+          // The SFTP file upload configuration. Valid values:
           // 
-          // - `Enable`
-          // 
-          // - `Disable`
+          // - Enable: Enabled.
+          // - Disable: Disabled.
           shared_ptr<string> SFTPUploadFile_ {};
-          // Indicates whether the SSH channel is enabled. Valid values:
+          // The SSH channel configuration. Valid values:
           // 
-          // - `Enable`
-          // 
-          // - `Disable`
+          // - Enable: Enabled.
+          // - Disable: Disabled.
           shared_ptr<string> SSHChannel_ {};
+          // Specifies whether to allow TCP forwarding.
           shared_ptr<string> tcpForwarding_ {};
-          // Indicates whether X11 forwarding is enabled. Valid values:
+          // The X11 forwarding configuration. Valid values:
           // 
-          // - `Enable`
-          // 
-          // - `Disable`
+          // - Enable: Enabled.
+          // - Disable: Disabled.
           shared_ptr<string> x11Forwarding_ {};
         };
 
@@ -366,31 +359,29 @@ namespace Models
 
 
         protected:
-          // Indicates whether clipboard download is enabled. Valid values:
+          // The clipboard download configuration. Valid values:
           // 
-          // - `Enable`
-          // 
-          // - `Disable`
+          // - Enable: Enabled.
+          // - Disable: Disabled.
           shared_ptr<string> clipboardDownload_ {};
-          // Indicates whether clipboard upload is enabled. Valid values:
+          // The clipboard upload configuration. Valid values:
           // 
-          // - `Enable`
-          // 
-          // - `Disable`
+          // - Enable: Enabled.
+          // - Disable: Disabled.
           shared_ptr<string> clipboardUpload_ {};
-          // Indicates whether drive redirection and printer mapping are enabled. Valid values:
+          // The drive/printer mapping configuration. Valid values:
           // 
-          // - `Enable`
-          // 
-          // - `Disable`
+          // - Enable: Enabled.
+          // - Disable: Disabled.
           shared_ptr<string> diskRedirection_ {};
+          // The RDP disk download control.
           shared_ptr<string> diskRedirectionDownload_ {};
+          // The RDP disk upload control.
           shared_ptr<string> diskRedirectionUpload_ {};
-          // Indicates whether keyboard recording is enabled. Valid values:
+          // The keyboard recording configuration. Valid values:
           // 
-          // - `Enable`
-          // 
-          // - `Disable`
+          // - Enable: Enabled.
+          // - Disable: Disabled.
           shared_ptr<string> recordKeyboard_ {};
         };
 
@@ -415,9 +406,9 @@ namespace Models
 
 
       protected:
-        // The RDP security settings.
+        // The RDP option configuration details.
         shared_ptr<ProtocolConfig::RDP> RDP_ {};
-        // The SSH and SFTP security settings.
+        // The SSH and SFTP option configuration details.
         shared_ptr<ProtocolConfig::SSH> SSH_ {};
       };
 
@@ -461,13 +452,12 @@ namespace Models
 
 
       protected:
-        // The source IP address-based access control mode. Valid values:
+        // The source IP restriction mode. Valid values:
         // 
-        // - `white`: allowlist.
-        // 
-        // - `black`: denylist.
+        // - white: whitelist mode.
+        // - black: blacklist mode.
         shared_ptr<string> aclType_ {};
-        // The IP addresses in the ACL.
+        // The IP address information for logon restriction.
         shared_ptr<vector<string>> IPs_ {};
       };
 
@@ -532,13 +522,12 @@ namespace Models
 
 
         protected:
-          // The command control mode. Valid values:
+          // The command control type. Valid values:
           // 
-          // - `white`: allowlist.
-          // 
-          // - `black`: denylist.
+          // - white: whitelist mode.
+          // - black: blacklist mode.
           shared_ptr<string> aclType_ {};
-          // The commands in the list.
+          // The array of commands.
           shared_ptr<vector<string>> commands_ {};
         };
 
@@ -572,7 +561,7 @@ namespace Models
 
 
         protected:
-          // The commands that require approval.
+          // The array of commands.
           shared_ptr<vector<string>> commands_ {};
         };
 
@@ -597,9 +586,9 @@ namespace Models
 
 
       protected:
-        // The command approval settings.
+        // The command approval configuration details.
         shared_ptr<CommandConfig::Approval> approval_ {};
-        // The command control settings.
+        // The command control configuration details.
         shared_ptr<CommandConfig::Deny> deny_ {};
       };
 
@@ -631,11 +620,10 @@ namespace Models
 
 
       protected:
-        // Indicates whether O\\&M approval is enabled. Valid values:
+        // The O&M approval configuration in the control policy. Valid values:
         // 
-        // - **On**: O\\&M approval is enabled.
-        // 
-        // - **Off**: O\\&M approval is disabled.
+        // - **On**: O&M approval is enabled.
+        // - **Off**: O&M approval is disabled.
         shared_ptr<string> switchStatus_ {};
       };
 
@@ -700,9 +688,9 @@ namespace Models
 
 
         protected:
-          // The days of the week when access is allowed.
+          // The allowed logon days.
           shared_ptr<vector<string>> days_ {};
-          // The hours of the day when access is allowed.
+          // The allowed logon hours.
           shared_ptr<vector<string>> hours_ {};
         };
 
@@ -717,7 +705,7 @@ namespace Models
 
 
       protected:
-        // The allowed access time slots.
+        // The details of the allowed logon time ranges.
         shared_ptr<vector<AccessTimeRangeConfig::EffectiveTime>> effectiveTime_ {};
       };
 
@@ -798,23 +786,23 @@ namespace Models
 
 
     protected:
-      // The time-based access control settings.
+      // The logon time range restriction details.
       shared_ptr<Policy::AccessTimeRangeConfig> accessTimeRangeConfig_ {};
-      // The O\\&M approval settings.
+      // The O&M approval configuration details.
       shared_ptr<Policy::ApprovalConfig> approvalConfig_ {};
-      // The command control policy.
+      // The command policy details.
       shared_ptr<Policy::CommandConfig> commandConfig_ {};
-      // The remarks on the policy.
+      // The description of the control policy.
       shared_ptr<string> comment_ {};
-      // The source IP address-based access control settings.
+      // The source IP restriction configuration details.
       shared_ptr<Policy::IPAclConfig> IPAclConfig_ {};
       // The ID of the control policy.
       shared_ptr<string> policyId_ {};
-      // The name of the control policy.
+      // The Policy Name of the control policy.
       shared_ptr<string> policyName_ {};
       // The priority of the control policy. A smaller value indicates a higher priority.
       shared_ptr<int64_t> priority_ {};
-      // The protocol control settings.
+      // The protocol control details.
       shared_ptr<Policy::ProtocolConfig> protocolConfig_ {};
     };
 
@@ -839,7 +827,7 @@ namespace Models
   protected:
     // The details of the control policy.
     shared_ptr<GetPolicyResponseBody::Policy> policy_ {};
-    // The request ID.
+    // The unique request ID generated by Alibaba Cloud for this request.
     shared_ptr<string> requestId_ {};
   };
 

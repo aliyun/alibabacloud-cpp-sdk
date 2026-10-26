@@ -158,9 +158,11 @@ namespace Models
         public:
           friend void to_json(Darabonba::Json& j, const HostAccounts& obj) { 
             DARABONBA_PTR_TO_JSON(HostAccountId, hostAccountId_);
+            DARABONBA_PTR_TO_JSON(HostAccountName, hostAccountName_);
           };
           friend void from_json(const Darabonba::Json& j, HostAccounts& obj) { 
             DARABONBA_PTR_FROM_JSON(HostAccountId, hostAccountId_);
+            DARABONBA_PTR_FROM_JSON(HostAccountName, hostAccountName_);
           };
           HostAccounts() = default ;
           HostAccounts(const HostAccounts &) = default ;
@@ -173,7 +175,8 @@ namespace Models
           };
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-          virtual bool empty() const override { return this->hostAccountId_ == nullptr; };
+          virtual bool empty() const override { return this->hostAccountId_ == nullptr
+        && this->hostAccountName_ == nullptr; };
           // hostAccountId Field Functions 
           bool hasHostAccountId() const { return this->hostAccountId_ != nullptr;};
           void deleteHostAccountId() { this->hostAccountId_ = nullptr;};
@@ -181,9 +184,18 @@ namespace Models
           inline HostAccounts& setHostAccountId(string hostAccountId) { DARABONBA_PTR_SET_VALUE(hostAccountId_, hostAccountId) };
 
 
+          // hostAccountName Field Functions 
+          bool hasHostAccountName() const { return this->hostAccountName_ != nullptr;};
+          void deleteHostAccountName() { this->hostAccountName_ = nullptr;};
+          inline string getHostAccountName() const { DARABONBA_PTR_GET_DEFAULT(hostAccountName_, "") };
+          inline HostAccounts& setHostAccountName(string hostAccountName) { DARABONBA_PTR_SET_VALUE(hostAccountName_, hostAccountName) };
+
+
         protected:
-          // The ID of the host account that the policy authorizes users to manage.
+          // The ID of the authorized host account.
           shared_ptr<string> hostAccountId_ {};
+          // The name of the authorized host account.
+          shared_ptr<string> hostAccountName_ {};
         };
 
         virtual bool empty() const override { return this->hostAccounts_ == nullptr
@@ -205,9 +217,9 @@ namespace Models
 
 
       protected:
-        // The host accounts that the policy authorizes users to manage.
+        // The list of authorized host accounts.
         shared_ptr<vector<Hosts::HostAccounts>> hostAccounts_ {};
-        // The ID of the host that the policy authorizes users to manage.
+        // The ID of the authorized host.
         shared_ptr<string> hostId_ {};
       };
 
@@ -251,9 +263,9 @@ namespace Models
 
 
       protected:
-        // The asset accounts on which permissions are granted by using the authorization rule.
+        // The information about the authorized host accounts.
         shared_ptr<vector<string>> hostAccountNames_ {};
-        // The ID of the asset group that the policy authorizes users to manage.
+        // The ID of the authorized host group.
         shared_ptr<string> hostGroupId_ {};
       };
 
@@ -306,7 +318,7 @@ namespace Models
 
 
         protected:
-          // The ID of the database account that the policy authorizes users to manage.
+          // The ID of the authorized database account.
           shared_ptr<string> databaseAccountId_ {};
         };
 
@@ -329,9 +341,9 @@ namespace Models
 
 
       protected:
-        // The database accounts on which permissions are granted by using the authorization rule.
+        // The information about the authorized database accounts.
         shared_ptr<vector<Databases::DatabaseAccounts>> databaseAccounts_ {};
-        // The ID of the database that the policy authorizes users to manage.
+        // The instance ID of the authorization database.
         shared_ptr<string> databaseId_ {};
       };
 
@@ -419,25 +431,25 @@ namespace Models
 
 
     protected:
-      // The remarks of the authorization rule.
+      // The comment of the authorization rule.
       shared_ptr<string> comment_ {};
-      // The databases on which permissions are granted by using the authorization rule.
+      // The information about the authorized databases.
       shared_ptr<vector<Rule::Databases>> databases_ {};
-      // The end time of the validity period of the authorization rule. The value is a UNIX timestamp. Unit: seconds.
+      // The end time of the validity period of the authorization rule. The value is a UNIX timestamp in seconds.
       shared_ptr<string> effectiveEndTime_ {};
-      // The start time of the validity period of the authorization rule. The value is a UNIX timestamp. Unit: seconds.
+      // The start time of the validity period of the authorization rule. The value is a UNIX timestamp in seconds.
       shared_ptr<string> effectiveStartTime_ {};
-      // The asset groups on which permissions are granted by using the authorization rule.
+      // The list of authorized host groups.
       shared_ptr<vector<Rule::HostGroups>> hostGroups_ {};
-      // The information about the hosts that the policy authorizes users to manage.
+      // The information about the authorized hosts.
       shared_ptr<vector<Rule::Hosts>> hosts_ {};
       // The ID of the authorization rule.
       shared_ptr<string> ruleId_ {};
       // The name of the authorization rule.
       shared_ptr<string> ruleName_ {};
-      // The authorized user groups.
+      // The list of authorized user groups.
       shared_ptr<vector<Rule::UserGroups>> userGroups_ {};
-      // The authorized users.
+      // The list of authorized users.
       shared_ptr<vector<Rule::Users>> users_ {};
     };
 
@@ -460,9 +472,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The unique identifier generated by Alibaba Cloud for the request.
     shared_ptr<string> requestId_ {};
-    // The returned information about the authorization rule.
+    // The authorization rule information.
     shared_ptr<GetRuleResponseBody::Rule> rule_ {};
   };
 

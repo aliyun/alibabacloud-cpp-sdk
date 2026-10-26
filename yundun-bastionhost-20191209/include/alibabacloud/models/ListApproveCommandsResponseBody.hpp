@@ -154,27 +154,28 @@ namespace Models
 
 
     protected:
-      // The ID of the command to be reviewed.
+      // The ID of the command pending approval.
       shared_ptr<string> approveCommandId_ {};
-      // The username of the asset account that is used for O\\&M.
+      // The name of the asset account.
       shared_ptr<string> assetAccountName_ {};
-      // The IP address of the asset for O\\&M.
+      // The IP address of the O&M asset.
       shared_ptr<string> assetIp_ {};
-      // The name of the asset.
+      // The name of the O&M asset.
       shared_ptr<string> assetName_ {};
       // The source IP address from which the application is submitted.
       shared_ptr<string> clientIp_ {};
-      // The Bastionhost user who submitted the O\\&M application.
+      // The Bastionhost user who submitted the application.
       shared_ptr<string> clientUser_ {};
-      // The command to be reviewed.
+      // The command pending approval.
       shared_ptr<string> command_ {};
-      // The time when the O\\&M application was submitted. The value is a UNIX timestamp. Unit: seconds.
+      // The time when the application was submitted. Unit: seconds. The value is a UNIX timestamp.
       shared_ptr<string> createTime_ {};
-      // The O\\&M protocol.
+      // The name of the O&M protocol.
       shared_ptr<string> protocolName_ {};
-      // The ID of the O\\&M session that triggered the review.
+      // The ID of the O&M session that triggered the approval.
       shared_ptr<string> sessionId_ {};
-      // The status of the review. Valid values: **Wait**: The command is pending review.
+      // The approval status.
+      // **Wait**: Pending approval.
       shared_ptr<string> state_ {};
     };
 
@@ -204,11 +205,11 @@ namespace Models
 
 
   protected:
-    // The commands to be reviewed.
+    // The list of commands.
     shared_ptr<vector<ListApproveCommandsResponseBody::ApproveCommands>> approveCommands_ {};
-    // The request ID.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of commands to be reviewed.
+    // The total number of commands pending approval.
     shared_ptr<int64_t> totalCount_ {};
   };
 

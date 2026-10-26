@@ -17,12 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AccessTimeRangeConfig, accessTimeRangeConfig_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(PolicyId, policyId_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, SetPolicyAccessTimeRangeConfigRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AccessTimeRangeConfig, accessTimeRangeConfig_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(PolicyId, policyId_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
     SetPolicyAccessTimeRangeConfigRequest() = default ;
@@ -97,9 +99,9 @@ namespace Models
 
 
       protected:
-        // The days of the week during which users can log on to the assets.
+        // The days of the week when logon is allowed.
         shared_ptr<vector<int32_t>> days_ {};
-        // The time periods of the day during which users can log on to the assets.
+        // The hours of the day when logon is allowed.
         shared_ptr<vector<int32_t>> hours_ {};
       };
 
@@ -114,12 +116,12 @@ namespace Models
 
 
     protected:
-      // The details about the periods during which users can log on to the assets.
+      // The details of the allowed logon periods.
       shared_ptr<vector<AccessTimeRangeConfig::EffectiveTime>> effectiveTime_ {};
     };
 
     virtual bool empty() const override { return this->accessTimeRangeConfig_ == nullptr
-        && this->instanceId_ == nullptr && this->policyId_ == nullptr && this->regionId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->policyId_ == nullptr && this->projectId_ == nullptr && this->regionId_ == nullptr; };
     // accessTimeRangeConfig Field Functions 
     bool hasAccessTimeRangeConfig() const { return this->accessTimeRangeConfig_ != nullptr;};
     void deleteAccessTimeRangeConfig() { this->accessTimeRangeConfig_ = nullptr;};
@@ -143,6 +145,13 @@ namespace Models
     inline SetPolicyAccessTimeRangeConfigRequest& setPolicyId(string policyId) { DARABONBA_PTR_SET_VALUE(policyId_, policyId) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline SetPolicyAccessTimeRangeConfigRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -151,25 +160,25 @@ namespace Models
 
 
   protected:
-    // The logon period limits.
+    // The logon time limit configuration.
     // 
     // This parameter is required.
     shared_ptr<SetPolicyAccessTimeRangeConfigRequest::AccessTimeRangeConfig> accessTimeRangeConfig_ {};
-    // The bastion host ID.
+    // The instance ID of the Bastionhost instance.
     // 
-    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to retrieve this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The control policy ID.
-    // 
-    // > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+    // The ID of the control policy.
+    // > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to retrieve this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> policyId_ {};
-    // The region ID of the bastion host.
-    // 
-    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
+    // The region ID of the Bastionhost instance.
+    // > For the mappings between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
   };
 

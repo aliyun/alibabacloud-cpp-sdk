@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Password, password_);
       DARABONBA_PTR_TO_JSON(PrivateKey, privateKey_);
       DARABONBA_PTR_TO_JSON(PrivilegeType, privilegeType_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(RotationMode, rotationMode_);
     };
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Password, password_);
       DARABONBA_PTR_FROM_JSON(PrivateKey, privateKey_);
       DARABONBA_PTR_FROM_JSON(PrivilegeType, privilegeType_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(RotationMode, rotationMode_);
     };
@@ -49,7 +51,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->hostAccountId_ == nullptr
         && this->hostAccountName_ == nullptr && this->hostShareKeyId_ == nullptr && this->instanceId_ == nullptr && this->passPhrase_ == nullptr && this->password_ == nullptr
-        && this->privateKey_ == nullptr && this->privilegeType_ == nullptr && this->regionId_ == nullptr && this->rotationMode_ == nullptr; };
+        && this->privateKey_ == nullptr && this->privilegeType_ == nullptr && this->projectId_ == nullptr && this->regionId_ == nullptr && this->rotationMode_ == nullptr; };
     // hostAccountId Field Functions 
     bool hasHostAccountId() const { return this->hostAccountId_ != nullptr;};
     void deleteHostAccountId() { this->hostAccountId_ = nullptr;};
@@ -106,6 +108,13 @@ namespace Models
     inline ModifyHostAccountRequest& setPrivilegeType(string privilegeType) { DARABONBA_PTR_SET_VALUE(privilegeType_, privilegeType) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline ModifyHostAccountRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -121,53 +130,48 @@ namespace Models
 
 
   protected:
-    // Specifies the ID of the host account to be modified.
+    // The ID of the host account to modify.
     // 
     // > You can call the [ListHostAccounts](https://help.aliyun.com/document_detail/204372.html) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> hostAccountId_ {};
-    // Specifies the modified host account name, which can contain up to 128 characters.
+    // The new name of the host account. The name can be up to 128 characters in length.
     shared_ptr<string> hostAccountName_ {};
-    // The host shared key ID.
-    // 
-    // > You can obtain this ID by calling the [ListHostShareKeys](https://help.aliyun.com/document_detail/462973.html) operation.
+    // The ID of the shared key for the host.
+    // > You can call the [ListHostShareKeys](https://help.aliyun.com/document_detail/462973.html) operation to obtain this ID.
     shared_ptr<string> hostShareKeyId_ {};
-    // Specifies the ID of the Bastionhost instance where the host account to be modified resides.
+    // The ID of the bastion host instance where the host account to modify resides.
     // 
-    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the Bastionhost instance ID.
+    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the bastion host instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Specifies the modified security token of the host account\\"s private key.
+    // The new passphrase of the private key for the host account.
     // 
-    // > This parameter takes effect when the host account protocol is SSH. This parameter is not required when the host account protocol is RDP.
+    // > This parameter takes effect only when the protocol of the host account is SSH. If the protocol is RDP, you do not need to configure this parameter.
     shared_ptr<string> passPhrase_ {};
-    // Specifies the modified password of the host account.
+    // The new password of the host account.
     shared_ptr<string> password_ {};
-    // Specifies the modified private key of the host account, which is a Base64-encoded string.
+    // The new private key of the host account. The private key is a Base64-encoded string.
     // 
-    // > This parameter takes effect when the host account protocol is SSH. This parameter is not required when the host account protocol is RDP. You can call the [GetHostAccount](https://help.aliyun.com/document_detail/204391.html) operation to query the protocol used by the host account. You can configure both a password and a private key for a host account. When connecting to an asset, Bastionhost preferentially uses the private key for connection.
+    // > This parameter takes effect only when the protocol of the host account is SSH. If the protocol is RDP, you do not need to configure this parameter. You can call the [GetHostAccount](https://help.aliyun.com/document_detail/204391.html) operation to query the protocol used by the host account. You can configure both a password and a private key for the host account. When connecting to an asset, the bastion host preferentially uses the private key.
     shared_ptr<string> privateKey_ {};
-    // Account permission type. Valid values:
-    // 
-    // - **Privileged**: privileged account
-    // 
-    // - **Normal**: regular account
-    // 
-    // > This parameter is supported only in V3.2.47 and later versions.
+    // The privilege type of the account. Valid values:
+    // - **Privileged**: privileged account.
+    // - **Normal**: standard account.
+    // >Only supported in V3.2.47 and later.
     shared_ptr<string> privilegeType_ {};
-    // Specifies the region ID of the Bastionhost instance where the host account to be queried resides.
+    // The ID of the project to which the host of the host account belongs.
+    shared_ptr<int64_t> projectId_ {};
+    // The region ID of the bastion host instance where the host account to query resides.
     // 
     // > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
-    // Account password rotation mode. Valid values:
-    // 
-    // - **Privileged**: Use a privileged account to change the password
-    // 
-    // - **Self**: Do not use a privileged account to change the password
-    // 
-    // > This parameter is supported only in V3.2.47 and later versions.
+    // The password rotation mode of the account. Valid values:
+    // - **Privileged**: uses a privileged account to rotate the password.
+    // - **Self**: does not use a privileged account to rotate the password.
+    // >Only supported in V3.2.47 and later.
     shared_ptr<string> rotationMode_ {};
   };
 

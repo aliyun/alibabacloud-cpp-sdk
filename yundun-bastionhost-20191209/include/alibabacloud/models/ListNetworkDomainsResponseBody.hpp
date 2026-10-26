@@ -101,17 +101,15 @@ namespace Models
 
 
       protected:
-        // The node type of the proxy server. Valid values:
+        // The type of the proxy server node. Valid values:
         // 
-        // - **Master**: the master proxy server
-        // 
-        // - **Slave**: the slave proxy server
+        // - **Master**: primary proxy server
+        // - **Slave**: secondary proxy server
         shared_ptr<string> nodeType_ {};
-        // The status of the proxy server. Valid values:
+        // The status of the proxy server.
         // 
-        // - **Available**
-        // 
-        // - **Unavailable**
+        // - **Available**: available
+        // - **Unavailable**: unavailable
         shared_ptr<string> proxyState_ {};
       };
 
@@ -162,12 +160,11 @@ namespace Models
 
 
     protected:
-      // The comments on the network domain.
+      // The description of the network domain.
       shared_ptr<string> comment_ {};
-      // Indicates whether the network domain is a built-in domain.
+      // Indicates whether the network domain is a built-in network domain.
       // 
       // - **true**: yes
-      // 
       // - **false**: no
       shared_ptr<bool> default_ {};
       // The ID of the network domain.
@@ -177,8 +174,7 @@ namespace Models
       // The type of the network domain. Valid values:
       // 
       // - **Direct**: direct connection
-      // 
-      // - **Proxy**: proxy connection
+      // - **Proxy**: proxy
       shared_ptr<string> networkDomainType_ {};
       // The information about the proxy servers.
       shared_ptr<vector<NetworkDomains::ProxiesState>> proxiesState_ {};
@@ -210,7 +206,7 @@ namespace Models
 
 
   protected:
-    // The list of network domains.
+    // The network domains.
     shared_ptr<vector<ListNetworkDomainsResponseBody::NetworkDomains>> networkDomains_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

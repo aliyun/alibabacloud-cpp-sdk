@@ -75,18 +75,18 @@ namespace Models
 
 
   protected:
-    // The page number to return.
+    // The page number of the current page in a paging query.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The maximum number of entries to return on each page in a paging query.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID of the Bastionhost instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The type of the resource.
-    // 
-    // The only valid value is INSTANCE, which represents a Bastionhost instance.
+    // The resource type definition. Valid values:
+    // - INSTANCE: Bastionhost instance.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};

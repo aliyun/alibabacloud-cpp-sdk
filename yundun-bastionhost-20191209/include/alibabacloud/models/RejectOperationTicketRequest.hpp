@@ -16,12 +16,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Comment, comment_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(OperationTicketId, operationTicketId_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, RejectOperationTicketRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Comment, comment_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(OperationTicketId, operationTicketId_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
     RejectOperationTicketRequest() = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->comment_ == nullptr
-        && this->instanceId_ == nullptr && this->operationTicketId_ == nullptr && this->regionId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->operationTicketId_ == nullptr && this->projectId_ == nullptr && this->regionId_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
@@ -58,6 +60,13 @@ namespace Models
     inline RejectOperationTicketRequest& setOperationTicketId(string operationTicketId) { DARABONBA_PTR_SET_VALUE(operationTicketId_, operationTicketId) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline RejectOperationTicketRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -66,22 +75,21 @@ namespace Models
 
 
   protected:
-    // The review remarks.
+    // The approval comment.
     shared_ptr<string> comment_ {};
-    // The ID of the bastion host.
-    // 
-    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+    // The instance ID of the Bastionhost instance.
+    // > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the parameter value.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the O\\&M application that you want to reject.
-    // 
-    // > You can call the [ListOperationTickets](https://help.aliyun.com/document_detail/2584313.html) operation to query the IDs of all O\\&M applications that require review.
+    // The ID of the O&M application to be rejected.
+    // > You can call the [ListOperationTickets](https://help.aliyun.com/document_detail/2584313.html) operation to query the IDs of all O&M applications that require approval.
     // 
     // This parameter is required.
     shared_ptr<string> operationTicketId_ {};
-    // The region ID of the bastion host.
-    // 
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
+    // The region ID of the Bastionhost instance.
     // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
   };

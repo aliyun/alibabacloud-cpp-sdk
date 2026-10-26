@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(OSType, OSType_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(Source, source_);
       DARABONBA_PTR_TO_JSON(SourceInstanceId, sourceInstanceId_);
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(OSType, OSType_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(Source, source_);
       DARABONBA_PTR_FROM_JSON(SourceInstanceId, sourceInstanceId_);
@@ -51,7 +53,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->hostAddress_ == nullptr
         && this->hostGroupId_ == nullptr && this->hostName_ == nullptr && this->instanceId_ == nullptr && this->OSType_ == nullptr && this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->source_ == nullptr && this->sourceInstanceId_ == nullptr && this->sourceInstanceState_ == nullptr; };
+        && this->pageSize_ == nullptr && this->projectId_ == nullptr && this->regionId_ == nullptr && this->source_ == nullptr && this->sourceInstanceId_ == nullptr
+        && this->sourceInstanceState_ == nullptr; };
     // hostAddress Field Functions 
     bool hasHostAddress() const { return this->hostAddress_ != nullptr;};
     void deleteHostAddress() { this->hostAddress_ = nullptr;};
@@ -101,6 +104,13 @@ namespace Models
     inline ListHostsRequest& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline string getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
+    inline ListHostsRequest& setProjectId(string projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -130,50 +140,41 @@ namespace Models
 
 
   protected:
-    // The address of the host that you want to query. You can set this parameter to a domain name or an IP address. Only exact match is supported.
+    // The address of the host. You can use a domain name or an IP address. Fuzzy match is not supported. Only exact match is supported.
     shared_ptr<string> hostAddress_ {};
-    // The ID of the host group to which the host to be queried belongs.
-    // 
-    // > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the ID of the host group.
+    // The ID of the host group to which the host belongs.
+    // > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to obtain the host group ID.
     shared_ptr<string> hostGroupId_ {};
-    // The name of the host that you want to query. Only exact match is supported.
+    // The name of the host. Fuzzy match is not supported. Only exact match is supported.
     shared_ptr<string> hostName_ {};
-    // The ID of the bastion host on which you want to query hosts.
-    // 
-    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+    // The instance ID of the Bastionhost instance whose hosts you want to query.
+    // > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The operating system of the host that you want to query. Valid values:
-    // 
+    // The operating system of the host. Valid values:
     // - **Linux**
-    // 
     // - **Windows**
     shared_ptr<string> OSType_ {};
     // The number of the page to return. Default value: **1**.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries to return on each page. Default value: **10**.
-    // 
-    // > We recommend that you do not leave this parameter empty.
+    // Specifies the number of hosts to return per page in a paged query. Default value: **10**, which indicates that 10 hosts are returned per page.
+    // > Do not leave PageSize empty.
     shared_ptr<string> pageSize_ {};
-    // The region ID of the bastion host on which you want to query hosts.
-    // 
+    // The project ID.
+    shared_ptr<string> projectId_ {};
+    // The region ID of the Bastionhost instance.
     // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
-    // The source of the host that you want to query. Valid values:
-    // 
-    // - **Local**: a host in a data center
-    // 
-    // - **Ecs**: an Elastic Compute Service (ECS) instance
-    // 
-    // - **Rds**: a host in an ApsaraDB MyBase dedicated cluster
+    // The source of the host. Valid values:
+    // - **Local**: local host
+    // - **Ecs**: ECS instance
+    // - **Rds**: RDS dedicated cluster host
     shared_ptr<string> source_ {};
-    // The ID of the ECS instance or the host in an ApsaraDB MyBase dedicated cluster that you want to query. Only exact match is supported.
+    // The ECS instance ID or the dedicated cluster host ID to which the host corresponds. Fuzzy match is not supported. Only exact match is supported.
     shared_ptr<string> sourceInstanceId_ {};
-    // The status of the host that you want to query. Valid values:
-    // 
+    // The status of the host. Valid values:
     // - **Normal**: normal
-    // 
     // - **Release**: released
     shared_ptr<string> sourceInstanceState_ {};
   };

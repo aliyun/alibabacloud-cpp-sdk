@@ -90,11 +90,11 @@ namespace Models
 
 
     protected:
-      // The remarks of the control policy.
+      // The comment of the control policy.
       shared_ptr<string> comment_ {};
-      // The control policy ID.
+      // The ID of the control policy.
       shared_ptr<string> policyId_ {};
-      // The name of the control policy.
+      // The Policy Name of the control policy.
       shared_ptr<string> policyName_ {};
       // The priority of the control policy. A smaller value indicates a higher priority.
       shared_ptr<int64_t> priority_ {};
@@ -128,9 +128,9 @@ namespace Models
   protected:
     // The control policies.
     shared_ptr<vector<ListPoliciesResponseBody::Policies>> policies_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of control policies that are returned.
+    // The total number of control policies returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

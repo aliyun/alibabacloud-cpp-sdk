@@ -83,13 +83,13 @@ namespace Models
 
 
     protected:
-      // The name of the secret.
+      // The name of the credential.
       shared_ptr<string> secretName_ {};
-      // The type of the secret. Valid value:
+      // The type of the credential. Valid values:
       // 
-      // - `ECS`: an ECS secret.
+      // - ECS: ECS credential.
       shared_ptr<string> secretType_ {};
-      // The tags associated with the secret.
+      // The tags of the credential.
       shared_ptr<string> tags_ {};
     };
 
@@ -126,13 +126,13 @@ namespace Models
 
 
   protected:
-    // The value of the `MaxResults` parameter in the request. If the parameter was not specified, the default value of 20 is returned.
+    // If a valid MaxResults value is passed in the request parameter, the specified parameter value is returned. Otherwise, the default value is returned.
     shared_ptr<int32_t> maxResults_ {};
-    // The token to retrieve the next page of results. If this field is empty, all results have been returned.
+    // The token for the next query.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // A list of importable secrets.
+    // The credential information.
     shared_ptr<vector<ListImportableKMSSecretsForHostResponseBody::Secrets>> secrets_ {};
   };
 

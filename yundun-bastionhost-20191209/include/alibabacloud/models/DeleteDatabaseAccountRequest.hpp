@@ -15,11 +15,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DeleteDatabaseAccountRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DatabaseAccountId, databaseAccountId_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, DeleteDatabaseAccountRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DatabaseAccountId, databaseAccountId_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
     DeleteDatabaseAccountRequest() = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->databaseAccountId_ == nullptr
-        && this->instanceId_ == nullptr && this->regionId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->projectId_ == nullptr && this->regionId_ == nullptr; };
     // databaseAccountId Field Functions 
     bool hasDatabaseAccountId() const { return this->databaseAccountId_ != nullptr;};
     void deleteDatabaseAccountId() { this->databaseAccountId_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     inline DeleteDatabaseAccountRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline DeleteDatabaseAccountRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -57,21 +66,20 @@ namespace Models
 
 
   protected:
-    // The ID of the database account that you want to delete.
-    // 
-    // > You can call the [ListDatabaseAccounts](https://help.aliyun.com/document_detail/2758839.html) operation to query the database account ID.
+    // The ID of the database account to delete.
+    // > You can call the [ListDatabaseAccounts](https://help.aliyun.com/document_detail/2758839.html) operation to query this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> databaseAccountId_ {};
-    // The ID of the bastion host from which you want to delete the database account.
-    // 
-    // > You can call the DescribeInstances operation to query the ID of the bastion host.
+    // The ID of the bastion host instance to which the database account to be deleted belongs.
+    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region ID of the bastion host from which you want to delete the database account.
-    // 
-    // > For more information about the mapping between region IDs and region names, [see Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
+    // The region ID of the bastion host to which the database account to be deleted belongs.
+    // > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
   };
 

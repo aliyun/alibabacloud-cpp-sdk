@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceMemberId, instanceMemberId_);
       DARABONBA_PTR_TO_JSON(NetworkDomainId, networkDomainId_);
       DARABONBA_PTR_TO_JSON(PolarDBEndpointType, polarDBEndpointType_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(Source, source_);
       DARABONBA_PTR_TO_JSON(SourceInstanceId, sourceInstanceId_);
@@ -41,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceMemberId, instanceMemberId_);
       DARABONBA_PTR_FROM_JSON(NetworkDomainId, networkDomainId_);
       DARABONBA_PTR_FROM_JSON(PolarDBEndpointType, polarDBEndpointType_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(Source, source_);
       DARABONBA_PTR_FROM_JSON(SourceInstanceId, sourceInstanceId_);
@@ -60,7 +62,7 @@ namespace Models
     virtual bool empty() const override { return this->activeAddressType_ == nullptr
         && this->comment_ == nullptr && this->databaseName_ == nullptr && this->databasePort_ == nullptr && this->databasePrivateAddress_ == nullptr && this->databasePublicAddress_ == nullptr
         && this->databaseType_ == nullptr && this->instanceId_ == nullptr && this->instanceMemberId_ == nullptr && this->networkDomainId_ == nullptr && this->polarDBEndpointType_ == nullptr
-        && this->regionId_ == nullptr && this->source_ == nullptr && this->sourceInstanceId_ == nullptr && this->sourceInstanceRegionId_ == nullptr; };
+        && this->projectId_ == nullptr && this->regionId_ == nullptr && this->source_ == nullptr && this->sourceInstanceId_ == nullptr && this->sourceInstanceRegionId_ == nullptr; };
     // activeAddressType Field Functions 
     bool hasActiveAddressType() const { return this->activeAddressType_ != nullptr;};
     void deleteActiveAddressType() { this->activeAddressType_ = nullptr;};
@@ -138,6 +140,13 @@ namespace Models
     inline CreateDatabaseRequest& setPolarDBEndpointType(string polarDBEndpointType) { DARABONBA_PTR_SET_VALUE(polarDBEndpointType_, polarDBEndpointType) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline CreateDatabaseRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -169,76 +178,62 @@ namespace Models
   protected:
     // The address type of the new database. Valid values:
     // 
-    // - Public: a public endpoint
-    // 
-    // - Private: a private endpoint
+    // - Public: public endpoint.
+    // - Private: private endpoint.
     // 
     // This parameter is required.
     shared_ptr<string> activeAddressType_ {};
-    // The comments on the new database. The comments can be up to 500 characters in length.
+    // The description of the new database. The value can be up to 500 characters in length.
     shared_ptr<string> comment_ {};
-    // The name of the new database instance. This parameter is required if you set Source to **Local**.
+    // The name of the new database instance. This parameter is required if Source is set to **Local**.
     shared_ptr<string> databaseName_ {};
-    // The port used to connect to the database. This parameter is required if you set Source to **Local**.
+    // The port of the database. This parameter is required if Source is set to **Local**.
     shared_ptr<int32_t> databasePort_ {};
-    // The private endpoint of the database. You can use an IPv4 address or a domain name.
-    // 
-    // > This parameter is required if you set ActiveAddressType to Private.
+    // The private endpoint. IPv4 addresses and domain names are supported.
+    // > This parameter is required if ActiveAddressType is set to Private.
     shared_ptr<string> databasePrivateAddress_ {};
-    // The public endpoint of the database. You can use an IPv4 address or a domain name.
-    // 
-    // > This parameter is required if you set ActiveAddressType to Public.
+    // The public endpoint. IPv4 addresses and domain names are supported.
+    // > This parameter is required if ActiveAddressType is set to Public.
     shared_ptr<string> databasePublicAddress_ {};
     // The type of the database. Valid values:
     // 
     // - **MySQL**
-    // 
     // - **Oracle**
-    // 
     // - **PostgreSQL**
-    // 
     // - **SQLServer**
     // 
     // This parameter is required.
     shared_ptr<string> databaseType_ {};
-    // The ID of the Bastionhost instance.
-    // 
-    // > Call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
+    // The ID of the bastion host instance.
+    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the Alibaba Cloud account to which the new RDS or PolarDB database instance belongs.
+    // The ID of the Alibaba Cloud account to which the new ApsaraDB RDS or PolarDB database instance belongs.
     shared_ptr<int64_t> instanceMemberId_ {};
-    // The ID of the network domain for the new database.
-    // 
-    // > Call the [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) operation to obtain this parameter.
+    // The ID of the network domain to which the new database belongs.
+    // > You can call the [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) operation to obtain this parameter.
     shared_ptr<string> networkDomainId_ {};
-    // This parameter is required if you set Source to PolarDB. This parameter specifies the endpoint type of the PolarDB database. Valid values:
-    // 
-    // - Cluster: a cluster endpoint
-    // 
-    // - Primary: a primary endpoint
+    // The endpoint type of the PolarDB cluster. This parameter is required if Source is set to PolarDB. Valid values:
+    // - Cluster: cluster endpoint.
+    // - Primary: primary endpoint.
     shared_ptr<string> polarDBEndpointType_ {};
-    // The region ID of the Bastionhost instance.
-    // 
-    // > For a list of region IDs and their corresponding region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
+    // The region ID of the bastion host.
+    // > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
     // The source of the new database. Valid values:
-    // 
-    // - Local: a local database instance
-    // 
-    // - Rds: an RDS database instance
-    // 
-    // - PolarDB: a PolarDB database instance
+    // - Local: self-managed database instance.
+    // - Rds: ApsaraDB RDS instance.
+    // - PolarDB: PolarDB cluster.
     // 
     // This parameter is required.
     shared_ptr<string> source_ {};
-    // The ID of the database instance.
-    // 
-    // > This parameter is required if you set **Source** to **Rds** or **PolarDB**.
+    // The instance ID of the new database.  
+    // > This parameter is required if **Source** is set to **Rds** or **PolarDB**.
     shared_ptr<string> sourceInstanceId_ {};
-    // The region ID of the database instance.
-    // 
+    // The region ID of the new database instance.
     // > This parameter is required if **Source** is set to **Rds** or **PolarDB**.
     shared_ptr<string> sourceInstanceRegionId_ {};
   };

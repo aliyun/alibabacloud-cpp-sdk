@@ -137,22 +137,23 @@ namespace Models
 
 
   protected:
-    // The token to start the next query.
+    // The token for the next query.
     shared_ptr<string> nextToken_ {};
     // The region ID of the Bastionhost instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     // The resource ID.
     shared_ptr<vector<string>> resourceId_ {};
-    // The type of resource.
+    // The resource type definition.
     // 
     // The only valid value is INSTANCE, which indicates a Bastionhost instance.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The list of tags.
+    // The tags.
     shared_ptr<vector<ListTagResourcesRequest::Tag>> tag_ {};
   };
 

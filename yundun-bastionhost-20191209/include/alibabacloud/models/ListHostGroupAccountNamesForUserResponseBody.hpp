@@ -51,7 +51,7 @@ namespace Models
 
 
   protected:
-    // An array that consists of the names of host accounts.
+    // The list of host account names.
     shared_ptr<vector<string>> hostAccountNames_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

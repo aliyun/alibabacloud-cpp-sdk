@@ -74,17 +74,16 @@ namespace Models
 
 
     protected:
-      // The key of the tag.
+      // The tag key of the instance.
+      // Valid values of N: 1 to 20. 
       // 
-      // > - The tag key cannot be an empty string. It can be up to 128 characters in length.
-      // >
-      // > - The tag key cannot start with **aliyun** or **acs:**. It cannot contain **http\\://** or **https\\://**.
+      // > - This parameter cannot be an empty string and can be up to 128 characters in length.
+      // > - This parameter cannot start with **aliyun** or **acs:** and cannot contain **http://** or **https://**.
       shared_ptr<string> key_ {};
-      // The value of the tag.
-      // 
-      // > - The tag value can be an empty string. It can be up to 128 characters in length.
-      // >
-      // > - The tag value cannot start with **aliyun** or **acs:**. It cannot contain **http\\://** or **https\\://**.
+      // The tag value of the instance.  
+      // Valid values of N: 1 to 20.
+      // > - This parameter can be an empty string and can be up to 128 characters in length.
+      // > - This parameter cannot start with **aliyun** or **acs:** and cannot contain **http://** or **https://**.
       shared_ptr<string> value_ {};
     };
 
@@ -123,27 +122,25 @@ namespace Models
 
 
   protected:
-    // The ID of the region where the Bastionhost instance resides.
-    // 
+    // The region ID of the Bastionhost instance for which you want to create and bind tags.
     // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The IDs of the Bastionhost instances. You can specify up to 20 instance IDs.
+    // The list of Bastionhost instance IDs.
     // 
-    // N can be from 1 to 20.
-    // 
-    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the IDs of Bastionhost instances.
+    // Valid values of N: 1 to 20.
+    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the Bastionhost instance IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
-    // The type of the resource.
+    // The resource type.
     // 
-    // Set the value to `INSTANCE`. This value indicates a Bastionhost instance.
+    // The only valid value is **INSTANCE**, which indicates a Bastionhost instance.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tags to add to the instances. You can add up to 20 tags.
+    // The list of tags.
     shared_ptr<vector<TagResourcesRequest::Tag>> tag_ {};
   };
 

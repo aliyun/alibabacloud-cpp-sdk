@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EffectStartTime, effectStartTime_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(IsOneTimeEffect, isOneTimeEffect_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(ProtocolName, protocolName_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EffectStartTime, effectStartTime_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(IsOneTimeEffect, isOneTimeEffect_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(ProtocolName, protocolName_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
@@ -47,7 +49,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->approveComment_ == nullptr
         && this->assetAccountName_ == nullptr && this->assetId_ == nullptr && this->effectEndTime_ == nullptr && this->effectStartTime_ == nullptr && this->instanceId_ == nullptr
-        && this->isOneTimeEffect_ == nullptr && this->protocolName_ == nullptr && this->regionId_ == nullptr; };
+        && this->isOneTimeEffect_ == nullptr && this->projectId_ == nullptr && this->protocolName_ == nullptr && this->regionId_ == nullptr; };
     // approveComment Field Functions 
     bool hasApproveComment() const { return this->approveComment_ != nullptr;};
     void deleteApproveComment() { this->approveComment_ = nullptr;};
@@ -97,6 +99,13 @@ namespace Models
     inline CreateOperationTicketRequest& setIsOneTimeEffect(bool isOneTimeEffect) { DARABONBA_PTR_SET_VALUE(isOneTimeEffect_, isOneTimeEffect) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline CreateOperationTicketRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // protocolName Field Functions 
     bool hasProtocolName() const { return this->protocolName_ != nullptr;};
     void deleteProtocolName() { this->protocolName_ = nullptr;};
@@ -112,57 +121,47 @@ namespace Models
 
 
   protected:
-    // The comments on the ticket.
+    // The remarks of the request.
     // 
     // This parameter is required.
     shared_ptr<string> approveComment_ {};
-    // The logon name of the asset account for the O\\&M request.
+    // The logon name of the asset account for which you want to request O&M access.
     // 
     // This parameter is required.
     shared_ptr<string> assetAccountName_ {};
-    // The ID of the asset for which to request O\\&M.
-    // 
-    // > Call the [ListOperationDatabases](https://help.aliyun.com/document_detail/2758856.html) and [ListOperationHosts](https://help.aliyun.com/document_detail/2758857.html) operations to obtain this parameter.
+    // The ID of the asset for which you want to request O&M access.
+    // > You can call the [ListOperationDatabases](https://help.aliyun.com/document_detail/2758856.html) or [ListOperationHosts](https://help.aliyun.com/document_detail/2758857.html) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> assetId_ {};
-    // The end time of the validity period for the logon request. This value is a UNIX timestamp. Unit: seconds.
-    // 
-    // > The end time must be later than the start time.
+    // The end time of the validity period for the logon request. Unit: seconds. The value is a UNIX timestamp.
+    // > The end time of the validity period must be later than the start time.
     shared_ptr<int64_t> effectEndTime_ {};
-    // The start time of the validity period for the logon request. This value is a UNIX timestamp. Unit: seconds.
+    // The start time of the validity period for the logon request. Unit: seconds. The value is a UNIX timestamp.
     shared_ptr<int64_t> effectStartTime_ {};
-    // The ID of the Bastionhost instance.
-    // 
-    // > Call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
+    // The instance ID of the bastion host.
+    // > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Specifies whether the ticket is valid for a single logon. Valid values:
-    // 
-    // - **true**: The ticket is valid for a single logon.
-    // 
-    // - **false**: The ticket is valid for multiple logons within the validity period.
+    // The number of logon times allowed. Valid values:
+    // - **true**: Only one logon is allowed within the validity period.
+    // - **false**: Unlimited logons are allowed within the validity period.
     shared_ptr<bool> isOneTimeEffect_ {};
-    // The name of the protocol for the O\\&M request. Valid values:
-    // 
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
+    // The name of the protocol for which you want to request O&M access. Valid values:
     // - SSH
-    // 
     // - RDP
-    // 
     // - MySQL
-    // 
     // - PostgreSQL
-    // 
     // - Oracle
-    // 
     // - SQLServer
     // 
     // This parameter is required.
     shared_ptr<string> protocolName_ {};
-    // The region ID of the Bastionhost instance.
-    // 
-    // > For more information about regions and zones, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // The region ID of the bastion host.
+    // > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
   };
 

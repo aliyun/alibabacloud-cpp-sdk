@@ -90,9 +90,9 @@ namespace Models
 
 
     protected:
-      // The remarks of the asset group.
+      // The description of the asset group.
       shared_ptr<string> comment_ {};
-      // The asset group ID.
+      // The ID of the asset group.
       shared_ptr<string> hostGroupId_ {};
       // The name of the asset group.
       shared_ptr<string> hostGroupName_ {};

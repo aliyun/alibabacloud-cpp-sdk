@@ -120,21 +120,20 @@ namespace Models
     protected:
       // The name of the PostgreSQL or Oracle database.
       shared_ptr<string> DBName_ {};
-      // The database account ID.
+      // The ID of the database account.
       shared_ptr<string> databaseAccountId_ {};
       // The name of the database account.
       shared_ptr<string> databaseAccountName_ {};
-      // The database ID.
+      // The database instance ID.
       shared_ptr<string> databaseId_ {};
-      // Indicates whether a password is configured for the database host account.
+      // Indicates whether a password is set for the database host account.
       shared_ptr<string> hasPassword_ {};
-      // The logon attribute. One of the following values is returned if the database engine is Oracle:
+      // The logon attribute. This parameter has a return value only for Oracle databases. Valid values:
       // 
       // - **SERVICENAME**
-      // 
       // - **SID**
       shared_ptr<string> loginAttribute_ {};
-      // The protocol that is used by the database account.
+      // The protocol name of the database account.
       shared_ptr<string> protocolName_ {};
     };
 
@@ -164,11 +163,11 @@ namespace Models
 
 
   protected:
-    // The database accounts returned.
+    // The list of database accounts.
     shared_ptr<vector<ListOperationDatabaseAccountsResponseBody::DatabaseAccounts>> databaseAccounts_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of queried manageable database accounts.
     shared_ptr<int64_t> totalCount_ {};
   };
 

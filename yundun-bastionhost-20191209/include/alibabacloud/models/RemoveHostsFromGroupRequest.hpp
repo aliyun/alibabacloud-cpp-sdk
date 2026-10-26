@@ -16,12 +16,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(HostGroupId, hostGroupId_);
       DARABONBA_PTR_TO_JSON(HostIds, hostIds_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, RemoveHostsFromGroupRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(HostGroupId, hostGroupId_);
       DARABONBA_PTR_FROM_JSON(HostIds, hostIds_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
     RemoveHostsFromGroupRequest() = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->hostGroupId_ == nullptr
-        && this->hostIds_ == nullptr && this->instanceId_ == nullptr && this->regionId_ == nullptr; };
+        && this->hostIds_ == nullptr && this->instanceId_ == nullptr && this->projectId_ == nullptr && this->regionId_ == nullptr; };
     // hostGroupId Field Functions 
     bool hasHostGroupId() const { return this->hostGroupId_ != nullptr;};
     void deleteHostGroupId() { this->hostGroupId_ = nullptr;};
@@ -58,6 +60,13 @@ namespace Models
     inline RemoveHostsFromGroupRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline RemoveHostsFromGroupRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -66,26 +75,24 @@ namespace Models
 
 
   protected:
-    // The ID of the asset group from which you want to remove hosts.
-    // 
-    // > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the asset group ID.
+    // The ID of the host group from which you want to remove hosts.
+    // > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the host group ID.
     // 
     // This parameter is required.
     shared_ptr<string> hostGroupId_ {};
-    // The IDs of the hosts that you want to remove from the host group. Specify a JSON string. You can specify up to 100 host IDs.
-    // 
+    // The IDs of the hosts that you want to remove. The value is a JSON string. You can specify up to 100 host IDs.
     // > You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the host IDs.
     // 
     // This parameter is required.
     shared_ptr<string> hostIds_ {};
-    // The ID of the bastion host whose asset group you want to manage.
-    // 
-    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+    // The ID of the Bastionhost instance to which the host group from which you want to remove hosts belongs.
+    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region ID of the bastion host whose asset group you want to manage.
-    // 
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
+    // The region ID of the Bastionhost instance to which the host group from which you want to remove hosts belongs.
     // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
   };

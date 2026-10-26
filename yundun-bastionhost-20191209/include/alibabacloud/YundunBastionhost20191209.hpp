@@ -21,10 +21,10 @@ namespace YundunBastionhost20191209
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary If an O\\\\\\\\\\\\&M engineer attempts to run a command specified in the Command Approval field on the Create Control Policy page, the administrator is notified to review the command in the Bastionhost console. The command can be run only after it is approved by the administrator.
+       * @summary If an O&M engineer runs a command that is configured in a command approval control policy, the administrator receives an approval request for the command in the Bastionhost console. The command can be run only after the administrator approves the request. If the administrator rejects the request, the command cannot be run.
        *
-       * @description Approves an O\\&M engineer\\"s command execution request as a Bastionhost administrator.
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description Approves a command execution request from an O&M engineer.
+       * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
        *
        * @param request AcceptApproveCommandRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -33,10 +33,10 @@ namespace YundunBastionhost20191209
       Models::AcceptApproveCommandResponse acceptApproveCommandWithOptions(const Models::AcceptApproveCommandRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary If an O\\\\\\\\\\\\&M engineer attempts to run a command specified in the Command Approval field on the Create Control Policy page, the administrator is notified to review the command in the Bastionhost console. The command can be run only after it is approved by the administrator.
+       * @summary If an O&M engineer runs a command that is configured in a command approval control policy, the administrator receives an approval request for the command in the Bastionhost console. The command can be run only after the administrator approves the request. If the administrator rejects the request, the command cannot be run.
        *
-       * @description Approves an O\\&M engineer\\"s command execution request as a Bastionhost administrator.
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description Approves a command execution request from an O&M engineer.
+       * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
        *
        * @param request AcceptApproveCommandRequest
        * @return AcceptApproveCommandResponse
@@ -44,10 +44,10 @@ namespace YundunBastionhost20191209
       Models::AcceptApproveCommandResponse acceptApproveCommand(const Models::AcceptApproveCommandRequest &request);
 
       /**
-       * @summary Approves an O\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&M application.
+       * @summary If an administrator enables O&M approval in a control policy, O&M engineers must submit an O&M request and obtain administrator approval before they can log on to assets.
        *
-       * @description Approves an O\\&M engineer\\"s O\\&M application as a Bastionhost administrator.
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description Approves an O&M request submitted by an O&M engineer.
+       * The China site Chinese version of this China Chinese China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China.
        *
        * @param request AcceptOperationTicketRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -56,10 +56,10 @@ namespace YundunBastionhost20191209
       Models::AcceptOperationTicketResponse acceptOperationTicketWithOptions(const Models::AcceptOperationTicketRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Approves an O\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&M application.
+       * @summary If an administrator enables O&M approval in a control policy, O&M engineers must submit an O&M request and obtain administrator approval before they can log on to assets.
        *
-       * @description Approves an O\\&M engineer\\"s O\\&M application as a Bastionhost administrator.
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description Approves an O&M request submitted by an O&M engineer.
+       * The China site Chinese version of this China Chinese China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China.
        *
        * @param request AcceptOperationTicketRequest
        * @return AcceptOperationTicketResponse
@@ -67,7 +67,7 @@ namespace YundunBastionhost20191209
       Models::AcceptOperationTicketResponse acceptOperationTicket(const Models::AcceptOperationTicketRequest &request);
 
       /**
-       * @summary Adds multiple databases to a specified asset group.
+       * @summary Adds multiple database instances to a specified asset group.
        *
        * @param request AddDatabasesToGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -76,7 +76,7 @@ namespace YundunBastionhost20191209
       Models::AddDatabasesToGroupResponse addDatabasesToGroupWithOptions(const Models::AddDatabasesToGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds multiple databases to a specified asset group.
+       * @summary Adds multiple database instances to a specified asset group.
        *
        * @param request AddDatabasesToGroupRequest
        * @return AddDatabasesToGroupResponse
@@ -84,11 +84,11 @@ namespace YundunBastionhost20191209
       Models::AddDatabasesToGroupResponse addDatabasesToGroup(const Models::AddDatabasesToGroupRequest &request);
 
       /**
-       * @summary Adds one or more hosts to the specified host group.
+       * @summary Adds multiple hosts to a specified asset group in a batch.
        *
-       * @description Adds multiple hosts to a host group. By adding multiple hosts to a host group, you can centrally manage these hosts and grant permissions in batch.
-       * # Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+       * @description Adds multiple hosts to a specified host group in a batch. By adding multiple hosts to a host group, you can centrally manage these hosts and grant permissions in a batch.
+       * ### QPS limit
+       * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
        *
        * @param request AddHostsToGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -97,11 +97,11 @@ namespace YundunBastionhost20191209
       Models::AddHostsToGroupResponse addHostsToGroupWithOptions(const Models::AddHostsToGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds one or more hosts to the specified host group.
+       * @summary Adds multiple hosts to a specified asset group in a batch.
        *
-       * @description Adds multiple hosts to a host group. By adding multiple hosts to a host group, you can centrally manage these hosts and grant permissions in batch.
-       * # Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+       * @description Adds multiple hosts to a specified host group in a batch. By adding multiple hosts to a host group, you can centrally manage these hosts and grant permissions in a batch.
+       * ### QPS limit
+       * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
        *
        * @param request AddHostsToGroupRequest
        * @return AddHostsToGroupResponse
@@ -109,7 +109,7 @@ namespace YundunBastionhost20191209
       Models::AddHostsToGroupResponse addHostsToGroup(const Models::AddHostsToGroupRequest &request);
 
       /**
-       * @summary Adds a Resource Directory (RD) member account to a Bastionhost instance so that you can import and manage the cloud assets of the member account through Bastionhost.
+       * @summary Adds member accounts in a resource directory.
        *
        * @param request AddInstanceRdMemberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -118,7 +118,7 @@ namespace YundunBastionhost20191209
       Models::AddInstanceRdMemberResponse addInstanceRdMemberWithOptions(const Models::AddInstanceRdMemberRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds a Resource Directory (RD) member account to a Bastionhost instance so that you can import and manage the cloud assets of the member account through Bastionhost.
+       * @summary Adds member accounts in a resource directory.
        *
        * @param request AddInstanceRdMemberRequest
        * @return AddInstanceRdMemberResponse
@@ -126,12 +126,12 @@ namespace YundunBastionhost20191209
       Models::AddInstanceRdMemberResponse addInstanceRdMember(const Models::AddInstanceRdMemberRequest &request);
 
       /**
-       * @summary Add one or more users to a user group.
+       * @summary Adds users to a user group in a batch.
        *
-       * @description #
-       * Adds one or more users to a user group. After creating a user group with the [CreateUserGroup](https://help.aliyun.com/document_detail/204596.html) operation, use this operation to add multiple users at once for centralized permission management.
-       * # Limit
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description ### Operation description
+       * This operation adds users to a user group in a batch. After you create a user group by calling the [CreateUserGroup](https://help.aliyun.com/document_detail/204596.html) operation, you can call this operation to add multiple users to the user group for batch authorization and management.
+       * ### QPS limit
+       * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
        *
        * @param request AddUsersToGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -140,12 +140,12 @@ namespace YundunBastionhost20191209
       Models::AddUsersToGroupResponse addUsersToGroupWithOptions(const Models::AddUsersToGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Add one or more users to a user group.
+       * @summary Adds users to a user group in a batch.
        *
-       * @description #
-       * Adds one or more users to a user group. After creating a user group with the [CreateUserGroup](https://help.aliyun.com/document_detail/204596.html) operation, use this operation to add multiple users at once for centralized permission management.
-       * # Limit
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description ### Operation description
+       * This operation adds users to a user group in a batch. After you create a user group by calling the [CreateUserGroup](https://help.aliyun.com/document_detail/204596.html) operation, you can call this operation to add multiple users to the user group for batch authorization and management.
+       * ### QPS limit
+       * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
        *
        * @param request AddUsersToGroupRequest
        * @return AddUsersToGroupResponse
@@ -187,7 +187,7 @@ namespace YundunBastionhost20191209
       Models::AttachDatabaseAccountsToUserResponse attachDatabaseAccountsToUser(const Models::AttachDatabaseAccountsToUserRequest &request);
 
       /**
-       * @summary Grants permissions on databases and database accounts to a user group.
+       * @summary Grants a user group permissions on databases and database accounts.
        *
        * @param request AttachDatabaseAccountsToUserGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -196,7 +196,7 @@ namespace YundunBastionhost20191209
       Models::AttachDatabaseAccountsToUserGroupResponse attachDatabaseAccountsToUserGroupWithOptions(const Models::AttachDatabaseAccountsToUserGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Grants permissions on databases and database accounts to a user group.
+       * @summary Grants a user group permissions on databases and database accounts.
        *
        * @param request AttachDatabaseAccountsToUserGroupRequest
        * @return AttachDatabaseAccountsToUserGroupResponse
@@ -204,7 +204,7 @@ namespace YundunBastionhost20191209
       Models::AttachDatabaseAccountsToUserGroupResponse attachDatabaseAccountsToUserGroup(const Models::AttachDatabaseAccountsToUserGroupRequest &request);
 
       /**
-       * @summary Associates host accounts with a shared key.
+       * @summary Associates host accounts with a host shared key.
        *
        * @param request AttachHostAccountsToHostShareKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -213,7 +213,7 @@ namespace YundunBastionhost20191209
       Models::AttachHostAccountsToHostShareKeyResponse attachHostAccountsToHostShareKeyWithOptions(const Models::AttachHostAccountsToHostShareKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Associates host accounts with a shared key.
+       * @summary Associates host accounts with a host shared key.
        *
        * @param request AttachHostAccountsToHostShareKeyRequest
        * @return AttachHostAccountsToHostShareKeyResponse
@@ -221,7 +221,7 @@ namespace YundunBastionhost20191209
       Models::AttachHostAccountsToHostShareKeyResponse attachHostAccountsToHostShareKey(const Models::AttachHostAccountsToHostShareKeyRequest &request);
 
       /**
-       * @summary After you add a user to your bastion host, you must authorize the user to manage assets. Only authorized users can log on to the bastion host to perform O\\\\\\\\\\\\\\\\\\\\\\\\&M operations on the assets.
+       * @summary Authorizes assets for a user. After the authorization, the user can use Bastionhost to perform O&M operations on the authorized assets.
        *
        * @param request AttachHostAccountsToUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -230,7 +230,7 @@ namespace YundunBastionhost20191209
       Models::AttachHostAccountsToUserResponse attachHostAccountsToUserWithOptions(const Models::AttachHostAccountsToUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary After you add a user to your bastion host, you must authorize the user to manage assets. Only authorized users can log on to the bastion host to perform O\\\\\\\\\\\\\\\\\\\\\\\\&M operations on the assets.
+       * @summary Authorizes assets for a user. After the authorization, the user can use Bastionhost to perform O&M operations on the authorized assets.
        *
        * @param request AttachHostAccountsToUserRequest
        * @return AttachHostAccountsToUserResponse
@@ -238,9 +238,9 @@ namespace YundunBastionhost20191209
       Models::AttachHostAccountsToUserResponse attachHostAccountsToUser(const Models::AttachHostAccountsToUserRequest &request);
 
       /**
-       * @summary Authorizes a user group to manage one or more hosts and host accounts.
+       * @summary Grants a user group permissions on hosts and host accounts.
        *
-       * @description After you authorize a user group to manage specific hosts and host accounts, all the users in the user group have access to the authorized hosts and host accounts.
+       * @description After you grant a user group permissions on hosts and host accounts, all users in the user group can access the authorized hosts.
        *
        * @param request AttachHostAccountsToUserGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -249,9 +249,9 @@ namespace YundunBastionhost20191209
       Models::AttachHostAccountsToUserGroupResponse attachHostAccountsToUserGroupWithOptions(const Models::AttachHostAccountsToUserGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Authorizes a user group to manage one or more hosts and host accounts.
+       * @summary Grants a user group permissions on hosts and host accounts.
        *
-       * @description After you authorize a user group to manage specific hosts and host accounts, all the users in the user group have access to the authorized hosts and host accounts.
+       * @description After you grant a user group permissions on hosts and host accounts, all users in the user group can access the authorized hosts.
        *
        * @param request AttachHostAccountsToUserGroupRequest
        * @return AttachHostAccountsToUserGroupResponse
@@ -259,7 +259,7 @@ namespace YundunBastionhost20191209
       Models::AttachHostAccountsToUserGroupResponse attachHostAccountsToUserGroup(const Models::AttachHostAccountsToUserGroupRequest &request);
 
       /**
-       * @summary Authorizes a user to manage one or more host groups and host accounts.
+       * @summary Grants permissions on host groups and host accounts to a user.
        *
        * @param request AttachHostGroupAccountsToUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -268,7 +268,7 @@ namespace YundunBastionhost20191209
       Models::AttachHostGroupAccountsToUserResponse attachHostGroupAccountsToUserWithOptions(const Models::AttachHostGroupAccountsToUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Authorizes a user to manage one or more host groups and host accounts.
+       * @summary Grants permissions on host groups and host accounts to a user.
        *
        * @param request AttachHostGroupAccountsToUserRequest
        * @return AttachHostGroupAccountsToUserResponse
@@ -276,7 +276,7 @@ namespace YundunBastionhost20191209
       Models::AttachHostGroupAccountsToUserResponse attachHostGroupAccountsToUser(const Models::AttachHostGroupAccountsToUserRequest &request);
 
       /**
-       * @summary Authorizes a user to manage one or more host groups and host accounts.
+       * @summary Grants permissions on host groups and host accounts to a user group.
        *
        * @param request AttachHostGroupAccountsToUserGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -285,12 +285,97 @@ namespace YundunBastionhost20191209
       Models::AttachHostGroupAccountsToUserGroupResponse attachHostGroupAccountsToUserGroupWithOptions(const Models::AttachHostGroupAccountsToUserGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Authorizes a user to manage one or more host groups and host accounts.
+       * @summary Grants permissions on host groups and host accounts to a user group.
        *
        * @param request AttachHostGroupAccountsToUserGroupRequest
        * @return AttachHostGroupAccountsToUserGroupResponse
        */
       Models::AttachHostGroupAccountsToUserGroupResponse attachHostGroupAccountsToUserGroup(const Models::AttachHostGroupAccountsToUserGroupRequest &request);
+
+      /**
+       * @summary Associates members with a project.
+       *
+       * @param request AttachMembersToProjectRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AttachMembersToProjectResponse
+       */
+      Models::AttachMembersToProjectResponse attachMembersToProjectWithOptions(const Models::AttachMembersToProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Associates members with a project.
+       *
+       * @param request AttachMembersToProjectRequest
+       * @return AttachMembersToProjectResponse
+       */
+      Models::AttachMembersToProjectResponse attachMembersToProject(const Models::AttachMembersToProjectRequest &request);
+
+      /**
+       * @summary Associates project authorization administrators.
+       *
+       * @param request AttachProjectManagersToProjectAuthorizationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AttachProjectManagersToProjectAuthorizationResponse
+       */
+      Models::AttachProjectManagersToProjectAuthorizationResponse attachProjectManagersToProjectAuthorizationWithOptions(const Models::AttachProjectManagersToProjectAuthorizationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Associates project authorization administrators.
+       *
+       * @param request AttachProjectManagersToProjectAuthorizationRequest
+       * @return AttachProjectManagersToProjectAuthorizationResponse
+       */
+      Models::AttachProjectManagersToProjectAuthorizationResponse attachProjectManagersToProjectAuthorization(const Models::AttachProjectManagersToProjectAuthorizationRequest &request);
+
+      /**
+       * @summary Specifies the projects that can be managed in a project authorization. You can call this operation only when the ScopeType parameter returned by the GetProjectAuthorization operation for the corresponding project authorization is 2.
+       *
+       * @param request AttachProjectsToProjectAuthorizationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AttachProjectsToProjectAuthorizationResponse
+       */
+      Models::AttachProjectsToProjectAuthorizationResponse attachProjectsToProjectAuthorizationWithOptions(const Models::AttachProjectsToProjectAuthorizationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Specifies the projects that can be managed in a project authorization. You can call this operation only when the ScopeType parameter returned by the GetProjectAuthorization operation for the corresponding project authorization is 2.
+       *
+       * @param request AttachProjectsToProjectAuthorizationRequest
+       * @return AttachProjectsToProjectAuthorizationResponse
+       */
+      Models::AttachProjectsToProjectAuthorizationResponse attachProjectsToProjectAuthorization(const Models::AttachProjectsToProjectAuthorizationRequest &request);
+
+      /**
+       * @summary Associates projects with the scope of an audit policy. You can invoke this operation only when the ScopeType parameter returned by the GetReviewRule operation for the corresponding audit policy is 2.
+       *
+       * @param request AttachProjectsToReviewRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AttachProjectsToReviewRuleResponse
+       */
+      Models::AttachProjectsToReviewRuleResponse attachProjectsToReviewRuleWithOptions(const Models::AttachProjectsToReviewRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Associates projects with the scope of an audit policy. You can invoke this operation only when the ScopeType parameter returned by the GetReviewRule operation for the corresponding audit policy is 2.
+       *
+       * @param request AttachProjectsToReviewRuleRequest
+       * @return AttachProjectsToReviewRuleResponse
+       */
+      Models::AttachProjectsToReviewRuleResponse attachProjectsToReviewRule(const Models::AttachProjectsToReviewRuleRequest &request);
+
+      /**
+       * @summary Attaches auditors to an audit policy.
+       *
+       * @param request AttachReviewersToReviewRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AttachReviewersToReviewRuleResponse
+       */
+      Models::AttachReviewersToReviewRuleResponse attachReviewersToReviewRuleWithOptions(const Models::AttachReviewersToReviewRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Attaches auditors to an audit policy.
+       *
+       * @param request AttachReviewersToReviewRuleRequest
+       * @return AttachReviewersToReviewRuleResponse
+       */
+      Models::AttachReviewersToReviewRuleResponse attachReviewersToReviewRule(const Models::AttachReviewersToReviewRuleRequest &request);
 
       /**
        * @summary Configures the security groups that control inbound and outbound network traffic for a Bastionhost instance.
@@ -310,10 +395,10 @@ namespace YundunBastionhost20191209
       Models::ConfigInstanceSecurityGroupsResponse configInstanceSecurityGroups(const Models::ConfigInstanceSecurityGroupsRequest &request);
 
       /**
-       * @summary After enabling public network access for a Bastionhost instance, you can add IP addresses to a whitelist to control access.
+       * @summary Adds specified public IP addresses to the whitelist of a Bastionhost instance after public network access is enabled to allow public network traffic to access the instance.
        *
-       * @description This operation configures a public IP address whitelist for a Bastionhost instance. By default, instances accept traffic from all public IP addresses. To restrict access, add IP addresses to the whitelist. This ensures only traffic from whitelisted IP addresses can reach the instance.
-       * Each user is limited to 30 queries per second (QPS) for this operation. The system throttles API calls that exceed this limit. This may affect your services, so plan your calls accordingly.
+       * @description Configures the public IP address whitelist for a Bastionhost instance. By default, all public IP addresses are allowed to access the Bastionhost instance. To restrict public network access, call this operation to add specified public IP addresses to the whitelist and restrict public network traffic to the Bastionhost instance.
+       * The queries per second (QPS) limit for a single user is 30 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable rate.
        *
        * @param request ConfigInstanceWhiteListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -322,10 +407,10 @@ namespace YundunBastionhost20191209
       Models::ConfigInstanceWhiteListResponse configInstanceWhiteListWithOptions(const Models::ConfigInstanceWhiteListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary After enabling public network access for a Bastionhost instance, you can add IP addresses to a whitelist to control access.
+       * @summary Adds specified public IP addresses to the whitelist of a Bastionhost instance after public network access is enabled to allow public network traffic to access the instance.
        *
-       * @description This operation configures a public IP address whitelist for a Bastionhost instance. By default, instances accept traffic from all public IP addresses. To restrict access, add IP addresses to the whitelist. This ensures only traffic from whitelisted IP addresses can reach the instance.
-       * Each user is limited to 30 queries per second (QPS) for this operation. The system throttles API calls that exceed this limit. This may affect your services, so plan your calls accordingly.
+       * @description Configures the public IP address whitelist for a Bastionhost instance. By default, all public IP addresses are allowed to access the Bastionhost instance. To restrict public network access, call this operation to add specified public IP addresses to the whitelist and restrict public network traffic to the Bastionhost instance.
+       * The queries per second (QPS) limit for a single user is 30 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable rate.
        *
        * @param request ConfigInstanceWhiteListRequest
        * @return ConfigInstanceWhiteListResponse
@@ -333,7 +418,7 @@ namespace YundunBastionhost20191209
       Models::ConfigInstanceWhiteListResponse configInstanceWhiteList(const Models::ConfigInstanceWhiteListRequest &request);
 
       /**
-       * @summary Imports a database into a Bastionhost instance for centralized O&M management. Supported databases include ApsaraDB RDS, PolarDB, and self-managed MySQL, SQL Server, PostgreSQL, and Oracle databases.
+       * @summary Imports database assets into a bastion host. Supported database types include MySQL, SQL Server, PostgreSQL, and Oracle for ApsaraDB RDS instances, MySQL, PostgreSQL, and PolarDB for PostgreSQL (Compatible with Oracle) for PolarDB clusters, and MySQL, SQL Server, PostgreSQL, and Oracle for self-managed databases.
        *
        * @param request CreateDatabaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -342,7 +427,7 @@ namespace YundunBastionhost20191209
       Models::CreateDatabaseResponse createDatabaseWithOptions(const Models::CreateDatabaseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Imports a database into a Bastionhost instance for centralized O&M management. Supported databases include ApsaraDB RDS, PolarDB, and self-managed MySQL, SQL Server, PostgreSQL, and Oracle databases.
+       * @summary Imports database assets into a bastion host. Supported database types include MySQL, SQL Server, PostgreSQL, and Oracle for ApsaraDB RDS instances, MySQL, PostgreSQL, and PolarDB for PostgreSQL (Compatible with Oracle) for PolarDB clusters, and MySQL, SQL Server, PostgreSQL, and Oracle for self-managed databases.
        *
        * @param request CreateDatabaseRequest
        * @return CreateDatabaseResponse
@@ -350,7 +435,7 @@ namespace YundunBastionhost20191209
       Models::CreateDatabaseResponse createDatabase(const Models::CreateDatabaseRequest &request);
 
       /**
-       * @summary After a database is created, you can create a database account for the database. After the account is created, O\\\\\\\\\\\\&M engineers can use the account to log on to and perform O\\\\\\\\\\\\&M operations on the database.
+       * @summary After a database is created, you can create a database account for it. After the account is created, O&M engineers can use the account to log on to and manage the database.
        *
        * @param request CreateDatabaseAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -359,7 +444,7 @@ namespace YundunBastionhost20191209
       Models::CreateDatabaseAccountResponse createDatabaseAccountWithOptions(const Models::CreateDatabaseAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary After a database is created, you can create a database account for the database. After the account is created, O\\\\\\\\\\\\&M engineers can use the account to log on to and perform O\\\\\\\\\\\\&M operations on the database.
+       * @summary After a database is created, you can create a database account for it. After the account is created, O&M engineers can use the account to log on to and manage the database.
        *
        * @param request CreateDatabaseAccountRequest
        * @return CreateDatabaseAccountResponse
@@ -384,7 +469,7 @@ namespace YundunBastionhost20191209
       Models::CreateExportConfigJobResponse createExportConfigJob(const Models::CreateExportConfigJobRequest &request);
 
       /**
-       * @summary Creates a host in a Bastionhost instance. You can import Elastic Compute Service (ECS) instances, on-premises servers, and third-party cloud servers as hosts for centralized O&M management.
+       * @summary Creates a host in a Bastionhost instance. Bastionhost supports O&M for hosts from different sources, including Alibaba Cloud ECS instances, on-premises IDC servers, and servers on other clouds. Before you perform O&M on a host through Bastionhost, you must first import the host into Bastionhost. You can call this operation to create a host that you want to manage in Bastionhost.
        *
        * @param request CreateHostRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -393,7 +478,7 @@ namespace YundunBastionhost20191209
       Models::CreateHostResponse createHostWithOptions(const Models::CreateHostRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a host in a Bastionhost instance. You can import Elastic Compute Service (ECS) instances, on-premises servers, and third-party cloud servers as hosts for centralized O&M management.
+       * @summary Creates a host in a Bastionhost instance. Bastionhost supports O&M for hosts from different sources, including Alibaba Cloud ECS instances, on-premises IDC servers, and servers on other clouds. Before you perform O&M on a host through Bastionhost, you must first import the host into Bastionhost. You can call this operation to create a host that you want to manage in Bastionhost.
        *
        * @param request CreateHostRequest
        * @return CreateHostResponse
@@ -401,7 +486,7 @@ namespace YundunBastionhost20191209
       Models::CreateHostResponse createHost(const Models::CreateHostRequest &request);
 
       /**
-       * @summary Creates a host account for a host managed by a Bastionhost instance. After you create the host account, Operations and Maintenance (O&M) engineers can use it to log on to the host through Bastionhost.
+       * @summary After you add a host to Bastionhost, you can create a host account for the host to manage the existing account of the host in Bastionhost. After a host account is created, O&M engineers can use the account to log on to the host through Bastionhost for O&M operations.
        *
        * @param request CreateHostAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -410,7 +495,7 @@ namespace YundunBastionhost20191209
       Models::CreateHostAccountResponse createHostAccountWithOptions(const Models::CreateHostAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a host account for a host managed by a Bastionhost instance. After you create the host account, Operations and Maintenance (O&M) engineers can use it to log on to the host through Bastionhost.
+       * @summary After you add a host to Bastionhost, you can create a host account for the host to manage the existing account of the host in Bastionhost. After a host account is created, O&M engineers can use the account to log on to the host through Bastionhost for O&M operations.
        *
        * @param request CreateHostAccountRequest
        * @return CreateHostAccountResponse
@@ -418,7 +503,7 @@ namespace YundunBastionhost20191209
       Models::CreateHostAccountResponse createHostAccount(const Models::CreateHostAccountRequest &request);
 
       /**
-       * @summary You can create asset groups based on your business requirements and add assets of the same type to an asset group. This allows you to classify assets and manage multiple assets at a time.
+       * @summary You can create different asset groups based on your business requirements, add assets of the same type to an asset group, and manage assets by category and perform batch operations.
        *
        * @param request CreateHostGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -427,7 +512,7 @@ namespace YundunBastionhost20191209
       Models::CreateHostGroupResponse createHostGroupWithOptions(const Models::CreateHostGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can create asset groups based on your business requirements and add assets of the same type to an asset group. This allows you to classify assets and manage multiple assets at a time.
+       * @summary You can create different asset groups based on your business requirements, add assets of the same type to an asset group, and manage assets by category and perform batch operations.
        *
        * @param request CreateHostGroupRequest
        * @return CreateHostGroupResponse
@@ -435,7 +520,7 @@ namespace YundunBastionhost20191209
       Models::CreateHostGroupResponse createHostGroup(const Models::CreateHostGroupRequest &request);
 
       /**
-       * @summary Bastionhost provides the shared key feature. This feature allows you to manage the private key that is used to log on to a host in a bastion host. This way, you can associate the private key with multiple accounts of the host to make host account management more efficient.
+       * @summary The shared key feature of Bastionhost allows you to store private keys used for host logon in Bastionhost. After a private key is stored, it can be shared across multiple host accounts to improve host account management efficiency.
        *
        * @param request CreateHostShareKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -444,7 +529,7 @@ namespace YundunBastionhost20191209
       Models::CreateHostShareKeyResponse createHostShareKeyWithOptions(const Models::CreateHostShareKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Bastionhost provides the shared key feature. This feature allows you to manage the private key that is used to log on to a host in a bastion host. This way, you can associate the private key with multiple accounts of the host to make host account management more efficient.
+       * @summary The shared key feature of Bastionhost allows you to store private keys used for host logon in Bastionhost. After a private key is stored, it can be shared across multiple host accounts to improve host account management efficiency.
        *
        * @param request CreateHostShareKeyRequest
        * @return CreateHostShareKeyResponse
@@ -452,7 +537,7 @@ namespace YundunBastionhost20191209
       Models::CreateHostShareKeyResponse createHostShareKey(const Models::CreateHostShareKeyRequest &request);
 
       /**
-       * @summary If you want to perform O\\\\\\\\\\\\\\\\\\\\\\\\&M operations on assets that reside in different networks or assets that cannot communicate with the virtual private cloud (VPC) of your bastion host in a centralized manner, we recommend that you use the network domain feature of Bastionhost. You can configure a proxy server for these assets, create a network domain for a bastion host, and then connect the network domain to the proxy server. This way, you can perform O\\\\\\\\\\\\\\\\\\\\\\\\&M operations on the assets by using the bastion host.
+       * @summary To centrally manage assets that are distributed across different network environments or that cannot communicate with the virtual private cloud (VPC) where Bastionhost is deployed, use the network domain feature of Bastionhost. You can configure a proxy server for these assets, create a network domain in Bastionhost, add the proxy server to the network domain, and then add the assets to the network domain. This way, you can manage the assets through Bastionhost.
        *
        * @param request CreateNetworkDomainRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -461,7 +546,7 @@ namespace YundunBastionhost20191209
       Models::CreateNetworkDomainResponse createNetworkDomainWithOptions(const Models::CreateNetworkDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary If you want to perform O\\\\\\\\\\\\\\\\\\\\\\\\&M operations on assets that reside in different networks or assets that cannot communicate with the virtual private cloud (VPC) of your bastion host in a centralized manner, we recommend that you use the network domain feature of Bastionhost. You can configure a proxy server for these assets, create a network domain for a bastion host, and then connect the network domain to the proxy server. This way, you can perform O\\\\\\\\\\\\\\\\\\\\\\\\&M operations on the assets by using the bastion host.
+       * @summary To centrally manage assets that are distributed across different network environments or that cannot communicate with the virtual private cloud (VPC) where Bastionhost is deployed, use the network domain feature of Bastionhost. You can configure a proxy server for these assets, create a network domain in Bastionhost, add the proxy server to the network domain, and then add the assets to the network domain. This way, you can manage the assets through Bastionhost.
        *
        * @param request CreateNetworkDomainRequest
        * @return CreateNetworkDomainResponse
@@ -469,7 +554,7 @@ namespace YundunBastionhost20191209
       Models::CreateNetworkDomainResponse createNetworkDomain(const Models::CreateNetworkDomainRequest &request);
 
       /**
-       * @summary Creates an O&M ticket for a host or database that requires approval before access. If a control policy requires O&M approval, you must create and get a ticket approved before you can perform O&M operations.
+       * @summary Creates an O&M request. When an administrator enables O&M approval in a control policy, O&M engineers must create an O&M request and obtain administrator approval before performing O&M operations.
        *
        * @param request CreateOperationTicketRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -478,7 +563,7 @@ namespace YundunBastionhost20191209
       Models::CreateOperationTicketResponse createOperationTicketWithOptions(const Models::CreateOperationTicketRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an O&M ticket for a host or database that requires approval before access. If a control policy requires O&M approval, you must create and get a ticket approved before you can perform O&M operations.
+       * @summary Creates an O&M request. When an administrator enables O&M approval in a control policy, O&M engineers must create an O&M request and obtain administrator approval before performing O&M operations.
        *
        * @param request CreateOperationTicketRequest
        * @return CreateOperationTicketResponse
@@ -486,7 +571,7 @@ namespace YundunBastionhost20191209
       Models::CreateOperationTicketResponse createOperationTicket(const Models::CreateOperationTicketRequest &request);
 
       /**
-       * @summary Configures a command control, command approval, protocol control, or access control policy to manage O\\\\\\\\\\\\\\\\\\\\\\\\&M operations. This effectively prevents users from performing high-risk operations or accidental operations to ensure O\\\\\\\\\\\\\\\\\\\\\\\\&M security.
+       * @summary Manages O&M behaviors by configuring command control, command approval, protocol control, and access control policies to effectively prevent users from executing high-risk commands or performing misoperations, ensuring O&M security.
        *
        * @param request CreatePolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -495,7 +580,7 @@ namespace YundunBastionhost20191209
       Models::CreatePolicyResponse createPolicyWithOptions(const Models::CreatePolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures a command control, command approval, protocol control, or access control policy to manage O\\\\\\\\\\\\\\\\\\\\\\\\&M operations. This effectively prevents users from performing high-risk operations or accidental operations to ensure O\\\\\\\\\\\\\\\\\\\\\\\\&M security.
+       * @summary Manages O&M behaviors by configuring command control, command approval, protocol control, and access control policies to effectively prevent users from executing high-risk commands or performing misoperations, ensuring O&M security.
        *
        * @param request CreatePolicyRequest
        * @return CreatePolicyResponse
@@ -503,7 +588,75 @@ namespace YundunBastionhost20191209
       Models::CreatePolicyResponse createPolicy(const Models::CreatePolicyRequest &request);
 
       /**
-       * @summary You can create authorization rules to authorize multiple users to manage assets. You can also specify a validity period for an authorization rule. This way, you can manage users and assets in a more efficient manner and limit the time periods during which users can access assets.
+       * @summary Creates a project.
+       *
+       * @param request CreateProjectRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateProjectResponse
+       */
+      Models::CreateProjectResponse createProjectWithOptions(const Models::CreateProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a project.
+       *
+       * @param request CreateProjectRequest
+       * @return CreateProjectResponse
+       */
+      Models::CreateProjectResponse createProject(const Models::CreateProjectRequest &request);
+
+      /**
+       * @summary Creates a project authorization.
+       *
+       * @param request CreateProjectAuthorizationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateProjectAuthorizationResponse
+       */
+      Models::CreateProjectAuthorizationResponse createProjectAuthorizationWithOptions(const Models::CreateProjectAuthorizationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a project authorization.
+       *
+       * @param request CreateProjectAuthorizationRequest
+       * @return CreateProjectAuthorizationResponse
+       */
+      Models::CreateProjectAuthorizationResponse createProjectAuthorization(const Models::CreateProjectAuthorizationRequest &request);
+
+      /**
+       * @summary Creates a project notification recipient.
+       *
+       * @param request CreateProjectNotifyReceiverRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateProjectNotifyReceiverResponse
+       */
+      Models::CreateProjectNotifyReceiverResponse createProjectNotifyReceiverWithOptions(const Models::CreateProjectNotifyReceiverRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a project notification recipient.
+       *
+       * @param request CreateProjectNotifyReceiverRequest
+       * @return CreateProjectNotifyReceiverResponse
+       */
+      Models::CreateProjectNotifyReceiverResponse createProjectNotifyReceiver(const Models::CreateProjectNotifyReceiverRequest &request);
+
+      /**
+       * @summary Creates an audit policy.
+       *
+       * @param request CreateReviewRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateReviewRuleResponse
+       */
+      Models::CreateReviewRuleResponse createReviewRuleWithOptions(const Models::CreateReviewRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an audit policy.
+       *
+       * @param request CreateReviewRuleRequest
+       * @return CreateReviewRuleResponse
+       */
+      Models::CreateReviewRuleResponse createReviewRule(const Models::CreateReviewRuleRequest &request);
+
+      /**
+       * @summary Creates an authorization rule to grant multiple users batch access to assets and set the validity period for their access. The authorization rule feature improves the efficiency of managing users and assets, and controls the time period during which users can access assets.
        *
        * @param request CreateRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -512,7 +665,7 @@ namespace YundunBastionhost20191209
       Models::CreateRuleResponse createRuleWithOptions(const Models::CreateRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can create authorization rules to authorize multiple users to manage assets. You can also specify a validity period for an authorization rule. This way, you can manage users and assets in a more efficient manner and limit the time periods during which users can access assets.
+       * @summary Creates an authorization rule to grant multiple users batch access to assets and set the validity period for their access. The authorization rule feature improves the efficiency of managing users and assets, and controls the time period during which users can access assets.
        *
        * @param request CreateRuleRequest
        * @return CreateRuleResponse
@@ -545,8 +698,8 @@ namespace YundunBastionhost20191209
       /**
        * @summary Creates a user group for a bastion host.
        *
-       * @description Creates a user group for a bastion host as an administrator. After creating the group, use the [AddUsersToGroup](https://help.aliyun.com/document_detail/204600.html) operation to add multiple users at once, enabling centralized user authorization and management.
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description Creates a user group for a bastion host. Bastion host administrators can use this operation to create a user group and then call the [AddUsersToGroup](https://help.aliyun.com/document_detail/204600.html) operation to add users to the user group in batches. Adding users to the same user group enables unified authorization and management of bastion host users.
+       * The China site Chinese edition single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
        *
        * @param request CreateUserGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -557,8 +710,8 @@ namespace YundunBastionhost20191209
       /**
        * @summary Creates a user group for a bastion host.
        *
-       * @description Creates a user group for a bastion host as an administrator. After creating the group, use the [AddUsersToGroup](https://help.aliyun.com/document_detail/204600.html) operation to add multiple users at once, enabling centralized user authorization and management.
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description Creates a user group for a bastion host. Bastion host administrators can use this operation to create a user group and then call the [AddUsersToGroup](https://help.aliyun.com/document_detail/204600.html) operation to add users to the user group in batches. Adding users to the same user group enables unified authorization and management of bastion host users.
+       * The China site Chinese edition single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
        *
        * @param request CreateUserGroupRequest
        * @return CreateUserGroupResponse
@@ -587,7 +740,7 @@ namespace YundunBastionhost20191209
       Models::CreateUserPublicKeyResponse createUserPublicKey(const Models::CreateUserPublicKeyRequest &request);
 
       /**
-       * @summary Deletes a database.
+       * @summary Deletes a single database instance.
        *
        * @param request DeleteDatabaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -596,7 +749,7 @@ namespace YundunBastionhost20191209
       Models::DeleteDatabaseResponse deleteDatabaseWithOptions(const Models::DeleteDatabaseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a database.
+       * @summary Deletes a single database instance.
        *
        * @param request DeleteDatabaseRequest
        * @return DeleteDatabaseResponse
@@ -604,7 +757,7 @@ namespace YundunBastionhost20191209
       Models::DeleteDatabaseResponse deleteDatabase(const Models::DeleteDatabaseRequest &request);
 
       /**
-       * @summary Deletes a database account.
+       * @summary Deletes a single database account.
        *
        * @param request DeleteDatabaseAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -613,7 +766,7 @@ namespace YundunBastionhost20191209
       Models::DeleteDatabaseAccountResponse deleteDatabaseAccountWithOptions(const Models::DeleteDatabaseAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a database account.
+       * @summary Deletes a single database account.
        *
        * @param request DeleteDatabaseAccountRequest
        * @return DeleteDatabaseAccountResponse
@@ -621,7 +774,7 @@ namespace YundunBastionhost20191209
       Models::DeleteDatabaseAccountResponse deleteDatabaseAccount(const Models::DeleteDatabaseAccountRequest &request);
 
       /**
-       * @summary Deletes a host.
+       * @summary Deletes a single host.
        *
        * @param request DeleteHostRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -630,7 +783,7 @@ namespace YundunBastionhost20191209
       Models::DeleteHostResponse deleteHostWithOptions(const Models::DeleteHostRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a host.
+       * @summary Deletes a single host.
        *
        * @param request DeleteHostRequest
        * @return DeleteHostResponse
@@ -638,13 +791,13 @@ namespace YundunBastionhost20191209
       Models::DeleteHostResponse deleteHost(const Models::DeleteHostRequest &request);
 
       /**
-       * @summary Removes a host account.
+       * @summary Deletes a single host account.
        *
-       * @description ## Usage notes
-       * This interface is used to delete individual host accounts. If a host account is no longer in use, you can invoke this interface to delete the host account for that host that has been configured on the bastion.
-       * > After you remove the host account, you must enter the username and password of the host when you log on to the host in Bastionhost.
-       * ## QPS Limit
-       * The single-user QPS limit of this interface is 10 times/second. If the limit is exceeded, the API call will be stream-limited, which may affect your business, please call reasonably.
+       * @description ### Operation description
+       * This operation deletes a single host account. If a host account is no longer in use, call this operation to delete the host account that is configured in Bastionhost.
+       * > After you delete a host account, you must manually enter the host account and password when you log on to the host through Bastionhost.
+       * ### Rate limit
+       * The single-user QPS limit for this operation is 10 calls per second. If the number of calls exceeds the limit, throttling is triggered, which may affect your business. Use this operation appropriately.
        *
        * @param request DeleteHostAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -653,13 +806,13 @@ namespace YundunBastionhost20191209
       Models::DeleteHostAccountResponse deleteHostAccountWithOptions(const Models::DeleteHostAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes a host account.
+       * @summary Deletes a single host account.
        *
-       * @description ## Usage notes
-       * This interface is used to delete individual host accounts. If a host account is no longer in use, you can invoke this interface to delete the host account for that host that has been configured on the bastion.
-       * > After you remove the host account, you must enter the username and password of the host when you log on to the host in Bastionhost.
-       * ## QPS Limit
-       * The single-user QPS limit of this interface is 10 times/second. If the limit is exceeded, the API call will be stream-limited, which may affect your business, please call reasonably.
+       * @description ### Operation description
+       * This operation deletes a single host account. If a host account is no longer in use, call this operation to delete the host account that is configured in Bastionhost.
+       * > After you delete a host account, you must manually enter the host account and password when you log on to the host through Bastionhost.
+       * ### Rate limit
+       * The single-user QPS limit for this operation is 10 calls per second. If the number of calls exceeds the limit, throttling is triggered, which may affect your business. Use this operation appropriately.
        *
        * @param request DeleteHostAccountRequest
        * @return DeleteHostAccountResponse
@@ -667,11 +820,11 @@ namespace YundunBastionhost20191209
       Models::DeleteHostAccountResponse deleteHostAccount(const Models::DeleteHostAccountRequest &request);
 
       /**
-       * @summary Deletes a host group.
+       * @summary Deletes a single asset group.
        *
-       * @description Deletes a single host group. If all hosts in a host group no longer need to be managed through Bastionhost, you can delete the host group using this operation.
-       * ### Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation deletes a single host group. If all hosts in a host group on a bastion host no longer need to be managed through the bastion host, you can call this operation to delete the host group.
+       * ### QPS limit
+       * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
        *
        * @param request DeleteHostGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -680,11 +833,11 @@ namespace YundunBastionhost20191209
       Models::DeleteHostGroupResponse deleteHostGroupWithOptions(const Models::DeleteHostGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a host group.
+       * @summary Deletes a single asset group.
        *
-       * @description Deletes a single host group. If all hosts in a host group no longer need to be managed through Bastionhost, you can delete the host group using this operation.
-       * ### Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation deletes a single host group. If all hosts in a host group on a bastion host no longer need to be managed through the bastion host, you can call this operation to delete the host group.
+       * ### QPS limit
+       * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
        *
        * @param request DeleteHostGroupRequest
        * @return DeleteHostGroupResponse
@@ -692,7 +845,7 @@ namespace YundunBastionhost20191209
       Models::DeleteHostGroupResponse deleteHostGroup(const Models::DeleteHostGroupRequest &request);
 
       /**
-       * @summary Deletes a shared key.
+       * @summary Deletes a host shared key.
        *
        * @param request DeleteHostShareKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -701,7 +854,7 @@ namespace YundunBastionhost20191209
       Models::DeleteHostShareKeyResponse deleteHostShareKeyWithOptions(const Models::DeleteHostShareKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a shared key.
+       * @summary Deletes a host shared key.
        *
        * @param request DeleteHostShareKeyRequest
        * @return DeleteHostShareKeyResponse
@@ -709,7 +862,7 @@ namespace YundunBastionhost20191209
       Models::DeleteHostShareKeyResponse deleteHostShareKey(const Models::DeleteHostShareKeyRequest &request);
 
       /**
-       * @summary Deletes a network domain.
+       * @summary Deletes a single network domain.
        *
        * @param request DeleteNetworkDomainRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -718,7 +871,7 @@ namespace YundunBastionhost20191209
       Models::DeleteNetworkDomainResponse deleteNetworkDomainWithOptions(const Models::DeleteNetworkDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a network domain.
+       * @summary Deletes a single network domain.
        *
        * @param request DeleteNetworkDomainRequest
        * @return DeleteNetworkDomainResponse
@@ -726,7 +879,7 @@ namespace YundunBastionhost20191209
       Models::DeleteNetworkDomainResponse deleteNetworkDomain(const Models::DeleteNetworkDomainRequest &request);
 
       /**
-       * @summary Deletes a control policy.
+       * @summary Deletes a single control policy.
        *
        * @param request DeletePolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -735,7 +888,7 @@ namespace YundunBastionhost20191209
       Models::DeletePolicyResponse deletePolicyWithOptions(const Models::DeletePolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a control policy.
+       * @summary Deletes a single control policy.
        *
        * @param request DeletePolicyRequest
        * @return DeletePolicyResponse
@@ -743,7 +896,75 @@ namespace YundunBastionhost20191209
       Models::DeletePolicyResponse deletePolicy(const Models::DeletePolicyRequest &request);
 
       /**
-       * @summary Deletes an authorization rule.
+       * @summary Deletes a project authorization.
+       *
+       * @param request DeleteProjectAuthorizationsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteProjectAuthorizationsResponse
+       */
+      Models::DeleteProjectAuthorizationsResponse deleteProjectAuthorizationsWithOptions(const Models::DeleteProjectAuthorizationsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a project authorization.
+       *
+       * @param request DeleteProjectAuthorizationsRequest
+       * @return DeleteProjectAuthorizationsResponse
+       */
+      Models::DeleteProjectAuthorizationsResponse deleteProjectAuthorizations(const Models::DeleteProjectAuthorizationsRequest &request);
+
+      /**
+       * @summary Deletes notification recipients from a project.
+       *
+       * @param request DeleteProjectNotifyReceiversRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteProjectNotifyReceiversResponse
+       */
+      Models::DeleteProjectNotifyReceiversResponse deleteProjectNotifyReceiversWithOptions(const Models::DeleteProjectNotifyReceiversRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes notification recipients from a project.
+       *
+       * @param request DeleteProjectNotifyReceiversRequest
+       * @return DeleteProjectNotifyReceiversResponse
+       */
+      Models::DeleteProjectNotifyReceiversResponse deleteProjectNotifyReceivers(const Models::DeleteProjectNotifyReceiversRequest &request);
+
+      /**
+       * @summary Deletes projects in batches.
+       *
+       * @param request DeleteProjectsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteProjectsResponse
+       */
+      Models::DeleteProjectsResponse deleteProjectsWithOptions(const Models::DeleteProjectsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes projects in batches.
+       *
+       * @param request DeleteProjectsRequest
+       * @return DeleteProjectsResponse
+       */
+      Models::DeleteProjectsResponse deleteProjects(const Models::DeleteProjectsRequest &request);
+
+      /**
+       * @summary Deletes an audit policy.
+       *
+       * @param request DeleteReviewRulesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteReviewRulesResponse
+       */
+      Models::DeleteReviewRulesResponse deleteReviewRulesWithOptions(const Models::DeleteReviewRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes an audit policy.
+       *
+       * @param request DeleteReviewRulesRequest
+       * @return DeleteReviewRulesResponse
+       */
+      Models::DeleteReviewRulesResponse deleteReviewRules(const Models::DeleteReviewRulesRequest &request);
+
+      /**
+       * @summary Deletes a single authorization rule.
        *
        * @param request DeleteRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -752,7 +973,7 @@ namespace YundunBastionhost20191209
       Models::DeleteRuleResponse deleteRuleWithOptions(const Models::DeleteRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an authorization rule.
+       * @summary Deletes a single authorization rule.
        *
        * @param request DeleteRuleRequest
        * @return DeleteRuleResponse
@@ -777,7 +998,7 @@ namespace YundunBastionhost20191209
       Models::DeleteUserResponse deleteUser(const Models::DeleteUserRequest &request);
 
       /**
-       * @summary Deletes a user group from a bastion host.
+       * @summary Deletes a single user group from a bastion host.
        *
        * @param request DeleteUserGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -786,7 +1007,7 @@ namespace YundunBastionhost20191209
       Models::DeleteUserGroupResponse deleteUserGroupWithOptions(const Models::DeleteUserGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a user group from a bastion host.
+       * @summary Deletes a single user group from a bastion host.
        *
        * @param request DeleteUserGroupRequest
        * @return DeleteUserGroupResponse
@@ -815,7 +1036,9 @@ namespace YundunBastionhost20191209
       Models::DeleteUserPublicKeyResponse deleteUserPublicKey(const Models::DeleteUserPublicKeyRequest &request);
 
       /**
-       * @summary Queries all attribute information of an instance, such as the instance ID and instance description.
+       * @summary Queries all the attributes of an instance, such as the instance ID and description.
+       *
+       * @description You can directly call this operation to purchase an HSM instance. For prepaid products, the payment is deducted synchronously.
        *
        * @param request DescribeInstanceAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -824,7 +1047,9 @@ namespace YundunBastionhost20191209
       Models::DescribeInstanceAttributeResponse describeInstanceAttributeWithOptions(const Models::DescribeInstanceAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all attribute information of an instance, such as the instance ID and instance description.
+       * @summary Queries all the attributes of an instance, such as the instance ID and description.
+       *
+       * @description You can directly call this operation to purchase an HSM instance. For prepaid products, the payment is deducted synchronously.
        *
        * @param request DescribeInstanceAttributeRequest
        * @return DescribeInstanceAttributeResponse
@@ -832,7 +1057,7 @@ namespace YundunBastionhost20191209
       Models::DescribeInstanceAttributeResponse describeInstanceAttribute(const Models::DescribeInstanceAttributeRequest &request);
 
       /**
-       * @summary Retrieves a list of Bastionhost instances.
+       * @summary Queries the list of instances.
        *
        * @param request DescribeInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -841,7 +1066,7 @@ namespace YundunBastionhost20191209
       Models::DescribeInstancesResponse describeInstancesWithOptions(const Models::DescribeInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of Bastionhost instances.
+       * @summary Queries the list of instances.
        *
        * @param request DescribeInstancesRequest
        * @return DescribeInstancesResponse
@@ -883,7 +1108,7 @@ namespace YundunBastionhost20191209
       Models::DetachDatabaseAccountsFromUserResponse detachDatabaseAccountsFromUser(const Models::DetachDatabaseAccountsFromUserRequest &request);
 
       /**
-       * @summary Revokes permissions on databases and database accounts from a user group.
+       * @summary Removes databases and database accounts that are authorized to a user group.
        *
        * @param request DetachDatabaseAccountsFromUserGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -892,7 +1117,7 @@ namespace YundunBastionhost20191209
       Models::DetachDatabaseAccountsFromUserGroupResponse detachDatabaseAccountsFromUserGroupWithOptions(const Models::DetachDatabaseAccountsFromUserGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Revokes permissions on databases and database accounts from a user group.
+       * @summary Removes databases and database accounts that are authorized to a user group.
        *
        * @param request DetachDatabaseAccountsFromUserGroupRequest
        * @return DetachDatabaseAccountsFromUserGroupResponse
@@ -900,7 +1125,7 @@ namespace YundunBastionhost20191209
       Models::DetachDatabaseAccountsFromUserGroupResponse detachDatabaseAccountsFromUserGroup(const Models::DetachDatabaseAccountsFromUserGroupRequest &request);
 
       /**
-       * @summary Disassociate host accounts from a shared key.
+       * @summary Removes the association between host accounts and a host shared key.
        *
        * @param request DetachHostAccountsFromHostShareKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -909,7 +1134,7 @@ namespace YundunBastionhost20191209
       Models::DetachHostAccountsFromHostShareKeyResponse detachHostAccountsFromHostShareKeyWithOptions(const Models::DetachHostAccountsFromHostShareKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disassociate host accounts from a shared key.
+       * @summary Removes the association between host accounts and a host shared key.
        *
        * @param request DetachHostAccountsFromHostShareKeyRequest
        * @return DetachHostAccountsFromHostShareKeyResponse
@@ -934,7 +1159,7 @@ namespace YundunBastionhost20191209
       Models::DetachHostAccountsFromUserResponse detachHostAccountsFromUser(const Models::DetachHostAccountsFromUserRequest &request);
 
       /**
-       * @summary Revokes the permissions on one or more hosts and host accounts from a user group.
+       * @summary Removes authorized hosts and host accounts from a user group.
        *
        * @param request DetachHostAccountsFromUserGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -943,7 +1168,7 @@ namespace YundunBastionhost20191209
       Models::DetachHostAccountsFromUserGroupResponse detachHostAccountsFromUserGroupWithOptions(const Models::DetachHostAccountsFromUserGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Revokes the permissions on one or more hosts and host accounts from a user group.
+       * @summary Removes authorized hosts and host accounts from a user group.
        *
        * @param request DetachHostAccountsFromUserGroupRequest
        * @return DetachHostAccountsFromUserGroupResponse
@@ -985,6 +1210,91 @@ namespace YundunBastionhost20191209
       Models::DetachHostGroupAccountsFromUserGroupResponse detachHostGroupAccountsFromUserGroup(const Models::DetachHostGroupAccountsFromUserGroupRequest &request);
 
       /**
+       * @summary Removes members from a project.
+       *
+       * @param request DetachMembersFromProjectRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DetachMembersFromProjectResponse
+       */
+      Models::DetachMembersFromProjectResponse detachMembersFromProjectWithOptions(const Models::DetachMembersFromProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Removes members from a project.
+       *
+       * @param request DetachMembersFromProjectRequest
+       * @return DetachMembersFromProjectResponse
+       */
+      Models::DetachMembersFromProjectResponse detachMembersFromProject(const Models::DetachMembersFromProjectRequest &request);
+
+      /**
+       * @summary Removes a project administrator from project authorization management.
+       *
+       * @param request DetachProjectManagersFromProjectAuthorizationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DetachProjectManagersFromProjectAuthorizationResponse
+       */
+      Models::DetachProjectManagersFromProjectAuthorizationResponse detachProjectManagersFromProjectAuthorizationWithOptions(const Models::DetachProjectManagersFromProjectAuthorizationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Removes a project administrator from project authorization management.
+       *
+       * @param request DetachProjectManagersFromProjectAuthorizationRequest
+       * @return DetachProjectManagersFromProjectAuthorizationResponse
+       */
+      Models::DetachProjectManagersFromProjectAuthorizationResponse detachProjectManagersFromProjectAuthorization(const Models::DetachProjectManagersFromProjectAuthorizationRequest &request);
+
+      /**
+       * @summary Removes projects from the scope of a project authorization. This operation can be called only when the ScopeType parameter returned by the GetProjectAuthorization operation is 2.
+       *
+       * @param request DetachProjectsFromProjectAuthorizationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DetachProjectsFromProjectAuthorizationResponse
+       */
+      Models::DetachProjectsFromProjectAuthorizationResponse detachProjectsFromProjectAuthorizationWithOptions(const Models::DetachProjectsFromProjectAuthorizationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Removes projects from the scope of a project authorization. This operation can be called only when the ScopeType parameter returned by the GetProjectAuthorization operation is 2.
+       *
+       * @param request DetachProjectsFromProjectAuthorizationRequest
+       * @return DetachProjectsFromProjectAuthorizationResponse
+       */
+      Models::DetachProjectsFromProjectAuthorizationResponse detachProjectsFromProjectAuthorization(const Models::DetachProjectsFromProjectAuthorizationRequest &request);
+
+      /**
+       * @summary Removes projects from the scope of an audit policy. This operation can be called only when the ScopeType parameter in the corresponding audit policy returned by the GetReviewRule operation has a value of 2.
+       *
+       * @param request DetachProjectsFromReviewRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DetachProjectsFromReviewRuleResponse
+       */
+      Models::DetachProjectsFromReviewRuleResponse detachProjectsFromReviewRuleWithOptions(const Models::DetachProjectsFromReviewRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Removes projects from the scope of an audit policy. This operation can be called only when the ScopeType parameter in the corresponding audit policy returned by the GetReviewRule operation has a value of 2.
+       *
+       * @param request DetachProjectsFromReviewRuleRequest
+       * @return DetachProjectsFromReviewRuleResponse
+       */
+      Models::DetachProjectsFromReviewRuleResponse detachProjectsFromReviewRule(const Models::DetachProjectsFromReviewRuleRequest &request);
+
+      /**
+       * @summary Unbinds an auditor from an audit rule.
+       *
+       * @param request DetachReviewersFromReviewRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DetachReviewersFromReviewRuleResponse
+       */
+      Models::DetachReviewersFromReviewRuleResponse detachReviewersFromReviewRuleWithOptions(const Models::DetachReviewersFromReviewRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Unbinds an auditor from an audit rule.
+       *
+       * @param request DetachReviewersFromReviewRuleRequest
+       * @return DetachReviewersFromReviewRuleResponse
+       */
+      Models::DetachReviewersFromReviewRuleResponse detachReviewersFromReviewRule(const Models::DetachReviewersFromReviewRuleRequest &request);
+
+      /**
        * @summary Disables public network access for a Bastionhost instance.
        *
        * @param request DisableInstancePublicAccessRequest
@@ -1019,7 +1329,7 @@ namespace YundunBastionhost20191209
       Models::DisableRuleResponse disableRule(const Models::DisableRuleRequest &request);
 
       /**
-       * @summary Enables the public access switch for a specified Bastionhost instance.
+       * @summary Enables public network access for a specified Bastionhost instance.
        *
        * @param request EnableInstancePublicAccessRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1028,7 +1338,7 @@ namespace YundunBastionhost20191209
       Models::EnableInstancePublicAccessResponse enableInstancePublicAccessWithOptions(const Models::EnableInstancePublicAccessRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables the public access switch for a specified Bastionhost instance.
+       * @summary Enables public network access for a specified Bastionhost instance.
        *
        * @param request EnableInstancePublicAccessRequest
        * @return EnableInstancePublicAccessResponse
@@ -1053,7 +1363,7 @@ namespace YundunBastionhost20191209
       Models::EnableRuleResponse enableRule(const Models::EnableRuleRequest &request);
 
       /**
-       * @summary Call this operation to request O&M tokens for bastions or databases, which allows you to manage assets.
+       * @summary Applies for a host or database O&M token to perform O&M operations on assets.
        *
        * @param request GenerateAssetOperationTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1062,7 +1372,7 @@ namespace YundunBastionhost20191209
       Models::GenerateAssetOperationTokenResponse generateAssetOperationTokenWithOptions(const Models::GenerateAssetOperationTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call this operation to request O&M tokens for bastions or databases, which allows you to manage assets.
+       * @summary Applies for a host or database O&M token to perform O&M operations on assets.
        *
        * @param request GenerateAssetOperationTokenRequest
        * @return GenerateAssetOperationTokenResponse
@@ -1087,7 +1397,7 @@ namespace YundunBastionhost20191209
       Models::GetAutoOpsTaskResponse getAutoOpsTask(const Models::GetAutoOpsTaskRequest &request);
 
       /**
-       * @summary Queries the detailed information about a database.
+       * @summary Retrieves the details of a specified database.
        *
        * @param request GetDatabaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1096,7 +1406,7 @@ namespace YundunBastionhost20191209
       Models::GetDatabaseResponse getDatabaseWithOptions(const Models::GetDatabaseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the detailed information about a database.
+       * @summary Retrieves the details of a specified database.
        *
        * @param request GetDatabaseRequest
        * @return GetDatabaseResponse
@@ -1104,7 +1414,7 @@ namespace YundunBastionhost20191209
       Models::GetDatabaseResponse getDatabase(const Models::GetDatabaseRequest &request);
 
       /**
-       * @summary Queries the detailed information about a database account.
+       * @summary Retrieves the details of a specified database account.
        *
        * @param request GetDatabaseAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1113,7 +1423,7 @@ namespace YundunBastionhost20191209
       Models::GetDatabaseAccountResponse getDatabaseAccountWithOptions(const Models::GetDatabaseAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the detailed information about a database account.
+       * @summary Retrieves the details of a specified database account.
        *
        * @param request GetDatabaseAccountRequest
        * @return GetDatabaseAccountResponse
@@ -1121,7 +1431,7 @@ namespace YundunBastionhost20191209
       Models::GetDatabaseAccountResponse getDatabaseAccount(const Models::GetDatabaseAccountRequest &request);
 
       /**
-       * @summary Retrieves the details of a configuration export task for a Bastionhost instance.
+       * @summary Retrieves the details of a configuration backup export task. This operation is supported only for Bastionhost V3.2.44 and later.
        *
        * @param request GetExportConfigJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1130,7 +1440,7 @@ namespace YundunBastionhost20191209
       Models::GetExportConfigJobResponse getExportConfigJobWithOptions(const Models::GetExportConfigJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a configuration export task for a Bastionhost instance.
+       * @summary Retrieves the details of a configuration backup export task. This operation is supported only for Bastionhost V3.2.44 and later.
        *
        * @param request GetExportConfigJobRequest
        * @return GetExportConfigJobResponse
@@ -1138,7 +1448,7 @@ namespace YundunBastionhost20191209
       Models::GetExportConfigJobResponse getExportConfigJob(const Models::GetExportConfigJobRequest &request);
 
       /**
-       * @summary Retrieves the details of a host, such as the name, source, address, protocol, and service port.
+       * @summary Includes information such as the hostname, source, host address, and protocol port.
        *
        * @param request GetHostRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1147,7 +1457,7 @@ namespace YundunBastionhost20191209
       Models::GetHostResponse getHostWithOptions(const Models::GetHostRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a host, such as the name, source, address, protocol, and service port.
+       * @summary Includes information such as the hostname, source, host address, and protocol port.
        *
        * @param request GetHostRequest
        * @return GetHostResponse
@@ -1155,7 +1465,7 @@ namespace YundunBastionhost20191209
       Models::GetHostResponse getHost(const Models::GetHostRequest &request);
 
       /**
-       * @summary Retrieves the details of a host account on a host managed by a Bastionhost instance, such as the protocol type and account name.
+       * @summary Retrieves the details of a specified host account.
        *
        * @param request GetHostAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1164,7 +1474,7 @@ namespace YundunBastionhost20191209
       Models::GetHostAccountResponse getHostAccountWithOptions(const Models::GetHostAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a host account on a host managed by a Bastionhost instance, such as the protocol type and account name.
+       * @summary Retrieves the details of a specified host account.
        *
        * @param request GetHostAccountRequest
        * @return GetHostAccountResponse
@@ -1172,7 +1482,7 @@ namespace YundunBastionhost20191209
       Models::GetHostAccountResponse getHostAccount(const Models::GetHostAccountRequest &request);
 
       /**
-       * @summary Retrieves the details of a host group.
+       * @summary Retrieves the details of a specified asset group.
        *
        * @param request GetHostGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1181,7 +1491,7 @@ namespace YundunBastionhost20191209
       Models::GetHostGroupResponse getHostGroupWithOptions(const Models::GetHostGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a host group.
+       * @summary Retrieves the details of a specified asset group.
        *
        * @param request GetHostGroupRequest
        * @return GetHostGroupResponse
@@ -1189,7 +1499,7 @@ namespace YundunBastionhost20191209
       Models::GetHostGroupResponse getHostGroup(const Models::GetHostGroupRequest &request);
 
       /**
-       * @summary Queries the information about a shared key.
+       * @summary Queries the details of a host shared key.
        *
        * @param request GetHostShareKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1198,7 +1508,7 @@ namespace YundunBastionhost20191209
       Models::GetHostShareKeyResponse getHostShareKeyWithOptions(const Models::GetHostShareKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a shared key.
+       * @summary Queries the details of a host shared key.
        *
        * @param request GetHostShareKeyRequest
        * @return GetHostShareKeyResponse
@@ -1206,12 +1516,12 @@ namespace YundunBastionhost20191209
       Models::GetHostShareKeyResponse getHostShareKey(const Models::GetHostShareKeyRequest &request);
 
       /**
-       * @summary Queries the settings of Active Directory (AD) authentication on a bastion host.
+       * @summary Queries the Active Directory (AD) authentication configurations of a Bastionhost instance.
        *
-       * @description ###
-       * Queries the Active Directory (AD) authentication settings of a bastion host. After you configure AD authentication, you can import AD-authenticated users into the bastion host. The imported users can then log on to the bastion host to perform O\\&M operations on servers.
-       * ### Limit
-       * This operation can be called up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered and your business may be affected. Take note of this limit when you call this operation.
+       * @description ### Usage notes
+       * This operation queries the Active Directory (AD) authentication configurations of a Bastionhost instance. You can use the AD authentication feature of Bastionhost to synchronize users from an AD server to Bastionhost. After the synchronization is complete, users can perform O&M operations on servers by using Bastionhost. For enterprise-level managed operations, you can also refer to Alibaba Cloud Managed Services.
+       * ### QPS limits
+       * The queries per second (QPS) limit on this operation is 10 per user. If the number of API invocations exceeds the limit, throttling is triggered, which may affect your business. Invoke this operation at a reasonable frequency.
        *
        * @param request GetInstanceADAuthServerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1220,12 +1530,12 @@ namespace YundunBastionhost20191209
       Models::GetInstanceADAuthServerResponse getInstanceADAuthServerWithOptions(const Models::GetInstanceADAuthServerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the settings of Active Directory (AD) authentication on a bastion host.
+       * @summary Queries the Active Directory (AD) authentication configurations of a Bastionhost instance.
        *
-       * @description ###
-       * Queries the Active Directory (AD) authentication settings of a bastion host. After you configure AD authentication, you can import AD-authenticated users into the bastion host. The imported users can then log on to the bastion host to perform O\\&M operations on servers.
-       * ### Limit
-       * This operation can be called up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered and your business may be affected. Take note of this limit when you call this operation.
+       * @description ### Usage notes
+       * This operation queries the Active Directory (AD) authentication configurations of a Bastionhost instance. You can use the AD authentication feature of Bastionhost to synchronize users from an AD server to Bastionhost. After the synchronization is complete, users can perform O&M operations on servers by using Bastionhost. For enterprise-level managed operations, you can also refer to Alibaba Cloud Managed Services.
+       * ### QPS limits
+       * The queries per second (QPS) limit on this operation is 10 per user. If the number of API invocations exceeds the limit, throttling is triggered, which may affect your business. Invoke this operation at a reasonable frequency.
        *
        * @param request GetInstanceADAuthServerRequest
        * @return GetInstanceADAuthServerResponse
@@ -1309,7 +1619,7 @@ namespace YundunBastionhost20191209
       Models::GetNetworkDomainResponse getNetworkDomain(const Models::GetNetworkDomainRequest &request);
 
       /**
-       * @summary Gets the details of a specified control policy.
+       * @summary Retrieves the details of a specified control policy.
        *
        * @param request GetPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1318,7 +1628,7 @@ namespace YundunBastionhost20191209
       Models::GetPolicyResponse getPolicyWithOptions(const Models::GetPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Gets the details of a specified control policy.
+       * @summary Retrieves the details of a specified control policy.
        *
        * @param request GetPolicyRequest
        * @return GetPolicyResponse
@@ -1326,7 +1636,7 @@ namespace YundunBastionhost20191209
       Models::GetPolicyResponse getPolicy(const Models::GetPolicyRequest &request);
 
       /**
-       * @summary Queries the assets to which a control policy applies.
+       * @summary Retrieves the asset scope of a specified control policy.
        *
        * @param request GetPolicyAssetScopeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1335,7 +1645,7 @@ namespace YundunBastionhost20191209
       Models::GetPolicyAssetScopeResponse getPolicyAssetScopeWithOptions(const Models::GetPolicyAssetScopeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the assets to which a control policy applies.
+       * @summary Retrieves the asset scope of a specified control policy.
        *
        * @param request GetPolicyAssetScopeRequest
        * @return GetPolicyAssetScopeResponse
@@ -1343,7 +1653,7 @@ namespace YundunBastionhost20191209
       Models::GetPolicyAssetScopeResponse getPolicyAssetScope(const Models::GetPolicyAssetScopeRequest &request);
 
       /**
-       * @summary Queries the scope of users to whom a control policy applies.
+       * @summary Retrieves the effective user scope of a specified control policy.
        *
        * @param request GetPolicyUserScopeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1352,7 +1662,7 @@ namespace YundunBastionhost20191209
       Models::GetPolicyUserScopeResponse getPolicyUserScopeWithOptions(const Models::GetPolicyUserScopeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the scope of users to whom a control policy applies.
+       * @summary Retrieves the effective user scope of a specified control policy.
        *
        * @param request GetPolicyUserScopeRequest
        * @return GetPolicyUserScopeResponse
@@ -1360,7 +1670,58 @@ namespace YundunBastionhost20191209
       Models::GetPolicyUserScopeResponse getPolicyUserScope(const Models::GetPolicyUserScopeRequest &request);
 
       /**
-       * @summary Queries the detailed information about an authorization rule.
+       * @summary Queries the details of a specified project.
+       *
+       * @param request GetProjectRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetProjectResponse
+       */
+      Models::GetProjectResponse getProjectWithOptions(const Models::GetProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of a specified project.
+       *
+       * @param request GetProjectRequest
+       * @return GetProjectResponse
+       */
+      Models::GetProjectResponse getProject(const Models::GetProjectRequest &request);
+
+      /**
+       * @summary Queries the details of a project authorization.
+       *
+       * @param request GetProjectAuthorizationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetProjectAuthorizationResponse
+       */
+      Models::GetProjectAuthorizationResponse getProjectAuthorizationWithOptions(const Models::GetProjectAuthorizationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of a project authorization.
+       *
+       * @param request GetProjectAuthorizationRequest
+       * @return GetProjectAuthorizationResponse
+       */
+      Models::GetProjectAuthorizationResponse getProjectAuthorization(const Models::GetProjectAuthorizationRequest &request);
+
+      /**
+       * @summary Queries the details of an audit policy.
+       *
+       * @param request GetReviewRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetReviewRuleResponse
+       */
+      Models::GetReviewRuleResponse getReviewRuleWithOptions(const Models::GetReviewRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of an audit policy.
+       *
+       * @param request GetReviewRuleRequest
+       * @return GetReviewRuleResponse
+       */
+      Models::GetReviewRuleResponse getReviewRule(const Models::GetReviewRuleRequest &request);
+
+      /**
+       * @summary Retrieves the details of a specified authorization rule.
        *
        * @param request GetRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1369,7 +1730,7 @@ namespace YundunBastionhost20191209
       Models::GetRuleResponse getRuleWithOptions(const Models::GetRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the detailed information about an authorization rule.
+       * @summary Retrieves the details of a specified authorization rule.
        *
        * @param request GetRuleRequest
        * @return GetRuleResponse
@@ -1394,7 +1755,7 @@ namespace YundunBastionhost20191209
       Models::GetUserResponse getUser(const Models::GetUserRequest &request);
 
       /**
-       * @summary Retrieves the details of a user group in a bastion host.
+       * @summary Retrieves the details of a specified Bastionhost user group.
        *
        * @param request GetUserGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1403,7 +1764,7 @@ namespace YundunBastionhost20191209
       Models::GetUserGroupResponse getUserGroupWithOptions(const Models::GetUserGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a user group in a bastion host.
+       * @summary Retrieves the details of a specified Bastionhost user group.
        *
        * @param request GetUserGroupRequest
        * @return GetUserGroupResponse
@@ -1428,10 +1789,10 @@ namespace YundunBastionhost20191209
       Models::ImportKMSSecretsForHostResponse importKMSSecretsForHost(const Models::ImportKMSSecretsForHostRequest &request);
 
       /**
-       * @summary Queries commands to be reviewed.
+       * @summary Retrieves the list of commands that require approval.
        *
-       * @description Queries commands pending review as a Bastionhost administrator.
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This API operation allows administrators to retrieve the list of commands that require approval.
+       * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation as needed.
        *
        * @param request ListApproveCommandsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1440,10 +1801,10 @@ namespace YundunBastionhost20191209
       Models::ListApproveCommandsResponse listApproveCommandsWithOptions(const Models::ListApproveCommandsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries commands to be reviewed.
+       * @summary Retrieves the list of commands that require approval.
        *
-       * @description Queries commands pending review as a Bastionhost administrator.
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This API operation allows administrators to retrieve the list of commands that require approval.
+       * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation as needed.
        *
        * @param request ListApproveCommandsRequest
        * @return ListApproveCommandsResponse
@@ -1451,7 +1812,7 @@ namespace YundunBastionhost20191209
       Models::ListApproveCommandsResponse listApproveCommands(const Models::ListApproveCommandsRequest &request);
 
       /**
-       * @summary Queries the database accounts of a database.
+       * @summary Retrieves a list of database accounts.
        *
        * @param request ListDatabaseAccountsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1460,7 +1821,7 @@ namespace YundunBastionhost20191209
       Models::ListDatabaseAccountsResponse listDatabaseAccountsWithOptions(const Models::ListDatabaseAccountsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the database accounts of a database.
+       * @summary Retrieves a list of database accounts.
        *
        * @param request ListDatabaseAccountsRequest
        * @return ListDatabaseAccountsResponse
@@ -1485,7 +1846,7 @@ namespace YundunBastionhost20191209
       Models::ListDatabaseAccountsForUserResponse listDatabaseAccountsForUser(const Models::ListDatabaseAccountsForUserRequest &request);
 
       /**
-       * @summary Queries the database accounts of a database and whether a user group is authorized to manage each database account.
+       * @summary Queries the list of authorized and unauthorized database accounts for a user group.
        *
        * @param request ListDatabaseAccountsForUserGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1494,7 +1855,7 @@ namespace YundunBastionhost20191209
       Models::ListDatabaseAccountsForUserGroupResponse listDatabaseAccountsForUserGroupWithOptions(const Models::ListDatabaseAccountsForUserGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the database accounts of a database and whether a user group is authorized to manage each database account.
+       * @summary Queries the list of authorized and unauthorized database accounts for a user group.
        *
        * @param request ListDatabaseAccountsForUserGroupRequest
        * @return ListDatabaseAccountsForUserGroupResponse
@@ -1502,7 +1863,7 @@ namespace YundunBastionhost20191209
       Models::ListDatabaseAccountsForUserGroupResponse listDatabaseAccountsForUserGroup(const Models::ListDatabaseAccountsForUserGroupRequest &request);
 
       /**
-       * @summary Queries the databases that are managed by a bastion host.
+       * @summary Queries the databases of a specified Bastionhost instance.
        *
        * @param request ListDatabasesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1511,7 +1872,7 @@ namespace YundunBastionhost20191209
       Models::ListDatabasesResponse listDatabasesWithOptions(const Models::ListDatabasesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the databases that are managed by a bastion host.
+       * @summary Queries the databases of a specified Bastionhost instance.
        *
        * @param request ListDatabasesRequest
        * @return ListDatabasesResponse
@@ -1519,7 +1880,7 @@ namespace YundunBastionhost20191209
       Models::ListDatabasesResponse listDatabases(const Models::ListDatabasesRequest &request);
 
       /**
-       * @summary Queries the databases that a user is authorized to manage.
+       * @summary Queries the list of databases authorized for a user.
        *
        * @param request ListDatabasesForUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1528,7 +1889,7 @@ namespace YundunBastionhost20191209
       Models::ListDatabasesForUserResponse listDatabasesForUserWithOptions(const Models::ListDatabasesForUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the databases that a user is authorized to manage.
+       * @summary Queries the list of databases authorized for a user.
        *
        * @param request ListDatabasesForUserRequest
        * @return ListDatabasesForUserResponse
@@ -1536,7 +1897,7 @@ namespace YundunBastionhost20191209
       Models::ListDatabasesForUserResponse listDatabasesForUser(const Models::ListDatabasesForUserRequest &request);
 
       /**
-       * @summary Lists the databases that a user group is authorized to manage through a Bastionhost instance.
+       * @summary Queries the databases authorized for a user group.
        *
        * @param request ListDatabasesForUserGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1545,7 +1906,7 @@ namespace YundunBastionhost20191209
       Models::ListDatabasesForUserGroupResponse listDatabasesForUserGroupWithOptions(const Models::ListDatabasesForUserGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the databases that a user group is authorized to manage through a Bastionhost instance.
+       * @summary Queries the databases authorized for a user group.
        *
        * @param request ListDatabasesForUserGroupRequest
        * @return ListDatabasesForUserGroupResponse
@@ -1553,7 +1914,7 @@ namespace YundunBastionhost20191209
       Models::ListDatabasesForUserGroupResponse listDatabasesForUserGroup(const Models::ListDatabasesForUserGroupRequest &request);
 
       /**
-       * @summary Lists the host accounts that are configured for a host in a Bastionhost instance. Host accounts are the credentials used by O&M engineers to log on to the host.
+       * @summary Retrieves a list of host accounts.
        *
        * @param request ListHostAccountsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1562,7 +1923,7 @@ namespace YundunBastionhost20191209
       Models::ListHostAccountsResponse listHostAccountsWithOptions(const Models::ListHostAccountsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the host accounts that are configured for a host in a Bastionhost instance. Host accounts are the credentials used by O&M engineers to log on to the host.
+       * @summary Retrieves a list of host accounts.
        *
        * @param request ListHostAccountsRequest
        * @return ListHostAccountsResponse
@@ -1570,7 +1931,7 @@ namespace YundunBastionhost20191209
       Models::ListHostAccountsResponse listHostAccounts(const Models::ListHostAccountsRequest &request);
 
       /**
-       * @summary Queries the host accounts that are associated with a shared key.
+       * @summary Retrieves the host accounts associated with a host shared key.
        *
        * @param request ListHostAccountsForHostShareKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1579,7 +1940,7 @@ namespace YundunBastionhost20191209
       Models::ListHostAccountsForHostShareKeyResponse listHostAccountsForHostShareKeyWithOptions(const Models::ListHostAccountsForHostShareKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the host accounts that are associated with a shared key.
+       * @summary Retrieves the host accounts associated with a host shared key.
        *
        * @param request ListHostAccountsForHostShareKeyRequest
        * @return ListHostAccountsForHostShareKeyResponse
@@ -1587,7 +1948,7 @@ namespace YundunBastionhost20191209
       Models::ListHostAccountsForHostShareKeyResponse listHostAccountsForHostShareKey(const Models::ListHostAccountsForHostShareKeyRequest &request);
 
       /**
-       * @summary Queries the host accounts of a host and whether a user is authorized to manage each host account.
+       * @summary Queries the list of authorized and unauthorized host accounts for a specified user on a specified host.
        *
        * @param request ListHostAccountsForUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1596,7 +1957,7 @@ namespace YundunBastionhost20191209
       Models::ListHostAccountsForUserResponse listHostAccountsForUserWithOptions(const Models::ListHostAccountsForUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the host accounts of a host and whether a user is authorized to manage each host account.
+       * @summary Queries the list of authorized and unauthorized host accounts for a specified user on a specified host.
        *
        * @param request ListHostAccountsForUserRequest
        * @return ListHostAccountsForUserResponse
@@ -1604,7 +1965,7 @@ namespace YundunBastionhost20191209
       Models::ListHostAccountsForUserResponse listHostAccountsForUser(const Models::ListHostAccountsForUserRequest &request);
 
       /**
-       * @summary Queries the host accounts of a host and whether a user group is authorized to manage each host account.
+       * @summary Queries the authorized and unauthorized host accounts of a specified user group on a specified host.
        *
        * @param request ListHostAccountsForUserGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1613,7 +1974,7 @@ namespace YundunBastionhost20191209
       Models::ListHostAccountsForUserGroupResponse listHostAccountsForUserGroupWithOptions(const Models::ListHostAccountsForUserGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the host accounts of a host and whether a user group is authorized to manage each host account.
+       * @summary Queries the authorized and unauthorized host accounts of a specified user group on a specified host.
        *
        * @param request ListHostAccountsForUserGroupRequest
        * @return ListHostAccountsForUserGroupResponse
@@ -1621,7 +1982,7 @@ namespace YundunBastionhost20191209
       Models::ListHostAccountsForUserGroupResponse listHostAccountsForUserGroup(const Models::ListHostAccountsForUserGroupRequest &request);
 
       /**
-       * @summary Queries the names of the host accounts that a specified user is authorized to manage in a specified host group.
+       * @summary Queries the names of host accounts authorized for a specified user in a specified host group.
        *
        * @param request ListHostGroupAccountNamesForUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1630,7 +1991,7 @@ namespace YundunBastionhost20191209
       Models::ListHostGroupAccountNamesForUserResponse listHostGroupAccountNamesForUserWithOptions(const Models::ListHostGroupAccountNamesForUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the names of the host accounts that a specified user is authorized to manage in a specified host group.
+       * @summary Queries the names of host accounts authorized for a specified user in a specified host group.
        *
        * @param request ListHostGroupAccountNamesForUserRequest
        * @return ListHostGroupAccountNamesForUserResponse
@@ -1638,7 +1999,7 @@ namespace YundunBastionhost20191209
       Models::ListHostGroupAccountNamesForUserResponse listHostGroupAccountNamesForUser(const Models::ListHostGroupAccountNamesForUserRequest &request);
 
       /**
-       * @summary Queries the names of the host accounts that a user group is authorized to manage in a host group.
+       * @summary Queries the names of host accounts authorized for a specified user group in a specified host group.
        *
        * @param request ListHostGroupAccountNamesForUserGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1647,7 +2008,7 @@ namespace YundunBastionhost20191209
       Models::ListHostGroupAccountNamesForUserGroupResponse listHostGroupAccountNamesForUserGroupWithOptions(const Models::ListHostGroupAccountNamesForUserGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the names of the host accounts that a user group is authorized to manage in a host group.
+       * @summary Queries the names of host accounts authorized for a specified user group in a specified host group.
        *
        * @param request ListHostGroupAccountNamesForUserGroupRequest
        * @return ListHostGroupAccountNamesForUserGroupResponse
@@ -1655,7 +2016,7 @@ namespace YundunBastionhost20191209
       Models::ListHostGroupAccountNamesForUserGroupResponse listHostGroupAccountNamesForUserGroup(const Models::ListHostGroupAccountNamesForUserGroupRequest &request);
 
       /**
-       * @summary Queries a list of asset groups that are managed by a bastion host.
+       * @summary Queries the asset groups under a specified bastion host.
        *
        * @param request ListHostGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1664,7 +2025,7 @@ namespace YundunBastionhost20191209
       Models::ListHostGroupsResponse listHostGroupsWithOptions(const Models::ListHostGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of asset groups that are managed by a bastion host.
+       * @summary Queries the asset groups under a specified bastion host.
        *
        * @param request ListHostGroupsRequest
        * @return ListHostGroupsResponse
@@ -1672,7 +2033,7 @@ namespace YundunBastionhost20191209
       Models::ListHostGroupsResponse listHostGroups(const Models::ListHostGroupsRequest &request);
 
       /**
-       * @summary Queries a list of host groups that a bastion host user is authorized or is not authorized to manage.
+       * @summary Queries the authorized or unauthorized host groups for a specified Bastionhost user.
        *
        * @param request ListHostGroupsForUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1681,7 +2042,7 @@ namespace YundunBastionhost20191209
       Models::ListHostGroupsForUserResponse listHostGroupsForUserWithOptions(const Models::ListHostGroupsForUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of host groups that a bastion host user is authorized or is not authorized to manage.
+       * @summary Queries the authorized or unauthorized host groups for a specified Bastionhost user.
        *
        * @param request ListHostGroupsForUserRequest
        * @return ListHostGroupsForUserResponse
@@ -1689,7 +2050,7 @@ namespace YundunBastionhost20191209
       Models::ListHostGroupsForUserResponse listHostGroupsForUser(const Models::ListHostGroupsForUserRequest &request);
 
       /**
-       * @summary Queries the hosts that a specified user group is authorized or not authorized to manage.
+       * @summary Queries the authorized or unauthorized host groups for a specified Bastionhost user group.
        *
        * @param request ListHostGroupsForUserGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1698,7 +2059,7 @@ namespace YundunBastionhost20191209
       Models::ListHostGroupsForUserGroupResponse listHostGroupsForUserGroupWithOptions(const Models::ListHostGroupsForUserGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the hosts that a specified user group is authorized or not authorized to manage.
+       * @summary Queries the authorized or unauthorized host groups for a specified Bastionhost user group.
        *
        * @param request ListHostGroupsForUserGroupRequest
        * @return ListHostGroupsForUserGroupResponse
@@ -1706,7 +2067,7 @@ namespace YundunBastionhost20191209
       Models::ListHostGroupsForUserGroupResponse listHostGroupsForUserGroup(const Models::ListHostGroupsForUserGroupRequest &request);
 
       /**
-       * @summary Queries the shared keys that are associated with a host.
+       * @summary Queries the list of host shared keys.
        *
        * @param request ListHostShareKeysRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1715,7 +2076,7 @@ namespace YundunBastionhost20191209
       Models::ListHostShareKeysResponse listHostShareKeysWithOptions(const Models::ListHostShareKeysRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the shared keys that are associated with a host.
+       * @summary Queries the list of host shared keys.
        *
        * @param request ListHostShareKeysRequest
        * @return ListHostShareKeysResponse
@@ -1723,7 +2084,7 @@ namespace YundunBastionhost20191209
       Models::ListHostShareKeysResponse listHostShareKeys(const Models::ListHostShareKeysRequest &request);
 
       /**
-       * @summary Queries the hosts in a bastion host.
+       * @summary Queries the hosts in a specified Bastionhost instance.
        *
        * @param request ListHostsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1732,7 +2093,7 @@ namespace YundunBastionhost20191209
       Models::ListHostsResponse listHostsWithOptions(const Models::ListHostsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the hosts in a bastion host.
+       * @summary Queries the hosts in a specified Bastionhost instance.
        *
        * @param request ListHostsRequest
        * @return ListHostsResponse
@@ -1740,7 +2101,7 @@ namespace YundunBastionhost20191209
       Models::ListHostsResponse listHosts(const Models::ListHostsRequest &request);
 
       /**
-       * @summary Queries the hosts that a user group is authorized or not authorized to manage.
+       * @summary Queries the list of authorized or unauthorized hosts for a specified Bastionhost user.
        *
        * @param request ListHostsForUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1749,7 +2110,7 @@ namespace YundunBastionhost20191209
       Models::ListHostsForUserResponse listHostsForUserWithOptions(const Models::ListHostsForUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the hosts that a user group is authorized or not authorized to manage.
+       * @summary Queries the list of authorized or unauthorized hosts for a specified Bastionhost user.
        *
        * @param request ListHostsForUserRequest
        * @return ListHostsForUserResponse
@@ -1757,7 +2118,7 @@ namespace YundunBastionhost20191209
       Models::ListHostsForUserResponse listHostsForUser(const Models::ListHostsForUserRequest &request);
 
       /**
-       * @summary Lists the authorized or unauthorized hosts for a bastion host user group.
+       * @summary Queries the list of authorized or unauthorized hosts for a specified Bastionhost user group.
        *
        * @param request ListHostsForUserGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1766,7 +2127,7 @@ namespace YundunBastionhost20191209
       Models::ListHostsForUserGroupResponse listHostsForUserGroupWithOptions(const Models::ListHostsForUserGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the authorized or unauthorized hosts for a bastion host user group.
+       * @summary Queries the list of authorized or unauthorized hosts for a specified Bastionhost user group.
        *
        * @param request ListHostsForUserGroupRequest
        * @return ListHostsForUserGroupResponse
@@ -1774,7 +2135,7 @@ namespace YundunBastionhost20191209
       Models::ListHostsForUserGroupResponse listHostsForUserGroup(const Models::ListHostsForUserGroupRequest &request);
 
       /**
-       * @summary Lists all importable KMS secrets for a specified host.
+       * @summary Lists all importable KMS credentials for a specified host.
        *
        * @param request ListImportableKMSSecretsForHostRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1783,7 +2144,7 @@ namespace YundunBastionhost20191209
       Models::ListImportableKMSSecretsForHostResponse listImportableKMSSecretsForHostWithOptions(const Models::ListImportableKMSSecretsForHostRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists all importable KMS secrets for a specified host.
+       * @summary Lists all importable KMS credentials for a specified host.
        *
        * @param request ListImportableKMSSecretsForHostRequest
        * @return ListImportableKMSSecretsForHostResponse
@@ -1791,7 +2152,7 @@ namespace YundunBastionhost20191209
       Models::ListImportableKMSSecretsForHostResponse listImportableKMSSecretsForHost(const Models::ListImportableKMSSecretsForHostRequest &request);
 
       /**
-       * @summary Lists the member accounts in a Resource Directory (RD).
+       * @summary Retrieves a list of member accounts in a resource directory.
        *
        * @param request ListInstanceRdMembersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1800,7 +2161,7 @@ namespace YundunBastionhost20191209
       Models::ListInstanceRdMembersResponse listInstanceRdMembersWithOptions(const Models::ListInstanceRdMembersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the member accounts in a Resource Directory (RD).
+       * @summary Retrieves a list of member accounts in a resource directory.
        *
        * @param request ListInstanceRdMembersRequest
        * @return ListInstanceRdMembersResponse
@@ -1808,7 +2169,24 @@ namespace YundunBastionhost20191209
       Models::ListInstanceRdMembersResponse listInstanceRdMembers(const Models::ListInstanceRdMembersRequest &request);
 
       /**
-       * @summary Lists the network domains configured in a Bastionhost instance. Network domains define the connectivity between Bastionhost and the hosts or databases that it manages.
+       * @summary Queries the list of member accounts that are not assigned to other projects.
+       *
+       * @param request ListMembersNotForProjectRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMembersNotForProjectResponse
+       */
+      Models::ListMembersNotForProjectResponse listMembersNotForProjectWithOptions(const Models::ListMembersNotForProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of member accounts that are not assigned to other projects.
+       *
+       * @param request ListMembersNotForProjectRequest
+       * @return ListMembersNotForProjectResponse
+       */
+      Models::ListMembersNotForProjectResponse listMembersNotForProject(const Models::ListMembersNotForProjectRequest &request);
+
+      /**
+       * @summary Queries the network domains of a specified Bastionhost instance.
        *
        * @param request ListNetworkDomainsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1817,7 +2195,7 @@ namespace YundunBastionhost20191209
       Models::ListNetworkDomainsResponse listNetworkDomainsWithOptions(const Models::ListNetworkDomainsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the network domains configured in a Bastionhost instance. Network domains define the connectivity between Bastionhost and the hosts or databases that it manages.
+       * @summary Queries the network domains of a specified Bastionhost instance.
        *
        * @param request ListNetworkDomainsRequest
        * @return ListNetworkDomainsResponse
@@ -1825,7 +2203,7 @@ namespace YundunBastionhost20191209
       Models::ListNetworkDomainsResponse listNetworkDomains(const Models::ListNetworkDomainsRequest &request);
 
       /**
-       * @summary Queries a list of database accounts that the current Resource Access Management (RAM) user is authorized to manage.
+       * @summary Retrieves a list of authorized database accounts.
        *
        * @param request ListOperationDatabaseAccountsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1834,7 +2212,7 @@ namespace YundunBastionhost20191209
       Models::ListOperationDatabaseAccountsResponse listOperationDatabaseAccountsWithOptions(const Models::ListOperationDatabaseAccountsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of database accounts that the current Resource Access Management (RAM) user is authorized to manage.
+       * @summary Retrieves a list of authorized database accounts.
        *
        * @param request ListOperationDatabaseAccountsRequest
        * @return ListOperationDatabaseAccountsResponse
@@ -1842,7 +2220,7 @@ namespace YundunBastionhost20191209
       Models::ListOperationDatabaseAccountsResponse listOperationDatabaseAccounts(const Models::ListOperationDatabaseAccountsRequest &request);
 
       /**
-       * @summary Lists the databases that the current Resource Access Management (RAM) user is authorized to access.
+       * @summary Retrieves the list of databases authorized for the current Resource Access Management (RAM) user.
        *
        * @param request ListOperationDatabasesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1851,7 +2229,7 @@ namespace YundunBastionhost20191209
       Models::ListOperationDatabasesResponse listOperationDatabasesWithOptions(const Models::ListOperationDatabasesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the databases that the current Resource Access Management (RAM) user is authorized to access.
+       * @summary Retrieves the list of databases authorized for the current Resource Access Management (RAM) user.
        *
        * @param request ListOperationDatabasesRequest
        * @return ListOperationDatabasesResponse
@@ -1859,7 +2237,7 @@ namespace YundunBastionhost20191209
       Models::ListOperationDatabasesResponse listOperationDatabases(const Models::ListOperationDatabasesRequest &request);
 
       /**
-       * @summary Queries a list of host accounts that the current Resource Access Management (RAM) user is authorized to manage.
+       * @summary Lists the host accounts for which the current Resource Access Management (RAM) user has authorization.
        *
        * @param request ListOperationHostAccountsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1868,7 +2246,7 @@ namespace YundunBastionhost20191209
       Models::ListOperationHostAccountsResponse listOperationHostAccountsWithOptions(const Models::ListOperationHostAccountsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of host accounts that the current Resource Access Management (RAM) user is authorized to manage.
+       * @summary Lists the host accounts for which the current Resource Access Management (RAM) user has authorization.
        *
        * @param request ListOperationHostAccountsRequest
        * @return ListOperationHostAccountsResponse
@@ -1876,7 +2254,7 @@ namespace YundunBastionhost20191209
       Models::ListOperationHostAccountsResponse listOperationHostAccounts(const Models::ListOperationHostAccountsRequest &request);
 
       /**
-       * @summary Lists the hosts that the current Resource Access Management (RAM) user is authorized to perform O&M operations on through a Bastionhost instance.
+       * @summary Retrieves the list of hosts with authorization for the current Resource Access Management (RAM) user.
        *
        * @param request ListOperationHostsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1885,7 +2263,7 @@ namespace YundunBastionhost20191209
       Models::ListOperationHostsResponse listOperationHostsWithOptions(const Models::ListOperationHostsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the hosts that the current Resource Access Management (RAM) user is authorized to perform O&M operations on through a Bastionhost instance.
+       * @summary Retrieves the list of hosts with authorization for the current Resource Access Management (RAM) user.
        *
        * @param request ListOperationHostsRequest
        * @return ListOperationHostsResponse
@@ -1893,10 +2271,10 @@ namespace YundunBastionhost20191209
       Models::ListOperationHostsResponse listOperationHosts(const Models::ListOperationHostsRequest &request);
 
       /**
-       * @summary Retrieves the list of O&M applications that require approval.
+       * @summary Retrieves a list of O&M tickets pending approval.
        *
-       * @description Retrieves the list of O&M applications that require approval for an administrator.
-       * The China site Chinese QPS limit for this API is 10 requests per second. If this limit is exceeded, throttling is triggered, which may affect your business. Call this API appropriately.
+       * @description This API operation allows administrators to retrieve a list of O&M tickets pending approval.
+       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
        *
        * @param request ListOperationTicketsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1905,10 +2283,10 @@ namespace YundunBastionhost20191209
       Models::ListOperationTicketsResponse listOperationTicketsWithOptions(const Models::ListOperationTicketsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of O&M applications that require approval.
+       * @summary Retrieves a list of O&M tickets pending approval.
        *
-       * @description Retrieves the list of O&M applications that require approval for an administrator.
-       * The China site Chinese QPS limit for this API is 10 requests per second. If this limit is exceeded, throttling is triggered, which may affect your business. Call this API appropriately.
+       * @description This API operation allows administrators to retrieve a list of O&M tickets pending approval.
+       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
        *
        * @param request ListOperationTicketsRequest
        * @return ListOperationTicketsResponse
@@ -1916,7 +2294,7 @@ namespace YundunBastionhost20191209
       Models::ListOperationTicketsResponse listOperationTickets(const Models::ListOperationTicketsRequest &request);
 
       /**
-       * @summary Queries a list of control policies.
+       * @summary Queries the control policies.
        *
        * @param request ListPoliciesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1925,7 +2303,7 @@ namespace YundunBastionhost20191209
       Models::ListPoliciesResponse listPoliciesWithOptions(const Models::ListPoliciesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of control policies.
+       * @summary Queries the control policies.
        *
        * @param request ListPoliciesRequest
        * @return ListPoliciesResponse
@@ -1933,7 +2311,126 @@ namespace YundunBastionhost20191209
       Models::ListPoliciesResponse listPolicies(const Models::ListPoliciesRequest &request);
 
       /**
-       * @summary Queries a list of authorization rules of a bastion host.
+       * @summary Queries the list of project authorizations.
+       *
+       * @param request ListProjectAuthorizationsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListProjectAuthorizationsResponse
+       */
+      Models::ListProjectAuthorizationsResponse listProjectAuthorizationsWithOptions(const Models::ListProjectAuthorizationsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of project authorizations.
+       *
+       * @param request ListProjectAuthorizationsRequest
+       * @return ListProjectAuthorizationsResponse
+       */
+      Models::ListProjectAuthorizationsResponse listProjectAuthorizations(const Models::ListProjectAuthorizationsRequest &request);
+
+      /**
+       * @summary Queries the list of notification recipients for a project.
+       *
+       * @param request ListProjectNotifyReceiversRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListProjectNotifyReceiversResponse
+       */
+      Models::ListProjectNotifyReceiversResponse listProjectNotifyReceiversWithOptions(const Models::ListProjectNotifyReceiversRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of notification recipients for a project.
+       *
+       * @param request ListProjectNotifyReceiversRequest
+       * @return ListProjectNotifyReceiversResponse
+       */
+      Models::ListProjectNotifyReceiversResponse listProjectNotifyReceivers(const Models::ListProjectNotifyReceiversRequest &request);
+
+      /**
+       * @summary Queries a list of projects.
+       *
+       * @param request ListProjectsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListProjectsResponse
+       */
+      Models::ListProjectsResponse listProjectsWithOptions(const Models::ListProjectsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries a list of projects.
+       *
+       * @param request ListProjectsRequest
+       * @return ListProjectsResponse
+       */
+      Models::ListProjectsResponse listProjects(const Models::ListProjectsRequest &request);
+
+      /**
+       * @summary Queries the projects that the current user can manage.
+       *
+       * @param request ListProjectsForProjectAuthorizationPrincipalRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListProjectsForProjectAuthorizationPrincipalResponse
+       */
+      Models::ListProjectsForProjectAuthorizationPrincipalResponse listProjectsForProjectAuthorizationPrincipalWithOptions(const Models::ListProjectsForProjectAuthorizationPrincipalRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the projects that the current user can manage.
+       *
+       * @param request ListProjectsForProjectAuthorizationPrincipalRequest
+       * @return ListProjectsForProjectAuthorizationPrincipalResponse
+       */
+      Models::ListProjectsForProjectAuthorizationPrincipalResponse listProjectsForProjectAuthorizationPrincipal(const Models::ListProjectsForProjectAuthorizationPrincipalRequest &request);
+
+      /**
+       * @summary Queries the list of projects that are not associated with a project authorization.
+       *
+       * @param request ListProjectsNotForProjectAuthorizationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListProjectsNotForProjectAuthorizationResponse
+       */
+      Models::ListProjectsNotForProjectAuthorizationResponse listProjectsNotForProjectAuthorizationWithOptions(const Models::ListProjectsNotForProjectAuthorizationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of projects that are not associated with a project authorization.
+       *
+       * @param request ListProjectsNotForProjectAuthorizationRequest
+       * @return ListProjectsNotForProjectAuthorizationResponse
+       */
+      Models::ListProjectsNotForProjectAuthorizationResponse listProjectsNotForProjectAuthorization(const Models::ListProjectsNotForProjectAuthorizationRequest &request);
+
+      /**
+       * @summary Queries the list of projects that are not associated with an audit policy.
+       *
+       * @param request ListProjectsNotForReviewRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListProjectsNotForReviewRuleResponse
+       */
+      Models::ListProjectsNotForReviewRuleResponse listProjectsNotForReviewRuleWithOptions(const Models::ListProjectsNotForReviewRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of projects that are not associated with an audit policy.
+       *
+       * @param request ListProjectsNotForReviewRuleRequest
+       * @return ListProjectsNotForReviewRuleResponse
+       */
+      Models::ListProjectsNotForReviewRuleResponse listProjectsNotForReviewRule(const Models::ListProjectsNotForReviewRuleRequest &request);
+
+      /**
+       * @summary Queries the audit policy list.
+       *
+       * @param request ListReviewRulesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListReviewRulesResponse
+       */
+      Models::ListReviewRulesResponse listReviewRulesWithOptions(const Models::ListReviewRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the audit policy list.
+       *
+       * @param request ListReviewRulesRequest
+       * @return ListReviewRulesResponse
+       */
+      Models::ListReviewRulesResponse listReviewRules(const Models::ListReviewRulesRequest &request);
+
+      /**
+       * @summary Queries the authorization rules of a specified Bastionhost instance.
        *
        * @param request ListRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1942,7 +2439,7 @@ namespace YundunBastionhost20191209
       Models::ListRulesResponse listRulesWithOptions(const Models::ListRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of authorization rules of a bastion host.
+       * @summary Queries the authorization rules of a specified Bastionhost instance.
        *
        * @param request ListRulesRequest
        * @return ListRulesResponse
@@ -1950,7 +2447,7 @@ namespace YundunBastionhost20191209
       Models::ListRulesResponse listRules(const Models::ListRulesRequest &request);
 
       /**
-       * @summary Queries the tag keys on resources.
+       * @summary Queries the tags bound to a resource.
        *
        * @param request ListTagKeysRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1959,7 +2456,7 @@ namespace YundunBastionhost20191209
       Models::ListTagKeysResponse listTagKeysWithOptions(const Models::ListTagKeysRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the tag keys on resources.
+       * @summary Queries the tags bound to a resource.
        *
        * @param request ListTagKeysRequest
        * @return ListTagKeysResponse
@@ -1967,7 +2464,7 @@ namespace YundunBastionhost20191209
       Models::ListTagKeysResponse listTagKeys(const Models::ListTagKeysRequest &request);
 
       /**
-       * @summary Lists the tags that are attached to one or more Bastionhost instances.
+       * @summary Queries the tags that are bound to one or more Bastionhost instances.
        *
        * @param request ListTagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1976,7 +2473,7 @@ namespace YundunBastionhost20191209
       Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the tags that are attached to one or more Bastionhost instances.
+       * @summary Queries the tags that are bound to one or more Bastionhost instances.
        *
        * @param request ListTagResourcesRequest
        * @return ListTagResourcesResponse
@@ -1984,7 +2481,7 @@ namespace YundunBastionhost20191209
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
 
       /**
-       * @summary Retrieves the list of pending automated O&M approval requests.
+       * @summary Retrieves the list of pending automated O&M approvals.
        *
        * @param request ListTodoOpsTaskApprovalsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1993,7 +2490,7 @@ namespace YundunBastionhost20191209
       Models::ListTodoOpsTaskApprovalsResponse listTodoOpsTaskApprovalsWithOptions(const Models::ListTodoOpsTaskApprovalsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of pending automated O&M approval requests.
+       * @summary Retrieves the list of pending automated O&M approvals.
        *
        * @param request ListTodoOpsTaskApprovalsRequest
        * @return ListTodoOpsTaskApprovalsResponse
@@ -2001,7 +2498,7 @@ namespace YundunBastionhost20191209
       Models::ListTodoOpsTaskApprovalsResponse listTodoOpsTaskApprovals(const Models::ListTodoOpsTaskApprovalsRequest &request);
 
       /**
-       * @summary Queries a list of user groups on a bastion host.
+       * @summary Queries the user groups of a specified Bastionhost instance.
        *
        * @param request ListUserGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2010,12 +2507,29 @@ namespace YundunBastionhost20191209
       Models::ListUserGroupsResponse listUserGroupsWithOptions(const Models::ListUserGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of user groups on a bastion host.
+       * @summary Queries the user groups of a specified Bastionhost instance.
        *
        * @param request ListUserGroupsRequest
        * @return ListUserGroupsResponse
        */
       Models::ListUserGroupsResponse listUserGroups(const Models::ListUserGroupsRequest &request);
+
+      /**
+       * @summary Queries the list of user groups that a user has joined.
+       *
+       * @param request ListUserGroupsForUserRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListUserGroupsForUserResponse
+       */
+      Models::ListUserGroupsForUserResponse listUserGroupsForUserWithOptions(const Models::ListUserGroupsForUserRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of user groups that a user has joined.
+       *
+       * @param request ListUserGroupsForUserRequest
+       * @return ListUserGroupsForUserResponse
+       */
+      Models::ListUserGroupsForUserResponse listUserGroupsForUser(const Models::ListUserGroupsForUserRequest &request);
 
       /**
        * @summary Lists the SSH public keys that are configured for a Bastionhost user. Users can use these public keys for key-based authentication when logging on to hosts through Bastionhost.
@@ -2079,7 +2593,7 @@ namespace YundunBastionhost20191209
       Models::LockUsersResponse lockUsers(const Models::LockUsersRequest &request);
 
       /**
-       * @summary Modifies the basic information about a database.
+       * @summary Modifies the basic information of a database.
        *
        * @param request ModifyDatabaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2088,7 +2602,7 @@ namespace YundunBastionhost20191209
       Models::ModifyDatabaseResponse modifyDatabaseWithOptions(const Models::ModifyDatabaseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the basic information about a database.
+       * @summary Modifies the basic information of a database.
        *
        * @param request ModifyDatabaseRequest
        * @return ModifyDatabaseResponse
@@ -2096,7 +2610,7 @@ namespace YundunBastionhost20191209
       Models::ModifyDatabaseResponse modifyDatabase(const Models::ModifyDatabaseRequest &request);
 
       /**
-       * @summary Modifies the basic information about a database account.
+       * @summary Modifies the basic information of a database account.
        *
        * @param request ModifyDatabaseAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2105,7 +2619,7 @@ namespace YundunBastionhost20191209
       Models::ModifyDatabaseAccountResponse modifyDatabaseAccountWithOptions(const Models::ModifyDatabaseAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the basic information about a database account.
+       * @summary Modifies the basic information of a database account.
        *
        * @param request ModifyDatabaseAccountRequest
        * @return ModifyDatabaseAccountResponse
@@ -2113,10 +2627,27 @@ namespace YundunBastionhost20191209
       Models::ModifyDatabaseAccountResponse modifyDatabaseAccount(const Models::ModifyDatabaseAccountRequest &request);
 
       /**
-       * @summary Modifies information about a host. The information includes the address, name, and description of the host and the operating system that the host runs.
+       * @summary Moves multiple database instances to a specified project.
        *
-       * @description You can call the ModifyHost operation to modify the basic information about a host in a data center, an Elastic Compute Service (ECS) instance, or a host in an ApsaraDB MyBase dedicated cluster.
-       * > The basic information about ECS instances and hosts in ApsaraDB MyBase dedicated clusters within your Alibaba Cloud account is synchronized to Bastionhost on a regular basis. After you modify the basic information about an ECS instance or a host in an ApsaraDB MyBase dedicated cluster, the modification result may be overwritten by the synchronized information.
+       * @param request ModifyDatabasesProjectRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyDatabasesProjectResponse
+       */
+      Models::ModifyDatabasesProjectResponse modifyDatabasesProjectWithOptions(const Models::ModifyDatabasesProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Moves multiple database instances to a specified project.
+       *
+       * @param request ModifyDatabasesProjectRequest
+       * @return ModifyDatabasesProjectResponse
+       */
+      Models::ModifyDatabasesProjectResponse modifyDatabasesProject(const Models::ModifyDatabasesProjectRequest &request);
+
+      /**
+       * @summary Updates the address, name, operating system type, and description of a host.
+       *
+       * @description This operation updates the basic information of on-premises hosts, ECS hosts, and hosts in dedicated ApsaraDB RDS clusters.
+       * > If you update the basic information of an ECS host or a host in a dedicated ApsaraDB RDS cluster, the changes may be overwritten. This is because Bastionhost periodically synchronizes the basic information of ECS hosts and hosts in dedicated ApsaraDB RDS clusters.
        *
        * @param request ModifyHostRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2125,10 +2656,10 @@ namespace YundunBastionhost20191209
       Models::ModifyHostResponse modifyHostWithOptions(const Models::ModifyHostRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies information about a host. The information includes the address, name, and description of the host and the operating system that the host runs.
+       * @summary Updates the address, name, operating system type, and description of a host.
        *
-       * @description You can call the ModifyHost operation to modify the basic information about a host in a data center, an Elastic Compute Service (ECS) instance, or a host in an ApsaraDB MyBase dedicated cluster.
-       * > The basic information about ECS instances and hosts in ApsaraDB MyBase dedicated clusters within your Alibaba Cloud account is synchronized to Bastionhost on a regular basis. After you modify the basic information about an ECS instance or a host in an ApsaraDB MyBase dedicated cluster, the modification result may be overwritten by the synchronized information.
+       * @description This operation updates the basic information of on-premises hosts, ECS hosts, and hosts in dedicated ApsaraDB RDS clusters.
+       * > If you update the basic information of an ECS host or a host in a dedicated ApsaraDB RDS cluster, the changes may be overwritten. This is because Bastionhost periodically synchronizes the basic information of ECS hosts and hosts in dedicated ApsaraDB RDS clusters.
        *
        * @param request ModifyHostRequest
        * @return ModifyHostResponse
@@ -2136,7 +2667,7 @@ namespace YundunBastionhost20191209
       Models::ModifyHostResponse modifyHost(const Models::ModifyHostRequest &request);
 
       /**
-       * @summary Modifies a host account on a host managed by a Bastionhost instance. You can update the account name, password, or SSH private key used for host logon.
+       * @summary Modifies host account information, including the name, password, and private key of a host account.
        *
        * @param request ModifyHostAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2145,7 +2676,7 @@ namespace YundunBastionhost20191209
       Models::ModifyHostAccountResponse modifyHostAccountWithOptions(const Models::ModifyHostAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies a host account on a host managed by a Bastionhost instance. You can update the account name, password, or SSH private key used for host logon.
+       * @summary Modifies host account information, including the name, password, and private key of a host account.
        *
        * @param request ModifyHostAccountRequest
        * @return ModifyHostAccountResponse
@@ -2153,7 +2684,7 @@ namespace YundunBastionhost20191209
       Models::ModifyHostAccountResponse modifyHostAccount(const Models::ModifyHostAccountRequest &request);
 
       /**
-       * @summary Modifies the name or description of the specified host group.
+       * @summary Modifies the name or description of an asset group.
        *
        * @param request ModifyHostGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2162,7 +2693,7 @@ namespace YundunBastionhost20191209
       Models::ModifyHostGroupResponse modifyHostGroupWithOptions(const Models::ModifyHostGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the name or description of the specified host group.
+       * @summary Modifies the name or description of an asset group.
        *
        * @param request ModifyHostGroupRequest
        * @return ModifyHostGroupResponse
@@ -2170,7 +2701,7 @@ namespace YundunBastionhost20191209
       Models::ModifyHostGroupResponse modifyHostGroup(const Models::ModifyHostGroupRequest &request);
 
       /**
-       * @summary Modifies a shared key.
+       * @summary Updates a host shared key.
        *
        * @param request ModifyHostShareKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2179,7 +2710,7 @@ namespace YundunBastionhost20191209
       Models::ModifyHostShareKeyResponse modifyHostShareKeyWithOptions(const Models::ModifyHostShareKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies a shared key.
+       * @summary Updates a host shared key.
        *
        * @param request ModifyHostShareKeyRequest
        * @return ModifyHostShareKeyResponse
@@ -2187,7 +2718,7 @@ namespace YundunBastionhost20191209
       Models::ModifyHostShareKeyResponse modifyHostShareKey(const Models::ModifyHostShareKeyRequest &request);
 
       /**
-       * @summary Changes the endpoint type of one or more hosts for O\\\\\\\\\\\\\\\\\\\\\\\\&M. Public and private IP addresses are supported.
+       * @summary Modifies the endpoint type used for host O&M. Bastionhost supports O&M over the Internet and private networks.
        *
        * @param request ModifyHostsActiveAddressTypeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2196,7 +2727,7 @@ namespace YundunBastionhost20191209
       Models::ModifyHostsActiveAddressTypeResponse modifyHostsActiveAddressTypeWithOptions(const Models::ModifyHostsActiveAddressTypeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the endpoint type of one or more hosts for O\\\\\\\\\\\\\\\\\\\\\\\\&M. Public and private IP addresses are supported.
+       * @summary Modifies the endpoint type used for host O&M. Bastionhost supports O&M over the Internet and private networks.
        *
        * @param request ModifyHostsActiveAddressTypeRequest
        * @return ModifyHostsActiveAddressTypeResponse
@@ -2204,13 +2735,13 @@ namespace YundunBastionhost20191209
       Models::ModifyHostsActiveAddressTypeResponse modifyHostsActiveAddressType(const Models::ModifyHostsActiveAddressTypeRequest &request);
 
       /**
-       * @summary Changes the port for the O\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&M protocol on one or more hosts.
+       * @summary Modifies the ports used by Bastionhost for the RDP and SSH protocols on hosts. By default, Bastionhost uses port 3389 for RDP and port 22 for SSH. If you have configured custom ports on your hosts, you can call this operation to update the port settings.
        *
-       * @description ## Usage notes
-       * Changes the port for the O\\&M protocol on one or more hosts. If the standard port for your O\\&M protocol is vulnerable to attacks, specify a custom port instead. For example, the standard SSH port is port 22.
-       * > Ports 0 to 1024 are reserved for Bastionhost. Do not change the port for the O\\&M protocol to a reserved port.
-       * ## QPS limit
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description ### Usage notes
+       * This operation modifies the ports of O&M protocols for multiple hosts. If you consider the standard ports of O&M protocols insecure and vulnerable to attacks, such as port 22 for SSH, you can call this operation to specify custom ports.
+       * > Ports 0 to 1024 are reserved for Bastionhost. Do not specify a reserved port as a custom port.
+       * ### QPS limits
+       * You can call this operation up to 10 times per second. Requests that exceed this limit are throttled, which may affect your business. Plan your calls accordingly.
        *
        * @param request ModifyHostsPortRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2219,13 +2750,13 @@ namespace YundunBastionhost20191209
       Models::ModifyHostsPortResponse modifyHostsPortWithOptions(const Models::ModifyHostsPortRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the port for the O\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&M protocol on one or more hosts.
+       * @summary Modifies the ports used by Bastionhost for the RDP and SSH protocols on hosts. By default, Bastionhost uses port 3389 for RDP and port 22 for SSH. If you have configured custom ports on your hosts, you can call this operation to update the port settings.
        *
-       * @description ## Usage notes
-       * Changes the port for the O\\&M protocol on one or more hosts. If the standard port for your O\\&M protocol is vulnerable to attacks, specify a custom port instead. For example, the standard SSH port is port 22.
-       * > Ports 0 to 1024 are reserved for Bastionhost. Do not change the port for the O\\&M protocol to a reserved port.
-       * ## QPS limit
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description ### Usage notes
+       * This operation modifies the ports of O&M protocols for multiple hosts. If you consider the standard ports of O&M protocols insecure and vulnerable to attacks, such as port 22 for SSH, you can call this operation to specify custom ports.
+       * > Ports 0 to 1024 are reserved for Bastionhost. Do not specify a reserved port as a custom port.
+       * ### QPS limits
+       * You can call this operation up to 10 times per second. Requests that exceed this limit are throttled, which may affect your business. Plan your calls accordingly.
        *
        * @param request ModifyHostsPortRequest
        * @return ModifyHostsPortResponse
@@ -2233,7 +2764,24 @@ namespace YundunBastionhost20191209
       Models::ModifyHostsPortResponse modifyHostsPort(const Models::ModifyHostsPortRequest &request);
 
       /**
-       * @summary Updates the settings of the Active Directory (AD) authentication server of a bastion host.
+       * @summary Moves hosts to a different project in a batch.
+       *
+       * @param request ModifyHostsProjectRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyHostsProjectResponse
+       */
+      Models::ModifyHostsProjectResponse modifyHostsProjectWithOptions(const Models::ModifyHostsProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Moves hosts to a different project in a batch.
+       *
+       * @param request ModifyHostsProjectRequest
+       * @return ModifyHostsProjectResponse
+       */
+      Models::ModifyHostsProjectResponse modifyHostsProject(const Models::ModifyHostsProjectRequest &request);
+
+      /**
+       * @summary Modifies the configuration of the Active Directory (AD) authentication server for a Bastionhost instance.
        *
        * @param request ModifyInstanceADAuthServerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2242,7 +2790,7 @@ namespace YundunBastionhost20191209
       Models::ModifyInstanceADAuthServerResponse modifyInstanceADAuthServerWithOptions(const Models::ModifyInstanceADAuthServerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the settings of the Active Directory (AD) authentication server of a bastion host.
+       * @summary Modifies the configuration of the Active Directory (AD) authentication server for a Bastionhost instance.
        *
        * @param request ModifyInstanceADAuthServerRequest
        * @return ModifyInstanceADAuthServerResponse
@@ -2251,6 +2799,8 @@ namespace YundunBastionhost20191209
 
       /**
        * @summary Modifies the information of a specified bastion host instance.
+       *
+       * @description You can call this operation to purchase an Encryption Service instance. This is a prepaid product, and the operation deducts the fee synchronously.
        *
        * @param request ModifyInstanceAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2261,13 +2811,15 @@ namespace YundunBastionhost20191209
       /**
        * @summary Modifies the information of a specified bastion host instance.
        *
+       * @description You can call this operation to purchase an Encryption Service instance. This is a prepaid product, and the operation deducts the fee synchronously.
+       *
        * @param request ModifyInstanceAttributeRequest
        * @return ModifyInstanceAttributeResponse
        */
       Models::ModifyInstanceAttributeResponse modifyInstanceAttribute(const Models::ModifyInstanceAttributeRequest &request);
 
       /**
-       * @summary Updates the settings of the Lightweight Directory Access Protocol (LDAP) authentication server of a bastion host.
+       * @summary Modifies the configuration of the LDAP authentication server for a Bastionhost instance.
        *
        * @param request ModifyInstanceLDAPAuthServerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2276,7 +2828,7 @@ namespace YundunBastionhost20191209
       Models::ModifyInstanceLDAPAuthServerResponse modifyInstanceLDAPAuthServerWithOptions(const Models::ModifyInstanceLDAPAuthServerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the settings of the Lightweight Directory Access Protocol (LDAP) authentication server of a bastion host.
+       * @summary Modifies the configuration of the LDAP authentication server for a Bastionhost instance.
        *
        * @param request ModifyInstanceLDAPAuthServerRequest
        * @return ModifyInstanceLDAPAuthServerResponse
@@ -2301,7 +2853,7 @@ namespace YundunBastionhost20191209
       Models::ModifyInstanceTwoFactorResponse modifyInstanceTwoFactor(const Models::ModifyInstanceTwoFactorRequest &request);
 
       /**
-       * @summary Modifies the basic information about a network domain.
+       * @summary Modifies the basic information of a network domain.
        *
        * @param request ModifyNetworkDomainRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2310,7 +2862,7 @@ namespace YundunBastionhost20191209
       Models::ModifyNetworkDomainResponse modifyNetworkDomainWithOptions(const Models::ModifyNetworkDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the basic information about a network domain.
+       * @summary Modifies the basic information of a network domain.
        *
        * @param request ModifyNetworkDomainRequest
        * @return ModifyNetworkDomainResponse
@@ -2318,7 +2870,7 @@ namespace YundunBastionhost20191209
       Models::ModifyNetworkDomainResponse modifyNetworkDomain(const Models::ModifyNetworkDomainRequest &request);
 
       /**
-       * @summary Modifies the basic information about a control policy.
+       * @summary Modifies the basic information of a control policy.
        *
        * @param request ModifyPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2327,7 +2879,7 @@ namespace YundunBastionhost20191209
       Models::ModifyPolicyResponse modifyPolicyWithOptions(const Models::ModifyPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the basic information about a control policy.
+       * @summary Modifies the basic information of a control policy.
        *
        * @param request ModifyPolicyRequest
        * @return ModifyPolicyResponse
@@ -2335,7 +2887,75 @@ namespace YundunBastionhost20191209
       Models::ModifyPolicyResponse modifyPolicy(const Models::ModifyPolicyRequest &request);
 
       /**
-       * @summary Modifies the basic information of an authorization rule.
+       * @summary Modifies a project.
+       *
+       * @param request ModifyProjectRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyProjectResponse
+       */
+      Models::ModifyProjectResponse modifyProjectWithOptions(const Models::ModifyProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies a project.
+       *
+       * @param request ModifyProjectRequest
+       * @return ModifyProjectResponse
+       */
+      Models::ModifyProjectResponse modifyProject(const Models::ModifyProjectRequest &request);
+
+      /**
+       * @summary Modifies project authorization.
+       *
+       * @param request ModifyProjectAuthorizationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyProjectAuthorizationResponse
+       */
+      Models::ModifyProjectAuthorizationResponse modifyProjectAuthorizationWithOptions(const Models::ModifyProjectAuthorizationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies project authorization.
+       *
+       * @param request ModifyProjectAuthorizationRequest
+       * @return ModifyProjectAuthorizationResponse
+       */
+      Models::ModifyProjectAuthorizationResponse modifyProjectAuthorization(const Models::ModifyProjectAuthorizationRequest &request);
+
+      /**
+       * @summary Modifies the notification recipient of a project.
+       *
+       * @param request ModifyProjectNotifyReceiverRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyProjectNotifyReceiverResponse
+       */
+      Models::ModifyProjectNotifyReceiverResponse modifyProjectNotifyReceiverWithOptions(const Models::ModifyProjectNotifyReceiverRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the notification recipient of a project.
+       *
+       * @param request ModifyProjectNotifyReceiverRequest
+       * @return ModifyProjectNotifyReceiverResponse
+       */
+      Models::ModifyProjectNotifyReceiverResponse modifyProjectNotifyReceiver(const Models::ModifyProjectNotifyReceiverRequest &request);
+
+      /**
+       * @summary Modifies an audit policy.
+       *
+       * @param request ModifyReviewRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyReviewRuleResponse
+       */
+      Models::ModifyReviewRuleResponse modifyReviewRuleWithOptions(const Models::ModifyReviewRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies an audit policy.
+       *
+       * @param request ModifyReviewRuleRequest
+       * @return ModifyReviewRuleResponse
+       */
+      Models::ModifyReviewRuleResponse modifyReviewRule(const Models::ModifyReviewRuleRequest &request);
+
+      /**
+       * @summary Updates the basic information of an authorization rule.
        *
        * @param request ModifyRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2344,7 +2964,7 @@ namespace YundunBastionhost20191209
       Models::ModifyRuleResponse modifyRuleWithOptions(const Models::ModifyRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the basic information of an authorization rule.
+       * @summary Updates the basic information of an authorization rule.
        *
        * @param request ModifyRuleRequest
        * @return ModifyRuleResponse
@@ -2369,7 +2989,7 @@ namespace YundunBastionhost20191209
       Models::ModifyUserResponse modifyUser(const Models::ModifyUserRequest &request);
 
       /**
-       * @summary Modifies the information about a user group.
+       * @summary Modifies the information of a user group.
        *
        * @param request ModifyUserGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2378,7 +2998,7 @@ namespace YundunBastionhost20191209
       Models::ModifyUserGroupResponse modifyUserGroupWithOptions(const Models::ModifyUserGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the information about a user group.
+       * @summary Modifies the information of a user group.
        *
        * @param request ModifyUserGroupRequest
        * @return ModifyUserGroupResponse
@@ -2403,7 +3023,7 @@ namespace YundunBastionhost20191209
       Models::ModifyUserPublicKeyResponse modifyUserPublicKey(const Models::ModifyUserPublicKeyRequest &request);
 
       /**
-       * @summary Adds multiple databases to a network domain at a time.
+       * @summary Moves multiple databases to a specified network domain.
        *
        * @param request MoveDatabasesToNetworkDomainRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2412,7 +3032,7 @@ namespace YundunBastionhost20191209
       Models::MoveDatabasesToNetworkDomainResponse moveDatabasesToNetworkDomainWithOptions(const Models::MoveDatabasesToNetworkDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds multiple databases to a network domain at a time.
+       * @summary Moves multiple databases to a specified network domain.
        *
        * @param request MoveDatabasesToNetworkDomainRequest
        * @return MoveDatabasesToNetworkDomainResponse
@@ -2420,7 +3040,7 @@ namespace YundunBastionhost20191209
       Models::MoveDatabasesToNetworkDomainResponse moveDatabasesToNetworkDomain(const Models::MoveDatabasesToNetworkDomainRequest &request);
 
       /**
-       * @summary Adds multiple hosts to a network domain at a time.
+       * @summary Moves multiple hosts to a specified network domain.
        *
        * @param request MoveHostsToNetworkDomainRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2429,7 +3049,7 @@ namespace YundunBastionhost20191209
       Models::MoveHostsToNetworkDomainResponse moveHostsToNetworkDomainWithOptions(const Models::MoveHostsToNetworkDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds multiple hosts to a network domain at a time.
+       * @summary Moves multiple hosts to a specified network domain.
        *
        * @param request MoveHostsToNetworkDomainRequest
        * @return MoveHostsToNetworkDomainResponse
@@ -2454,10 +3074,10 @@ namespace YundunBastionhost20191209
       Models::MoveResourceGroupResponse moveResourceGroup(const Models::MoveResourceGroupRequest &request);
 
       /**
-       * @summary If an O\\\\\\\\\\\\&M engineer attempts to run a command specified in the Command Approval section of the Create Control Policy page, the administrator is notified to review the command in the Bastionhost console. The command can be run only after it is approved by the administrator.
+       * @summary Rejects a command execution request. If an O&M engineer executes a command configured in a command approval policy, the administrator receives an approval request in the Bastionhost console. The command can be executed only after the administrator approves it. If the request is rejected, the command cannot be executed.
        *
-       * @description Rejects an O\\&M engineer\\"s command execution request as a Bastionhost administrator.
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This API operation allows administrators to reject command execution requests from O&M engineers.
+       * The queries per second (QPS) limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable frequency.
        *
        * @param request RejectApproveCommandRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2466,10 +3086,10 @@ namespace YundunBastionhost20191209
       Models::RejectApproveCommandResponse rejectApproveCommandWithOptions(const Models::RejectApproveCommandRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary If an O\\\\\\\\\\\\&M engineer attempts to run a command specified in the Command Approval section of the Create Control Policy page, the administrator is notified to review the command in the Bastionhost console. The command can be run only after it is approved by the administrator.
+       * @summary Rejects a command execution request. If an O&M engineer executes a command configured in a command approval policy, the administrator receives an approval request in the Bastionhost console. The command can be executed only after the administrator approves it. If the request is rejected, the command cannot be executed.
        *
-       * @description Rejects an O\\&M engineer\\"s command execution request as a Bastionhost administrator.
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This API operation allows administrators to reject command execution requests from O&M engineers.
+       * The queries per second (QPS) limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable frequency.
        *
        * @param request RejectApproveCommandRequest
        * @return RejectApproveCommandResponse
@@ -2494,10 +3114,10 @@ namespace YundunBastionhost20191209
       Models::RejectOperationTaskApprovalResponse rejectOperationTaskApproval(const Models::RejectOperationTaskApprovalRequest &request);
 
       /**
-       * @summary If a Bastionhost administrator enables O\\\\\\\\\\\\\\\\\\\\\\\\&M Approval on the Create Control Policy page, O\\\\\\\\\\\\\\\\\\\\\\\\&M engineers can log on to assets to perform O\\\\\\\\\\\\\\\\\\\\\\\\&M operations only after the administrator approves their O\\\\\\\\\\\\\\\\\\\\\\\\&M applications.
+       * @summary Rejects an O&M application. If O&M approval is enabled in the control policy configured by the administrator, O&M engineers must apply for O&M and obtain administrator approval before logging on to assets.
        *
-       * @description Rejects an O\\&M engineer\\"s O\\&M application as a Bastionhost administrator.
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description Rejects an O&M application submitted by an O&M engineer.
+       * The queries per second (QPS) limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
        *
        * @param request RejectOperationTicketRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2506,10 +3126,10 @@ namespace YundunBastionhost20191209
       Models::RejectOperationTicketResponse rejectOperationTicketWithOptions(const Models::RejectOperationTicketRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary If a Bastionhost administrator enables O\\\\\\\\\\\\\\\\\\\\\\\\&M Approval on the Create Control Policy page, O\\\\\\\\\\\\\\\\\\\\\\\\&M engineers can log on to assets to perform O\\\\\\\\\\\\\\\\\\\\\\\\&M operations only after the administrator approves their O\\\\\\\\\\\\\\\\\\\\\\\\&M applications.
+       * @summary Rejects an O&M application. If O&M approval is enabled in the control policy configured by the administrator, O&M engineers must apply for O&M and obtain administrator approval before logging on to assets.
        *
-       * @description Rejects an O\\&M engineer\\"s O\\&M application as a Bastionhost administrator.
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description Rejects an O&M application submitted by an O&M engineer.
+       * The queries per second (QPS) limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
        *
        * @param request RejectOperationTicketRequest
        * @return RejectOperationTicketResponse
@@ -2534,11 +3154,11 @@ namespace YundunBastionhost20191209
       Models::RemoveDatabasesFromGroupResponse removeDatabasesFromGroup(const Models::RemoveDatabasesFromGroupRequest &request);
 
       /**
-       * @summary Removes multiple hosts from an asset group at a time.
+       * @summary Removes multiple hosts from a specified host group.
        *
-       * @description Removes multiple hosts from an asset group. If certain hosts no longer need to be managed through an asset group, you can use this operation to remove them.
-       * # [](#qps-)QPS limit
-       * You can call this API operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+       * @description This operation removes multiple hosts from a host group. If some hosts no longer require unified management through a host group, you can use this operation to remove them.
+       * ### QPS limits
+       * The QPS limit per user is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
        *
        * @param request RemoveHostsFromGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2547,11 +3167,11 @@ namespace YundunBastionhost20191209
       Models::RemoveHostsFromGroupResponse removeHostsFromGroupWithOptions(const Models::RemoveHostsFromGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes multiple hosts from an asset group at a time.
+       * @summary Removes multiple hosts from a specified host group.
        *
-       * @description Removes multiple hosts from an asset group. If certain hosts no longer need to be managed through an asset group, you can use this operation to remove them.
-       * # [](#qps-)QPS limit
-       * You can call this API operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+       * @description This operation removes multiple hosts from a host group. If some hosts no longer require unified management through a host group, you can use this operation to remove them.
+       * ### QPS limits
+       * The QPS limit per user is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
        *
        * @param request RemoveHostsFromGroupRequest
        * @return RemoveHostsFromGroupResponse
@@ -2580,11 +3200,12 @@ namespace YundunBastionhost20191209
       Models::RemoveInstanceRdMemberResponse removeInstanceRdMember(const Models::RemoveInstanceRdMemberRequest &request);
 
       /**
-       * @summary Removes one or more users from a user group.
+       * @summary Removes multiple users from a user group.
        *
-       * @description Removes one or more users from a user group at once. Use this operation when users transfer to new positions, resign, or switch to another user group.
-       * ## QPS limit
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description ### Usage notes
+       * This operation removes multiple users from a user group. You can call this operation to remove users from a user group in batches when users resign or transfer to other departments and their permissions need to be revoked, or when users switch to another user group.
+       * ### QPS limits
+       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate.
        *
        * @param request RemoveUsersFromGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2593,11 +3214,12 @@ namespace YundunBastionhost20191209
       Models::RemoveUsersFromGroupResponse removeUsersFromGroupWithOptions(const Models::RemoveUsersFromGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes one or more users from a user group.
+       * @summary Removes multiple users from a user group.
        *
-       * @description Removes one or more users from a user group at once. Use this operation when users transfer to new positions, resign, or switch to another user group.
-       * ## QPS limit
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description ### Usage notes
+       * This operation removes multiple users from a user group. You can call this operation to remove users from a user group in batches when users resign or transfer to other departments and their permissions need to be revoked, or when users switch to another user group.
+       * ### QPS limits
+       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate.
        *
        * @param request RemoveUsersFromGroupRequest
        * @return RemoveUsersFromGroupResponse
@@ -2605,7 +3227,7 @@ namespace YundunBastionhost20191209
       Models::RemoveUsersFromGroupResponse removeUsersFromGroup(const Models::RemoveUsersFromGroupRequest &request);
 
       /**
-       * @summary Renews an O\\\\\\\\\\\\&M token for one hour.
+       * @summary Renews an O&M token. Each call extends the validity of the O&M token by 1 hour.
        *
        * @param request RenewAssetOperationTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2614,7 +3236,7 @@ namespace YundunBastionhost20191209
       Models::RenewAssetOperationTokenResponse renewAssetOperationTokenWithOptions(const Models::RenewAssetOperationTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Renews an O\\\\\\\\\\\\&M token for one hour.
+       * @summary Renews an O&M token. Each call extends the validity of the O&M token by 1 hour.
        *
        * @param request RenewAssetOperationTokenRequest
        * @return RenewAssetOperationTokenResponse
@@ -2622,7 +3244,7 @@ namespace YundunBastionhost20191209
       Models::RenewAssetOperationTokenResponse renewAssetOperationToken(const Models::RenewAssetOperationTokenRequest &request);
 
       /**
-       * @summary Clears the credential (password or SSH private key) for a specified host account.
+       * @summary Purges the logon credentials (password or SSH private key) of a specified host account.
        *
        * @param request ResetHostAccountCredentialRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2631,7 +3253,7 @@ namespace YundunBastionhost20191209
       Models::ResetHostAccountCredentialResponse resetHostAccountCredentialWithOptions(const Models::ResetHostAccountCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Clears the credential (password or SSH private key) for a specified host account.
+       * @summary Purges the logon credentials (password or SSH private key) of a specified host account.
        *
        * @param request ResetHostAccountCredentialRequest
        * @return ResetHostAccountCredentialResponse
@@ -2639,7 +3261,7 @@ namespace YundunBastionhost20191209
       Models::ResetHostAccountCredentialResponse resetHostAccountCredential(const Models::ResetHostAccountCredentialRequest &request);
 
       /**
-       * @summary Configures the logon period limits in a control policy.
+       * @summary Configures the logon time limit settings for a specified control policy.
        *
        * @param tmpReq SetPolicyAccessTimeRangeConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2648,7 +3270,7 @@ namespace YundunBastionhost20191209
       Models::SetPolicyAccessTimeRangeConfigResponse setPolicyAccessTimeRangeConfigWithOptions(const Models::SetPolicyAccessTimeRangeConfigRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures the logon period limits in a control policy.
+       * @summary Configures the logon time limit settings for a specified control policy.
        *
        * @param request SetPolicyAccessTimeRangeConfigRequest
        * @return SetPolicyAccessTimeRangeConfigResponse
@@ -2656,7 +3278,7 @@ namespace YundunBastionhost20191209
       Models::SetPolicyAccessTimeRangeConfigResponse setPolicyAccessTimeRangeConfig(const Models::SetPolicyAccessTimeRangeConfigRequest &request);
 
       /**
-       * @summary Configures the O\\\\&M approval setting in a control policy.
+       * @summary Configures the O&M approval configuration for a specified control policy.
        *
        * @param tmpReq SetPolicyApprovalConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2665,7 +3287,7 @@ namespace YundunBastionhost20191209
       Models::SetPolicyApprovalConfigResponse setPolicyApprovalConfigWithOptions(const Models::SetPolicyApprovalConfigRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures the O\\\\&M approval setting in a control policy.
+       * @summary Configures the O&M approval configuration for a specified control policy.
        *
        * @param request SetPolicyApprovalConfigRequest
        * @return SetPolicyApprovalConfigResponse
@@ -2673,7 +3295,7 @@ namespace YundunBastionhost20191209
       Models::SetPolicyApprovalConfigResponse setPolicyApprovalConfig(const Models::SetPolicyApprovalConfigRequest &request);
 
       /**
-       * @summary Specifies the assets to which a control policy applies.
+       * @summary Sets the effective asset scope for a specified control policy.
        *
        * @param request SetPolicyAssetScopeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2682,7 +3304,7 @@ namespace YundunBastionhost20191209
       Models::SetPolicyAssetScopeResponse setPolicyAssetScopeWithOptions(const Models::SetPolicyAssetScopeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Specifies the assets to which a control policy applies.
+       * @summary Sets the effective asset scope for a specified control policy.
        *
        * @param request SetPolicyAssetScopeRequest
        * @return SetPolicyAssetScopeResponse
@@ -2690,7 +3312,7 @@ namespace YundunBastionhost20191209
       Models::SetPolicyAssetScopeResponse setPolicyAssetScope(const Models::SetPolicyAssetScopeRequest &request);
 
       /**
-       * @summary Specifies the commands that can or cannot be run by the users or on the assets associated with the policy and the commands that must be reviewed.
+       * @summary Configures the commands that are allowed or denied, and the commands that require approval for the users and hosts to which a specified policy applies.
        *
        * @param tmpReq SetPolicyCommandConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2699,7 +3321,7 @@ namespace YundunBastionhost20191209
       Models::SetPolicyCommandConfigResponse setPolicyCommandConfigWithOptions(const Models::SetPolicyCommandConfigRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Specifies the commands that can or cannot be run by the users or on the assets associated with the policy and the commands that must be reviewed.
+       * @summary Configures the commands that are allowed or denied, and the commands that require approval for the users and hosts to which a specified policy applies.
        *
        * @param request SetPolicyCommandConfigRequest
        * @return SetPolicyCommandConfigResponse
@@ -2707,7 +3329,7 @@ namespace YundunBastionhost20191209
       Models::SetPolicyCommandConfigResponse setPolicyCommandConfig(const Models::SetPolicyCommandConfigRequest &request);
 
       /**
-       * @summary Specifies whether a source IP address can access the assets to which a control policy applies.
+       * @summary Configures whether source IP addresses can access hosts to which the current policy applies.
        *
        * @param tmpReq SetPolicyIPAclConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2716,7 +3338,7 @@ namespace YundunBastionhost20191209
       Models::SetPolicyIPAclConfigResponse setPolicyIPAclConfigWithOptions(const Models::SetPolicyIPAclConfigRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Specifies whether a source IP address can access the assets to which a control policy applies.
+       * @summary Configures whether source IP addresses can access hosts to which the current policy applies.
        *
        * @param request SetPolicyIPAclConfigRequest
        * @return SetPolicyIPAclConfigResponse
@@ -2724,7 +3346,7 @@ namespace YundunBastionhost20191209
       Models::SetPolicyIPAclConfigResponse setPolicyIPAclConfig(const Models::SetPolicyIPAclConfigRequest &request);
 
       /**
-       * @summary Sets the Remote Desktop Protocol (RDP), Secure Shell (SSH), and SSH File Transfer Protocol (SFTP) options for a control policy.
+       * @summary Configures the RDP, SSH, and SFTP options of a control policy.
        *
        * @param tmpReq SetPolicyProtocolConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2733,7 +3355,7 @@ namespace YundunBastionhost20191209
       Models::SetPolicyProtocolConfigResponse setPolicyProtocolConfigWithOptions(const Models::SetPolicyProtocolConfigRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sets the Remote Desktop Protocol (RDP), Secure Shell (SSH), and SSH File Transfer Protocol (SFTP) options for a control policy.
+       * @summary Configures the RDP, SSH, and SFTP options of a control policy.
        *
        * @param request SetPolicyProtocolConfigRequest
        * @return SetPolicyProtocolConfigResponse
@@ -2741,7 +3363,7 @@ namespace YundunBastionhost20191209
       Models::SetPolicyProtocolConfigResponse setPolicyProtocolConfig(const Models::SetPolicyProtocolConfigRequest &request);
 
       /**
-       * @summary Specifies the users to whom a control policy applies.
+       * @summary Sets the user scope for a specified control policy.
        *
        * @param request SetPolicyUserScopeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2750,7 +3372,7 @@ namespace YundunBastionhost20191209
       Models::SetPolicyUserScopeResponse setPolicyUserScopeWithOptions(const Models::SetPolicyUserScopeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Specifies the users to whom a control policy applies.
+       * @summary Sets the user scope for a specified control policy.
        *
        * @param request SetPolicyUserScopeRequest
        * @return SetPolicyUserScopeResponse
@@ -2775,7 +3397,7 @@ namespace YundunBastionhost20191209
       Models::StartInstanceResponse startInstance(const Models::StartInstanceRequest &request);
 
       /**
-       * @summary Creates and attaches tags to one or more Bastionhost instances.
+       * @summary Creates and binds tags for specified Bastionhost instances.
        *
        * @param request TagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2784,7 +3406,7 @@ namespace YundunBastionhost20191209
       Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates and attaches tags to one or more Bastionhost instances.
+       * @summary Creates and binds tags for specified Bastionhost instances.
        *
        * @param request TagResourcesRequest
        * @return TagResourcesResponse
@@ -2817,7 +3439,7 @@ namespace YundunBastionhost20191209
       Models::UnlockUsersResponse unlockUsers(const Models::UnlockUsersRequest &request);
 
       /**
-       * @summary Removes tags from one or more Bastionhost instances. You can remove specific tag key-value pairs or all tags at once.
+       * @summary Unbinds and deletes tags from a specified Bastionhost instance in batches.
        *
        * @param request UntagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2826,7 +3448,7 @@ namespace YundunBastionhost20191209
       Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes tags from one or more Bastionhost instances. You can remove specific tag key-value pairs or all tags at once.
+       * @summary Unbinds and deletes tags from a specified Bastionhost instance in batches.
        *
        * @param request UntagResourcesRequest
        * @return UntagResourcesResponse

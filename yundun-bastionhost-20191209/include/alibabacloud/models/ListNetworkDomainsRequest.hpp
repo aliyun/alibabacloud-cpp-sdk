@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(NetworkDomainType, networkDomainType_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, ListNetworkDomainsRequest& obj) { 
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(NetworkDomainType, networkDomainType_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
     ListNetworkDomainsRequest() = default ;
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && this->networkDomainName_ == nullptr && this->networkDomainType_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr; };
+        && this->networkDomainName_ == nullptr && this->networkDomainType_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->projectId_ == nullptr
+        && this->regionId_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -76,6 +79,13 @@ namespace Models
     inline ListNetworkDomainsRequest& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline ListNetworkDomainsRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -84,9 +94,8 @@ namespace Models
 
 
   protected:
-    // The ID of the Bastionhost instance.
-    // 
-    // > Call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the instance ID.
+    // The instance ID of the Bastionhost instance.
+    // > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -95,18 +104,18 @@ namespace Models
     // The type of the network domain. Valid values:
     // 
     // - **Direct**: direct connection
-    // 
-    // - **Proxy**: proxy connection
+    // - **Proxy**: proxy
     shared_ptr<string> networkDomainType_ {};
-    // The number of the page to return. Default value: **1**.
+    // The page number of the current page for paging in a paged query. Default value: **1**.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries to return on each page.<br> The maximum value is 100. The default value is 20. If you do not specify this parameter, 20 entries are returned on each page.<br>
-    // 
-    // > Do not leave the PageSize value empty.
+    // The maximum number of entries to return on each page for paging in a paged query.  
+    // Maximum value: 100. Default value: 20. If this parameter is left empty, 20 entries are returned by default.
+    // > Do not leave this parameter empty.
     shared_ptr<string> pageSize_ {};
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
     // The region ID of the Bastionhost instance.
-    // 
-    // > For more information about regions and zones, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
   };
 

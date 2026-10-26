@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(Source, source_);
       DARABONBA_PTR_TO_JSON(SourceInstanceId, sourceInstanceId_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(Source, source_);
       DARABONBA_PTR_FROM_JSON(SourceInstanceId, sourceInstanceId_);
@@ -49,7 +51,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->databaseAddress_ == nullptr
         && this->databaseName_ == nullptr && this->databaseType_ == nullptr && this->instanceId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
-        && this->regionId_ == nullptr && this->source_ == nullptr && this->sourceInstanceId_ == nullptr && this->sourceInstanceState_ == nullptr; };
+        && this->projectId_ == nullptr && this->regionId_ == nullptr && this->source_ == nullptr && this->sourceInstanceId_ == nullptr && this->sourceInstanceState_ == nullptr; };
     // databaseAddress Field Functions 
     bool hasDatabaseAddress() const { return this->databaseAddress_ != nullptr;};
     void deleteDatabaseAddress() { this->databaseAddress_ = nullptr;};
@@ -92,6 +94,13 @@ namespace Models
     inline ListOperationDatabasesRequest& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline ListOperationDatabasesRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -121,51 +130,44 @@ namespace Models
 
 
   protected:
-    // The address of the database.
+    // The address of the database instance.
     shared_ptr<string> databaseAddress_ {};
-    // The name of the database. This parameter supports only exact matches.
+    // The name of the database instance. Exact match is used.
     shared_ptr<string> databaseName_ {};
     // The database type. Valid values:
     // 
     // - **MySQL**
-    // 
     // - **SQLServer**
-    // 
     // - **Oracle**
-    // 
     // - **PostgreSQL**
     shared_ptr<string> databaseType_ {};
-    // The ID of the Bastionhost instance.
-    // 
-    // > Call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
+    // The instance ID of the bastion host.
+    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the value of this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The page number. The default value is **1**.
+    // The page number of the current page for a paged query. Default value: **1**.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries to return on each page.<br>The maximum value is 100. The default value is 20. If you do not specify this parameter, 20 entries are returned.<br>
-    // 
-    // > Specify a value for this parameter.
+    // The maximum number of entries to return on each page for a paged query.  
+    // The maximum value of the PageSize parameter is 100. Default value: 20. If the PageSize parameter is left empty, 20 entries are returned by default.
+    // > Do not leave the PageSize parameter empty.
     shared_ptr<string> pageSize_ {};
-    // The region ID of the Bastionhost instance.
-    // 
-    // > For more information, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
+    // The region ID of the bastion host.
+    // > For the mappings between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
-    // The source of the database. Valid values:
-    // 
-    // - **Local**: a local database
-    // 
-    // - **Rds**: an ApsaraDB RDS database
-    // 
-    // - **PolarDB**: a PolarDB database
+    // The source of the database instance. Valid values:
+    // - **Local**: on-premises database
+    // - **Rds**: ApsaraDB RDS database
+    // - **PolarDB**: PolarDB database
     shared_ptr<string> source_ {};
-    // The ID of the source instance. This parameter supports only exact matches.
+    // The instance ID of the ApsaraDB RDS instance. Exact match.
     shared_ptr<string> sourceInstanceId_ {};
-    // The status of the source instance. You can use this parameter to filter the results.
+    // Filters database instances by instance status. Valid values:
     // 
-    // - **Normal**: The instance is running.
-    // 
-    // - **RemoteRelease**: The instance is released.
+    // - **Normal**: normal
+    // - **RemoteRelease**: released
     shared_ptr<string> sourceInstanceState_ {};
   };
 

@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(HostGroups, hostGroups_);
       DARABONBA_PTR_TO_JSON(Hosts, hosts_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(RuleName, ruleName_);
       DARABONBA_PTR_TO_JSON(UserGroupIds, userGroupIds_);
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(HostGroups, hostGroups_);
       DARABONBA_PTR_FROM_JSON(Hosts, hosts_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(RuleName, ruleName_);
       DARABONBA_PTR_FROM_JSON(UserGroupIds, userGroupIds_);
@@ -90,7 +92,7 @@ namespace Models
 
 
     protected:
-      // An array that consists of host account IDs.
+      // The array of host account IDs.
       shared_ptr<vector<string>> hostAccountIds_ {};
       // The host ID.
       shared_ptr<string> hostId_ {};
@@ -136,7 +138,7 @@ namespace Models
 
 
     protected:
-      // An array that consists of asset account names.
+      // The array of asset account names.
       shared_ptr<vector<string>> hostAccountNames_ {};
       // The asset group ID.
       shared_ptr<string> hostGroupId_ {};
@@ -182,15 +184,16 @@ namespace Models
 
 
     protected:
-      // An array that consists of database account IDs.
+      // The array of database account IDs.
       shared_ptr<vector<string>> databaseAccountIds_ {};
-      // The database ID.
+      // The database instance ID.
       shared_ptr<string> databaseId_ {};
     };
 
     virtual bool empty() const override { return this->comment_ == nullptr
         && this->databases_ == nullptr && this->effectiveEndTime_ == nullptr && this->effectiveStartTime_ == nullptr && this->hostGroups_ == nullptr && this->hosts_ == nullptr
-        && this->instanceId_ == nullptr && this->regionId_ == nullptr && this->ruleName_ == nullptr && this->userGroupIds_ == nullptr && this->userIds_ == nullptr; };
+        && this->instanceId_ == nullptr && this->projectId_ == nullptr && this->regionId_ == nullptr && this->ruleName_ == nullptr && this->userGroupIds_ == nullptr
+        && this->userIds_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
@@ -246,6 +249,13 @@ namespace Models
     inline CreateRuleRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline CreateRuleRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -279,35 +289,35 @@ namespace Models
 
 
   protected:
-    // The remarks of the authorization rule. The remarks can be up to 500 characters in length.
+    // The description of the authorization rule. Maximum length: 500 characters.
     shared_ptr<string> comment_ {};
-    // The information about the database that runs on your server.
+    // The database information.
     shared_ptr<vector<CreateRuleRequest::Databases>> databases_ {};
-    // The end time of the validity period of the authorization rule. Specify a UNIX timestamp representing the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The end time of the validity period for the authorization rule, in seconds (timestamp format).
     shared_ptr<int64_t> effectiveEndTime_ {};
-    // The start time of the validity period of the authorization rule. Specify a UNIX timestamp representing the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The start time of the validity period for the authorization rule, in seconds (timestamp format).
     shared_ptr<int64_t> effectiveStartTime_ {};
-    // The information about the asset group that you want to authorize to manage.
+    // The asset group information to authorize.
     shared_ptr<vector<CreateRuleRequest::HostGroups>> hostGroups_ {};
     // The host information.
     shared_ptr<vector<CreateRuleRequest::Hosts>> hosts_ {};
-    // The bastion host ID.
-    // 
-    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+    // The instance ID of the bastion host.
+    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
     // The region ID of the bastion host.
-    // 
-    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
-    // The name of the authorization rule. The name can be up to 128 characters in length.
+    // The name of the authorization rule. Maximum length: 128 characters.
     // 
     // This parameter is required.
     shared_ptr<string> ruleName_ {};
-    // An array that consists of user group IDs.
+    // The array of user group IDs.
     shared_ptr<vector<string>> userGroupIds_ {};
-    // An array that consists of user IDs.
+    // The array of user IDs.
     shared_ptr<vector<string>> userIds_ {};
   };
 

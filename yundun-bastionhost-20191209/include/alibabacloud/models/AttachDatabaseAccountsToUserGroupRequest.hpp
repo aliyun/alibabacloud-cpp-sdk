@@ -16,12 +16,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const AttachDatabaseAccountsToUserGroupRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Databases, databases_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(UserGroupId, userGroupId_);
     };
     friend void from_json(const Darabonba::Json& j, AttachDatabaseAccountsToUserGroupRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Databases, databases_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(UserGroupId, userGroupId_);
     };
@@ -76,14 +78,14 @@ namespace Models
 
 
     protected:
-      // An array of database account IDs.
+      // The array of database account IDs.
       shared_ptr<vector<string>> databaseAccountIds_ {};
-      // The ID of the database instance on which you want to grant permissions.
+      // The ID of the database instance to which you want to grant permissions.
       shared_ptr<string> databaseId_ {};
     };
 
     virtual bool empty() const override { return this->databases_ == nullptr
-        && this->instanceId_ == nullptr && this->regionId_ == nullptr && this->userGroupId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->projectId_ == nullptr && this->regionId_ == nullptr && this->userGroupId_ == nullptr; };
     // databases Field Functions 
     bool hasDatabases() const { return this->databases_ != nullptr;};
     void deleteDatabases() { this->databases_ = nullptr;};
@@ -98,6 +100,13 @@ namespace Models
     void deleteInstanceId() { this->instanceId_ = nullptr;};
     inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline AttachDatabaseAccountsToUserGroupRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline AttachDatabaseAccountsToUserGroupRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // regionId Field Functions 
@@ -115,21 +124,20 @@ namespace Models
 
 
   protected:
-    // An array of database objects.
-    // 
-    // > You can specify up to 10 databases and 10 database accounts. If you do not specify any database accounts, permissions are granted on the entire database.
+    // The array of database objects.
+    // > A maximum of 10 databases and 10 database accounts are supported. You can leave the database accounts unspecified. If no database accounts are specified, permissions are granted at the database level.
     shared_ptr<vector<AttachDatabaseAccountsToUserGroupRequest::Databases>> databases_ {};
-    // The ID of the Bastionhost instance.
-    // 
-    // > Call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the instance ID.
+    // The instance ID of the bastion host.
+    // > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region ID of the Bastionhost instance.
-    // 
-    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
+    // The region ID of the bastion host.
+    // > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
-    // The ID of the user group to which to grant the permissions.
+    // The ID of the user group to which you want to grant permissions.
     // 
     // This parameter is required.
     shared_ptr<string> userGroupId_ {};

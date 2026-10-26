@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The asset group ID.
+    // The ID of the asset group.
     shared_ptr<string> hostGroupId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

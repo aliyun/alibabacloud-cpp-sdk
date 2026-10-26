@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DatabaseSchema, databaseSchema_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(Password, password_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyDatabaseAccountRequest& obj) { 
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DatabaseSchema, databaseSchema_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(Password, password_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
     ModifyDatabaseAccountRequest() = default ;
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->databaseAccountId_ == nullptr
-        && this->databaseAccountName_ == nullptr && this->databaseSchema_ == nullptr && this->instanceId_ == nullptr && this->password_ == nullptr && this->regionId_ == nullptr; };
+        && this->databaseAccountName_ == nullptr && this->databaseSchema_ == nullptr && this->instanceId_ == nullptr && this->password_ == nullptr && this->projectId_ == nullptr
+        && this->regionId_ == nullptr; };
     // databaseAccountId Field Functions 
     bool hasDatabaseAccountId() const { return this->databaseAccountId_ != nullptr;};
     void deleteDatabaseAccountId() { this->databaseAccountId_ = nullptr;};
@@ -76,6 +79,13 @@ namespace Models
     inline ModifyDatabaseAccountRequest& setPassword(string password) { DARABONBA_PTR_SET_VALUE(password_, password) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline ModifyDatabaseAccountRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -84,26 +94,25 @@ namespace Models
 
 
   protected:
-    // The ID of the database account to modify.
-    // 
-    // > You can call the [ListDatabaseAccounts](https://help.aliyun.com/document_detail/2758839.html) operation to query the database account ID.
+    // The ID of the database account to be modified.
+    // > You can call the [ListDatabaseAccounts](https://help.aliyun.com/document_detail/2758839.html) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> databaseAccountId_ {};
-    // The new username of the database account. The username can be up to 128 characters in length.
+    // The new name of the database account. The name can be up to 128 characters in length.
     shared_ptr<string> databaseAccountName_ {};
-    // The new name of the database. This parameter is required if the database engine is PostgreSQL or Oracle.
+    // The new database schema name. This parameter is required when the database specified by DatabaseId is a PostgreSQL or Oracle database.
     shared_ptr<string> databaseSchema_ {};
-    // The ID of the bastion host that manages the database account to modify.
-    // 
-    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+    // The instance ID of the Bastionhost instance where the database account to be modified resides.
+    // > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The new password of the database account.
     shared_ptr<string> password_ {};
-    // The region ID of the bastion host that manages the database account to modify.
-    // 
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
+    // The region ID of the Bastionhost instance where the database account to be modified resides.
     // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
   };

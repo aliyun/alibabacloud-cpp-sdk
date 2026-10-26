@@ -44,6 +44,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(HostPrivateAddress, hostPrivateAddress_);
         DARABONBA_PTR_TO_JSON(HostPublicAddress, hostPublicAddress_);
         DARABONBA_PTR_TO_JSON(OSType, OSType_);
+        DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
+        DARABONBA_PTR_TO_JSON(ProjectName, projectName_);
       };
       friend void from_json(const Darabonba::Json& j, Hosts& obj) { 
         DARABONBA_PTR_FROM_JSON(ActiveAddressType, activeAddressType_);
@@ -53,6 +55,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(HostPrivateAddress, hostPrivateAddress_);
         DARABONBA_PTR_FROM_JSON(HostPublicAddress, hostPublicAddress_);
         DARABONBA_PTR_FROM_JSON(OSType, OSType_);
+        DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
+        DARABONBA_PTR_FROM_JSON(ProjectName, projectName_);
       };
       Hosts() = default ;
       Hosts(const Hosts &) = default ;
@@ -67,7 +71,7 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->activeAddressType_ == nullptr
         && this->comment_ == nullptr && this->hostId_ == nullptr && this->hostName_ == nullptr && this->hostPrivateAddress_ == nullptr && this->hostPublicAddress_ == nullptr
-        && this->OSType_ == nullptr; };
+        && this->OSType_ == nullptr && this->projectId_ == nullptr && this->projectName_ == nullptr; };
       // activeAddressType Field Functions 
       bool hasActiveAddressType() const { return this->activeAddressType_ != nullptr;};
       void deleteActiveAddressType() { this->activeAddressType_ = nullptr;};
@@ -117,12 +121,24 @@ namespace Models
       inline Hosts& setOSType(string OSType) { DARABONBA_PTR_SET_VALUE(OSType_, OSType) };
 
 
+      // projectId Field Functions 
+      bool hasProjectId() const { return this->projectId_ != nullptr;};
+      void deleteProjectId() { this->projectId_ = nullptr;};
+      inline string getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
+      inline Hosts& setProjectId(string projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
+      // projectName Field Functions 
+      bool hasProjectName() const { return this->projectName_ != nullptr;};
+      void deleteProjectName() { this->projectName_ = nullptr;};
+      inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+      inline Hosts& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
+
+
     protected:
-      // The endpoint type of the host. Valid values:
-      // 
-      // - **Public**: public endpoint
-      // 
-      // - **Private**: internal endpoint
+      // The address type of the host. Valid values:
+      // - **Public**: Public network address.
+      // - **Private**: Private network address.
       shared_ptr<string> activeAddressType_ {};
       // The description of the host.
       shared_ptr<string> comment_ {};
@@ -130,16 +146,18 @@ namespace Models
       shared_ptr<string> hostId_ {};
       // The name of the host.
       shared_ptr<string> hostName_ {};
-      // The internal endpoint of the host. The value is a domain name or an IP address.
+      // The private network address of the host, which can be a domain name or an IP address.
       shared_ptr<string> hostPrivateAddress_ {};
-      // The public endpoint of the host. The value is a domain name or an IP address.
+      // The public network address of the host, which can be a domain name or an IP address.
       shared_ptr<string> hostPublicAddress_ {};
-      // The operating system of the host. Valid values:
-      // 
+      // The operating system type of the host. Valid values:
       // - **Linux**
-      // 
       // - **Windows**
       shared_ptr<string> OSType_ {};
+      // The project ID.
+      shared_ptr<string> projectId_ {};
+      // The name of the project.
+      shared_ptr<string> projectName_ {};
     };
 
     virtual bool empty() const override { return this->hosts_ == nullptr
@@ -168,9 +186,9 @@ namespace Models
 
 
   protected:
-    // The hosts returned.
+    // The list of hosts returned.
     shared_ptr<vector<ListHostsForUserResponseBody::Hosts>> hosts_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The total number of hosts returned.
     shared_ptr<int32_t> totalCount_ {};

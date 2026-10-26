@@ -16,12 +16,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ApprovalConfig, approvalConfig_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(PolicyId, policyId_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, SetPolicyApprovalConfigRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ApprovalConfig, approvalConfig_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(PolicyId, policyId_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
     SetPolicyApprovalConfigRequest() = default ;
@@ -63,18 +65,17 @@ namespace Models
 
 
     protected:
-      // Specifies whether to enable O\\&M approval in the control policy. Valid values:
+      // The O&M approval configuration in the control policy. Valid values:
       // 
-      // - **On**: enables O\\&M approval.
-      // 
-      // - **Off**: disables O\\&M approval.
+      // - **On**: Enables O&M approval.
+      // - **Off**: Disables O&M approval.
       // 
       // This parameter is required.
       shared_ptr<string> switchStatus_ {};
     };
 
     virtual bool empty() const override { return this->approvalConfig_ == nullptr
-        && this->instanceId_ == nullptr && this->policyId_ == nullptr && this->regionId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->policyId_ == nullptr && this->projectId_ == nullptr && this->regionId_ == nullptr; };
     // approvalConfig Field Functions 
     bool hasApprovalConfig() const { return this->approvalConfig_ != nullptr;};
     void deleteApprovalConfig() { this->approvalConfig_ = nullptr;};
@@ -98,6 +99,13 @@ namespace Models
     inline SetPolicyApprovalConfigRequest& setPolicyId(string policyId) { DARABONBA_PTR_SET_VALUE(policyId_, policyId) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline SetPolicyApprovalConfigRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -106,25 +114,24 @@ namespace Models
 
 
   protected:
-    // The O\\&M approval setting in the control policy.
+    // The O&M approval configuration in the control policy.
     // 
     // This parameter is required.
     shared_ptr<SetPolicyApprovalConfigRequest::ApprovalConfig> approvalConfig_ {};
-    // The bastion host ID.
-    // 
-    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+    // The Bastionhost instance ID.
+    // > You can call the DescribeInstances operation to obtain the Bastionhost instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The ID of the control policy that you want to modify.
-    // 
-    // > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+    // > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to obtain the value of this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> policyId_ {};
-    // The region ID of the bastion host.
-    // 
-    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
+    // The region ID of the Bastionhost instance.
+    // > For the mappings between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
   };
 

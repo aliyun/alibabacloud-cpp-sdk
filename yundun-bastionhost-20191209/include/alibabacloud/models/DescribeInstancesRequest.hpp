@@ -80,9 +80,9 @@ namespace Models
 
 
     protected:
-      // The key of the tag.
+      // The tag key of the instance.
       shared_ptr<string> key_ {};
-      // The value of the tag.
+      // The tag value of the instance.
       shared_ptr<string> value_ {};
     };
 
@@ -143,33 +143,33 @@ namespace Models
 
 
   protected:
-    // The IDs of the bastion host instances.
+    // The ID of the Bastionhost instance.
     shared_ptr<vector<string>> instanceId_ {};
-    // The status of the bastion host instance. Valid values:
+    // The status of the Bastionhost instance. Valid values:
     // 
-    // - **PENDING**: The instance is not initialized.
+    // - **PENDING**: Uninitialized
     // 
-    // - **CREATING**: The instance is being created.
+    // - **CREATING**: Creating 
     // 
-    // - **RUNNING**: The instance is running.
+    // - **RUNNING**: Running 
     // 
-    // - **EXPIRED**: The instance is expired.
+    // - **EXPIRED**: Expired 
     // 
-    // - **CREATE_FAILED**: The instance creation failed.
+    // - **CREATE_FAILED**: Creation failed
     // 
-    // - **UPGRADING**: The instance is being upgraded.
+    // - **UPGRADING**: Upgrading
     // 
-    // - **UPGRADE_FAILED**: The instance upgrade failed.
+    // - **UPGRADE_FAILED**: Upgrade failed
     shared_ptr<string> instanceStatus_ {};
-    // The page number to return. Default value: **1**.
+    // Specifies the page number of the returned results. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of bastion host instances to return on each page. Default value: **10**.
+    // Settings for a paged query. Specifies the number of Bastionhost instances to display on each page during paging. Default value: **10**, which indicates that 10 Bastionhost instances are displayed on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region in which the bastion host instances reside.
+    // The region ID of the instance.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group to which the bastion host instance belongs.
+    // The ID of the resource group to which the Bastionhost instance belongs.
     shared_ptr<string> resourceGroupId_ {};
-    // The tags attached to the bastion host instances.
+    // The tags of the Bastionhost instance.
     shared_ptr<vector<DescribeInstancesRequest::Tag>> tag_ {};
   };
 

@@ -106,21 +106,16 @@ namespace Models
 
 
       protected:
-        // The return code that indicates whether the user group was authorized to manage the specified host account. Valid values:
-        // 
-        // - **OK**: The call was successful.
-        // 
+        // The result code returned for granting the user group access to the host accounts. Valid values:
+        // - **OK**: The call is successful.
         // - **UNEXPECTED**: An unknown error occurred.
-        // 
         // - **INVALID_ARGUMENT**: A request parameter is invalid.
-        // 
-        // - **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
-        // 
-        // - **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+        // - **OBJECT_NOT_FOUND**: The object on which you want to perform the operation does not exist.
+        // - **OBJECT_AlREADY_EXISTS**: The object on which you want to perform the operation already exists.
         shared_ptr<string> code_ {};
         // The name of the host account.
         shared_ptr<string> hostAccountName_ {};
-        // This parameter is deprecated.
+        // **[Deprecated]** This parameter is deprecated and can be ignored.
         shared_ptr<string> message_ {};
       };
 
@@ -164,23 +159,18 @@ namespace Models
 
 
     protected:
-      // The return code that indicates whether the call was successful. Valid values:
-      // 
-      // - **OK**: The call was successful.
-      // 
+      // The result code of the call. Valid values:
+      // - **OK**: The call is successful.
       // - **UNEXPECTED**: An unknown error occurred.
-      // 
       // - **INVALID_ARGUMENT**: A request parameter is invalid.
-      // 
-      // - **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
-      // 
-      // - **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+      // - **OBJECT_NOT_FOUND**: The object on which you want to perform the operation does not exist.
+      // - **OBJECT_AlREADY_EXISTS**: The object on which you want to perform the operation already exists.
       shared_ptr<string> code_ {};
-      // The result of authorizing the user group to manage the specified host accounts.
+      // The results returned for granting the user group access to the host accounts.
       shared_ptr<vector<Results::HostAccountNames>> hostAccountNames_ {};
       // The ID of the host group.
       shared_ptr<string> hostGroupId_ {};
-      // This parameter is deprecated.
+      // **[Deprecated]** This parameter is deprecated and can be ignored.
       shared_ptr<string> message_ {};
       // The ID of the user group.
       shared_ptr<string> userGroupId_ {};
@@ -207,7 +197,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The result of the call.
+    // The results of the call.
     shared_ptr<vector<AttachHostGroupAccountsToUserGroupResponseBody::Results>> results_ {};
   };
 

@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Hosts, hosts_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(PolicyId, policyId_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ScopeType, scopeType_);
     };
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Hosts, hosts_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(PolicyId, policyId_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ScopeType, scopeType_);
     };
@@ -93,15 +95,14 @@ namespace Models
     protected:
       // The scope of host accounts to which the control policy applies. Valid values:
       // 
-      // - **All**: The control policy applies to all accounts of the host.
-      // 
-      // - **AccountId**: The control policy applies specified accounts of the host.
+      // - **All**: all accounts on the host
+      // - **AccountId**: specified accounts on the host
       shared_ptr<string> accountScopeType_ {};
-      // The host accounts to which the control policy applies.
+      // The scope of host accounts to which the control policy applies.
       // 
-      // > This parameter is required if AccountScopeType is set to AccountId.
+      // > Required when AccountScopeType is set to AccountId.
       shared_ptr<vector<string>> hostAccountIds_ {};
-      // The host ID.
+      // The ID of the host.
       shared_ptr<string> hostId_ {};
     };
 
@@ -154,17 +155,16 @@ namespace Models
 
 
     protected:
-      // The asset accounts to which the control policy applies.
+      // The scope of asset accounts to which the control policy applies.
       // 
-      // > This parameter is required if AccountScopeType is set to AccountName.
+      // > Required when AccountScopeType is set to AccountNames.
       shared_ptr<vector<string>> accountNames_ {};
       // The scope of asset accounts to which the control policy applies. Valid values:
       // 
-      // - **All**: The control policy applies to all accounts in the asset group.
-      // 
-      // - **AccountName**: The control policy applies to specified accounts in the asset group.
+      // - **All**: all accounts in the asset group
+      // - **AccountName**: specified accounts in the asset group
       shared_ptr<string> accountScopeType_ {};
-      // The asset group ID.
+      // The ID of the asset group.
       shared_ptr<string> hostGroupId_ {};
     };
 
@@ -219,21 +219,20 @@ namespace Models
     protected:
       // The scope of database accounts to which the control policy applies. Valid values:
       // 
-      // - **All**: The control policy applies to all database accounts of the database.
-      // 
-      // - **AccountId**: The control policy applies to specified database accounts of the database.
+      // - **All**: all accounts in the database
+      // - **AccountId**: specified accounts in the database
       shared_ptr<string> accountScopeType_ {};
-      // The database accounts to which the control policy applies.
+      // The scope of database accounts to which the control policy applies.
       // 
-      // > This parameter is required if AccountScopeType is set to AccountId.
+      // > Required when AccountScopeType is set to AccountId.
       shared_ptr<vector<string>> databaseAccountIds_ {};
-      // The database ID.
+      // The database instance ID.
       shared_ptr<string> databaseId_ {};
     };
 
     virtual bool empty() const override { return this->databases_ == nullptr
-        && this->hostGroups_ == nullptr && this->hosts_ == nullptr && this->instanceId_ == nullptr && this->policyId_ == nullptr && this->regionId_ == nullptr
-        && this->scopeType_ == nullptr; };
+        && this->hostGroups_ == nullptr && this->hosts_ == nullptr && this->instanceId_ == nullptr && this->policyId_ == nullptr && this->projectId_ == nullptr
+        && this->regionId_ == nullptr && this->scopeType_ == nullptr; };
     // databases Field Functions 
     bool hasDatabases() const { return this->databases_ != nullptr;};
     void deleteDatabases() { this->databases_ = nullptr;};
@@ -275,6 +274,13 @@ namespace Models
     inline SetPolicyAssetScopeRequest& setPolicyId(string policyId) { DARABONBA_PTR_SET_VALUE(policyId_, policyId) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline SetPolicyAssetScopeRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -290,43 +296,38 @@ namespace Models
 
 
   protected:
-    // The databases to which the control policy applies.
+    // The scope of database assets to which the control policy applies.
     // 
-    // > This parameter is required if ScopeType is set to Database. You can specify up to 500 databases.
+    // > Required when ScopeType is set to Database. You can specify up to 500 databases.
     shared_ptr<vector<SetPolicyAssetScopeRequest::Databases>> databases_ {};
-    // The asset groups to which the control policy applies.
+    // The scope of asset groups to which the control policy applies.
     // 
-    // > This parameter is required if ScopeType is set to HostGroup. You can specify up to 100 asset groups.
+    // > Required when ScopeType is set to HostGroup. You can specify up to 100 asset groups.
     shared_ptr<vector<SetPolicyAssetScopeRequest::HostGroups>> hostGroups_ {};
-    // The hosts to which the control policy applies.
+    // The scope of hosts to which the control policy applies.
     // 
-    // > This parameter is required if ScopeType is set to Host. You can specify up to 500 hosts.
+    // > Required when ScopeType is set to Host. You can specify up to 500 hosts.
     shared_ptr<vector<SetPolicyAssetScopeRequest::Hosts>> hosts_ {};
-    // The bastion host ID.
-    // 
-    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+    // The Bastionhost instance ID.
+    // > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the control policy that you want to modify.
-    // 
-    // > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+    // The ID of the control policy to modify.
+    // > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> policyId_ {};
-    // The region ID of the bastion host.
-    // 
-    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
+    // The region ID of the Bastionhost instance.
+    // > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
     // The scope of assets to which the control policy applies. Valid values:
-    // 
-    // - **All**: The control policy applies to all assets.
-    // 
-    // - **Host**: The control policy applies to specified hosts.
-    // 
-    // - **Database**: The control policy applies to specified databases.
-    // 
-    // - **HostGroup**: The control policy applies to specified asset groups.
+    // - **All**: all assets
+    // - **Host**: selected hosts
+    // - **Database**: selected databases
+    // - **HostGroup**: selected asset groups
     // 
     // This parameter is required.
     shared_ptr<string> scopeType_ {};

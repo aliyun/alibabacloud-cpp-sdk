@@ -16,12 +16,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(IPAclConfig, IPAclConfigShrink_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(PolicyId, policyId_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, SetPolicyIPAclConfigShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(IPAclConfig, IPAclConfigShrink_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(PolicyId, policyId_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
     SetPolicyIPAclConfigShrinkRequest() = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->IPAclConfigShrink_ == nullptr
-        && this->instanceId_ == nullptr && this->policyId_ == nullptr && this->regionId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->policyId_ == nullptr && this->projectId_ == nullptr && this->regionId_ == nullptr; };
     // IPAclConfigShrink Field Functions 
     bool hasIPAclConfigShrink() const { return this->IPAclConfigShrink_ != nullptr;};
     void deleteIPAclConfigShrink() { this->IPAclConfigShrink_ = nullptr;};
@@ -58,6 +60,13 @@ namespace Models
     inline SetPolicyIPAclConfigShrinkRequest& setPolicyId(string policyId) { DARABONBA_PTR_SET_VALUE(policyId_, policyId) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline SetPolicyIPAclConfigShrinkRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -66,25 +75,27 @@ namespace Models
 
 
   protected:
-    // The access control settings for source IP addresses.
+    // The source IP address restriction configuration.
     // 
     // This parameter is required.
     shared_ptr<string> IPAclConfigShrink_ {};
-    // The bastion host ID.
+    // The ID of the bastion host instance.
     // 
-    // > You can call the DescribeInstances operation to query the bastion host ID.[](~~153281~~)
+    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the bastion host instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The ID of the control policy that you want to modify.
     // 
-    // > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+    // > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> policyId_ {};
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
     // The region ID of the bastion host.
     // 
-    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
   };
 

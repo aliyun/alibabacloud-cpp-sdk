@@ -39,6 +39,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const HostAccounts& obj) { 
         DARABONBA_PTR_TO_JSON(HostAccountId, hostAccountId_);
         DARABONBA_PTR_TO_JSON(HostAccountName, hostAccountName_);
+        DARABONBA_PTR_TO_JSON(HostAccountType, hostAccountType_);
         DARABONBA_PTR_TO_JSON(HostId, hostId_);
         DARABONBA_PTR_TO_JSON(IsAuthorized, isAuthorized_);
         DARABONBA_PTR_TO_JSON(ProtocolName, protocolName_);
@@ -46,6 +47,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, HostAccounts& obj) { 
         DARABONBA_PTR_FROM_JSON(HostAccountId, hostAccountId_);
         DARABONBA_PTR_FROM_JSON(HostAccountName, hostAccountName_);
+        DARABONBA_PTR_FROM_JSON(HostAccountType, hostAccountType_);
         DARABONBA_PTR_FROM_JSON(HostId, hostId_);
         DARABONBA_PTR_FROM_JSON(IsAuthorized, isAuthorized_);
         DARABONBA_PTR_FROM_JSON(ProtocolName, protocolName_);
@@ -62,7 +64,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->hostAccountId_ == nullptr
-        && this->hostAccountName_ == nullptr && this->hostId_ == nullptr && this->isAuthorized_ == nullptr && this->protocolName_ == nullptr; };
+        && this->hostAccountName_ == nullptr && this->hostAccountType_ == nullptr && this->hostId_ == nullptr && this->isAuthorized_ == nullptr && this->protocolName_ == nullptr; };
       // hostAccountId Field Functions 
       bool hasHostAccountId() const { return this->hostAccountId_ != nullptr;};
       void deleteHostAccountId() { this->hostAccountId_ = nullptr;};
@@ -75,6 +77,13 @@ namespace Models
       void deleteHostAccountName() { this->hostAccountName_ = nullptr;};
       inline string getHostAccountName() const { DARABONBA_PTR_GET_DEFAULT(hostAccountName_, "") };
       inline HostAccounts& setHostAccountName(string hostAccountName) { DARABONBA_PTR_SET_VALUE(hostAccountName_, hostAccountName) };
+
+
+      // hostAccountType Field Functions 
+      bool hasHostAccountType() const { return this->hostAccountType_ != nullptr;};
+      void deleteHostAccountType() { this->hostAccountType_ = nullptr;};
+      inline string getHostAccountType() const { DARABONBA_PTR_GET_DEFAULT(hostAccountType_, "") };
+      inline HostAccounts& setHostAccountType(string hostAccountType) { DARABONBA_PTR_SET_VALUE(hostAccountType_, hostAccountType) };
 
 
       // hostId Field Functions 
@@ -103,18 +112,16 @@ namespace Models
       shared_ptr<string> hostAccountId_ {};
       // The name of the host account.
       shared_ptr<string> hostAccountName_ {};
-      // The ID of the host for which the host accounts were queried.
+      // The type of the host account.
+      shared_ptr<string> hostAccountType_ {};
+      // The ID of the host to which the host account belongs.
       shared_ptr<string> hostId_ {};
-      // Indicates whether the user is authorized to manage the host account. Valid values:
-      // 
-      // - **true**: yes
-      // 
-      // - **false**: no
+      // Indicates whether the host account is authorized for the current user. Valid values:
+      // - **true**: authorized
+      // - **false**: unauthorized
       shared_ptr<bool> isAuthorized_ {};
-      // The protocol that is used by the host. Valid values:
-      // 
+      // The protocol of the host account. Valid values:
       // - **SSH**
-      // 
       // - **RDP**
       shared_ptr<string> protocolName_ {};
     };
@@ -145,11 +152,11 @@ namespace Models
 
 
   protected:
-    // An array that consists of the queried host accounts.
+    // The host accounts returned.
     shared_ptr<vector<ListHostAccountsForUserResponseBody::HostAccounts>> hostAccounts_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of host accounts that were queried.
+    // The total number of host accounts returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

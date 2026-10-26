@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(HostIds, hostIds_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(Port, port_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(ProtocolName, protocolName_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
@@ -23,6 +24,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(HostIds, hostIds_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(Port, port_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(ProtocolName, protocolName_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->hostIds_ == nullptr
-        && this->instanceId_ == nullptr && this->port_ == nullptr && this->protocolName_ == nullptr && this->regionId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->port_ == nullptr && this->projectId_ == nullptr && this->protocolName_ == nullptr && this->regionId_ == nullptr; };
     // hostIds Field Functions 
     bool hasHostIds() const { return this->hostIds_ != nullptr;};
     void deleteHostIds() { this->hostIds_ = nullptr;};
@@ -60,6 +62,13 @@ namespace Models
     inline ModifyHostsPortRequest& setPort(string port) { DARABONBA_PTR_SET_VALUE(port_, port) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline ModifyHostsPortRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // protocolName Field Functions 
     bool hasProtocolName() const { return this->protocolName_ != nullptr;};
     void deleteProtocolName() { this->protocolName_ = nullptr;};
@@ -75,32 +84,29 @@ namespace Models
 
 
   protected:
-    // The ID of the host for which you want to change the port. The value is a JSON string. You can add up to 100 host IDs. If you specify multiple IDs, separate the IDs with commas (,).
-    // 
-    // > You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the IDs of hosts.
+    // The IDs of the hosts whose O&M protocols and ports you want to modify. The value is a JSON string. You can enter up to 100 host IDs. Separate multiple host IDs with commas (,).
+    // > You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the host IDs.
     // 
     // This parameter is required.
     shared_ptr<string> hostIds_ {};
-    // The ID of the bastion host for which you want to change the port of the host.
-    // 
-    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+    // The ID of the Bastionhost instance where the hosts whose protocol ports you want to modify reside.
+    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The new port of the host. The port number must be an integer. Valid values: 22 to 65535.
+    // The new port number. The port number must be an integer. Valid values: 22 to 65535.
     // 
     // This parameter is required.
     shared_ptr<string> port_ {};
-    // The protocol that is used to connect to the host. Valid values:
-    // 
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
+    // The name of the protocol whose port you want to modify. Valid values:
     // - **SSH**
-    // 
     // - **RDP**
     // 
     // This parameter is required.
     shared_ptr<string> protocolName_ {};
-    // The region ID of the bastion host for which you want to change the port of the host.
-    // 
+    // The region ID of the Bastionhost instance where the hosts whose ports you want to modify reside.
     // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
   };

@@ -16,12 +16,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CheckProxyState, checkProxyState_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(NetworkDomainId, networkDomainId_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, GetNetworkDomainRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CheckProxyState, checkProxyState_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(NetworkDomainId, networkDomainId_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
     GetNetworkDomainRequest() = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->checkProxyState_ == nullptr
-        && this->instanceId_ == nullptr && this->networkDomainId_ == nullptr && this->regionId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->networkDomainId_ == nullptr && this->projectId_ == nullptr && this->regionId_ == nullptr; };
     // checkProxyState Field Functions 
     bool hasCheckProxyState() const { return this->checkProxyState_ != nullptr;};
     void deleteCheckProxyState() { this->checkProxyState_ = nullptr;};
@@ -58,6 +60,13 @@ namespace Models
     inline GetNetworkDomainRequest& setNetworkDomainId(string networkDomainId) { DARABONBA_PTR_SET_VALUE(networkDomainId_, networkDomainId) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline GetNetworkDomainRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -66,27 +75,27 @@ namespace Models
 
 
   protected:
-    // Indicates whether to immediately recheck the status of the proxy server. Valid values:
+    // Specifies whether to immediately re-check the proxy server status. Valid values:
     // 
-    // - **true**: Immediately rechecks the status of the proxy server and returns the latest ProxyState and ProxyStateErrorCode.
+    // - **true**: Immediately re-checks the proxy server status and returns the latest ProxyState/ProxyStateErrorCode.
     // 
-    // - **false**: (Default) Returns the currently recorded status without rechecking the proxy server.
+    // - **false**: Default value. Does not re-check the proxy server status and directly returns the currently recorded status.
     shared_ptr<string> checkProxyState_ {};
-    // The ID of the Bastionhost instance.
-    // 
-    // > Call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to get this parameter.
+    // The instance ID of the bastion host.
+    // > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The ID of the network domain to query.
-    // 
-    // > Call the [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) operation to get this parameter.
+    // > You can call the [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> networkDomainId_ {};
-    // The region ID of the Bastionhost instance.
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
+    // The region ID of the bastion host.
     // 
-    // > For more information about region IDs, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
   };
 

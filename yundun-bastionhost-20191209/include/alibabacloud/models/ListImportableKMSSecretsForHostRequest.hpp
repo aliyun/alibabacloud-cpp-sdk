@@ -84,27 +84,25 @@ namespace Models
 
 
   protected:
-    // The ID of the host.
+    // The ID of the host to query.
     // 
-    // > Call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to get this ID.
+    // > You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<int32_t> hostId_ {};
-    // The ID of the bastion host instance.
-    // 
-    // > Call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to get this ID.
+    // The instance ID of the Bastionhost instance.
+    // > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
     shared_ptr<string> instanceId_ {};
-    // The name of the secret to search for. Fuzzy matching is supported.
+    // The name of the credential to query. Fuzzy match is supported.
     shared_ptr<string> keyword_ {};
-    // The number of entries to return on each page. Default value: 20.
+    // The number of entries to return. If you do not specify this parameter, the default value is 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The token to retrieve the next page of results.
-    // 
-    // > You do not need to specify this parameter for the first request. For subsequent requests, use the `NextToken` value from the previous response.
+    // The token required for the next cursor-based query.
+    // > Leave this parameter empty for the initial query. For subsequent requests, specify the value of the NextToken field returned in the previous response.
     shared_ptr<string> nextToken_ {};
-    // The region ID of the bastion host.
+    // The region ID of the Bastionhost instance.
     // 
-    // > For details about the mapping between region IDs and region names, see [Regions and availability zones](https://help.aliyun.com/document_detail/40654.html).
+    // > For the mappings between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
   };
 

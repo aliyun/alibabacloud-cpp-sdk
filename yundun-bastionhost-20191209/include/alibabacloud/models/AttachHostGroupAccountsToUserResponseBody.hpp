@@ -106,21 +106,16 @@ namespace Models
 
 
       protected:
-        // The return code that indicates whether the user was authorized to manage the host account. Valid values:
-        // 
-        // - **OK**: The call was successful.
-        // 
+        // The result code of the operation to grant the user access to the host account. Valid values:
+        // - **OK**: The operation succeeded.
         // - **UNEXPECTED**: An unknown error occurred.
-        // 
-        // - **INVALID_ARGUMENT**: A request parameter is invalid.
-        // 
-        // - **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
-        // 
-        // - **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+        // - **INVALID_ARGUMENT**: The specified request parameter is invalid.
+        // - **OBJECT_NOT_FOUND**: The specified object does not exist.
+        // - **OBJECT_AlREADY_EXISTS** : The specified object already exists.
         shared_ptr<string> code_ {};
         // The name of the host account.
         shared_ptr<string> hostAccountName_ {};
-        // This parameter is deprecated.
+        // **[Deprecated]** This parameter is deprecated. You can ignore this parameter.
         shared_ptr<string> message_ {};
       };
 
@@ -164,23 +159,18 @@ namespace Models
 
 
     protected:
-      // The return code that indicates whether the call was successful. Valid values:
-      // 
-      // - **OK**: The call was successful.
-      // 
+      // The result code of the API call. Valid values:
+      // - **OK**: The operation succeeded.
       // - **UNEXPECTED**: An unknown error occurred.
-      // 
-      // - **INVALID_ARGUMENT**: A request parameter is invalid.
-      // 
-      // - **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
-      // 
-      // - **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+      // - **INVALID_ARGUMENT**: The specified request parameter is invalid.
+      // - **OBJECT_NOT_FOUND**: The specified object does not exist.
+      // - **OBJECT_AlREADY_EXISTS** : The specified object already exists.
       shared_ptr<string> code_ {};
-      // The result of authorizing the user to manage the host accounts.
+      // The results of the operation to grant the user access to the host accounts.
       shared_ptr<vector<Results::HostAccountNames>> hostAccountNames_ {};
       // The ID of the host group.
       shared_ptr<string> hostGroupId_ {};
-      // This parameter is deprecated.
+      // **[Deprecated]** This parameter is deprecated. You can ignore this parameter.
       shared_ptr<string> message_ {};
       // The ID of the user.
       shared_ptr<string> userId_ {};
@@ -205,9 +195,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The result of the call.
+    // The results of the API call.
     shared_ptr<vector<AttachHostGroupAccountsToUserResponseBody::Results>> results_ {};
   };
 

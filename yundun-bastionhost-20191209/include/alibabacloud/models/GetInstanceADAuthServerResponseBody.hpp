@@ -40,12 +40,21 @@ namespace Models
         DARABONBA_PTR_TO_JSON(EmailMapping, emailMapping_);
         DARABONBA_PTR_TO_JSON(Filter, filter_);
         DARABONBA_PTR_TO_JSON(HasPassword, hasPassword_);
+        DARABONBA_PTR_TO_JSON(IsDefault, isDefault_);
         DARABONBA_PTR_TO_JSON(IsSSL, isSSL_);
+        DARABONBA_PTR_TO_JSON(IsSyncEmailAttr, isSyncEmailAttr_);
+        DARABONBA_PTR_TO_JSON(IsSyncMobileAttr, isSyncMobileAttr_);
+        DARABONBA_PTR_TO_JSON(IsSyncNameAttr, isSyncNameAttr_);
+        DARABONBA_PTR_TO_JSON(IsSyncOuAsUserGroup, isSyncOuAsUserGroup_);
+        DARABONBA_PTR_TO_JSON(LatestSyncTime, latestSyncTime_);
         DARABONBA_PTR_TO_JSON(MobileMapping, mobileMapping_);
         DARABONBA_PTR_TO_JSON(NameMapping, nameMapping_);
         DARABONBA_PTR_TO_JSON(Port, port_);
         DARABONBA_PTR_TO_JSON(Server, server_);
+        DARABONBA_PTR_TO_JSON(ServerName, serverName_);
         DARABONBA_PTR_TO_JSON(StandbyServer, standbyServer_);
+        DARABONBA_PTR_TO_JSON(SyncInterval, syncInterval_);
+        DARABONBA_PTR_TO_JSON(UserSourceId, userSourceId_);
       };
       friend void from_json(const Darabonba::Json& j, AD& obj) { 
         DARABONBA_PTR_FROM_JSON(Account, account_);
@@ -54,12 +63,21 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(EmailMapping, emailMapping_);
         DARABONBA_PTR_FROM_JSON(Filter, filter_);
         DARABONBA_PTR_FROM_JSON(HasPassword, hasPassword_);
+        DARABONBA_PTR_FROM_JSON(IsDefault, isDefault_);
         DARABONBA_PTR_FROM_JSON(IsSSL, isSSL_);
+        DARABONBA_PTR_FROM_JSON(IsSyncEmailAttr, isSyncEmailAttr_);
+        DARABONBA_PTR_FROM_JSON(IsSyncMobileAttr, isSyncMobileAttr_);
+        DARABONBA_PTR_FROM_JSON(IsSyncNameAttr, isSyncNameAttr_);
+        DARABONBA_PTR_FROM_JSON(IsSyncOuAsUserGroup, isSyncOuAsUserGroup_);
+        DARABONBA_PTR_FROM_JSON(LatestSyncTime, latestSyncTime_);
         DARABONBA_PTR_FROM_JSON(MobileMapping, mobileMapping_);
         DARABONBA_PTR_FROM_JSON(NameMapping, nameMapping_);
         DARABONBA_PTR_FROM_JSON(Port, port_);
         DARABONBA_PTR_FROM_JSON(Server, server_);
+        DARABONBA_PTR_FROM_JSON(ServerName, serverName_);
         DARABONBA_PTR_FROM_JSON(StandbyServer, standbyServer_);
+        DARABONBA_PTR_FROM_JSON(SyncInterval, syncInterval_);
+        DARABONBA_PTR_FROM_JSON(UserSourceId, userSourceId_);
       };
       AD() = default ;
       AD(const AD &) = default ;
@@ -74,8 +92,9 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->account_ == nullptr
         && this->baseDN_ == nullptr && this->domain_ == nullptr && this->emailMapping_ == nullptr && this->filter_ == nullptr && this->hasPassword_ == nullptr
-        && this->isSSL_ == nullptr && this->mobileMapping_ == nullptr && this->nameMapping_ == nullptr && this->port_ == nullptr && this->server_ == nullptr
-        && this->standbyServer_ == nullptr; };
+        && this->isDefault_ == nullptr && this->isSSL_ == nullptr && this->isSyncEmailAttr_ == nullptr && this->isSyncMobileAttr_ == nullptr && this->isSyncNameAttr_ == nullptr
+        && this->isSyncOuAsUserGroup_ == nullptr && this->latestSyncTime_ == nullptr && this->mobileMapping_ == nullptr && this->nameMapping_ == nullptr && this->port_ == nullptr
+        && this->server_ == nullptr && this->serverName_ == nullptr && this->standbyServer_ == nullptr && this->syncInterval_ == nullptr && this->userSourceId_ == nullptr; };
       // account Field Functions 
       bool hasAccount() const { return this->account_ != nullptr;};
       void deleteAccount() { this->account_ = nullptr;};
@@ -118,11 +137,53 @@ namespace Models
       inline AD& setHasPassword(bool hasPassword) { DARABONBA_PTR_SET_VALUE(hasPassword_, hasPassword) };
 
 
+      // isDefault Field Functions 
+      bool hasIsDefault() const { return this->isDefault_ != nullptr;};
+      void deleteIsDefault() { this->isDefault_ = nullptr;};
+      inline bool getIsDefault() const { DARABONBA_PTR_GET_DEFAULT(isDefault_, false) };
+      inline AD& setIsDefault(bool isDefault) { DARABONBA_PTR_SET_VALUE(isDefault_, isDefault) };
+
+
       // isSSL Field Functions 
       bool hasIsSSL() const { return this->isSSL_ != nullptr;};
       void deleteIsSSL() { this->isSSL_ = nullptr;};
       inline bool getIsSSL() const { DARABONBA_PTR_GET_DEFAULT(isSSL_, false) };
       inline AD& setIsSSL(bool isSSL) { DARABONBA_PTR_SET_VALUE(isSSL_, isSSL) };
+
+
+      // isSyncEmailAttr Field Functions 
+      bool hasIsSyncEmailAttr() const { return this->isSyncEmailAttr_ != nullptr;};
+      void deleteIsSyncEmailAttr() { this->isSyncEmailAttr_ = nullptr;};
+      inline bool getIsSyncEmailAttr() const { DARABONBA_PTR_GET_DEFAULT(isSyncEmailAttr_, false) };
+      inline AD& setIsSyncEmailAttr(bool isSyncEmailAttr) { DARABONBA_PTR_SET_VALUE(isSyncEmailAttr_, isSyncEmailAttr) };
+
+
+      // isSyncMobileAttr Field Functions 
+      bool hasIsSyncMobileAttr() const { return this->isSyncMobileAttr_ != nullptr;};
+      void deleteIsSyncMobileAttr() { this->isSyncMobileAttr_ = nullptr;};
+      inline bool getIsSyncMobileAttr() const { DARABONBA_PTR_GET_DEFAULT(isSyncMobileAttr_, false) };
+      inline AD& setIsSyncMobileAttr(bool isSyncMobileAttr) { DARABONBA_PTR_SET_VALUE(isSyncMobileAttr_, isSyncMobileAttr) };
+
+
+      // isSyncNameAttr Field Functions 
+      bool hasIsSyncNameAttr() const { return this->isSyncNameAttr_ != nullptr;};
+      void deleteIsSyncNameAttr() { this->isSyncNameAttr_ = nullptr;};
+      inline bool getIsSyncNameAttr() const { DARABONBA_PTR_GET_DEFAULT(isSyncNameAttr_, false) };
+      inline AD& setIsSyncNameAttr(bool isSyncNameAttr) { DARABONBA_PTR_SET_VALUE(isSyncNameAttr_, isSyncNameAttr) };
+
+
+      // isSyncOuAsUserGroup Field Functions 
+      bool hasIsSyncOuAsUserGroup() const { return this->isSyncOuAsUserGroup_ != nullptr;};
+      void deleteIsSyncOuAsUserGroup() { this->isSyncOuAsUserGroup_ = nullptr;};
+      inline bool getIsSyncOuAsUserGroup() const { DARABONBA_PTR_GET_DEFAULT(isSyncOuAsUserGroup_, false) };
+      inline AD& setIsSyncOuAsUserGroup(bool isSyncOuAsUserGroup) { DARABONBA_PTR_SET_VALUE(isSyncOuAsUserGroup_, isSyncOuAsUserGroup) };
+
+
+      // latestSyncTime Field Functions 
+      bool hasLatestSyncTime() const { return this->latestSyncTime_ != nullptr;};
+      void deleteLatestSyncTime() { this->latestSyncTime_ = nullptr;};
+      inline int64_t getLatestSyncTime() const { DARABONBA_PTR_GET_DEFAULT(latestSyncTime_, 0L) };
+      inline AD& setLatestSyncTime(int64_t latestSyncTime) { DARABONBA_PTR_SET_VALUE(latestSyncTime_, latestSyncTime) };
 
 
       // mobileMapping Field Functions 
@@ -153,6 +214,13 @@ namespace Models
       inline AD& setServer(string server) { DARABONBA_PTR_SET_VALUE(server_, server) };
 
 
+      // serverName Field Functions 
+      bool hasServerName() const { return this->serverName_ != nullptr;};
+      void deleteServerName() { this->serverName_ = nullptr;};
+      inline string getServerName() const { DARABONBA_PTR_GET_DEFAULT(serverName_, "") };
+      inline AD& setServerName(string serverName) { DARABONBA_PTR_SET_VALUE(serverName_, serverName) };
+
+
       // standbyServer Field Functions 
       bool hasStandbyServer() const { return this->standbyServer_ != nullptr;};
       void deleteStandbyServer() { this->standbyServer_ = nullptr;};
@@ -160,39 +228,67 @@ namespace Models
       inline AD& setStandbyServer(string standbyServer) { DARABONBA_PTR_SET_VALUE(standbyServer_, standbyServer) };
 
 
+      // syncInterval Field Functions 
+      bool hasSyncInterval() const { return this->syncInterval_ != nullptr;};
+      void deleteSyncInterval() { this->syncInterval_ = nullptr;};
+      inline int64_t getSyncInterval() const { DARABONBA_PTR_GET_DEFAULT(syncInterval_, 0L) };
+      inline AD& setSyncInterval(int64_t syncInterval) { DARABONBA_PTR_SET_VALUE(syncInterval_, syncInterval) };
+
+
+      // userSourceId Field Functions 
+      bool hasUserSourceId() const { return this->userSourceId_ != nullptr;};
+      void deleteUserSourceId() { this->userSourceId_ = nullptr;};
+      inline string getUserSourceId() const { DARABONBA_PTR_GET_DEFAULT(userSourceId_, "") };
+      inline AD& setUserSourceId(string userSourceId) { DARABONBA_PTR_SET_VALUE(userSourceId_, userSourceId) };
+
+
     protected:
-      // The distinguished name (DN) of the AD server account.
+      // The distinguished name (DN) of the server account.
       shared_ptr<string> account_ {};
-      // The Base DN of the AD server.
+      // The base DN used to connect to the AD server.
       shared_ptr<string> baseDN_ {};
       // The domain on the AD server.
       shared_ptr<string> domain_ {};
-      // The field that is used to indicate the email address of a user on the AD server.
+      // The name of the field that maps to the user email address on the AD server.
       shared_ptr<string> emailMapping_ {};
-      // The condition that is used to filter users.
+      // The filter condition for users.
       shared_ptr<string> filter_ {};
-      // Indicates whether passwords are required. Valid values:
-      // 
-      // - **true**:
-      // 
-      // - **false**
+      // Specifies whether a password is set. Valid values:
+      // - **true**: A password is set.
+      // - **false**: No password is set.
       shared_ptr<bool> hasPassword_ {};
-      // Indicates whether SSL is supported. Valid values:
+      // Specifies whether the server is the default AD authentication server. A value of true indicates that the server is the default AD authentication server, and a value of false indicates that the server is not the default AD authentication server.
+      shared_ptr<bool> isDefault_ {};
+      // Specifies whether SSL is supported. Valid values:
       // 
-      // - **true**
-      // 
-      // - **false**
+      // - **true**: Supported.
+      // - **false**: Not supported.
       shared_ptr<bool> isSSL_ {};
-      // The field that is used to indicate the mobile phone number of a user on the AD server.
+      // Specifies whether email addresses are synchronized. A value of true indicates that email addresses are synchronized, and a value of false indicates that email addresses are not synchronized.
+      shared_ptr<bool> isSyncEmailAttr_ {};
+      // Specifies whether mobile phone numbers are synchronized. A value of true indicates that mobile phone numbers are synchronized, and a value of false indicates that mobile phone numbers are not synchronized.
+      shared_ptr<bool> isSyncMobileAttr_ {};
+      // Specifies whether display names are synchronized. A value of true indicates that display names are synchronized, and a value of false indicates that display names are not synchronized.
+      shared_ptr<bool> isSyncNameAttr_ {};
+      // Specifies whether the organization to which a user belongs is synchronized as a user group. A value of true indicates that the organization is synchronized as a user group, and a value of false indicates that the organization is not synchronized as a user group.
+      shared_ptr<bool> isSyncOuAsUserGroup_ {};
+      // The time when the user snapshot was last synchronized.
+      shared_ptr<int64_t> latestSyncTime_ {};
+      // The name of the field that maps to the user mobile phone number on the AD server.
       shared_ptr<string> mobileMapping_ {};
-      // The field that is used to indicate the name of a user on the AD server.
+      // The name of the field that maps to the username on the AD server.
       shared_ptr<string> nameMapping_ {};
-      // The port that is used to access the AD server.
+      // The port of the server.
       shared_ptr<int64_t> port_ {};
-      // The address of the AD server.
+      // The address of the server.
       shared_ptr<string> server_ {};
-      // The address of the secondary AD server.
+      // The name of the AD authentication server.
+      shared_ptr<string> serverName_ {};
+      // The address of the standby server.
       shared_ptr<string> standbyServer_ {};
+      // The interval for automatic synchronization of user snapshots. Unit: hours. Valid values: 0, and 4 to 168. A value of 0 indicates that automatic synchronization is disabled and no synchronization is performed.
+      shared_ptr<int64_t> syncInterval_ {};
+      shared_ptr<string> userSourceId_ {};
     };
 
     virtual bool empty() const override { return this->AD_ == nullptr
@@ -214,9 +310,9 @@ namespace Models
 
 
   protected:
-    // The settings of AD authentication.
+    // The Active Directory (AD) authentication configurations.
     shared_ptr<GetInstanceADAuthServerResponseBody::AD> AD_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. The ID is a unique identifier generated by Alibaba Cloud for the request and can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

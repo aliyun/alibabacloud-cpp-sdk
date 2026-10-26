@@ -79,13 +79,13 @@ namespace Models
 
 
     protected:
-      // The return code that indicates whether the host is added to the network domain.
+      // The result of the operation.
       // 
-      // > The code LICENSE_OUT_OF_LIMIT indicates that the network domain feature is not supported by the current Bastionhost edition.
+      // > LICENSE_OUT_OF_LIMIT indicates that the network domain feature is not enabled for the current edition.
       shared_ptr<string> code_ {};
-      // The host ID.
+      // The ID of the host.
       shared_ptr<string> hostId_ {};
-      // The error message that is returned.
+      // The error message.
       shared_ptr<string> message_ {};
     };
 
@@ -108,9 +108,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The result of the call.
+    // The results of the operation.
     shared_ptr<vector<MoveHostsToNetworkDomainResponseBody::Results>> results_ {};
   };
 

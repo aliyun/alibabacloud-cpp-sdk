@@ -15,11 +15,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const GetHostShareKeyRequest& obj) { 
       DARABONBA_PTR_TO_JSON(HostShareKeyId, hostShareKeyId_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, GetHostShareKeyRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(HostShareKeyId, hostShareKeyId_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
     GetHostShareKeyRequest() = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->hostShareKeyId_ == nullptr
-        && this->instanceId_ == nullptr && this->regionId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->projectId_ == nullptr && this->regionId_ == nullptr; };
     // hostShareKeyId Field Functions 
     bool hasHostShareKeyId() const { return this->hostShareKeyId_ != nullptr;};
     void deleteHostShareKeyId() { this->hostShareKeyId_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     inline GetHostShareKeyRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline GetHostShareKeyRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -57,21 +66,20 @@ namespace Models
 
 
   protected:
-    // The ID of the shared key whose information you want to query.
-    // 
-    // > You can call the [ListHostShareKeys](https://help.aliyun.com/document_detail/462973.html) operation to query the shared key ID.
+    // The ID of the host shared key to query.
+    // > You can call [ListHostShareKeys](https://help.aliyun.com/document_detail/462973.html) to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> hostShareKeyId_ {};
-    // The bastion host ID.
-    // 
-    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+    // The instance ID of the bastion host.
+    // > You can invoke [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
     // The region ID of the bastion host.
-    // 
-    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
   };
 

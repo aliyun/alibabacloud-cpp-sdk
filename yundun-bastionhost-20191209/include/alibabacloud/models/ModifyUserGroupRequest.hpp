@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ModifyUserGroupRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Comment, comment_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(UserGroupId, userGroupId_);
       DARABONBA_PTR_TO_JSON(UserGroupName, userGroupName_);
@@ -22,6 +23,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ModifyUserGroupRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Comment, comment_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(UserGroupId, userGroupId_);
       DARABONBA_PTR_FROM_JSON(UserGroupName, userGroupName_);
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->comment_ == nullptr
-        && this->instanceId_ == nullptr && this->regionId_ == nullptr && this->userGroupId_ == nullptr && this->userGroupName_ == nullptr; };
+        && this->instanceId_ == nullptr && this->projectId_ == nullptr && this->regionId_ == nullptr && this->userGroupId_ == nullptr && this->userGroupName_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
@@ -51,6 +53,13 @@ namespace Models
     void deleteInstanceId() { this->instanceId_ = nullptr;};
     inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ModifyUserGroupRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline ModifyUserGroupRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // regionId Field Functions 
@@ -77,23 +86,22 @@ namespace Models
   protected:
     // The new description of the user group. The description can be up to 500 characters in length.
     shared_ptr<string> comment_ {};
-    // The ID of the bastion host in which you want to modify the information about the user group.
-    // 
-    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+    // The instance ID of the Bastionhost for which you want to modify the user group information.
+    // > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region ID of the bastion host in which you want to modify the information about the user group.
-    // 
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
+    // The region ID of the Bastionhost instance for which you want to modify the user group information.
     // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
     // The ID of the user group that you want to modify.
-    // 
-    // > You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to query the ID of the user group.
+    // > You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> userGroupId_ {};
-    // The new name of the user group. This name can be up to 128 characters in length.
+    // The new name of the user group. The name can be up to 128 characters in length.
     shared_ptr<string> userGroupName_ {};
   };
 

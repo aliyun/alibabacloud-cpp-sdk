@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DatabasePublicAddress, databasePublicAddress_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(NetworkDomainId, networkDomainId_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(SourceInstanceId, sourceInstanceId_);
     };
@@ -35,6 +36,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DatabasePublicAddress, databasePublicAddress_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(NetworkDomainId, networkDomainId_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(SourceInstanceId, sourceInstanceId_);
     };
@@ -51,7 +53,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->activeAddressType_ == nullptr
         && this->comment_ == nullptr && this->databaseId_ == nullptr && this->databaseName_ == nullptr && this->databasePort_ == nullptr && this->databasePrivateAddress_ == nullptr
-        && this->databasePublicAddress_ == nullptr && this->instanceId_ == nullptr && this->networkDomainId_ == nullptr && this->regionId_ == nullptr && this->sourceInstanceId_ == nullptr; };
+        && this->databasePublicAddress_ == nullptr && this->instanceId_ == nullptr && this->networkDomainId_ == nullptr && this->projectId_ == nullptr && this->regionId_ == nullptr
+        && this->sourceInstanceId_ == nullptr; };
     // activeAddressType Field Functions 
     bool hasActiveAddressType() const { return this->activeAddressType_ != nullptr;};
     void deleteActiveAddressType() { this->activeAddressType_ = nullptr;};
@@ -115,6 +118,13 @@ namespace Models
     inline ModifyDatabaseRequest& setNetworkDomainId(string networkDomainId) { DARABONBA_PTR_SET_VALUE(networkDomainId_, networkDomainId) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline ModifyDatabaseRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -130,42 +140,38 @@ namespace Models
 
 
   protected:
-    // The new address type of the database. Valid values:
-    // 
-    // - **Public**
-    // 
-    // - **Private**
+    // The address type of the database after the modification. Valid values:
+    // - **Public**: public network address
+    // - **Private**: private network address
     shared_ptr<string> activeAddressType_ {};
-    // The new remarks of the database.
+    // The description of the database after the modification.
     shared_ptr<string> comment_ {};
-    // The ID of the database to modify.
+    // The ID of the database to be modified.
     // 
     // This parameter is required.
     shared_ptr<string> databaseId_ {};
-    // The new name of the database.
+    // The name of the database instance after the modification.
     shared_ptr<string> databaseName_ {};
-    // The new port of the database.
+    // The port of the database after the modification.
     shared_ptr<string> databasePort_ {};
-    // The new internal address of the database. Specify an IPv4 address or a domain name.
+    // The private network address of the database after the modification. IPv4 addresses and domain name formats are supported.
     shared_ptr<string> databasePrivateAddress_ {};
-    // The new public address of the database. Specify an IPv4 address or a domain name.
+    // The public address of the database after the modification. Both IPv4 addresses and domain names are supported.
     shared_ptr<string> databasePublicAddress_ {};
-    // The ID of the bastion host that manages the database to modify.
-    // 
-    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+    // The ID of the Bastionhost instance to which the database to be modified belongs.
+    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the new network domain for the database.
-    // 
-    // > You can call the [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) operation to query the network domain ID.
+    // The ID of the network domain to which the database belongs after the modification.
+    // > You can call the [ListNetworkDomains ](https://help.aliyun.com/document_detail/2758827.html) operation to obtain this parameter.
     shared_ptr<string> networkDomainId_ {};
-    // The region ID of the bastion host that manages the database to modify.
-    // 
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
+    // The region ID of the Bastionhost instance to which the database to be modified belongs.
     // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
-    // The ID of the ApsaraDB for RDS instance or PolarDB cluster to modify.
-    // 
+    // The instance ID of the database to be modified.  
     // > This parameter is required if **Source** is set to **Rds** or **PolarDB**.
     shared_ptr<string> sourceInstanceId_ {};
   };

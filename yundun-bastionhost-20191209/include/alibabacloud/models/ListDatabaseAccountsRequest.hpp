@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, ListDatabaseAccountsRequest& obj) { 
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
     ListDatabaseAccountsRequest() = default ;
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->databaseAccountName_ == nullptr
-        && this->databaseId_ == nullptr && this->instanceId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr; };
+        && this->databaseId_ == nullptr && this->instanceId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->projectId_ == nullptr
+        && this->regionId_ == nullptr; };
     // databaseAccountName Field Functions 
     bool hasDatabaseAccountName() const { return this->databaseAccountName_ != nullptr;};
     void deleteDatabaseAccountName() { this->databaseAccountName_ = nullptr;};
@@ -76,6 +79,13 @@ namespace Models
     inline ListDatabaseAccountsRequest& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline ListDatabaseAccountsRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -86,25 +96,24 @@ namespace Models
   protected:
     // The name of the database account to query. The name can be up to 128 characters in length. Only exact match is supported.
     shared_ptr<string> databaseAccountName_ {};
-    // The ID of the database whose database accounts you want to query.
-    // 
-    // > You can call the [ListDatabases](https://help.aliyun.com/document_detail/2758822.html) operation to query the database ID.
+    // The ID of the database instance for which you want to query database accounts.
+    // > You can call the [ListDatabases](https://help.aliyun.com/document_detail/2758822.html) operation to query the database instance ID.
     shared_ptr<string> databaseId_ {};
-    // The bastion host ID.
+    // The ID of the Bastionhost instance.
     // 
-    // > You can call the DescribeInstances operation to query the bastion host ID.[](~~153281~~)
+    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the Bastionhost instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The page number. Default value: 1.
+    // The page number of the current page in a paging query. Default value: 1.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page.<br>
-    // Valid values: 1 to 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-    // 
-    // > We recommend that you do not leave this parameter empty.
+    // The maximum number of entries to return on each page in a paging query.  
+    // The maximum value of the PageSize parameter is 100. Default value: 20. If this parameter is left empty, 20 entries are returned by default.
+    // > Specify a value for the PageSize parameter.
     shared_ptr<string> pageSize_ {};
-    // The region ID of the bastion host.
-    // 
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
+    // The region ID of the Bastionhost instance.
     // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
   };

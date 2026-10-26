@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const SetPolicyUserScopeRequest& obj) { 
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(PolicyId, policyId_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ScopeType, scopeType_);
       DARABONBA_PTR_TO_JSON(UserGroupIds, userGroupIds_);
@@ -24,6 +25,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, SetPolicyUserScopeRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(PolicyId, policyId_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ScopeType, scopeType_);
       DARABONBA_PTR_FROM_JSON(UserGroupIds, userGroupIds_);
@@ -41,7 +43,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && this->policyId_ == nullptr && this->regionId_ == nullptr && this->scopeType_ == nullptr && this->userGroupIds_ == nullptr && this->userIds_ == nullptr; };
+        && this->policyId_ == nullptr && this->projectId_ == nullptr && this->regionId_ == nullptr && this->scopeType_ == nullptr && this->userGroupIds_ == nullptr
+        && this->userIds_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -54,6 +57,13 @@ namespace Models
     void deletePolicyId() { this->policyId_ = nullptr;};
     inline string getPolicyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, "") };
     inline SetPolicyUserScopeRequest& setPolicyId(string policyId) { DARABONBA_PTR_SET_VALUE(policyId_, policyId) };
+
+
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline SetPolicyUserScopeRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // regionId Field Functions 
@@ -89,39 +99,36 @@ namespace Models
 
 
   protected:
-    // The bastion host ID.
-    // 
-    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+    // The ID of the bastion host instance.
+    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the control policy that you want to modify.
-    // 
-    // > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+    // The ID of the control policy to modify.
+    // > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> policyId_ {};
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
     // The region ID of the bastion host.
-    // 
-    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
-    // The scope of users to whom the control policy applies. Valid values:
+    // The user scope for the control policy. Valid values:
     // 
-    // - **All**: The control policy applies to all users.
-    // 
-    // - **User**: The control policy applies to specified users.
-    // 
-    // - **UserGroup**: The control policy applies to specified user groups.
+    // - **All**: The policy applies to all users.
+    // - **User**: The policy applies to selected users.
+    // - **UserGroup**: The policy applies to selected user groups.
     // 
     // This parameter is required.
     shared_ptr<string> scopeType_ {};
-    // The user groups to which the control policy applies.
+    // The user group scope for the control policy.
     // 
-    // > This parameter is required if ScopeType is set to UserGroup. You can specify up to 100 user group IDs.
+    // > This parameter is required when ScopeType is set to UserGroup. A maximum of 100 user groups can be specified.
     shared_ptr<vector<string>> userGroupIds_ {};
-    // The users to whom the control policy applies.
+    // The user scope for the control policy.
     // 
-    // > This parameter is required if ScopeType is set to User. You can specify up to 500 user IDs.
+    // > This parameter is required when ScopeType is set to User. A maximum of 500 users can be specified.
     shared_ptr<vector<string>> userIds_ {};
   };
 

@@ -39,6 +39,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Hosts& obj) { 
         DARABONBA_PTR_TO_JSON(ActiveAddressType, activeAddressType_);
         DARABONBA_PTR_TO_JSON(Comment, comment_);
+        DARABONBA_PTR_TO_JSON(DomainAccountCount, domainAccountCount_);
         DARABONBA_PTR_TO_JSON(HostAccountCount, hostAccountCount_);
         DARABONBA_PTR_TO_JSON(HostId, hostId_);
         DARABONBA_PTR_TO_JSON(HostName, hostName_);
@@ -52,6 +53,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Hosts& obj) { 
         DARABONBA_PTR_FROM_JSON(ActiveAddressType, activeAddressType_);
         DARABONBA_PTR_FROM_JSON(Comment, comment_);
+        DARABONBA_PTR_FROM_JSON(DomainAccountCount, domainAccountCount_);
         DARABONBA_PTR_FROM_JSON(HostAccountCount, hostAccountCount_);
         DARABONBA_PTR_FROM_JSON(HostId, hostId_);
         DARABONBA_PTR_FROM_JSON(HostName, hostName_);
@@ -74,8 +76,9 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->activeAddressType_ == nullptr
-        && this->comment_ == nullptr && this->hostAccountCount_ == nullptr && this->hostId_ == nullptr && this->hostName_ == nullptr && this->hostPrivateAddress_ == nullptr
-        && this->hostPublicAddress_ == nullptr && this->OSType_ == nullptr && this->source_ == nullptr && this->sourceInstanceId_ == nullptr && this->sourceInstanceState_ == nullptr; };
+        && this->comment_ == nullptr && this->domainAccountCount_ == nullptr && this->hostAccountCount_ == nullptr && this->hostId_ == nullptr && this->hostName_ == nullptr
+        && this->hostPrivateAddress_ == nullptr && this->hostPublicAddress_ == nullptr && this->OSType_ == nullptr && this->source_ == nullptr && this->sourceInstanceId_ == nullptr
+        && this->sourceInstanceState_ == nullptr; };
       // activeAddressType Field Functions 
       bool hasActiveAddressType() const { return this->activeAddressType_ != nullptr;};
       void deleteActiveAddressType() { this->activeAddressType_ = nullptr;};
@@ -88,6 +91,13 @@ namespace Models
       void deleteComment() { this->comment_ = nullptr;};
       inline string getComment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
       inline Hosts& setComment(string comment) { DARABONBA_PTR_SET_VALUE(comment_, comment) };
+
+
+      // domainAccountCount Field Functions 
+      bool hasDomainAccountCount() const { return this->domainAccountCount_ != nullptr;};
+      void deleteDomainAccountCount() { this->domainAccountCount_ = nullptr;};
+      inline string getDomainAccountCount() const { DARABONBA_PTR_GET_DEFAULT(domainAccountCount_, "") };
+      inline Hosts& setDomainAccountCount(string domainAccountCount) { DARABONBA_PTR_SET_VALUE(domainAccountCount_, domainAccountCount) };
 
 
       // hostAccountCount Field Functions 
@@ -155,45 +165,37 @@ namespace Models
 
     protected:
       // The address type of the host. Valid values:
-      // 
-      // - **Public**: a public address
-      // 
-      // - **Private**: a private address
+      // - **Public**: public address
+      // - **Private**: private endpoint on a private network
       shared_ptr<string> activeAddressType_ {};
       // The description of the host.
       shared_ptr<string> comment_ {};
+      // The number of domain accounts.
+      shared_ptr<string> domainAccountCount_ {};
       // The number of host accounts.
       shared_ptr<int32_t> hostAccountCount_ {};
-      // The ID of the host.
+      // The host ID.
       shared_ptr<string> hostId_ {};
-      // The name of the host.
+      // The host name.
       shared_ptr<string> hostName_ {};
-      // The private address of the host. The value is a domain name or an IP address.
+      // The private endpoint on the private network of the host, which can be a domain name or an IP address.
       shared_ptr<string> hostPrivateAddress_ {};
-      // The public address of the host. The value is a domain name or an IP address.
+      // The public address of the host, which can be a domain name or an IP address.
       shared_ptr<string> hostPublicAddress_ {};
       // The operating system of the host. Valid values:
-      // 
       // - **Linux**
-      // 
       // - **Windows**
       shared_ptr<string> OSType_ {};
       // The source of the host. Valid values:
-      // 
-      // - **Local**: a host in a data center
-      // 
-      // - **Ecs**: an ECS instance
-      // 
-      // - **Rds**: a host in an ApsaraDB MyBase dedicated cluster
+      // - **Local**: local host
+      // - **Ecs**: ECS instance
+      // - **Rds**: RDS dedicated cluster host
       shared_ptr<string> source_ {};
-      // The ID of the ECS instance or the host in an ApsaraDB MyBase dedicated cluster.
-      // 
-      // > No value is returned for this parameter if the **Source** parameter is set to **Local**.
+      // The ECS instance ID or the dedicated cluster host ID to which the host corresponds.
+      // > If **Source** is **Local**, this parameter is empty.
       shared_ptr<string> sourceInstanceId_ {};
       // The status of the host. Valid values:
-      // 
       // - **Normal**: normal
-      // 
       // - **Release**: released
       shared_ptr<string> sourceInstanceState_ {};
     };
@@ -224,9 +226,9 @@ namespace Models
 
 
   protected:
-    // An array that consists of the hosts returned.
+    // The list of hosts.
     shared_ptr<vector<ListHostsResponseBody::Hosts>> hosts_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request, which is a unique identifier generated by Alibaba Cloud for the request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // The total number of hosts returned.
     shared_ptr<int32_t> totalCount_ {};

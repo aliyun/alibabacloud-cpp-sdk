@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(HostName, hostName_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(OSType, OSType_);
+      DARABONBA_PTR_TO_JSON(OperationProjectId, operationProjectId_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(HostName, hostName_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(OSType, OSType_);
+      DARABONBA_PTR_FROM_JSON(OperationProjectId, operationProjectId_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -48,8 +50,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->hostAddress_ == nullptr
-        && this->hostName_ == nullptr && this->instanceId_ == nullptr && this->OSType_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
-        && this->regionId_ == nullptr && this->source_ == nullptr && this->sourceInstanceId_ == nullptr && this->sourceInstanceState_ == nullptr; };
+        && this->hostName_ == nullptr && this->instanceId_ == nullptr && this->OSType_ == nullptr && this->operationProjectId_ == nullptr && this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->source_ == nullptr && this->sourceInstanceId_ == nullptr && this->sourceInstanceState_ == nullptr; };
     // hostAddress Field Functions 
     bool hasHostAddress() const { return this->hostAddress_ != nullptr;};
     void deleteHostAddress() { this->hostAddress_ = nullptr;};
@@ -76,6 +78,13 @@ namespace Models
     void deleteOSType() { this->OSType_ = nullptr;};
     inline string getOSType() const { DARABONBA_PTR_GET_DEFAULT(OSType_, "") };
     inline ListOperationHostsRequest& setOSType(string OSType) { DARABONBA_PTR_SET_VALUE(OSType_, OSType) };
+
+
+    // operationProjectId Field Functions 
+    bool hasOperationProjectId() const { return this->operationProjectId_ != nullptr;};
+    void deleteOperationProjectId() { this->operationProjectId_ = nullptr;};
+    inline string getOperationProjectId() const { DARABONBA_PTR_GET_DEFAULT(operationProjectId_, "") };
+    inline ListOperationHostsRequest& setOperationProjectId(string operationProjectId) { DARABONBA_PTR_SET_VALUE(operationProjectId_, operationProjectId) };
 
 
     // pageNumber Field Functions 
@@ -121,45 +130,39 @@ namespace Models
 
 
   protected:
-    // The address of the host. You can specify a domain name or an IP address. Only exact matches are supported.
+    // The address of the host to query. You can use a domain name or an IP address. Fuzzy match is not supported. Only exact match is supported.
     shared_ptr<string> hostAddress_ {};
-    // The name of the host. Only exact matches are supported.
+    // The name of the host to query. Fuzzy match is not supported. Only exact match is supported.
     shared_ptr<string> hostName_ {};
-    // The ID of the Bastionhost instance.
-    // 
-    // > Call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
+    // The instance ID of the Bastionhost instance.
+    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The operating system of the host. Valid values:
-    // 
+    // The operating system of the host to query. Valid values:
     // - **Linux**
-    // 
     // - **Windows**
     shared_ptr<string> OSType_ {};
-    // The number of the page to return. The default value is 1.
+    // The project ID.
+    shared_ptr<string> operationProjectId_ {};
+    // The page number of the current page for a paged query. Default value: 1.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries to return on each page.<br> The maximum value is 100. The default value is 20. If you do not specify this parameter, the default value is used.<br>
-    // 
-    // > Specify a value for this parameter.
+    // The maximum number of entries to return on each page for a paged query.  
+    // Maximum value of PageSize: 100. Default value: 20. If you leave PageSize empty, 20 entries are returned by default.
+    // > Do not leave PageSize empty.
     shared_ptr<string> pageSize_ {};
-    // The ID of the region where the Bastionhost instance resides.
-    // 
-    // > For more information about regions and zones, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // The region ID of the Bastionhost instance.
+    // > For the mappings between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
-    // The source of the host. Valid values:
-    // 
-    // - **Local**: a local host
-    // 
-    // - **Ecs**: an ECS instance
+    // The source of the host to query. Valid values:
+    // - **Local**: local host
+    // - **Ecs**: ECS instance
     shared_ptr<string> source_ {};
-    // The ID of the ECS instance. Only exact matches are supported.
+    // The ECS instance ID. Exact search.
     shared_ptr<string> sourceInstanceId_ {};
-    // The state of the host. Valid values:
-    // 
-    // - **Normal**: The host is running.
-    // 
-    // - **Release**: The host is released.
+    // The status of the host to query. Valid values:
+    // - **Normal**: Normal
+    // - **Release**: Released
     shared_ptr<string> sourceInstanceState_ {};
   };
 

@@ -37,6 +37,9 @@ namespace Models
     class Instances : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Instances& obj) { 
+        DARABONBA_PTR_TO_JSON(AiCreditsTotal, aiCreditsTotal_);
+        DARABONBA_PTR_TO_JSON(AiCreditsUs, aiCreditsUs_);
+        DARABONBA_PTR_TO_JSON(AiOpsAuditStatus, aiOpsAuditStatus_);
         DARABONBA_PTR_TO_JSON(BandWidth, bandWidth_);
         DARABONBA_PTR_TO_JSON(Description, description_);
         DARABONBA_PTR_TO_JSON(ExpireTime, expireTime_);
@@ -57,6 +60,9 @@ namespace Models
         DARABONBA_PTR_TO_JSON(VswitchId, vswitchId_);
       };
       friend void from_json(const Darabonba::Json& j, Instances& obj) { 
+        DARABONBA_PTR_FROM_JSON(AiCreditsTotal, aiCreditsTotal_);
+        DARABONBA_PTR_FROM_JSON(AiCreditsUs, aiCreditsUs_);
+        DARABONBA_PTR_FROM_JSON(AiOpsAuditStatus, aiOpsAuditStatus_);
         DARABONBA_PTR_FROM_JSON(BandWidth, bandWidth_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
         DARABONBA_PTR_FROM_JSON(ExpireTime, expireTime_);
@@ -87,11 +93,32 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->bandWidth_ == nullptr
-        && this->description_ == nullptr && this->expireTime_ == nullptr && this->imageVersion_ == nullptr && this->instanceId_ == nullptr && this->instanceStatus_ == nullptr
-        && this->internetEndpoint_ == nullptr && this->intranetEndpoint_ == nullptr && this->legacy_ == nullptr && this->licenseCode_ == nullptr && this->planCode_ == nullptr
-        && this->publicNetworkAccess_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->slaveVswitchId_ == nullptr && this->startTime_ == nullptr
-        && this->vpcId_ == nullptr && this->vswitchId_ == nullptr; };
+      virtual bool empty() const override { return this->aiCreditsTotal_ == nullptr
+        && this->aiCreditsUs_ == nullptr && this->aiOpsAuditStatus_ == nullptr && this->bandWidth_ == nullptr && this->description_ == nullptr && this->expireTime_ == nullptr
+        && this->imageVersion_ == nullptr && this->instanceId_ == nullptr && this->instanceStatus_ == nullptr && this->internetEndpoint_ == nullptr && this->intranetEndpoint_ == nullptr
+        && this->legacy_ == nullptr && this->licenseCode_ == nullptr && this->planCode_ == nullptr && this->publicNetworkAccess_ == nullptr && this->regionId_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->slaveVswitchId_ == nullptr && this->startTime_ == nullptr && this->vpcId_ == nullptr && this->vswitchId_ == nullptr; };
+      // aiCreditsTotal Field Functions 
+      bool hasAiCreditsTotal() const { return this->aiCreditsTotal_ != nullptr;};
+      void deleteAiCreditsTotal() { this->aiCreditsTotal_ = nullptr;};
+      inline int64_t getAiCreditsTotal() const { DARABONBA_PTR_GET_DEFAULT(aiCreditsTotal_, 0L) };
+      inline Instances& setAiCreditsTotal(int64_t aiCreditsTotal) { DARABONBA_PTR_SET_VALUE(aiCreditsTotal_, aiCreditsTotal) };
+
+
+      // aiCreditsUs Field Functions 
+      bool hasAiCreditsUs() const { return this->aiCreditsUs_ != nullptr;};
+      void deleteAiCreditsUs() { this->aiCreditsUs_ = nullptr;};
+      inline int64_t getAiCreditsUs() const { DARABONBA_PTR_GET_DEFAULT(aiCreditsUs_, 0L) };
+      inline Instances& setAiCreditsUs(int64_t aiCreditsUs) { DARABONBA_PTR_SET_VALUE(aiCreditsUs_, aiCreditsUs) };
+
+
+      // aiOpsAuditStatus Field Functions 
+      bool hasAiOpsAuditStatus() const { return this->aiOpsAuditStatus_ != nullptr;};
+      void deleteAiOpsAuditStatus() { this->aiOpsAuditStatus_ = nullptr;};
+      inline string getAiOpsAuditStatus() const { DARABONBA_PTR_GET_DEFAULT(aiOpsAuditStatus_, "") };
+      inline Instances& setAiOpsAuditStatus(string aiOpsAuditStatus) { DARABONBA_PTR_SET_VALUE(aiOpsAuditStatus_, aiOpsAuditStatus) };
+
+
       // bandWidth Field Functions 
       bool hasBandWidth() const { return this->bandWidth_ != nullptr;};
       void deleteBandWidth() { this->bandWidth_ = nullptr;};
@@ -219,67 +246,71 @@ namespace Models
 
 
     protected:
-      // The default bandwidth of the instance, in Mbit/s.
+      // The total amount of AI credits.
+      shared_ptr<int64_t> aiCreditsTotal_ {};
+      // The used amount of AI credits.
+      shared_ptr<int64_t> aiCreditsUs_ {};
+      // The AI O&M audit status.
+      shared_ptr<string> aiOpsAuditStatus_ {};
+      // The default bandwidth of the instance. Unit: MB/s.
       shared_ptr<int64_t> bandWidth_ {};
-      // The custom description of the Bastionhost instance.
+      // The description of the Bastionhost instance.
       shared_ptr<string> description_ {};
-      // The expiration time of the Bastionhost instance, specified as a timestamp in milliseconds.
+      // The expiration timestamp of the Bastionhost instance. Unit: milliseconds.
       shared_ptr<int64_t> expireTime_ {};
       // The image version of the Bastionhost instance.
       shared_ptr<string> imageVersion_ {};
-      // The ID of the Bastionhost instance.
+      // The instance ID of the Bastionhost.
       shared_ptr<string> instanceId_ {};
       // The status of the Bastionhost instance. Valid values:
       // 
-      // - **PENDING**: Not initialized
+      // - **PENDING**: Uninitialized
       // 
-      // - **CREATING**: The instance is being created.
+      // - **CREATING**: Creating 
       // 
-      // - **RUNNING**: The instance is running.
+      // - **RUNNING**: Running 
       // 
-      // - **EXPIRED**: The instance has expired.
+      // - **EXPIRED**: Expired 
       // 
-      // - **CREATE_FAILED**: Instance creation failed.
+      // - **CREATE_FAILED**: Creation failed
       // 
-      // - **UPGRADING**: The instance is being upgraded.
+      // - **UPGRADING**: Upgrading
       // 
-      // - **UPGRADE_FAILED**: Instance upgrade failed.
+      // - **UPGRADE_FAILED**: Upgrade failed
       shared_ptr<string> instanceStatus_ {};
       // The public domain name of the Bastionhost instance.
       shared_ptr<string> internetEndpoint_ {};
       // The private domain name of the Bastionhost instance.
       shared_ptr<string> intranetEndpoint_ {};
-      // Indicates whether the Bastionhost instance is a legacy instance. Valid values:
+      // Specifies whether the Bastionhost instance is a legacy instance. Valid values:
       // 
-      // - **true**: The instance is of the V2 or V3.1 series.
+      // - **true**: The instance is a V2 or V3.1 series Bastionhost instance.
       // 
-      // - **false**: The instance is of the V3.2 series.
+      // - **false**: The instance is a V3.2 series Bastionhost instance.
       shared_ptr<bool> legacy_ {};
       // The license code of the Bastionhost instance.
       shared_ptr<string> licenseCode_ {};
       // The edition of the Bastionhost instance. Valid values:
       // 
       // - **cloudbastion**: Basic Edition
-      // 
-      // - **cloudbastion_ha**: Enterprise Edition
+      // - **cloudbastion_ha**: Enterprise Dual-engine Edition
       shared_ptr<string> planCode_ {};
-      // Indicates whether the Bastionhost instance is accessible over the Internet. Valid values:
+      // Specifies whether the Bastionhost instance can be accessed over the Internet. Valid values:
       // 
-      // - **true**: The instance is accessible over the Internet.
-      // 
-      // - **false**: The instance is not accessible over the Internet.
+      // - **true**: The instance can be accessed over the Internet.
+      // - **false**: The instance cannot be accessed over the Internet.
       shared_ptr<bool> publicNetworkAccess_ {};
       // The region ID of the Bastionhost instance.
       shared_ptr<string> regionId_ {};
       // The ID of the resource group to which the Bastionhost instance belongs.
       shared_ptr<string> resourceGroupId_ {};
-      // The ID of the standby vSwitch to which the Bastionhost instance is attached.
+      // The ID of the secondary vSwitch associated with the Bastionhost instance.
       shared_ptr<string> slaveVswitchId_ {};
-      // The purchase or renewal time of the Bastionhost instance, specified as a timestamp in milliseconds.
+      // The timestamp when the Bastionhost instance was purchased or renewed. Unit: milliseconds.
       shared_ptr<int64_t> startTime_ {};
-      // The ID of the VPC to which the Bastionhost instance is attached.
+      // The ID of the VPC associated with the Bastionhost instance.
       shared_ptr<string> vpcId_ {};
-      // The ID of the vSwitch to which the Bastionhost instance is attached.
+      // The ID of the vSwitch associated with the Bastionhost instance.
       shared_ptr<string> vswitchId_ {};
     };
 
@@ -309,9 +340,9 @@ namespace Models
 
 
   protected:
-    // An array of Bastionhost instances.
+    // The list of Bastionhost instances.
     shared_ptr<vector<DescribeInstancesResponseBody::Instances>> instances_ {};
-    // The ID of the request. Alibaba Cloud generates this unique ID for troubleshooting purposes.
+    // The ID of the request. The ID is a unique identifier generated by Alibaba Cloud for the request and can be used for troubleshooting.
     shared_ptr<string> requestId_ {};
     // The total number of Bastionhost instances returned.
     shared_ptr<int64_t> totalCount_ {};

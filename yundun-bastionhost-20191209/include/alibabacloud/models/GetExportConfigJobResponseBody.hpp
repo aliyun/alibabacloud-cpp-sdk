@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The download link of the configuration backup file.
+    // The download URL of the configuration backup file.
     shared_ptr<string> downloadUrl_ {};
-    // The expiration time of the configuration backup download link. (In seconds, UNIX timestamp format)
+    // The expiration time of the configuration backup download URL. Unit: seconds. The value is a UNIX timestamp.
     shared_ptr<int64_t> expireTime_ {};
-    // The ID of the configuration backup export job.
+    // The ID of the configuration backup export task.
     shared_ptr<string> jobId_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The unique identifier that Alibaba Cloud generates for this request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the configuration backup export job.
+    // The status of the configuration backup export task.
     shared_ptr<string> status_ {};
   };
 

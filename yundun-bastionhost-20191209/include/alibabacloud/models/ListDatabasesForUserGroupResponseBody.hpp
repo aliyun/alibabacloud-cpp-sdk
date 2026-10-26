@@ -47,6 +47,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DatabasePublicAddress, databasePublicAddress_);
         DARABONBA_PTR_TO_JSON(DatabaseType, databaseType_);
         DARABONBA_PTR_TO_JSON(NetworkDomainId, networkDomainId_);
+        DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
+        DARABONBA_PTR_TO_JSON(ProjectName, projectName_);
         DARABONBA_PTR_TO_JSON(Source, source_);
         DARABONBA_PTR_TO_JSON(SourceInstanceId, sourceInstanceId_);
       };
@@ -61,6 +63,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DatabasePublicAddress, databasePublicAddress_);
         DARABONBA_PTR_FROM_JSON(DatabaseType, databaseType_);
         DARABONBA_PTR_FROM_JSON(NetworkDomainId, networkDomainId_);
+        DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
+        DARABONBA_PTR_FROM_JSON(ProjectName, projectName_);
         DARABONBA_PTR_FROM_JSON(Source, source_);
         DARABONBA_PTR_FROM_JSON(SourceInstanceId, sourceInstanceId_);
       };
@@ -77,8 +81,8 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->activeAddressType_ == nullptr
         && this->comment_ == nullptr && this->databaseAccountCount_ == nullptr && this->databaseId_ == nullptr && this->databaseName_ == nullptr && this->databasePort_ == nullptr
-        && this->databasePrivateAddress_ == nullptr && this->databasePublicAddress_ == nullptr && this->databaseType_ == nullptr && this->networkDomainId_ == nullptr && this->source_ == nullptr
-        && this->sourceInstanceId_ == nullptr; };
+        && this->databasePrivateAddress_ == nullptr && this->databasePublicAddress_ == nullptr && this->databaseType_ == nullptr && this->networkDomainId_ == nullptr && this->projectId_ == nullptr
+        && this->projectName_ == nullptr && this->source_ == nullptr && this->sourceInstanceId_ == nullptr; };
       // activeAddressType Field Functions 
       bool hasActiveAddressType() const { return this->activeAddressType_ != nullptr;};
       void deleteActiveAddressType() { this->activeAddressType_ = nullptr;};
@@ -149,6 +153,20 @@ namespace Models
       inline Databases& setNetworkDomainId(string networkDomainId) { DARABONBA_PTR_SET_VALUE(networkDomainId_, networkDomainId) };
 
 
+      // projectId Field Functions 
+      bool hasProjectId() const { return this->projectId_ != nullptr;};
+      void deleteProjectId() { this->projectId_ = nullptr;};
+      inline string getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
+      inline Databases& setProjectId(string projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
+      // projectName Field Functions 
+      bool hasProjectName() const { return this->projectName_ != nullptr;};
+      void deleteProjectName() { this->projectName_ = nullptr;};
+      inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+      inline Databases& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
+
+
       // source Field Functions 
       bool hasSource() const { return this->source_ != nullptr;};
       void deleteSource() { this->source_ = nullptr;};
@@ -164,48 +182,44 @@ namespace Models
 
 
     protected:
-      // The type of the database address. Valid values:
-      // 
-      // - **Public**: public address
-      // 
-      // - **Private**: private address
+      // The address type of the database. Valid values:
+      // - **Public**: public network address
+      // - **Private**: private network address
       shared_ptr<string> activeAddressType_ {};
       // The description of the database instance.
       shared_ptr<string> comment_ {};
-      // The total number of database accounts that are queried.
+      // The total number of queried database accounts.
       shared_ptr<int64_t> databaseAccountCount_ {};
-      // The ID of the database instance to which the database account belongs.
+      // The instance ID of the database to which the database account belongs.
       shared_ptr<string> databaseId_ {};
       // The name of the database instance.
       shared_ptr<string> databaseName_ {};
       // The port of the database.
       shared_ptr<int64_t> databasePort_ {};
-      // The private endpoint of the database, which can be a domain name or an IP address.
+      // The private network address of the database, which can be a domain name or an IP address.
       shared_ptr<string> databasePrivateAddress_ {};
       // The public address of the database, which can be a domain name or an IP address.
       shared_ptr<string> databasePublicAddress_ {};
       // The type of the database. Valid values:
       // 
       // - **MySQL**
-      // 
       // - **Oracle**
-      // 
       // - **PostgreSQL**
-      // 
       // - **SQLServer**
       shared_ptr<string> databaseType_ {};
       // The ID of the network domain to which the database belongs.
       shared_ptr<string> networkDomainId_ {};
+      // The project ID.
+      shared_ptr<string> projectId_ {};
+      // The project name.
+      shared_ptr<string> projectName_ {};
       // The source of the database. Valid values:
       // 
-      // - **Local**: local database instance
-      // 
-      // - **Rds**: RDS database instance
-      // 
-      // - **PolarDB**: PolarDB database instance
+      // - **Local**: self-managed database instance
+      // - **Rds**: ApsaraDB RDS instance
+      // - **PolarDB**: PolarDB instance
       shared_ptr<string> source_ {};
-      // The ID of the RDS instance or PolarDB instance that corresponds to the database.
-      // 
+      // The instance ID of the ApsaraDB RDS or PolarDB instance that corresponds to the database.
       // > If **Source** is set to **Local**, this parameter is empty.
       shared_ptr<string> sourceInstanceId_ {};
     };
@@ -236,11 +250,11 @@ namespace Models
 
 
   protected:
-    // The list of databases that are queried.
+    // The queried databases.
     shared_ptr<vector<ListDatabasesForUserGroupResponseBody::Databases>> databases_ {};
-    // The unique ID that Alibaba Cloud generates for the request.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of databases that are queried.
+    // The total number of queried databases.
     shared_ptr<int64_t> totalCount_ {};
   };
 

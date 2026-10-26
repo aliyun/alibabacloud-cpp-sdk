@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(NetworkDomainId, networkDomainId_);
       DARABONBA_PTR_TO_JSON(OSType, OSType_);
       DARABONBA_PTR_TO_JSON(PrefKex, prefKex_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyHostRequest& obj) { 
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(NetworkDomainId, networkDomainId_);
       DARABONBA_PTR_FROM_JSON(OSType, OSType_);
       DARABONBA_PTR_FROM_JSON(PrefKex, prefKex_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
     ModifyHostRequest() = default ;
@@ -49,7 +51,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->comment_ == nullptr
         && this->hostId_ == nullptr && this->hostName_ == nullptr && this->hostPrivateAddress_ == nullptr && this->hostPublicAddress_ == nullptr && this->instanceId_ == nullptr
-        && this->networkDomainId_ == nullptr && this->OSType_ == nullptr && this->prefKex_ == nullptr && this->regionId_ == nullptr; };
+        && this->networkDomainId_ == nullptr && this->OSType_ == nullptr && this->prefKex_ == nullptr && this->projectId_ == nullptr && this->regionId_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
@@ -113,6 +115,13 @@ namespace Models
     inline ModifyHostRequest& setPrefKex(string prefKex) { DARABONBA_PTR_SET_VALUE(prefKex_, prefKex) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline ModifyHostRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -123,46 +132,38 @@ namespace Models
   protected:
     // The new description of the host. The description can be up to 500 characters in length.
     shared_ptr<string> comment_ {};
-    // The ID of the host.
-    // 
-    // > You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the ID of the host.
+    // The ID of the host to be updated.
+    // > You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the host ID.
     // 
     // This parameter is required.
     shared_ptr<string> hostId_ {};
-    // The new name of the host. The name can be up to 128 characters.
+    // The new name of the host. The name can be up to 128 characters in length.
     shared_ptr<string> hostName_ {};
-    // The new internal endpoint of the host. You can set this parameter to a domain name or an IP address.
+    // The new private network address of the host. You can specify a domain name or an IP address.
     shared_ptr<string> hostPrivateAddress_ {};
-    // The new public endpoint of the host. You can set this parameter to a domain name or an IP address.
+    // The new public address of the host. You can specify a domain name or an IP address.
     shared_ptr<string> hostPublicAddress_ {};
-    // The ID of the bastion host on which you want to modify the information about the host.
-    // 
-    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+    // The ID of the Bastionhost instance to which the host belongs.
+    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the new network domain to which the host belongs.
-    // 
+    // The ID of the network domain to which the host belongs.
     // > You can call the [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) operation to query the network domain ID.
     shared_ptr<string> networkDomainId_ {};
-    // The new operating system of the host. Valid values:
-    // 
+    // The new operating system type of the host. Valid values:
     // - **Linux**
-    // 
     // - **Windows**
     shared_ptr<string> OSType_ {};
-    // The preferred key exchange algorithm of the host. If you set OSType to Linux, you can modify this parameter. Valid values:
-    // 
-    // - **default**
-    // 
-    // - **diffie-hellman-group1-sha1**
-    // 
-    // - **diffie-hellman-group14-sha1**
-    // 
-    // - **diffie-hellman-group-exchange-sha1**
+    // The preferred key exchange algorithm for the host. You can modify this parameter only when the OSType parameter is set to Linux. Valid values: 
+    // - **default**: Default mode.
+    // - **diffie-hellman-group1-sha1**: Compatibility mode for the diffie-hellman-group1-sha1 algorithm.
+    // - **diffie-hellman-group14-sha1**: Compatibility mode for the diffie-hellman-group14-sha1 algorithm.
+    // - **diffie-hellman-group-exchange-sha1**: Compatibility mode for the diffie-hellman-group-exchange-sha1 algorithm.
     shared_ptr<string> prefKex_ {};
-    // The region ID of the bastion host on which you want to modify the information about the host.
-    // 
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
+    // The region ID of the Bastionhost instance to which the host belongs.
     // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
   };

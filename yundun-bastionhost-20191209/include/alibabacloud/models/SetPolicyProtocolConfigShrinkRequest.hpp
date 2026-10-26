@@ -15,12 +15,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const SetPolicyProtocolConfigShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(PolicyId, policyId_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(ProtocolConfig, protocolConfigShrink_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, SetPolicyProtocolConfigShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(PolicyId, policyId_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(ProtocolConfig, protocolConfigShrink_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && this->policyId_ == nullptr && this->protocolConfigShrink_ == nullptr && this->regionId_ == nullptr; };
+        && this->policyId_ == nullptr && this->projectId_ == nullptr && this->protocolConfigShrink_ == nullptr && this->regionId_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     void deletePolicyId() { this->policyId_ = nullptr;};
     inline string getPolicyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, "") };
     inline SetPolicyProtocolConfigShrinkRequest& setPolicyId(string policyId) { DARABONBA_PTR_SET_VALUE(policyId_, policyId) };
+
+
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline SetPolicyProtocolConfigShrinkRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // protocolConfigShrink Field Functions 
@@ -66,25 +75,25 @@ namespace Models
 
 
   protected:
-    // The ID of the Bastionhost instance.
-    // 
-    // > Call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the instance ID.
+    // The instance ID of the bastion host.
+    // > You can invoke [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the control policy that you want to modify.
+    // The ID of the control policy to modify.
     // 
-    // > Call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to obtain the policy ID.
+    // > You can call [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> policyId_ {};
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
     // The protocol control configuration.
     // 
     // This parameter is required.
     shared_ptr<string> protocolConfigShrink_ {};
-    // The ID of the region where the Bastionhost instance resides.
-    // 
-    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // The region ID of the bastion host.
+    // > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
   };
 

@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EffectStartTime, effectStartTime_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(OperationTicketId, operationTicketId_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, AcceptOperationTicketRequest& obj) { 
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EffectStartTime, effectStartTime_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(OperationTicketId, operationTicketId_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
     AcceptOperationTicketRequest() = default ;
@@ -43,7 +45,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->comment_ == nullptr
         && this->effectCount_ == nullptr && this->effectEndTime_ == nullptr && this->effectStartTime_ == nullptr && this->instanceId_ == nullptr && this->operationTicketId_ == nullptr
-        && this->regionId_ == nullptr; };
+        && this->projectId_ == nullptr && this->regionId_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
@@ -86,6 +88,13 @@ namespace Models
     inline AcceptOperationTicketRequest& setOperationTicketId(string operationTicketId) { DARABONBA_PTR_SET_VALUE(operationTicketId_, operationTicketId) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline AcceptOperationTicketRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -94,35 +103,34 @@ namespace Models
 
 
   protected:
-    // The review description.
+    // The approval remarks.
     shared_ptr<string> comment_ {};
-    // The maximum number of logons allowed. Valid values:
+    // The limit on the number of logons allowed. Valid values:
     // 
-    // - **0**: The number of logons is unlimited. The O\\&M engineer can log on to the specified asset for unlimited times during the validity period.
+    // - **0**: No limit on the number of logons. The O&M engineer can log on an unlimited number of times during the validity period.
     // 
-    // - **1**: The O\\&M engineer can log on to the specified asset only once during the validity period.
-    // 
-    // > * You can set this parameter only to 0 if you review an O\\&M application on a database.
-    // >
-    // > * If you do not specify this parameter, the default value 0 is used.
+    // - **1**: The O&M engineer can log on only once during the validity period.
+    // > - The logon limit for database asset O&M approval can only be set to no limit on the number of logons in Settings.
+    // > - If an empty character string is passed, the default value is no limit on the number of logons.
     shared_ptr<string> effectCount_ {};
-    // The end time of the validity period. The value is a UNIX timestamp. Unit: seconds.
+    // The end time of the validity period for logon (in seconds, UNIX timestamp format).
     shared_ptr<string> effectEndTime_ {};
-    // The start time of the validity period. The value is a UNIX timestamp. Unit: seconds.
+    // The start time of the validity period for logon (in seconds, UNIX timestamp format).
     shared_ptr<string> effectStartTime_ {};
-    // The ID of the bastion host.
-    // 
-    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+    // The ID of the bastion host instance.
+    // > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the O\\&M application that you want to approve. You can call the ListOperationTickets operation to query the IDs of all O\\&M applications that require review.
+    // The ID of the O&M request to approve.
+    // > You can call the [ListOperationTickets](https://help.aliyun.com/document_detail/2584313.html) operation to query all OperationTicketId values that require approval.
     // 
     // This parameter is required.
     shared_ptr<string> operationTicketId_ {};
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
     // The region ID of the bastion host.
-    // 
-    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
   };
 

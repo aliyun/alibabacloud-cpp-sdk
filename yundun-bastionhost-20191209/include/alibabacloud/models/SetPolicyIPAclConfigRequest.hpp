@@ -17,12 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(IPAclConfig, IPAclConfig_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(PolicyId, policyId_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, SetPolicyIPAclConfigRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(IPAclConfig, IPAclConfig_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(PolicyId, policyId_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
     SetPolicyIPAclConfigRequest() = default ;
@@ -76,28 +78,24 @@ namespace Models
 
 
     protected:
-      // The mode of access control on source IP addresses. Valid values:
+      // The source IP address restriction mode. Valid values:
       // 
-      // - **black**: blacklist mode.
-      // 
-      // - **white**: whitelist mode.
+      // - **black**: blacklist mode
+      // - **white**: whitelist mode
       // 
       // This parameter is required.
       shared_ptr<string> aclType_ {};
-      // The source IP addresses in the blacklist or whitelist.
+      // The list of restricted source IP addresses.
       // 
-      // >
-      // 
-      // - This parameter is required if AclType is set to white.
-      // 
-      // - If AclType is set to black but you do not want to add IP addresses to the blacklist, you can leave IPs empty.
+      // > - When AclType is set to white, the IPs list is required.
+      // > - When AclType is set to black but you do not need to set a source IP blacklist, pass an empty list for IPs.
       // 
       // This parameter is required.
       shared_ptr<vector<string>> IPs_ {};
     };
 
     virtual bool empty() const override { return this->IPAclConfig_ == nullptr
-        && this->instanceId_ == nullptr && this->policyId_ == nullptr && this->regionId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->policyId_ == nullptr && this->projectId_ == nullptr && this->regionId_ == nullptr; };
     // IPAclConfig Field Functions 
     bool hasIPAclConfig() const { return this->IPAclConfig_ != nullptr;};
     void deleteIPAclConfig() { this->IPAclConfig_ = nullptr;};
@@ -121,6 +119,13 @@ namespace Models
     inline SetPolicyIPAclConfigRequest& setPolicyId(string policyId) { DARABONBA_PTR_SET_VALUE(policyId_, policyId) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline SetPolicyIPAclConfigRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -129,25 +134,27 @@ namespace Models
 
 
   protected:
-    // The access control settings for source IP addresses.
+    // The source IP address restriction configuration.
     // 
     // This parameter is required.
     shared_ptr<SetPolicyIPAclConfigRequest::IPAclConfig> IPAclConfig_ {};
-    // The bastion host ID.
+    // The ID of the bastion host instance.
     // 
-    // > You can call the DescribeInstances operation to query the bastion host ID.[](~~153281~~)
+    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the bastion host instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The ID of the control policy that you want to modify.
     // 
-    // > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+    // > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> policyId_ {};
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
     // The region ID of the bastion host.
     // 
-    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
   };
 

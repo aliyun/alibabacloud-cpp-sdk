@@ -145,10 +145,9 @@ namespace Models
 
 
     protected:
-      // Indicates whether a password is set for the host account.<br> Valid values:
+      // Indicates whether a password is set for the host account. <br>Valid values:
       // 
       // - **true**: A password is set.
-      // 
       // - **false**: No password is set.
       shared_ptr<bool> hasPassword_ {};
       // The ID of the host account.
@@ -157,33 +156,26 @@ namespace Models
       shared_ptr<string> hostAccountName_ {};
       // The ID of the host.
       shared_ptr<string> hostId_ {};
-      // The ID of the shared key of the host.
+      // The ID of the shared key for the host.
       shared_ptr<string> hostShareKeyId_ {};
-      // The name of the shared key of the host.
+      // The name of the shared key for the host.
       shared_ptr<string> hostShareKeyName_ {};
-      // The fingerprint of the private key of the host account.
+      // The fingerprint of the private key for the host account.
       shared_ptr<string> privateKeyFingerprint_ {};
-      // The permission type of the account.
-      // 
-      // - **Privileged**: privileged account
-      // 
-      // - **Normal**: regular account
-      // 
-      // > This parameter is available only for Bastionhost instances of V3.2.47 or later.
+      // The permission type of the account. Valid values:
+      // - **Privileged**: Privileged account.
+      // - **Normal**: Regular account.
+      // > This parameter is supported only in V3.2.47 and later.
       shared_ptr<string> privilegeType_ {};
-      // The protocol of the host account.<br> Valid values:
+      // The protocol name of the host account. <br>Valid values:
       // 
       // - SSH
-      // 
       // - RDP
       shared_ptr<string> protocolName_ {};
-      // The password change mode of the account.
-      // 
-      // - **Privileged**: The password is changed using a privileged account.
-      // 
-      // - **Self**: The password is changed without using a privileged account.
-      // 
-      // > This parameter is available only for Bastionhost instances of V3.2.47 or later.
+      // The password rotation mode of the account. Valid values:
+      // - **Privileged**: Uses a privileged account to rotate the password.
+      // - **Self**: Does not use a privileged account to rotate the password.
+      // > This parameter is supported only in V3.2.47 and later.
       shared_ptr<string> rotationMode_ {};
     };
 
@@ -213,11 +205,11 @@ namespace Models
 
 
   protected:
-    // The list of the returned host accounts.
+    // The host accounts returned.
     shared_ptr<vector<ListHostAccountsResponseBody::HostAccounts>> hostAccounts_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of returned host accounts.
+    // The total number of host accounts returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

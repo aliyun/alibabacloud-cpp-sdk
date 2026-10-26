@@ -87,11 +87,11 @@ namespace Models
 
 
     protected:
-      // The ID of the shared key.
+      // The ID of the host shared key.
       shared_ptr<string> hostShareKeyId_ {};
-      // The name of the shared key.
+      // The name of the host shared key.
       shared_ptr<string> hostShareKeyName_ {};
-      // The time when the information about the shared key was last modified. The value is a UNIX timestamp. Unit: seconds.
+      // The time when the host shared key was last modified, in seconds (UNIX timestamp format).
       shared_ptr<int64_t> lastModifyKeyAt_ {};
       // The fingerprint of the private key.
       shared_ptr<string> privateKeyFingerPrint_ {};
@@ -116,9 +116,9 @@ namespace Models
 
 
   protected:
-    // The returned information about the shared key.
+    // The details of the shared key.
     shared_ptr<GetHostShareKeyResponseBody::HostShareKey> hostShareKey_ {};
-    // The request ID.
+    // The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

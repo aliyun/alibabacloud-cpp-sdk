@@ -16,12 +16,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DetachDatabaseAccountsFromUserGroupRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Databases, databases_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(UserGroupId, userGroupId_);
     };
     friend void from_json(const Darabonba::Json& j, DetachDatabaseAccountsFromUserGroupRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Databases, databases_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(UserGroupId, userGroupId_);
     };
@@ -76,14 +78,14 @@ namespace Models
 
 
     protected:
-      // An array that consists of database account IDs.
+      // The IDs of the database accounts from which you want to remove authorization.
       shared_ptr<vector<string>> databaseAccountIds_ {};
-      // The ID of the database on which the permissions are to be revoked.
+      // The instance ID of the database from which you want to remove authorization.
       shared_ptr<string> databaseId_ {};
     };
 
     virtual bool empty() const override { return this->databases_ == nullptr
-        && this->instanceId_ == nullptr && this->regionId_ == nullptr && this->userGroupId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->projectId_ == nullptr && this->regionId_ == nullptr && this->userGroupId_ == nullptr; };
     // databases Field Functions 
     bool hasDatabases() const { return this->databases_ != nullptr;};
     void deleteDatabases() { this->databases_ = nullptr;};
@@ -98,6 +100,13 @@ namespace Models
     void deleteInstanceId() { this->instanceId_ = nullptr;};
     inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DetachDatabaseAccountsFromUserGroupRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline DetachDatabaseAccountsFromUserGroupRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // regionId Field Functions 
@@ -115,21 +124,20 @@ namespace Models
 
 
   protected:
-    // The information about the database.
+    // The information about the databases from which you want to remove authorization.
     shared_ptr<vector<DetachDatabaseAccountsFromUserGroupRequest::Databases>> databases_ {};
-    // The bastion host ID.
-    // 
-    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+    // The ID of the bastion host instance.
+    // > You can call [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
     // The region ID of the bastion host.
-    // 
-    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
-    // The ID of the user group from which you want to revoke permissions on databases and database accounts.
-    // 
-    // > You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to query the ID of the user group.
+    // The ID of the user group from which you want to remove authorized databases and database accounts.
+    // > You can call [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> userGroupId_ {};

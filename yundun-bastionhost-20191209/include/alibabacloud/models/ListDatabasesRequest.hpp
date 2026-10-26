@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(NetworkDomainId, networkDomainId_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(Source, source_);
     };
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(NetworkDomainId, networkDomainId_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(Source, source_);
     };
@@ -45,7 +47,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->databaseType_ == nullptr
         && this->hostGroupId_ == nullptr && this->instanceId_ == nullptr && this->networkDomainId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
-        && this->regionId_ == nullptr && this->source_ == nullptr; };
+        && this->projectId_ == nullptr && this->regionId_ == nullptr && this->source_ == nullptr; };
     // databaseType Field Functions 
     bool hasDatabaseType() const { return this->databaseType_ != nullptr;};
     void deleteDatabaseType() { this->databaseType_ = nullptr;};
@@ -88,6 +90,13 @@ namespace Models
     inline ListDatabasesRequest& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline ListDatabasesRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -103,46 +112,39 @@ namespace Models
 
 
   protected:
-    // The engine of the database to query. Valid values:
+    // The type of the database. Valid values:
     // 
     // - **MySQL**
-    // 
     // - **Oracle**
-    // 
     // - **PostgreSQL**
-    // 
     // - **SQLServer**
     shared_ptr<string> databaseType_ {};
-    // The ID of the asset group to query. This operation returns the databases in the asset group.
-    // 
-    // > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the ID of the asset group.
+    // The ID of the host group.
+    // > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the value of this parameter.
     shared_ptr<string> hostGroupId_ {};
-    // The ID of the bastion host to query.
-    // 
-    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+    // The instance ID of the Bastionhost instance.
+    // > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the network domain where the database to query resides.
+    // The ID of the network domain to which the database belongs.
     shared_ptr<string> networkDomainId_ {};
-    // The number of the page to return. Default value: 1.
+    // The page number of the current page for paging in a paged query. Default value: 1.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page.
-    // Valid values: 1 to100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-    // 
-    // > We recommend that you do not leave this parameter empty.
+    // The maximum number of entries to return on each page for paging in a paged query.  
+    // The maximum value of the PageSize parameter is 100. Default value: 20. If this parameter is left empty, 20 entries are returned by default.
+    // > Do not leave the PageSize parameter empty.
     shared_ptr<string> pageSize_ {};
-    // The region ID of the bastion host to query.
-    // 
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
+    // The region ID of the Bastionhost instance.
     // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
-    // The type of the database to query. Valid values:
+    // The source of the database. Valid values:
     // 
-    // - **Local**: on-premises database.
-    // 
-    // - **Rds**: ApsaraDB for RDS instance.
-    // 
-    // - **PolarDB**: PolarDB cluster
+    // - **Local**: local database instance
+    // - **Rds**: ApsaraDB RDS instance
+    // - **PolarDB**: PolarDB instance
     shared_ptr<string> source_ {};
   };
 

@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(NetworkDomainId, networkDomainId_);
       DARABONBA_PTR_TO_JSON(NetworkDomainName, networkDomainName_);
       DARABONBA_PTR_TO_JSON(NetworkDomainType, networkDomainType_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(Proxies, proxies_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(NetworkDomainId, networkDomainId_);
       DARABONBA_PTR_FROM_JSON(NetworkDomainName, networkDomainName_);
       DARABONBA_PTR_FROM_JSON(NetworkDomainType, networkDomainType_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(Proxies, proxies_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
@@ -116,33 +118,30 @@ namespace Models
 
 
     protected:
-      // The new IP address of the proxy server.
+      // The new address of the proxy server.
       shared_ptr<string> address_ {};
-      // The node type of the proxy server to modify. Valid values:
+      // The type of the proxy server node to be modified. Valid values:
       // 
-      // - **Master**: primary proxy server.
-      // 
-      // - **Slave**: secondary proxy server.
+      // - **Master**: Primary proxy server.
+      // - **Slave**: Secondary proxy server.
       shared_ptr<string> nodeType_ {};
       // The new password of the proxy server account.
       shared_ptr<string> password_ {};
-      // The new port of the proxy server.
+      // The new Server Port of the proxy server.
       shared_ptr<int32_t> port_ {};
-      // The new proxy mode. Valid values:
+      // The new proxy type. Valid values:
       // 
-      // - **SSHProxy**
-      // 
-      // - **HTTPProxy**
-      // 
-      // - **Socks5Proxy**
+      // - **SSHProxy**: SSH proxy.
+      // - **HTTPProxy**: HTTP proxy.
+      // - **Socks5Proxy**: SOCKS5 proxy.
       shared_ptr<string> proxyType_ {};
-      // The new username of the proxy server account.
+      // The new username of the proxy server.
       shared_ptr<string> user_ {};
     };
 
     virtual bool empty() const override { return this->comment_ == nullptr
-        && this->instanceId_ == nullptr && this->networkDomainId_ == nullptr && this->networkDomainName_ == nullptr && this->networkDomainType_ == nullptr && this->proxies_ == nullptr
-        && this->regionId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->networkDomainId_ == nullptr && this->networkDomainName_ == nullptr && this->networkDomainType_ == nullptr && this->projectId_ == nullptr
+        && this->proxies_ == nullptr && this->regionId_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
@@ -178,6 +177,13 @@ namespace Models
     inline ModifyNetworkDomainRequest& setNetworkDomainType(string networkDomainType) { DARABONBA_PTR_SET_VALUE(networkDomainType_, networkDomainType) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline ModifyNetworkDomainRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // proxies Field Functions 
     bool hasProxies() const { return this->proxies_ != nullptr;};
     void deleteProxies() { this->proxies_ = nullptr;};
@@ -195,30 +201,30 @@ namespace Models
 
 
   protected:
-    // The new remarks of the network domain.
+    // The new description of the network domain.
     shared_ptr<string> comment_ {};
-    // The ID of the bastion host to which the network domain to modify belongs.
+    // The instance ID of the Bastionhost instance to which the network domain to be modified belongs.
     // 
-    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+    // > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the parameter value.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the network domain to modify.
+    // The ID of the network domain to be modified.
     // 
     // This parameter is required.
     shared_ptr<string> networkDomainId_ {};
     // The new name of the network domain.
     shared_ptr<string> networkDomainName_ {};
-    // The new connection mode of the network domain. Valid values:
+    // The new type of the network domain. Valid values:
     // 
-    // - **Direct**
-    // 
-    // - **Proxy**
+    // - **Direct**: Direct connection.
+    // - **Proxy**: Proxy.
     shared_ptr<string> networkDomainType_ {};
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
     // The information about the proxy servers in the network domain.
     shared_ptr<vector<ModifyNetworkDomainRequest::Proxies>> proxies_ {};
-    // The region ID of the bastion host to which the network domain to modify belongs.
-    // 
+    // The region ID of the Bastionhost instance to which the network domain to be modified belongs.
     // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
   };

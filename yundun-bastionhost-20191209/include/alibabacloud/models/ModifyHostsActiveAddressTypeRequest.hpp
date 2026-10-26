@@ -16,12 +16,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ActiveAddressType, activeAddressType_);
       DARABONBA_PTR_TO_JSON(HostIds, hostIds_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyHostsActiveAddressTypeRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ActiveAddressType, activeAddressType_);
       DARABONBA_PTR_FROM_JSON(HostIds, hostIds_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
     ModifyHostsActiveAddressTypeRequest() = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->activeAddressType_ == nullptr
-        && this->hostIds_ == nullptr && this->instanceId_ == nullptr && this->regionId_ == nullptr; };
+        && this->hostIds_ == nullptr && this->instanceId_ == nullptr && this->projectId_ == nullptr && this->regionId_ == nullptr; };
     // activeAddressType Field Functions 
     bool hasActiveAddressType() const { return this->activeAddressType_ != nullptr;};
     void deleteActiveAddressType() { this->activeAddressType_ = nullptr;};
@@ -58,6 +60,13 @@ namespace Models
     inline ModifyHostsActiveAddressTypeRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline ModifyHostsActiveAddressTypeRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -66,29 +75,29 @@ namespace Models
 
 
   protected:
-    // The new portal type of the host. Valid values:
+    // The new endpoint type of the host. Valid values:
     // 
-    // - **Public**: public portal
-    // 
-    // - **Private**: internal portal
+    // - **Public**: Internet
+    // - **Private**: private network
     // 
     // This parameter is required.
     shared_ptr<string> activeAddressType_ {};
-    // The ID of the host for which you want to change the portal type. The value is a JSON string. You can add up to 100 host IDs.
-    // 
-    // > You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the ID of the host.
+    // The IDs of the hosts whose endpoint types you want to modify. The value is a character string in JSON format. You can specify up to 100 host IDs.
+    // You can invoke the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to obtain the value of this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> hostIds_ {};
-    // The ID of the bastion host for which you want to change the portal type of the host.
+    // The instance ID of the Bastionhost instance to which the host whose endpoint type you want to modify belongs.
     // 
-    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+    // > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the value of this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region ID of the bastion host for which you want to change the portal type of the host.
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
+    // The area ID of the Bastionhost instance to which the host whose endpoint type you want to modify belongs.
     // 
-    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // > For more information about the mapping between area IDs and area names, see [Regions and active zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
   };
 

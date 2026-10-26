@@ -16,12 +16,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CredentialType, credentialType_);
       DARABONBA_PTR_TO_JSON(HostAccountId, hostAccountId_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, ResetHostAccountCredentialRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CredentialType, credentialType_);
       DARABONBA_PTR_FROM_JSON(HostAccountId, hostAccountId_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
     ResetHostAccountCredentialRequest() = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->credentialType_ == nullptr
-        && this->hostAccountId_ == nullptr && this->instanceId_ == nullptr && this->regionId_ == nullptr; };
+        && this->hostAccountId_ == nullptr && this->instanceId_ == nullptr && this->projectId_ == nullptr && this->regionId_ == nullptr; };
     // credentialType Field Functions 
     bool hasCredentialType() const { return this->credentialType_ != nullptr;};
     void deleteCredentialType() { this->credentialType_ = nullptr;};
@@ -58,6 +60,13 @@ namespace Models
     inline ResetHostAccountCredentialRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline ResetHostAccountCredentialRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -66,29 +75,26 @@ namespace Models
 
 
   protected:
-    // The type of logon credential to clear. Valid values:
-    // 
-    // - **Password**: The password.
-    // 
-    // - **PrivateKey**: The SSH private key.
+    // The type of the logon credential to purge. Valid values:
+    // - **Password**: password
+    // - **PrivateKey**: SSH private key
     // 
     // This parameter is required.
     shared_ptr<string> credentialType_ {};
-    // The ID of the host account. The logon credential of this account will be cleared.
-    // 
-    // > Call the [ListHostAccounts](https://help.aliyun.com/document_detail/204372.html) operation to obtain this parameter.
+    // The ID of the host account whose logon credentials you want to purge.
+    // > You can call the [ListHostAccounts](https://help.aliyun.com/document_detail/204372.html) operation to obtain the value of this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> hostAccountId_ {};
-    // The ID of the Bastionhost instance. The instance contains the host account.
-    // 
-    // > Call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
+    // The instance ID of the Bastionhost instance to which the host account whose logon credentials you want to purge belongs.
+    // > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the value of this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region ID of the Bastionhost instance.
-    // 
-    // > For information about region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
+    // The region ID of the Bastionhost instance to which the host account whose logon credentials you want to purge belongs.
+    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
   };
 

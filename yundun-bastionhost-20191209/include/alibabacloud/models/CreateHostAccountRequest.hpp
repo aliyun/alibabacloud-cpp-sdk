@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Password, password_);
       DARABONBA_PTR_TO_JSON(PrivateKey, privateKey_);
       DARABONBA_PTR_TO_JSON(PrivilegeType, privilegeType_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(ProtocolName, protocolName_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(RotationMode, rotationMode_);
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Password, password_);
       DARABONBA_PTR_FROM_JSON(PrivateKey, privateKey_);
       DARABONBA_PTR_FROM_JSON(PrivilegeType, privilegeType_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(ProtocolName, protocolName_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(RotationMode, rotationMode_);
@@ -51,7 +53,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->hostAccountName_ == nullptr
         && this->hostId_ == nullptr && this->hostShareKeyId_ == nullptr && this->instanceId_ == nullptr && this->passPhrase_ == nullptr && this->password_ == nullptr
-        && this->privateKey_ == nullptr && this->privilegeType_ == nullptr && this->protocolName_ == nullptr && this->regionId_ == nullptr && this->rotationMode_ == nullptr; };
+        && this->privateKey_ == nullptr && this->privilegeType_ == nullptr && this->projectId_ == nullptr && this->protocolName_ == nullptr && this->regionId_ == nullptr
+        && this->rotationMode_ == nullptr; };
     // hostAccountName Field Functions 
     bool hasHostAccountName() const { return this->hostAccountName_ != nullptr;};
     void deleteHostAccountName() { this->hostAccountName_ = nullptr;};
@@ -108,6 +111,13 @@ namespace Models
     inline CreateHostAccountRequest& setPrivilegeType(string privilegeType) { DARABONBA_PTR_SET_VALUE(privilegeType_, privilegeType) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline CreateHostAccountRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // protocolName Field Functions 
     bool hasProtocolName() const { return this->protocolName_ != nullptr;};
     void deleteProtocolName() { this->protocolName_ = nullptr;};
@@ -130,61 +140,55 @@ namespace Models
 
 
   protected:
-    // The name of the new host account. The name can be up to 128 characters long.
+    // The name of the host account to create. The name can be up to 128 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> hostAccountName_ {};
     // The ID of the host for which you want to create a host account.
     // 
-    // > Call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to obtain the host ID.
+    // > You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> hostId_ {};
     // The ID of the shared key for the host.
     shared_ptr<string> hostShareKeyId_ {};
-    // The ID of the Bastionhost instance where you want to create the host account.
-    // 
-    // > Call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the instance ID.
+    // The ID of the Bastionhost instance where the host for which you want to create a host account resides.
+    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the Bastionhost instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The passphrase for the private key of the new host account.
+    // The passphrase of the private key for the host account to create.
     // 
-    // > You can set this parameter only when ProtocolName is set to SSH. You do not need to set this parameter if ProtocolName is set to RDP.
+    // > You can configure this parameter when ProtocolName is set to SSH. You do not need to configure this parameter when ProtocolName is set to RDP.
     shared_ptr<string> passPhrase_ {};
-    // The password of the new host account.
+    // The password of the host account to create.
     shared_ptr<string> password_ {};
-    // The private key of the new host account. The value is a Base64-encoded string.
+    // The private key of the host account to create. The value is a Base64-encoded string.
     // 
-    // > This parameter is used only when ProtocolName is set to SSH. You do not need to set this parameter if ProtocolName is set to RDP. You can set both a password and a private key for the host account. When connecting to the asset, Bastionhost prioritizes the private key for the connection.
+    // > This parameter takes effect only when ProtocolName is set to SSH. You do not need to configure this parameter when ProtocolName is set to RDP. You can configure both a password and a private key for the host account. When connecting to an asset, Bastionhost preferentially uses the private key.
     shared_ptr<string> privateKey_ {};
-    // The permission type of the account. If you do not set this parameter, the default value is Normal.
-    // 
-    // - **Privileged**: privileged account
-    // 
-    // - **Normal**: normal account
-    // 
-    // > This parameter is supported only in Bastionhost V3.2.47 and later.
+    // The privilege type of the account. Default value: Normal.
+    // - **Privileged**: privileged account.
+    // - **Normal**: standard account.
+    // >Only supported in V3.2.47 and later.
     shared_ptr<string> privilegeType_ {};
-    // The protocol of the new host account. <br>Valid values:<br>
-    // 
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
+    // The protocol name of the host account to create.
+    // <br>Valid values:
     // - SSH
-    // 
     // - RDP
     // 
     // This parameter is required.
     shared_ptr<string> protocolName_ {};
-    // The region ID of the Bastionhost instance where you want to create the host account.
+    // The region ID of the Bastionhost instance where the host for which you want to create a host account resides.
     // 
     // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
-    // The password change mode for the account. If you do not set this parameter, the default value is Self.
-    // 
-    // - **Privileged**: Use a privileged account to change the password.
-    // 
-    // - **Self**: Do not use a privileged account to change the password.
-    // 
-    // > This parameter is supported only in Bastionhost V3.2.47 and later.
+    // The password change mode of the account. Default value: Self.
+    // - **Privileged**: uses a privileged account to change the password.
+    // - **Self**: does not use a privileged account to change the password.
+    // >Only supported in V3.2.47 and later.
     shared_ptr<string> rotationMode_ {};
   };
 

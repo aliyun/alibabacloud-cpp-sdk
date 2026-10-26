@@ -88,27 +88,24 @@ namespace Models
 
 
     protected:
-      // The return code that indicates whether the call was successful. Valid values:
-      // 
-      // - **OK**: The call was successful.
-      // 
+      // The result of the operation call. Valid values:
+      // - **OK**: The operation was successful.
       // - **UNEXPECTED**: An unknown error occurred.
+      // - **INVALID_ARGUMENT**: The request parameters are invalid.
       // 
-      // - **INVALID_ARGUMENT**: A request parameter is invalid.
+      //     > Check the request parameters and call the operation again after you confirm that the parameters are correct.
       // 
-      //   > Make sure that the request parameters are valid and call the operation again.
+      // - **OBJECT_NOT_FOUND**: The specified object does not exist.
       // 
-      // - **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
+      //     > Check whether the bastion host instance ID exists, whether the host exists, and whether the host ID is correct. Then call the operation again.
       // 
-      //   > Make sure that the specified bastion host ID and host IDs are valid. Then, call the operation again.
-      // 
-      // - **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+      // - **OBJECT_AlREADY_EXISTS**: The specified object already exists.
       shared_ptr<string> code_ {};
       // The asset group ID.
       shared_ptr<string> hostGroupId_ {};
       // The host ID.
       shared_ptr<string> hostId_ {};
-      // This parameter is deprecated.
+      // This parameter is deprecated and can be ignored.
       shared_ptr<string> message_ {};
     };
 
@@ -131,9 +128,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The unique identifier that Alibaba Cloud generated for the request.
     shared_ptr<string> requestId_ {};
-    // The result of the call.
+    // The call results of the operation.
     shared_ptr<vector<AddHostsToGroupResponseBody::Results>> results_ {};
   };
 

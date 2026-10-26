@@ -99,13 +99,13 @@ namespace Models
 
 
     protected:
-      // The number of the associated host accounts.
+      // The number of associated host accounts.
       shared_ptr<int64_t> hostAccountCount_ {};
-      // The shared key ID.
+      // The ID of the host shared key.
       shared_ptr<string> hostShareKeyId_ {};
-      // The name of the shared key.
+      // The name of the host shared key.
       shared_ptr<string> hostShareKeyName_ {};
-      // The time when the shared key was last modified. The value is a UNIX timestamp. Unit: seconds.
+      // The time when the key was last modified. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> lastModifyKeyAt_ {};
       // The fingerprint of the private key.
       shared_ptr<string> privateKeyFingerPrint_ {};
@@ -137,11 +137,11 @@ namespace Models
 
 
   protected:
-    // An array that consists of the shared keys.
+    // The host shared keys.
     shared_ptr<vector<ListHostShareKeysResponseBody::HostShareKeys>> hostShareKeys_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of the shared keys.
+    // The total number of host shared keys returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

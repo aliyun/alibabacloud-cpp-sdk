@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Mode, mode_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(UserGroupId, userGroupId_);
     };
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Mode, mode_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(UserGroupId, userGroupId_);
     };
@@ -42,8 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->hostGroupName_ == nullptr
-        && this->instanceId_ == nullptr && this->mode_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr
-        && this->userGroupId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->mode_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->projectId_ == nullptr
+        && this->regionId_ == nullptr && this->userGroupId_ == nullptr; };
     // hostGroupName Field Functions 
     bool hasHostGroupName() const { return this->hostGroupName_ != nullptr;};
     void deleteHostGroupName() { this->hostGroupName_ = nullptr;};
@@ -79,6 +81,13 @@ namespace Models
     inline ListHostGroupsForUserGroupRequest& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline ListHostGroupsForUserGroupRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -94,34 +103,30 @@ namespace Models
 
 
   protected:
-    // The name of the host group that you want to query. Only exact match is supported.
+    // The name of the host group to query. Only exact match is supported.
     shared_ptr<string> hostGroupName_ {};
-    // The ID of the bastion host to which the user group belongs.
-    // 
-    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+    // The instance ID of the Bastionhost instance to which the user group belongs.
+    // > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Specifies the category of the host group that you want to query. Valid values:
-    // 
-    // - **Authorized**: queries the host groups that the user group is authorized to manage. This is the default value.
-    // 
-    // - **Unauthorized**: queries the host groups that the user group is not authorized to manage.
+    // The mode of the host group list to query. Valid values:
+    // - **Authorized**: Authorized host groups. This is the default value.
+    // - **Unauthorized**: Unauthorized host groups.
     shared_ptr<string> mode_ {};
-    // The number of the page to return. Default value: **1**.
+    // The page number of the current page when paging in a paged query. Default value: **1**.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries to return on each page.<br>
-    // Maximum value: 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-    // 
-    // > We recommend that you do not leave this parameter empty.
+    // The maximum number of entries to return on each page when paging in a paged query.  
+    // The maximum value of the PageSize parameter is 100. The default value is 20. If this parameter is left empty, 20 entries are returned by default.
+    // > Specify a value for the PageSize parameter.
     shared_ptr<string> pageSize_ {};
-    // The region ID of the bastion host to which the user group belongs.
-    // 
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
+    // The region ID of the Bastionhost instance to which the user group belongs.
     // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
-    // The ID of the user group.
-    // 
-    // > You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to query the ID of the user group.
+    // The ID of the user group to query.
+    // > You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> userGroupId_ {};

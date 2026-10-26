@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(ProtocolName, protocolName_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(ProtocolName, protocolName_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
@@ -45,7 +47,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->hostAccountName_ == nullptr
         && this->hostId_ == nullptr && this->hostIds_ == nullptr && this->instanceId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
-        && this->protocolName_ == nullptr && this->regionId_ == nullptr; };
+        && this->projectId_ == nullptr && this->protocolName_ == nullptr && this->regionId_ == nullptr; };
     // hostAccountName Field Functions 
     bool hasHostAccountName() const { return this->hostAccountName_ != nullptr;};
     void deleteHostAccountName() { this->hostAccountName_ = nullptr;};
@@ -88,6 +90,13 @@ namespace Models
     inline ListHostAccountsRequest& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline ListHostAccountsRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // protocolName Field Functions 
     bool hasProtocolName() const { return this->protocolName_ != nullptr;};
     void deleteProtocolName() { this->protocolName_ = nullptr;};
@@ -103,39 +112,29 @@ namespace Models
 
 
   protected:
-    // The name of the host account that you want to query. The name can be up to 128 characters in length. This parameter supports only term queries.
+    // The name of the host account to query. The name can be up to 128 characters in length. Only exact match is supported.
     shared_ptr<string> hostAccountName_ {};
-    // The ID of the host for which you want to query host accounts.
-    // 
-    // > You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to obtain the host ID.
+    // The ID of the host whose accounts you want to query. You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the host ID.
     // 
     // This parameter is required.
     shared_ptr<string> hostId_ {};
-    // The array of host IDs for which you want to query host accounts.
-    // 
-    // > This parameter takes effect only when the value of the HostId parameter is 0. If the HostId parameter is specified with a non-zero value, this parameter is ignored.
+    // The array of host IDs whose accounts you want to query. > If the HostId parameter is specified and its value is not 0, this parameter is ignored. This parameter takes effect only when the value of the HostId parameter is 0.
     shared_ptr<string> hostIds_ {};
-    // The ID of the Bastionhost instance.
-    // 
-    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the instance ID.
+    // The ID of the Bastionhost instance to which the host belongs. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of the page to return. Default value: **1**.
+    // The page number of the current page in a paging query. Default value: **1**.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries to return on each page.<br> The maximum value of the PageSize parameter is 100. The default value is 20. If you leave this parameter empty, 20 entries are returned on each page.
-    // 
-    // > We recommend that you do not leave this parameter empty.
+    // The maximum number of entries to return on each page in a paging query. <br>The maximum value of the PageSize parameter is 100. Default value: 20. If you leave this parameter empty, 20 entries are returned by default. > Specify a value for the PageSize parameter.
     shared_ptr<string> pageSize_ {};
-    // The protocol of the host account that you want to query.<br> Valid values:
-    // 
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
+    // The protocol name of the host account to query. <br>Valid values:
     // - SSH
-    // 
     // - RDP
     shared_ptr<string> protocolName_ {};
-    // The region ID of the Bastionhost instance.
-    // 
-    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // The region ID of the Bastionhost instance to which the host belongs. For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
   };
 

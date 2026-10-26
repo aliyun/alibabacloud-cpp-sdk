@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PolicyId, policyId_);
       DARABONBA_PTR_TO_JSON(PolicyName, policyName_);
       DARABONBA_PTR_TO_JSON(Priority, priority_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyPolicyRequest& obj) { 
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PolicyId, policyId_);
       DARABONBA_PTR_FROM_JSON(PolicyName, policyName_);
       DARABONBA_PTR_FROM_JSON(Priority, priority_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
     ModifyPolicyRequest() = default ;
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->comment_ == nullptr
-        && this->instanceId_ == nullptr && this->policyId_ == nullptr && this->policyName_ == nullptr && this->priority_ == nullptr && this->regionId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->policyId_ == nullptr && this->policyName_ == nullptr && this->priority_ == nullptr && this->projectId_ == nullptr
+        && this->regionId_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
@@ -76,6 +79,13 @@ namespace Models
     inline ModifyPolicyRequest& setPriority(string priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline ModifyPolicyRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -84,25 +94,23 @@ namespace Models
 
 
   protected:
-    // The new remarks of the control policy.
+    // The new description of the control policy.
     shared_ptr<string> comment_ {};
-    // The ID of the bastion host to which the control policy to modify belongs.
-    // 
-    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+    // The ID of the Bastionhost instance to which the control policy belongs. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the control policy that you want to modify.
+    // The ID of the control policy.
     // 
     // This parameter is required.
     shared_ptr<string> policyId_ {};
-    // The new name of the control policy.
+    // The new Policy Name of the control policy.
     shared_ptr<string> policyName_ {};
-    // The priority of the modified control policy. Valid values: 1 to 100. The smaller the value, the higher the priority. Default value: 1.
+    // The new priority of the control policy. Valid values: 1 to 100. A smaller value indicates a higher priority. Default value: 1.
     shared_ptr<string> priority_ {};
-    // The region ID of the bastion host to which the control policy to modify belongs.
-    // 
-    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
+    // The region ID of the Bastionhost instance to which the control policy belongs. For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
   };
 

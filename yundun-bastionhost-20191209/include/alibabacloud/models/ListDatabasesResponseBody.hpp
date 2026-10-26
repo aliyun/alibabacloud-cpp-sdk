@@ -174,54 +174,44 @@ namespace Models
 
     protected:
       // The address type of the database. Valid values:
-      // 
-      // - **Public**
-      // 
-      // - **Private**
+      // - **Public**: public address
+      // - **Private**: private endpoint on the private network
       shared_ptr<string> activeAddressType_ {};
-      // The remarks of the database.
+      // The description of the database.
       shared_ptr<string> comment_ {};
-      // The database ID.
+      // The instance ID of the database.
       shared_ptr<string> databaseId_ {};
       // The name of the database.
       shared_ptr<string> databaseName_ {};
-      // The port of the database.
+      // The port number of the database.
       shared_ptr<int32_t> databasePort_ {};
-      // The internal address of the database. The value is a domain name or an IP address.
+      // The private endpoint of the database on the private network, which can be a domain name or an IP address.
       shared_ptr<string> databasePrivateAddress_ {};
-      // The public address of the database. The value is a domain name or an IP address.
+      // The public address of the database, which can be a domain name or an IP address.
       shared_ptr<string> databasePublicAddress_ {};
-      // The database engine. Valid values:
-      // 
-      // - **MySQL**
-      // 
-      // - **Oracle**
-      // 
-      // - **PostgreSQL**
-      // 
-      // - **SQLServer**
-      shared_ptr<string> databaseType_ {};
-      // The ID of the network domain where the database resides.
-      shared_ptr<string> networkDomainId_ {};
       // The type of the database. Valid values:
       // 
-      // - **Local**: on-premises database.
+      // - **MySQL**
+      // - **Oracle**
+      // - **PostgreSQL**
+      // - **SQLServer**
+      shared_ptr<string> databaseType_ {};
+      // The ID of the network domain to which the database belongs.
+      shared_ptr<string> networkDomainId_ {};
+      // The source of the database. Valid values:
       // 
-      // - **Rds**: ApsaraDB for RDS instance.
-      // 
-      // - **PolarDB**: PolarDB cluster
+      // - **Local**: local database instance
+      // - **Rds**: ApsaraDB RDS instance
+      // - **PolarDB**: PolarDB instance
       shared_ptr<string> source_ {};
-      // The ID of the ApsaraDB for RDS instance or PolarDB cluster.
-      // 
-      // > No value is returned for this parameter if **Source** is set to **Local**.
+      // The instance ID of the ApsaraDB RDS instance or PolarDB instance that corresponds to the database.
+      // > If **Source** is set to **Local**, this parameter is empty.
       shared_ptr<string> sourceInstanceId_ {};
-      // The region ID of the ApsaraDB for RDS instance or PolarDB cluster.
+      // The region ID of the ApsaraDB RDS instance or PolarDB instance that corresponds to the database.
       shared_ptr<string> sourceInstanceRegionId_ {};
-      // The status of the database. Valid values:
-      // 
-      // - **Normal**
-      // 
-      // - **Release**
+      // The instance status of the database. Valid values:
+      // - **Normal**: Normal
+      // - **Release**: released
       shared_ptr<string> sourceInstanceState_ {};
     };
 
@@ -251,9 +241,9 @@ namespace Models
 
 
   protected:
-    // The databases returned.
+    // The list of databases.
     shared_ptr<vector<ListDatabasesResponseBody::Databases>> databases_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The total number of databases returned.
     shared_ptr<int64_t> totalCount_ {};

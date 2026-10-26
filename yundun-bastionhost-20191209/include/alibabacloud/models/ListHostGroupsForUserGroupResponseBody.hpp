@@ -115,7 +115,7 @@ namespace Models
 
 
   protected:
-    // The host groups returned.
+    // The list of host groups returned.
     shared_ptr<vector<ListHostGroupsForUserGroupResponseBody::HostGroups>> hostGroups_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

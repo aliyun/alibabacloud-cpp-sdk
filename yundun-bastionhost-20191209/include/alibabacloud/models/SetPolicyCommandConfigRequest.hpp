@@ -17,12 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CommandConfig, commandConfig_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(PolicyId, policyId_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, SetPolicyCommandConfigRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CommandConfig, commandConfig_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(PolicyId, policyId_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
     SetPolicyCommandConfigRequest() = default ;
@@ -97,17 +99,16 @@ namespace Models
 
 
       protected:
-        // The type of command control. Valid values:
+        // The command control type. Valid values:
         // 
-        // - **black**: blacklist mode.
-        // 
-        // - **white**: whitelist mode.
+        // - **black**: blacklist mode
+        // - **white**: whitelist mode
         // 
         // This parameter is required.
         shared_ptr<string> aclType_ {};
-        // The commands to be controlled.
+        // The list of commands.
         // 
-        // > This parameter is required if AclType is set to white.
+        // > If AclType is set to white, Commands is required.
         shared_ptr<vector<string>> commands_ {};
       };
 
@@ -141,7 +142,7 @@ namespace Models
 
 
       protected:
-        // The commands that can be run only after approval.
+        // The list of commands that require approval.
         shared_ptr<vector<string>> commands_ {};
       };
 
@@ -168,7 +169,7 @@ namespace Models
     protected:
       // The command approval settings.
       // 
-      // > A command approval policy is used to approve the commands that are excluded from a whitelist or blacklist specified in a command control policy. The command control policy takes precedence over the command approval policy in validation.
+      // > Command approval applies to commands that are not subject to command control (whitelist or blacklist). Command control policies take precedence over command approval.
       shared_ptr<CommandConfig::Approval> approval_ {};
       // The command control settings.
       // 
@@ -177,7 +178,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->commandConfig_ == nullptr
-        && this->instanceId_ == nullptr && this->policyId_ == nullptr && this->regionId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->policyId_ == nullptr && this->projectId_ == nullptr && this->regionId_ == nullptr; };
     // commandConfig Field Functions 
     bool hasCommandConfig() const { return this->commandConfig_ != nullptr;};
     void deleteCommandConfig() { this->commandConfig_ = nullptr;};
@@ -201,6 +202,13 @@ namespace Models
     inline SetPolicyCommandConfigRequest& setPolicyId(string policyId) { DARABONBA_PTR_SET_VALUE(policyId_, policyId) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline SetPolicyCommandConfigRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -215,20 +223,20 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<SetPolicyCommandConfigRequest::CommandConfig> commandConfig_ {};
-    // The bastion host ID.
-    // 
-    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+    // The instance ID of the Bastionhost instance.
+    // > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the value of this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The ID of the control policy that you want to modify.
     // 
-    // > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+    // > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the value of this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> policyId_ {};
-    // The region ID of the bastion host.
-    // 
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
+    // The region ID of the Bastionhost instance.
     // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
   };

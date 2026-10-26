@@ -119,25 +119,21 @@ namespace Models
 
     protected:
       // The address type of the host. Valid values:
-      // 
-      // - **Public**: a public IP address
-      // 
-      // - **Private**: a private IP address
+      // - **Public**: public address
+      // - **Private**: private network address
       shared_ptr<string> activeAddressType_ {};
-      // The remarks of the host.
+      // The description of the host.
       shared_ptr<string> comment_ {};
       // The ID of the host.
       shared_ptr<string> hostId_ {};
       // The name of the host.
       shared_ptr<string> hostName_ {};
-      // The private IP address of the host. This can be a domain name or an IP address.
+      // The private network address of the host, which can be a domain name or an IP address.
       shared_ptr<string> hostPrivateAddress_ {};
-      // The public IP address of the host. This can be a domain name or an IP address.
+      // The public address of the host, which can be a domain name or an IP address.
       shared_ptr<string> hostPublicAddress_ {};
-      // The OS type of the host. Valid values:
-      // 
+      // The operating system type of the host. Valid values:
       // - **Linux**
-      // 
       // - **Windows**
       shared_ptr<string> OSType_ {};
     };
@@ -168,11 +164,11 @@ namespace Models
 
 
   protected:
-    // A list of hosts.
+    // The list of hosts returned.
     shared_ptr<vector<ListHostsForUserGroupResponseBody::Hosts>> hosts_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of hosts.
+    // The total number of hosts returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(HostGroups, hostGroups_);
       DARABONBA_PTR_TO_JSON(Hosts, hosts_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(RuleId, ruleId_);
       DARABONBA_PTR_TO_JSON(RuleName, ruleName_);
@@ -35,6 +36,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(HostGroups, hostGroups_);
       DARABONBA_PTR_FROM_JSON(Hosts, hosts_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(RuleId, ruleId_);
       DARABONBA_PTR_FROM_JSON(RuleName, ruleName_);
@@ -92,7 +94,7 @@ namespace Models
 
 
     protected:
-      // The host account IDs.
+      // The list of host account IDs.
       shared_ptr<vector<string>> hostAccountIds_ {};
       // The host ID.
       shared_ptr<string> hostId_ {};
@@ -138,7 +140,7 @@ namespace Models
 
 
     protected:
-      // The names of the asset accounts.
+      // The list of asset account names.
       shared_ptr<vector<string>> hostAccountNames_ {};
       // The asset group ID.
       shared_ptr<string> hostGroupId_ {};
@@ -184,16 +186,16 @@ namespace Models
 
 
     protected:
-      // The database account IDs.
+      // The list of database account IDs.
       shared_ptr<vector<string>> databaseAccountIds_ {};
-      // The database ID.
+      // The database instance ID.
       shared_ptr<string> databaseId_ {};
     };
 
     virtual bool empty() const override { return this->comment_ == nullptr
         && this->databases_ == nullptr && this->effectiveEndTime_ == nullptr && this->effectiveStartTime_ == nullptr && this->hostGroups_ == nullptr && this->hosts_ == nullptr
-        && this->instanceId_ == nullptr && this->regionId_ == nullptr && this->ruleId_ == nullptr && this->ruleName_ == nullptr && this->userGroupIds_ == nullptr
-        && this->userIds_ == nullptr; };
+        && this->instanceId_ == nullptr && this->projectId_ == nullptr && this->regionId_ == nullptr && this->ruleId_ == nullptr && this->ruleName_ == nullptr
+        && this->userGroupIds_ == nullptr && this->userIds_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
@@ -249,6 +251,13 @@ namespace Models
     inline ModifyRuleRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline ModifyRuleRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -289,37 +298,35 @@ namespace Models
 
 
   protected:
-    // The new remarks of the authorization rule. It can be up to 500 characters in length.
+    // The new remarks for the authorization rule. The remarks can be up to 500 characters in length.
     shared_ptr<string> comment_ {};
-    // The databases and database accounts that a user associated with the modified rule can manage.
+    // The new list of database instances and database accounts associated with the authorization rule.
     shared_ptr<vector<ModifyRuleRequest::Databases>> databases_ {};
-    // The end time of the new validity period of the authorization rule. The value is a UNIX timestamp. Unit: seconds.
+    // The new end time of the validity period for the authorization rule. The value is a UNIX timestamp in seconds.
     shared_ptr<int64_t> effectiveEndTime_ {};
-    // The start time of the new validity period of the authorization rule. The value is a UNIX timestamp. Unit: seconds.
+    // The new start time of the validity period for the authorization rule. The value is a UNIX timestamp in seconds.
     shared_ptr<int64_t> effectiveStartTime_ {};
-    // The asset groups and asset accounts that a user associated with the modified rule can manage.
+    // The new list of asset groups and accounts associated with the authorization rule.
     shared_ptr<vector<ModifyRuleRequest::HostGroups>> hostGroups_ {};
-    // An array that consists of the host IDs and host account IDs with which the modified authorization rule is associated.
+    // The new array of host IDs and host account IDs associated with the authorization rule.
     shared_ptr<vector<ModifyRuleRequest::Hosts>> hosts_ {};
-    // The ID of the bastion host whose authorization rule you want to modify.
-    // 
-    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+    // The ID of the Bastionhost instance to which the authorization rule to be updated belongs. > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the value of this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region ID of the bastion host to which the authorization rule to modify belongs.
-    // 
-    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // The project ID.
+    shared_ptr<int64_t> projectId_ {};
+    // The region ID of the Bastionhost instance to which the authorization rule to be updated belongs. > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
-    // The ID of the authorization rule to modify.
+    // The ID of the authorization rule to be updated.
     // 
     // This parameter is required.
     shared_ptr<string> ruleId_ {};
-    // The new name of the authorization rule. The name must be 1 to 128 characters in length and can contain periods (.), underscores (_), hyphens (-), single quotation marks (\\"), and spaces. It cannot start with a special character.
+    // The new name of the authorization rule. The name must be 1 to 128 characters in length and cannot start with a special character. It can contain only periods (.), underscores (_), hyphens (-), single quotation marks (\\"), and spaces.
     shared_ptr<string> ruleName_ {};
-    // The IDs of the user groups with which the modified authorization rule is associated.
+    // The new list of user group IDs associated with the authorization rule.
     shared_ptr<vector<string>> userGroupIds_ {};
-    // The IDs of the users with whom the modified authorization rule is associated.
+    // The new list of user IDs associated with the authorization rule.
     shared_ptr<vector<string>> userIds_ {};
   };
 

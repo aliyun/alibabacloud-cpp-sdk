@@ -108,21 +108,19 @@ namespace Models
 
 
     protected:
-      // The remarks of the authorization rule.
+      // The description of the authorization rule.
       shared_ptr<string> comment_ {};
-      // The end time of the validity period of the authorization rule. The value is a timestamp. Unit: seconds.
+      // The end time of the validity period for the authorization rule. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> effectiveEndTime_ {};
-      // The start time of the validity period of the authorization rule. The value is a timestamp. Unit: seconds.
+      // The start time of the validity period for the authorization rule. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> effectiveStartTime_ {};
-      // The authorization rule ID.
+      // The ID of the authorization rule.
       shared_ptr<string> ruleId_ {};
       // The name of the authorization rule.
       shared_ptr<string> ruleName_ {};
-      // The state of the authorization rule.
-      // 
-      // - **Enabled**
-      // 
-      // - **Disabled**
+      // The state of the authorization rule. Valid values:
+      // - **Enabled**: Normal.
+      // - **Disabled**: Disabled.
       shared_ptr<string> ruleState_ {};
     };
 
@@ -154,9 +152,9 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The authorization rules that are returned.
+    // The authorization rules returned.
     shared_ptr<vector<ListRulesResponseBody::Rules>> rules_ {};
-    // The total number of authorization rules that are returned.
+    // The total number of authorization rules returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

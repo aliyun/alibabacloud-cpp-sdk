@@ -80,7 +80,7 @@ namespace Models
     protected:
       // The description of the user group.
       shared_ptr<string> comment_ {};
-      // The ID of the group.
+      // The ID of the user group.
       shared_ptr<string> userGroupId_ {};
       // The name of the user group.
       shared_ptr<string> userGroupName_ {};
@@ -105,9 +105,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The details of the user group returned.
+    // The details of the user group.
     shared_ptr<GetUserGroupResponseBody::UserGroup> userGroup_ {};
   };
 
