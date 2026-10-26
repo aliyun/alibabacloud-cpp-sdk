@@ -43,6 +43,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Items& obj) { 
         DARABONBA_PTR_TO_JSON(AccountName, accountName_);
         DARABONBA_PTR_TO_JSON(AliUid, aliUid_);
+        DARABONBA_PTR_TO_JSON(AuthDb, authDb_);
         DARABONBA_PTR_TO_JSON(AuthRole, authRole_);
         DARABONBA_PTR_TO_JSON(EncryptionKeyMode, encryptionKeyMode_);
         DARABONBA_PTR_TO_JSON(EngineType, engineType_);
@@ -57,6 +58,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Items& obj) { 
         DARABONBA_PTR_FROM_JSON(AccountName, accountName_);
         DARABONBA_PTR_FROM_JSON(AliUid, aliUid_);
+        DARABONBA_PTR_FROM_JSON(AuthDb, authDb_);
         DARABONBA_PTR_FROM_JSON(AuthRole, authRole_);
         DARABONBA_PTR_FROM_JSON(EncryptionKeyMode, encryptionKeyMode_);
         DARABONBA_PTR_FROM_JSON(EngineType, engineType_);
@@ -80,9 +82,9 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->accountName_ == nullptr
-        && this->aliUid_ == nullptr && this->authRole_ == nullptr && this->encryptionKeyMode_ == nullptr && this->engineType_ == nullptr && this->expireTime_ == nullptr
-        && this->id_ == nullptr && this->instanceId_ == nullptr && this->productCode_ == nullptr && this->productId_ == nullptr && this->regionId_ == nullptr
-        && this->regionName_ == nullptr; };
+        && this->aliUid_ == nullptr && this->authDb_ == nullptr && this->authRole_ == nullptr && this->encryptionKeyMode_ == nullptr && this->engineType_ == nullptr
+        && this->expireTime_ == nullptr && this->id_ == nullptr && this->instanceId_ == nullptr && this->productCode_ == nullptr && this->productId_ == nullptr
+        && this->regionId_ == nullptr && this->regionName_ == nullptr; };
       // accountName Field Functions 
       bool hasAccountName() const { return this->accountName_ != nullptr;};
       void deleteAccountName() { this->accountName_ = nullptr;};
@@ -95,6 +97,13 @@ namespace Models
       void deleteAliUid() { this->aliUid_ = nullptr;};
       inline int64_t getAliUid() const { DARABONBA_PTR_GET_DEFAULT(aliUid_, 0L) };
       inline Items& setAliUid(int64_t aliUid) { DARABONBA_PTR_SET_VALUE(aliUid_, aliUid) };
+
+
+      // authDb Field Functions 
+      bool hasAuthDb() const { return this->authDb_ != nullptr;};
+      void deleteAuthDb() { this->authDb_ = nullptr;};
+      inline string getAuthDb() const { DARABONBA_PTR_GET_DEFAULT(authDb_, "") };
+      inline Items& setAuthDb(string authDb) { DARABONBA_PTR_SET_VALUE(authDb_, authDb) };
 
 
       // authRole Field Functions 
@@ -170,36 +179,31 @@ namespace Models
     protected:
       // The database account name.
       shared_ptr<string> accountName_ {};
-      // The Alibaba Cloud account ID to which the asset belongs.
+      // The ID of the Alibaba Cloud account to which the asset belongs.
       shared_ptr<int64_t> aliUid_ {};
+      // The authentication database of the MongoDB account. This parameter must be passed together with AccountName when modifying permissions.
+      shared_ptr<string> authDb_ {};
       // The column encryption access permissions. Valid values:
-      // 
-      // - fullAccess: plaintext access.
-      // - restrictedAccess: restricted access.
-      // - noneAccess: decryption prohibited. noneAccess applies only to ApsaraDB RDS for MySQL instances whose current effective key pattern is client_key.
+      // - fullAccess: plaintext access
+      // - restrictedAccess: restricted access
+      // - noneAccess: decryption prohibited. This value applies only to ApsaraDB RDS for MySQL instances whose current effective key mode is client_key.
       shared_ptr<string> authRole_ {};
       // The current effective column encryption key mode. Valid values:
-      // 
-      // - client_key: local master key.
-      // - kms_key: KMS key.
-      // 
-      // This field is not returned if no column encryption configuration is in effect.
+      // - client_key: local key
+      // - kms_key: KMS key
+      // This parameter is not returned if no effective configuration exists.
       shared_ptr<string> encryptionKeyMode_ {};
       // The database engine type.
       shared_ptr<string> engineType_ {};
-      // The expiration time of the plaintext access permissions. The value is a UNIX timestamp in milliseconds since 1970-01-01 00:00:00 UTC. This field is not returned if no expiration time is set.
+      // The expiration time of the plaintext access permissions. The value is a UNIX timestamp that represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. This parameter is not returned if no validity period is set.
       shared_ptr<int64_t> expireTime_ {};
-      // The database account identifier. This value is used as AccountId when configuring permissions.
+      // The database account ID. This ID is used as AccountId when configuring permissions.
       shared_ptr<int64_t> id_ {};
-      // The database instance identity.
+      // The database instance ID.
       shared_ptr<string> instanceId_ {};
-      // The cloud product code.
+      // The cloud service code.
       shared_ptr<string> productCode_ {};
-      // The cloud product type identifier. Valid values:
-      // 
-      // - 5: RDS.
-      // - 8: POLARDB.
-      // - 27: PolarDBX2.
+      // The cloud service type ID. Valid values: 5 (RDS), 8 (POLARDB), and 27 (PolarDBX2).
       shared_ptr<int64_t> productId_ {};
       // The region ID of the asset.
       shared_ptr<string> regionId_ {};
@@ -249,13 +253,13 @@ namespace Models
   protected:
     // The page number of the returned data.
     shared_ptr<int32_t> currentPage_ {};
-    // The list of records returned by the current query.
+    // The list of records returned in the current query.
     shared_ptr<vector<ListDataAssetAccountsResponseBody::Items>> items_ {};
-    // The number of records per page for the current query.
+    // The number of entries returned per page in the current query.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID. You can use this ID to locate the API call.
+    // The request ID, which can be used to trace the current API call.
     shared_ptr<string> requestId_ {};
-    // The total number of records that match the current query or statistical scope.
+    // The total number of entries that meet the current statistics or query conditions.
     shared_ptr<int32_t> totalCount_ {};
   };
 

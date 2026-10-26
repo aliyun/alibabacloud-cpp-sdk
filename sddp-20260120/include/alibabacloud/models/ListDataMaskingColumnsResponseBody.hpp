@@ -271,38 +271,29 @@ namespace Models
     protected:
       // The data type of the database column.
       shared_ptr<string> dataType_ {};
-      // The database name.
+      // The name of the database.
       shared_ptr<string> dbName_ {};
-      // The database engine type.
+      // The type of the database engine.
       shared_ptr<string> engineType_ {};
-      // The business error code of the record or operation. This value can be empty if no error occurs. Evaluate this value together with ErrorMessage.
+      // The business error code of the record or operation. It can be empty if no error occurs. Evaluate it together with ErrorMessage.
       shared_ptr<string> errorCode_ {};
-      // The business error description of the record or operation.
+      // The business error message of the record or operation.
       shared_ptr<string> errorMessage_ {};
       // The ID of the column record.
       shared_ptr<string> id_ {};
-      // The instance identity of the database.
+      // The database instance identity.
       shared_ptr<string> instanceId_ {};
-      // The column encryption status. Valid values:
-      // - NotEncrypted: Not encrypted.
-      // - Processing: Being processed.
-      // - Success: Encryption succeeded.
-      // - Failed: Encryption failed.
-      // - Deleting: Being disabled.
-      // - DeleteFailed: Disabling failed.
+      // The column encryption status. Valid values: NotEncrypted: not encrypted; Processing: processing; Success: encrypted successfully; Failed: encryption failed; Deleting: disabling; DeleteFailed: disabling failed.
       shared_ptr<string> maskingStatus_ {};
       // The list of matched model tags.
       shared_ptr<vector<Items::ModelTags>> modelTags_ {};
       // The name of the data column.
       shared_ptr<string> name_ {};
-      // The cloud product code.
+      // The code of the cloud service.
       shared_ptr<string> productCode_ {};
-      // The cloud product type ID. Valid values:
-      // - 5: RDS.
-      // - 8: POLARDB.
-      // - 27: PolarDBX2.
+      // The ID of the cloud service type. Valid values: 5: RDS; 8: POLARDB; 27: PolarDBX2.
       shared_ptr<int64_t> productId_ {};
-      // The region ID of the asset.
+      // The ID of the region where the asset is located.
       shared_ptr<string> regionId_ {};
       // The ID of the sensitivity level.
       shared_ptr<int64_t> riskLevelId_ {};
@@ -312,7 +303,7 @@ namespace Models
       shared_ptr<int64_t> ruleId_ {};
       // The name of the matched detection rule.
       shared_ptr<string> ruleName_ {};
-      // The table name.
+      // The name of the table.
       shared_ptr<string> tableName_ {};
     };
 
@@ -362,9 +353,9 @@ namespace Models
     shared_ptr<vector<ListDataMaskingColumnsResponseBody::Items>> items_ {};
     // The number of records per page for the current query.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID, which can be used to locate this API call.
+    // The ID of the request. It can be used to locate the current API call.
     shared_ptr<string> requestId_ {};
-    // The total number of records that match the current query scope.
+    // The total number of records that meet the current statistics or query scope.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -149,33 +149,31 @@ namespace Models
 
 
   protected:
-    // The current page number, starting from 1.
+    // The page number of the current query. Pages start from 1.
     shared_ptr<int32_t> currentPage_ {};
-    // The cloud database instance identity. Set this parameter to the InstanceId from the instance list.
+    // The cloud database instance identity. Set this parameter to the InstanceId in the instance list.
     shared_ptr<string> dataAssetSourceId_ {};
-    // The database name. Set this parameter to the DbName returned by ListDataSources.
+    // The name of the database. Set this parameter to the DbName returned by ListDataSources.
     shared_ptr<string> dataSourceName_ {};
-    // The database engine type. This value must match the EngineType of the target instance, such as MySQL or PostgreSQL.
+    // The type of the database engine. This parameter must be consistent with the EngineType of the target instance, such as MySQL or PostgreSQL.
     shared_ptr<string> engineType_ {};
     // The compatible parameter for the instance identity. DataAssetSourceId takes precedence. If both are specified, DataAssetSourceId is used.
     shared_ptr<string> instanceName_ {};
-    // The language of the response description. Valid values:
-    // - zh: Chinese.
-    // - en: English.
+    // The language of the response description. Valid values: zh: Chinese; en: English.
     shared_ptr<string> lang_ {};
-    // The column name filter condition.
+    // The filter condition for the column name.
     shared_ptr<string> name_ {};
-    // The number of records per page. Keep other filter conditions consistent when querying the next page.
+    // The number of entries to return on each page. Keep other filter conditions consistent when querying the next page.
     shared_ptr<int32_t> pageSize_ {};
-    // The cloud product code. Column encryption supports RDS, POLARDB, and PolarDBX2. If ProductId is also specified, the two values must correspond to each other.
+    // The code of the cloud service. Column encryption supports RDS, POLARDB, and PolarDBX2. If ProductId is also specified, the two parameters must match.
     shared_ptr<string> productCode_ {};
-    // The sensitivity level ID. You can obtain this value from the list returned by ListRiskLevels.
+    // The identifier of the sensitivity level. You can obtain this value from the return list of ListRiskLevels.
     shared_ptr<int64_t> riskLevelId_ {};
-    // The ID of the detection rule or model. Set this parameter to the ID of the corresponding detection rule in the target template.
+    // The identifier of the detection rule or model. Set this parameter to the ID of the corresponding detection rule in the target template.
     shared_ptr<int64_t> ruleId_ {};
-    // The name of the data table. For PostgreSQL or Oracle scenarios, retain the schema.table format obtained from the table list.
+    // The name of the data table. In PostgreSQL or Oracle scenarios, retain the schema.table format obtained from the table list.
     shared_ptr<string> tableName_ {};
-    // The ID of the classification and grading template. You can obtain this value from Items[].Id returned by ListTemplates. Ensure consistency with the selected sensitivity level and detection model.
+    // The identifier of the data classification and grading template. You can obtain this value from Items[].Id returned by ListTemplates. Keep this parameter consistent with the selected sensitivity level and detection model.
     shared_ptr<int64_t> templateId_ {};
   };
 

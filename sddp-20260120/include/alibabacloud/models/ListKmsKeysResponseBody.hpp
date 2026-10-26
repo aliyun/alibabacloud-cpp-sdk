@@ -95,9 +95,9 @@ namespace Models
 
 
   protected:
-    // The list of records returned by this query.
+    // The list of records returned by the query.
     shared_ptr<vector<ListKmsKeysResponseBody::Items>> items_ {};
-    // The request ID, which can be used to locate this API call.
+    // The request identity, which is active when you invoke the operation to locate this API call.
     shared_ptr<string> requestId_ {};
   };
 

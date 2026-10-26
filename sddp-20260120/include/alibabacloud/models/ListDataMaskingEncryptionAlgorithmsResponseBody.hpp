@@ -79,11 +79,11 @@ namespace Models
 
 
     protected:
-      // The business error code for the record or operation. This value can be empty if no error occurs. Evaluate this value together with ErrorMessage.
+      // The business error code for the record or operation. This parameter can be empty when no error occurs. Evaluate this parameter together with ErrorMessage.
       shared_ptr<string> errorCode_ {};
-      // The business error description for the record or operation.
+      // The business error message for the record or operation.
       shared_ptr<string> errorMessage_ {};
-      // The algorithm name.
+      // The name of the algorithm.
       shared_ptr<string> name_ {};
     };
 

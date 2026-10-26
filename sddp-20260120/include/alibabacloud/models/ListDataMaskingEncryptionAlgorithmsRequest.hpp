@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The database instance identifier. You can obtain this value from Items[].InstanceId in the response of ListDataMaskingInstances.
+    // The database instance ID. You can obtain this value from the Items[].InstanceId parameter in the response of the ListDataMaskingInstances operation.
     shared_ptr<string> instanceId_ {};
-    // The language of the response descriptions. Valid values: zh: Chinese. en: English.
+    // The language of the response description. Valid values: zh: Chinese. en: English.
     shared_ptr<string> lang_ {};
-    // The cloud product code. Column encryption supports RDS, POLARDB, and PolarDBX2. If ProductId is also specified, the two values must correspond to each other.
+    // The cloud product code. Column encryption supports RDS, POLARDB, and PolarDBX2. If ProductId is also provided, the two parameters must match.
     shared_ptr<string> productCode_ {};
-    // The cloud product type identifier. Valid values: 5: RDS. 8: POLARDB. 27: PolarDBX2. If specified together with ProductCode, the two values must correspond to each other.
+    // The cloud product type identifier. Valid values: 5: RDS, 8: POLARDB, and 27: PolarDBX2. If both ProductId and ProductCode are specified, they must correspond to each other.
     shared_ptr<int64_t> productId_ {};
   };
 

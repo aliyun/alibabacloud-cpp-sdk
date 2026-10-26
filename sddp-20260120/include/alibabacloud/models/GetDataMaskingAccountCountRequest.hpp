@@ -48,11 +48,9 @@ namespace Models
 
 
   protected:
-    // The language of the response description. Valid values:
-    // - zh: Chinese.
-    // - en: English.
+    // The language of the response description. Valid values: zh: Chinese. en: English.
     shared_ptr<string> lang_ {};
-    // The list of cloud product type identifiers. Separate multiple values with commas (,). For column encryption scenarios, valid values: 5 (RDS), 8 (POLARDB), and 27 (PolarDBX2).
+    // The list of cloud product type identifiers. Separate multiple values with commas (,). For column encryption scenarios, the values are 5 (RDS), 8 (PolarDB), and 27 (PolarDB-X 2.0).
     shared_ptr<string> productIds_ {};
   };
 

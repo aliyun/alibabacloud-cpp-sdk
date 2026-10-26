@@ -140,23 +140,23 @@ namespace Models
 
 
     protected:
-      // The column encryption algorithm used by the instance.
+      // The current column encryption algorithm of the instance.
       shared_ptr<string> encryptionAlgorithm_ {};
-      // The ID of the KMS key used by the instance. This field may not be returned for local key scenarios.
+      // The ID of the KMS key used by the instance. This parameter may not be returned in local key scenarios.
       shared_ptr<string> encryptionKeyId_ {};
-      // The database engine type.
+      // The type of the database engine.
       shared_ptr<string> engineType_ {};
-      // The number of database accounts that have fullAccess plaintext access permissions.
+      // The number of database accounts that have the fullAccess plaintext access permissions.
       shared_ptr<int32_t> fullAccessAccountCount_ {};
-      // The instance identity of the database instance.
+      // The database instance identity.
       shared_ptr<string> instanceId_ {};
-      // The code of the cloud product.
+      // The code of the cloud service.
       shared_ptr<string> productCode_ {};
-      // The ID of the cloud product type. Valid values: 5 (RDS), 8 (POLARDB), and 27 (PolarDBX2).
+      // The ID of the cloud service type. Valid values: 5: RDS. 8: POLARDB. 27: PolarDBX2.
       shared_ptr<int64_t> productId_ {};
-      // The region ID of the asset.
+      // The ID of the region where the asset is located.
       shared_ptr<string> regionId_ {};
-      // The region name of the asset.
+      // The name of the region where the asset is located.
       shared_ptr<string> regionName_ {};
     };
 
@@ -204,11 +204,11 @@ namespace Models
     shared_ptr<int32_t> currentPage_ {};
     // The list of records returned by the current query.
     shared_ptr<vector<ListDataMaskingInstancesResponseBody::Items>> items_ {};
-    // The number of records per page for the current query.
+    // The number of entries returned per page in the current query.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID. You can use this ID to locate the API call.
+    // The request ID, which can be used to locate the current API call.
     shared_ptr<string> requestId_ {};
-    // The total number of records that match the current statistics or query scope.
+    // The total number of entries that meet the current statistics or query scope.
     shared_ptr<int32_t> totalCount_ {};
   };
 

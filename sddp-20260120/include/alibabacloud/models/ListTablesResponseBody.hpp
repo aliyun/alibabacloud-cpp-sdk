@@ -140,11 +140,11 @@ namespace Models
 
 
       protected:
-        // The number of hits for this detection rule.
+        // The number of hits for the detection rule.
         shared_ptr<int64_t> count_ {};
-        // The detection model or rule name.
+        // The name of the detection model or rule.
         shared_ptr<string> name_ {};
-        // The sensitivity level ID.
+        // The ID of the sensitivity level.
         shared_ptr<int64_t> riskLevelId_ {};
       };
 
@@ -267,25 +267,25 @@ namespace Models
 
 
     protected:
-      // The comment of the data table.
+      // The description of the database table.
       shared_ptr<string> comment_ {};
-      // The creation time of the data object. The value is a UNIX timestamp in milliseconds since 1970-01-01 00:00:00 UTC.
+      // The time when the data object was created. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
       shared_ptr<int64_t> creationTime_ {};
-      // The cloud instance identity.
+      // The instance identity of the cloud instance.
       shared_ptr<string> dataAssetSourceId_ {};
-      // The database name.
+      // The name of the database.
       shared_ptr<string> dataSourceName_ {};
       // The description of the database instance.
       shared_ptr<string> instanceDescription_ {};
-      // The data table name. Some engines return the name in the schema.table format.
+      // The name of the database table. Some engines return the name in the schema.table format.
       shared_ptr<string> name_ {};
-      // The Alibaba Cloud account ID of the data table owner.
+      // The ID of the Alibaba Cloud account that owns the database table.
       shared_ptr<string> owner_ {};
-      // The cloud product code.
+      // The code of the cloud service.
       shared_ptr<string> productCode_ {};
-      // The sensitivity level ID.
+      // The ID of the sensitivity level.
       shared_ptr<int64_t> riskLevelId_ {};
-      // The sensitivity level name.
+      // The name of the sensitivity level.
       shared_ptr<string> riskLevelName_ {};
       // The list of detection models or rules.
       shared_ptr<vector<Items::RuleList>> ruleList_ {};
@@ -295,9 +295,9 @@ namespace Models
       shared_ptr<int32_t> sensitiveCount_ {};
       // The proportion of sensitive data.
       shared_ptr<string> sensitiveRatio_ {};
-      // The tenant name to which the data asset belongs.
+      // The name of the tenant to which the data asset belongs.
       shared_ptr<string> tenantName_ {};
-      // The total number of entries that match the current statistical or query scope.
+      // The total number of entries that meet the current statistical or query scope.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -365,19 +365,19 @@ namespace Models
   protected:
     // The page number of the returned data.
     shared_ptr<int32_t> currentPage_ {};
-    // The list of records returned by this query.
+    // The list of records returned by the query.
     shared_ptr<vector<ListTablesResponseBody::Items>> items_ {};
-    // The pagination cursor used in this query.
+    // The pagination cursor used for the current query.
     shared_ptr<string> marker_ {};
     // The cursor used to query the next page.
     shared_ptr<string> nextMarker_ {};
-    // The number of records per page in this query.
+    // The number of entries returned per page for the current query.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID, which can be used to locate this API call.
+    // The ID of the request. You can use the ID to locate the API call.
     shared_ptr<string> requestId_ {};
-    // The total number of entries that match the current statistical or query scope.
+    // The total number of entries that meet the current statistical or query scope.
     shared_ptr<int32_t> totalCount_ {};
-    // Indicates whether more pages are available. A value of true indicates that more data exists. A value of false indicates that no more data exists.
+    // Indicates whether more pages exist. A value of true indicates that more data exists. A value of false indicates that no more data exists.
     shared_ptr<string> truncated_ {};
   };
 

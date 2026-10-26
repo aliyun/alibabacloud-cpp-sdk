@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListDataAssetAccountsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AccountName, accountName_);
+      DARABONBA_PTR_TO_JSON(AuthDb, authDb_);
       DARABONBA_PTR_TO_JSON(AuthRole, authRole_);
       DARABONBA_PTR_TO_JSON(BizType, bizType_);
       DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
@@ -25,6 +26,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ListDataAssetAccountsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AccountName, accountName_);
+      DARABONBA_PTR_FROM_JSON(AuthDb, authDb_);
       DARABONBA_PTR_FROM_JSON(AuthRole, authRole_);
       DARABONBA_PTR_FROM_JSON(BizType, bizType_);
       DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
@@ -46,13 +48,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountName_ == nullptr
-        && this->authRole_ == nullptr && this->bizType_ == nullptr && this->currentPage_ == nullptr && this->instanceId_ == nullptr && this->lang_ == nullptr
-        && this->pageSize_ == nullptr && this->productCode_ == nullptr && this->productIds_ == nullptr; };
+        && this->authDb_ == nullptr && this->authRole_ == nullptr && this->bizType_ == nullptr && this->currentPage_ == nullptr && this->instanceId_ == nullptr
+        && this->lang_ == nullptr && this->pageSize_ == nullptr && this->productCode_ == nullptr && this->productIds_ == nullptr; };
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};
     inline string getAccountName() const { DARABONBA_PTR_GET_DEFAULT(accountName_, "") };
     inline ListDataAssetAccountsRequest& setAccountName(string accountName) { DARABONBA_PTR_SET_VALUE(accountName_, accountName) };
+
+
+    // authDb Field Functions 
+    bool hasAuthDb() const { return this->authDb_ != nullptr;};
+    void deleteAuthDb() { this->authDb_ = nullptr;};
+    inline string getAuthDb() const { DARABONBA_PTR_GET_DEFAULT(authDb_, "") };
+    inline ListDataAssetAccountsRequest& setAuthDb(string authDb) { DARABONBA_PTR_SET_VALUE(authDb_, authDb) };
 
 
     // authRole Field Functions 
@@ -112,30 +121,30 @@ namespace Models
 
 
   protected:
-    // The database account name. Filters by exact account name.
+    // The database account name. The system filters accounts by the exact account name.
     shared_ptr<string> accountName_ {};
+    // The authentication database of the MongoDB account. This parameter is used to distinguish accounts with the same name in different authentication databases.
+    shared_ptr<string> authDb_ {};
     // The column encryption access permissions. Valid values:
-    // 
-    // - fullAccess: plaintext access.
-    // - restrictedAccess: restricted access.
-    // - noneAccess: decryption prohibited. noneAccess applies only to ApsaraDB RDS for MySQL instances whose current effective key pattern is client_key.
+    // - fullAccess: plaintext access
+    // - restrictedAccess: restricted access
+    // - noneAccess: decryption prohibited. This value applies only to ApsaraDB RDS for MySQL instances whose current effective key mode is client_key.
     shared_ptr<string> authRole_ {};
-    // The query business scenario. Use DataMasking for the column encryption scenario. This value is case-sensitive.
+    // The business scenario for the query. Set this parameter to DataMasking for the column encryption scenario. Note that the value is case-sensitive.
     shared_ptr<string> bizType_ {};
-    // The page number of the current query. Pages start from 1.
+    // The page number of the current page. Pages start from 1.
     shared_ptr<int32_t> currentPage_ {};
-    // The database instance identity. You can obtain this value from Items[].InstanceId returned by ListDataMaskingInstances.
+    // The database instance ID. You can obtain this value from the Items[].InstanceId parameter in the response of the ListDataMaskingInstances operation.
     shared_ptr<string> instanceId_ {};
-    // The language of the response description. Valid values:
-    // 
-    // - zh: Chinese.
-    // - en: English.
+    // The language of the response message. Valid values:
+    // - zh: Chinese
+    // - en: English
     shared_ptr<string> lang_ {};
-    // The number of records per page. Keep other filter conditions consistent when querying the next page.
+    // The number of entries to return on each page. Keep other filter conditions consistent when querying the next page.
     shared_ptr<int32_t> pageSize_ {};
-    // The cloud product code. Column encryption supports RDS, POLARDB, and PolarDBX2. If ProductId is also specified, the two values must correspond to each other.
+    // The cloud service code. Column encryption supports RDS, POLARDB, and PolarDBX2. If ProductId is also specified, the two parameters must match.
     shared_ptr<string> productCode_ {};
-    // The list of cloud product type identifiers. Separate multiple values with commas (,). Valid values for the column encryption scenario: 5 (RDS), 8 (POLARDB), and 27 (PolarDBX2).
+    // The list of cloud service type IDs. Separate multiple values with commas (,). For the column encryption scenario, the valid values are 5 (RDS), 8 (POLARDB), and 27 (PolarDBX2).
     shared_ptr<string> productIds_ {};
   };
 

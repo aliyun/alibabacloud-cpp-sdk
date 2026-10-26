@@ -123,11 +123,11 @@ namespace Models
 
 
     protected:
-      // The number of data objects that match the detection rule.
+      // The number of data objects that hit the detection rule.
       shared_ptr<int64_t> ruleCount_ {};
-      // The ID of the matched detection rule.
+      // The ID of the hit detection rule.
       shared_ptr<int32_t> ruleId_ {};
-      // The name of the matched detection rule.
+      // The name of the hit detection rule.
       shared_ptr<string> ruleName_ {};
     };
 
@@ -235,11 +235,11 @@ namespace Models
 
 
       protected:
-        // The number of data objects that match the detection rule.
+        // The number of data objects that hit the detection rule.
         shared_ptr<int64_t> ruleCount_ {};
-        // The ID of the matched detection rule.
+        // The ID of the hit detection rule.
         shared_ptr<int64_t> ruleId_ {};
-        // The name of the matched detection rule.
+        // The name of the hit detection rule.
         shared_ptr<string> ruleName_ {};
       };
 
@@ -290,11 +290,11 @@ namespace Models
 
 
       protected:
-        // The statistics date, represented as a UNIX timestamp in nanoseconds. The time corresponds to midnight of the day in the server time zone.
+        // The statistics date, represented by a UNIX timestamp in nanoseconds. The time corresponds to 00:00:00 of the day in the server time zone.
         shared_ptr<int64_t> date_ {};
         // The number of sensitive data objects within the current statistics scope.
         shared_ptr<int64_t> sensitiveCount_ {};
-        // The total number of data objects that match the current statistics or query scope.
+        // The total number of data objects that meet the current statistics or query scope.
         shared_ptr<int64_t> totalCount_ {};
       };
 
@@ -448,13 +448,13 @@ namespace Models
 
 
     protected:
-      // The list of statistics grouped by region, template, data type, or date.
+      // The list of statistics categorized by region, template, data type, or date.
       shared_ptr<vector<DataCountDOList::DataCountDOListItem>> dataCountDOList_ {};
-      // The statistics date, represented as a UNIX timestamp in nanoseconds. The time corresponds to midnight of the day in the server time zone.
+      // The statistics date, represented by a UNIX timestamp in nanoseconds. The time corresponds to 00:00:00 of the day in the server time zone.
       shared_ptr<int64_t> date_ {};
-      // The region ID of the asset.
+      // The ID of the region where the asset resides.
       shared_ptr<string> regionId_ {};
-      // The list of counts aggregated by detection rule.
+      // The list of quantities aggregated by detection rule.
       shared_ptr<vector<DataCountDOList::RuleInfoList>> ruleInfoList_ {};
       // The number of data objects at the S0 sensitivity level.
       shared_ptr<int64_t> s0Count_ {};
@@ -480,16 +480,15 @@ namespace Models
       shared_ptr<int64_t> s9Count_ {};
       // The number of sensitive data objects within the current statistics scope.
       shared_ptr<int64_t> sensitiveCount_ {};
-      // The data type of the statistics. Valid values:
-      // 
-      // - 1: structured data.
-      // - 0: unstructured data.
+      // The type of the statistics data. Valid values:
+      // - 1: Structured data.
+      // - 0: Unstructured data.
       shared_ptr<int32_t> structFlag_ {};
       // The ID of the data classification template.
       shared_ptr<int64_t> templateId_ {};
       // The name of the data classification template.
       shared_ptr<string> templateName_ {};
-      // The total number of data objects that match the current statistics or query scope.
+      // The total number of data objects that meet the current statistics or query scope.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -672,15 +671,15 @@ namespace Models
 
 
   protected:
-    // The list of statistics grouped by region, template, data type, or date.
+    // The list of statistics categorized by region, template, data type, or date.
     shared_ptr<vector<ListTotalSensitiveInfoResponseBody::DataCountDOList>> dataCountDOList_ {};
     // The total number of databases.
     shared_ptr<int64_t> dbCount_ {};
     // The total number of instances.
     shared_ptr<int64_t> instanceCount_ {};
-    // The request ID, which can be used to locate this API call.
+    // The request identity, which is active for locating the current API call when you invoke the API.
     shared_ptr<string> requestId_ {};
-    // The list of counts aggregated by detection rule.
+    // The list of quantities aggregated by detection rule.
     shared_ptr<vector<ListTotalSensitiveInfoResponseBody::RuleInfoList>> ruleInfoList_ {};
     // The number of data objects at the S0 sensitivity level.
     shared_ptr<int64_t> s0Count_ {};
@@ -712,11 +711,11 @@ namespace Models
     shared_ptr<int64_t> sensitiveInstanceCount_ {};
     // The size of sensitive unstructured data.
     shared_ptr<int64_t> sensitiveUnStructSize_ {};
-    // The number of child-level sensitive data objects. In structured data scenarios, this value is used for sensitive column statistics.
+    // The number of child sensitive data objects, which is used for sensitive column statistics in structured data scenarios.
     shared_ptr<int64_t> subSensitiveCount_ {};
-    // The total number of child-level data objects. In structured data scenarios, this value is used for column-level statistics.
+    // The total number of child data objects, which is used for column-level statistics in structured data scenarios.
     shared_ptr<int64_t> subTotalCount_ {};
-    // The total number of data objects that match the current statistics or query scope.
+    // The total number of data objects that meet the current statistics or query scope.
     shared_ptr<int64_t> totalCount_ {};
     // The total size of unstructured data.
     shared_ptr<int64_t> unStructSize_ {};

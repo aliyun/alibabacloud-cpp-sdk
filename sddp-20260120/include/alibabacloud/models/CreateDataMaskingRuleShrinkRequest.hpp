@@ -149,49 +149,44 @@ namespace Models
 
 
   protected:
-    // The name of the column encryption algorithm. The availability of AES_128_GCM, AES_256_GCM, and SM4_128_GCM depends on the instance. Select an available algorithm from [ListDataMaskingEncryptionAlgorithms](https://help.aliyun.com/document_detail/2859327.html).
+    // The name of the column encryption algorithm. The availability of AES_128_GCM, AES_256_GCM, and SM4_128_GCM depends on the instance. Select an available algorithm from ListDataMaskingEncryptionAlgorithms.
     shared_ptr<string> encAlgorithm_ {};
-    // The KMS key ID. You can obtain this value from Items[].KeyId in the response of [ListKmsKeys](https://help.aliyun.com/document_detail/2859328.html). Specify this parameter when you use a KMS key. Do not specify this parameter for local key scenarios.
+    // The identifier of the Key Management Service (KMS) key. You can obtain it from Items[].KeyId in the response of the ListKmsKeys operation. Provide this parameter when you use a KMS key. Do not pass this parameter in local key scenarios.
     shared_ptr<string> encryptionKeyId_ {};
     // The key mode. Valid values:
-    // 
-    // - client_key: local key.
-    // - kms_key: KMS key. If you set this parameter to kms_key, you must specify EncryptionKeyId.
+    // - client_key: local key
+    // - kms_key: KMS key
+    // When you use kms_key, you must specify EncryptionKeyId.
     shared_ptr<string> encryptionKeyMode_ {};
-    // The database engine type. This value must match the EngineType of the target instance, such as MySQL or PostgreSQL.
+    // The type of the database engine. The value must be consistent with the EngineType of the target instance, such as MySQL or PostgreSQL.
     shared_ptr<string> engineType_ {};
-    // The expiration time of the plaintext access permissions. This value is a UNIX timestamp in milliseconds since 1970-01-01 00:00:00 UTC. Specify this parameter only when ExpireTimeOperation is set to SET. The value must be later than the current time and no greater than 2145953410000. The server stores the value with second-level precision. Do not specify this parameter when ExpireTimeOperation is set to PRESERVE or CLEAR.
+    // The expiration time of the plaintext permission. The value is a UNIX timestamp in milliseconds since 00:00:00 UTC on January 1, 1970. Specify this parameter only when ExpireTimeOperation is set to SET. The value must be later than the current time and no greater than 2145953410000. The server saves the value with second precision. Do not specify this parameter when ExpireTimeOperation is set to PRESERVE or CLEAR.
     shared_ptr<int64_t> expireTime_ {};
-    // The handling method for the permission expiration time. Valid values:
-    // 
-    // - PRESERVE: Retains the original expiration time.
-    // - CLEAR: Clears the expiration time.
-    // - SET: Sets the expiration time to the value specified by ExpireTime.
-    // 
-    // Default value: PRESERVE. Only fullAccess supports expiration time settings.
+    // The processing method for the permission expiration time. Valid values:
+    // - PRESERVE: retains the original expiration time.
+    // - CLEAR: clears the expiration time.
+    // - SET: sets ExpireTime.
+    // Default value: PRESERVE. Only fullAccess supports setting a validity period.
     shared_ptr<string> expireTimeOperation_ {};
-    // The database instance identity. You can obtain this value from Items[].InstanceId in the response of [ListDataMaskingInstances](https://help.aliyun.com/document_detail/2859326.html).
+    // The instance identity. You can obtain it from Items[].InstanceId in the response of the ListDataMaskingInstances operation.
     shared_ptr<string> instanceId_ {};
     // The language of the response description. Valid values:
-    // 
-    // - zh: Chinese.
-    // - en: English.
+    // - zh: Chinese
+    // - en: English
     shared_ptr<string> lang_ {};
-    // The cloud product code. Column encryption supports RDS, POLARDB, and PolarDBX2. If you specify both ProductCode and ProductId, the values must correspond to each other.
+    // The code of the cloud service. Column encryption supports RDS, POLARDB, and PolarDBX2. If ProductId is also passed, the two must correspond to each other.
     shared_ptr<string> productCode_ {};
-    // The cloud product type ID. Valid values:
-    // 
-    // - 5: RDS.
-    // - 8: POLARDB.
-    // - 27: PolarDBX2.
-    // 
-    // If you specify both ProductId and ProductCode, the values must correspond to each other.
+    // The identifier of the cloud service type. Valid values:
+    // - 5: RDS
+    // - 8: POLARDB
+    // - 27: PolarDBX2
+    // When specified together with ProductCode, the values must correspond to each other.
     shared_ptr<int64_t> productId_ {};
-    // The ID of the associated risk handling record. You do not need to specify this parameter for standard column encryption creation.
+    // The identifier of the associated risk handling record. You do not need to specify this parameter in the standard column encryption creation process.
     shared_ptr<int64_t> riskHandleId_ {};
     // The list of column encryption targets grouped by database and table.
     shared_ptr<string> subRuleListShrink_ {};
-    // The list of database accounts to be granted fullAccess plaintext access permissions. The accounts must belong to the target instance.
+    // The list of database accounts to which the fullAccess plaintext permission is granted. The accounts must belong to the target instance.
     shared_ptr<string> userListShrink_ {};
   };
 
