@@ -291,21 +291,21 @@ namespace Models
       shared_ptr<string> dbInstanceId_ {};
       // The public URL of the database.
       shared_ptr<string> dbPublicUrl_ {};
-      // The database type.
+      // The type of the database.
       shared_ptr<string> dbType_ {};
-      // The extra information.
+      // The additional information.
       shared_ptr<string> extra_ {};
       // The time when the instance creation was completed.
       shared_ptr<string> instanceCreateFinishedTime_ {};
-      // The instance creation status.
+      // The creation status of the instance.
       shared_ptr<string> instanceCreateStatus_ {};
       // The deletion flag.
       shared_ptr<int32_t> isDeleted_ {};
-      // The password used to access the ApsaraDB RDS database.
+      // The access password of the RDS database.
       shared_ptr<string> rdsDatabasePassword_ {};
       // The service key.
       shared_ptr<string> serviceKey_ {};
-      // The instance status. Valid values:
+      // The status of the instance. Valid values:
       // - 0: Paused.
       // - 1: Running.
       shared_ptr<int32_t> status_ {};
@@ -325,7 +325,7 @@ namespace Models
       shared_ptr<string> supabasePublicIp_ {};
       // The public URL of the Supabase instance.
       shared_ptr<string> supabasePublicUrl_ {};
-      // The tenant ID.
+      // The ID of the tenant.
       shared_ptr<string> tenantId_ {};
       // The user ID.
       shared_ptr<string> userId_ {};
@@ -416,17 +416,17 @@ namespace Models
 
 
   protected:
-    // The details of the permission verification failure.
+    // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed.
+    // Specifies whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name.
+    // The name of the app.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
     // The dynamic error message.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters.
+    // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
     // The response data.
     shared_ptr<AllocateSupabaseForAdminResponseBody::Module> module_ {};
@@ -434,9 +434,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // The root error message.
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Indicates whether the request is synchronously processed.
+    // Specifies whether the request is processed synchronously.
     shared_ptr<bool> synchro_ {};
   };
 

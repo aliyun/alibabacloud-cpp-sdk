@@ -128,7 +128,7 @@ namespace Models
       protected:
         // The SDK change log.
         shared_ptr<string> changeLog_ {};
-        // The creation time in UTC. The time follows the ISO 8601 standard.
+        // The creation time in UTC. The time is in the ISO 8601 format.
         // 
         // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
         shared_ptr<string> gmtCreateTime_ {};
@@ -185,15 +185,15 @@ namespace Models
     protected:
       // 11111
       shared_ptr<int32_t> activeLogicalNumber_ {};
-      // The code commit hash value.
+      // The code commit hash.
       shared_ptr<string> commitHash_ {};
       // true
       shared_ptr<bool> isDirty_ {};
       // 1111
       shared_ptr<int32_t> maxLogicalNumber_ {};
-      // The site ID. You can call [ListSites](~~ListSites~~) to retrieve the site ID.
+      // The site ID. You can obtain the site ID by calling the [ListSites](~~ListSites~~) operation.
       shared_ptr<string> siteId_ {};
-      // The operation description information.
+      // The operation description.
       shared_ptr<vector<Module::Snapshots>> snapshots_ {};
     };
 
@@ -282,18 +282,18 @@ namespace Models
 
 
   protected:
-    // The detailed reason why access is denied.
+    // The detailed reasons for the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Specifies whether retry is allowed. Valid values:
-    // - false: Retry is not allowed.
-    // - true: Retry is allowed.
+    // Specifies whether retries are allowed. Valid values:
+    // - false: Retries are not allowed.
+    // - true: Retries are allowed.
     shared_ptr<bool> allowRetry_ {};
     // The application name.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message. This value is used to replace the `%s` placeholder in the error message returned in the **ErrMessage** parameter.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace the `%s` in the error message of the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
     // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};

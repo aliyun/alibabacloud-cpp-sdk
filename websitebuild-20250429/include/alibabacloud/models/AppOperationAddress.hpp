@@ -127,7 +127,7 @@ namespace Models
 
 
   protected:
-    // The operation button list.
+    // The action button list.
     shared_ptr<vector<AppOperateAction>> actions_ {};
     // The customer service design URL.
     shared_ptr<string> aiCustomerConfigUrl_ {};
@@ -135,7 +135,7 @@ namespace Models
     shared_ptr<string> aiDesignUrl_ {};
     // The application publishing URL.
     shared_ptr<string> appPublishUrl_ {};
-    // The overview page operation button list.
+    // The overview page action button list.
     shared_ptr<vector<AppOperateAction>> dashboardActions_ {};
     // The professional design URL.
     shared_ptr<string> designUrl_ {};

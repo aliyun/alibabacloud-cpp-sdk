@@ -144,23 +144,23 @@ namespace Models
     shared_ptr<string> category_ {};
     // The configuration form in React JSON Schema format.
     shared_ptr<string> configItems_ {};
-    // The application description.
+    // The description of the application.
     shared_ptr<string> description_ {};
-    // Other extension information in JSON format for future parameter expansion.
+    // The additional extension information in JSON format for subsequent parameter extensions.
     shared_ptr<string> extend_ {};
     // The hook definitions.
     shared_ptr<string> hooks_ {};
-    // The plug-in description.
+    // The description of the plugin.
     shared_ptr<string> icon_ {};
-    // The gateway plug-in ID.
+    // The ID of the gateway plugin.
     shared_ptr<string> pluginId_ {};
-    // The plug-in name.
+    // The name of the plugin.
     shared_ptr<string> pluginName_ {};
-    // The plug-in version.
+    // The plugin version.
     shared_ptr<string> pluginVersion_ {};
     // The skill header information for model selection.
     shared_ptr<string> skillHeader_ {};
-    // The labels.
+    // The tags.
     shared_ptr<string> tags_ {};
     // The visibility.
     shared_ptr<string> visibility_ {};

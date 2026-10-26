@@ -90,7 +90,7 @@ namespace Models
     protected:
       // trial,draft,live,refunded,expired,released
       shared_ptr<string> status_ {};
-      // Indicates whether the operation is successful.
+      // Indicates whether the operation was successful.
       shared_ptr<bool> success_ {};
     };
 
@@ -179,17 +179,17 @@ namespace Models
 
 
   protected:
-    // The detailed reason why access was denied.
+    // The detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed.
+    // Indicates whether a retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name.
+    // The name of the application.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
     // The dynamic message.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters returned.
+    // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
     // The response data.
     shared_ptr<DeleteAppPluginResponseBody::Module> module_ {};
@@ -199,7 +199,7 @@ namespace Models
     shared_ptr<string> rootErrorCode_ {};
     // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Indicates whether the request is synchronously processed.
+    // Indicates whether the processing is synchronous.
     shared_ptr<bool> synchro_ {};
   };
 

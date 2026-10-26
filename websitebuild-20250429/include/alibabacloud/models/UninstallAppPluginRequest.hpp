@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The gateway plugin ID.
+    // The ID of the gateway plug-in.
     shared_ptr<string> pluginId_ {};
   };
 

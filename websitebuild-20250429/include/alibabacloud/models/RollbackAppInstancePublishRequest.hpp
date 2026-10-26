@@ -70,7 +70,7 @@ namespace Models
     shared_ptr<string> bizId_ {};
     // The deployment channel.
     shared_ptr<string> deployChannel_ {};
-    // The publish number.
+    // The release number.
     shared_ptr<string> publishNumber_ {};
     // Specifies whether to perform a quick rollback.
     shared_ptr<string> quickRollback_ {};

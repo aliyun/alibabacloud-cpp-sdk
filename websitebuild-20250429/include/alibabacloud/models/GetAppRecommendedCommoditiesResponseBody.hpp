@@ -192,7 +192,7 @@ namespace Models
 
 
       protected:
-        // The click action type. Valid values: CONSULT (add WeCom), BUY (purchase), and AUTO (automatic issuance).
+        // The click action type. Valid values: CONSULT, BUY, and AUTO.
         shared_ptr<string> actionType_ {};
         // The commodity code. This parameter applies to both resource plans and marketing commodities.
         shared_ptr<string> commodityCode_ {};
@@ -200,13 +200,13 @@ namespace Models
         shared_ptr<string> description_ {};
         // The extended fields, such as unsupportedReason.
         shared_ptr<map<string, string>> extend_ {};
-        // The order type. Valid values: BUY (purchase) and UPGRADE (upgrade).
+        // The order type. Valid values: BUY and UPGRADE.
         shared_ptr<string> orderType_ {};
         // The sort priority. A smaller value indicates a higher priority.
         shared_ptr<int32_t> priority_ {};
         // The ID of the marketing commodity. This parameter is returned only for new purchases.
         shared_ptr<string> promotionCommodityId_ {};
-        // The recommendation type. Valid values: COMMODITY (commodity recommendation) and ACTIVITY (promotion activity recommendation).
+        // The recommendation type. Valid values: COMMODITY and ACTIVITY.
         shared_ptr<string> recommendType_ {};
         // The redirect URL. This parameter is returned when a redirect is required in scenarios such as upgrades.
         shared_ptr<string> redirectUrl_ {};
@@ -318,24 +318,23 @@ namespace Models
   protected:
     // The detailed reason why access is denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retries are allowed.
+    // Specifies whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
     // The application name.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace `%s` in the error message returned by **ErrMessage**.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter. If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
     // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // The data table module.
+    // The data table module. Valid values:
     // 
-    // - ABTest: experiment data table
+    // - ABTest: Experiment data table.
     // 
-    // - ExperimentTool: experiment tool table
+    // - ExperimentTool: Experiment tool table.
     // 
-    // - DataDiagnosis: data diagnosis
+    // - DataDiagnosis: Data diagnosis.
     shared_ptr<GetAppRecommendedCommoditiesResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

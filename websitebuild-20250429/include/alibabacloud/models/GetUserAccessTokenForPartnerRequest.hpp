@@ -48,9 +48,10 @@ namespace Models
 
 
   protected:
+    // The website domain name.
     shared_ptr<string> siteHost_ {};
-    // The credential for connecting to the cloud application.
-    // > This parameter is displayed for non-initial calls.
+    // The credential used to connect to the cloud application.
+    // > This parameter is displayed for subsequent calls.
     // 
     // This parameter is required.
     shared_ptr<string> ticket_ {};

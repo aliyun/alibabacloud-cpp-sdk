@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // Filters by category.
+    // The category used to filter results.
     shared_ptr<string> category_ {};
-    // The search keyword that matches name/description.
+    // The search keyword. The keyword matches the name or description.
     shared_ptr<string> keyword_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 20. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // Filters by status.
+    // The status used to filter results.
     shared_ptr<string> status_ {};
   };
 

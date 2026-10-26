@@ -134,19 +134,19 @@ namespace Models
 
 
     protected:
-      // This field is returned only for APP_WORKSPACE quantity pre-checks. It specifies the final total quantity to be saved, not the current increment. The issue quantity is the sum of common issues and word-of-mouth issues, and the competitor quantity is the total number of competitors after editing. This field is empty for APP and USER checks.
+      // The desired total returned only for APP_WORKSPACE. This is the target total for the current check, which is the sum of the existing usage in the saved configuration and ResourceValue. If the compatible DesiredTotal is provided, this total is used directly. The existing usage of issues is the sum of common and word-of-mouth issues in the saved configuration, and the existing usage of competitors is the number of competitors. This parameter is empty for APP and USER checks.
       shared_ptr<int64_t> desiredTotal_ {};
-      // The error code returned when the check fails. This field is null when the check passes.
+      // The error code returned when the check fails. This parameter is null when the check passes.
       shared_ptr<string> errorCode_ {};
-      // The error message returned when the check fails. This field is null when the check passes.
+      // The error message returned when the check fails. This parameter is null when the check passes.
       shared_ptr<string> errorMessage_ {};
-      // This field is returned only for APP_WORKSPACE quantity pre-checks. It specifies the maximum number of issues or competitors allowed by the current commodity edition, not the remaining quota. This field is empty for APP and USER checks, or when the edition benefits cannot be determined.
+      // The limit returned only for APP_WORKSPACE quantity pre-checks. This is the maximum number of issues or competitors allowed by the current commodity edition, not the remaining quota. This parameter is empty for APP and USER checks or when the edition benefits cannot be determined.
       shared_ptr<int64_t> limit_ {};
       // Indicates whether the check is passed.
       shared_ptr<bool> passed_ {};
       // The resource identifier.
       shared_ptr<string> resourceCode_ {};
-      // Indicates whether a purchasable higher edition exists that can accommodate the DesiredTotal. This field is true only when the capacity of the current edition is insufficient and a higher edition meets the requirement. Otherwise, it is false. This field may be empty for APP and USER checks. This field does not indicate that an upgrade has been performed or an upgrade order has been created.
+      // Indicates whether a purchasable higher edition that can accommodate the DesiredTotal exists. This parameter is true only when the capacity of the current edition is insufficient and a higher edition meets the requirements. Otherwise, this parameter is false. This parameter may be empty for APP and USER checks. This field does not indicate that an upgrade has been performed or an upgrade order has been created.
       shared_ptr<bool> upgradeAvailable_ {};
     };
 
@@ -235,28 +235,28 @@ namespace Models
 
 
   protected:
-    // The detailed reason for the access denial.
+    // The detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retries are allowed.
+    // Specifies whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
     // The application name.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace `%s` in the **ErrMessage** error message.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace `%s` in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The returned error parameters.
+    // The error parameters returned.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
     // The application module.
     shared_ptr<CheckResourceMeasureResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The error code.
+    // The root error code.
     shared_ptr<string> rootErrorCode_ {};
     // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // The reserved parameter.
+    // The backup parameter.
     shared_ptr<bool> synchro_ {};
   };
 

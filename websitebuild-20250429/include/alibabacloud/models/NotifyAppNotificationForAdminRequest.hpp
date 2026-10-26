@@ -72,7 +72,7 @@ namespace Models
     shared_ptr<string> env_ {};
     // The notification content.
     shared_ptr<string> payload_ {};
-    // The scene ID.
+    // The scenario ID.
     shared_ptr<string> sceneId_ {};
   };
 

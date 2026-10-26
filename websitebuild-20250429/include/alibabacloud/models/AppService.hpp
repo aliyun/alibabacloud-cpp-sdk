@@ -185,15 +185,15 @@ namespace Models
   protected:
     // The business ID of the application instance.
     shared_ptr<string> bizId_ {};
-    // The creation time in ISO 8601 format in the UTC time zone (Z).
+    // The creation time in ISO 8601 format, in the UTC time zone (Z).
     shared_ptr<string> createTime_ {};
     // The deletion flag.
     shared_ptr<int32_t> deleted_ {};
-    // The end time in ISO 8601 format in the UTC time zone (Z).
+    // The end time in ISO 8601 format, in the UTC time zone (Z).
     shared_ptr<string> endTime_ {};
     // esp bizId
     shared_ptr<string> espBizId_ {};
-    // The modification time.
+    // The update time.
     shared_ptr<string> gmtModified_ {};
     // The associated business ID.
     shared_ptr<string> instanceBizId_ {};
@@ -209,7 +209,7 @@ namespace Models
     shared_ptr<string> serviceTypeText_ {};
     // The application identifier.
     shared_ptr<string> slug_ {};
-    // The start time as a UNIX timestamp in milliseconds.
+    // The start time, specified as a UNIX timestamp in milliseconds.
     shared_ptr<string> startTime_ {};
     // The status.
     shared_ptr<string> status_ {};

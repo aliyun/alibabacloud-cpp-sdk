@@ -130,7 +130,7 @@ namespace Models
       shared_ptr<string> previewQrCodeUrl_ {};
       // The production QR code URL.
       shared_ptr<string> productionQrCodeUrl_ {};
-      // The extension information.
+      // The extended information.
       shared_ptr<map<string, string>> settingValues_ {};
     };
 

@@ -218,10 +218,7 @@ namespace Models
         shared_ptr<string> status_ {};
         // The API version number.
         shared_ptr<string> version_ {};
-        // Specifies whether the bucket to which the uploaded file belongs is publicly accessible. Valid values:
-        // 
-        // - **public**: The file is uploaded to a public bucket.
-        // - **private**: The file is uploaded to a private bucket, and authorization is required for access.
+        // Indicates whether the bucket to which the uploaded file belongs is publicly accessible. Valid values: **public** and **private**. A value of public indicates that the file is uploaded to a public bucket. A value of private indicates that the file is uploaded to a private bucket and requires authorization for access.
         shared_ptr<string> visibility_ {};
       };
 
@@ -360,7 +357,7 @@ namespace Models
         // - cloud_efficiency: ultra disk.
         // - cloud_ssd: standard SSD.
         // - cloud_essd: ESSD.
-        // - cloud: basic cloud disk.
+        // - cloud: basic disk.
         shared_ptr<string> category_ {};
         // The scenario description.
         shared_ptr<string> description_ {};
@@ -462,7 +459,7 @@ namespace Models
     protected:
       // The current page number.
       shared_ptr<int32_t> currentPageNum_ {};
-      // The request result.
+      // The request results.
       shared_ptr<vector<Module::Data>> data_ {};
       // The next feature ID.
       shared_ptr<Module::Next> next_ {};
@@ -472,7 +469,7 @@ namespace Models
       shared_ptr<int32_t> pageSize_ {};
       // Indicates whether a previous page exists.
       shared_ptr<bool> prePage_ {};
-      // Indicates whether the query result is limited. In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+      // In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
       shared_ptr<bool> resultLimit_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalItemNum_ {};
@@ -565,15 +562,15 @@ namespace Models
 
 
   protected:
-    // The detailed reason for access denial.
+    // The detailed reason for the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether a retry is allowed.
+    // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name.
+    // The name of the application.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace the `%s` in the **ErrMessage** response parameter.
+    // The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
     // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
     // The returned error parameters.

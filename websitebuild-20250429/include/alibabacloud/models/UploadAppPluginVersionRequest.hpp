@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // The changelog description.
+    // The changelog.
     shared_ptr<string> changelog_ {};
-    // The description. This parameter is optional. If a non-empty value is specified, the description field in the main table is also updated.
+    // The description. This parameter is optional. If this parameter is not empty, the description field in the primary table is updated accordingly.
     shared_ptr<string> description_ {};
-    // The downloadable ZIP URL. This parameter is mutually exclusive with OssKey.
+    // The downloadable URL of the ZIP file. This parameter and OssKey are mutually exclusive.
     shared_ptr<string> downloadUrl_ {};
-    // The extended JSON. This parameter is optional and uses the same format as the sandbox-synced extend field. If a non-empty value is specified, the extend field in the main table is also updated.
+    // The extended JSON string. This parameter is optional and must be in the same format as the extend parameter synchronized from the sandbox. If this parameter is not empty, the extend field in the primary table is updated accordingly.
     shared_ptr<string> extend_ {};
-    // The OSS key obtained after frontend direct upload. This parameter is mutually exclusive with DownloadUrl.
+    // The Object Storage Service (OSS) key after the file is directly uploaded from the frontend. This parameter and DownloadUrl are mutually exclusive.
     shared_ptr<string> ossKey_ {};
-    // The gateway plug-in ID.
+    // The ID of the gateway plugin.
     shared_ptr<string> pluginId_ {};
-    // The new version number in semver format. The version must be greater than the current version.
+    // The new version number. The version number must follow the Semantic Versioning (SemVer) specification and be greater than the current version.
     shared_ptr<string> pluginVersion_ {};
   };
 

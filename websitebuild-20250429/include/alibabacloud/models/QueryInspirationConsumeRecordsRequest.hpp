@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // The end time of the query. The value is a UNIX timestamp in seconds.
+    // The end time of the query. The time is a UNIX timestamp in seconds.
     shared_ptr<string> endTime_ {};
-    // The field by which to sort the results.
+    // The field used for sorting.
     shared_ptr<string> orderColumn_ {};
-    // The sort order. Valid values: ASC, DESC.
+    // The sort order. Valid values: ASC and DESC.
     shared_ptr<string> orderType_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
     // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The name of the scenario.
+    // The scenario name.
     shared_ptr<string> sceneName_ {};
-    // The start time of the query. The time is in ISO 8601 format and the time zone is UTC (Z).
+    // The start time of the query. The time is in ISO 8601 format and uses the UTC time zone (Z).
     shared_ptr<string> startTime_ {};
   };
 

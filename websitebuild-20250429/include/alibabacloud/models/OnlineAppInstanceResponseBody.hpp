@@ -137,15 +137,15 @@ namespace Models
   protected:
     // The details of the authentication failure.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retries are allowed.
+    // Indicates whether a retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter and cannot end with a hyphen (-). The name can be up to 36 characters in length.
+    // The name of the application. The name can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and cannot exceed 36 characters in length.
     shared_ptr<string> appName_ {};
-    // The dynamic error code. This parameter will be deprecated.
+    // The dynamic error code. This parameter is about to be deprecated.
     shared_ptr<string> dynamicCode_ {};
     // The placeholder in the dynamic error message.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters.
+    // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
     // The application module.
     Darabonba::Json module_ {};
@@ -155,7 +155,7 @@ namespace Models
     shared_ptr<string> rootErrorCode_ {};
     // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Indicates whether the request is synchronously processed.
+    // Indicates whether the request is processed synchronously.
     shared_ptr<bool> synchro_ {};
   };
 

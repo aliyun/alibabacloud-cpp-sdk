@@ -148,7 +148,7 @@ namespace Models
     shared_ptr<string> keyword_ {};
     // The maximum number of entries to return for a single query. Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The token used to start the next query. This parameter is empty if no next query is available.
+    // The token that is used to start the next query. If no next query exists, this parameter is empty.
     shared_ptr<string> nextToken_ {};
     // The page number.
     shared_ptr<int32_t> pageNum_ {};
@@ -160,7 +160,7 @@ namespace Models
     shared_ptr<string> sort_ {};
     // The release status.
     shared_ptr<string> status_ {};
-    // The release subchannel.
+    // The release sub-channel.
     shared_ptr<string> subchannel_ {};
     // The website domain name.
     shared_ptr<string> websiteDomain_ {};

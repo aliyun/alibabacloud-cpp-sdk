@@ -188,9 +188,9 @@ namespace Models
       shared_ptr<string> accessTokenValue_ {};
       // The user ID.
       shared_ptr<string> aliyunPk_ {};
-      // The extended properties.
+      // The extended attributes.
       shared_ptr<string> attributes_ {};
-      // The authorization grant type.
+      // The authorization code type.
       shared_ptr<string> authorizationGrantType_ {};
       // bid
       shared_ptr<string> bid_ {};
@@ -202,7 +202,7 @@ namespace Models
       shared_ptr<string> refreshTokenIssuedAt_ {};
       // The refresh token value.
       shared_ptr<string> refreshTokenValue_ {};
-      // The external unique ID.
+      // The external unique identifier.
       shared_ptr<string> uuid_ {};
     };
 
@@ -291,18 +291,17 @@ namespace Models
 
 
   protected:
-    // The details about the access denial.
+    // The detailed reasons for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed.
+    // Specifies whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
     // The application name.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace `%s` in the error message of the **ErrMessage** response parameter. If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters.
+    // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
     // The response data.
     shared_ptr<CreateAppInstanceTicketResponseBody::Module> module_ {};
@@ -312,7 +311,7 @@ namespace Models
     shared_ptr<string> rootErrorCode_ {};
     // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // A reserved parameter.
+    // The reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

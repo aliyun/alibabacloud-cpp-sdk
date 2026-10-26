@@ -288,7 +288,7 @@ namespace Models
 
 
       protected:
-        // Indicates whether quick rollback is supported.
+        // Specifies whether quick rollback is supported.
         shared_ptr<string> canQuickRevert_ {};
         // The commit hash of the code.
         shared_ptr<string> commitHash_ {};
@@ -307,8 +307,8 @@ namespace Models
         // Indicates whether the operation is completed.
         shared_ptr<bool> isFinish_ {};
         // Indicates whether the resource allocation for the financial unit is successful. Valid values:
-        // - true: successful
-        // - false: failed
+        // - true: The allocation is successful.
+        // - false: The allocation fails.
         shared_ptr<bool> isSuccess_ {};
         // The error message.
         shared_ptr<string> msg_ {};
@@ -322,7 +322,7 @@ namespace Models
         shared_ptr<string> publishNumber_ {};
         // The release order ID.
         shared_ptr<int64_t> publishOrderId_ {};
-        // The release time, in the UTC format yyyy-MM-dd\\"T\\"HH:mm:ss.SSS\\"Z\\".
+        // The release time in the UTC format yyyy-MM-dd\\"T\\"HH:mm:ss.SSS\\"Z\\".
         // 
         // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
         shared_ptr<string> publishTime_ {};
@@ -330,7 +330,7 @@ namespace Models
         shared_ptr<vector<string>> stepCodes_ {};
         // The specific configurations of the component.
         shared_ptr<vector<string>> steps_ {};
-        // The release subchannel.
+        // The release sub-channel.
         shared_ptr<string> subchannel_ {};
       };
 
@@ -377,8 +377,8 @@ namespace Models
       // The ID of the current release order.
       shared_ptr<int64_t> currentPublishOrderId_ {};
       // Specifies whether to display the history of applying alert templates to application groups. Valid values:
-      // - true: displayed.
-      // - false: not displayed. Default value.
+      // - true: Displayed.
+      // - false: Not displayed. Default value: false.
       shared_ptr<vector<Module::History>> history_ {};
       // The page number. Default value: 1.
       shared_ptr<int32_t> pageNum_ {};
@@ -490,7 +490,7 @@ namespace Models
   protected:
     // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retries are allowed.
+    // Specifies whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
     // The name of the frontend application.
     shared_ptr<string> appName_ {};
@@ -507,7 +507,7 @@ namespace Models
     // - ExperimentTool: experiment tool table
     // - DataDiagnosis: data diagnostics
     shared_ptr<ListAppPublishHistoryResponseBody::Module> module_ {};
-    // The token used to start the next query. This parameter is empty if no next query is available.
+    // The token that is used to start the next query. If no next query exists, this parameter is empty.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

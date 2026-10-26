@@ -162,13 +162,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> bizId_ {};
-    // The folder ID.
+    // The directory ID.
     // 
     // This parameter is required.
     shared_ptr<string> directoryId_ {};
     // The maximum file size.
     shared_ptr<int64_t> maxFileSize_ {};
-    // The maximum number of entries to return per query.
+    // The maximum number of entries to return for a single request.
     // 
     // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
@@ -176,9 +176,9 @@ namespace Models
     shared_ptr<int64_t> minFileSize_ {};
     // The website name.
     shared_ptr<string> name_ {};
-    // The token for the next query. This parameter is empty if no more results exist.
+    // The token that is used to start the next query. If no next query is available, this parameter is left empty.
     shared_ptr<string> nextToken_ {};
-    // The field by which to sort the results.
+    // The sort field.
     shared_ptr<string> orderColumn_ {};
     // The sort order. Valid values: ASC and DESC.
     shared_ptr<string> orderType_ {};
@@ -188,7 +188,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The list of statuses.
     shared_ptr<string> statusListShrink_ {};
-    // The list of file suffixes.
+    // The list of file extensions.
     shared_ptr<string> suffixListShrink_ {};
     // The list of file types.
     shared_ptr<string> typeListShrink_ {};

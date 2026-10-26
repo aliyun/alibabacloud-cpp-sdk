@@ -87,7 +87,7 @@ namespace Models
     shared_ptr<string> fileUrl_ {};
     // The file name.
     shared_ptr<string> name_ {};
-    // The OSS object key.
+    // The key of the OSS object.
     shared_ptr<string> ossKey_ {};
   };
 

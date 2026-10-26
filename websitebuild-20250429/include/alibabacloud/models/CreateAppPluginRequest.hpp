@@ -130,27 +130,27 @@ namespace Models
 
 
   protected:
-    // The category of the plug-in.
+    // The category of the skill.
     shared_ptr<string> category_ {};
-    // The description of the plug-in. The value must be 10 to 512 characters in length.
+    // The description of the skill. The description must be 10 to 512 characters in length.
     shared_ptr<string> description_ {};
-    // The downloadable ZIP URL. This parameter is mutually exclusive with OssKey.
+    // The URL of the downloadable ZIP file. Specify either this parameter or OssKey.
     shared_ptr<string> downloadUrl_ {};
-    // The extended JSON. This parameter is optional and uses the same format as the extend field in sandbox synchronization. If this parameter is not empty, the value is written to the database.
+    // The extended JSON data. The format is the same as the extend parameter synchronized with the sandbox. If this parameter is not empty, it is saved to the database. This parameter is optional.
     shared_ptr<string> extend_ {};
     // The URL of the icon.
     shared_ptr<string> icon_ {};
-    // The OSS key after frontend direct upload. This parameter is mutually exclusive with DownloadUrl.
+    // The Object Storage Service (OSS) key generated after a direct upload from the frontend. Specify either this parameter or DownloadUrl.
     shared_ptr<string> ossKey_ {};
-    // The unique identifier of the plug-in. The value can contain lowercase letters, digits, and hyphens (-), and must be 3 to 64 characters in length.
+    // The unique identifier of the skill. The identifier must be 3 to 64 characters in length and can contain only lowercase letters, digits, and hyphens (-).
     shared_ptr<string> pluginId_ {};
-    // The name of the plug-in. The value must be 2 to 64 characters in length.
+    // The name of the skill. The name must be 2 to 64 characters in length.
     shared_ptr<string> pluginName_ {};
-    // The version number in semver format. Default value: 0.1.0.
+    // The version number of the plug-in. The version number must be in the Semantic Versioning (SemVer) format. Default value: 0.1.0.
     shared_ptr<string> pluginVersion_ {};
-    // The tags, separated by commas (,).
+    // The tags of the skill. Separate multiple tags with commas (,).
     shared_ptr<string> tags_ {};
-    // The visibility of the plug-in. Default value: private.
+    // The visibility of the skill. Default value: private.
     shared_ptr<string> visibility_ {};
   };
 

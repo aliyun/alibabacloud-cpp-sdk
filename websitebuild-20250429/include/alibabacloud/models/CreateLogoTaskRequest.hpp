@@ -66,6 +66,7 @@ namespace Models
 
 
   protected:
+    // The logo generation version number. Different versions use different parameter parsing methods.
     shared_ptr<string> logoVersion_ {};
     // The negative prompt.
     shared_ptr<string> negativePrompt_ {};

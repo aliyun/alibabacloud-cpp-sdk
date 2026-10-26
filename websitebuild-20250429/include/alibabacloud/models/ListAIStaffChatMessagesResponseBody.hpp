@@ -225,7 +225,7 @@ namespace Models
         shared_ptr<string> chatId_ {};
         // The current conversation status.
         shared_ptr<string> chatStatus_ {};
-        // The ID of the data API operation that is called.
+        // The ID of the invoked data API.
         shared_ptr<string> content_ {};
         // The content type.
         shared_ptr<string> contentType_ {};
@@ -233,11 +233,11 @@ namespace Models
         shared_ptr<string> conversationId_ {};
         // The creation time.
         shared_ptr<string> gmtCreate_ {};
-        // The modification time.
+        // The update time.
         shared_ptr<string> gmtModified_ {};
         // The message ID.
         shared_ptr<string> messageId_ {};
-        // The business extension metadata in Map format. The value must be a JSON string.
+        // The business extension metadata. The value must be a JSON string in map format.
         Darabonba::Json metaData_ {};
         // The role of the conversation participant. Valid values:
         // 
@@ -246,9 +246,10 @@ namespace Models
         // - assistant: Assistant.
         // 
         // - system: System.
+        // 
         // - function: Function.
         // 
-        // - plugin: Plugin.
+        // - plugin: Plug-in.
         // 
         // - tool: Tool.
         shared_ptr<string> role_ {};
@@ -271,9 +272,7 @@ namespace Models
 
 
     protected:
-      // The sender type.
-      // 
-      // Valid values:
+      // The sender type. Valid values:
       // - **ADMIN**: System.
       // - **CUSTOMER**: Visitor.
       // - **AGENT**: Agent.
@@ -365,17 +364,17 @@ namespace Models
 
 
   protected:
-    // The access denied details.
+    // The access denial details.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed.
+    // Specifies whether a retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name.
+    // The name of the app.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic message. This parameter is not in use. Ignore it.
+    // The dynamic message. This parameter is not in use and can be ignored.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters.
+    // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
     // The response data.
     shared_ptr<ListAIStaffChatMessagesResponseBody::Module> module_ {};

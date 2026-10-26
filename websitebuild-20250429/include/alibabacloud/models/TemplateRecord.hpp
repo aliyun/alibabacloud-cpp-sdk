@@ -96,13 +96,13 @@ namespace Models
   protected:
     // The business ID of the application instance.
     shared_ptr<string> bizId_ {};
-    // The replication status.
+    // The copy status.
     shared_ptr<string> copyStatus_ {};
     // The creation time.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
     shared_ptr<string> gmtCreate_ {};
-    // The modification time.
+    // The update time.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
     shared_ptr<string> gmtModified_ {};

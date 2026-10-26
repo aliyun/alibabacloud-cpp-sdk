@@ -74,11 +74,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> directoryId_ {};
-    // The parent folder ID after the move.
+    // The ID of the target parent folder.
     // 
     // This parameter is required.
     shared_ptr<string> parentDirectoryId_ {};
-    // The sort number.
+    // The sort order.
     // 
     // This parameter is required.
     shared_ptr<int32_t> sortNum_ {};

@@ -291,23 +291,21 @@ namespace Models
       shared_ptr<string> dbInstanceId_ {};
       // The public URL of the database.
       shared_ptr<string> dbPublicUrl_ {};
-      // The database type (rds/polardb).
+      // The database type. Valid values: rds, polardb.
       shared_ptr<string> dbType_ {};
-      // The extra information.
+      // The additional information.
       shared_ptr<string> extra_ {};
-      // The time when the instance creation was completed.
+      // The completion time of the instance creation.
       shared_ptr<string> instanceCreateFinishedTime_ {};
-      // The instance creation status.
+      // The creation status of the instance.
       shared_ptr<string> instanceCreateStatus_ {};
       // The deletion flag.
       shared_ptr<int32_t> isDeleted_ {};
-      // The access password of the RDS database.
+      // The access password for the RDS database.
       shared_ptr<string> rdsDatabasePassword_ {};
       // The service key.
       shared_ptr<string> serviceKey_ {};
-      // The status. Valid values:
-      // - 0: Paused.
-      // - 1: Running.
+      // The status. Valid values: 0: Paused. 1: Running.
       shared_ptr<int32_t> status_ {};
       // The password for the Supabase Dashboard.
       shared_ptr<string> supabaseDashboardPassword_ {};
@@ -321,7 +319,7 @@ namespace Models
       shared_ptr<string> supabaseKongUrl_ {};
       // The private endpoint of the Supabase instance.
       shared_ptr<string> supabasePrivateIp_ {};
-      // The public endpoint of the Supabase instance.
+      // The public network connection endpoint of the Supabase instance.
       shared_ptr<string> supabasePublicIp_ {};
       // The public URL of the Supabase instance.
       shared_ptr<string> supabasePublicUrl_ {};
@@ -418,16 +416,16 @@ namespace Models
   protected:
     // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether a retry is allowed.
+    // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
     // The application name.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which replaces the `%s` placeholder in the **ErrMessage** response parameter.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace `%s` in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the specified **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters returned.
+    // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
     // The response data.
     shared_ptr<QuerySupabaseInstanceInfoForAdminResponseBody::Module> module_ {};

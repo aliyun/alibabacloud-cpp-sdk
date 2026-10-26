@@ -53,16 +53,22 @@ namespace Models
     class Module : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Module& obj) { 
+        DARABONBA_PTR_TO_JSON(DesiredTotal, desiredTotal_);
         DARABONBA_PTR_TO_JSON(ErrorCode, errorCode_);
         DARABONBA_PTR_TO_JSON(ErrorMessage, errorMessage_);
+        DARABONBA_PTR_TO_JSON(Limit, limit_);
         DARABONBA_PTR_TO_JSON(Passed, passed_);
         DARABONBA_PTR_TO_JSON(ResourceCode, resourceCode_);
+        DARABONBA_PTR_TO_JSON(UpgradeAvailable, upgradeAvailable_);
       };
       friend void from_json(const Darabonba::Json& j, Module& obj) { 
+        DARABONBA_PTR_FROM_JSON(DesiredTotal, desiredTotal_);
         DARABONBA_PTR_FROM_JSON(ErrorCode, errorCode_);
         DARABONBA_PTR_FROM_JSON(ErrorMessage, errorMessage_);
+        DARABONBA_PTR_FROM_JSON(Limit, limit_);
         DARABONBA_PTR_FROM_JSON(Passed, passed_);
         DARABONBA_PTR_FROM_JSON(ResourceCode, resourceCode_);
+        DARABONBA_PTR_FROM_JSON(UpgradeAvailable, upgradeAvailable_);
       };
       Module() = default ;
       Module(const Module &) = default ;
@@ -75,8 +81,16 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->errorCode_ == nullptr
-        && this->errorMessage_ == nullptr && this->passed_ == nullptr && this->resourceCode_ == nullptr; };
+      virtual bool empty() const override { return this->desiredTotal_ == nullptr
+        && this->errorCode_ == nullptr && this->errorMessage_ == nullptr && this->limit_ == nullptr && this->passed_ == nullptr && this->resourceCode_ == nullptr
+        && this->upgradeAvailable_ == nullptr; };
+      // desiredTotal Field Functions 
+      bool hasDesiredTotal() const { return this->desiredTotal_ != nullptr;};
+      void deleteDesiredTotal() { this->desiredTotal_ = nullptr;};
+      inline int64_t getDesiredTotal() const { DARABONBA_PTR_GET_DEFAULT(desiredTotal_, 0L) };
+      inline Module& setDesiredTotal(int64_t desiredTotal) { DARABONBA_PTR_SET_VALUE(desiredTotal_, desiredTotal) };
+
+
       // errorCode Field Functions 
       bool hasErrorCode() const { return this->errorCode_ != nullptr;};
       void deleteErrorCode() { this->errorCode_ = nullptr;};
@@ -89,6 +103,13 @@ namespace Models
       void deleteErrorMessage() { this->errorMessage_ = nullptr;};
       inline string getErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
       inline Module& setErrorMessage(string errorMessage) { DARABONBA_PTR_SET_VALUE(errorMessage_, errorMessage) };
+
+
+      // limit Field Functions 
+      bool hasLimit() const { return this->limit_ != nullptr;};
+      void deleteLimit() { this->limit_ = nullptr;};
+      inline int64_t getLimit() const { DARABONBA_PTR_GET_DEFAULT(limit_, 0L) };
+      inline Module& setLimit(int64_t limit) { DARABONBA_PTR_SET_VALUE(limit_, limit) };
 
 
       // passed Field Functions 
@@ -105,15 +126,28 @@ namespace Models
       inline Module& setResourceCode(string resourceCode) { DARABONBA_PTR_SET_VALUE(resourceCode_, resourceCode) };
 
 
+      // upgradeAvailable Field Functions 
+      bool hasUpgradeAvailable() const { return this->upgradeAvailable_ != nullptr;};
+      void deleteUpgradeAvailable() { this->upgradeAvailable_ = nullptr;};
+      inline bool getUpgradeAvailable() const { DARABONBA_PTR_GET_DEFAULT(upgradeAvailable_, false) };
+      inline Module& setUpgradeAvailable(bool upgradeAvailable) { DARABONBA_PTR_SET_VALUE(upgradeAvailable_, upgradeAvailable) };
+
+
     protected:
-      // The error code when the check fails. This value is null when the check passes.
+      // Returned only for APP_WORKSPACE: the target total for this check, which is the used quota in the saved configuration plus ResourceValue. If the compatible DesiredTotal is provided, this total is used directly. The used quota for questions is the sum of common and word-of-mouth questions in the saved configuration. The used quota for competitors is the number of competitors. This field is empty for APP and USER checks.
+      shared_ptr<int64_t> desiredTotal_ {};
+      // The error code when the check fails. This field is null when the check passes.
       shared_ptr<string> errorCode_ {};
-      // The error message when the check fails. This value is null when the check passes.
+      // The error message when the check fails. This field is null when the check passes.
       shared_ptr<string> errorMessage_ {};
+      // Returned only for APP_WORKSPACE quantity dry runs: the maximum number of questions or competitors allowed by the current commodity edition, not the remaining quota. This field is empty for APP and USER checks or when the edition benefits cannot be determined.
+      shared_ptr<int64_t> limit_ {};
       // Indicates whether the check is passed.
       shared_ptr<bool> passed_ {};
-      // The resource identifier.
+      // The resource code.
       shared_ptr<string> resourceCode_ {};
+      // Indicates whether a purchasable higher edition exists that can accommodate the DesiredTotal. This field is true only when the current edition capacity is insufficient and a higher edition meets the requirements. Otherwise, it is false. This field may be empty for APP and USER checks. This field does not indicate that an upgrade has been performed or an upgrade order has been created.
+      shared_ptr<bool> upgradeAvailable_ {};
     };
 
     virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr
@@ -201,30 +235,30 @@ namespace Models
 
 
   protected:
-    // The detailed reason why access is denied.
+    // The detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether a retry is allowed. Valid values:
-    // - false: A retry is not allowed.
-    // - true: A retry is allowed.
+    // Specifies whether retries are allowed. Valid values:
+    // - false: Retries are not allowed.
+    // - true: Retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name. The application with this name is queried.
+    // The name of the application.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response element.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace `%s` in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters.
+    // The returned error arguments.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // The response object.
+    // The returned object.
     shared_ptr<CheckUserResourceMeasureResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The error code.
+    // The root error code.
     shared_ptr<string> rootErrorCode_ {};
-    // The exception message.
+    // The root error message.
     shared_ptr<string> rootErrorMsg_ {};
-    // A reserved parameter.
+    // The backup parameter.
     shared_ptr<bool> synchro_ {};
   };
 

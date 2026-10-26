@@ -221,13 +221,13 @@ namespace Models
   protected:
     // The detailed reasons for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether a retry is allowed.
+    // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The app name.
+    // The application name.
     shared_ptr<string> appName_ {};
     // The current page number.
     shared_ptr<int32_t> currentPageNum_ {};
-    // The request result.
+    // The request results.
     shared_ptr<vector<AppInstanceAggregate>> data_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
@@ -235,13 +235,13 @@ namespace Models
     shared_ptr<string> dynamicMessage_ {};
     // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // The maximum number of results per query.
+    // The maximum number of results to return for each query.
     // 
     // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
     // Indicates whether a next page exists.
     shared_ptr<bool> nextPage_ {};
-    // The token used to start the next query. This parameter is empty if no next query exists.
+    // The token that is used to start the next query. This parameter is empty if no subsequent query is required.
     shared_ptr<string> nextToken_ {};
     // The page size.
     shared_ptr<int32_t> pageSize_ {};
@@ -249,11 +249,11 @@ namespace Models
     shared_ptr<bool> prePage_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is **true**. Narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+    // In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
     shared_ptr<bool> resultLimit_ {};
-    // The root error code.
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // The exception message.
+    // The error message.
     shared_ptr<string> rootErrorMsg_ {};
     // The start position.
     shared_ptr<string> startPosition_ {};

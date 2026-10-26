@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> bizId_ {};
     // The channel.
     shared_ptr<string> channel_ {};
-    // The list of extension information keys.
+    // The list of extended information keys.
     shared_ptr<string> settingKeysShrink_ {};
   };
 

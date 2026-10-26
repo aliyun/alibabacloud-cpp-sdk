@@ -189,19 +189,19 @@ namespace Models
       protected:
         // The acquisition time. The time is in the YYYY-MM-DD HH:mm:ss format.
         shared_ptr<string> acquisitionTime_ {};
-        // The balance, which is calculated by subtracting the used amount from the initial quota (initQuota - used).
+        // The balance, calculated by subtracting the used amount from the initial quota.
         shared_ptr<int64_t> balance_ {};
-        // The exact value of the balance. The value is of the String type to support decimal display.
+        // The exact balance. The value is a string to support the display of decimal places.
         shared_ptr<string> balanceStr_ {};
         // The expiration time of the validity period. The time is in the YYYY-MM-DD HH:mm:ss format.
         shared_ptr<string> endDate_ {};
-        // Indicates whether the quota has expired (endDate < current time). The frontend displays the item in gray based on this value.
+        // Indicates whether the quota has expired. A quota is expired if the expiration time is earlier than the current time. The frontend displays expired quotas in gray based on this value.
         shared_ptr<bool> expired_ {};
         // The acquired amount, which is the initial quota.
         shared_ptr<int64_t> initQuota_ {};
-        // The exact value of the acquired amount. The value is of the String type to support decimal display.
+        // The exact acquired amount. The value is a string to support the display of decimal places.
         shared_ptr<string> initQuotaStr_ {};
-        // The code of the source type. Examples: FREE_TRIAL_GIFT, INSTANCE_GIFT, UPGRADE_GRANT, and PURCHASED.
+        // The source type code, such as FREE_TRIAL_GIFT, INSTANCE_GIFT, UPGRADE_GRANT, or PURCHASED.
         shared_ptr<string> sourceType_ {};
         // The Chinese name of the source type.
         shared_ptr<string> sourceTypeName_ {};
@@ -320,23 +320,23 @@ namespace Models
       protected:
         // The acquisition time. The time is in the YYYY-MM-DD HH:mm:ss format.
         shared_ptr<string> acquisitionTime_ {};
-        // The balance, which is calculated by subtracting the used amount from the initial quota (initQuota - used).
+        // The balance, calculated by subtracting the used amount from the initial quota.
         shared_ptr<int64_t> balance_ {};
-        // The exact value of the balance. The value is of the String type to support decimal display.
+        // The exact balance. The value is a string to support the display of decimal places.
         shared_ptr<string> balanceStr_ {};
-        // The expiration time of the validity period. The time is in the YYYY-MM-DD HH:mm:ss Z format, where Z is the time zone offset.
+        // The expiration time of the validity period. The time is in the YYYY-MM-DD HH:mm:ss Z format, where Z represents the time zone offset.
         shared_ptr<string> endDate_ {};
-        // Indicates whether the quota has expired (endDate < current time). The frontend displays the item in gray based on this value.
+        // Indicates whether the quota has expired. A quota is expired if the expiration time is earlier than the current time. The frontend displays expired quotas in gray based on this value.
         shared_ptr<bool> expired_ {};
         // The acquired amount, which is the initial quota.
         shared_ptr<int64_t> initQuota_ {};
-        // The exact value of the acquired amount. The value is of the String type to support decimal display.
+        // The exact acquired amount. The value is a string to support the display of decimal places.
         shared_ptr<string> initQuotaStr_ {};
-        // The code of the source type. Examples: FREE_TRIAL_GIFT, INSTANCE_GIFT, UPGRADE_GRANT, and PURCHASED.
+        // The source type code, such as FREE_TRIAL_GIFT, INSTANCE_GIFT, UPGRADE_GRANT, or PURCHASED.
         shared_ptr<string> sourceType_ {};
         // The Chinese name of the source type.
         shared_ptr<string> sourceTypeName_ {};
-        // The status of the inspiration credit account.
+        // The status of the inspiration point account.
         shared_ptr<string> status_ {};
       };
 
@@ -419,11 +419,11 @@ namespace Models
       shared_ptr<Module::Next> next_ {};
       // Indicates whether a next page exists.
       shared_ptr<bool> nextPage_ {};
-      // The number of entries per page.
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
       // Indicates whether a previous page exists.
       shared_ptr<bool> prePage_ {};
-      // In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is **true**. In this case, narrow down the time range and search again. Otherwise, **ResultLimit** is **false**.
+      // In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
       shared_ptr<bool> resultLimit_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalItemNum_ {};
@@ -518,11 +518,11 @@ namespace Models
   protected:
     // The details of the permission verification failure.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retries are allowed. Valid values:
+    // Specifies whether to allow retries. Valid values:
     // - false: Retries are not allowed.
     // - true: Retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The name of the application. The system queries the application with this name.
+    // The name of the application to query.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};

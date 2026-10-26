@@ -108,7 +108,7 @@ namespace Models
     protected:
       // The commit ID.
       shared_ptr<string> commitSha_ {};
-      // The bound API gateway plug-in ID.
+      // The ID of the bound API gateway plugin.
       shared_ptr<string> pluginId_ {};
       // trial,draft,live,refunded,expired,released
       shared_ptr<string> status_ {};
@@ -201,19 +201,19 @@ namespace Models
 
 
   protected:
-    // The detailed reason why access was denied.
+    // The detailed reasons for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed. Valid values:
-    // - false: Retry is not allowed.
-    // - true: Retry is allowed.
+    // Specifies whether a retry is allowed. Valid values:
+    // - false: A retry is not allowed.
+    // - true: A retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name.
+    // The name of the application.
     shared_ptr<string> appName_ {};
-    // The dynamic code. This parameter is not in use. Ignore this parameter.
+    // The dynamic code. This parameter is not used and can be ignored.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic message. This parameter is not in use. Ignore this parameter.
+    // The dynamic message. This parameter is not used and can be ignored.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters returned.
+    // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
     // The application module.
     shared_ptr<UploadAppPluginVersionResponseBody::Module> module_ {};
@@ -221,9 +221,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // The error message.
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Indicates whether the request is processed synchronously.
+    // Specifies whether synchronous processing is used.
     shared_ptr<bool> synchro_ {};
   };
 

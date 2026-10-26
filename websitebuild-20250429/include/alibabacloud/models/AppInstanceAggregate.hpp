@@ -26,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AppType, appType_);
       DARABONBA_PTR_TO_JSON(BizId, bizId_);
       DARABONBA_PTR_TO_JSON(BuildType, buildType_);
+      DARABONBA_PTR_TO_JSON(ConversationInfo, conversationInfo_);
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
       DARABONBA_PTR_TO_JSON(Deleted, deleted_);
       DARABONBA_PTR_TO_JSON(Description, description_);
@@ -62,6 +63,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AppType, appType_);
       DARABONBA_PTR_FROM_JSON(BizId, bizId_);
       DARABONBA_PTR_FROM_JSON(BuildType, buildType_);
+      DARABONBA_PTR_FROM_JSON(ConversationInfo, conversationInfo_);
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
       DARABONBA_PTR_FROM_JSON(Deleted, deleted_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
@@ -139,11 +141,11 @@ namespace Models
 
 
     protected:
-      // The tag key of the instance. Valid values of N: **1** to **20**. If this parameter is specified, it cannot be an empty string.
+      // The tag key of the instance. Valid values of N: **1** to **20**. If you specify this parameter, it cannot be an empty string.
       // 
       // The tag key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> tagKey_ {};
-      // The tag value of the instance. Valid values of N: **1** to **20**. If this parameter is specified, it can be an empty string.
+      // The tag value of the instance. Valid values of N: **1** to **20**. If you specify this parameter, it can be an empty string.
       // 
       // The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> tagValue_ {};
@@ -265,10 +267,11 @@ namespace Models
 
 
       protected:
+        // The external business ID.
         shared_ptr<string> bizId_ {};
         // The creation time.
         shared_ptr<string> gmtCreate_ {};
-        // The modification time.
+        // The update time.
         shared_ptr<string> gmtModified_ {};
         // The record ID.
         shared_ptr<string> id_ {};
@@ -278,6 +281,7 @@ namespace Models
         shared_ptr<string> parentPk_ {};
         // The partner ID.
         shared_ptr<string> partnerId_ {};
+        // The Alibaba Cloud account ID of the bound user.
         shared_ptr<string> userId_ {};
       };
 
@@ -311,17 +315,50 @@ namespace Models
       shared_ptr<PartnerDetail::BindData> bindData_ {};
       // The partner ID.
       shared_ptr<string> partnerId_ {};
+      // The partner binding status. Valid values: BOUND (bound) and UNBOUND (unbound).
       shared_ptr<string> status_ {};
+    };
+
+    class ConversationInfo : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ConversationInfo& obj) { 
+        DARABONBA_PTR_TO_JSON(ChatNum, chatNum_);
+      };
+      friend void from_json(const Darabonba::Json& j, ConversationInfo& obj) { 
+        DARABONBA_PTR_FROM_JSON(ChatNum, chatNum_);
+      };
+      ConversationInfo() = default ;
+      ConversationInfo(const ConversationInfo &) = default ;
+      ConversationInfo(ConversationInfo &&) = default ;
+      ConversationInfo(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ConversationInfo() = default ;
+      ConversationInfo& operator=(const ConversationInfo &) = default ;
+      ConversationInfo& operator=(ConversationInfo &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->chatNum_ == nullptr; };
+      // chatNum Field Functions 
+      bool hasChatNum() const { return this->chatNum_ != nullptr;};
+      void deleteChatNum() { this->chatNum_ = nullptr;};
+      inline int64_t getChatNum() const { DARABONBA_PTR_GET_DEFAULT(chatNum_, 0L) };
+      inline ConversationInfo& setChatNum(int64_t chatNum) { DARABONBA_PTR_SET_VALUE(chatNum_, chatNum) };
+
+
+    protected:
+      // 0 表示存在空会话。
+      shared_ptr<int64_t> chatNum_ {};
     };
 
     virtual bool empty() const override { return this->aiStaffList_ == nullptr
         && this->appOperationAddress_ == nullptr && this->appServiceList_ == nullptr && this->appSubType_ == nullptr && this->appType_ == nullptr && this->bizId_ == nullptr
-        && this->buildType_ == nullptr && this->createTime_ == nullptr && this->deleted_ == nullptr && this->description_ == nullptr && this->designSpecBizId_ == nullptr
-        && this->designSpecId_ == nullptr && this->domain_ == nullptr && this->endTime_ == nullptr && this->espBizId_ == nullptr && this->gmtDelete_ == nullptr
-        && this->gmtModified_ == nullptr && this->gmtPublish_ == nullptr && this->iconUrl_ == nullptr && this->name_ == nullptr && this->partnerDetail_ == nullptr
-        && this->profile_ == nullptr && this->resourceGroupId_ == nullptr && this->siteHost_ == nullptr && this->slug_ == nullptr && this->sourceType_ == nullptr
-        && this->startTime_ == nullptr && this->status_ == nullptr && this->statusText_ == nullptr && this->tags_ == nullptr && this->templateRecord_ == nullptr
-        && this->thumbnailUrl_ == nullptr && this->userId_ == nullptr && this->version_ == nullptr; };
+        && this->buildType_ == nullptr && this->conversationInfo_ == nullptr && this->createTime_ == nullptr && this->deleted_ == nullptr && this->description_ == nullptr
+        && this->designSpecBizId_ == nullptr && this->designSpecId_ == nullptr && this->domain_ == nullptr && this->endTime_ == nullptr && this->espBizId_ == nullptr
+        && this->gmtDelete_ == nullptr && this->gmtModified_ == nullptr && this->gmtPublish_ == nullptr && this->iconUrl_ == nullptr && this->name_ == nullptr
+        && this->partnerDetail_ == nullptr && this->profile_ == nullptr && this->resourceGroupId_ == nullptr && this->siteHost_ == nullptr && this->slug_ == nullptr
+        && this->sourceType_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->statusText_ == nullptr && this->tags_ == nullptr
+        && this->templateRecord_ == nullptr && this->thumbnailUrl_ == nullptr && this->userId_ == nullptr && this->version_ == nullptr; };
     // aiStaffList Field Functions 
     bool hasAiStaffList() const { return this->aiStaffList_ != nullptr;};
     void deleteAiStaffList() { this->aiStaffList_ = nullptr;};
@@ -375,6 +412,15 @@ namespace Models
     void deleteBuildType() { this->buildType_ = nullptr;};
     inline string getBuildType() const { DARABONBA_PTR_GET_DEFAULT(buildType_, "") };
     inline AppInstanceAggregate& setBuildType(string buildType) { DARABONBA_PTR_SET_VALUE(buildType_, buildType) };
+
+
+    // conversationInfo Field Functions 
+    bool hasConversationInfo() const { return this->conversationInfo_ != nullptr;};
+    void deleteConversationInfo() { this->conversationInfo_ = nullptr;};
+    inline const AppInstanceAggregate::ConversationInfo & getConversationInfo() const { DARABONBA_PTR_GET_CONST(conversationInfo_, AppInstanceAggregate::ConversationInfo) };
+    inline AppInstanceAggregate::ConversationInfo getConversationInfo() { DARABONBA_PTR_GET(conversationInfo_, AppInstanceAggregate::ConversationInfo) };
+    inline AppInstanceAggregate& setConversationInfo(const AppInstanceAggregate::ConversationInfo & conversationInfo) { DARABONBA_PTR_SET_VALUE(conversationInfo_, conversationInfo) };
+    inline AppInstanceAggregate& setConversationInfo(AppInstanceAggregate::ConversationInfo && conversationInfo) { DARABONBA_PTR_SET_RVALUE(conversationInfo_, conversationInfo) };
 
 
     // createTime Field Functions 
@@ -575,9 +621,11 @@ namespace Models
 
 
   protected:
+    // The list of AI agents associated with the application.
     shared_ptr<vector<AppAiStaff>> aiStaffList_ {};
-    // The application operation address.
+    // The operation address of the application.
     shared_ptr<AppOperationAddress> appOperationAddress_ {};
+    // The list of service instances associated with the application.
     shared_ptr<vector<AppServiceAggregate>> appServiceList_ {};
     // The application subtype.
     shared_ptr<string> appSubType_ {};
@@ -587,6 +635,8 @@ namespace Models
     shared_ptr<string> bizId_ {};
     // The build type.
     shared_ptr<string> buildType_ {};
+    // 没有关联会话时为 null。
+    shared_ptr<AppInstanceAggregate::ConversationInfo> conversationInfo_ {};
     // The creation time.
     shared_ptr<string> createTime_ {};
     // Indicates whether the instance is deleted.
@@ -605,17 +655,19 @@ namespace Models
     shared_ptr<string> espBizId_ {};
     // The deletion time.
     shared_ptr<string> gmtDelete_ {};
-    // The modification time.
+    // The update time.
     shared_ptr<string> gmtModified_ {};
-    // The publish time.
+    // The publication time.
     shared_ptr<string> gmtPublish_ {};
-    // The application icon.
+    // The URL of the application icon.
     shared_ptr<string> iconUrl_ {};
     // The application name.
     shared_ptr<string> name_ {};
-    // The details.
+    // The partner details.
     shared_ptr<AppInstanceAggregate::PartnerDetail> partnerDetail_ {};
+    // The configuration and runtime information of the application instance.
     shared_ptr<AppInstanceProfile> profile_ {};
+    // The ID of the enterprise resource group to which the instance belongs.
     shared_ptr<string> resourceGroupId_ {};
     // The website domain name.
     shared_ptr<string> siteHost_ {};
@@ -629,9 +681,11 @@ namespace Models
     shared_ptr<string> status_ {};
     // The status text.
     shared_ptr<string> statusText_ {};
+    // The tags.
     shared_ptr<vector<AppInstanceAggregate::Tags>> tags_ {};
+    // The application template record information.
     shared_ptr<TemplateRecord> templateRecord_ {};
-    // The application thumbnail.
+    // The URL of the application thumbnail.
     shared_ptr<string> thumbnailUrl_ {};
     // The user ID.
     shared_ptr<string> userId_ {};

@@ -65,7 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> fileId_ {};
-    // The new name of the file after modification.
+    // The updated file name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};

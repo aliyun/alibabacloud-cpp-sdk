@@ -107,11 +107,9 @@ namespace Models
     shared_ptr<string> botId_ {};
     // The end modification time in ISO 8601 format.
     shared_ptr<string> endModifyTime_ {};
-    // The number of entries per query.
-    // 
-    // Valid values: 10 to 100. Default value: 20.
+    // The maximum number of results to return for a single query. Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query. This parameter is empty if no more results exist.
+    // The token that is used to start the next query. If no next query is available, this parameter is empty.
     shared_ptr<string> nextToken_ {};
     // The page number.
     shared_ptr<int32_t> pageNum_ {};

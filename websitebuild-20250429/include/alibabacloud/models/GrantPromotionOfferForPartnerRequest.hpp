@@ -92,7 +92,7 @@ namespace Models
     shared_ptr<string> belongId_ {};
     // The channel.
     shared_ptr<string> channel_ {};
-    // The employee code.
+    // The employee ID.
     shared_ptr<string> employeeCode_ {};
     // The operation remark (audit information).
     shared_ptr<string> remark_ {};

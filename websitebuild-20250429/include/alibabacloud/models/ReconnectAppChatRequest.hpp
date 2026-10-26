@@ -70,7 +70,7 @@ namespace Models
     shared_ptr<string> chatId_ {};
     // The conversation ID.
     shared_ptr<string> conversationId_ {};
-    // The last event ID.
+    // The ID of the last event.
     shared_ptr<int32_t> lastEventId_ {};
     // The creation time of the latest message.
     shared_ptr<string> latestMessageCreateTime_ {};

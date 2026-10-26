@@ -63,6 +63,7 @@ namespace Models
 
 
     protected:
+      // The value of the exchanged access token.
       shared_ptr<string> tokenValue_ {};
     };
 
@@ -99,13 +100,13 @@ namespace Models
 
 
   protected:
-    // The error code. If the request is successful, this field is not returned. If the request fails, this field is returned. For more information, see the error codes in this topic.
+    // The error code. If the request is successful, the ErrorCode field is not returned. If the request fails, the ErrorCode field is returned. For more information, see the error codes in this topic.
     shared_ptr<string> errorCode_ {};
     // The response data.
     shared_ptr<GetUserAccessTokenForPartnerResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<string> success_ {};
   };
 

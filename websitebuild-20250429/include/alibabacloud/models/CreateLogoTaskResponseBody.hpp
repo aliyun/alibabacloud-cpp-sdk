@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The error code. If the request is successful, this field is not returned. If the request fails, this field is returned. For more information, see the error codes in this topic.
+    // The error code. If the request is successful, this field is not returned. If the request fails, this field is returned. For more information, see the error code list in this topic.
     shared_ptr<string> errorCode_ {};
     // The error message.
     shared_ptr<string> errorMsg_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
-    // The task ID returned when the call is successful. Keep this ID safe. This ID is required when you query the creation status.
+    // The task ID returned when the call is successful. Note: Keep this ID secure. You must use this ID to query the device creation status.
     shared_ptr<string> taskId_ {};
   };
 

@@ -90,7 +90,7 @@ namespace Models
     protected:
       // trial,draft,live,refunded,expired,released
       shared_ptr<string> status_ {};
-      // Indicates whether the operation is successful.
+      // Indicates whether the operation was successful.
       shared_ptr<bool> success_ {};
     };
 
@@ -179,19 +179,19 @@ namespace Models
 
 
   protected:
-    // The details of the permission verification failure.
+    // The details of the permission check failure.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed.
+    // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name must start with a letter and can contain letters, digits, underscores (_), and hyphens (-). The name can be up to 36 characters in length.
+    // The name of the application. It must start with a letter and can contain digits, letters, underscores (_), and hyphens (-). The name can be up to 36 characters in length.
     shared_ptr<string> appName_ {};
-    // The dynamic code. This parameter is not in use. Ignore it.
+    // The dynamic code. This parameter is not used and can be ignored.
     shared_ptr<string> dynamicCode_ {};
     // The dynamic message.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters returned.
+    // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Indicates whether the move is successful.
+    // Indicates whether the move was successful.
     shared_ptr<UpdateAppPluginResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
@@ -199,7 +199,7 @@ namespace Models
     shared_ptr<string> rootErrorCode_ {};
     // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Indicates whether the request is synchronously processed.
+    // Indicates whether the request is processed synchronously.
     shared_ptr<bool> synchro_ {};
   };
 

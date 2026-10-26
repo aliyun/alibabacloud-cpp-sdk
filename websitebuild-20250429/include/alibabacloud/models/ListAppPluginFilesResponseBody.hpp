@@ -127,7 +127,7 @@ namespace Models
 
 
       protected:
-        // The file content, returned when POP displays SKILL.md.
+        // The file content returned when POP displays SKILL.md.
         shared_ptr<string> content_ {};
         // The file path.
         shared_ptr<string> filePath_ {};
@@ -247,9 +247,9 @@ namespace Models
 
 
   protected:
-    // The details of the permission verification failure.
+    // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed.
+    // Specifies whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
     // The application name.
     shared_ptr<string> appName_ {};
@@ -257,7 +257,7 @@ namespace Models
     shared_ptr<string> dynamicCode_ {};
     // The dynamic message.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters.
+    // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
     // The response data.
     shared_ptr<ListAppPluginFilesResponseBody::Module> module_ {};

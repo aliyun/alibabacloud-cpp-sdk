@@ -79,7 +79,9 @@ namespace Models
     shared_ptr<string> bizId_ {};
     // The domain name.
     shared_ptr<string> domain_ {};
-    // The security authentication information.
+    // The authentication information.
+    // 
+    // Security authentication information.
     shared_ptr<string> seAuthInfo_ {};
     // The index status.
     shared_ptr<int32_t> seIndexStatus_ {};

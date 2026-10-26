@@ -92,7 +92,7 @@ namespace Models
     shared_ptr<string> bizType_ {};
     // The ESP business ID.
     shared_ptr<string> espBizId_ {};
-    // The order module information. This parameter is automatically populated when it is empty.
+    // The order component information. This parameter is automatically populated if left empty.
     shared_ptr<string> orderComponentParams_ {};
     // The list of resource check items in JSON array format.
     shared_ptr<string> resourceCheckItems_ {};

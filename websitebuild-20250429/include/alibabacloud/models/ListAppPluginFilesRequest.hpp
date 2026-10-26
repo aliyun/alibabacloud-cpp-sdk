@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The gateway plug-in ID.
+    // The ID of the gateway plugin.
     shared_ptr<string> pluginId_ {};
-    // The version number. If not specified, the currently active version is used.
+    // The version number. If you do not specify this parameter, the currently active version is used.
     shared_ptr<string> pluginVersion_ {};
   };
 

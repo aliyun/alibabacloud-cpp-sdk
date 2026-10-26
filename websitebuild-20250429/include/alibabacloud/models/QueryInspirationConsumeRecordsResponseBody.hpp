@@ -169,7 +169,7 @@ namespace Models
         shared_ptr<string> consumeType_ {};
         // The extended information in JSON string format.
         shared_ptr<string> metaData_ {};
-        // The name of the consumption scenario, such as AI application development, AI creative image generation, AI video creation, or AI content creation.
+        // The name of the consumption scenario, such as AI application development, AI creative image generation, AI video creation, and AI content creation.
         shared_ptr<string> sceneName_ {};
       };
 
@@ -269,7 +269,7 @@ namespace Models
         shared_ptr<string> metaData_ {};
         // The unique identifier of the consumption record.
         shared_ptr<string> recordKey_ {};
-        // The name of the consumption scenario, such as AI application development, AI creative image generation, AI video creation, or AI content creation.
+        // The name of the consumption scenario, such as AI application development, AI creative image generation, AI video creation, and AI content creation.
         shared_ptr<string> sceneName_ {};
       };
 
@@ -346,17 +346,17 @@ namespace Models
     protected:
       // The current page number.
       shared_ptr<int32_t> currentPageNum_ {};
-      // The request results.
+      // The request result.
       shared_ptr<vector<Module::Data>> data_ {};
       // The ID of the next feature.
       shared_ptr<Module::Next> next_ {};
-      // Specifies whether a next page exists.
+      // Indicates whether a next page exists.
       shared_ptr<bool> nextPage_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // Specifies whether a previous page exists.
+      // Indicates whether a previous page exists.
       shared_ptr<bool> prePage_ {};
-      // In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+      // In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is **true**. Narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
       shared_ptr<bool> resultLimit_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalItemNum_ {};
@@ -449,19 +449,19 @@ namespace Models
 
 
   protected:
-    // The detailed reason why access is denied.
+    // The detailed cause of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Specifies whether retries are allowed.
+    // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
     // The name of the application to query.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic message. This parameter is not used. Ignore this parameter.
+    // The dynamic message. This field is not in use and can be ignored.
     shared_ptr<string> dynamicMessage_ {};
     // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Specifies whether the deletion is successful.
+    // Indicates whether the deletion is successful.
     shared_ptr<QueryInspirationConsumeRecordsResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

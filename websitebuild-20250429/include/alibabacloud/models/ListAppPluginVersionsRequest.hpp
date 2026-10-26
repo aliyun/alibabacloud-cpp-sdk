@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The current page number. The value must be an integer greater than 0. Default value: 1.
+    // The page number. Valid values: integers greater than 0. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The gateway plug-in ID.
+    // The ID of the gateway plug-in.
     shared_ptr<string> pluginId_ {};
   };
 

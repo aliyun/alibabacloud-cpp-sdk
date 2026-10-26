@@ -113,9 +113,9 @@ namespace Models
     shared_ptr<string> bizId_ {};
     // The environment identifier.
     shared_ptr<string> env_ {};
-    // The field by which to sort the results.
+    // The sort field.
     shared_ptr<string> orderColumn_ {};
-    // The sort type. Valid values: ASC and DESC.
+    // The sort order. Valid values: ASC, DESC.
     shared_ptr<string> orderType_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};

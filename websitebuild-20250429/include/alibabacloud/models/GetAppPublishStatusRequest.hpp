@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The business ID.
     shared_ptr<string> bizId_ {};
-    // The deployment order ID.
+    // The deployment ticket ID.
     shared_ptr<int64_t> deployOrderId_ {};
     // The website domain name.
     shared_ptr<string> websiteDomain_ {};

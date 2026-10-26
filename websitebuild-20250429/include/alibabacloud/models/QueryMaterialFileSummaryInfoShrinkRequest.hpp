@@ -120,19 +120,19 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> directoryId_ {};
-    // The file name.
+    // The name of the file.
     shared_ptr<string> name_ {};
-    // The field by which to sort the results.
+    // The field used for sorting.
     shared_ptr<string> orderColumn_ {};
-    // The sort order. Valid values: ASC and DESC.
+    // The sort order. Valid values: ASC, DESC.
     shared_ptr<string> orderType_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
     // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The file status.
+    // The file statuses.
     shared_ptr<string> statusListShrink_ {};
-    // The file type.
+    // The file types.
     shared_ptr<string> typeListShrink_ {};
   };
 

@@ -152,13 +152,13 @@ namespace Models
     shared_ptr<string> operateType_ {};
     // The ORDER BY clause.
     shared_ptr<string> orderByClause_ {};
-    // The column used for sorting.
+    // The sort field.
     shared_ptr<string> orderColumn_ {};
     // The sort type. Valid values: ASC and DESC.
     shared_ptr<string> orderType_ {};
     // The page number.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
     // The table name.
     shared_ptr<string> tableName_ {};

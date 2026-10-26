@@ -72,7 +72,7 @@ namespace Models
     shared_ptr<string> actionText_ {};
     // Indicates whether the action is available.
     shared_ptr<bool> enable_ {};
-    // The URL to navigate to when the action is clicked.
+    // The URL to redirect to when the action is clicked.
     shared_ptr<string> href_ {};
   };
 

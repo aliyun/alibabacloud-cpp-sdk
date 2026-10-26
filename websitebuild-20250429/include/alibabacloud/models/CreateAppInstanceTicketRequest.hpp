@@ -59,8 +59,9 @@ namespace Models
   protected:
     // The customer business ID.
     shared_ptr<string> bizId_ {};
-    // The Client ID of the device for which you want to revoke the access credential.
+    // The client ID of the device whose access credentials need to be revoked.
     shared_ptr<string> clientId_ {};
+    // The user role that the ticket will assume.
     shared_ptr<string> role_ {};
   };
 

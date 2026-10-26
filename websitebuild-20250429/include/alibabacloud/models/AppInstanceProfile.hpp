@@ -38,6 +38,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Source, source_);
       DARABONBA_PTR_TO_JSON(TemplateEtag, templateEtag_);
       DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
+      DARABONBA_PTR_TO_JSON(UpgradeStatus, upgradeStatus_);
     };
     friend void from_json(const Darabonba::Json& j, AppInstanceProfile& obj) { 
       DARABONBA_PTR_FROM_JSON(ApplicationType, applicationType_);
@@ -65,6 +66,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Source, source_);
       DARABONBA_PTR_FROM_JSON(TemplateEtag, templateEtag_);
       DARABONBA_PTR_FROM_JSON(TemplateId, templateId_);
+      DARABONBA_PTR_FROM_JSON(UpgradeStatus, upgradeStatus_);
     };
     AppInstanceProfile() = default ;
     AppInstanceProfile(const AppInstanceProfile &) = default ;
@@ -200,7 +202,7 @@ namespace Models
         && this->chatbiTaskStatus_ == nullptr && this->commodityCode_ == nullptr && this->customerService_ == nullptr && this->deployArea_ == nullptr && this->icpbaNo_ == nullptr
         && this->independentDeployment_ == nullptr && this->instanceId_ == nullptr && this->openChatBi_ == nullptr && this->ordTime_ == nullptr && this->orderId_ == nullptr
         && this->payTime_ == nullptr && this->previewUrl_ == nullptr && this->seoSite_ == nullptr && this->shareRenderWatermark_ == nullptr && this->siteVersion_ == nullptr
-        && this->siteVersionText_ == nullptr && this->source_ == nullptr && this->templateEtag_ == nullptr && this->templateId_ == nullptr; };
+        && this->siteVersionText_ == nullptr && this->source_ == nullptr && this->templateEtag_ == nullptr && this->templateId_ == nullptr && this->upgradeStatus_ == nullptr; };
     // applicationType Field Functions 
     bool hasApplicationType() const { return this->applicationType_ != nullptr;};
     void deleteApplicationType() { this->applicationType_ = nullptr;};
@@ -378,6 +380,13 @@ namespace Models
     inline AppInstanceProfile& setTemplateId(string templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
 
 
+    // upgradeStatus Field Functions 
+    bool hasUpgradeStatus() const { return this->upgradeStatus_ != nullptr;};
+    void deleteUpgradeStatus() { this->upgradeStatus_ = nullptr;};
+    inline string getUpgradeStatus() const { DARABONBA_PTR_GET_DEFAULT(upgradeStatus_, "") };
+    inline AppInstanceProfile& setUpgradeStatus(string upgradeStatus) { DARABONBA_PTR_SET_VALUE(upgradeStatus_, upgradeStatus) };
+
+
   protected:
     // The application type code. For example, PC_WebSite indicates a PC website.
     shared_ptr<string> applicationType_ {};
@@ -429,6 +438,7 @@ namespace Models
     shared_ptr<string> templateEtag_ {};
     // The template ID used by the current application.
     shared_ptr<string> templateId_ {};
+    shared_ptr<string> upgradeStatus_ {};
   };
 
   } // namespace Models

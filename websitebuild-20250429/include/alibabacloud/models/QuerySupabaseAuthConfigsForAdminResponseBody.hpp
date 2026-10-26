@@ -81,19 +81,12 @@ namespace Models
 
     protected:
       // The configuration value. Valid values:
-      // 
-      // - cc_rule: HTTP flood protection rule.
-      // 
+      // - cc_rule: CC rules.
       // - ddos_dispatch: DDoS interaction scheduling.
-      // 
-      // - edge_safe: edge application security.
-      // 
+      // - edge_safe: Edge application security.
       // - blocked_regions: Location Blacklist.
-      // 
       // - http_acl_policy: Accurate Access Control.
-      // 
-      // - bot_manager: bot traffic management.
-      // 
+      // - bot_manager: Bot traffic management.
       // - ip_reputation: IP reputation library.
       Darabonba::Json configs_ {};
     };
@@ -183,17 +176,17 @@ namespace Models
 
 
   protected:
-    // The details of the permission verification failure.
+    // The details of the permission check failure.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed.
+    // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
     // The application name.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic message. This parameter is not in use. Ignore this parameter.
+    // The dynamic message. This parameter is not in use and can be ignored.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters returned.
+    // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
     // The task object.
     shared_ptr<QuerySupabaseAuthConfigsForAdminResponseBody::Module> module_ {};
@@ -201,9 +194,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // The error message.
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Indicates whether the request is synchronously processed.
+    // Indicates whether the request is processed synchronously.
     shared_ptr<bool> synchro_ {};
   };
 

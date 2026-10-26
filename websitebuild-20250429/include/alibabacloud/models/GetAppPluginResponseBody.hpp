@@ -272,12 +272,11 @@ namespace Models
       shared_ptr<string> description_ {};
       // The image display mode. Valid values:
       // 
-      // - **0** (None): Not displayed.
-      // - **1** (Always): Always displayed.
+      // - **0** (None): The image is not displayed.
+      // - **1** (Always): The image is always displayed.
       shared_ptr<int32_t> display_ {};
-      // Specifies whether scheduled delivery of resource snapshots is enabled.
+      // Indicates whether scheduled delivery of resource snapshots is enabled. Valid values:
       // 
-      // Valid values:
       // - true: Enabled.
       // - false: Disabled.
       shared_ptr<int32_t> enabled_ {};
@@ -291,15 +290,15 @@ namespace Models
       shared_ptr<string> gmtModified_ {};
       // The hook definitions.
       shared_ptr<string> hooks_ {};
-      // The popularity count.
+      // The popularity.
       shared_ptr<int32_t> hotCount_ {};
-      // The plug-in description.
+      // The plugin description.
       shared_ptr<string> icon_ {};
-      // The bound API Gateway plug-in ID.
+      // The ID of the associated API gateway plugin.
       shared_ptr<string> pluginId_ {};
-      // The plug-in name. The name can contain uppercase and lowercase letters, Chinese characters, digits, and underscores (_). The name must be 4 to 50 characters in length and cannot start with an underscore.
+      // The name of the plugin. The name must be 4 to 50 characters in length and can contain uppercase and lowercase letters, Chinese characters, digits, and underscores (_). It cannot start with an underscore.
       shared_ptr<string> pluginName_ {};
-      // The image repository URL.
+      // The URL of the image repository.
       shared_ptr<string> repositoryUrl_ {};
       // The skill header information for model selection.
       shared_ptr<string> skillHeader_ {};
@@ -307,7 +306,7 @@ namespace Models
       shared_ptr<string> status_ {};
       // The category tags.
       shared_ptr<string> tags_ {};
-      // The application instance version.
+      // The version of the application instance.
       shared_ptr<string> version_ {};
       // **The visibility level.**
       shared_ptr<string> visibility_ {};
@@ -398,18 +397,18 @@ namespace Models
 
 
   protected:
-    // The detailed reason why access was denied.
+    // The detailed reason for the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
     // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name.
+    // The name of the application.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace the `%s` in the **ErrMessage** response parameter.
+    // The dynamic error message, which is used to replace `%s` in the error message returned by the **ErrMessage** parameter.
     // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters returned.
+    // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
     // The application module.
     shared_ptr<GetAppPluginResponseBody::Module> module_ {};
@@ -419,7 +418,7 @@ namespace Models
     shared_ptr<string> rootErrorCode_ {};
     // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // A reserved parameter.
+    // The reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

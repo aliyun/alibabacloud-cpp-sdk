@@ -274,18 +274,16 @@ namespace Models
       // Indicates whether the task is completed.
       shared_ptr<bool> isFinish_ {};
       // Indicates whether the call is successful. Valid values:
-      // 
       // - `true`: The call is successful.
-      // 
-      // - `false`: The call fails.
+      // - `false`: The call failed.
       shared_ptr<bool> isSuccess_ {};
-      // The additional information.
+      // The additional description.
       shared_ptr<string> msg_ {};
-      // The sort order.
+      // The sorting type, such as ASC or DESC.
       shared_ptr<string> orderType_ {};
       // The code of the publish order type.
       shared_ptr<string> orderTypeCode_ {};
-      // The task completion percentage.
+      // The completion percentage of the task.
       shared_ptr<int32_t> percent_ {};
       // The publish number.
       shared_ptr<string> publishNumber_ {};
@@ -390,7 +388,7 @@ namespace Models
 
 
   protected:
-    // The details of the access denial.
+    // The detailed reason why access is denied.
     shared_ptr<string> accessDeniedDetail_ {};
     // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};

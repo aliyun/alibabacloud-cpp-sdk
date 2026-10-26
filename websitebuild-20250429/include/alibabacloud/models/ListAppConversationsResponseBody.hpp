@@ -207,11 +207,11 @@ namespace Models
         shared_ptr<int32_t> chatNum_ {};
         // The conversation ID.
         shared_ptr<string> conversationId_ {};
-        // The creation time in ISO 8601 format with a time zone offset.
+        // The creation time in ISO 8601 format, including the time zone offset.
         // 
         // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
         shared_ptr<string> gmtCreateTime_ {};
-        // The modification time in ISO 8601 format with the UTC (Z) time zone.
+        // The update time in ISO 8601 format. The time zone is UTC (Z).
         // 
         // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
         shared_ptr<string> gmtModifiedTime_ {};
@@ -221,7 +221,7 @@ namespace Models
         shared_ptr<string> sectionId_ {};
         // The site ID. You can obtain the site ID by calling the [ListSites](~~ListSites~~) operation.
         shared_ptr<string> siteId_ {};
-        // The current viewpoint, equivalent to the news title.
+        // The current viewpoint, which is equivalent to the news title.
         shared_ptr<string> title_ {};
         // The user ID.
         shared_ptr<string> userId_ {};
@@ -260,13 +260,13 @@ namespace Models
 
 
     protected:
-      // The request result.
+      // The request results.
       shared_ptr<vector<Module::Data>> data_ {};
       // The page number. Default value: 1.
       shared_ptr<int32_t> pageNum_ {};
       // The page size.
       shared_ptr<int32_t> pageSize_ {};
-      // The resource count that matches the conditional filter criteria.
+      // The resource count that meets the conditional filters.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -370,25 +370,23 @@ namespace Models
 
 
   protected:
-    // The detailed reason why access is denied.
+    // The detailed reasons for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether a retry is allowed.
+    // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name. The application with this name is queried.
+    // The name of the application to query.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
     // The error message.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters.
+    // The error arguments.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // The number of entries per query.
-    // 
-    // Valid values: 10 to 100. Default value: 20.
+    // The maximum number of results to return for a single query. Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
     // The response data.
     shared_ptr<ListAppConversationsResponseBody::Module> module_ {};
-    // The token for the next query. This parameter is empty if no more results exist.
+    // The token that is used to start the next query. If no next query is available, this parameter is empty.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

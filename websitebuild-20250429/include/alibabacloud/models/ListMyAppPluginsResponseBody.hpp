@@ -196,7 +196,7 @@ namespace Models
 
 
       protected:
-        // Converts controlType based on the associated public category.
+        // The controlType converted based on the associated public category.
         shared_ptr<string> category_ {};
         // The scenario description.
         shared_ptr<string> description_ {};
@@ -204,20 +204,20 @@ namespace Models
         shared_ptr<string> gmtCreate_ {};
         // The modification time.
         shared_ptr<string> gmtModified_ {};
-        // The plug-in icon.
+        // The plugin description.
         shared_ptr<string> icon_ {};
-        // The plug-in ID.
+        // The plugin ID.
         shared_ptr<string> pluginId_ {};
-        // The plug-in name.
+        // The plugin name.
         shared_ptr<string> pluginName_ {};
-        // The status. Valid values: unknown, init, testing, online.
+        // The status. Valid values: unknown, init, testing, and online.
         shared_ptr<string> status_ {};
         // The API version number.
         shared_ptr<string> version_ {};
         // The visibility. Valid values:
         // 
-        // - **PUBLIC**: public.
-        // - **PRIVATE**: private.
+        // - **PUBLIC**: Public.
+        // - **PRIVATE**: Private.
         shared_ptr<string> visibility_ {};
       };
 
@@ -341,7 +341,7 @@ namespace Models
 
 
       protected:
-        // The plug-in category.
+        // The disk specifications.
         shared_ptr<string> category_ {};
         // The scenario description.
         shared_ptr<string> description_ {};
@@ -349,13 +349,13 @@ namespace Models
         shared_ptr<string> gmtCreate_ {};
         // The modification time.
         shared_ptr<string> gmtModified_ {};
-        // The popularity count.
+        // The popularity.
         shared_ptr<int32_t> hotCount_ {};
-        // The plug-in icon.
+        // The plugin description.
         shared_ptr<string> icon_ {};
-        // The plug-in ID.
+        // The plugin ID.
         shared_ptr<string> pluginId_ {};
-        // The plug-in name.
+        // The plugin name.
         shared_ptr<string> pluginName_ {};
         // The file status.
         shared_ptr<string> status_ {};
@@ -363,8 +363,8 @@ namespace Models
         shared_ptr<string> version_ {};
         // The visibility. Valid values:
         // 
-        // - **PUBLIC**: public.
-        // - **PRIVATE**: private.
+        // - **PUBLIC**: Public.
+        // - **PRIVATE**: Private.
         shared_ptr<string> visibility_ {};
       };
 
@@ -451,7 +451,7 @@ namespace Models
       shared_ptr<int32_t> pageSize_ {};
       // Indicates whether a previous page exists.
       shared_ptr<bool> prePage_ {};
-      // In addition to pagination limits, the server processes a maximum of 1000 recent records for the current query. If the results exceed 1000 entries, **ResultLimit** is **true**. Narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+      // The result limit. In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
       shared_ptr<bool> resultLimit_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalItemNum_ {};
@@ -544,18 +544,18 @@ namespace Models
 
 
   protected:
-    // The detailed reason why access was denied.
+    // The detailed reason why access is denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed.
+    // Specifies whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name. The name must start with a letter and can contain digits, letters, underscores (_), and hyphens (-). The name can be up to 36 characters in length.
+    // The application name. The name must start with a letter and can contain digits, letters, underscores (_), and hyphens (-). It can be up to 36 characters in length.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace the `%s` in the **ErrMessage** return parameter.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace `%s` in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters returned.
+    // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
     // The task object.
     shared_ptr<ListMyAppPluginsResponseBody::Module> module_ {};
@@ -565,7 +565,7 @@ namespace Models
     shared_ptr<string> rootErrorCode_ {};
     // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // A reserved parameter.
+    // The reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 
