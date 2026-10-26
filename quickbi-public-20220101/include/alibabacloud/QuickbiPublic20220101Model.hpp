@@ -77,6 +77,9 @@
 #include <alibabacloud/models/CreateTicketRequest.hpp>
 #include <alibabacloud/models/CreateTicketResponseBody.hpp>
 #include <alibabacloud/models/CreateTicketResponse.hpp>
+#include <alibabacloud/models/CreateTicket4AiProRequest.hpp>
+#include <alibabacloud/models/CreateTicket4AiProResponseBody.hpp>
+#include <alibabacloud/models/CreateTicket4AiProResponse.hpp>
 #include <alibabacloud/models/CreateTicket4CopilotRequest.hpp>
 #include <alibabacloud/models/CreateTicket4CopilotResponseBody.hpp>
 #include <alibabacloud/models/CreateTicket4CopilotResponse.hpp>
@@ -211,6 +214,9 @@
 #include <alibabacloud/models/ManualRunMailTaskRequest.hpp>
 #include <alibabacloud/models/ManualRunMailTaskResponseBody.hpp>
 #include <alibabacloud/models/ManualRunMailTaskResponse.hpp>
+#include <alibabacloud/models/ModifyAiproEmbedConfigRequest.hpp>
+#include <alibabacloud/models/ModifyAiproEmbedConfigResponseBody.hpp>
+#include <alibabacloud/models/ModifyAiproEmbedConfigResponse.hpp>
 #include <alibabacloud/models/ModifyApiDatasourceParametersRequest.hpp>
 #include <alibabacloud/models/ModifyApiDatasourceParametersResponseBody.hpp>
 #include <alibabacloud/models/ModifyApiDatasourceParametersResponse.hpp>
@@ -223,6 +229,9 @@
 #include <alibabacloud/models/QueryAccelerationLogByCubeIdRequest.hpp>
 #include <alibabacloud/models/QueryAccelerationLogByCubeIdResponseBody.hpp>
 #include <alibabacloud/models/QueryAccelerationLogByCubeIdResponse.hpp>
+#include <alibabacloud/models/QueryAiproEmbedConfigRequest.hpp>
+#include <alibabacloud/models/QueryAiproEmbedConfigResponseBody.hpp>
+#include <alibabacloud/models/QueryAiproEmbedConfigResponse.hpp>
 #include <alibabacloud/models/QueryApprovalInfoRequest.hpp>
 #include <alibabacloud/models/QueryApprovalInfoResponseBody.hpp>
 #include <alibabacloud/models/QueryApprovalInfoResponse.hpp>
@@ -392,6 +401,9 @@
 #include <alibabacloud/models/UpdateDataSourceRequest.hpp>
 #include <alibabacloud/models/UpdateDataSourceResponseBody.hpp>
 #include <alibabacloud/models/UpdateDataSourceResponse.hpp>
+#include <alibabacloud/models/UpdateDataSourcePropertiesRequest.hpp>
+#include <alibabacloud/models/UpdateDataSourcePropertiesResponseBody.hpp>
+#include <alibabacloud/models/UpdateDataSourcePropertiesResponse.hpp>
 #include <alibabacloud/models/UpdateEmbeddedStatusRequest.hpp>
 #include <alibabacloud/models/UpdateEmbeddedStatusResponseBody.hpp>
 #include <alibabacloud/models/UpdateEmbeddedStatusResponse.hpp>

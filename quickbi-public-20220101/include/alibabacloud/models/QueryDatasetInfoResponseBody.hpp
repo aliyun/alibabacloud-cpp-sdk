@@ -438,6 +438,7 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const CubeTableList& obj) { 
           DARABONBA_PTR_TO_JSON(Caption, caption_);
+          DARABONBA_PTR_TO_JSON(ChildTables, childTables_);
           DARABONBA_PTR_TO_JSON(Customsql, customsql_);
           DARABONBA_PTR_TO_JSON(DatasourceId, datasourceId_);
           DARABONBA_PTR_TO_JSON(DsType, dsType_);
@@ -448,6 +449,7 @@ namespace Models
         };
         friend void from_json(const Darabonba::Json& j, CubeTableList& obj) { 
           DARABONBA_PTR_FROM_JSON(Caption, caption_);
+          DARABONBA_PTR_FROM_JSON(ChildTables, childTables_);
           DARABONBA_PTR_FROM_JSON(Customsql, customsql_);
           DARABONBA_PTR_FROM_JSON(DatasourceId, datasourceId_);
           DARABONBA_PTR_FROM_JSON(DsType, dsType_);
@@ -467,14 +469,126 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->caption_ == nullptr
+        class ChildTables : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const ChildTables& obj) { 
+            DARABONBA_PTR_TO_JSON(Caption, caption_);
+            DARABONBA_PTR_TO_JSON(Customsql, customsql_);
+            DARABONBA_PTR_TO_JSON(DatasourceId, datasourceId_);
+            DARABONBA_PTR_TO_JSON(DsType, dsType_);
+            DARABONBA_PTR_TO_JSON(FactTable, factTable_);
+            DARABONBA_PTR_TO_JSON(Sql, sql_);
+            DARABONBA_PTR_TO_JSON(TableName, tableName_);
+            DARABONBA_PTR_TO_JSON(UniqueId, uniqueId_);
+          };
+          friend void from_json(const Darabonba::Json& j, ChildTables& obj) { 
+            DARABONBA_PTR_FROM_JSON(Caption, caption_);
+            DARABONBA_PTR_FROM_JSON(Customsql, customsql_);
+            DARABONBA_PTR_FROM_JSON(DatasourceId, datasourceId_);
+            DARABONBA_PTR_FROM_JSON(DsType, dsType_);
+            DARABONBA_PTR_FROM_JSON(FactTable, factTable_);
+            DARABONBA_PTR_FROM_JSON(Sql, sql_);
+            DARABONBA_PTR_FROM_JSON(TableName, tableName_);
+            DARABONBA_PTR_FROM_JSON(UniqueId, uniqueId_);
+          };
+          ChildTables() = default ;
+          ChildTables(const ChildTables &) = default ;
+          ChildTables(ChildTables &&) = default ;
+          ChildTables(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~ChildTables() = default ;
+          ChildTables& operator=(const ChildTables &) = default ;
+          ChildTables& operator=(ChildTables &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->caption_ == nullptr
         && this->customsql_ == nullptr && this->datasourceId_ == nullptr && this->dsType_ == nullptr && this->factTable_ == nullptr && this->sql_ == nullptr
         && this->tableName_ == nullptr && this->uniqueId_ == nullptr; };
+          // caption Field Functions 
+          bool hasCaption() const { return this->caption_ != nullptr;};
+          void deleteCaption() { this->caption_ = nullptr;};
+          inline string getCaption() const { DARABONBA_PTR_GET_DEFAULT(caption_, "") };
+          inline ChildTables& setCaption(string caption) { DARABONBA_PTR_SET_VALUE(caption_, caption) };
+
+
+          // customsql Field Functions 
+          bool hasCustomsql() const { return this->customsql_ != nullptr;};
+          void deleteCustomsql() { this->customsql_ = nullptr;};
+          inline bool getCustomsql() const { DARABONBA_PTR_GET_DEFAULT(customsql_, false) };
+          inline ChildTables& setCustomsql(bool customsql) { DARABONBA_PTR_SET_VALUE(customsql_, customsql) };
+
+
+          // datasourceId Field Functions 
+          bool hasDatasourceId() const { return this->datasourceId_ != nullptr;};
+          void deleteDatasourceId() { this->datasourceId_ = nullptr;};
+          inline string getDatasourceId() const { DARABONBA_PTR_GET_DEFAULT(datasourceId_, "") };
+          inline ChildTables& setDatasourceId(string datasourceId) { DARABONBA_PTR_SET_VALUE(datasourceId_, datasourceId) };
+
+
+          // dsType Field Functions 
+          bool hasDsType() const { return this->dsType_ != nullptr;};
+          void deleteDsType() { this->dsType_ = nullptr;};
+          inline string getDsType() const { DARABONBA_PTR_GET_DEFAULT(dsType_, "") };
+          inline ChildTables& setDsType(string dsType) { DARABONBA_PTR_SET_VALUE(dsType_, dsType) };
+
+
+          // factTable Field Functions 
+          bool hasFactTable() const { return this->factTable_ != nullptr;};
+          void deleteFactTable() { this->factTable_ = nullptr;};
+          inline bool getFactTable() const { DARABONBA_PTR_GET_DEFAULT(factTable_, false) };
+          inline ChildTables& setFactTable(bool factTable) { DARABONBA_PTR_SET_VALUE(factTable_, factTable) };
+
+
+          // sql Field Functions 
+          bool hasSql() const { return this->sql_ != nullptr;};
+          void deleteSql() { this->sql_ = nullptr;};
+          inline string getSql() const { DARABONBA_PTR_GET_DEFAULT(sql_, "") };
+          inline ChildTables& setSql(string sql) { DARABONBA_PTR_SET_VALUE(sql_, sql) };
+
+
+          // tableName Field Functions 
+          bool hasTableName() const { return this->tableName_ != nullptr;};
+          void deleteTableName() { this->tableName_ = nullptr;};
+          inline string getTableName() const { DARABONBA_PTR_GET_DEFAULT(tableName_, "") };
+          inline ChildTables& setTableName(string tableName) { DARABONBA_PTR_SET_VALUE(tableName_, tableName) };
+
+
+          // uniqueId Field Functions 
+          bool hasUniqueId() const { return this->uniqueId_ != nullptr;};
+          void deleteUniqueId() { this->uniqueId_ = nullptr;};
+          inline string getUniqueId() const { DARABONBA_PTR_GET_DEFAULT(uniqueId_, "") };
+          inline ChildTables& setUniqueId(string uniqueId) { DARABONBA_PTR_SET_VALUE(uniqueId_, uniqueId) };
+
+
+        protected:
+          shared_ptr<string> caption_ {};
+          shared_ptr<bool> customsql_ {};
+          shared_ptr<string> datasourceId_ {};
+          shared_ptr<string> dsType_ {};
+          shared_ptr<bool> factTable_ {};
+          shared_ptr<string> sql_ {};
+          shared_ptr<string> tableName_ {};
+          shared_ptr<string> uniqueId_ {};
+        };
+
+        virtual bool empty() const override { return this->caption_ == nullptr
+        && this->childTables_ == nullptr && this->customsql_ == nullptr && this->datasourceId_ == nullptr && this->dsType_ == nullptr && this->factTable_ == nullptr
+        && this->sql_ == nullptr && this->tableName_ == nullptr && this->uniqueId_ == nullptr; };
         // caption Field Functions 
         bool hasCaption() const { return this->caption_ != nullptr;};
         void deleteCaption() { this->caption_ = nullptr;};
         inline string getCaption() const { DARABONBA_PTR_GET_DEFAULT(caption_, "") };
         inline CubeTableList& setCaption(string caption) { DARABONBA_PTR_SET_VALUE(caption_, caption) };
+
+
+        // childTables Field Functions 
+        bool hasChildTables() const { return this->childTables_ != nullptr;};
+        void deleteChildTables() { this->childTables_ = nullptr;};
+        inline const vector<CubeTableList::ChildTables> & getChildTables() const { DARABONBA_PTR_GET_CONST(childTables_, vector<CubeTableList::ChildTables>) };
+        inline vector<CubeTableList::ChildTables> getChildTables() { DARABONBA_PTR_GET(childTables_, vector<CubeTableList::ChildTables>) };
+        inline CubeTableList& setChildTables(const vector<CubeTableList::ChildTables> & childTables) { DARABONBA_PTR_SET_VALUE(childTables_, childTables) };
+        inline CubeTableList& setChildTables(vector<CubeTableList::ChildTables> && childTables) { DARABONBA_PTR_SET_RVALUE(childTables_, childTables) };
 
 
         // customsql Field Functions 
@@ -532,6 +646,7 @@ namespace Models
         // *   true: data source table
         // *   false: custom table
         shared_ptr<string> caption_ {};
+        shared_ptr<vector<CubeTableList::ChildTables>> childTables_ {};
         // The display name of the table.
         shared_ptr<bool> customsql_ {};
         // The name of the table.

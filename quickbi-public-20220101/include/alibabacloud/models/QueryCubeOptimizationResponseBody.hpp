@@ -267,47 +267,47 @@ namespace Models
 
 
       protected:
-        // The average duration of cache hits.
+        // The average duration for cache hits.
         shared_ptr<double> cacheCostTimeAvg_ {};
         // The number of cache hits.
         shared_ptr<int32_t> cacheQueryCount_ {};
-        // The average query duration associated with the SQL pattern.
+        // The average query duration.
         shared_ptr<double> costTimeAvg_ {};
         // The dataset ID.
         shared_ptr<string> cubeId_ {};
-        // The name of the dataset.
+        // The dataset name.
         shared_ptr<string> cubeName_ {};
         // The number of queries.
         shared_ptr<int32_t> queryCount_ {};
         // The average number of queries.
         shared_ptr<double> queryCountAvg_ {};
-        // The percentage of the number of queries that exceed the 5S.
+        // The proportion of queries that exceed 5 seconds.
         shared_ptr<double> queryOverFivePercentNum_ {};
-        // Query the proportion of more than 5S.
+        // The percentage of queries that exceed 5 seconds.
         shared_ptr<string> queryOverFiveSecPercent_ {};
-        // The percentage of queries that exceed 10s.
+        // The percentage of queries that exceed 10 seconds.
         shared_ptr<string> queryOverTenSecPercent_ {};
-        // The percentage of queries that exceed 10s.
+        // The proportion of queries that exceed 10 seconds.
         shared_ptr<double> queryOverTenSecPercentNum_ {};
-        // The number of times that the chart query times out.
+        // The number of chart query timeouts.
         shared_ptr<int32_t> queryTimeoutCount_ {};
-        // The percentage of timeout times for chart queries.
+        // The percentage of chart query timeouts.
         shared_ptr<double> queryTimeoutCountPercent_ {};
-        // The average time consumed by the Quick engine query.
+        // The average query duration for Quick engine hits.
         shared_ptr<double> quickIndexCostTimeAvg_ {};
-        // The number of times that the Quick engine is hit.
+        // The number of Quick engine hits.
         shared_ptr<int32_t> quickIndexQueryCount_ {};
-        // The proportion of duplicate queries.
+        // The percentage of repeated queries.
         shared_ptr<string> repeatQueryPercent_ {};
-        // The number of duplicate queries.
+        // The number of repeated queries.
         shared_ptr<double> repeatQueryPercentNum_ {};
-        // The number of times the query is repeated.
+        // The number of repeated SQL queries.
         shared_ptr<int32_t> repeatSqlQueryCount_ {};
-        // The proportion of duplicate queries.
+        // The percentage of repeated queries.
         shared_ptr<string> repeatSqlQueryPercent_ {};
         // The workspace ID.
         shared_ptr<string> workspaceId_ {};
-        // The name of the workspace.
+        // The workspace name.
         shared_ptr<string> workspaceName_ {};
       };
 
@@ -331,12 +331,11 @@ namespace Models
 
     protected:
       // The type of the suggestion. Valid values:
-      // 
-      // *   **OPEN_CACHE**: Open cache.
-      // *   **OPEN_QUICK_ENGINE**: Open FAST Cache.
-      // *   **INCREASE_CACHE_TIME**: Increase the cache time.
+      // - **OPEN_CACHE**: Enable caching.
+      // - **OPEN_QUICK_ENGINE**: Enable the Quick engine.
+      // - **INCREASE_CACHE_TIME**: Increase the cache duration.
       shared_ptr<string> adviceType_ {};
-      // The diagnostic information about the dataset.
+      // The dataset diagnostics information.
       shared_ptr<Result::CubePerformanceDiagnoseModel> cubePerformanceDiagnoseModel_ {};
     };
 
@@ -368,12 +367,11 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The query results are returned.
+    // The list of dataset optimization suggestions, which includes dataset performance diagnostics information and corresponding optimization suggestion types.
     shared_ptr<vector<QueryCubeOptimizationResponseBody::Result>> result_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   true: The request was successful.
-    // *   false: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - true: The request is successful.
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

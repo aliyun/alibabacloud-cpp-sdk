@@ -274,53 +274,53 @@ namespace Models
 
 
     protected:
-      // The average duration of cache hits.
+      // The average time consumed for cache hits.
       shared_ptr<double> cacheCostTimeAvg_ {};
       // The number of cache hits.
       shared_ptr<int32_t> cacheQueryCount_ {};
-      // The number of times the chart is queried.
+      // The number of chart queries.
       shared_ptr<int32_t> componentQueryCount_ {};
-      // The average number of times the chart is queried.
+      // The average number of chart queries.
       shared_ptr<double> componentQueryCountAvg_ {};
-      // The average query duration associated with the SQL pattern.
+      // The average query time.
       shared_ptr<double> costTimeAvg_ {};
       // The number of queries.
       shared_ptr<int32_t> queryCount_ {};
       // The average number of queries.
       shared_ptr<double> queryCountAvg_ {};
-      // The percentage of the number of queries that exceed the 5S.
+      // The proportion of queries that take more than 5 seconds.
       shared_ptr<double> queryOverFivePercentNum_ {};
-      // Query the proportion of more than 5S.
+      // The percentage of queries that take more than 5 seconds.
       shared_ptr<string> queryOverFiveSecPercent_ {};
-      // The percentage of queries that exceed 10s.
+      // The percentage of queries that take more than 10 seconds.
       shared_ptr<string> queryOverTenSecPercent_ {};
-      // The number of queries that exceed 10 seconds.
+      // The number of queries that take more than 10 seconds.
       shared_ptr<double> queryOverTenSecPercentNum_ {};
-      // The number of times that the chart query times out.
+      // The number of chart query timeouts.
       shared_ptr<int32_t> queryTimeoutCount_ {};
-      // The percentage of timeout times for chart queries.
+      // The proportion of chart query timeouts.
       shared_ptr<double> queryTimeoutCountPercent_ {};
-      // The average time consumed by the Quick engine query.
+      // The average query time for Quick engine hits.
       shared_ptr<double> quickIndexCostTimeAvg_ {};
-      // The number of times that the Quick engine is hit.
+      // The number of Quick engine hits.
       shared_ptr<int32_t> quickIndexQueryCount_ {};
-      // The proportion of duplicate queries.
+      // The proportion of repeated queries.
       shared_ptr<string> repeatQueryPercent_ {};
-      // The number of duplicate queries.
+      // The number of repeated queries.
       shared_ptr<double> repeatQueryPercentNum_ {};
-      // The number of times the query is repeated.
+      // The number of repeated SQL queries.
       shared_ptr<int32_t> repeatSqlQueryCount_ {};
-      // The proportion of duplicate queries.
+      // The proportion of repeated queries.
       shared_ptr<string> repeatSqlQueryPercent_ {};
-      // The ID of the work.
+      // The report ID.
       shared_ptr<string> reportId_ {};
-      // The name of the report.
+      // The report name.
       shared_ptr<string> reportName_ {};
-      // The format of the report.
+      // The report type.
       shared_ptr<string> reportType_ {};
-      // The ID of the workspace to which the work belongs.
+      // The ID of the workspace to which the report belongs.
       shared_ptr<string> workspaceId_ {};
-      // The name of the group.
+      // The workspace name.
       shared_ptr<string> workspaceName_ {};
     };
 
@@ -352,12 +352,12 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned results.
+    // The list of report performance logs, which includes report information and performance statistics such as query count, query duration, and cache hits.
     shared_ptr<vector<QueryReportPerformanceResponseBody::Result>> result_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // *   true: The request was successful.
-    // *   false: The request failed.
+    // - true: The request is successful.
+    // - false: The request fails.
     shared_ptr<bool> success_ {};
   };
 

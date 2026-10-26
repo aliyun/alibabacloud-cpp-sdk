@@ -1356,6 +1356,76 @@ CreateTicketResponse Client::createTicket(const CreateTicketRequest &request) {
 }
 
 /**
+ * @summary 生成AIPro超级框嵌入ticket
+ *
+ * @param request CreateTicket4AiProRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateTicket4AiProResponse
+ */
+CreateTicket4AiProResponse Client::createTicket4AiProWithOptions(const CreateTicket4AiProRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccountName()) {
+    query["AccountName"] = request.getAccountName();
+  }
+
+  if (!!request.hasAccountType()) {
+    query["AccountType"] = request.getAccountType();
+  }
+
+  if (!!request.hasAiProId()) {
+    query["AiProId"] = request.getAiProId();
+  }
+
+  if (!!request.hasCustomParam()) {
+    query["CustomParam"] = request.getCustomParam();
+  }
+
+  if (!!request.hasExpireTime()) {
+    query["ExpireTime"] = request.getExpireTime();
+  }
+
+  if (!!request.hasQuickBIUserId()) {
+    query["QuickBIUserId"] = request.getQuickBIUserId();
+  }
+
+  if (!!request.hasSystemUid()) {
+    query["SystemUid"] = request.getSystemUid();
+  }
+
+  if (!!request.hasTicketNum()) {
+    query["TicketNum"] = request.getTicketNum();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateTicket4AiPro"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateTicket4AiProResponse>();
+}
+
+/**
+ * @summary 生成AIPro超级框嵌入ticket
+ *
+ * @param request CreateTicket4AiProRequest
+ * @return CreateTicket4AiProResponse
+ */
+CreateTicket4AiProResponse Client::createTicket4AiPro(const CreateTicket4AiProRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createTicket4AiProWithOptions(request, runtime);
+}
+
+/**
  * @summary Generates a ticket to embed Copilot.
  *
  * @param request CreateTicket4CopilotRequest
@@ -2378,7 +2448,7 @@ GetUserGroupInfoResponse Client::getUserGroupInfo(const GetUserGroupInfoRequest 
 }
 
 /**
- * @summary Queries the list of embedded reports.
+ * @summary Queries a list of embedded reports.
  *
  * @param request GetWorksEmbedListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2425,7 +2495,7 @@ GetWorksEmbedListResponse Client::getWorksEmbedListWithOptions(const GetWorksEmb
 }
 
 /**
- * @summary Queries the list of embedded reports.
+ * @summary Queries a list of embedded reports.
  *
  * @param request GetWorksEmbedListRequest
  * @return GetWorksEmbedListResponse
@@ -3533,6 +3603,72 @@ ManualRunMailTaskResponse Client::manualRunMailTask(const ManualRunMailTaskReque
 }
 
 /**
+ * @summary 修改AI Pro嵌入配置
+ *
+ * @param request ModifyAiproEmbedConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyAiproEmbedConfigResponse
+ */
+ModifyAiproEmbedConfigResponse Client::modifyAiproEmbedConfigWithOptions(const ModifyAiproEmbedConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentName()) {
+    query["AgentName"] = request.getAgentName();
+  }
+
+  if (!!request.hasAiProId()) {
+    query["AiProId"] = request.getAiProId();
+  }
+
+  if (!!request.hasChatHistoryStatus()) {
+    query["ChatHistoryStatus"] = request.getChatHistoryStatus();
+  }
+
+  if (!!request.hasConfig()) {
+    query["Config"] = request.getConfig();
+  }
+
+  if (!!request.hasMemoryEnabled()) {
+    query["MemoryEnabled"] = request.getMemoryEnabled();
+  }
+
+  if (!!request.hasShowName()) {
+    query["ShowName"] = request.getShowName();
+  }
+
+  if (!!request.hasUploadEnabled()) {
+    query["UploadEnabled"] = request.getUploadEnabled();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyAiproEmbedConfig"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyAiproEmbedConfigResponse>();
+}
+
+/**
+ * @summary 修改AI Pro嵌入配置
+ *
+ * @param request ModifyAiproEmbedConfigRequest
+ * @return ModifyAiproEmbedConfigResponse
+ */
+ModifyAiproEmbedConfigResponse Client::modifyAiproEmbedConfig(const ModifyAiproEmbedConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyAiproEmbedConfigWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies the configurations of a specified API data source.
  *
  * @description When you modify a query statement, you can modify only the top-level JsonObject. You cannot modify parameters that are nested in multiple layers. For more information about the parameters, see [Create an API data source](https://help.aliyun.com/document_detail/409330.html).
@@ -3742,6 +3878,48 @@ QueryAccelerationLogByCubeIdResponse Client::queryAccelerationLogByCubeIdWithOpt
 QueryAccelerationLogByCubeIdResponse Client::queryAccelerationLogByCubeId(const QueryAccelerationLogByCubeIdRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return queryAccelerationLogByCubeIdWithOptions(request, runtime);
+}
+
+/**
+ * @summary 概述
+ *
+ * @param request QueryAiproEmbedConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryAiproEmbedConfigResponse
+ */
+QueryAiproEmbedConfigResponse Client::queryAiproEmbedConfigWithOptions(const QueryAiproEmbedConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKeyword()) {
+    query["Keyword"] = request.getKeyword();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryAiproEmbedConfig"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryAiproEmbedConfigResponse>();
+}
+
+/**
+ * @summary 概述
+ *
+ * @param request QueryAiproEmbedConfigRequest
+ * @return QueryAiproEmbedConfigResponse
+ */
+QueryAiproEmbedConfigResponse Client::queryAiproEmbedConfig(const QueryAiproEmbedConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryAiproEmbedConfigWithOptions(request, runtime);
 }
 
 /**
@@ -3981,7 +4159,7 @@ QueryCopilotEmbedConfigResponse Client::queryCopilotEmbedConfig(const QueryCopil
 }
 
 /**
- * @summary Queries dataset optimization suggestions.
+ * @summary Queries optimization suggestions for datasets.
  *
  * @param request QueryCubeOptimizationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4012,7 +4190,7 @@ QueryCubeOptimizationResponse Client::queryCubeOptimizationWithOptions(const Que
 }
 
 /**
- * @summary Queries dataset optimization suggestions.
+ * @summary Queries optimization suggestions for datasets.
  *
  * @param request QueryCubeOptimizationRequest
  * @return QueryCubeOptimizationResponse
@@ -4809,7 +4987,7 @@ QueryOrganizationRoleConfigResponse Client::queryOrganizationRoleConfig(const Qu
 }
 
 /**
- * @summary Retrieves the list of workspaces in the current organization.
+ * @summary Queries the list of workspaces in the current organization.
  *
  * @param request QueryOrganizationWorkspaceListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4852,7 +5030,7 @@ QueryOrganizationWorkspaceListResponse Client::queryOrganizationWorkspaceListWit
 }
 
 /**
- * @summary Retrieves the list of workspaces in the current organization.
+ * @summary Queries the list of workspaces in the current organization.
  *
  * @param request QueryOrganizationWorkspaceListRequest
  * @return QueryOrganizationWorkspaceListResponse
@@ -5573,7 +5751,7 @@ QueryUserTagValueListResponse Client::queryUserTagValueList(const QueryUserTagVa
 }
 
 /**
- * @summary Queries the information of a specified data work.
+ * @summary Queries the details of a specified data work.
  *
  * @param request QueryWorksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5604,7 +5782,7 @@ QueryWorksResponse Client::queryWorksWithOptions(const QueryWorksRequest &reques
 }
 
 /**
- * @summary Queries the information of a specified data work.
+ * @summary Queries the details of a specified data work.
  *
  * @param request QueryWorksRequest
  * @return QueryWorksResponse
@@ -6543,6 +6721,60 @@ UpdateDataSourceResponse Client::updateDataSource(const UpdateDataSourceRequest 
 }
 
 /**
+ * @summary 更新数据源基础属性
+ *
+ * @param request UpdateDataSourcePropertiesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateDataSourcePropertiesResponse
+ */
+UpdateDataSourcePropertiesResponse Client::updateDataSourcePropertiesWithOptions(const UpdateDataSourcePropertiesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasDsId()) {
+    query["DsId"] = request.getDsId();
+  }
+
+  if (!!request.hasQuickBIOwnerId()) {
+    query["QuickBIOwnerId"] = request.getQuickBIOwnerId();
+  }
+
+  if (!!request.hasShowName()) {
+    query["ShowName"] = request.getShowName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateDataSourceProperties"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateDataSourcePropertiesResponse>();
+}
+
+/**
+ * @summary 更新数据源基础属性
+ *
+ * @param request UpdateDataSourcePropertiesRequest
+ * @return UpdateDataSourcePropertiesResponse
+ */
+UpdateDataSourcePropertiesResponse Client::updateDataSourceProperties(const UpdateDataSourcePropertiesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateDataSourcePropertiesWithOptions(request, runtime);
+}
+
+/**
  * @summary Change the embedding status of a report, turn on embedding, or turn off embedding.
  *
  * @param request UpdateEmbeddedStatusRequest
@@ -6855,7 +7087,7 @@ UpdateUserTagValueResponse Client::updateUserTagValue(const UpdateUserTagValueRe
 }
 
 /**
- * @summary Modifies the role of a specified member in a workspace. The existing role is overwritten.
+ * @summary Modifies the role of a specified member in a workspace. Existing roles are overwritten.
  *
  * @param request UpdateWorkspaceUserRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6898,7 +7130,7 @@ UpdateWorkspaceUserRoleResponse Client::updateWorkspaceUserRoleWithOptions(const
 }
 
 /**
- * @summary Modifies the role of a specified member in a workspace. The existing role is overwritten.
+ * @summary Modifies the role of a specified member in a workspace. Existing roles are overwritten.
  *
  * @param request UpdateWorkspaceUserRoleRequest
  * @return UpdateWorkspaceUserRoleResponse

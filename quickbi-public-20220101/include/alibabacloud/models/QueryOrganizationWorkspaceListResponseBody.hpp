@@ -212,26 +212,25 @@ namespace Models
 
 
         protected:
-          // Specifies how images are handled when exporting Excel files with formatting. This field takes effect only when configured at the organization level.
-          // Valid values:
-          //  * false: Image fields are not converted to images.
-          //  * true: Image fields can be converted to images. The option appears on the report export page, and users must manually select it to convert images.
+          // The image processing method when exporting to Excel with formatting. This parameter takes effect only when configured at the organization level. Valid values:
+          // - false: Image fields are not converted to images.
+          // - true: Image fields are converted to images. The option is displayed on the report export page, and users must manually select it to convert to images.
           shared_ptr<bool> allowExcelImageFile_ {};
-          // Specifies whether to allow exporting data as an Excel file.
+          // Specifies whether to export data to Excel.
           shared_ptr<bool> dataExport_ {};
-          // The default export type (with formatting: true. Without formatting: false).
+          // The default export type. Valid values: true (with formatting) and false (without formatting).
           shared_ptr<bool> defaultExportType_ {};
-          // The master switch for export. If set to false, all export settings below do not take effect.
+          // The master switch for export. If this parameter is set to false, the following configurations do not take effect.
           shared_ptr<bool> exportMainSwitch_ {};
-          // Specifies whether to allow exporting to a local device.
+          // Specifies whether to export to the local device.
           shared_ptr<bool> exportToLocal_ {};
-          // Specifies whether public links of works support export.
+          // Specifies whether to support exporting public links of the content.
           shared_ptr<bool> exportToPublicWork_ {};
-          // Specifies whether to allow exporting to a server.
+          // Specifies whether to export to the server.
           shared_ptr<bool> exportToServer_ {};
-          // Specifies whether to allow exporting as an image.
+          // Specifies whether to export images.
           shared_ptr<bool> imageExport_ {};
-          // Specifies whether to allow exporting as a PDF.
+          // Specifies whether to export to PDF.
           shared_ptr<bool> pdfExport_ {};
         };
 
@@ -354,23 +353,23 @@ namespace Models
 
 
       protected:
-        // Indicates whether works can be made public. Valid values:
+        // Indicates whether the content can be made public. Valid values:
         // 
         // - true: Public.
         // - false: Not public.
         shared_ptr<bool> allowPublishOperation_ {};
-        // Indicates whether works can be shared with authorization. Valid values:
+        // Indicates whether the content can be shared with authorization. Valid values:
         // 
         // - true: Authorized.
         // - false: Not authorized.
         shared_ptr<bool> allowShareOperation_ {};
-        // The time when the workspace was created.
+        // The time when the workspace was created. The time is in the yyyy-MM-dd HH:mm:ss format.
         shared_ptr<string> createTime_ {};
         // The Quick BI user ID of the creator.
         shared_ptr<string> createUser_ {};
         // The Alibaba Cloud account name of the creator.
         shared_ptr<string> createUserAccountName_ {};
-        // The time when the workspace was last modified.
+        // The time when the workspace was last modified. The time is in the yyyy-MM-dd HH:mm:ss format.
         shared_ptr<string> modifiedTime_ {};
         // The Quick BI user ID of the modifier.
         shared_ptr<string> modifyUser_ {};
@@ -438,9 +437,9 @@ namespace Models
       shared_ptr<vector<Result::Data>> data_ {};
       // The page number.
       shared_ptr<int32_t> pageNum_ {};
-      // The number of rows per page specified in the request.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of rows.
+      // The total number of entries.
       shared_ptr<int32_t> totalNum_ {};
       // The total number of pages.
       shared_ptr<int32_t> totalPages_ {};
@@ -474,12 +473,12 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The paginated result of the workspace list. The detailed information of workspaces is stored in the Data response parameter.
+    // The paginated result of the workspace list. The detailed information of the workspaces is stored in the Data response parameter.
     shared_ptr<QueryOrganizationWorkspaceListResponseBody::Result> result_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // - true: The request was successful.
-    // - false: The request failed.
+    // - true: The request is successful.
+    // - false: The request fails.
     shared_ptr<bool> success_ {};
   };
 

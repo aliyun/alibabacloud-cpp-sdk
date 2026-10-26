@@ -145,14 +145,14 @@ namespace Models
       protected:
         // The field type. Valid values:
         // 
-        // - enum: enumeration
-        // - string: text
-        // - number: numeric
-        // - datetime: date
+        // - enum: Enumeration.
+        // - string: Text.
+        // - number: Numeric value.
+        // - datetime: Date and time.
         shared_ptr<string> dataType_ {};
-        // The parameter alias.
+        // The alias of the parameter.
         shared_ptr<string> paramAlias_ {};
-        // The parameter name.
+        // The name of the parameter.
         shared_ptr<string> paramName_ {};
         // Indicates whether the parameter is required.
         shared_ptr<bool> required_ {};
@@ -214,13 +214,13 @@ namespace Models
 
 
       protected:
-        // The ID of the directory to which the data work belongs.
+        // The ID of the folder.
         shared_ptr<string> id_ {};
-        // The directory name.
+        // The name of the folder.
         shared_ptr<string> name_ {};
-        // The hierarchical path of the directory IDs, separated by a forward slash (/).
+        // The hierarchical structure of the folder IDs, separated by forward slashes (/).
         shared_ptr<string> pathId_ {};
-        // The hierarchical path of the directory names, separated by a forward slash (/).
+        // The hierarchical structure of the folder names, separated by forward slashes (/).
         shared_ptr<string> pathName_ {};
       };
 
@@ -365,50 +365,50 @@ namespace Models
       // - 0: Embedding is not enabled.
       // - 1: Embedding is enabled.
       shared_ptr<int32_t> auth3rdFlag_ {};
-      // The remarks of the data work.
+      // The description of the data work.
       shared_ptr<string> description_ {};
-      // The directory to which the data work belongs.
+      // The folder to which the data work belongs.
       shared_ptr<Result::Directory> directory_ {};
-      // The array of global parameters.
+      // The global parameter array.
       shared_ptr<vector<Result::GlobalParamVoList>> globalParamVoList_ {};
-      // The timestamp when the data work was created, in milliseconds.
+      // The millisecond-level timestamp when the data work was created.
       shared_ptr<string> gmtCreate_ {};
-      // The timestamp when the data work was last modified, in milliseconds.
+      // The millisecond-level timestamp when the data work was updated.
       shared_ptr<string> gmtModify_ {};
-      // The Alibaba Cloud account name of the user who last modified the data work.
+      // The Alibaba Cloud account name of the user who updated the data work.
       shared_ptr<string> modifyName_ {};
-      // The Quick BI UserID of the data work owner.
+      // The Quick BI user ID of the data work owner.
       shared_ptr<string> ownerId_ {};
       // The Alibaba Cloud account name of the data work owner.
       shared_ptr<string> ownerName_ {};
       // Indicates whether the data work is public.
       shared_ptr<bool> publicFlag_ {};
-      // The expiration date for the public access of the report. This value is a UNIX timestamp in milliseconds.
+      // The expiration date for public access to the report, represented as a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> publicInvalidTime_ {};
       // The security policy for collaborative authorization of the data work. Valid values:
       // - 0: Private.
       // - 12: Authorized to specified members.
       // - 1 or 11: Authorized to all workspace members.
       // 
-      // >- If you use the legacy permission model, the return value is 1.
-      // >- If you use the new permission model, the return value is 11.
+      // >- If you use the legacy permissions, the value 1 is returned.
+      // >- If you use the new permissions, the value 11 is returned.
       shared_ptr<string> securityLevel_ {};
-      // The report status. Valid values:
+      // The status of the report. Valid values:
       // 
       // - 0: Unpublished.
       // - 1: Published.
-      // - 2: Modified but not published.
+      // - 2: Modified but unpublished.
       // - 3: Offline.
       shared_ptr<int32_t> status_ {};
       // The name of the data work.
       shared_ptr<string> workName_ {};
-      // The type of the data work. Leave this parameter empty to query all types. Valid values:
+      // The type of the data work to query. Leave this parameter empty to query all types. Valid values:
       // 
-      // - DATAPRODUCT: data portal
-      // - PAGE: dashboard
-      // - FULLPAGE: full-screen dashboard
-      // - REPORT: workbook
-      // - dashboardOfflineQuery: custom query
+      // - DATAPRODUCT: Data portal.
+      // - PAGE: Dashboard.
+      // - FULLPAGE: Full-screen dashboard.
+      // - REPORT: Workbook.
+      // - dashboardOfflineQuery: Self-service data retrieval.
       shared_ptr<string> workType_ {};
       // The ID of the data work.
       shared_ptr<string> worksId_ {};
@@ -448,10 +448,10 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The details of the data work.
     shared_ptr<QueryWorksResponseBody::Result> result_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // - true: The request was successful.
-    // - false: The request failed.
+    // - true: The request is successful.
+    // - false: The request fails.
     shared_ptr<bool> success_ {};
   };
 

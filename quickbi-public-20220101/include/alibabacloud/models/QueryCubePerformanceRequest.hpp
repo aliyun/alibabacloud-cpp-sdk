@@ -84,25 +84,24 @@ namespace Models
 
 
   protected:
-    // The average duration (minutes).
+    // The average duration, in minutes.
     shared_ptr<int32_t> costTimeAvgMin_ {};
     // The dataset ID.
     shared_ptr<string> cubeId_ {};
-    // The current page number of the workspace member list:
+    // The current page number of the workspace member list.
     // 
-    // *   Pages start from page 1.
-    // *   Default value: 1.
+    // - Starting value: 1
+    // - Default value: 1
     shared_ptr<int32_t> pageNum_ {};
-    // The number of rows per page in a paged query.
-    // 
-    // *   Default value: 10.
-    // *   Maximum value: 1,000.
+    // The number of entries per page in a paged query.
+    // - Default value: 10
+    // - Maximum value: 1000
     shared_ptr<int32_t> pageSize_ {};
     // The query type. Valid values:
     // 
-    // *   **lastDay**: Yesterday
-    // *   **sevenDays**: Within seven days
-    // *   **thirtyDays**: Within 30 days
+    // - **lastDay**: yesterday
+    // - **sevenDays**: within the last seven days
+    // - **thirtyDays**: within the last thirty days
     // 
     // This parameter is required.
     shared_ptr<string> queryType_ {};

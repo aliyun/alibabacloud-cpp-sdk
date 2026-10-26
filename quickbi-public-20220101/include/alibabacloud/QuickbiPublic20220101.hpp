@@ -462,6 +462,23 @@ namespace QuickbiPublic20220101
       Models::CreateTicketResponse createTicket(const Models::CreateTicketRequest &request);
 
       /**
+       * @summary 生成AIPro超级框嵌入ticket
+       *
+       * @param request CreateTicket4AiProRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateTicket4AiProResponse
+       */
+      Models::CreateTicket4AiProResponse createTicket4AiProWithOptions(const Models::CreateTicket4AiProRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 生成AIPro超级框嵌入ticket
+       *
+       * @param request CreateTicket4AiProRequest
+       * @return CreateTicket4AiProResponse
+       */
+      Models::CreateTicket4AiProResponse createTicket4AiPro(const Models::CreateTicket4AiProRequest &request);
+
+      /**
        * @summary Generates a ticket to embed Copilot.
        *
        * @param request CreateTicket4CopilotRequest
@@ -827,7 +844,7 @@ namespace QuickbiPublic20220101
       Models::GetUserGroupInfoResponse getUserGroupInfo(const Models::GetUserGroupInfoRequest &request);
 
       /**
-       * @summary Queries the list of embedded reports.
+       * @summary Queries a list of embedded reports.
        *
        * @param request GetWorksEmbedListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -836,7 +853,7 @@ namespace QuickbiPublic20220101
       Models::GetWorksEmbedListResponse getWorksEmbedListWithOptions(const Models::GetWorksEmbedListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of embedded reports.
+       * @summary Queries a list of embedded reports.
        *
        * @param request GetWorksEmbedListRequest
        * @return GetWorksEmbedListResponse
@@ -1245,6 +1262,23 @@ namespace QuickbiPublic20220101
       Models::ManualRunMailTaskResponse manualRunMailTask(const Models::ManualRunMailTaskRequest &request);
 
       /**
+       * @summary 修改AI Pro嵌入配置
+       *
+       * @param request ModifyAiproEmbedConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyAiproEmbedConfigResponse
+       */
+      Models::ModifyAiproEmbedConfigResponse modifyAiproEmbedConfigWithOptions(const Models::ModifyAiproEmbedConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改AI Pro嵌入配置
+       *
+       * @param request ModifyAiproEmbedConfigRequest
+       * @return ModifyAiproEmbedConfigResponse
+       */
+      Models::ModifyAiproEmbedConfigResponse modifyAiproEmbedConfig(const Models::ModifyAiproEmbedConfigRequest &request);
+
+      /**
        * @summary Modifies the configurations of a specified API data source.
        *
        * @description When you modify a query statement, you can modify only the top-level JsonObject. You cannot modify parameters that are nested in multiple layers. For more information about the parameters, see [Create an API data source](https://help.aliyun.com/document_detail/409330.html).
@@ -1317,6 +1351,23 @@ namespace QuickbiPublic20220101
       Models::QueryAccelerationLogByCubeIdResponse queryAccelerationLogByCubeId(const Models::QueryAccelerationLogByCubeIdRequest &request);
 
       /**
+       * @summary 概述
+       *
+       * @param request QueryAiproEmbedConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryAiproEmbedConfigResponse
+       */
+      Models::QueryAiproEmbedConfigResponse queryAiproEmbedConfigWithOptions(const Models::QueryAiproEmbedConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 概述
+       *
+       * @param request QueryAiproEmbedConfigRequest
+       * @return QueryAiproEmbedConfigResponse
+       */
+      Models::QueryAiproEmbedConfigResponse queryAiproEmbedConfig(const Models::QueryAiproEmbedConfigRequest &request);
+
+      /**
        * @summary Get approval flow information based on the approver.
        *
        * @param request QueryApprovalInfoRequest
@@ -1385,7 +1436,7 @@ namespace QuickbiPublic20220101
       Models::QueryCopilotEmbedConfigResponse queryCopilotEmbedConfig(const Models::QueryCopilotEmbedConfigRequest &request);
 
       /**
-       * @summary Queries dataset optimization suggestions.
+       * @summary Queries optimization suggestions for datasets.
        *
        * @param request QueryCubeOptimizationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1394,7 +1445,7 @@ namespace QuickbiPublic20220101
       Models::QueryCubeOptimizationResponse queryCubeOptimizationWithOptions(const Models::QueryCubeOptimizationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries dataset optimization suggestions.
+       * @summary Queries optimization suggestions for datasets.
        *
        * @param request QueryCubeOptimizationRequest
        * @return QueryCubeOptimizationResponse
@@ -1716,7 +1767,7 @@ namespace QuickbiPublic20220101
       Models::QueryOrganizationRoleConfigResponse queryOrganizationRoleConfig(const Models::QueryOrganizationRoleConfigRequest &request);
 
       /**
-       * @summary Retrieves the list of workspaces in the current organization.
+       * @summary Queries the list of workspaces in the current organization.
        *
        * @param request QueryOrganizationWorkspaceListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1725,7 +1776,7 @@ namespace QuickbiPublic20220101
       Models::QueryOrganizationWorkspaceListResponse queryOrganizationWorkspaceListWithOptions(const Models::QueryOrganizationWorkspaceListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of workspaces in the current organization.
+       * @summary Queries the list of workspaces in the current organization.
        *
        * @param request QueryOrganizationWorkspaceListRequest
        * @return QueryOrganizationWorkspaceListResponse
@@ -2007,7 +2058,7 @@ namespace QuickbiPublic20220101
       Models::QueryUserTagValueListResponse queryUserTagValueList(const Models::QueryUserTagValueListRequest &request);
 
       /**
-       * @summary Queries the information of a specified data work.
+       * @summary Queries the details of a specified data work.
        *
        * @param request QueryWorksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2016,7 +2067,7 @@ namespace QuickbiPublic20220101
       Models::QueryWorksResponse queryWorksWithOptions(const Models::QueryWorksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information of a specified data work.
+       * @summary Queries the details of a specified data work.
        *
        * @param request QueryWorksRequest
        * @return QueryWorksResponse
@@ -2354,6 +2405,23 @@ namespace QuickbiPublic20220101
       Models::UpdateDataSourceResponse updateDataSource(const Models::UpdateDataSourceRequest &request);
 
       /**
+       * @summary 更新数据源基础属性
+       *
+       * @param request UpdateDataSourcePropertiesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateDataSourcePropertiesResponse
+       */
+      Models::UpdateDataSourcePropertiesResponse updateDataSourcePropertiesWithOptions(const Models::UpdateDataSourcePropertiesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新数据源基础属性
+       *
+       * @param request UpdateDataSourcePropertiesRequest
+       * @return UpdateDataSourcePropertiesResponse
+       */
+      Models::UpdateDataSourcePropertiesResponse updateDataSourceProperties(const Models::UpdateDataSourcePropertiesRequest &request);
+
+      /**
        * @summary Change the embedding status of a report, turn on embedding, or turn off embedding.
        *
        * @param request UpdateEmbeddedStatusRequest
@@ -2456,7 +2524,7 @@ namespace QuickbiPublic20220101
       Models::UpdateUserTagValueResponse updateUserTagValue(const Models::UpdateUserTagValueRequest &request);
 
       /**
-       * @summary Modifies the role of a specified member in a workspace. The existing role is overwritten.
+       * @summary Modifies the role of a specified member in a workspace. Existing roles are overwritten.
        *
        * @param request UpdateWorkspaceUserRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2465,7 +2533,7 @@ namespace QuickbiPublic20220101
       Models::UpdateWorkspaceUserRoleResponse updateWorkspaceUserRoleWithOptions(const Models::UpdateWorkspaceUserRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the role of a specified member in a workspace. The existing role is overwritten.
+       * @summary Modifies the role of a specified member in a workspace. Existing roles are overwritten.
        *
        * @param request UpdateWorkspaceUserRoleRequest
        * @return UpdateWorkspaceUserRoleResponse

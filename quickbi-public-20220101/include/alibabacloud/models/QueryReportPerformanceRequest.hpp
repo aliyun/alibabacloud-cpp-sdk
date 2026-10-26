@@ -94,29 +94,28 @@ namespace Models
 
 
   protected:
-    // The average duration (minutes).
+    // The average time consumed in minutes.
     shared_ptr<int32_t> costTimeAvgMin_ {};
-    // Current page number for organization member list:
+    // The current page number of the organization member list.
     // 
-    // *   Pages start from page 1.
-    // *   Default value: 1.
+    // - Starting value: 1.
+    // - Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of rows per page in a paged query.
-    // 
-    // *   Default value: 10.
-    // *   Maximum value: 1,000.
+    // The number of entries per page.
+    // - Default value: 10.
+    // - Maximum value: 1000.
     shared_ptr<int32_t> pageSize_ {};
     // The query type. Valid values:
     // 
-    // *   **lastDay**: Yesterday
-    // *   **sevenDays**: Within seven days
-    // *   **thirtyDays**: Within 30 days
+    // - **lastDay**: Yesterday.
+    // - **sevenDays**: Within the last 7 days.
+    // - **thirtyDays**: Within the last 30 days.
     // 
     // This parameter is required.
     shared_ptr<string> queryType_ {};
-    // The ID of the security report.
+    // The report ID.
     shared_ptr<string> reportId_ {};
-    // The resource types.
+    // The resource type.
     shared_ptr<string> resourceType_ {};
     // The workspace ID.
     // 

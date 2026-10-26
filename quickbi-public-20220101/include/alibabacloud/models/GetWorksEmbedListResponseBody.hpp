@@ -126,7 +126,7 @@ namespace Models
 
 
       protected:
-        // The time when the report was embedded, in the format of YYYY-mm-DD hh:MM:ss.
+        // The time when the report was embedded. Format: YYYY-MM-DD hh:mm:ss.
         shared_ptr<string> embedTime_ {};
         // The report ID.
         shared_ptr<string> worksId_ {};
