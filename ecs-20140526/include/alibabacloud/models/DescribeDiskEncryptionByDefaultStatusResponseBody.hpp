@@ -48,13 +48,11 @@ namespace Models
 
 
   protected:
-    // Indicates whether account-level default encryption is enabled for block storage.
-    // 
-    // Valid values:
+    // Indicates whether account-level default encryption for block storage is enabled. Valid values:
     // 
     // - true: Enabled.
     // 
-    // - false: Not enabled.
+    // - false: Disabled.
     // 
     // Default value: false.
     shared_ptr<bool> encrypted_ {};

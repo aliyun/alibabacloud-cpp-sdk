@@ -309,14 +309,10 @@ namespace Models
 
 
   protected:
-    // The page number of the tag list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page settings for the paged query. This is the paging size.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeTagsResponseBody::Tags> tags_ {};
-    // The total number of tags.
     shared_ptr<int32_t> totalCount_ {};
   };
 

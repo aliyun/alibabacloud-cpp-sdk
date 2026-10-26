@@ -154,9 +154,11 @@ namespace Models
 
 
     protected:
-      // The end of the time range to query the scheduled execution time of system events. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+      // The end time of the scheduled execution time of the system event. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+      // [ISO 8601](https://help.aliyun.com/document_detail/25696.html)
       shared_ptr<string> end_ {};
-      // The start of the time range to query the scheduled execution time of system events. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+      // The start time of the scheduled execution time of the system event. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+      // [ISO 8601](https://help.aliyun.com/document_detail/25696.html)
       shared_ptr<string> start_ {};
     };
 
@@ -198,9 +200,11 @@ namespace Models
 
 
     protected:
-      // The end of the time range to query the publish time of system events. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+      // The end time of the publication time of the system event. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+      // [ISO 8601](https://help.aliyun.com/document_detail/25696.html)
       shared_ptr<string> end_ {};
-      // The start of the time range to query the publish time of system events. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+      // The start time of the publication time of the system event. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+      // [ISO 8601](https://help.aliyun.com/document_detail/25696.html)
       shared_ptr<string> start_ {};
     };
 
@@ -381,96 +385,96 @@ namespace Models
   protected:
     shared_ptr<DescribeInstanceHistoryEventsRequest::EventPublishTime> eventPublishTime_ {};
     shared_ptr<DescribeInstanceHistoryEventsRequest::NotBefore> notBefore_ {};
-    // The lifecycle status of the system event. EventCycleStatus takes effect only when InstanceEventCycleStatus.N is not specified. Valid values: 
+    // The lifecycle status of the system event. The EventCycleStatus parameter is valid only when the InstanceEventCycleStatus.N parameter is not specified. Valid values: 
     // 
     // - Scheduled: The event is waiting to be executed.
-    // - Avoided: The event has been avoided.
+    // - Avoided: The event is avoided.
     // - Executing: The event is being executed.
-    // - Executed: The event has been executed.
-    // - Canceled: The event has been canceled.
-    // - Failed: The event failed to be executed.
-    // - Inquiring: The event is being inquired.
+    // - Executed: The event execution is completed.
+    // - Canceled: The event is canceled.
+    // - Failed: The event execution failed.
+    // - Inquiring: The event is in the inquiring state.
     shared_ptr<string> eventCycleStatus_ {};
-    // One or more system event IDs. Valid values of N: 1 to 100. Specify multiple values in a repeated list format.
+    // The IDs of one or more system events. Valid values of N: 1 to 100. Specify multiple values in a repeated list.
     shared_ptr<vector<string>> eventId_ {};
-    // The type of the system event. EventType takes effect only when InstanceEventType.N is not specified. Valid values: 
+    // The type of the system event. The EventType parameter is valid only when the InstanceEventType.N parameter is not specified. Valid values: 
     // 
     // - SystemMaintenance.Reboot: The instance is restarted due to system maintenance.
     // - SystemMaintenance.Redeploy: The instance is redeployed due to system maintenance.
-    // - SystemFailure.Reboot: The instance is restarted due to a system error.
-    // - SystemFailure.Redeploy: The instance is redeployed due to a system error.
+    // - SystemFailure.Reboot: The instance is restarted due to a system failure.
+    // - SystemFailure.Redeploy: The instance is redeployed due to a system failure.
     // - SystemFailure.Delete: The instance is released due to an instance creation failure.
-    // - InstanceFailure.Reboot: The instance is restarted due to an instance error.
-    // - InstanceExpiration.Stop: The instance is stopped due to subscription expiration.
-    // - InstanceExpiration.Delete: The instance is released due to subscription expiration.
+    // - InstanceFailure.Reboot: The instance is restarted due to an instance failure.
+    // - InstanceExpiration.Stop: The subscription instance is stopped due to expiration.
+    // - InstanceExpiration.Delete: The subscription instance is released due to expiration.
     // - AccountUnbalanced.Stop: The pay-as-you-go instance is stopped due to an overdue payment.
     // - AccountUnbalanced.Delete: The pay-as-you-go instance is released due to an overdue payment.
     // 
-    // > For more information about event types, see [System event overview](https://help.aliyun.com/document_detail/66574.html). The value of this parameter can only be an instance system event, not a disk system event.
+    // > For more information about event types, see [Overview of system events](https://help.aliyun.com/document_detail/66574.html). The value of this parameter can only be an instance system event, not a disk system event.
     shared_ptr<string> eventType_ {};
-    // > This parameter is not yet available for use.
+    // > This parameter is not available.
     shared_ptr<string> impactLevel_ {};
-    // One or more lifecycle statuses of system events. Valid values of N: 1 to 7. Specify multiple values in a repeated list format. Valid values:
+    // The lifecycle statuses of one or more system events. Valid values of N: 1 to 7. Specify multiple values in a repeated list. Valid values:
     // 
     // - Scheduled: The event is waiting to be executed.
-    // - Avoided: The event has been avoided.
+    // - Avoided: The event is avoided.
     // - Executing: The event is being executed.
-    // - Executed: The event has been executed.
-    // - Canceled: The event has been canceled.
-    // - Failed: The event failed to be executed.
-    // - Inquiring: The event is being inquired.
+    // - Executed: The event execution is completed.
+    // - Canceled: The event is canceled.
+    // - Failed: The event execution failed.
+    // - Inquiring: The event is in the inquiring state.
     shared_ptr<vector<string>> instanceEventCycleStatus_ {};
-    // One or more types of system events. Valid values of N: 1 to 30. Specify multiple values in a repeated list format. Valid values:
+    // The types of one or more system events. Valid values of N: 1 to 30. Specify multiple values in a repeated list. Valid values:
     // 
     // - SystemMaintenance.Reboot: The instance is restarted due to system maintenance.
     // - SystemMaintenance.Redeploy: The instance is redeployed due to system maintenance.
-    // - SystemFailure.Reboot: The instance is restarted due to a system error.
-    // - SystemFailure.Redeploy: The instance is redeployed due to a system error.
+    // - SystemFailure.Reboot: The instance is restarted due to a system failure.
+    // - SystemFailure.Redeploy: The instance is redeployed due to a system failure.
     // - SystemFailure.Delete: The instance is released due to an instance creation failure.
-    // - InstanceFailure.Reboot: The instance is restarted due to an instance error.
-    // - InstanceExpiration.Stop: The instance is stopped due to subscription expiration.
-    // - InstanceExpiration.Delete: The instance is released due to subscription expiration.
+    // - InstanceFailure.Reboot: The instance is restarted due to an instance failure.
+    // - InstanceExpiration.Stop: The subscription instance is stopped due to expiration.
+    // - InstanceExpiration.Delete: The subscription instance is released due to expiration.
     // - AccountUnbalanced.Stop: The pay-as-you-go instance is stopped due to an overdue payment.
     // - AccountUnbalanced.Delete: The pay-as-you-go instance is released due to an overdue payment.
     // 
-    // > For more information about event types, see [System event overview](https://help.aliyun.com/document_detail/66574.html). The value of this parameter can only be an instance system event, not a disk system event.
+    // > For more information about event types, see [Overview of system events](https://help.aliyun.com/document_detail/66574.html). The value of this parameter can only be an instance system event, not a disk system event.
     shared_ptr<vector<string>> instanceEventType_ {};
-    // The instance ID. If you do not specify an instance ID, the system events of all instances in the specified region are queried.
+    // The instance ID. If you do not specify this parameter, the system events of all instances in the specified region are queried.
     shared_ptr<string> instanceId_ {};
-    // The maximum number of entries per page for a paging query. Valid values: 10 to 100.
+    // The maximum number of entries per page for paging. Valid values: 10 to 100.
     // 
     // Default value:
     // 
-    // * When the settings value is greater than 0 but less than 10, the default value is 10.
-    // * When the settings value is greater than 100, the default value is 100.
+    // * If the specified value is greater than 0 and less than 10, the default value is 10.
+    // * If the specified value is greater than 100, the default value is 100.
     shared_ptr<int64_t> maxResults_ {};
-    // The pagination token. Set this parameter to the NextToken value returned in the previous API call.
+    // The query token. Set the value to the NextToken value returned from the previous API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // > This parameter will be deprecated. Use MaxResults and NextToken for pagination queries.
+    // > This parameter will be deprecated soon. Use the MaxResults or NextToken parameter for pagination.
     shared_ptr<int32_t> pageNumber_ {};
-    // > This parameter will be deprecated. Use MaxResults and NextToken for pagination queries.
+    // > This parameter will be deprecated soon. Use the MaxResults or NextToken parameter for pagination.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the resource. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The region ID of the resource. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The ID of the resource group to which the resource belongs.
     shared_ptr<string> resourceGroupId_ {};
-    // One or more resource IDs. Valid values of N: 1 to 100. Specify multiple values in a repeated list format. Valid values:
+    // The IDs of one or more resources. Valid values of N: 1 to 100. Specify multiple values in a repeated list. Valid values:
     // 
-    // - When `ResourceType=instance`, the resource ID is the ECS instance ID.
-    // - When `ResourceType=ddh`, the resource ID is the dedicated host ID.
-    // - When `ResourceType=managedhost`, the resource ID is the physical machine ID in an intelligent fully managed resource pool.
+    // - When `ResourceType` is set to `instance`, the resource ID is the ECS instance ID.
+    // - When `ResourceType` is set to `ddh`, the resource ID is the dedicated host ID.
+    // - When `ResourceType` is set to `managedhost`, the resource ID is the physical machine ID in an intelligent fully managed resource pool.
     // 
     // If you do not specify this parameter, the system events of all resources of the specified resource type (`ResourceType`) in the specified region (`RegionId`) are queried.
     // 
-    // > Use `ResourceId.N` to specify one or more resource IDs. If you specify both `ResourceId.N` and `InstanceId`, `ResourceId.N` takes precedence by default.
+    // > Use the `ResourceId.N` parameter to specify one or more resource IDs. If you specify both the `ResourceId.N` and `InstanceId` parameters, the `ResourceId.N` parameter takes precedence by default.
     shared_ptr<vector<string>> resourceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The type of the resource. Valid values:
+    // The resource type. Valid values:
     // 
     // - instance: ECS instance.
     // - ddh: dedicated host.
@@ -478,7 +482,7 @@ namespace Models
     // 
     // Default value: instance.
     shared_ptr<string> resourceType_ {};
-    // The list of tags supported by system events.
+    // The list of tags supported by the system event.
     shared_ptr<vector<DescribeInstanceHistoryEventsRequest::Tag>> tag_ {};
   };
 

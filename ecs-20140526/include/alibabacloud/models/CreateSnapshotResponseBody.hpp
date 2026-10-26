@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The snapshot ID.
+    // The ID of the snapshot.
     shared_ptr<string> snapshotId_ {};
   };
 

@@ -96,9 +96,11 @@ namespace Models
 
 
     protected:
-      // The end of the time range during which the events are scheduled to execute. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+      // The end time of the scheduled execution time of the event. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+      // [ISO 8601](https://help.aliyun.com/document_detail/25696.html)
       shared_ptr<string> end_ {};
-      // The start of the time range during which the events are scheduled to execute. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+      // The start time of the scheduled execution time of the event. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+      // [ISO 8601](https://help.aliyun.com/document_detail/25696.html)
       shared_ptr<string> start_ {};
     };
 
@@ -140,9 +142,11 @@ namespace Models
 
 
     protected:
-      // The end of the time range during which the events are published. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+      // The end time of the event publication time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+      // [ISO 8601](https://help.aliyun.com/document_detail/25696.html)
       shared_ptr<string> end_ {};
-      // The start of the time range during which the events are published. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+      // The start time of the event publication time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+      // [ISO 8601](https://help.aliyun.com/document_detail/25696.html)
       shared_ptr<string> start_ {};
     };
 
@@ -270,7 +274,7 @@ namespace Models
     shared_ptr<DescribeInstancesFullStatusRequest::NotBefore> notBefore_ {};
     // The list of event IDs. You can specify up to 100 event IDs.
     shared_ptr<vector<string>> eventId_ {};
-    // The type of a system event. The EventType parameter takes effect only when InstanceEventType.N is not specified. Valid values: 
+    // The type of the event. The EventType parameter is valid only when the InstanceEventType.N parameter is not specified. Valid values: 
     // 
     // - SystemMaintenance.Reboot: The instance is restarted due to system maintenance. 
     // - SystemFailure.Reboot: The instance is restarted due to a system failure.
@@ -282,22 +286,22 @@ namespace Models
     shared_ptr<string> eventType_ {};
     // The health status of the instance. Valid values: 
     // 
-    // - Impaired: The service is impaired. 
-    // - Warning: The instance performance may be degraded due to maintenance.
-    // - Maintaining: The instance is under maintenance.
+    // - Impaired: The service is damaged. 
+    // - Warning: A warning is issued. Instance performance may be degraded due to maintenance.
+    // - Maintaining: The instance is being maintained.
     // - Initializing: The instance is being initialized. 
-    // - InsufficientData: The data is insufficient. 
+    // - InsufficientData: Data is insufficient. 
     // - NotApplicable: Not applicable.
     // 
     // The values are case-sensitive.
     shared_ptr<string> healthStatus_ {};
-    // The list of instance system event types. You can specify up to 30 instance event types.
+    // The list of instance event types. You can specify up to 30 instance event types.
     shared_ptr<vector<string>> instanceEventType_ {};
     // The list of instance IDs. You can specify up to 100 instance IDs.
     shared_ptr<vector<string>> instanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number of the results. Valid values: positive integers.
+    // The page number of the query result. Valid values: positive integers.
     // 
     // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
@@ -305,7 +309,7 @@ namespace Models
     // 
     // Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the instance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

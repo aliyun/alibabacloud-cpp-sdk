@@ -524,18 +524,18 @@ namespace Models
 
 
   protected:
-    // The pagination token for the next query.
+    // The token for the next query.
     shared_ptr<string> nextToken_ {};
-    // > This parameter is about to be deprecated. Use NextToken and MaxResults to complete paging query operations.
+    // > This parameter will soon be deprecated. Use NextToken and MaxResults for pagination.
     shared_ptr<int32_t> pageNumber_ {};
-    // > This parameter is about to be deprecated. Use NextToken and MaxResults to complete paging query operations.
+    // > This parameter will soon be deprecated. Use NextToken and MaxResults for pagination.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeSnapshotsResponseBody::Snapshots> snapshots_ {};
     // The total number of snapshots.
     // 
-    // > When you use `MaxResults` and `NextToken` parameters for paging query, the returned `TotalCount` parameter value is invalid.
+    // > When you use the MaxResults and NextToken parameters for pagination, the returned value of the TotalCount parameter is invalid.
     shared_ptr<int32_t> totalCount_ {};
   };
 

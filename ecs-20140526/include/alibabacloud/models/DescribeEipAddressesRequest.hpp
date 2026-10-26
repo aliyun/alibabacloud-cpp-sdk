@@ -98,7 +98,9 @@ namespace Models
 
 
     protected:
+      // The first filter key. Set the value to CreationStartTime, which specifies the start time of resource creation.
       shared_ptr<string> key_ {};
+      // The first filter value. Specify the time in UTC in the YYYY-MM-DDThh:mmZ format.
       shared_ptr<string> value_ {};
     };
 
@@ -222,21 +224,33 @@ namespace Models
 
   protected:
     shared_ptr<vector<DescribeEipAddressesRequest::Filter>> filter_ {};
+    // The ID of the EIP to query. You can enter up to 50 IDs. Separate multiple IDs with commas.
     shared_ptr<string> allocationId_ {};
+    // The ID of the associated cloud service instance.
     shared_ptr<string> associatedInstanceId_ {};
+    // The type of the associated cloud service instance. Valid values: EcsInstance, SlbInstance, Nat, HaVip, NetworkInterface, and IpAddress.
     shared_ptr<string> associatedInstanceType_ {};
+    // The billing method of the EIP. Valid values: PostPaid (pay-as-you-go) and PrePaid (subscription).
     shared_ptr<string> chargeType_ {};
+    // The EIP address to query. You can enter up to 50 addresses. Separate multiple addresses with commas.
     shared_ptr<string> eipAddress_ {};
+    // The line type. Valid values include BGP and BGP_PRO.
     shared_ptr<string> ISP_ {};
+    // The lock type. Valid values: financial (locked due to overdue payment) and security (locked due to security reasons).
     shared_ptr<string> lockReason_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Maximum value: 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of the region where the EIP resides. You can call the DescribeRegions operation to query region IDs.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The status of the EIP. Valid values: Associating, Unassociating, InUse, Available, and Releasing.
     shared_ptr<string> status_ {};
   };
 

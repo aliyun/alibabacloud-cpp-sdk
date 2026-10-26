@@ -135,7 +135,7 @@ namespace Models
 
 
   protected:
-    // The pagination token returned in this call. If the return value is empty, no more data is available.
+    // The query token returned by the current call. If this value is empty, it indicates that no more data is available.
     shared_ptr<string> nextToken_ {};
     shared_ptr<DescribePrefixListAssociationsResponseBody::PrefixListAssociations> prefixListAssociations_ {};
     // The request ID.

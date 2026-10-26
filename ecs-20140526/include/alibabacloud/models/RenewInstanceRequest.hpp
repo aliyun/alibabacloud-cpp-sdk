@@ -114,13 +114,13 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
-    // Renews the instance to a [unified expiration date](https://help.aliyun.com/document_detail/63396.html). Valid values: 1 to 28.
+    // The day on which to renew the instance to a [unified expiration date](https://help.aliyun.com/document_detail/63396.html). Valid values: 1 to 28.
     // 
-    // To use this parameter, you must [set a unified expiration date for ECS instances](~~63396#694cb636c0rp6~~). The value of this parameter must match the unified expiration date that you have set. Otherwise, the call fails.
+    // To use this parameter, you must first [set a unified expiration date for ECS instances](~~63396#694cb636c0rp6~~). The value of this parameter must match the unified expiration date that you have set. Otherwise, the call fails.
     // 
     // > You must specify either the renewal period parameters (Period and PeriodUnit) or the unified expiration date parameter (ExpectedRenewDay), but not both.
     shared_ptr<int32_t> expectedRenewDay_ {};
-    // The instance ID of the instance that you want to renewal.
+    // The ID of the instance that you want to renew.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -138,7 +138,7 @@ namespace Models
     // 
     // > You must specify either the renewal period parameters (Period and PeriodUnit) or the unified expiration date parameter (ExpectedRenewDay), but not both.
     shared_ptr<int32_t> period_ {};
-    // The unit of the renewal period. This parameter specifies the unit of Period. Valid values:
+    // The unit of the renewal period. This parameter specifies the unit for the Period parameter. Valid values:
     // 
     // <props="china">
     // - Week.

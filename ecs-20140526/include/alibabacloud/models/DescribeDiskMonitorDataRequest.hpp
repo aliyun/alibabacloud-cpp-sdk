@@ -103,31 +103,31 @@ namespace Models
 
 
   protected:
-    // The ID of the cloud disk that you want to query.
+    // The ID of the disk.
     // 
     // This parameter is required.
     shared_ptr<string> diskId_ {};
-    // The end time of the data. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of seconds (ss) is not 00, the end time is automatically rounded up to the next minute.
+    // The end time of the data. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the seconds (ss) are not 00, the time is automatically rounded up to the next minute.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The granularity of the data. Unit: seconds. Valid values:
+    // The precision of the data. Unit: seconds. Valid values:
     // 
-    // - 60.
-    // - 600. 
-    // - 3600.
+    // - 60
+    // - 600 
+    // - 3600
     // 
     // Default value: 60.
     // 
-    // > The value of (EndTime – StartTime) / Period must be less than or equal to 400. A maximum of 400 data entries can be returned at a time.
+    // > The value of (EndTime - StartTime) / Period must be less than or equal to 400. That is, a maximum of 400 periods of data can be returned at a time.
     shared_ptr<int32_t> period_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The start time of the data. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of seconds (ss) is not 00, the start time is automatically rounded up to the next minute.
+    // The start time of the data. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the seconds (ss) are not 00, the time is automatically rounded up to the next minute.
     // 
-    // > You can query monitoring information only for the last 30 days. The `StartTime` parameter cannot be more than 30 days earlier than the current time.
+    // > You can query monitoring information for up to the last 30 days. That is, the `StartTime` parameter cannot be more than 30 days before the current time.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

@@ -50,7 +50,7 @@ namespace Models
   protected:
     // Request ID
     shared_ptr<string> requestId_ {};
-    // The ID of the Virtual Storage Channel.
+    // The ID of the virtual storage channel.
     shared_ptr<string> vscId_ {};
   };
 

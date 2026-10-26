@@ -116,9 +116,9 @@ namespace Models
     shared_ptr<string> clientToken_ {};
     // Specifies whether to perform only a dry run. Valid values:
     // 
-    // - true: performs only a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, the authorization status of the RAM user, and missing parameter values. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+    // - true: sends a check request without querying resource status. The check items include whether the AccessKey pair is valid, the authorization of the Resource Access Management (RAM) user, and whether required parameters are specified. If the check fails, the corresponding error is returned. If the check passes, the `DryRunOperation` error code is returned.
     // 
-    // - false: performs a dry run and sends the request. If the request passes the dry run, a 2XX HTTP status code is returned and the operation is executed.
+    // - false: sends a Normal request. If the request passes the check, a 2xx HTTP status code is returned and the resource status is directly queried.
     // 
     // Default value: false.
     shared_ptr<bool> dryRun_ {};
@@ -130,13 +130,13 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The PTP status. Valid values:
     // 
-    // - enabled: enables PTP.
+    // - enabled: Enables PTP.
     // 
-    // - disabled: disables PTP.
+    // - disabled: Disables PTP.
     // 
     // Default value: disabled.
     shared_ptr<string> ptpStatus_ {};
-    // The region ID of the ECS instance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The region ID of the ECS instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

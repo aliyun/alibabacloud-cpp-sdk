@@ -110,10 +110,14 @@ namespace Models
   protected:
     shared_ptr<vector<string>> addGroup_ {};
     shared_ptr<vector<string>> removeGroup_ {};
+    // The image ID.
+    // 
     // This parameter is required.
     shared_ptr<string> imageId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID. You can call DescribeRegions to query available regions.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

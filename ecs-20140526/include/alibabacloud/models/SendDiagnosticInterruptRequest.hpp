@@ -48,9 +48,11 @@ namespace Models
 
 
   protected:
-    // Specifies whether to perform only a dry run. Valid values: ● true: Sends a check request without sending the NMI command. ● false (default): Sends a normal NMI request to trigger a crash dump.
+    // Specifies whether to only precheck the request. Valid values:
+    // - true: Sends a check request without sending the NMI command.
+    // - false: Sends a normal NMI request to trigger a crash dump. Default value: false.
     shared_ptr<bool> dryRun_ {};
-    // The instance ID of the instance to which you want to send a diagnostic break.
+    // The instance ID to which you want to send a diagnostic break.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

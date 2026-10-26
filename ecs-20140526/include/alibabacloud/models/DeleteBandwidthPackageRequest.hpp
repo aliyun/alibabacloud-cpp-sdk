@@ -84,10 +84,14 @@ namespace Models
 
 
   protected:
+    // The ID of the bandwidth package to delete.
+    // 
     // This parameter is required.
     shared_ptr<string> bandwidthPackageId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID of the bandwidth package. You can call the DescribeRegions operation to query the latest region list.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

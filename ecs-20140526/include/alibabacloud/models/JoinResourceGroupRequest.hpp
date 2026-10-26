@@ -105,31 +105,31 @@ namespace Models
   protected:
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the resource. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The region ID of the resource. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
     shared_ptr<string> regionId_ {};
     // The ID of the destination resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The ID of the resource. For example, when ResourceType is set to instance, ResourceId is the instance ID.
+    // The ID of the resource. For example, if ResourceType is set to instance, ResourceId specifies the instance ID.
     shared_ptr<string> resourceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The type of the ECS resource. Valid values:
     // 
-    // - instance: instance.
-    // - disk: block storage.
-    // - snapshot: snapshot.
-    // - image: image.
-    // - securitygroup: security group.
-    // - ddh: dedicated host.
-    // - ddhcluster: dedicated host cluster.
-    // - eni: network interface controller (NIC).
-    // - keypair: key pair.
-    // - launchtemplate: launch template.
-    // - command: Cloud Assistant command.
-    // - activation: Cloud Assistant managed instance activation code.
-    // - managedinstance: Cloud Assistant managed instance.
+    // - instance: instance
+    // - disk: block storage
+    // - snapshot: snapshot
+    // - image: image
+    // - securitygroup: security group
+    // - ddh: dedicated host
+    // - ddhcluster: dedicated host cluster
+    // - eni: Elastic Network Interface (ENI)
+    // - keypair: key pair
+    // - launchtemplate: launch template
+    // - command: Cloud Assistant command
+    // - activation: activation code for managed instances
+    // - managedinstance: managed instance
     // 
-    // The preceding parameter values are case-sensitive.
+    // The values are case-sensitive.
     shared_ptr<string> resourceType_ {};
   };
 

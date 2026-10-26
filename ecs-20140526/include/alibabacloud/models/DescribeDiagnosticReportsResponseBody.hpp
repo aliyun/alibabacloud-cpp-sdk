@@ -323,7 +323,7 @@ namespace Models
 
 
   protected:
-    // The pagination token returned in this call.
+    // The query token returned for the current call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<DescribeDiagnosticReportsResponseBody::Reports> reports_ {};
     // The request ID.

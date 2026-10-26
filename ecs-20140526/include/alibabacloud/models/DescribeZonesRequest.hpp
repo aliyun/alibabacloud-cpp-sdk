@@ -112,7 +112,7 @@ namespace Models
 
 
   protected:
-    // The natural language that is used to filter responses. For more information, see [RFC 7231](https://tools.ietf.org/html/rfc7231). Valid values:  
+    // The language used to filter the returned results, such as Chinese, English, or Japanese. For more information, see [RFC 7231](https://tools.ietf.org/html/rfc7231). Valid values:  
     //          
     // - zh-CN: Simplified Chinese.
     // - zh-TW: Traditional Chinese.
@@ -124,7 +124,7 @@ namespace Models
     // 
     // Default value: zh-CN.
     shared_ptr<string> acceptLanguage_ {};
-    // The billing method supported by resources in the zone. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html). Valid values: 
+    // The billing method of the resources supported in the zone. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html). Valid values: 
     // 
     // - PrePaid: subscription.
     // - PostPaid: pay-as-you-go.
@@ -133,24 +133,24 @@ namespace Models
     shared_ptr<string> instanceChargeType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region where the zones are located. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The region ID of the zone. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the latest list of Alibaba Cloud regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The bidding policy for pay-as-you-go instances. You can specify this parameter when `InstanceChargeType=PostPaid`. For more information, see [Spot instances](https://help.aliyun.com/document_detail/52088.html). Valid values:
+    // The bidding policy for pay-as-you-go instances. You can specify this parameter when `InstanceChargeType` is set to `PostPaid`. For more information, see [Spot instances](https://help.aliyun.com/document_detail/52088.html). Valid values:
     //          
     // - NoSpot: regular pay-as-you-go instance.
-    // - SpotWithPriceLimit: spot instance with a maximum price limit.
-    // - SpotAsPriceGo: spot instance priced at the market price with the pay-as-you-go price as the upper limit.
+    // - SpotWithPriceLimit: spot instance with a maximum price.
+    // - SpotAsPriceGo: spot instance whose price is automatically offered by the system, up to the pay-as-you-go price.
     // 
     // Default value: NoSpot.
     shared_ptr<string> spotStrategy_ {};
-    // Specifies whether to display detailed information.
+    // Specifies whether to display detailed information. Valid values:
     // 
-    // - true: Display detailed information.
-    // - false: Do not display detailed information.
+    // - true: Displays detailed information.
+    // - false: Does not display detailed information.
     // 
     // Default value: true.
     shared_ptr<bool> verbose_ {};

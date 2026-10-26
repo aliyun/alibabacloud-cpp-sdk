@@ -704,15 +704,16 @@ namespace Models
 
   protected:
     shared_ptr<DescribeInvocationsResponseBody::Invocations> invocations_ {};
-    // The pagination token returned in this call.
+    // The pagination token returned by the current call.
     shared_ptr<string> nextToken_ {};
-    // The page number of the query results.
+    // The page number of the query result.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of commands.
+    // > The TotalCount parameter is meaningless when you use the MaxResults and NextToken parameters for paging.
     shared_ptr<int64_t> totalCount_ {};
   };
 

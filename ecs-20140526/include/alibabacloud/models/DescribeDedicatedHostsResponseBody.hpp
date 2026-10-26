@@ -1264,7 +1264,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeDedicatedHostsResponseBody::DedicatedHosts> dedicatedHosts_ {};
-    // The query token returned in this invoke. If the return value is empty when you use MaxResults and NextToken for paging, no more data is available.
+    // The paging token returned by this invoke. When you use MaxResults and NextToken for paged query, and this return value is empty, it indicates that no more data is returned.
     shared_ptr<string> nextToken_ {};
     // The page number of the dedicated host list.
     shared_ptr<int32_t> pageNumber_ {};

@@ -642,30 +642,30 @@ namespace Models
     shared_ptr<string> networkInterfaceId_ {};
     // The name of the network interface controller (NIC).
     shared_ptr<string> networkInterfaceName_ {};
-    // The ID of the account that owns the network interface controller (NIC).
+    // The ID of the account to which the network interface controller (NIC) belongs.
     shared_ptr<string> ownerId_ {};
     // The private IP address of the network interface controller (NIC).
     shared_ptr<string> privateIpAddress_ {};
     shared_ptr<CreateNetworkInterfaceResponseBody::PrivateIpSets> privateIpSets_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<CreateNetworkInterfaceResponseBody::SecurityGroupIds> securityGroupIds_ {};
-    // The ID of the Virtual Network Operator (VNO) to which the network interface controller (NIC) corresponds.
+    // The ID of the Virtual Network Operator (VNO) associated with the network interface controller (NIC).
     shared_ptr<int64_t> serviceID_ {};
-    // Indicates whether the user of the network interface controller (NIC) is an Alibaba Cloud service or a VNO.
+    // Indicates whether the user of the network interface controller (NIC) is a cloud service or a VNO.
     shared_ptr<bool> serviceManaged_ {};
-    // > This parameter is in invitational preview and is not publicly available.
+    // > This parameter is in invitational preview and is not yet available.
     shared_ptr<bool> sourceDestCheck_ {};
-    // The status of the network interface controller (NIC).
+    // The status of the elastic network interface (ENI).
     shared_ptr<string> status_ {};
     shared_ptr<CreateNetworkInterfaceResponseBody::Tags> tags_ {};
     // The type of the network interface controller (NIC).
     shared_ptr<string> type_ {};
     // The ID of the vSwitch in the VPC.
     shared_ptr<string> vSwitchId_ {};
-    // The ID of the VPC to which the ENI belongs.
+    // The ID of the virtual private cloud (VPC) to which the ENI belongs.
     shared_ptr<string> vpcId_ {};
     // The zone ID.
     shared_ptr<string> zoneId_ {};

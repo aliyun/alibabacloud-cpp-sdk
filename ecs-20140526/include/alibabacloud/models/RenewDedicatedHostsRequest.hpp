@@ -112,9 +112,9 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
-    // The list of dedicated host IDs. You can specify up to 100 subscription dedicated host IDs. Specify multiple dedicated host IDs in a JSON array in the format of `["dh-xxxxxxxxx", "dh-yyyyyyyyy", … "dh-zzzzzzzzz"]`. Separate IDs with commas (,).
+    // The list of dedicated host IDs. You can enter up to 100 subscription dedicated host IDs. Specify multiple IDs in a JSON array formatted as `["dh-xxxxxxxxx", "dh-yyyyyyyyy", … "dh-zzzzzzzzz"]`. Separate multiple IDs with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> dedicatedHostIds_ {};
@@ -123,15 +123,15 @@ namespace Models
     // The renewal period. Valid values:
     // 
     // <props="china">
-    // - If PeriodUnit is set to Week: 1, 2, 3, and 4.
-    // - If PeriodUnit is set to Month: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
-    // - If PeriodUnit is set to Year: 1, 2, 3, 4, and 5.
+    // - When PeriodUnit is set to Week: 1, 2, 3, and 4.
+    // - When PeriodUnit is set to Month: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
+    // - When PeriodUnit is set to Year: 1, 2, 3, 4, and 5.
     // 
     // 
     // 
     // <props="intl">
-    // - If PeriodUnit is set to Month: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
-    // - If PeriodUnit is set to Year: 1, 2, 3, 4, and 5.
+    // - When PeriodUnit is set to Month: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
+    // - When PeriodUnit is set to Year: 1, 2, 3, 4, and 5.
     // 
     // This parameter is required.
     shared_ptr<int32_t> period_ {};
@@ -152,7 +152,7 @@ namespace Models
     // 
     // Default value: Month.
     shared_ptr<string> periodUnit_ {};
-    // The region ID of the dedicated host. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The region ID of the dedicated host. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

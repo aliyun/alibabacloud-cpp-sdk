@@ -48,9 +48,7 @@ namespace Models
 
 
   protected:
-    // > This parameter is not yet available.
     shared_ptr<string> remainTimes_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -78,18 +78,18 @@ namespace Models
 
 
   protected:
-    // The number of entries per page in a paging query. Maximum value: 100.
+    // The number of entries per page for a paged query. Maximum value: 100.
     // 
     // Default value:
     // 
     // - If this parameter is not set, the default value is 10.
-    // - If the value is set to a number greater than 100, the default value is 100.
+    // - If the value set is greater than 100, the default value is 100.
     shared_ptr<int32_t> maxResults_ {};
     // The list of diagnostic metrics.
     shared_ptr<vector<string>> metricIds_ {};
-    // The pagination token. Set this parameter to the `NextToken` value returned in the previous call. You do not need to set this parameter for the first request.
+    // The pagination token. Set this parameter to the value of NextToken returned in the previous call. Leave this parameter empty for the first call.
     shared_ptr<string> nextToken_ {};
-    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent list of Alibaba Cloud regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

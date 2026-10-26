@@ -122,8 +122,8 @@ namespace Models
       shared_ptr<string> resourceType_ {};
       // The type of the diagnostic metric set. Valid values:
       // 
-      // - User: user.
-      // - Common: common.
+      // - User: user-created.
+      // - Common: public.
       shared_ptr<string> type_ {};
     };
 
@@ -155,7 +155,7 @@ namespace Models
   protected:
     // The diagnostic metric sets.
     shared_ptr<vector<DescribeDiagnosticMetricSetsResponseBody::MetricSets>> metricSets_ {};
-    // The pagination token returned in this call.
+    // The pagination token returned by the current call.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

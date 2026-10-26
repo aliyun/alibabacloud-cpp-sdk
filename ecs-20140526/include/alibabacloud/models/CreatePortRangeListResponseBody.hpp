@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the port list that was created.
+    // The ID of the created port list.
     shared_ptr<string> portRangeListId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

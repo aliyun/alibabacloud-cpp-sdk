@@ -264,17 +264,17 @@ namespace Models
 
 
   protected:
-    // The pagination token returned in this call.
+    // The pagination token returned by the current call.
     shared_ptr<string> nextToken_ {};
     // The page number of the snapshot chain list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page that you specified in the request.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeSnapshotLinksResponseBody::SnapshotLinks> snapshotLinks_ {};
     // The total number of snapshot chains.
-    // > When you use the MaxResults and NextToken parameters for paged query, the returned TotalCount value is invalid.
+    // > When you use the `MaxResults` and `NextToken` parameters for paging in a paged query, the returned `TotalCount` value is invalid.
     shared_ptr<int32_t> totalCount_ {};
   };
 

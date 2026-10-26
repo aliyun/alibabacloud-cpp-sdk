@@ -129,9 +129,9 @@ namespace Models
       protected:
         // The tag key of the managed instance. Valid values of N: 1 to 20. The tag key cannot be an empty string.
         // 
-        // If you use a single tag to filter resources, the resource count with the specified tag cannot exceed 1,000. If you use multiple tags to filter resources, the resource count of resources that have all specified tags attached cannot exceed 1,000. If the resource count exceeds 1,000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query the resources.
+        // If you use a single tag to filter resources, the resource count for that tag cannot exceed 1,000. If you use multiple tags to filter resources, the resource count for resources attached to multiple tags cannot exceed 1,000. If the resource count exceeds 1,000, you must call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query the resources.
         // 
-        // The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+        // The tag key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
         shared_ptr<string> tagKey_ {};
         // The tag value of the managed instance. Valid values of N: 1 to 20. The tag value can be an empty string.
         // 
@@ -258,19 +258,19 @@ namespace Models
 
 
     protected:
-      // The activation code ID.
+      // The ID of the activation code.
       shared_ptr<string> activationId_ {};
-      // The version number of Cloud Assistant Agent.
+      // The version number of the Cloud Assistant Agent.
       shared_ptr<string> agentVersion_ {};
-      // Indicates whether the managed instance is connected.
+      // Indicates whether the managed instance is connected. Valid values:
       // 
-      // - true: The managed instance is connected. You can manage the managed instance by using Cloud Assistant.
+      // - true: The managed instance is connected. You can use Cloud Assistant to manage the managed instance.
       // 
-      // - false: The managed instance is not connected. The server may be shut down or Cloud Assistant Agent may not be properly installed.
+      // - false: The managed instance is not connected. The server may be stopped or the Cloud Assistant Agent is not properly installed.
       shared_ptr<bool> connected_ {};
       // The hostname of the managed instance.
       shared_ptr<string> hostname_ {};
-      // The managed instance ID.
+      // The instance ID of the managed instance.
       shared_ptr<string> instanceId_ {};
       // The name of the managed instance.
       shared_ptr<string> instanceName_ {};
@@ -278,21 +278,21 @@ namespace Models
       shared_ptr<string> internetIp_ {};
       // The internal IP address of the managed instance.
       shared_ptr<string> intranetIp_ {};
-      // The number of times that Cloud Assistant tasks have been executed on the managed instance.
+      // The number of Cloud Assistant tasks executed on the managed instance.
       shared_ptr<int64_t> invocationCount_ {};
-      // The time when the last Cloud Assistant task was executed. The time is displayed in ISO 8601 format in UTC.
+      // The time when the last Cloud Assistant task was executed. The time follows the ISO 8601 standard in the UTC time zone.
       shared_ptr<string> lastInvokedTime_ {};
-      // The machine code of the managed instance.
+      // The machine ID of the managed instance.
       shared_ptr<string> machineId_ {};
       // The operating system of the managed instance.
       shared_ptr<string> osType_ {};
       // The version information of the operating system.
       shared_ptr<string> osVersion_ {};
-      // The time when the managed instance was registered. The time is displayed in ISO 8601 format in UTC.
+      // The time when the managed instance was registered. The time follows the ISO 8601 standard in the UTC time zone.
       shared_ptr<string> registrationTime_ {};
       // The ID of the resource group to which the managed instance belongs.
       shared_ptr<string> resourceGroupId_ {};
-      // The tags.
+      // The list of tags.
       shared_ptr<vector<Instances::Tags>> tags_ {};
     };
 
@@ -345,15 +345,16 @@ namespace Models
   protected:
     // The list of managed instances.
     shared_ptr<vector<DescribeManagedInstancesResponseBody::Instances>> instances_ {};
-    // The pagination token returned in this call.
+    // The pagination token returned by the current call.
     shared_ptr<string> nextToken_ {};
     // The page number of the managed instance list.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page as specified in the request.
+    // The number of entries returned per page.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of managed instances queried.
+    // > When you use the MaxResults and NextToken parameters for paging, the returned TotalCount value is meaningless.
     shared_ptr<int64_t> totalCount_ {};
   };
 

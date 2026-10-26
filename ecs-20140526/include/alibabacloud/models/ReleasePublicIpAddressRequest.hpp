@@ -66,15 +66,10 @@ namespace Models
 
 
   protected:
-    // > This parameter is not yet available.
     shared_ptr<bool> dryRun_ {};
-    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The public IP address of the instance.
-    // 
     // This parameter is required.
     shared_ptr<string> publicIpAddress_ {};
-    // The ID of the region where the instance is located.
     shared_ptr<string> regionId_ {};
   };
 

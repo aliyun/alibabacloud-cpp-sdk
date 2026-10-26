@@ -105,22 +105,22 @@ namespace Models
   protected:
     // The instance ID.
     // 
-    // > If this parameter is specified, NetworkInterfaceId must be left empty.
+    // > If you specify this parameter, NetworkInterfaceId must be empty.
     shared_ptr<string> instanceId_ {};
-    // The Elastic Network Interface (ENI) ID.
+    // The ID of the Elastic Network Interface (ENI).
     // 
-    // > If this parameter is specified, InstanceId must be left empty.
+    // > If you specify this parameter, InstanceId must be empty.
     shared_ptr<string> networkInterfaceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
-    // - The region ID is optional when adding an instance to a security group.
-    // - The region ID is required when adding an Elastic Network Interface (ENI) to a security group. Specify the region where the network interface controller (NIC) resides.
+    // - The region ID is optional when you add an instance to a security group.
+    // - The region ID is required when you add a network interface controller (NIC) to a security group. Specify the ID of the region where the network interface controller (NIC) resides.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The security group ID. You can call [DescribeSecurityGroups](https://help.aliyun.com/document_detail/25556.html) to query available security groups.
+    // The ID of the security group. You can call [DescribeSecurityGroups](https://help.aliyun.com/document_detail/25556.html) to query available security groups.
     // 
     // This parameter is required.
     shared_ptr<string> securityGroupId_ {};

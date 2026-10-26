@@ -72,6 +72,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(ImageName, imageName_);
           DARABONBA_PTR_TO_JSON(ImageOptions, imageOptions_);
           DARABONBA_PTR_TO_JSON(ImagePipelineId, imagePipelineId_);
+          DARABONBA_PTR_TO_JSON(ImageSecurityOptions, imageSecurityOptions_);
           DARABONBA_PTR_TO_JSON(ImportImageOptions, importImageOptions_);
           DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
           DARABONBA_PTR_TO_JSON(InternetMaxBandwidthOut, internetMaxBandwidthOut_);
@@ -99,6 +100,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(ImageName, imageName_);
           DARABONBA_PTR_FROM_JSON(ImageOptions, imageOptions_);
           DARABONBA_PTR_FROM_JSON(ImagePipelineId, imagePipelineId_);
+          DARABONBA_PTR_FROM_JSON(ImageSecurityOptions, imageSecurityOptions_);
           DARABONBA_PTR_FROM_JSON(ImportImageOptions, importImageOptions_);
           DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
           DARABONBA_PTR_FROM_JSON(InternetMaxBandwidthOut, internetMaxBandwidthOut_);
@@ -637,6 +639,37 @@ namespace Models
           shared_ptr<string> roleName_ {};
         };
 
+        class ImageSecurityOptions : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const ImageSecurityOptions& obj) { 
+            DARABONBA_PTR_TO_JSON(SecurityScanMode, securityScanMode_);
+          };
+          friend void from_json(const Darabonba::Json& j, ImageSecurityOptions& obj) { 
+            DARABONBA_PTR_FROM_JSON(SecurityScanMode, securityScanMode_);
+          };
+          ImageSecurityOptions() = default ;
+          ImageSecurityOptions(const ImageSecurityOptions &) = default ;
+          ImageSecurityOptions(ImageSecurityOptions &&) = default ;
+          ImageSecurityOptions(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~ImageSecurityOptions() = default ;
+          ImageSecurityOptions& operator=(const ImageSecurityOptions &) = default ;
+          ImageSecurityOptions& operator=(ImageSecurityOptions &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->securityScanMode_ == nullptr; };
+          // securityScanMode Field Functions 
+          bool hasSecurityScanMode() const { return this->securityScanMode_ != nullptr;};
+          void deleteSecurityScanMode() { this->securityScanMode_ = nullptr;};
+          inline string getSecurityScanMode() const { DARABONBA_PTR_GET_DEFAULT(securityScanMode_, "") };
+          inline ImageSecurityOptions& setSecurityScanMode(string securityScanMode) { DARABONBA_PTR_SET_VALUE(securityScanMode_, securityScanMode) };
+
+
+        protected:
+          shared_ptr<string> securityScanMode_ {};
+        };
+
         class ImageOptions : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const ImageOptions& obj) { 
@@ -897,9 +930,9 @@ namespace Models
         virtual bool empty() const override { return this->addAccounts_ == nullptr
         && this->advancedOptions_ == nullptr && this->baseImage_ == nullptr && this->baseImageType_ == nullptr && this->buildContent_ == nullptr && this->creationTime_ == nullptr
         && this->deleteInstanceOnFailure_ == nullptr && this->description_ == nullptr && this->imageFamily_ == nullptr && this->imageName_ == nullptr && this->imageOptions_ == nullptr
-        && this->imagePipelineId_ == nullptr && this->importImageOptions_ == nullptr && this->instanceType_ == nullptr && this->internetMaxBandwidthOut_ == nullptr && this->name_ == nullptr
-        && this->nvmeSupport_ == nullptr && this->repairItems_ == nullptr && this->repairMode_ == nullptr && this->resourceGroupId_ == nullptr && this->systemDiskSize_ == nullptr
-        && this->tags_ == nullptr && this->testContent_ == nullptr && this->toRegionIds_ == nullptr && this->vSwitchId_ == nullptr; };
+        && this->imagePipelineId_ == nullptr && this->imageSecurityOptions_ == nullptr && this->importImageOptions_ == nullptr && this->instanceType_ == nullptr && this->internetMaxBandwidthOut_ == nullptr
+        && this->name_ == nullptr && this->nvmeSupport_ == nullptr && this->repairItems_ == nullptr && this->repairMode_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->systemDiskSize_ == nullptr && this->tags_ == nullptr && this->testContent_ == nullptr && this->toRegionIds_ == nullptr && this->vSwitchId_ == nullptr; };
         // addAccounts Field Functions 
         bool hasAddAccounts() const { return this->addAccounts_ != nullptr;};
         void deleteAddAccounts() { this->addAccounts_ = nullptr;};
@@ -988,6 +1021,15 @@ namespace Models
         void deleteImagePipelineId() { this->imagePipelineId_ = nullptr;};
         inline string getImagePipelineId() const { DARABONBA_PTR_GET_DEFAULT(imagePipelineId_, "") };
         inline ImagePipelineSet& setImagePipelineId(string imagePipelineId) { DARABONBA_PTR_SET_VALUE(imagePipelineId_, imagePipelineId) };
+
+
+        // imageSecurityOptions Field Functions 
+        bool hasImageSecurityOptions() const { return this->imageSecurityOptions_ != nullptr;};
+        void deleteImageSecurityOptions() { this->imageSecurityOptions_ = nullptr;};
+        inline const ImagePipelineSet::ImageSecurityOptions & getImageSecurityOptions() const { DARABONBA_PTR_GET_CONST(imageSecurityOptions_, ImagePipelineSet::ImageSecurityOptions) };
+        inline ImagePipelineSet::ImageSecurityOptions getImageSecurityOptions() { DARABONBA_PTR_GET(imageSecurityOptions_, ImagePipelineSet::ImageSecurityOptions) };
+        inline ImagePipelineSet& setImageSecurityOptions(const ImagePipelineSet::ImageSecurityOptions & imageSecurityOptions) { DARABONBA_PTR_SET_VALUE(imageSecurityOptions_, imageSecurityOptions) };
+        inline ImagePipelineSet& setImageSecurityOptions(ImagePipelineSet::ImageSecurityOptions && imageSecurityOptions) { DARABONBA_PTR_SET_RVALUE(imageSecurityOptions_, imageSecurityOptions) };
 
 
         // importImageOptions Field Functions 
@@ -1102,6 +1144,7 @@ namespace Models
         shared_ptr<string> imageName_ {};
         shared_ptr<ImagePipelineSet::ImageOptions> imageOptions_ {};
         shared_ptr<string> imagePipelineId_ {};
+        shared_ptr<ImagePipelineSet::ImageSecurityOptions> imageSecurityOptions_ {};
         shared_ptr<ImagePipelineSet::ImportImageOptions> importImageOptions_ {};
         shared_ptr<string> instanceType_ {};
         shared_ptr<int32_t> internetMaxBandwidthOut_ {};
@@ -1172,9 +1215,9 @@ namespace Models
 
   protected:
     shared_ptr<DescribeImagePipelinesResponseBody::ImagePipeline> imagePipeline_ {};
-    // The maximum number of entries per page in a paging query.
+    // The number of entries returned per page in a paging query.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token returned in this call. For more information about how to use this token, see the operation description.
+    // The pagination token returned by this call. For more information, see the operation description.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

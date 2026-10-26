@@ -95,7 +95,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> diskIds_ {};
-    // The region ID of the automatic snapshot policy and cloud disks. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The region ID of the automatic snapshot policy and the cloud disks. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

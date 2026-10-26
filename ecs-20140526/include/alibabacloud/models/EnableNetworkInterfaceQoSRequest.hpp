@@ -108,23 +108,23 @@ namespace Models
     protected:
       // The maximum inbound internal bandwidth limit.
       // 
-      // Unit: kbit/s. Increment: 1000 (1 Mbit/s). Value range: [50000, +∞).
+      // Unit: Kbit/s. Step size: 1000 (1 Mbit/s). Valid values: [50000, +∞).
       shared_ptr<int64_t> bandwidthRx_ {};
       // The maximum outbound internal bandwidth limit.
       // 
-      // Unit: kbit/s. Increment: 1000 (1 Mbit/s). Value range: [50000, +∞).
+      // Unit: Kbit/s. Step size: 1000 (1 Mbit/s). Valid values: [50000, +∞).
       shared_ptr<int64_t> bandwidthTx_ {};
       // The maximum number of sessions.
       // 
-      // Increment: 10000. Value range: [10000, +∞).
+      // Step size: 10000. Valid values: [10000, +∞).
       shared_ptr<int64_t> concurrentConnections_ {};
       // The inbound internal packet forwarding rate.
       // 
-      // Unit: pps. Increment: 10000. Value range: [10000, +∞).
+      // Unit: PPS. Step size: 10000. Valid values: [10000, +∞).
       shared_ptr<int64_t> ppsRx_ {};
       // The outbound internal packet forwarding rate.
       // 
-      // Unit: pps. Increment: 10000. Value range: [10000, +∞).
+      // Unit: PPS. Step size: 10000. Valid values: [10000, +∞).
       shared_ptr<int64_t> ppsTx_ {};
     };
 
@@ -183,15 +183,15 @@ namespace Models
 
 
   protected:
-    // The ID of the network interface controller (NIC).
+    // The ID of the Elastic Network Interface (ENI).
     // 
     // This parameter is required.
     shared_ptr<string> networkInterfaceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The QoS rate limiting settings.
+    // The QoS bandwidth throttling settings.
     shared_ptr<EnableNetworkInterfaceQoSRequest::QoS> qoS_ {};
-    // The region ID. You can call DescribeRegions to query the most recent region list.
+    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

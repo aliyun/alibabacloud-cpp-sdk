@@ -103,24 +103,25 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable or disable the O&M window. Leave this parameter empty if no modification is needed.
+    // Specifies whether to enable or disable the window. Leave this parameter empty if no modification is required.
     shared_ptr<bool> enable_ {};
+    // The minimum time interval between the publish time and the scheduled time to execute scheduled O&M events for the same instance. Valid values: 1 to 48. Unit: hours.
     shared_ptr<int32_t> minMaintenanceInterval_ {};
-    // The ID of the O&M window to modify. This parameter is required.
+    // The ID of the O&M window to be modified. This parameter is required.
     // 
     // This parameter is required.
     shared_ptr<string> planWindowId_ {};
-    // The name of the O&M window. Leave this parameter empty if no modification is needed.
+    // The name of the O&M window. Leave this parameter empty if no modification is required.
     shared_ptr<string> planWindowName_ {};
-    // The region ID of the instance. You can call DescribeRegions to query the most recent region list.
+    // The region ID. This parameter is required for Alibaba Cloud SDK routing. However, specifying any region ID for this operation makes no difference. The O&M window applies to all ECS instances across the network that meet the resource filtering conditions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The supported O&M actions. Leave this parameter empty if no modification is needed.
+    // The supported O&M actions. Leave this parameter empty if no modification is required.
     shared_ptr<string> supportMaintenanceAction_ {};
-    // The resource to which the O&M window applies. Leave this parameter empty if no modification is needed.
+    // The resources to which the O&M window applies. Leave this parameter empty if no modification is required.
     shared_ptr<string> targetResourceShrink_ {};
-    // The recurring cycle of the O&M window. Leave this parameter empty if no modification is needed.
+    // The recurrence cycle of the window. Leave this parameter empty if no modification is required.
     shared_ptr<string> timePeriodShrink_ {};
   };
 

@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The instance screenshot in JPG image format, returned as a Base64-encoded image.
+    // The instance screenshot in JPG format, returned as a Base64-encoded string.
     shared_ptr<string> screenshot_ {};
   };
 

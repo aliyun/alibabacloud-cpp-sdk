@@ -86,13 +86,13 @@ namespace Models
   protected:
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The port list ID.
+    // The ID of the port list.
     // 
     // >If the port list is associated with other resources, it cannot be deleted. Dissociate the port list from the resources before you delete it.
     // 
     // This parameter is required.
     shared_ptr<string> portRangeListId_ {};
-    // The region ID of the port list. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The region ID of the port list. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

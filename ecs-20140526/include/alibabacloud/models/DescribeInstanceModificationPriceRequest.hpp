@@ -114,20 +114,22 @@ namespace Models
 
 
     protected:
-      // The type of the data disk. Specify this parameter to query the price of a new subscription data disk attached to an ECS instance. Valid values of N: 1 to 16. Valid values:
+      // The data disk category. You can specify this parameter when you need to query the price of a new subscription data disk attached to the ECS instance. Valid values of N: 1 to 16. Valid values:
       // 
       // - cloud_efficiency: ultra disk.
       // - cloud_ssd: standard SSD.
       // - cloud_essd: enterprise SSD.
       // - cloud: basic disk.
       // 
-      // Default value: null.
+      // Default value: None.
       // 
-      // > When you call this operation, the instance type parameter (`InstanceType`) and the data disk parameters (`DataDisk.N.*`) cannot both be empty. Specify at least one of them.
+      // > When you query the price, the instance type parameter (`InstanceType`) and the data disk parameter (`DataDisk.N.*`) cannot be both empty. You must specify at least one of them.
       shared_ptr<string> category_ {};
-      // The ID of the data disk.
+      // The data disk ID.
+      // If DiskId is empty, a new data disk is added.
+      // If DiskId is not empty, the data disk is modified.
       shared_ptr<string> diskId_ {};
-      // The performance level of the data disk when the disk type is enterprise SSD. The value of N must be the same as that in `DataDisk.N.Category=cloud_essd`. Valid values:
+      // The performance level of the data disk when the data disk category is enterprise SSD. The value of N must be the same as the value of N in `DataDisk.N.Category=cloud_essd`. Valid values:
       // 
       // - PL0: A single disk can deliver up to 10,000 random read/write IOPS.
       // - PL1: A single disk can deliver up to 50,000 random read/write IOPS.
@@ -136,20 +138,20 @@ namespace Models
       // 
       // Default value: PL1.
       // 
-      // For information about how to select an ESSD performance level, see [ESSD](https://help.aliyun.com/document_detail/122389.html).
+      // For more information about how to select an enterprise SSD performance level, see [enterprise SSD](https://help.aliyun.com/document_detail/122389.html).
       shared_ptr<string> performanceLevel_ {};
-      // The capacity of the data disk. Valid values of N: 1 to 16. Unit: GiB. Valid values:
+      // The size of the data disk. Valid values of N: 1 to 16. Unit: GiB. Valid values:
       // 
       // - cloud_efficiency: 20 to 32768.
       // - cloud_ssd: 20 to 32768.
-      // - cloud_essd: The valid value range depends on the value of `DataDisk.N.PerformanceLevel`.    
+      // - cloud_essd: The valid values vary based on the value of `DataDisk.N.PerformanceLevel`.    
       //     - PL0: 1 to 32768.
       //     - PL1: 20 to 32768.
       //     - PL2: 461 to 32768.
       //     - PL3: 1261 to 32768.
       // - cloud: 5 to 2000.
       // 
-      // Default value: the minimum capacity for the specified data disk type.
+      // Default value: the minimum size allowed for the specified data disk category.
       shared_ptr<int32_t> size_ {};
     };
 
@@ -200,9 +202,9 @@ namespace Models
 
 
     protected:
-      // The category of the system disk.
+      // The system disk category.
       shared_ptr<string> category_ {};
-      // The performance level of the system disk.
+      // The system disk performance level.
       shared_ptr<string> performanceLevel_ {};
       // The size of the system disk.
       shared_ptr<int32_t> size_ {};
@@ -323,33 +325,39 @@ namespace Models
 
   protected:
     shared_ptr<DescribeInstanceModificationPriceRequest::SystemDisk> systemDisk_ {};
-    // The information about data disk types.
+    // The data disk information.
     shared_ptr<vector<DescribeInstanceModificationPriceRequest::DataDisk>> dataDisk_ {};
-    // The end time of the temporary bandwidth upgrade.
+    // The end time of the temporary bandwidth change. The time is in ISO 8601 format and UTC time zone.
+    // This parameter takes effect only when InternetMaxBandwidthOut is not empty.
     shared_ptr<string> endTime_ {};
-    // The Internet Service Provider.
+    // The Internet service provider (ISP).
     shared_ptr<string> ISP_ {};
     // The image ID.
     shared_ptr<string> imageId_ {};
-    // The instance ID of the instance for which you want to query the upgrade price.
+    // The ID of the instance for which you want to query the upgrade price.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The target instance type for the upgrade. We recommend that you call [DescribeResourcesModification](https://help.aliyun.com/document_detail/66187.html) to query the instance types available for upgrade in a specified zone.
+    // The target instance type for the instance upgrade. Before upgrading, call [DescribeResourcesModification](https://help.aliyun.com/document_detail/66187.html) to query the instance types available for upgrade in the specified zone.
+    // 
+    // > When you query the price, the instance type parameter (`InstanceType`) and the data disk parameter (`DataDisk.N.*`) cannot be both empty. You must specify at least one of them.
     shared_ptr<string> instanceType_ {};
-    // The network billing method to convert to.
+    // The network billing method. Valid values:
+    // - PayByBandwidth: pay-by-bandwidth.
+    // - PayByTraffic: pay-by-traffic.
     shared_ptr<string> internetChargeType_ {};
     // The maximum outbound public bandwidth.
     shared_ptr<int32_t> internetMaxBandwidthOut_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to view the latest list of Alibaba Cloud regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The start time of the temporary bandwidth upgrade.
+    // The start time of the temporary bandwidth change. The time is in ISO 8601 format and UTC time zone.
+    // This parameter takes effect only when InternetMaxBandwidthOut is not empty.
     shared_ptr<string> startTime_ {};
   };
 

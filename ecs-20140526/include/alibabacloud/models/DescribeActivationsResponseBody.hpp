@@ -218,7 +218,7 @@ namespace Models
     protected:
       // The activation code ID.
       shared_ptr<string> activationId_ {};
-      // The creation time.
+      // The creation time. The time follows the ISO 8601 standard and is displayed in UTC.
       shared_ptr<string> creationTime_ {};
       // The number of deregistered instances.
       shared_ptr<int32_t> deregisteredCount_ {};
@@ -226,17 +226,17 @@ namespace Models
       shared_ptr<string> description_ {};
       // Indicates whether the activation code is disabled.
       shared_ptr<bool> disabled_ {};
-      // The maximum number of times that the activation code can be used to register managed instances.
+      // The maximum number of times the activation code can be used to register managed instances.
       shared_ptr<int32_t> instanceCount_ {};
       // The default instance name prefix.
       shared_ptr<string> instanceName_ {};
-      // The IP addresses of hosts that are allowed to use the activation code.
+      // The IP addresses of the hosts that are allowed to use the activation code.
       shared_ptr<string> ipAddressRange_ {};
       // The number of registered instances.
       shared_ptr<int32_t> registeredCount_ {};
       // The ID of the resource group to which the activation code belongs.
       shared_ptr<string> resourceGroupId_ {};
-      // The tags of the managed instance activation code.
+      // The tag information of the managed instance activation code.
       shared_ptr<vector<ActivationList::Tags>> tags_ {};
       // The validity period of the activation code. Unit: hours.
       shared_ptr<int64_t> timeToLiveInHours_ {};
@@ -291,15 +291,16 @@ namespace Models
   protected:
     // The activation codes and their usage information.
     shared_ptr<vector<DescribeActivationsResponseBody::ActivationList>> activationList_ {};
-    // The pagination token returned in this response.
+    // The query token returned in the current response.
     shared_ptr<string> nextToken_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
+    // The Settings for the number of entries returned per page during paging in a paged query.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of records that meet the conditional query criteria.
+    // > When you perform paging in a paged query by using the MaxResults and NextToken parameters, the returned TotalCount value is meaningless.
     shared_ptr<int64_t> totalCount_ {};
   };
 

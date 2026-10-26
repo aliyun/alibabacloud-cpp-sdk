@@ -211,11 +211,11 @@ namespace Models
 
 
   protected:
-    // This parameter is not publicly available.
+    // This parameter is not available.
     shared_ptr<vector<string>> additionalAttributes_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The maximum number of entries per page in a paging query.
+    // The number of entries per page for a paged query.
     // 
     // Maximum value: 100.
     // 
@@ -223,11 +223,11 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The name of the snapshot-consistent group.
     shared_ptr<string> name_ {};
-    // The pagination token. Set this parameter to the NextToken value returned in the previous API call.
+    // The query token. Set the value to the NextToken value returned in the last API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -235,7 +235,7 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the snapshot-consistent group. Valid values of N: 1 to 10.
+    // The IDs of the snapshot-consistent groups. Valid values of N: 1 to 10.
     shared_ptr<vector<string>> snapshotGroupId_ {};
     // The status of the snapshot-consistent group. Valid values of N: 1 to 3. Valid values:
     // 
@@ -243,9 +243,9 @@ namespace Models
     // 
     // - accomplished: The snapshot-consistent group is created.
     // 
-    // - failed: The snapshot-consistent group failed to be created.
+    // - failed: The snapshot-consistent group fails to be created.
     shared_ptr<vector<string>> status_ {};
-    // The tag key-value pairs of the snapshot-consistent group.
+    // The tags of the snapshot-consistent group.
     shared_ptr<vector<DescribeSnapshotGroupsRequest::Tag>> tag_ {};
   };
 

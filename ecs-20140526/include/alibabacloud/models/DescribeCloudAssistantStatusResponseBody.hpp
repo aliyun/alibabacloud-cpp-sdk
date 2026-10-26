@@ -234,7 +234,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeCloudAssistantStatusResponseBody::InstanceCloudAssistantStatusSet> instanceCloudAssistantStatusSet_ {};
-    // The pagination token returned in this call.
+    // The pagination token returned by this call.
     shared_ptr<string> nextToken_ {};
     // The current page number.
     shared_ptr<int64_t> pageNumber_ {};
@@ -243,6 +243,7 @@ namespace Models
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of instances.
+    // > When you use the MaxResults and NextToken parameters for paged queries, the returned TotalCount value is meaningless.
     shared_ptr<int64_t> totalCount_ {};
   };
 

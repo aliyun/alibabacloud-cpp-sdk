@@ -96,13 +96,13 @@ namespace Models
 
 
     protected:
-      // The tag key of the file sending task. Valid values of N: 1 to 20. The tag key cannot be an empty string.
+      // The tag key of the file delivery task. Valid values of N: 1 to 20. If you specify this parameter, it cannot be an empty string.
       // 
-      // If you use one tag to filter resources, the resource count with the specified tag cannot exceed 1,000. If you use multiple tags to filter resources, the resource count of resources that are attached with all specified tags cannot exceed 1,000. If the resource count exceeds 1,000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query the resources.
+      // If you use a single tag to filter resources, the resource count queried under the tag cannot exceed 1,000. If you use multiple tags to filter resources, the resource count of resources attached with multiple tags at the same time cannot exceed 1,000. If the resource count exceeds 1,000, you must call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query the resources.
       // 
-      // The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // The tag key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The tag value of the file sending task. Valid values of N: 1 to 20. The tag value can be an empty string.
+      // The tag value of the file delivery task. Valid values of N: 1 to 20. This parameter can be an empty string.
       // 
       // The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
@@ -220,15 +220,15 @@ namespace Models
 
 
   protected:
-    // The instance ID. After you specify this parameter, all file sending records of the instance are queried.
+    // The instance ID. If you specify this parameter, all file delivery records of the instance are queried.
     shared_ptr<string> instanceId_ {};
-    // The overall sending status of the file. The overall status depends on the common execution status of all target instances. Valid values:
+    // The overall delivery status of the file. The overall status depends on the combined execution status of all instances involved in the delivery task. Valid values:
     // 
-    // - Pending: The system is validating or sending the file. The overall status is Pending if the file sending status of at least one instance is Pending.
-    // - Running: The file is being sent on instances. The overall status is Running if the file sending status of at least one instance is Running.
-    // - Success: The file is sent. The overall status is Success if the file sending status of all instances is Success.
-    // - Failed: The file failed to be sent. The overall status is Failed if the file sending status of all instances is Failed.
-    // - PartialFailed: The file is sent on some instances but failed on others. The overall status is PartialFailed if the file sending status of all instances is Success or Failed.
+    // - Pending: The system is verifying or delivering the file. If the file delivery status of at least one instance is Pending, the overall execution status is Pending.
+    // - Running: The file is being delivered to the instances. If the file delivery status of at least one instance is Running, the overall execution status is Running.
+    // - Success: The file is delivered successfully. If the file delivery status of all instances is Success, the overall execution status is Success.
+    // - Failed: The file fails to be delivered. If the file delivery status of all instances is Failed, the overall execution status is Failed.
+    // - PartialFailed: The file is delivered to some instances but fails to be delivered to others. If the file delivery status of all instances is either Success or Failed, the overall execution status is PartialFailed.
     shared_ptr<string> invocationStatus_ {};
     // The execution ID.
     shared_ptr<string> invokeId_ {};
@@ -238,25 +238,25 @@ namespace Models
     // 
     // Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The name of the file. After you specify this parameter, all sending records of the file are queried.
+    // The name of the file. If you specify this parameter, all delivery records of the file with the specified name are queried.
     shared_ptr<string> name_ {};
-    // The pagination token. Set this parameter to the NextToken value returned in the previous API call.
+    // The query token. Set the value to the NextToken value returned from the previous API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // > This parameter is about to be deprecated. Use NextToken and MaxResults to perform paging queries.
+    // > This parameter will soon be deprecated. We recommend that you use NextToken and MaxResults for paging.
     shared_ptr<int64_t> pageNumber_ {};
-    // > This parameter is about to be deprecated. Use NextToken and MaxResults to perform paging queries.
+    // > This parameter will soon be deprecated. We recommend that you use NextToken and MaxResults for paging.
     shared_ptr<int64_t> pageSize_ {};
-    // The region ID of the ECS instance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The region ID of the ECS instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group to which the file sending task belongs. After you specify this parameter, you must also specify ResourceGroupId when sending files. This way, you can filter the file sending results of the specified resource group.
+    // The ID of the resource group to which the file delivery task belongs. If you specify this parameter, you must also specify ResourceGroupId when you deliver the file. This allows you to filter the corresponding file delivery results.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The tags.
+    // The list of tags.
     shared_ptr<vector<DescribeSendFileResultsRequest::Tag>> tag_ {};
   };
 

@@ -51,11 +51,11 @@ namespace Models
 
 
   protected:
-    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the latest Alibaba Cloud regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The list of diagnostic report IDs. A maximum of 100 IDs are supported.
+    // The IDs of the diagnostic reports. A maximum of 100 IDs are supported.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> reportIds_ {};

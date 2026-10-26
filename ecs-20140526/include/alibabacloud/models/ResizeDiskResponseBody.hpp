@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The order ID.
+    // The ID of the generated order.
     // 
-    // > An order ID is returned only when you expand a subscription disk.
+    // > The order ID is returned only when you resize a subscription cloud disk.
     shared_ptr<string> orderId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

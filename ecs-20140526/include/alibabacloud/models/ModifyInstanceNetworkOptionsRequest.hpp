@@ -77,9 +77,9 @@ namespace Models
   protected:
     // The bandwidth weight.
     // 
-    // The supported values vary by instance type. You can call [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html) to query the bandwidth weight values supported by the current instance type.
+    // The supported values vary by instance type. You can call [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html) to query the bandwidth weight values supported by the instance type.
     shared_ptr<string> bandwidthWeighting_ {};
-    // The instance ID of the instance for which you want to modify the network bandwidth weight.
+    // The instance ID for which to modify the network bandwidth weight.
     shared_ptr<string> instanceId_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

@@ -82,9 +82,7 @@ namespace Models
 
 
     protected:
-      // The tag key of the resource. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length.
       shared_ptr<string> key_ {};
-      // The tag value of the resource. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length.
       shared_ptr<string> value_ {};
     };
 
@@ -151,36 +149,13 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> ownerId_ {};
-    // The page number of the results. Minimum value: 1.
-    // 
-    // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Maximum value: 100.
-    // 
-    // Default value: 50.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the resource. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
-    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The resource type. Valid values:
-    // 
-    // - instance: ECS instance.
-    // - disk: cloud disk.
-    // - snapshot: snapshot.
-    // - image: image.
-    // - securitygroup: security group.
-    // - volume: storage volume.
-    // - eni: Elastic Network Interface (ENI).
-    // - ddh: dedicated host.
-    // - keypair: SSH key pair.
-    // - launchtemplate: launch template.
-    // 
-    // All valid values are in lowercase.
     shared_ptr<string> resourceType_ {};
-    // The list of tags.
     shared_ptr<vector<DescribeResourceByTagsRequest::Tag>> tag_ {};
   };
 

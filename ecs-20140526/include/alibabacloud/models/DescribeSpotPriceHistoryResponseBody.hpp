@@ -201,7 +201,7 @@ namespace Models
     // 
     // International site: USD.
     shared_ptr<string> currency_ {};
-    // The start row of the next page. Set the `Offset` parameter to this value to query the next page of data.
+    // The starting row of the next page. You can use this value to query the next page of data by setting the `Offset` parameter to this value.
     shared_ptr<int32_t> nextOffset_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

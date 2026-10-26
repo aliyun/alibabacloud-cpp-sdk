@@ -78,11 +78,11 @@ namespace Models
 
 
     protected:
-      // The port range. Valid values of N: 0 to 200. Settings:
+      // The port range. Valid values of N: 0 to 200. Limits:
       // 
-      // - You cannot specify duplicate PortRange values.
+      // - Duplicate `PortRange` values are not allowed.
       // 
-      // - The value cannot be the same as an AddEntry.N.PortRange parameter value.
+      // - The value cannot be the same as the `AddEntry.N.PortRange` parameter value.
       shared_ptr<string> portRange_ {};
     };
 
@@ -124,15 +124,15 @@ namespace Models
 
 
     protected:
-      // The description of the port range. The description must be 2 to 32 characters in length and cannot start with http:// or https://. Valid values of N: 0 to 200.
+      // The description of the port range. The description must be 2 to 32 characters in length, and cannot start with http:// or https://. Valid values of N: 0 to 200.
       shared_ptr<string> description_ {};
-      // The port range. Valid values of N: 0 to 200. Settings:
+      // The port range. Valid values of N: 0 to 200. Limits:
       // 
-      // - The number of entries cannot exceed the maximum number of entries (MaxEntries).
+      // - The number of entries cannot exceed the maximum entry capacity (`MaxEntries`).
       // 
-      // - You cannot specify duplicate PortRange values.
+      // - Duplicate `PortRange` values are not allowed.
       // 
-      // - The value cannot be the same as a RemoveEntry.N.PortRange parameter value.
+      // - The value cannot be the same as the `RemoveEntry.N.PortRange` parameter value.
       shared_ptr<string> portRange_ {};
     };
 
@@ -221,25 +221,25 @@ namespace Models
 
 
   protected:
-    // The entries to add or modify in the port range list.
+    // The array of port list entries to be added or modified.
     shared_ptr<vector<ModifyPortRangeListRequest::AddEntry>> addEntry_ {};
-    // The client token that is used to ensure the idempotence of the request.
+    // Ensures the idempotence of the request.
     shared_ptr<string> clientToken_ {};
-    // The description of the port range list. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
+    // The description of the port list. The description must be 2 to 256 characters in length, and cannot start with http:// or https://.
     shared_ptr<string> description_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the port range list to modify.
+    // The ID of the port list to be modified.
     // 
     // This parameter is required.
     shared_ptr<string> portRangeListId_ {};
-    // The name of the port range list. The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It cannot start with http://, https://, com.aliyun, or com.alibabacloud. It can contain letters, Chinese characters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+    // The name of the port list. The name must be 2 to 128 characters in length, and must start with a letter or a Chinese character. It cannot start with http://, https://, com.aliyun, or com.alibabacloud. It can contain Chinese characters, letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
     shared_ptr<string> portRangeListName_ {};
-    // The region ID of the port range list. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The region ID of the port list. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The entries to delete from the port range list.
+    // The array of port list entries to be deleted.
     shared_ptr<vector<ModifyPortRangeListRequest::RemoveEntry>> removeEntry_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

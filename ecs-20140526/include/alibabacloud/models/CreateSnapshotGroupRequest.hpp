@@ -98,9 +98,9 @@ namespace Models
 
 
     protected:
-      // The tag key of the snapshot-consistent group. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. The tag key cannot contain `http://` or `https://`.
+      // The key of tag N of the snapshot-consistent group. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The tag value of the snapshot-consistent group. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot start with `acs:`. The tag value cannot contain `http://` or `https://`.
+      // The value of tag N of the snapshot-consistent group. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot start with `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -227,43 +227,43 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
-    // The description. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+    // The description of the snapshot-consistent group. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
-    // The ID of a disk for which you want to create a snapshot-consistent group. You can specify disk IDs across instances within the same zone. Valid values of N: 1 to 128. A snapshot-consistent group can contain up to 128 disks with a total capacity of up to 256 TiB.
+    // The ID of the disk for which you want to create a snapshot-consistent group. You can specify multiple disk IDs across instances in the same zone. Valid values of N: 1 to 128. A single snapshot-consistent group can contain up to 128 disks with a total capacity of up to 256 TiB.
     // 
     // Take note of the following items:
     // 
-    // - This parameter cannot be specified together with `ExcludeDiskId.N`.
-    // - If you specify `InstanceId`, this parameter can only be set to disks that are attached to the specified instance. Specifying disk IDs across multiple instances is not supported in this case.
+    // - This parameter and `ExcludeDiskId.N` cannot be set at the same time.
+    // - If you set `InstanceId`, you can set this parameter only to the IDs of disks attached to the specified instance. Setting multiple cross-instance disk IDs is no longer supported.
     shared_ptr<vector<string>> diskId_ {};
-    // The ID of a disk in the instance for which you do not want to create a snapshot. After you specify the disk ID, the snapshot-consistent group does not contain the snapshot of the specified disk. Valid values of N: 1 to 128.
+    // The ID of the disk for which you do not want to create a snapshot in the instance. After you specify a disk ID, the created snapshot-consistent group does not contain the snapshot of the disk. Valid values of N: 1 to 128.
     // 
-    // Default value: null, which indicates that snapshots are created for all disks in the instance.
+    // Default value: empty, which indicates that snapshots are created for all disks in the instance.
     // 
-    // > This parameter cannot be specified together with `DiskId.N`.
+    // > This parameter and `DiskId.N` cannot be set at the same time.
     shared_ptr<vector<string>> excludeDiskId_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // Specifies whether to enable snapshot instant access. Valid values:
+    // Specifies whether to enable the snapshot instant access feature. Valid values:
     // 
-    // - true: Enabled.
-    // - false: Disabled.
+    // - true: enables the feature.
+    // - false: disables the feature.
     // 
     // Default value: false.
     // 
-    // > This parameter is deprecated. Standard snapshots of enterprise SSDs have been upgraded to [instant access by default](https://help.aliyun.com/document_detail/193667.html). No additional configuration or fees are required.
+    // > This parameter is deprecated. Standard snapshots of ESSDs are upgraded to [instant access by default](https://help.aliyun.com/document_detail/193667.html). You do not need to configure this parameter, and no additional fees are incurred.
     shared_ptr<bool> instantAccess_ {};
-    // The number of days for which the snapshot instant access feature is active. Unit: days. Valid values: 1 to 65535.
+    // Sets the retention period for the snapshot instant access feature. Unit: days. Valid values: 1 to 65535.
     // 
-    // This parameter takes effect only when `InstantAccess=true`. The snapshot instant access feature is automatically disabled when the specified period expires.
+    // This parameter takes effect only when `InstantAccess` is set to true. The snapshot instant access feature is automatically disabled when the specified period expires.
     // 
-    // Default value: null, which indicates that the snapshot instant access feature is active until the snapshot is released.
+    // Default value: empty, which indicates that the retention period is the same as the snapshot release time.
     // 
-    // > This parameter is deprecated. Standard snapshots of enterprise SSDs have been upgraded to [instant access by default](https://help.aliyun.com/document_detail/193667.html). No additional configuration or fees are required.
+    // > This parameter is deprecated. Standard snapshots of ESSDs are upgraded to [instant access by default](https://help.aliyun.com/document_detail/193667.html). You do not need to configure this parameter, and no additional fees are incurred.
     shared_ptr<int32_t> instantAccessRetentionDays_ {};
-    // The name of the snapshot-consistent group. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. The name can contain digits, periods (.), underscores (_), hyphens (-), and colons (:).
+    // The name of the snapshot-consistent group. The name must be 2 to 128 characters in length and can contain letters and Chinese characters. It must start with a letter or a Chinese character and cannot start with `http://` or `https://`. It can contain digits, periods (.), underscores (_), hyphens (-), and colons (:).
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -275,9 +275,9 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // > This parameter is not publicly available.
+    // > This parameter is not available.
     shared_ptr<string> storageLocationArn_ {};
-    // The tags.
+    // The list of tags.
     shared_ptr<vector<CreateSnapshotGroupRequest::Tag>> tag_ {};
   };
 

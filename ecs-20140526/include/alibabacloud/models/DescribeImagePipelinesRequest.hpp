@@ -179,25 +179,25 @@ namespace Models
 
 
   protected:
-    // The image template ID. Valid values of N: 1 to 20.
+    // The ID of the image template. Valid values of N: 1 to 20.
     shared_ptr<vector<string>> imagePipelineId_ {};
-    // The maximum number of entries per page in a paging query. Valid values: 1 to 500.
+    // The maximum number of entries to return per page in a paging query. Valid values: 1 to 500.
     // 
     // Default value: 50.
     shared_ptr<int32_t> maxResults_ {};
-    // The template name.
+    // The name of the template.
     shared_ptr<string> name_ {};
-    // The pagination token. Set the value to the `NextToken` value returned in the previous call to this operation. You do not need to set this parameter for the first request.
+    // The query token. Set the value to the NextToken value returned from the previous call. You do not need to specify this parameter for the first call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the enterprise resource group. When you use this parameter to filter resources, the resource count cannot exceed 1,000.
+    // The ID of the resource group. When you use this parameter to filter resources, the resource count cannot exceed 1,000.
     // 
-    // >Filtering by the default resource group is not supported.
+    // > Filtering by the default resource group is not supported.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

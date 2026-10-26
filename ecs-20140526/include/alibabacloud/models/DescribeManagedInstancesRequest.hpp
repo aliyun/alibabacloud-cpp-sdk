@@ -104,9 +104,9 @@ namespace Models
     protected:
       // The tag key of the managed instance. Valid values of N: 1 to 20. The tag key cannot be an empty string.
       // 
-      // If you use a single tag to filter resources, the resource count with the specified tag cannot exceed 1,000. If you use multiple tags to filter resources, the resource count of resources that have all specified tags attached cannot exceed 1,000. If the resource count exceeds 1,000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query the resources.
+      // If you use a single tag to filter resources, the resource count for that tag cannot exceed 1,000. If you use multiple tags to filter resources, the resource count for resources attached to multiple tags cannot exceed 1,000. If the resource count exceeds 1,000, you must call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query the resources.
       // 
-      // The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // The tag key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
       // The tag value of the managed instance. Valid values of N: 1 to 20. The tag value can be an empty string.
       // 
@@ -250,13 +250,13 @@ namespace Models
 
 
   protected:
-    // The activation code ID.
+    // The ID of the activation code.
     shared_ptr<string> activationId_ {};
-    // Specifies whether the managed instance is connected.
+    // Specifies whether the managed instance is connected. Valid values:
     // 
-    // true: The managed instance is connected. You can manage the managed instance by using Cloud Assistant.
+    // true: The managed instance is connected. You can use Cloud Assistant to manage the managed instance.
     // 
-    // false: The managed instance is not connected. The server may be shut down or Cloud Assistant Agent may not be properly installed.
+    // false: The managed instance is not connected. The server may be stopped or the Cloud Assistant Agent is not properly installed.
     shared_ptr<string> connected_ {};
     // The ID of the managed instance. Valid values of N: 1 to 50.
     shared_ptr<vector<string>> instanceId_ {};
@@ -271,37 +271,36 @@ namespace Models
     //   --RegionId=cn-hangznou \\
     //   --ActivationId=xxxxxxxxxxx \\
     //   --ActivationCode=xxxxxxxxx \\
-    //   --MachineId=xxxxxx \\ # Optional parameter that specifies the unique identifier of the machine.
+    //   --MachineId=xxxxxx \\ # Optional parameter. The unique identifier of the machine.
     //   --ForceResue                 
     // ```
     // 
-    // - If MachineId and ForceResult are specified during registration, Cloud Assistant generates a fixed managed instance ID for the MachineId.
-    // - If MachineId is not explicitly specified, Cloud Assistant automatically generates a MachineId value based on the hardware information of the machine.
-    // - Recommendation: Explicitly specify MachineId and ForceResult to mark the mapping between managed instances and on-premises machines.
+    // - If the MachineId and ForceResult parameters are specified during registration, Cloud Assistant generates a fixed managed instance ID for the MachineId.
+    // - If the MachineId parameter is not explicitly specified, Cloud Assistant automatically generates a MachineId value based on the hardware information of the machine.
+    // - Recommended: Explicitly specify the MachineId and ForceResult parameters to mark the mapping between the managed instance and the on-premises machine.
     shared_ptr<string> machineId_ {};
-    // The maximum number of entries per page in a paging query.
+    // The maximum number of entries to return per page during paging.
     // 
     // Maximum value: 50.
     // 
     // Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. Set this parameter to the NextToken value returned in the previous API call.
+    // The pagination token. Set the value to the NextToken value returned from the previous API call.
     shared_ptr<string> nextToken_ {};
     // The operating system type of the managed instance. Valid values:
-    // 
     // - windows
     // - linux
     // - FreeBSD
     shared_ptr<string> osType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // > This parameter is about to be deprecated. Use NextToken and MaxResults to complete paging query operations.
+    // > This parameter will be deprecated soon. We recommend that you use NextToken and MaxResults to perform a paged query.
     shared_ptr<int64_t> pageNumber_ {};
-    // > This parameter is about to be deprecated. Use NextToken and MaxResults to complete paging query operations.
+    // > This parameter will be deprecated soon. We recommend that you use NextToken and MaxResults to perform a paged query.
     shared_ptr<int64_t> pageSize_ {};
-    // The region ID. The following regions are supported: China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Ulanqab), China (Hangzhou), China (Shanghai), China (Shenzhen), China (Heyuan), China (Guangzhou), China (Chengdu), Hong Kong (China), Singapore, Japan (Tokyo), US (Silicon Valley), and US (Virginia).
+    // The region ID. Supported regions: China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Ulanqab), China (Hangzhou), China (Shanghai), China (Shenzhen), China (Heyuan), China (Guangzhou), China (Chengdu), Hong Kong (China), Singapore, Japan (Tokyo), US (Silicon Valley), and US (Virginia).
     // 
-    // You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query region IDs and other information.
+    // You can invoke the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query region IDs and other information.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -309,7 +308,7 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The tags.
+    // The list of tags.
     shared_ptr<vector<DescribeManagedInstancesRequest::Tag>> tag_ {};
   };
 

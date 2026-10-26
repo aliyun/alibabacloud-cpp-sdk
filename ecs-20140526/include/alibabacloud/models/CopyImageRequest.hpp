@@ -98,9 +98,9 @@ namespace Models
 
 
     protected:
-      // The tag key of the copied image. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // The key of tag N of the copied image. Valid values of N: 1 to 20. If you specify this parameter, it cannot be an empty string. The tag key can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
       shared_ptr<string> key_ {};
-      // The tag value of the copied image. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot start with `acs:`. It cannot contain `http://` or `https://`.
+      // The value of tag N of the copied image. Valid values of N: 1 to 20. If you specify this parameter, it can be an empty string. The tag value can be up to 128 characters in length. It cannot start with acs:, and cannot contain http:// or https://.
       shared_ptr<string> value_ {};
     };
 
@@ -223,30 +223,30 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken parameter can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
-    // The description of the copied image. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+    // The description of the copied image. The description must be 2 to 256 characters in length, and cannot start with http:// or https://.
     shared_ptr<string> destinationDescription_ {};
-    // The name of the copied image. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`. It can contain letters, digits, periods (.), colons (:), underscores (_), and hyphens (-).
+    // The name of the copied image. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character, and cannot start with aliyun or acs:. It cannot contain http:// or https://. It can contain digits, periods (.), colons (:), underscores (_), and hyphens (-).
     shared_ptr<string> destinationImageName_ {};
     // The ID of the destination region.
     shared_ptr<string> destinationRegionId_ {};
-    // Specifies whether to perform only a dry run. Valid values:
+    // Specifies whether to only perform a dry run for this request. Valid values:
     // 
-    // - true: performs only a dry run. The system checks the request for potential issues, including the AccessKey pair, the authorization of the Resource Access Management (RAM) user, and whether required parameters are specified. If the request fails the dry run, the corresponding error message is returned. If the request passes the dry run, the error code `DryRunOperation` is returned.
-    // - false: performs a dry run and sends the Normal request. If the request passes the dry run, a 2XX HTTP status code is returned and the operation is performed.
+    // - true: performs a dry run. The system checks whether your AccessKey pair is valid, whether the Resource Access Management (RAM) user has authorization, and whether the required parameters are specified. If the request fails the dry run, the corresponding error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
+    // - false: sends a Normal request. If the request passes the dry run, a 2XX HTTP status code is returned and the operation is performed.
     // 
     // Default value: false.
     shared_ptr<bool> dryRun_ {};
-    // > This parameter is not publicly available.
+    // > This parameter is not available.
     shared_ptr<string> encryptAlgorithm_ {};
-    // Specifies whether to encrypt the copied image.
+    // Specifies whether to encrypt the copied image. Valid values:
     // 
-    // - true: encrypts the copied image.
-    // - false: does not encrypt the copied image.
-    // - Not specified: depends on backend logic. For more information, see the supplementary description below.
+    // - true: Encrypts the image.
+    // - false: Does not encrypt the image.
+    // - Not specified: The encryption status depends on the backend logic. For more information, see the supplementary description below.
     // 
-    // Default value: not specified.
+    // Default value: none.
     shared_ptr<bool> encrypted_ {};
     // The ID of the source custom image.
     // 
@@ -256,17 +256,17 @@ namespace Models
     shared_ptr<string> KMSKeyId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the source custom image. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The region ID of the source custom image. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID of the copied image. If you do not set this parameter, the copied image belongs to the default resource group.
+    // The resource group ID of the image after replication. If you do not specify this parameter, the image after replication belongs to the default resource group.
     // 
-    // > If you are a Resource Access Management (RAM) user and invoke this operation with `ResourceGroupId` left empty, take note of the following: if the RAM user does not have permissions on the default resource group, the error message `Forbidden: User not authorized to operate on the specified resource` is returned. Settings a resource group ID that the RAM user has permissions on, or grant the RAM user permissions on the default resource group by using the corresponding Alibaba Cloud account before you invoke this operation again.
+    // > If you invoke this operation as a Resource Access Management (RAM) user and leave ResourceGroupId empty, note that if the Resource Access Management (RAM) user does not have permissions on the default resource group, the operation returns the `Forbidden: User not authorized to operate on the specified resource` error. Update the Settings of ResourceGroupId to the ID of a resource group on which the Resource Access Management (RAM) user has permissions, or use the corresponding Alibaba Cloud account to grant the Resource Access Management (RAM) user permissions on the default resource group, and then invoke this operation again.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The tags.
+    // The list of tags.
     shared_ptr<vector<CopyImageRequest::Tag>> tag_ {};
   };
 

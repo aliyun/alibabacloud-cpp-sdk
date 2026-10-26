@@ -98,9 +98,9 @@ namespace Models
 
 
     protected:
-      // The tag key of the new snapshot. Once specified, the tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
+      // The tag key of the new snapshot. If you specify this parameter, it cannot be an empty string. The tag key can be up to 128 characters in length, cannot start with aliyun or acs:, and cannot contain http:// or https://.
       shared_ptr<string> key_ {};
-      // The tag value of the new snapshot. Once specified, the tag value can be an empty string. The tag value can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
+      // The tag value of the new snapshot. If you specify this parameter, it can be an empty string. The tag value can be up to 128 characters in length, cannot start with aliyun or acs:, and cannot contain http:// or https://.
       shared_ptr<string> value_ {};
     };
 
@@ -151,11 +151,11 @@ namespace Models
 
 
     protected:
-      // > This parameter is not publicly available.
+      // >This parameter is not available.
       shared_ptr<int64_t> assumeRoleFor_ {};
-      // > This parameter is not publicly available.
+      // >This parameter is not available.
       shared_ptr<string> roleType_ {};
-      // > This parameter is not publicly available.
+      // >This parameter is not available.
       shared_ptr<string> rolearn_ {};
     };
 
@@ -280,9 +280,9 @@ namespace Models
 
 
   protected:
-    // > This parameter is in invitational preview and is not publicly available.
+    // >This parameter is in invitational preview and is not supported.
     shared_ptr<vector<CopySnapshotRequest::Arn>> arn_ {};
-    // Ensures the idempotence of the request. The value is generated from your client and must be unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The client token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
     // The ID of the destination region for the new snapshot.
     // 
@@ -290,39 +290,39 @@ namespace Models
     shared_ptr<string> destinationRegionId_ {};
     // The description of the new snapshot. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
     // 
-    // Default value: null.
+    // Default value: empty.
     // 
     // This parameter is required.
     shared_ptr<string> destinationSnapshotDescription_ {};
-    // The name of the new snapshot. The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It cannot start with http:// or https://. The name can contain characters that are classified as letter in Unicode, including Chinese characters, digits, and others. The name can also contain colons (:), underscores (_), periods (.), or hyphens (-).
+    // The name of the new snapshot. The name must be 2 to 128 characters in length, must start with a letter or a Chinese character, and cannot start with http:// or https://. It supports characters in the Letter category of Unicode, including English letters, Chinese characters, and digits. It can contain colons (:), underscores (_), periods (.), and hyphens (-).
     // 
-    // Default value: null.
+    // Default value: empty.
     // 
     // This parameter is required.
     shared_ptr<string> destinationSnapshotName_ {};
-    // > This parameter is not publicly available.
+    // >This parameter is not available.
     shared_ptr<string> destinationStorageLocationArn_ {};
     // Specifies whether to encrypt the cloud disk. Valid values:
     // 
-    // - true: encrypts the cloud disk.
-    // - false: does not encrypt the cloud disk.
+    // - true: yes.
+    // - false: no.
     // 
     // Default value: false.
     shared_ptr<bool> encrypted_ {};
-    // The customer master key (CMK) in the destination region.
+    // The KMS customer master key (CMK) in the destination region.
     shared_ptr<string> KMSKeyId_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the source snapshot. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The region where the source snapshot resides. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // This parameter is not publicly available.
+    // This parameter is not available.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The retention period of the new snapshot, in days. The snapshot undergoes automatic release when the retention period expires. Valid values: 1 to 65536.
+    // The retention period of the new snapshot. Unit: days. The snapshot is subject to automatic release when the retention period expires. Valid values: 1 to 65536.
     // 
-    // Default value: null, which indicates that the snapshot is not subject to automatic release.
+    // Default value: empty, which indicates that the snapshot is not subject to automatic release.
     shared_ptr<int32_t> retentionDays_ {};
     // The ID of the source snapshot.
     // 

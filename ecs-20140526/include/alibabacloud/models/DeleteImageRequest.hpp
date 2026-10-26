@@ -104,10 +104,9 @@ namespace Models
 
   protected:
     shared_ptr<bool> dryRun_ {};
-    // Specifies whether to force delete the custom image. Valid values: 
-    //          
-    // - true: Force deletes the custom image, regardless of whether the image is being used by other instances.
-    // - false: Deletes the custom image only after checking that the image is not being used by other instances.
+    // Specifies whether to force delete the custom image. Valid values:
+    // - true: Forces the deletion of the custom image, regardless of whether the image is in use by other instances.
+    // - false: Deletes the custom image normally and checks whether the image is in use by other instances before deletion.
     // 
     // Default value: false.
     shared_ptr<bool> force_ {};
@@ -117,7 +116,7 @@ namespace Models
     shared_ptr<string> imageId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the custom image. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The region ID of the custom image. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

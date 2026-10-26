@@ -94,22 +94,22 @@ namespace Models
 
 
   protected:
-    // The instance ID of the instance to which you want to allocate a public IP address.
+    // The ID of the instance to which you want to assign an IP address.
     // 
-    // >The public bandwidth of the instance must be greater than 0.
+    // > The bandwidth of the instance must be greater than 0.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The public IP address of the instance. If this parameter is left empty, the system randomly assigns an IP address.
+    // The public IP address of the instance. If this parameter is empty, the system randomly assigns an IP address by default.
     // 
-    // >Only users in the whitelist can specify this parameter. Regular users cannot specify an IP address.
+    // > Only whitelisted users can specify this parameter. Regular users cannot specify an IP address.
     shared_ptr<string> ipAddress_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The VLAN ID of the instance.
-    // > This parameter will be deprecated. For better compatibility, use other parameters.
+    // > This parameter is deprecated. To improve compatibility, use other parameters instead.
     shared_ptr<string> vlanId_ {};
   };
 

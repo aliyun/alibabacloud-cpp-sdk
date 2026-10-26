@@ -80,11 +80,11 @@ namespace Models
 
 
     protected:
-      // The tag key. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. The tag key cannot contain `http://` or `https://`.
+      // The tag key. It cannot be empty or an empty string. It can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
       // 
       // This parameter is required.
       shared_ptr<string> key_ {};
-      // The tag value. The tag value cannot be null but can be an empty string. The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
+      // The tag value. It cannot be null but can be an empty string. It can be up to 128 characters in length and cannot contain http:// or https://.
       // 
       // This parameter is required.
       shared_ptr<string> value_ {};
@@ -149,16 +149,16 @@ namespace Models
   protected:
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the resources. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The region ID of the resource. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The list of resource IDs. Array length: 1 to 50.
+    // The array of resource IDs. Array length: 1 to 50.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
-    // The type of the resource. Valid values:
+    // The resource type. Valid values:
     // 
     // - instance: ECS instance.
     // - disk: cloud disk.
@@ -167,7 +167,7 @@ namespace Models
     // - securitygroup: security group.
     // - volume: storage volume.
     // - eni: Elastic Network Interface (ENI).
-    // - ddh: dedicated host.
+    // - ddh: ECS dedicated host.
     // - ddhcluster: dedicated host cluster.
     // - keypair: SSH key pair.
     // - launchtemplate: launch template.
@@ -176,13 +176,13 @@ namespace Models
     // - elasticityassurance: elasticity assurance.
     // - capacityreservation: capacity reservation.
     // - command: Cloud Assistant command.
-    // - invocation: Cloud Assistant command execution or file sending result.
+    // - invocation: Cloud Assistant command execution or file delivery result.
     // - activation: Cloud Assistant managed instance activation code.
     // - managedinstance: Cloud Assistant managed instance.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tags. Array length: 1 to 20. If the array contains multiple tag objects, the tag key `Key` must be unique.
+    // The array of tags. Array length: 1 to 20. If the array contains multiple tag objects, the tag key Key must be unique.
     // 
     // This parameter is required.
     shared_ptr<vector<TagResourcesRequest::Tag>> tag_ {};

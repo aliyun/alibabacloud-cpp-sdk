@@ -120,7 +120,7 @@ namespace Models
     protected:
       // The description of the diagnostic metric.
       shared_ptr<string> description_ {};
-      // Indicates whether a script needs to be executed in the guest OS.
+      // Specifies whether a script needs to be executed in the guest OS.
       shared_ptr<bool> guestMetric_ {};
       // The category of the diagnostic metric.
       shared_ptr<string> metricCategory_ {};
@@ -128,13 +128,13 @@ namespace Models
       shared_ptr<string> metricId_ {};
       // The name of the diagnostic metric.
       shared_ptr<string> metricName_ {};
-      // The resource type supported by the diagnostic metric.
+      // The resource supported by the diagnostic metric.
       shared_ptr<string> resourceType_ {};
-      // The supported operating system. Valid values:
+      // The supported operating systems. Valid values:
       // 
       // - Windows: Windows operating systems are supported.
       // - Linux: Linux operating systems are supported.
-      // - All: both Windows and Linux operating systems are supported.
+      // - All: Both Windows and Linux operating systems are supported.
       shared_ptr<string> supportedOperatingSystem_ {};
     };
 

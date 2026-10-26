@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable or disable the O&M window.
-    // 
+    // Specifies whether to enable the window. Valid values:
     // - **true**: Enabled.
     // - **false**: Disabled.
     // 
     // This parameter is required.
     shared_ptr<bool> enable_ {};
+    // The minimum interval between two scheduled O&M events for the same instance. Valid values: 1 to 48. Unit: hours.
     shared_ptr<int32_t> minMaintenanceInterval_ {};
-    // The name of the O&M window. You can specify a custom name. The name can be up to 200 characters in length.
+    // The name of the O&M window. You can customize the name. The name can be up to 200 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> planWindowName_ {};
-    // The region ID. You can call DescribeRegions to query the most recent region list.
+    // The region ID. This parameter is required for Alibaba Cloud SDK routing. However, specifying any region ID for this operation yields the same result. The O&M window applies to all ECS instances across the network that meet the resource filtering conditions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -114,11 +114,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> supportMaintenanceAction_ {};
-    // The resources on which the O&M window takes effect.
+    // The resources to which the O&M window applies.
     // 
     // This parameter is required.
     shared_ptr<string> targetResourceShrink_ {};
-    // The recurring cycle of the O&M window.
+    // The recurrence cycle of the window.
     // 
     // This parameter is required.
     shared_ptr<string> timePeriodShrink_ {};
