@@ -116,15 +116,15 @@ namespace Models
 
 
     protected:
-      // The release notes for the version.
+      // The version release notes.
       shared_ptr<string> releaseNote_ {};
       // The release type. Valid values:
       // * **LTS**: Long-term support version.
       // * **BETA**: Preview version.
       shared_ptr<string> releaseType_ {};
-      // The revision version code of the PolarProxy engine, which is used to specify the target version for the upgrade.
+      // The revision version code of the database proxy engine, which is used to specify the target version for the upgrade.
       shared_ptr<string> revisionVersionCode_ {};
-      // The revision version number of the PolarProxy engine.
+      // The revision version number of the database proxy engine.
       shared_ptr<string> revisionVersionName_ {};
     };
 
@@ -184,13 +184,13 @@ namespace Models
 
 
     protected:
-      // The release notes for the version.
+      // The version release notes.
       shared_ptr<string> releaseNote_ {};
       // The release status of the database version. Valid values:
       // * **Stable**: The current version is stable.
-      // * **Old**: The current version is outdated. Upgrading to this version is not recommended.
-      // * **HighRisk**: The current version has critical bugs. Upgrading to this version is not recommended.
-      // * **Beta**: The current version is a beta version.
+      // * **Old**: The current version is outdated. Do not upgrade to this version.
+      // * **HighRisk**: The current version has critical defects. Do not upgrade to this version.
+      // * **Beta**: The current version is a beta release.
       shared_ptr<string> releaseType_ {};
       // The revision version code of the database engine, which is used to specify the target version for the upgrade.
       shared_ptr<string> revisionVersionCode_ {};
@@ -321,22 +321,22 @@ namespace Models
   protected:
     // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
-    // The latest stable version of PolarDB for PostgreSQL.
+    // The latest stable version of the PolarDB for PostgreSQL database.
     shared_ptr<string> DBLatestStableVersion_ {};
     // The latest version of the database kernel engine.
     shared_ptr<string> DBLatestVersion_ {};
     // The minor version number of the database engine.
-    // * If `DBVersion` is **8.0**, valid values:
+    // * When `DBVersion` is **8.0**, valid values:
     //     * **8.0.2**
     //     * **8.0.1**
-    // * If `DBVersion` is **5.7**, the value is **5.7.28**.
+    // * When `DBVersion` is **5.7**, the value is **5.7.28**.
     // 
-    // * If `DBVersion` is **5.6**, the value is **5.6.16**.
+    // * When `DBVersion` is **5.6**, the value is **5.6.16**.
     shared_ptr<string> DBMinorVersion_ {};
     // The Milvus version number of the database engine.
-    // > For PolarDB for MySQL 5.6 clusters, only the `Milvus version` information with a release date later than August 31, 2020 is returned. Otherwise, this parameter is empty. For more information about the minor engine versions of PolarDB for MySQL clusters, see [Release notes](https://help.aliyun.com/document_detail/423884.html).
+    // > For PolarDB for MySQL 5.6 clusters, only the `Milvus version` information with a release date after August 31, 2020 is returned. Otherwise, this parameter is empty. For more information about the kernel versions of PolarDB for MySQL clusters, see [Kernel release notes](https://help.aliyun.com/document_detail/423884.html).
     shared_ptr<string> DBRevisionVersion_ {};
-    // The list of available upgrade version information.
+    // The list of upgradable versions.
     shared_ptr<vector<DescribeDBClusterVersionResponseBody::DBRevisionVersionList>> DBRevisionVersionList_ {};
     // The major version number of the database engine. Valid values:
     // * **8.0**
@@ -346,38 +346,38 @@ namespace Models
     // The status of the current database minor version. Valid values:
     // * **Stable**: The current version is stable.
     // * **Old**: The current version is outdated. Upgrade to the latest version.
-    // * **HighRisk**: The current version has critical bugs. Upgrade to the latest version immediately.
-    // * **Beta**: The current version is a beta version.
+    // * **HighRisk**: The current version has critical defects. Upgrade to the latest version immediately.
+    // * **Beta**: The current version is a beta release.
     // >For more information about how to upgrade the database minor version, see [Version upgrade](https://help.aliyun.com/document_detail/158572.html).
     shared_ptr<string> DBVersionStatus_ {};
-    // Indicates whether the current version is the latest stable version of PolarDB for PostgreSQL.
+    // Indicates whether the version is the latest stable version of PolarDB for PostgreSQL.
     shared_ptr<string> isLatestStableVersion_ {};
-    // Indicates whether the current database kernel DPI engine version is the latest database engine version. Valid values:
+    // Indicates whether the current database kernel engine version is the latest version. Valid values:
     // 
-    // -  **true**
-    // -  **false**
+    // - **true**
+    // - **false**
     shared_ptr<string> isLatestVersion_ {};
-    // Indicates whether the current PolarProxy version is the latest version. Valid values:
+    // Indicates whether the current database proxy version is the latest version. Valid values:
     // * **true**
     // * **false**
     shared_ptr<string> isProxyLatestVersion_ {};
-    // The latest version of PolarProxy.
+    // The latest version of the database proxy.
     shared_ptr<string> proxyLatestVersion_ {};
-    // The version of PolarProxy.
+    // The database proxy version.
     shared_ptr<string> proxyRevisionVersion_ {};
-    // The release status of the PolarProxy version. Valid values:
+    // The release status of the database proxy version. Valid values:
     // 
     // - **Stable**: The current version is stable.
-    // - **Old**: The current version is outdated. Upgrading to this version is not recommended.
-    // - **HighRisk**: The current version has critical bugs. Upgrading to this version is not recommended.
-    // - **Beta**: The current version is a beta version.
+    // - **Old**: The current version is outdated. Do not upgrade to this version.
+    // - **HighRisk**: The current version has critical defects. Do not upgrade to this version.
+    // - **Beta**: The current version is a beta release.
     shared_ptr<vector<DescribeDBClusterVersionResponseBody::ProxyRevisionVersionList>> proxyRevisionVersionList_ {};
-    // The version status of PolarProxy. Valid values:
+    // The version status of the database proxy. Valid values:
     // * **Stable**: The current version is stable.
     // * **Old**: The current version is outdated. Upgrade to the latest version.
-    // * **HighRisk**: The current version has critical bugs. Upgrade to the latest version immediately.
-    // * **Beta**: The current version is a beta version.
-    // >For more information about how to upgrade the PolarProxy version, see [Version upgrade](https://help.aliyun.com/document_detail/158572.html).
+    // * **HighRisk**: The current version has critical defects. Upgrade to the latest version immediately.
+    // * **Beta**: The current version is a beta release.
+    // >For more information about how to upgrade the database proxy version, see [Version upgrade](https://help.aliyun.com/document_detail/158572.html).
     shared_ptr<string> proxyVersionStatus_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

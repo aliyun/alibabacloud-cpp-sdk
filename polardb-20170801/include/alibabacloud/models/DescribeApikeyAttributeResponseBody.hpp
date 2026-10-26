@@ -192,15 +192,15 @@ namespace Models
 
 
       protected:
-        // The dimension reference ID, which is the ConsumerId.
+        // The dimension reference ID, which is the consumer ID.
         shared_ptr<string> dimensionRefId_ {};
-        // The statistics dimension. The value is typically Consumer.
+        // The statistical dimension. The value is typically Consumer.
         shared_ptr<string> dimensionType_ {};
         // The gateway instance ID.
         shared_ptr<string> gwClusterId_ {};
-        // The number of cache tokens for the current month.
+        // The number of cached tokens for the current month.
         shared_ptr<string> monthlyCacheToken_ {};
-        // The cost points consumed for the current month.
+        // The number of consumed points for the current month.
         shared_ptr<string> monthlyCostPoints_ {};
         // The number of input tokens for the current month.
         shared_ptr<string> monthlyInputToken_ {};
@@ -208,15 +208,15 @@ namespace Models
         shared_ptr<string> monthlyOutputToken_ {};
         // The number of tokens for the current month.
         shared_ptr<string> monthlyToken_ {};
-        // The cumulative number of cache tokens.
+        // The total number of cached tokens.
         shared_ptr<string> totalCacheToken_ {};
-        // The cumulative cost points consumed.
+        // The total number of consumed points.
         shared_ptr<string> totalCostPoints_ {};
-        // The cumulative number of input tokens.
+        // The total number of input tokens.
         shared_ptr<string> totalInputToken_ {};
-        // The cumulative number of output tokens.
+        // The total number of output tokens.
         shared_ptr<string> totalOutputToken_ {};
-        // The cumulative number of tokens.
+        // The total number of tokens.
         shared_ptr<string> totalToken_ {};
       };
 
@@ -330,11 +330,11 @@ namespace Models
         shared_ptr<string> consumerId_ {};
         // The consumer tag.
         shared_ptr<string> consumerTag_ {};
-        // The creation time.
+        // The creation time. The format is YYYY-MM-DDTHH:mm:ssZ (UTC time).
         shared_ptr<string> createTime_ {};
         // The gateway instance ID.
         shared_ptr<string> gwClusterId_ {};
-        // The last modification time.
+        // The last modification time. The format is YYYY-MM-DDTHH:mm:ssZ (UTC time).
         shared_ptr<string> modifyTime_ {};
         // The consumer name.
         shared_ptr<string> name_ {};
@@ -365,7 +365,7 @@ namespace Models
     protected:
       // The consumer information.
       shared_ptr<Items::Consumer> consumer_ {};
-      // The usage statistics for the consumer.
+      // The usage statistics records for the consumer.
       shared_ptr<vector<Items::UsageStatistics>> usageStatistics_ {};
     };
 

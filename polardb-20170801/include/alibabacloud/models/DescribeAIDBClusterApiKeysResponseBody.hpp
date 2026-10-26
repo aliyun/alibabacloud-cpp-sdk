@@ -105,7 +105,7 @@ namespace Models
       shared_ptr<string> apiKey_ {};
       // The creation time.
       // 
-      // The time is displayed in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+      // The time is displayed in ISO 8601 format in UTC (YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> createTime_ {};
       // The description of the API key.
       shared_ptr<string> description_ {};
@@ -148,9 +148,11 @@ namespace Models
 
 
   protected:
-    // API Keys。
+    // The API keys.
     shared_ptr<vector<DescribeAIDBClusterApiKeysResponseBody::ApiKeys>> apiKeys_ {};
+    // The current page number.
     shared_ptr<string> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<string> pageSize_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

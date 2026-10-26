@@ -143,7 +143,6 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> pathPrefix_ {};
     // The protocol. Valid values:
-    // 
     // * **openai**
     // * **anthropic**
     // * **bailian**
@@ -151,13 +150,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> protocol_ {};
-    // The number of input points.
+    // The number of input tokens.
     shared_ptr<string> recordInput_ {};
-    // The number of output points.
+    // The number of output tokens.
     shared_ptr<string> recordOutput_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The list of routing rules (JSON array string).
+    // The list of routing rules. The value is a JSON array string.
     // 
     // This parameter is required.
     shared_ptr<string> routeRules_ {};

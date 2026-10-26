@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
       DARABONBA_PTR_TO_JSON(DefaultBranchId, defaultBranchId_);
       DARABONBA_PTR_TO_JSON(DefaultBranchName, defaultBranchName_);
+      DARABONBA_PTR_TO_JSON(HistoryRetentionSeconds, historyRetentionSeconds_);
       DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(ProjectName, projectName_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
       DARABONBA_PTR_FROM_JSON(DefaultBranchId, defaultBranchId_);
       DARABONBA_PTR_FROM_JSON(DefaultBranchName, defaultBranchName_);
+      DARABONBA_PTR_FROM_JSON(HistoryRetentionSeconds, historyRetentionSeconds_);
       DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(ProjectName, projectName_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
@@ -44,8 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->branchComputeClusterId_ == nullptr
-        && this->createTime_ == nullptr && this->defaultBranchId_ == nullptr && this->defaultBranchName_ == nullptr && this->projectId_ == nullptr && this->projectName_ == nullptr
-        && this->requestId_ == nullptr && this->tenantId_ == nullptr; };
+        && this->createTime_ == nullptr && this->defaultBranchId_ == nullptr && this->defaultBranchName_ == nullptr && this->historyRetentionSeconds_ == nullptr && this->projectId_ == nullptr
+        && this->projectName_ == nullptr && this->requestId_ == nullptr && this->tenantId_ == nullptr; };
     // branchComputeClusterId Field Functions 
     bool hasBranchComputeClusterId() const { return this->branchComputeClusterId_ != nullptr;};
     void deleteBranchComputeClusterId() { this->branchComputeClusterId_ = nullptr;};
@@ -72,6 +74,13 @@ namespace Models
     void deleteDefaultBranchName() { this->defaultBranchName_ = nullptr;};
     inline string getDefaultBranchName() const { DARABONBA_PTR_GET_DEFAULT(defaultBranchName_, "") };
     inline CreateAgenticDBProjectResponseBody& setDefaultBranchName(string defaultBranchName) { DARABONBA_PTR_SET_VALUE(defaultBranchName_, defaultBranchName) };
+
+
+    // historyRetentionSeconds Field Functions 
+    bool hasHistoryRetentionSeconds() const { return this->historyRetentionSeconds_ != nullptr;};
+    void deleteHistoryRetentionSeconds() { this->historyRetentionSeconds_ = nullptr;};
+    inline int64_t getHistoryRetentionSeconds() const { DARABONBA_PTR_GET_DEFAULT(historyRetentionSeconds_, 0L) };
+    inline CreateAgenticDBProjectResponseBody& setHistoryRetentionSeconds(int64_t historyRetentionSeconds) { DARABONBA_PTR_SET_VALUE(historyRetentionSeconds_, historyRetentionSeconds) };
 
 
     // projectId Field Functions 
@@ -103,23 +112,23 @@ namespace Models
 
 
   protected:
-    // The ID of the compute instance associated with the default branch.
+    // The ID of the compute instance bound to the default branch.
     shared_ptr<string> branchComputeClusterId_ {};
-    // The time when the project was created.
-    // 
-    // The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+    // The time when the project was created. The time is displayed in ISO 8601 format in UTC (YYYY-MM-DDTHH:mm:ssZ).
     shared_ptr<string> createTime_ {};
-    // The default branch ID.
+    // The ID of the default branch.
     shared_ptr<string> defaultBranchId_ {};
-    // The default branch name.
+    // The name of the default branch.
     shared_ptr<string> defaultBranchName_ {};
+    // The retention period for recent records of the project. This parameter may be empty for older projects. To query the current effective value, call DescribeAgenticDBProjectHistoryRetention.
+    shared_ptr<int64_t> historyRetentionSeconds_ {};
     // The ID of the new project.
     shared_ptr<string> projectId_ {};
-    // The project name.
+    // The name of the project.
     shared_ptr<string> projectName_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The tenant ID.
+    // The ID of the tenant.
     shared_ptr<string> tenantId_ {};
   };
 

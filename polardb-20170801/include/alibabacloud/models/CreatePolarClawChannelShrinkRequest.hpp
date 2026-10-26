@@ -90,19 +90,19 @@ namespace Models
     shared_ptr<string> applicationId_ {};
     // The channel configuration.
     shared_ptr<string> channelConfigShrink_ {};
-    // The channel\\"s unique identifier.
+    // The unique identifier of the channel.
     // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
-    // The name and version of the npm package for the channel plugin.
+    // The npm package name of the channel plugin, including the version number.
     // 
     // This parameter is required.
     shared_ptr<string> npmPackage_ {};
-    // The channel plugin\\"s name.
+    // The channel plugin name.
     // 
     // This parameter is required.
     shared_ptr<string> pluginId_ {};
-    // Indicates whether to restart the gateway after the channel is created. Default: `true`.
+    // Specifies whether to restart the gateway after creation. Default value: true.
     shared_ptr<bool> restart_ {};
   };
 

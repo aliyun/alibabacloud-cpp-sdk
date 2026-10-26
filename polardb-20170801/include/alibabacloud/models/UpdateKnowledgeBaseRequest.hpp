@@ -77,7 +77,7 @@ namespace Models
   protected:
     // The description of the knowledge base.
     shared_ptr<string> description_ {};
-    // The unique ID of the knowledge base.
+    // The ID of the knowledge base to update. You can obtain the ID from the response of the CreateKnowledgeBase operation.
     // 
     // This parameter is required.
     shared_ptr<string> knowledgeBaseId_ {};
@@ -88,12 +88,11 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The search mode. Valid values:
-    // 
-    // * balanced (default): balanced mode.
-    // * precise: precise mode.
-    // * semantic: semantic mode.
+    // * balanced: Balanced mode. This is the default value.
+    // * precise: Precise mode.
+    // * semantic: Semantic mode.
     // * knn: KNN mode.
-    // * rrf: reciprocal rank fusion (RRF) mode.
+    // * rrf: RRF fusion.
     shared_ptr<string> searchMode_ {};
   };
 

@@ -226,17 +226,17 @@ namespace Models
     protected:
       // The task completion time.
       // 
-      // The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
+      // The time follows the ISO 8601 standard and is displayed in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> completedTime_ {};
       // The creation time.
       // 
-      // The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
+      // The time follows the ISO 8601 standard and is displayed in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> creationTime_ {};
       // The node description.
       shared_ptr<string> DBNodeDescription_ {};
-      // The model operator instance ID.
+      // The instance ID of the model operator.
       shared_ptr<string> DBNodeId_ {};
-      // The instance status. This parameter may not be returned.
+      // The instance status. This field may not be returned.
       shared_ptr<string> DBNodeStatus_ {};
       // The instance status.
       shared_ptr<string> DBNodeStatusDesc_ {};
@@ -244,7 +244,7 @@ namespace Models
       shared_ptr<string> dataZoneId_ {};
       // The cluster engine.
       shared_ptr<string> engine_ {};
-      // The DPI engine version.
+      // The database engine version.
       shared_ptr<string> engineVersion_ {};
       // The model name.
       shared_ptr<string> modelName_ {};
@@ -256,13 +256,13 @@ namespace Models
       shared_ptr<string> runningTimes_ {};
       // The task start time.
       // 
-      // The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
+      // The time follows the ISO 8601 standard and is displayed in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> startTime_ {};
       // The mode.
       shared_ptr<string> trainMode_ {};
       // The type.
       shared_ptr<string> trainType_ {};
-      // The fine-tuning framework.
+      // The tuning framework.
       shared_ptr<string> tuneArch_ {};
     };
 
@@ -344,23 +344,23 @@ namespace Models
   protected:
     // The cluster engine.
     shared_ptr<string> engine_ {};
-    // The DPI engine version.
+    // The database engine version.
     shared_ptr<string> engineVersion_ {};
     // The cluster endpoint details.
     shared_ptr<vector<DescribeAIDBClusterTasksResponseBody::Items>> items_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The total number of records on the page.
+    // The total number of entries on the current page.
     shared_ptr<string> pageRecordCount_ {};
-    // The number of records per page.
+    // The number of entries per page.
     shared_ptr<string> pageSize_ {};
-    // The ID of the PolarDB cluster.
+    // The ID of the associated PolarDB cluster.
     shared_ptr<string> relativeDBClusterId_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
     // The task type.
     shared_ptr<string> taskType_ {};
-    // The total number of records.
+    // The total number of entries.
     shared_ptr<string> totalRecordCount_ {};
   };
 

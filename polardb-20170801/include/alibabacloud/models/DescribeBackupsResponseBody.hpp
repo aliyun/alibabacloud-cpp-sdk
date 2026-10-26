@@ -307,16 +307,16 @@ namespace Models
     shared_ptr<DescribeBackupsResponseBody::Items> items_ {};
     // The page number.
     shared_ptr<string> pageNumber_ {};
-    // The number of records on the current page.
+    // The number of entries on the current page.
     shared_ptr<string> pageRecordCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The total size of level-2 backups in the specified region. Unit: bytes.
     // > - Only PSL4 and PSL5 storage types are supported.
-    // > - Only clusters with the level-2 backup feature enabled are supported.
-    // > - If this parameter is not returned, the level-2 backup size is 0.
+    // > - Only clusters that have the level-2 backup feature enabled are supported.
+    // > - If this parameter is not returned, the size of level-2 backups is 0.
     shared_ptr<string> totalLevel2BackupSize_ {};
-    // The total number of records.
+    // The total number of entries.
     shared_ptr<string> totalRecordCount_ {};
   };
 

@@ -79,7 +79,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The description of the API key usage.
+    // The description of the purpose.
     shared_ptr<string> description_ {};
     // The expiration time in ISO 8601 format. If this parameter is not specified, the API key never expires.
     shared_ptr<string> expireTime_ {};
@@ -87,7 +87,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The tenant name. The name must be unique within the cluster and must be 2 to 64 characters in length.
+    // The name of the tenant. The name must be unique within the same cluster and be 2 to 64 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> tenantName_ {};

@@ -142,7 +142,7 @@ namespace Models
         shared_ptr<int32_t> documentIndex_ {};
         // The unique identifier of the image resource.
         shared_ptr<string> id_ {};
-        // The element reference of the image in the Docling source document structure.
+        // The element reference of the image in the source document structure.
         shared_ptr<string> itemRef_ {};
         // The MIME type of the image resource.
         shared_ptr<string> mimeType_ {};
@@ -222,7 +222,7 @@ namespace Models
     protected:
       // The list of figure or table captions associated with the shard.
       shared_ptr<vector<string>> captions_ {};
-      // The list of structured element references in the Docling source document associated with the shard, which can be used to precisely locate the original elements.
+      // The list of structured element references of the source document associated with the shard, which can be used to precisely locate the original elements.
       shared_ptr<vector<string>> docItems_ {};
       // The section heading chain to which the shard belongs.
       shared_ptr<vector<string>> headings_ {};

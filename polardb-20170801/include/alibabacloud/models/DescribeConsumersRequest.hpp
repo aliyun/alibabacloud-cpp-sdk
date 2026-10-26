@@ -103,11 +103,13 @@ namespace Models
 
 
   protected:
-    // The user group ID.
+    // The ID of the consumer group.
     shared_ptr<string> consumerGroupId_ {};
-    // The user ID.
+    // The ID of the consumer.
     shared_ptr<string> consumerId_ {};
+    // The name used to filter consumers.
     shared_ptr<string> consumerName_ {};
+    // The list of names used to filter consumers.
     shared_ptr<string> consumerNameList_ {};
     // The gateway instance ID.
     // 

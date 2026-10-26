@@ -96,17 +96,17 @@ namespace Models
   protected:
     // The application ID.
     shared_ptr<string> applicationId_ {};
-    // The status code.
+    // The returned status code.
     shared_ptr<int32_t> code_ {};
-    // The unique ID for this job execution.
+    // The ID of the executed task.
     shared_ptr<string> jobId_ {};
-    // The response message.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // Indicates whether the operation was successful.
+    // Indicates whether the operation is successful.
     shared_ptr<bool> ok_ {};
-    // Indicates whether the job actually ran.
+    // Indicates whether the task was actually executed.
     shared_ptr<bool> ran_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

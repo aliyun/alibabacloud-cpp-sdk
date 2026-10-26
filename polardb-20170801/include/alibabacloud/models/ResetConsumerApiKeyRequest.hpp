@@ -61,7 +61,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> consumerId_ {};
-    // The ID of the gateway instance.
+    // The gateway instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> gwClusterId_ {};

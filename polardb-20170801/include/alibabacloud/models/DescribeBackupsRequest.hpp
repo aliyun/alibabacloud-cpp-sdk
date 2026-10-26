@@ -152,28 +152,28 @@ namespace Models
     // The backup ID.
     shared_ptr<string> backupId_ {};
     // The backup mode. Valid values: 
-    // * **Automated**: automatic backup.
-    // * **Manual**: manual backup.
+    // * **Automated**: automatic backup
+    // * **Manual**: manual backup
     shared_ptr<string> backupMode_ {};
     // The destination region for cross-region backups.
     // 
-    // > Currently, only PolarDB for MySQL supports this parameter.
+    // > This parameter is supported only by PolarDB for MySQL.
     shared_ptr<string> backupRegion_ {};
     // The backup status. Valid values:
-    // * **Success**: The backup is complete.
+    // * **Success**: The backup is completed.
     // * **Failed**: The backup failed.
     shared_ptr<string> backupStatus_ {};
     // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The end of the time range to query. The end time must be later than the start time. Specify the time in the `YYYY-MM-DDThh:mmZ` format (UTC).
+    // The end time of the query. The end time must be later than the start time. The time is in the `YYYY-MM-DDThh:mmZ` format (UTC).
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Set the value to an integer that is greater than 0 and does not exceed the maximum value of the Integer data type. Default value: **1**.
+    // The page number. The value must be a positive integer that does not exceed the maximum value of the Integer type. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Valid values: 
     // * **30**
@@ -184,7 +184,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The beginning of the time range to query. Specify the time in the `YYYY-MM-DDThh:mmZ` format (UTC).
+    // The start time of the query. The time is in the `YYYY-MM-DDThh:mmZ` format (UTC).
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

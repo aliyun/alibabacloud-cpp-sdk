@@ -63,13 +63,13 @@ namespace Models
     shared_ptr<string> pfsInstanceId_ {};
     // The region ID.
     // 
-    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query all available regions for your account, including region IDs.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query all available regions for the current account, including region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The Access Key of the S3 account.
     // 
-    // > The account name supports only uppercase letters, lowercase letters, and digits, with a maximum length of 32 characters.
+    // > The account name can contain only letters and digits and can be up to 32 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> userAccAk_ {};

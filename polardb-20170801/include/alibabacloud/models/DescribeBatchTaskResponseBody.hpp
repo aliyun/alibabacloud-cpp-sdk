@@ -126,13 +126,13 @@ namespace Models
     protected:
       // The error message.
       shared_ptr<string> errorMsg_ {};
-      // The instance ID.
+      // The ID of the application.
       shared_ptr<string> instanceId_ {};
       // The status of the subtask.
       shared_ptr<string> status_ {};
-      // The time when the subtask started.
+      // The start time of the task.
       shared_ptr<string> taskBegin_ {};
-      // The time when the subtask ended.
+      // The end time of the task.
       shared_ptr<string> taskEnd_ {};
       // The ID of the subtask.
       shared_ptr<string> taskId_ {};
@@ -221,26 +221,27 @@ namespace Models
 
 
   protected:
+    // The target application type of the batch task.
     shared_ptr<string> applicationType_ {};
-    // The ID of the batch task.
+    // The batch ID of the scheduled task execution.
     shared_ptr<string> batchId_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The task status.
+    // The status of the task.
     shared_ptr<string> status_ {};
-    // A list of subtasks.
+    // The list of subtasks.
     shared_ptr<vector<DescribeBatchTaskResponseBody::SubTasks>> subTasks_ {};
-    // The number of successful subtasks.
+    // The total number of domain names or DNS records that are successfully processed.
     shared_ptr<int32_t> successCount_ {};
-    // The time when the task started.
+    // The start time of the task.
     shared_ptr<string> taskBegin_ {};
-    // The time when the task ended.
+    // The end time of the task.
     shared_ptr<string> taskEnd_ {};
-    // The name of the task.
+    // The description of the model service.
     shared_ptr<string> taskName_ {};
     // The type of the task.
     shared_ptr<string> taskType_ {};
-    // The total number of subtasks.
+    // The number of entries in the list.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the gateway instance.
+    // The ID of the gateway instance. Example: pg-xxxxxxx.
     // 
     // This parameter is required.
     shared_ptr<string> gwClusterId_ {};
-    // The ID of the region.
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

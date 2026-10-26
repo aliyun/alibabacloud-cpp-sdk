@@ -97,8 +97,7 @@ namespace Models
     // The task ID.
     shared_ptr<string> DBClusterId_ {};
     // The query mode. Valid values:
-    // 
-    // * **RelatedAITask**: queries task details.
+    // * **RelatedAITask**: queries task details
     shared_ptr<string> describeType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

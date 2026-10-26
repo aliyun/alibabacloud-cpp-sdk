@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // The agent ID.
+    // Agent ID
     shared_ptr<string> agentId_ {};
     // The application ID.
     shared_ptr<string> applicationId_ {};
-    // The status code of the response.
+    // The response status code.
     shared_ptr<int32_t> code_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The number of removed bindings.
+    // The actual number of bindings removed.
     shared_ptr<int32_t> removedCount_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The total number of bindings after the operation.
+    // The total number of global bindings after the operation.
     shared_ptr<int32_t> totalBindings_ {};
   };
 

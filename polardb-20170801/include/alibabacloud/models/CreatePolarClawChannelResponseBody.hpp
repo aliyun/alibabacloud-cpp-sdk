@@ -123,7 +123,7 @@ namespace Models
   protected:
     // **The application ID.**
     shared_ptr<string> applicationId_ {};
-    // The ID of the channel that was created.
+    // The ID of the created channel.
     shared_ptr<string> channelId_ {};
     // The response status code.
     shared_ptr<int32_t> code_ {};
@@ -131,15 +131,15 @@ namespace Models
     shared_ptr<string> message_ {};
     // The name of the installed npm package.
     shared_ptr<string> npmPackage_ {};
-    // Indicates whether the operation was successful.
+    // Indicates whether the operation is successful.
     shared_ptr<bool> ok_ {};
     // **The plugin ID.**
     shared_ptr<string> pluginId_ {};
-    // Indicates whether a new plugin was installed.
+    // Indicates whether a new plugin is installed.
     shared_ptr<bool> pluginInstalled_ {};
     // **The request ID.**
     shared_ptr<string> requestId_ {};
-    // Indicates whether the gateway was restarted.
+    // Indicates whether the gateway is restarted.
     shared_ptr<bool> restarted_ {};
   };
 

@@ -75,17 +75,17 @@ namespace Models
 
 
   protected:
-    // The Skill API key. An empty string indicates that the key is deleted.
+    // The skill API key. An empty string indicates that the key is deleted.
     shared_ptr<string> apiKey_ {};
     // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // Specifies whether to enable the Skill.
+    // Specifies whether the skill is enabled.
     shared_ptr<bool> enabled_ {};
-    // The environment variables as a key-value map. A null value indicates that the variable is deleted.
+    // The environment variables as a key-value map. An empty value indicates that the variable is deleted.
     shared_ptr<string> envShrink_ {};
-    // The Skill identifier key.
+    // The skill identifier key.
     // 
     // This parameter is required.
     shared_ptr<string> skillKey_ {};

@@ -162,11 +162,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // The subcomponent instance ID.
+    // The instance ID of the subcomponent.
     shared_ptr<string> componentName_ {};
     // The container name.
     shared_ptr<string> containerName_ {};
-    // The end of the time range to query. Specify the time in the `yyyy-MM-ddTHH:mmZ` format (UTC).
+    // The end time of the query. The time must be in the `yyyy-MM-ddTHH:mmZ` format (UTC).
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
@@ -178,18 +178,18 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: **30**. Valid values: 30 to 100.
+    // The number of entries per page. Valid values: 30 to 100. Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
-    // The beginning of the time range to query. Specify the time in the `YYYY-MM-DDThh:mmZ` format (UTC).
+    // The start time of the query. The time must be in the `YYYY-MM-DDThh:mmZ` format (UTC).
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    // The log type. This parameter is used for polarclaw instances. Currently, only gateway is supported.
+    // The log type. This parameter is used for polarclaw instances. Valid value: gateway.
     shared_ptr<string> type_ {};
   };
 

@@ -126,19 +126,19 @@ namespace Models
 
 
     protected:
-      // The creation time of the device pairing, in Unix milliseconds.
+      // The creation time of the device pairing in Unix milliseconds.
       shared_ptr<int64_t> createdAtMs_ {};
       // The device family.
       shared_ptr<string> deviceFamily_ {};
-      // The unique ID of the device.
+      // The unique identifier of the device.
       shared_ptr<string> deviceId_ {};
       // The display name of the device.
       shared_ptr<string> displayName_ {};
-      // The operating system of the device.
+      // The operating system platform.
       shared_ptr<string> platform_ {};
-      // The role of the device.
+      // The device role.
       shared_ptr<string> role_ {};
-      // A list of permission scopes.
+      // The list of permission scopes.
       shared_ptr<vector<string>> scopes_ {};
     };
 
@@ -199,7 +199,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The pairing request ID.
     shared_ptr<string> pairRequestId_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

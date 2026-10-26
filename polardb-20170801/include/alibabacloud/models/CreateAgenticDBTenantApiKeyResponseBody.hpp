@@ -94,17 +94,13 @@ namespace Models
 
 
   protected:
-    // The API key in plaintext. This value is returned only in this response.
+    // The plaintext of the API key. This value is returned only in the current response.
     shared_ptr<string> apiKey_ {};
     // The resource ID of the API key.
     shared_ptr<string> apiKeyId_ {};
-    // The time when the API key was created.
-    // 
-    // The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+    // The creation time. The time is in ISO 8601 format and follows the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
     shared_ptr<string> createTime_ {};
-    // The expiration time of the API key. This value is empty if the API key never expires.
-    // 
-    // The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+    // The expiration time. This parameter is empty if the API key never expires. The time is in ISO 8601 format and follows the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
     shared_ptr<string> expireTime_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

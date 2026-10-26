@@ -290,7 +290,7 @@ namespace Models
     shared_ptr<string> DBType_ {};
     // The database version.
     shared_ptr<string> DBVersion_ {};
-    // The query mode for the list. A value of Simple indicates the brief mode, in which only the basic metadata of the clusters is returned.
+    // The query mode for the list. A value of Simple indicates the simplified mode, in which only the basic metadata of the clusters is returned.
     // > If this parameter is not specified, the detailed mode is used by default, and the detailed information of the clusters is returned.
     shared_ptr<string> describeType_ {};
     // Specifies whether the cluster has expired. Valid values:
@@ -309,8 +309,8 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The billing method. Valid values: 
     // 
-    // - **Postpaid**: pay-as-you-go
-    // - **Prepaid**: subscription
+    // - **Postpaid**: pay-as-you-go.
+    // - **Prepaid**: subscription.
     shared_ptr<string> payType_ {};
     // Filters the clusters created in the last N days. Valid values: 0 to 15.
     shared_ptr<int32_t> recentCreationInterval_ {};

@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The name of the consumer group.
+    // The ID of the consumer group to delete. You can obtain the ID from the ConsumerGroupId parameter returned by the CreateConsumerGroup operation.
     // 
     // This parameter is required.
     shared_ptr<string> consumerGroupName_ {};
-    // The gateway instance ID.
+    // The ID of the gateway instance. You can obtain the ID from the GwClusterId parameter returned by the CreateGateway operation.
     // 
     // This parameter is required.
     shared_ptr<string> gwClusterId_ {};

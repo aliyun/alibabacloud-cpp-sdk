@@ -99,17 +99,17 @@ namespace Models
   protected:
     // The application ID.
     shared_ptr<string> applicationId_ {};
-    // The status code.
+    // The response status code.
     shared_ptr<int32_t> code_ {};
-    // The message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // Indicates whether the operation was successful.
+    // Indicates whether the operation is successful.
     shared_ptr<bool> ok_ {};
-    // A list of the top-level configuration keys that were modified.
+    // The list of modified top-level configuration keys.
     shared_ptr<vector<string>> patchedKeys_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the gateway was restarted.
+    // Indicates whether the gateway is restarted.
     shared_ptr<bool> restarted_ {};
   };
 

@@ -112,7 +112,7 @@ namespace Models
 
 
   protected:
-    // The application ID. Example: pa-**************.
+    // The ID of the application. Example value: pa-**************.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
@@ -120,15 +120,15 @@ namespace Models
     shared_ptr<string> createTimeBegin_ {};
     // The end time for memory creation.
     shared_ptr<string> createTimeEnd_ {};
-    // The memory agent ID.
+    // The ID of the memory agent.
     shared_ptr<string> memoryAgentId_ {};
-    // The memory user ID.
+    // The ID of the memory user.
     // 
     // This parameter is required.
     shared_ptr<string> memoryUserId_ {};
     // The page number.
     shared_ptr<int32_t> page_ {};
-    // The number of records per page.
+    // The number of records to display on each page.
     shared_ptr<int32_t> pageSize_ {};
     // The search query.
     shared_ptr<string> query_ {};

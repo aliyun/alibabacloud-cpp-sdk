@@ -72,7 +72,7 @@ namespace Models
     shared_ptr<string> userAccAk_ {};
     // The policy document of the S3 account.
     shared_ptr<string> userAccPolicy_ {};
-    // The Secret Key of the S3 account (masked).
+    // The masked Secret Key of the S3 account.
     shared_ptr<string> userAccSk_ {};
   };
 

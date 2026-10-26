@@ -447,7 +447,7 @@ namespace Models
     shared_ptr<DescribeAIDBClustersResponseBody::Items> items_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned on the current page.
+    // The number of entries on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

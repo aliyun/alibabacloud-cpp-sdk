@@ -84,20 +84,20 @@ namespace Models
 
 
   protected:
+    // The target application type of the batch task.
     shared_ptr<string> applicationType_ {};
     // The instance IDs.
     // 
     // This parameter is required.
     shared_ptr<string> instanceIdsShrink_ {};
-    // The task parameters.
+    // The archive parameters.
     shared_ptr<string> param_ {};
     // The region ID.
-    // 
-    // > Call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query the regions of all clusters in your account.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to view the region information of all clusters under the target account.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The name of the batch task.
+    // The description of the model service.
     // 
     // This parameter is required.
     shared_ptr<string> taskName_ {};

@@ -96,13 +96,13 @@ namespace Models
     protected:
       // The error code.
       shared_ptr<string> errorCode_ {};
-      // The failure reason.
+      // The cause of the failure.
       shared_ptr<string> errorMessage_ {};
       // The file ID.
       shared_ptr<string> fileId_ {};
       // The request result. Valid values:
       // 
-      // - **true**: The request was successful.
+      // - **true**: The request is successful.
       // - **false**: The request failed.
       shared_ptr<bool> success_ {};
     };
@@ -147,13 +147,13 @@ namespace Models
 
 
   protected:
-    // The number of failed retries.
+    // The number of failed records.
     shared_ptr<int32_t> failedCount_ {};
     // The list of retry results.
     shared_ptr<vector<RetryKnowledgeBaseFilesResponseBody::Items>> items_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The number of successful retries.
+    // The number of successful records.
     shared_ptr<int32_t> succeededCount_ {};
     // The total number of records.
     shared_ptr<int32_t> totalCount_ {};

@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The ID of the agent to delete. This parameter cannot be set to `main`.
+    // The ID of the agent to delete. The value cannot be main. You can obtain this value from the response of CreatePolarClawAgent.
     // 
     // This parameter is required.
     shared_ptr<string> agentId_ {};
@@ -65,7 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // Specifies whether to delete the working directory and session files. Default value: `true`.
+    // Specifies whether to delete the working directory and session files. Default value: true.
     shared_ptr<bool> deleteFiles_ {};
   };
 

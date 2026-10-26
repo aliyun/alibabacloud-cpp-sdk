@@ -112,14 +112,14 @@ namespace Models
 
 
   protected:
-    // The dimension object ID. This parameter is required when BudgetDimensionType is set to ConsumerGroup or Consumer.
+    // The ID of the dimension object. This parameter is required when BudgetDimensionType is set to ConsumerGroup or Consumer.
     shared_ptr<string> budgetDimensionRefId_ {};
-    // The policy type. Valid values:
+    // The type of the policy. Valid values:
     // 
-    // - **ConsumerGroup**: total budget for a user group
-    // - **Consumer**: total budget for a user
+    // - **ConsumerGroup**: Total budget for consumer groups.
+    // - **Consumer**: Total budget for consumers.
     shared_ptr<string> budgetDimensionType_ {};
-    // The budget policy ID.
+    // The ID of the budget policy.
     shared_ptr<string> budgetPolicyId_ {};
     // The gateway instance ID.
     // 
@@ -136,11 +136,12 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
+    // The name of the object associated with the scope of the budget policy.
     shared_ptr<string> scopeRefName_ {};
-    // The policy status. Valid values:
+    // The status of the policy. Valid values:
     // 
-    // - **Enabled**: enabled
-    // - **Disenabled**: disabled
+    // - **Enabled**: Enabled.
+    // - **Disenabled**: Disabled.
     shared_ptr<string> status_ {};
   };
 

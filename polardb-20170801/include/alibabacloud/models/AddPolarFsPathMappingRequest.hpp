@@ -92,7 +92,9 @@ namespace Models
     protected:
       // The bucket name.
       shared_ptr<string> bucket_ {};
+      // The AccessKey ID of the storage bucket.
       shared_ptr<string> bucketAccessKeyId_ {};
+      // The AccessKey secret of the storage bucket.
       shared_ptr<string> bucketAccessKeySecret_ {};
       // The custom storage path.
       shared_ptr<string> path_ {};

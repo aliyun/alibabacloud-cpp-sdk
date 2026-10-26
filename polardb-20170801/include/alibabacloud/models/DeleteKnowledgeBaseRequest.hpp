@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The unique ID of the knowledge base.
+    // The ID of the knowledge base to delete. You can obtain the ID from the response of the CreateKnowledgeBase operation.
     // 
     // This parameter is required.
     shared_ptr<string> knowledgeBaseId_ {};

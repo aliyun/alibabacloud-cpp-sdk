@@ -66,19 +66,19 @@ namespace Models
 
 
   protected:
-    // The agent ID.
+    // The ID of the agent to associate.
     // 
     // This parameter is required.
     shared_ptr<string> agentId_ {};
-    // The application ID.
+    // The application ID. You can call the DescribeApplications operation to obtain the application ID from the returned Items list.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // The channel ID.
+    // The channel plugin ID.
     // 
     // This parameter is required.
     shared_ptr<string> channel_ {};
-    // The account ID for the channel. If omitted, the default value is \\"default\\".
+    // The channel account ID. If you do not specify this parameter, the default value is default.
     shared_ptr<string> channelAccountId_ {};
   };
 

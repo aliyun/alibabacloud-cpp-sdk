@@ -232,6 +232,7 @@ namespace Models
 
 
   protected:
+    // The name of the custom OSS bucket.
     shared_ptr<string> customOssBucketName_ {};
     // The cluster ID.
     // 
@@ -239,25 +240,26 @@ namespace Models
     shared_ptr<string> DBClusterId_ {};
     // The instance type.
     shared_ptr<string> DBInstanceClass_ {};
+    // The data service mode. A value of custom indicates that custom OSS is used, and a value of cold_storage indicates that cold storage is used.
     shared_ptr<string> dataserviceMode_ {};
     // The ID of the training dataset. This parameter is required for fine-tuning.
     shared_ptr<string> datasetPath_ {};
     // The ID of the validation dataset. This parameter is required for evaluation.
     shared_ptr<string> evalDatasetPath_ {};
     // The type of the model service. Valid values:
-    //  * **aitrain**: Model operator tuning.
+    //  * **aitrain**: model operator fine-tuning.
     // 
     // This parameter is required.
     shared_ptr<string> kubeType_ {};
     // The name of the model.
-    // * **For a preset model, specify the selected model name.**
-    // * **For a custom model, specify the path of the model (the trained model in a cold storage instance).**
+    // * **For a preset model, specify the name of the selected model.**
+    // * **For a custom model, specify the path of the model (the model trained in a cold storage instance).**
     // 
     // This parameter is required.
     shared_ptr<string> modelName_ {};
     // The source of the model. Valid values:
-    // * **public**: Preset model.
-    // * **custom**: Custom model.
+    // * **public**: preset model.
+    // * **custom**: custom model.
     // 
     // This parameter is required.
     shared_ptr<string> modelSource_ {};
@@ -277,6 +279,7 @@ namespace Models
     shared_ptr<string> securityGroupId_ {};
     // The description of the model service.
     shared_ptr<string> taskName_ {};
+    // The model fine-tuning architecture.
     shared_ptr<string> tuneArch_ {};
     // The VPC ID.
     shared_ptr<string> VPCId_ {};

@@ -181,29 +181,29 @@ namespace Models
     protected:
       // The list of supported models.
       shared_ptr<string> allowedModels_ {};
-      // The full API key, returned only in this response.
+      // The complete API key. This value is returned only in the current response.
       shared_ptr<string> apiKey_ {};
-      // The user group ID.
+      // The ID of the consumer group.
       shared_ptr<string> consumerGroupId_ {};
-      // The user group name.
+      // The name of the consumer group.
       shared_ptr<string> consumerGroupName_ {};
-      // The user ID.
+      // The ID of the consumer.
       shared_ptr<string> consumerId_ {};
       // The creation time.
       shared_ptr<string> gmtCreated_ {};
       // The update time.
       shared_ptr<string> gmtModified_ {};
-      // The total cumulative usage.
+      // The cumulative usage.
       shared_ptr<int64_t> lifetimeCostCount_ {};
       // The total cost for the current month.
       shared_ptr<int64_t> lifetimeTokenCount_ {};
       // The usage for the current month.
       shared_ptr<int64_t> mtdCostCount_ {};
-      // The total cumulative cost.
+      // The cumulative total cost.
       shared_ptr<int64_t> mtdTokenCount_ {};
-      // The username.
+      // The name of the consumer.
       shared_ptr<string> name_ {};
-      // The nickname.
+      // The nickname of the consumer.
       shared_ptr<string> nickName_ {};
     };
 
@@ -254,17 +254,17 @@ namespace Models
 
 
   protected:
-    // The list of users.
+    // The list of consumers.
     shared_ptr<vector<DescribeConsumersResponseBody::Items>> items_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of records on the current page.
+    // The number of entries on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
     // The number of entries per page. Valid values: 30, 50, and 100. Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The total number of records.
+    // The total number of entries.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

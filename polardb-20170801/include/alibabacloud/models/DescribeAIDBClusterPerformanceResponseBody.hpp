@@ -109,9 +109,9 @@ namespace Models
 
 
       protected:
-        // The UNIX timestamp that indicates when the metric was collected. Unit: milliseconds.
+        // The specific time point of the monitoring metric. The format is a UNIX timestamp, and the unit is milliseconds.
         shared_ptr<int64_t> timestamp_ {};
-        // The value of the metric.
+        // The value of the monitoring metric.
         shared_ptr<string> value_ {};
       };
 
@@ -148,11 +148,11 @@ namespace Models
 
 
     protected:
-      // The ID of the cluster node.
+      // The ID of the database cluster node.
       shared_ptr<string> DBNodeId_ {};
-      // The performance metric.
+      // The performance metrics.
       shared_ptr<string> measurement_ {};
-      // The name of the specific performance metric.
+      // The specific measurement name of the performance metrics.
       shared_ptr<string> metricName_ {};
       // The array of performance data.
       shared_ptr<vector<PerformanceKeys::Points>> points_ {};
@@ -227,28 +227,29 @@ namespace Models
 
 
   protected:
-    // The API key for the model service.
+    // An API key for the model service.
     shared_ptr<string> apiKey_ {};
     // The ID of the database cluster.
     shared_ptr<string> DBClusterId_ {};
     // The type of the database engine. Only **polardb_ai** is supported.
     shared_ptr<string> DBType_ {};
-    // The version number of the database AI engine.
+    // The version number of the database AI DPI engine.
     // 
-    // Example: 3.0
+    // 
+    //   -3.0
     shared_ptr<string> DBVersion_ {};
-    // The end of the time range that was queried. The time is in the `YYYY-MM-DDThh:mmZ` format and is in UTC.
+    // The end time of the query. The end time must be later than the start time. Specify the time in the `YYYY-MM-DDThh:mmZ` format. The time must be in UTC.
     shared_ptr<string> endTime_ {};
-    // The time granularity of the performance data. Valid values:
+    // The data granularity of performance. Valid values:
     // 
     // - 60
     // - 3600
     shared_ptr<string> interval_ {};
-    // The details of the instance performance parameters.
+    // The details of the instance performance metrics.
     shared_ptr<vector<DescribeAIDBClusterPerformanceResponseBody::PerformanceKeys>> performanceKeys_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The beginning of the time range that was queried. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and is in UTC.
+    // The start time of the query. Specify the time in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
     shared_ptr<string> startTime_ {};
   };
 

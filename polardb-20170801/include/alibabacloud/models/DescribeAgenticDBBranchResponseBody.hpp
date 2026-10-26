@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MinCU, minCU_);
       DARABONBA_PTR_TO_JSON(ParentBranchId, parentBranchId_);
       DARABONBA_PTR_TO_JSON(ParentBranchName, parentBranchName_);
+      DARABONBA_PTR_TO_JSON(ParentTimestamp, parentTimestamp_);
       DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(ProjectName, projectName_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
@@ -44,6 +45,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MinCU, minCU_);
       DARABONBA_PTR_FROM_JSON(ParentBranchId, parentBranchId_);
       DARABONBA_PTR_FROM_JSON(ParentBranchName, parentBranchName_);
+      DARABONBA_PTR_FROM_JSON(ParentTimestamp, parentTimestamp_);
       DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(ProjectName, projectName_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
@@ -64,8 +66,8 @@ namespace Models
     virtual bool empty() const override { return this->branchComputeClusterId_ == nullptr
         && this->branchComputeNodeCount_ == nullptr && this->branchId_ == nullptr && this->branchName_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr
         && this->isDefaultBranch_ == nullptr && this->lastActivatedAt_ == nullptr && this->maxCU_ == nullptr && this->minCU_ == nullptr && this->parentBranchId_ == nullptr
-        && this->parentBranchName_ == nullptr && this->projectId_ == nullptr && this->projectName_ == nullptr && this->requestId_ == nullptr && this->status_ == nullptr
-        && this->tenantId_ == nullptr; };
+        && this->parentBranchName_ == nullptr && this->parentTimestamp_ == nullptr && this->projectId_ == nullptr && this->projectName_ == nullptr && this->requestId_ == nullptr
+        && this->status_ == nullptr && this->tenantId_ == nullptr; };
     // branchComputeClusterId Field Functions 
     bool hasBranchComputeClusterId() const { return this->branchComputeClusterId_ != nullptr;};
     void deleteBranchComputeClusterId() { this->branchComputeClusterId_ = nullptr;};
@@ -150,6 +152,13 @@ namespace Models
     inline DescribeAgenticDBBranchResponseBody& setParentBranchName(string parentBranchName) { DARABONBA_PTR_SET_VALUE(parentBranchName_, parentBranchName) };
 
 
+    // parentTimestamp Field Functions 
+    bool hasParentTimestamp() const { return this->parentTimestamp_ != nullptr;};
+    void deleteParentTimestamp() { this->parentTimestamp_ = nullptr;};
+    inline string getParentTimestamp() const { DARABONBA_PTR_GET_DEFAULT(parentTimestamp_, "") };
+    inline DescribeAgenticDBBranchResponseBody& setParentTimestamp(string parentTimestamp) { DARABONBA_PTR_SET_VALUE(parentTimestamp_, parentTimestamp) };
+
+
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
@@ -186,45 +195,41 @@ namespace Models
 
 
   protected:
-    // The ID of the compute cluster associated with the branch.
+    // The ID of the compute cluster for the branch.
     shared_ptr<string> branchComputeClusterId_ {};
-    // The number of compute nodes. The value is fixed to 1 in the initial phase.
+    // The number of compute nodes. The value is fixed to 1 in the first phase.
     shared_ptr<int32_t> branchComputeNodeCount_ {};
     // The branch ID.
     shared_ptr<string> branchId_ {};
-    // The branch name.
+    // The name of the branch.
     shared_ptr<string> branchName_ {};
-    // The time when the branch was created.
-    // 
-    // The time is in the ISO 8601 standard in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+    // The creation time. The time follows the ISO 8601 standard in the UTC time zone. Format: YYYY-MM-DDTHH:mm:ssZ.
     shared_ptr<string> createTime_ {};
-    // The description of the branch.
+    // The description.
     shared_ptr<string> description_ {};
     // Indicates whether the branch is the default branch.
     shared_ptr<bool> isDefaultBranch_ {};
     // The time when the branch was last activated.
     shared_ptr<string> lastActivatedAt_ {};
-    // The maximum compute unit.
+    // The maximum number of compute units (CUs).
     shared_ptr<string> maxCU_ {};
-    // The minimum compute unit.
+    // The minimum number of compute units (CUs).
     shared_ptr<string> minCU_ {};
     // The ID of the parent branch.
     shared_ptr<string> parentBranchId_ {};
     // The name of the parent branch.
     shared_ptr<string> parentBranchName_ {};
-    // The ID of the project to which the branch belongs.
+    // The historical time of the parent branch specified when the branch is created. The time follows the RFC 3339 standard in the UTC time zone. If no historical time is specified or for old records, this value may be empty.
+    shared_ptr<string> parentTimestamp_ {};
+    // The project ID.
     shared_ptr<string> projectId_ {};
     // The name of the project to which the branch belongs.
     shared_ptr<string> projectName_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The status of the branch. Valid values:
-    // 
-    // - Running
-    // - Pending
-    // - Paused
+    // The status of the branch. Valid values: Running, Pending, and Paused.
     shared_ptr<string> status_ {};
-    // The ID of the tenant to which the branch belongs.
+    // The tenant ID.
     shared_ptr<string> tenantId_ {};
   };
 

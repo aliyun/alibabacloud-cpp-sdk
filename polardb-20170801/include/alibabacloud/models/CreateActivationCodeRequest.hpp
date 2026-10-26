@@ -112,7 +112,7 @@ namespace Models
 
 
   protected:
-    // The Alibaba Cloud order ID. This includes virtual orders.
+    // The Alibaba Cloud order ID, including virtual order IDs. If you use a virtual order, you can call CreateOrGetVirtualLicenseOrder and specify the Engine parameter to obtain the returned AliyunOrderId.
     // 
     // This parameter is required.
     shared_ptr<string> aliyunOrderId_ {};
@@ -122,7 +122,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> macAddress_ {};
-    // The name of the activation code. It can contain only letters, digits, underscores (_), and hyphens (-). This name is used as the filename when you download the activation code from the console.
+    // The name of the activation code. The name can contain only letters, digits, underscores (_), and hyphens (-). This name is used to generate the activation code file name when you download the code from the console.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
@@ -130,7 +130,7 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The unique identifier of the database. This parameter is required if \\`AllowEmptySystemIdentifier\\` for the order is set to \\`false\\`.
+    // The unique identifier of the database. This field is required if the AllowEmptySystemIdentifier parameter of the order is set to false.
     shared_ptr<string> systemIdentifier_ {};
   };
 

@@ -113,11 +113,11 @@ namespace Models
 
 
     protected:
-      // The name of the IP whitelist. The default value is `default`.
+      // The name of the IP whitelist. Default value: `default`.
       shared_ptr<string> securityIPArrayName_ {};
       // The tag of the IP whitelist.
       shared_ptr<string> securityIPArrayTag_ {};
-      // A comma-separated list of IP addresses in the IP whitelist.
+      // The IP addresses in the whitelist, separated by commas.
       shared_ptr<string> securityIPList_ {};
     };
 
@@ -207,21 +207,20 @@ namespace Models
     protected:
       // The endpoint address.
       shared_ptr<string> address_ {};
-      // The ID of the endpoint.
+      // The endpoint ID.
       shared_ptr<string> endpointId_ {};
-      // The ID of the gateway instance.
+      // The gateway instance ID.
       shared_ptr<string> gwClusterId_ {};
       // The network type of the endpoint. Valid values:
       // 
-      // - **Private**: VPC endpoint.
-      // 
-      // - **Public**: public endpoint.
+      // - Private: VPC
+      // - Public: Internet
       shared_ptr<string> netType_ {};
-      // The port number.
+      // The port.
       shared_ptr<string> port_ {};
       // The tunnel ID.
       shared_ptr<string> tunnelId_ {};
-      // The ID of the VPC to which the endpoint belongs.
+      // The ID of the VPC to which the vSwitch belongs.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -368,54 +367,61 @@ namespace Models
 
 
   protected:
-    // The specification code for the gateway instance.
+    // The instance type code.
     shared_ptr<string> classCode_ {};
-    // The time when the gateway instance was created.
+    // The creation time.
+    // 
+    // The time is displayed in ISO 8601 format in UTC (YYYY-MM-DDTHH:mm:ssZ).
     shared_ptr<string> createTime_ {};
+    // The current version number.
     shared_ptr<string> currentVersion_ {};
     // The database type.
     shared_ptr<string> dbType_ {};
-    // A list of endpoints for the gateway instance.
+    // The list of endpoints.
     shared_ptr<vector<DescribeGatewayAttributeResponseBody::Endpoints>> endpoints_ {};
-    // The time when the subscription for the gateway instance expires.
+    // The expiration time.
     // 
-    // This parameter is empty for pay-as-you-go instances.
+    // This parameter is empty when the billing method is Postpaid.
+    // 
+    // The time is displayed in ISO 8601 format in UTC (YYYY-MM-DDTHH:mm:ssZ).
     shared_ptr<string> expireTime_ {};
-    // Indicates whether the subscription for the gateway instance has expired. Valid values:
+    // Indicates whether the cluster has expired. Valid values:
     // 
     // - true
     // 
     // - false
     shared_ptr<bool> expired_ {};
-    // The ID of the gateway instance.
+    // The gateway instance ID.
     shared_ptr<string> gwClusterId_ {};
-    // The description of the gateway instance.
+    // The description of the gateway.
     shared_ptr<string> gwDescription_ {};
+    // The latest version number.
     shared_ptr<string> latestVersion_ {};
-    // The time when the gateway instance was last modified.
+    // The last modification time.
+    // 
+    // The time is displayed in ISO 8601 format in UTC (YYYY-MM-DDTHH:mm:ssZ).
     shared_ptr<string> modifyTime_ {};
-    // The billing method of the gateway instance. Valid values:
+    // The billing method. Valid values:
     // 
     // - **Postpaid**: pay-as-you-go.
-    // 
     // - **Prepaid**: subscription.
     shared_ptr<string> payType_ {};
-    // The ID of the region.
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // The running version number.
     shared_ptr<string> runningVersion_ {};
-    // A list of IP whitelists for the gateway instance.
+    // The application-level IP whitelist.
     shared_ptr<vector<DescribeGatewayAttributeResponseBody::SecurityIPArrays>> securityIPArrays_ {};
-    // The status of the gateway instance. Valid values:
+    // The application status. Valid values:
     // 
-    // - **CREATE**: The gateway instance is being created.
-    // 
-    // - **ACTIVATION**: The gateway instance is running.
+    // - CREATE: creating
+    // - ACTIVATION: running
     shared_ptr<string> status_ {};
-    // The ID of the VSwitch where the gateway instance is deployed.
+    // The ID of the vSwitch.
     shared_ptr<string> vSwitchId_ {};
-    // The ID of the VPC where the gateway instance is deployed.
+    // The ID of the VPC to which the vSwitch belongs.
     shared_ptr<string> vpcId_ {};
   };
 

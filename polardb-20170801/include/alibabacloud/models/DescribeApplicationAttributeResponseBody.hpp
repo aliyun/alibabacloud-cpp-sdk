@@ -311,9 +311,9 @@ namespace Models
       shared_ptr<string> netType_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The ID of the security group.
+      // The security group ID.
       shared_ptr<string> securityGroupId_ {};
-      // The name of the security group.
+      // The security group name.
       shared_ptr<string> securityGroupName_ {};
     };
 
@@ -368,8 +368,9 @@ namespace Models
     protected:
       // The authentication callback URL.
       shared_ptr<string> authCallbackURL_ {};
+      // The list of authentication providers for the application.
       shared_ptr<vector<string>> authProviders_ {};
-      // The identifier of the Supabase cluster.
+      // The Supabase cluster identifier.
       shared_ptr<string> supabaseClusterId_ {};
     };
 
@@ -466,17 +467,17 @@ namespace Models
 
 
       protected:
-        // The effective period of the attach. The value is a UNIX timestamp.
+        // The effective period of the attachment. The value is a UNIX timestamp.
         shared_ptr<int64_t> activatedAt_ {};
         // Langfuse API Key ID
         shared_ptr<string> apiKeyId_ {};
         // The ID of the binding task.
         shared_ptr<int32_t> bindingTaskId_ {};
-        // The ID of the Langfuse application.
+        // The Langfuse application ID.
         shared_ptr<string> langfuseApplicationId_ {};
-        // The phase of the binding.
+        // The binding phase.
         shared_ptr<string> phase_ {};
-        // The ID of the Langfuse project.
+        // The Langfuse project ID.
         shared_ptr<string> projectId_ {};
       };
 
@@ -596,13 +597,13 @@ namespace Models
 
 
       protected:
-        // The account source. Valid values: reuse_vector and existing. This parameter is returned only when the status is ENABLED.
+        // The account source. Valid values: reuse_vector, existing. This parameter is returned only when the status is ENABLED.
         shared_ptr<string> accountMode_ {};
         // The ID of the PolarDB cluster used for session storage. This parameter is returned only when the status is ENABLED.
         shared_ptr<string> DBClusterId_ {};
         // The name of the session database. This parameter is returned only when the status is ENABLED.
         shared_ptr<string> DBName_ {};
-        // The status of the session store. Valid values: DISABLED, ENABLING, ENABLED, and DISABLING.
+        // The session storage status. Valid values: DISABLED, ENABLING, ENABLED, DISABLING.
         shared_ptr<string> status_ {};
       };
 
@@ -713,27 +714,27 @@ namespace Models
 
 
     protected:
-      // The name of the database.
+      // The database name.
       shared_ptr<string> dbName_ {};
-      // The name of the embedder model.
+      // The embedder model name.
       shared_ptr<string> embedderModelName_ {};
       // The graph LLM model support.
       shared_ptr<string> graphLlmModelName_ {};
-      // The name of the LLM model.
+      // The LLM model name.
       shared_ptr<string> llmModelName_ {};
-      // The active memory type.
+      // The currently active memory type.
       shared_ptr<string> memoryType_ {};
-      // Indicates whether the multimodal feature is enabled.
+      // Indicates whether multimodal capabilities are currently enabled.
       shared_ptr<bool> multimodalEnabled_ {};
-      // The name of the project, which corresponds to the schema in the database where project data is stored.
+      // The project name, which corresponds to the schema where project data is stored in the database.
       shared_ptr<string> projectName_ {};
-      // The name of the reranker model.
+      // The name of the Reranker model.
       shared_ptr<string> rerankerModelName_ {};
       // The Mem0 full session information storage configuration.
       shared_ptr<MemApplicationAttribute::SessionStore> sessionStore_ {};
       // The username.
       shared_ptr<string> userName_ {};
-      // The current dimensions of the VisualEmbedder.
+      // The current VisualEmbedder dimensions.
       shared_ptr<int32_t> visualEmbedderDimensions_ {};
       // The current VisualEmbedder model.
       shared_ptr<string> visualEmbedderModelName_ {};
@@ -829,18 +830,19 @@ namespace Models
     protected:
       // The description of the endpoint.
       shared_ptr<string> description_ {};
+      // The domain name of the application endpoint.
       shared_ptr<string> domain_ {};
-      // The ID of the endpoint.
+      // The endpoint ID.
       shared_ptr<string> endpointId_ {};
       // The IP address.
       shared_ptr<string> IP_ {};
-      // The type of the endpoint. Valid values:
+      // The endpoint type. Valid values:
       // - Private: VPC address.
-      // - Public: public network address.
+      // - Public: Internet address.
       shared_ptr<string> netType_ {};
       // The port.
       shared_ptr<string> port_ {};
-      // The description of the port.
+      // The port description.
       shared_ptr<string> portDescription_ {};
     };
 
@@ -922,13 +924,13 @@ namespace Models
       shared_ptr<string> accessAddress_ {};
       // The backend service port.
       shared_ptr<int32_t> backendPort_ {};
-      // The ID of the DNAT entry.
+      // The DNAT entry ID.
       shared_ptr<string> entryId_ {};
       // The frontend port.
       shared_ptr<int32_t> frontPort_ {};
-      // The name of the port. Valid values: webui, hermesagent, dashboard, and ssh.
+      // The port name. Valid values: webui, hermesagent, dashboard, and ssh.
       shared_ptr<string> portName_ {};
-      // The status of the entry.
+      // The entry status.
       shared_ptr<string> status_ {};
     };
 
@@ -1169,9 +1171,9 @@ namespace Models
         shared_ptr<string> netType_ {};
         // The region ID.
         shared_ptr<string> regionId_ {};
-        // The ID of the security group.
+        // The security group ID.
         shared_ptr<string> securityGroupId_ {};
-        // The name of the security group.
+        // The security group name.
         shared_ptr<string> securityGroupName_ {};
       };
 
@@ -1264,15 +1266,15 @@ namespace Models
     protected:
       // The specifications of the application subcomponent.
       shared_ptr<string> componentClass_ {};
-      // The description of the specifications for the application subcomponent.
+      // The description of the application subcomponent specifications.
       shared_ptr<string> componentClassDescription_ {};
-      // The ID of the subcomponent.
+      // The subcomponent ID.
       shared_ptr<string> componentId_ {};
       // The maximum number of replicas for the application subcomponent.
       shared_ptr<int64_t> componentMaxReplica_ {};
       // The number of replicas for the application subcomponent.
       shared_ptr<int64_t> componentReplica_ {};
-      // The name of the replica group for the application subcomponent.
+      // The replica group name of the application subcomponent.
       shared_ptr<string> componentReplicaGroupName_ {};
       // The type of the application subcomponent.
       shared_ptr<string> componentType_ {};
@@ -1284,7 +1286,7 @@ namespace Models
       // 
       // If the whitelist at the subcomponent level is the same as that at the application level, this return value is omitted.
       shared_ptr<vector<Components::SecurityIPArrays>> securityIPArrays_ {};
-      // The status of the component. The valid values are the same as those of the application status.
+      // The component status. The valid values are the same as the application status.
       shared_ptr<string> status_ {};
       // The topology information of the application subcomponent.
       shared_ptr<Components::Topology> topology_ {};
@@ -1610,7 +1612,7 @@ namespace Models
     shared_ptr<string> DBClusterId_ {};
     // The description of the application.
     shared_ptr<string> description_ {};
-    // The list of DNAT mapping entries for NAT mapping.
+    // The NAT mapping: the list of DNAT mapping entries.
     shared_ptr<vector<DescribeApplicationAttributeResponseBody::DnatMappings>> dnatMappings_ {};
     // The list of endpoints for the application.
     shared_ptr<vector<DescribeApplicationAttributeResponseBody::Endpoints>> endpoints_ {};
@@ -1628,8 +1630,8 @@ namespace Models
     shared_ptr<string> latestVersion_ {};
     // The lock mode. Valid values:
     // 
-    // - Unlock: The application is not locked.
-    // - Lock: The application is locked.
+    // - Unlock: unlocked.
+    // - Lock: locked.
     shared_ptr<string> lockMode_ {};
     // The end time of the maintenance window.
     // 
@@ -1643,9 +1645,9 @@ namespace Models
     shared_ptr<DescribeApplicationAttributeResponseBody::MemApplicationAttribute> memApplicationAttribute_ {};
     // The minor version number.
     shared_ptr<string> minorVersion_ {};
-    // The ID of the NAT gateway.
+    // The NAT gateway ID.
     shared_ptr<string> natGatewayId_ {};
-    // The SNAT IP address bound to the vSwitch where the application resides for NAT mapping. This refers to customer-managed SNAT entries that are discovered and returned in real time by the control plane, and is independent of the Internet NAT gateway SNAT.
+    // The NAT mapping: the SNAT IP address bound to the vSwitch where the application resides. This refers to a customer-managed SNAT entry that is discovered and returned in real time by the control plane, and is unrelated to the SNAT of the Internet NAT gateway.
     shared_ptr<string> natMappingSnatIpAddress_ {};
     // The billing method.
     shared_ptr<string> payType_ {};
@@ -1663,17 +1665,17 @@ namespace Models
     shared_ptr<vector<DescribeApplicationAttributeResponseBody::SecurityGroups>> securityGroups_ {};
     // The list of application-level whitelists.
     shared_ptr<vector<DescribeApplicationAttributeResponseBody::SecurityIPArrays>> securityIPArrays_ {};
-    // The serverless type. Valid values:
+    // The Serverless type. Valid values:
     // - 2: Agile.
     // - 3: Stable.
     shared_ptr<string> serverlessType_ {};
-    // The SNAT status. Valid values: on and off.
+    // The SNAT status. Valid values: on, off.
     shared_ptr<string> snatStatus_ {};
     // The application status. Valid values:
     // - Creating: The application is being created.
     // - Activated: The application is running.
     // - Maintaining: The application is under maintenance.
-    // - ClassChanging: The application specifications are being changed.
+    // - ClassChanging: The application configuration is being changed.
     // - Transing: The application is being migrated.
     // - MinorVersionUpgrading: The minor version of the application is being upgraded.
     // - NetCreating: The endpoint of the application is being created.
@@ -1685,9 +1687,9 @@ namespace Models
     // - Unlocking: The application is being unlocked.
     // - Deleting: The application is being deleted.
     shared_ptr<string> status_ {};
-    // The storage resources.
+    // The storage resource description.
     shared_ptr<vector<DescribeApplicationAttributeResponseBody::Storages>> storages_ {};
-    // Specifies whether an upgrade is available.
+    // Indicates whether an upgrade is available.
     shared_ptr<string> upgradeAvailable_ {};
     // VPC ID
     shared_ptr<string> VPCId_ {};
@@ -1695,7 +1697,7 @@ namespace Models
     shared_ptr<string> vSwitchId_ {};
     // The application version.
     shared_ptr<string> version_ {};
-    // The customer-managed VPC NAT gateway ID for NAT mapping.
+    // The NAT mapping: the customer-managed VPC NAT gateway ID.
     shared_ptr<string> vpcNatGatewayId_ {};
     // The zone ID.
     shared_ptr<string> zoneId_ {};

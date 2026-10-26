@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(DefaultBranchName, defaultBranchName_);
       DARABONBA_PTR_TO_JSON(Description, description_);
+      DARABONBA_PTR_TO_JSON(HistoryRetentionSeconds, historyRetentionSeconds_);
       DARABONBA_PTR_TO_JSON(ProjectName, projectName_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(TenantId, tenantId_);
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(DefaultBranchName, defaultBranchName_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
+      DARABONBA_PTR_FROM_JSON(HistoryRetentionSeconds, historyRetentionSeconds_);
       DARABONBA_PTR_FROM_JSON(ProjectName, projectName_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(TenantId, tenantId_);
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && this->defaultBranchName_ == nullptr && this->description_ == nullptr && this->projectName_ == nullptr && this->regionId_ == nullptr && this->tenantId_ == nullptr; };
+        && this->defaultBranchName_ == nullptr && this->description_ == nullptr && this->historyRetentionSeconds_ == nullptr && this->projectName_ == nullptr && this->regionId_ == nullptr
+        && this->tenantId_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
@@ -60,6 +63,13 @@ namespace Models
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateAgenticDBProjectRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // historyRetentionSeconds Field Functions 
+    bool hasHistoryRetentionSeconds() const { return this->historyRetentionSeconds_ != nullptr;};
+    void deleteHistoryRetentionSeconds() { this->historyRetentionSeconds_ = nullptr;};
+    inline int64_t getHistoryRetentionSeconds() const { DARABONBA_PTR_GET_DEFAULT(historyRetentionSeconds_, 0L) };
+    inline CreateAgenticDBProjectRequest& setHistoryRetentionSeconds(int64_t historyRetentionSeconds) { DARABONBA_PTR_SET_VALUE(historyRetentionSeconds_, historyRetentionSeconds) };
 
 
     // projectName Field Functions 
@@ -84,15 +94,17 @@ namespace Models
 
 
   protected:
-    // The AgenticDB cluster ID.
+    // The ID of the AgenticDB cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The default branch name. Default value: main.
+    // The name of the default branch. Default value: main.
     shared_ptr<string> defaultBranchName_ {};
     // The description of the project.
     shared_ptr<string> description_ {};
-    // The project name. The name must be unique within the same tenant.
+    // The retention period for historical data to support creating branches at specific points in time. Default value: 604800 seconds (7 days). Valid values: 3600 to 2592000 seconds (1 hour to 30 days), inclusive. The actual range is subject to the service configuration.
+    shared_ptr<int64_t> historyRetentionSeconds_ {};
+    // The name of the project. The name must be unique within the tenant.
     // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};
@@ -100,7 +112,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the tenant to which the project belongs.
+    // The ID of the tenant.
     // 
     // This parameter is required.
     shared_ptr<string> tenantId_ {};

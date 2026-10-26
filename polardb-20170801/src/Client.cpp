@@ -288,12 +288,12 @@ AddFirewallRulesResponse Client::addFirewallRules(const AddFirewallRulesRequest 
 /**
  * @summary Adds an MCP server to a specified PolarClaw application.
  *
- * @description ## Description
- * - The `ApplicationId` and `ServerName` parameters are required.
- * - The `ApplicationId` parameter specifies the application ID.
- * - The `ServerName` parameter specifies the MCP server name to add.
- * - A successful response returns the request ID, a message, a status code, the application ID, and the server name.
- * - If the request fails, the API may return a 500 error code with a detailed error message.
+ * @description ## Request description
+ * - `ApplicationId` and `ServerName` are required query parameters.
+ * - `ApplicationId` specifies the ID of the application program to operate on.
+ * - `ServerName` specifies the name of the MCP server to add.
+ * - A successful response returns the request ID, message, status code, application program ID, and server name.
+ * - In case of a failed request, a 500 error code may be returned, along with a specific error message describing the fault.
  *
  * @param tmpReq AddPolarClawMCPServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -340,12 +340,12 @@ AddPolarClawMCPServerResponse Client::addPolarClawMCPServerWithOptions(const Add
 /**
  * @summary Adds an MCP server to a specified PolarClaw application.
  *
- * @description ## Description
- * - The `ApplicationId` and `ServerName` parameters are required.
- * - The `ApplicationId` parameter specifies the application ID.
- * - The `ServerName` parameter specifies the MCP server name to add.
- * - A successful response returns the request ID, a message, a status code, the application ID, and the server name.
- * - If the request fails, the API may return a 500 error code with a detailed error message.
+ * @description ## Request description
+ * - `ApplicationId` and `ServerName` are required query parameters.
+ * - `ApplicationId` specifies the ID of the application program to operate on.
+ * - `ServerName` specifies the name of the MCP server to add.
+ * - A successful response returns the request ID, message, status code, application program ID, and server name.
+ * - In case of a failed request, a 500 error code may be returned, along with a specific error message describing the fault.
  *
  * @param request AddPolarClawMCPServerRequest
  * @return AddPolarClawMCPServerResponse
@@ -592,7 +592,7 @@ AddSQLRateLimitingRulesResponse Client::addSQLRateLimitingRules(const AddSQLRate
 }
 
 /**
- * @summary Performs a single-turn knowledge base question answering.
+ * @summary Answers a single-turn question based on a knowledge base.
  *
  * @param request AnswerKnowledgeBaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -663,7 +663,7 @@ AnswerKnowledgeBaseResponse Client::answerKnowledgeBaseWithOptions(const AnswerK
 }
 
 /**
- * @summary Performs a single-turn knowledge base question answering.
+ * @summary Answers a single-turn question based on a knowledge base.
  *
  * @param request AnswerKnowledgeBaseRequest
  * @return AnswerKnowledgeBaseResponse
@@ -740,7 +740,57 @@ ApplyApplicationPromptsResponse Client::applyApplicationPrompts(const ApplyAppli
 }
 
 /**
- * @summary Approves a PolarClaw device pairing.
+ * @summary Applies a parameter template to Lakebase.
+ *
+ * @param request ApplyLakebaseMountParameterGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ApplyLakebaseMountParameterGroupResponse
+ */
+ApplyLakebaseMountParameterGroupResponse Client::applyLakebaseMountParameterGroupWithOptions(const ApplyLakebaseMountParameterGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasParameterGroupId()) {
+    query["ParameterGroupId"] = request.getParameterGroupId();
+  }
+
+  if (!!request.hasPolarFsInstanceId()) {
+    query["PolarFsInstanceId"] = request.getPolarFsInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ApplyLakebaseMountParameterGroup"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ApplyLakebaseMountParameterGroupResponse>();
+}
+
+/**
+ * @summary Applies a parameter template to Lakebase.
+ *
+ * @param request ApplyLakebaseMountParameterGroupRequest
+ * @return ApplyLakebaseMountParameterGroupResponse
+ */
+ApplyLakebaseMountParameterGroupResponse Client::applyLakebaseMountParameterGroup(const ApplyLakebaseMountParameterGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return applyLakebaseMountParameterGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary Approves PolarClaw device pairing.
  *
  * @param request ApprovePolarClawDevicePairRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -775,7 +825,7 @@ ApprovePolarClawDevicePairResponse Client::approvePolarClawDevicePairWithOptions
 }
 
 /**
- * @summary Approves a PolarClaw device pairing.
+ * @summary Approves PolarClaw device pairing.
  *
  * @param request ApprovePolarClawDevicePairRequest
  * @return ApprovePolarClawDevicePairResponse
@@ -840,10 +890,10 @@ AttachApplicationPolarFSResponse Client::attachApplicationPolarFS(const AttachAp
 }
 
 /**
- * @summary Binds a PolarClaw Agent to a channel.
+ * @summary Associates a specified channel with a specific PolarClaw agent.
  *
- * @description ## Request
- * This API associates an agent from a PolarClaw application with a communication channel. You specify the application with `ApplicationId`, the agent with `AgentId`, and the channel with `Channel`. You can optionally specify an account ID for the channel with `ChannelAccountId`.
+ * @description ## Request description
+ * This API operation associates a PolarClaw agent (specified by AgentId) of a PolarClaw application (identified by ApplicationId) with a given communication channel (Channel). If necessary, you can also specify the account ID (ChannelAccountId) within the channel.
  *
  * @param request BindPolarClawAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -886,10 +936,10 @@ BindPolarClawAgentResponse Client::bindPolarClawAgentWithOptions(const BindPolar
 }
 
 /**
- * @summary Binds a PolarClaw Agent to a channel.
+ * @summary Associates a specified channel with a specific PolarClaw agent.
  *
- * @description ## Request
- * This API associates an agent from a PolarClaw application with a communication channel. You specify the application with `ApplicationId`, the agent with `AgentId`, and the channel with `Channel`. You can optionally specify an account ID for the channel with `ChannelAccountId`.
+ * @description ## Request description
+ * This API operation associates a PolarClaw agent (specified by AgentId) of a PolarClaw application (identified by ApplicationId) with a given communication channel (Channel). If necessary, you can also specify the account ID (ChannelAccountId) within the channel.
  *
  * @param request BindPolarClawAgentRequest
  * @return BindPolarClawAgentResponse
@@ -2664,7 +2714,7 @@ CreateAccountZonalResponse Client::createAccountZonal(const CreateAccountZonalRe
 }
 
 /**
- * @summary Generates activation codes for the lightweight version.
+ * @summary Generates an activation code for the lightweight edition.
  *
  * @param request CreateActivationCodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2727,7 +2777,7 @@ CreateActivationCodeResponse Client::createActivationCodeWithOptions(const Creat
 }
 
 /**
- * @summary Generates activation codes for the lightweight version.
+ * @summary Generates an activation code for the lightweight edition.
  *
  * @param request CreateActivationCodeRequest
  * @return CreateActivationCodeResponse
@@ -2761,6 +2811,10 @@ CreateAgenticDBBranchResponse Client::createAgenticDBBranchWithOptions(const Cre
 
   if (!!request.hasParentBranchId()) {
     query["ParentBranchId"] = request.getParentBranchId();
+  }
+
+  if (!!request.hasParentTimestamp()) {
+    query["ParentTimestamp"] = request.getParentTimestamp();
   }
 
   if (!!request.hasProjectId()) {
@@ -2825,6 +2879,10 @@ CreateAgenticDBProjectResponse Client::createAgenticDBProjectWithOptions(const C
     query["Description"] = request.getDescription();
   }
 
+  if (!!request.hasHistoryRetentionSeconds()) {
+    query["HistoryRetentionSeconds"] = request.getHistoryRetentionSeconds();
+  }
+
   if (!!request.hasProjectName()) {
     query["ProjectName"] = request.getProjectName();
   }
@@ -2866,7 +2924,65 @@ CreateAgenticDBProjectResponse Client::createAgenticDBProject(const CreateAgenti
 }
 
 /**
- * @summary Creates an API key for an AgenticDB tenant.
+ * @summary Creates an AgenticDB tenant.
+ *
+ * @description Creates an independent business tenant without creating an API key.
+ *
+ * @param request CreateAgenticDBTenantRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAgenticDBTenantResponse
+ */
+CreateAgenticDBTenantResponse Client::createAgenticDBTenantWithOptions(const CreateAgenticDBTenantRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTenantName()) {
+    query["TenantName"] = request.getTenantName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateAgenticDBTenant"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAgenticDBTenantResponse>();
+}
+
+/**
+ * @summary Creates an AgenticDB tenant.
+ *
+ * @description Creates an independent business tenant without creating an API key.
+ *
+ * @param request CreateAgenticDBTenantRequest
+ * @return CreateAgenticDBTenantResponse
+ */
+CreateAgenticDBTenantResponse Client::createAgenticDBTenant(const CreateAgenticDBTenantRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createAgenticDBTenantWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates an AgenticDB tenant API key.
  *
  * @param request CreateAgenticDBTenantApiKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2913,7 +3029,7 @@ CreateAgenticDBTenantApiKeyResponse Client::createAgenticDBTenantApiKeyWithOptio
 }
 
 /**
- * @summary Creates an API key for an AgenticDB tenant.
+ * @summary Creates an AgenticDB tenant API key.
  *
  * @param request CreateAgenticDBTenantApiKeyRequest
  * @return CreateAgenticDBTenantApiKeyResponse
@@ -3332,9 +3448,9 @@ CreateApplicationPromptResponse Client::createApplicationPrompt(const CreateAppl
 /**
  * @summary Creates a full snapshot backup for a PolarDB cluster.
  *
- * @description > * Each cluster can have up to three manually created backups at the same time.
- * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, three manually created backups already exist in your cluster. [Delete backups](https://help.aliyun.com/document_detail/98101.html) before you call this operation.
- * > * After you call this operation, a backup task is created in the background. If the data volume is large, the backup may take a long time. Wait until the backup is complete.
+ * @description > * Each cluster can have up to three manually created backups at a time.
+ * > * If the error message `Exceeding the daily backup times of this DB cluster` appears, it indicates that three manually created backups already exist in your cluster. [Delete a backup](https://help.aliyun.com/document_detail/98101.html) before you call this operation.
+ * > * After you call this operation, a backup task is created in the background. If the data volume is large, the task may take a long time to complete.
  *
  * @param request CreateBackupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3391,9 +3507,9 @@ CreateBackupResponse Client::createBackupWithOptions(const CreateBackupRequest &
 /**
  * @summary Creates a full snapshot backup for a PolarDB cluster.
  *
- * @description > * Each cluster can have up to three manually created backups at the same time.
- * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, three manually created backups already exist in your cluster. [Delete backups](https://help.aliyun.com/document_detail/98101.html) before you call this operation.
- * > * After you call this operation, a backup task is created in the background. If the data volume is large, the backup may take a long time. Wait until the backup is complete.
+ * @description > * Each cluster can have up to three manually created backups at a time.
+ * > * If the error message `Exceeding the daily backup times of this DB cluster` appears, it indicates that three manually created backups already exist in your cluster. [Delete a backup](https://help.aliyun.com/document_detail/98101.html) before you call this operation.
+ * > * After you call this operation, a backup task is created in the background. If the data volume is large, the task may take a long time to complete.
  *
  * @param request CreateBackupRequest
  * @return CreateBackupResponse
@@ -3404,11 +3520,11 @@ CreateBackupResponse Client::createBackup(const CreateBackupRequest &request) {
 }
 
 /**
- * @summary Creates API keys in batches.
+ * @summary Creates multiple API keys.
  *
- * @description > * Each cluster can have a maximum of three manually created backups at a time.
- * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, three manually created backups already exist in your cluster. [Delete backups](https://help.aliyun.com/document_detail/98101.html) before you call this operation.
- * > * After you call this operation, a backup task is created in the background. If the data volume is large, the backup may take a long time. Wait until the backup is complete.
+ * @description > * A maximum of three manually created backups can exist for each cluster at the same time.
+ * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, it indicates that three manually created backups already exist in your cluster. [Delete a backup](https://help.aliyun.com/document_detail/98101.html) before you call this operation.
+ * > * After you call this operation, a backup task is created in the background. If the data volume is large, the task may take a long time to complete.
  *
  * @param request CreateBatchConsumerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3463,11 +3579,11 @@ CreateBatchConsumerResponse Client::createBatchConsumerWithOptions(const CreateB
 }
 
 /**
- * @summary Creates API keys in batches.
+ * @summary Creates multiple API keys.
  *
- * @description > * Each cluster can have a maximum of three manually created backups at a time.
- * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, three manually created backups already exist in your cluster. [Delete backups](https://help.aliyun.com/document_detail/98101.html) before you call this operation.
- * > * After you call this operation, a backup task is created in the background. If the data volume is large, the backup may take a long time. Wait until the backup is complete.
+ * @description > * A maximum of three manually created backups can exist for each cluster at the same time.
+ * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, it indicates that three manually created backups already exist in your cluster. [Delete a backup](https://help.aliyun.com/document_detail/98101.html) before you call this operation.
+ * > * After you call this operation, a backup task is created in the background. If the data volume is large, the task may take a long time to complete.
  *
  * @param request CreateBatchConsumerRequest
  * @return CreateBatchConsumerResponse
@@ -6246,10 +6362,10 @@ CreateParameterGroupResponse Client::createParameterGroup(const CreateParameterG
 }
 
 /**
- * @summary Creates a PolarClaw Agent.
+ * @summary Creates a new PolarClaw agent.
  *
- * @description ## Description
- * Use this operation to create a PolarClaw Agent. You can optionally specify an `emoji` and an `avatar`.
+ * @description ## Request description
+ * You can use this API to create a PolarClaw agent and optionally configure its `Emoji` and `Avatar`.
  *
  * @param request CreatePolarClawAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6300,10 +6416,10 @@ CreatePolarClawAgentResponse Client::createPolarClawAgentWithOptions(const Creat
 }
 
 /**
- * @summary Creates a PolarClaw Agent.
+ * @summary Creates a new PolarClaw agent.
  *
- * @description ## Description
- * Use this operation to create a PolarClaw Agent. You can optionally specify an `emoji` and an `avatar`.
+ * @description ## Request description
+ * You can use this API to create a PolarClaw agent and optionally configure its `Emoji` and `Avatar`.
  *
  * @param request CreatePolarClawAgentRequest
  * @return CreatePolarClawAgentResponse
@@ -6314,9 +6430,9 @@ CreatePolarClawAgentResponse Client::createPolarClawAgent(const CreatePolarClawA
 }
 
 /**
- * @summary Creates a channel in PolarClaw.
+ * @summary Creates a new communication channel in PolarClaw.
  *
- * @description ## Request
+ * @description ## Request description.
  *
  * @param tmpReq CreatePolarClawChannelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6373,9 +6489,9 @@ CreatePolarClawChannelResponse Client::createPolarClawChannelWithOptions(const C
 }
 
 /**
- * @summary Creates a channel in PolarClaw.
+ * @summary Creates a new communication channel in PolarClaw.
  *
- * @description ## Request
+ * @description ## Request description.
  *
  * @param request CreatePolarClawChannelRequest
  * @return CreatePolarClawChannelResponse
@@ -6388,8 +6504,8 @@ CreatePolarClawChannelResponse Client::createPolarClawChannel(const CreatePolarC
 /**
  * @summary Creates a PolarClaw scheduled task.
  *
- * @description ## Request
- * Use this API to create a cron job. You can configure the job\\"s payload, execution frequency, timezone, target channel, recipients, and a failure alert mechanism.
+ * @description ## Request description
+ * You can use this API to define and create a scheduled task. The task is triggered periodically based on a specified schedule and carries specific messages or instructions. This API supports advanced options such as custom execution frequency, time zone settings, and failure alert mechanisms. You can also configure details such as message content, target channels, and recipients.
  *
  * @param tmpReq CreatePolarClawCronJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6496,8 +6612,8 @@ CreatePolarClawCronJobResponse Client::createPolarClawCronJobWithOptions(const C
 /**
  * @summary Creates a PolarClaw scheduled task.
  *
- * @description ## Request
- * Use this API to create a cron job. You can configure the job\\"s payload, execution frequency, timezone, target channel, recipients, and a failure alert mechanism.
+ * @description ## Request description
+ * You can use this API to define and create a scheduled task. The task is triggered periodically based on a specified schedule and carries specific messages or instructions. This API supports advanced options such as custom execution frequency, time zone settings, and failure alert mechanisms. You can also configure details such as message content, target channels, and recipients.
  *
  * @param request CreatePolarClawCronJobRequest
  * @return CreatePolarClawCronJobResponse
@@ -6644,12 +6760,12 @@ CreatePolarFsResponse Client::createPolarFs(const CreatePolarFsRequest &request)
 /**
  * @summary Creates a new directory in a specified PolarFS instance.
  *
- * @description ## Description
- * - **Path**: The absolute path of the directory to create.
- * - **Recursive**: Specifies whether to recursively create parent directories. The default value is `false`.
- * - This operation creates a directory structure with one or more levels in the specified PolarFS instance.
- * - Setting `Recursive` to `true` automatically creates all non-existent parent directories.
- * - Ensure that you have sufficient permissions to create the directory.
+ * @description ## Request description
+ * - **Path**: The absolute path of the folder to create.
+ * - **Recursive**: Specifies whether to use recursion to create parent folders. Default value: `false`.
+ * - This operation supports creating single-level or multi-level folder structures in a specified PolarFS instance.
+ * - If the `Recursive` Settings are `true`, the automatic creation of all non-existent parent folders is enabled.
+ * - Ensure that you have sufficient permissions when creating a folder.
  *
  * @param request CreatePolarFsObjectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6686,12 +6802,12 @@ CreatePolarFsObjectResponse Client::createPolarFsObjectWithOptions(const CreateP
 /**
  * @summary Creates a new directory in a specified PolarFS instance.
  *
- * @description ## Description
- * - **Path**: The absolute path of the directory to create.
- * - **Recursive**: Specifies whether to recursively create parent directories. The default value is `false`.
- * - This operation creates a directory structure with one or more levels in the specified PolarFS instance.
- * - Setting `Recursive` to `true` automatically creates all non-existent parent directories.
- * - Ensure that you have sufficient permissions to create the directory.
+ * @description ## Request description
+ * - **Path**: The absolute path of the folder to create.
+ * - **Recursive**: Specifies whether to use recursion to create parent folders. Default value: `false`.
+ * - This operation supports creating single-level or multi-level folder structures in a specified PolarFS instance.
+ * - If the `Recursive` Settings are `true`, the automatic creation of all non-existent parent folders is enabled.
+ * - Ensure that you have sufficient permissions when creating a folder.
  *
  * @param request CreatePolarFsObjectRequest
  * @return CreatePolarFsObjectResponse
@@ -6764,14 +6880,14 @@ CreateRateLimitPolicyResponse Client::createRateLimitPolicy(const CreateRateLimi
 }
 
 /**
- * @summary Creates a resource control rule for a specified PolarDB for MySQL cluster. You can set MaxCpu to specify the maximum CPU quota percentage that the rule can use, or set CpuCount to specify the maximum number of CPU cores that the rule can use. You must specify one and only one of MaxCpu and CpuCount when creating a rule.
+ * @summary Creates a resource control rule for a specified PolarDB for MySQL cluster. You can use MaxCpu to specify the maximum CPU quota percentage or CpuCount to specify the maximum number of CPU cores that the rule can use. You must specify exactly one of the MaxCpu and CpuCount parameters when you create the rule.
  *
- * @description Resource Control limits the CPU resources that can be used by a specified user, database, query, or connection in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules. Querying Resource Control CPU usage is not supported.
- * ### Before you begin
- * - This feature applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
+ * @description Resource Control limits the CPU resources available to specified users, databases, queries, or connections in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules, but does not support querying CPU utilization for Resource Control.
+ * ### Limits
+ * - Applies only to PolarDB for MySQL Cluster Edition that supports Resource Control. PolarDB for MySQL Standard Edition is not supported.
  * - The cluster kernel parameter loose_enable_resource_control must be set to ON.
  * - MaxCpu and CpuCount are two mutually exclusive CPU quota modes.
- * - The maximum value of CpuCount is determined by the kernel parameter resource_control_cpu_count_limit of the target cluster.
+ * - The maximum value of CpuCount is determined by the resource_control_cpu_count_limit kernel parameter of the target cluster.
  * >Notice: This is a notice.</notice>
  *
  * @param request CreateResourceControlRequest
@@ -6819,14 +6935,14 @@ CreateResourceControlResponse Client::createResourceControlWithOptions(const Cre
 }
 
 /**
- * @summary Creates a resource control rule for a specified PolarDB for MySQL cluster. You can set MaxCpu to specify the maximum CPU quota percentage that the rule can use, or set CpuCount to specify the maximum number of CPU cores that the rule can use. You must specify one and only one of MaxCpu and CpuCount when creating a rule.
+ * @summary Creates a resource control rule for a specified PolarDB for MySQL cluster. You can use MaxCpu to specify the maximum CPU quota percentage or CpuCount to specify the maximum number of CPU cores that the rule can use. You must specify exactly one of the MaxCpu and CpuCount parameters when you create the rule.
  *
- * @description Resource Control limits the CPU resources that can be used by a specified user, database, query, or connection in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules. Querying Resource Control CPU usage is not supported.
- * ### Before you begin
- * - This feature applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
+ * @description Resource Control limits the CPU resources available to specified users, databases, queries, or connections in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules, but does not support querying CPU utilization for Resource Control.
+ * ### Limits
+ * - Applies only to PolarDB for MySQL Cluster Edition that supports Resource Control. PolarDB for MySQL Standard Edition is not supported.
  * - The cluster kernel parameter loose_enable_resource_control must be set to ON.
  * - MaxCpu and CpuCount are two mutually exclusive CPU quota modes.
- * - The maximum value of CpuCount is determined by the kernel parameter resource_control_cpu_count_limit of the target cluster.
+ * - The maximum value of CpuCount is determined by the resource_control_cpu_count_limit kernel parameter of the target cluster.
  * >Notice: This is a notice.</notice>
  *
  * @param request CreateResourceControlRequest
@@ -7596,6 +7712,60 @@ DeleteAgenticDBProjectResponse Client::deleteAgenticDBProject(const DeleteAgenti
 }
 
 /**
+ * @summary Deletes an AgenticDB tenant.
+ *
+ * @description Only tenants whose projects and branches have been completely cleaned up can be deleted. After a successful deletion, all API keys associated with the tenant become invalid. This operation does not automatically clean up projects, branches, or storage.
+ *
+ * @param request DeleteAgenticDBTenantRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAgenticDBTenantResponse
+ */
+DeleteAgenticDBTenantResponse Client::deleteAgenticDBTenantWithOptions(const DeleteAgenticDBTenantRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTenantId()) {
+    query["TenantId"] = request.getTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAgenticDBTenant"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAgenticDBTenantResponse>();
+}
+
+/**
+ * @summary Deletes an AgenticDB tenant.
+ *
+ * @description Only tenants whose projects and branches have been completely cleaned up can be deleted. After a successful deletion, all API keys associated with the tenant become invalid. This operation does not automatically clean up projects, branches, or storage.
+ *
+ * @param request DeleteAgenticDBTenantRequest
+ * @return DeleteAgenticDBTenantResponse
+ */
+DeleteAgenticDBTenantResponse Client::deleteAgenticDBTenant(const DeleteAgenticDBTenantRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteAgenticDBTenantWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes an API key of an AgenticDB tenant.
  *
  * @param request DeleteAgenticDBTenantApiKeyRequest
@@ -7872,7 +8042,7 @@ DeleteBackupResponse Client::deleteBackup(const DeleteBackupRequest &request) {
 }
 
 /**
- * @summary Deletes a cost budget policy.
+ * @summary Deletes a budget policy.
  *
  * @param request DeleteBudgetPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7911,7 +8081,7 @@ DeleteBudgetPolicyResponse Client::deleteBudgetPolicyWithOptions(const DeleteBud
 }
 
 /**
- * @summary Deletes a cost budget policy.
+ * @summary Deletes a budget policy.
  *
  * @param request DeleteBudgetPolicyRequest
  * @return DeleteBudgetPolicyResponse
@@ -9544,11 +9714,11 @@ DeleteParameterGroupResponse Client::deleteParameterGroup(const DeleteParameterG
 }
 
 /**
- * @summary This operation removes an agent and its associated bindings from a specified PolarClaw.
+ * @summary Removes an agent and its associated bindings from a specified PolarClaw.
  *
- * @description ## Usage notes
- * - A successful operation returns the ID of the deleted agent and the number of removed bindings.
- * - Ensure you provide the correct target `AgentId`. An incorrect ID can cause the operation to fail or affect an unintended agent.
+ * @description ## Request description
+ * - After this API is executed, it returns the ID of the successfully removed agent and the number of removed bindings.
+ * - Ensure that you know the target `AgentId` before calling this API. Otherwise, the operation may fail or affect unexpected agents.
  *
  * @param request DeletePolarClawAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9587,11 +9757,11 @@ DeletePolarClawAgentResponse Client::deletePolarClawAgentWithOptions(const Delet
 }
 
 /**
- * @summary This operation removes an agent and its associated bindings from a specified PolarClaw.
+ * @summary Removes an agent and its associated bindings from a specified PolarClaw.
  *
- * @description ## Usage notes
- * - A successful operation returns the ID of the deleted agent and the number of removed bindings.
- * - Ensure you provide the correct target `AgentId`. An incorrect ID can cause the operation to fail or affect an unintended agent.
+ * @description ## Request description
+ * - After this API is executed, it returns the ID of the successfully removed agent and the number of removed bindings.
+ * - Ensure that you know the target `AgentId` before calling this API. Otherwise, the operation may fail or affect unexpected agents.
  *
  * @param request DeletePolarClawAgentRequest
  * @return DeletePolarClawAgentResponse
@@ -10174,7 +10344,7 @@ DeleteSQLRateLimitingRulesResponse Client::deleteSQLRateLimitingRules(const Dele
 }
 
 /**
- * @summary Queries the API key of a model service.
+ * @summary Queries the API keys for the model service.
  *
  * @param request DescribeAIDBClusterApiKeysRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10209,7 +10379,7 @@ DescribeAIDBClusterApiKeysResponse Client::describeAIDBClusterApiKeysWithOptions
 }
 
 /**
- * @summary Queries the API key of a model service.
+ * @summary Queries the API keys for the model service.
  *
  * @param request DescribeAIDBClusterApiKeysRequest
  * @return DescribeAIDBClusterApiKeysResponse
@@ -10632,11 +10802,11 @@ DescribeAIDBClusterTaskMetricsResponse Client::describeAIDBClusterTaskMetrics(co
 }
 
 /**
- * @summary Queries the list of model operators for a specified PolarDB database instance.
+ * @summary Retrieves the list of model operators for a specified PolarDB instance.
  *
  * @description ## Request description
- * - This operation filters and returns a list of model operators based on the RelativeDBClusterId and KubeType parameters.
- * - Note: Make sure that the RelativeDBClusterId provided in the request matches the instance ID of an existing PolarDB database instance. Otherwise, the data cannot be retrieved.
+ * - This operation allows you to filter and retrieve a list of model operators by using the `RelativeDBClusterId` and `KubeType` parameters.
+ * - Note: Make sure that the `RelativeDBClusterId` you provide matches the instance ID of an existing PolarDB database. Otherwise, the data cannot be retrieved.
  *
  * @param request DescribeAIDBClusterTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10699,11 +10869,11 @@ DescribeAIDBClusterTasksResponse Client::describeAIDBClusterTasksWithOptions(con
 }
 
 /**
- * @summary Queries the list of model operators for a specified PolarDB database instance.
+ * @summary Retrieves the list of model operators for a specified PolarDB instance.
  *
  * @description ## Request description
- * - This operation filters and returns a list of model operators based on the RelativeDBClusterId and KubeType parameters.
- * - Note: Make sure that the RelativeDBClusterId provided in the request matches the instance ID of an existing PolarDB database instance. Otherwise, the data cannot be retrieved.
+ * - This operation allows you to filter and retrieve a list of model operators by using the `RelativeDBClusterId` and `KubeType` parameters.
+ * - Note: Make sure that the `RelativeDBClusterId` you provide matches the instance ID of an existing PolarDB database. Otherwise, the data cannot be retrieved.
  *
  * @param request DescribeAIDBClusterTasksRequest
  * @return DescribeAIDBClusterTasksResponse
@@ -11480,6 +11650,64 @@ DescribeAgenticDBBranchLineageResponse Client::describeAgenticDBBranchLineage(co
 }
 
 /**
+ * @summary Queries the earliest restorable time for an AgenticDB branch.
+ *
+ * @param request DescribeAgenticDBBranchRestoreWindowRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAgenticDBBranchRestoreWindowResponse
+ */
+DescribeAgenticDBBranchRestoreWindowResponse Client::describeAgenticDBBranchRestoreWindowWithOptions(const DescribeAgenticDBBranchRestoreWindowRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBranchId()) {
+    query["BranchId"] = request.getBranchId();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTenantId()) {
+    query["TenantId"] = request.getTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeAgenticDBBranchRestoreWindow"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAgenticDBBranchRestoreWindowResponse>();
+}
+
+/**
+ * @summary Queries the earliest restorable time for an AgenticDB branch.
+ *
+ * @param request DescribeAgenticDBBranchRestoreWindowRequest
+ * @return DescribeAgenticDBBranchRestoreWindowResponse
+ */
+DescribeAgenticDBBranchRestoreWindowResponse Client::describeAgenticDBBranchRestoreWindow(const DescribeAgenticDBBranchRestoreWindowRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAgenticDBBranchRestoreWindowWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the list of AgenticDB branches.
  *
  * @param request DescribeAgenticDBBranchesRequest
@@ -11640,7 +11868,7 @@ DescribeAgenticDBClustersResponse Client::describeAgenticDBClusters(const Descri
 }
 
 /**
- * @summary Queries the list of AgenticDB compute instances.
+ * @summary Queries a list of AgenticDB compute instances.
  *
  * @param request DescribeAgenticDBComputeClustersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11691,7 +11919,7 @@ DescribeAgenticDBComputeClustersResponse Client::describeAgenticDBComputeCluster
 }
 
 /**
- * @summary Queries the list of AgenticDB compute instances.
+ * @summary Queries a list of AgenticDB compute instances.
  *
  * @param request DescribeAgenticDBComputeClustersRequest
  * @return DescribeAgenticDBComputeClustersResponse
@@ -11756,7 +11984,61 @@ DescribeAgenticDBProjectResponse Client::describeAgenticDBProject(const Describe
 }
 
 /**
- * @summary Queries the list of AgenticDB projects.
+ * @summary Queries the actual history retention window of an AgenticDB project.
+ *
+ * @param request DescribeAgenticDBProjectHistoryRetentionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAgenticDBProjectHistoryRetentionResponse
+ */
+DescribeAgenticDBProjectHistoryRetentionResponse Client::describeAgenticDBProjectHistoryRetentionWithOptions(const DescribeAgenticDBProjectHistoryRetentionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTenantId()) {
+    query["TenantId"] = request.getTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeAgenticDBProjectHistoryRetention"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAgenticDBProjectHistoryRetentionResponse>();
+}
+
+/**
+ * @summary Queries the actual history retention window of an AgenticDB project.
+ *
+ * @param request DescribeAgenticDBProjectHistoryRetentionRequest
+ * @return DescribeAgenticDBProjectHistoryRetentionResponse
+ */
+DescribeAgenticDBProjectHistoryRetentionResponse Client::describeAgenticDBProjectHistoryRetention(const DescribeAgenticDBProjectHistoryRetentionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAgenticDBProjectHistoryRetentionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries a list of AgenticDB projects.
  *
  * @param request DescribeAgenticDBProjectsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11811,7 +12093,7 @@ DescribeAgenticDBProjectsResponse Client::describeAgenticDBProjectsWithOptions(c
 }
 
 /**
- * @summary Queries the list of AgenticDB projects.
+ * @summary Queries a list of AgenticDB projects.
  *
  * @param request DescribeAgenticDBProjectsRequest
  * @return DescribeAgenticDBProjectsResponse
@@ -11880,7 +12162,7 @@ DescribeAgenticDBTenantApiKeysResponse Client::describeAgenticDBTenantApiKeys(co
 }
 
 /**
- * @summary Queries the details of a specified API key.
+ * @summary Queries the details of the API key.
  *
  * @param request DescribeApikeyAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11923,7 +12205,7 @@ DescribeApikeyAttributeResponse Client::describeApikeyAttributeWithOptions(const
 }
 
 /**
- * @summary Queries the details of a specified API key.
+ * @summary Queries the details of the API key.
  *
  * @param request DescribeApikeyAttributeRequest
  * @return DescribeApikeyAttributeResponse
@@ -11936,7 +12218,7 @@ DescribeApikeyAttributeResponse Client::describeApikeyAttribute(const DescribeAp
 /**
  * @summary Queries the details of a specified PolarDB instance application.
  *
- * @description This API queries all relevant information about a specific PolarDB application, including but not limited to component details and connection endpoints.
+ * @description This API queries all relevant information about a specific PolarDB application, including but not limited to component details and endpoints.
  *
  * @param request DescribeApplicationAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11969,7 +12251,7 @@ DescribeApplicationAttributeResponse Client::describeApplicationAttributeWithOpt
 /**
  * @summary Queries the details of a specified PolarDB instance application.
  *
- * @description This API queries all relevant information about a specific PolarDB application, including but not limited to component details and connection endpoints.
+ * @description This API queries all relevant information about a specific PolarDB application, including but not limited to component details and endpoints.
  *
  * @param request DescribeApplicationAttributeRequest
  * @return DescribeApplicationAttributeResponse
@@ -12476,7 +12758,7 @@ DescribeApplicationUsageResponse Client::describeApplicationUsage(const Describe
 }
 
 /**
- * @summary Queries the list of applications for all PolarDB instances in a specified region.
+ * @summary Retrieves a list of applications for all PolarDB instances in a specified region.
  *
  * @param request DescribeApplicationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12531,7 +12813,7 @@ DescribeApplicationsResponse Client::describeApplicationsWithOptions(const Descr
 }
 
 /**
- * @summary Queries the list of applications for all PolarDB instances in a specified region.
+ * @summary Retrieves a list of applications for all PolarDB instances in a specified region.
  *
  * @param request DescribeApplicationsRequest
  * @return DescribeApplicationsResponse
@@ -12728,7 +13010,57 @@ DescribeAvailableModelsResponse Client::describeAvailableModels(const DescribeAv
 }
 
 /**
- * @summary Queries a list of backup logs and returns their download URLs.
+ * @summary Queries the download links for redo log backups.
+ *
+ * @param request DescribeBackupLogDownloadLinksRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeBackupLogDownloadLinksResponse
+ */
+DescribeBackupLogDownloadLinksResponse Client::describeBackupLogDownloadLinksWithOptions(const DescribeBackupLogDownloadLinksRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBackupLogIds()) {
+    query["BackupLogIds"] = request.getBackupLogIds();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasExpireHours()) {
+    query["ExpireHours"] = request.getExpireHours();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeBackupLogDownloadLinks"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeBackupLogDownloadLinksResponse>();
+}
+
+/**
+ * @summary Queries the download links for redo log backups.
+ *
+ * @param request DescribeBackupLogDownloadLinksRequest
+ * @return DescribeBackupLogDownloadLinksResponse
+ */
+DescribeBackupLogDownloadLinksResponse Client::describeBackupLogDownloadLinks(const DescribeBackupLogDownloadLinksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeBackupLogDownloadLinksWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the list of backup logs and retrieves their download URLs.
  *
  * @param request DescribeBackupLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12795,7 +13127,7 @@ DescribeBackupLogsResponse Client::describeBackupLogsWithOptions(const DescribeB
 }
 
 /**
- * @summary Queries a list of backup logs and returns their download URLs.
+ * @summary Queries the list of backup logs and retrieves their download URLs.
  *
  * @param request DescribeBackupLogsRequest
  * @return DescribeBackupLogsResponse
@@ -13078,7 +13410,7 @@ DescribeBackupsResponse Client::describeBackups(const DescribeBackupsRequest &re
 }
 
 /**
- * @summary Queries the status of a batch task.
+ * @summary Queries the status details of a batch task.
  *
  * @param request DescribeBatchTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13109,7 +13441,7 @@ DescribeBatchTaskResponse Client::describeBatchTaskWithOptions(const DescribeBat
 }
 
 /**
- * @summary Queries the status of a batch task.
+ * @summary Queries the status details of a batch task.
  *
  * @param request DescribeBatchTaskRequest
  * @return DescribeBatchTaskResponse
@@ -13188,7 +13520,7 @@ DescribeBatchTasksResponse Client::describeBatchTasks(const DescribeBatchTasksRe
 }
 
 /**
- * @summary Queries cost budget policies.
+ * @summary Queries budget policies.
  *
  * @param request DescribeBudgetPoliciesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13251,7 +13583,7 @@ DescribeBudgetPoliciesResponse Client::describeBudgetPoliciesWithOptions(const D
 }
 
 /**
- * @summary Queries cost budget policies.
+ * @summary Queries budget policies.
  *
  * @param request DescribeBudgetPoliciesRequest
  * @return DescribeBudgetPoliciesResponse
@@ -13398,7 +13730,7 @@ DescribeClassListResponse Client::describeClassList(const DescribeClassListReque
 }
 
 /**
- * @summary Queries cold storage instances.
+ * @summary Queries cold storage instance information.
  *
  * @param request DescribeColdStorageInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13485,7 +13817,7 @@ DescribeColdStorageInstanceResponse Client::describeColdStorageInstanceWithOptio
 }
 
 /**
- * @summary Queries cold storage instances.
+ * @summary Queries cold storage instance information.
  *
  * @param request DescribeColdStorageInstanceRequest
  * @return DescribeColdStorageInstanceResponse
@@ -13554,7 +13886,7 @@ DescribeConsumerGroupsResponse Client::describeConsumerGroups(const DescribeCons
 }
 
 /**
- * @summary Queries the list of consumers.
+ * @summary Queries a list of consumers.
  *
  * @param request DescribeConsumersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13613,7 +13945,7 @@ DescribeConsumersResponse Client::describeConsumersWithOptions(const DescribeCon
 }
 
 /**
- * @summary Queries the list of consumers.
+ * @summary Queries a list of consumers.
  *
  * @param request DescribeConsumersRequest
  * @return DescribeConsumersResponse
@@ -15162,9 +15494,9 @@ DescribeDBClusterTDEResponse Client::describeDBClusterTDE(const DescribeDBCluste
 }
 
 /**
- * @summary Queries the details of the current Milvus version of a PolarDB for MySQL cluster.
+ * @summary Queries the details of the current kernel version of a PolarDB for MySQL cluster.
  *
- * @description >For more information about the minor Milvus versions and details of PolarDB for MySQL Cluster Edition, see [Minor Milvus version description](https://help.aliyun.com/document_detail/471239.html) and [Release notes](https://help.aliyun.com/document_detail/423884.html).
+ * @description >For more information about the Milvus versions of PolarDB for MySQL clusters, see [Milvus version overview](https://help.aliyun.com/document_detail/471239.html) and [Kernel release notes](https://help.aliyun.com/document_detail/423884.html).
  *
  * @param request DescribeDBClusterVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15215,9 +15547,9 @@ DescribeDBClusterVersionResponse Client::describeDBClusterVersionWithOptions(con
 }
 
 /**
- * @summary Queries the details of the current Milvus version of a PolarDB for MySQL cluster.
+ * @summary Queries the details of the current kernel version of a PolarDB for MySQL cluster.
  *
- * @description >For more information about the minor Milvus versions and details of PolarDB for MySQL Cluster Edition, see [Minor Milvus version description](https://help.aliyun.com/document_detail/471239.html) and [Release notes](https://help.aliyun.com/document_detail/423884.html).
+ * @description >For more information about the Milvus versions of PolarDB for MySQL clusters, see [Milvus version overview](https://help.aliyun.com/document_detail/471239.html) and [Kernel release notes](https://help.aliyun.com/document_detail/423884.html).
  *
  * @param request DescribeDBClusterVersionRequest
  * @return DescribeDBClusterVersionResponse
@@ -15290,7 +15622,7 @@ DescribeDBClusterVersionZonalResponse Client::describeDBClusterVersionZonal(cons
 }
 
 /**
- * @summary Queries the list of PolarDB clusters or the details of clusters with RAM authorization.
+ * @summary Queries a list of PolarDB clusters or the details of clusters with RAM authorization.
  *
  * @param request DescribeDBClustersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15401,7 +15733,7 @@ DescribeDBClustersResponse Client::describeDBClustersWithOptions(const DescribeD
 }
 
 /**
- * @summary Queries the list of PolarDB clusters or the details of clusters with RAM authorization.
+ * @summary Queries a list of PolarDB clusters or the details of clusters with RAM authorization.
  *
  * @param request DescribeDBClustersRequest
  * @return DescribeDBClustersResponse
@@ -16428,7 +16760,7 @@ DescribeDatabasesZonalResponse Client::describeDatabasesZonal(const DescribeData
 }
 
 /**
- * @summary Queries the attributes of an PolarDB on ENS cluster.
+ * @summary Queries the details of an edge cluster.
  *
  * @param request DescribeDbClusterAttributeZonalRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16479,7 +16811,7 @@ DescribeDbClusterAttributeZonalResponse Client::describeDbClusterAttributeZonalW
 }
 
 /**
- * @summary Queries the attributes of an PolarDB on ENS cluster.
+ * @summary Queries the details of an edge cluster.
  *
  * @param request DescribeDbClusterAttributeZonalRequest
  * @return DescribeDbClusterAttributeZonalResponse
@@ -16690,7 +17022,7 @@ DescribeEncryptionDBSecretResponse Client::describeEncryptionDBSecret(const Desc
 }
 
 /**
- * @summary Retrieves the details of extensions.
+ * @summary Queries plugin details.
  *
  * @param request DescribeExtensionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16745,7 +17077,7 @@ DescribeExtensionsResponse Client::describeExtensionsWithOptions(const DescribeE
 }
 
 /**
- * @summary Retrieves the details of extensions.
+ * @summary Queries plugin details.
  *
  * @param request DescribeExtensionsRequest
  * @return DescribeExtensionsResponse
@@ -16868,7 +17200,7 @@ DescribeGatewayApikeyListResponse Client::describeGatewayApikeyList(const Descri
 }
 
 /**
- * @summary Viewing gateway instance details
+ * @summary Queries the details of a gateway instance.
  *
  * @param request DescribeGatewayAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16903,7 +17235,7 @@ DescribeGatewayAttributeResponse Client::describeGatewayAttributeWithOptions(con
 }
 
 /**
- * @summary Viewing gateway instance details
+ * @summary Queries the details of a gateway instance.
  *
  * @param request DescribeGatewayAttributeRequest
  * @return DescribeGatewayAttributeResponse
@@ -23399,7 +23731,7 @@ ListPolarClawBindingsResponse Client::listPolarClawBindings(const ListPolarClawB
 }
 
 /**
- * @summary List PolarClaw device pairings
+ * @summary Lists PolarClaw device pairings.
  *
  * @param request ListPolarClawDevicePairsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23430,7 +23762,7 @@ ListPolarClawDevicePairsResponse Client::listPolarClawDevicePairsWithOptions(con
 }
 
 /**
- * @summary List PolarClaw device pairings
+ * @summary Lists PolarClaw device pairings.
  *
  * @param request ListPolarClawDevicePairsRequest
  * @return ListPolarClawDevicePairsResponse
@@ -23883,7 +24215,7 @@ ModifyAccountDescriptionResponse Client::modifyAccountDescription(const ModifyAc
 }
 
 /**
- * @summary Modifies the description of an account in a PolarDB on ENS cluster.
+ * @summary Modifies the description of a PolarDB on ENS account.
  *
  * @param request ModifyAccountDescriptionZonalRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23942,7 +24274,7 @@ ModifyAccountDescriptionZonalResponse Client::modifyAccountDescriptionZonalWithO
 }
 
 /**
- * @summary Modifies the description of an account in a PolarDB on ENS cluster.
+ * @summary Modifies the description of a PolarDB on ENS account.
  *
  * @param request ModifyAccountDescriptionZonalRequest
  * @return ModifyAccountDescriptionZonalResponse
@@ -24328,6 +24660,64 @@ ModifyActiveOperationTasksResponse Client::modifyActiveOperationTasksWithOptions
 ModifyActiveOperationTasksResponse Client::modifyActiveOperationTasks(const ModifyActiveOperationTasksRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyActiveOperationTasksWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies the history retention window of an AgenticDB project.
+ *
+ * @param request ModifyAgenticDBProjectHistoryRetentionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyAgenticDBProjectHistoryRetentionResponse
+ */
+ModifyAgenticDBProjectHistoryRetentionResponse Client::modifyAgenticDBProjectHistoryRetentionWithOptions(const ModifyAgenticDBProjectHistoryRetentionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasHistoryRetentionSeconds()) {
+    query["HistoryRetentionSeconds"] = request.getHistoryRetentionSeconds();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTenantId()) {
+    query["TenantId"] = request.getTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyAgenticDBProjectHistoryRetention"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyAgenticDBProjectHistoryRetentionResponse>();
+}
+
+/**
+ * @summary Modifies the history retention window of an AgenticDB project.
+ *
+ * @param request ModifyAgenticDBProjectHistoryRetentionRequest
+ * @return ModifyAgenticDBProjectHistoryRetentionResponse
+ */
+ModifyAgenticDBProjectHistoryRetentionResponse Client::modifyAgenticDBProjectHistoryRetention(const ModifyAgenticDBProjectHistoryRetentionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyAgenticDBProjectHistoryRetentionWithOptions(request, runtime);
 }
 
 /**
@@ -27351,7 +27741,7 @@ ModifyDBEndpointAddressResponse Client::modifyDBEndpointAddress(const ModifyDBEn
 }
 
 /**
- * @summary Changes the node specifications of a PolarDB cluster.
+ * @summary Modifies the node specifications of a PolarDB cluster.
  *
  * @param request ModifyDBNodeClassRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -27442,7 +27832,7 @@ ModifyDBNodeClassResponse Client::modifyDBNodeClassWithOptions(const ModifyDBNod
 }
 
 /**
- * @summary Changes the node specifications of a PolarDB cluster.
+ * @summary Modifies the node specifications of a PolarDB cluster.
  *
  * @param request ModifyDBNodeClassRequest
  * @return ModifyDBNodeClassResponse
@@ -28857,7 +29247,7 @@ ModifyPolarFsMappingAuthResponse Client::modifyPolarFsMappingAuth(const ModifyPo
 }
 
 /**
- * @summary Modifies a rate limit policy.
+ * @summary Modifies a throttling policy.
  *
  * @param request ModifyRateLimitPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -28904,7 +29294,7 @@ ModifyRateLimitPolicyResponse Client::modifyRateLimitPolicyWithOptions(const Mod
 }
 
 /**
- * @summary Modifies a rate limit policy.
+ * @summary Modifies a throttling policy.
  *
  * @param request ModifyRateLimitPolicyRequest
  * @return ModifyRateLimitPolicyResponse
@@ -28915,14 +29305,14 @@ ModifyRateLimitPolicyResponse Client::modifyRateLimitPolicy(const ModifyRateLimi
 }
 
 /**
- * @summary Modifies the CPU quota of an existing resource control rule in a specified PolarDB for MySQL cluster. You can modify the current quota value or switch between the maximum CPU percentage mode and the maximum CPU core count mode. You must specify one and only one of the MaxCpu and CpuCount parameters.
+ * @summary Modifies the CPU quota of an existing resource control rule in a specified PolarDB for MySQL cluster. You can modify the current quota value or switch between the maximum CPU quota percentage mode and the maximum CPU core count mode. When modifying the rule, you must specify exactly one of the MaxCpu and CpuCount parameters.
  *
- * @description Resource Control limits the CPU resources that can be used by a specified user, database, query, or connection in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules. It does not support querying Resource Control CPU usage.
- * ### Before you begin
- * - This operation applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
+ * @description Resource Control is used to limit the CPU resources available to specified users, databases, queries, or connections in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules, but does not support querying Resource Control CPU utilization.
+ * ### Limits
+ * - Applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
  * - The cluster kernel parameter loose_enable_resource_control must be set to ON.
  * - MaxCpu and CpuCount are two mutually exclusive CPU quota modes.
- * - The maximum value of CpuCount is determined by the cluster kernel parameter resource_control_cpu_count_limit.
+ * - The maximum value of CpuCount is determined by the resource_control_cpu_count_limit kernel parameter of the target cluster.
  * >Notice: This is a notice.</notice>
  *
  * @param request ModifyResourceControlRequest
@@ -28970,14 +29360,14 @@ ModifyResourceControlResponse Client::modifyResourceControlWithOptions(const Mod
 }
 
 /**
- * @summary Modifies the CPU quota of an existing resource control rule in a specified PolarDB for MySQL cluster. You can modify the current quota value or switch between the maximum CPU percentage mode and the maximum CPU core count mode. You must specify one and only one of the MaxCpu and CpuCount parameters.
+ * @summary Modifies the CPU quota of an existing resource control rule in a specified PolarDB for MySQL cluster. You can modify the current quota value or switch between the maximum CPU quota percentage mode and the maximum CPU core count mode. When modifying the rule, you must specify exactly one of the MaxCpu and CpuCount parameters.
  *
- * @description Resource Control limits the CPU resources that can be used by a specified user, database, query, or connection in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules. It does not support querying Resource Control CPU usage.
- * ### Before you begin
- * - This operation applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
+ * @description Resource Control is used to limit the CPU resources available to specified users, databases, queries, or connections in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules, but does not support querying Resource Control CPU utilization.
+ * ### Limits
+ * - Applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
  * - The cluster kernel parameter loose_enable_resource_control must be set to ON.
  * - MaxCpu and CpuCount are two mutually exclusive CPU quota modes.
- * - The maximum value of CpuCount is determined by the cluster kernel parameter resource_control_cpu_count_limit.
+ * - The maximum value of CpuCount is determined by the resource_control_cpu_count_limit kernel parameter of the target cluster.
  * >Notice: This is a notice.</notice>
  *
  * @param request ModifyResourceControlRequest
@@ -29345,7 +29735,7 @@ OperateApplicationResponse Client::operateApplication(const OperateApplicationRe
 }
 
 /**
- * @summary Updates a PolarClaw configuration.
+ * @summary Updates the PolarClaw configuration.
  *
  * @param tmpReq PatchPolarClawConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -29390,7 +29780,7 @@ PatchPolarClawConfigResponse Client::patchPolarClawConfigWithOptions(const Patch
 }
 
 /**
- * @summary Updates a PolarClaw configuration.
+ * @summary Updates the PolarClaw configuration.
  *
  * @param request PatchPolarClawConfigRequest
  * @return PatchPolarClawConfigResponse
@@ -29601,7 +29991,7 @@ RegisterAIDBClusterCustomModelResponse Client::registerAIDBClusterCustomModel(co
 }
 
 /**
- * @summary Registers an OSS file in a knowledge base.
+ * @summary Registers an OSS file for a knowledge base.
  *
  * @param request RegisterKnowledgeBaseFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -29640,7 +30030,7 @@ RegisterKnowledgeBaseFileResponse Client::registerKnowledgeBaseFileWithOptions(c
 }
 
 /**
- * @summary Registers an OSS file in a knowledge base.
+ * @summary Registers an OSS file for a knowledge base.
  *
  * @param request RegisterKnowledgeBaseFileRequest
  * @return RegisterKnowledgeBaseFileResponse
@@ -29831,7 +30221,7 @@ RemoveDBClusterFromGDNResponse Client::removeDBClusterFromGDN(const RemoveDBClus
 }
 
 /**
- * @summary Unpairs a PolarClaw device.
+ * @summary Removes a paired PolarClaw device.
  *
  * @param request RemovePolarClawDevicePairRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -29866,7 +30256,7 @@ RemovePolarClawDevicePairResponse Client::removePolarClawDevicePairWithOptions(c
 }
 
 /**
- * @summary Unpairs a PolarClaw device.
+ * @summary Removes a paired PolarClaw device.
  *
  * @param request RemovePolarClawDevicePairRequest
  * @return RemovePolarClawDevicePairResponse
@@ -30187,7 +30577,7 @@ ResetAgenticDBTenantApiKeyResponse Client::resetAgenticDBTenantApiKey(const Rese
 }
 
 /**
- * @summary Resets an api key.
+ * @summary Resets an API key.
  *
  * @param request ResetConsumerApiKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -30226,7 +30616,7 @@ ResetConsumerApiKeyResponse Client::resetConsumerApiKeyWithOptions(const ResetCo
 }
 
 /**
- * @summary Resets an api key.
+ * @summary Resets an API key.
  *
  * @param request ResetConsumerApiKeyRequest
  * @return ResetConsumerApiKeyResponse
@@ -30973,7 +31363,7 @@ RevokeAccountPrivilegeZonalResponse Client::revokeAccountPrivilegeZonal(const Re
 }
 
 /**
- * @summary Runs a PolarClaw cron job.
+ * @summary Executes a PolarClaw scheduled task.
  *
  * @param request RunPolarClawCronJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -31016,7 +31406,7 @@ RunPolarClawCronJobResponse Client::runPolarClawCronJobWithOptions(const RunPola
 }
 
 /**
- * @summary Runs a PolarClaw cron job.
+ * @summary Executes a PolarClaw scheduled task.
  *
  * @param request RunPolarClawCronJobRequest
  * @return RunPolarClawCronJobResponse
@@ -31027,9 +31417,9 @@ RunPolarClawCronJobResponse Client::runPolarClawCronJob(const RunPolarClawCronJo
 }
 
 /**
- * @summary Retrieves memories from a specified application.
+ * @summary Retrieves memories.
  *
- * @description Retrieves memory data from a specified application.
+ * @description Retrieves memory data in a specified application.
  *
  * @param request SearchMemoriesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -31092,9 +31482,9 @@ SearchMemoriesResponse Client::searchMemoriesWithOptions(const SearchMemoriesReq
 }
 
 /**
- * @summary Retrieves memories from a specified application.
+ * @summary Retrieves memories.
  *
- * @description Retrieves memory data from a specified application.
+ * @description Retrieves memory data in a specified application.
  *
  * @param request SearchMemoriesRequest
  * @return SearchMemoriesResponse
@@ -31599,7 +31989,10 @@ TriggerKnowledgeBaseSyncResponse Client::triggerKnowledgeBaseSync(const TriggerK
 }
 
 /**
- * @summary Unbinds a PolarClaw Agent.
+ * @summary Disassociates a PolarClaw agent.
+ *
+ * @description ## Request description
+ * Before calling this operation, use BindPolarClawAgent to establish a binding for the specified application, agent, and channel. This operation uses the same ApplicationId, AgentId, and Channel to remove the binding.
  *
  * @param request UnbindPolarClawAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -31642,7 +32035,10 @@ UnbindPolarClawAgentResponse Client::unbindPolarClawAgentWithOptions(const Unbin
 }
 
 /**
- * @summary Unbinds a PolarClaw Agent.
+ * @summary Disassociates a PolarClaw agent.
+ *
+ * @description ## Request description
+ * Before calling this operation, use BindPolarClawAgent to establish a binding for the specified application, agent, and channel. This operation uses the same ApplicationId, AgentId, and Channel to remove the binding.
  *
  * @param request UnbindPolarClawAgentRequest
  * @return UnbindPolarClawAgentResponse
@@ -31723,7 +32119,7 @@ UnbindResourceControlResponse Client::unbindResourceControl(const UnbindResource
 }
 
 /**
- * @summary Uninstalls a PolarClaw plugin.
+ * @summary Uninstalls the PolarClaw plugin.
  *
  * @param request UninstallPolarClawPluginRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -31762,7 +32158,7 @@ UninstallPolarClawPluginResponse Client::uninstallPolarClawPluginWithOptions(con
 }
 
 /**
- * @summary Uninstalls a PolarClaw plugin.
+ * @summary Uninstalls the PolarClaw plugin.
  *
  * @param request UninstallPolarClawPluginRequest
  * @return UninstallPolarClawPluginResponse
@@ -32605,7 +33001,7 @@ UpdatePolarClawCronJobResponse Client::updatePolarClawCronJob(const UpdatePolarC
 }
 
 /**
- * @summary Updates the PolarClaw Skill configuration.
+ * @summary Updates the PolarClaw skill configuration.
  *
  * @param tmpReq UpdatePolarClawSkillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -32658,7 +33054,7 @@ UpdatePolarClawSkillResponse Client::updatePolarClawSkillWithOptions(const Updat
 }
 
 /**
- * @summary Updates the PolarClaw Skill configuration.
+ * @summary Updates the PolarClaw skill configuration.
  *
  * @param request UpdatePolarClawSkillRequest
  * @return UpdatePolarClawSkillResponse

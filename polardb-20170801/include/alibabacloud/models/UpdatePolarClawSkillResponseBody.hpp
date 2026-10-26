@@ -82,7 +82,7 @@ namespace Models
 
 
     protected:
-      // Specifies whether to enable the Skill.
+      // Specifies whether the skill is enabled.
       shared_ptr<bool> enabled_ {};
       // The environment variable configuration.
       shared_ptr<map<string, string>> env_ {};
@@ -145,17 +145,17 @@ namespace Models
   protected:
     // The application ID.
     shared_ptr<string> applicationId_ {};
-    // The response status code.
+    // The returned status code.
     shared_ptr<int32_t> code_ {};
-    // The updated Skill configuration. Sensitive values are masked.
+    // The updated skill configuration. Sensitive values are masked.
     shared_ptr<UpdatePolarClawSkillResponseBody::Config> config_ {};
-    // The response message.
+    // The returned message.
     shared_ptr<string> message_ {};
     // Indicates whether the operation is successful.
     shared_ptr<bool> ok_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The Skill identifier key.
+    // The skill identifier key.
     shared_ptr<string> skillKey_ {};
   };
 

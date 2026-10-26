@@ -188,41 +188,41 @@ namespace Models
 
 
     protected:
-      // The alert threshold percentage. Valid values: 0 to 100.
+      // The alert threshold percentage (0 to 100).
       shared_ptr<string> alertThresholdPct_ {};
-      // Indicates whether the alert threshold has been triggered.
+      // Indicates whether the alert threshold is triggered.
       shared_ptr<bool> alertTriggered_ {};
-      // The dimension object ID. This parameter is required when BudgetDimensionType is set to ConsumerGroup or Consumer.
+      // The ID of the dimension object. This parameter is required when BudgetDimensionType is set to ConsumerGroup or Consumer.
       shared_ptr<string> budgetDimensionRefId_ {};
-      // The policy type. Valid values:
+      // The type of the policy. Valid values:
       // 
-      // - **ConsumerGroup**: total budget for a user group
-      // - **Consumer**: total budget for a user
+      // - **ConsumerGroup**: Total budget for consumer groups.
+      // - **Consumer**: Total budget for consumers.
       shared_ptr<string> budgetDimensionType_ {};
       // The budget points.
       shared_ptr<string> budgetPoints_ {};
-      // The budget policy ID.
+      // The ID of the budget policy.
       shared_ptr<string> budgetPolicyId_ {};
       // The budget type. Valid values:
       // 
-      // - **GlobalTotal**: global total budget
-      // - **ConsumerTotal**: total budget for a user
-      // - **ConsumerGroupTotal**: total budget for a user group
+      // - **GlobalTotal**: Global total budget.
+      // - **ConsumerTotal**: Total budget for consumers.
+      // - **ConsumerGroupTotal**: Total budget for consumer groups.
       shared_ptr<string> budgetType_ {};
-      // Indicates whether the quota has been exceeded.
+      // Indicates whether the quota is exceeded.
       shared_ptr<string> exceeded_ {};
-      // The time when the policy was created.
+      // The creation time.
       shared_ptr<string> gmtCreated_ {};
-      // The time when the policy was last modified.
+      // The update time.
       shared_ptr<string> gmtModified_ {};
       // The gateway instance ID.
       shared_ptr<string> gwClusterId_ {};
-      // The day of the month on which the budget resets. Valid values: 1 to 28.
+      // The day of the month when the budget is reset (1 to 28).
       shared_ptr<string> resetDayOfMonth_ {};
-      // The policy status. Valid values:
+      // The status of the policy. Valid values:
       // 
-      // - **Enabled**: enabled
-      // - **Disenabled**: disabled
+      // - **Enabled**: Enabled.
+      // - **Disenabled**: Disabled.
       shared_ptr<string> status_ {};
       // The number of used points.
       shared_ptr<int32_t> usedPoints_ {};

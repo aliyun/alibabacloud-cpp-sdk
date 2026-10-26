@@ -138,23 +138,23 @@ namespace Models
 
 
     protected:
-      // The extension type.
+      // The plugin category.
       shared_ptr<string> category_ {};
-      // The purpose of the extension.
+      // The purpose of the plugin.
       shared_ptr<string> comment_ {};
-      // The default version of the extension.
+      // The default version of the plugin.
       shared_ptr<string> defaultVersion_ {};
-      // The currently installed version of the extension.
+      // The currently installed version of the plugin.
       shared_ptr<string> installedVersion_ {};
-      // The extension name.
+      // The plugin name.
       shared_ptr<string> name_ {};
-      // The owner of the extension.
+      // The owner of the plugin.
       shared_ptr<string> owner_ {};
-      // The priority of the extension.
+      // The priority of the plugin.
       shared_ptr<string> priority_ {};
-      // The extensions on which this extension depends.
+      // The plugins that this plugin depends on during installation.
       shared_ptr<string> requires_ {};
-      // Specifies whether to restart the application. \\`true\\`: The application is restarted. \\`false\\`: The application is not restarted.
+      // Specifies whether to restart the application. Valid values: true: Restart. false: Do not restart.
       shared_ptr<string> restart_ {};
     };
 
@@ -260,23 +260,23 @@ namespace Models
 
 
     protected:
-      // The extension type.
+      // The plugin category.
       shared_ptr<string> category_ {};
-      // The description of the extension.
+      // The plugin description.
       shared_ptr<string> comment_ {};
-      // The default version of the extension.
+      // The default version of the plugin.
       shared_ptr<string> defaultVersion_ {};
-      // The currently installed version of the extension.
+      // The currently installed version of the plugin.
       shared_ptr<string> installedVersion_ {};
-      // The extension name.
+      // The plugin name.
       shared_ptr<string> name_ {};
-      // The owner of the extension.
+      // The owner of the plugin.
       shared_ptr<string> owner_ {};
-      // The priority of the extension.
+      // The priority of the plugin.
       shared_ptr<string> priority_ {};
-      // The extensions on which this extension depends.
+      // The plugins that this plugin depends on during installation.
       shared_ptr<string> requires_ {};
-      // Specifies whether to restart the application. \\`true\\`: The application is restarted. \\`false\\`: The application is not restarted.
+      // Specifies whether to restart the application. Valid values: true: Restart. false: Do not restart.
       shared_ptr<string> restart_ {};
     };
 
@@ -315,13 +315,13 @@ namespace Models
 
 
   protected:
-    // The extensions that are installed in the specified database.
+    // The information about installed plugins in the specified database.
     shared_ptr<vector<DescribeExtensionsResponseBody::InstalledExtensions>> installedExtensions_ {};
-    // The overview of the extension.
+    // The plugin overview information.
     shared_ptr<string> overview_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The extensions that are not installed in the specified database.
+    // The information about uninstalled plugins in the specified database.
     shared_ptr<vector<DescribeExtensionsResponseBody::UninstalledExtensions>> uninstalledExtensions_ {};
   };
 

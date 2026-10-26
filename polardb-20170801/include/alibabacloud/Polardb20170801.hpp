@@ -80,12 +80,12 @@ namespace Polardb20170801
       /**
        * @summary Adds an MCP server to a specified PolarClaw application.
        *
-       * @description ## Description
-       * - The `ApplicationId` and `ServerName` parameters are required.
-       * - The `ApplicationId` parameter specifies the application ID.
-       * - The `ServerName` parameter specifies the MCP server name to add.
-       * - A successful response returns the request ID, a message, a status code, the application ID, and the server name.
-       * - If the request fails, the API may return a 500 error code with a detailed error message.
+       * @description ## Request description
+       * - `ApplicationId` and `ServerName` are required query parameters.
+       * - `ApplicationId` specifies the ID of the application program to operate on.
+       * - `ServerName` specifies the name of the MCP server to add.
+       * - A successful response returns the request ID, message, status code, application program ID, and server name.
+       * - In case of a failed request, a 500 error code may be returned, along with a specific error message describing the fault.
        *
        * @param tmpReq AddPolarClawMCPServerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -96,12 +96,12 @@ namespace Polardb20170801
       /**
        * @summary Adds an MCP server to a specified PolarClaw application.
        *
-       * @description ## Description
-       * - The `ApplicationId` and `ServerName` parameters are required.
-       * - The `ApplicationId` parameter specifies the application ID.
-       * - The `ServerName` parameter specifies the MCP server name to add.
-       * - A successful response returns the request ID, a message, a status code, the application ID, and the server name.
-       * - If the request fails, the API may return a 500 error code with a detailed error message.
+       * @description ## Request description
+       * - `ApplicationId` and `ServerName` are required query parameters.
+       * - `ApplicationId` specifies the ID of the application program to operate on.
+       * - `ServerName` specifies the name of the MCP server to add.
+       * - A successful response returns the request ID, message, status code, application program ID, and server name.
+       * - In case of a failed request, a 500 error code may be returned, along with a specific error message describing the fault.
        *
        * @param request AddPolarClawMCPServerRequest
        * @return AddPolarClawMCPServerResponse
@@ -193,7 +193,7 @@ namespace Polardb20170801
       Models::AddSQLRateLimitingRulesResponse addSQLRateLimitingRules(const Models::AddSQLRateLimitingRulesRequest &request);
 
       /**
-       * @summary Performs a single-turn knowledge base question answering.
+       * @summary Answers a single-turn question based on a knowledge base.
        *
        * @param request AnswerKnowledgeBaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -202,7 +202,7 @@ namespace Polardb20170801
       Models::AnswerKnowledgeBaseResponse answerKnowledgeBaseWithOptions(const Models::AnswerKnowledgeBaseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a single-turn knowledge base question answering.
+       * @summary Answers a single-turn question based on a knowledge base.
        *
        * @param request AnswerKnowledgeBaseRequest
        * @return AnswerKnowledgeBaseResponse
@@ -233,7 +233,24 @@ namespace Polardb20170801
       Models::ApplyApplicationPromptsResponse applyApplicationPrompts(const Models::ApplyApplicationPromptsRequest &request);
 
       /**
-       * @summary Approves a PolarClaw device pairing.
+       * @summary Applies a parameter template to Lakebase.
+       *
+       * @param request ApplyLakebaseMountParameterGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ApplyLakebaseMountParameterGroupResponse
+       */
+      Models::ApplyLakebaseMountParameterGroupResponse applyLakebaseMountParameterGroupWithOptions(const Models::ApplyLakebaseMountParameterGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Applies a parameter template to Lakebase.
+       *
+       * @param request ApplyLakebaseMountParameterGroupRequest
+       * @return ApplyLakebaseMountParameterGroupResponse
+       */
+      Models::ApplyLakebaseMountParameterGroupResponse applyLakebaseMountParameterGroup(const Models::ApplyLakebaseMountParameterGroupRequest &request);
+
+      /**
+       * @summary Approves PolarClaw device pairing.
        *
        * @param request ApprovePolarClawDevicePairRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -242,7 +259,7 @@ namespace Polardb20170801
       Models::ApprovePolarClawDevicePairResponse approvePolarClawDevicePairWithOptions(const Models::ApprovePolarClawDevicePairRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Approves a PolarClaw device pairing.
+       * @summary Approves PolarClaw device pairing.
        *
        * @param request ApprovePolarClawDevicePairRequest
        * @return ApprovePolarClawDevicePairResponse
@@ -267,10 +284,10 @@ namespace Polardb20170801
       Models::AttachApplicationPolarFSResponse attachApplicationPolarFS(const Models::AttachApplicationPolarFSRequest &request);
 
       /**
-       * @summary Binds a PolarClaw Agent to a channel.
+       * @summary Associates a specified channel with a specific PolarClaw agent.
        *
-       * @description ## Request
-       * This API associates an agent from a PolarClaw application with a communication channel. You specify the application with `ApplicationId`, the agent with `AgentId`, and the channel with `Channel`. You can optionally specify an account ID for the channel with `ChannelAccountId`.
+       * @description ## Request description
+       * This API operation associates a PolarClaw agent (specified by AgentId) of a PolarClaw application (identified by ApplicationId) with a given communication channel (Channel). If necessary, you can also specify the account ID (ChannelAccountId) within the channel.
        *
        * @param request BindPolarClawAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -279,10 +296,10 @@ namespace Polardb20170801
       Models::BindPolarClawAgentResponse bindPolarClawAgentWithOptions(const Models::BindPolarClawAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Binds a PolarClaw Agent to a channel.
+       * @summary Associates a specified channel with a specific PolarClaw agent.
        *
-       * @description ## Request
-       * This API associates an agent from a PolarClaw application with a communication channel. You specify the application with `ApplicationId`, the agent with `AgentId`, and the channel with `Channel`. You can optionally specify an account ID for the channel with `ChannelAccountId`.
+       * @description ## Request description
+       * This API operation associates a PolarClaw agent (specified by AgentId) of a PolarClaw application (identified by ApplicationId) with a given communication channel (Channel). If necessary, you can also specify the account ID (ChannelAccountId) within the channel.
        *
        * @param request BindPolarClawAgentRequest
        * @return BindPolarClawAgentResponse
@@ -750,7 +767,7 @@ namespace Polardb20170801
       Models::CreateAccountZonalResponse createAccountZonal(const Models::CreateAccountZonalRequest &request);
 
       /**
-       * @summary Generates activation codes for the lightweight version.
+       * @summary Generates an activation code for the lightweight edition.
        *
        * @param request CreateActivationCodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -759,7 +776,7 @@ namespace Polardb20170801
       Models::CreateActivationCodeResponse createActivationCodeWithOptions(const Models::CreateActivationCodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Generates activation codes for the lightweight version.
+       * @summary Generates an activation code for the lightweight edition.
        *
        * @param request CreateActivationCodeRequest
        * @return CreateActivationCodeResponse
@@ -801,7 +818,28 @@ namespace Polardb20170801
       Models::CreateAgenticDBProjectResponse createAgenticDBProject(const Models::CreateAgenticDBProjectRequest &request);
 
       /**
-       * @summary Creates an API key for an AgenticDB tenant.
+       * @summary Creates an AgenticDB tenant.
+       *
+       * @description Creates an independent business tenant without creating an API key.
+       *
+       * @param request CreateAgenticDBTenantRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAgenticDBTenantResponse
+       */
+      Models::CreateAgenticDBTenantResponse createAgenticDBTenantWithOptions(const Models::CreateAgenticDBTenantRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an AgenticDB tenant.
+       *
+       * @description Creates an independent business tenant without creating an API key.
+       *
+       * @param request CreateAgenticDBTenantRequest
+       * @return CreateAgenticDBTenantResponse
+       */
+      Models::CreateAgenticDBTenantResponse createAgenticDBTenant(const Models::CreateAgenticDBTenantRequest &request);
+
+      /**
+       * @summary Creates an AgenticDB tenant API key.
        *
        * @param request CreateAgenticDBTenantApiKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -810,7 +848,7 @@ namespace Polardb20170801
       Models::CreateAgenticDBTenantApiKeyResponse createAgenticDBTenantApiKeyWithOptions(const Models::CreateAgenticDBTenantApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an API key for an AgenticDB tenant.
+       * @summary Creates an AgenticDB tenant API key.
        *
        * @param request CreateAgenticDBTenantApiKeyRequest
        * @return CreateAgenticDBTenantApiKeyResponse
@@ -888,9 +926,9 @@ namespace Polardb20170801
       /**
        * @summary Creates a full snapshot backup for a PolarDB cluster.
        *
-       * @description > * Each cluster can have up to three manually created backups at the same time.
-       * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, three manually created backups already exist in your cluster. [Delete backups](https://help.aliyun.com/document_detail/98101.html) before you call this operation.
-       * > * After you call this operation, a backup task is created in the background. If the data volume is large, the backup may take a long time. Wait until the backup is complete.
+       * @description > * Each cluster can have up to three manually created backups at a time.
+       * > * If the error message `Exceeding the daily backup times of this DB cluster` appears, it indicates that three manually created backups already exist in your cluster. [Delete a backup](https://help.aliyun.com/document_detail/98101.html) before you call this operation.
+       * > * After you call this operation, a backup task is created in the background. If the data volume is large, the task may take a long time to complete.
        *
        * @param request CreateBackupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -901,9 +939,9 @@ namespace Polardb20170801
       /**
        * @summary Creates a full snapshot backup for a PolarDB cluster.
        *
-       * @description > * Each cluster can have up to three manually created backups at the same time.
-       * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, three manually created backups already exist in your cluster. [Delete backups](https://help.aliyun.com/document_detail/98101.html) before you call this operation.
-       * > * After you call this operation, a backup task is created in the background. If the data volume is large, the backup may take a long time. Wait until the backup is complete.
+       * @description > * Each cluster can have up to three manually created backups at a time.
+       * > * If the error message `Exceeding the daily backup times of this DB cluster` appears, it indicates that three manually created backups already exist in your cluster. [Delete a backup](https://help.aliyun.com/document_detail/98101.html) before you call this operation.
+       * > * After you call this operation, a backup task is created in the background. If the data volume is large, the task may take a long time to complete.
        *
        * @param request CreateBackupRequest
        * @return CreateBackupResponse
@@ -911,11 +949,11 @@ namespace Polardb20170801
       Models::CreateBackupResponse createBackup(const Models::CreateBackupRequest &request);
 
       /**
-       * @summary Creates API keys in batches.
+       * @summary Creates multiple API keys.
        *
-       * @description > * Each cluster can have a maximum of three manually created backups at a time.
-       * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, three manually created backups already exist in your cluster. [Delete backups](https://help.aliyun.com/document_detail/98101.html) before you call this operation.
-       * > * After you call this operation, a backup task is created in the background. If the data volume is large, the backup may take a long time. Wait until the backup is complete.
+       * @description > * A maximum of three manually created backups can exist for each cluster at the same time.
+       * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, it indicates that three manually created backups already exist in your cluster. [Delete a backup](https://help.aliyun.com/document_detail/98101.html) before you call this operation.
+       * > * After you call this operation, a backup task is created in the background. If the data volume is large, the task may take a long time to complete.
        *
        * @param request CreateBatchConsumerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -924,11 +962,11 @@ namespace Polardb20170801
       Models::CreateBatchConsumerResponse createBatchConsumerWithOptions(const Models::CreateBatchConsumerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates API keys in batches.
+       * @summary Creates multiple API keys.
        *
-       * @description > * Each cluster can have a maximum of three manually created backups at a time.
-       * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, three manually created backups already exist in your cluster. [Delete backups](https://help.aliyun.com/document_detail/98101.html) before you call this operation.
-       * > * After you call this operation, a backup task is created in the background. If the data volume is large, the backup may take a long time. Wait until the backup is complete.
+       * @description > * A maximum of three manually created backups can exist for each cluster at the same time.
+       * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, it indicates that three manually created backups already exist in your cluster. [Delete a backup](https://help.aliyun.com/document_detail/98101.html) before you call this operation.
+       * > * After you call this operation, a backup task is created in the background. If the data volume is large, the task may take a long time to complete.
        *
        * @param request CreateBatchConsumerRequest
        * @return CreateBatchConsumerResponse
@@ -1496,10 +1534,10 @@ namespace Polardb20170801
       Models::CreateParameterGroupResponse createParameterGroup(const Models::CreateParameterGroupRequest &request);
 
       /**
-       * @summary Creates a PolarClaw Agent.
+       * @summary Creates a new PolarClaw agent.
        *
-       * @description ## Description
-       * Use this operation to create a PolarClaw Agent. You can optionally specify an `emoji` and an `avatar`.
+       * @description ## Request description
+       * You can use this API to create a PolarClaw agent and optionally configure its `Emoji` and `Avatar`.
        *
        * @param request CreatePolarClawAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1508,10 +1546,10 @@ namespace Polardb20170801
       Models::CreatePolarClawAgentResponse createPolarClawAgentWithOptions(const Models::CreatePolarClawAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a PolarClaw Agent.
+       * @summary Creates a new PolarClaw agent.
        *
-       * @description ## Description
-       * Use this operation to create a PolarClaw Agent. You can optionally specify an `emoji` and an `avatar`.
+       * @description ## Request description
+       * You can use this API to create a PolarClaw agent and optionally configure its `Emoji` and `Avatar`.
        *
        * @param request CreatePolarClawAgentRequest
        * @return CreatePolarClawAgentResponse
@@ -1519,9 +1557,9 @@ namespace Polardb20170801
       Models::CreatePolarClawAgentResponse createPolarClawAgent(const Models::CreatePolarClawAgentRequest &request);
 
       /**
-       * @summary Creates a channel in PolarClaw.
+       * @summary Creates a new communication channel in PolarClaw.
        *
-       * @description ## Request
+       * @description ## Request description.
        *
        * @param tmpReq CreatePolarClawChannelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1530,9 +1568,9 @@ namespace Polardb20170801
       Models::CreatePolarClawChannelResponse createPolarClawChannelWithOptions(const Models::CreatePolarClawChannelRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a channel in PolarClaw.
+       * @summary Creates a new communication channel in PolarClaw.
        *
-       * @description ## Request
+       * @description ## Request description.
        *
        * @param request CreatePolarClawChannelRequest
        * @return CreatePolarClawChannelResponse
@@ -1542,8 +1580,8 @@ namespace Polardb20170801
       /**
        * @summary Creates a PolarClaw scheduled task.
        *
-       * @description ## Request
-       * Use this API to create a cron job. You can configure the job\\"s payload, execution frequency, timezone, target channel, recipients, and a failure alert mechanism.
+       * @description ## Request description
+       * You can use this API to define and create a scheduled task. The task is triggered periodically based on a specified schedule and carries specific messages or instructions. This API supports advanced options such as custom execution frequency, time zone settings, and failure alert mechanisms. You can also configure details such as message content, target channels, and recipients.
        *
        * @param tmpReq CreatePolarClawCronJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1554,8 +1592,8 @@ namespace Polardb20170801
       /**
        * @summary Creates a PolarClaw scheduled task.
        *
-       * @description ## Request
-       * Use this API to create a cron job. You can configure the job\\"s payload, execution frequency, timezone, target channel, recipients, and a failure alert mechanism.
+       * @description ## Request description
+       * You can use this API to define and create a scheduled task. The task is triggered periodically based on a specified schedule and carries specific messages or instructions. This API supports advanced options such as custom execution frequency, time zone settings, and failure alert mechanisms. You can also configure details such as message content, target channels, and recipients.
        *
        * @param request CreatePolarClawCronJobRequest
        * @return CreatePolarClawCronJobResponse
@@ -1582,12 +1620,12 @@ namespace Polardb20170801
       /**
        * @summary Creates a new directory in a specified PolarFS instance.
        *
-       * @description ## Description
-       * - **Path**: The absolute path of the directory to create.
-       * - **Recursive**: Specifies whether to recursively create parent directories. The default value is `false`.
-       * - This operation creates a directory structure with one or more levels in the specified PolarFS instance.
-       * - Setting `Recursive` to `true` automatically creates all non-existent parent directories.
-       * - Ensure that you have sufficient permissions to create the directory.
+       * @description ## Request description
+       * - **Path**: The absolute path of the folder to create.
+       * - **Recursive**: Specifies whether to use recursion to create parent folders. Default value: `false`.
+       * - This operation supports creating single-level or multi-level folder structures in a specified PolarFS instance.
+       * - If the `Recursive` Settings are `true`, the automatic creation of all non-existent parent folders is enabled.
+       * - Ensure that you have sufficient permissions when creating a folder.
        *
        * @param request CreatePolarFsObjectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1598,12 +1636,12 @@ namespace Polardb20170801
       /**
        * @summary Creates a new directory in a specified PolarFS instance.
        *
-       * @description ## Description
-       * - **Path**: The absolute path of the directory to create.
-       * - **Recursive**: Specifies whether to recursively create parent directories. The default value is `false`.
-       * - This operation creates a directory structure with one or more levels in the specified PolarFS instance.
-       * - Setting `Recursive` to `true` automatically creates all non-existent parent directories.
-       * - Ensure that you have sufficient permissions to create the directory.
+       * @description ## Request description
+       * - **Path**: The absolute path of the folder to create.
+       * - **Recursive**: Specifies whether to use recursion to create parent folders. Default value: `false`.
+       * - This operation supports creating single-level or multi-level folder structures in a specified PolarFS instance.
+       * - If the `Recursive` Settings are `true`, the automatic creation of all non-existent parent folders is enabled.
+       * - Ensure that you have sufficient permissions when creating a folder.
        *
        * @param request CreatePolarFsObjectRequest
        * @return CreatePolarFsObjectResponse
@@ -1628,14 +1666,14 @@ namespace Polardb20170801
       Models::CreateRateLimitPolicyResponse createRateLimitPolicy(const Models::CreateRateLimitPolicyRequest &request);
 
       /**
-       * @summary Creates a resource control rule for a specified PolarDB for MySQL cluster. You can set MaxCpu to specify the maximum CPU quota percentage that the rule can use, or set CpuCount to specify the maximum number of CPU cores that the rule can use. You must specify one and only one of MaxCpu and CpuCount when creating a rule.
+       * @summary Creates a resource control rule for a specified PolarDB for MySQL cluster. You can use MaxCpu to specify the maximum CPU quota percentage or CpuCount to specify the maximum number of CPU cores that the rule can use. You must specify exactly one of the MaxCpu and CpuCount parameters when you create the rule.
        *
-       * @description Resource Control limits the CPU resources that can be used by a specified user, database, query, or connection in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules. Querying Resource Control CPU usage is not supported.
-       * ### Before you begin
-       * - This feature applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
+       * @description Resource Control limits the CPU resources available to specified users, databases, queries, or connections in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules, but does not support querying CPU utilization for Resource Control.
+       * ### Limits
+       * - Applies only to PolarDB for MySQL Cluster Edition that supports Resource Control. PolarDB for MySQL Standard Edition is not supported.
        * - The cluster kernel parameter loose_enable_resource_control must be set to ON.
        * - MaxCpu and CpuCount are two mutually exclusive CPU quota modes.
-       * - The maximum value of CpuCount is determined by the kernel parameter resource_control_cpu_count_limit of the target cluster.
+       * - The maximum value of CpuCount is determined by the resource_control_cpu_count_limit kernel parameter of the target cluster.
        * >Notice: This is a notice.</notice>
        *
        * @param request CreateResourceControlRequest
@@ -1645,14 +1683,14 @@ namespace Polardb20170801
       Models::CreateResourceControlResponse createResourceControlWithOptions(const Models::CreateResourceControlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a resource control rule for a specified PolarDB for MySQL cluster. You can set MaxCpu to specify the maximum CPU quota percentage that the rule can use, or set CpuCount to specify the maximum number of CPU cores that the rule can use. You must specify one and only one of MaxCpu and CpuCount when creating a rule.
+       * @summary Creates a resource control rule for a specified PolarDB for MySQL cluster. You can use MaxCpu to specify the maximum CPU quota percentage or CpuCount to specify the maximum number of CPU cores that the rule can use. You must specify exactly one of the MaxCpu and CpuCount parameters when you create the rule.
        *
-       * @description Resource Control limits the CPU resources that can be used by a specified user, database, query, or connection in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules. Querying Resource Control CPU usage is not supported.
-       * ### Before you begin
-       * - This feature applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
+       * @description Resource Control limits the CPU resources available to specified users, databases, queries, or connections in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules, but does not support querying CPU utilization for Resource Control.
+       * ### Limits
+       * - Applies only to PolarDB for MySQL Cluster Edition that supports Resource Control. PolarDB for MySQL Standard Edition is not supported.
        * - The cluster kernel parameter loose_enable_resource_control must be set to ON.
        * - MaxCpu and CpuCount are two mutually exclusive CPU quota modes.
-       * - The maximum value of CpuCount is determined by the kernel parameter resource_control_cpu_count_limit of the target cluster.
+       * - The maximum value of CpuCount is determined by the resource_control_cpu_count_limit kernel parameter of the target cluster.
        * >Notice: This is a notice.</notice>
        *
        * @param request CreateResourceControlRequest
@@ -1886,6 +1924,27 @@ namespace Polardb20170801
       Models::DeleteAgenticDBProjectResponse deleteAgenticDBProject(const Models::DeleteAgenticDBProjectRequest &request);
 
       /**
+       * @summary Deletes an AgenticDB tenant.
+       *
+       * @description Only tenants whose projects and branches have been completely cleaned up can be deleted. After a successful deletion, all API keys associated with the tenant become invalid. This operation does not automatically clean up projects, branches, or storage.
+       *
+       * @param request DeleteAgenticDBTenantRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAgenticDBTenantResponse
+       */
+      Models::DeleteAgenticDBTenantResponse deleteAgenticDBTenantWithOptions(const Models::DeleteAgenticDBTenantRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes an AgenticDB tenant.
+       *
+       * @description Only tenants whose projects and branches have been completely cleaned up can be deleted. After a successful deletion, all API keys associated with the tenant become invalid. This operation does not automatically clean up projects, branches, or storage.
+       *
+       * @param request DeleteAgenticDBTenantRequest
+       * @return DeleteAgenticDBTenantResponse
+       */
+      Models::DeleteAgenticDBTenantResponse deleteAgenticDBTenant(const Models::DeleteAgenticDBTenantRequest &request);
+
+      /**
        * @summary Deletes an API key of an AgenticDB tenant.
        *
        * @param request DeleteAgenticDBTenantApiKeyRequest
@@ -1993,7 +2052,7 @@ namespace Polardb20170801
       Models::DeleteBackupResponse deleteBackup(const Models::DeleteBackupRequest &request);
 
       /**
-       * @summary Deletes a cost budget policy.
+       * @summary Deletes a budget policy.
        *
        * @param request DeleteBudgetPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2002,7 +2061,7 @@ namespace Polardb20170801
       Models::DeleteBudgetPolicyResponse deleteBudgetPolicyWithOptions(const Models::DeleteBudgetPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a cost budget policy.
+       * @summary Deletes a budget policy.
        *
        * @param request DeleteBudgetPolicyRequest
        * @return DeleteBudgetPolicyResponse
@@ -2497,11 +2556,11 @@ namespace Polardb20170801
       Models::DeleteParameterGroupResponse deleteParameterGroup(const Models::DeleteParameterGroupRequest &request);
 
       /**
-       * @summary This operation removes an agent and its associated bindings from a specified PolarClaw.
+       * @summary Removes an agent and its associated bindings from a specified PolarClaw.
        *
-       * @description ## Usage notes
-       * - A successful operation returns the ID of the deleted agent and the number of removed bindings.
-       * - Ensure you provide the correct target `AgentId`. An incorrect ID can cause the operation to fail or affect an unintended agent.
+       * @description ## Request description
+       * - After this API is executed, it returns the ID of the successfully removed agent and the number of removed bindings.
+       * - Ensure that you know the target `AgentId` before calling this API. Otherwise, the operation may fail or affect unexpected agents.
        *
        * @param request DeletePolarClawAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2510,11 +2569,11 @@ namespace Polardb20170801
       Models::DeletePolarClawAgentResponse deletePolarClawAgentWithOptions(const Models::DeletePolarClawAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This operation removes an agent and its associated bindings from a specified PolarClaw.
+       * @summary Removes an agent and its associated bindings from a specified PolarClaw.
        *
-       * @description ## Usage notes
-       * - A successful operation returns the ID of the deleted agent and the number of removed bindings.
-       * - Ensure you provide the correct target `AgentId`. An incorrect ID can cause the operation to fail or affect an unintended agent.
+       * @description ## Request description
+       * - After this API is executed, it returns the ID of the successfully removed agent and the number of removed bindings.
+       * - Ensure that you know the target `AgentId` before calling this API. Otherwise, the operation may fail or affect unexpected agents.
        *
        * @param request DeletePolarClawAgentRequest
        * @return DeletePolarClawAgentResponse
@@ -2738,7 +2797,7 @@ namespace Polardb20170801
       Models::DeleteSQLRateLimitingRulesResponse deleteSQLRateLimitingRules(const Models::DeleteSQLRateLimitingRulesRequest &request);
 
       /**
-       * @summary Queries the API key of a model service.
+       * @summary Queries the API keys for the model service.
        *
        * @param request DescribeAIDBClusterApiKeysRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2747,7 +2806,7 @@ namespace Polardb20170801
       Models::DescribeAIDBClusterApiKeysResponse describeAIDBClusterApiKeysWithOptions(const Models::DescribeAIDBClusterApiKeysRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the API key of a model service.
+       * @summary Queries the API keys for the model service.
        *
        * @param request DescribeAIDBClusterApiKeysRequest
        * @return DescribeAIDBClusterApiKeysResponse
@@ -2861,11 +2920,11 @@ namespace Polardb20170801
       Models::DescribeAIDBClusterTaskMetricsResponse describeAIDBClusterTaskMetrics(const Models::DescribeAIDBClusterTaskMetricsRequest &request);
 
       /**
-       * @summary Queries the list of model operators for a specified PolarDB database instance.
+       * @summary Retrieves the list of model operators for a specified PolarDB instance.
        *
        * @description ## Request description
-       * - This operation filters and returns a list of model operators based on the RelativeDBClusterId and KubeType parameters.
-       * - Note: Make sure that the RelativeDBClusterId provided in the request matches the instance ID of an existing PolarDB database instance. Otherwise, the data cannot be retrieved.
+       * - This operation allows you to filter and retrieve a list of model operators by using the `RelativeDBClusterId` and `KubeType` parameters.
+       * - Note: Make sure that the `RelativeDBClusterId` you provide matches the instance ID of an existing PolarDB database. Otherwise, the data cannot be retrieved.
        *
        * @param request DescribeAIDBClusterTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2874,11 +2933,11 @@ namespace Polardb20170801
       Models::DescribeAIDBClusterTasksResponse describeAIDBClusterTasksWithOptions(const Models::DescribeAIDBClusterTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of model operators for a specified PolarDB database instance.
+       * @summary Retrieves the list of model operators for a specified PolarDB instance.
        *
        * @description ## Request description
-       * - This operation filters and returns a list of model operators based on the RelativeDBClusterId and KubeType parameters.
-       * - Note: Make sure that the RelativeDBClusterId provided in the request matches the instance ID of an existing PolarDB database instance. Otherwise, the data cannot be retrieved.
+       * - This operation allows you to filter and retrieve a list of model operators by using the `RelativeDBClusterId` and `KubeType` parameters.
+       * - Note: Make sure that the `RelativeDBClusterId` you provide matches the instance ID of an existing PolarDB database. Otherwise, the data cannot be retrieved.
        *
        * @param request DescribeAIDBClusterTasksRequest
        * @return DescribeAIDBClusterTasksResponse
@@ -3073,6 +3132,23 @@ namespace Polardb20170801
       Models::DescribeAgenticDBBranchLineageResponse describeAgenticDBBranchLineage(const Models::DescribeAgenticDBBranchLineageRequest &request);
 
       /**
+       * @summary Queries the earliest restorable time for an AgenticDB branch.
+       *
+       * @param request DescribeAgenticDBBranchRestoreWindowRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAgenticDBBranchRestoreWindowResponse
+       */
+      Models::DescribeAgenticDBBranchRestoreWindowResponse describeAgenticDBBranchRestoreWindowWithOptions(const Models::DescribeAgenticDBBranchRestoreWindowRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the earliest restorable time for an AgenticDB branch.
+       *
+       * @param request DescribeAgenticDBBranchRestoreWindowRequest
+       * @return DescribeAgenticDBBranchRestoreWindowResponse
+       */
+      Models::DescribeAgenticDBBranchRestoreWindowResponse describeAgenticDBBranchRestoreWindow(const Models::DescribeAgenticDBBranchRestoreWindowRequest &request);
+
+      /**
        * @summary Queries the list of AgenticDB branches.
        *
        * @param request DescribeAgenticDBBranchesRequest
@@ -3115,7 +3191,7 @@ namespace Polardb20170801
       Models::DescribeAgenticDBClustersResponse describeAgenticDBClusters(const Models::DescribeAgenticDBClustersRequest &request);
 
       /**
-       * @summary Queries the list of AgenticDB compute instances.
+       * @summary Queries a list of AgenticDB compute instances.
        *
        * @param request DescribeAgenticDBComputeClustersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3124,7 +3200,7 @@ namespace Polardb20170801
       Models::DescribeAgenticDBComputeClustersResponse describeAgenticDBComputeClustersWithOptions(const Models::DescribeAgenticDBComputeClustersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of AgenticDB compute instances.
+       * @summary Queries a list of AgenticDB compute instances.
        *
        * @param request DescribeAgenticDBComputeClustersRequest
        * @return DescribeAgenticDBComputeClustersResponse
@@ -3149,7 +3225,24 @@ namespace Polardb20170801
       Models::DescribeAgenticDBProjectResponse describeAgenticDBProject(const Models::DescribeAgenticDBProjectRequest &request);
 
       /**
-       * @summary Queries the list of AgenticDB projects.
+       * @summary Queries the actual history retention window of an AgenticDB project.
+       *
+       * @param request DescribeAgenticDBProjectHistoryRetentionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAgenticDBProjectHistoryRetentionResponse
+       */
+      Models::DescribeAgenticDBProjectHistoryRetentionResponse describeAgenticDBProjectHistoryRetentionWithOptions(const Models::DescribeAgenticDBProjectHistoryRetentionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the actual history retention window of an AgenticDB project.
+       *
+       * @param request DescribeAgenticDBProjectHistoryRetentionRequest
+       * @return DescribeAgenticDBProjectHistoryRetentionResponse
+       */
+      Models::DescribeAgenticDBProjectHistoryRetentionResponse describeAgenticDBProjectHistoryRetention(const Models::DescribeAgenticDBProjectHistoryRetentionRequest &request);
+
+      /**
+       * @summary Queries a list of AgenticDB projects.
        *
        * @param request DescribeAgenticDBProjectsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3158,7 +3251,7 @@ namespace Polardb20170801
       Models::DescribeAgenticDBProjectsResponse describeAgenticDBProjectsWithOptions(const Models::DescribeAgenticDBProjectsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of AgenticDB projects.
+       * @summary Queries a list of AgenticDB projects.
        *
        * @param request DescribeAgenticDBProjectsRequest
        * @return DescribeAgenticDBProjectsResponse
@@ -3183,7 +3276,7 @@ namespace Polardb20170801
       Models::DescribeAgenticDBTenantApiKeysResponse describeAgenticDBTenantApiKeys(const Models::DescribeAgenticDBTenantApiKeysRequest &request);
 
       /**
-       * @summary Queries the details of a specified API key.
+       * @summary Queries the details of the API key.
        *
        * @param request DescribeApikeyAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3192,7 +3285,7 @@ namespace Polardb20170801
       Models::DescribeApikeyAttributeResponse describeApikeyAttributeWithOptions(const Models::DescribeApikeyAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a specified API key.
+       * @summary Queries the details of the API key.
        *
        * @param request DescribeApikeyAttributeRequest
        * @return DescribeApikeyAttributeResponse
@@ -3202,7 +3295,7 @@ namespace Polardb20170801
       /**
        * @summary Queries the details of a specified PolarDB instance application.
        *
-       * @description This API queries all relevant information about a specific PolarDB application, including but not limited to component details and connection endpoints.
+       * @description This API queries all relevant information about a specific PolarDB application, including but not limited to component details and endpoints.
        *
        * @param request DescribeApplicationAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3213,7 +3306,7 @@ namespace Polardb20170801
       /**
        * @summary Queries the details of a specified PolarDB instance application.
        *
-       * @description This API queries all relevant information about a specific PolarDB application, including but not limited to component details and connection endpoints.
+       * @description This API queries all relevant information about a specific PolarDB application, including but not limited to component details and endpoints.
        *
        * @param request DescribeApplicationAttributeRequest
        * @return DescribeApplicationAttributeResponse
@@ -3357,7 +3450,7 @@ namespace Polardb20170801
       Models::DescribeApplicationUsageResponse describeApplicationUsage(const Models::DescribeApplicationUsageRequest &request);
 
       /**
-       * @summary Queries the list of applications for all PolarDB instances in a specified region.
+       * @summary Retrieves a list of applications for all PolarDB instances in a specified region.
        *
        * @param request DescribeApplicationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3366,7 +3459,7 @@ namespace Polardb20170801
       Models::DescribeApplicationsResponse describeApplicationsWithOptions(const Models::DescribeApplicationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of applications for all PolarDB instances in a specified region.
+       * @summary Retrieves a list of applications for all PolarDB instances in a specified region.
        *
        * @param request DescribeApplicationsRequest
        * @return DescribeApplicationsResponse
@@ -3425,7 +3518,24 @@ namespace Polardb20170801
       Models::DescribeAvailableModelsResponse describeAvailableModels(const Models::DescribeAvailableModelsRequest &request);
 
       /**
-       * @summary Queries a list of backup logs and returns their download URLs.
+       * @summary Queries the download links for redo log backups.
+       *
+       * @param request DescribeBackupLogDownloadLinksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeBackupLogDownloadLinksResponse
+       */
+      Models::DescribeBackupLogDownloadLinksResponse describeBackupLogDownloadLinksWithOptions(const Models::DescribeBackupLogDownloadLinksRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the download links for redo log backups.
+       *
+       * @param request DescribeBackupLogDownloadLinksRequest
+       * @return DescribeBackupLogDownloadLinksResponse
+       */
+      Models::DescribeBackupLogDownloadLinksResponse describeBackupLogDownloadLinks(const Models::DescribeBackupLogDownloadLinksRequest &request);
+
+      /**
+       * @summary Queries the list of backup logs and retrieves their download URLs.
        *
        * @param request DescribeBackupLogsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3434,7 +3544,7 @@ namespace Polardb20170801
       Models::DescribeBackupLogsResponse describeBackupLogsWithOptions(const Models::DescribeBackupLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of backup logs and returns their download URLs.
+       * @summary Queries the list of backup logs and retrieves their download URLs.
        *
        * @param request DescribeBackupLogsRequest
        * @return DescribeBackupLogsResponse
@@ -3510,7 +3620,7 @@ namespace Polardb20170801
       Models::DescribeBackupsResponse describeBackups(const Models::DescribeBackupsRequest &request);
 
       /**
-       * @summary Queries the status of a batch task.
+       * @summary Queries the status details of a batch task.
        *
        * @param request DescribeBatchTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3519,7 +3629,7 @@ namespace Polardb20170801
       Models::DescribeBatchTaskResponse describeBatchTaskWithOptions(const Models::DescribeBatchTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the status of a batch task.
+       * @summary Queries the status details of a batch task.
        *
        * @param request DescribeBatchTaskRequest
        * @return DescribeBatchTaskResponse
@@ -3544,7 +3654,7 @@ namespace Polardb20170801
       Models::DescribeBatchTasksResponse describeBatchTasks(const Models::DescribeBatchTasksRequest &request);
 
       /**
-       * @summary Queries cost budget policies.
+       * @summary Queries budget policies.
        *
        * @param request DescribeBudgetPoliciesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3553,7 +3663,7 @@ namespace Polardb20170801
       Models::DescribeBudgetPoliciesResponse describeBudgetPoliciesWithOptions(const Models::DescribeBudgetPoliciesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries cost budget policies.
+       * @summary Queries budget policies.
        *
        * @param request DescribeBudgetPoliciesRequest
        * @return DescribeBudgetPoliciesResponse
@@ -3595,7 +3705,7 @@ namespace Polardb20170801
       Models::DescribeClassListResponse describeClassList(const Models::DescribeClassListRequest &request);
 
       /**
-       * @summary Queries cold storage instances.
+       * @summary Queries cold storage instance information.
        *
        * @param request DescribeColdStorageInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3604,7 +3714,7 @@ namespace Polardb20170801
       Models::DescribeColdStorageInstanceResponse describeColdStorageInstanceWithOptions(const Models::DescribeColdStorageInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries cold storage instances.
+       * @summary Queries cold storage instance information.
        *
        * @param request DescribeColdStorageInstanceRequest
        * @return DescribeColdStorageInstanceResponse
@@ -3629,7 +3739,7 @@ namespace Polardb20170801
       Models::DescribeConsumerGroupsResponse describeConsumerGroups(const Models::DescribeConsumerGroupsRequest &request);
 
       /**
-       * @summary Queries the list of consumers.
+       * @summary Queries a list of consumers.
        *
        * @param request DescribeConsumersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3638,7 +3748,7 @@ namespace Polardb20170801
       Models::DescribeConsumersResponse describeConsumersWithOptions(const Models::DescribeConsumersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of consumers.
+       * @summary Queries a list of consumers.
        *
        * @param request DescribeConsumersRequest
        * @return DescribeConsumersResponse
@@ -4079,9 +4189,9 @@ namespace Polardb20170801
       Models::DescribeDBClusterTDEResponse describeDBClusterTDE(const Models::DescribeDBClusterTDERequest &request);
 
       /**
-       * @summary Queries the details of the current Milvus version of a PolarDB for MySQL cluster.
+       * @summary Queries the details of the current kernel version of a PolarDB for MySQL cluster.
        *
-       * @description >For more information about the minor Milvus versions and details of PolarDB for MySQL Cluster Edition, see [Minor Milvus version description](https://help.aliyun.com/document_detail/471239.html) and [Release notes](https://help.aliyun.com/document_detail/423884.html).
+       * @description >For more information about the Milvus versions of PolarDB for MySQL clusters, see [Milvus version overview](https://help.aliyun.com/document_detail/471239.html) and [Kernel release notes](https://help.aliyun.com/document_detail/423884.html).
        *
        * @param request DescribeDBClusterVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4090,9 +4200,9 @@ namespace Polardb20170801
       Models::DescribeDBClusterVersionResponse describeDBClusterVersionWithOptions(const Models::DescribeDBClusterVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of the current Milvus version of a PolarDB for MySQL cluster.
+       * @summary Queries the details of the current kernel version of a PolarDB for MySQL cluster.
        *
-       * @description >For more information about the minor Milvus versions and details of PolarDB for MySQL Cluster Edition, see [Minor Milvus version description](https://help.aliyun.com/document_detail/471239.html) and [Release notes](https://help.aliyun.com/document_detail/423884.html).
+       * @description >For more information about the Milvus versions of PolarDB for MySQL clusters, see [Milvus version overview](https://help.aliyun.com/document_detail/471239.html) and [Kernel release notes](https://help.aliyun.com/document_detail/423884.html).
        *
        * @param request DescribeDBClusterVersionRequest
        * @return DescribeDBClusterVersionResponse
@@ -4117,7 +4227,7 @@ namespace Polardb20170801
       Models::DescribeDBClusterVersionZonalResponse describeDBClusterVersionZonal(const Models::DescribeDBClusterVersionZonalRequest &request);
 
       /**
-       * @summary Queries the list of PolarDB clusters or the details of clusters with RAM authorization.
+       * @summary Queries a list of PolarDB clusters or the details of clusters with RAM authorization.
        *
        * @param request DescribeDBClustersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4126,7 +4236,7 @@ namespace Polardb20170801
       Models::DescribeDBClustersResponse describeDBClustersWithOptions(const Models::DescribeDBClustersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of PolarDB clusters or the details of clusters with RAM authorization.
+       * @summary Queries a list of PolarDB clusters or the details of clusters with RAM authorization.
        *
        * @param request DescribeDBClustersRequest
        * @return DescribeDBClustersResponse
@@ -4389,7 +4499,7 @@ namespace Polardb20170801
       Models::DescribeDatabasesZonalResponse describeDatabasesZonal(const Models::DescribeDatabasesZonalRequest &request);
 
       /**
-       * @summary Queries the attributes of an PolarDB on ENS cluster.
+       * @summary Queries the details of an edge cluster.
        *
        * @param request DescribeDbClusterAttributeZonalRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4398,7 +4508,7 @@ namespace Polardb20170801
       Models::DescribeDbClusterAttributeZonalResponse describeDbClusterAttributeZonalWithOptions(const Models::DescribeDbClusterAttributeZonalRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the attributes of an PolarDB on ENS cluster.
+       * @summary Queries the details of an edge cluster.
        *
        * @param request DescribeDbClusterAttributeZonalRequest
        * @return DescribeDbClusterAttributeZonalResponse
@@ -4463,7 +4573,7 @@ namespace Polardb20170801
       Models::DescribeEncryptionDBSecretResponse describeEncryptionDBSecret(const Models::DescribeEncryptionDBSecretRequest &request);
 
       /**
-       * @summary Retrieves the details of extensions.
+       * @summary Queries plugin details.
        *
        * @param request DescribeExtensionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4472,7 +4582,7 @@ namespace Polardb20170801
       Models::DescribeExtensionsResponse describeExtensionsWithOptions(const Models::DescribeExtensionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of extensions.
+       * @summary Queries plugin details.
        *
        * @param request DescribeExtensionsRequest
        * @return DescribeExtensionsResponse
@@ -4514,7 +4624,7 @@ namespace Polardb20170801
       Models::DescribeGatewayApikeyListResponse describeGatewayApikeyList(const Models::DescribeGatewayApikeyListRequest &request);
 
       /**
-       * @summary Viewing gateway instance details
+       * @summary Queries the details of a gateway instance.
        *
        * @param request DescribeGatewayAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4523,7 +4633,7 @@ namespace Polardb20170801
       Models::DescribeGatewayAttributeResponse describeGatewayAttributeWithOptions(const Models::DescribeGatewayAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Viewing gateway instance details
+       * @summary Queries the details of a gateway instance.
        *
        * @param request DescribeGatewayAttributeRequest
        * @return DescribeGatewayAttributeResponse
@@ -6341,7 +6451,7 @@ namespace Polardb20170801
       Models::ListPolarClawBindingsResponse listPolarClawBindings(const Models::ListPolarClawBindingsRequest &request);
 
       /**
-       * @summary List PolarClaw device pairings
+       * @summary Lists PolarClaw device pairings.
        *
        * @param request ListPolarClawDevicePairsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6350,7 +6460,7 @@ namespace Polardb20170801
       Models::ListPolarClawDevicePairsResponse listPolarClawDevicePairsWithOptions(const Models::ListPolarClawDevicePairsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary List PolarClaw device pairings
+       * @summary Lists PolarClaw device pairings.
        *
        * @param request ListPolarClawDevicePairsRequest
        * @return ListPolarClawDevicePairsResponse
@@ -6477,7 +6587,7 @@ namespace Polardb20170801
       Models::ModifyAccountDescriptionResponse modifyAccountDescription(const Models::ModifyAccountDescriptionRequest &request);
 
       /**
-       * @summary Modifies the description of an account in a PolarDB on ENS cluster.
+       * @summary Modifies the description of a PolarDB on ENS account.
        *
        * @param request ModifyAccountDescriptionZonalRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6486,7 +6596,7 @@ namespace Polardb20170801
       Models::ModifyAccountDescriptionZonalResponse modifyAccountDescriptionZonalWithOptions(const Models::ModifyAccountDescriptionZonalRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the description of an account in a PolarDB on ENS cluster.
+       * @summary Modifies the description of a PolarDB on ENS account.
        *
        * @param request ModifyAccountDescriptionZonalRequest
        * @return ModifyAccountDescriptionZonalResponse
@@ -6577,6 +6687,23 @@ namespace Polardb20170801
        * @return ModifyActiveOperationTasksResponse
        */
       Models::ModifyActiveOperationTasksResponse modifyActiveOperationTasks(const Models::ModifyActiveOperationTasksRequest &request);
+
+      /**
+       * @summary Modifies the history retention window of an AgenticDB project.
+       *
+       * @param request ModifyAgenticDBProjectHistoryRetentionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyAgenticDBProjectHistoryRetentionResponse
+       */
+      Models::ModifyAgenticDBProjectHistoryRetentionResponse modifyAgenticDBProjectHistoryRetentionWithOptions(const Models::ModifyAgenticDBProjectHistoryRetentionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the history retention window of an AgenticDB project.
+       *
+       * @param request ModifyAgenticDBProjectHistoryRetentionRequest
+       * @return ModifyAgenticDBProjectHistoryRetentionResponse
+       */
+      Models::ModifyAgenticDBProjectHistoryRetentionResponse modifyAgenticDBProjectHistoryRetention(const Models::ModifyAgenticDBProjectHistoryRetentionRequest &request);
 
       /**
        * @summary Updates the description of a PolarDB application.
@@ -7306,7 +7433,7 @@ namespace Polardb20170801
       Models::ModifyDBEndpointAddressResponse modifyDBEndpointAddress(const Models::ModifyDBEndpointAddressRequest &request);
 
       /**
-       * @summary Changes the node specifications of a PolarDB cluster.
+       * @summary Modifies the node specifications of a PolarDB cluster.
        *
        * @param request ModifyDBNodeClassRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7315,7 +7442,7 @@ namespace Polardb20170801
       Models::ModifyDBNodeClassResponse modifyDBNodeClassWithOptions(const Models::ModifyDBNodeClassRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the node specifications of a PolarDB cluster.
+       * @summary Modifies the node specifications of a PolarDB cluster.
        *
        * @param request ModifyDBNodeClassRequest
        * @return ModifyDBNodeClassResponse
@@ -7646,7 +7773,7 @@ namespace Polardb20170801
       Models::ModifyPolarFsMappingAuthResponse modifyPolarFsMappingAuth(const Models::ModifyPolarFsMappingAuthRequest &request);
 
       /**
-       * @summary Modifies a rate limit policy.
+       * @summary Modifies a throttling policy.
        *
        * @param request ModifyRateLimitPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7655,7 +7782,7 @@ namespace Polardb20170801
       Models::ModifyRateLimitPolicyResponse modifyRateLimitPolicyWithOptions(const Models::ModifyRateLimitPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies a rate limit policy.
+       * @summary Modifies a throttling policy.
        *
        * @param request ModifyRateLimitPolicyRequest
        * @return ModifyRateLimitPolicyResponse
@@ -7663,14 +7790,14 @@ namespace Polardb20170801
       Models::ModifyRateLimitPolicyResponse modifyRateLimitPolicy(const Models::ModifyRateLimitPolicyRequest &request);
 
       /**
-       * @summary Modifies the CPU quota of an existing resource control rule in a specified PolarDB for MySQL cluster. You can modify the current quota value or switch between the maximum CPU percentage mode and the maximum CPU core count mode. You must specify one and only one of the MaxCpu and CpuCount parameters.
+       * @summary Modifies the CPU quota of an existing resource control rule in a specified PolarDB for MySQL cluster. You can modify the current quota value or switch between the maximum CPU quota percentage mode and the maximum CPU core count mode. When modifying the rule, you must specify exactly one of the MaxCpu and CpuCount parameters.
        *
-       * @description Resource Control limits the CPU resources that can be used by a specified user, database, query, or connection in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules. It does not support querying Resource Control CPU usage.
-       * ### Before you begin
-       * - This operation applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
+       * @description Resource Control is used to limit the CPU resources available to specified users, databases, queries, or connections in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules, but does not support querying Resource Control CPU utilization.
+       * ### Limits
+       * - Applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
        * - The cluster kernel parameter loose_enable_resource_control must be set to ON.
        * - MaxCpu and CpuCount are two mutually exclusive CPU quota modes.
-       * - The maximum value of CpuCount is determined by the cluster kernel parameter resource_control_cpu_count_limit.
+       * - The maximum value of CpuCount is determined by the resource_control_cpu_count_limit kernel parameter of the target cluster.
        * >Notice: This is a notice.</notice>
        *
        * @param request ModifyResourceControlRequest
@@ -7680,14 +7807,14 @@ namespace Polardb20170801
       Models::ModifyResourceControlResponse modifyResourceControlWithOptions(const Models::ModifyResourceControlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the CPU quota of an existing resource control rule in a specified PolarDB for MySQL cluster. You can modify the current quota value or switch between the maximum CPU percentage mode and the maximum CPU core count mode. You must specify one and only one of the MaxCpu and CpuCount parameters.
+       * @summary Modifies the CPU quota of an existing resource control rule in a specified PolarDB for MySQL cluster. You can modify the current quota value or switch between the maximum CPU quota percentage mode and the maximum CPU core count mode. When modifying the rule, you must specify exactly one of the MaxCpu and CpuCount parameters.
        *
-       * @description Resource Control limits the CPU resources that can be used by a specified user, database, query, or connection in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules. It does not support querying Resource Control CPU usage.
-       * ### Before you begin
-       * - This operation applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
+       * @description Resource Control is used to limit the CPU resources available to specified users, databases, queries, or connections in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules, but does not support querying Resource Control CPU utilization.
+       * ### Limits
+       * - Applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
        * - The cluster kernel parameter loose_enable_resource_control must be set to ON.
        * - MaxCpu and CpuCount are two mutually exclusive CPU quota modes.
-       * - The maximum value of CpuCount is determined by the cluster kernel parameter resource_control_cpu_count_limit.
+       * - The maximum value of CpuCount is determined by the resource_control_cpu_count_limit kernel parameter of the target cluster.
        * >Notice: This is a notice.</notice>
        *
        * @param request ModifyResourceControlRequest
@@ -7798,7 +7925,7 @@ namespace Polardb20170801
       Models::OperateApplicationResponse operateApplication(const Models::OperateApplicationRequest &request);
 
       /**
-       * @summary Updates a PolarClaw configuration.
+       * @summary Updates the PolarClaw configuration.
        *
        * @param tmpReq PatchPolarClawConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7807,7 +7934,7 @@ namespace Polardb20170801
       Models::PatchPolarClawConfigResponse patchPolarClawConfigWithOptions(const Models::PatchPolarClawConfigRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a PolarClaw configuration.
+       * @summary Updates the PolarClaw configuration.
        *
        * @param request PatchPolarClawConfigRequest
        * @return PatchPolarClawConfigResponse
@@ -7866,7 +7993,7 @@ namespace Polardb20170801
       Models::RegisterAIDBClusterCustomModelResponse registerAIDBClusterCustomModel(const Models::RegisterAIDBClusterCustomModelRequest &request);
 
       /**
-       * @summary Registers an OSS file in a knowledge base.
+       * @summary Registers an OSS file for a knowledge base.
        *
        * @param request RegisterKnowledgeBaseFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7875,7 +8002,7 @@ namespace Polardb20170801
       Models::RegisterKnowledgeBaseFileResponse registerKnowledgeBaseFileWithOptions(const Models::RegisterKnowledgeBaseFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Registers an OSS file in a knowledge base.
+       * @summary Registers an OSS file for a knowledge base.
        *
        * @param request RegisterKnowledgeBaseFileRequest
        * @return RegisterKnowledgeBaseFileResponse
@@ -7938,7 +8065,7 @@ namespace Polardb20170801
       Models::RemoveDBClusterFromGDNResponse removeDBClusterFromGDN(const Models::RemoveDBClusterFromGDNRequest &request);
 
       /**
-       * @summary Unpairs a PolarClaw device.
+       * @summary Removes a paired PolarClaw device.
        *
        * @param request RemovePolarClawDevicePairRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7947,7 +8074,7 @@ namespace Polardb20170801
       Models::RemovePolarClawDevicePairResponse removePolarClawDevicePairWithOptions(const Models::RemovePolarClawDevicePairRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Unpairs a PolarClaw device.
+       * @summary Removes a paired PolarClaw device.
        *
        * @param request RemovePolarClawDevicePairRequest
        * @return RemovePolarClawDevicePairResponse
@@ -8048,7 +8175,7 @@ namespace Polardb20170801
       Models::ResetAgenticDBTenantApiKeyResponse resetAgenticDBTenantApiKey(const Models::ResetAgenticDBTenantApiKeyRequest &request);
 
       /**
-       * @summary Resets an api key.
+       * @summary Resets an API key.
        *
        * @param request ResetConsumerApiKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8057,7 +8184,7 @@ namespace Polardb20170801
       Models::ResetConsumerApiKeyResponse resetConsumerApiKeyWithOptions(const Models::ResetConsumerApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Resets an api key.
+       * @summary Resets an API key.
        *
        * @param request ResetConsumerApiKeyRequest
        * @return ResetConsumerApiKeyResponse
@@ -8269,7 +8396,7 @@ namespace Polardb20170801
       Models::RevokeAccountPrivilegeZonalResponse revokeAccountPrivilegeZonal(const Models::RevokeAccountPrivilegeZonalRequest &request);
 
       /**
-       * @summary Runs a PolarClaw cron job.
+       * @summary Executes a PolarClaw scheduled task.
        *
        * @param request RunPolarClawCronJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8278,7 +8405,7 @@ namespace Polardb20170801
       Models::RunPolarClawCronJobResponse runPolarClawCronJobWithOptions(const Models::RunPolarClawCronJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Runs a PolarClaw cron job.
+       * @summary Executes a PolarClaw scheduled task.
        *
        * @param request RunPolarClawCronJobRequest
        * @return RunPolarClawCronJobResponse
@@ -8286,9 +8413,9 @@ namespace Polardb20170801
       Models::RunPolarClawCronJobResponse runPolarClawCronJob(const Models::RunPolarClawCronJobRequest &request);
 
       /**
-       * @summary Retrieves memories from a specified application.
+       * @summary Retrieves memories.
        *
-       * @description Retrieves memory data from a specified application.
+       * @description Retrieves memory data in a specified application.
        *
        * @param request SearchMemoriesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8297,9 +8424,9 @@ namespace Polardb20170801
       Models::SearchMemoriesResponse searchMemoriesWithOptions(const Models::SearchMemoriesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves memories from a specified application.
+       * @summary Retrieves memories.
        *
-       * @description Retrieves memory data from a specified application.
+       * @description Retrieves memory data in a specified application.
        *
        * @param request SearchMemoriesRequest
        * @return SearchMemoriesResponse
@@ -8446,7 +8573,10 @@ namespace Polardb20170801
       Models::TriggerKnowledgeBaseSyncResponse triggerKnowledgeBaseSync(const Models::TriggerKnowledgeBaseSyncRequest &request);
 
       /**
-       * @summary Unbinds a PolarClaw Agent.
+       * @summary Disassociates a PolarClaw agent.
+       *
+       * @description ## Request description
+       * Before calling this operation, use BindPolarClawAgent to establish a binding for the specified application, agent, and channel. This operation uses the same ApplicationId, AgentId, and Channel to remove the binding.
        *
        * @param request UnbindPolarClawAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8455,7 +8585,10 @@ namespace Polardb20170801
       Models::UnbindPolarClawAgentResponse unbindPolarClawAgentWithOptions(const Models::UnbindPolarClawAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Unbinds a PolarClaw Agent.
+       * @summary Disassociates a PolarClaw agent.
+       *
+       * @description ## Request description
+       * Before calling this operation, use BindPolarClawAgent to establish a binding for the specified application, agent, and channel. This operation uses the same ApplicationId, AgentId, and Channel to remove the binding.
        *
        * @param request UnbindPolarClawAgentRequest
        * @return UnbindPolarClawAgentResponse
@@ -8492,7 +8625,7 @@ namespace Polardb20170801
       Models::UnbindResourceControlResponse unbindResourceControl(const Models::UnbindResourceControlRequest &request);
 
       /**
-       * @summary Uninstalls a PolarClaw plugin.
+       * @summary Uninstalls the PolarClaw plugin.
        *
        * @param request UninstallPolarClawPluginRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8501,7 +8634,7 @@ namespace Polardb20170801
       Models::UninstallPolarClawPluginResponse uninstallPolarClawPluginWithOptions(const Models::UninstallPolarClawPluginRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Uninstalls a PolarClaw plugin.
+       * @summary Uninstalls the PolarClaw plugin.
        *
        * @param request UninstallPolarClawPluginRequest
        * @return UninstallPolarClawPluginResponse
@@ -8696,7 +8829,7 @@ namespace Polardb20170801
       Models::UpdatePolarClawCronJobResponse updatePolarClawCronJob(const Models::UpdatePolarClawCronJobRequest &request);
 
       /**
-       * @summary Updates the PolarClaw Skill configuration.
+       * @summary Updates the PolarClaw skill configuration.
        *
        * @param tmpReq UpdatePolarClawSkillRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8705,7 +8838,7 @@ namespace Polardb20170801
       Models::UpdatePolarClawSkillResponse updatePolarClawSkillWithOptions(const Models::UpdatePolarClawSkillRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the PolarClaw Skill configuration.
+       * @summary Updates the PolarClaw skill configuration.
        *
        * @param request UpdatePolarClawSkillRequest
        * @return UpdatePolarClawSkillResponse

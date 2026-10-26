@@ -61,11 +61,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // The plugin ID.
+    // The ID of the plugin to uninstall. You can call DescribePolarClawPlugins to query the plugins installed for the application and use the Id of the corresponding plugin in the returned Plugins list.
     // 
     // This parameter is required.
     shared_ptr<string> pluginId_ {};
-    // Indicates whether to restart the gateway after the plugin is uninstalled. The default is true.
+    // Specifies whether to restart the gateway after uninstallation. Default value: true.
     shared_ptr<bool> restart_ {};
   };
 

@@ -291,13 +291,13 @@ namespace Models
     protected:
       // The cache read cost points per million tokens. Default value: 0.
       shared_ptr<string> cacheCostPointsPerMillion_ {};
-      // The cache creation or write cost points per million tokens.
+      // The cache creation cost points per million tokens.
       shared_ptr<string> cacheCreationCostPointsPerMillion_ {};
       // The ID of the cost rule.
       shared_ptr<string> costRuleId_ {};
-      // The end time of the effective period.
+      // The end time of the effective period. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> effectiveEndTime_ {};
-      // The start time of the effective period.
+      // The start time of the effective period. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> effectiveStartTime_ {};
       // The type of the effective target.
       shared_ptr<string> effectiveTargetType_ {};
@@ -317,7 +317,7 @@ namespace Models
       shared_ptr<string> inputCostPointsPerMillion_ {};
       // The input token tier. An empty value indicates a legacy or default rule.
       shared_ptr<string> inputTokenTier_ {};
-      // The non-cumulative tiered pricing for input tokens. Each element includes the tier and the input cost points per million tokens.
+      // The non-cumulative tiered pricing for input tokens. Each element contains Tier and InputCostPointsPerMillion.
       shared_ptr<vector<Items::InputTokenTiers>> inputTokenTiers_ {};
       // The name of the model.
       shared_ptr<string> model_ {};
@@ -382,7 +382,7 @@ namespace Models
     shared_ptr<vector<DescribeCostRulesResponseBody::Items>> items_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries on the current page.
+    // The number of entries returned on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
     // The number of entries per page. Valid values: 30, 50, and 100. Default value: 30.
     shared_ptr<int32_t> pageSize_ {};

@@ -116,13 +116,13 @@ namespace Models
     shared_ptr<string> kubeType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of items per page.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The PolarDB instance ID.
+    // The instance ID of the associated PolarDB instance.
     shared_ptr<string> relativeDBClusterId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

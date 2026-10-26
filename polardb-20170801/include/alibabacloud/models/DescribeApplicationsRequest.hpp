@@ -141,7 +141,7 @@ namespace Models
 
 
   protected:
-    // The list of application IDs. If specified, only the information of these applications is returned.
+    // The list of application IDs. If specified, only the information about these applications is returned.
     shared_ptr<string> applicationIds_ {};
     // The application engine filter.
     shared_ptr<string> applicationTypes_ {};

@@ -103,9 +103,9 @@ namespace Models
 
 
   protected:
-    // The branch name for fuzzy match.
+    // The branch name for fuzzy matching.
     shared_ptr<string> branchName_ {};
-    // The AgenticDB cluster ID.
+    // The ID of the AgenticDB cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
@@ -113,19 +113,15 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 30. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the project to which the branch belongs.
+    // The project ID.
     shared_ptr<string> projectId_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The status filter. Valid values:
-    // 
-    // - Running
-    // - Pending
-    // - Paused
+    // The status used to filter branches. Valid values: Running, Pending, and Paused.
     shared_ptr<string> status_ {};
-    // The ID of the tenant to which the branch belongs.
+    // The tenant ID.
     shared_ptr<string> tenantId_ {};
   };
 

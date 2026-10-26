@@ -46,6 +46,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DefaultBranchId, defaultBranchId_);
         DARABONBA_PTR_TO_JSON(DefaultBranchName, defaultBranchName_);
         DARABONBA_PTR_TO_JSON(Description, description_);
+        DARABONBA_PTR_TO_JSON(HistoryRetentionSeconds, historyRetentionSeconds_);
         DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
         DARABONBA_PTR_TO_JSON(ProjectName, projectName_);
         DARABONBA_PTR_TO_JSON(Status, status_);
@@ -57,6 +58,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DefaultBranchId, defaultBranchId_);
         DARABONBA_PTR_FROM_JSON(DefaultBranchName, defaultBranchName_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
+        DARABONBA_PTR_FROM_JSON(HistoryRetentionSeconds, historyRetentionSeconds_);
         DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
         DARABONBA_PTR_FROM_JSON(ProjectName, projectName_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
@@ -74,8 +76,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->DBClusterId_ == nullptr && this->defaultBranchId_ == nullptr && this->defaultBranchName_ == nullptr && this->description_ == nullptr && this->projectId_ == nullptr
-        && this->projectName_ == nullptr && this->status_ == nullptr && this->tenantId_ == nullptr; };
+        && this->DBClusterId_ == nullptr && this->defaultBranchId_ == nullptr && this->defaultBranchName_ == nullptr && this->description_ == nullptr && this->historyRetentionSeconds_ == nullptr
+        && this->projectId_ == nullptr && this->projectName_ == nullptr && this->status_ == nullptr && this->tenantId_ == nullptr; };
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -111,6 +113,13 @@ namespace Models
       inline Items& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
+      // historyRetentionSeconds Field Functions 
+      bool hasHistoryRetentionSeconds() const { return this->historyRetentionSeconds_ != nullptr;};
+      void deleteHistoryRetentionSeconds() { this->historyRetentionSeconds_ = nullptr;};
+      inline int64_t getHistoryRetentionSeconds() const { DARABONBA_PTR_GET_DEFAULT(historyRetentionSeconds_, 0L) };
+      inline Items& setHistoryRetentionSeconds(int64_t historyRetentionSeconds) { DARABONBA_PTR_SET_VALUE(historyRetentionSeconds_, historyRetentionSeconds) };
+
+
       // projectId Field Functions 
       bool hasProjectId() const { return this->projectId_ != nullptr;};
       void deleteProjectId() { this->projectId_ = nullptr;};
@@ -140,29 +149,28 @@ namespace Models
 
 
     protected:
-      // The time when the project was created.
-      // 
-      // The time is in the ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+      // The creation time. The time is in ISO 8601 format and the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> createTime_ {};
       // The ID of the associated AgenticDB cluster.
       shared_ptr<string> DBClusterId_ {};
-      // The default branch ID.
+      // The ID of the default branch.
       shared_ptr<string> defaultBranchId_ {};
-      // The default branch name.
+      // The name of the default branch.
       shared_ptr<string> defaultBranchName_ {};
-      // The description of the project.
+      // The description.
       shared_ptr<string> description_ {};
+      // The retention period for recent records of the project. This field may be empty for older projects. To query the current effective value, call DescribeAgenticDBProjectHistoryRetention.
+      shared_ptr<int64_t> historyRetentionSeconds_ {};
       // Project ID
       shared_ptr<string> projectId_ {};
-      // The project name.
+      // The name of the project.
       shared_ptr<string> projectName_ {};
       // The project status. Valid values:
-      // 
       // - Active: Normal.
       // - Destroying: Being destroyed.
       // - Destroyed: Destroyed.
       shared_ptr<string> status_ {};
-      // The ID of the tenant to which the project belongs.
+      // The tenant ID.
       shared_ptr<string> tenantId_ {};
     };
 

@@ -116,7 +116,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // The end of the time range to query.
+    // The end time of the query.
+    // 
+    // The time follows the ISO 8601 standard and is in the UTC time zone (format: YYYY-MM-DDTHH:mmZ).
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
@@ -131,7 +133,7 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
-    // The beginning of the time range to query. Specify the time in the `YYYY-MM-DDThh:mmZ` format (UTC).
+    // The start time of the query. The time is in the `YYYY-MM-DDThh:mmZ` format (UTC).
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

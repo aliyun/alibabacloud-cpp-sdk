@@ -102,6 +102,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBName_ {};
+    // The name of the database plugin to query.
     shared_ptr<string> extensionName_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

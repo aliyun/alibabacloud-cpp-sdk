@@ -34,6 +34,9 @@
 #include <alibabacloud/models/ApplyApplicationPromptsShrinkRequest.hpp>
 #include <alibabacloud/models/ApplyApplicationPromptsResponseBody.hpp>
 #include <alibabacloud/models/ApplyApplicationPromptsResponse.hpp>
+#include <alibabacloud/models/ApplyLakebaseMountParameterGroupRequest.hpp>
+#include <alibabacloud/models/ApplyLakebaseMountParameterGroupResponseBody.hpp>
+#include <alibabacloud/models/ApplyLakebaseMountParameterGroupResponse.hpp>
 #include <alibabacloud/models/ApprovePolarClawDevicePairRequest.hpp>
 #include <alibabacloud/models/ApprovePolarClawDevicePairResponseBody.hpp>
 #include <alibabacloud/models/ApprovePolarClawDevicePairResponse.hpp>
@@ -124,6 +127,9 @@
 #include <alibabacloud/models/CreateAgenticDBProjectRequest.hpp>
 #include <alibabacloud/models/CreateAgenticDBProjectResponseBody.hpp>
 #include <alibabacloud/models/CreateAgenticDBProjectResponse.hpp>
+#include <alibabacloud/models/CreateAgenticDBTenantRequest.hpp>
+#include <alibabacloud/models/CreateAgenticDBTenantResponseBody.hpp>
+#include <alibabacloud/models/CreateAgenticDBTenantResponse.hpp>
 #include <alibabacloud/models/CreateAgenticDBTenantApiKeyRequest.hpp>
 #include <alibabacloud/models/CreateAgenticDBTenantApiKeyResponseBody.hpp>
 #include <alibabacloud/models/CreateAgenticDBTenantApiKeyResponse.hpp>
@@ -299,6 +305,9 @@
 #include <alibabacloud/models/DeleteAgenticDBProjectRequest.hpp>
 #include <alibabacloud/models/DeleteAgenticDBProjectResponseBody.hpp>
 #include <alibabacloud/models/DeleteAgenticDBProjectResponse.hpp>
+#include <alibabacloud/models/DeleteAgenticDBTenantRequest.hpp>
+#include <alibabacloud/models/DeleteAgenticDBTenantResponseBody.hpp>
+#include <alibabacloud/models/DeleteAgenticDBTenantResponse.hpp>
 #include <alibabacloud/models/DeleteAgenticDBTenantApiKeyRequest.hpp>
 #include <alibabacloud/models/DeleteAgenticDBTenantApiKeyResponseBody.hpp>
 #include <alibabacloud/models/DeleteAgenticDBTenantApiKeyResponse.hpp>
@@ -489,6 +498,9 @@
 #include <alibabacloud/models/DescribeAgenticDBBranchLineageRequest.hpp>
 #include <alibabacloud/models/DescribeAgenticDBBranchLineageResponseBody.hpp>
 #include <alibabacloud/models/DescribeAgenticDBBranchLineageResponse.hpp>
+#include <alibabacloud/models/DescribeAgenticDBBranchRestoreWindowRequest.hpp>
+#include <alibabacloud/models/DescribeAgenticDBBranchRestoreWindowResponseBody.hpp>
+#include <alibabacloud/models/DescribeAgenticDBBranchRestoreWindowResponse.hpp>
 #include <alibabacloud/models/DescribeAgenticDBBranchesRequest.hpp>
 #include <alibabacloud/models/DescribeAgenticDBBranchesResponseBody.hpp>
 #include <alibabacloud/models/DescribeAgenticDBBranchesResponse.hpp>
@@ -501,6 +513,9 @@
 #include <alibabacloud/models/DescribeAgenticDBProjectRequest.hpp>
 #include <alibabacloud/models/DescribeAgenticDBProjectResponseBody.hpp>
 #include <alibabacloud/models/DescribeAgenticDBProjectResponse.hpp>
+#include <alibabacloud/models/DescribeAgenticDBProjectHistoryRetentionRequest.hpp>
+#include <alibabacloud/models/DescribeAgenticDBProjectHistoryRetentionResponseBody.hpp>
+#include <alibabacloud/models/DescribeAgenticDBProjectHistoryRetentionResponse.hpp>
 #include <alibabacloud/models/DescribeAgenticDBProjectsRequest.hpp>
 #include <alibabacloud/models/DescribeAgenticDBProjectsResponseBody.hpp>
 #include <alibabacloud/models/DescribeAgenticDBProjectsResponse.hpp>
@@ -551,6 +566,9 @@
 #include <alibabacloud/models/DescribeAvailableModelsRequest.hpp>
 #include <alibabacloud/models/DescribeAvailableModelsResponseBody.hpp>
 #include <alibabacloud/models/DescribeAvailableModelsResponse.hpp>
+#include <alibabacloud/models/DescribeBackupLogDownloadLinksRequest.hpp>
+#include <alibabacloud/models/DescribeBackupLogDownloadLinksResponseBody.hpp>
+#include <alibabacloud/models/DescribeBackupLogDownloadLinksResponse.hpp>
 #include <alibabacloud/models/DescribeBackupLogsRequest.hpp>
 #include <alibabacloud/models/DescribeBackupLogsResponseBody.hpp>
 #include <alibabacloud/models/DescribeBackupLogsResponse.hpp>
@@ -1075,6 +1093,9 @@
 #include <alibabacloud/models/ModifyActiveOperationTasksRequest.hpp>
 #include <alibabacloud/models/ModifyActiveOperationTasksResponseBody.hpp>
 #include <alibabacloud/models/ModifyActiveOperationTasksResponse.hpp>
+#include <alibabacloud/models/ModifyAgenticDBProjectHistoryRetentionRequest.hpp>
+#include <alibabacloud/models/ModifyAgenticDBProjectHistoryRetentionResponseBody.hpp>
+#include <alibabacloud/models/ModifyAgenticDBProjectHistoryRetentionResponse.hpp>
 #include <alibabacloud/models/ModifyApplicationDescriptionRequest.hpp>
 #include <alibabacloud/models/ModifyApplicationDescriptionResponseBody.hpp>
 #include <alibabacloud/models/ModifyApplicationDescriptionResponse.hpp>

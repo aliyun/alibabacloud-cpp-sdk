@@ -151,21 +151,15 @@ namespace Models
         shared_ptr<string> objectType_ {};
         // The disk size. Unit: GiB.
         shared_ptr<string> size_ {};
-        // The status of the task. Valid values:
+        // The task status. Valid values:
+        // * **Scheduled**: waiting for execution
+        // * **Running**: running
+        // * **Succeed**: succeeded
+        // * **Cancelling**: cancelling
+        // * **Canceled**: canceled
+        // * **Waiting**: waiting for the preset time
         // 
-        // - **Scheduled**: The task is waiting to be executed.
-        // 
-        // - **Running**: The task is in progress.
-        // 
-        // - **Succeed**: The task is successful.
-        // 
-        // - **Cancelling**: The task is being stopped.
-        // 
-        // - **Canceled**: The task is stopped.
-        // 
-        // - **Waiting**: The task is waiting for a preset time.
-        // 
-        // To query multiple statuses, separate them with commas (,). If you do not specify this parameter, all statuses are queried.
+        // To query multiple statuses, separate them with commas (,). The default value is empty, which indicates that all statuses are selected.
         shared_ptr<string> status_ {};
       };
 
@@ -247,23 +241,23 @@ namespace Models
     protected:
       // The list of child objects.
       shared_ptr<vector<Tables::ChildObjects>> childObjects_ {};
-      // The database name.
+      // The name of the database.
       shared_ptr<string> DB_ {};
-      // The database name.
+      // The name of the database.
       shared_ptr<string> DBName_ {};
-      // The name of the large object (LOB) field.
+      // The name of the LOB field.
       shared_ptr<string> fieldName_ {};
-      // The ID of the OSS-based cluster.
+      // The OSS cluster ID.
       shared_ptr<string> ossClusterId_ {};
       // The partition of the cold storage instance.
       shared_ptr<string> partion_ {};
       // The disk size of the cold storage instance. Unit: GiB.
       shared_ptr<string> size_ {};
-      // The status of the task.
+      // The task status.
       shared_ptr<string> status_ {};
-      // The table name.
+      // The name of the table.
       shared_ptr<string> table_ {};
-      // The table name.
+      // The name of the table.
       shared_ptr<string> tableName_ {};
     };
 
@@ -323,11 +317,11 @@ namespace Models
 
 
     protected:
-      // The time when the cluster was created.
+      // The creation time of the cluster. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> createdTime_ {};
-      // The ID of the cold storage instance.
+      // The cold storage instance ID.
       shared_ptr<string> ossClusterId_ {};
-      // The ID of the region where the task is located.
+      // The region ID of the region where the task resides.
       shared_ptr<string> region_ {};
       // The size of the cold storage table. Unit: GB.
       shared_ptr<string> size_ {};
@@ -426,33 +420,32 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries returned. Default value: 10.
+    // The maximum number of data entries to read in this request. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The token to retrieve the next page of results. If this parameter is not returned, all results have been returned.
+    // The query token. Set the value to the NextToken value returned from the previous API call. If there are no more queries, do not specify this parameter.
     shared_ptr<string> nextToken_ {};
     // The object type.
     shared_ptr<string> objectType_ {};
-    // Indicates whether the OSS bucket is enabled.
+    // Specifies whether OSS storage space is enabled. Valid values:
     // 
     // - **true**: enabled
-    // 
     // - **false**: disabled
     shared_ptr<string> ossClusterEnabled_ {};
-    // The list of OSS addresses for the cold storage instances.
+    // The list of OSS addresses for the cold storage instance.
     shared_ptr<vector<DescribeColdStorageInstanceResponseBody::OssClusterInfoList>> ossClusterInfoList_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries on the current page.
+    // The number of records on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the cluster supports cold storage. If the cluster does not support cold storage, the switch is not displayed on the console.
+    // Specifies whether the current cluster supports enabling cold storage. For clusters that do not support this feature, the switch is not displayed on the page.
     shared_ptr<string> supportOssCluster_ {};
     // The list of cold storage instances.
     shared_ptr<vector<DescribeColdStorageInstanceResponseBody::Tables>> tables_ {};
-    // The total number of entries.
+    // The total number of records.
     shared_ptr<int32_t> totalRecord_ {};
   };
 

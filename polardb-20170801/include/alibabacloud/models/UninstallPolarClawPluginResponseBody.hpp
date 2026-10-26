@@ -96,17 +96,17 @@ namespace Models
   protected:
     // The application ID.
     shared_ptr<string> applicationId_ {};
-    // The response status code.
+    // The status code.
     shared_ptr<int32_t> code_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // Indicates whether the operation was successful.
+    // Indicates whether the operation is successful.
     shared_ptr<bool> ok_ {};
-    // The plugin ID.
+    // The ID of the uninstalled plugin.
     shared_ptr<string> pluginId_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the gateway has been restarted.
+    // Indicates whether the gateway was restarted.
     shared_ptr<bool> restarted_ {};
   };
 

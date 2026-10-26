@@ -130,11 +130,11 @@ namespace Models
 
 
   protected:
-    // The unique ID of the knowledge base.
+    // The unique identifier of the knowledge base. To obtain the ID, first call CreateKnowledgeSpace to create a knowledge space, use the returned KnowledgeSpaceId to call CreateKnowledgeBase, and then use the KnowledgeBaseId returned by CreateKnowledgeBase. Separate multiple knowledge base IDs with commas.
     // 
     // This parameter is required.
     shared_ptr<string> knowledgeBaseId_ {};
-    // The maximum number of context characters. Valid values: 1000 to 32000.
+    // The maximum number of characters in the context. Valid values: 1000 to 32000.
     shared_ptr<int32_t> maxContextChars_ {};
     // The user question.
     // 
@@ -144,9 +144,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // Specifies whether to enable reranking. Disabled by default.
+    // Specifies whether to enable reranking. Default value: false.
     shared_ptr<bool> rerankEnabled_ {};
-    // Specifies whether to return citation sources. Enabled by default.
+    // Specifies whether to return reference sources. Default value: true.
     shared_ptr<bool> returnSources_ {};
     // The similarity score threshold.
     shared_ptr<double> scoreThreshold_ {};
@@ -154,9 +154,9 @@ namespace Models
     shared_ptr<string> searchMode_ {};
     // The system prompt.
     shared_ptr<string> systemPrompt_ {};
-    // The number of recall results to retrieve.
+    // The number of results to recall.
     shared_ptr<int32_t> topK_ {};
-    // The user supplementary instructions.
+    // The additional user instructions.
     shared_ptr<string> userInstructions_ {};
   };
 

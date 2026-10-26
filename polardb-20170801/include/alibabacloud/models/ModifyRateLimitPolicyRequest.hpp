@@ -75,17 +75,17 @@ namespace Models
 
 
   protected:
-    // The gateway instance ID.
+    // The ID of the gateway instance. You can obtain the ID from the GwClusterId parameter returned by CreateGateway.
     // 
     // This parameter is required.
     shared_ptr<string> gwClusterId_ {};
-    // The rate limit policy ID.
+    // The ID of the throttling policy to be modified. You can obtain the ID from the PolicyId parameter returned by CreateRateLimitPolicy.
     // 
     // This parameter is required.
     shared_ptr<string> policyId_ {};
-    // The maximum number of requests per minute.
+    // The limit on the number of requests per minute.
     shared_ptr<string> rateLimitRpm_ {};
-    // The maximum number of tokens per minute.
+    // The limit on the number of tokens per minute.
     shared_ptr<string> rateLimitTpm_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

@@ -61,9 +61,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // The configuration object for the MCP server.
+    // The MCP server configuration object.
     shared_ptr<string> serverConfigShrink_ {};
-    // The unique identifier for the MCP server.
+    // The unique identifier of the MCP server.
     // 
     // This parameter is required.
     shared_ptr<string> serverName_ {};

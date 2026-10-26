@@ -236,35 +236,35 @@ namespace Models
 
 
     protected:
-      // Indicates whether the key is active.
+      // Indicates whether the consumer is active.
       shared_ptr<bool> active_ {};
-      // The complete API key. Returned only in this response.
+      // The complete API key. This value is returned only in the current response.
       shared_ptr<string> apiKey_ {};
       // The MD5 hash of the API key.
       shared_ptr<string> apiKeyMd5_ {};
       // The status of the API key. Default value: Active.
       shared_ptr<string> apiKeyStatus_ {};
-      // The API key status. Default value: Active.
+      // The status of the API key. Default value: Active.
       shared_ptr<string> apiStatus_ {};
-      // The budget limit, which equals the number of credits per package.
+      // The budget limit, which is equal to the points of a single package.
       shared_ptr<int64_t> budgetLimit_ {};
-      // The budget policy ID. Each key has an independent budget policy.
+      // The ID of the budget policy. Each key has an independent budget policy.
       shared_ptr<string> budgetPolicyId_ {};
       // The used quota.
       shared_ptr<int64_t> budgetUsed_ {};
-      // The user group ID.
+      // The ID of the consumer group.
       shared_ptr<string> consumerGroupId_ {};
       // The user ID.
       shared_ptr<string> consumerId_ {};
       // The consumer tag.
       shared_ptr<string> consumerTag_ {};
-      // The application description or remarks.
+      // The application description or remark.
       shared_ptr<string> description_ {};
       // The expiration time.
       // 
-      // The time is in the ISO 8601 standard in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
+      // The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> expireTime_ {};
-      // Indicates whether the key has expired.
+      // Indicates whether the consumer has expired.
       shared_ptr<bool> expired_ {};
       // The creation time.
       shared_ptr<string> gmtCreated_ {};
@@ -274,7 +274,7 @@ namespace Models
       shared_ptr<string> gwClusterId_ {};
       // The name.
       shared_ptr<string> name_ {};
-      // The consumer status. Default value: Enabled.
+      // The status of the consumer. Default value: Enabled.
       shared_ptr<string> status_ {};
     };
 

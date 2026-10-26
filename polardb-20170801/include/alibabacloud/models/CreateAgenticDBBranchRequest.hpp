@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(ParentBranchId, parentBranchId_);
+      DARABONBA_PTR_TO_JSON(ParentTimestamp, parentTimestamp_);
       DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(TenantId, tenantId_);
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(ParentBranchId, parentBranchId_);
+      DARABONBA_PTR_FROM_JSON(ParentTimestamp, parentTimestamp_);
       DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(TenantId, tenantId_);
@@ -42,8 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->branchName_ == nullptr
-        && this->DBClusterId_ == nullptr && this->description_ == nullptr && this->parentBranchId_ == nullptr && this->projectId_ == nullptr && this->regionId_ == nullptr
-        && this->tenantId_ == nullptr; };
+        && this->DBClusterId_ == nullptr && this->description_ == nullptr && this->parentBranchId_ == nullptr && this->parentTimestamp_ == nullptr && this->projectId_ == nullptr
+        && this->regionId_ == nullptr && this->tenantId_ == nullptr; };
     // branchName Field Functions 
     bool hasBranchName() const { return this->branchName_ != nullptr;};
     void deleteBranchName() { this->branchName_ = nullptr;};
@@ -70,6 +72,13 @@ namespace Models
     void deleteParentBranchId() { this->parentBranchId_ = nullptr;};
     inline string getParentBranchId() const { DARABONBA_PTR_GET_DEFAULT(parentBranchId_, "") };
     inline CreateAgenticDBBranchRequest& setParentBranchId(string parentBranchId) { DARABONBA_PTR_SET_VALUE(parentBranchId_, parentBranchId) };
+
+
+    // parentTimestamp Field Functions 
+    bool hasParentTimestamp() const { return this->parentTimestamp_ != nullptr;};
+    void deleteParentTimestamp() { this->parentTimestamp_ = nullptr;};
+    inline string getParentTimestamp() const { DARABONBA_PTR_GET_DEFAULT(parentTimestamp_, "") };
+    inline CreateAgenticDBBranchRequest& setParentTimestamp(string parentTimestamp) { DARABONBA_PTR_SET_VALUE(parentTimestamp_, parentTimestamp) };
 
 
     // projectId Field Functions 
@@ -102,11 +111,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The description of the branch.
+    // The description.
     shared_ptr<string> description_ {};
-    // The ID of the parent branch. If this parameter is not specified, the branch is derived from the main branch by default.
+    // The ID of the parent branch. By default, the branch is derived from the main branch.
     shared_ptr<string> parentBranchId_ {};
-    // The ID of the project to which the branch belongs.
+    // Creates the branch based on the data of the parent branch at the specified point in time. If you do not specify this parameter, the latest data is used. The value must be in RFC 3339 format with a time zone and support up to nine fractional digits for seconds. Empty strings and future times are not supported.
+    shared_ptr<string> parentTimestamp_ {};
+    // The project ID.
     // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};
@@ -114,7 +125,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the tenant to which the branch belongs.
+    // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<string> tenantId_ {};

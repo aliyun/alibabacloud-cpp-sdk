@@ -65,7 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> knowledgeBaseId_ {};
-    // The ID of the region where the knowledge base resides.
+    // The region ID of the knowledge base.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

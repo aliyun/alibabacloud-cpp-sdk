@@ -63,9 +63,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // A JSON merge-patch object.
+    // The JSON merge patch object.
     Darabonba::Json configPatch_ {};
-    // Specifies whether to restart the gateway after applying the patch. The default is `true`.
+    // Specifies whether to restart the gateway after the patch is applied. Default value: true.
     shared_ptr<bool> restart_ {};
   };
 
