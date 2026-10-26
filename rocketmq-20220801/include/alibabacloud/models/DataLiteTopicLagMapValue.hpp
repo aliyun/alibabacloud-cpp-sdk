@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The number of accumulated messages.
     shared_ptr<int64_t> readyCount_ {};
+    // The delivery latency. Unit: seconds.
     shared_ptr<int64_t> deliveryDuration_ {};
   };
 

@@ -96,15 +96,19 @@ namespace Models
 
 
   protected:
+    // The delivery time for a delayed message, specified as a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> deliveryTimeStamp_ {};
+    // The name of the Lite Message Queue topic.
     shared_ptr<string> liteTopicName_ {};
-    // The message body.
+    // The message content.
     shared_ptr<string> message_ {};
+    // The ID of the message group. This parameter applies only to ordered messages. Messages with the same group ID are consumed in the order they are sent.
     shared_ptr<string> messageGroup_ {};
-    // The message key.
+    // The business key.
     shared_ptr<string> messageKey_ {};
     // The message tag.
     shared_ptr<string> messageTag_ {};
+    // The user-defined properties of the message.
     Darabonba::Json userProperties_ {};
   };
 

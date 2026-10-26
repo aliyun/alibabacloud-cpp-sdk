@@ -51,6 +51,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(liteTopicExpiration, liteTopicExpiration_);
         DARABONBA_PTR_TO_JSON(maxSendTps, maxSendTps_);
         DARABONBA_PTR_TO_JSON(messageType, messageType_);
+        DARABONBA_PTR_TO_JSON(priority, priority_);
         DARABONBA_PTR_TO_JSON(regionId, regionId_);
         DARABONBA_PTR_TO_JSON(remark, remark_);
         DARABONBA_PTR_TO_JSON(status, status_);
@@ -63,6 +64,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(liteTopicExpiration, liteTopicExpiration_);
         DARABONBA_PTR_FROM_JSON(maxSendTps, maxSendTps_);
         DARABONBA_PTR_FROM_JSON(messageType, messageType_);
+        DARABONBA_PTR_FROM_JSON(priority, priority_);
         DARABONBA_PTR_FROM_JSON(regionId, regionId_);
         DARABONBA_PTR_FROM_JSON(remark, remark_);
         DARABONBA_PTR_FROM_JSON(status, status_);
@@ -81,8 +83,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->instanceId_ == nullptr && this->liteTopicExpiration_ == nullptr && this->maxSendTps_ == nullptr && this->messageType_ == nullptr && this->regionId_ == nullptr
-        && this->remark_ == nullptr && this->status_ == nullptr && this->topicName_ == nullptr && this->updateTime_ == nullptr; };
+        && this->instanceId_ == nullptr && this->liteTopicExpiration_ == nullptr && this->maxSendTps_ == nullptr && this->messageType_ == nullptr && this->priority_ == nullptr
+        && this->regionId_ == nullptr && this->remark_ == nullptr && this->status_ == nullptr && this->topicName_ == nullptr && this->updateTime_ == nullptr; };
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -116,6 +118,13 @@ namespace Models
       void deleteMessageType() { this->messageType_ = nullptr;};
       inline string getMessageType() const { DARABONBA_PTR_GET_DEFAULT(messageType_, "") };
       inline Data& setMessageType(string messageType) { DARABONBA_PTR_SET_VALUE(messageType_, messageType) };
+
+
+      // priority Field Functions 
+      bool hasPriority() const { return this->priority_ != nullptr;};
+      void deletePriority() { this->priority_ = nullptr;};
+      inline int32_t getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
+      inline Data& setPriority(int32_t priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
 
 
       // regionId Field Functions 
@@ -154,43 +163,34 @@ namespace Models
 
 
     protected:
-      // Creation time of the topic.
+      // The time when the topic was created, in YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
       // The ID of the instance to which the topic belongs.
       shared_ptr<string> instanceId_ {};
+      // The expiration time of the lite topic, in minutes.
       shared_ptr<int64_t> liteTopicExpiration_ {};
-      // The maximum TPS for message sending.
+      // The maximum TPS for sending messages.
       shared_ptr<int64_t> maxSendTps_ {};
-      // The type of messages in the topic.
-      // 
-      // Valid values:
-      // 
-      // *   TRANSACTION: transactional messages
-      // *   FIFO: ordered messages
-      // *   DELAY: scheduled or delayed messages
-      // *   NORMAL: normal messages
-      // 
-      // Valid values:
-      // 
-      // *   TRANSACTION: transactional messages
-      // *   FIFO: ordered messages
-      // *   DELAY: scheduled or delayed messages
-      // *   NORMAL: normal messages
+      // The message type of the topic. Valid values:
+      // - TRANSACTION: transactional message
+      // - FIFO: ordered message
+      // - DELAY: scheduled message or delayed message
+      // - LITE: lightweight topic message
+      // - NORMAL: normal message
       shared_ptr<string> messageType_ {};
-      // The region ID to which the instance belongs.
+      // The maximum message priority allowed for the topic. Valid values: 0 to 9. A higher value indicates a higher priority.
+      shared_ptr<int32_t> priority_ {};
+      // The ID of the region to which the instance belongs.
       shared_ptr<string> regionId_ {};
-      // Remark information of the topic.
+      // The remarks for the topic.
       shared_ptr<string> remark_ {};
-      // The topic status.
-      // 
-      // Valid values:
-      // 
-      // *   RUNNING
-      // *   CREATING
+      // The status of the topic. Valid values:
+      // - RUNNING: running
+      // - CREATING: creating
       shared_ptr<string> status_ {};
-      // Topic name.
+      // The topic name.
       shared_ptr<string> topicName_ {};
-      // Last modification time of the topic.
+      // The last time the topic was modified, in YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -256,21 +256,21 @@ namespace Models
 
 
   protected:
-    // Error code.
+    // The error code.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The response data.
     shared_ptr<GetTopicResponseBody::Data> data_ {};
-    // Dynamic error code.
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic error message.
+    // The dynamic error message.
     shared_ptr<string> dynamicMessage_ {};
-    // HTTP status code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Error message.
+    // The error message.
     shared_ptr<string> message_ {};
-    // Request ID, each request\\"s ID is unique and can be used for troubleshooting and problem localization.
+    // The request ID. Each request has a unique ID that you can use to troubleshoot and locate issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the execution was successful.
+    // Indicates whether the operation was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
   };
 

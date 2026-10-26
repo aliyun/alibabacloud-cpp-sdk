@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // The IP address whitelist.
+    // The IP whitelist.
     shared_ptr<string> ipWhitelist_ {};
-    // The IP address whitelist.
+    // The list of IP whitelists.
     shared_ptr<vector<string>> ipWhitelists_ {};
   };
 

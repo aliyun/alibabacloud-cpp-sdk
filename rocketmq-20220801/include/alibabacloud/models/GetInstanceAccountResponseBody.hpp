@@ -99,17 +99,13 @@ namespace Models
 
 
     protected:
-      // The status of the account.
-      // 
-      // Valid values:
-      // 
-      // *   DISABLE
-      // *   ENABLE
+      // The account status.
       shared_ptr<string> accountStatus_ {};
-      // The password of the account.
+      // The account password.
       shared_ptr<string> password_ {};
+      // The remark.
       shared_ptr<string> remark_ {};
-      // The username of the account.
+      // The username.
       shared_ptr<string> username_ {};
     };
 
@@ -177,7 +173,7 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The response data.
     shared_ptr<GetInstanceAccountResponseBody::Data> data_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
@@ -187,7 +183,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // Request ID, each request\\"s ID is unique and can be used for troubleshooting and problem localization.
+    // The unique ID of the request. Use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

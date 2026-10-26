@@ -112,11 +112,11 @@ namespace Models
 
 
   protected:
-    // No permission details
+    // The access denial details. This field is returned only when access is denied due to insufficient RAM permissions.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The error code returned if the call failed.
+    // The error code.
     shared_ptr<string> code_ {};
-    // The returned result.
+    // The response data.
     shared_ptr<bool> data_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
@@ -126,9 +126,9 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

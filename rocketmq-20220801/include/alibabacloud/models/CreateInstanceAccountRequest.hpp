@@ -57,12 +57,13 @@ namespace Models
 
 
   protected:
-    // The password of the account.
+    // The account password.
     // 
     // This parameter is required.
     shared_ptr<string> password_ {};
+    // The remark.
     shared_ptr<string> remark_ {};
-    // The username of the account.
+    // The account name.
     // 
     // This parameter is required.
     shared_ptr<string> username_ {};

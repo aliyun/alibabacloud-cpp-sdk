@@ -41,12 +41,14 @@ namespace Models
     class ProductInfo : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const ProductInfo& obj) { 
+        DARABONBA_PTR_TO_JSON(adaptiveElasticity, adaptiveElasticity_);
         DARABONBA_PTR_TO_JSON(autoScaling, autoScaling_);
         DARABONBA_PTR_TO_JSON(messageRetentionTime, messageRetentionTime_);
         DARABONBA_PTR_TO_JSON(sendReceiveRatio, sendReceiveRatio_);
         DARABONBA_PTR_TO_JSON(traceOn, traceOn_);
       };
       friend void from_json(const Darabonba::Json& j, ProductInfo& obj) { 
+        DARABONBA_PTR_FROM_JSON(adaptiveElasticity, adaptiveElasticity_);
         DARABONBA_PTR_FROM_JSON(autoScaling, autoScaling_);
         DARABONBA_PTR_FROM_JSON(messageRetentionTime, messageRetentionTime_);
         DARABONBA_PTR_FROM_JSON(sendReceiveRatio, sendReceiveRatio_);
@@ -63,8 +65,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->autoScaling_ == nullptr
-        && this->messageRetentionTime_ == nullptr && this->sendReceiveRatio_ == nullptr && this->traceOn_ == nullptr; };
+      virtual bool empty() const override { return this->adaptiveElasticity_ == nullptr
+        && this->autoScaling_ == nullptr && this->messageRetentionTime_ == nullptr && this->sendReceiveRatio_ == nullptr && this->traceOn_ == nullptr; };
+      // adaptiveElasticity Field Functions 
+      bool hasAdaptiveElasticity() const { return this->adaptiveElasticity_ != nullptr;};
+      void deleteAdaptiveElasticity() { this->adaptiveElasticity_ = nullptr;};
+      inline bool getAdaptiveElasticity() const { DARABONBA_PTR_GET_DEFAULT(adaptiveElasticity_, false) };
+      inline ProductInfo& setAdaptiveElasticity(bool adaptiveElasticity) { DARABONBA_PTR_SET_VALUE(adaptiveElasticity_, adaptiveElasticity) };
+
+
       // autoScaling Field Functions 
       bool hasAutoScaling() const { return this->autoScaling_ != nullptr;};
       void deleteAutoScaling() { this->autoScaling_ = nullptr;};
@@ -94,33 +103,30 @@ namespace Models
 
 
     protected:
-      // Specifies whether to enable the elastic transactions per second (TPS) feature for the instance.
+      // Specifies whether to enable the adaptive elasticity capability. A value of true indicates enabled, and a value of false indicates shutdown.
+      shared_ptr<bool> adaptiveElasticity_ {};
+      // Specifies whether to enable the burstable elastic capacity beyond the specification.
       // 
-      // Valid values:
+      // After the burstable elastic capacity is enabled, ApsaraMQ for RocketMQ allows the instance to exceed the TPS limit of the base specification within a certain range. The portion that exceeds the base specification incurs additional elastic specification fees. For more information about billing, see [Computing fee](https://help.aliyun.com/document_detail/427237.html).
       // 
-      // *   true
-      // *   false
       // 
-      // After you enable the elastic TPS feature for an ApsaraMQ for RocketMQ instance, you can use a specific number of TPS that exceeds the specification limit. You are charged for using the elastic TPS feature. For more information, see [Computing fees](https://help.aliyun.com/document_detail/427237.html).
-      // 
-      // >  The elastic TPS feature is supported only by specific instance editions. For more information, see [Instance editions](https://help.aliyun.com/document_detail/444715.html).
+      // > Only instances of specific specifications support the burstable elastic specification capability. For more information about supported instances, see [Instance specifications](https://help.aliyun.com/document_detail/444715.html).
       shared_ptr<bool> autoScaling_ {};
-      // The retention period of messages. Unit: hours.
+      // The message retention period. Unit: hours.
       // 
-      // For information about the valid values of this parameter, see the "Limits on resource quotas" section of the [Limits](https://help.aliyun.com/document_detail/440347.html) topic.
+      // For the valid values, see [Limits](https://help.aliyun.com/document_detail/440347.html) > Resource Quotas > Message retention period limit.
       // 
-      // ApsaraMQ for RocketMQ supports serverless scaling of message storage. You are charged storage fees based on your actual storage usage. You can change the retention period of messages to manage storage capacity. For more information, see [Storage fees](https://help.aliyun.com/document_detail/427238.html).
+      // The log broker in ApsaraMQ for RocketMQ is fully serverless and elastic. Fees are charged based on the actual storage space used. You can control the storage capacity of messages by adjusting the message retention period. For more information, see [Storage fee](https://help.aliyun.com/document_detail/427238.html).
       shared_ptr<int32_t> messageRetentionTime_ {};
-      // The ratio of the number of messages that you can send to the number of messages that you can receive on the instance.
+      // The ratio of messages sent to messages accepted.
       // 
-      // Value values: 0.25 to 1.
+      // Valid values: [0.25, 1]
       shared_ptr<float> sendReceiveRatio_ {};
       // Specifies whether to enable the message trace feature.
       // 
-      // *   true
-      // *   false
-      // 
-      // This parameter is not in use. By default, the message trace feature is enabled for ApsaraMQ for RocketMQ instances, regardless of whether this parameter is configured.
+      // <props="intl">This parameter does not take effect. Regardless of whether this parameter is enabled, the instance supports the message trace feature by default.
+      // <props="china">This parameter takes effect only for Serverless instances. If the message trace feature is enabled, message trace fees are incurred. For more information about billing, see [Serverless billing](https://help.aliyun.com/document_detail/2586280.html).
+      // <props="china">For pay-as-you-go and subscription instances, this parameter does not take effect. The message trace feature is supported by default regardless of whether this parameter is enabled.
       shared_ptr<bool> traceOn_ {};
     };
 
@@ -173,10 +179,10 @@ namespace Models
 
 
       protected:
-        // The whitelist that includes the IP addresses that are allowed to access the ApsaraMQ for RocketMQ broker over the Internet.
+        // The public network access IP whitelist.
         // 
-        // *   If you do not configure an IP address whitelist, all CIDR blocks are allowed to access the ApsaraMQ for RocketMQ broker over the Internet.
-        // *   If you configure an IP address whitelist, only the IP addresses in the whitelist are allowed to access the ApsaraMQ for RocketMQ broker over the Internet.
+        // - If no IP whitelist is configured, all IP address ranges are allowed to access the ApsaraMQ for RocketMQ server over the public network by default.
+        // - If an IP whitelist is configured, only the IP addresses in the whitelist are allowed to access the ApsaraMQ for RocketMQ server over the public network.
         shared_ptr<vector<string>> ipWhitelist_ {};
       };
 
@@ -191,7 +197,7 @@ namespace Models
 
 
     protected:
-      // The information about the Internet over which the instance is accessed. This parameter takes effect only if the Internet access feature is enabled for the instance.
+      // The public network information. This parameter is valid only when the public network access feature is enabled for the instance.
       shared_ptr<NetworkInfo::InternetInfo> internetInfo_ {};
     };
 
@@ -237,11 +243,7 @@ namespace Models
     protected:
       // The authentication type of the instance.
       shared_ptr<vector<string>> aclTypes_ {};
-      // Indicates whether the authentication-free in VPCs feature is enabled.
-      // Indicates whether the authentication-free in VPCs feature is enabled.
-      // Valid values:
-      // - true
-      // - false
+      // Indicates whether password-free access is enabled for VPC connections under the intelligent identity recognition type.
       shared_ptr<bool> defaultVpcAuthFree_ {};
     };
 
@@ -289,15 +291,15 @@ namespace Models
 
 
   protected:
-    // The access control list for the instance.
+    // The access control information.
     shared_ptr<UpdateInstanceRequest::AclInfo> aclInfo_ {};
-    // The updated name of the instance.
+    // The updated instance name.
     shared_ptr<string> instanceName_ {};
-    // The updated network information about the instance.
+    // The updated network information of the instance.
     shared_ptr<UpdateInstanceRequest::NetworkInfo> networkInfo_ {};
-    // Additional configurations of the instance.
+    // The extension configurations of the instance.
     shared_ptr<UpdateInstanceRequest::ProductInfo> productInfo_ {};
-    // The updated description of the instance.
+    // The updated remarks for the instance.
     shared_ptr<string> remark_ {};
   };
 

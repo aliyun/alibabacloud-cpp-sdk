@@ -61,6 +61,22 @@ namespace Models
 
 
     protected:
+      // The parameter information. The parameter type is a JSON string. See the examples below.
+      // 
+      // The valid values for the action field are as follows:
+      // - MIGRATE_FORWARD (migrate forward)
+      // - MIGRATE_BACKWARD (migrate backward)
+      // 
+      // The valid values for the targetStage field are as follows:
+      //   - MIGRATE_WAIT (read from and write to the source cluster)
+      //   - DOUBLE_READ (write to the source cluster with redundant reads)
+      //   - SWITCH_WRITE (write to the destination cluster with redundant reads)
+      //   - MIGRATE_FINISH (read from and write to the destination cluster)
+      // 
+      // 
+      // > 
+      // > - For migration forward, you can only advance one stage at a time in order.
+      // > - For migration rollback, you can roll back to any previous stage.
       Darabonba::Json paramData_ {};
     };
 
@@ -83,7 +99,9 @@ namespace Models
 
 
   protected:
+    // The operation parameter.
     shared_ptr<ExecuteMigrationOperationRequest::OperationParam> operationParam_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
   };
 

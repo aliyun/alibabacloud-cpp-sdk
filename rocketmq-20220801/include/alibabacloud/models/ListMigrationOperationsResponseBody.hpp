@@ -138,6 +138,7 @@ namespace Models
 
 
         protected:
+          // The operation result.
           Darabonba::Json resultData_ {};
         };
 
@@ -171,6 +172,7 @@ namespace Models
 
 
         protected:
+          // The parameter information.
           Darabonba::Json paramData_ {};
         };
 
@@ -259,16 +261,31 @@ namespace Models
 
 
       protected:
+        // The operation business status.
         shared_ptr<string> businessStatus_ {};
+        // The creation time, in the format of YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> createTime_ {};
+        // The migration ID.
         shared_ptr<int64_t> migrationId_ {};
+        // The migration operation ID.
         shared_ptr<int64_t> operationId_ {};
+        // The primary key of the operation object.
+        // 
+        // 
+        // > 
+        // > - During the message migration stage, the operation object is the topic name.
         shared_ptr<string> operationKey_ {};
+        // The operation parameter.
         shared_ptr<List::OperationParam> operationParam_ {};
+        // The operation result.
         shared_ptr<List::OperationResult> operationResult_ {};
+        // The operation status.
         shared_ptr<string> operationStatus_ {};
+        // The operation type.
         shared_ptr<string> operationType_ {};
+        // The migration stage type.
         shared_ptr<string> stageType_ {};
+        // The update time, in the format of YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> updateTime_ {};
       };
 
@@ -305,9 +322,13 @@ namespace Models
 
 
     protected:
+      // The paginated data.
       shared_ptr<vector<Data::List>> list_ {};
+      // The current page number.
       shared_ptr<int64_t> pageNumber_ {};
+      // The page size.
       shared_ptr<int64_t> pageSize_ {};
+      // The total number of records.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -373,13 +394,21 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<ListMigrationOperationsResponseBody::Data> data_ {};
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // The dynamic error message.
     shared_ptr<string> dynamicMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -76,19 +76,12 @@ namespace Models
 
   protected:
     // The status of the account.
-    // 
-    // Valid values:
-    // 
-    // *   DISABLE
-    // *   ENABLE
     shared_ptr<string> accountStatus_ {};
-    // The account type.
-    //   - CUSTOMER
-    //   - DEFAULT
+    // The type of the account.
     shared_ptr<string> accountType_ {};
-    // The page number. Default value: 1.
+    // The page number. The first page is 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 10.
+    // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
     // The username of the account.
     shared_ptr<string> username_ {};

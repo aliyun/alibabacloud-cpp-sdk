@@ -69,13 +69,13 @@ namespace Models
 
 
   protected:
-    // The filter condition for the query. If not provided, all topics under the instance will be queried.
+    // The filter condition for the query. If not specified, all topics in the instance are returned.
     shared_ptr<string> filter_ {};
     // The message type of the topic.
     shared_ptr<vector<string>> messageTypes_ {};
-    // Page number, indicating which page of results to return.
+    // The page number of the results to return.
     shared_ptr<int32_t> pageNumber_ {};
-    // Page size, the maximum number of results to display per page.
+    // The maximum number of results to display per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

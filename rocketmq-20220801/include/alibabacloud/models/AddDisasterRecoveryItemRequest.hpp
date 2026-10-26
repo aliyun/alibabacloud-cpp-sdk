@@ -104,21 +104,21 @@ namespace Models
 
 
     protected:
-      // Consumer group ID, required for ACTIVE_ACTIVE bidirectional backup
+      // The ID of the consumer group. Required for ACTIVE_ACTIVE bidirectional backup.
       shared_ptr<string> consumerGroupId_ {};
-      // The order in which messages are delivered to the target instance. The parameter values ​​are as follows:
-      //   - Concurrently: concurrent delivery
-      //   - Orderly: sequential delivery
+      // The delivery order of messages to the target instance. Valid values for the parameter:
+      // - Concurrently: concurrent delivery
+      // - Orderly: ordered delivery
       shared_ptr<string> deliveryOrderType_ {};
-      // Instance ID, an instance ID will be automatically generated when `instanceType` is `EXTERNAL_ROCKETMQ`, and it can be obtained by querying the backup plan.
+      // The instance ID. If instanceType is set to EXTERNAL_ROCKETMQ, an instance ID is automatically generated. You can obtain this ID by querying the backup plan.
       shared_ptr<string> instanceId_ {};
-      // Instance type
+      // The instance type. Valid values:
       //   - ALIYUN_ROCKETMQ: Alibaba Cloud instance
-      //   - EXTERNAL_ROCKETMQ: External instance, open-source instance, open-source cluster
+      //   - EXTERNAL_ROCKETMQ: external instance, open-source instance, or open-source cluster
       shared_ptr<string> instanceType_ {};
-      // Region ID
+      // The region ID.
       shared_ptr<string> regionId_ {};
-      // Disaster recovery topic name, required
+      // The name of the disaster recovery topic. Required.
       shared_ptr<string> topicName_ {};
     };
 
@@ -133,7 +133,7 @@ namespace Models
 
 
   protected:
-    // Topics included in the backup mapping. Required.
+    // The topics included in the backup mapping. Required.
     shared_ptr<vector<AddDisasterRecoveryItemRequest::Topics>> topics_ {};
   };
 

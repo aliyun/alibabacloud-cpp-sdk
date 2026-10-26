@@ -99,14 +99,27 @@ namespace Models
 
 
   protected:
+    // The operation business status.
     shared_ptr<vector<string>> businessStatus_ {};
+    // The filter condition for the query.
+    // 
+    // >
+    // > - Supports filtering by operationKey, which is the topic name.
     shared_ptr<string> filter_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The operation status.
     shared_ptr<vector<string>> operationStatus_ {};
+    // The operation type.
+    // 
     // This parameter is required.
     shared_ptr<string> operationType_ {};
+    // The page number of the results to return.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // The page size, which specifies the maximum number of results to return per page.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
   };

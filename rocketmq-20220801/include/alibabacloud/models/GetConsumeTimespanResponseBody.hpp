@@ -117,11 +117,17 @@ namespace Models
 
 
     protected:
+      // The last time the consumer group consumed a message from this topic.
       shared_ptr<int64_t> consumeTimestamp_ {};
+      // The ID of the consumer group.
       shared_ptr<string> consumerGroupId_ {};
+      // The ID of the instance.
       shared_ptr<string> instanceId_ {};
+      // The production time of the latest message in the topic.
       shared_ptr<int64_t> maxTimestamp_ {};
+      // The production time of the earliest message in the topic.
       shared_ptr<int64_t> minTimestamp_ {};
+      // The topic to which the consumer group subscribes.
       shared_ptr<string> topicName_ {};
     };
 
@@ -187,13 +193,21 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> code_ {};
+    // The data returned.
     shared_ptr<GetConsumeTimespanResponseBody::Data> data_ {};
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // The dynamic error message.
     shared_ptr<string> dynamicMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The unique ID of the request. Use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

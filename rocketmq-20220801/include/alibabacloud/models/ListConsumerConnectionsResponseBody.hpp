@@ -143,19 +143,23 @@ namespace Models
 
 
       protected:
-        // The ID of the client.
+        // The client ID.
         shared_ptr<string> clientId_ {};
-        // Host IP/Public IP
+        // The host IP address or Internet egress IP address.
         shared_ptr<string> egressIp_ {};
-        // The `hostname` of the cloud-native box.
+        // The client hostname.
         shared_ptr<string> hostname_ {};
-        // The language of the client.
+        // The client language.
         shared_ptr<string> language_ {};
-        // Consumption Mode
-        // - BROADCASTING
+        // The consumption mode of the consumer:
+        // 
         // - CLUSTERING
+        // 
+        // - LITE_SELECTIVE
+        // 
+        // - BROADCASTING
         shared_ptr<string> messageModel_ {};
-        // The version of the client.
+        // The client version.
         shared_ptr<string> version_ {};
       };
 
@@ -192,13 +196,13 @@ namespace Models
 
 
     protected:
-      // The client connection list
+      // The list of client connections.
       shared_ptr<vector<Data::Connections>> connections_ {};
       // The consumer group ID.
       shared_ptr<string> consumerGroupId_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The ID of the region in which the instance resides.
+      // The region ID.
       shared_ptr<string> regionId_ {};
     };
 
@@ -264,7 +268,7 @@ namespace Models
 
 
   protected:
-    // The returned error code.
+    // The error code.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<ListConsumerConnectionsResponseBody::Data> data_ {};
@@ -276,9 +280,9 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

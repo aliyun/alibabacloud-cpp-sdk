@@ -100,13 +100,13 @@ namespace Models
 
 
     protected:
-      // The time when the zone was created.
+      // The creation time, in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
-      // The time when the zone was last updated.
+      // The update time, in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> updateTime_ {};
-      // The ID of the current zone.
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
-      // The name of the current zone.
+      // The zone name.
       shared_ptr<string> zoneName_ {};
     };
 
@@ -172,9 +172,9 @@ namespace Models
 
 
   protected:
-    // The error code returned if the call failed.
+    // The error code.
     shared_ptr<string> code_ {};
-    // The result data that is returned.
+    // The response data.
     shared_ptr<vector<ListAvailableZonesResponseBody::Data>> data_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
@@ -184,9 +184,9 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

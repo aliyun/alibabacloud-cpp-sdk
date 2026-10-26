@@ -103,13 +103,21 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> code_ {};
+    // The returned result.
     shared_ptr<bool> data_ {};
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // The dynamic error message.
     shared_ptr<string> dynamicMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

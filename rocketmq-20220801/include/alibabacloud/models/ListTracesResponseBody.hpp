@@ -155,19 +155,19 @@ namespace Models
 
 
       protected:
-        // Message born time.
+        // The time when the message was generated, in YYYY-MM-DD HH:mm:ss format.
         shared_ptr<string> bornTime_ {};
         // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // Message id.
+        // The message ID.
         shared_ptr<string> messageId_ {};
-        // Message keys.
+        // The message key.
         shared_ptr<vector<string>> messageKeys_ {};
-        // Message tag.
+        // The list of tags.
         shared_ptr<string> messageTag_ {};
         // The region ID.
         shared_ptr<string> regionId_ {};
-        // The name of the topic.
+        // The topic name.
         shared_ptr<string> topicName_ {};
       };
 
@@ -204,13 +204,13 @@ namespace Models
 
 
     protected:
-      // Trace list.
+      // The paginated data.
       shared_ptr<vector<Data::List>> list_ {};
-      // The page number of the returned page.
+      // The current page number.
       shared_ptr<int64_t> pageNumber_ {};
-      // The number of entries per page.
+      // The page size.
       shared_ptr<int64_t> pageSize_ {};
-      // The total number of returned entries.
+      // The total number of returned results.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -278,7 +278,7 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<string> code_ {};
-    // The returned result.
+    // The returned results.
     shared_ptr<ListTracesResponseBody::Data> data_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};

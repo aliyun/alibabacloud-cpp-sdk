@@ -75,13 +75,22 @@ namespace Models
 
 
   protected:
+    // The filter conditions for the query.
     shared_ptr<string> filter_ {};
+    // The migration type. Valid values:
+    //  - INSTANCE_MIGRATION: instance migration
+    // 
     // This parameter is required.
     shared_ptr<string> migrationType_ {};
+    // The page number of the page to return.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
   };
 

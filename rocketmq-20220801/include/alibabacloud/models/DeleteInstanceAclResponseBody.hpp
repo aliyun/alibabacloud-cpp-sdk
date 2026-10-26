@@ -112,11 +112,11 @@ namespace Models
 
 
   protected:
-    // The details about the access denial. This parameter is returned only if the access is denied due to the reason that the Resource Access Management (RAM) user does not have the required permissions.
+    // The access denial details. This field is returned only when user access is denied due to insufficient RAM permissions.
     shared_ptr<string> accessDeniedDetail_ {};
     // The error code.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The returned result.
     shared_ptr<bool> data_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
@@ -128,7 +128,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

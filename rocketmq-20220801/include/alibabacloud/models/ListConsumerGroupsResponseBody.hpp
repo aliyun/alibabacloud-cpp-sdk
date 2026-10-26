@@ -180,23 +180,25 @@ namespace Models
 
 
       protected:
-        // Consumer group ID.
+        // The consumer group ID.
         shared_ptr<string> consumerGroupId_ {};
-        // Creation time of the consumer group.
+        // The creation time of the consumer group, in the format of YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> createTime_ {};
-        // Instance ID.
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // The maximum TPS for message sending.
+        // The maximum TPS for consuming messages.
         shared_ptr<int64_t> maxReceiveTps_ {};
+        // The consumption pattern.
         shared_ptr<string> messageModel_ {};
-        // The region ID to which the instance belongs.
+        // The region ID of the instance.
         shared_ptr<string> regionId_ {};
-        // Remark information of the consumer group.
+        // The remarks of the consumer group.
         shared_ptr<string> remark_ {};
-        // Status of the consumer group.
+        // The status of the consumer group.
         shared_ptr<string> status_ {};
+        // The topic name for the lite type.
         shared_ptr<string> topicName_ {};
-        // Last update time of the consumer group.
+        // The last update time of the consumer group, in the format of YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> updateTime_ {};
       };
 
@@ -233,13 +235,13 @@ namespace Models
 
 
     protected:
-      // The consumer groups.
+      // The paging data.
       shared_ptr<vector<Data::List>> list_ {};
-      // Current page number.
+      // The current page number.
       shared_ptr<int64_t> pageNumber_ {};
-      // Page size.
+      // The paging size.
       shared_ptr<int64_t> pageSize_ {};
-      // Total number of returned results.
+      // The total number of returned results.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -305,21 +307,21 @@ namespace Models
 
 
   protected:
-    // Error code.
+    // The fault code.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<ListConsumerGroupsResponseBody::Data> data_ {};
-    // Dynamic error code.
+    // The dynamic fault code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message.
+    // The dynamic fault message.
     shared_ptr<string> dynamicMessage_ {};
-    // HTTP status code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Error message.
+    // The fault message.
     shared_ptr<string> message_ {};
-    // Request ID, each request has a unique ID that can be used for troubleshooting and problem localization.
+    // The request ID. Each request has a unique ID, which is active for troubleshooting and locating issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the execution was successful.
+    // Indicates whether the operation is execute successfully.
     shared_ptr<bool> success_ {};
   };
 

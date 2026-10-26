@@ -105,7 +105,7 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The data returned by the operation. If the verification succeeds, this field contains the message ID.
     shared_ptr<string> data_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
@@ -117,7 +117,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates if the request was successful.
     shared_ptr<bool> success_ {};
   };
 

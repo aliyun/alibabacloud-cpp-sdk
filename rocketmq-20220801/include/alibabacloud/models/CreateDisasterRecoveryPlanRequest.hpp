@@ -123,9 +123,9 @@ namespace Models
 
 
       protected:
-        // The attribute key.
+        // The key of the property.
         shared_ptr<string> propertyKey_ {};
-        // The attribute value.
+        // The value of the property.
         shared_ptr<string> propertyValue_ {};
       };
 
@@ -234,55 +234,42 @@ namespace Models
 
 
     protected:
-      // The authentication method. If you set instanceType to ALIYUN_ROCKETMQ and the instance is an ApsaraMQ for RocketMQ 4.0 instance, you do not need to specify this parameter.
-      // 
-      // *   NO_AUTH: no authentication
-      // *   ACL_AUTH: access control list (ACL)-based authentication
-      // 
-      // Valid values:
-      // 
-      // *   NO_AUTH: no authentication
-      // *   ACL_AUTH: access control list (ACL)-based authentication
+      // The authentication method. This parameter is not required if instanceType is set to ALIYUN_ROCKETMQ and the instance version is 4.0. Valid values:
+      //   - NO_AUTH: no authentication
+      //   - ACL_AUTH: ACL authentication
       shared_ptr<string> authType_ {};
-      // The ID of the consumer group.
+      // The ID of the consumer group, which is used to pull messages from the source instance.
+      // <notice>This parameter is required for self-managed instances. For Alibaba Cloud instances, this parameter is automatically generated.</notice>
       shared_ptr<string> consumerGroupId_ {};
-      // The instance endpoint. This parameter is required only if you set instanceType to EXTERNAL_ROCKETMQ.
+      // The endpoint URL. This parameter is not required if instanceType is set to ALIYUN_ROCKETMQ. This parameter is required if instanceType is set to EXTERNAL_ROCKETMQ.
       shared_ptr<string> endpointUrl_ {};
-      // The instance ID. This parameter is required only if you set instanceType to ALIYUN_ROCKETMQ.
+      // The instance ID. This parameter is not required if instanceType is set to EXTERNAL_ROCKETMQ. This parameter is required if instanceType is set to ALIYUN_ROCKETMQ.
       shared_ptr<string> instanceId_ {};
-      // The instance role. Valid values:
-      // 
-      // *   ACTIVE: primary instance
-      // *   Passive: secondary instance
+      // The role of the instance. Valid values:
+      //   - ACTIVE: primary
+      //   - PASSIVE: secondary
       shared_ptr<string> instanceRole_ {};
-      // The instance type. Valid values:
-      // 
-      // *   ALIYUN_ROCKETMQ: ApsaraMQ for RocketMQ instance
-      // *   EXTERNAL_ROCKETMQ: external RocketMQ instance
-      // 
-      // Valid values:
-      // 
-      // *   ALIYUN_ROCKETMQ: ApsaraMQ for RocketMQ instance
-      // *   EXTERNAL_ROCKETMQ: external RocketMQ instance
+      // The type of the instance. Valid values:
+      //   - ALIYUN_ROCKETMQ: Alibaba Cloud instance
+      //   - EXTERNAL_ROCKETMQ: external instance, open-source instance, or open-source cluster
       shared_ptr<string> instanceType_ {};
-      // The message attribute. When you synchronize a message to the destination cluster, the system automatically adds the attribute to the message for SQL-based filtering.
+      // The message filtering property. When a message is synchronized to the destination cluster, this property is automatically added to the message for SQL-based filtering during message consumption.
       shared_ptr<Instances::MessageProperty> messageProperty_ {};
-      // The network type. This parameter is required only if you set instanceType to EXTERNAL_ROCKETMQ. Valid values:
-      // 
-      // *   TCP_INTERNET: Internet over TCP
-      // *   TCP_VPC: virtual private cloud (VPC) over TCP.
+      // The network type. This parameter is not required if instanceType is set to ALIYUN_ROCKETMQ. This parameter is required if instanceType is set to EXTERNAL_ROCKETMQ. Valid values:
+      //   - TCP_INTERNET: TCP over the Internet
+      //   - TCP_VPC: TCP over a VPC
       shared_ptr<string> networkType_ {};
-      // The password used for authentication. This parameter is required only if you set authType to ACL_AUTH. If you set instanceType to ALIYUN_ROCKETMQ, you do not need to specify this parameter.
+      // The password for authentication. This parameter is required if authType is set to ACL_AUTH. This parameter is not required if instanceType is set to ALIYUN_ROCKETMQ.
       shared_ptr<string> password_ {};
-      // The region where the instance resides.
+      // The region where the instance is deployed.
       shared_ptr<string> regionId_ {};
-      // The ID of the security group to which the instance belongs. This parameter is required only if you set instanceType to EXTERNAL_ROCKETMQ and networkType to TCP_VPC.
+      // The ID of the security group. This parameter is required only if instanceType is set to EXTERNAL_ROCKETMQ and networkType is set to TCP_VPC.
       shared_ptr<string> securityGroupId_ {};
-      // The username used for authentication. This parameter is required only if you set authType to ACL_AUTH.
+      // The username for authentication. This parameter is required if authType is set to ACL_AUTH.
       shared_ptr<string> username_ {};
-      // The ID of the vSwitch with which the instance is associated. This parameter is required only if you set instanceType to EXTERNAL_ROCKETMQ and networkType to TCP_VPC.
+      // The ID of the vSwitch with which the instance is associated. This parameter is required only if instanceType is set to EXTERNAL_ROCKETMQ and networkType is set to TCP_VPC.
       shared_ptr<string> vSwitchId_ {};
-      // The ID of the VPC with which the instance is associated. This parameter is required only if you set instanceType to EXTERNAL_ROCKETMQ and networkType to TCP_VPC.
+      // The ID of the VPC with which the instance is associated. This parameter is required only if instanceType is set to EXTERNAL_ROCKETMQ and networkType is set to TCP_VPC.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -333,32 +320,21 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable automatic consumer progress synchronization.
+    // Specifies whether to enable automatic consumer automatic synchronization.
     // 
-    // >  This parameter takes effect only when you set `syncCheckpointEnabled` to true.
-    // 
-    // Valid values:
-    // 
-    // *   true
-    // *   false
+    // > This parameter takes effect only when consumer automatic synchronization is enabled. That is, the `syncCheckpointEnabled` field is set to true.
     shared_ptr<bool> autoSyncCheckpoint_ {};
-    // The instances involved in the Global Replicator task. You must specify this parameter.
+    // The instances involved in the backup plan. This parameter is required.
     shared_ptr<vector<CreateDisasterRecoveryPlanRequest::Instances>> instances_ {};
-    // The description of the Global Replicator task.
+    // The description of the plan.
     shared_ptr<string> planDesc_ {};
-    // The name of the Global Replicator task. You must specify this parameter.
+    // The name of the plan. This parameter is required.
     shared_ptr<string> planName_ {};
-    // The type of the Global Replicator task. You must specify this parameter. For more information, see [Global Replicator](https://help.aliyun.com/document_detail/2843187.html). Valid values:
-    // 
-    // *   ACTIVE_PASSIVE: one-way backup
-    // *   ACTIVE_ACTIVE: two-way backup
+    // The type of the backup plan. This parameter is required. For more information, see [Global Replicator](https://help.aliyun.com/document_detail/2843187.html). Valid values:
+    //   - ACTIVE_PASSIVE: one-way backup
+    //   - ACTIVE_ACTIVE: two-way backup
     shared_ptr<string> planType_ {};
-    // Specifies whether to enable consumer progress synchronization.
-    // 
-    // Valid values:
-    // 
-    // *   true
-    // *   false
+    // Specifies whether to enable consumer offset synchronization.
     shared_ptr<bool> syncCheckpointEnabled_ {};
   };
 

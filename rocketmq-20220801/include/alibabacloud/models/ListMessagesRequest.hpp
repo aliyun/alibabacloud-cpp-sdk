@@ -103,22 +103,23 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query.
+    // The end time of the query time range. Format: YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> endTime_ {};
+    // The lite topic name.
     shared_ptr<string> liteTopicName_ {};
-    // Message Id.
+    // The message ID.
     shared_ptr<string> messageId_ {};
-    // Message key.
+    // The message key.
     shared_ptr<string> messageKey_ {};
-    // The page number. Pages start from page 1.
+    // The current page number, starting from 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The page size. The maximum number of results to return per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The scroll ID of the request.
+    // The scroll ID for the request.
     // 
-    // You do not need to configure this parameter for the first page. This parameter is included in the pagination request based on the result returned for the first page.
+    // You do not need to specify this parameter for the first page request. For subsequent page requests, specify this parameter based on the value returned from the first page.
     shared_ptr<string> scrollId_ {};
-    // The beginning of the time range to query.
+    // The start time of the query time range. Format: YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> startTime_ {};
   };
 

@@ -145,21 +145,17 @@ namespace Models
 
 
       protected:
-        // The status of the account.
-        // Valid values:
-        //   - DISABLE
-        //   - ENABLE
+        // The account status.
         shared_ptr<string> accountStatus_ {};
         // The account type.
-        //   - CUSTOMER
-        //   - DEFAULT
         shared_ptr<string> accountType_ {};
         // The instance ID.
         shared_ptr<string> instanceId_ {};
         // The region ID.
         shared_ptr<string> regionId_ {};
+        // The remark.
         shared_ptr<string> remark_ {};
-        // The username of the account.
+        // The username.
         shared_ptr<string> username_ {};
       };
 
@@ -196,13 +192,13 @@ namespace Models
 
 
     protected:
-      // The pagination information.
+      // A list of entries on the current page.
       shared_ptr<vector<Data::List>> list_ {};
-      // The page number.
+      // The current page number.
       shared_ptr<int64_t> pageNumber_ {};
-      // Number of items per page.
+      // The page size.
       shared_ptr<int64_t> pageSize_ {};
-      // The total number of returned entries.
+      // The total count of entries.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -275,7 +271,7 @@ namespace Models
 
 
   protected:
-    // The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
+    // The details of the access denial. This parameter is returned only if the request is denied due to insufficient RAM permissions.
     shared_ptr<string> accessDeniedDetail_ {};
     // The error code.
     shared_ptr<string> code_ {};
@@ -289,9 +285,9 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

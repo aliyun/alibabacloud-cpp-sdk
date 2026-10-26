@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The name of the Lite MSMQ topic.
     shared_ptr<string> liteTopicName_ {};
+    // The name of the lite topic.
     shared_ptr<string> topicName_ {};
   };
 

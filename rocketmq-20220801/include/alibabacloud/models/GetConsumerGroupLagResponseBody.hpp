@@ -133,13 +133,13 @@ namespace Models
 
 
       protected:
-        // Delivery delay time, in seconds
+        // The delivery latency. Unit: seconds.
         shared_ptr<int64_t> deliveryDuration_ {};
-        // The number of messages being consumed.
+        // The number of inflight messages.
         shared_ptr<int64_t> inflightCount_ {};
-        // Last consumption time
+        // The timestamp of the last consumption.
         shared_ptr<int64_t> lastConsumeTimestamp_ {};
-        // Ready message count
+        // The number of ready messages.
         shared_ptr<int64_t> readyCount_ {};
       };
 
@@ -202,17 +202,19 @@ namespace Models
 
 
     protected:
-      // Consumer Group ID
+      // The consumer group ID.
       shared_ptr<string> consumerGroupId_ {};
-      // Instance ID
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The message accumulation for lite topics.
       shared_ptr<map<string, DataLiteTopicLagMapValue>> liteTopicLagMap_ {};
-      // Region ID
+      // The region ID.
       shared_ptr<string> regionId_ {};
-      // Backlog for each topic
+      // The message accumulation for each topic.
       shared_ptr<map<string, DataTopicLagMapValue>> topicLagMap_ {};
+      // The name of the subscribed topic.
       shared_ptr<string> topicName_ {};
-      // Total lag count
+      // The total message accumulation.
       shared_ptr<Data::TotalLag> totalLag_ {};
     };
 
@@ -278,17 +280,17 @@ namespace Models
 
 
   protected:
-    // Error code
+    // The error code.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<GetConsumerGroupLagResponseBody::Data> data_ {};
-    // Dynamic error code
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
     // The dynamic error message.
     shared_ptr<string> dynamicMessage_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Error message
+    // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

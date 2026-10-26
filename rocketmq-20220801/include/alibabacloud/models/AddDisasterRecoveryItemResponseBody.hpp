@@ -112,23 +112,23 @@ namespace Models
 
 
   protected:
-    // Access denied details, only in the scenario where the user is denied access due to RAM not having permission
+    // The access denial details. This parameter is returned only when user access is denied due to lack of RAM permissions.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Error code
+    // The error code.
     shared_ptr<string> code_ {};
-    // Return result, mapping task ID
+    // The returned result, which is the ID of the mapping task.
     shared_ptr<int64_t> data_ {};
-    // Dynamic error code
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic error message
+    // The dynamic error message.
     shared_ptr<string> dynamicMessage_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Error message
+    // The error message.
     shared_ptr<string> message_ {};
-    // Request ID
+    // The request ID. Each request ID is unique and can be used for troubleshooting.
     shared_ptr<string> requestId_ {};
-    // Whether the operation was successful
+    // Indicates whether the execution was successful.
     shared_ptr<bool> success_ {};
   };
 

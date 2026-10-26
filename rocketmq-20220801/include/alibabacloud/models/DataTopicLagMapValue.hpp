@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // Ready message count
+    // The number of ready messages.
     shared_ptr<int64_t> readyCount_ {};
-    // The number of messages being consumed.
+    // The number of inflight messages.
     shared_ptr<int64_t> inflightCount_ {};
-    // Delivery delay time, in seconds
+    // The delivery latency. Unit: seconds.
     shared_ptr<int64_t> deliveryDuration_ {};
-    // lastConsumeTimestamp
+    // The timestamp of the last consumption.
     shared_ptr<int64_t> lastConsumeTimestamp_ {};
   };
 

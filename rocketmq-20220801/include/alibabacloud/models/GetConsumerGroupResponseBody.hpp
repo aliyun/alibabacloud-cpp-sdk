@@ -144,20 +144,15 @@ namespace Models
       protected:
         // The dead-letter topic.
         // 
-        // If a consumer still fails to consume a message after the message is retried for a specified number of times, the message is delivered to a dead-letter topic for subsequent business recovery or troubleshooting. For more information, see [Consumption retry and dead-letter messages](https://help.aliyun.com/document_detail/440356.html).
+        // If a consumer fails to consume a message due to an exception and the message still cannot be consumed after retries, the message is delivered to the dead-letter topic for subsequent business recovery or review. For more information, see [Consumption retry and dead-letter messages](https://help.aliyun.com/document_detail/440356.html).
         shared_ptr<string> deadLetterTargetTopic_ {};
-        // Fixed interval retry time,Value range, unit: seconds
-        //  - Concurrently:10-1800
-        //  - Orderly:1-600
+        // The fixed retry interval. Unit: seconds.
+        //  - Concurrently (concurrent delivery): 10-1800
+        //  - Orderly (ordered delivery): 1-600
         shared_ptr<int32_t> fixedIntervalRetryTime_ {};
-        // The maximum number of retries.
+        // The maximum number of retry attempts.
         shared_ptr<int32_t> maxRetryTimes_ {};
-        // The retry policy.
-        // 
-        // Valid values:
-        // 
-        // *   FixedRetryPolicy: fixed-interval retry
-        // *   DefaultRetryPolicy: exponential backoff retry
+        // The retry policy type.
         shared_ptr<string> retryPolicy_ {};
       };
 
@@ -263,34 +258,29 @@ namespace Models
       shared_ptr<Data::ConsumeRetryPolicy> consumeRetryPolicy_ {};
       // The ID of the consumer group.
       shared_ptr<string> consumerGroupId_ {};
-      // The time when the consumer group was created.
+      // The time when the consumer group was created, in the format of YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> createTime_ {};
-      // The message delivery method of the consumer group.
-      // 
-      // Valid values:
-      // 
-      // *   Concurrently: concurrent delivery
-      // *   Orderly: ordered delivery
+      // The delivery order of the consumer group.
       shared_ptr<string> deliveryOrderType_ {};
+      // Indicates whether exclusive consumption is enabled.
       shared_ptr<bool> exclusive_ {};
-      // The ID of the instance.
+      // The ID of the instance to which the consumer group belongs.
       shared_ptr<string> instanceId_ {};
-      // Maximum received message tps
+      // The maximum TPS for consuming messages.
       shared_ptr<int64_t> maxReceiveTps_ {};
+      // The consumption pattern. Valid values:
+      //  - CLUSTERING: clustering consumption.
+      //  - LITE_SELECTIVE: LITE_SELECTIVE.
       shared_ptr<string> messageModel_ {};
-      // The ID of the region in which the instance resides.
+      // The region ID of the instance.
       shared_ptr<string> regionId_ {};
-      // The remarks on the consumer group.
+      // The remarks of the consumer group.
       shared_ptr<string> remark_ {};
       // The status of the consumer group.
-      // 
-      // Valid values:
-      // 
-      // *   RUNNING
-      // *   CREATING
       shared_ptr<string> status_ {};
+      // The topic name for the lite type.
       shared_ptr<string> topicName_ {};
-      // The time when the consumer group was last updated.
+      // The time when the consumer group was last updated, in the format of YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -356,21 +346,21 @@ namespace Models
 
 
   protected:
-    // The error code.
+    // The fault code.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The returned result.
     shared_ptr<GetConsumerGroupResponseBody::Data> data_ {};
-    // The dynamic error code.
+    // The dynamic fault code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message.
+    // The dynamic fault message.
     shared_ptr<string> dynamicMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message.
+    // The fault message.
     shared_ptr<string> message_ {};
-    // The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
+    // The request ID. Each request has a unique ID, which can be used to troubleshoot and locate faults.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful.
+    // Indicates whether the execute operation was successful.
     shared_ptr<bool> success_ {};
   };
 

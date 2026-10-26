@@ -112,23 +112,23 @@ namespace Models
 
 
   protected:
-    // Access denied details, only in the scenario where the user is denied access due to RAM not having permission
+    // The details of the access denial. This field is returned only when the request is denied due to insufficient RAM permissions.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Error code
+    // The error code.
     shared_ptr<string> code_ {};
-    // The return data
+    // The returned data.
     shared_ptr<bool> data_ {};
-    // Dynamic error code
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic error message
+    // The dynamic error message.
     shared_ptr<string> dynamicMessage_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Error message
+    // The error message.
     shared_ptr<string> message_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Whether the operation was successful
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

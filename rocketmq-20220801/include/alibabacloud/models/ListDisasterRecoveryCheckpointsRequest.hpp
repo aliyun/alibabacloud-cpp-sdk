@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // Filter Condition
+    // The filter condition.
     shared_ptr<string> filter_ {};
-    // Source Instance ID
+    // The instance ID of the source instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Current page number, starting from 1.
+    // The current page number, starting from 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // Page size, the maximum number of results returned per page.
+    // The page size. The maximum number of results to return per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

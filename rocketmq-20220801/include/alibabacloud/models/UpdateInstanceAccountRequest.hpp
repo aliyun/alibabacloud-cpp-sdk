@@ -57,15 +57,11 @@ namespace Models
 
 
   protected:
-    // The status of the account.
-    // 
-    // Valid values:
-    // 
-    // *   DISABLE
-    // *   ENABLE
+    // The account status.
     shared_ptr<string> accountStatus_ {};
-    // The password of the account.
+    // The account password.
     shared_ptr<string> password_ {};
+    // The remark.
     shared_ptr<string> remark_ {};
   };
 

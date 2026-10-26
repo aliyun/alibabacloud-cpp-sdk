@@ -180,36 +180,25 @@ namespace Models
 
 
       protected:
-        // Creation time.
+        // The creation time in YYYY-MM-DD HH:mm:ss format.
         shared_ptr<string> createTime_ {};
-        // Instance ID.
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
+        // The expiration time of a lite topic, in minutes.
         shared_ptr<int64_t> liteTopicExpiration_ {};
-        // The maximum TPS for message sending.
+        // The maximum TPS for sending messages.
         shared_ptr<int64_t> maxSendTps_ {};
-        // The type of messages in the topic.
-        // 
-        // Valid values:
-        // 
-        // *   TRANSACTION: transactional messages
-        // *   FIFO: ordered messages
-        // *   DELAY: scheduled or delayed messages
-        // *   NORMAL: normal messages
+        // The message type of the topic.
         shared_ptr<string> messageType_ {};
-        // The region ID to which the instance belongs.
+        // The ID of the region to which the instance belongs.
         shared_ptr<string> regionId_ {};
-        // Remark information of the topic.
+        // The remarks for the topic.
         shared_ptr<string> remark_ {};
-        // The topic status.
-        // 
-        // Valid values:
-        // 
-        // *   RUNNING
-        // *   CREATING
+        // The status of the topic.
         shared_ptr<string> status_ {};
-        // Topic name.
+        // The topic name.
         shared_ptr<string> topicName_ {};
-        // Last update time of the topic.
+        // The last modification time of the topic in YYYY-MM-DD HH:mm:ss format.
         shared_ptr<string> updateTime_ {};
       };
 
@@ -246,13 +235,13 @@ namespace Models
 
 
     protected:
-      // The topics.
+      // The paged data.
       shared_ptr<vector<Data::List>> list_ {};
-      // Current page number.
+      // The current page number.
       shared_ptr<int64_t> pageNumber_ {};
-      // Page size.
+      // The page size.
       shared_ptr<int64_t> pageSize_ {};
-      // Total number of results returned.
+      // The total number of returned results.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -318,21 +307,21 @@ namespace Models
 
 
   protected:
-    // Error code.
+    // The error code.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The return result.
     shared_ptr<ListTopicsResponseBody::Data> data_ {};
-    // Dynamic error code.
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic error message.
+    // The dynamic error message.
     shared_ptr<string> dynamicMessage_ {};
-    // HTTP status code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Error message.
+    // The error message.
     shared_ptr<string> message_ {};
-    // Request ID, each request has a unique ID that can be used for troubleshooting and problem localization.
+    // The request ID. Each request has a unique ID that can be used to troubleshoot and locate issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the execution was successful.
+    // Indicates whether the operation was successful.
     shared_ptr<bool> success_ {};
   };
 

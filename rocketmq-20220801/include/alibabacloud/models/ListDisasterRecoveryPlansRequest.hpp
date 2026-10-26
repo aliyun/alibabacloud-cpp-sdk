@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The filter condition. Global Replicator tasks are filtered by task name or description.
+    // The filter condition. Filters backup plans by backup name or backup description.
     shared_ptr<string> filter_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The page number.
+    // The page number of the page to return.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The maximum number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

@@ -176,19 +176,19 @@ namespace Models
 
 
     protected:
-      // The time when the ApsaraMQ for RocketMQ instance was created.
+      // The creation time, in the format of YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> createTime_ {};
-      // The region ID.
+      // The region ID, such as cn-hangzhou.
       shared_ptr<string> regionId_ {};
-      // The region name.
+      // The Chinese name of the region, such as Hangzhou.
       shared_ptr<string> regionName_ {};
-      // Indicates whether ApsaraMQ for RocketMQ V4 is activated.
+      // Indicates whether RocketMQ V4 is activated.
       shared_ptr<bool> supportRocketmqV4_ {};
-      // Indicates whether ApsaraMQ for RocketMQ V5 is activated.
+      // Indicates whether RocketMQ V5 is activated.
       shared_ptr<bool> supportRocketmqV5_ {};
       // The region tags.
       shared_ptr<vector<Data::Tags>> tags_ {};
-      // The time when the ApsaraMQ for RocketMQ instance was last modified.
+      // The update time, in the format of YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -268,7 +268,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -57,10 +57,11 @@ namespace Models
 
 
   protected:
+    // The expiration time of a lite topic, in minutes. Valid values: 15 to 720. The default value is -1, which indicates that the topic never expires.
     shared_ptr<int64_t> liteTopicExpiration_ {};
-    // Maximum send message tps
+    // The maximum number of transactions per second (TPS) for sending messages.
     shared_ptr<int64_t> maxSendTps_ {};
-    // Updated remarks for the topic.
+    // The updated remarks for the topic.
     shared_ptr<string> remark_ {};
   };
 

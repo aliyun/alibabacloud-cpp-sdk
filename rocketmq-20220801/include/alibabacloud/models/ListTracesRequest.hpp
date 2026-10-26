@@ -103,38 +103,33 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query.
+    // The end time in YYYY-MM-DD HH:mm:ss format.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The lightweight topic name.
     shared_ptr<string> liteTopicName_ {};
     // The message ID.
     // 
-    // This parameter is required if you set queryType to MESSAGE_ID.
+    // Required if queryType is set to MESSAGE_ID.
     shared_ptr<string> messageId_ {};
     // The message key.
     // 
-    // This parameter is required if you set queryType to MESSAGE_ID.
+    // Required if queryType is set to MESSAGE_KEY.
     shared_ptr<string> messageKey_ {};
-    // The page number.
+    // The page number of the returned results.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of results to display per page.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
     // The query type.
     // 
-    // Valid values:
-    // 
-    // *   MESSAGE_ID
-    // *   MESSAGE_KEY
-    // *   TOPIC
-    // 
     // This parameter is required.
     shared_ptr<string> queryType_ {};
-    // The beginning of the time range to query.
+    // The start time in YYYY-MM-DD HH:mm:ss format.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

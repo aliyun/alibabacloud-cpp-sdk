@@ -48,8 +48,9 @@ namespace Models
 
 
   protected:
+    // The name of the lite topic.
     shared_ptr<string> liteTopicName_ {};
-    // The topic name.
+    // The name of the topic to which the consumer group subscribes.
     shared_ptr<string> topicName_ {};
   };
 

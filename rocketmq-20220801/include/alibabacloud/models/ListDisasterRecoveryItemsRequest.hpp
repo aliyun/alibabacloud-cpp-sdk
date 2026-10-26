@@ -66,11 +66,11 @@ namespace Models
 
 
   protected:
-    // The filter condition. Topics are filtered by topic name.
+    // The filter condition. Filters by topicName.
     shared_ptr<string> filter_ {};
-    // The page number.
+    // The page number of the results to return.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The maximum number of results to return per page.
     shared_ptr<int32_t> pageSize_ {};
     // The topic name.
     shared_ptr<string> topicName_ {};

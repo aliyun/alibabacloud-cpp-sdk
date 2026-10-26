@@ -112,6 +112,7 @@ namespace Models
 
 
       protected:
+        // The operation result.
         Darabonba::Json resultData_ {};
       };
 
@@ -145,6 +146,7 @@ namespace Models
 
 
       protected:
+        // The parameter information.
         Darabonba::Json paramData_ {};
       };
 
@@ -233,16 +235,27 @@ namespace Models
 
 
     protected:
+      // The operation business status.
       shared_ptr<string> businessStatus_ {};
+      // The creation time, in YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
+      // The migration ID.
       shared_ptr<int64_t> migrationId_ {};
+      // The migration operation ID.
       shared_ptr<int64_t> operationId_ {};
+      // The primary key of the operation object.
       shared_ptr<string> operationKey_ {};
+      // The operation parameter.
       shared_ptr<Data::OperationParam> operationParam_ {};
+      // The operation result.
       shared_ptr<Data::OperationResult> operationResult_ {};
+      // The operation status.
       shared_ptr<string> operationStatus_ {};
+      // The operation type.
       shared_ptr<string> operationType_ {};
+      // The migration stage type.
       shared_ptr<string> stageType_ {};
+      // The modification time, in YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -308,13 +321,21 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> code_ {};
+    // The return result.
     shared_ptr<ExecuteMigrationOperationResponseBody::Data> data_ {};
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // The dynamic error message.
     shared_ptr<string> dynamicMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

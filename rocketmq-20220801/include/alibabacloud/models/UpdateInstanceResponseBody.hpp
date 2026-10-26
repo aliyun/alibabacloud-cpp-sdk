@@ -103,21 +103,21 @@ namespace Models
 
 
   protected:
-    // The error code.
+    // The fault code.
     shared_ptr<string> code_ {};
-    // The result data that is returned.
+    // The returned result.
     shared_ptr<bool> data_ {};
-    // The dynamic error code.
+    // The dynamic fault code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message.
+    // The dynamic fault message.
     shared_ptr<string> dynamicMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message.
+    // The fault message.
     shared_ptr<string> message_ {};
-    // The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
+    // The request ID. Each request ID is unique and active for troubleshooting and locating issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful.
+    // Indicates whether the operation is executed successfully.
     shared_ptr<bool> success_ {};
   };
 

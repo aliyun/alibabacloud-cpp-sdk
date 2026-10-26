@@ -103,7 +103,7 @@ namespace Models
 
 
   protected:
-    // The error code returned if the call failed.
+    // The error code.
     shared_ptr<string> code_ {};
     // The ID of the created instance.
     shared_ptr<string> data_ {};
@@ -111,13 +111,13 @@ namespace Models
     shared_ptr<string> dynamicCode_ {};
     // The dynamic error message.
     shared_ptr<string> dynamicMessage_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
+    // The request ID. Each request ID is unique and can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful.
+    // Indicates whether the operation is successful.
     shared_ptr<bool> success_ {};
   };
 

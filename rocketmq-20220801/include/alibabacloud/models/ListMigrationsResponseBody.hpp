@@ -146,7 +146,10 @@ namespace Models
 
 
         protected:
+          // The migration target data.
           Darabonba::Json targetData_ {};
+          // The migration target type. Valid values:
+          //  - INTERNAL_INSTANCE: Alibaba Cloud 5.0 instance.
           shared_ptr<string> targetType_ {};
         };
 
@@ -190,7 +193,11 @@ namespace Models
 
 
         protected:
+          // The migration source data.
           Darabonba::Json sourceData_ {};
+          // The migration source type. Valid values:
+          //  - EXTERNAL_INSTANCE: External instance.
+          //  - INTERNAL_INSTANCE: Alibaba Cloud 5.0 instance.
           shared_ptr<string> sourceType_ {};
         };
 
@@ -243,8 +250,18 @@ namespace Models
 
 
         protected:
+          // The stage data.
           Darabonba::Json stageData_ {};
+          // The stage status. Valid values:
+          //  - INIT: Not started.
+          //  - DOING: In progress.
+          //  - DONE: Completed.
           shared_ptr<string> stageStatus_ {};
+          // The stage type. Valid values:
+          //  - CONNECT_NETWORK: Network connection.
+          //  - MIGRATE_METADATA: Metadata migration.
+          //  - REPLACE_ENDPOINT: Endpoint replacement.
+          //  - MIGRATE_MESSAGE: Message migration.
           shared_ptr<string> stageType_ {};
         };
 
@@ -328,15 +345,30 @@ namespace Models
 
 
       protected:
+        // The creation time, in YYYY-MM-DD HH:mm:ss format.
         shared_ptr<string> createTime_ {};
+        // The current migration stage.
         shared_ptr<List::CurrentStage> currentStage_ {};
+        // The migration ID.
         shared_ptr<int64_t> migrationId_ {};
+        // The migration name.
         shared_ptr<string> migrationName_ {};
+        // The migration source.
         shared_ptr<List::MigrationSource> migrationSource_ {};
+        // The migration status. Valid values:
+        //  - CREATED: Created.
+        //  - MIGRATING: Migrating.
+        //  - COMPLETED: Completed.
+        //  - CANCELLED: Cancelled.
         shared_ptr<string> migrationStatus_ {};
+        // The migration target.
         shared_ptr<List::MigrationTarget> migrationTarget_ {};
+        // The migration type. Valid values:
+        //  - INSTANCE_MIGRATION: instance migration
         shared_ptr<string> migrationType_ {};
+        // The modification time, in YYYY-MM-DD HH:mm:ss format.
         shared_ptr<string> updateTime_ {};
+        // The user ID.
         shared_ptr<string> userId_ {};
       };
 
@@ -373,9 +405,13 @@ namespace Models
 
 
     protected:
+      // The paged data.
       shared_ptr<vector<Data::List>> list_ {};
+      // The current page number.
       shared_ptr<int64_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
+      // The total number of records.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -441,13 +477,21 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<ListMigrationsResponseBody::Data> data_ {};
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // The dynamic error message.
     shared_ptr<string> dynamicMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // The filter condition for the query. If not provided, all consumer groups under the specified instance will be queried.
+    // The filter condition for the query. If you do not specify this parameter, all consumer groups under the specified instance are queried.
     shared_ptr<string> filter_ {};
-    // Page number, indicating which page of results to return.
+    // The paging page number. Specifies which page of results to return.
     shared_ptr<int32_t> pageNumber_ {};
-    // Page size, the maximum number of results to display per page.
+    // The paging size. The maximum number of results to return per page.
     // 
-    // Value range: [10, 100].
+    // Valid values: [10,100].
     shared_ptr<int32_t> pageSize_ {};
   };
 

@@ -59,6 +59,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(messageKeys, messageKeys_);
         DARABONBA_PTR_TO_JSON(messageTag, messageTag_);
         DARABONBA_PTR_TO_JSON(messageType, messageType_);
+        DARABONBA_PTR_TO_JSON(priority, priority_);
         DARABONBA_PTR_TO_JSON(regionId, regionId_);
         DARABONBA_PTR_TO_JSON(storeHost, storeHost_);
         DARABONBA_PTR_TO_JSON(storeTime, storeTime_);
@@ -78,6 +79,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(messageKeys, messageKeys_);
         DARABONBA_PTR_FROM_JSON(messageTag, messageTag_);
         DARABONBA_PTR_FROM_JSON(messageType, messageType_);
+        DARABONBA_PTR_FROM_JSON(priority, priority_);
         DARABONBA_PTR_FROM_JSON(regionId, regionId_);
         DARABONBA_PTR_FROM_JSON(storeHost, storeHost_);
         DARABONBA_PTR_FROM_JSON(storeTime, storeTime_);
@@ -99,8 +101,8 @@ namespace Models
       virtual bool empty() const override { return this->body_ == nullptr
         && this->bodySize_ == nullptr && this->bornHost_ == nullptr && this->bornTime_ == nullptr && this->instanceId_ == nullptr && this->liteTopicName_ == nullptr
         && this->messageGroup_ == nullptr && this->messageId_ == nullptr && this->messageKeys_ == nullptr && this->messageTag_ == nullptr && this->messageType_ == nullptr
-        && this->regionId_ == nullptr && this->storeHost_ == nullptr && this->storeTime_ == nullptr && this->systemProperties_ == nullptr && this->topicName_ == nullptr
-        && this->userProperties_ == nullptr; };
+        && this->priority_ == nullptr && this->regionId_ == nullptr && this->storeHost_ == nullptr && this->storeTime_ == nullptr && this->systemProperties_ == nullptr
+        && this->topicName_ == nullptr && this->userProperties_ == nullptr; };
       // body Field Functions 
       bool hasBody() const { return this->body_ != nullptr;};
       void deleteBody() { this->body_ = nullptr;};
@@ -180,6 +182,13 @@ namespace Models
       inline Data& setMessageType(string messageType) { DARABONBA_PTR_SET_VALUE(messageType_, messageType) };
 
 
+      // priority Field Functions 
+      bool hasPriority() const { return this->priority_ != nullptr;};
+      void deletePriority() { this->priority_ = nullptr;};
+      inline int32_t getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
+      inline Data& setPriority(int32_t priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
+
+
       // regionId Field Functions 
       bool hasRegionId() const { return this->regionId_ != nullptr;};
       void deleteRegionId() { this->regionId_ = nullptr;};
@@ -231,34 +240,37 @@ namespace Models
       shared_ptr<string> body_ {};
       // The size of the message body.
       shared_ptr<int32_t> bodySize_ {};
-      // The client on which the message was produced.
+      // The host from which the message originated.
       shared_ptr<string> bornHost_ {};
-      // The time when the message was generated.
+      // The time when the message was generated, in YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> bornTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The lite topic name.
       shared_ptr<string> liteTopicName_ {};
-      // The sharding key. This parameter is returned only for ordered messages.
+      // The former sharding key. This field applies only to ordered messages.
       shared_ptr<string> messageGroup_ {};
       // The message ID.
       shared_ptr<string> messageId_ {};
-      // The message keys.
+      // The message key.
       shared_ptr<vector<string>> messageKeys_ {};
-      // The tags.
+      // The tag list.
       shared_ptr<string> messageTag_ {};
       // The message type.
       shared_ptr<string> messageType_ {};
+      // The priority.
+      shared_ptr<int32_t> priority_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The broker on which the message was stored.
+      // The log broker host where the message is stored.
       shared_ptr<string> storeHost_ {};
-      // The time when the message was stored.
+      // The time when the message was stored in the log broker, in YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> storeTime_ {};
-      // The default system attributes.
+      // The default system properties.
       shared_ptr<map<string, string>> systemProperties_ {};
       // The topic name.
       shared_ptr<string> topicName_ {};
-      // The user attributes.
+      // The user properties.
       shared_ptr<map<string, string>> userProperties_ {};
     };
 
@@ -326,7 +338,7 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The response data.
     shared_ptr<GetMessageDetailResponseBody::Data> data_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};

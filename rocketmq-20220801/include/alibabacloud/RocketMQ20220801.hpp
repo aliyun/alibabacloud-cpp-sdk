@@ -21,7 +21,7 @@ namespace RocketMQ20220801
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Adds a topic mapping to a Global Replicator task.
+       * @summary Adds a backup mapping task.
        *
        * @param request AddDisasterRecoveryItemRequest
        * @param headers map
@@ -31,7 +31,7 @@ namespace RocketMQ20220801
       Models::AddDisasterRecoveryItemResponse addDisasterRecoveryItemWithOptions(const string &planId, const Models::AddDisasterRecoveryItemRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds a topic mapping to a Global Replicator task.
+       * @summary Adds a backup mapping task.
        *
        * @param request AddDisasterRecoveryItemRequest
        * @return AddDisasterRecoveryItemResponse
@@ -39,7 +39,7 @@ namespace RocketMQ20220801
       Models::AddDisasterRecoveryItemResponse addDisasterRecoveryItem(const string &planId, const Models::AddDisasterRecoveryItemRequest &request);
 
       /**
-       * @summary Changes the resource group to which a ApsaraMQ for RocketMQ instance belongs.
+       * @summary Modifies the resource group of an instance.
        *
        * @param request ChangeResourceGroupRequest
        * @param headers map
@@ -49,7 +49,7 @@ namespace RocketMQ20220801
       Models::ChangeResourceGroupResponse changeResourceGroupWithOptions(const Models::ChangeResourceGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the resource group to which a ApsaraMQ for RocketMQ instance belongs.
+       * @summary Modifies the resource group of an instance.
        *
        * @param request ChangeResourceGroupRequest
        * @return ChangeResourceGroupResponse
@@ -57,13 +57,27 @@ namespace RocketMQ20220801
       Models::ChangeResourceGroupResponse changeResourceGroup(const Models::ChangeResourceGroupRequest &request);
 
       /**
-       * @summary Creates a consumer group.
+       * @summary 创建 Agent 诊断会话
        *
-       * @description The ID of the consumer group. The ID is globally unique and is used to identify a consumer group.
-       * The following limits are imposed on the ID:
-       * *   Character limit: The ID can contain letters, digits, underscores (_), hyphens (-), and percent signs (%).
-       * *   Length limit: The ID must be 1 to 60 characters in length.
-       * For more information about strings that are reserved for the system, see [Limits on parameters](https://help.aliyun.com/document_detail/440347.html).
+       * @param request CreateAgentConversationRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAgentConversationResponse
+       */
+      Models::CreateAgentConversationResponse createAgentConversationWithOptions(const Models::CreateAgentConversationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建 Agent 诊断会话
+       *
+       * @param request CreateAgentConversationRequest
+       * @return CreateAgentConversationResponse
+       */
+      Models::CreateAgentConversationResponse createAgentConversation(const Models::CreateAgentConversationRequest &request);
+
+      /**
+       * @summary Creates a consumer group (ConsumerGroup) for ApsaraMQ for RocketMQ. A consumer group is a load balancing group in ApsaraMQ for RocketMQ that contains multiple consumers with consistent consumption behavior. Consumers must subscribe to related topics by specifying a consumer group to implement message subscription.
+       *
+       * @description >Notice: The OpenAPI operations provided by Alibaba Cloud are management APIs used to manage and query Alibaba Cloud service resources. Use these operations only in the management link. Do not use them in the core data link for sending and receiving messages, as this may introduce risks to the link.
        *
        * @param request CreateConsumerGroupRequest
        * @param headers map
@@ -73,13 +87,9 @@ namespace RocketMQ20220801
       Models::CreateConsumerGroupResponse createConsumerGroupWithOptions(const string &instanceId, const string &consumerGroupId, const Models::CreateConsumerGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a consumer group.
+       * @summary Creates a consumer group (ConsumerGroup) for ApsaraMQ for RocketMQ. A consumer group is a load balancing group in ApsaraMQ for RocketMQ that contains multiple consumers with consistent consumption behavior. Consumers must subscribe to related topics by specifying a consumer group to implement message subscription.
        *
-       * @description The ID of the consumer group. The ID is globally unique and is used to identify a consumer group.
-       * The following limits are imposed on the ID:
-       * *   Character limit: The ID can contain letters, digits, underscores (_), hyphens (-), and percent signs (%).
-       * *   Length limit: The ID must be 1 to 60 characters in length.
-       * For more information about strings that are reserved for the system, see [Limits on parameters](https://help.aliyun.com/document_detail/440347.html).
+       * @description >Notice: The OpenAPI operations provided by Alibaba Cloud are management APIs used to manage and query Alibaba Cloud service resources. Use these operations only in the management link. Do not use them in the core data link for sending and receiving messages, as this may introduce risks to the link.
        *
        * @param request CreateConsumerGroupRequest
        * @return CreateConsumerGroupResponse
@@ -87,7 +97,7 @@ namespace RocketMQ20220801
       Models::CreateConsumerGroupResponse createConsumerGroup(const string &instanceId, const string &consumerGroupId, const Models::CreateConsumerGroupRequest &request);
 
       /**
-       * @summary Create Disaster Recovery Plan
+       * @summary Creates a backup plan.
        *
        * @param request CreateDisasterRecoveryPlanRequest
        * @param headers map
@@ -97,7 +107,7 @@ namespace RocketMQ20220801
       Models::CreateDisasterRecoveryPlanResponse createDisasterRecoveryPlanWithOptions(const Models::CreateDisasterRecoveryPlanRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create Disaster Recovery Plan
+       * @summary Creates a backup plan.
        *
        * @param request CreateDisasterRecoveryPlanRequest
        * @return CreateDisasterRecoveryPlanResponse
@@ -105,9 +115,9 @@ namespace RocketMQ20220801
       Models::CreateDisasterRecoveryPlanResponse createDisasterRecoveryPlan(const Models::CreateDisasterRecoveryPlanRequest &request);
 
       /**
-       * @summary Creates an ApsaraMQ for RocketMQ 5.x instance.
+       * @summary Creates an ApsaraMQ for RocketMQ 5.x series instance.
        *
-       * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+       * @description >Notice: The OpenAPI provided by Alibaba Cloud is a management and control API used to manage and query resources of Alibaba Cloud services. Integrate it only into the management and control link. Do not rely on OpenAPI in the core data link for message sending and receiving. Otherwise, risks may occur on the link.
        *
        * @param request CreateInstanceRequest
        * @param headers map
@@ -117,9 +127,9 @@ namespace RocketMQ20220801
       Models::CreateInstanceResponse createInstanceWithOptions(const Models::CreateInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an ApsaraMQ for RocketMQ 5.x instance.
+       * @summary Creates an ApsaraMQ for RocketMQ 5.x series instance.
        *
-       * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+       * @description >Notice: The OpenAPI provided by Alibaba Cloud is a management and control API used to manage and query resources of Alibaba Cloud services. Integrate it only into the management and control link. Do not rely on OpenAPI in the core data link for message sending and receiving. Otherwise, risks may occur on the link.
        *
        * @param request CreateInstanceRequest
        * @return CreateInstanceResponse
@@ -127,7 +137,7 @@ namespace RocketMQ20220801
       Models::CreateInstanceResponse createInstance(const Models::CreateInstanceRequest &request);
 
       /**
-       * @summary Creates an account that is used to access an instance.
+       * @summary Creates an access account for an instance.
        *
        * @param request CreateInstanceAccountRequest
        * @param headers map
@@ -137,7 +147,7 @@ namespace RocketMQ20220801
       Models::CreateInstanceAccountResponse createInstanceAccountWithOptions(const string &instanceId, const Models::CreateInstanceAccountRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an account that is used to access an instance.
+       * @summary Creates an access account for an instance.
        *
        * @param request CreateInstanceAccountRequest
        * @return CreateInstanceAccountResponse
@@ -145,7 +155,7 @@ namespace RocketMQ20220801
       Models::CreateInstanceAccountResponse createInstanceAccount(const string &instanceId, const Models::CreateInstanceAccountRequest &request);
 
       /**
-       * @summary Creates an access control list (ACL) in a specific instance.
+       * @summary Creates access permissions for a specified instance.
        *
        * @param request CreateInstanceAclRequest
        * @param headers map
@@ -155,7 +165,7 @@ namespace RocketMQ20220801
       Models::CreateInstanceAclResponse createInstanceAclWithOptions(const string &instanceId, const string &username, const Models::CreateInstanceAclRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an access control list (ACL) in a specific instance.
+       * @summary Creates access permissions for a specified instance.
        *
        * @param request CreateInstanceAclRequest
        * @return CreateInstanceAclResponse
@@ -163,7 +173,25 @@ namespace RocketMQ20220801
       Models::CreateInstanceAclResponse createInstanceAcl(const string &instanceId, const string &username, const Models::CreateInstanceAclRequest &request);
 
       /**
-       * @summary Creates an IP address whitelist.
+       * @summary 创建实例巡检配置
+       *
+       * @param request CreateInstanceInspectionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateInstanceInspectionResponse
+       */
+      Models::CreateInstanceInspectionResponse createInstanceInspectionWithOptions(const string &instanceId, const Models::CreateInstanceInspectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建实例巡检配置
+       *
+       * @param request CreateInstanceInspectionRequest
+       * @return CreateInstanceInspectionResponse
+       */
+      Models::CreateInstanceInspectionResponse createInstanceInspection(const string &instanceId, const Models::CreateInstanceInspectionRequest &request);
+
+      /**
+       * @summary Creates an IP address whitelist for access control.
        *
        * @param request CreateInstanceIpWhitelistRequest
        * @param headers map
@@ -173,7 +201,7 @@ namespace RocketMQ20220801
       Models::CreateInstanceIpWhitelistResponse createInstanceIpWhitelistWithOptions(const string &instanceId, const Models::CreateInstanceIpWhitelistRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an IP address whitelist.
+       * @summary Creates an IP address whitelist for access control.
        *
        * @param request CreateInstanceIpWhitelistRequest
        * @return CreateInstanceIpWhitelistResponse
@@ -181,7 +209,7 @@ namespace RocketMQ20220801
       Models::CreateInstanceIpWhitelistResponse createInstanceIpWhitelist(const string &instanceId, const Models::CreateInstanceIpWhitelistRequest &request);
 
       /**
-       * @summary Create Topic
+       * @summary Creates a topic for ApsaraMQ for RocketMQ. A topic is the top-level container for message transmission and storage in ApsaraMQ for RocketMQ and is used to identify messages of the same business logic. In the messaging model, producers send messages to topics, and consumers consume messages by subscribing to specified topics.
        *
        * @param request CreateTopicRequest
        * @param headers map
@@ -191,7 +219,7 @@ namespace RocketMQ20220801
       Models::CreateTopicResponse createTopicWithOptions(const string &instanceId, const string &topicName, const Models::CreateTopicRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create Topic
+       * @summary Creates a topic for ApsaraMQ for RocketMQ. A topic is the top-level container for message transmission and storage in ApsaraMQ for RocketMQ and is used to identify messages of the same business logic. In the messaging model, producers send messages to topics, and consumers consume messages by subscribing to specified topics.
        *
        * @param request CreateTopicRequest
        * @return CreateTopicResponse
@@ -199,10 +227,28 @@ namespace RocketMQ20220801
       Models::CreateTopicResponse createTopic(const string &instanceId, const string &topicName, const Models::CreateTopicRequest &request);
 
       /**
+       * @summary 删除 Agent 诊断会话
+       *
+       * @param request DeleteAgentConversationRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAgentConversationResponse
+       */
+      Models::DeleteAgentConversationResponse deleteAgentConversationWithOptions(const string &conversationId, const Models::DeleteAgentConversationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除 Agent 诊断会话
+       *
+       * @param request DeleteAgentConversationRequest
+       * @return DeleteAgentConversationResponse
+       */
+      Models::DeleteAgentConversationResponse deleteAgentConversation(const string &conversationId, const Models::DeleteAgentConversationRequest &request);
+
+      /**
        * @summary Deletes a specified consumer group.
        *
-       * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-       * After you delete a consumer group, the consumer client associated with the consumer group cannot consume messages. Exercise caution when you call this operation.
+       * @description >Notice: OpenAPI operations provided by Alibaba Cloud are management API operations used to manage and query resources of Alibaba Cloud services. Integrate these operations only into management workflows. Do not rely on OpenAPI operations in the core data link for message sending and receiving. Otherwise, risks may occur in the workflows.
+       * After you delete a specified consumer group, consumer clients with the identity of the consumer group cannot consume messages. Invoke this operation with caution.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -213,15 +259,15 @@ namespace RocketMQ20220801
       /**
        * @summary Deletes a specified consumer group.
        *
-       * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-       * After you delete a consumer group, the consumer client associated with the consumer group cannot consume messages. Exercise caution when you call this operation.
+       * @description >Notice: OpenAPI operations provided by Alibaba Cloud are management API operations used to manage and query resources of Alibaba Cloud services. Integrate these operations only into management workflows. Do not rely on OpenAPI operations in the core data link for message sending and receiving. Otherwise, risks may occur in the workflows.
+       * After you delete a specified consumer group, consumer clients with the identity of the consumer group cannot consume messages. Invoke this operation with caution.
        *
        * @return DeleteConsumerGroupResponse
        */
       Models::DeleteConsumerGroupResponse deleteConsumerGroup(const string &instanceId, const string &consumerGroupId);
 
       /**
-       * @summary Deletes the subscriptions of a consumer group.
+       * @summary Deletes the subscription of a consumer group.
        *
        * @param request DeleteConsumerGroupSubscriptionRequest
        * @param headers map
@@ -231,7 +277,7 @@ namespace RocketMQ20220801
       Models::DeleteConsumerGroupSubscriptionResponse deleteConsumerGroupSubscriptionWithOptions(const string &instanceId, const string &consumerGroupId, const Models::DeleteConsumerGroupSubscriptionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes the subscriptions of a consumer group.
+       * @summary Deletes the subscription of a consumer group.
        *
        * @param request DeleteConsumerGroupSubscriptionRequest
        * @return DeleteConsumerGroupSubscriptionResponse
@@ -239,7 +285,7 @@ namespace RocketMQ20220801
       Models::DeleteConsumerGroupSubscriptionResponse deleteConsumerGroupSubscription(const string &instanceId, const string &consumerGroupId, const Models::DeleteConsumerGroupSubscriptionRequest &request);
 
       /**
-       * @summary Deletes a topic mapping of a Global Replicator task.
+       * @summary Deletes a backup mapping task.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -248,14 +294,14 @@ namespace RocketMQ20220801
       Models::DeleteDisasterRecoveryItemResponse deleteDisasterRecoveryItemWithOptions(const string &planId, const string &itemId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a topic mapping of a Global Replicator task.
+       * @summary Deletes a backup mapping task.
        *
        * @return DeleteDisasterRecoveryItemResponse
        */
       Models::DeleteDisasterRecoveryItemResponse deleteDisasterRecoveryItem(const string &planId, const string &itemId);
 
       /**
-       * @summary Deletes a global message backup plan.
+       * @summary Deletes a backup plan.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -264,7 +310,7 @@ namespace RocketMQ20220801
       Models::DeleteDisasterRecoveryPlanResponse deleteDisasterRecoveryPlanWithOptions(const string &planId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a global message backup plan.
+       * @summary Deletes a backup plan.
        *
        * @return DeleteDisasterRecoveryPlanResponse
        */
@@ -295,7 +341,7 @@ namespace RocketMQ20220801
       Models::DeleteInstanceResponse deleteInstance(const string &instanceId);
 
       /**
-       * @summary Delete access control ACL user
+       * @summary Deletes the access account information for a specified instance.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -304,14 +350,14 @@ namespace RocketMQ20220801
       Models::DeleteInstanceAccountResponse deleteInstanceAccountWithOptions(const string &instanceId, const string &username, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete access control ACL user
+       * @summary Deletes the access account information for a specified instance.
        *
        * @return DeleteInstanceAccountResponse
        */
       Models::DeleteInstanceAccountResponse deleteInstanceAccount(const string &instanceId, const string &username);
 
       /**
-       * @summary Deletes the permissions of a specific account of an instance.
+       * @summary Deletes the permissions of a specified account for a specified resource in a specified instance.
        *
        * @param request DeleteInstanceAclRequest
        * @param headers map
@@ -321,7 +367,7 @@ namespace RocketMQ20220801
       Models::DeleteInstanceAclResponse deleteInstanceAclWithOptions(const string &instanceId, const string &username, const Models::DeleteInstanceAclRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes the permissions of a specific account of an instance.
+       * @summary Deletes the permissions of a specified account for a specified resource in a specified instance.
        *
        * @param request DeleteInstanceAclRequest
        * @return DeleteInstanceAclResponse
@@ -329,7 +375,25 @@ namespace RocketMQ20220801
       Models::DeleteInstanceAclResponse deleteInstanceAcl(const string &instanceId, const string &username, const Models::DeleteInstanceAclRequest &request);
 
       /**
-       * @summary Deletes a specific IP address whitelist from an instance.
+       * @summary 关闭实例巡检配置
+       *
+       * @param request DeleteInstanceInspectionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteInstanceInspectionResponse
+       */
+      Models::DeleteInstanceInspectionResponse deleteInstanceInspectionWithOptions(const string &instanceId, const Models::DeleteInstanceInspectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 关闭实例巡检配置
+       *
+       * @param request DeleteInstanceInspectionRequest
+       * @return DeleteInstanceInspectionResponse
+       */
+      Models::DeleteInstanceInspectionResponse deleteInstanceInspection(const string &instanceId, const Models::DeleteInstanceInspectionRequest &request);
+
+      /**
+       * @summary Deletes a specified global IP whitelist under a specified instance.
        *
        * @param tmpReq DeleteInstanceIpWhitelistRequest
        * @param headers map
@@ -339,7 +403,7 @@ namespace RocketMQ20220801
       Models::DeleteInstanceIpWhitelistResponse deleteInstanceIpWhitelistWithOptions(const string &instanceId, const Models::DeleteInstanceIpWhitelistRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a specific IP address whitelist from an instance.
+       * @summary Deletes a specified global IP whitelist under a specified instance.
        *
        * @param request DeleteInstanceIpWhitelistRequest
        * @return DeleteInstanceIpWhitelistResponse
@@ -349,7 +413,7 @@ namespace RocketMQ20220801
       /**
        * @summary Deletes a specified topic.
        *
-       * @description If you delete the topic, the publishing and subscription relationships that are established based on the topic are cleared. Exercise caution when you call this operation.
+       * @description Deleting a topic clears all publish-subscribe relationships under the topic. Call this operation with caution.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -360,14 +424,14 @@ namespace RocketMQ20220801
       /**
        * @summary Deletes a specified topic.
        *
-       * @description If you delete the topic, the publishing and subscription relationships that are established based on the topic are cleared. Exercise caution when you call this operation.
+       * @description Deleting a topic clears all publish-subscribe relationships under the topic. Call this operation with caution.
        *
        * @return DeleteTopicResponse
        */
       Models::DeleteTopicResponse deleteTopic(const string &instanceId, const string &topicName);
 
       /**
-       * @summary Executes a specific operation on a specific migration task.
+       * @summary Performs a specified operation on a specified migration task.
        *
        * @param request ExecuteMigrationOperationRequest
        * @param headers map
@@ -377,7 +441,7 @@ namespace RocketMQ20220801
       Models::ExecuteMigrationOperationResponse executeMigrationOperationWithOptions(const string &migrationId, const string &stageType, const string &operationId, const Models::ExecuteMigrationOperationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Executes a specific operation on a specific migration task.
+       * @summary Performs a specified operation on a specified migration task.
        *
        * @param request ExecuteMigrationOperationRequest
        * @return ExecuteMigrationOperationResponse
@@ -385,7 +449,7 @@ namespace RocketMQ20220801
       Models::ExecuteMigrationOperationResponse executeMigrationOperation(const string &migrationId, const string &stageType, const string &operationId, const Models::ExecuteMigrationOperationRequest &request);
 
       /**
-       * @summary 完成当前迁移阶段
+       * @summary Completes the current migration stage for a specified migration task.
        *
        * @param request FinishMigrationStageRequest
        * @param headers map
@@ -395,7 +459,7 @@ namespace RocketMQ20220801
       Models::FinishMigrationStageResponse finishMigrationStageWithOptions(const string &migrationId, const string &stageType, const Models::FinishMigrationStageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 完成当前迁移阶段
+       * @summary Completes the current migration stage for a specified migration task.
        *
        * @param request FinishMigrationStageRequest
        * @return FinishMigrationStageResponse
@@ -403,7 +467,71 @@ namespace RocketMQ20220801
       Models::FinishMigrationStageResponse finishMigrationStage(const string &migrationId, const string &stageType, const Models::FinishMigrationStageRequest &request);
 
       /**
-       * @summary Queries the time range within which the consumer offset in a topic can be reset.
+       * @summary 查询 Agent 诊断会话详情
+       *
+       * @param request GetAgentConversationRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAgentConversationResponse
+       */
+      Models::GetAgentConversationResponse getAgentConversationWithOptions(const string &conversationId, const Models::GetAgentConversationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询 Agent 诊断会话详情
+       *
+       * @param request GetAgentConversationRequest
+       * @return GetAgentConversationResponse
+       */
+      Models::GetAgentConversationResponse getAgentConversation(const string &conversationId, const Models::GetAgentConversationRequest &request);
+
+      /**
+       * @summary 订阅 Agent 诊断会话事件
+       *
+       * @param request GetAgentConversationEventsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAgentConversationEventsResponse
+       */
+      FutureGenerator<Models::GetAgentConversationEventsResponse> getAgentConversationEventsWithSSE(const string &conversationId, const Models::GetAgentConversationEventsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 订阅 Agent 诊断会话事件
+       *
+       * @param request GetAgentConversationEventsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAgentConversationEventsResponse
+       */
+      Models::GetAgentConversationEventsResponse getAgentConversationEventsWithOptions(const string &conversationId, const Models::GetAgentConversationEventsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 订阅 Agent 诊断会话事件
+       *
+       * @param request GetAgentConversationEventsRequest
+       * @return GetAgentConversationEventsResponse
+       */
+      Models::GetAgentConversationEventsResponse getAgentConversationEvents(const string &conversationId, const Models::GetAgentConversationEventsRequest &request);
+
+      /**
+       * @summary 查询 Agent 诊断会话时间线
+       *
+       * @param request GetAgentConversationTimelineRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAgentConversationTimelineResponse
+       */
+      Models::GetAgentConversationTimelineResponse getAgentConversationTimelineWithOptions(const string &conversationId, const Models::GetAgentConversationTimelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询 Agent 诊断会话时间线
+       *
+       * @param request GetAgentConversationTimelineRequest
+       * @return GetAgentConversationTimelineResponse
+       */
+      Models::GetAgentConversationTimelineResponse getAgentConversationTimeline(const string &conversationId, const Models::GetAgentConversationTimelineRequest &request);
+
+      /**
+       * @summary Queries the time range in which a consumer offset can be reset for a topic.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -412,16 +540,16 @@ namespace RocketMQ20220801
       Models::GetConsumeTimespanResponse getConsumeTimespanWithOptions(const string &instanceId, const string &consumerGroupId, const string &topicName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the time range within which the consumer offset in a topic can be reset.
+       * @summary Queries the time range in which a consumer offset can be reset for a topic.
        *
        * @return GetConsumeTimespanResponse
        */
       Models::GetConsumeTimespanResponse getConsumeTimespan(const string &instanceId, const string &consumerGroupId, const string &topicName);
 
       /**
-       * @summary Queries the details of a specified consumer group.
+       * @summary Retrieves the details of a specified consumer group.
        *
-       * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+       * @description >Notice: The OpenAPI provided by Alibaba Cloud is a management and control API used to manage and query related resources of Alibaba Cloud services. It is recommended only for integration in management and control data links. Using OpenAPI in the core data link for message sending and receiving is strictly prohibited. Otherwise, risks may occur in the data link.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -430,16 +558,16 @@ namespace RocketMQ20220801
       Models::GetConsumerGroupResponse getConsumerGroupWithOptions(const string &instanceId, const string &consumerGroupId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a specified consumer group.
+       * @summary Retrieves the details of a specified consumer group.
        *
-       * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+       * @description >Notice: The OpenAPI provided by Alibaba Cloud is a management and control API used to manage and query related resources of Alibaba Cloud services. It is recommended only for integration in management and control data links. Using OpenAPI in the core data link for message sending and receiving is strictly prohibited. Otherwise, risks may occur in the data link.
        *
        * @return GetConsumerGroupResponse
        */
       Models::GetConsumerGroupResponse getConsumerGroup(const string &instanceId, const string &consumerGroupId);
 
       /**
-       * @summary Query Consumer Group Backlog Information
+       * @summary Queries the message accumulation of a consumer group.
        *
        * @param request GetConsumerGroupLagRequest
        * @param headers map
@@ -449,7 +577,7 @@ namespace RocketMQ20220801
       Models::GetConsumerGroupLagResponse getConsumerGroupLagWithOptions(const string &instanceId, const string &consumerGroupId, const Models::GetConsumerGroupLagRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query Consumer Group Backlog Information
+       * @summary Queries the message accumulation of a consumer group.
        *
        * @param request GetConsumerGroupLagRequest
        * @return GetConsumerGroupLagResponse
@@ -491,7 +619,7 @@ namespace RocketMQ20220801
       Models::GetConsumerStackResponse getConsumerStack(const string &instanceId, const string &consumerGroupId, const Models::GetConsumerStackRequest &request);
 
       /**
-       * @summary Queries the details of a topic mapping in a Global Replicator task.
+       * @summary Queries the details of a backup plan mapping.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -500,14 +628,16 @@ namespace RocketMQ20220801
       Models::GetDisasterRecoveryItemResponse getDisasterRecoveryItemWithOptions(const string &planId, const string &itemId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a topic mapping in a Global Replicator task.
+       * @summary Queries the details of a backup plan mapping.
        *
        * @return GetDisasterRecoveryItemResponse
        */
       Models::GetDisasterRecoveryItemResponse getDisasterRecoveryItem(const string &planId, const string &itemId);
 
       /**
-       * @summary Queries the details of a Global Replicator task.
+       * @summary Queries the details of a backup plan.
+       *
+       * @description Before querying, make sure you have created a Global Replicator backup plan. Before using Global Replicator, your account must have the AliyunServiceRoleForRMQDisasterRecovery service-linked role. This role is used to grant authorization for ApsaraMQ for RocketMQ to access the EventBridge event bus. The system typically creates this role automatically the first time you use the associated feature. If automatic creation failed, create the role manually.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -516,16 +646,18 @@ namespace RocketMQ20220801
       Models::GetDisasterRecoveryPlanResponse getDisasterRecoveryPlanWithOptions(const string &planId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a Global Replicator task.
+       * @summary Queries the details of a backup plan.
+       *
+       * @description Before querying, make sure you have created a Global Replicator backup plan. Before using Global Replicator, your account must have the AliyunServiceRoleForRMQDisasterRecovery service-linked role. This role is used to grant authorization for ApsaraMQ for RocketMQ to access the EventBridge event bus. The system typically creates this role automatically the first time you use the associated feature. If automatic creation failed, create the role manually.
        *
        * @return GetDisasterRecoveryPlanResponse
        */
       Models::GetDisasterRecoveryPlanResponse getDisasterRecoveryPlan(const string &planId);
 
       /**
-       * @summary Queries the detailed information about an instance.
+       * @summary Retrieves the details of a specified instance.
        *
-       * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+       * @description >Notice: The OpenAPI operations provided by Alibaba Cloud are management APIs used to manage and query Alibaba Cloud service resources. Use them only in management and control workflows. Do not rely on OpenAPI in core data link workflows for message sending and receiving, as this may introduce risks to the data link.</notice>
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -534,16 +666,16 @@ namespace RocketMQ20220801
       Models::GetInstanceResponse getInstanceWithOptions(const string &instanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the detailed information about an instance.
+       * @summary Retrieves the details of a specified instance.
        *
-       * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+       * @description >Notice: The OpenAPI operations provided by Alibaba Cloud are management APIs used to manage and query Alibaba Cloud service resources. Use them only in management and control workflows. Do not rely on OpenAPI in core data link workflows for message sending and receiving, as this may introduce risks to the data link.</notice>
        *
        * @return GetInstanceResponse
        */
       Models::GetInstanceResponse getInstance(const string &instanceId);
 
       /**
-       * @summary Obtains the account used to access a specific instance.
+       * @summary Retrieves the account details for a specified instance.
        *
        * @param request GetInstanceAccountRequest
        * @param headers map
@@ -553,7 +685,7 @@ namespace RocketMQ20220801
       Models::GetInstanceAccountResponse getInstanceAccountWithOptions(const string &instanceId, const Models::GetInstanceAccountRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the account used to access a specific instance.
+       * @summary Retrieves the account details for a specified instance.
        *
        * @param request GetInstanceAccountRequest
        * @return GetInstanceAccountResponse
@@ -579,6 +711,60 @@ namespace RocketMQ20220801
       Models::GetInstanceAclResponse getInstanceAcl(const string &instanceId, const string &username, const Models::GetInstanceAclRequest &request);
 
       /**
+       * @summary 查询实例巡检配置
+       *
+       * @param request GetInstanceInspectionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetInstanceInspectionResponse
+       */
+      Models::GetInstanceInspectionResponse getInstanceInspectionWithOptions(const string &instanceId, const Models::GetInstanceInspectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询实例巡检配置
+       *
+       * @param request GetInstanceInspectionRequest
+       * @return GetInstanceInspectionResponse
+       */
+      Models::GetInstanceInspectionResponse getInstanceInspection(const string &instanceId, const Models::GetInstanceInspectionRequest &request);
+
+      /**
+       * @summary 查询实例风险诊断报告
+       *
+       * @param request GetInstanceInspectionReportRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetInstanceInspectionReportResponse
+       */
+      Models::GetInstanceInspectionReportResponse getInstanceInspectionReportWithOptions(const string &reportId, const Models::GetInstanceInspectionReportRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询实例风险诊断报告
+       *
+       * @param request GetInstanceInspectionReportRequest
+       * @return GetInstanceInspectionReportResponse
+       */
+      Models::GetInstanceInspectionReportResponse getInstanceInspectionReport(const string &reportId, const Models::GetInstanceInspectionReportRequest &request);
+
+      /**
+       * @summary 查询实例巡检结果
+       *
+       * @param request GetInstanceInspectionRunRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetInstanceInspectionRunResponse
+       */
+      Models::GetInstanceInspectionRunResponse getInstanceInspectionRunWithOptions(const string &instanceId, const string &runId, const Models::GetInstanceInspectionRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询实例巡检结果
+       *
+       * @param request GetInstanceInspectionRunRequest
+       * @return GetInstanceInspectionRunResponse
+       */
+      Models::GetInstanceInspectionRunResponse getInstanceInspectionRun(const string &instanceId, const string &runId, const Models::GetInstanceInspectionRunRequest &request);
+
+      /**
        * @summary Queries the information about the IP address whitelist of an instance.
        *
        * @param tmpReq GetInstanceIpWhitelistRequest
@@ -597,7 +783,7 @@ namespace RocketMQ20220801
       Models::GetInstanceIpWhitelistResponse getInstanceIpWhitelist(const string &instanceId, const Models::GetInstanceIpWhitelistRequest &request);
 
       /**
-       * @summary Obtains the details of a specific message.
+       * @summary Retrieves the details of a specified message.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -606,14 +792,14 @@ namespace RocketMQ20220801
       Models::GetMessageDetailResponse getMessageDetailWithOptions(const string &instanceId, const string &topicName, const string &messageId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the details of a specific message.
+       * @summary Retrieves the details of a specified message.
        *
        * @return GetMessageDetailResponse
        */
       Models::GetMessageDetailResponse getMessageDetail(const string &instanceId, const string &topicName, const string &messageId);
 
       /**
-       * @summary Query Topic Details
+       * @summary Retrieves the details of a specified topic.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -622,14 +808,14 @@ namespace RocketMQ20220801
       Models::GetTopicResponse getTopicWithOptions(const string &instanceId, const string &topicName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query Topic Details
+       * @summary Retrieves the details of a specified topic.
        *
        * @return GetTopicResponse
        */
       Models::GetTopicResponse getTopic(const string &instanceId, const string &topicName);
 
       /**
-       * @summary Queries the trace of a specific message in a specific topic.
+       * @summary Retrieves the message trace for a specified message in a specified topic.
        *
        * @param request GetTraceRequest
        * @param headers map
@@ -639,7 +825,7 @@ namespace RocketMQ20220801
       Models::GetTraceResponse getTraceWithOptions(const string &instanceId, const string &topicName, const string &messageId, const Models::GetTraceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the trace of a specific message in a specific topic.
+       * @summary Retrieves the message trace for a specified message in a specified topic.
        *
        * @param request GetTraceRequest
        * @return GetTraceResponse
@@ -647,7 +833,25 @@ namespace RocketMQ20220801
       Models::GetTraceResponse getTrace(const string &instanceId, const string &topicName, const string &messageId, const Models::GetTraceRequest &request);
 
       /**
-       * @summary Queries the supported zones.
+       * @summary 查询 Agent 诊断会话列表
+       *
+       * @param request ListAgentConversationsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAgentConversationsResponse
+       */
+      Models::ListAgentConversationsResponse listAgentConversationsWithOptions(const Models::ListAgentConversationsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询 Agent 诊断会话列表
+       *
+       * @param request ListAgentConversationsRequest
+       * @return ListAgentConversationsResponse
+       */
+      Models::ListAgentConversationsResponse listAgentConversations(const Models::ListAgentConversationsRequest &request);
+
+      /**
+       * @summary Queries supported zones.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -656,14 +860,14 @@ namespace RocketMQ20220801
       Models::ListAvailableZonesResponse listAvailableZonesWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the supported zones.
+       * @summary Queries supported zones.
        *
        * @return ListAvailableZonesResponse
        */
       Models::ListAvailableZonesResponse listAvailableZones();
 
       /**
-       * @summary Queries the connections of a specific consumer client.
+       * @summary Retrieves the connection information for clients in a specified consumer group.
        *
        * @param request ListConsumerConnectionsRequest
        * @param headers map
@@ -673,7 +877,7 @@ namespace RocketMQ20220801
       Models::ListConsumerConnectionsResponse listConsumerConnectionsWithOptions(const string &instanceId, const string &consumerGroupId, const Models::ListConsumerConnectionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the connections of a specific consumer client.
+       * @summary Retrieves the connection information for clients in a specified consumer group.
        *
        * @param request ListConsumerConnectionsRequest
        * @return ListConsumerConnectionsResponse
@@ -681,7 +885,7 @@ namespace RocketMQ20220801
       Models::ListConsumerConnectionsResponse listConsumerConnections(const string &instanceId, const string &consumerGroupId, const Models::ListConsumerConnectionsRequest &request);
 
       /**
-       * @summary Queries the subscriptions of a specific consumer group.
+       * @summary Lists the subscription relationships for a consumer group.
        *
        * @param request ListConsumerGroupSubscriptionsRequest
        * @param headers map
@@ -691,7 +895,7 @@ namespace RocketMQ20220801
       Models::ListConsumerGroupSubscriptionsResponse listConsumerGroupSubscriptionsWithOptions(const string &instanceId, const string &consumerGroupId, const Models::ListConsumerGroupSubscriptionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the subscriptions of a specific consumer group.
+       * @summary Lists the subscription relationships for a consumer group.
        *
        * @param request ListConsumerGroupSubscriptionsRequest
        * @return ListConsumerGroupSubscriptionsResponse
@@ -699,9 +903,9 @@ namespace RocketMQ20220801
       Models::ListConsumerGroupSubscriptionsResponse listConsumerGroupSubscriptions(const string &instanceId, const string &consumerGroupId, const Models::ListConsumerGroupSubscriptionsRequest &request);
 
       /**
-       * @summary List Consumer Groups
+       * @summary Queries the list of consumer groups under a specified instance.
        *
-       * @description >Notice: The OpenAPI provided by Alibaba Cloud is a management API used for managing and querying related resources of Alibaba Cloud services. It is recommended to integrate it only in the management chain. Do not rely on OpenAPI implementation in the core data chain for message sending and receiving, as this may lead to risks in the chain.
+       * @description >Notice: The OpenAPI provided by Alibaba Cloud is a management and control API used to manage and query related resources of Alibaba Cloud services. It is recommended only for integration in management and control links. Using OpenAPI in the core data link for message sending and receiving is strictly prohibited. Otherwise, risks may occur in the link.
        *
        * @param request ListConsumerGroupsRequest
        * @param headers map
@@ -711,9 +915,9 @@ namespace RocketMQ20220801
       Models::ListConsumerGroupsResponse listConsumerGroupsWithOptions(const string &instanceId, const Models::ListConsumerGroupsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary List Consumer Groups
+       * @summary Queries the list of consumer groups under a specified instance.
        *
-       * @description >Notice: The OpenAPI provided by Alibaba Cloud is a management API used for managing and querying related resources of Alibaba Cloud services. It is recommended to integrate it only in the management chain. Do not rely on OpenAPI implementation in the core data chain for message sending and receiving, as this may lead to risks in the chain.
+       * @description >Notice: The OpenAPI provided by Alibaba Cloud is a management and control API used to manage and query related resources of Alibaba Cloud services. It is recommended only for integration in management and control links. Using OpenAPI in the core data link for message sending and receiving is strictly prohibited. Otherwise, risks may occur in the link.
        *
        * @param request ListConsumerGroupsRequest
        * @return ListConsumerGroupsResponse
@@ -721,7 +925,9 @@ namespace RocketMQ20220801
       Models::ListConsumerGroupsResponse listConsumerGroups(const string &instanceId, const Models::ListConsumerGroupsRequest &request);
 
       /**
-       * @summary Queries consumer progress synchronization tasks.
+       * @summary Queries the list of consumer offset synchronization checkpoints.
+       *
+       * @description Before you call this operation, create a Global Replicator backup plan and add topic mapping items to the plan. Then use the corresponding planId, itemId, and source instance ID to query consumer offset synchronization checkpoints. To use Global Replicator, make sure that your account has the AliyunServiceRoleForRMQDisasterRecovery service-linked role. The system typically performs automatic creation of this role when you first use the associated feature.
        *
        * @param request ListDisasterRecoveryCheckpointsRequest
        * @param headers map
@@ -731,7 +937,9 @@ namespace RocketMQ20220801
       Models::ListDisasterRecoveryCheckpointsResponse listDisasterRecoveryCheckpointsWithOptions(const string &planId, const string &itemId, const Models::ListDisasterRecoveryCheckpointsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries consumer progress synchronization tasks.
+       * @summary Queries the list of consumer offset synchronization checkpoints.
+       *
+       * @description Before you call this operation, create a Global Replicator backup plan and add topic mapping items to the plan. Then use the corresponding planId, itemId, and source instance ID to query consumer offset synchronization checkpoints. To use Global Replicator, make sure that your account has the AliyunServiceRoleForRMQDisasterRecovery service-linked role. The system typically performs automatic creation of this role when you first use the associated feature.
        *
        * @param request ListDisasterRecoveryCheckpointsRequest
        * @return ListDisasterRecoveryCheckpointsResponse
@@ -739,7 +947,7 @@ namespace RocketMQ20220801
       Models::ListDisasterRecoveryCheckpointsResponse listDisasterRecoveryCheckpoints(const string &planId, const string &itemId, const Models::ListDisasterRecoveryCheckpointsRequest &request);
 
       /**
-       * @summary Queries the Global Replicator tasks of an instance.
+       * @summary Queries the list of backup mapping tasks.
        *
        * @param request ListDisasterRecoveryItemsRequest
        * @param headers map
@@ -749,7 +957,7 @@ namespace RocketMQ20220801
       Models::ListDisasterRecoveryItemsResponse listDisasterRecoveryItemsWithOptions(const string &planId, const Models::ListDisasterRecoveryItemsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the Global Replicator tasks of an instance.
+       * @summary Queries the list of backup mapping tasks.
        *
        * @param request ListDisasterRecoveryItemsRequest
        * @return ListDisasterRecoveryItemsResponse
@@ -757,7 +965,7 @@ namespace RocketMQ20220801
       Models::ListDisasterRecoveryItemsResponse listDisasterRecoveryItems(const string &planId, const Models::ListDisasterRecoveryItemsRequest &request);
 
       /**
-       * @summary Queries Global Replicator tasks.
+       * @summary Queries a list of backup plans.
        *
        * @param request ListDisasterRecoveryPlansRequest
        * @param headers map
@@ -767,7 +975,7 @@ namespace RocketMQ20220801
       Models::ListDisasterRecoveryPlansResponse listDisasterRecoveryPlansWithOptions(const Models::ListDisasterRecoveryPlansRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries Global Replicator tasks.
+       * @summary Queries a list of backup plans.
        *
        * @param request ListDisasterRecoveryPlansRequest
        * @return ListDisasterRecoveryPlansResponse
@@ -775,7 +983,25 @@ namespace RocketMQ20220801
       Models::ListDisasterRecoveryPlansResponse listDisasterRecoveryPlans(const Models::ListDisasterRecoveryPlansRequest &request);
 
       /**
-       * @summary Queries the accounts that are used to access a specific instance.
+       * @summary 查询巡检模板列表
+       *
+       * @param request ListInspectionTemplatesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListInspectionTemplatesResponse
+       */
+      Models::ListInspectionTemplatesResponse listInspectionTemplatesWithOptions(const Models::ListInspectionTemplatesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询巡检模板列表
+       *
+       * @param request ListInspectionTemplatesRequest
+       * @return ListInspectionTemplatesResponse
+       */
+      Models::ListInspectionTemplatesResponse listInspectionTemplates(const Models::ListInspectionTemplatesRequest &request);
+
+      /**
+       * @summary Retrieves the access accounts for a specified instance.
        *
        * @param request ListInstanceAccountRequest
        * @param headers map
@@ -785,7 +1011,7 @@ namespace RocketMQ20220801
       Models::ListInstanceAccountResponse listInstanceAccountWithOptions(const string &instanceId, const Models::ListInstanceAccountRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the accounts that are used to access a specific instance.
+       * @summary Retrieves the access accounts for a specified instance.
        *
        * @param request ListInstanceAccountRequest
        * @return ListInstanceAccountResponse
@@ -811,6 +1037,60 @@ namespace RocketMQ20220801
       Models::ListInstanceAclResponse listInstanceAcl(const string &instanceId, const Models::ListInstanceAclRequest &request);
 
       /**
+       * @summary 查询巡检项关联资源
+       *
+       * @param request ListInstanceInspectionResourcesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListInstanceInspectionResourcesResponse
+       */
+      Models::ListInstanceInspectionResourcesResponse listInstanceInspectionResourcesWithOptions(const string &instanceId, const Models::ListInstanceInspectionResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询巡检项关联资源
+       *
+       * @param request ListInstanceInspectionResourcesRequest
+       * @return ListInstanceInspectionResourcesResponse
+       */
+      Models::ListInstanceInspectionResourcesResponse listInstanceInspectionResources(const string &instanceId, const Models::ListInstanceInspectionResourcesRequest &request);
+
+      /**
+       * @summary 查询实例巡检历史
+       *
+       * @param request ListInstanceInspectionRunsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListInstanceInspectionRunsResponse
+       */
+      Models::ListInstanceInspectionRunsResponse listInstanceInspectionRunsWithOptions(const string &instanceId, const Models::ListInstanceInspectionRunsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询实例巡检历史
+       *
+       * @param request ListInstanceInspectionRunsRequest
+       * @return ListInstanceInspectionRunsResponse
+       */
+      Models::ListInstanceInspectionRunsResponse listInstanceInspectionRuns(const string &instanceId, const Models::ListInstanceInspectionRunsRequest &request);
+
+      /**
+       * @summary 分页查询已配置的实例诊断；仅返回配置摘要
+       *
+       * @param request ListInstanceInspectionsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListInstanceInspectionsResponse
+       */
+      Models::ListInstanceInspectionsResponse listInstanceInspectionsWithOptions(const Models::ListInstanceInspectionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询已配置的实例诊断；仅返回配置摘要
+       *
+       * @param request ListInstanceInspectionsRequest
+       * @return ListInstanceInspectionsResponse
+       */
+      Models::ListInstanceInspectionsResponse listInstanceInspections(const Models::ListInstanceInspectionsRequest &request);
+
+      /**
        * @summary Queries the IP address whitelists of an instance.
        *
        * @param request ListInstanceIpWhitelistRequest
@@ -829,9 +1109,9 @@ namespace RocketMQ20220801
       Models::ListInstanceIpWhitelistResponse listInstanceIpWhitelist(const string &instanceId, const Models::ListInstanceIpWhitelistRequest &request);
 
       /**
-       * @summary Queries all ApsaraMQ for RocketMQ instances in a specific region.
+       * @summary Queries the list of all ApsaraMQ for RocketMQ instances in a specified region.
        *
-       * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+       * @description >Notice: The OpenAPI operations provided by Alibaba Cloud are management API operations that are used to manage and query resources of Alibaba Cloud services. Integrate OpenAPI operations only into the management data link. Do not use OpenAPI operations in the core data link for sending and receiving messages. Otherwise, risks may occur on the data link.
        *
        * @param tmpReq ListInstancesRequest
        * @param headers map
@@ -841,9 +1121,9 @@ namespace RocketMQ20220801
       Models::ListInstancesResponse listInstancesWithOptions(const Models::ListInstancesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all ApsaraMQ for RocketMQ instances in a specific region.
+       * @summary Queries the list of all ApsaraMQ for RocketMQ instances in a specified region.
        *
-       * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+       * @description >Notice: The OpenAPI operations provided by Alibaba Cloud are management API operations that are used to manage and query resources of Alibaba Cloud services. Integrate OpenAPI operations only into the management data link. Do not use OpenAPI operations in the core data link for sending and receiving messages. Otherwise, risks may occur on the data link.
        *
        * @param request ListInstancesRequest
        * @return ListInstancesResponse
@@ -851,7 +1131,7 @@ namespace RocketMQ20220801
       Models::ListInstancesResponse listInstances(const Models::ListInstancesRequest &request);
 
       /**
-       * @summary Queries messages.
+       * @summary Queries a list of messages.
        *
        * @param request ListMessagesRequest
        * @param headers map
@@ -861,7 +1141,7 @@ namespace RocketMQ20220801
       Models::ListMessagesResponse listMessagesWithOptions(const string &instanceId, const string &topicName, const Models::ListMessagesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries messages.
+       * @summary Queries a list of messages.
        *
        * @param request ListMessagesRequest
        * @return ListMessagesResponse
@@ -887,7 +1167,7 @@ namespace RocketMQ20220801
       Models::ListMetricMetaResponse listMetricMeta(const Models::ListMetricMetaRequest &request);
 
       /**
-       * @summary Queries a list of migration operations.
+       * @summary Queries the list of migration operations.
        *
        * @param tmpReq ListMigrationOperationsRequest
        * @param headers map
@@ -897,7 +1177,7 @@ namespace RocketMQ20220801
       Models::ListMigrationOperationsResponse listMigrationOperationsWithOptions(const string &migrationId, const string &stageType, const Models::ListMigrationOperationsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of migration operations.
+       * @summary Queries the list of migration operations.
        *
        * @param request ListMigrationOperationsRequest
        * @return ListMigrationOperationsResponse
@@ -905,7 +1185,7 @@ namespace RocketMQ20220801
       Models::ListMigrationOperationsResponse listMigrationOperations(const string &migrationId, const string &stageType, const Models::ListMigrationOperationsRequest &request);
 
       /**
-       * @summary Queries migration tasks.
+       * @summary Queries the list of migration tasks.
        *
        * @param request ListMigrationsRequest
        * @param headers map
@@ -915,7 +1195,7 @@ namespace RocketMQ20220801
       Models::ListMigrationsResponse listMigrationsWithOptions(const Models::ListMigrationsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries migration tasks.
+       * @summary Queries the list of migration tasks.
        *
        * @param request ListMigrationsRequest
        * @return ListMigrationsResponse
@@ -923,7 +1203,7 @@ namespace RocketMQ20220801
       Models::ListMigrationsResponse listMigrations(const Models::ListMigrationsRequest &request);
 
       /**
-       * @summary Queries regions in which ApsaraMQ for RocketMQ is available.
+       * @summary Queries the list of regions.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -932,7 +1212,7 @@ namespace RocketMQ20220801
       Models::ListRegionsResponse listRegionsWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries regions in which ApsaraMQ for RocketMQ is available.
+       * @summary Queries the list of regions.
        *
        * @return ListRegionsResponse
        */
@@ -973,7 +1253,7 @@ namespace RocketMQ20220801
       Models::ListTopicSubscriptionsResponse listTopicSubscriptions(const string &instanceId, const string &topicName);
 
       /**
-       * @summary Query Topic List
+       * @summary Queries the list of topics in a specified instance.
        *
        * @param tmpReq ListTopicsRequest
        * @param headers map
@@ -983,7 +1263,7 @@ namespace RocketMQ20220801
       Models::ListTopicsResponse listTopicsWithOptions(const string &instanceId, const Models::ListTopicsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query Topic List
+       * @summary Queries the list of topics in a specified instance.
        *
        * @param request ListTopicsRequest
        * @return ListTopicsResponse
@@ -991,7 +1271,7 @@ namespace RocketMQ20220801
       Models::ListTopicsResponse listTopics(const string &instanceId, const Models::ListTopicsRequest &request);
 
       /**
-       * @summary Queries the message traces of a specific topic.
+       * @summary Queries the list of message traces under a specified topic.
        *
        * @param request ListTracesRequest
        * @param headers map
@@ -1001,7 +1281,7 @@ namespace RocketMQ20220801
       Models::ListTracesResponse listTracesWithOptions(const string &instanceId, const string &topicName, const Models::ListTracesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the message traces of a specific topic.
+       * @summary Queries the list of message traces under a specified topic.
        *
        * @param request ListTracesRequest
        * @return ListTracesResponse
@@ -1027,6 +1307,70 @@ namespace RocketMQ20220801
       Models::ResetConsumeOffsetResponse resetConsumeOffset(const string &instanceId, const string &consumerGroupId, const string &topicName, const Models::ResetConsumeOffsetRequest &request);
 
       /**
+       * @summary 响应 Agent 诊断交互
+       *
+       * @param request RespondAgentConversationActionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RespondAgentConversationActionResponse
+       */
+      Models::RespondAgentConversationActionResponse respondAgentConversationActionWithOptions(const string &conversationId, const string &actionId, const Models::RespondAgentConversationActionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 响应 Agent 诊断交互
+       *
+       * @param request RespondAgentConversationActionRequest
+       * @return RespondAgentConversationActionResponse
+       */
+      Models::RespondAgentConversationActionResponse respondAgentConversationAction(const string &conversationId, const string &actionId, const Models::RespondAgentConversationActionRequest &request);
+
+      /**
+       * @summary 立即执行实例巡检
+       *
+       * @param request RunInstanceInspectionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RunInstanceInspectionResponse
+       */
+      Models::RunInstanceInspectionResponse runInstanceInspectionWithOptions(const string &instanceId, const Models::RunInstanceInspectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 立即执行实例巡检
+       *
+       * @param request RunInstanceInspectionRequest
+       * @return RunInstanceInspectionResponse
+       */
+      Models::RunInstanceInspectionResponse runInstanceInspection(const string &instanceId, const Models::RunInstanceInspectionRequest &request);
+
+      /**
+       * @summary 发送 Agent 诊断消息
+       *
+       * @param request SendAgentConversationMessageRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SendAgentConversationMessageResponse
+       */
+      FutureGenerator<Models::SendAgentConversationMessageResponse> sendAgentConversationMessageWithSSE(const string &conversationId, const Models::SendAgentConversationMessageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 发送 Agent 诊断消息
+       *
+       * @param request SendAgentConversationMessageRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SendAgentConversationMessageResponse
+       */
+      Models::SendAgentConversationMessageResponse sendAgentConversationMessageWithOptions(const string &conversationId, const Models::SendAgentConversationMessageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 发送 Agent 诊断消息
+       *
+       * @param request SendAgentConversationMessageRequest
+       * @return SendAgentConversationMessageResponse
+       */
+      Models::SendAgentConversationMessageResponse sendAgentConversationMessage(const string &conversationId, const Models::SendAgentConversationMessageRequest &request);
+
+      /**
        * @summary Starts a topic mapping of a Global Replicator task.
        *
        * @param headers map
@@ -1041,6 +1385,42 @@ namespace RocketMQ20220801
        * @return StartDisasterRecoveryItemResponse
        */
       Models::StartDisasterRecoveryItemResponse startDisasterRecoveryItem(const string &planId, const string &itemId);
+
+      /**
+       * @summary 引导 Agent 诊断会话执行
+       *
+       * @param request SteerAgentConversationRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SteerAgentConversationResponse
+       */
+      Models::SteerAgentConversationResponse steerAgentConversationWithOptions(const string &conversationId, const Models::SteerAgentConversationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 引导 Agent 诊断会话执行
+       *
+       * @param request SteerAgentConversationRequest
+       * @return SteerAgentConversationResponse
+       */
+      Models::SteerAgentConversationResponse steerAgentConversation(const string &conversationId, const Models::SteerAgentConversationRequest &request);
+
+      /**
+       * @summary 停止 Agent 诊断会话执行
+       *
+       * @param request StopAgentConversationRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StopAgentConversationResponse
+       */
+      Models::StopAgentConversationResponse stopAgentConversationWithOptions(const string &conversationId, const Models::StopAgentConversationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 停止 Agent 诊断会话执行
+       *
+       * @param request StopAgentConversationRequest
+       * @return StopAgentConversationResponse
+       */
+      Models::StopAgentConversationResponse stopAgentConversation(const string &conversationId, const Models::StopAgentConversationRequest &request);
 
       /**
        * @summary Stops a topic mapping of a Global Replicator task.
@@ -1111,9 +1491,45 @@ namespace RocketMQ20220801
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
-       * @summary Update ConsumerGroup
+       * @summary 重命名 Agent 诊断会话
        *
-       * @description >Notice: The OpenAPI provided by Alibaba Cloud is a management API used for managing and querying related resources of Alibaba Cloud services. It is recommended to integrate it only in the management chain. It is strictly prohibited to rely on OpenAPI implementation in the core data chain of message sending and receiving, otherwise it may lead to risks in the chain.
+       * @param request UpdateAgentConversationRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAgentConversationResponse
+       */
+      Models::UpdateAgentConversationResponse updateAgentConversationWithOptions(const string &conversationId, const Models::UpdateAgentConversationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 重命名 Agent 诊断会话
+       *
+       * @param request UpdateAgentConversationRequest
+       * @return UpdateAgentConversationResponse
+       */
+      Models::UpdateAgentConversationResponse updateAgentConversation(const string &conversationId, const Models::UpdateAgentConversationRequest &request);
+
+      /**
+       * @summary 更新 Agent 诊断会话分享范围
+       *
+       * @param request UpdateAgentConversationShareScopeRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAgentConversationShareScopeResponse
+       */
+      Models::UpdateAgentConversationShareScopeResponse updateAgentConversationShareScopeWithOptions(const string &conversationId, const Models::UpdateAgentConversationShareScopeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新 Agent 诊断会话分享范围
+       *
+       * @param request UpdateAgentConversationShareScopeRequest
+       * @return UpdateAgentConversationShareScopeResponse
+       */
+      Models::UpdateAgentConversationShareScopeResponse updateAgentConversationShareScope(const string &conversationId, const Models::UpdateAgentConversationShareScopeRequest &request);
+
+      /**
+       * @summary Updates the basic information and consumption retry policy of a consumer group.
+       *
+       * @description >Notice: The OpenAPI provided by Alibaba Cloud is a management and control API used to manage and query resources of Alibaba Cloud services. It is recommended only for integration in management and control links. Do not use OpenAPI in the core data link for sending and receiving messages. Otherwise, risks may occur on the data link.
        *
        * @param request UpdateConsumerGroupRequest
        * @param headers map
@@ -1123,9 +1539,9 @@ namespace RocketMQ20220801
       Models::UpdateConsumerGroupResponse updateConsumerGroupWithOptions(const string &instanceId, const string &consumerGroupId, const Models::UpdateConsumerGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update ConsumerGroup
+       * @summary Updates the basic information and consumption retry policy of a consumer group.
        *
-       * @description >Notice: The OpenAPI provided by Alibaba Cloud is a management API used for managing and querying related resources of Alibaba Cloud services. It is recommended to integrate it only in the management chain. It is strictly prohibited to rely on OpenAPI implementation in the core data chain of message sending and receiving, otherwise it may lead to risks in the chain.
+       * @description >Notice: The OpenAPI provided by Alibaba Cloud is a management and control API used to manage and query resources of Alibaba Cloud services. It is recommended only for integration in management and control links. Do not use OpenAPI in the core data link for sending and receiving messages. Otherwise, risks may occur on the data link.
        *
        * @param request UpdateConsumerGroupRequest
        * @return UpdateConsumerGroupResponse
@@ -1169,9 +1585,9 @@ namespace RocketMQ20220801
       Models::UpdateDisasterRecoveryPlanResponse updateDisasterRecoveryPlan(const string &planId, const Models::UpdateDisasterRecoveryPlanRequest &request);
 
       /**
-       * @summary Updates the basic information and specifications of an ApsaraMQ for RocketMQ instance.
+       * @summary Updates the basic information and specification configurations of an ApsaraMQ for RocketMQ instance.
        *
-       * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+       * @description >Notice: The OpenAPI provided by Alibaba Cloud is a management and control API used to manage and query resources of Alibaba Cloud services. It is recommended only for integration in management and control paths. Do not use OpenAPI in the core data link for sending and receiving messages. Otherwise, risks may occur on the link.
        *
        * @param request UpdateInstanceRequest
        * @param headers map
@@ -1181,9 +1597,9 @@ namespace RocketMQ20220801
       Models::UpdateInstanceResponse updateInstanceWithOptions(const string &instanceId, const Models::UpdateInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the basic information and specifications of an ApsaraMQ for RocketMQ instance.
+       * @summary Updates the basic information and specification configurations of an ApsaraMQ for RocketMQ instance.
        *
-       * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+       * @description >Notice: The OpenAPI provided by Alibaba Cloud is a management and control API used to manage and query resources of Alibaba Cloud services. It is recommended only for integration in management and control paths. Do not use OpenAPI in the core data link for sending and receiving messages. Otherwise, risks may occur on the link.
        *
        * @param request UpdateInstanceRequest
        * @return UpdateInstanceResponse
@@ -1191,7 +1607,7 @@ namespace RocketMQ20220801
       Models::UpdateInstanceResponse updateInstance(const string &instanceId, const Models::UpdateInstanceRequest &request);
 
       /**
-       * @summary Updates the information about a specific account in a specific instance.
+       * @summary Updates the information of a specified account under a specified instance.
        *
        * @param request UpdateInstanceAccountRequest
        * @param headers map
@@ -1201,7 +1617,7 @@ namespace RocketMQ20220801
       Models::UpdateInstanceAccountResponse updateInstanceAccountWithOptions(const string &instanceId, const string &username, const Models::UpdateInstanceAccountRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the information about a specific account in a specific instance.
+       * @summary Updates the information of a specified account under a specified instance.
        *
        * @param request UpdateInstanceAccountRequest
        * @return UpdateInstanceAccountResponse
@@ -1227,7 +1643,25 @@ namespace RocketMQ20220801
       Models::UpdateInstanceAclResponse updateInstanceAcl(const string &instanceId, const string &username, const Models::UpdateInstanceAclRequest &request);
 
       /**
-       * @summary Update Topic
+       * @summary 修改实例巡检配置
+       *
+       * @param request UpdateInstanceInspectionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateInstanceInspectionResponse
+       */
+      Models::UpdateInstanceInspectionResponse updateInstanceInspectionWithOptions(const string &instanceId, const Models::UpdateInstanceInspectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改实例巡检配置
+       *
+       * @param request UpdateInstanceInspectionRequest
+       * @return UpdateInstanceInspectionResponse
+       */
+      Models::UpdateInstanceInspectionResponse updateInstanceInspection(const string &instanceId, const Models::UpdateInstanceInspectionRequest &request);
+
+      /**
+       * @summary Updates the remarks for a topic.
        *
        * @param request UpdateTopicRequest
        * @param headers map
@@ -1237,12 +1671,30 @@ namespace RocketMQ20220801
       Models::UpdateTopicResponse updateTopicWithOptions(const string &instanceId, const string &topicName, const Models::UpdateTopicRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update Topic
+       * @summary Updates the remarks for a topic.
        *
        * @param request UpdateTopicRequest
        * @return UpdateTopicResponse
        */
       Models::UpdateTopicResponse updateTopic(const string &instanceId, const string &topicName, const Models::UpdateTopicRequest &request);
+
+      /**
+       * @summary 上传 Agent 会话客户端日志
+       *
+       * @param request UploadAgentConversationLogRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UploadAgentConversationLogResponse
+       */
+      Models::UploadAgentConversationLogResponse uploadAgentConversationLogWithOptions(const string &conversationId, const Models::UploadAgentConversationLogRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 上传 Agent 会话客户端日志
+       *
+       * @param request UploadAgentConversationLogRequest
+       * @return UploadAgentConversationLogResponse
+       */
+      Models::UploadAgentConversationLogResponse uploadAgentConversationLog(const string &conversationId, const Models::UploadAgentConversationLogRequest &request);
 
       /**
        * @summary Verifies the consumption status of a message in a specific topic on a specific instance.
@@ -1263,7 +1715,7 @@ namespace RocketMQ20220801
       Models::VerifyConsumeMessageResponse verifyConsumeMessage(const string &instanceId, const string &topicName, const string &messageId, const Models::VerifyConsumeMessageRequest &request);
 
       /**
-       * @summary Verifies the message sending feature of a specific topic on a specific instance.
+       * @summary Tests whether messages can be sent to a specified topic in an instance.
        *
        * @param request VerifySendMessageRequest
        * @param headers map
@@ -1273,7 +1725,7 @@ namespace RocketMQ20220801
       Models::VerifySendMessageResponse verifySendMessageWithOptions(const string &instanceId, const string &topicName, const Models::VerifySendMessageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Verifies the message sending feature of a specific topic on a specific instance.
+       * @summary Tests whether messages can be sent to a specified topic in an instance.
        *
        * @param request VerifySendMessageRequest
        * @return VerifySendMessageResponse

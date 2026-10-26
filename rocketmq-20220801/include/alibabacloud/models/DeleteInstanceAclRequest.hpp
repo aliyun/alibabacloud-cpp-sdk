@@ -48,16 +48,11 @@ namespace Models
 
 
   protected:
-    // The name of the resource on which the permissions are granted.
+    // The name of the authorized resource.
     // 
     // This parameter is required.
     shared_ptr<string> resourceName_ {};
-    // The type of the resource on which the permissions are granted.
-    // 
-    // Valid values:
-    // 
-    // *   Group
-    // *   Topic
+    // The type of the authorized resource.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};

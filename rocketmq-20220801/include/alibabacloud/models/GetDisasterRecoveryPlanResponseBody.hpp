@@ -169,9 +169,9 @@ namespace Models
 
 
         protected:
-          // The attribute key.
+          // The property key.
           shared_ptr<string> propertyKey_ {};
-          // The attribute value.
+          // The property value.
           shared_ptr<string> propertyValue_ {};
         };
 
@@ -280,11 +280,11 @@ namespace Models
 
 
       protected:
-        // The authentication type.
+        // The authentication method.
         shared_ptr<string> authType_ {};
-        // The consumer Group ID.
+        // The consumer group ID used to pull messages from the source instance.
         shared_ptr<string> consumerGroupId_ {};
-        // The endpoint.
+        // The endpoint address.
         shared_ptr<string> endpointUrl_ {};
         // The instance ID.
         shared_ptr<string> instanceId_ {};
@@ -292,21 +292,21 @@ namespace Models
         shared_ptr<string> instanceRole_ {};
         // The instance type.
         shared_ptr<string> instanceType_ {};
-        // The message attribute.
+        // The message filtering property.
         shared_ptr<Instances::MessageProperty> messageProperty_ {};
         // The network type.
         shared_ptr<string> networkType_ {};
-        // The password used for authentication.
+        // The authentication password.
         shared_ptr<string> password_ {};
-        // The ID of the region where the instance resides.
+        // The region where the instance resides.
         shared_ptr<string> regionId_ {};
         // The security group ID.
         shared_ptr<string> securityGroupId_ {};
-        // The username used for authentication.
+        // The authentication username.
         shared_ptr<string> username_ {};
         // The vSwitch ID.
         shared_ptr<string> vSwitchId_ {};
-        // The virtual private cloud (VPC) ID.
+        // VPC ID
         shared_ptr<string> vpcId_ {};
       };
 
@@ -395,46 +395,34 @@ namespace Models
 
 
     protected:
-      // Indicates whether automatic consumer progress synchronization is enabled.
+      // Specifies whether automatic consumer automatic synchronization is enabled.
       // 
-      // >  This parameter takes effect only when `syncCheckpointEnabled` is set to true.
-      // 
-      // Valid values:
-      // 
-      // *   true
-      // *   false
+      // > This field is valid only when consumer automatic synchronization is enabled, that is, when the `syncCheckpointEnabled` field is set to true.
       shared_ptr<bool> autoSyncCheckpoint_ {};
-      // The time when the query task was created.
+      // The creation time, in YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
       // The extended information.
       shared_ptr<map<string, string>> extInfo_ {};
-      // The instances involved in the Global Replicator task.
+      // The instances participating in the backup plan.
       shared_ptr<vector<Data::Instances>> instances_ {};
-      // The description of the Global Replicator task.
+      // The plan description.
       shared_ptr<string> planDesc_ {};
-      // The ID of the Global Replicator task.
+      // The plan ID.
       shared_ptr<int64_t> planId_ {};
-      // The name of the Global Replicator task.
+      // The plan name.
       shared_ptr<string> planName_ {};
-      // The status of the Global Replicator task. Valid values:
-      // 
-      // *   CREATED
-      // *   RUNNING
-      // *   DELETED
+      // The plan status. Valid values:
+      //   - CREATED: created.
+      //   - RUNNING: running.
+      //   - DELETED: deleted.
       shared_ptr<string> planStatus_ {};
-      // The type of the Global Replicator task. Valid values:
-      // 
-      // *   ACTIVE_PASSIVE: one-way backup
-      // *   ACTIVE_ACTIVE: two-way backup
+      // The plan type. Valid values:
+      //   - ACTIVE_PASSIVE: one-way backup.
+      //   - ACTIVE_ACTIVE: two-way backup.
       shared_ptr<string> planType_ {};
-      // Indicates whether consumer progress synchronization is enabled.
-      // 
-      // Valid values:
-      // 
-      // *   true
-      // *   false
+      // Specifies whether consumer offset synchronization is enabled.
       shared_ptr<bool> syncCheckpointEnabled_ {};
-      // The time when the query task was last modified.
+      // The modification time, in YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -507,17 +495,17 @@ namespace Models
 
 
   protected:
-    // The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
+    // The access denied details. This field is returned only when the request is denied because the RAM user does not have the required permissions.
     shared_ptr<string> accessDeniedDetail_ {};
     // The error code.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The response data.
     shared_ptr<GetDisasterRecoveryPlanResponseBody::Data> data_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
     // The dynamic error message.
     shared_ptr<string> dynamicMessage_ {};
-    // The response code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The error message.
     shared_ptr<string> message_ {};

@@ -112,23 +112,23 @@ namespace Models
 
 
   protected:
-    // Access denied details, provided only in scenarios where access is denied due to lack of RAM permissions
+    // The details of the access denial. This parameter is returned only when the user is denied access due to lack of RAM permissions.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Error code
+    // The error code.
     shared_ptr<string> code_ {};
-    // The result, which is the backup plan ID
+    // The returned result, which is the ID of the backup plan.
     shared_ptr<int64_t> data_ {};
-    // Dynamic error code
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic error message
+    // The dynamic error message.
     shared_ptr<string> dynamicMessage_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Error message
+    // The error message.
     shared_ptr<string> message_ {};
-    // Request ID
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation was successful
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

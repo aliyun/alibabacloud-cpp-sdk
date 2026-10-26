@@ -157,7 +157,7 @@ namespace Models
 
 
           protected:
-            // Latest consumption time
+            // The latest consumption time.
             shared_ptr<int64_t> consumeTimestamp_ {};
           };
 
@@ -216,21 +216,21 @@ namespace Models
 
 
         protected:
-          // Consumer group ID
+          // The consumer group ID.
           shared_ptr<string> consumerGroupId_ {};
-          // Instance ID
+          // The instance ID.
           shared_ptr<string> instanceId_ {};
-          // Instance type
-          //   - ALIYUN_ROCKETMQ: Alibaba Cloud instance
-          //   - EXTERNAL_ROCKETMQ: External instance, open-source instance, open-source cluster
+          // The instance type. Valid values:
+          // - ALIYUN_ROCKETMQ: Alibaba Cloud instance.
+          // - EXTERNAL_ROCKETMQ: external instance, open source instance, or open source cluster.
           shared_ptr<string> instanceType_ {};
-          // Latest fetch time
+          // The latest fetch time. The value is a UNIX timestamp in milliseconds.
           shared_ptr<int64_t> lastFetchTime_ {};
-          // Consumption progress data
+          // The consumer offset data.
           shared_ptr<TargetProgress::ProgressData> progressData_ {};
-          // Region ID
+          // The region ID.
           shared_ptr<string> regionId_ {};
-          // Topic name
+          // The topic name.
           shared_ptr<string> topicName_ {};
         };
 
@@ -293,7 +293,7 @@ namespace Models
 
 
           protected:
-            // Latest consumption time
+            // The latest consumption time.
             shared_ptr<int64_t> consumeTimestamp_ {};
           };
 
@@ -352,19 +352,19 @@ namespace Models
 
 
         protected:
-          // Consumer Group ID
+          // The consumer group ID.
           shared_ptr<string> consumerGroupId_ {};
-          // Instance ID
+          // The instance ID.
           shared_ptr<string> instanceId_ {};
-          // Instance type
-          //   - ALIYUN_ROCKETMQ: Alibaba Cloud instance
-          //   - EXTERNAL_ROCKETMQ: External instance, open-source instance, open-source cluster
+          // The instance type. Valid values:
+          // - ALIYUN_ROCKETMQ: Alibaba Cloud instance.
+          // - EXTERNAL_ROCKETMQ: external instance, open source instance, or open source cluster.
           shared_ptr<string> instanceType_ {};
-          // Last fetch time
+          // The most recent fetch time. The value is a UNIX timestamp in milliseconds.
           shared_ptr<int64_t> lastFetchTime_ {};
-          // Consumption progress data
+          // The consumer offset data.
           shared_ptr<SourceProgress::ProgressData> progressData_ {};
-          // Region ID
+          // The region ID.
           shared_ptr<string> regionId_ {};
           // The topic name.
           shared_ptr<string> topicName_ {};
@@ -419,17 +419,17 @@ namespace Models
 
 
       protected:
-        // Consumption Progress ID
+        // The consumer offset checkpoint ID.
         shared_ptr<int64_t> checkpointId_ {};
-        // Backup Mapping ID
+        // The ID of the backup mapping.
         shared_ptr<int64_t> itemId_ {};
-        // Last synchronization time
+        // The most recent synchronization time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> lastSyncTime_ {};
-        // Backup Plan ID
+        // The ID of the backup plan.
         shared_ptr<int64_t> planId_ {};
-        // Source consumption progress
+        // The source consumer offset.
         shared_ptr<List::SourceProgress> sourceProgress_ {};
-        // Target consumption progress
+        // The target consumer offset.
         shared_ptr<List::TargetProgress> targetProgress_ {};
       };
 
@@ -466,13 +466,13 @@ namespace Models
 
 
     protected:
-      // Paged data
+      // The paginated data.
       shared_ptr<vector<Data::List>> list_ {};
-      // Current page number
+      // The current page number.
       shared_ptr<int64_t> pageNumber_ {};
-      // Page size
+      // The page size.
       shared_ptr<int64_t> pageSize_ {};
-      // Total number of records
+      // The total number of records.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -538,21 +538,21 @@ namespace Models
 
 
   protected:
-    // Error code
+    // The error code.
     shared_ptr<string> code_ {};
-    // Response Data
+    // The returned data.
     shared_ptr<ListDisasterRecoveryCheckpointsResponseBody::Data> data_ {};
-    // Dynamic error code
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
     // The dynamic error message.
     shared_ptr<string> dynamicMessage_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Error message
+    // The error message.
     shared_ptr<string> message_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Whether the operation was successful
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

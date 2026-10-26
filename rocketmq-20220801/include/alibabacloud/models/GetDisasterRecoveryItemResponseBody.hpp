@@ -154,15 +154,15 @@ namespace Models
       protected:
         // The consumer group ID.
         shared_ptr<string> consumerGroupId_ {};
-        // The order in which messages are delivered to the target instance. The parameter values ​​are as follows:
-        //   - Concurrently: concurrent delivery
-        //   - Orderly: sequential delivery
+        // The ordering of message delivery to the target instance.
+        // 
+        // The parameter has the following valid values:
+        // - Concurrently: Concurrent delivery.
+        // - Orderly: Ordered delivery.
         shared_ptr<string> deliveryOrderType_ {};
         // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // Instance type
-        //   - ALIYUN_ROCKETMQ: Alibaba Cloud instance
-        //   - EXTERNAL_ROCKETMQ: External instance, open-source instance, open-source cluster
+        // The instance type.
         shared_ptr<string> instanceType_ {};
         // regionId
         shared_ptr<string> regionId_ {};
@@ -227,19 +227,24 @@ namespace Models
 
 
     protected:
-      // The time when the topic mapping task was created.
+      // The creation time, in the format of YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> createTime_ {};
-      // Additional Information
+      // The extended information.
       shared_ptr<map<string, string>> extInfo_ {};
-      // The ID of the topic mapping
+      // The ID of the backup plan.
       shared_ptr<int64_t> itemId_ {};
-      // The topic mapping task status.
+      // The status of the backup mapping. Valid values:
+      // - CREATING: Being created.
+      // - CHANGING: Being modified.
+      // - RUNNING: Running.
+      // - MANUAL_STOPPED: Manually stopped.
+      // - OVERDUE_STOPPED: Stopped due to overdue payment.
       shared_ptr<string> itemStatus_ {};
-      // The ID of the global message backup plan.
+      // The mapping ID.
       shared_ptr<int64_t> planId_ {};
-      // Topics included in the backup mapping
+      // The topics included in the backup mapping.
       shared_ptr<vector<Data::Topics>> topics_ {};
-      // The time when the topic mapping task was last updated.
+      // The update time, in the format of YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -312,11 +317,11 @@ namespace Models
 
 
   protected:
-    // The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
+    // The details of the access denial. This parameter is returned only when the request is denied because the RAM user does not have the required permissions.
     shared_ptr<string> accessDeniedDetail_ {};
     // The error code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The response data.
     shared_ptr<GetDisasterRecoveryItemResponseBody::Data> data_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
@@ -326,7 +331,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

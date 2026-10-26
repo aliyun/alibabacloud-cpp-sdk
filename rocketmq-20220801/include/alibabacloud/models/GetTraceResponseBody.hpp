@@ -206,25 +206,25 @@ namespace Models
 
 
         protected:
-          // Arrive time.
+          // The time when the message arrived, in YYYY-MM-DD HH:mm:ss format.
           shared_ptr<string> arriveTime_ {};
-          // Client host.
+          // The hostname.
           shared_ptr<string> clientHost_ {};
-          // Dead-letter queue message ID.
+          // The dead-letter queue message ID.
           shared_ptr<string> dlqOriginMessageId_ {};
-          // Dead-letter queue topic.
+          // The dead-letter queue topic.
           shared_ptr<string> dlqOriginTopic_ {};
-          // Message source.
+          // The message source.
           shared_ptr<string> messageSource_ {};
-          // Producer duration.
+          // The time taken to send the message.
           shared_ptr<int64_t> produceDuration_ {};
-          // Producer status.
+          // The send status.
           shared_ptr<string> produceStatus_ {};
-          // Producer time.
+          // The time when the message was sent, in YYYY-MM-DD HH:mm:ss format.
           shared_ptr<string> produceTime_ {};
-          // The time when the scheduled message withdrawal request was initiated
+          // The time when the recall request was initiated. This field is non-empty when messageSource is "recall".
           shared_ptr<string> recallTime_ {};
-          // Producer name.
+          // The producer name.
           shared_ptr<string> userName_ {};
         };
 
@@ -239,7 +239,7 @@ namespace Models
 
 
       protected:
-        // The production records.
+        // The list of producer records.
         shared_ptr<vector<ProducerInfo::Records>> records_ {};
       };
 
@@ -413,36 +413,37 @@ namespace Models
 
 
       protected:
-        // Message body.
+        // The message body.
         shared_ptr<string> body_ {};
-        // Message born host.
+        // The origin of the message.
         shared_ptr<string> bornHost_ {};
-        // Message born time.
+        // The time when the message was generated, in YYYY-MM-DD HH:mm:ss format.
         shared_ptr<string> bornTime_ {};
         // The instance ID.
         shared_ptr<string> instanceId_ {};
+        // The lite topic name.
         shared_ptr<string> liteTopicName_ {};
-        // Message grpup.
+        // The previous sharding key. This field is exclusive to ordered messages.
         shared_ptr<string> messageGroup_ {};
         // The message ID.
         shared_ptr<string> messageId_ {};
-        // Message keys.
+        // The message key.
         shared_ptr<vector<string>> messageKeys_ {};
-        // Message tag.
+        // The list of tags.
         shared_ptr<string> messageTag_ {};
-        // Message type.
+        // The message type.
         shared_ptr<string> messageType_ {};
         // The region ID.
         shared_ptr<string> regionId_ {};
-        // Message store host.
+        // The log broker address where the message is stored.
         shared_ptr<string> storeHost_ {};
-        // Message store time.
+        // The time when the message was stored in the log broker, in YYYY-MM-DD HH:mm:ss format.
         shared_ptr<string> storeTime_ {};
         // The topic name.
         shared_ptr<string> topicName_ {};
-        // Message transaction id.
+        // The transaction ID.
         shared_ptr<string> transactionId_ {};
-        // Message user properties.
+        // The user properties.
         shared_ptr<map<string, string>> userProperties_ {};
       };
 
@@ -558,13 +559,13 @@ namespace Models
 
 
           protected:
-            // Whether it is a dead letter message.
+            // Indicates whether the message is a dead-letter message.
             shared_ptr<bool> deadMessage_ {};
-            // Invisible time, milliseconds.
+            // The invisible time, in milliseconds.
             shared_ptr<int64_t> invisibleTime_ {};
-            // Operation time.
+            // The operation time, in YYYY-MM-DD HH:mm:ss format.
             shared_ptr<string> operateTime_ {};
-            // Operation type.
+            // The operation type.
             shared_ptr<string> operateType_ {};
           };
 
@@ -615,17 +616,17 @@ namespace Models
 
 
         protected:
-          // Client host.
+          // The hostname.
           shared_ptr<string> clientHost_ {};
-          // Consume status.
+          // The consumption status.
           shared_ptr<string> consumeStatus_ {};
-          // Whether to consume fifo.
+          // Indicates whether ordered consumption is enabled.
           shared_ptr<bool> fifoEnable_ {};
-          // Operation list.
+          // The list of operations.
           shared_ptr<vector<Records::Operations>> operations_ {};
           // POP_CK
           shared_ptr<string> popCk_ {};
-          // Consumer name.
+          // The consumer name.
           shared_ptr<string> userName_ {};
         };
 
@@ -676,9 +677,9 @@ namespace Models
 
 
         protected:
-          // MessageId.
+          // The message ID.
           shared_ptr<string> messageId_ {};
-          // Arrival time in the dead letter queue.
+          // The time when the message arrived in the dead-letter queue, in YYYY-MM-DD HH:mm:ss format.
           shared_ptr<string> toDlqTime_ {};
           // The topic name.
           shared_ptr<string> topicName_ {};
@@ -726,15 +727,15 @@ namespace Models
 
 
       protected:
-        // Consume status.
+        // The consumption status.
         shared_ptr<string> consumeStatus_ {};
         // The consumer group ID.
         shared_ptr<string> consumerGroupId_ {};
-        // Dead letter info.
+        // The dead-letter message information.
         shared_ptr<ConsumerInfos::DeadLetterInfo> deadLetterInfo_ {};
-        // Whether it is a dead letter message.
+        // Indicates whether the message is a dead-letter message.
         shared_ptr<bool> deadMessage_ {};
-        // Consumer record list.
+        // The list of consumption records.
         shared_ptr<vector<ConsumerInfos::Records>> records_ {};
       };
 
@@ -801,9 +802,9 @@ namespace Models
 
 
         protected:
-          // Operation time.
+          // The operation time, in YYYY-MM-DD HH:mm:ss format.
           shared_ptr<string> operateTime_ {};
-          // Operation type.
+          // The operation type.
           shared_ptr<string> operateType_ {};
         };
 
@@ -840,13 +841,13 @@ namespace Models
 
 
       protected:
-        // Delay status.
+        // The scheduled message status.
         shared_ptr<string> delayStatus_ {};
-        // Operation list.
+        // The list of operations.
         shared_ptr<vector<BrokerInfo::Operations>> operations_ {};
-        // Preset delivery time.
+        // The preset delivery time, in YYYY-MM-DD HH:mm:ss format.
         shared_ptr<string> presetDelayTime_ {};
-        // Withdraw scheduled message request result
+        // The recall result. This field is non-empty when a recall record exists.
         shared_ptr<string> recallResult_ {};
       };
 
@@ -911,15 +912,15 @@ namespace Models
 
 
     protected:
-      // The broker trace.
+      // The broker message trace information.
       shared_ptr<Data::BrokerInfo> brokerInfo_ {};
-      // Consumer trace info.
+      // The consumer message trace information.
       shared_ptr<vector<Data::ConsumerInfos>> consumerInfos_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
       // The message information.
       shared_ptr<Data::MessageInfo> messageInfo_ {};
-      // The producer trace.
+      // The producer message trace information.
       shared_ptr<Data::ProducerInfo> producerInfo_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
@@ -991,7 +992,7 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The returned result.
     shared_ptr<GetTraceResponseBody::Data> data_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
@@ -1001,9 +1002,9 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
+    // The request ID. Each request has a unique ID that you can use to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 
