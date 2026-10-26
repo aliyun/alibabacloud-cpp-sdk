@@ -16,9 +16,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CallableAgents, callableAgentsShrink_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(DisplayName, displayName_);
+      DARABONBA_PTR_TO_JSON(ExpertSuites, expertSuitesShrink_);
       DARABONBA_PTR_TO_JSON(Metadata, metadataShrink_);
       DARABONBA_PTR_TO_JSON(Model, modelShrink_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(PublishImmediately, publishImmediately_);
       DARABONBA_PTR_TO_JSON(Skills, skillsShrink_);
       DARABONBA_PTR_TO_JSON(SystemPrompt, systemPrompt_);
       DARABONBA_PTR_TO_JSON(Tools, toolsShrink_);
@@ -29,9 +31,11 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CallableAgents, callableAgentsShrink_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(DisplayName, displayName_);
+      DARABONBA_PTR_FROM_JSON(ExpertSuites, expertSuitesShrink_);
       DARABONBA_PTR_FROM_JSON(Metadata, metadataShrink_);
       DARABONBA_PTR_FROM_JSON(Model, modelShrink_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(PublishImmediately, publishImmediately_);
       DARABONBA_PTR_FROM_JSON(Skills, skillsShrink_);
       DARABONBA_PTR_FROM_JSON(SystemPrompt, systemPrompt_);
       DARABONBA_PTR_FROM_JSON(Tools, toolsShrink_);
@@ -50,8 +54,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->callableAgentsShrink_ == nullptr
-        && this->description_ == nullptr && this->displayName_ == nullptr && this->metadataShrink_ == nullptr && this->modelShrink_ == nullptr && this->name_ == nullptr
-        && this->skillsShrink_ == nullptr && this->systemPrompt_ == nullptr && this->toolsShrink_ == nullptr && this->visibility_ == nullptr && this->visibilityScopeShrink_ == nullptr; };
+        && this->description_ == nullptr && this->displayName_ == nullptr && this->expertSuitesShrink_ == nullptr && this->metadataShrink_ == nullptr && this->modelShrink_ == nullptr
+        && this->name_ == nullptr && this->publishImmediately_ == nullptr && this->skillsShrink_ == nullptr && this->systemPrompt_ == nullptr && this->toolsShrink_ == nullptr
+        && this->visibility_ == nullptr && this->visibilityScopeShrink_ == nullptr; };
     // callableAgentsShrink Field Functions 
     bool hasCallableAgentsShrink() const { return this->callableAgentsShrink_ != nullptr;};
     void deleteCallableAgentsShrink() { this->callableAgentsShrink_ = nullptr;};
@@ -73,6 +78,13 @@ namespace Models
     inline CreateAgentShrinkRequest& setDisplayName(string displayName) { DARABONBA_PTR_SET_VALUE(displayName_, displayName) };
 
 
+    // expertSuitesShrink Field Functions 
+    bool hasExpertSuitesShrink() const { return this->expertSuitesShrink_ != nullptr;};
+    void deleteExpertSuitesShrink() { this->expertSuitesShrink_ = nullptr;};
+    inline string getExpertSuitesShrink() const { DARABONBA_PTR_GET_DEFAULT(expertSuitesShrink_, "") };
+    inline CreateAgentShrinkRequest& setExpertSuitesShrink(string expertSuitesShrink) { DARABONBA_PTR_SET_VALUE(expertSuitesShrink_, expertSuitesShrink) };
+
+
     // metadataShrink Field Functions 
     bool hasMetadataShrink() const { return this->metadataShrink_ != nullptr;};
     void deleteMetadataShrink() { this->metadataShrink_ = nullptr;};
@@ -92,6 +104,13 @@ namespace Models
     void deleteName() { this->name_ = nullptr;};
     inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateAgentShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    // publishImmediately Field Functions 
+    bool hasPublishImmediately() const { return this->publishImmediately_ != nullptr;};
+    void deletePublishImmediately() { this->publishImmediately_ = nullptr;};
+    inline bool getPublishImmediately() const { DARABONBA_PTR_GET_DEFAULT(publishImmediately_, false) };
+    inline CreateAgentShrinkRequest& setPublishImmediately(bool publishImmediately) { DARABONBA_PTR_SET_VALUE(publishImmediately_, publishImmediately) };
 
 
     // skillsShrink Field Functions 
@@ -136,6 +155,8 @@ namespace Models
     shared_ptr<string> description_ {};
     // The display name of the agent.
     shared_ptr<string> displayName_ {};
+    // Agent 绑定的已发布专家套件。个人或企业套件使用 SuiteId，可选 Version；官方套件必须显式指定 Source=OFFICIAL 和官方目录中的 SuiteId，不传 Version。未传时创建为空，不会默认加载所有官方套件。
+    shared_ptr<string> expertSuitesShrink_ {};
     // The extended metadata in key-value pairs.
     shared_ptr<string> metadataShrink_ {};
     // The model configuration.
@@ -144,6 +165,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // 是否在创建 Agent 后立即发布。true 发布创建的版本；false 或省略保持原有仅创建草稿行为。保存与发布不是原子操作，发布失败时草稿可能已存在；重试前应先查询 Agent，避免重复创建。
+    shared_ptr<bool> publishImmediately_ {};
     // The list of skills.
     shared_ptr<string> skillsShrink_ {};
     // The system prompt.

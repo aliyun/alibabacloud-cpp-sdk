@@ -986,6 +986,10 @@ CreateAgentResponse Client::createAgentWithOptions(const CreateAgentRequest &tmp
     request.setCallableAgentsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCallableAgents(), "CallableAgents", "json"));
   }
 
+  if (!!tmpReq.hasExpertSuites()) {
+    request.setExpertSuitesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExpertSuites(), "ExpertSuites", "json"));
+  }
+
   if (!!tmpReq.hasMetadata()) {
     request.setMetadataShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMetadata(), "Metadata", "json"));
   }
@@ -1019,6 +1023,10 @@ CreateAgentResponse Client::createAgentWithOptions(const CreateAgentRequest &tmp
     body["DisplayName"] = request.getDisplayName();
   }
 
+  if (!!request.hasExpertSuitesShrink()) {
+    body["ExpertSuites"] = request.getExpertSuitesShrink();
+  }
+
   if (!!request.hasMetadataShrink()) {
     body["Metadata"] = request.getMetadataShrink();
   }
@@ -1029,6 +1037,10 @@ CreateAgentResponse Client::createAgentWithOptions(const CreateAgentRequest &tmp
 
   if (!!request.hasName()) {
     body["Name"] = request.getName();
+  }
+
+  if (!!request.hasPublishImmediately()) {
+    body["PublishImmediately"] = request.getPublishImmediately();
   }
 
   if (!!request.hasSkillsShrink()) {
@@ -8467,6 +8479,10 @@ FindBestMatchSecurityStrategyResponse Client::findBestMatchSecurityStrategy(cons
 GetAgentResponse Client::getAgentWithOptions(const GetAgentRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasAgentVersion()) {
+    body["AgentVersion"] = request.getAgentVersion();
+  }
+
   if (!!request.hasName()) {
     body["Name"] = request.getName();
   }
@@ -21080,6 +21096,66 @@ UnTagDataAssetsResponse Client::unTagDataAssetsWithOptions(const UnTagDataAssets
 UnTagDataAssetsResponse Client::unTagDataAssets(const UnTagDataAssetsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return unTagDataAssetsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改Agent会话标题
+ *
+ * @description 修改当前身份可访问的 Agent 会话标题，不改变任务执行状态。
+ *
+ * @param tmpReq UpdateAgentSessionTitleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAgentSessionTitleResponse
+ */
+UpdateAgentSessionTitleResponse Client::updateAgentSessionTitleWithOptions(const UpdateAgentSessionTitleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateAgentSessionTitleShrinkRequest request = UpdateAgentSessionTitleShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasParams()) {
+    request.setParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getParams(), "Params", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  if (!!request.hasJsonrpc()) {
+    body["Jsonrpc"] = request.getJsonrpc();
+  }
+
+  if (!!request.hasParamsShrink()) {
+    body["Params"] = request.getParamsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateAgentSessionTitle"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAgentSessionTitleResponse>();
+}
+
+/**
+ * @summary 修改Agent会话标题
+ *
+ * @description 修改当前身份可访问的 Agent 会话标题，不改变任务执行状态。
+ *
+ * @param request UpdateAgentSessionTitleRequest
+ * @return UpdateAgentSessionTitleResponse
+ */
+UpdateAgentSessionTitleResponse Client::updateAgentSessionTitle(const UpdateAgentSessionTitleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateAgentSessionTitleWithOptions(request, runtime);
 }
 
 /**

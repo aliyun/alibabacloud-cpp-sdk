@@ -35,11 +35,13 @@ namespace Models
     class JsonRpcResponse : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const JsonRpcResponse& obj) { 
+        DARABONBA_PTR_TO_JSON(Error, error_);
         DARABONBA_PTR_TO_JSON(Id, id_);
         DARABONBA_PTR_TO_JSON(Jsonrpc, jsonrpc_);
         DARABONBA_PTR_TO_JSON(Result, result_);
       };
       friend void from_json(const Darabonba::Json& j, JsonRpcResponse& obj) { 
+        DARABONBA_PTR_FROM_JSON(Error, error_);
         DARABONBA_PTR_FROM_JSON(Id, id_);
         DARABONBA_PTR_FROM_JSON(Jsonrpc, jsonrpc_);
         DARABONBA_PTR_FROM_JSON(Result, result_);
@@ -112,11 +114,13 @@ namespace Models
           class Meta : public Darabonba::Model {
           public:
             friend void to_json(Darabonba::Json& j, const Meta& obj) { 
+              DARABONBA_PTR_TO_JSON(Archived, archived_);
               DARABONBA_PTR_TO_JSON(SessionSource, sessionSource_);
               DARABONBA_PTR_TO_JSON(SessionStatus, sessionStatus_);
               DARABONBA_PTR_TO_JSON(SessionTagList, sessionTagList_);
             };
             friend void from_json(const Darabonba::Json& j, Meta& obj) { 
+              DARABONBA_PTR_FROM_JSON(Archived, archived_);
               DARABONBA_PTR_FROM_JSON(SessionSource, sessionSource_);
               DARABONBA_PTR_FROM_JSON(SessionStatus, sessionStatus_);
               DARABONBA_PTR_FROM_JSON(SessionTagList, sessionTagList_);
@@ -164,8 +168,15 @@ namespace Models
               shared_ptr<string> sessionTagCode_ {};
             };
 
-            virtual bool empty() const override { return this->sessionSource_ == nullptr
-        && this->sessionStatus_ == nullptr && this->sessionTagList_ == nullptr; };
+            virtual bool empty() const override { return this->archived_ == nullptr
+        && this->sessionSource_ == nullptr && this->sessionStatus_ == nullptr && this->sessionTagList_ == nullptr; };
+            // archived Field Functions 
+            bool hasArchived() const { return this->archived_ != nullptr;};
+            void deleteArchived() { this->archived_ = nullptr;};
+            inline bool getArchived() const { DARABONBA_PTR_GET_DEFAULT(archived_, false) };
+            inline Meta& setArchived(bool archived) { DARABONBA_PTR_SET_VALUE(archived_, archived) };
+
+
             // sessionSource Field Functions 
             bool hasSessionSource() const { return this->sessionSource_ != nullptr;};
             void deleteSessionSource() { this->sessionSource_ = nullptr;};
@@ -190,6 +201,7 @@ namespace Models
 
 
           protected:
+            shared_ptr<bool> archived_ {};
             // The session source.
             shared_ptr<string> sessionSource_ {};
             // The session connection status.
@@ -302,8 +314,81 @@ namespace Models
         shared_ptr<int32_t> totalCount_ {};
       };
 
-      virtual bool empty() const override { return this->id_ == nullptr
-        && this->jsonrpc_ == nullptr && this->result_ == nullptr; };
+      class Error : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Error& obj) { 
+          DARABONBA_PTR_TO_JSON(Code, code_);
+          DARABONBA_ANY_TO_JSON(Data, data_);
+          DARABONBA_PTR_TO_JSON(ErrorCode, errorCode_);
+          DARABONBA_PTR_TO_JSON(Message, message_);
+        };
+        friend void from_json(const Darabonba::Json& j, Error& obj) { 
+          DARABONBA_PTR_FROM_JSON(Code, code_);
+          DARABONBA_ANY_FROM_JSON(Data, data_);
+          DARABONBA_PTR_FROM_JSON(ErrorCode, errorCode_);
+          DARABONBA_PTR_FROM_JSON(Message, message_);
+        };
+        Error() = default ;
+        Error(const Error &) = default ;
+        Error(Error &&) = default ;
+        Error(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Error() = default ;
+        Error& operator=(const Error &) = default ;
+        Error& operator=(Error &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->code_ == nullptr
+        && this->data_ == nullptr && this->errorCode_ == nullptr && this->message_ == nullptr; };
+        // code Field Functions 
+        bool hasCode() const { return this->code_ != nullptr;};
+        void deleteCode() { this->code_ = nullptr;};
+        inline int32_t getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
+        inline Error& setCode(int32_t code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+        // data Field Functions 
+        bool hasData() const { return this->data_ != nullptr;};
+        void deleteData() { this->data_ = nullptr;};
+        inline         const Darabonba::Json & getData() const { DARABONBA_GET(data_) };
+        Darabonba::Json & getData() { DARABONBA_GET(data_) };
+        inline Error& setData(const Darabonba::Json & data) { DARABONBA_SET_VALUE(data_, data) };
+        inline Error& setData(Darabonba::Json && data) { DARABONBA_SET_RVALUE(data_, data) };
+
+
+        // errorCode Field Functions 
+        bool hasErrorCode() const { return this->errorCode_ != nullptr;};
+        void deleteErrorCode() { this->errorCode_ = nullptr;};
+        inline string getErrorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
+        inline Error& setErrorCode(string errorCode) { DARABONBA_PTR_SET_VALUE(errorCode_, errorCode) };
+
+
+        // message Field Functions 
+        bool hasMessage() const { return this->message_ != nullptr;};
+        void deleteMessage() { this->message_ = nullptr;};
+        inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+        inline Error& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+
+
+      protected:
+        shared_ptr<int32_t> code_ {};
+        Darabonba::Json data_ {};
+        shared_ptr<string> errorCode_ {};
+        shared_ptr<string> message_ {};
+      };
+
+      virtual bool empty() const override { return this->error_ == nullptr
+        && this->id_ == nullptr && this->jsonrpc_ == nullptr && this->result_ == nullptr; };
+      // error Field Functions 
+      bool hasError() const { return this->error_ != nullptr;};
+      void deleteError() { this->error_ = nullptr;};
+      inline const JsonRpcResponse::Error & getError() const { DARABONBA_PTR_GET_CONST(error_, JsonRpcResponse::Error) };
+      inline JsonRpcResponse::Error getError() { DARABONBA_PTR_GET(error_, JsonRpcResponse::Error) };
+      inline JsonRpcResponse& setError(const JsonRpcResponse::Error & error) { DARABONBA_PTR_SET_VALUE(error_, error) };
+      inline JsonRpcResponse& setError(JsonRpcResponse::Error && error) { DARABONBA_PTR_SET_RVALUE(error_, error) };
+
+
       // id Field Functions 
       bool hasId() const { return this->id_ != nullptr;};
       void deleteId() { this->id_ = nullptr;};
@@ -328,6 +413,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<JsonRpcResponse::Error> error_ {};
       // The ID passed in by the requester. The value is returned as-is.
       shared_ptr<string> id_ {};
       // The JSON-RPC version. Fixed value: 2.0.

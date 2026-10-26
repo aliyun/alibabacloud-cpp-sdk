@@ -1179,6 +1179,10 @@
 #include <alibabacloud/models/UnTagDataAssetsShrinkRequest.hpp>
 #include <alibabacloud/models/UnTagDataAssetsResponseBody.hpp>
 #include <alibabacloud/models/UnTagDataAssetsResponse.hpp>
+#include <alibabacloud/models/UpdateAgentSessionTitleRequest.hpp>
+#include <alibabacloud/models/UpdateAgentSessionTitleShrinkRequest.hpp>
+#include <alibabacloud/models/UpdateAgentSessionTitleResponseBody.hpp>
+#include <alibabacloud/models/UpdateAgentSessionTitleResponse.hpp>
 #include <alibabacloud/models/UpdateAlertRuleRequest.hpp>
 #include <alibabacloud/models/UpdateAlertRuleShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateAlertRuleResponseBody.hpp>

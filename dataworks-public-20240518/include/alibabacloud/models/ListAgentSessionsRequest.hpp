@@ -38,6 +38,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Params& obj) { 
         DARABONBA_PTR_TO_JSON(AgentName, agentName_);
+        DARABONBA_PTR_TO_JSON(Archived, archived_);
         DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
         DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
         DARABONBA_PTR_TO_JSON(SessionId, sessionId_);
@@ -47,6 +48,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, Params& obj) { 
         DARABONBA_PTR_FROM_JSON(AgentName, agentName_);
+        DARABONBA_PTR_FROM_JSON(Archived, archived_);
         DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
         DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
         DARABONBA_PTR_FROM_JSON(SessionId, sessionId_);
@@ -66,13 +68,20 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->agentName_ == nullptr
-        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->sessionId_ == nullptr && this->sessionSourceList_ == nullptr && this->sessionTitle_ == nullptr
-        && this->tagList_ == nullptr; };
+        && this->archived_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->sessionId_ == nullptr && this->sessionSourceList_ == nullptr
+        && this->sessionTitle_ == nullptr && this->tagList_ == nullptr; };
       // agentName Field Functions 
       bool hasAgentName() const { return this->agentName_ != nullptr;};
       void deleteAgentName() { this->agentName_ = nullptr;};
       inline string getAgentName() const { DARABONBA_PTR_GET_DEFAULT(agentName_, "") };
       inline Params& setAgentName(string agentName) { DARABONBA_PTR_SET_VALUE(agentName_, agentName) };
+
+
+      // archived Field Functions 
+      bool hasArchived() const { return this->archived_ != nullptr;};
+      void deleteArchived() { this->archived_ = nullptr;};
+      inline bool getArchived() const { DARABONBA_PTR_GET_DEFAULT(archived_, false) };
+      inline Params& setArchived(bool archived) { DARABONBA_PTR_SET_VALUE(archived_, archived) };
 
 
       // maxResults Field Functions 
@@ -124,6 +133,8 @@ namespace Models
     protected:
       // **Agent name** for exact filtering. At least one of this parameter and `SessionSourceList` must be specified.
       shared_ptr<string> agentName_ {};
+      // true仅返回归档会话；false或省略仅返回未归档会话。
+      shared_ptr<bool> archived_ {};
       // The number of entries per page. Default value: 50.
       shared_ptr<int32_t> maxResults_ {};
       // The token for the next page. Set this parameter to 1 for the first page.

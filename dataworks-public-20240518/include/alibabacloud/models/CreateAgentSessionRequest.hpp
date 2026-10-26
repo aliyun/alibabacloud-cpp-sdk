@@ -81,14 +81,18 @@ namespace Models
           friend void to_json(Darabonba::Json& j, const InitialConfigOptions& obj) { 
             DARABONBA_PTR_TO_JSON(ExecutionLane, executionLane_);
             DARABONBA_PTR_TO_JSON(Mode, mode_);
+            DARABONBA_PTR_TO_JSON(Model, model_);
             DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
+            DARABONBA_PTR_TO_JSON(ReasoningEffort, reasoningEffort_);
             DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
             DARABONBA_PTR_TO_JSON(Skills, skills_);
           };
           friend void from_json(const Darabonba::Json& j, InitialConfigOptions& obj) { 
             DARABONBA_PTR_FROM_JSON(ExecutionLane, executionLane_);
             DARABONBA_PTR_FROM_JSON(Mode, mode_);
+            DARABONBA_PTR_FROM_JSON(Model, model_);
             DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
+            DARABONBA_PTR_FROM_JSON(ReasoningEffort, reasoningEffort_);
             DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
             DARABONBA_PTR_FROM_JSON(Skills, skills_);
           };
@@ -104,7 +108,8 @@ namespace Models
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
           virtual bool empty() const override { return this->executionLane_ == nullptr
-        && this->mode_ == nullptr && this->projectId_ == nullptr && this->resourceGroupId_ == nullptr && this->skills_ == nullptr; };
+        && this->mode_ == nullptr && this->model_ == nullptr && this->projectId_ == nullptr && this->reasoningEffort_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->skills_ == nullptr; };
           // executionLane Field Functions 
           bool hasExecutionLane() const { return this->executionLane_ != nullptr;};
           void deleteExecutionLane() { this->executionLane_ = nullptr;};
@@ -119,11 +124,25 @@ namespace Models
           inline InitialConfigOptions& setMode(string mode) { DARABONBA_PTR_SET_VALUE(mode_, mode) };
 
 
+          // model Field Functions 
+          bool hasModel() const { return this->model_ != nullptr;};
+          void deleteModel() { this->model_ = nullptr;};
+          inline string getModel() const { DARABONBA_PTR_GET_DEFAULT(model_, "") };
+          inline InitialConfigOptions& setModel(string model) { DARABONBA_PTR_SET_VALUE(model_, model) };
+
+
           // projectId Field Functions 
           bool hasProjectId() const { return this->projectId_ != nullptr;};
           void deleteProjectId() { this->projectId_ = nullptr;};
           inline string getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
           inline InitialConfigOptions& setProjectId(string projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
+          // reasoningEffort Field Functions 
+          bool hasReasoningEffort() const { return this->reasoningEffort_ != nullptr;};
+          void deleteReasoningEffort() { this->reasoningEffort_ = nullptr;};
+          inline string getReasoningEffort() const { DARABONBA_PTR_GET_DEFAULT(reasoningEffort_, "") };
+          inline InitialConfigOptions& setReasoningEffort(string reasoningEffort) { DARABONBA_PTR_SET_VALUE(reasoningEffort_, reasoningEffort) };
 
 
           // resourceGroupId Field Functions 
@@ -152,8 +171,10 @@ namespace Models
           // The authorization mode for script execution. OpenAPI currently supports only the yolo mode. Valid values:
           // * yolo: Automatic authorization. No manual intervention is required, and the model processes tasks automatically.
           shared_ptr<string> mode_ {};
+          shared_ptr<string> model_ {};
           // The DataWorks workspace ID. Used to initialize the session project context. If omitted, the session is treated as having no project context. You can later correct or switch the project context by using PromptAgentSession.
           shared_ptr<string> projectId_ {};
+          shared_ptr<string> reasoningEffort_ {};
           // The ID of the resource group used for initialization.
           shared_ptr<string> resourceGroupId_ {};
           // The names of custom skills to load. Separate multiple skill names with commas (,).

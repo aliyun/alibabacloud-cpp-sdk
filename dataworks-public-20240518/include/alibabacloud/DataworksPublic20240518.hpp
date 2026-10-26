@@ -7972,6 +7972,27 @@ namespace DataworksPublic20240518
       Models::UnTagDataAssetsResponse unTagDataAssets(const Models::UnTagDataAssetsRequest &request);
 
       /**
+       * @summary 修改Agent会话标题
+       *
+       * @description 修改当前身份可访问的 Agent 会话标题，不改变任务执行状态。
+       *
+       * @param tmpReq UpdateAgentSessionTitleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAgentSessionTitleResponse
+       */
+      Models::UpdateAgentSessionTitleResponse updateAgentSessionTitleWithOptions(const Models::UpdateAgentSessionTitleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改Agent会话标题
+       *
+       * @description 修改当前身份可访问的 Agent 会话标题，不改变任务执行状态。
+       *
+       * @param request UpdateAgentSessionTitleRequest
+       * @return UpdateAgentSessionTitleResponse
+       */
+      Models::UpdateAgentSessionTitleResponse updateAgentSessionTitle(const Models::UpdateAgentSessionTitleRequest &request);
+
+      /**
        * @summary Updates the information about a custom alert monitoring rule.
        *
        * @param tmpReq UpdateAlertRuleRequest

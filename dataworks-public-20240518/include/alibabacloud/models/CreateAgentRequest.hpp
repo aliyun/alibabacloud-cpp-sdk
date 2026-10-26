@@ -17,9 +17,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CallableAgents, callableAgents_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(DisplayName, displayName_);
+      DARABONBA_PTR_TO_JSON(ExpertSuites, expertSuites_);
       DARABONBA_ANY_TO_JSON(Metadata, metadata_);
       DARABONBA_ANY_TO_JSON(Model, model_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(PublishImmediately, publishImmediately_);
       DARABONBA_PTR_TO_JSON(Skills, skills_);
       DARABONBA_PTR_TO_JSON(SystemPrompt, systemPrompt_);
       DARABONBA_PTR_TO_JSON(Tools, tools_);
@@ -30,9 +32,11 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CallableAgents, callableAgents_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(DisplayName, displayName_);
+      DARABONBA_PTR_FROM_JSON(ExpertSuites, expertSuites_);
       DARABONBA_ANY_FROM_JSON(Metadata, metadata_);
       DARABONBA_ANY_FROM_JSON(Model, model_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(PublishImmediately, publishImmediately_);
       DARABONBA_PTR_FROM_JSON(Skills, skills_);
       DARABONBA_PTR_FROM_JSON(SystemPrompt, systemPrompt_);
       DARABONBA_PTR_FROM_JSON(Tools, tools_);
@@ -134,9 +138,15 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Skills& obj) { 
         DARABONBA_PTR_TO_JSON(Name, name_);
+        DARABONBA_PTR_TO_JSON(SkillId, skillId_);
+        DARABONBA_PTR_TO_JSON(Source, source_);
+        DARABONBA_PTR_TO_JSON(Version, version_);
       };
       friend void from_json(const Darabonba::Json& j, Skills& obj) { 
         DARABONBA_PTR_FROM_JSON(Name, name_);
+        DARABONBA_PTR_FROM_JSON(SkillId, skillId_);
+        DARABONBA_PTR_FROM_JSON(Source, source_);
+        DARABONBA_PTR_FROM_JSON(Version, version_);
       };
       Skills() = default ;
       Skills(const Skills &) = default ;
@@ -149,7 +159,8 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->name_ == nullptr; };
+      virtual bool empty() const override { return this->name_ == nullptr
+        && this->skillId_ == nullptr && this->source_ == nullptr && this->version_ == nullptr; };
       // name Field Functions 
       bool hasName() const { return this->name_ != nullptr;};
       void deleteName() { this->name_ = nullptr;};
@@ -157,9 +168,91 @@ namespace Models
       inline Skills& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+      // skillId Field Functions 
+      bool hasSkillId() const { return this->skillId_ != nullptr;};
+      void deleteSkillId() { this->skillId_ = nullptr;};
+      inline string getSkillId() const { DARABONBA_PTR_GET_DEFAULT(skillId_, "") };
+      inline Skills& setSkillId(string skillId) { DARABONBA_PTR_SET_VALUE(skillId_, skillId) };
+
+
+      // source Field Functions 
+      bool hasSource() const { return this->source_ != nullptr;};
+      void deleteSource() { this->source_ = nullptr;};
+      inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+      inline Skills& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
+
+
+      // version Field Functions 
+      bool hasVersion() const { return this->version_ != nullptr;};
+      void deleteVersion() { this->version_ = nullptr;};
+      inline int32_t getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, 0) };
+      inline Skills& setVersion(int32_t version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
     protected:
       // The name of the skill.
       shared_ptr<string> name_ {};
+      // Source=OFFICIAL 时传官方目录 ID，不传 Name 或 Version。个人或企业 Skill 不传此字段。
+      shared_ptr<string> skillId_ {};
+      // OFFICIAL 表示官方目录资源；DB 表示个人或企业资源，省略时保持原有按名称查询语义。
+      shared_ptr<string> source_ {};
+      // 仅用于个人或企业 Skill，必须为已发布快照的整数版本。省略时在 Agent 发布时固定当前已发布版本；Source=OFFICIAL 时不传。
+      shared_ptr<int32_t> version_ {};
+    };
+
+    class ExpertSuites : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ExpertSuites& obj) { 
+        DARABONBA_PTR_TO_JSON(Source, source_);
+        DARABONBA_PTR_TO_JSON(SuiteId, suiteId_);
+        DARABONBA_PTR_TO_JSON(Version, version_);
+      };
+      friend void from_json(const Darabonba::Json& j, ExpertSuites& obj) { 
+        DARABONBA_PTR_FROM_JSON(Source, source_);
+        DARABONBA_PTR_FROM_JSON(SuiteId, suiteId_);
+        DARABONBA_PTR_FROM_JSON(Version, version_);
+      };
+      ExpertSuites() = default ;
+      ExpertSuites(const ExpertSuites &) = default ;
+      ExpertSuites(ExpertSuites &&) = default ;
+      ExpertSuites(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ExpertSuites() = default ;
+      ExpertSuites& operator=(const ExpertSuites &) = default ;
+      ExpertSuites& operator=(ExpertSuites &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->source_ == nullptr
+        && this->suiteId_ == nullptr && this->version_ == nullptr; };
+      // source Field Functions 
+      bool hasSource() const { return this->source_ != nullptr;};
+      void deleteSource() { this->source_ = nullptr;};
+      inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+      inline ExpertSuites& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
+
+
+      // suiteId Field Functions 
+      bool hasSuiteId() const { return this->suiteId_ != nullptr;};
+      void deleteSuiteId() { this->suiteId_ = nullptr;};
+      inline string getSuiteId() const { DARABONBA_PTR_GET_DEFAULT(suiteId_, "") };
+      inline ExpertSuites& setSuiteId(string suiteId) { DARABONBA_PTR_SET_VALUE(suiteId_, suiteId) };
+
+
+      // version Field Functions 
+      bool hasVersion() const { return this->version_ != nullptr;};
+      void deleteVersion() { this->version_ = nullptr;};
+      inline int32_t getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, 0) };
+      inline ExpertSuites& setVersion(int32_t version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
+    protected:
+      // OFFICIAL 表示官方目录资源；DB 表示个人或企业资源。省略时保持原有数据库资源查询语义。官方资源在 Agent 发布时固定制品版本。
+      shared_ptr<string> source_ {};
+      // 传入专家套件引用时，每项需提供 SuiteId，由服务端校验。Source=OFFICIAL 时为官方目录 ID；其他情况为专家套件管理返回的 ID。引用资源必须对调用者可见。
+      shared_ptr<string> suiteId_ {};
+      // 仅用于个人或企业套件，必须为已发布快照的整数版本号。省略时在 Agent 发布时固定当前已发布版本。Source=OFFICIAL 时不传此字段。
+      shared_ptr<int32_t> version_ {};
     };
 
     class CallableAgents : public Darabonba::Model {
@@ -195,8 +288,9 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->callableAgents_ == nullptr
-        && this->description_ == nullptr && this->displayName_ == nullptr && this->metadata_ == nullptr && this->model_ == nullptr && this->name_ == nullptr
-        && this->skills_ == nullptr && this->systemPrompt_ == nullptr && this->tools_ == nullptr && this->visibility_ == nullptr && this->visibilityScope_ == nullptr; };
+        && this->description_ == nullptr && this->displayName_ == nullptr && this->expertSuites_ == nullptr && this->metadata_ == nullptr && this->model_ == nullptr
+        && this->name_ == nullptr && this->publishImmediately_ == nullptr && this->skills_ == nullptr && this->systemPrompt_ == nullptr && this->tools_ == nullptr
+        && this->visibility_ == nullptr && this->visibilityScope_ == nullptr; };
     // callableAgents Field Functions 
     bool hasCallableAgents() const { return this->callableAgents_ != nullptr;};
     void deleteCallableAgents() { this->callableAgents_ = nullptr;};
@@ -218,6 +312,15 @@ namespace Models
     void deleteDisplayName() { this->displayName_ = nullptr;};
     inline string getDisplayName() const { DARABONBA_PTR_GET_DEFAULT(displayName_, "") };
     inline CreateAgentRequest& setDisplayName(string displayName) { DARABONBA_PTR_SET_VALUE(displayName_, displayName) };
+
+
+    // expertSuites Field Functions 
+    bool hasExpertSuites() const { return this->expertSuites_ != nullptr;};
+    void deleteExpertSuites() { this->expertSuites_ = nullptr;};
+    inline const vector<CreateAgentRequest::ExpertSuites> & getExpertSuites() const { DARABONBA_PTR_GET_CONST(expertSuites_, vector<CreateAgentRequest::ExpertSuites>) };
+    inline vector<CreateAgentRequest::ExpertSuites> getExpertSuites() { DARABONBA_PTR_GET(expertSuites_, vector<CreateAgentRequest::ExpertSuites>) };
+    inline CreateAgentRequest& setExpertSuites(const vector<CreateAgentRequest::ExpertSuites> & expertSuites) { DARABONBA_PTR_SET_VALUE(expertSuites_, expertSuites) };
+    inline CreateAgentRequest& setExpertSuites(vector<CreateAgentRequest::ExpertSuites> && expertSuites) { DARABONBA_PTR_SET_RVALUE(expertSuites_, expertSuites) };
 
 
     // metadata Field Functions 
@@ -243,6 +346,13 @@ namespace Models
     void deleteName() { this->name_ = nullptr;};
     inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateAgentRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    // publishImmediately Field Functions 
+    bool hasPublishImmediately() const { return this->publishImmediately_ != nullptr;};
+    void deletePublishImmediately() { this->publishImmediately_ = nullptr;};
+    inline bool getPublishImmediately() const { DARABONBA_PTR_GET_DEFAULT(publishImmediately_, false) };
+    inline CreateAgentRequest& setPublishImmediately(bool publishImmediately) { DARABONBA_PTR_SET_VALUE(publishImmediately_, publishImmediately) };
 
 
     // skills Field Functions 
@@ -293,6 +403,8 @@ namespace Models
     shared_ptr<string> description_ {};
     // The display name of the agent.
     shared_ptr<string> displayName_ {};
+    // Agent 绑定的已发布专家套件。个人或企业套件使用 SuiteId，可选 Version；官方套件必须显式指定 Source=OFFICIAL 和官方目录中的 SuiteId，不传 Version。未传时创建为空，不会默认加载所有官方套件。
+    shared_ptr<vector<CreateAgentRequest::ExpertSuites>> expertSuites_ {};
     // The extended metadata in key-value pairs.
     Darabonba::Json metadata_ {};
     // The model configuration.
@@ -301,6 +413,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // 是否在创建 Agent 后立即发布。true 发布创建的版本；false 或省略保持原有仅创建草稿行为。保存与发布不是原子操作，发布失败时草稿可能已存在；重试前应先查询 Agent，避免重复创建。
+    shared_ptr<bool> publishImmediately_ {};
     // The list of skills.
     shared_ptr<vector<CreateAgentRequest::Skills>> skills_ {};
     // The system prompt.
