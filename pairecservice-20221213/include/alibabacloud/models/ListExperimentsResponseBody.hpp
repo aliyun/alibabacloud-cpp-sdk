@@ -210,47 +210,45 @@ namespace Models
 
 
     protected:
-      // The alias for the experiment ID.
+      // The alias of the experiment ID.
       shared_ptr<string> aliasExperimentId_ {};
-      // The allocated bucket numbers.
+      // The allocated bucket number.
       shared_ptr<string> buckets_ {};
-      // The configuration of the experiment.
+      // The experiment configuration.
       shared_ptr<string> config_ {};
-      // The ID of the debug crowd.
+      // The debug crowd ID.
       shared_ptr<string> debugCrowdId_ {};
-      // A comma-separated list of user IDs for debugging.
+      // The debug users.
       shared_ptr<string> debugUsers_ {};
-      // The description of the experiment.
+      // The experiment description.
       shared_ptr<string> description_ {};
-      // The ID of the experiment group.
+      // The experiment group ID.
       shared_ptr<string> experimentGroupId_ {};
-      // The ID of the experiment.
+      // The experiment ID.
       shared_ptr<string> experimentId_ {};
-      // The percentage of flow allocated to the experiment.
+      // The traffic allocation percentage.
       shared_ptr<int32_t> flowPercent_ {};
-      // The timestamp indicating when the experiment was created.
+      // The creation time. The value is in ISO 8601 format and includes the time zone offset.
       shared_ptr<string> gmtCreateTime_ {};
-      // The timestamp indicating when the experiment was last modified.
+      // The update time. The value is in ISO 8601 format and includes the time zone offset.
       shared_ptr<string> gmtModifiedTime_ {};
-      // The ID of the laboratory.
+      // The laboratory ID.
       shared_ptr<string> laboratoryId_ {};
-      // The ID of the layer.
+      // The layer ID.
       shared_ptr<string> layerId_ {};
-      // The name of the experiment.
+      // The experiment name.
       shared_ptr<string> name_ {};
-      // The ID of the scene.
+      // The scene ID.
       shared_ptr<string> sceneId_ {};
-      // The status of the experiment. Valid values:
+      // The status filter. Valid values:
       // 
-      // - `Offline`: The experiment is inactive and does not receive flow.
-      // 
-      // - `Online`: The experiment is active and can receive flow.
+      // - Offline: Not online.
+      // - Online: Online.
       shared_ptr<string> status_ {};
-      // The type of the experiment. Valid values:
+      // The experiment type. Valid values:
       // 
-      // - `Baseline`: The control experiment.
-      // 
-      // - `Normal`: A variant experiment.
+      // - Baseline: Baseline experiment.
+      // - Normal: Common experiment.
       shared_ptr<string> type_ {};
     };
 
@@ -280,11 +278,11 @@ namespace Models
 
 
   protected:
-    // The list of experiments.
+    // The experiment list.
     shared_ptr<vector<ListExperimentsResponseBody::Experiments>> experiments_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The total number of experiments returned.
+    // The total number of elements in the list.
     shared_ptr<int64_t> totalCount_ {};
   };
 

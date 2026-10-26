@@ -51,7 +51,7 @@ namespace Models
 
 
   protected:
-    // A list of calculation job IDs.
+    // The list of compute task IDs.
     shared_ptr<vector<string>> calculationJobIds_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

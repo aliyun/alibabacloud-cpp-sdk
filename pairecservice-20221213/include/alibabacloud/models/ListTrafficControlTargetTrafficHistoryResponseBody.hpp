@@ -112,9 +112,9 @@ namespace Models
       shared_ptr<string> experimentId_ {};
       // The ID of the item.
       shared_ptr<string> itemId_ {};
-      // The timestamp of the record.
+      // The time in the behavior table, up to the current time. The format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> recordTime_ {};
-      // The intended traffic for the traffic control target.
+      // The target traffic of the traffic control target.
       shared_ptr<double> trafficControlTargetAimTraffic_ {};
       // The actual traffic of the traffic control target.
       shared_ptr<double> trafficControlTargetTraffic_ {};
@@ -150,9 +150,9 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total count of historical records.
+    // The total number of entries.
     shared_ptr<string> totalCount_ {};
-    // A list of the traffic control history records.
+    // The traffic control history records.
     shared_ptr<vector<ListTrafficControlTargetTrafficHistoryResponseBody::TrafficControlTaskTrafficHistories>> trafficControlTaskTrafficHistories_ {};
   };
 

@@ -140,45 +140,40 @@ namespace Models
 
 
   protected:
-    // The configuration of the data diagnosis task, provided as a JSON string. The required fields vary based on the `Type` parameter. For `ChangeRate`, specify `AnalysisField` and `PartitionFieldFormat`. For `PreferenceStatisticsCycle`, specify `UserIdField`, `RemainDays`, `EverAppearedDays`, `RemainRatePeriods`, and `PartitionFieldFormat`. For `JoinTables`, specify `LeftTableAnalysisField`, `RightTableAnalysisField`, `LeftJoinField`, `RightJoinField`, `SampleQuantity`, `LeftTablePartitionFieldFormat`, and `RightTablePartitionFieldFormat`. For `BaseStatistics`, specify `TagField`, `TagFieldSeparator`, `KVField`, `KVFieldSeparator`, `KVPairSeparator`, `TextField`, `Quantiles`, `DefaultValueOfString`, `NullStringField`, and `PartitionFieldFormat`. For `AbnormalBehavior`, specify `UserId`, `ItemId`, `EventField`, `UpStreamBehavior`, `DownstreamBehavior`, `NumericHistogramBins`, and `PartitionFieldFormat`.
+    // The configuration details of the data diagnostic task. If `Type` is set to `ChangeRate`, include the analysis field (`AnalysisField`) and partition field format (`PartitionFieldFormat`). If `Type` is set to `PreferenceStatisticsCycle`, include the user ID field (`UserIdField`), single-day retention rate statistical period (`RemainDays`), appearance rate statistical period (`EverAppearedDays`), periodic retention rate statistical period (`RemainRatePeriods`), and partition field format (`PartitionFieldFormat`). If `Type` is set to `JoinTables`, include the left table analysis field (`LeftTableAnalysisField`), right table analysis field (`RightTableAnalysisField`), left table JOIN field (`LeftJoinField`), right table JOIN field (`RightJoinField`), sample quantity for display (`SampleQuantity`), left table partition field format (`LeftTablePartitionFieldFormat`), and right table partition field format (`RightTablePartitionFieldFormat`). If `Type` is set to `BaseStatistics`, include the Tag field (`TagField`), Tag field separator (`TagFieldSeparator`), KV field (`KVField`), KV field separator (`KVFieldSeparator`), KV pair separator (`KVPairSeparator`), Text field (`TextField`), data percentile distribution (`Quantiles`), default value for the string type (`DefaultValueOfString`), null value field for the string type (`NullStringField`), and partition field format (`PartitionFieldFormat`). If `Type` is set to `AbnormalBehavior`, include the user ID field (`UserId`), item ID field (`ItemId`), behavior field (`EventField`), upstream behavior value (`UpStreamBehavior`), downstream behavior value (`DownstreamBehavior`), number of buckets (`NumericHistogramBins`), and partition field format (`PartitionFieldFormat`).
     // 
     // This parameter is required.
     shared_ptr<string> config_ {};
-    // The execution time for periodic runs. If this field is omitted, the task does not run periodically.
+    // The periodic execution time. If this field is left empty, the task does not run periodically. Format: HH:mm.
     shared_ptr<string> cycleTime_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the left data table.
+    // The ID of the left table.
     shared_ptr<string> leftTableMetaId_ {};
     // The partition field of the left table.
     shared_ptr<string> leftTablePartitionField_ {};
-    // The name of the data diagnosis task.
+    // The name of the data diagnostic task configuration.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
     // The partition field.
     shared_ptr<string> partitionField_ {};
-    // The ID of the right data table.
+    // The ID of the right table.
     shared_ptr<string> rightTableMetaId_ {};
     // The partition field of the right table.
     shared_ptr<string> rightTablePartitionField_ {};
     // The ID of the data table.
     shared_ptr<string> tableMetaId_ {};
-    // The number of top-ranked results to return.
+    // The Top N quantity.
     shared_ptr<int64_t> topNQuantity_ {};
-    // The type of the data diagnosis task. Valid values:
-    // 
-    // - `ChangeRate`: item/user change rate analysis.
-    // 
-    // - `PreferenceStatisticsCycle`: user preference statistics cycle analysis.
-    // 
-    // - `JoinTables`: two-table join analysis.
-    // 
-    // - `BaseStatistics`: basic statistical analysis.
-    // 
-    // - `AbnormalBehavior`: abnormal behavior analysis.
+    // The type of the data diagnostic task. Valid values:
+    // - ChangeRate: item or user change rate analysis
+    // - PreferenceStatisticsCycle: user preference statistical period analysis
+    // - JoinTables: two-table association analysis
+    // - BaseStatistics: basic statistical analysis
+    // - AbnormalBehavior: abnormal behavior analysis
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

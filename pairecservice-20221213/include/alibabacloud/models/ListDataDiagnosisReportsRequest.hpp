@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The end date.
+    // The end date. The format is YYYY-MM-DD.
     // 
     // This parameter is required.
     shared_ptr<string> endDate_ {};
@@ -96,13 +96,13 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The retention rate report type.
     // 
-    // - Period: A report for the specified time period.
+    // - Period: periodic report.
     shared_ptr<string> remainRateType_ {};
-    // The start date.
+    // The start date. The format is YYYY-MM-DD.
     // 
     // This parameter is required.
     shared_ptr<string> startDate_ {};
-    // The number of top results to return.
+    // The maximum number of results to return.
     shared_ptr<int64_t> topN_ {};
   };
 

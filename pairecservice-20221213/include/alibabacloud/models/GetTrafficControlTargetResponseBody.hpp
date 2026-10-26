@@ -117,11 +117,11 @@ namespace Models
 
 
     protected:
-      // The set points.
+      // The target value split points.
       shared_ptr<vector<int64_t>> setPoints_ {};
-      // The set values.
+      // The target setting values.
       shared_ptr<vector<int64_t>> setValues_ {};
-      // The time points.
+      // The time split points.
       shared_ptr<vector<int64_t>> timePoints_ {};
     };
 
@@ -259,41 +259,41 @@ namespace Models
 
 
   protected:
-    // The end time.
+    // The end time. Format: YYYY-MM-DD.
     shared_ptr<string> endTime_ {};
-    // The event of the control target.
+    // The traffic control target event.
     shared_ptr<string> event_ {};
-    // The time when the traffic control target was created.
+    // The creation time. Format: ISO 8601, where Z indicates the UTC time zone.
     shared_ptr<string> gmtCreateTime_ {};
-    // The item condition, specified in an array format.
+    // The item conditions in array format.
     shared_ptr<string> itemConditionArray_ {};
-    // The item condition, specified in an expression format.
+    // The item conditions in expression format.
     shared_ptr<string> itemConditionExpress_ {};
     // The item condition type.
     shared_ptr<string> itemConditionType_ {};
-    // The name of the traffic control target.
+    // The traffic control target.
     shared_ptr<string> name_ {};
-    // Indicates whether new product regulation is enabled.
+    // Indicates whether the regulation applies to new products.
     shared_ptr<bool> newProductRegulation_ {};
-    // The name of the recall strategy.
+    // The recall policy name.
     shared_ptr<string> recallName_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The piecewise control settings.
+    // The target setting values.
     shared_ptr<GetTrafficControlTargetResponseBody::SplitParts> splitParts_ {};
-    // The start time.
+    // The start time. Format: YYYY-MM-DD.
     shared_ptr<string> startTime_ {};
-    // The statistics period.
+    // The statistical period.
     shared_ptr<string> statisPeriod_ {};
-    // The status of the traffic control target.
+    // The status.
     shared_ptr<string> status_ {};
-    // The tolerance value.
+    // The tolerance range of the traffic control target.
     shared_ptr<int64_t> toleranceValue_ {};
     // The ID of the traffic control target.
     shared_ptr<string> trafficControlTargetId_ {};
     // The ID of the traffic control task.
     shared_ptr<string> trafficControlTaskId_ {};
-    // The value of the control target.
+    // The traffic control target value.
     shared_ptr<float> value_ {};
   };
 

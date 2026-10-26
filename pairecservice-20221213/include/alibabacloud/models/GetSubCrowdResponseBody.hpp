@@ -75,15 +75,17 @@ namespace Models
 
 
   protected:
-    // The time when the sub-crowd was created.
+    // The time when the crowd was created. The time is in ISO 8601 format and includes the time zone offset.
     shared_ptr<string> gmtCreateTime_ {};
-    // The number of users in the sub-crowd.
+    // The number of users in the crowd.
     shared_ptr<string> quantity_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The source of the sub-crowd. Valid values:
+    // The source of the crowd. Valid values:
+    // - ManualInput: manual input
+    // - UploadFile: file upload
     shared_ptr<string> source_ {};
-    // The users in the sub-crowd.
+    // The users in the crowd.
     shared_ptr<string> users_ {};
   };
 

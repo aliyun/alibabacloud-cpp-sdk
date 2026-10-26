@@ -568,51 +568,57 @@ namespace Models
 
 
     protected:
-      // Indicates whether feature comparison is enabled.
+      // Specifies whether feature comparison is enabled.
       shared_ptr<bool> compareFeature_ {};
+      // The dataset ID.
       shared_ptr<string> datasetId_ {};
+      // The mount path of the dataset.
       shared_ptr<string> datasetMountPath_ {};
+      // The dataset name.
       shared_ptr<string> datasetName_ {};
+      // The dataset type.
       shared_ptr<string> datasetType_ {};
+      // The URI of the dataset.
       shared_ptr<string> datasetUri_ {};
+      // The default gateway. Eth0 indicates the public gateway, and Eth1 indicates the dedicated gateway.
       shared_ptr<string> defaultRoute_ {};
-      // The service name of EAS.
+      // The EAS service name.
       shared_ptr<string> easServiceName_ {};
-      // The path of the EasyRec package.
+      // The EasyRec package path.
       shared_ptr<string> easyRecPackagePath_ {};
-      // The version of EasyRec.
+      // The EasyRec version.
       shared_ptr<string> easyRecVersion_ {};
       // The ID of the feature consistency check configuration.
       shared_ptr<string> featureConsistencyCheckJobConfigId_ {};
-      // The features to exclude from display. Separate multiple features with commas (,).
+      // The features excluded from display. Separate multiple features with commas (,).
       shared_ptr<string> featureDisplayExclude_ {};
-      // The ID of the data landing resource.
+      // The ID of the data source for data backflow.
       shared_ptr<string> featureLandingResourceId_ {};
-      // The URI of the data landing resource.
+      // The URI of the data source for data backflow.
       shared_ptr<string> featureLandingResourceUri_ {};
-      // The feature priority. Separate multiple features with commas (,). This parameter specifies which features are preferentially read from the user table. If the user table is empty, the features are queried from the behavior table.
+      // The priority of features. Separate multiple features with commas (,). This parameter specifies which features are preferentially read from the user table. If the user table is empty, the features are queried from the behavior table.
       shared_ptr<string> featurePriority_ {};
-      // The primary key on the item side in Feature Store.
+      // The primary key on the item side of the feature store.
       shared_ptr<string> featureStoreItemId_ {};
-      // feature store model ID。
+      // The feature store model ID.
       shared_ptr<string> featureStoreModelId_ {};
-      // The Feature Store project ID.
+      // The ID of the feature store project.
       shared_ptr<string> featureStoreProjectId_ {};
-      // The Feature Store project name.
+      // The name of the feature store project.
       shared_ptr<string> featureStoreProjectName_ {};
-      // The name of the feature view that contains the item features in the sequence feature.
+      // The name of the feature view to which the item features in the sequence features belong.
       shared_ptr<string> featureStoreSeqFeatureView_ {};
-      // The primary key on the user side in Feature Store.
+      // The primary key on the user side of the feature store.
       shared_ptr<string> featureStoreUserId_ {};
-      // The version of fg_jar.
+      // The fg_jar version.
       shared_ptr<string> fgJarVersion_ {};
       // The name of the fg_json file.
       shared_ptr<string> fgJsonFileName_ {};
-      // Indicates whether a zip package needs to be generated.
+      // Specifies whether to generate a ZIP package.
       shared_ptr<bool> generateZip_ {};
-      // The time when the configuration was created.
+      // The creation time. The time is formatted in ISO 8601 and includes a time zone offset.
       shared_ptr<string> gmtCreateTime_ {};
-      // The time when the configuration was last updated.
+      // The update time. The time is formatted in ISO 8601 and includes a time zone offset.
       shared_ptr<string> gmtModifiedTime_ {};
       // The name of the item_id field.
       shared_ptr<string> itemIdField_ {};
@@ -620,15 +626,15 @@ namespace Models
       shared_ptr<string> itemTable_ {};
       // The partition field of the item table.
       shared_ptr<string> itemTablePartitionField_ {};
-      // The format of the item table partition field. Valid values:
+      // The format of the partition field in the item table. Valid values:
       // - yyyymmdd
       // - yyyy-mm-dd
       shared_ptr<string> itemTablePartitionFieldFormat_ {};
-      // The end time of the most recently created job.
+      // The end time of the latest job. The time is formatted in ISO 8601 and includes a time zone offset.
       shared_ptr<string> latestJobGmtSamplingEndTime_ {};
-      // The start time of the most recently created job.
+      // The start time of the latest job. The time is formatted in ISO 8601 and includes a time zone offset.
       shared_ptr<string> latestJobGmtSamplingStartTime_ {};
-      // The ID of the most recently created job based on this configuration.
+      // The ID of the latest job created based on this configuration.
       shared_ptr<string> latestJobId_ {};
       // The name of the feature consistency check configuration.
       shared_ptr<string> name_ {};
@@ -636,9 +642,13 @@ namespace Models
       shared_ptr<string> ossBucket_ {};
       // The ID of the OSS data source.
       shared_ptr<string> ossResourceId_ {};
+      // The number of workers used to execute the prediction script.
       shared_ptr<int32_t> predictWorkerCount_ {};
+      // The CPU resources allocated to each worker when executing the prediction script.
       shared_ptr<int32_t> predictWorkerCpu_ {};
+      // The memory resources allocated to each worker when executing the prediction script.
       shared_ptr<int32_t> predictWorkerMemory_ {};
+      // The resource configuration.
       shared_ptr<string> resourceConfig_ {};
       // The sampling rate. Valid values: 0 to 1.
       shared_ptr<string> sampleRate_ {};
@@ -646,20 +656,21 @@ namespace Models
       shared_ptr<string> sceneId_ {};
       // The name of the scene.
       shared_ptr<string> sceneName_ {};
+      // The security group ID.
       shared_ptr<string> securityGroupId_ {};
-      // The ID of the service.
+      // The service ID.
       shared_ptr<string> serviceId_ {};
       // The service name.
       shared_ptr<string> serviceName_ {};
       // The status. Valid values:
-      // - Editable: Editable.
-      // - Uneditable: Not editable.
+      // - Editable: The configuration is editable.
+      // - Uneditable: The configuration is not editable.
       shared_ptr<string> status_ {};
+      // The vSwitch ID.
       shared_ptr<string> switchId_ {};
-      // Indicates whether Feature Store is used. Valid values:
-      // 
-      // - true: Feature Store is used. In this case, FeatureStoreProjectId, FeatureStoreProjectName, FeatureStoreModelId, FeatureStoreUserId, and FeatureStoreItemId are returned.
-      // - false: Feature Store is not used. In this case, UserTable, UserIdField, UserTablePartitionField, UserTablePartitionFieldFormat, ItemTable, ItemIdField, ItemTablePartitionField, and ItemTablePartitionFieldFormat are returned.
+      // Specifies whether to use the feature store. Valid values:
+      // - true: Uses the feature store. In this case, FeatureStoreProjectId, FeatureStoreProjectName, FeatureStoreModelId, FeatureStoreUserId, and FeatureStoreItemId are returned.
+      // - false: Does not use the feature store. In this case, UserTable, UserIdField, UserTablePartitionField, UserTablePartitionFieldFormat, ItemTable, ItemIdField, ItemTablePartitionField, and ItemTablePartitionFieldFormat are returned.
       shared_ptr<string> useFeatureStore_ {};
       // The name of the user_id field.
       shared_ptr<string> userIdField_ {};
@@ -667,13 +678,15 @@ namespace Models
       shared_ptr<string> userTable_ {};
       // The partition field of the user table.
       shared_ptr<string> userTablePartitionField_ {};
-      // The format of the user table partition field. Valid values:
+      // The format of the partition field in the user table. Valid values:
       // - yyyymmdd
       // - yyyy-mm-dd
       shared_ptr<string> userTablePartitionFieldFormat_ {};
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
       // The name of the workflow.
       shared_ptr<string> workflowName_ {};
+      // The ID of the PAI workspace.
       shared_ptr<string> workspaceId_ {};
     };
 
@@ -703,11 +716,11 @@ namespace Models
 
 
   protected:
-    // The list of feature consistency check configurations.
+    // The feature consistency check configurations.
     shared_ptr<vector<ListFeatureConsistencyCheckJobConfigsResponseBody::FeatureConsistencyCheckConfigs>> featureConsistencyCheckConfigs_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total count.
     shared_ptr<int64_t> totalCount_ {};
   };
 

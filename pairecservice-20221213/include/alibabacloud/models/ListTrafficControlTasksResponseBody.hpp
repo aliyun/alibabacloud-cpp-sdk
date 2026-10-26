@@ -226,9 +226,9 @@ namespace Models
 
 
         protected:
-          // The list of value-based split points for the target.
+          // The list of target value split points.
           shared_ptr<vector<int64_t>> setValues_ {};
-          // The list of time-based split points.
+          // The list of time split points.
           shared_ptr<vector<int64_t>> timePoints_ {};
         };
 
@@ -366,41 +366,41 @@ namespace Models
 
 
       protected:
-        // The end time.
+        // The end time. The time is in the YYYY-MM-DD format.
         shared_ptr<string> endTime_ {};
         // The event for the traffic control target.
         shared_ptr<string> event_ {};
-        // The creation time of the target.
+        // The creation time. The time is in the ISO 8601 format and includes the time zone offset.
         shared_ptr<string> gmtCreateTime_ {};
-        // The last update time of the target.
+        // The update time. The time is in the ISO 8601 format and includes the time zone offset.
         shared_ptr<string> gmtModifiedTime_ {};
-        // The item condition, in an array format.
+        // The array-formatted conditions for items.
         shared_ptr<string> itemConditionArray_ {};
-        // The item condition, in an expression format.
+        // The expression-formatted conditions for items.
         shared_ptr<string> itemConditionExpress_ {};
-        // The item condition type.
+        // The condition type for items.
         shared_ptr<string> itemConditionType_ {};
-        // The name of the traffic control target.
+        // The traffic control target.
         shared_ptr<string> name_ {};
-        // Indicates whether the traffic control target is for a new product recall.
+        // Specifies whether the recall applies to new items.
         shared_ptr<bool> newProductRegulation_ {};
-        // The name of the recall strategy.
+        // The recall policy name.
         shared_ptr<string> recallName_ {};
         // The details of the split points.
         shared_ptr<TrafficControlTargets::SplitParts> splitParts_ {};
-        // The start time.
+        // The start time. The time is in the YYYY-MM-DD format.
         shared_ptr<string> startTime_ {};
-        // The statistics period.
+        // The statistical period.
         shared_ptr<string> statisPeriod_ {};
-        // The status of the traffic control target.
+        // The status.
         shared_ptr<string> status_ {};
-        // The tolerance value for the traffic control target.
+        // The tolerance range of the traffic control target.
         shared_ptr<int64_t> toleranceValue_ {};
-        // The traffic control target ID.
+        // The ID of the traffic control target.
         shared_ptr<string> trafficControlTargetId_ {};
-        // The traffic control task ID.
+        // The ID of the traffic control task.
         shared_ptr<string> trafficControlTaskId_ {};
-        // The value of the traffic control target.
+        // The target value for traffic control.
         shared_ptr<float> value_ {};
       };
 
@@ -706,7 +706,7 @@ namespace Models
 
 
     protected:
-      // The behavior table ID.
+      // The ID of the behavior table.
       shared_ptr<string> behaviorTableMetaId_ {};
       // The control granularity.
       shared_ptr<string> controlGranularity_ {};
@@ -714,53 +714,51 @@ namespace Models
       shared_ptr<string> controlLogic_ {};
       // The control type.
       shared_ptr<string> controlType_ {};
-      // The description of the traffic control task.
+      // The description of the traffic control.
       shared_ptr<string> description_ {};
       // The list of effective scene IDs.
       shared_ptr<vector<int32_t>> effectiveSceneIds_ {};
-      // The list of effective scene names.
+      // The list of effective scenes.
       shared_ptr<vector<string>> effectiveSceneNameList_ {};
       // The list of effective scene names.
       shared_ptr<vector<int32_t>> effectiveSceneNames_ {};
-      // The end time.
+      // The end time. The time is in the YYYY-MM-DD format.
       shared_ptr<string> endTime_ {};
-      // Indicates whether the task has ever been published.
+      // Specifies whether the task has been published.
       shared_ptr<bool> everPublished_ {};
-      // The execution schedule for the task. Valid values:
-      // 
-      // - `Permanent`: The task runs indefinitely.
-      // 
-      // - `TimeRange`: The task runs within a specified time range. If you set this parameter to this value, you must also specify the `StartTime` and `EndTime` parameters.
+      // The execution time. Valid values:
+      // - Permanent: Executes permanently.
+      // - TimeRange: Executes within a specified time range. If you select this value, you must specify the StartTime and EndTime parameters.
       shared_ptr<string> executionTime_ {};
       // The Flink resource ID.
       shared_ptr<string> flinkResourceId_ {};
-      // The name of the Flink resource.
+      // The Flink resource name.
       shared_ptr<string> flinkResourceName_ {};
-      // The creation time of the task.
+      // The creation time. The time is in the ISO 8601 format and uses Z to indicate the UTC time zone.
       shared_ptr<string> gmtCreateTime_ {};
-      // The last update time of the task.
+      // The update time. The time is in the ISO 8601 format and uses Z to indicate the UTC time zone.
       shared_ptr<string> gmtModifiedTime_ {};
-      // The item condition, in an array format.
+      // The array-formatted conditions for items.
       shared_ptr<string> itemConditionArray_ {};
-      // The item condition, in an expression format.
+      // The expression-formatted conditions for items.
       shared_ptr<string> itemConditionExpress_ {};
-      // The item condition type.
+      // The condition type for items.
       shared_ptr<string> itemConditionType_ {};
-      // The item table ID.
+      // The ID of the item table.
       shared_ptr<string> itemTableMetaId_ {};
-      // The name of the traffic control task.
+      // The name of the traffic control.
       shared_ptr<string> name_ {};
-      // A comma-separated list of staging experiment IDs.
+      // The list of pre-release experiment IDs.
       shared_ptr<string> preExperimentIds_ {};
-      // The staging environment status.
+      // The status in the pre-release environment.
       shared_ptr<string> prepubStatus_ {};
-      // A comma-separated list of production experiment IDs.
+      // The list of production experiments.
       shared_ptr<string> prodExperimentIds_ {};
-      // The production environment status.
+      // The status in the production environment.
       shared_ptr<string> productStatus_ {};
-      // The scene ID. You can obtain this ID by calling the `ListScenes` operation.
+      // The scene ID. You can obtain this ID by calling the ListScenes operation.
       shared_ptr<string> sceneId_ {};
-      // The name of the scene.
+      // The scene name.
       shared_ptr<string> sceneName_ {};
       // The service ID.
       shared_ptr<string> serviceId_ {};
@@ -768,27 +766,27 @@ namespace Models
       shared_ptr<vector<int32_t>> serviceIdList_ {};
       // The list of bound engine service IDs.
       shared_ptr<vector<string>> serviceIds_ {};
-      // The start time.
+      // The start time. The time is in the YYYY-MM-DD format.
       shared_ptr<string> startTime_ {};
-      // The behavior statistics expression.
+      // The expression-formatted conditions for behavior statistics.
       shared_ptr<string> statisBahaviorConditionExpress_ {};
-      // The behavior statistics condition, in an array format.
+      // The array-formatted conditions for behavior statistics.
       shared_ptr<string> statisBehaviorConditionArray_ {};
-      // The behavior statistics expression.
+      // The behavior expression.
       shared_ptr<string> statisBehaviorConditionExpress_ {};
       // The condition type for behavior statistics.
       shared_ptr<string> statisBehaviorConditionType_ {};
       // The list of traffic control targets.
       shared_ptr<vector<TrafficControlTasks::TrafficControlTargets>> trafficControlTargets_ {};
-      // The traffic control task ID.
+      // The ID of the traffic control task.
       shared_ptr<string> trafficControlTaskId_ {};
-      // The condition for the target user group, in an array format.
+      // The array-formatted conditions for the target user group.
       shared_ptr<string> userConditionArray_ {};
-      // The condition for the target user group, in an expression format.
+      // The expression-formatted conditions for the target user group.
       shared_ptr<string> userConditionExpress_ {};
       // The condition type for the target user group.
       shared_ptr<string> userConditionType_ {};
-      // The user table ID.
+      // The ID of the user table.
       shared_ptr<string> userTableMetaId_ {};
     };
 
@@ -820,7 +818,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of traffic control tasks.
+    // The total number of elements in the list.
     shared_ptr<string> totalCount_ {};
     // The list of traffic control tasks.
     shared_ptr<vector<ListTrafficControlTasksResponseBody::TrafficControlTasks>> trafficControlTasks_ {};

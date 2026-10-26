@@ -66,11 +66,14 @@ namespace Models
 
 
   protected:
-    // The end time.
+    // The end time. The format is YYYY-MM-DD HH:mm:ss.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The execution environment for the task. Valid values: Daily (development environment), Pre (staging environment), Prod (production environment).
+    // The environment to which the task belongs. Valid values:
+    // - Daily: daily environment
+    // - Pre: pre-release environment
+    // - Prod: production environment
     // 
     // This parameter is required.
     shared_ptr<string> environment_ {};
@@ -78,7 +81,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The start time.
+    // The start time. The format is YYYY-MM-DD HH:mm:ss.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

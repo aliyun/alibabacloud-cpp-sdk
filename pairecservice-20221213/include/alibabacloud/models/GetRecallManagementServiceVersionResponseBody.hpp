@@ -195,11 +195,11 @@ namespace Models
           protected:
             // The field name.
             shared_ptr<string> field_ {};
-            // The maximum number of fields.
+            // The limit on the number of fields.
             shared_ptr<int32_t> fieldQuantityLimit_ {};
-            // Indicates whether to perform a random sort.
+            // Indicates whether random sorting is enabled.
             shared_ptr<bool> isRandSort_ {};
-            // The sort field.
+            // The sort fields.
             shared_ptr<string> sortField_ {};
           };
 
@@ -252,11 +252,11 @@ namespace Models
 
 
           protected:
-            // The join field.
+            // The Join field.
             shared_ptr<string> field_ {};
-            // The fields to return.
+            // The list of output fields.
             shared_ptr<vector<string>> outputFields_ {};
-            // The identifier of the join table.
+            // The ID of the Join table.
             shared_ptr<string> recallManagementTableId_ {};
           };
 
@@ -288,7 +288,7 @@ namespace Models
 
 
           protected:
-            // The filter expression.
+            // The expression.
             shared_ptr<string> experession_ {};
           };
 
@@ -393,15 +393,15 @@ namespace Models
 
 
         protected:
-          // The configuration for the Feature operator.
+          // The configuration of the Feature operator.
           shared_ptr<Operators::FeatureConfig> featureConfig_ {};
-          // The configuration for the Filter operator.
+          // The configuration of the Filter operator.
           shared_ptr<Operators::FilterConfig> filterConfig_ {};
-          // The configuration for the Join operator.
+          // The configuration of the Join operator.
           shared_ptr<Operators::JoinConfig> joinConfig_ {};
           // The operator type.
           shared_ptr<string> operatorType_ {};
-          // The configuration for the Trigger operator.
+          // The configuration of the Trigger operator.
           shared_ptr<Operators::TriggerConfig> triggerConfig_ {};
         };
 
@@ -519,25 +519,25 @@ namespace Models
       protected:
         // The recall description.
         shared_ptr<string> description_ {};
-        // Reserved for future use.
+        // The extended configuration for future feature expansion.
         shared_ptr<string> extendedConfig_ {};
-        // The item conditions, specified as a string in JSON array format.
+        // The item conditions in array format.
         shared_ptr<string> itemConditionArray_ {};
-        // The item condition expression.
+        // The item conditional expression.
         shared_ptr<string> itemConditionExpression_ {};
         // The item vector field.
         shared_ptr<string> itemVectorField_ {};
-        // The identifier of the item vector recall table.
+        // The ID of the item vector recall table.
         shared_ptr<string> itemVectorRecallManagementTableId_ {};
         // The recall name.
         shared_ptr<string> name_ {};
-        // The list of operators to apply.
+        // The list of operators.
         shared_ptr<vector<RecallConfigs::Operators>> operators_ {};
-        // The priority. A smaller value indicates a higher priority.
+        // The priority. A smaller number indicates a higher priority.
         shared_ptr<int64_t> priority_ {};
-        // The identifier of the recall service version configuration.
+        // The ID of the recall management service version configuration.
         shared_ptr<string> recallManagementServiceVersionConfigId_ {};
-        // The identifier of the recall management table.
+        // The ID of the recall management table.
         shared_ptr<string> recallManagementTableId_ {};
         // The recall type.
         shared_ptr<string> recallType_ {};
@@ -545,7 +545,7 @@ namespace Models
         shared_ptr<string> sortFields_ {};
         // The user vector field.
         shared_ptr<string> userVectorField_ {};
-        // The identifier of the user vector recall table.
+        // The ID of the user vector recall table.
         shared_ptr<string> userVectorRecallManagementTableId_ {};
       };
 
@@ -637,19 +637,19 @@ namespace Models
 
 
       protected:
-        // Reserved for future use.
+        // The extended merge configuration for future feature expansion.
         shared_ptr<string> extendedConfig_ {};
         // The filter expression.
         shared_ptr<string> filterExpression_ {};
-        // The identifiers of the tables to filter.
+        // The list of filter table IDs.
         shared_ptr<vector<string>> filterRecallManagementTableIds_ {};
-        // The identifier of the item table.
+        // The ID of the item table.
         shared_ptr<string> itemRecallManagementTableId_ {};
-        // The output fields from the item table.
+        // The list of output fields for the item table.
         shared_ptr<vector<string>> itemTableFields_ {};
         // The merge type.
         shared_ptr<string> mergeType_ {};
-        // The identifier of the recall service version configuration.
+        // The ID of the recall management service version configuration.
         shared_ptr<string> recallManagementServiceVersionConfigId_ {};
       };
 
@@ -676,7 +676,7 @@ namespace Models
     protected:
       // The merge configuration.
       shared_ptr<Configs::MergeConfig> mergeConfig_ {};
-      // The recall service version configurations.
+      // The list of configurations for the recall management service version.
       shared_ptr<vector<Configs::RecallConfigs>> recallConfigs_ {};
     };
 
@@ -737,17 +737,17 @@ namespace Models
   protected:
     // The configuration details.
     shared_ptr<GetRecallManagementServiceVersionResponseBody::Configs> configs_ {};
-    // The creation time.
+    // The creation time in ISO 8601 format, including the time zone offset.
     shared_ptr<string> gmtCreateTime_ {};
-    // The modification time.
+    // The update time in ISO 8601 format, including the time zone offset.
     shared_ptr<string> gmtModifiedTime_ {};
-    // Indicates whether the current version is effective.
+    // Indicates whether the current version is valid.
     shared_ptr<bool> isEffective_ {};
-    // The name of the recall service version.
+    // The name of the recall management service version.
     shared_ptr<string> name_ {};
-    // The identifier of the recall service version.
+    // The ID of the recall management service version.
     shared_ptr<string> recallManagementServiceVersionId_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

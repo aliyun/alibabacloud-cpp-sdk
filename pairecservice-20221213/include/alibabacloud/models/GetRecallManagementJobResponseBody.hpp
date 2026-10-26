@@ -99,9 +99,9 @@ namespace Models
 
 
     protected:
-      // The data version.
+      // The data version number.
       shared_ptr<string> dataVersion_ {};
-      // The recall management table version ID.
+      // The recall table version ID.
       shared_ptr<string> recallManagerTableVersionId_ {};
       // The data size of the source table.
       shared_ptr<string> sourceTableDataSize_ {};
@@ -167,7 +167,7 @@ namespace Models
     protected:
       // The data version.
       shared_ptr<string> dataVersion_ {};
-      // The recall management table version ID.
+      // The table version ID.
       shared_ptr<string> recallManagementTableVersionId_ {};
       // The data size of the source table.
       shared_ptr<string> sourceTableDataSize_ {};
@@ -239,29 +239,25 @@ namespace Models
 
 
   protected:
-    // The time when the job ended.
+    // The synchronization end time. The format is YYYY-MM-DDTHH:mm:ss.SSS.
     shared_ptr<string> endTime_ {};
-    // The log of the job.
+    // The log.
     shared_ptr<string> log_ {};
-    // The recall management job ID.
+    // The recall management task ID.
     shared_ptr<string> recallManagementJobId_ {};
-    // Details of the recall management table.
+    // The recall management table details.
     shared_ptr<GetRecallManagementJobResponseBody::RecallManagementTableInfo> recallManagementTableInfo_ {};
-    // Details of the recall management table.
+    // The recall management table information.
     shared_ptr<GetRecallManagementJobResponseBody::RecallManagerTableInfo> recallManagerTableInfo_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The time when the job started.
+    // The synchronization start time. The format is YYYY-MM-DDTHH:mm:ss.SSS.
     shared_ptr<string> startTime_ {};
-    // The status of the job. Valid values are:
-    // 
-    // - `Init`: Initializing.
-    // 
-    // - `Running`: Running.
-    // 
-    // - `Success`: Successful.
-    // 
-    // - `Failed`: Failed.
+    // The task status. Valid values:
+    // * `Init`: init.
+    // * `Running`: running.
+    // * `Success`: succeeded.
+    // * `Failed`: failed.
     shared_ptr<string> status_ {};
   };
 

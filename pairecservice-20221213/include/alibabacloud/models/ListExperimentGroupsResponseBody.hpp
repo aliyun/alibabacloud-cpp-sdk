@@ -237,35 +237,34 @@ namespace Models
 
 
     protected:
-      // The configuration for the experiment group, in JSON format.
+      // The experiment group configuration.
       shared_ptr<string> config_ {};
       // The crowd ID.
       shared_ptr<string> crowdId_ {};
-      // The traffic targeting method for the experiment group. Valid values:
+      // The traffic targeting type of the experiment group. Valid values:
       // 
-      // - `All`: All traffic.
-      // 
-      // - `Filter`: Traffic that matches the filter.
-      // 
-      // - `CrowdId`: Traffic from a specified crowd.
-      // 
-      // - `Random`: A random percentage of traffic.
+      // * All: All traffic.
+      // * Filter: Traffic that matches the filter condition.
+      // * CrowdId: Traffic targeted by a specified crowd ID.
+      // * Random: Traffic randomly selected by percentage.
       shared_ptr<string> crowdTargetType_ {};
       // The debug crowd ID.
       shared_ptr<string> debugCrowdId_ {};
-      // The IDs of debug users, separated by commas.
+      // The debug users.
       shared_ptr<string> debugUsers_ {};
       // The experiment group description.
       shared_ptr<string> description_ {};
-      // The distribution duration. This parameter is required only when `DistributionType` is `TimeDuration`.
+      // The distribution time period.
       shared_ptr<int32_t> distributionTimeDuration_ {};
-      // The traffic distribution method.<br>● `UserId`: by user ID<br>● `TimeDuration`: by time duration<br><br>
+      // The traffic distribution method. Valid values:
+      // ● UserId: User ID.
+      // ● TimeDuration: Time period.
       shared_ptr<string> distributionType_ {};
       // The experiment group ID.
       shared_ptr<string> experimentGroupId_ {};
       // The filter condition.
       shared_ptr<string> filter_ {};
-      // If `CrowdTargetType` is set to `Random`, this parameter returns the comma-separated IDs of buckets allocated based on the `RandomFlow` value.
+      // When the traffic targeting type of the experiment group is Random, this field returns the specific bucket numbers assigned based on the RandomFlow value.
       shared_ptr<string> holdingBuckets_ {};
       // The laboratory ID.
       shared_ptr<string> laboratoryId_ {};
@@ -273,17 +272,20 @@ namespace Models
       shared_ptr<string> layerId_ {};
       // The experiment group name.
       shared_ptr<string> name_ {};
-      // Specifies whether to enable A/B testing for the experiment group.
+      // Specifies whether an AB experiment group is required.
       shared_ptr<bool> needAA_ {};
       // The owner of the experiment group.
       shared_ptr<string> owner_ {};
-      // If `CrowdTargetType` is set to `Random`, this parameter specifies the percentage of traffic (an integer from 0 to 100) randomly allocated to the experiment group.
+      // When the traffic targeting type of the experiment group is Random, this field specifies the percentage of random traffic matched to the experiment group. Valid values: 0 to 100.
       shared_ptr<int64_t> randomFlow_ {};
-      // The IDs of reserved buckets, separated by commas.
+      // The reserved bucket numbers.
       shared_ptr<string> reservedBuckets_ {};
       // The scene ID.
       shared_ptr<string> sceneId_ {};
-      // The status of the experiment group. Valid values:<br>● `Offline`: The experiment group is inactive.<br>● `Online`: The experiment group is active.<br>● `Pushed`: The experiment group is fully rolled out.<br><br><br>
+      // The experiment group status. Valid values:
+      // ● Offline: Not online.
+      // ● Online: Online.
+      // ● Pushed: Fully pushed.
       shared_ptr<string> status_ {};
     };
 
@@ -315,9 +317,9 @@ namespace Models
   protected:
     // The list of experiment groups.
     shared_ptr<vector<ListExperimentGroupsResponseBody::ExperimentGroups>> experimentGroups_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of elements in the list.
     shared_ptr<int64_t> totalCount_ {};
   };
 

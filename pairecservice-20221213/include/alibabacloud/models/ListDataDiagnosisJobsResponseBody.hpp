@@ -156,33 +156,33 @@ namespace Models
 
 
     protected:
-      // The business date.
+      // The business date. The format is YYYY-MM-DD.
       shared_ptr<string> bizDate_ {};
-      // The job configuration.
+      // The task configuration.
       shared_ptr<string> config_ {};
-      // The data diagnosis configuration ID.
+      // The ID of the data diagnostic configuration.
       shared_ptr<string> dataDiagnosisConfigId_ {};
-      // The data diagnosis configuration name.
+      // The name of the data diagnostic configuration.
       shared_ptr<string> dataDiagnosisConfigName_ {};
-      // The data diagnosis job ID.
+      // The ID of the data diagnostic task.
       shared_ptr<string> dataDiagnosisJobId_ {};
-      // The time when the job was created.
+      // The creation time. The format is ISO 8601 and includes the time zone offset.
       shared_ptr<string> gmtCreateTime_ {};
-      // The time when the job started.
+      // The execution time. The format is ISO 8601 and includes the time zone offset.
       shared_ptr<string> gmtStartTime_ {};
-      // The job source. Valid values:
+      // The task source. Valid values:
       // 
-      // - Rerun: A manual rerun.
+      // - Rerun: Manual rerun.
       // 
-      // - Cycle: A periodic run.
+      // - Cycle: Periodic generation.
       // 
-      // - ByInitializing: Generated during initialization.
+      // - ByInitializing: Initialization generation.
       shared_ptr<string> jobSource_ {};
-      // The log messages.
+      // The list of log information.
       shared_ptr<vector<string>> logs_ {};
       // The task status.
       shared_ptr<string> status_ {};
-      // The data diagnosis type.
+      // The data diagnostic type.
       shared_ptr<string> type_ {};
     };
 
@@ -212,11 +212,11 @@ namespace Models
 
 
   protected:
-    // The returned data diagnosis jobs.
+    // The list of data diagnostic tasks.
     shared_ptr<vector<ListDataDiagnosisJobsResponseBody::DataDiagnosisJobs>> dataDiagnosisJobs_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of entries in the list.
     shared_ptr<int64_t> totalCount_ {};
   };
 

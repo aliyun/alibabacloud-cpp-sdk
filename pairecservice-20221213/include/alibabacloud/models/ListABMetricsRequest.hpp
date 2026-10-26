@@ -103,27 +103,27 @@ namespace Models
 
 
   protected:
-    // The instance ID. Call the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation to obtain the ID.
+    // The instance ID. You can obtain the ID by calling the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The name to use for filtering metrics.
+    // The name filter.
     shared_ptr<string> name_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // Specifies whether to filter for real-time metrics.
+    // Specifies whether to filter metrics by real-time type.
     shared_ptr<bool> realtime_ {};
-    // The scene ID. Call the [ListScenes](https://help.aliyun.com/document_detail/2402581.html) operation to obtain the ID.
+    // The scene ID. You can obtain the ID by calling the [ListScenes](https://help.aliyun.com/document_detail/2402581.html) operation.
     shared_ptr<string> sceneId_ {};
-    // The data table ID. Call the ListTableMetas operation to obtain the ID.
+    // The ID of the data table. You can obtain the ID by calling ListTableMetas.
     shared_ptr<string> tableMetaId_ {};
-    // The metric type. You can use this parameter to filter the results. Valid values:
+    // The metric type filter. Valid values:
     // 
-    // - `Single`: A single metric.
+    // - Single: Single metric.
     // 
-    // - `Derived`: A derived metric.
+    // - Derived: Derived metric.
     shared_ptr<string> type_ {};
   };
 

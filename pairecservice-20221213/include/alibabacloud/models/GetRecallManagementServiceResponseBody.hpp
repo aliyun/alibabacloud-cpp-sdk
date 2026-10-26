@@ -112,15 +112,15 @@ namespace Models
 
 
   protected:
-    // The ID of the active version of the recall management service.
+    // The ID of the active recall management service version.
     shared_ptr<string> currentRecallManagementServiceVersionId_ {};
-    // The name of the active version of the recall management service.
+    // The name of the active recall management service version.
     shared_ptr<string> currentRecallManagementServiceVersionName_ {};
     // The description of the recall management service.
     shared_ptr<string> description_ {};
-    // The creation time.
+    // The creation time. The time is in ISO 8601 format and includes a time zone offset.
     shared_ptr<string> gmtCreateTime_ {};
-    // The modification time.
+    // The update time. The time is in ISO 8601 format and includes a time zone offset.
     shared_ptr<string> gmtModifiedTime_ {};
     // The name of the recall management service.
     shared_ptr<string> name_ {};
@@ -128,11 +128,9 @@ namespace Models
     shared_ptr<string> recallManagementServiceId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the recall management service. Valid values:
-    // 
-    // - Online: The service is running and available.
-    // 
-    // - Offline: The service is stopped or unavailable.
+    // The status. Valid values:
+    // - Online: Online.
+    // - Offline: Offline.
     shared_ptr<string> status_ {};
   };
 

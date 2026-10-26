@@ -95,7 +95,7 @@ namespace Models
       shared_ptr<string> group_ {};
       // The exception message.
       shared_ptr<string> message_ {};
-      // The type or level of the exception.
+      // The exception type or severity level.
       shared_ptr<string> type_ {};
     };
 
@@ -171,31 +171,31 @@ namespace Models
 
 
   protected:
-    // The exception report list.
+    // The list of exception reports.
     shared_ptr<vector<ListDataDiagnosisReportsResponseBody::ExceptionRate>> exceptionRate_ {};
-    // Reports for the abnormal behavior analysis task.
+    // The list of diagnostic reports for abnormal behavior analysis diagnosis nodes.
     shared_ptr<vector<vector<ListDataDiagnosisReportsResponseBody::ReportsOfAbnormalBehavior>>> reportsOfAbnormalBehavior_ {};
-    // Reports for the basic statistical analysis task.
+    // The list of diagnostic reports for basic statistics analysis diagnosis nodes.
     shared_ptr<vector<vector<ListDataDiagnosisReportsResponseBody::ReportsOfBaseStatistics>>> reportsOfBaseStatistics_ {};
-    // Reports for the item/user change rate analysis task.
+    // The list of diagnostic reports for item/user change rate analysis diagnosis nodes.
     shared_ptr<vector<vector<ListDataDiagnosisReportsResponseBody::ReportsOfChangeRateData>>> reportsOfChangeRateData_ {};
-    // Reports for the table join analysis task.
+    // The list of diagnostic reports for join table associate analysis diagnosis nodes.
     shared_ptr<vector<vector<ListDataDiagnosisReportsResponseBody::ReportsOfJoinTables>>> reportsOfJoinTables_ {};
-    // Reports for the user preference statistics cycle analysis task.
+    // The list of diagnostic reports for user preference statistical period analysis diagnosis nodes.
     shared_ptr<vector<vector<ListDataDiagnosisReportsResponseBody::ReportsOfPreferenceStatisticsCycle>>> reportsOfPreferenceStatisticsCycle_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The data diagnosis task type. Valid values:
+    // The data diagnosis node type.
     // 
-    // - `ChangeRate`: item/user change rate analysis.
+    // - ChangeRate: item/user change rate analysis.
     // 
-    // - `PreferenceStatisticsCycle`: user preference statistics cycle analysis.
+    // - PreferenceStatisticsCycle: user preference statistical period analysis.
     // 
-    // - `JoinTables`: table join analysis.
+    // - JoinTables: join table associate analysis.
     // 
-    // - `BaseStatistics`: basic statistical analysis.
+    // - BaseStatistics: basic statistics analysis.
     // 
-    // - `AbnormalBehavior`: abnormal behavior analysis.
+    // - AbnormalBehavior: abnormal behavior analysis.
     shared_ptr<string> type_ {};
   };
 

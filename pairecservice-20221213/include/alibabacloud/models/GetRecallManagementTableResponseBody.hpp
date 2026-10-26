@@ -143,13 +143,13 @@ namespace Models
 
 
     protected:
-      // A list of field attributes.
+      // The list of attributes for the field.
       shared_ptr<vector<string>> attributes_ {};
       // The field name.
       shared_ptr<string> name_ {};
       // The field type.
       shared_ptr<string> type_ {};
-      // The vector dimension.
+      // The vector dimensions.
       shared_ptr<int32_t> vectorDimension_ {};
       // The vector metric type.
       shared_ptr<string> vectorMetricType_ {};
@@ -332,49 +332,49 @@ namespace Models
 
 
   protected:
-    // Specifies whether the table can be deleted.
+    // Indicates whether the table can be deleted.
     shared_ptr<bool> canDelete_ {};
-    // Additional configurations for the table.
+    // The additional configurations of the table.
     shared_ptr<string> config_ {};
     // The data source.
     shared_ptr<string> dataSource_ {};
-    // The data table description.
+    // The table description.
     shared_ptr<string> description_ {};
-    // Specifies whether to enable the fluctuation threshold for the data size.
+    // Indicates whether the fluctuation threshold for the size of the table is enabled.
     shared_ptr<bool> enableDataSizeFluctuationThreshold_ {};
-    // Specifies whether to enable the fluctuation threshold for the row count.
+    // Indicates whether the fluctuation threshold for the row count of the table is enabled.
     shared_ptr<bool> enableRowCountFluctuationThreshold_ {};
-    // A list of fields.
+    // The list of fields.
     shared_ptr<vector<GetRecallManagementTableResponseBody::Fields>> fields_ {};
-    // The creation time.
+    // The creation time. The time is displayed in ISO 8601 format and includes the time zone offset.
     shared_ptr<string> gmtCreateTime_ {};
-    // The modification time.
+    // The update time. The time is displayed in ISO 8601 format and includes the time zone offset.
     shared_ptr<string> gmtModifiedTime_ {};
-    // The index effective time.
+    // The effective period of the index. The time is displayed in ISO 8601 format and includes the time zone offset.
     shared_ptr<string> indexEffectiveTime_ {};
     // The index version ID.
     shared_ptr<string> indexVersionId_ {};
-    // The maximum data size fluctuation threshold.
+    // The maximum fluctuation threshold for the size of the table.
     shared_ptr<int32_t> maxDataSizeFluctuationThreshold_ {};
-    // The maximum row count fluctuation threshold.
+    // The maximum fluctuation threshold for the row count of the table.
     shared_ptr<int32_t> maxRowCountFluctuationThreshold_ {};
-    // The MaxCompute project name.
+    // The name of the MaxCompute project.
     shared_ptr<string> maxcomputeProjectName_ {};
     // The MaxCompute schema.
     shared_ptr<string> maxcomputeSchema_ {};
-    // The MaxCompute table name.
+    // The name of the table in MaxCompute.
     shared_ptr<string> maxcomputeTableName_ {};
-    // The minimum data size fluctuation threshold.
+    // The minimum fluctuation threshold for the size of the table.
     shared_ptr<int32_t> minDataSizeFluctuationThreshold_ {};
-    // The minimum row count fluctuation threshold.
+    // The minimum fluctuation threshold for the row count of the table.
     shared_ptr<int32_t> minRowCountFluctuationThreshold_ {};
-    // The data table name.
+    // The table name.
     shared_ptr<string> name_ {};
-    // The partition fields.
+    // The partition fields of the table.
     shared_ptr<string> partitionFields_ {};
-    // The data table ID.
+    // The table ID.
     shared_ptr<string> recallManagementTableId_ {};
-    // The recall type.
+    // The recall type of the table.
     shared_ptr<string> recallType_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

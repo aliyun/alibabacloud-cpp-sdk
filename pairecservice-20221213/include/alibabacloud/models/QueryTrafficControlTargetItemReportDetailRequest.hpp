@@ -57,9 +57,12 @@ namespace Models
 
 
   protected:
-    // The report date.
+    // The date of the report. Format: YYYY-MM-DD.
     shared_ptr<string> date_ {};
-    // The deployment environment. Valid values are Daily (daily environment), Pre (staging environment), and Prod (production environment).
+    // The environment. Valid values:
+    // - Daily: daily environment
+    // - Pre: staging environment
+    // - Prod: production environment
     // 
     // This parameter is required.
     shared_ptr<string> environment_ {};

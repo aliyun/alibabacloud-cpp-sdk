@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the data diagnosis task.
+    // The ID of the data modeling diagnostic configuration.
     shared_ptr<string> dataDiagnosisId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

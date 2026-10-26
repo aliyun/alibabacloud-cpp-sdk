@@ -199,31 +199,31 @@ namespace Models
       shared_ptr<bool> canDelete_ {};
       // The data source.
       shared_ptr<string> dataSource_ {};
-      // The description of the recall management table.
+      // The table description.
       shared_ptr<string> description_ {};
-      // The time when the table was created. The time is in the ISO 8601 format.
+      // The creation time. The value is in ISO 8601 format and includes a time zone offset.
       shared_ptr<string> gmtCreateTime_ {};
-      // The time when the table was last modified. The time is in the ISO 8601 format.
+      // The update time. The value is in ISO 8601 format and includes a time zone offset.
       shared_ptr<string> gmtModifiedTime_ {};
-      // The time when the index takes effect. The time is in the ISO 8601 format.
+      // The effective period of the index. The value is in ISO 8601 format and includes a time zone offset.
       shared_ptr<string> indexEffectiveTime_ {};
-      // The ID of the index version.
+      // The index version ID.
       shared_ptr<string> indexVersionId_ {};
-      // The name of the MaxCompute project.
+      // The MaxCompute project name.
       shared_ptr<string> maxcomputeProjectName_ {};
-      // The schema of the MaxCompute table.
+      // maxcompute schema。
       shared_ptr<string> maxcomputeSchema_ {};
-      // The name of the table in MaxCompute.
+      // The table name in MaxCompute.
       shared_ptr<string> maxcomputeTableName_ {};
-      // The name of the recall management table.
+      // The table name.
       shared_ptr<string> name_ {};
       // The partition fields of the table.
       shared_ptr<string> partitionFields_ {};
-      // The ID of the recall management table.
+      // The table ID.
       shared_ptr<string> recallManagementTableId_ {};
       // The recall type of the table.
       shared_ptr<string> recallType_ {};
-      // The type of the table.
+      // The table type.
       shared_ptr<string> type_ {};
     };
 
@@ -267,15 +267,15 @@ namespace Models
 
 
   protected:
-    // This parameter is reserved for future use.
+    // This parameter is not in effect.
     shared_ptr<int32_t> maxResults_ {};
-    // This parameter is reserved for future use.
+    // This parameter is not in effect.
     shared_ptr<string> nextToken_ {};
-    // A list of recall management tables.
+    // The list of recall management tables.
     shared_ptr<vector<ListRecallManagementTablesResponseBody::RecallManagementTables>> recallManagementTables_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of recall management tables.
+    // The total number of entries.
     shared_ptr<string> totalCount_ {};
   };
 

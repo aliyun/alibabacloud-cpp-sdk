@@ -57,39 +57,24 @@ namespace Models
 
 
   protected:
+    // The data source ID.
     shared_ptr<string> resourceId_ {};
     // The resource type. Valid values:
-    // 
     // - Hologres
-    // 
     // - EAS
-    // 
     // - BE
-    // 
     // - Rec
-    // 
     // - Platform
-    // 
     // - SLS
-    // 
     // - DataHub
-    // 
     // - Kafka
-    // 
     // - Flinkvvp
-    // 
     // - ACR
-    // 
     // - OSS
-    // 
     // - DataWorks
-    // 
     // - PAI
-    // 
     // - MaxCompute
-    // 
     // - GraphCompute
-    // 
     // - Redis
     // 
     // This parameter is required.

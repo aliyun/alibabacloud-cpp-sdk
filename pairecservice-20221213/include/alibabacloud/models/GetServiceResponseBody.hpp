@@ -129,17 +129,17 @@ namespace Models
 
 
     protected:
-      // The publish content.
+      // The release content.
       shared_ptr<string> content_ {};
       // The image version.
       shared_ptr<string> imageVersion_ {};
-      // The publish information.
+      // The release information.
       shared_ptr<string> releaseInfo_ {};
-      // The publish order ID.
+      // The release order ID.
       shared_ptr<string> releaseOrderId_ {};
       // The publisher, including the name and UID of the Resource Access Management (RAM) users.
       shared_ptr<string> releaser_ {};
-      // The publish title.
+      // The release title.
       shared_ptr<string> topic_ {};
     };
 
@@ -248,33 +248,33 @@ namespace Models
 
 
   protected:
-    // The instance ID of the Container Registry Enterprise instance selected when a non-official image is used.
+    // The instance ID of the Container Registry Enterprise instance selected by the user when a non-official image is used.
     shared_ptr<string> crInstanceId_ {};
     // The service description.
     shared_ptr<string> description_ {};
     // The engine configuration ID.
     shared_ptr<string> engineConfigId_ {};
-    // The time of the most recent production publish.
+    // The time of the most recent production release. The time follows the ISO 8601 standard and includes a time zone offset.
     shared_ptr<string> gmtReleasedTime_ {};
-    // The image secret.
+    // The image key.
     shared_ptr<string> imageAuth_ {};
     // The image name.
     shared_ptr<string> imageName_ {};
-    // The most recent production publish record.
+    // The most recent production release record.
     shared_ptr<GetServiceResponseBody::LatestProdReleaseOrder> latestProdReleaseOrder_ {};
     // The service name.
     shared_ptr<string> name_ {};
     // The region where the service is deployed.
     shared_ptr<string> region_ {};
-    // The ID of the Container Registry Enterprise Edition repository selected when a non-official image is used.
+    // The ID of the Container Registry Enterprise Edition repository selected by the user when a non-official image is used.
     shared_ptr<string> repositoryId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The scenario.
     shared_ptr<string> sceneId_ {};
-    // The configuration used to publish the service, such as the Elastic Algorithm Service (EAS) service configuration.
+    // The configuration used to deploy the service, such as the service configuration in Elastic Algorithm Service (EAS).
     shared_ptr<string> serviceConfig_ {};
-    // The resource address used to publish the service, such as the EAS resource group name.
+    // The resource URI used to deploy the service, such as the resource group name in Elastic Algorithm Service (EAS).
     shared_ptr<string> serviceResourceUri_ {};
   };
 

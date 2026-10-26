@@ -74,9 +74,9 @@ namespace Models
 
 
     protected:
-      // The dates of task failures.
+      // The list of dates when tasks failed.
       shared_ptr<vector<string>> failedDates_ {};
-      // The dates with missing task data.
+      // The list of dates with missing tasks.
       shared_ptr<vector<string>> noDataDates_ {};
     };
 
@@ -101,7 +101,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The statistics for the data diagnosis task.
+    // The list of data diagnostic nodes.
     shared_ptr<QueryDataDiagnosisStatisticsResponseBody::Statistics> statistics_ {};
   };
 

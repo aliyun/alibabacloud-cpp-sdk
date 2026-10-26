@@ -96,15 +96,15 @@ namespace Models
   protected:
     // The description of the layer.
     shared_ptr<string> description_ {};
-    // The time when the experiment layer was created.
+    // The time when the experiment layer was created. The time follows the ISO 8601 standard and includes a time zone offset.
     shared_ptr<string> gmtCreateTime_ {};
     // The ID of the laboratory.
     shared_ptr<string> laboratoryId_ {};
     // The name of the layer.
     shared_ptr<string> name_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The residual traffic in the experiment layer.
+    // The remaining traffic on the experiment layer.
     shared_ptr<int64_t> residualFlow_ {};
     // The ID of the scene.
     shared_ptr<string> sceneId_ {};

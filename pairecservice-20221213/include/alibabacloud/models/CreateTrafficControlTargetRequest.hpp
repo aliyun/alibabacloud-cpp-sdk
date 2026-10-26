@@ -158,33 +158,33 @@ namespace Models
 
 
   protected:
-    // The end time of the traffic control target.
+    // The end time of the control target. The format is YYYY-MM-DD.
     shared_ptr<string> endTime_ {};
-    // The event for the traffic control target.
+    // The control target event.
     shared_ptr<string> event_ {};
-    // The item condition in array format.
+    // The item conditions in array format.
     shared_ptr<string> itemConditionArray_ {};
-    // The item condition in expression format.
+    // The item conditions in expression format.
     shared_ptr<string> itemConditionExpress_ {};
-    // The item condition type.
+    // The condition type for item control.
     shared_ptr<string> itemConditionType_ {};
     // The name of the traffic control target.
     shared_ptr<string> name_ {};
-    // Specifies whether to enable new product regulation.
+    // Specifies whether the control applies to new products.
     shared_ptr<bool> newProductRegulation_ {};
-    // The recall strategy name.
+    // The recall policy name.
     shared_ptr<string> recallName_ {};
-    // The start time of the traffic control target.
+    // The start time of the control target. The format is YYYY-MM-DD.
     shared_ptr<string> startTime_ {};
     // The statistical period.
     shared_ptr<string> statisPeriod_ {};
-    // The status of the traffic control target.
+    // The status of the control target.
     shared_ptr<string> status_ {};
-    // The tolerance value for the traffic control target.
+    // The tolerance range of the control target.
     shared_ptr<int64_t> toleranceValue_ {};
-    // The traffic control task ID.
+    // The ID of the traffic control task.
     shared_ptr<string> trafficControlTaskId_ {};
-    // The value of the traffic control target.
+    // The target value.
     shared_ptr<float> value_ {};
   };
 

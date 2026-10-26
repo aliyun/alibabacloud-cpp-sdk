@@ -100,14 +100,11 @@ namespace Models
 
     protected:
       // The environment to which the parameter belongs. Valid values:
-      // 
-      // - Daily: A test environment for daily use.
-      // 
-      // - Prepub: A staging environment that mirrors the production environment.
-      // 
-      // - Product: The production environment.
+      // - Daily: daily environment
+      // - Prepub: pre-release environment
+      // - Product: production environment
       shared_ptr<string> environment_ {};
-      // The time when the parameter was last modified.
+      // The update time. The time is formatted in ISO 8601 and includes the time zone offset.
       shared_ptr<string> gmtModifiedTime_ {};
       // The parameter name.
       shared_ptr<string> name_ {};
@@ -143,11 +140,11 @@ namespace Models
 
 
   protected:
-    // A list of parameters.
+    // The list of parameters.
     shared_ptr<vector<ListParamsResponseBody::Params>> params_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The total number of parameters.
+    // The total number of elements in the list.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -227,31 +227,31 @@ namespace Models
 
 
     protected:
-      // The end time of the traffic control target.
+      // The end time. The format follows ISO 8601 and includes a time zone offset.
       shared_ptr<string> endTime_ {};
-      // The event for the traffic control target.
+      // The event of the control target.
       shared_ptr<string> event_ {};
-      // The item conditions, specified in an array format.
+      // The conditions for items, specified in array format.
       shared_ptr<string> itemConditionArray_ {};
-      // The item conditions, specified as an expression.
+      // The conditions for items, specified in expression format.
       shared_ptr<string> itemConditionExpress_ {};
-      // The item condition type.
+      // The condition type for items.
       shared_ptr<string> itemConditionType_ {};
       // The name of the traffic control target.
       shared_ptr<string> name_ {};
-      // Indicates whether this is a new item recall.
+      // Specifies whether the target is a new product recall.
       shared_ptr<bool> newProductRegulation_ {};
-      // The recall policy name.
+      // The Policy Name of the recall.
       shared_ptr<string> recallName_ {};
-      // The start time of the traffic control target.
+      // The start time of the control target. The format follows ISO 8601 and includes a time zone offset.
       shared_ptr<string> startTime_ {};
       // The statistical period.
       shared_ptr<string> statisPeriod_ {};
       // The status.
       shared_ptr<string> status_ {};
-      // The tolerance range for the traffic control target.
+      // The tolerance range of the control target.
       shared_ptr<int64_t> toleranceValue_ {};
-      // The value of the traffic control target.
+      // The value of the control target.
       shared_ptr<float> value_ {};
     };
 
@@ -479,7 +479,7 @@ namespace Models
 
 
   protected:
-    // The behavior table ID.
+    // The ID of the behavior table.
     shared_ptr<string> behaviorTableMetaId_ {};
     // The control granularity.
     shared_ptr<string> controlGranularity_ {};
@@ -489,55 +489,57 @@ namespace Models
     shared_ptr<string> controlType_ {};
     // The description of the traffic control plan.
     shared_ptr<string> description_ {};
-    // A list of effective scene IDs.
+    // The list of effective service IDs.
     shared_ptr<vector<int32_t>> effectiveSceneIds_ {};
-    // The end time.
+    // The end time. The format is YYYY-MM-DD.
     shared_ptr<string> endTime_ {};
-    // The execution time. Valid values: `Permanent` (runs indefinitely) and `TimeRange` (runs within a specified period). If you select `TimeRange`, you must also specify `StartTime` and `EndTime`.
+    // The execution time. Valid values:
+    // - `Permanent`: The task runs permanently.
+    // - `TimeRange`: The task runs within a specified time range. If you select this value, you must specify `StartTime` and `EndTime`.
     shared_ptr<string> executionTime_ {};
     // The Flink resource ID.
     shared_ptr<string> flinkResourceId_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The item conditions, specified in an array format.
+    // The conditions for items, specified in array format.
     shared_ptr<string> itemConditionArray_ {};
-    // The item conditions, specified as an expression.
+    // The conditions for items, specified in expression format.
     shared_ptr<string> itemConditionExpress_ {};
-    // The item condition type.
+    // The condition type for items.
     shared_ptr<string> itemConditionType_ {};
-    // The item table ID.
+    // The ID of the item table.
     shared_ptr<string> itemTableMetaId_ {};
     // The name of the traffic control plan.
     shared_ptr<string> name_ {};
-    // A comma-separated list of pre-release experiment IDs.
+    // The list of pre-release experiment IDs.
     shared_ptr<string> preExperimentIds_ {};
-    // A comma-separated list of production experiment IDs.
+    // The list of production experiment IDs.
     shared_ptr<string> prodExperimentIds_ {};
     // The scene ID.
     shared_ptr<string> sceneId_ {};
-    // The engine service ID.
+    // The service ID.
     shared_ptr<string> serviceId_ {};
-    // A list of associated engine service IDs.
+    // The list of bound engine service IDs.
     shared_ptr<vector<int32_t>> serviceIds_ {};
-    // The start time.
+    // The start time. The format is YYYY-MM-DD.
     shared_ptr<string> startTime_ {};
-    // The conditions for behavior statistics, specified in an array format.
+    // The conditions for statistical behaviors, specified in array format.
     shared_ptr<string> statisBaeaviorConditionArray_ {};
-    // The conditions for behavior statistics, specified in an array format.
+    // The conditions for behavior statistics, specified in array format.
     shared_ptr<string> statisBehaviorConditionArray_ {};
-    // The conditions for behavior statistics, specified as an expression.
+    // The conditions for statistical behaviors, specified in expression format.
     shared_ptr<string> statisBehaviorConditionExpress_ {};
-    // The condition type for behavior statistics.
+    // The condition type for statistical behaviors.
     shared_ptr<string> statisBehaviorConditionType_ {};
-    // A list of traffic control targets.
+    // The list of traffic control targets.
     shared_ptr<vector<UpdateTrafficControlTaskRequest::TrafficControlTargets>> trafficControlTargets_ {};
-    // The conditions for the target user group, specified in an array format.
+    // The conditions for the target user group, specified in array format.
     shared_ptr<string> userConditionArray_ {};
-    // The conditions for the target user group, specified as an expression.
+    // The conditions for the target user group, specified in expression format.
     shared_ptr<string> userConditionExpress_ {};
     // The condition type for the target user group.
     shared_ptr<string> userConditionType_ {};
-    // The user table ID.
+    // The ID of the user table.
     shared_ptr<string> userTableMetaId_ {};
   };
 

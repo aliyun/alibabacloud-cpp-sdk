@@ -135,31 +135,27 @@ namespace Models
     // The description.
     shared_ptr<string> description_ {};
     // The runtime environment. Valid values:
-    // 
-    // - Daily: daily environment.
-    // 
-    // - Pre: staging environment.
-    // 
-    // - Prod: production environment.
+    // - Daily: daily environment
+    // - Pre: staging environment
+    // - Prod: production environment
     shared_ptr<string> environment_ {};
-    // The creation time.
+    // The creation time. The time is in ISO 8601 format, where Z indicates the UTC time zone.
     shared_ptr<string> gmtCreateTime_ {};
-    // The update time.
+    // The update time. The time is in ISO 8601 format, where Z indicates the UTC time zone.
     shared_ptr<string> gmtModifiedTime_ {};
-    // The publish time.
+    // The release time. The time is in the YYYY-MM-DD HH:mm:ss format.
     shared_ptr<string> gmtReleasedTime_ {};
-    // The engine configuration name.
+    // The name of the engine configuration.
     shared_ptr<string> name_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
+    // The scenario.
     shared_ptr<string> sceneId_ {};
     // The status. Valid values:
-    // 
-    // - Released: published.
-    // 
-    // - UnReleased: not published.
+    // - Released: released
+    // - UnReleased: unreleased
     shared_ptr<string> status_ {};
-    // The engine configuration type.
+    // The type of the engine configuration.
     shared_ptr<string> type_ {};
   };
 

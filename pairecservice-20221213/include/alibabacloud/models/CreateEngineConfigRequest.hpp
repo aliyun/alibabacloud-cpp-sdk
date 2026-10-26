@@ -106,12 +106,13 @@ namespace Models
     // 
     // - Prod: production environment.
     shared_ptr<string> environment_ {};
-    // The instance ID. You can obtain the ID from the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation.
+    // The instance ID. You can obtain the instance ID from the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation.
     shared_ptr<string> instanceId_ {};
     // The name of the engine configuration.
     shared_ptr<string> name_ {};
+    // The scene ID.
     shared_ptr<string> sceneId_ {};
-    // The type of the engine configuration.
+    // The engine configuration type.
     shared_ptr<string> type_ {};
   };
 

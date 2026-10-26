@@ -83,7 +83,7 @@ ApplyEngineConfigResponse Client::applyEngineConfig(const string &EngineConfigId
 }
 
 /**
- * @summary Performs data backflow for the latest job of a specified feature consistency check job configuration.
+ * @summary Performs data backflow for the most recently created task under the specified feature consistency check job configuration.
  *
  * @param request BackflowFeatureConsistencyCheckJobDataRequest
  * @param headers map
@@ -156,7 +156,7 @@ BackflowFeatureConsistencyCheckJobDataResponse Client::backflowFeatureConsistenc
 }
 
 /**
- * @summary Performs data backflow for the latest job of a specified feature consistency check job configuration.
+ * @summary Performs data backflow for the most recently created task under the specified feature consistency check job configuration.
  *
  * @param request BackflowFeatureConsistencyCheckJobDataRequest
  * @return BackflowFeatureConsistencyCheckJobDataResponse
@@ -231,13 +231,13 @@ ChangeRecallManagementServiceVersionResponse Client::changeRecallManagementServi
 }
 
 /**
- * @summary Sends a conversation message to an agent. Supports Server-Sent Events (SSE). Creates a new session or continues a conversation in an existing session.
+ * @summary Sends a conversation message to an agent. Supports Server-Sent Events (SSE). Creates a new session or continues an existing session.
  *
- * @description ## Operation description
- * - Call this API operation to send a conversation message to an agent. Server-Sent Events (SSE) is supported.
- * - If the `ConversationId` parameter is specified, the conversation continues in the context of the specified existing session. If this parameter is not specified, automatic creation of a new session is performed.
- * - The `Config` field allows you to pass additional information input. The value must be in JSON format.
- * - If the request succeeds, the response includes the message ID, reply content, and other information for this conversation. If a fault occurs, the corresponding error code and error message are returned.
+ * @description ## Request description
+ * - This API sends a conversation message to an agent and supports Server-Sent Events (SSE).
+ * - If the ConversationId parameter is provided, the conversation continues in the context of the specified existing session. If this parameter is not provided, automatic creation of a new session is triggered.
+ * - The Config field allows you to pass additional information input, which must be in JSON format.
+ * - If the request is successful, the response includes the message ID and reply content of the current conversation. If a fault occurs, the corresponding error code and error message are returned.
  *
  * @param request ChatConversationRequest
  * @param headers map
@@ -296,13 +296,13 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary Sends a conversation message to an agent. Supports Server-Sent Events (SSE). Creates a new session or continues a conversation in an existing session.
+ * @summary Sends a conversation message to an agent. Supports Server-Sent Events (SSE). Creates a new session or continues an existing session.
  *
- * @description ## Operation description
- * - Call this API operation to send a conversation message to an agent. Server-Sent Events (SSE) is supported.
- * - If the `ConversationId` parameter is specified, the conversation continues in the context of the specified existing session. If this parameter is not specified, automatic creation of a new session is performed.
- * - The `Config` field allows you to pass additional information input. The value must be in JSON format.
- * - If the request succeeds, the response includes the message ID, reply content, and other information for this conversation. If a fault occurs, the corresponding error code and error message are returned.
+ * @description ## Request description
+ * - This API sends a conversation message to an agent and supports Server-Sent Events (SSE).
+ * - If the ConversationId parameter is provided, the conversation continues in the context of the specified existing session. If this parameter is not provided, automatic creation of a new session is triggered.
+ * - The Config field allows you to pass additional information input, which must be in JSON format.
+ * - If the request is successful, the response includes the message ID and reply content of the current conversation. If a fault occurs, the corresponding error code and error message are returned.
  *
  * @param request ChatConversationRequest
  * @param headers map
@@ -347,13 +347,13 @@ ChatConversationResponse Client::chatConversationWithOptions(const ChatConversat
 }
 
 /**
- * @summary Sends a conversation message to an agent. Supports Server-Sent Events (SSE). Creates a new session or continues a conversation in an existing session.
+ * @summary Sends a conversation message to an agent. Supports Server-Sent Events (SSE). Creates a new session or continues an existing session.
  *
- * @description ## Operation description
- * - Call this API operation to send a conversation message to an agent. Server-Sent Events (SSE) is supported.
- * - If the `ConversationId` parameter is specified, the conversation continues in the context of the specified existing session. If this parameter is not specified, automatic creation of a new session is performed.
- * - The `Config` field allows you to pass additional information input. The value must be in JSON format.
- * - If the request succeeds, the response includes the message ID, reply content, and other information for this conversation. If a fault occurs, the corresponding error code and error message are returned.
+ * @description ## Request description
+ * - This API sends a conversation message to an agent and supports Server-Sent Events (SSE).
+ * - If the ConversationId parameter is provided, the conversation continues in the context of the specified existing session. If this parameter is not provided, automatic creation of a new session is triggered.
+ * - The Config field allows you to pass additional information input, which must be in JSON format.
+ * - If the request is successful, the response includes the message ID and reply content of the current conversation. If a fault occurs, the corresponding error code and error message are returned.
  *
  * @param request ChatConversationRequest
  * @return ChatConversationResponse
@@ -365,7 +365,7 @@ ChatConversationResponse Client::chatConversation(const ChatConversationRequest 
 }
 
 /**
- * @summary Verifies access to resources configured for an instance.
+ * @summary Checks the connection status of the resources configured for an instance.
  *
  * @param request CheckInstanceResourcesRequest
  * @param headers map
@@ -406,7 +406,7 @@ CheckInstanceResourcesResponse Client::checkInstanceResourcesWithOptions(const s
 }
 
 /**
- * @summary Verifies access to resources configured for an instance.
+ * @summary Checks the connection status of the resources configured for an instance.
  *
  * @param request CheckInstanceResourcesRequest
  * @return CheckInstanceResourcesResponse
@@ -1010,7 +1010,7 @@ CreateABMetricGroupResponse Client::createABMetricGroup(const CreateABMetricGrou
 }
 
 /**
- * @summary Creates multiple calculation jobs.
+ * @summary Creates compute tasks in batches.
  *
  * @param request CreateCalculationJobsRequest
  * @param headers map
@@ -1055,7 +1055,7 @@ CreateCalculationJobsResponse Client::createCalculationJobsWithOptions(const Cre
 }
 
 /**
- * @summary Creates multiple calculation jobs.
+ * @summary Creates compute tasks in batches.
  *
  * @param request CreateCalculationJobsRequest
  * @return CreateCalculationJobsResponse
@@ -1132,13 +1132,13 @@ CreateCrowdResponse Client::createCrowd(const CreateCrowdRequest &request) {
 }
 
 /**
- * @summary Creates a data diagnosis task. This API supports various analysis types.
+ * @summary Creates data modeling diagnostic tasks of different types and supports multiple analysis types.
  *
- * @description ## Description
- * - This API creates a data diagnosis task. It supports various analysis types, including item or user change rate analysis, user preference statistics cycle analysis, two-table join analysis, basic statistical analysis, and abnormal behavior analysis.
- * - The content of the `Config` parameter depends on the value of the `Type` parameter. For more information, see the example configurations in this topic.
- * - To run the task on a schedule, specify the `CycleTime` parameter. If this parameter is omitted, the task runs only once.
- * - The optional `TopNQuantity` parameter specifies the number of top results to return.
+ * @description ## Request description
+ * - This API creates data diagnostic tasks and supports multiple analysis types, including item/user change rate analysis, user preference statistical period analysis, join table analysis, basic statistics analysis, and abnormal behavior analysis.
+ * - The content of the Config field varies depending on the Type value. Set this field correctly by referring to the sample configurations in the References.
+ * - To execute the diagnostic task periodically, set the CycleTime field. If this field is not set, the diagnostic task does not execute periodically.
+ * - The TopNQuantity field specifies the number of top N results to display. This field is default optional.
  *
  * @param request CreateDataDiagnosisRequest
  * @param headers map
@@ -1215,13 +1215,13 @@ CreateDataDiagnosisResponse Client::createDataDiagnosisWithOptions(const CreateD
 }
 
 /**
- * @summary Creates a data diagnosis task. This API supports various analysis types.
+ * @summary Creates data modeling diagnostic tasks of different types and supports multiple analysis types.
  *
- * @description ## Description
- * - This API creates a data diagnosis task. It supports various analysis types, including item or user change rate analysis, user preference statistics cycle analysis, two-table join analysis, basic statistical analysis, and abnormal behavior analysis.
- * - The content of the `Config` parameter depends on the value of the `Type` parameter. For more information, see the example configurations in this topic.
- * - To run the task on a schedule, specify the `CycleTime` parameter. If this parameter is omitted, the task runs only once.
- * - The optional `TopNQuantity` parameter specifies the number of top results to return.
+ * @description ## Request description
+ * - This API creates data diagnostic tasks and supports multiple analysis types, including item/user change rate analysis, user preference statistical period analysis, join table analysis, basic statistics analysis, and abnormal behavior analysis.
+ * - The content of the Config field varies depending on the Type value. Set this field correctly by referring to the sample configurations in the References.
+ * - To execute the diagnostic task periodically, set the CycleTime field. If this field is not set, the diagnostic task does not execute periodically.
+ * - The TopNQuantity field specifies the number of top N results to display. This field is default optional.
  *
  * @param request CreateDataDiagnosisRequest
  * @return CreateDataDiagnosisResponse
@@ -1233,10 +1233,10 @@ CreateDataDiagnosisResponse Client::createDataDiagnosis(const CreateDataDiagnosi
 }
 
 /**
- * @summary Creates a data diagnosis (rerun) job for a specified time period.
+ * @summary Creates a data modeling diagnostics (rerun) task for a specified time range.
  *
- * @description ## Description
- * This operation creates a data diagnosis (rerun) job for a specific instance within a specified time frame. To ensure the job runs correctly, provide accurate values for the `DataDiagnosisId`, `InstanceId`, `StartDate`, and `EndDate` parameters.
+ * @description ## Request description
+ * By invoking this API, you can start a new data modeling diagnostics node for a specific instance within a given time range. Make sure the values of the `DataDiagnosisId`, `InstanceId`, `StartDate`, and `EndDate` parameters are accurate to ensure the node executes correctly.
  *
  * @param request CreateDataDiagnosisJobsRequest
  * @param headers map
@@ -1281,10 +1281,10 @@ CreateDataDiagnosisJobsResponse Client::createDataDiagnosisJobsWithOptions(const
 }
 
 /**
- * @summary Creates a data diagnosis (rerun) job for a specified time period.
+ * @summary Creates a data modeling diagnostics (rerun) task for a specified time range.
  *
- * @description ## Description
- * This operation creates a data diagnosis (rerun) job for a specific instance within a specified time frame. To ensure the job runs correctly, provide accurate values for the `DataDiagnosisId`, `InstanceId`, `StartDate`, and `EndDate` parameters.
+ * @description ## Request description
+ * By invoking this API, you can start a new data modeling diagnostics node for a specific instance within a given time range. Make sure the values of the `DataDiagnosisId`, `InstanceId`, `StartDate`, and `EndDate` parameters are accurate to ensure the node executes correctly.
  *
  * @param request CreateDataDiagnosisJobsRequest
  * @return CreateDataDiagnosisJobsResponse
@@ -2898,13 +2898,13 @@ CreateTableMetaResponse Client::createTableMeta(const CreateTableMetaRequest &re
 }
 
 /**
- * @summary Creates a new traffic control target and sets its parameters, such as the item condition, event, and value.
+ * @summary Creates a traffic control target and configures parameters such as control conditions, events, and target values.
  *
- * @description ## Usage notes
- * - The `ItemConditionType` parameter supports two formats: array format (Array) and expression format (Expression). Based on the format you select, you must provide either `ItemConditionArray` or `ItemConditionExpress`.
- * - The `StatisPeriod` parameter defaults to daily. For hourly statistics, you must set this parameter explicitly.
- * - The `ToleranceValue` and `NewProductRegulation` parameters are optional.
- * - The `Status` parameter controls whether a new traffic control target takes effect immediately. By default, new targets are inactive.
+ * @description ## Request notes
+ * - `ItemConditionType` supports two formats: array format (Array) and expression format (Expression). Depending on your selection, you must provide the corresponding `ItemConditionArray` or `ItemConditionExpress`.
+ * - The default value of `StatisPeriod` is daily. If you require hourly statistics, explicitly specify this parameter.
+ * - `ToleranceValue` and `NewProductRegulation` are optional parameters. Specify them only when you have specific requirements.
+ * - The `Status` field allows you to control whether the newly created traffic control target takes effect immediately. By default, it may be in the disabled state.
  *
  * @param request CreateTrafficControlTargetRequest
  * @param headers map
@@ -2989,13 +2989,13 @@ CreateTrafficControlTargetResponse Client::createTrafficControlTargetWithOptions
 }
 
 /**
- * @summary Creates a new traffic control target and sets its parameters, such as the item condition, event, and value.
+ * @summary Creates a traffic control target and configures parameters such as control conditions, events, and target values.
  *
- * @description ## Usage notes
- * - The `ItemConditionType` parameter supports two formats: array format (Array) and expression format (Expression). Based on the format you select, you must provide either `ItemConditionArray` or `ItemConditionExpress`.
- * - The `StatisPeriod` parameter defaults to daily. For hourly statistics, you must set this parameter explicitly.
- * - The `ToleranceValue` and `NewProductRegulation` parameters are optional.
- * - The `Status` parameter controls whether a new traffic control target takes effect immediately. By default, new targets are inactive.
+ * @description ## Request notes
+ * - `ItemConditionType` supports two formats: array format (Array) and expression format (Expression). Depending on your selection, you must provide the corresponding `ItemConditionArray` or `ItemConditionExpress`.
+ * - The default value of `StatisPeriod` is daily. If you require hourly statistics, explicitly specify this parameter.
+ * - `ToleranceValue` and `NewProductRegulation` are optional parameters. Specify them only when you have specific requirements.
+ * - The `Status` field allows you to control whether the newly created traffic control target takes effect immediately. By default, it may be in the disabled state.
  *
  * @param request CreateTrafficControlTargetRequest
  * @return CreateTrafficControlTargetResponse
@@ -3007,15 +3007,15 @@ CreateTrafficControlTargetResponse Client::createTrafficControlTarget(const Crea
 }
 
 /**
- * @summary Creates a new traffic control task with multiple conditions and target configurations.
+ * @summary Creates a traffic control task with various condition settings and target configurations.
  *
- * @description ## Request
- * - Use this API to create a new traffic control task. You can define a traffic control policy for different scenarios, time ranges, and conditions for users or items.
- * - The `ExecutionTime` parameter specifies the execution time mode for the task. If you select the `TimeRange` mode, you must provide both the `StartTime` and `EndTime` parameters.
- * - The `TrafficControlTargets` parameter is required. For each traffic control target, you must specify its name, time range, event type, and expected value.
- * - You can use the `UserConditionType` and `ItemConditionType` parameters to define conditions for the target user group and items.
- * - Set the `ControlLogic` parameter to `Guaranteed` for guaranteed control or to `Approach` for approach control.
- * - To configure new product regulation, use the `NewProductRegulation` field.
+ * @description ## Request description
+ * - This API operation creates a traffic control task. You can define traffic control policies based on different scenarios, time ranges, and specific user or item conditions.
+ * - The `ExecutionTime` parameter specifies the time mode for task execution. If you select the `TimeRange` mode, you must specify both `StartTime` and `EndTime`.
+ * - The traffic control target list (`TrafficControlTargets`) is required. For each target, you must specify its name, time range, event type, and expected value.
+ * - You can use `UserConditionType` and `ItemConditionType` to flexibly set specific conditions for the target users and items. Both array and expression formats are supported.
+ * - The `ControlLogic` parameter can be set to `Guaranteed` or `Approach`, which indicates guaranteed traffic control or approximate traffic control, respectively.
+ * - When you configure new product regulation, make sure that the `NewProductRegulation` field is correctly specified.
  *
  * @param request CreateTrafficControlTaskRequest
  * @param headers map
@@ -3160,15 +3160,15 @@ CreateTrafficControlTaskResponse Client::createTrafficControlTaskWithOptions(con
 }
 
 /**
- * @summary Creates a new traffic control task with multiple conditions and target configurations.
+ * @summary Creates a traffic control task with various condition settings and target configurations.
  *
- * @description ## Request
- * - Use this API to create a new traffic control task. You can define a traffic control policy for different scenarios, time ranges, and conditions for users or items.
- * - The `ExecutionTime` parameter specifies the execution time mode for the task. If you select the `TimeRange` mode, you must provide both the `StartTime` and `EndTime` parameters.
- * - The `TrafficControlTargets` parameter is required. For each traffic control target, you must specify its name, time range, event type, and expected value.
- * - You can use the `UserConditionType` and `ItemConditionType` parameters to define conditions for the target user group and items.
- * - Set the `ControlLogic` parameter to `Guaranteed` for guaranteed control or to `Approach` for approach control.
- * - To configure new product regulation, use the `NewProductRegulation` field.
+ * @description ## Request description
+ * - This API operation creates a traffic control task. You can define traffic control policies based on different scenarios, time ranges, and specific user or item conditions.
+ * - The `ExecutionTime` parameter specifies the time mode for task execution. If you select the `TimeRange` mode, you must specify both `StartTime` and `EndTime`.
+ * - The traffic control target list (`TrafficControlTargets`) is required. For each target, you must specify its name, time range, event type, and expected value.
+ * - You can use `UserConditionType` and `ItemConditionType` to flexibly set specific conditions for the target users and items. Both array and expression formats are supported.
+ * - The `ControlLogic` parameter can be set to `Guaranteed` or `Approach`, which indicates guaranteed traffic control or approximate traffic control, respectively.
+ * - When you configure new product regulation, make sure that the `NewProductRegulation` field is correctly specified.
  *
  * @param request CreateTrafficControlTaskRequest
  * @return CreateTrafficControlTaskResponse
@@ -4637,7 +4637,7 @@ GenerateTrafficControlTaskConfigResponse Client::generateTrafficControlTaskConfi
 }
 
 /**
- * @summary Gets the details of an A/B metric.
+ * @summary Retrieves the details of an ABTest metric.
  *
  * @param request GetABMetricRequest
  * @param headers map
@@ -4670,7 +4670,7 @@ GetABMetricResponse Client::getABMetricWithOptions(const string &ABMetricId, con
 }
 
 /**
- * @summary Gets the details of an A/B metric.
+ * @summary Retrieves the details of an ABTest metric.
  *
  * @param request GetABMetricRequest
  * @return GetABMetricResponse
@@ -4727,7 +4727,7 @@ GetABMetricGroupResponse Client::getABMetricGroup(const string &ABMetricGroupId,
 }
 
 /**
- * @summary Gets the details of a specified calculation job.
+ * @summary Retrieves the details of a specified compute task.
  *
  * @param request GetCalculationJobRequest
  * @param headers map
@@ -4760,7 +4760,7 @@ GetCalculationJobResponse Client::getCalculationJobWithOptions(const string &Cal
 }
 
 /**
- * @summary Gets the details of a specified calculation job.
+ * @summary Retrieves the details of a specified compute task.
  *
  * @param request GetCalculationJobRequest
  * @return GetCalculationJobResponse
@@ -4772,13 +4772,13 @@ GetCalculationJobResponse Client::getCalculationJob(const string &CalculationJob
 }
 
 /**
- * @summary Retrieves details of a data diagnosis task using its data diagnosis task ID and instance ID.
+ * @summary Retrieves detailed data modeling diagnostics information by diagnostic node ID and instance ID.
  *
- * @description ## Request
- * - This API retrieves the details of a specific data diagnosis task using the provided `DataDiagnosisId` (data diagnosis task configuration ID) and `InstanceId` (instance ID).
- * - The `CycleTime` field specifies the time for periodic execution. If this field is empty, the task does not execute periodically.
- * - The value of `Type` determines the content of the `Config` field. For details about the required configuration for each type, see the relevant documentation.
- * - `GmtCreateTime` and `GmtModifiedTime` are timestamps for the record\\"s creation and modification times, respectively.
+ * @description ## Request description
+ * - This API retrieves detailed information about a specific diagnostic node based on the provided `DataDiagnosisId` (diagnostic node configuration ID) and `InstanceId` (instance ID).
+ * - The `CycleTime` field indicates the epoch runtime. If this field is empty, no scheduled runs are performed.
+ * - The content of the `Config` field varies depending on the `Type` value. Refer to the References for the specific configuration items required for each type.
+ * - `GmtCreateTime` and `GmtModifiedTime` represent the UNIX timestamps for when the record was created and last modified, respectively.
  *
  * @param request GetDataDiagnosisRequest
  * @param headers map
@@ -4811,13 +4811,13 @@ GetDataDiagnosisResponse Client::getDataDiagnosisWithOptions(const string &DataD
 }
 
 /**
- * @summary Retrieves details of a data diagnosis task using its data diagnosis task ID and instance ID.
+ * @summary Retrieves detailed data modeling diagnostics information by diagnostic node ID and instance ID.
  *
- * @description ## Request
- * - This API retrieves the details of a specific data diagnosis task using the provided `DataDiagnosisId` (data diagnosis task configuration ID) and `InstanceId` (instance ID).
- * - The `CycleTime` field specifies the time for periodic execution. If this field is empty, the task does not execute periodically.
- * - The value of `Type` determines the content of the `Config` field. For details about the required configuration for each type, see the relevant documentation.
- * - `GmtCreateTime` and `GmtModifiedTime` are timestamps for the record\\"s creation and modification times, respectively.
+ * @description ## Request description
+ * - This API retrieves detailed information about a specific diagnostic node based on the provided `DataDiagnosisId` (diagnostic node configuration ID) and `InstanceId` (instance ID).
+ * - The `CycleTime` field indicates the epoch runtime. If this field is empty, no scheduled runs are performed.
+ * - The content of the `Config` field varies depending on the `Type` value. Refer to the References for the specific configuration items required for each type.
+ * - `GmtCreateTime` and `GmtModifiedTime` represent the UNIX timestamps for when the record was created and last modified, respectively.
  *
  * @param request GetDataDiagnosisRequest
  * @return GetDataDiagnosisResponse
@@ -4964,7 +4964,7 @@ GetExperimentGroupResponse Client::getExperimentGroup(const string &ExperimentGr
 }
 
 /**
- * @summary Gets the details of a feature consistency check job.
+ * @summary Retrieves the details of a feature consistency check task.
  *
  * @param request GetFeatureConsistencyCheckJobRequest
  * @param headers map
@@ -4997,7 +4997,7 @@ GetFeatureConsistencyCheckJobResponse Client::getFeatureConsistencyCheckJobWithO
 }
 
 /**
- * @summary Gets the details of a feature consistency check job.
+ * @summary Retrieves the details of a feature consistency check task.
  *
  * @param request GetFeatureConsistencyCheckJobRequest
  * @return GetFeatureConsistencyCheckJobResponse
@@ -5009,7 +5009,7 @@ GetFeatureConsistencyCheckJobResponse Client::getFeatureConsistencyCheckJob(cons
 }
 
 /**
- * @summary Retrieves the configuration details of a feature consistency check task.
+ * @summary Retrieves the configuration details of a feature consistency check job.
  *
  * @param request GetFeatureConsistencyCheckJobConfigRequest
  * @param headers map
@@ -5042,7 +5042,7 @@ GetFeatureConsistencyCheckJobConfigResponse Client::getFeatureConsistencyCheckJo
 }
 
 /**
- * @summary Retrieves the configuration details of a feature consistency check task.
+ * @summary Retrieves the configuration details of a feature consistency check job.
  *
  * @param request GetFeatureConsistencyCheckJobConfigRequest
  * @return GetFeatureConsistencyCheckJobConfigResponse
@@ -5054,7 +5054,7 @@ GetFeatureConsistencyCheckJobConfigResponse Client::getFeatureConsistencyCheckJo
 }
 
 /**
- * @summary Retrieves the details of a specified PAIRec instance.
+ * @summary Queries the details of a specified PAIRec instance.
  *
  * @param request GetInstanceRequest
  * @param headers map
@@ -5081,7 +5081,7 @@ GetInstanceResponse Client::getInstanceWithOptions(const string &InstanceId, con
 }
 
 /**
- * @summary Retrieves the details of a specified PAIRec instance.
+ * @summary Queries the details of a specified PAIRec instance.
  *
  * @param request GetInstanceRequest
  * @return GetInstanceResponse
@@ -5093,7 +5093,7 @@ GetInstanceResponse Client::getInstance(const string &InstanceId, const GetInsta
 }
 
 /**
- * @summary Retrieves the details of a specific resource in a specified instance.
+ * @summary Retrieves the details of a specified resource in a specified instance.
  *
  * @param request GetInstanceResourceRequest
  * @param headers map
@@ -5120,7 +5120,7 @@ GetInstanceResourceResponse Client::getInstanceResourceWithOptions(const string 
 }
 
 /**
- * @summary Retrieves the details of a specific resource in a specified instance.
+ * @summary Retrieves the details of a specified resource in a specified instance.
  *
  * @param request GetInstanceResourceRequest
  * @return GetInstanceResourceResponse
@@ -5306,10 +5306,10 @@ GetRecallManagementConfigResponse Client::getRecallManagementConfig(const GetRec
 }
 
 /**
- * @summary Retrieves the details of a specific recall management job, including its status and log.
+ * @summary Queries the details of a specific recall management task, including the status and logs.
  *
- * @description ## Description
- * Retrieves the details of a specific recall management job using its `RecallManagementJobId` and `InstanceId`. The response includes the job\\"s status (such as Init, Running, Success, or Failed), start and end times, related table information, and operation log. To make a request, specify the `RecallManagementJobId` as a path parameter and the `InstanceId` as a query parameter.
+ * @description ## Request description
+ * Provides the details of a specified recall management task by using RecallManagementJobId and InstanceId. This API returns the task status (such as init, running, success, or failed), start and end times, related table information, and operation logs. Make sure to specify the path parameter RecallManagementJobId and the query parameter InstanceId in the request.
  *
  * @param request GetRecallManagementJobRequest
  * @param headers map
@@ -5342,10 +5342,10 @@ GetRecallManagementJobResponse Client::getRecallManagementJobWithOptions(const s
 }
 
 /**
- * @summary Retrieves the details of a specific recall management job, including its status and log.
+ * @summary Queries the details of a specific recall management task, including the status and logs.
  *
- * @description ## Description
- * Retrieves the details of a specific recall management job using its `RecallManagementJobId` and `InstanceId`. The response includes the job\\"s status (such as Init, Running, Success, or Failed), start and end times, related table information, and operation log. To make a request, specify the `RecallManagementJobId` as a path parameter and the `InstanceId` as a query parameter.
+ * @description ## Request description
+ * Provides the details of a specified recall management task by using RecallManagementJobId and InstanceId. This API returns the task status (such as init, running, success, or failed), start and end times, related table information, and operation logs. Make sure to specify the path parameter RecallManagementJobId and the query parameter InstanceId in the request.
  *
  * @param request GetRecallManagementJobRequest
  * @return GetRecallManagementJobResponse
@@ -5357,9 +5357,9 @@ GetRecallManagementJobResponse Client::getRecallManagementJob(const string &Reca
 }
 
 /**
- * @summary Retrieves the details of a specified recall management service, including its status and version.
+ * @summary Queries the details of a specified recall management service, including the status and version.
  *
- * @description ## Request
+ * @description ## Request description.
  *
  * @param request GetRecallManagementServiceRequest
  * @param headers map
@@ -5392,9 +5392,9 @@ GetRecallManagementServiceResponse Client::getRecallManagementServiceWithOptions
 }
 
 /**
- * @summary Retrieves the details of a specified recall management service, including its status and version.
+ * @summary Queries the details of a specified recall management service, including the status and version.
  *
- * @description ## Request
+ * @description ## Request description.
  *
  * @param request GetRecallManagementServiceRequest
  * @return GetRecallManagementServiceResponse
@@ -5406,7 +5406,7 @@ GetRecallManagementServiceResponse Client::getRecallManagementService(const stri
 }
 
 /**
- * @summary Retrieves the version details of the recall management service.
+ * @summary Retrieves the details of a recall management service version.
  *
  * @param request GetRecallManagementServiceVersionRequest
  * @param headers map
@@ -5439,7 +5439,7 @@ GetRecallManagementServiceVersionResponse Client::getRecallManagementServiceVers
 }
 
 /**
- * @summary Retrieves the version details of the recall management service.
+ * @summary Retrieves the details of a recall management service version.
  *
  * @param request GetRecallManagementServiceVersionRequest
  * @return GetRecallManagementServiceVersionResponse
@@ -5451,12 +5451,12 @@ GetRecallManagementServiceVersionResponse Client::getRecallManagementServiceVers
 }
 
 /**
- * @summary This API retrieves the configuration details of a specific recall management service version.
+ * @summary Queries the configuration details of a specific recall management service version.
  *
- * @description ## Request
- * Retrieves the configuration details for a specific version of a Recall Management Service by specifying its service, version, and configuration IDs. Ensure the parameter values are correct. The `InstanceId` is crucial for locating the correct instance.
- * - **Note**: All path parameters (`RecallManagementServiceId`, `RecallManagementServiceVersionId`, and `RecallManagementServiceVersionConfigId`) are required and must reference an existing resource.
- * - **Extended configuration**: The response includes the `ExtendedConfig` field, which is used for future extensions and custom settings. Parse this field as needed.
+ * @description ## Request description
+ * Specify the recall management service ID, version ID, and configuration ID to retrieve the configuration details of the recall service version. Ensure that the parameter values are accurate, especially `InstanceId`, which is crucial for locating the correct instance.
+ * - **Note**: All path parameters (`RecallManagementServiceId`, `RecallManagementServiceVersionId`, and `RecallManagementServiceVersionConfigId`) are required and must match existing resources.
+ * - **Extended configuration**: The returned data includes the `ExtendedConfig` field for future feature extensions or custom settings. Parse and use it as needed.
  *
  * @param request GetRecallManagementServiceVersionConfigRequest
  * @param headers map
@@ -5489,12 +5489,12 @@ GetRecallManagementServiceVersionConfigResponse Client::getRecallManagementServi
 }
 
 /**
- * @summary This API retrieves the configuration details of a specific recall management service version.
+ * @summary Queries the configuration details of a specific recall management service version.
  *
- * @description ## Request
- * Retrieves the configuration details for a specific version of a Recall Management Service by specifying its service, version, and configuration IDs. Ensure the parameter values are correct. The `InstanceId` is crucial for locating the correct instance.
- * - **Note**: All path parameters (`RecallManagementServiceId`, `RecallManagementServiceVersionId`, and `RecallManagementServiceVersionConfigId`) are required and must reference an existing resource.
- * - **Extended configuration**: The response includes the `ExtendedConfig` field, which is used for future extensions and custom settings. Parse this field as needed.
+ * @description ## Request description
+ * Specify the recall management service ID, version ID, and configuration ID to retrieve the configuration details of the recall service version. Ensure that the parameter values are accurate, especially `InstanceId`, which is crucial for locating the correct instance.
+ * - **Note**: All path parameters (`RecallManagementServiceId`, `RecallManagementServiceVersionId`, and `RecallManagementServiceVersionConfigId`) are required and must match existing resources.
+ * - **Extended configuration**: The returned data includes the `ExtendedConfig` field for future feature extensions or custom settings. Parse and use it as needed.
  *
  * @param request GetRecallManagementServiceVersionConfigRequest
  * @return GetRecallManagementServiceVersionConfigResponse
@@ -5506,13 +5506,13 @@ GetRecallManagementServiceVersionConfigResponse Client::getRecallManagementServi
 }
 
 /**
- * @summary Retrieves the details of a specified recall management table, including its table structure and configuration.
+ * @summary Queries the details of a specified recall management table, including the table schema and configurations.
  *
- * @description ## Request
- * This API retrieves details of a specific recall management table using the provided `RecallManagementTableId` and `InstanceId`. Ensure you provide the correct values for these parameters.
- * - **Note**: The `CanDelete` field indicates whether the data table supports delete operations. Use this value to control delete functionality in your application.
- * - The `Fields` list contains the definitions for each field in the data table, including their name, type, and properties.
- * - To monitor data changes, you can configure or query the fluctuation thresholds for row count and size using the corresponding fields.
+ * @description ## Request description
+ * This operation retrieves the details of a recall management table based on the specified table ID (`RecallManagementTableId`) and instance ID (`InstanceId`). Make sure to provide valid values for these two parameters in the request.
+ * - **Note**: The `CanDelete` field indicates whether the table supports deletion. Handle the related logic with caution.
+ * - The `Fields` list contains the specific definitions of the fields in the table, such as the name, type, and attributes.
+ * - The fluctuation threshold settings for the table (row count and size) can be configured or queried through the corresponding fields to monitor data changes.
  *
  * @param request GetRecallManagementTableRequest
  * @param headers map
@@ -5545,13 +5545,13 @@ GetRecallManagementTableResponse Client::getRecallManagementTableWithOptions(con
 }
 
 /**
- * @summary Retrieves the details of a specified recall management table, including its table structure and configuration.
+ * @summary Queries the details of a specified recall management table, including the table schema and configurations.
  *
- * @description ## Request
- * This API retrieves details of a specific recall management table using the provided `RecallManagementTableId` and `InstanceId`. Ensure you provide the correct values for these parameters.
- * - **Note**: The `CanDelete` field indicates whether the data table supports delete operations. Use this value to control delete functionality in your application.
- * - The `Fields` list contains the definitions for each field in the data table, including their name, type, and properties.
- * - To monitor data changes, you can configure or query the fluctuation thresholds for row count and size using the corresponding fields.
+ * @description ## Request description
+ * This operation retrieves the details of a recall management table based on the specified table ID (`RecallManagementTableId`) and instance ID (`InstanceId`). Make sure to provide valid values for these two parameters in the request.
+ * - **Note**: The `CanDelete` field indicates whether the table supports deletion. Handle the related logic with caution.
+ * - The `Fields` list contains the specific definitions of the fields in the table, such as the name, type, and attributes.
+ * - The fluctuation threshold settings for the table (row count and size) can be configured or queried through the corresponding fields to monitor data changes.
  *
  * @param request GetRecallManagementTableRequest
  * @return GetRecallManagementTableResponse
@@ -5743,7 +5743,7 @@ GetServiceResponse Client::getService(const string &ServiceId, const GetServiceR
 }
 
 /**
- * @summary Retrieves the details of a sub-crowd.
+ * @summary Retrieves the details of a specified sub-crowd.
  *
  * @param request GetSubCrowdRequest
  * @param headers map
@@ -5776,7 +5776,7 @@ GetSubCrowdResponse Client::getSubCrowdWithOptions(const string &CrowdId, const 
 }
 
 /**
- * @summary Retrieves the details of a sub-crowd.
+ * @summary Retrieves the details of a specified sub-crowd.
  *
  * @param request GetSubCrowdRequest
  * @return GetSubCrowdResponse
@@ -5788,7 +5788,7 @@ GetSubCrowdResponse Client::getSubCrowd(const string &CrowdId, const string &Sub
 }
 
 /**
- * @summary Returns the details of a table.
+ * @summary Retrieves the details of a data table.
  *
  * @param request GetTableMetaRequest
  * @param headers map
@@ -5821,7 +5821,7 @@ GetTableMetaResponse Client::getTableMetaWithOptions(const string &TableMetaId, 
 }
 
 /**
- * @summary Returns the details of a table.
+ * @summary Retrieves the details of a data table.
  *
  * @param request GetTableMetaRequest
  * @return GetTableMetaResponse
@@ -5833,10 +5833,10 @@ GetTableMetaResponse Client::getTableMeta(const string &TableMetaId, const GetTa
 }
 
 /**
- * @summary Gets the details of a traffic throttling objective by its ID.
+ * @summary Queries the details of a traffic control target with a specified ID.
  *
- * @description ## Request
- * Retrieves the detailed configuration of a traffic control target. The configuration includes the target name, time range, and condition settings. This operation requires the `TrafficControlTargetId` and `InstanceId` parameters.
+ * @description ## Request description
+ * Provide the traffic control target ID and instance ID to retrieve the detailed configuration of the traffic control target, including the target name, time range, and condition settings. Note that TrafficControlTargetId and InstanceId are required parameters.
  *
  * @param request GetTrafficControlTargetRequest
  * @param headers map
@@ -5869,10 +5869,10 @@ GetTrafficControlTargetResponse Client::getTrafficControlTargetWithOptions(const
 }
 
 /**
- * @summary Gets the details of a traffic throttling objective by its ID.
+ * @summary Queries the details of a traffic control target with a specified ID.
  *
- * @description ## Request
- * Retrieves the detailed configuration of a traffic control target. The configuration includes the target name, time range, and condition settings. This operation requires the `TrafficControlTargetId` and `InstanceId` parameters.
+ * @description ## Request description
+ * Provide the traffic control target ID and instance ID to retrieve the detailed configuration of the traffic control target, including the target name, time range, and condition settings. Note that TrafficControlTargetId and InstanceId are required parameters.
  *
  * @param request GetTrafficControlTargetRequest
  * @return GetTrafficControlTargetResponse
@@ -6089,7 +6089,7 @@ ListABMetricGroupsResponse Client::listABMetricGroups(const ListABMetricGroupsRe
 }
 
 /**
- * @summary Lists A/B testing metrics.
+ * @summary Retrieves a list of AB test metrics.
  *
  * @param request ListABMetricsRequest
  * @param headers map
@@ -6150,7 +6150,7 @@ ListABMetricsResponse Client::listABMetricsWithOptions(const ListABMetricsReques
 }
 
 /**
- * @summary Lists A/B testing metrics.
+ * @summary Retrieves a list of AB test metrics.
  *
  * @param request ListABMetricsRequest
  * @return ListABMetricsResponse
@@ -6162,7 +6162,7 @@ ListABMetricsResponse Client::listABMetrics(const ListABMetricsRequest &request)
 }
 
 /**
- * @summary Lists calculation jobs.
+ * @summary Queries a list of calculation tasks.
  *
  * @param request ListCalculationJobsRequest
  * @param headers map
@@ -6211,7 +6211,7 @@ ListCalculationJobsResponse Client::listCalculationJobsWithOptions(const ListCal
 }
 
 /**
- * @summary Lists calculation jobs.
+ * @summary Queries a list of calculation tasks.
  *
  * @param request ListCalculationJobsRequest
  * @return ListCalculationJobsResponse
@@ -6268,7 +6268,7 @@ ListCrowdUsersResponse Client::listCrowdUsers(const string &CrowdId, const ListC
 }
 
 /**
- * @summary Lists the Crowds in a specified instance.
+ * @summary Retrieves a list of crowds.
  *
  * @param request ListCrowdsRequest
  * @param headers map
@@ -6301,7 +6301,7 @@ ListCrowdsResponse Client::listCrowdsWithOptions(const ListCrowdsRequest &reques
 }
 
 /**
- * @summary Lists the Crowds in a specified instance.
+ * @summary Retrieves a list of crowds.
  *
  * @param request ListCrowdsRequest
  * @return ListCrowdsResponse
@@ -6386,13 +6386,13 @@ ListDataDiagnosesResponse Client::listDataDiagnoses(const ListDataDiagnosesReque
 }
 
 /**
- * @summary Queries data diagnosis jobs for a specified instance.
+ * @summary Queries the data diagnostic tasks and their statuses for a specified instance.
  *
- * @description ## Description
- * This API retrieves data diagnosis jobs for a specific instance. You can filter the jobs by parameters such as `InstanceId` and `Status`, and use the `PageNumber` and `PageSize` parameters to control pagination.
- * - The **InstanceId** parameter is required and specifies the instance to query.
- * - Optional parameters include **Status**, **Types**, **PageNumber**, and **PageSize**.
- * - Note: If you omit filter conditions, the operation returns all matching data diagnosis jobs.
+ * @description ## Request description
+ * This API allows you to retrieve a list of data diagnostic tasks for a specific instance based on provided parameters such as InstanceId and Status. You can filter tasks by status and type, and control the amount of returned data by using pagination parameters such as PageNumber and PageSize.
+ * - **InstanceId** is required and specifies the instance to which the tasks to be queried belong.
+ * - Optional parameters include **Status**, **Types**, **PageNumber**, and **PageSize**, which allow you to filter the required information more precisely.
+ * - Note: If no filter conditions are provided, all eligible data diagnostic tasks are returned by default.
  *
  * @param tmpReq ListDataDiagnosisJobsRequest
  * @param headers map
@@ -6447,13 +6447,13 @@ ListDataDiagnosisJobsResponse Client::listDataDiagnosisJobsWithOptions(const Lis
 }
 
 /**
- * @summary Queries data diagnosis jobs for a specified instance.
+ * @summary Queries the data diagnostic tasks and their statuses for a specified instance.
  *
- * @description ## Description
- * This API retrieves data diagnosis jobs for a specific instance. You can filter the jobs by parameters such as `InstanceId` and `Status`, and use the `PageNumber` and `PageSize` parameters to control pagination.
- * - The **InstanceId** parameter is required and specifies the instance to query.
- * - Optional parameters include **Status**, **Types**, **PageNumber**, and **PageSize**.
- * - Note: If you omit filter conditions, the operation returns all matching data diagnosis jobs.
+ * @description ## Request description
+ * This API allows you to retrieve a list of data diagnostic tasks for a specific instance based on provided parameters such as InstanceId and Status. You can filter tasks by status and type, and control the amount of returned data by using pagination parameters such as PageNumber and PageSize.
+ * - **InstanceId** is required and specifies the instance to which the tasks to be queried belong.
+ * - Optional parameters include **Status**, **Types**, **PageNumber**, and **PageSize**, which allow you to filter the required information more precisely.
+ * - Note: If no filter conditions are provided, all eligible data diagnostic tasks are returned by default.
  *
  * @param request ListDataDiagnosisJobsRequest
  * @return ListDataDiagnosisJobsResponse
@@ -6465,14 +6465,14 @@ ListDataDiagnosisJobsResponse Client::listDataDiagnosisJobs(const ListDataDiagno
 }
 
 /**
- * @summary Specify parameters to retrieve data diagnosis reports for a specific time range.
+ * @summary Retrieves a diagnostic report for a specified time period based on the given parameters.
  *
- * @description ## Request
- * - This API retrieves data diagnosis reports based on parameters such as the data diagnosis ID, instance ID, and a date range.
- * - The `FeatureName` parameter filters reports by a specific feature, and the `TopN` parameter limits the number of results.
- * - The `RemainRateType` parameter specifies the type of retention rate report, such as a periodic report.
- * - Report content includes item and user change rate analysis, periodic user preference analysis, correlation analysis, basic statistical analysis, and anomaly detection.
- * - Important: All date values must use the `YYYY-MM-DD` format.
+ * @description ## Request description
+ * - This API retrieves a diagnostic report based on the provided data diagnosis ID, instance ID, and date range.
+ * - Use Settings for FeatureName to filter reports for a specific feature. Use the TopN parameter to limit the number of returned results.
+ * - RemainRateType allows you to select the type of retention rate report, such as a periodic report.
+ * - Report content includes, but is not limited to, item/user change rate analysis, user preference statistical period analysis, join table associate analysis, basic statistics analysis, and abnormal behavior analysis.
+ * - Note: All dates must follow the YYYY-MM-DD format.
  *
  * @param request ListDataDiagnosisReportsRequest
  * @param headers map
@@ -6525,14 +6525,14 @@ ListDataDiagnosisReportsResponse Client::listDataDiagnosisReportsWithOptions(con
 }
 
 /**
- * @summary Specify parameters to retrieve data diagnosis reports for a specific time range.
+ * @summary Retrieves a diagnostic report for a specified time period based on the given parameters.
  *
- * @description ## Request
- * - This API retrieves data diagnosis reports based on parameters such as the data diagnosis ID, instance ID, and a date range.
- * - The `FeatureName` parameter filters reports by a specific feature, and the `TopN` parameter limits the number of results.
- * - The `RemainRateType` parameter specifies the type of retention rate report, such as a periodic report.
- * - Report content includes item and user change rate analysis, periodic user preference analysis, correlation analysis, basic statistical analysis, and anomaly detection.
- * - Important: All date values must use the `YYYY-MM-DD` format.
+ * @description ## Request description
+ * - This API retrieves a diagnostic report based on the provided data diagnosis ID, instance ID, and date range.
+ * - Use Settings for FeatureName to filter reports for a specific feature. Use the TopN parameter to limit the number of returned results.
+ * - RemainRateType allows you to select the type of retention rate report, such as a periodic report.
+ * - Report content includes, but is not limited to, item/user change rate analysis, user preference statistical period analysis, join table associate analysis, basic statistics analysis, and abnormal behavior analysis.
+ * - Note: All dates must follow the YYYY-MM-DD format.
  *
  * @param request ListDataDiagnosisReportsRequest
  * @return ListDataDiagnosisReportsResponse
@@ -6617,7 +6617,7 @@ ListEngineConfigsResponse Client::listEngineConfigs(const ListEngineConfigsReque
 }
 
 /**
- * @summary Returns a list of experiment groups.
+ * @summary Retrieves a list of experiment groups.
  *
  * @param request ListExperimentGroupsRequest
  * @param headers map
@@ -6666,7 +6666,7 @@ ListExperimentGroupsResponse Client::listExperimentGroupsWithOptions(const ListE
 }
 
 /**
- * @summary Returns a list of experiment groups.
+ * @summary Retrieves a list of experiment groups.
  *
  * @param request ListExperimentGroupsRequest
  * @return ListExperimentGroupsResponse
@@ -6678,7 +6678,7 @@ ListExperimentGroupsResponse Client::listExperimentGroups(const ListExperimentGr
 }
 
 /**
- * @summary Lists the experiments in the specified experiment group.
+ * @summary Retrieves the list of experiments in a specified experiment group.
  *
  * @param request ListExperimentsRequest
  * @param headers map
@@ -6723,7 +6723,7 @@ ListExperimentsResponse Client::listExperimentsWithOptions(const ListExperiments
 }
 
 /**
- * @summary Lists the experiments in the specified experiment group.
+ * @summary Retrieves the list of experiments in a specified experiment group.
  *
  * @param request ListExperimentsRequest
  * @return ListExperimentsResponse
@@ -6735,7 +6735,7 @@ ListExperimentsResponse Client::listExperiments(const ListExperimentsRequest &re
 }
 
 /**
- * @summary Retrieves the list of feature consistency check task configurations.
+ * @summary Retrieves a list of feature consistency check task configurations.
  *
  * @param request ListFeatureConsistencyCheckJobConfigsRequest
  * @param headers map
@@ -6788,7 +6788,7 @@ ListFeatureConsistencyCheckJobConfigsResponse Client::listFeatureConsistencyChec
 }
 
 /**
- * @summary Retrieves the list of feature consistency check task configurations.
+ * @summary Retrieves a list of feature consistency check task configurations.
  *
  * @param request ListFeatureConsistencyCheckJobConfigsRequest
  * @return ListFeatureConsistencyCheckJobConfigsResponse
@@ -7028,10 +7028,10 @@ ListInstanceResourceSchemasResponse Client::listInstanceResourceSchemas(const st
 }
 
 /**
- * @summary Retrieves a list of data tables for a specified instance and data source.
+ * @summary Queries all tables in a specified instance and data source.
  *
- * @description ## Description
- * Provide the instance ID (InstanceId) and data source ID (ResourceId) to retrieve a list of data tables from the specified data source. Use the optional `MaxcomputeSchema` parameter to filter the results by a MaxCompute schema.
+ * @description ## Request description
+ * Provide the instance ID (InstanceId) and data source ID (ResourceId) to retrieve a list of all tables in the data source. You can use the optional `MaxcomputeSchema` parameter to specify a MaxCompute schema to further filter the results.
  *
  * @param request ListInstanceResourceTablesRequest
  * @param headers map
@@ -7064,10 +7064,10 @@ ListInstanceResourceTablesResponse Client::listInstanceResourceTablesWithOptions
 }
 
 /**
- * @summary Retrieves a list of data tables for a specified instance and data source.
+ * @summary Queries all tables in a specified instance and data source.
  *
- * @description ## Description
- * Provide the instance ID (InstanceId) and data source ID (ResourceId) to retrieve a list of data tables from the specified data source. Use the optional `MaxcomputeSchema` parameter to filter the results by a MaxCompute schema.
+ * @description ## Request description
+ * Provide the instance ID (InstanceId) and data source ID (ResourceId) to retrieve a list of all tables in the data source. You can use the optional `MaxcomputeSchema` parameter to specify a MaxCompute schema to further filter the results.
  *
  * @param request ListInstanceResourceTablesRequest
  * @return ListInstanceResourceTablesResponse
@@ -7132,7 +7132,7 @@ ListInstanceResourcesResponse Client::listInstanceResources(const string &Instan
 }
 
 /**
- * @summary Gets a list of PAIRec instances.
+ * @summary Retrieves a list of PAIRec instances.
  *
  * @param request ListInstancesRequest
  * @param headers map
@@ -7185,7 +7185,7 @@ ListInstancesResponse Client::listInstancesWithOptions(const ListInstancesReques
 }
 
 /**
- * @summary Gets a list of PAIRec instances.
+ * @summary Retrieves a list of PAIRec instances.
  *
  * @param request ListInstancesRequest
  * @return ListInstancesResponse
@@ -7254,7 +7254,7 @@ ListLaboratoriesResponse Client::listLaboratories(const ListLaboratoriesRequest 
 }
 
 /**
- * @summary Retrieves a list of layers in a specified laboratory.
+ * @summary Retrieves the list of layers in a laboratory.
  *
  * @param request ListLayersRequest
  * @param headers map
@@ -7291,7 +7291,7 @@ ListLayersResponse Client::listLayersWithOptions(const ListLayersRequest &reques
 }
 
 /**
- * @summary Retrieves a list of layers in a specified laboratory.
+ * @summary Retrieves the list of layers in a laboratory.
  *
  * @param request ListLayersRequest
  * @return ListLayersResponse
@@ -7303,7 +7303,7 @@ ListLayersResponse Client::listLayers(const ListLayersRequest &request) {
 }
 
 /**
- * @summary Lists parameters.
+ * @summary Retrieves a list of parameters.
  *
  * @param request ListParamsRequest
  * @param headers map
@@ -7360,7 +7360,7 @@ ListParamsResponse Client::listParamsWithOptions(const ListParamsRequest &reques
 }
 
 /**
- * @summary Lists parameters.
+ * @summary Retrieves a list of parameters.
  *
  * @param request ListParamsRequest
  * @return ListParamsResponse
@@ -7372,15 +7372,15 @@ ListParamsResponse Client::listParams(const ListParamsRequest &request) {
 }
 
 /**
- * @summary Retrieves a list of recall management tasks that match specified conditions.
+ * @summary Queries a list of recall management tasks based on specified conditions.
  *
- * @description ## Request
- * - Use this API operation to retrieve a list of recall management tasks.
- * - The `InstanceId` and `Type` parameters are required. All other parameters are optional.
- * - Use the `Condition` parameter to set filter conditions on specific table types, such as filtering by `RecallManagementTableId`.
- * - Use the `SortBy` and `Order` parameters to control the sort order of the results. The default sort order is ascending by creation time.
- * - Use the `PageNumber` and `PageSize` parameters for pagination. The `PageNumber` parameter defaults to 1, and the `PageSize` parameter defaults to 10.
- * - The response includes details about each recall management task, such as its basic information and status.
+ * @description ## Request description
+ * - This operation retrieves a list of recall management tasks.
+ * - `InstanceId` and `Type` are required parameters. Other parameters are optional.
+ * - The `Condition` parameter supports filtering by specific table types, such as filtering by `RecallManagementTableId`.
+ * - You can use the `SortBy` and `Order` parameters to control the sorting of the returned results. By default, the results are sorted in ascending order of creation time.
+ * - Pagination is implemented through the `PageNumber` and `PageSize` parameters. The default value of `PageNumber` is 1, and the default value of `PageSize` is 10.
+ * - The returned data includes the basic information and status details of each recall management task.
  *
  * @param request ListRecallManagementJobsRequest
  * @param headers map
@@ -7445,15 +7445,15 @@ ListRecallManagementJobsResponse Client::listRecallManagementJobsWithOptions(con
 }
 
 /**
- * @summary Retrieves a list of recall management tasks that match specified conditions.
+ * @summary Queries a list of recall management tasks based on specified conditions.
  *
- * @description ## Request
- * - Use this API operation to retrieve a list of recall management tasks.
- * - The `InstanceId` and `Type` parameters are required. All other parameters are optional.
- * - Use the `Condition` parameter to set filter conditions on specific table types, such as filtering by `RecallManagementTableId`.
- * - Use the `SortBy` and `Order` parameters to control the sort order of the results. The default sort order is ascending by creation time.
- * - Use the `PageNumber` and `PageSize` parameters for pagination. The `PageNumber` parameter defaults to 1, and the `PageSize` parameter defaults to 10.
- * - The response includes details about each recall management task, such as its basic information and status.
+ * @description ## Request description
+ * - This operation retrieves a list of recall management tasks.
+ * - `InstanceId` and `Type` are required parameters. Other parameters are optional.
+ * - The `Condition` parameter supports filtering by specific table types, such as filtering by `RecallManagementTableId`.
+ * - You can use the `SortBy` and `Order` parameters to control the sorting of the returned results. By default, the results are sorted in ascending order of creation time.
+ * - Pagination is implemented through the `PageNumber` and `PageSize` parameters. The default value of `PageNumber` is 1, and the default value of `PageSize` is 10.
+ * - The returned data includes the basic information and status details of each recall management task.
  *
  * @param request ListRecallManagementJobsRequest
  * @return ListRecallManagementJobsResponse
@@ -7465,13 +7465,13 @@ ListRecallManagementJobsResponse Client::listRecallManagementJobs(const ListReca
 }
 
 /**
- * @summary Retrieves a list of all versions for a specified Recall Management Service.
+ * @summary Retrieves all version information for a specified recall management service.
  *
- * @description ## Description
- * This operation queries the details of all versions for a specific Recall Management Service, including the version ID, name, effective status, creation time, and modification time. For accurate results, provide the correct `RecallManagementServiceId` and `InstanceId`.
- * - Use the `PageNumber` and `PageSize` parameters for pagination. By default, the query starts from the first page and returns 50 entries per page.
- * - Use the `SortBy` parameter to sort the results by creation time or modification time. By default, the results are sorted by creation time in ascending order.
- * - The `Order` parameter specifies the sort order. Valid values are `ASC` for ascending order and `DESC` for descending order.
+ * @description ## Operation description
+ * You can call this API operation to query the details of all versions for a specific recall management service, including the version ID, name, effective status, and creation and update times. Make sure to provide the correct RecallManagementServiceId and InstanceId to obtain accurate data.
+ * - The PageNumber and PageSize parameters are used for pagination. By default, the first page is returned, and each page contains 50 entries.
+ * - You can use the SortBy parameter to sort the results by creation time or update time. By default, the results are sorted in ascending order of creation time.
+ * - The Order parameter specifies the sort order. Valid values: ASC (ascending order) and DESC (descending order).
  *
  * @param request ListRecallManagementServiceVersionsRequest
  * @param headers map
@@ -7520,13 +7520,13 @@ ListRecallManagementServiceVersionsResponse Client::listRecallManagementServiceV
 }
 
 /**
- * @summary Retrieves a list of all versions for a specified Recall Management Service.
+ * @summary Retrieves all version information for a specified recall management service.
  *
- * @description ## Description
- * This operation queries the details of all versions for a specific Recall Management Service, including the version ID, name, effective status, creation time, and modification time. For accurate results, provide the correct `RecallManagementServiceId` and `InstanceId`.
- * - Use the `PageNumber` and `PageSize` parameters for pagination. By default, the query starts from the first page and returns 50 entries per page.
- * - Use the `SortBy` parameter to sort the results by creation time or modification time. By default, the results are sorted by creation time in ascending order.
- * - The `Order` parameter specifies the sort order. Valid values are `ASC` for ascending order and `DESC` for descending order.
+ * @description ## Operation description
+ * You can call this API operation to query the details of all versions for a specific recall management service, including the version ID, name, effective status, and creation and update times. Make sure to provide the correct RecallManagementServiceId and InstanceId to obtain accurate data.
+ * - The PageNumber and PageSize parameters are used for pagination. By default, the first page is returned, and each page contains 50 entries.
+ * - You can use the SortBy parameter to sort the results by creation time or update time. By default, the results are sorted in ascending order of creation time.
+ * - The Order parameter specifies the sort order. Valid values: ASC (ascending order) and DESC (descending order).
  *
  * @param request ListRecallManagementServiceVersionsRequest
  * @return ListRecallManagementServiceVersionsResponse
@@ -7538,13 +7538,13 @@ ListRecallManagementServiceVersionsResponse Client::listRecallManagementServiceV
 }
 
 /**
- * @summary Queries the list of recall management services under a specified instance.
+ * @summary Queries the recall management services of a specified instance.
  *
- * @description ## Operation description
- * By calling the `ListRecallManagementServices` operation, you can retrieve the list of recall management services under a specific instance based on given parameters such as InstanceId, PageNumber, and PageSize. You can sort results by creation time or update time in ascending or descending order.
+ * @description ## Request description
+ * By calling the ListRecallManagementServices operation, you can retrieve a list of recall management services for a specific instance based on given parameters such as InstanceId, PageNumber, and PageSize. You can sort the results by creation time or update time in ascending or descending order.
  * - **InstanceId** is required and specifies the instance to which the services belong.
- * - The pagination parameters **PageNumber** and **PageSize** allow you to control the amount of returned data and the page from which to start displaying results. By default, data from the first page is returned.
- * - Use the **SortBy** and **Order** parameters to customize the sorting of the list.
+ * - The pagination parameters **PageNumber** and **PageSize** allow you to control the number of returned entries and the starting page. By default, the first page is returned.
+ * - You can use the **SortBy** and **Order** parameters to customize the sorting method of the list.
  *
  * @param request ListRecallManagementServicesRequest
  * @param headers map
@@ -7605,13 +7605,13 @@ ListRecallManagementServicesResponse Client::listRecallManagementServicesWithOpt
 }
 
 /**
- * @summary Queries the list of recall management services under a specified instance.
+ * @summary Queries the recall management services of a specified instance.
  *
- * @description ## Operation description
- * By calling the `ListRecallManagementServices` operation, you can retrieve the list of recall management services under a specific instance based on given parameters such as InstanceId, PageNumber, and PageSize. You can sort results by creation time or update time in ascending or descending order.
+ * @description ## Request description
+ * By calling the ListRecallManagementServices operation, you can retrieve a list of recall management services for a specific instance based on given parameters such as InstanceId, PageNumber, and PageSize. You can sort the results by creation time or update time in ascending or descending order.
  * - **InstanceId** is required and specifies the instance to which the services belong.
- * - The pagination parameters **PageNumber** and **PageSize** allow you to control the amount of returned data and the page from which to start displaying results. By default, data from the first page is returned.
- * - Use the **SortBy** and **Order** parameters to customize the sorting of the list.
+ * - The pagination parameters **PageNumber** and **PageSize** allow you to control the number of returned entries and the starting page. By default, the first page is returned.
+ * - You can use the **SortBy** and **Order** parameters to customize the sorting method of the list.
  *
  * @param request ListRecallManagementServicesRequest
  * @return ListRecallManagementServicesResponse
@@ -7623,13 +7623,13 @@ ListRecallManagementServicesResponse Client::listRecallManagementServices(const 
 }
 
 /**
- * @summary Lists all versions of a specified RecallManagementTable.
+ * @summary Queries all versions of a specified recall management table.
  *
- * @description ## Usage
- * - To retrieve the version history of a specific RecallManagementTable, provide the `RecallManagementTableId` and `InstanceId`.
- * - Use the `SortBy` parameter to sort the results by creation time or update time. By default, the results are sorted by creation time in ascending order.
- * - The `PageNumber` and `PageSize` parameters enable pagination, which allows you to control the number of items to return and the page to display.
- * - If the `Order` parameter is not specified, the results are sorted in ascending order by default.
+ * @description ## Request description
+ * - Provide `RecallManagementTableId` and `InstanceId` to retrieve the version history of a specific recall management table.
+ * - Use the `SortBy` parameter for sorting the results by creation time or update time. By default, the results are sorted in ascending order by creation time.
+ * - The `PageNumber` and `PageSize` parameters support the paged query feature, allowing you to control the number of returned entries and the specific page to view during paging.
+ * - If you do not specify the `Order` parameter, the results are sorted in ascending order by default.
  *
  * @param request ListRecallManagementTableVersionsRequest
  * @param headers map
@@ -7678,13 +7678,13 @@ ListRecallManagementTableVersionsResponse Client::listRecallManagementTableVersi
 }
 
 /**
- * @summary Lists all versions of a specified RecallManagementTable.
+ * @summary Queries all versions of a specified recall management table.
  *
- * @description ## Usage
- * - To retrieve the version history of a specific RecallManagementTable, provide the `RecallManagementTableId` and `InstanceId`.
- * - Use the `SortBy` parameter to sort the results by creation time or update time. By default, the results are sorted by creation time in ascending order.
- * - The `PageNumber` and `PageSize` parameters enable pagination, which allows you to control the number of items to return and the page to display.
- * - If the `Order` parameter is not specified, the results are sorted in ascending order by default.
+ * @description ## Request description
+ * - Provide `RecallManagementTableId` and `InstanceId` to retrieve the version history of a specific recall management table.
+ * - Use the `SortBy` parameter for sorting the results by creation time or update time. By default, the results are sorted in ascending order by creation time.
+ * - The `PageNumber` and `PageSize` parameters support the paged query feature, allowing you to control the number of returned entries and the specific page to view during paging.
+ * - If you do not specify the `Order` parameter, the results are sorted in ascending order by default.
  *
  * @param request ListRecallManagementTableVersionsRequest
  * @return ListRecallManagementTableVersionsResponse
@@ -7696,13 +7696,13 @@ ListRecallManagementTableVersionsResponse Client::listRecallManagementTableVersi
 }
 
 /**
- * @summary Retrieves the recall management tables for a specified instance. Pagination and sorting are supported.
+ * @summary Queries the recall management table information for a specified instance, with support for pagination and sorting.
  *
- * @description ## Request
- * - **InstanceId** is a required parameter specifying the instance to query.
- * - The **Name** and **Type** parameters filter recall management tables by name or type.
- * - The **PageNumber** and **PageSize** parameters control pagination. By default, the query returns the first 50 records.
- * - You can sort results by creation time (GmtCreateTime) or modification time (GmtModifiedTime) in ascending (ASC) or descending (DESC) order.
+ * @description ## Request description
+ * - **InstanceId** is a required parameter that specifies the instance to query.
+ * - Use the **Name** and **Type** parameters to filter recall management tables by name or type.
+ * - Pagination is controlled by **PageNumber** and **PageSize**. By default, the query starts from page 1 and returns 50 records per page.
+ * - Supports sorting by creation time (GmtCreateTime) or update time (GmtModifiedTime) in ascending (ASC) or descending (DESC) order.
  *
  * @param request ListRecallManagementTablesRequest
  * @param headers map
@@ -7767,13 +7767,13 @@ ListRecallManagementTablesResponse Client::listRecallManagementTablesWithOptions
 }
 
 /**
- * @summary Retrieves the recall management tables for a specified instance. Pagination and sorting are supported.
+ * @summary Queries the recall management table information for a specified instance, with support for pagination and sorting.
  *
- * @description ## Request
- * - **InstanceId** is a required parameter specifying the instance to query.
- * - The **Name** and **Type** parameters filter recall management tables by name or type.
- * - The **PageNumber** and **PageSize** parameters control pagination. By default, the query returns the first 50 records.
- * - You can sort results by creation time (GmtCreateTime) or modification time (GmtModifiedTime) in ascending (ASC) or descending (DESC) order.
+ * @description ## Request description
+ * - **InstanceId** is a required parameter that specifies the instance to query.
+ * - Use the **Name** and **Type** parameters to filter recall management tables by name or type.
+ * - Pagination is controlled by **PageNumber** and **PageSize**. By default, the query starts from page 1 and returns 50 records per page.
+ * - Supports sorting by creation time (GmtCreateTime) or update time (GmtModifiedTime) in ascending (ASC) or descending (DESC) order.
  *
  * @param request ListRecallManagementTablesRequest
  * @return ListRecallManagementTablesResponse
@@ -7972,7 +7972,7 @@ ListScenesResponse Client::listScenes(const ListScenesRequest &request) {
 }
 
 /**
- * @summary Lists the subcrowds for a specified crowd.
+ * @summary Retrieves the list of sub-crowds under a specified crowd.
  *
  * @param request ListSubCrowdsRequest
  * @param headers map
@@ -8005,7 +8005,7 @@ ListSubCrowdsResponse Client::listSubCrowdsWithOptions(const string &CrowdId, co
 }
 
 /**
- * @summary Lists the subcrowds for a specified crowd.
+ * @summary Retrieves the list of sub-crowds under a specified crowd.
  *
  * @param request ListSubCrowdsRequest
  * @return ListSubCrowdsResponse
@@ -8082,15 +8082,15 @@ ListTableMetasResponse Client::listTableMetas(const ListTableMetasRequest &reque
 }
 
 /**
- * @summary Retrieves the historical traffic records for a specific traffic control target.
+ * @summary Queries the historical traffic change records of a specified traffic control target.
  *
- * @description ## Usage notes
- * - The `TrafficControlTargetId`, `InstanceId`, and `Environment` parameters are required.
- * - You can use `StartTime` and `EndTime` to specify the time range.
- * - The `Threshold` parameter is optional.
- * - Use `ExperimentId` and `ExperimentGroupId` to filter data for a specific experiment or experiment group.
- * - Use `ItemId` to filter traffic data for a specific item.
- * - The supported environments are the Daily environment, pre-production environment (Pre), and production environment (Prod).
+ * @description ## Request description
+ * - `TrafficControlTargetId`, `InstanceId`, and `Environment` are required parameters.
+ * - You can use `StartTime` and `EndTime` to specify the time range for the query. The format is `YYYY-MM-DD HH:MM:SS`.
+ * - The `Threshold` parameter is optional and used to set the threshold.
+ * - `ExperimentId` and `ExperimentGroupId` are used to filter data for specific experiments or experiment groups.
+ * - `ItemId` is used to filter traffic data for specific items.
+ * - Supported environments include Daily (daily environment), Pre (staging environment), and Prod (production environment).
  *
  * @param request ListTrafficControlTargetTrafficHistoryRequest
  * @param headers map
@@ -8151,15 +8151,15 @@ ListTrafficControlTargetTrafficHistoryResponse Client::listTrafficControlTargetT
 }
 
 /**
- * @summary Retrieves the historical traffic records for a specific traffic control target.
+ * @summary Queries the historical traffic change records of a specified traffic control target.
  *
- * @description ## Usage notes
- * - The `TrafficControlTargetId`, `InstanceId`, and `Environment` parameters are required.
- * - You can use `StartTime` and `EndTime` to specify the time range.
- * - The `Threshold` parameter is optional.
- * - Use `ExperimentId` and `ExperimentGroupId` to filter data for a specific experiment or experiment group.
- * - Use `ItemId` to filter traffic data for a specific item.
- * - The supported environments are the Daily environment, pre-production environment (Pre), and production environment (Prod).
+ * @description ## Request description
+ * - `TrafficControlTargetId`, `InstanceId`, and `Environment` are required parameters.
+ * - You can use `StartTime` and `EndTime` to specify the time range for the query. The format is `YYYY-MM-DD HH:MM:SS`.
+ * - The `Threshold` parameter is optional and used to set the threshold.
+ * - `ExperimentId` and `ExperimentGroupId` are used to filter data for specific experiments or experiment groups.
+ * - `ItemId` is used to filter traffic data for specific items.
+ * - Supported environments include Daily (daily environment), Pre (staging environment), and Prod (production environment).
  *
  * @param request ListTrafficControlTargetTrafficHistoryRequest
  * @return ListTrafficControlTargetTrafficHistoryResponse
@@ -8171,13 +8171,13 @@ ListTrafficControlTargetTrafficHistoryResponse Client::listTrafficControlTargetT
 }
 
 /**
- * @summary Lists traffic control tasks that meet specified conditions.
+ * @summary Queries traffic control tasks that meet specified conditions.
  *
- * @description ## Request
- * - This API retrieves a list of traffic control tasks.
- * - Use query parameters to filter and sort the results.
- * - This operation supports pagination. You can also retrieve all results in a single response.
- * - Note: The `InstanceId` is a required parameter. All other parameters are optional.
+ * @description ## Request description
+ * - This operation retrieves a list of traffic control nodes that meet specific conditional requirements.
+ * - You can filter the returned nodes and apply sorting by specifying different query parameters.
+ * - Paged query is supported. You can also choose to return all data at once without paging.
+ * - Note: InstanceId is required, and other parameters are options. Specify other parameters as needed to obtain more precise results.
  *
  * @param request ListTrafficControlTasksRequest
  * @param headers map
@@ -8258,13 +8258,13 @@ ListTrafficControlTasksResponse Client::listTrafficControlTasksWithOptions(const
 }
 
 /**
- * @summary Lists traffic control tasks that meet specified conditions.
+ * @summary Queries traffic control tasks that meet specified conditions.
  *
- * @description ## Request
- * - This API retrieves a list of traffic control tasks.
- * - Use query parameters to filter and sort the results.
- * - This operation supports pagination. You can also retrieve all results in a single response.
- * - Note: The `InstanceId` is a required parameter. All other parameters are optional.
+ * @description ## Request description
+ * - This operation retrieves a list of traffic control nodes that meet specific conditional requirements.
+ * - You can filter the returned nodes and apply sorting by specifying different query parameters.
+ * - Paged query is supported. You can also choose to return all data at once without paging.
+ * - Note: InstanceId is required, and other parameters are options. Specify other parameters as needed to obtain more precise results.
  *
  * @param request ListTrafficControlTasksRequest
  * @return ListTrafficControlTasksResponse
@@ -8652,10 +8652,10 @@ OnlineRecallManagementServiceResponse Client::onlineRecallManagementService(cons
 }
 
 /**
- * @summary Synchronizes a MaxCompute table with the recall engine. This operation allows you to publish specific partitions and select a synchronization mode.
+ * @summary Synchronizes a MaxCompute table to the recall engine, supporting partition publishing and mode selection.
  *
- * @description ## Request details
- * This API synchronizes a specified MaxCompute table with the recall engine. You must provide the correct `RecallManagementTableId` in the path parameter and the instance ID in the request body. You can also specify the table partitions to publish, whether to skip the threshold check, and the synchronization mode. To publish specific partitions, provide them as key-value pairs in the `Partitions` field.
+ * @description ## Request description
+ * This operation synchronizes a specified MaxCompute table to the recall engine. It allows you to specify the table partition to publish, whether to skip the threshold check, and the synchronous mode (merge or overwrite). Ensure that you correctly specify the instance ID and table ID in the request body, and provide the correct `RecallManagementTableId` in the path parameters. To specify a particular table partition for publishing, provide it as key-value pairs in the `Partitions` field. You can also choose whether to skip the data volume threshold check and configure the synchronous mode.
  *
  * @param request PublishRecallManagementTableRequest
  * @param headers map
@@ -8685,6 +8685,10 @@ PublishRecallManagementTableResponse Client::publishRecallManagementTableWithOpt
     body["SkipThresholdCheck"] = request.getSkipThresholdCheck();
   }
 
+  if (!!request.hasStartTimestampMs()) {
+    body["StartTimestampMs"] = request.getStartTimestampMs();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"body" , Utils::Utils::parseToMap(body)}
@@ -8704,10 +8708,10 @@ PublishRecallManagementTableResponse Client::publishRecallManagementTableWithOpt
 }
 
 /**
- * @summary Synchronizes a MaxCompute table with the recall engine. This operation allows you to publish specific partitions and select a synchronization mode.
+ * @summary Synchronizes a MaxCompute table to the recall engine, supporting partition publishing and mode selection.
  *
- * @description ## Request details
- * This API synchronizes a specified MaxCompute table with the recall engine. You must provide the correct `RecallManagementTableId` in the path parameter and the instance ID in the request body. You can also specify the table partitions to publish, whether to skip the threshold check, and the synchronization mode. To publish specific partitions, provide them as key-value pairs in the `Partitions` field.
+ * @description ## Request description
+ * This operation synchronizes a specified MaxCompute table to the recall engine. It allows you to specify the table partition to publish, whether to skip the threshold check, and the synchronous mode (merge or overwrite). Ensure that you correctly specify the instance ID and table ID in the request body, and provide the correct `RecallManagementTableId` in the path parameters. To specify a particular table partition for publishing, provide it as key-value pairs in the `Partitions` field. You can also choose whether to skip the data volume threshold check and configure the synchronous mode.
  *
  * @param request PublishRecallManagementTableRequest
  * @return PublishRecallManagementTableResponse
@@ -8819,14 +8823,14 @@ PushResourceRuleResponse Client::pushResourceRule(const string &ResourceRuleId, 
 }
 
 /**
- * @summary Retrieves statistics for a specified data diagnosis task within a time range.
+ * @summary Retrieves the statistics of a specified data diagnostics within a specific time range.
  *
  * @description ## Request description
- * - The `DataDiagnosisId` parameter is required and specifies the data diagnosis task.
- * - The `InstanceId` parameter is also required and specifies the instance.
- * - The `StartDate` and `EndDate` parameters specify the start and end dates of the time range. The format is YYYY-MM-DD.
- * - The `RemainRateType` parameter is optional. It specifies the retention rate report type. The default value is \\"Period\\", which indicates a periodic report.
- * - The response includes the request ID (`RequestId`) and a `Statistics` object. This object contains the dates of task failures (`FailedDates`) and dates with missing task data (`NoDataDates`).
+ * - `DataDiagnosisId` is required and specifies the data diagnostic node to query.
+ * - `InstanceId` is also required and identifies the specific instance.
+ * - `StartDate` and `EndDate` specify the start and end dates for the statistics, respectively. The format is YYYY-MM-DD.
+ * - The `RemainRateType` parameter is optional. If provided, it specifies the retention rate report type. The default value is Period, which indicates a periodic report.
+ * - The response includes the request ID (`RequestId`) and the statistics object (`Statistics`), which lists the dates when nodes failed (`FailedDates`) and the dates with missing nodes (`NoDataDates`).
  *
  * @param request QueryDataDiagnosisStatisticsRequest
  * @param headers map
@@ -8871,14 +8875,14 @@ QueryDataDiagnosisStatisticsResponse Client::queryDataDiagnosisStatisticsWithOpt
 }
 
 /**
- * @summary Retrieves statistics for a specified data diagnosis task within a time range.
+ * @summary Retrieves the statistics of a specified data diagnostics within a specific time range.
  *
  * @description ## Request description
- * - The `DataDiagnosisId` parameter is required and specifies the data diagnosis task.
- * - The `InstanceId` parameter is also required and specifies the instance.
- * - The `StartDate` and `EndDate` parameters specify the start and end dates of the time range. The format is YYYY-MM-DD.
- * - The `RemainRateType` parameter is optional. It specifies the retention rate report type. The default value is \\"Period\\", which indicates a periodic report.
- * - The response includes the request ID (`RequestId`) and a `Statistics` object. This object contains the dates of task failures (`FailedDates`) and dates with missing task data (`NoDataDates`).
+ * - `DataDiagnosisId` is required and specifies the data diagnostic node to query.
+ * - `InstanceId` is also required and identifies the specific instance.
+ * - `StartDate` and `EndDate` specify the start and end dates for the statistics, respectively. The format is YYYY-MM-DD.
+ * - The `RemainRateType` parameter is optional. If provided, it specifies the retention rate report type. The default value is Period, which indicates a periodic report.
+ * - The response includes the request ID (`RequestId`) and the statistics object (`Statistics`), which lists the dates when nodes failed (`FailedDates`) and the dates with missing nodes (`NoDataDates`).
  *
  * @param request QueryDataDiagnosisStatisticsRequest
  * @return QueryDataDiagnosisStatisticsResponse
@@ -9002,10 +9006,10 @@ QuerySampleConsistencyJobDifferenceResponse Client::querySampleConsistencyJobDif
 }
 
 /**
- * @summary Retrieves the traffic control details of a target item for a given environment and date range.
+ * @summary Retrieves the traffic control details for individual items of a specific traffic control target in a specified environment on a specified date.
  *
- * @description ## Request
- * Use this API to query the details of single-item control for a given traffic control target on a specified date and for a specific instance ID and environment. The details include traffic data and feature information for the top 100 items before and after the control is applied. Ensure that the `TrafficControlTargetId`, `InstanceId`, and `Environment` parameters are accurate, and that the `Date` is in YYYY-MM-DD format. Although the `Date` parameter is optional, we recommend specifying a date for meaningful results.
+ * @description ## Request description
+ * This API operation queries the traffic control details for individual items of a specified traffic control target on a specified date, for a specified instance ID, and in a specified environment. The details include the traffic conditions and feature information of the top 100 items before traffic control and the bottom 100 items after traffic control. Ensure that the `TrafficControlTargetId`, `InstanceId`, and `Environment` parameters are accurate, and the `Date` format is correct (YYYY-MM-DD). Note: Although the `Date` parameter is optional, always specify a date to obtain meaningful results.
  *
  * @param request QueryTrafficControlTargetItemReportDetailRequest
  * @param headers map
@@ -9046,10 +9050,10 @@ QueryTrafficControlTargetItemReportDetailResponse Client::queryTrafficControlTar
 }
 
 /**
- * @summary Retrieves the traffic control details of a target item for a given environment and date range.
+ * @summary Retrieves the traffic control details for individual items of a specific traffic control target in a specified environment on a specified date.
  *
- * @description ## Request
- * Use this API to query the details of single-item control for a given traffic control target on a specified date and for a specific instance ID and environment. The details include traffic data and feature information for the top 100 items before and after the control is applied. Ensure that the `TrafficControlTargetId`, `InstanceId`, and `Environment` parameters are accurate, and that the `Date` is in YYYY-MM-DD format. Although the `Date` parameter is optional, we recommend specifying a date for meaningful results.
+ * @description ## Request description
+ * This API operation queries the traffic control details for individual items of a specified traffic control target on a specified date, for a specified instance ID, and in a specified environment. The details include the traffic conditions and feature information of the top 100 items before traffic control and the bottom 100 items after traffic control. Ensure that the `TrafficControlTargetId`, `InstanceId`, and `Environment` parameters are accurate, and the `Date` format is correct (YYYY-MM-DD). Note: Although the `Date` parameter is optional, always specify a date to obtain meaningful results.
  *
  * @param request QueryTrafficControlTargetItemReportDetailRequest
  * @return QueryTrafficControlTargetItemReportDetailResponse
@@ -9116,15 +9120,15 @@ QueryTrafficControlTaskDeployResultResponse Client::queryTrafficControlTaskDeplo
 }
 
 /**
- * @summary Retrieves a detailed report on item control for a specified traffic control task.
+ * @summary Retrieves the item-level traffic control details report for a specified traffic control task.
  *
- * @description ## Description
- * - This API retrieves the item control results for a specific traffic control task within a given time range.
- * - `TrafficControlTaskId` is the unique identifier for a traffic control task.
- * - `InstanceId` specifies the instance that runs the task.
- * - The `Environment` parameter specifies the task\\"s execution environment. Valid values are Daily (development environment), Pre (staging environment), and Prod (production environment).
- * - `StartTime` and `EndTime` specify the start and end of the time range for the report, respectively. The format is "YYYY-MM-DD HH:MM:SS".
- * - The specified start and end times must be valid and span no more than two consecutive calendar days.
+ * @description ## Request description
+ * - This API queries the item-level traffic control effect of a specific traffic control task within a given time range.
+ * - TrafficControlTaskId is the ID that uniquely identifies a traffic control task.
+ * - InstanceId specifies the instance that runs the task.
+ * - The Environment parameter defines the environment in which the task runs. Valid values: Daily (daily environment), Pre (pre-release environment), and Prod (production environment).
+ * - StartTime and EndTime represent the start and end points of the query time range, respectively. The format is YYYY-MM-DD HH:MM:SS.
+ * - Make sure that the start time and end time are valid and fall within the same calendar day or consecutive calendar days.
  *
  * @param request QueryTrafficControlTaskItemReportRequest
  * @param headers map
@@ -9169,15 +9173,15 @@ QueryTrafficControlTaskItemReportResponse Client::queryTrafficControlTaskItemRep
 }
 
 /**
- * @summary Retrieves a detailed report on item control for a specified traffic control task.
+ * @summary Retrieves the item-level traffic control details report for a specified traffic control task.
  *
- * @description ## Description
- * - This API retrieves the item control results for a specific traffic control task within a given time range.
- * - `TrafficControlTaskId` is the unique identifier for a traffic control task.
- * - `InstanceId` specifies the instance that runs the task.
- * - The `Environment` parameter specifies the task\\"s execution environment. Valid values are Daily (development environment), Pre (staging environment), and Prod (production environment).
- * - `StartTime` and `EndTime` specify the start and end of the time range for the report, respectively. The format is "YYYY-MM-DD HH:MM:SS".
- * - The specified start and end times must be valid and span no more than two consecutive calendar days.
+ * @description ## Request description
+ * - This API queries the item-level traffic control effect of a specific traffic control task within a given time range.
+ * - TrafficControlTaskId is the ID that uniquely identifies a traffic control task.
+ * - InstanceId specifies the instance that runs the task.
+ * - The Environment parameter defines the environment in which the task runs. Valid values: Daily (daily environment), Pre (pre-release environment), and Prod (production environment).
+ * - StartTime and EndTime represent the start and end points of the query time range, respectively. The format is YYYY-MM-DD HH:MM:SS.
+ * - Make sure that the start time and end time are valid and fall within the same calendar day or consecutive calendar days.
  *
  * @param request QueryTrafficControlTaskItemReportRequest
  * @return QueryTrafficControlTaskItemReportResponse
@@ -9252,7 +9256,7 @@ ReleaseTrafficControlTaskResponse Client::releaseTrafficControlTask(const string
 }
 
 /**
- * @summary Retrieve a metric group\\"s report.
+ * @summary Queries the reports of a metric group.
  *
  * @param request ReportABMetricGroupRequest
  * @param headers map
@@ -9321,7 +9325,7 @@ ReportABMetricGroupResponse Client::reportABMetricGroupWithOptions(const string 
 }
 
 /**
- * @summary Retrieve a metric group\\"s report.
+ * @summary Queries the reports of a metric group.
  *
  * @param request ReportABMetricGroupRequest
  * @return ReportABMetricGroupResponse
@@ -10337,16 +10341,16 @@ UpdateCrowdResponse Client::updateCrowd(const string &CrowdId, const UpdateCrowd
 }
 
 /**
- * @summary Updates the configuration of a specified data diagnosis task.
+ * @summary Updates the configuration of a specified data diagnostic task.
  *
- * @description ## Request
- * This API updates the configuration of an existing data diagnosis task, including the instance ID, task name, task type, and specific configuration content. Provide the `DataDiagnosisId` in the request path to identify the task to update. You must also specify the `Config` parameter based on the task `Type`. For periodic runs, set the execution time in the `CycleTime` field. If a periodic run is not required, omit this field.
- * ## Usage notes
- * - `DataDiagnosisId` is a required path parameter that uniquely identifies a data diagnosis task.
- * - The structure of the `Config` field varies depending on the value of `Type`. Refer to the examples in this document for configuration details.
- * - To disable periodic runs, omit the `CycleTime` field.
- * - When updating a task for two-table join analysis (`JoinTables`), provide the information for the left and right tables, including `LeftTableMetaId` and `RightTableMetaId`.
- * - The `InstanceId`, `Name`, and `Type` parameters are required for all types of data diagnosis tasks.
+ * @description ## Request description
+ * This operation allows you to update the configuration of an existing data diagnostic task, including the instance ID, task name, task type, and specific configuration details. Ensure that you provide the correct `DataDiagnosisId` in the request body to locate the specific task to be updated, and specify the corresponding configuration parameters (`Config`) based on the selected task type (`Type`). For periodic tasks, set the desired execution time by using the `CycleTime` field. If periodic execution is not required, omit this field.
+ * ## Precautions
+ * - `DataDiagnosisId` is a path parameter and must be provided to uniquely identify a data diagnostic task.
+ * - The content structure of the `Config` field varies depending on the `Type` value. Refer to the documentation examples for configuration details.
+ * - If periodic execution is not required, you can omit the `CycleTime` field.
+ * - When the update involves join table analysis (`JoinTables`), ensure that you correctly specify the information for the left and right tables, including `LeftTableMetaId` and `RightTableMetaId`.
+ * - For all types of data diagnostic tasks, `InstanceId`, `Name`, and `Type` are required.
  *
  * @param request UpdateDataDiagnosisRequest
  * @param headers map
@@ -10423,16 +10427,16 @@ UpdateDataDiagnosisResponse Client::updateDataDiagnosisWithOptions(const string 
 }
 
 /**
- * @summary Updates the configuration of a specified data diagnosis task.
+ * @summary Updates the configuration of a specified data diagnostic task.
  *
- * @description ## Request
- * This API updates the configuration of an existing data diagnosis task, including the instance ID, task name, task type, and specific configuration content. Provide the `DataDiagnosisId` in the request path to identify the task to update. You must also specify the `Config` parameter based on the task `Type`. For periodic runs, set the execution time in the `CycleTime` field. If a periodic run is not required, omit this field.
- * ## Usage notes
- * - `DataDiagnosisId` is a required path parameter that uniquely identifies a data diagnosis task.
- * - The structure of the `Config` field varies depending on the value of `Type`. Refer to the examples in this document for configuration details.
- * - To disable periodic runs, omit the `CycleTime` field.
- * - When updating a task for two-table join analysis (`JoinTables`), provide the information for the left and right tables, including `LeftTableMetaId` and `RightTableMetaId`.
- * - The `InstanceId`, `Name`, and `Type` parameters are required for all types of data diagnosis tasks.
+ * @description ## Request description
+ * This operation allows you to update the configuration of an existing data diagnostic task, including the instance ID, task name, task type, and specific configuration details. Ensure that you provide the correct `DataDiagnosisId` in the request body to locate the specific task to be updated, and specify the corresponding configuration parameters (`Config`) based on the selected task type (`Type`). For periodic tasks, set the desired execution time by using the `CycleTime` field. If periodic execution is not required, omit this field.
+ * ## Precautions
+ * - `DataDiagnosisId` is a path parameter and must be provided to uniquely identify a data diagnostic task.
+ * - The content structure of the `Config` field varies depending on the `Type` value. Refer to the documentation examples for configuration details.
+ * - If periodic execution is not required, you can omit the `CycleTime` field.
+ * - When the update involves join table analysis (`JoinTables`), ensure that you correctly specify the information for the left and right tables, including `LeftTableMetaId` and `RightTableMetaId`.
+ * - For all types of data diagnostic tasks, `InstanceId`, `Name`, and `Type` are required.
  *
  * @param request UpdateDataDiagnosisRequest
  * @return UpdateDataDiagnosisResponse
@@ -10687,15 +10691,15 @@ UpdateExperimentGroupResponse Client::updateExperimentGroup(const string &Experi
 }
 
 /**
- * @summary Updates the configuration details of a feature consistency check task, such as the name.
+ * @summary Updates the detailed configuration of a feature consistency check job, such as the name.
  *
- * @description ## Operation description
- * This API operation allows you to update the configuration of an existing feature consistency check task. By providing new configuration parameters, you can modify multiple properties including the instance ID, name, and scene ID. Ensure that all required parameters are included in the request, and provide optional parameters as needed.
- * - **FeatureConsistencyCheckJobConfigId** is a path parameter that specifies the feature consistency check task to update.
- * - All other parameters are in the request body. Some are required (such as InstanceId and Name), and the rest are optional.
- * - The SampleRate value must be a floating-point number between 0 and 1, which indicates the sampling ratio.
- * - If you use FeatureStore-related features, make sure that you correctly set the IsUseFeatureStore flag and the related FeatureStore* fields.
- * - For network configuration parameters (such as VpcId and SwitchId), make sure that the values match your Alibaba Cloud environment.
+ * @description ## Request description
+ * This API operation allows you to update the configuration of an existing feature consistency check job. By providing new configuration parameters, you can modify multiple properties, including the instance ID, name, and scene ID. Make sure that all required parameters are included in the request, and provide optional parameters as needed.
+ * - **FeatureConsistencyCheckJobConfigId** is a path parameter used to specify the feature consistency check job to be updated.
+ * - All other parameters are located in the request body. Some of them are required (such as InstanceId and Name), while others are optional.
+ * - Note that `SampleRate` must be a floating-point number between 0 and 1, which represents the sampling ratio.
+ * - If you use `FeatureStore`-related features, make sure to correctly set the `IsUseFeatureStore` flag and the related `FeatureStore*` fields.
+ * - For network configuration parameters (such as VpcId and SwitchId), make sure that the provided values match your Alibaba Cloud environment.
  *
  * @param request UpdateFeatureConsistencyCheckJobConfigRequest
  * @param headers map
@@ -10912,15 +10916,15 @@ UpdateFeatureConsistencyCheckJobConfigResponse Client::updateFeatureConsistencyC
 }
 
 /**
- * @summary Updates the configuration details of a feature consistency check task, such as the name.
+ * @summary Updates the detailed configuration of a feature consistency check job, such as the name.
  *
- * @description ## Operation description
- * This API operation allows you to update the configuration of an existing feature consistency check task. By providing new configuration parameters, you can modify multiple properties including the instance ID, name, and scene ID. Ensure that all required parameters are included in the request, and provide optional parameters as needed.
- * - **FeatureConsistencyCheckJobConfigId** is a path parameter that specifies the feature consistency check task to update.
- * - All other parameters are in the request body. Some are required (such as InstanceId and Name), and the rest are optional.
- * - The SampleRate value must be a floating-point number between 0 and 1, which indicates the sampling ratio.
- * - If you use FeatureStore-related features, make sure that you correctly set the IsUseFeatureStore flag and the related FeatureStore* fields.
- * - For network configuration parameters (such as VpcId and SwitchId), make sure that the values match your Alibaba Cloud environment.
+ * @description ## Request description
+ * This API operation allows you to update the configuration of an existing feature consistency check job. By providing new configuration parameters, you can modify multiple properties, including the instance ID, name, and scene ID. Make sure that all required parameters are included in the request, and provide optional parameters as needed.
+ * - **FeatureConsistencyCheckJobConfigId** is a path parameter used to specify the feature consistency check job to be updated.
+ * - All other parameters are located in the request body. Some of them are required (such as InstanceId and Name), while others are optional.
+ * - Note that `SampleRate` must be a floating-point number between 0 and 1, which represents the sampling ratio.
+ * - If you use `FeatureStore`-related features, make sure to correctly set the `IsUseFeatureStore` flag and the related `FeatureStore*` fields.
+ * - For network configuration parameters (such as VpcId and SwitchId), make sure that the provided values match your Alibaba Cloud environment.
  *
  * @param request UpdateFeatureConsistencyCheckJobConfigRequest
  * @return UpdateFeatureConsistencyCheckJobConfigResponse
@@ -11712,15 +11716,15 @@ UpdateTableMetaResponse Client::updateTableMeta(const string &TableMetaId, const
 }
 
 /**
- * @summary Updates the configuration of a traffic control target, including its control period, conditions, and value.
+ * @summary Updates the configuration of an existing traffic control target, including the control time, conditions, and target values.
  *
- * @description ## Description
- * - Updates a traffic control target specified by its ID.
- * - `TrafficControlTargetId` is a path parameter that specifies the ID of the traffic control target to update.
- * - The `ItemConditionType` parameter specifies the format of the item condition, which can be either `Array` or `Expression`. Based on your selection, you must provide a value for either the `ItemConditionArray` or `ItemConditionExpress` parameter.
- * - If `NewProductRegulation` is set to `true`, the control rule applies to a new product.
- * - The `StatisPeriod` parameter specifies the statistics period. Valid values are `Daily` and `hourly`.
- * - Ensure that the time interval between `StartTime` and `EndTime` is reasonable and meets your business requirements.
+ * @description ## Request description
+ * - This operation allows you to update a traffic control target by its ID.
+ * - `TrafficControlTargetId` is a path parameter. You must provide a specific traffic control target ID.
+ * - `ItemConditionType` defines the format of the item control condition. Valid values: `Array` and `Expression`. Based on the selected type, fill in the `ItemConditionArray` or `ItemConditionExpress` field accordingly.
+ * - If `NewProductRegulation` is set to `true`, the control rule applies specifically to new products.
+ * - `StatisPeriod` supports `Daily` and `Hour` options. The default value is determined by the system.
+ * - Ensure that the interval between `StartTime` and `EndTime` is reasonable and meets your business requirements.
  *
  * @param request UpdateTrafficControlTargetRequest
  * @param headers map
@@ -11807,15 +11811,15 @@ UpdateTrafficControlTargetResponse Client::updateTrafficControlTargetWithOptions
 }
 
 /**
- * @summary Updates the configuration of a traffic control target, including its control period, conditions, and value.
+ * @summary Updates the configuration of an existing traffic control target, including the control time, conditions, and target values.
  *
- * @description ## Description
- * - Updates a traffic control target specified by its ID.
- * - `TrafficControlTargetId` is a path parameter that specifies the ID of the traffic control target to update.
- * - The `ItemConditionType` parameter specifies the format of the item condition, which can be either `Array` or `Expression`. Based on your selection, you must provide a value for either the `ItemConditionArray` or `ItemConditionExpress` parameter.
- * - If `NewProductRegulation` is set to `true`, the control rule applies to a new product.
- * - The `StatisPeriod` parameter specifies the statistics period. Valid values are `Daily` and `hourly`.
- * - Ensure that the time interval between `StartTime` and `EndTime` is reasonable and meets your business requirements.
+ * @description ## Request description
+ * - This operation allows you to update a traffic control target by its ID.
+ * - `TrafficControlTargetId` is a path parameter. You must provide a specific traffic control target ID.
+ * - `ItemConditionType` defines the format of the item control condition. Valid values: `Array` and `Expression`. Based on the selected type, fill in the `ItemConditionArray` or `ItemConditionExpress` field accordingly.
+ * - If `NewProductRegulation` is set to `true`, the control rule applies specifically to new products.
+ * - `StatisPeriod` supports `Daily` and `Hour` options. The default value is determined by the system.
+ * - Ensure that the interval between `StartTime` and `EndTime` is reasonable and meets your business requirements.
  *
  * @param request UpdateTrafficControlTargetRequest
  * @return UpdateTrafficControlTargetResponse
@@ -11827,15 +11831,15 @@ UpdateTrafficControlTargetResponse Client::updateTrafficControlTarget(const stri
 }
 
 /**
- * @summary Updates the configuration and target of a specified traffic control task.
+ * @summary Updates a specified traffic control task, including its configuration and targets.
  *
- * @description ## Usage notes
- * - Use this API to update an existing traffic control task.
- * - When `ExecutionTime` is set to `TimeRange`, you must also provide `StartTime` and `EndTime`.
- * - Each element in the `TrafficControlTargets` array is a traffic control target. Ensure each target\\"s time range, condition type, and other information are complete and valid.
- * - If you set `UserConditionType` or `ItemConditionType` to `Expression`, you must specify the corresponding expression field (for example, `UserConditionExpress`).
- * - `ServiceIds` and `EffectiveSceneIds` are optional parameters. If you include them, ensure the ID lists are correctly formatted.
- * - Ensure you complete all required fields to avoid a failed request.
+ * @description ## Request description
+ * - This API updates an existing traffic control task.
+ * - When `ExecutionTime` is set to `TimeRange`, you must provide both `StartTime` and `EndTime`.
+ * - Each element in the `TrafficControlTargets` array represents a specific traffic control target. Make sure that the time range, condition type, and other information for each target are complete and valid.
+ * - If `UserConditionType` or `ItemConditionType` is set to `Expression`, the corresponding expression field (such as `UserConditionExpress`) cannot be empty.
+ * - `ServiceIds` and `EffectiveSceneIds` are optional parameters. If you use them, make sure that the provided ID lists are in the correct format.
+ * - During the update, make sure that all required fields are correctly filled in. Otherwise, the request may fail.
  *
  * @param request UpdateTrafficControlTaskRequest
  * @param headers map
@@ -11984,15 +11988,15 @@ UpdateTrafficControlTaskResponse Client::updateTrafficControlTaskWithOptions(con
 }
 
 /**
- * @summary Updates the configuration and target of a specified traffic control task.
+ * @summary Updates a specified traffic control task, including its configuration and targets.
  *
- * @description ## Usage notes
- * - Use this API to update an existing traffic control task.
- * - When `ExecutionTime` is set to `TimeRange`, you must also provide `StartTime` and `EndTime`.
- * - Each element in the `TrafficControlTargets` array is a traffic control target. Ensure each target\\"s time range, condition type, and other information are complete and valid.
- * - If you set `UserConditionType` or `ItemConditionType` to `Expression`, you must specify the corresponding expression field (for example, `UserConditionExpress`).
- * - `ServiceIds` and `EffectiveSceneIds` are optional parameters. If you include them, ensure the ID lists are correctly formatted.
- * - Ensure you complete all required fields to avoid a failed request.
+ * @description ## Request description
+ * - This API updates an existing traffic control task.
+ * - When `ExecutionTime` is set to `TimeRange`, you must provide both `StartTime` and `EndTime`.
+ * - Each element in the `TrafficControlTargets` array represents a specific traffic control target. Make sure that the time range, condition type, and other information for each target are complete and valid.
+ * - If `UserConditionType` or `ItemConditionType` is set to `Expression`, the corresponding expression field (such as `UserConditionExpress`) cannot be empty.
+ * - `ServiceIds` and `EffectiveSceneIds` are optional parameters. If you use them, make sure that the provided ID lists are in the correct format.
+ * - During the update, make sure that all required fields are correctly filled in. Otherwise, the request may fail.
  *
  * @param request UpdateTrafficControlTaskRequest
  * @return UpdateTrafficControlTaskResponse
@@ -12004,10 +12008,10 @@ UpdateTrafficControlTaskResponse Client::updateTrafficControlTask(const string &
 }
 
 /**
- * @summary Updates the traffic parameters for a specified traffic control task, including target traffic and actual traffic.
+ * @summary Updates the traffic parameters of a specified traffic control task, including the target traffic and actual traffic.
  *
- * @description ## Request
- * This API updates the traffic configuration for a specific traffic control task. The configuration includes the traffic control target ID, record time, target traffic, and overall traffic. Ensure that the provided`TrafficControlTaskId` is valid and within your permission scope. Additionally, each object in the`Traffics` array must contain the required fields.
+ * @description ## Request description
+ * This API allows you to update the traffic configuration of a specific traffic control task, including but not limited to the traffic control target ID, record time, target traffic, and overall traffic. Make sure that the provided `TrafficControlTaskId` is valid and within the permission scope of the current user. In addition, each object in the `Traffics` array must contain the required fields to ensure successful request processing.
  *
  * @param request UpdateTrafficControlTaskTrafficRequest
  * @param headers map
@@ -12054,10 +12058,10 @@ UpdateTrafficControlTaskTrafficResponse Client::updateTrafficControlTaskTrafficW
 }
 
 /**
- * @summary Updates the traffic parameters for a specified traffic control task, including target traffic and actual traffic.
+ * @summary Updates the traffic parameters of a specified traffic control task, including the target traffic and actual traffic.
  *
- * @description ## Request
- * This API updates the traffic configuration for a specific traffic control task. The configuration includes the traffic control target ID, record time, target traffic, and overall traffic. Ensure that the provided`TrafficControlTaskId` is valid and within your permission scope. Additionally, each object in the`Traffics` array must contain the required fields.
+ * @description ## Request description
+ * This API allows you to update the traffic configuration of a specific traffic control task, including but not limited to the traffic control target ID, record time, target traffic, and overall traffic. Make sure that the provided `TrafficControlTaskId` is valid and within the permission scope of the current user. In addition, each object in the `Traffics` array must contain the required fields to ensure successful request processing.
  *
  * @param request UpdateTrafficControlTaskTrafficRequest
  * @return UpdateTrafficControlTaskTrafficResponse

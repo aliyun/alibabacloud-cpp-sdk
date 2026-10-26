@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The instance ID. For information about how to obtain an instance ID, see [ListInstances](https://help.aliyun.com/document_detail/2411819.html).
+    // The ID of the instance. For information about how to obtain the instance ID, see [ListInstances](https://help.aliyun.com/document_detail/2411819.html).
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -92,13 +92,13 @@ namespace Models
     // - ASC: ascending order.
     // - DESC: descending order.
     shared_ptr<string> order_ {};
-    // The page number. Minimum value: 1. Default value: 1.
+    // The page number. Starting value: 1. Default value: 1.
     shared_ptr<string> pageNumber_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<string> pageSize_ {};
     // The scene ID.
     shared_ptr<string> sceneId_ {};
-    // The field used to sort the results. Valid values:
+    // The sort field. Valid values:
     // - GmtCreateTime: sorts by creation time.
     // - GmtModifiedTime: sorts by update time.
     shared_ptr<string> sortBy_ {};

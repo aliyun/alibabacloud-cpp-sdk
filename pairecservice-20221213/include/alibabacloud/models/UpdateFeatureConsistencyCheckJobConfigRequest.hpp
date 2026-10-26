@@ -470,47 +470,45 @@ namespace Models
     shared_ptr<string> datasetId_ {};
     // The mount path of the dataset.
     shared_ptr<string> datasetMountPath_ {};
-    // The dataset name.
+    // The name of the dataset.
     shared_ptr<string> datasetName_ {};
     // The dataset type.
     shared_ptr<string> datasetType_ {};
     // The URI of the dataset.
     shared_ptr<string> datasetUri_ {};
-    // The default gateway. Valid values:
-    // - Eth0: public gateway.
-    // - Eth1: dedicated gateway.
+    // The default gateway. Valid values: Eth0: public gateway. Eth1: dedicated gateway.
     shared_ptr<string> defaultRoute_ {};
     // The PAI-EAS service name.
     // 
     // This parameter is required.
     shared_ptr<string> easServiceName_ {};
-    // The EasyRec package path.
+    // The path of the EasyRec package.
     shared_ptr<string> easyRecPackagePath_ {};
     // The EasyRec version.
     shared_ptr<string> easyRecVersion_ {};
-    // The features to exclude from display. Separate multiple features with commas (,).
+    // The feature display filter. Separate multiple features with commas (,).
     shared_ptr<string> featureDisplayExclude_ {};
-    // The data fallback data source ID.
+    // The data landing data source ID.
     // 
     // This parameter is required.
     shared_ptr<string> featureLandingResourceId_ {};
     // The feature priority. Separate multiple features with commas (,). This parameter specifies which features are preferentially read from the user table. If the user table is empty, the features are queried from the behavior table.
     shared_ptr<string> featurePriority_ {};
-    // The Feature Store item-side primary key.
+    // The item-side primary key in Feature Store.
     shared_ptr<string> featureStoreItemId_ {};
     // feature store model id
     shared_ptr<string> featureStoreModelId_ {};
-    // The Feature Store project ID.
+    // The ID of the Feature Store project.
     shared_ptr<string> featureStoreProjectId_ {};
-    // The Feature Store project name.
+    // The name of the Feature Store project.
     shared_ptr<string> featureStoreProjectName_ {};
-    // The name of the feature view that contains the item features in the sequence feature.
+    // The name of the feature view where the item features in the sequence features are located.
     shared_ptr<string> featureStoreSeqFeatureView_ {};
-    // The Feature Store user-side primary key.
+    // The user-side primary key in Feature Store.
     shared_ptr<string> featureStoreUserId_ {};
     // The fg_jar version.
     shared_ptr<string> fgJarVersion_ {};
-    // The fg_json file name.
+    // The name of the fg_json file.
     // 
     // This parameter is required.
     shared_ptr<string> fgJsonFileName_ {};
@@ -524,19 +522,19 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // Specifies whether to use Feature Store.
     shared_ptr<bool> isUseFeatureStore_ {};
-    // The item_id field name.
+    // The name of the item_id field.
     // 
     // This parameter is required.
     shared_ptr<string> itemIdField_ {};
-    // The item table name.
+    // The name of the item table.
     // 
     // This parameter is required.
     shared_ptr<string> itemTable_ {};
-    // The item table partition field.
+    // The partition field of the item table.
     // 
     // This parameter is required.
     shared_ptr<string> itemTablePartitionField_ {};
-    // The item table partition field format. Valid values:
+    // The partition field format of the item table. Valid values:
     // - yyyymmdd
     // - yyyy-mm-dd
     // 
@@ -544,21 +542,21 @@ namespace Models
     shared_ptr<string> itemTablePartitionFieldFormat_ {};
     // maxcompute schema
     shared_ptr<string> maxcomputeSchema_ {};
-    // The feature consistency check name.
+    // The name of the feature consistency check job.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
     // The OSS data source ID.
     shared_ptr<string> ossResourceId_ {};
-    // The number of workers for running the prediction script.
+    // The number of workers used to execute the prediction script.
     shared_ptr<int32_t> predictWorkerCount_ {};
-    // The CPU specification of workers for running the prediction script.
+    // The CPU resources allocated to each worker for executing the prediction script.
     shared_ptr<int32_t> predictWorkerCpu_ {};
-    // The memory specification of workers for running the prediction script.
+    // The memory allocated to each worker for executing the prediction script.
     shared_ptr<int32_t> predictWorkerMemory_ {};
     // The resource configuration.
     shared_ptr<string> resourceConfig_ {};
-    // The sampling ratio (0-1).
+    // The sampling ratio, which ranges from 0 to 1.
     // 
     // This parameter is required.
     shared_ptr<double> sampleRate_ {};
@@ -572,29 +570,29 @@ namespace Models
     shared_ptr<string> serviceId_ {};
     // The vSwitch ID.
     shared_ptr<string> switchId_ {};
-    // The user_id field name.
+    // The name of the user_id field.
     // 
     // This parameter is required.
     shared_ptr<string> userIdField_ {};
-    // The user table name.
+    // The name of the user table.
     // 
     // This parameter is required.
     shared_ptr<string> userTable_ {};
-    // The user table partition field.
+    // The partition field of the user table.
     // 
     // This parameter is required.
     shared_ptr<string> userTablePartitionField_ {};
-    // The user table partition field format. Valid values:
+    // The partition field format of the user table. Valid values:
     // - yyyymmdd
     // - yyyy-mm-dd
     // 
     // This parameter is required.
     shared_ptr<string> userTablePartitionFieldFormat_ {};
-    // VpcID。
+    // The VPC ID.
     shared_ptr<string> vpcId_ {};
-    // The workflow name.
+    // The name of the workflow.
     shared_ptr<string> workflowName_ {};
-    // The PAI workspace ID.
+    // The ID of the PAI workspace.
     shared_ptr<string> workspaceId_ {};
   };
 

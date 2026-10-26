@@ -84,6 +84,7 @@ namespace Models
 
 
     protected:
+      // Specifies whether recommendation customization is enabled.
       shared_ptr<bool> isEnable_ {};
     };
 
@@ -115,10 +116,9 @@ namespace Models
 
 
     protected:
-      // Indicates whether the operations tool is enabled for the instance. Valid values:
-      // 
+      // Specifies whether the operations tool is enabled for the instance. Valid values:
       // - True: Enabled.
-      // - False: Not enabled.
+      // - False: Disabled.
       shared_ptr<bool> isEnable_ {};
     };
 
@@ -160,7 +160,9 @@ namespace Models
 
 
     protected:
+      // The status of FeatureDB.
       shared_ptr<string> featureDBStatus_ {};
+      // The ID of the Feature Store instance.
       shared_ptr<string> instanceId_ {};
     };
 
@@ -236,11 +238,11 @@ namespace Models
 
 
       protected:
-        // The component code.
+        // The code of the component.
         shared_ptr<string> componentCode_ {};
         // The metadata.
         Darabonba::Json meta_ {};
-        // The component type.
+        // The type of the component.
         shared_ptr<string> type_ {};
       };
 
@@ -293,11 +295,11 @@ namespace Models
 
 
       protected:
-        // The component code.
+        // The code of the component.
         shared_ptr<string> componentCode_ {};
         // The metadata.
         Darabonba::Json meta_ {};
-        // The component type.
+        // The type of the component.
         shared_ptr<string> type_ {};
       };
 
@@ -350,11 +352,11 @@ namespace Models
 
 
       protected:
-        // The component code.
+        // The code of the component.
         shared_ptr<string> componentCode_ {};
         // The metadata.
         Darabonba::Json meta_ {};
-        // The component type.
+        // The type of the component.
         shared_ptr<string> type_ {};
       };
 
@@ -388,11 +390,11 @@ namespace Models
 
 
     protected:
-      // The list of modeling environments.
+      // The modeling environments.
       shared_ptr<vector<Config::DataManagements>> dataManagements_ {};
-      // The list of service engines.
+      // The service engines.
       shared_ptr<vector<Config::Engines>> engines_ {};
-      // The list of supporting features.
+      // The supporting features.
       shared_ptr<vector<Config::Monitors>> monitors_ {};
     };
 
@@ -507,41 +509,40 @@ namespace Models
 
 
   protected:
-    // The billing type of the instance. Currently, only Subscription (prepayment) is supported.
+    // The billing method of the instance. Only subscription is supported.
     shared_ptr<string> chargeType_ {};
     // The commodity code of the instance.
     shared_ptr<string> commodityCode_ {};
-    // The instance configuration.
+    // The configuration of the instance.
     shared_ptr<GetInstanceResponseBody::Config> config_ {};
-    // The time when the instance expires.
+    // The time when the instance expires. The time is displayed in UTC and follows the ISO 8601 standard.
     shared_ptr<string> expiredTime_ {};
+    // The Feature Store information.
     shared_ptr<GetInstanceResponseBody::FeatureStoreInfo> featureStoreInfo_ {};
-    // The time when the instance was created.
+    // The time when the instance was created. The time is displayed in UTC and follows the ISO 8601 standard.
     shared_ptr<string> gmtCreateTime_ {};
-    // The time when the instance was last updated.
+    // The time when the instance was updated. The time is displayed in UTC and follows the ISO 8601 standard.
     shared_ptr<string> gmtModifiedTime_ {};
-    // The instance ID.
+    // The ID of the instance.
     shared_ptr<string> instanceId_ {};
-    // The configuration of the operations tool.
+    // The configurations of the operations tool.
     shared_ptr<GetInstanceResponseBody::OperatingTool> operatingTool_ {};
+    // The recommendation customization configurations.
     shared_ptr<GetInstanceResponseBody::RecommendCustomization> recommendCustomization_ {};
     // The region ID. Valid values:
-    // 
-    // - cn-shenzhen: China (Shenzhen).
-    // - cn-hangzhou: China (Hangzhou).
-    // - cn-beijing: China (Beijing).
-    // - cn-shanghai: China (Shanghai).
+    // - cn-shenzhen: Shenzhen.
+    // - cn-hangzhou: Hangzhou.
+    // - cn-beijing: Beijing.
+    // - cn-shanghai: Shanghai.
     shared_ptr<string> regionId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The instance status. Valid values:
-    // 
-    // - Initializing: The instance is being initialized.
-    // - Stopped: The instance is stopped.
-    // - Running: The instance is running.
+    // - Initializing: Initializing.
+    // - Stopped: Stopped.
+    // - Running: Running.
     shared_ptr<string> status_ {};
     // The instance type. Valid values:
-    // 
     // - basic: Basic Edition.
     // - highleve: Upgraded Edition.
     // - advance: Advanced Edition.

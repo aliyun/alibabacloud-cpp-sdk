@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the instance. Call the `ListInstances` operation to obtain this ID.
+    // The ID of the instance. You can call the ListInstances operation to obtain the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

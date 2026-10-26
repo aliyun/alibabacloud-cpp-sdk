@@ -99,15 +99,17 @@ namespace Models
 
 
     protected:
-      // The time when the subcrowd was created.
+      // The creation time. The value is in ISO 8601 format and includes a time zone offset.
       shared_ptr<string> gmtCreateTime_ {};
-      // The number of users in the subcrowd.
+      // The number of users in the crowd group.
       shared_ptr<int32_t> quantity_ {};
-      // The source of the subcrowd.<br>● ManualInput: Users were added manually.<br>● UploadFile: Users were added by uploading a file.<br><br>
+      // The crowd source. Valid values:
+      // ● ManualInput: Manual data entry.
+      // ● UploadFile: File upload.
       shared_ptr<string> source_ {};
-      // The subcrowd ID.
+      // The sub-crowd ID.
       shared_ptr<string> subCrowdId_ {};
-      // The users in the subcrowd.
+      // The users in the crowd group.
       shared_ptr<string> users_ {};
     };
 
@@ -137,11 +139,11 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The list of subcrowds.
+    // The list of sub-crowds.
     shared_ptr<vector<ListSubCrowdsResponseBody::SubCrowds>> subCrowds_ {};
-    // The total number of subcrowds.
+    // The total number of elements in the list.
     shared_ptr<int64_t> totalCount_ {};
   };
 

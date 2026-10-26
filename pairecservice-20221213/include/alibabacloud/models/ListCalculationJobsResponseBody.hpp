@@ -131,31 +131,25 @@ namespace Models
     protected:
       // The name of the A/B metric.
       shared_ptr<string> ABMetricName_ {};
-      // The business date.
+      // The business date. The date is in the YYYY-MM-DD format.
       shared_ptr<string> bizDate_ {};
-      // The calculation job ID.
+      // The ID of the calculation task.
       shared_ptr<string> calculationJobId_ {};
-      // The job configuration.
+      // The task configuration.
       shared_ptr<string> config_ {};
-      // The time when the job was run.
+      // The execution time. The time is in the ISO 8601 format and includes the time zone offset.
       shared_ptr<string> gmtRanTime_ {};
-      // The job messages.
+      // The task message.
       shared_ptr<vector<string>> jobMessage_ {};
-      // The source of the job. Valid values:
-      // 
-      // - CronOffline: The job is an offline scheduled task.
-      // 
-      // - DataRerun: The job is a data rerun task.
+      // The task source. Valid values:
+      // - CronOffline: Offline scheduled task.
+      // - DataRerun: Data rerun task.
       shared_ptr<string> jobSource_ {};
-      // The status of the job. Valid values:
-      // 
-      // - Success
-      // 
-      // - Failure
-      // 
-      // - Initializing
-      // 
-      // - Running
+      // The task status. Valid values:
+      // - Success: Succeeded.
+      // - Failure: Failed.
+      // - Initializing: Initializing.
+      // - Running: Running.
       shared_ptr<string> status_ {};
     };
 
@@ -185,11 +179,11 @@ namespace Models
 
 
   protected:
-    // A list of calculation jobs.
+    // The calculation tasks.
     shared_ptr<vector<ListCalculationJobsResponseBody::CalculationJobs>> calculationJobs_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of items.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -213,61 +213,53 @@ namespace Models
 
 
   protected:
-    // Specifies whether to aggregate metrics by user.
+    // Indicates whether to calculate significance by user dimension. Two aggregation logics are available: by user and by sample.
     shared_ptr<bool> aggregationByUser_ {};
-    // The metric definition.
+    // The definition of the metric.
     shared_ptr<string> definition_ {};
-    // The denominator of the derived metric formula.
+    // The denominator used for significance calculation.
     shared_ptr<string> denominator_ {};
-    // The metric description.
+    // The description of the metric.
     shared_ptr<string> description_ {};
-    // Specifies whether the metric follows a binomial distribution. This affects how significance is calculated.
+    // Indicates whether the metric follows a binomial distribution when the metric type is derived. If yes, the mean and variance of the metric are calculated based on the binomial distribution.
     shared_ptr<bool> isBinomialDistribution_ {};
-    // The ID of the left operand metric for a derived metric.
+    // The ID of the left metric for the derived metric.
     shared_ptr<string> leftMetricId_ {};
-    // The metric name.
+    // The name of the metric.
     shared_ptr<string> name_ {};
-    // Specifies whether significance testing is required for this metric.
+    // Indicates whether to calculate significance.
     shared_ptr<bool> needSignificance_ {};
-    // The numerator of the derived metric formula.
+    // The numerator used for significance calculation.
     shared_ptr<string> numerator_ {};
-    // The operator for the derived metric. Valid values:
-    // 
-    // - `Plus`: addition
-    // 
-    // - `Minus`: subtraction
-    // 
-    // - `Multiplication`: multiplication
-    // 
-    // - `Division`: division
+    // The operator used to calculate the derived metric. Valid values:
+    // - Plus: addition
+    // - Minus: subtraction
+    // - Multiplication: multiplication
+    // - Division: division
     shared_ptr<string> operator_ {};
-    // Specifies whether the metric is real-time. Valid values:
-    // 
-    // - `true`: The metric is real-time.
-    // 
-    // - `false`: The metric is not real-time.
+    // Indicates whether the metric is a real-time metric. Valid values:
+    // - true: yes
+    // - false: no
     shared_ptr<string> realtime_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the data source for the results table.
+    // The ID of the data source for the write-back data table.
     shared_ptr<string> resultResourceId_ {};
-    // The ID of the results table.
+    // The ID of the data table to which data is written back.
     shared_ptr<string> resultTableMetaId_ {};
-    // The ID of the right operand metric for a derived metric.
+    // The ID of the right metric for the derived metric.
     shared_ptr<string> rightMetricId_ {};
-    // The scene ID.
+    // The scenario ID.
     shared_ptr<string> sceneId_ {};
-    // The scene name.
+    // The name of the scenario.
     shared_ptr<string> sceneName_ {};
-    // The statistics cycle.
+    // The statistical period.
     shared_ptr<int32_t> statisticsCycle_ {};
-    // The ID of the source table.
+    // The ID of the source data table.
     shared_ptr<string> tableMetaId_ {};
-    // The type of the metric. Valid values:
-    // 
-    // - `Single`: a single metric.
-    // 
-    // - `Derived`: a derived metric.
+    // The metric type. Valid values:
+    // - Single: single metric
+    // - Derived: derived metric
     shared_ptr<string> type_ {};
   };
 

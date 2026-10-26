@@ -66,9 +66,9 @@ namespace Models
   protected:
     // The experiment report.
     shared_ptr<map<string, ExperimentReportValue>> experimentReport_ {};
-    // The dimensions used for grouping the report data.
+    // The dimension fields.
     shared_ptr<vector<string>> groupDimension_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

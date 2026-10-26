@@ -113,88 +113,57 @@ namespace Models
 
   protected:
     // The resource category. Valid values:
-    // 
     // - DataManagement
-    // 
     // - Engine
-    // 
     // - Monitor
     shared_ptr<string> category_ {};
-    // The resource configuration.
+    // The configuration information of the resource.
     shared_ptr<string> config_ {};
-    // The creation time.
+    // The creation time. The time is in the YYYY-MM-DD HH:mm:ss format.
     shared_ptr<string> gmtCreateTime_ {};
-    // The last modification time.
+    // The update time. The time is in the YYYY-MM-DD HH:mm:ss format.
     shared_ptr<string> gmtModifiedTime_ {};
     // The resource group.
     // 
-    // If `Category` is `DataManagement`, the valid values are:
-    // 
+    // If the resource category is DataManagement, valid values are:
     // - storage
-    // 
     // - modelpipeline
-    // 
     // - datastorage
-    // 
     // - modeltrain
     // 
-    // If `Category` is `Engine`, the valid values are:
-    // 
+    // If the resource category is Engine, valid values are:
     // - feature
-    // 
     // - predict
-    // 
     // - recall
-    // 
     // - recengine
     // 
-    // If `Category` is `Monitor`, the valid values are:
-    // 
+    // If the resource category is Monitor, valid values are:
     // - logs
-    // 
     // - logsback
-    // 
     // - coldstart
-    // 
     // - deploy
     shared_ptr<string> group_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The resource ID.
+    // The ID of the resource.
     shared_ptr<string> resourceId_ {};
     // The resource type. Valid values:
-    // 
     // - Hologres
-    // 
     // - EAS
-    // 
     // - BE
-    // 
     // - Rec
-    // 
     // - Platform
-    // 
     // - SLS
-    // 
     // - DataHub
-    // 
-    // - ApsaraMQ for Kafka
-    // 
-    // - Realtime Compute for Apache Flink
-    // 
+    // - Kafka
+    // - Flinkvvp
     // - ACR
-    // 
     // - OSS
-    // 
     // - DataWorks
-    // 
     // - PAI
-    // 
     // - MaxCompute
-    // 
-    // - Graph Compute Service
-    // 
-    // - ApsaraDB for Redis
+    // - GraphCompute
+    // - Redis
     shared_ptr<string> type_ {};
     // The resource URI.
     shared_ptr<string> uri_ {};

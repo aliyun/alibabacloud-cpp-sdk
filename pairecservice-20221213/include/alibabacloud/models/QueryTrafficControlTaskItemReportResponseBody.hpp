@@ -143,21 +143,21 @@ namespace Models
 
 
     protected:
-      // The actual number of controlled items.
+      // The actual number of items that were traffic-controlled.
       shared_ptr<int64_t> actualItemControlNum_ {};
-      // The actual traffic of controlled items.
+      // The actual traffic volume for items that were traffic-controlled.
       shared_ptr<int64_t> actualItemControlTraffic_ {};
-      // The number of items that reached the control target.
+      // The number of items that have reached the traffic control target.
       shared_ptr<int64_t> doneItemControlNum_ {};
-      // The number of items that reached the control target, as a percentage of the expected number of controlled items.
+      // The percentage of items that have reached the traffic control target.
       shared_ptr<string> doneItemControlPercentage_ {};
-      // The actual number of controlled items as a percentage of the expected number.
+      // The percentage of traffic-controlled items by count.
       shared_ptr<string> itemControlNumPercentage_ {};
-      // The actual traffic from controlled items as a percentage of the expected traffic.
+      // The percentage of traffic-controlled items by traffic volume.
       shared_ptr<string> itemControlTrafficPercentage_ {};
-      // The expected number of controlled items.
+      // The expected number of items to be traffic-controlled.
       shared_ptr<int64_t> oughtItemControlNum_ {};
-      // The expected traffic of controlled items.
+      // The expected traffic volume for items to be traffic-controlled.
       shared_ptr<int64_t> oughtItemControlTraffic_ {};
       // The ID of the traffic control target.
       shared_ptr<string> trafficControlTargetId_ {};
@@ -186,7 +186,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // An array of item control reports.
+    // The list of item-level traffic control reports.
     shared_ptr<vector<QueryTrafficControlTaskItemReportResponseBody::TrafficControlTaskItemReports>> trafficControlTaskItemReports_ {};
   };
 

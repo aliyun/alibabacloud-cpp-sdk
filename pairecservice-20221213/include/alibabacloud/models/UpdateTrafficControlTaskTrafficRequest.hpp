@@ -110,17 +110,17 @@ namespace Models
 
 
     protected:
-      // The identifier for the traffic object. This can be an item ID, such as `item1`, an experiment ID, a global identifier (`ER_ALL`), or a value in `L1_EG1_E1` format.
+      // The traffic object, which can be an item or an experiment item. Valid values: item1, ER_ALL (global), or a value in the L1_EG1_E1 format.
       shared_ptr<string> itemOrExperimentId_ {};
-      // The timestamp from the behavior log. This indicates that the log data is current as of this timestamp.
+      // The timestamp from the behavior log, indicating the log cutoff time. The value is in ISO 8601 format, using Z to indicate the UTC time zone.
       shared_ptr<string> recordTime_ {};
-      // The configured target traffic for the traffic control target.
+      // The target traffic of the traffic control target.
       shared_ptr<double> trafficControlTargetAimTraffic_ {};
-      // The traffic control target ID.
+      // The ID of the traffic control target.
       shared_ptr<string> trafficControlTargetId_ {};
-      // The actual traffic volume observed for the traffic control target.
+      // The actual traffic of the traffic control target.
       shared_ptr<int64_t> trafficControlTargetTraffic_ {};
-      // The total traffic for the traffic control task.
+      // The overall traffic under the traffic control plan.
       shared_ptr<int64_t> trafficControlTaskTraffic_ {};
     };
 
@@ -157,13 +157,16 @@ namespace Models
 
 
   protected:
-    // The environment. Valid values: `Daily` (daily environment), `Pre` (pre-release environment), and `Prod` (production environment).
+    // The environment to which the task belongs. Valid values:
+    // - Daily: daily environment
+    // - Pre: pre-release environment
+    // - Prod: production environment
     shared_ptr<string> environment_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // A list of traffic objects to report.
+    // The list of reported traffic information.
     shared_ptr<vector<UpdateTrafficControlTaskTrafficRequest::Traffics>> traffics_ {};
-    // This parameter is invalid and should be ignored.
+    // Invalid parameter. Ignore this parameter.
     shared_ptr<string> newParam3_ {};
   };
 

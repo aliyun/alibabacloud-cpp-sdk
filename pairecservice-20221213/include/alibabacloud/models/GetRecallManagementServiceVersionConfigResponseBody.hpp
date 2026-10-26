@@ -180,9 +180,9 @@ namespace Models
           shared_ptr<string> field_ {};
           // The limit on the number of fields.
           shared_ptr<int32_t> fieldQuantityLimit_ {};
-          // Indicates whether to randomly sort the items.
+          // Specifies whether random sorting is enabled.
           shared_ptr<bool> isRandSort_ {};
-          // The sort field.
+          // The sort fields.
           shared_ptr<string> sortField_ {};
         };
 
@@ -237,7 +237,7 @@ namespace Models
         protected:
           // The join field.
           shared_ptr<string> field_ {};
-          // The output fields.
+          // The list of returned fields.
           shared_ptr<vector<string>> outputFields_ {};
           // The join table ID.
           shared_ptr<string> recallManagementTableId_ {};
@@ -376,15 +376,15 @@ namespace Models
 
 
       protected:
-        // The configuration for the feature operator.
+        // The configuration of the Feature operator.
         shared_ptr<Operators::FeatureConfig> featureConfig_ {};
-        // The configuration for the filter operator.
+        // The configuration of the Filter operator.
         shared_ptr<Operators::FilterConfig> filterConfig_ {};
-        // The configuration for the Join operator.
+        // The configuration of the Join operator.
         shared_ptr<Operators::JoinConfig> joinConfig_ {};
         // The operator type.
         shared_ptr<string> operatorType_ {};
-        // The configuration for the Trigger operator.
+        // The configuration of the Trigger operator.
         shared_ptr<Operators::TriggerConfig> triggerConfig_ {};
       };
 
@@ -502,11 +502,11 @@ namespace Models
     protected:
       // The recall description.
       shared_ptr<string> description_ {};
-      // Extended configuration, reserved for future use.
+      // The additional configuration for future feature extensions.
       shared_ptr<string> extendedConfig_ {};
-      // The item conditions, as a JSON array string.
+      // The item conditions in array format.
       shared_ptr<string> itemConditionArray_ {};
-      // The item condition expression.
+      // The item conditional expression.
       shared_ptr<string> itemConditionExpression_ {};
       // The item vector field.
       shared_ptr<string> itemVectorField_ {};
@@ -514,9 +514,9 @@ namespace Models
       shared_ptr<string> itemVectorRecallManagementTableId_ {};
       // The recall name.
       shared_ptr<string> name_ {};
-      // A list of operators.
+      // The list of operators.
       shared_ptr<vector<RecallConfig::Operators>> operators_ {};
-      // The priority. A lower value indicates a higher priority.
+      // The priority. A smaller number indicates a higher priority.
       shared_ptr<int64_t> priority_ {};
       // The recall management service version configuration ID.
       shared_ptr<string> recallManagementServiceVersionConfigId_ {};
@@ -620,21 +620,19 @@ namespace Models
 
 
     protected:
-      // Additional configuration for the merge operation, reserved for future enhancements.
+      // The additional merge configuration for future feature extensions.
       shared_ptr<string> extendedConfig_ {};
       // The filter expression.
       shared_ptr<string> filterExpression_ {};
-      // A list of filter table IDs.
+      // The filter table IDs.
       shared_ptr<vector<string>> filterRecallManagementTableIds_ {};
       // The item table ID.
       shared_ptr<string> itemRecallManagementTableId_ {};
-      // A list of output fields from the item table.
+      // The item table output fields.
       shared_ptr<vector<string>> itemTableFields_ {};
       // The merge type. Valid values:
-      // 
-      // - Weight: Merges items based on assigned weights.
-      // 
-      // - Alternate: Merges items in an alternating sequence.
+      // - Weight: weight.
+      // - Alternate: alternate.
       shared_ptr<string> mergeType_ {};
       // The recall management service version configuration ID.
       shared_ptr<string> recallManagementServiceVersionConfigId_ {};
@@ -711,11 +709,13 @@ namespace Models
 
 
   protected:
-    // The configuration type. Valid values: Recall (recall configuration) and Merge (merge configuration).
+    // The recall management version configuration type. Valid values:
+    // - Recall: recall configuration.
+    // - Merge: merge configuration.
     shared_ptr<string> configType_ {};
-    // The creation time, in ISO 8601 format.
+    // The creation time in ISO 8601 format, including the time zone offset.
     shared_ptr<string> gmtCreateTime_ {};
-    // The last modification time, in ISO 8601 format.
+    // The update time in ISO 8601 format, including the time zone offset.
     shared_ptr<string> gmtModifiedTime_ {};
     // The merge configuration.
     shared_ptr<GetRecallManagementServiceVersionConfigResponseBody::MergeConfig> mergeConfig_ {};
@@ -727,7 +727,7 @@ namespace Models
     shared_ptr<string> recallManagementServiceVersionConfigId_ {};
     // The recall management service version ID.
     shared_ptr<string> recallManagementServiceVersionId_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

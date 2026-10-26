@@ -121,43 +121,38 @@ namespace Models
 
 
   protected:
-    // The ID of the base experiment.
+    // The ID of the baseline experiment.
     // 
     // This parameter is required.
     shared_ptr<string> baseExperimentId_ {};
     // The dimension fields.
     shared_ptr<string> dimensionFields_ {};
-    // The end date.
+    // The end date. Format: YYYY-MM-DD.
     shared_ptr<string> endDate_ {};
-    // The ID of the experiment group. You can call the [ListExperimentGroups](https://help.aliyun.com/document_detail/2402573.html) operation to obtain the ID of the experiment group. This parameter is required for offline and real-time reports.
+    // The ID of the experiment group. You can call the [ListExperimentGroups](https://help.aliyun.com/document_detail/2402573.html) operation to obtain the ID. This parameter is required for offline and real-time reports.
     shared_ptr<string> experimentGroupId_ {};
-    // The IDs of the experiments. You can call the [ListExperiments](https://help.aliyun.com/document_detail/2402582.html) operation to obtain the IDs of the experiments.
+    // The list of experiment IDs. You can call the [ListExperiments](https://help.aliyun.com/document_detail/2402582.html) operation to obtain the IDs.
     // 
     // This parameter is required.
     shared_ptr<string> experimentIds_ {};
-    // The instance ID. You can call the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation to obtain the instance ID.
+    // Instance ID of the instance. You can call the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation to obtain instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The type of the report.
-    // 
-    // - Realtime: real-time report.
-    // 
-    // - Offline: offline report.
-    // 
-    // - Market: dashboard report.
+    // The report type. Valid values:
+    // - Realtime: real-time report
+    // - Offline: offline report
+    // - Market: dashboard report
     // 
     // This parameter is required.
     shared_ptr<string> reportType_ {};
-    // The ID of the scene. You can call the [ListScenes](https://help.aliyun.com/document_detail/2402581.html) operation to obtain the scene ID.
+    // The ID of the scene. You can call the [ListScenes](https://help.aliyun.com/document_detail/2402581.html) operation to obtain the ID.
     shared_ptr<string> sceneId_ {};
-    // The start date.
+    // The start date. Format: YYYY-MM-DD.
     shared_ptr<string> startDate_ {};
-    // The time statistics method. This parameter is required for real-time reports.
-    // 
-    // - Hour: The statistics are collected by hour.
-    // 
-    // - Day: The statistics are accumulated from 00:00 on the current day.
+    // The statistical time type. This parameter is required for real-time reports. Valid values:
+    // - Hour: hourly statistics
+    // - Day: cumulative statistics starting from 00:00 on the current day
     shared_ptr<string> timeStatisticsMethod_ {};
   };
 

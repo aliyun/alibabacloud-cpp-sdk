@@ -103,21 +103,21 @@ namespace Models
 
 
   protected:
-    // The end of the time range.
+    // The end time. The format is YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> endTime_ {};
-    // The target environment. Valid values: Daily, Pre, and Prod.
+    // The environment to which the parameter belongs. Valid values: Daily: daily environment. Pre: staging environment. Prod: production environment.
     shared_ptr<string> environment_ {};
     // The ID of the experiment group.
     shared_ptr<string> experimentGroupId_ {};
     // The ID of the experiment.
     shared_ptr<string> experimentId_ {};
-    // The ID of the instance.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
     // The ID of the item.
     shared_ptr<string> itemId_ {};
-    // The start of the time range.
+    // The start time. The format is YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> startTime_ {};
-    // The threshold value.
+    // The threshold.
     shared_ptr<string> threshold_ {};
   };
 

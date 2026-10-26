@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Partition, partition_);
       DARABONBA_PTR_TO_JSON(Partitions, partitions_);
       DARABONBA_PTR_TO_JSON(SkipThresholdCheck, skipThresholdCheck_);
+      DARABONBA_PTR_TO_JSON(StartTimestampMs, startTimestampMs_);
     };
     friend void from_json(const Darabonba::Json& j, PublishRecallManagementTableRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Partition, partition_);
       DARABONBA_PTR_FROM_JSON(Partitions, partitions_);
       DARABONBA_PTR_FROM_JSON(SkipThresholdCheck, skipThresholdCheck_);
+      DARABONBA_PTR_FROM_JSON(StartTimestampMs, startTimestampMs_);
     };
     PublishRecallManagementTableRequest() = default ;
     PublishRecallManagementTableRequest(const PublishRecallManagementTableRequest &) = default ;
@@ -39,7 +41,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && this->mode_ == nullptr && this->partition_ == nullptr && this->partitions_ == nullptr && this->skipThresholdCheck_ == nullptr; };
+        && this->mode_ == nullptr && this->partition_ == nullptr && this->partitions_ == nullptr && this->skipThresholdCheck_ == nullptr && this->startTimestampMs_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -79,21 +81,29 @@ namespace Models
     inline PublishRecallManagementTableRequest& setSkipThresholdCheck(bool skipThresholdCheck) { DARABONBA_PTR_SET_VALUE(skipThresholdCheck_, skipThresholdCheck) };
 
 
+    // startTimestampMs Field Functions 
+    bool hasStartTimestampMs() const { return this->startTimestampMs_ != nullptr;};
+    void deleteStartTimestampMs() { this->startTimestampMs_ = nullptr;};
+    inline int64_t getStartTimestampMs() const { DARABONBA_PTR_GET_DEFAULT(startTimestampMs_, 0L) };
+    inline PublishRecallManagementTableRequest& setStartTimestampMs(int64_t startTimestampMs) { DARABONBA_PTR_SET_VALUE(startTimestampMs_, startTimestampMs) };
+
+
   protected:
     // **The instance ID.**
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // **The synchronization mode.** Valid values:
-    // 
-    // - `Merge`: Adds new data and updates existing data.
+    // **The enumeration value for the table synchronization mode**:
+    // - `Merge`: Merge.
     shared_ptr<string> mode_ {};
-    // The table partitions to publish.
+    // The partition of the table to be published.
     shared_ptr<map<string, string>> partition_ {};
-    // The table partitions to publish.
+    // The partition of the table to be published.
     shared_ptr<map<string, string>> partitions_ {};
-    // **Specifies whether to skip the threshold check during table synchronization.**
+    // **Specifies whether to skip the threshold check when synchronizing the table.**
     shared_ptr<bool> skipThresholdCheck_ {};
+    // The start time of incremental data playback (UNIX milliseconds).
+    shared_ptr<int64_t> startTimestampMs_ {};
   };
 
   } // namespace Models

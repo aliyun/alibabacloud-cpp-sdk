@@ -144,7 +144,7 @@ namespace Models
     shared_ptr<string> event_ {};
     // The function name.
     shared_ptr<string> func_ {};
-    // The creation time.
+    // The creation time. The format is ISO 8601, including the time zone offset.
     shared_ptr<string> gmtCreateTime_ {};
     // The message ID.
     shared_ptr<string> messageId_ {};

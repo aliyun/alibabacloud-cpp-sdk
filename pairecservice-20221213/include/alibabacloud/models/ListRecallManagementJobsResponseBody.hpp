@@ -123,13 +123,13 @@ namespace Models
 
 
       protected:
-        // This parameter is deprecated.
+        // **[Deprecated]**
         shared_ptr<string> dataVersion_ {};
-        // This parameter is deprecated.
+        // **[Deprecated]**
         shared_ptr<string> recallManagementTableVersionId_ {};
-        // This parameter is deprecated.
+        // **[Deprecated]**
         shared_ptr<string> sourceTableDataSize_ {};
-        // This parameter is deprecated.
+        // **[Deprecated]**
         shared_ptr<string> sourceTableRowCount_ {};
       };
 
@@ -189,13 +189,13 @@ namespace Models
 
 
       protected:
-        // The data version.
+        // The data version number.
         shared_ptr<string> dataVersion_ {};
-        // The table version ID.
+        // The ID of the table version.
         shared_ptr<string> recallManagementTableVersionId_ {};
-        // The source table data size.
+        // The data size of the source table.
         shared_ptr<string> sourceTableDataSize_ {};
-        // The source table row count.
+        // The number of data rows in the source table.
         shared_ptr<string> sourceTableRowCount_ {};
       };
 
@@ -248,17 +248,17 @@ namespace Models
 
 
     protected:
-      // The end time of the synchronization job.
+      // The end time of the task. The time follows the ISO 8601 standard and is displayed in UTC.
       shared_ptr<string> endTime_ {};
-      // The synchronization job ID.
+      // The ID of the synchronization task.
       shared_ptr<string> recallManagementJobId_ {};
-      // Information about the recall management table.
+      // The task information of the recall management table.
       shared_ptr<RecallManagementJobs::RecallManagementTableInfo> recallManagementTableInfo_ {};
-      // This parameter is deprecated.
+      // **[Deprecated]**
       shared_ptr<RecallManagementJobs::RecallManagerTableInfo> recallManagerTableInfo_ {};
-      // The start time of the synchronization job.
+      // The start time of the task. The time follows the ISO 8601 standard and is displayed in UTC.
       shared_ptr<string> startTime_ {};
-      // The status of the synchronization job. Valid values: `Init` (initializing), `Running` (running), `Success` (succeeded), and `Failed` (failed).
+      // The status. Valid values: `Init` (initializing), `Running` (running), `Success` (successful), and `Failed` (failed).
       shared_ptr<string> status_ {};
     };
 
@@ -302,15 +302,15 @@ namespace Models
 
 
   protected:
-    // Reserved.
+    // This parameter does not take effect.
     shared_ptr<int32_t> maxResults_ {};
-    // Reserved.
+    // This parameter does not take effect.
     shared_ptr<string> nextToken_ {};
-    // A list of synchronization jobs.
+    // The list of synchronization tasks.
     shared_ptr<vector<ListRecallManagementJobsResponseBody::RecallManagementJobs>> recallManagementJobs_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total count of synchronization jobs.
+    // The total number of entries.
     shared_ptr<string> totalCount_ {};
   };
 

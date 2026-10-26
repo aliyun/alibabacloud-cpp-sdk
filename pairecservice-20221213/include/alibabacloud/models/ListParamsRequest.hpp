@@ -96,14 +96,11 @@ namespace Models
   protected:
     shared_ptr<bool> encrypted_ {};
     // The environment to which the parameter belongs. Valid values:
-    // 
-    // - Daily: A test environment for daily use.
-    // 
-    // - Prepub: A staging environment that mirrors the production environment.
-    // 
-    // - Product: The production environment.
+    // - Daily: daily environment
+    // - Pre: pre-release environment
+    // - Prod: production environment
     shared_ptr<string> environment_ {};
-    // The instance ID. You can call the ListInstances operation to obtain it.
+    // The instance ID. You can call the ListInstances operation to obtain the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -111,9 +108,9 @@ namespace Models
     shared_ptr<string> name_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The scene ID. You can call the ListScenes operation to obtain it.
+    // The scene ID. You can call the ListScenes operation to obtain the scene ID.
     // 
     // This parameter is required.
     shared_ptr<string> sceneId_ {};

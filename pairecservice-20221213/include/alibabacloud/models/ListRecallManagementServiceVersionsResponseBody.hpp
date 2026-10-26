@@ -99,15 +99,15 @@ namespace Models
 
 
     protected:
-      // The creation time.
+      // The creation time. The time follows the ISO 8601 standard and includes a time zone offset.
       shared_ptr<string> gmtCreateTime_ {};
-      // The modification time.
+      // The update time. The time follows the ISO 8601 standard and includes a time zone offset.
       shared_ptr<string> gmtModifiedTime_ {};
       // Indicates whether the version is effective.
       shared_ptr<bool> isEffective_ {};
-      // The version name.
+      // The name of the recall management service version.
       shared_ptr<string> name_ {};
-      // The version ID of the Recall Management Service.
+      // The ID of the recall management service version.
       shared_ptr<string> recallManagementServiceVersionId_ {};
     };
 
@@ -137,11 +137,11 @@ namespace Models
 
 
   protected:
-    // A list of Recall Management Service versions.
+    // The list of recall management service versions.
     shared_ptr<vector<ListRecallManagementServiceVersionsResponseBody::RecallManagementServiceVersions>> recallManagementServiceVersions_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of returned entries.
     shared_ptr<string> totalCount_ {};
   };
 

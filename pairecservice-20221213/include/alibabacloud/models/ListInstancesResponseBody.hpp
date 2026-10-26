@@ -101,11 +101,9 @@ namespace Models
 
 
       protected:
-        // Specifies whether the operating tool is enabled for the instance. Valid values:
-        // 
-        // - `true`: The tool is enabled.
-        // 
-        // - `false`: The tool is disabled.
+        // Specifies whether the operations tool is enabled for the instance. Valid values:
+        // - true: Enabled.
+        // - false: Disabled.
         shared_ptr<bool> isEnable_ {};
       };
 
@@ -183,7 +181,7 @@ namespace Models
         protected:
           // The component code.
           shared_ptr<string> componentCode_ {};
-          // The metadata of the component.
+          // The metadata.
           Darabonba::Json meta_ {};
           // The component type.
           shared_ptr<string> type_ {};
@@ -240,7 +238,7 @@ namespace Models
         protected:
           // The component code.
           shared_ptr<string> componentCode_ {};
-          // The metadata of the component.
+          // The metadata.
           Darabonba::Json meta_ {};
           // The component type.
           shared_ptr<string> type_ {};
@@ -297,7 +295,7 @@ namespace Models
         protected:
           // The component code.
           shared_ptr<string> componentCode_ {};
-          // The metadata of the component.
+          // The metadata.
           Darabonba::Json meta_ {};
           // The component type.
           shared_ptr<string> type_ {};
@@ -333,11 +331,11 @@ namespace Models
 
 
       protected:
-        // A list of data management configurations.
+        // The list of modeling environments.
         shared_ptr<vector<Config::DataManagements>> dataManagements_ {};
-        // A list of service engines.
+        // The list of service engines.
         shared_ptr<vector<Config::Engines>> engines_ {};
-        // A list of monitoring components.
+        // The list of supporting features.
         shared_ptr<vector<Config::Monitors>> monitors_ {};
       };
 
@@ -426,49 +424,38 @@ namespace Models
 
 
     protected:
-      // The billing method of the instance. Only `Subscription` (prepaid) is supported.
+      // The billing method of the instance. Only subscription is supported.
       shared_ptr<string> chargeType_ {};
       // The commodity code of the instance.
       shared_ptr<string> commodityCode_ {};
       // The instance configuration.
       shared_ptr<Instances::Config> config_ {};
-      // The time when the instance expires.
+      // The instance expiration time. The time follows the ISO 8601 standard and is displayed in the UTC time zone.
       shared_ptr<string> expiredTime_ {};
-      // The time when the instance was created.
+      // The instance creation time. The time follows the ISO 8601 standard and is displayed in the UTC time zone.
       shared_ptr<string> gmtCreateTime_ {};
-      // The time when the instance was last modified.
+      // The instance update time. The time follows the ISO 8601 standard and is displayed in the UTC time zone.
       shared_ptr<string> gmtModifiedTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The configuration of the operating tool.
+      // The configuration related to the operations tool.
       shared_ptr<Instances::OperatingTool> operatingTool_ {};
       // The region ID. Valid values:
-      // 
-      // - `cn-shenzhen`: China (Shenzhen)
-      // 
-      // - `cn-hangzhou`: China (Hangzhou)
-      // 
-      // - `cn-beijing`: China (Beijing)
-      // 
-      // - `cn-shanghai`: China (Shanghai)
+      // - cn-shenzhen: Shenzhen.
+      // - cn-hangzhou: Hangzhou.
+      // - cn-beijing: Beijing.
+      // - cn-shanghai: Shanghai.
       shared_ptr<string> regionId_ {};
       // The instance status. Valid values:
-      // 
-      // - `Initializing`: The instance is initializing.
-      // 
-      // - `Stopped`: The instance is stopped.
-      // 
-      // - `Running`: The instance is running.
+      // - Initializing: Initializing.
+      // - Stopped: Stopped.
+      // - Running: Running.
       shared_ptr<string> status_ {};
       // The instance type. Valid values:
-      // 
-      // - `basic`: Basic Edition
-      // 
-      // - `high-level`: High-level Edition
-      // 
-      // - `advanced`: Advanced Edition
-      // 
-      // - `standard`: Standard Edition
+      // - basic: Basic Edition.
+      // - highleve: Upgraded Edition.
+      // - advance: Advanced Edition.
+      // - standard: Standard Edition.
       shared_ptr<string> type_ {};
     };
 
@@ -498,11 +485,11 @@ namespace Models
 
 
   protected:
-    // A list of instances.
+    // The instance list.
     shared_ptr<vector<ListInstancesResponseBody::Instances>> instances_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of returned instances.
+    // The total number of items in the list.
     shared_ptr<int32_t> totalCount_ {};
   };
 

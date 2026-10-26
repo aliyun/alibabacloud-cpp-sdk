@@ -66,19 +66,18 @@ namespace Models
 
 
   protected:
-    // The ID of the experiment group.
+    // The experiment group ID.
     shared_ptr<string> experimentGroupId_ {};
-    // The instance ID. You can call the ListInstances operation to obtain the ID.
+    // The instance ID. You can call ListInstances to retrieve the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The filter parameter for quick search. All experiments that match the names or tags are returned.
+    // The filter parameter for quick search. Returns all experiments whose name or label matches the specified value.
     shared_ptr<string> query_ {};
-    // The status of the experiment. Valid values:
+    // The status filter. Valid values:
     // 
-    // - Offline
-    // 
-    // - Online
+    // - Offline: Not online.
+    // - Online: Online.
     shared_ptr<string> status_ {};
   };
 

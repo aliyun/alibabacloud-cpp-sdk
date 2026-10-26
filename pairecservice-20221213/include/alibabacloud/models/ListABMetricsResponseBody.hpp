@@ -237,47 +237,47 @@ namespace Models
 
 
     protected:
-      // The AB metric ID.
+      // The ID of the AB test metric.
       shared_ptr<string> ABMetricId_ {};
-      // Indicates whether to aggregate data by user.
+      // Specifies whether to calculate significance based on the user dimension. The calculation can be based on users or samples.
       shared_ptr<bool> aggregationByUser_ {};
       // The metric definition.
       shared_ptr<string> definition_ {};
-      // The denominator of the derived metric.
+      // The denominator used for significance calculation.
       shared_ptr<string> denominator_ {};
       // The metric description.
       shared_ptr<string> description_ {};
-      // Indicates whether the metric follows a binomial distribution.
+      // Specifies whether the current metric conforms to a binomial distribution when the metric type is a derived metric. If yes, the mean and variance of the metric are calculated based on the binomial distribution.
       shared_ptr<bool> isBinomialDistribution_ {};
-      // The ID of the left-hand metric in the formula for the derived metric.
+      // The ID of the left metric for the derived metric.
       shared_ptr<string> leftMetricId_ {};
       // The metric name.
       shared_ptr<string> name_ {};
-      // Indicates whether significance calculation is required.
+      // Specifies whether to calculate significance.
       shared_ptr<bool> needSignificance_ {};
-      // The numerator of the derived metric.
+      // The numerator used for significance calculation.
       shared_ptr<string> numerator_ {};
       // The operator used to calculate the derived metric. Valid values:
       // 
-      // - `Plus`: addition
+      // - Plus: Addition.
       // 
-      // - `Minus`: subtraction
+      // - Minus: Subtraction.
       // 
-      // - `Multiplication`: multiplication
+      // - Multiplication: Multiplication.
       // 
-      // - `Division`: division
+      // - Division: Division.
       shared_ptr<string> operator_ {};
-      // Indicates whether the metric is a real-time metric.
+      // Specifies whether the metric is a real-time metric. Valid values:
       // 
-      // - `true`: The metric is calculated in real time.
+      // - true: Yes.
       // 
-      // - `false`: The metric is not calculated in real time.
+      // - false: No.
       shared_ptr<string> realtime_ {};
-      // The ID of the data source for the data table to which the results are written.
+      // The ID of the data source for the write-back data table.
       shared_ptr<string> resultResourceId_ {};
-      // The ID of the data table to which the results are written.
+      // The ID of the data table to which data is written back.
       shared_ptr<string> resultTableMetaId_ {};
-      // The ID of the right-hand metric in the formula for the derived metric.
+      // The ID of the right metric for the derived metric.
       shared_ptr<string> rightMetricId_ {};
       // The scene ID.
       shared_ptr<string> sceneId_ {};
@@ -285,13 +285,13 @@ namespace Models
       shared_ptr<string> sceneName_ {};
       // The statistical period.
       shared_ptr<int32_t> statisticsCycle_ {};
-      // The data table ID.
+      // The ID of the data table.
       shared_ptr<string> tableMetaId_ {};
       // The metric type. Valid values:
       // 
-      // - `Single`: a single metric.
+      // - Single: Single metric.
       // 
-      // - `Derived`: a derived metric.
+      // - Derived: Derived metric.
       shared_ptr<string> type_ {};
     };
 
@@ -321,11 +321,11 @@ namespace Models
 
 
   protected:
-    // The list of AB metrics.
+    // The list of AB test metrics.
     shared_ptr<vector<ListABMetricsResponseBody::ABMetrics>> ABMetrics_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of AB metrics returned.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

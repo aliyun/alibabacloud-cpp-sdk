@@ -83,17 +83,17 @@ namespace Models
     shared_ptr<string> pageNumber_ {};
     // The page size.
     shared_ptr<string> pageSize_ {};
-    // The task status. Valid values:
+    // The task status. Valid values: 
     // 
-    // - Initializing: The job is being initialized.
+    // - Initializing: The task is being initialized.
     // 
-    // - Running: The job is in progress.
+    // - Running: The task is running.
     // 
-    // - Success: The job succeeded.
+    // - Success: The task succeeded.
     // 
-    // - Failure: The job failed to complete.
+    // - Failure: The task failed.
     shared_ptr<string> status_ {};
-    // A list of data diagnosis types.
+    // The list of data diagnostic types.
     shared_ptr<string> typesShrink_ {};
   };
 

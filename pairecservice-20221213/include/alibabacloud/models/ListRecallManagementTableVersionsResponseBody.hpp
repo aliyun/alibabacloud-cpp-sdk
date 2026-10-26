@@ -129,23 +129,21 @@ namespace Models
     protected:
       // The data version.
       shared_ptr<string> dataVersion_ {};
-      // The effective time.
+      // The effective period. Format: YYYY-MM-DDTHH:mm:ss.SSS.
       shared_ptr<string> effectiveTime_ {};
-      // The sync end time.
+      // The synchronization end time. Format: YYYY-MM-DDTHH:mm:ss.SSS.
       shared_ptr<string> publishEndTime_ {};
-      // The sync start time.
+      // The synchronization start time. Format: YYYY-MM-DDTHH:mm:ss.SSS.
       shared_ptr<string> publishStartTime_ {};
-      // The ID of the RecallManagementTable version.
+      // The version ID.
       shared_ptr<string> recallManagementTableVersionId_ {};
-      // The source table data size.
+      // The data size of the source data table.
       shared_ptr<int64_t> sourceTableDataSize_ {};
-      // The source table row count.
+      // The number of rows in the source data table.
       shared_ptr<int64_t> sourceTableRowCount_ {};
-      // The status of the version. Valid values:
-      // 
-      // - Online: The version is online.
-      // 
-      // - Offline: The version is offline.
+      // The status. Valid values:
+      // - Online: online
+      // - Offline: offline
       shared_ptr<string> status_ {};
     };
 
@@ -175,11 +173,11 @@ namespace Models
 
 
   protected:
-    // The list of RecallManagementTable versions.
+    // The list of recall management table versions.
     shared_ptr<vector<ListRecallManagementTableVersionsResponseBody::RecallManagementTableVersions>> recallManagementTableVersions_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total count.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

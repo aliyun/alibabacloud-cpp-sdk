@@ -118,13 +118,13 @@ namespace Models
 
 
     protected:
-      // Whether the field is a dimension field.
+      // Indicates whether the field is a dimension field.
       shared_ptr<bool> isDimensionField_ {};
-      // The field meaning.
+      // The meaning of the field.
       shared_ptr<string> meaning_ {};
-      // The field name.
+      // The name of the field.
       shared_ptr<string> name_ {};
-      // The field type.
+      // The type of the field.
       shared_ptr<string> type_ {};
     };
 
@@ -255,47 +255,49 @@ namespace Models
 
 
   protected:
-    // Indicates whether the table can be deleted. The value is `false` if other resources reference the table.
+    // Indicates whether the data table can be deleted. If the table is referenced elsewhere, false is returned.
     shared_ptr<bool> canDelete_ {};
-    // Additional configurations for the table, provided as a JSON string.
+    // The additional configurations of the data table.
     shared_ptr<string> config_ {};
-    // The table description.
+    // The description of the data table.
     shared_ptr<string> description_ {};
-    // The fields in the table.
+    // The list of fields in the table.
     shared_ptr<vector<GetTableMetaResponseBody::Fields>> fields_ {};
     // The creation time.
     shared_ptr<string> gmtCreateTime_ {};
-    // The import time.
+    // The time when the field was imported. The time is in ISO 8601 format and includes the time zone offset.
     shared_ptr<string> gmtImportedTime_ {};
-    // The modification time.
+    // The update time.
     shared_ptr<string> gmtModifiedTime_ {};
-    // The table module. Valid values:
+    // The module of the data table. Valid values:
     // 
-    // - `ABTest`: An A/B testing data table.
+    // - ABTest: experiment data table.
     // 
-    // - `ExperimentTool`: An experiment tool table.
+    // - ExperimentTool: experiment tool table.
     // 
-    // - `DataDiagnosis`: A table for data diagnosis.
+    // - DataDiagnosis: data diagnostics.
     shared_ptr<string> module_ {};
-    // The table name.
+    // The name of the data table.
     shared_ptr<string> name_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The resource ID.
+    // The ID of the resource.
     shared_ptr<string> resourceId_ {};
+    // The type of the resource.
     shared_ptr<string> resourceType_ {};
+    // The URI of the resource.
     shared_ptr<string> resourceUri_ {};
-    // The table ID.
+    // The ID of the data table.
     shared_ptr<string> tableMetaId_ {};
     // The name of the table in the database.
     shared_ptr<string> tableName_ {};
-    // The table type. Valid values:
+    // The type of the data table. Valid values:
     // 
-    // - `MaxCompute`
+    // - MaxCompute
     // 
-    // - `Hologres`
+    // - Hologres
     shared_ptr<string> type_ {};
-    // The URL of the table in Data Map. This parameter is returned only for MaxCompute tables.
+    // The URL of the table in Data Map if the table is a MaxCompute table. Otherwise, this field is empty.
     shared_ptr<string> url_ {};
   };
 

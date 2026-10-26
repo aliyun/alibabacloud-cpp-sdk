@@ -103,23 +103,25 @@ namespace Models
 
 
   protected:
-    // The instance ID.
+    // **The instance ID.**
     shared_ptr<string> instanceId_ {};
-    // This parameter is not currently in effect.
+    // This parameter does not take effect.
     shared_ptr<int32_t> maxResults_ {};
-    // Filters results by name.
+    // Filters the results by name.
     shared_ptr<string> name_ {};
-    // This parameter is not currently in effect.
+    // This parameter does not take effect.
     shared_ptr<string> nextToken_ {};
-    // The sort order. Valid values:  
+    // **The sort order.**  
+    // Valid values:
     // - ASC: ascending order.
     // - DESC: descending order.
     shared_ptr<string> order_ {};
-    // The page number.
+    // **The page number.**
     shared_ptr<int64_t> pageNumber_ {};
-    // The page size.
+    // **The page size.**
     shared_ptr<int64_t> pageSize_ {};
-    // The sorting field. Valid values:  
+    // **The sort field.**  
+    // Valid values:
     // - GmtCreateTime: creation time.
     // - GmtModifiedTime: update time.
     shared_ptr<string> sortBy_ {};

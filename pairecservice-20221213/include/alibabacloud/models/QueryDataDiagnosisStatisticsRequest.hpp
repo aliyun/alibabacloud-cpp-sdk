@@ -66,15 +66,14 @@ namespace Models
 
 
   protected:
-    // The end date.
+    // The end date. The format is YYYY-MM-DD.
     shared_ptr<string> endDate_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The retention rate report type.
-    // 
-    // - Period: A periodic report.
+    // The retention rate report type. Valid values:
+    // - Period: periodic report.
     shared_ptr<string> remainRateType_ {};
-    // The start date.
+    // The start date. The format is YYYY-MM-DD.
     shared_ptr<string> startDate_ {};
   };
 

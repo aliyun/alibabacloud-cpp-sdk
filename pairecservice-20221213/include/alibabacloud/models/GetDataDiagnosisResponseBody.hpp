@@ -167,19 +167,19 @@ namespace Models
 
 
   protected:
-    // The configuration of the data diagnosis task.
+    // The configuration content of the diagnostic node.
     shared_ptr<string> config_ {};
-    // The time for periodic execution. If this field is empty, the task does not execute periodically.
+    // The scheduled run time. If this field is empty, no scheduled runs are performed. The format is HH:mm.
     shared_ptr<string> cycleTime_ {};
-    // The creation time.
+    // The creation time. The format follows ISO 8601 and includes the time zone offset.
     shared_ptr<string> gmtCreateTime_ {};
-    // The modification time.
+    // The last modified time. The format follows ISO 8601 and includes the time zone offset.
     shared_ptr<string> gmtModifiedTime_ {};
     // The ID of the left data table.
     shared_ptr<string> leftTableMetaId_ {};
-    // The partition field of the left data table.
+    // The partition field of the left table.
     shared_ptr<string> leftTablePartitionField_ {};
-    // The name of the data diagnosis task.
+    // The name of the data modeling diagnostics task.
     shared_ptr<string> name_ {};
     // The partition field.
     shared_ptr<string> partitionField_ {};
@@ -187,15 +187,15 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The ID of the right data table.
     shared_ptr<string> rightTableMetaId_ {};
-    // The partition field of the right data table.
+    // The partition field of the right table.
     shared_ptr<string> rightTablePartitionField_ {};
     // The ID of the data table.
     shared_ptr<string> tableMetaId_ {};
     // The name of the data table.
     shared_ptr<string> tableMetaName_ {};
-    // The Top-N quantity.
+    // The top-N quantity.
     shared_ptr<int64_t> topNQuantity_ {};
-    // The type of the data diagnosis task.
+    // The type of the data modeling diagnostics task.
     shared_ptr<string> type_ {};
   };
 

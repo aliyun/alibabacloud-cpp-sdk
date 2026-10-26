@@ -131,17 +131,17 @@ namespace Models
 
 
     protected:
-      // The ID of the currently active recall management service version.
+      // The ID of the active recall management service version.
       shared_ptr<string> currentRecallManagementServiceVersionId_ {};
-      // The name of the currently active recall management service version.
+      // The name of the active recall management service version.
       shared_ptr<string> currentRecallManagementServiceVersionName_ {};
       // The description of the recall management service.
       shared_ptr<string> description_ {};
-      // The creation time.
+      // The creation time in ISO 8601 format, including the time zone offset.
       shared_ptr<string> gmtCreateTime_ {};
-      // The update time.
+      // The update time in ISO 8601 format, including the time zone offset.
       shared_ptr<string> gmtModifiedTime_ {};
-      // The service name of the recall management service.
+      // The name of the recall management service.
       shared_ptr<string> name_ {};
       // The ID of the recall management service.
       shared_ptr<string> recallManagementServiceId_ {};
@@ -191,11 +191,11 @@ namespace Models
 
 
   protected:
-    // This parameter is not currently in effect.
+    // This parameter does not take effect.
     shared_ptr<int32_t> maxResults_ {};
-    // This parameter is not currently in effect.
+    // This parameter does not take effect.
     shared_ptr<string> nextToken_ {};
-    // The list of recall management services.
+    // The recall management services.
     shared_ptr<vector<ListRecallManagementServicesResponseBody::RecallManagementServices>> recallManagementServices_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

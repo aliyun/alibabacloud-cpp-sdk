@@ -75,17 +75,21 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The sort order. Valid values: `ASC` (ascending order) and `DESC` (descending order).
+    // The sort order. Valid values:
+    // - `ASC`: ascending order
+    // - `DESC`: descending order
     shared_ptr<string> order_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The field to sort by. Valid values: `GmtCreateTime` (creation time) and `GmtModifiedTime` (update time).
+    // The sort criterion. Valid values:
+    // - `GmtCreateTime`: creation time
+    // - `GmtModifiedTime`: update time
     shared_ptr<string> sortBy_ {};
   };
 

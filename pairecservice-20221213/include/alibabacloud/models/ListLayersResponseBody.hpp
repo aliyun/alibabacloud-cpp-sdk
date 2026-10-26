@@ -120,7 +120,7 @@ namespace Models
     protected:
       // The layer description.
       shared_ptr<string> description_ {};
-      // The time when the layer was created.
+      // The creation time in ISO 8601 format, using Z to indicate the UTC time zone.
       shared_ptr<string> gmtCreateTime_ {};
       // The laboratory ID.
       shared_ptr<string> laboratoryId_ {};
@@ -128,7 +128,7 @@ namespace Models
       shared_ptr<string> layerId_ {};
       // The layer name.
       shared_ptr<string> name_ {};
-      // The remaining traffic for the layer.
+      // The remaining traffic for the current experimental layer.
       shared_ptr<int64_t> residualFlow_ {};
       // The scene ID.
       shared_ptr<string> sceneId_ {};
@@ -160,11 +160,11 @@ namespace Models
 
 
   protected:
-    // An array of layers.
+    // The list of layers.
     shared_ptr<vector<ListLayersResponseBody::Layers>> layers_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The total count of layers.
+    // The total number of elements in the list.
     shared_ptr<int64_t> totalCount_ {};
   };
 

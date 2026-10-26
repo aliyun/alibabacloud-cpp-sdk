@@ -72,7 +72,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> content_ {};
-    // The session ID. If this parameter is not specified, a new session is created. If this parameter is specified, the conversation continues in the context of the existing session.
+    // The session ID. If you do not specify this parameter, a new session is created. If you specify this parameter, the conversation continues in the context of the existing session.
     shared_ptr<string> conversationId_ {};
     // The instance ID.
     // 
