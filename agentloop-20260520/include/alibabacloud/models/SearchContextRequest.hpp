@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_SEARCHCONTEXTREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_SEARCHCONTEXTREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -20,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(query, query_);
       DARABONBA_PTR_TO_JSON(retrievalOption, retrievalOption_);
       DARABONBA_PTR_TO_JSON(scope, scope_);
+      DARABONBA_PTR_TO_JSON(strategyIds, strategyIds_);
       DARABONBA_PTR_TO_JSON(threshold, threshold_);
     };
     friend void from_json(const Darabonba::Json& j, SearchContextRequest& obj) { 
@@ -30,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(query, query_);
       DARABONBA_PTR_FROM_JSON(retrievalOption, retrievalOption_);
       DARABONBA_PTR_FROM_JSON(scope, scope_);
+      DARABONBA_PTR_FROM_JSON(strategyIds, strategyIds_);
       DARABONBA_PTR_FROM_JSON(threshold, threshold_);
     };
     SearchContextRequest() = default ;
@@ -111,7 +114,7 @@ namespace Models
 
     virtual bool empty() const override { return this->filter_ == nullptr
         && this->formatted_ == nullptr && this->includeInactive_ == nullptr && this->limit_ == nullptr && this->query_ == nullptr && this->retrievalOption_ == nullptr
-        && this->scope_ == nullptr && this->threshold_ == nullptr; };
+        && this->scope_ == nullptr && this->strategyIds_ == nullptr && this->threshold_ == nullptr; };
     // filter Field Functions 
     bool hasFilter() const { return this->filter_ != nullptr;};
     void deleteFilter() { this->filter_ = nullptr;};
@@ -165,6 +168,15 @@ namespace Models
     inline SearchContextRequest& setScope(SearchContextRequest::Scope && scope) { DARABONBA_PTR_SET_RVALUE(scope_, scope) };
 
 
+    // strategyIds Field Functions 
+    bool hasStrategyIds() const { return this->strategyIds_ != nullptr;};
+    void deleteStrategyIds() { this->strategyIds_ = nullptr;};
+    inline const vector<string> & getStrategyIds() const { DARABONBA_PTR_GET_CONST(strategyIds_, vector<string>) };
+    inline vector<string> getStrategyIds() { DARABONBA_PTR_GET(strategyIds_, vector<string>) };
+    inline SearchContextRequest& setStrategyIds(const vector<string> & strategyIds) { DARABONBA_PTR_SET_VALUE(strategyIds_, strategyIds) };
+    inline SearchContextRequest& setStrategyIds(vector<string> && strategyIds) { DARABONBA_PTR_SET_RVALUE(strategyIds_, strategyIds) };
+
+
     // threshold Field Functions 
     bool hasThreshold() const { return this->threshold_ != nullptr;};
     void deleteThreshold() { this->threshold_ = nullptr;};
@@ -173,13 +185,13 @@ namespace Models
 
 
   protected:
-    // The structured filter conditions. The key is the field name, and the value is the expected matching value.
+    // The structured filter conditions. The key is the field name, and the value is the expected match value.
     Darabonba::Json filter_ {};
-    // Specifies whether to structurally format the returned results.
+    // Specifies whether to apply structured formatting to the returned results.
     shared_ptr<bool> formatted_ {};
-    // Specifies whether to include memories with sourceState=inactive. Default value: false.
+    // Specifies whether to include memories whose sourceState is inactive. Default value: false.
     shared_ptr<bool> includeInactive_ {};
-    // The maximum number of returned results, which corresponds to the Top-N similarity.
+    // The maximum number of returned results, which corresponds to the top N results by similarity.
     shared_ptr<int32_t> limit_ {};
     // The retrieval query text. Natural language is supported.
     // 
@@ -189,7 +201,9 @@ namespace Models
     shared_ptr<string> retrievalOption_ {};
     // The recall scope. If a field with the same name conflicts with the filter, a 400 ScopeFilterConflict error is returned.
     shared_ptr<SearchContextRequest::Scope> scope_ {};
-    // The similarity threshold. Results with a similarity score lower than this value are filtered out. Valid values: 0 to 1.
+    // Filters results by extraction strategy ID. Multiple IDs in the list are evaluated with an OR condition. If this parameter is not specified, all strategies are recalled. An empty list returns a 400 error. If the format is valid but no matching IDs are found, an empty result is returned. IDs of historically removed strategies are supported.
+    shared_ptr<vector<string>> strategyIds_ {};
+    // The similarity threshold. Results with a similarity score below this value are filtered out. Valid values: 0 to 1.
     shared_ptr<double> threshold_ {};
   };
 

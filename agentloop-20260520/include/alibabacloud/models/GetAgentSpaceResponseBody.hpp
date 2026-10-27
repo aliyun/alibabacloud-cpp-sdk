@@ -94,6 +94,7 @@ namespace Models
 
 
     protected:
+      // The attach type of the MSE namespace. AutoCreated indicates automatic creation by AgentLoop. UserSelected indicates that an existing namespace is selected and attached when the AgentSpace is created.
       shared_ptr<string> bindType_ {};
       // The ID of the MSE namespace.
       shared_ptr<string> namespaceId_ {};
@@ -179,7 +180,7 @@ namespace Models
   protected:
     // The name of the AgentSpace.
     shared_ptr<string> agentSpace_ {};
-    // The CloudMonitor workspace.
+    // The CMS workspace.
     shared_ptr<string> cmsWorkspace_ {};
     // The binding type of the CloudMonitor 2.0 workspace.
     shared_ptr<string> cmsWorkspaceBindType_ {};

@@ -69,11 +69,11 @@ namespace Models
 
 
   protected:
-    // The audit write status. Valid values: ok and degraded.
+    // The audit write status. Valid values: ok, degraded.
     shared_ptr<string> auditStatus_ {};
-    // The recall event ID. You can use this ID to call the GetContextStoreRecall operation to view audit details.
+    // The recall event ID. You can use this ID to call GetContextStoreRecall to view audit details.
     shared_ptr<string> recallEventId_ {};
-    // The request ID, which can be used to locate the request during troubleshooting.
+    // The request ID, which is used to locate the request during troubleshooting.
     shared_ptr<string> requestId_ {};
     // The list of retrieval results, sorted by similarity in descending order.
     shared_ptr<vector<Darabonba::Json>> results_ {};

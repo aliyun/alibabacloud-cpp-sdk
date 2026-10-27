@@ -1629,7 +1629,7 @@ ExecuteQueryResponse Client::executeQuery(const string &agentSpace, const string
 }
 
 /**
- * @summary Queries an AgentSpace.
+ * @summary Queries the AgentSpace.
  *
  * @param request GetAgentSpaceRequest
  * @param headers map
@@ -1656,7 +1656,7 @@ GetAgentSpaceResponse Client::getAgentSpaceWithOptions(const string &agentSpace,
 }
 
 /**
- * @summary Queries an AgentSpace.
+ * @summary Queries the AgentSpace.
  *
  * @param request GetAgentSpaceRequest
  * @return GetAgentSpaceResponse
@@ -1668,7 +1668,7 @@ GetAgentSpaceResponse Client::getAgentSpace(const string &agentSpace, const GetA
 }
 
 /**
- * @summary Queries the context store.
+ * @summary Queries a context store.
  *
  * @param request GetContextStoreRequest
  * @param headers map
@@ -1695,7 +1695,7 @@ GetContextStoreResponse Client::getContextStoreWithOptions(const string &agentSp
 }
 
 /**
- * @summary Queries the context store.
+ * @summary Queries a context store.
  *
  * @param request GetContextStoreRequest
  * @return GetContextStoreResponse
@@ -3372,6 +3372,10 @@ SearchContextResponse Client::searchContextWithOptions(const string &agentSpace,
 
   if (!!request.hasScope()) {
     body["scope"] = request.getScope();
+  }
+
+  if (!!request.hasStrategyIds()) {
+    body["strategyIds"] = request.getStrategyIds();
   }
 
   if (!!request.hasThreshold()) {

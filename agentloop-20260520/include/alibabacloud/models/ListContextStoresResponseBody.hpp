@@ -51,6 +51,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(sourceType, sourceType_);
         DARABONBA_PTR_TO_JSON(status, status_);
         DARABONBA_PTR_TO_JSON(storageMode, storageMode_);
+        DARABONBA_PTR_TO_JSON(storageModes, storageModes_);
         DARABONBA_PTR_TO_JSON(updateTime, updateTime_);
       };
       friend void from_json(const Darabonba::Json& j, Results& obj) { 
@@ -64,6 +65,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(sourceType, sourceType_);
         DARABONBA_PTR_FROM_JSON(status, status_);
         DARABONBA_PTR_FROM_JSON(storageMode, storageMode_);
+        DARABONBA_PTR_FROM_JSON(storageModes, storageModes_);
         DARABONBA_PTR_FROM_JSON(updateTime, updateTime_);
       };
       Results() = default ;
@@ -79,7 +81,8 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->agentSpace_ == nullptr
         && this->contextStoreName_ == nullptr && this->contextType_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr && this->regionId_ == nullptr
-        && this->serviceNames_ == nullptr && this->sourceType_ == nullptr && this->status_ == nullptr && this->storageMode_ == nullptr && this->updateTime_ == nullptr; };
+        && this->serviceNames_ == nullptr && this->sourceType_ == nullptr && this->status_ == nullptr && this->storageMode_ == nullptr && this->storageModes_ == nullptr
+        && this->updateTime_ == nullptr; };
       // agentSpace Field Functions 
       bool hasAgentSpace() const { return this->agentSpace_ != nullptr;};
       void deleteAgentSpace() { this->agentSpace_ = nullptr;};
@@ -152,6 +155,15 @@ namespace Models
       inline Results& setStorageMode(string storageMode) { DARABONBA_PTR_SET_VALUE(storageMode_, storageMode) };
 
 
+      // storageModes Field Functions 
+      bool hasStorageModes() const { return this->storageModes_ != nullptr;};
+      void deleteStorageModes() { this->storageModes_ = nullptr;};
+      inline const vector<string> & getStorageModes() const { DARABONBA_PTR_GET_CONST(storageModes_, vector<string>) };
+      inline vector<string> getStorageModes() { DARABONBA_PTR_GET(storageModes_, vector<string>) };
+      inline Results& setStorageModes(const vector<string> & storageModes) { DARABONBA_PTR_SET_VALUE(storageModes_, storageModes) };
+      inline Results& setStorageModes(vector<string> && storageModes) { DARABONBA_PTR_SET_RVALUE(storageModes_, storageModes) };
+
+
       // updateTime Field Functions 
       bool hasUpdateTime() const { return this->updateTime_ != nullptr;};
       void deleteUpdateTime() { this->updateTime_ = nullptr;};
@@ -182,6 +194,7 @@ namespace Models
       shared_ptr<string> status_ {};
       // The memory storage mode, such as event or upsert. This parameter has a value only for the memory type.
       shared_ptr<string> storageMode_ {};
+      shared_ptr<vector<string>> storageModes_ {};
       // The time when the context store was last updated, in ISO 8601 UTC format.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ

@@ -43,6 +43,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Config& obj) { 
         DARABONBA_PTR_TO_JSON(audit, audit_);
+        DARABONBA_PTR_TO_JSON(extractionPolicies, extractionPolicies_);
         DARABONBA_PTR_TO_JSON(extractionPolicy, extractionPolicy_);
         DARABONBA_PTR_TO_JSON(metadataField, metadataField_);
         DARABONBA_PTR_TO_JSON(miningInterval, miningInterval_);
@@ -53,6 +54,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, Config& obj) { 
         DARABONBA_PTR_FROM_JSON(audit, audit_);
+        DARABONBA_PTR_FROM_JSON(extractionPolicies, extractionPolicies_);
         DARABONBA_PTR_FROM_JSON(extractionPolicy, extractionPolicy_);
         DARABONBA_PTR_FROM_JSON(metadataField, metadataField_);
         DARABONBA_PTR_FROM_JSON(miningInterval, miningInterval_);
@@ -158,19 +160,19 @@ namespace Models
 
 
       protected:
-        // The allowed storage actions. Default value: all actions, including ADD, UPDATE, MERGE, and DELETE.
+        // The allowed storage actions. Default value: all. Valid values: ADD, UPDATE, MERGE, DELETE.
         shared_ptr<vector<string>> allowedActions_ {};
         // Specifies whether to enable deduplication in event mode. Default value: true.
         shared_ptr<bool> dedupe_ {};
-        // Specifies whether to enable human edit protection. Default value: true. When enabled, automatic extraction does not overwrite manually modified memories.
+        // Specifies whether to enable manual edit protection. Default value: true. If this feature is enabled, automatic extraction does not overwrite manually modified memories.
         shared_ptr<bool> humanEditProtection_ {};
-        // The merge key for upsert operations. Valid values: factKey, semantic, and both. Default value: semantic.
+        // The merge key for upsert operations. Default value: semantic. Valid values: factKey, semantic, both.
         shared_ptr<string> mergeKey_ {};
-        // The storage mode. Valid values: event for event appending, and upsert for merged updates. Default value: upsert.
+        // The storage mode. Default value: upsert. Valid values: event (event append), upsert (merge update).
         shared_ptr<string> mode_ {};
         // The similarity threshold for semantic merging. Valid values: 0 to 1. Default value: 0.4.
         shared_ptr<double> similarityThreshold_ {};
-        // The number of days before memories expire. A value of 0 indicates that memories do not expire.
+        // The number of days before a memory expires. A value of 0 indicates that the memory does not expire.
         shared_ptr<int32_t> ttlDays_ {};
       };
 
@@ -251,7 +253,7 @@ namespace Models
         protected:
           // The continuous consumption mode. The value is fixed to follow.
           shared_ptr<string> mode_ {};
-          // The initial consumed append sequence. The value is a decimal string of a non-negative int64 integer. Default value: 0. The __dataset_seq field is used, and the business timestamp is not used as the consumption checkpoint.
+          // The initial consumed append sequence number. The value is a decimal string of a non-negative int64 integer. Default value: 0. The __dataset_seq field is used, and the business timestamp is not used as the consumption checkpoint.
           shared_ptr<string> startSeq_ {};
         };
 
@@ -423,7 +425,7 @@ namespace Models
             shared_ptr<bool> excludeDegraded_ {};
             // The minimum number of steps. The value must be greater than or equal to 0.
             shared_ptr<int32_t> minStepCount_ {};
-            // The native Simple Log Service (SLS) query statement. This statement is combined with the preceding conditions using AND.
+            // The native Simple Log Service (SLS) query statement, which is combined with the preceding conditions using AND.
             shared_ptr<string> query_ {};
             // The list of service names. A single trailing asterisk (*) is supported. An explicitly empty list returns a 400 error.
             shared_ptr<vector<string>> serviceNames_ {};
@@ -471,15 +473,15 @@ namespace Models
 
 
         protected:
-          // The trajectory filter conditions. Conditions are combined with AND, and items within a list are combined with OR.
+          // The trajectory filter condition. Conditions are combined with AND, and items within a list are combined with OR.
           shared_ptr<Trajectory::Filter> filter_ {};
           // The name of the trajectory Logstore. Default value: agent-trajectory. This parameter cannot be modified after creation.
           shared_ptr<string> logstore_ {};
-          // Specifies the polling interval in seconds. Valid values: 60 to 3600. Default value: 300.
+          // The polling interval in seconds. Valid values: 60 to 3600. Default value: 300.
           shared_ptr<int32_t> pollIntervalSeconds_ {};
           // The scope field mapping. The value is a JSONPath expression. Only the $.a.b and $.a[0] formats are supported.
           shared_ptr<Trajectory::ScopeMapping> scopeMapping_ {};
-          // The start time for trajectory consumption in ISO 8601 UTC format. If not specified, the creation time is used by default.
+          // The start time for trajectory consumption in ISO 8601 UTC format. If this parameter is not specified, the creation time is used by default.
           // 
           // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
           shared_ptr<string> startTime_ {};
@@ -563,11 +565,11 @@ namespace Models
           protected:
             // The consumption mode. Valid values:
             // - follow: Consumes data incrementally based on __dataset_seq.
-            // - fixed: Consumes the specified ACTIVE version in full at once.
+            // - fixed: Consumes the specified ACTIVE version in full once.
             shared_ptr<string> mode_ {};
             // The starting __dataset_seq for the follow mode.
             shared_ptr<int64_t> startSeq_ {};
-            // The dataset version specified for the fixed mode.
+            // The Dataset version specified for the fixed mode.
             shared_ptr<string> version_ {};
           };
 
@@ -668,15 +670,17 @@ namespace Models
 
 
           protected:
-            // Specifies the field description. This parameter is required when usage is set to extraction-input. It is appended to the extraction prompt.
+            // The field description. This parameter is required when usage is set to extraction-input and is appended to the extraction prompt.
             shared_ptr<string> description_ {};
-            // Specifies whether the field is a sensitive field.
+            // Specifies whether the field is sensitive.
             shared_ptr<bool> sensitive_ {};
             // The name of the source field.
             shared_ptr<string> sourceField_ {};
-            // The target path for writing, such as metadata.customerTier.
+            // The target path for writing data, such as metadata.customerTier.
             shared_ptr<string> target_ {};
-            // Specifies the usage of the field. Valid values: extraction-input (participates in extraction) and ignore (ignored).
+            // The usage of the field. Valid values:
+            // - extraction-input: Participates in extraction.
+            // - ignore: Ignored.
             shared_ptr<string> usage_ {};
           };
 
@@ -733,15 +737,15 @@ namespace Models
         protected:
           // The list of custom field declarations.
           shared_ptr<vector<Dataset::CustomFields>> customFields_ {};
-          // Specifies the name of the Dataset in the same AgentSpace. This parameter cannot be modified after creation.
+          // The name of the Dataset in the same AgentSpace. This parameter cannot be modified after creation.
           shared_ptr<string> datasetName_ {};
-          // The row filter conditions.
+          // The row filter condition.
           shared_ptr<Dataset::Filter> filter_ {};
-          // Specifies the polling interval in seconds. Valid values: 60 to 3600. Default value: 300.
+          // The polling interval in seconds. Valid values: 60 to 3600. Default value: 300.
           shared_ptr<int32_t> pollIntervalSeconds_ {};
-          // The Dataset row schema contract. In the current phase, this is fixed to MemorySourceV1.
+          // The row schema contract for the Dataset. The value is fixed to MemorySourceV1 in the current phase.
           shared_ptr<string> schemaContract_ {};
-          // The dataset version consumption policy.
+          // The version consumption policy for the Dataset.
           shared_ptr<Dataset::VersionPolicy> versionPolicy_ {};
         };
 
@@ -827,27 +831,27 @@ namespace Models
 
 
       protected:
-        // Specifies the AgentSpace where the trace data source is located. If not specified, the default is the AgentSpace in the current path. Cross-AgentSpace is not supported in the current phase. If specified, it must be equal to the path AgentSpace; otherwise, a 400 parameter error is returned. This parameter cannot be modified after creation.
+        // The AgentSpace where the trace data source is located. If not specified, the default value is the AgentSpace in the current path. Cross-AgentSpace operations are not supported in the current phase. If specified, the value must be identical to the path AgentSpace. Otherwise, a 400 parameter error is returned. This parameter cannot be modified after creation.
         shared_ptr<string> agentSpace_ {};
-        // The DatasetBinding v1 shared with optimization tasks. It includes version, selection (all/window and structured filters), and customFields. It is validated by the server and does not accept SQL or column mappings.
+        // The DatasetBinding v1 configuration shared with optimization tasks. It includes version, selection (all/window and structured filters), and customFields. It is validated by the server and does not accept SQL or column mappings.
         Darabonba::Json binding_ {};
-        // The Dataset datasource config. This parameter is required when source.type is set to dataset.
+        // The Dataset data source configuration. This parameter is required when source.type is set to dataset.
         shared_ptr<Source::Dataset> dataset_ {};
-        // The name of the experience dataset source. The dataset must reside in the current AgentSpace. This parameter is provided only when the source type is experience and source.type is dataset.
+        // The source name of the experience Dataset, which must be located in the current AgentSpace. This parameter is provided only when the type is experience and source.type is set to dataset.
         shared_ptr<string> datasetName_ {};
-        // The input format of the dataset. For experience dataset sources, only atif is supported, and the fixed columns must be consistent with the optimization task.
+        // The input format of the Dataset. For experience library Dataset sources, only atif is supported, and the fixed columns are consistent with those of optimization tasks.
         shared_ptr<string> format_ {};
-        // The maximum number of records to read per batch. Valid values: 1 to 1000. Default value: 1000. In manual mode, exceeding the limit causes a failure. In follow mode, bounded pagination is used to continue consumption.
+        // The maximum number of Dataset records to read per batch. Valid values: 1 to 1000. Default value: 1000. In manual mode, exceeding the limit causes a failure. In follow mode, bounded pagination is used to continue consumption.
         shared_ptr<int32_t> maxRecords_ {};
-        // The start time for data backfill in ISO 8601 UTC format. If not specified, the current time is used.
+        // The start time for data backfill in ISO 8601 UTC format. If this parameter is not specified, the current time is used.
         // 
         // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
         shared_ptr<string> startTime_ {};
-        // The trajectory datasource config. This parameter is required when source.type is trajectory.
+        // The trajectory data source configuration. This parameter is required when source.type is set to trajectory.
         shared_ptr<Source::Trajectory> trajectory_ {};
-        // The data source type for the memory type. Valid values: trajectory and dataset. If not specified, the value defaults to manual, which means data is written only through AddContexts. This parameter cannot be modified after creation.
+        // The data source type for the memory type. Valid values: trajectory, dataset. If this parameter is not specified, the default value is manual, which means data is written only through AddContexts. This parameter cannot be modified after creation.
         shared_ptr<string> type_ {};
-        // The continuous consumption configuration for the native experience dataset. The default mode is manual. The follow mode only allows binding.selection.mode=all and consumes data based on the append sequence. This parameter cannot be modified after creation.
+        // The continuous consumption configuration for the native experience dataset. The default value is manual. The follow mode is allowed only when binding.selection.mode is set to all. In this mode, data is consumed by append sequence number. This configuration cannot be modified after creation.
         shared_ptr<Source::VersionPolicy> versionPolicy_ {};
       };
 
@@ -940,7 +944,7 @@ namespace Models
 
 
         protected:
-          // Specifies the name of the extraction model. Currently, only qwen3.8-flash is supported. Platform internal credentials are used.
+          // The name of the extraction model. Currently, only qwen3.8-flash is supported, which uses internal platform credentials.
           shared_ptr<string> name_ {};
         };
 
@@ -990,14 +994,270 @@ namespace Models
       protected:
         // The list of memory categories.
         shared_ptr<vector<string>> categories_ {};
-        // Specifies the custom extraction instructions. This parameter is required when preset is set to custom. Length: 1 to 8000 characters.
+        // The custom extraction instructions. This parameter is required when preset is set to custom. The length must be 1 to 8,000 characters.
         shared_ptr<string> customInstructions_ {};
         // The list of exclusion rules. Content that matches these rules is not extracted.
         shared_ptr<vector<string>> excludeRules_ {};
         // The extraction model configuration.
         shared_ptr<ExtractionPolicy::Model> model_ {};
-        // Specifies the preset policy. Valid values: fact, toc-profile, tob-digital-twin, and custom. Default value: fact.
+        // The preset policy. Valid values: fact, toc-profile, tob-digital-twin, and custom. Default value: fact.
         shared_ptr<string> preset_ {};
+      };
+
+      class ExtractionPolicies : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ExtractionPolicies& obj) { 
+          DARABONBA_PTR_TO_JSON(categories, categories_);
+          DARABONBA_PTR_TO_JSON(customInstructions, customInstructions_);
+          DARABONBA_PTR_TO_JSON(enabled, enabled_);
+          DARABONBA_PTR_TO_JSON(excludeRules, excludeRules_);
+          DARABONBA_PTR_TO_JSON(model, model_);
+          DARABONBA_PTR_TO_JSON(name, name_);
+          DARABONBA_PTR_TO_JSON(preset, preset_);
+          DARABONBA_PTR_TO_JSON(storagePolicy, storagePolicy_);
+          DARABONBA_PTR_TO_JSON(strategyId, strategyId_);
+        };
+        friend void from_json(const Darabonba::Json& j, ExtractionPolicies& obj) { 
+          DARABONBA_PTR_FROM_JSON(categories, categories_);
+          DARABONBA_PTR_FROM_JSON(customInstructions, customInstructions_);
+          DARABONBA_PTR_FROM_JSON(enabled, enabled_);
+          DARABONBA_PTR_FROM_JSON(excludeRules, excludeRules_);
+          DARABONBA_PTR_FROM_JSON(model, model_);
+          DARABONBA_PTR_FROM_JSON(name, name_);
+          DARABONBA_PTR_FROM_JSON(preset, preset_);
+          DARABONBA_PTR_FROM_JSON(storagePolicy, storagePolicy_);
+          DARABONBA_PTR_FROM_JSON(strategyId, strategyId_);
+        };
+        ExtractionPolicies() = default ;
+        ExtractionPolicies(const ExtractionPolicies &) = default ;
+        ExtractionPolicies(ExtractionPolicies &&) = default ;
+        ExtractionPolicies(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ExtractionPolicies() = default ;
+        ExtractionPolicies& operator=(const ExtractionPolicies &) = default ;
+        ExtractionPolicies& operator=(ExtractionPolicies &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class StoragePolicy : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const StoragePolicy& obj) { 
+            DARABONBA_PTR_TO_JSON(allowedActions, allowedActions_);
+            DARABONBA_PTR_TO_JSON(dedupe, dedupe_);
+            DARABONBA_PTR_TO_JSON(humanEditProtection, humanEditProtection_);
+            DARABONBA_PTR_TO_JSON(mergeKey, mergeKey_);
+            DARABONBA_PTR_TO_JSON(mode, mode_);
+            DARABONBA_PTR_TO_JSON(similarityThreshold, similarityThreshold_);
+            DARABONBA_PTR_TO_JSON(ttlDays, ttlDays_);
+          };
+          friend void from_json(const Darabonba::Json& j, StoragePolicy& obj) { 
+            DARABONBA_PTR_FROM_JSON(allowedActions, allowedActions_);
+            DARABONBA_PTR_FROM_JSON(dedupe, dedupe_);
+            DARABONBA_PTR_FROM_JSON(humanEditProtection, humanEditProtection_);
+            DARABONBA_PTR_FROM_JSON(mergeKey, mergeKey_);
+            DARABONBA_PTR_FROM_JSON(mode, mode_);
+            DARABONBA_PTR_FROM_JSON(similarityThreshold, similarityThreshold_);
+            DARABONBA_PTR_FROM_JSON(ttlDays, ttlDays_);
+          };
+          StoragePolicy() = default ;
+          StoragePolicy(const StoragePolicy &) = default ;
+          StoragePolicy(StoragePolicy &&) = default ;
+          StoragePolicy(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~StoragePolicy() = default ;
+          StoragePolicy& operator=(const StoragePolicy &) = default ;
+          StoragePolicy& operator=(StoragePolicy &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->allowedActions_ == nullptr
+        && this->dedupe_ == nullptr && this->humanEditProtection_ == nullptr && this->mergeKey_ == nullptr && this->mode_ == nullptr && this->similarityThreshold_ == nullptr
+        && this->ttlDays_ == nullptr; };
+          // allowedActions Field Functions 
+          bool hasAllowedActions() const { return this->allowedActions_ != nullptr;};
+          void deleteAllowedActions() { this->allowedActions_ = nullptr;};
+          inline const vector<string> & getAllowedActions() const { DARABONBA_PTR_GET_CONST(allowedActions_, vector<string>) };
+          inline vector<string> getAllowedActions() { DARABONBA_PTR_GET(allowedActions_, vector<string>) };
+          inline StoragePolicy& setAllowedActions(const vector<string> & allowedActions) { DARABONBA_PTR_SET_VALUE(allowedActions_, allowedActions) };
+          inline StoragePolicy& setAllowedActions(vector<string> && allowedActions) { DARABONBA_PTR_SET_RVALUE(allowedActions_, allowedActions) };
+
+
+          // dedupe Field Functions 
+          bool hasDedupe() const { return this->dedupe_ != nullptr;};
+          void deleteDedupe() { this->dedupe_ = nullptr;};
+          inline bool getDedupe() const { DARABONBA_PTR_GET_DEFAULT(dedupe_, false) };
+          inline StoragePolicy& setDedupe(bool dedupe) { DARABONBA_PTR_SET_VALUE(dedupe_, dedupe) };
+
+
+          // humanEditProtection Field Functions 
+          bool hasHumanEditProtection() const { return this->humanEditProtection_ != nullptr;};
+          void deleteHumanEditProtection() { this->humanEditProtection_ = nullptr;};
+          inline bool getHumanEditProtection() const { DARABONBA_PTR_GET_DEFAULT(humanEditProtection_, false) };
+          inline StoragePolicy& setHumanEditProtection(bool humanEditProtection) { DARABONBA_PTR_SET_VALUE(humanEditProtection_, humanEditProtection) };
+
+
+          // mergeKey Field Functions 
+          bool hasMergeKey() const { return this->mergeKey_ != nullptr;};
+          void deleteMergeKey() { this->mergeKey_ = nullptr;};
+          inline string getMergeKey() const { DARABONBA_PTR_GET_DEFAULT(mergeKey_, "") };
+          inline StoragePolicy& setMergeKey(string mergeKey) { DARABONBA_PTR_SET_VALUE(mergeKey_, mergeKey) };
+
+
+          // mode Field Functions 
+          bool hasMode() const { return this->mode_ != nullptr;};
+          void deleteMode() { this->mode_ = nullptr;};
+          inline string getMode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
+          inline StoragePolicy& setMode(string mode) { DARABONBA_PTR_SET_VALUE(mode_, mode) };
+
+
+          // similarityThreshold Field Functions 
+          bool hasSimilarityThreshold() const { return this->similarityThreshold_ != nullptr;};
+          void deleteSimilarityThreshold() { this->similarityThreshold_ = nullptr;};
+          inline double getSimilarityThreshold() const { DARABONBA_PTR_GET_DEFAULT(similarityThreshold_, 0.0) };
+          inline StoragePolicy& setSimilarityThreshold(double similarityThreshold) { DARABONBA_PTR_SET_VALUE(similarityThreshold_, similarityThreshold) };
+
+
+          // ttlDays Field Functions 
+          bool hasTtlDays() const { return this->ttlDays_ != nullptr;};
+          void deleteTtlDays() { this->ttlDays_ = nullptr;};
+          inline int32_t getTtlDays() const { DARABONBA_PTR_GET_DEFAULT(ttlDays_, 0) };
+          inline StoragePolicy& setTtlDays(int32_t ttlDays) { DARABONBA_PTR_SET_VALUE(ttlDays_, ttlDays) };
+
+
+        protected:
+          shared_ptr<vector<string>> allowedActions_ {};
+          shared_ptr<bool> dedupe_ {};
+          shared_ptr<bool> humanEditProtection_ {};
+          shared_ptr<string> mergeKey_ {};
+          shared_ptr<string> mode_ {};
+          shared_ptr<double> similarityThreshold_ {};
+          shared_ptr<int32_t> ttlDays_ {};
+        };
+
+        class Model : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Model& obj) { 
+            DARABONBA_PTR_TO_JSON(name, name_);
+          };
+          friend void from_json(const Darabonba::Json& j, Model& obj) { 
+            DARABONBA_PTR_FROM_JSON(name, name_);
+          };
+          Model() = default ;
+          Model(const Model &) = default ;
+          Model(Model &&) = default ;
+          Model(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Model() = default ;
+          Model& operator=(const Model &) = default ;
+          Model& operator=(Model &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->name_ == nullptr; };
+          // name Field Functions 
+          bool hasName() const { return this->name_ != nullptr;};
+          void deleteName() { this->name_ = nullptr;};
+          inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+          inline Model& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+        protected:
+          // The name of the extraction model. Currently, only qwen3.8-flash is supported, which uses internal platform credentials.
+          shared_ptr<string> name_ {};
+        };
+
+        virtual bool empty() const override { return this->categories_ == nullptr
+        && this->customInstructions_ == nullptr && this->enabled_ == nullptr && this->excludeRules_ == nullptr && this->model_ == nullptr && this->name_ == nullptr
+        && this->preset_ == nullptr && this->storagePolicy_ == nullptr && this->strategyId_ == nullptr; };
+        // categories Field Functions 
+        bool hasCategories() const { return this->categories_ != nullptr;};
+        void deleteCategories() { this->categories_ = nullptr;};
+        inline const vector<string> & getCategories() const { DARABONBA_PTR_GET_CONST(categories_, vector<string>) };
+        inline vector<string> getCategories() { DARABONBA_PTR_GET(categories_, vector<string>) };
+        inline ExtractionPolicies& setCategories(const vector<string> & categories) { DARABONBA_PTR_SET_VALUE(categories_, categories) };
+        inline ExtractionPolicies& setCategories(vector<string> && categories) { DARABONBA_PTR_SET_RVALUE(categories_, categories) };
+
+
+        // customInstructions Field Functions 
+        bool hasCustomInstructions() const { return this->customInstructions_ != nullptr;};
+        void deleteCustomInstructions() { this->customInstructions_ = nullptr;};
+        inline string getCustomInstructions() const { DARABONBA_PTR_GET_DEFAULT(customInstructions_, "") };
+        inline ExtractionPolicies& setCustomInstructions(string customInstructions) { DARABONBA_PTR_SET_VALUE(customInstructions_, customInstructions) };
+
+
+        // enabled Field Functions 
+        bool hasEnabled() const { return this->enabled_ != nullptr;};
+        void deleteEnabled() { this->enabled_ = nullptr;};
+        inline bool getEnabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+        inline ExtractionPolicies& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
+
+
+        // excludeRules Field Functions 
+        bool hasExcludeRules() const { return this->excludeRules_ != nullptr;};
+        void deleteExcludeRules() { this->excludeRules_ = nullptr;};
+        inline const vector<string> & getExcludeRules() const { DARABONBA_PTR_GET_CONST(excludeRules_, vector<string>) };
+        inline vector<string> getExcludeRules() { DARABONBA_PTR_GET(excludeRules_, vector<string>) };
+        inline ExtractionPolicies& setExcludeRules(const vector<string> & excludeRules) { DARABONBA_PTR_SET_VALUE(excludeRules_, excludeRules) };
+        inline ExtractionPolicies& setExcludeRules(vector<string> && excludeRules) { DARABONBA_PTR_SET_RVALUE(excludeRules_, excludeRules) };
+
+
+        // model Field Functions 
+        bool hasModel() const { return this->model_ != nullptr;};
+        void deleteModel() { this->model_ = nullptr;};
+        inline const ExtractionPolicies::Model & getModel() const { DARABONBA_PTR_GET_CONST(model_, ExtractionPolicies::Model) };
+        inline ExtractionPolicies::Model getModel() { DARABONBA_PTR_GET(model_, ExtractionPolicies::Model) };
+        inline ExtractionPolicies& setModel(const ExtractionPolicies::Model & model) { DARABONBA_PTR_SET_VALUE(model_, model) };
+        inline ExtractionPolicies& setModel(ExtractionPolicies::Model && model) { DARABONBA_PTR_SET_RVALUE(model_, model) };
+
+
+        // name Field Functions 
+        bool hasName() const { return this->name_ != nullptr;};
+        void deleteName() { this->name_ = nullptr;};
+        inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+        inline ExtractionPolicies& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+        // preset Field Functions 
+        bool hasPreset() const { return this->preset_ != nullptr;};
+        void deletePreset() { this->preset_ = nullptr;};
+        inline string getPreset() const { DARABONBA_PTR_GET_DEFAULT(preset_, "") };
+        inline ExtractionPolicies& setPreset(string preset) { DARABONBA_PTR_SET_VALUE(preset_, preset) };
+
+
+        // storagePolicy Field Functions 
+        bool hasStoragePolicy() const { return this->storagePolicy_ != nullptr;};
+        void deleteStoragePolicy() { this->storagePolicy_ = nullptr;};
+        inline const ExtractionPolicies::StoragePolicy & getStoragePolicy() const { DARABONBA_PTR_GET_CONST(storagePolicy_, ExtractionPolicies::StoragePolicy) };
+        inline ExtractionPolicies::StoragePolicy getStoragePolicy() { DARABONBA_PTR_GET(storagePolicy_, ExtractionPolicies::StoragePolicy) };
+        inline ExtractionPolicies& setStoragePolicy(const ExtractionPolicies::StoragePolicy & storagePolicy) { DARABONBA_PTR_SET_VALUE(storagePolicy_, storagePolicy) };
+        inline ExtractionPolicies& setStoragePolicy(ExtractionPolicies::StoragePolicy && storagePolicy) { DARABONBA_PTR_SET_RVALUE(storagePolicy_, storagePolicy) };
+
+
+        // strategyId Field Functions 
+        bool hasStrategyId() const { return this->strategyId_ != nullptr;};
+        void deleteStrategyId() { this->strategyId_ = nullptr;};
+        inline string getStrategyId() const { DARABONBA_PTR_GET_DEFAULT(strategyId_, "") };
+        inline ExtractionPolicies& setStrategyId(string strategyId) { DARABONBA_PTR_SET_VALUE(strategyId_, strategyId) };
+
+
+      protected:
+        // The list of memory categories.
+        shared_ptr<vector<string>> categories_ {};
+        // The custom extraction instructions. This parameter is required when preset is set to custom. The length must be 1 to 8,000 characters.
+        shared_ptr<string> customInstructions_ {};
+        // Specifies whether to execute this policy for new inputs. Default value: true. Disabling the policy does not delete historical memories.
+        shared_ptr<bool> enabled_ {};
+        // The list of exclusion rules. Content that matches these rules is not extracted.
+        shared_ptr<vector<string>> excludeRules_ {};
+        // The extraction model configuration.
+        shared_ptr<ExtractionPolicies::Model> model_ {};
+        // The display name of the extraction policy.
+        shared_ptr<string> name_ {};
+        // The preset policy. Valid values: fact, toc-profile, tob-digital-twin, and custom. Default value: fact.
+        shared_ptr<string> preset_ {};
+        shared_ptr<ExtractionPolicies::StoragePolicy> storagePolicy_ {};
+        // The ID of the extraction policy. This parameter is optional. If omitted, the default value is used. The ID must start with a letter and can contain only letters, digits, underscores, and hyphens. The maximum length is 64 characters. After default value processing, the ID must be unique within the same library. Modifying the name or instructions does not change this ID.
+        shared_ptr<string> strategyId_ {};
       };
 
       class Audit : public Darabonba::Model {
@@ -1047,17 +1307,17 @@ namespace Models
 
 
       protected:
-        // Specifies whether to write item events for candidates dropped during recall. Default value: false.
+        // Specifies whether to write item events for dropped recall candidates. Default value: false.
         shared_ptr<bool> droppedCandidates_ {};
-        // Specifies the logging mode for recall queries. Valid values: raw (plaintext) and hash (HMAC only). Default value: raw.
+        // The logging mode for recall queries. Valid values: raw (plaintext) and hash (HMAC only). Default value: raw.
         shared_ptr<string> queryMode_ {};
-        // Specifies the number of days to retain audit logs. Valid values: 1 to 180. Default value: 30.
+        // The number of days to retain audit logs. Valid values: 1 to 180. Default value: 30.
         shared_ptr<int32_t> retentionDays_ {};
       };
 
       virtual bool empty() const override { return this->audit_ == nullptr
-        && this->extractionPolicy_ == nullptr && this->metadataField_ == nullptr && this->miningInterval_ == nullptr && this->scopePolicy_ == nullptr && this->serviceNames_ == nullptr
-        && this->source_ == nullptr && this->storagePolicy_ == nullptr; };
+        && this->extractionPolicies_ == nullptr && this->extractionPolicy_ == nullptr && this->metadataField_ == nullptr && this->miningInterval_ == nullptr && this->scopePolicy_ == nullptr
+        && this->serviceNames_ == nullptr && this->source_ == nullptr && this->storagePolicy_ == nullptr; };
       // audit Field Functions 
       bool hasAudit() const { return this->audit_ != nullptr;};
       void deleteAudit() { this->audit_ = nullptr;};
@@ -1065,6 +1325,15 @@ namespace Models
       inline Config::Audit getAudit() { DARABONBA_PTR_GET(audit_, Config::Audit) };
       inline Config& setAudit(const Config::Audit & audit) { DARABONBA_PTR_SET_VALUE(audit_, audit) };
       inline Config& setAudit(Config::Audit && audit) { DARABONBA_PTR_SET_RVALUE(audit_, audit) };
+
+
+      // extractionPolicies Field Functions 
+      bool hasExtractionPolicies() const { return this->extractionPolicies_ != nullptr;};
+      void deleteExtractionPolicies() { this->extractionPolicies_ = nullptr;};
+      inline const vector<Config::ExtractionPolicies> & getExtractionPolicies() const { DARABONBA_PTR_GET_CONST(extractionPolicies_, vector<Config::ExtractionPolicies>) };
+      inline vector<Config::ExtractionPolicies> getExtractionPolicies() { DARABONBA_PTR_GET(extractionPolicies_, vector<Config::ExtractionPolicies>) };
+      inline Config& setExtractionPolicies(const vector<Config::ExtractionPolicies> & extractionPolicies) { DARABONBA_PTR_SET_VALUE(extractionPolicies_, extractionPolicies) };
+      inline Config& setExtractionPolicies(vector<Config::ExtractionPolicies> && extractionPolicies) { DARABONBA_PTR_SET_RVALUE(extractionPolicies_, extractionPolicies) };
 
 
       // extractionPolicy Field Functions 
@@ -1131,17 +1400,19 @@ namespace Models
     protected:
       // The audit configuration.
       shared_ptr<Config::Audit> audit_ {};
+      // The extraction policies. You can specify 1 to 10 policies. In a request, you can specify either this field or the compatible extractionPolicy field, but not both. The strategyVersion parameter indicates the snapshot version of the entire library configuration.
+      shared_ptr<vector<Config::ExtractionPolicies>> extractionPolicies_ {};
       // The extraction policy for the memory type.
       shared_ptr<Config::ExtractionPolicy> extractionPolicy_ {};
       // The metadata field mapping. The key is the business field and the value is the storage field.
       shared_ptr<map<string, string>> metadataField_ {};
-      // Specifies the experience mining interval, which controls how often experience mining is executed. Valid values: 1h, 6h, 12h, and 1d. Default value: 1d. This parameter cannot be modified after creation.
+      // The experience mining interval, which controls how often experience mining is executed. Valid values: 1h, 6h, 12h, and 1d. Default value: 1d. This parameter cannot be modified after creation.
       shared_ptr<string> miningInterval_ {};
       // The scope constraint policy.
       shared_ptr<Config::ScopePolicy> scopePolicy_ {};
-      // The list of service names. This parameter is required and cannot be empty. It works with source.agentSpace to locate the trace data source. The trajectory extraction service uses agentSpace to find the bound CMS workspace and project or logstore, and then filters by serviceName. This parameter cannot be modified after creation.
+      // The list of service names. This parameter is required and cannot be empty. It works with source.agentSpace to locate the trace data source. The trajectory extraction service uses agentSpace to query the bound CMS workspace and project or logstore, and then filters by serviceName. This parameter cannot be modified after creation.
       shared_ptr<vector<string>> serviceNames_ {};
-      // The datasource config, which serves only as the root identity for the data source. This is an optional block.
+      // The data source configuration, which serves only as the root identifier for the data source. This block is optional.
       shared_ptr<Config::Source> source_ {};
       // The storage policy for the memory type.
       shared_ptr<Config::StoragePolicy> storagePolicy_ {};
@@ -1193,13 +1464,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> contextStoreName_ {};
-    // The type of the context store. Valid values include experience and memory.
+    // The type of the context store. Valid values include experience (experience store) and memory (memory store).
     // 
     // This parameter is required.
     shared_ptr<string> contextType_ {};
     // The description of the context store, which helps business users understand its purpose.
     shared_ptr<string> description_ {};
-    // The idempotency token, which is a unique string generated by the client to ensure the idempotency of the creation operation.
+    // The idempotency token. This is a unique string generated by the client to ensure the idempotency of the creation operation.
     shared_ptr<string> clientToken_ {};
   };
 
