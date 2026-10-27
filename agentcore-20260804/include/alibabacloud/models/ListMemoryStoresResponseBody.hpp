@@ -141,13 +141,13 @@ namespace Models
     protected:
       // The creation time.
       shared_ptr<string> createdAt_ {};
-      // The description of the MemoryStore.
+      // The MemoryStore description.
       shared_ptr<string> description_ {};
       // The custom extraction instructions.
       shared_ptr<string> extractInstructions_ {};
       // The MemoryStore ID.
       shared_ptr<string> memoryStoreId_ {};
-      // The name of the MemoryStore. It cannot be modified after creation.
+      // The MemoryStore name. It cannot be modified after creation.
       shared_ptr<string> memoryStoreName_ {};
       // The lifecycle state of the MemoryStore.
       shared_ptr<string> status_ {};

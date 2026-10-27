@@ -292,7 +292,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The memory list.
+    // The list of memory records.
     shared_ptr<vector<ListMemoriesResponseBody::Items>> items_ {};
     // The maximum number of records per page.
     shared_ptr<int32_t> maxResults_ {};

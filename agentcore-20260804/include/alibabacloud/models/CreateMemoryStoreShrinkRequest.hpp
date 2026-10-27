@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The request to create a memory store.
+    // The MemoryStore creation request.
     // 
     // This parameter is required.
     shared_ptr<string> bodyShrink_ {};
-    // The client request token.
+    // The client token.
     shared_ptr<string> clientToken_ {};
   };
 

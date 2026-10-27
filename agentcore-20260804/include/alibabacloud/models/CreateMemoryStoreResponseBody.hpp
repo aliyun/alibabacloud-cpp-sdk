@@ -134,17 +134,17 @@ namespace Models
     protected:
       // The creation time.
       shared_ptr<string> createdAt_ {};
-      // The memory store description.
+      // The MemoryStore description.
       shared_ptr<string> description_ {};
       // The custom extraction instructions.
       shared_ptr<string> extractInstructions_ {};
-      // The memory store ID.
+      // The MemoryStore ID.
       shared_ptr<string> memoryStoreId_ {};
-      // The name of the memory store. The name cannot be modified after creation.
+      // The name of the MemoryStore. The name cannot be modified after creation.
       shared_ptr<string> memoryStoreName_ {};
-      // The lifecycle status of the memory store.
+      // The lifecycle state of the MemoryStore.
       shared_ptr<string> status_ {};
-      // The last updated time.
+      // The last update time.
       shared_ptr<string> updatedAt_ {};
       // The AgentCore workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -199,7 +199,7 @@ namespace Models
   protected:
     // The business status code.
     shared_ptr<string> code_ {};
-    // The memory store details.
+    // The MemoryStore details.
     shared_ptr<CreateMemoryStoreResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};

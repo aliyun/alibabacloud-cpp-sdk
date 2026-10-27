@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The request body for binding an external identity provider.
+    // The request content for binding an external identity provider.
     shared_ptr<string> bodyShrink_ {};
   };
 

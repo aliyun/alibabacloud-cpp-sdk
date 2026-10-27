@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CREATEIDENTITYPROVIDERREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CREATEIDENTITYPROVIDERREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -36,12 +37,16 @@ namespace Models
         DARABONBA_PTR_TO_JSON(loginEnabled, loginEnabled_);
         DARABONBA_PTR_TO_JSON(metadata, metadata_);
         DARABONBA_PTR_TO_JSON(syncEnabled, syncEnabled_);
+        DARABONBA_PTR_TO_JSON(syncOnBind, syncOnBind_);
+        DARABONBA_PTR_TO_JSON(syncScope, syncScope_);
       };
       friend void from_json(const Darabonba::Json& j, Body& obj) { 
         DARABONBA_PTR_FROM_JSON(identityProviderType, identityProviderType_);
         DARABONBA_PTR_FROM_JSON(loginEnabled, loginEnabled_);
         DARABONBA_PTR_FROM_JSON(metadata, metadata_);
         DARABONBA_PTR_FROM_JSON(syncEnabled, syncEnabled_);
+        DARABONBA_PTR_FROM_JSON(syncOnBind, syncOnBind_);
+        DARABONBA_PTR_FROM_JSON(syncScope, syncScope_);
       };
       Body() = default ;
       Body(const Body &) = default ;
@@ -54,6 +59,55 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class SyncScope : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const SyncScope& obj) { 
+          DARABONBA_PTR_TO_JSON(departmentIds, departmentIds_);
+          DARABONBA_PTR_TO_JSON(mode, mode_);
+        };
+        friend void from_json(const Darabonba::Json& j, SyncScope& obj) { 
+          DARABONBA_PTR_FROM_JSON(departmentIds, departmentIds_);
+          DARABONBA_PTR_FROM_JSON(mode, mode_);
+        };
+        SyncScope() = default ;
+        SyncScope(const SyncScope &) = default ;
+        SyncScope(SyncScope &&) = default ;
+        SyncScope(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~SyncScope() = default ;
+        SyncScope& operator=(const SyncScope &) = default ;
+        SyncScope& operator=(SyncScope &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->departmentIds_ == nullptr
+        && this->mode_ == nullptr; };
+        // departmentIds Field Functions 
+        bool hasDepartmentIds() const { return this->departmentIds_ != nullptr;};
+        void deleteDepartmentIds() { this->departmentIds_ = nullptr;};
+        inline const vector<string> & getDepartmentIds() const { DARABONBA_PTR_GET_CONST(departmentIds_, vector<string>) };
+        inline vector<string> getDepartmentIds() { DARABONBA_PTR_GET(departmentIds_, vector<string>) };
+        inline SyncScope& setDepartmentIds(const vector<string> & departmentIds) { DARABONBA_PTR_SET_VALUE(departmentIds_, departmentIds) };
+        inline SyncScope& setDepartmentIds(vector<string> && departmentIds) { DARABONBA_PTR_SET_RVALUE(departmentIds_, departmentIds) };
+
+
+        // mode Field Functions 
+        bool hasMode() const { return this->mode_ != nullptr;};
+        void deleteMode() { this->mode_ = nullptr;};
+        inline string getMode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
+        inline SyncScope& setMode(string mode) { DARABONBA_PTR_SET_VALUE(mode_, mode) };
+
+
+      protected:
+        // When the mode is SelectedDepartments, at least one non-empty department ID must be included, which should be obtained from ListIdentityProviderDepartments. When the mode is AllAuthorized, pass an empty array or omit this parameter.
+        shared_ptr<vector<string>> departmentIds_ {};
+        // Valid values:
+        // - AllAuthorized: The full authorization scope, which is limited by the application address book authorization.
+        // - SelectedDepartments: The selected departments and all their sub-departments.
+        // When you explicitly submit syncScope, you must provide a valid mode, which is verified by the backend.
+        shared_ptr<string> mode_ {};
+      };
+
       class Metadata : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Metadata& obj) { 
@@ -128,22 +182,22 @@ namespace Models
 
 
       protected:
-        // The App ID of the Lark application. This parameter is required when the binding type is Feishu.
+        // The app ID of the Feishu application. This parameter is required when the binding type is Feishu.
         shared_ptr<string> appId_ {};
-        // The AppKey of the DingTalk application. This parameter is required when the binding type is DingTalk.
+        // The appKey of the DingTalk application. This parameter is required when the binding type is DingTalk.
         shared_ptr<string> appKey_ {};
-        // Required. The application secret of the external identity provider. This parameter is used only for write operations and is not returned by query operations.
+        // Required. The secret of the external identity provider application. This parameter is used only for writing and is not returned by the query API.
         shared_ptr<string> appSecret_ {};
-        // The CorpId of the DingTalk organization. This parameter is required when the binding type is DingTalk.
+        // The corpId of the DingTalk enterprise. This parameter is required when the binding type is DingTalk.
         shared_ptr<string> corpId_ {};
-        // The data encryption key for event subscriptions. The value must be the same as the one configured in the external identity provider application. This parameter is used only for write operations and is not returned by query operations.
+        // The data encryption key for event subscription. The value must be the same as the one configured in the external identity provider application. This parameter is used only for writing and is not returned by the query API.
         shared_ptr<string> encryptKey_ {};
-        // The verification token for event subscriptions. The value must be the same as the one configured in the external identity provider application. This parameter is used only for write operations and is not returned by query operations.
+        // The verification token for event subscription. The value must be the same as the one configured in the external identity provider application. This parameter is used only for writing and is not returned by the query API.
         shared_ptr<string> verificationToken_ {};
       };
 
       virtual bool empty() const override { return this->identityProviderType_ == nullptr
-        && this->loginEnabled_ == nullptr && this->metadata_ == nullptr && this->syncEnabled_ == nullptr; };
+        && this->loginEnabled_ == nullptr && this->metadata_ == nullptr && this->syncEnabled_ == nullptr && this->syncOnBind_ == nullptr && this->syncScope_ == nullptr; };
       // identityProviderType Field Functions 
       bool hasIdentityProviderType() const { return this->identityProviderType_ != nullptr;};
       void deleteIdentityProviderType() { this->identityProviderType_ = nullptr;};
@@ -174,17 +228,37 @@ namespace Models
       inline Body& setSyncEnabled(bool syncEnabled) { DARABONBA_PTR_SET_VALUE(syncEnabled_, syncEnabled) };
 
 
+      // syncOnBind Field Functions 
+      bool hasSyncOnBind() const { return this->syncOnBind_ != nullptr;};
+      void deleteSyncOnBind() { this->syncOnBind_ = nullptr;};
+      inline bool getSyncOnBind() const { DARABONBA_PTR_GET_DEFAULT(syncOnBind_, false) };
+      inline Body& setSyncOnBind(bool syncOnBind) { DARABONBA_PTR_SET_VALUE(syncOnBind_, syncOnBind) };
+
+
+      // syncScope Field Functions 
+      bool hasSyncScope() const { return this->syncScope_ != nullptr;};
+      void deleteSyncScope() { this->syncScope_ = nullptr;};
+      inline const Body::SyncScope & getSyncScope() const { DARABONBA_PTR_GET_CONST(syncScope_, Body::SyncScope) };
+      inline Body::SyncScope getSyncScope() { DARABONBA_PTR_GET(syncScope_, Body::SyncScope) };
+      inline Body& setSyncScope(const Body::SyncScope & syncScope) { DARABONBA_PTR_SET_VALUE(syncScope_, syncScope) };
+      inline Body& setSyncScope(Body::SyncScope && syncScope) { DARABONBA_PTR_SET_RVALUE(syncScope_, syncScope) };
+
+
     protected:
       // The type of the external identity provider. Valid values: DingTalk and Feishu.
       // 
       // This parameter is required.
       shared_ptr<string> identityProviderType_ {};
-      // Specifies whether workspace users can log on through the external identity provider.
+      // Specifies whether to allow workspace users to log on through the external identity provider.
       shared_ptr<bool> loginEnabled_ {};
-      // The application configuration for the external identity provider. When you bind DingTalk, you must provide appKey, appSecret, and corpId. When you bind Feishu, you must provide appId and appSecret.
+      // The application configuration of the external identity provider. When you bind DingTalk, you must provide appKey, appSecret, and corpId. When you bind Feishu, you must provide appId and appSecret.
       shared_ptr<Body::Metadata> metadata_ {};
-      // Specifies whether to enable organization member synchronization. If enabled, organization members are synchronized to workspace users from the external identity provider.
+      // Specifies whether to enable organization member synchronization. After this feature is enabled, the external identity provider synchronizes organization members as workspace users.
       shared_ptr<bool> syncEnabled_ {};
+      // Controls the first synchronization when DingTalk or Feishu is bound. If this parameter is omitted or set to null, the default value is true. If this parameter is set to false, only the configuration is saved, and synchronization is explicitly triggered later. CustomSSO does not use the vendor pull link.
+      shared_ptr<bool> syncOnBind_ {};
+      // Retains the department-based synchronization scope definition. If this parameter is omitted during creation, the default value is AllAuthorized, and the first vendor synchronization is determined by syncOnBind. If this parameter is omitted or set to null during an update, the original value is retained. Updating and saving the scope does not automatically perform full synchronization.
+      shared_ptr<Body::SyncScope> syncScope_ {};
     };
 
     virtual bool empty() const override { return this->body_ == nullptr; };
@@ -198,7 +272,7 @@ namespace Models
 
 
   protected:
-    // The request body for binding an external identity provider.
+    // The request content for binding an external identity provider.
     shared_ptr<CreateIdentityProviderRequest::Body> body_ {};
   };
 

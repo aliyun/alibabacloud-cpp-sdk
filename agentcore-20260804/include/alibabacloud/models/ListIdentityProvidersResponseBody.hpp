@@ -49,26 +49,34 @@ namespace Models
     class Items : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Items& obj) { 
+        DARABONBA_PTR_TO_JSON(configuration, configuration_);
         DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
         DARABONBA_PTR_TO_JSON(eventSubscriptionCallbackUrl, eventSubscriptionCallbackUrl_);
         DARABONBA_PTR_TO_JSON(identityProviderType, identityProviderType_);
         DARABONBA_PTR_TO_JSON(loginCallbackUrl, loginCallbackUrl_);
         DARABONBA_PTR_TO_JSON(loginEnabled, loginEnabled_);
         DARABONBA_PTR_TO_JSON(metadata, metadata_);
+        DARABONBA_PTR_TO_JSON(protocol, protocol_);
+        DARABONBA_PTR_TO_JSON(saml, saml_);
         DARABONBA_PTR_TO_JSON(status, status_);
         DARABONBA_PTR_TO_JSON(syncEnabled, syncEnabled_);
+        DARABONBA_PTR_TO_JSON(syncScope, syncScope_);
         DARABONBA_PTR_TO_JSON(updatedAt, updatedAt_);
         DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
       };
       friend void from_json(const Darabonba::Json& j, Items& obj) { 
+        DARABONBA_PTR_FROM_JSON(configuration, configuration_);
         DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
         DARABONBA_PTR_FROM_JSON(eventSubscriptionCallbackUrl, eventSubscriptionCallbackUrl_);
         DARABONBA_PTR_FROM_JSON(identityProviderType, identityProviderType_);
         DARABONBA_PTR_FROM_JSON(loginCallbackUrl, loginCallbackUrl_);
         DARABONBA_PTR_FROM_JSON(loginEnabled, loginEnabled_);
         DARABONBA_PTR_FROM_JSON(metadata, metadata_);
+        DARABONBA_PTR_FROM_JSON(protocol, protocol_);
+        DARABONBA_PTR_FROM_JSON(saml, saml_);
         DARABONBA_PTR_FROM_JSON(status, status_);
         DARABONBA_PTR_FROM_JSON(syncEnabled, syncEnabled_);
+        DARABONBA_PTR_FROM_JSON(syncScope, syncScope_);
         DARABONBA_PTR_FROM_JSON(updatedAt, updatedAt_);
         DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
       };
@@ -83,17 +91,139 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class SyncScope : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const SyncScope& obj) { 
+          DARABONBA_PTR_TO_JSON(departmentIds, departmentIds_);
+          DARABONBA_PTR_TO_JSON(mode, mode_);
+        };
+        friend void from_json(const Darabonba::Json& j, SyncScope& obj) { 
+          DARABONBA_PTR_FROM_JSON(departmentIds, departmentIds_);
+          DARABONBA_PTR_FROM_JSON(mode, mode_);
+        };
+        SyncScope() = default ;
+        SyncScope(const SyncScope &) = default ;
+        SyncScope(SyncScope &&) = default ;
+        SyncScope(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~SyncScope() = default ;
+        SyncScope& operator=(const SyncScope &) = default ;
+        SyncScope& operator=(SyncScope &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->departmentIds_ == nullptr
+        && this->mode_ == nullptr; };
+        // departmentIds Field Functions 
+        bool hasDepartmentIds() const { return this->departmentIds_ != nullptr;};
+        void deleteDepartmentIds() { this->departmentIds_ = nullptr;};
+        inline const vector<string> & getDepartmentIds() const { DARABONBA_PTR_GET_CONST(departmentIds_, vector<string>) };
+        inline vector<string> getDepartmentIds() { DARABONBA_PTR_GET(departmentIds_, vector<string>) };
+        inline SyncScope& setDepartmentIds(const vector<string> & departmentIds) { DARABONBA_PTR_SET_VALUE(departmentIds_, departmentIds) };
+        inline SyncScope& setDepartmentIds(vector<string> && departmentIds) { DARABONBA_PTR_SET_RVALUE(departmentIds_, departmentIds) };
+
+
+        // mode Field Functions 
+        bool hasMode() const { return this->mode_ != nullptr;};
+        void deleteMode() { this->mode_ = nullptr;};
+        inline string getMode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
+        inline SyncScope& setMode(string mode) { DARABONBA_PTR_SET_VALUE(mode_, mode) };
+
+
+      protected:
+        // Must contain at least one non-empty department ID when set to SelectedDepartments. The IDs should be obtained from ListIdentityProviderDepartments. Pass an empty array or omit this parameter when set to AllAuthorized.
+        shared_ptr<vector<string>> departmentIds_ {};
+        // AllAuthorized: the full authorization scope, limited by the application address book authorization. SelectedDepartments: the selected departments and all their sub-departments. A valid mode must be provided and verified by the backend when syncScope is explicitly submitted.
+        shared_ptr<string> mode_ {};
+      };
+
+      class Saml : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Saml& obj) { 
+          DARABONBA_PTR_TO_JSON(bindingType, bindingType_);
+          DARABONBA_PTR_TO_JSON(entityId, entityId_);
+          DARABONBA_PTR_TO_JSON(loginUrl, loginUrl_);
+          DARABONBA_PTR_TO_JSON(x509Certificates, x509Certificates_);
+        };
+        friend void from_json(const Darabonba::Json& j, Saml& obj) { 
+          DARABONBA_PTR_FROM_JSON(bindingType, bindingType_);
+          DARABONBA_PTR_FROM_JSON(entityId, entityId_);
+          DARABONBA_PTR_FROM_JSON(loginUrl, loginUrl_);
+          DARABONBA_PTR_FROM_JSON(x509Certificates, x509Certificates_);
+        };
+        Saml() = default ;
+        Saml(const Saml &) = default ;
+        Saml(Saml &&) = default ;
+        Saml(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Saml() = default ;
+        Saml& operator=(const Saml &) = default ;
+        Saml& operator=(Saml &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->bindingType_ == nullptr
+        && this->entityId_ == nullptr && this->loginUrl_ == nullptr && this->x509Certificates_ == nullptr; };
+        // bindingType Field Functions 
+        bool hasBindingType() const { return this->bindingType_ != nullptr;};
+        void deleteBindingType() { this->bindingType_ = nullptr;};
+        inline string getBindingType() const { DARABONBA_PTR_GET_DEFAULT(bindingType_, "") };
+        inline Saml& setBindingType(string bindingType) { DARABONBA_PTR_SET_VALUE(bindingType_, bindingType) };
+
+
+        // entityId Field Functions 
+        bool hasEntityId() const { return this->entityId_ != nullptr;};
+        void deleteEntityId() { this->entityId_ = nullptr;};
+        inline string getEntityId() const { DARABONBA_PTR_GET_DEFAULT(entityId_, "") };
+        inline Saml& setEntityId(string entityId) { DARABONBA_PTR_SET_VALUE(entityId_, entityId) };
+
+
+        // loginUrl Field Functions 
+        bool hasLoginUrl() const { return this->loginUrl_ != nullptr;};
+        void deleteLoginUrl() { this->loginUrl_ = nullptr;};
+        inline string getLoginUrl() const { DARABONBA_PTR_GET_DEFAULT(loginUrl_, "") };
+        inline Saml& setLoginUrl(string loginUrl) { DARABONBA_PTR_SET_VALUE(loginUrl_, loginUrl) };
+
+
+        // x509Certificates Field Functions 
+        bool hasX509Certificates() const { return this->x509Certificates_ != nullptr;};
+        void deleteX509Certificates() { this->x509Certificates_ = nullptr;};
+        inline const vector<string> & getX509Certificates() const { DARABONBA_PTR_GET_CONST(x509Certificates_, vector<string>) };
+        inline vector<string> getX509Certificates() { DARABONBA_PTR_GET(x509Certificates_, vector<string>) };
+        inline Saml& setX509Certificates(const vector<string> & x509Certificates) { DARABONBA_PTR_SET_VALUE(x509Certificates_, x509Certificates) };
+        inline Saml& setX509Certificates(vector<string> && x509Certificates) { DARABONBA_PTR_SET_RVALUE(x509Certificates_, x509Certificates) };
+
+
+      protected:
+        // HTTP-Redirect or HTTP-POST. Required for manual entry. Queries return the short name.
+        shared_ptr<string> bindingType_ {};
+        // Required for manual entry. Must be non-empty and up to 2048 characters. Existing configurations cannot be changed. This is different from the local entity ID returned by SP queries.
+        shared_ptr<string> entityId_ {};
+        // Required for manual entry. Must be an absolute HTTPS URL without user credentials or fragments.
+        shared_ptr<string> loginUrl_ {};
+        // Required as a non-empty array for manual entry. Uses PEM X.509 certificate text. Validates the current validity period. A maximum of two certificates are allowed after deduplication.
+        shared_ptr<vector<string>> x509Certificates_ {};
+      };
+
       class Metadata : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Metadata& obj) { 
           DARABONBA_PTR_TO_JSON(appId, appId_);
           DARABONBA_PTR_TO_JSON(appKey, appKey_);
+          DARABONBA_PTR_TO_JSON(binding, binding_);
+          DARABONBA_PTR_TO_JSON(certificates, certificates_);
           DARABONBA_PTR_TO_JSON(corpId, corpId_);
+          DARABONBA_PTR_TO_JSON(entityId, entityId_);
+          DARABONBA_PTR_TO_JSON(loginUrl, loginUrl_);
         };
         friend void from_json(const Darabonba::Json& j, Metadata& obj) { 
           DARABONBA_PTR_FROM_JSON(appId, appId_);
           DARABONBA_PTR_FROM_JSON(appKey, appKey_);
+          DARABONBA_PTR_FROM_JSON(binding, binding_);
+          DARABONBA_PTR_FROM_JSON(certificates, certificates_);
           DARABONBA_PTR_FROM_JSON(corpId, corpId_);
+          DARABONBA_PTR_FROM_JSON(entityId, entityId_);
+          DARABONBA_PTR_FROM_JSON(loginUrl, loginUrl_);
         };
         Metadata() = default ;
         Metadata(const Metadata &) = default ;
@@ -107,7 +237,8 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->appId_ == nullptr
-        && this->appKey_ == nullptr && this->corpId_ == nullptr; };
+        && this->appKey_ == nullptr && this->binding_ == nullptr && this->certificates_ == nullptr && this->corpId_ == nullptr && this->entityId_ == nullptr
+        && this->loginUrl_ == nullptr; };
         // appId Field Functions 
         bool hasAppId() const { return this->appId_ != nullptr;};
         void deleteAppId() { this->appId_ = nullptr;};
@@ -122,6 +253,20 @@ namespace Models
         inline Metadata& setAppKey(string appKey) { DARABONBA_PTR_SET_VALUE(appKey_, appKey) };
 
 
+        // binding Field Functions 
+        bool hasBinding() const { return this->binding_ != nullptr;};
+        void deleteBinding() { this->binding_ = nullptr;};
+        inline string getBinding() const { DARABONBA_PTR_GET_DEFAULT(binding_, "") };
+        inline Metadata& setBinding(string binding) { DARABONBA_PTR_SET_VALUE(binding_, binding) };
+
+
+        // certificates Field Functions 
+        bool hasCertificates() const { return this->certificates_ != nullptr;};
+        void deleteCertificates() { this->certificates_ = nullptr;};
+        inline string getCertificates() const { DARABONBA_PTR_GET_DEFAULT(certificates_, "") };
+        inline Metadata& setCertificates(string certificates) { DARABONBA_PTR_SET_VALUE(certificates_, certificates) };
+
+
         // corpId Field Functions 
         bool hasCorpId() const { return this->corpId_ != nullptr;};
         void deleteCorpId() { this->corpId_ = nullptr;};
@@ -129,18 +274,116 @@ namespace Models
         inline Metadata& setCorpId(string corpId) { DARABONBA_PTR_SET_VALUE(corpId_, corpId) };
 
 
+        // entityId Field Functions 
+        bool hasEntityId() const { return this->entityId_ != nullptr;};
+        void deleteEntityId() { this->entityId_ = nullptr;};
+        inline string getEntityId() const { DARABONBA_PTR_GET_DEFAULT(entityId_, "") };
+        inline Metadata& setEntityId(string entityId) { DARABONBA_PTR_SET_VALUE(entityId_, entityId) };
+
+
+        // loginUrl Field Functions 
+        bool hasLoginUrl() const { return this->loginUrl_ != nullptr;};
+        void deleteLoginUrl() { this->loginUrl_ = nullptr;};
+        inline string getLoginUrl() const { DARABONBA_PTR_GET_DEFAULT(loginUrl_, "") };
+        inline Metadata& setLoginUrl(string loginUrl) { DARABONBA_PTR_SET_VALUE(loginUrl_, loginUrl) };
+
+
       protected:
-        // The App ID of the Lark application. This parameter is required when the binding type is Feishu.
+        // The App ID of the Lark application. Required when the binding type is Feishu.
         shared_ptr<string> appId_ {};
-        // The AppKey of the DingTalk application. This parameter is required when the binding type is DingTalk.
+        // The AppKey of the DingTalk application. Required when the binding type is DingTalk.
         shared_ptr<string> appKey_ {};
-        // The CorpId of the DingTalk enterprise. This parameter is required when the binding type is DingTalk.
+        // The SAML binding URI in the historical metadata snapshot. Use saml.bindingType for CustomSSO updates.
+        shared_ptr<string> binding_ {};
+        // The certificate string in the historical metadata snapshot. Use saml.x509Certificates to edit the configuration. Do not submit the old metadata.
+        shared_ptr<string> certificates_ {};
+        // The CorpId of the DingTalk enterprise. Required when the binding type is DingTalk.
         shared_ptr<string> corpId_ {};
+        // Required for manual entry. Must be non-empty and up to 2048 characters. Existing configurations cannot be changed. This is different from the local entity ID returned by SP queries.
+        shared_ptr<string> entityId_ {};
+        // Required for manual entry. Must be an absolute HTTPS URL without user credentials or fragments.
+        shared_ptr<string> loginUrl_ {};
       };
 
-      virtual bool empty() const override { return this->createdAt_ == nullptr
-        && this->eventSubscriptionCallbackUrl_ == nullptr && this->identityProviderType_ == nullptr && this->loginCallbackUrl_ == nullptr && this->loginEnabled_ == nullptr && this->metadata_ == nullptr
-        && this->status_ == nullptr && this->syncEnabled_ == nullptr && this->updatedAt_ == nullptr && this->workspaceId_ == nullptr; };
+      class Configuration : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Configuration& obj) { 
+          DARABONBA_PTR_TO_JSON(bindingType, bindingType_);
+          DARABONBA_PTR_TO_JSON(entityId, entityId_);
+          DARABONBA_PTR_TO_JSON(loginUrl, loginUrl_);
+          DARABONBA_PTR_TO_JSON(ssoStatus, ssoStatus_);
+        };
+        friend void from_json(const Darabonba::Json& j, Configuration& obj) { 
+          DARABONBA_PTR_FROM_JSON(bindingType, bindingType_);
+          DARABONBA_PTR_FROM_JSON(entityId, entityId_);
+          DARABONBA_PTR_FROM_JSON(loginUrl, loginUrl_);
+          DARABONBA_PTR_FROM_JSON(ssoStatus, ssoStatus_);
+        };
+        Configuration() = default ;
+        Configuration(const Configuration &) = default ;
+        Configuration(Configuration &&) = default ;
+        Configuration(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Configuration() = default ;
+        Configuration& operator=(const Configuration &) = default ;
+        Configuration& operator=(Configuration &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->bindingType_ == nullptr
+        && this->entityId_ == nullptr && this->loginUrl_ == nullptr && this->ssoStatus_ == nullptr; };
+        // bindingType Field Functions 
+        bool hasBindingType() const { return this->bindingType_ != nullptr;};
+        void deleteBindingType() { this->bindingType_ = nullptr;};
+        inline string getBindingType() const { DARABONBA_PTR_GET_DEFAULT(bindingType_, "") };
+        inline Configuration& setBindingType(string bindingType) { DARABONBA_PTR_SET_VALUE(bindingType_, bindingType) };
+
+
+        // entityId Field Functions 
+        bool hasEntityId() const { return this->entityId_ != nullptr;};
+        void deleteEntityId() { this->entityId_ = nullptr;};
+        inline string getEntityId() const { DARABONBA_PTR_GET_DEFAULT(entityId_, "") };
+        inline Configuration& setEntityId(string entityId) { DARABONBA_PTR_SET_VALUE(entityId_, entityId) };
+
+
+        // loginUrl Field Functions 
+        bool hasLoginUrl() const { return this->loginUrl_ != nullptr;};
+        void deleteLoginUrl() { this->loginUrl_ = nullptr;};
+        inline string getLoginUrl() const { DARABONBA_PTR_GET_DEFAULT(loginUrl_, "") };
+        inline Configuration& setLoginUrl(string loginUrl) { DARABONBA_PTR_SET_VALUE(loginUrl_, loginUrl) };
+
+
+        // ssoStatus Field Functions 
+        bool hasSsoStatus() const { return this->ssoStatus_ != nullptr;};
+        void deleteSsoStatus() { this->ssoStatus_ = nullptr;};
+        inline string getSsoStatus() const { DARABONBA_PTR_GET_DEFAULT(ssoStatus_, "") };
+        inline Configuration& setSsoStatus(string ssoStatus) { DARABONBA_PTR_SET_VALUE(ssoStatus_, ssoStatus) };
+
+
+      protected:
+        // HTTP-Redirect or HTTP-POST. Required for manual entry. Queries return the short name.
+        shared_ptr<string> bindingType_ {};
+        // Required for manual entry. Must be non-empty and up to 2048 characters. Existing configurations cannot be changed. This is different from the local entity ID returned by SP queries.
+        shared_ptr<string> entityId_ {};
+        // Required for manual entry. Must be an absolute HTTPS URL without user credentials or fragments.
+        shared_ptr<string> loginUrl_ {};
+        // The actual switch value is Enabled or Disabled. This is not equivalent to the expected loginEnabled value saved in AC.
+        shared_ptr<string> ssoStatus_ {};
+      };
+
+      virtual bool empty() const override { return this->configuration_ == nullptr
+        && this->createdAt_ == nullptr && this->eventSubscriptionCallbackUrl_ == nullptr && this->identityProviderType_ == nullptr && this->loginCallbackUrl_ == nullptr && this->loginEnabled_ == nullptr
+        && this->metadata_ == nullptr && this->protocol_ == nullptr && this->saml_ == nullptr && this->status_ == nullptr && this->syncEnabled_ == nullptr
+        && this->syncScope_ == nullptr && this->updatedAt_ == nullptr && this->workspaceId_ == nullptr; };
+      // configuration Field Functions 
+      bool hasConfiguration() const { return this->configuration_ != nullptr;};
+      void deleteConfiguration() { this->configuration_ = nullptr;};
+      inline const Items::Configuration & getConfiguration() const { DARABONBA_PTR_GET_CONST(configuration_, Items::Configuration) };
+      inline Items::Configuration getConfiguration() { DARABONBA_PTR_GET(configuration_, Items::Configuration) };
+      inline Items& setConfiguration(const Items::Configuration & configuration) { DARABONBA_PTR_SET_VALUE(configuration_, configuration) };
+      inline Items& setConfiguration(Items::Configuration && configuration) { DARABONBA_PTR_SET_RVALUE(configuration_, configuration) };
+
+
       // createdAt Field Functions 
       bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
       void deleteCreatedAt() { this->createdAt_ = nullptr;};
@@ -185,6 +428,22 @@ namespace Models
       inline Items& setMetadata(Items::Metadata && metadata) { DARABONBA_PTR_SET_RVALUE(metadata_, metadata) };
 
 
+      // protocol Field Functions 
+      bool hasProtocol() const { return this->protocol_ != nullptr;};
+      void deleteProtocol() { this->protocol_ = nullptr;};
+      inline string getProtocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
+      inline Items& setProtocol(string protocol) { DARABONBA_PTR_SET_VALUE(protocol_, protocol) };
+
+
+      // saml Field Functions 
+      bool hasSaml() const { return this->saml_ != nullptr;};
+      void deleteSaml() { this->saml_ = nullptr;};
+      inline const Items::Saml & getSaml() const { DARABONBA_PTR_GET_CONST(saml_, Items::Saml) };
+      inline Items::Saml getSaml() { DARABONBA_PTR_GET(saml_, Items::Saml) };
+      inline Items& setSaml(const Items::Saml & saml) { DARABONBA_PTR_SET_VALUE(saml_, saml) };
+      inline Items& setSaml(Items::Saml && saml) { DARABONBA_PTR_SET_RVALUE(saml_, saml) };
+
+
       // status Field Functions 
       bool hasStatus() const { return this->status_ != nullptr;};
       void deleteStatus() { this->status_ = nullptr;};
@@ -197,6 +456,15 @@ namespace Models
       void deleteSyncEnabled() { this->syncEnabled_ = nullptr;};
       inline bool getSyncEnabled() const { DARABONBA_PTR_GET_DEFAULT(syncEnabled_, false) };
       inline Items& setSyncEnabled(bool syncEnabled) { DARABONBA_PTR_SET_VALUE(syncEnabled_, syncEnabled) };
+
+
+      // syncScope Field Functions 
+      bool hasSyncScope() const { return this->syncScope_ != nullptr;};
+      void deleteSyncScope() { this->syncScope_ = nullptr;};
+      inline const Items::SyncScope & getSyncScope() const { DARABONBA_PTR_GET_CONST(syncScope_, Items::SyncScope) };
+      inline Items::SyncScope getSyncScope() { DARABONBA_PTR_GET(syncScope_, Items::SyncScope) };
+      inline Items& setSyncScope(const Items::SyncScope & syncScope) { DARABONBA_PTR_SET_VALUE(syncScope_, syncScope) };
+      inline Items& setSyncScope(Items::SyncScope && syncScope) { DARABONBA_PTR_SET_RVALUE(syncScope_, syncScope) };
 
 
       // updatedAt Field Functions 
@@ -214,32 +482,31 @@ namespace Models
 
 
     protected:
-      // The creation time in UTC format that complies with RFC 3339.
+      // The actual SAML configuration is retrieved on demand only through GetIdentityProvider. SCIM queries and provisioning return the actual receiving status and URL.
+      shared_ptr<Items::Configuration> configuration_ {};
+      // The creation time in UTC format based on RFC 3339.
       shared_ptr<string> createdAt_ {};
-      // The callback URL for event subscription. You must configure this URL in the application of the external identity provider to receive organization change events. An empty string is returned if the user pool is not activated.
+      // The event subscription callback URL. Configure this URL in the external identity provider application to receive organization change events. Returns an empty string if the user pool is not activated.
       shared_ptr<string> eventSubscriptionCallbackUrl_ {};
-      // The type of the external identity provider. Valid values: DingTalk and Feishu.
+      // The type of the external identity provider. Valid values: DingTalk, Feishu.
       shared_ptr<string> identityProviderType_ {};
-      // The login callback URL. You must configure this URL in the application of the external identity provider. An empty string is returned if the user pool is not activated.
+      // The logon callback URL. Configure this URL in the external identity provider application. Returns an empty string if the user pool is not activated.
       shared_ptr<string> loginCallbackUrl_ {};
-      // Indicates whether workspace users are allowed to log on through the external identity provider.
+      // Specifies whether workspace users are allowed to log on through this external identity provider.
       shared_ptr<bool> loginEnabled_ {};
-      // The application configurations of the external identity provider. Application secret configurations are not returned.
+      // The application configuration of the external identity provider. Application secret configurations are not returned.
       shared_ptr<Items::Metadata> metadata_ {};
-      // The binding status. Valid values:
-      // - CONFIGURED: The configuration is accepted and the system is waiting for the user pool to be activated.
-      // - SYNCING: Organization members are being synchronized.
-      // - SYNCED: Organization members are synchronized.
-      // - READY: The binding is effective.
-      // - SYNC_FAILED: The synchronization of organization members failed.
-      // - UPDATING: The configuration is being updated.
-      // - UPDATE_FAILED: The configuration update failed.
-      // - DISCONNECTING: The binding is being removed.
-      // - DISCONNECT_FAILED: The unbinding failed.
+      // Only SAML is currently supported. May not be returned if no valid configuration is saved. OIDC placeholder initialization is not supported.
+      shared_ptr<string> protocol_ {};
+      // Input supports either XML or full manual entry. Queries return the standardized configuration and do not echo the original XML. Can be omitted if not configured.
+      shared_ptr<Items::Saml> saml_ {};
+      // The binding status. Valid values: CONFIGURED (the configuration is accepted and waiting for user pool activation), SYNCING (synchronizing organization members), SYNCED (organization member synchronization is completed), READY (the binding is effective), SYNC_FAILED (organization member synchronization failed), UPDATING (updating the configuration), UPDATE_FAILED (configuration update failed), DISCONNECTING (disconnecting), DISCONNECT_FAILED (disconnection failed).
       shared_ptr<string> status_ {};
-      // Indicates whether organization member synchronization is enabled. After this feature is enabled, organization members are synchronized as workspace users by the external identity provider.
+      // Specifies whether to enable organization member synchronization. If enabled, the external identity provider synchronizes organization members as workspace users.
       shared_ptr<bool> syncEnabled_ {};
-      // The time of the last update in UTC format that complies with RFC 3339.
+      // Follows the department-based synchronization scope definition. If omitted during creation, the default is AllAuthorized. The first vendor synchronization is determined by syncOnBind. If omitted or null during an update, the original value is retained. Updating the saved scope does not automatically trigger full synchronization.
+      shared_ptr<Items::SyncScope> syncScope_ {};
+      // The time of the last modification in UTC format based on RFC 3339.
       shared_ptr<string> updatedAt_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -320,17 +587,17 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The list of external identity providers.
     shared_ptr<vector<ListIdentityProvidersResponseBody::Items>> items_ {};
-    // The maximum number of records per page that takes effect for the current query.
+    // The maximum number of records per page that takes effect in this query.
     shared_ptr<int32_t> maxResults_ {};
-    // The response message. An error description is returned if the request fails.
+    // The response message. Returns an error description if the request fails.
     shared_ptr<string> message_ {};
-    // The cursor for the next page. This parameter is empty if no next page exists.
+    // The cursor for the next page. Empty if there is no next page.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
-    // The total number of external identity providers that meet the query conditions.
+    // The total number of external identity providers that match the query conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

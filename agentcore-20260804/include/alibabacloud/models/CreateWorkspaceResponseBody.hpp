@@ -211,7 +211,7 @@ namespace Models
           shared_ptr<bool> enabled_ {};
           // The list of vSwitch IDs.
           shared_ptr<vector<string>> vSwitchIds_ {};
-          // The user VPC ID.
+          // The ID of the user VPC.
           shared_ptr<string> vpcId_ {};
         };
 
@@ -241,11 +241,11 @@ namespace Models
 
 
       protected:
-        // Returns the target configuration value. Updating indicates that the change is still in progress, and UpdateFailed indicates that the current change failed. This parameter only controls whether the latest versions of managed and custom agents use the public network egress of the platform. It does not control fixed historical versions, model or MCP proxy egress, or the public network egress of the user VPC.
+        // Returns the target configuration value. Updating indicates that the change is still in progress, and UpdateFailed indicates that the current change failed. This parameter only controls whether the latest versions of managed and custom agents use the public egress of the platform. It does not control fixed historical versions, model or MCP proxy egress, or the public egress of the user VPC.
         shared_ptr<bool> publicEgressEnabled_ {};
-        // Returns the target configuration value. Updating indicates that the change is in progress, and UpdateFailed indicates that the change failed. When disabled, the public network ingress for all agent endpoints in the workspace is closed. The original public network ingress is restored when re-enabled. INNER_DIRECT and user VPC ingress are not affected. Collaboration and Element Web ingress are not controlled by this parameter.
+        // Returns the target configuration value. Updating indicates that the change is in progress, and UpdateFailed indicates that the change failed. If disabled, the public ingress for all agent endpoints in the workspace is closed, and the original public ingress is restored when re-enabled. INNER_DIRECT and user VPC ingress are not affected. Collaboration and Element Web ingress are not controlled by this parameter.
         shared_ptr<bool> publicIngressEnabled_ {};
-        // The user VPC network configuration.
+        // The VPC network configuration of the user.
         shared_ptr<NetworkConfiguration::Vpc> vpc_ {};
       };
 
@@ -363,15 +363,15 @@ namespace Models
 
 
     protected:
-      // The AI Registry namespace ID. It is returned after related resources are bound and may be empty during initialization.
+      // The AI Registry namespace ID. This value is returned after related resources are bound and may be empty during initialization.
       shared_ptr<string> aiRegistryNamespaceId_ {};
       // The OSS storage authorization status.
       shared_ptr<string> authorizationStatus_ {};
       // The name of the private OSS bucket.
       shared_ptr<string> bucketName_ {};
-      // The CloudMonitor workspace ID. It is returned after related resources are bound and may be empty during initialization.
+      // The CloudMonitor workspace ID. This value is returned after related resources are bound and may be empty during initialization.
       shared_ptr<string> cmsWorkspaceId_ {};
-      // The time when the workspace was created, in ISO 8601 format.
+      // The time when the workspace was created. The time follows the ISO 8601 standard.
       // 
       // This parameter is required.
       shared_ptr<string> createTime_ {};
@@ -381,11 +381,11 @@ namespace Models
       shared_ptr<Data::NetworkConfiguration> networkConfiguration_ {};
       // The ID of the region where the workspace resides.
       shared_ptr<string> regionId_ {};
-      // The ID of the resource group to which the workspace belongs. It may be empty if no resource group is specified.
+      // The ID of the resource group to which the workspace belongs. This value may be empty if no resource group is specified.
       shared_ptr<string> resourceGroupId_ {};
       // The status of the workspace.
       shared_ptr<string> status_ {};
-      // The supplementary reason for the current status of the workspace. It is used to display the specific reason when initialization fails or when waiting for authorization. It may be empty under normal circumstances.
+      // The supplementary reason for the current status of the workspace. This value is used to display the specific reason when initialization fails or authorization is pending, and may be empty under normal circumstances.
       shared_ptr<string> statusReason_ {};
       // The storage type of the workspace.
       shared_ptr<string> storageType_ {};
@@ -393,9 +393,9 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<vector<Data::Tags>> tags_ {};
-      // The ID of the tenant.
+      // The ID of the tenant to which the workspace belongs.
       shared_ptr<string> tenantId_ {};
-      // The workspace ID.
+      // The ID of the workspace.
       shared_ptr<string> workspaceId_ {};
     };
 

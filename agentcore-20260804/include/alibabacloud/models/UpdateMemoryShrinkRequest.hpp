@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The request to update a memory.
+    // The update memory request.
     // 
     // This parameter is required.
     shared_ptr<string> bodyShrink_ {};

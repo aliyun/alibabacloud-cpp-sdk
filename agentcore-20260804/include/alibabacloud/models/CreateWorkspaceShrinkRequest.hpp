@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The workspace creation request body.
+    // The request body for creating a workspace.
     shared_ptr<string> bodyShrink_ {};
     // The client idempotency token.
     shared_ptr<string> clientToken_ {};

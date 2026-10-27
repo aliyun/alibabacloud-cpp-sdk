@@ -142,7 +142,7 @@ namespace Models
       shared_ptr<string> memoryStoreId_ {};
       // The MemoryStore name. It cannot be modified after creation.
       shared_ptr<string> memoryStoreName_ {};
-      // The lifecycle state of the MemoryStore.
+      // The lifecycle status of the MemoryStore.
       shared_ptr<string> status_ {};
       // The last updated time.
       shared_ptr<string> updatedAt_ {};

@@ -142,9 +142,9 @@ namespace Models
       shared_ptr<string> memoryStoreId_ {};
       // The MemoryStore name. It cannot be modified after creation.
       shared_ptr<string> memoryStoreName_ {};
-      // The MemoryStore lifecycle state.
+      // The lifecycle state of the MemoryStore.
       shared_ptr<string> status_ {};
-      // The last update time.
+      // The last updated time.
       shared_ptr<string> updatedAt_ {};
       // The AgentCore workspace ID.
       shared_ptr<string> workspaceId_ {};

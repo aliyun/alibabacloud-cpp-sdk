@@ -35,11 +35,15 @@ namespace Models
     class Body : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Body& obj) { 
+        DARABONBA_PTR_TO_JSON(agentSpace, agentSpace_);
+        DARABONBA_PTR_TO_JSON(cmsWorkspace, cmsWorkspace_);
         DARABONBA_PTR_TO_JSON(name, name_);
         DARABONBA_PTR_TO_JSON(networkConfiguration, networkConfiguration_);
         DARABONBA_PTR_TO_JSON(storageType, storageType_);
       };
       friend void from_json(const Darabonba::Json& j, Body& obj) { 
+        DARABONBA_PTR_FROM_JSON(agentSpace, agentSpace_);
+        DARABONBA_PTR_FROM_JSON(cmsWorkspace, cmsWorkspace_);
         DARABONBA_PTR_FROM_JSON(name, name_);
         DARABONBA_PTR_FROM_JSON(networkConfiguration, networkConfiguration_);
         DARABONBA_PTR_FROM_JSON(storageType, storageType_);
@@ -129,9 +133,9 @@ namespace Models
         protected:
           // Specifies whether to enable the VPC network.
           shared_ptr<bool> enabled_ {};
-          // The list of vSwitch IDs. When the VPC network is enabled, the list must contain at least one vSwitch, and all vSwitches must belong to the VPC specified by VpcId.
+          // The list of vSwitch IDs. If the VPC network is enabled, at least one vSwitch must be included, and all vSwitches must belong to the VPC specified by VpcId.
           shared_ptr<vector<string>> vSwitchIds_ {};
-          // The user VPC ID.
+          // The ID of the user VPC.
           shared_ptr<string> vpcId_ {};
         };
 
@@ -161,16 +165,30 @@ namespace Models
 
 
       protected:
-        // Specifies whether to allow public outbound access from the platform. If this parameter is not specified, the default value is true. This setting only controls whether the latest versions of managed and custom agents use the public outbound endpoint of the platform. It does not affect fixed historical versions, model or MCP proxy endpoints, or the public outbound endpoint of the user VPC.
+        // Specifies whether to allow public outbound access from the platform. If not specified, the default value is true. This setting only controls whether the latest versions of managed and custom agents use the public outbound endpoint of the platform. It does not affect fixed historical versions, model or Model Context Protocol (MCP) proxy outbound endpoints, or the public outbound endpoint of the user VPC.
         shared_ptr<bool> publicEgressEnabled_ {};
-        // Specifies whether to allow public inbound access. If this parameter is not specified, the default value is true. If disabled, the public inbound endpoints of all agent endpoints in the workspace are closed, and the original public inbound endpoints are restored when re-enabled. INNER_DIRECT and user VPC endpoints are not affected. Collaboration and Element Web endpoints are not controlled by this parameter.
+        // Specifies whether to allow public inbound access. If not specified, the default value is true. If disabled, the public inbound endpoints of all agent endpoints in the workspace are closed. If re-enabled, the original public inbound endpoints are restored. INNER_DIRECT and user VPC inbound endpoints are not affected. Collaboration and Element Web inbound endpoints are not controlled by this setting.
         shared_ptr<bool> publicIngressEnabled_ {};
-        // The user VPC network configuration.
+        // The VPC network configuration of the user.
         shared_ptr<NetworkConfiguration::Vpc> vpc_ {};
       };
 
-      virtual bool empty() const override { return this->name_ == nullptr
-        && this->networkConfiguration_ == nullptr && this->storageType_ == nullptr; };
+      virtual bool empty() const override { return this->agentSpace_ == nullptr
+        && this->cmsWorkspace_ == nullptr && this->name_ == nullptr && this->networkConfiguration_ == nullptr && this->storageType_ == nullptr; };
+      // agentSpace Field Functions 
+      bool hasAgentSpace() const { return this->agentSpace_ != nullptr;};
+      void deleteAgentSpace() { this->agentSpace_ = nullptr;};
+      inline string getAgentSpace() const { DARABONBA_PTR_GET_DEFAULT(agentSpace_, "") };
+      inline Body& setAgentSpace(string agentSpace) { DARABONBA_PTR_SET_VALUE(agentSpace_, agentSpace) };
+
+
+      // cmsWorkspace Field Functions 
+      bool hasCmsWorkspace() const { return this->cmsWorkspace_ != nullptr;};
+      void deleteCmsWorkspace() { this->cmsWorkspace_ = nullptr;};
+      inline string getCmsWorkspace() const { DARABONBA_PTR_GET_DEFAULT(cmsWorkspace_, "") };
+      inline Body& setCmsWorkspace(string cmsWorkspace) { DARABONBA_PTR_SET_VALUE(cmsWorkspace_, cmsWorkspace) };
+
+
       // name Field Functions 
       bool hasName() const { return this->name_ != nullptr;};
       void deleteName() { this->name_ = nullptr;};
@@ -195,13 +213,17 @@ namespace Models
 
 
     protected:
+      // If specified, the workspace is directly bound to this AgentSpace without creating a new one. The associated CloudMonitor (CMS) workspace is determined by the server\\"s reverse lookup result, and CmsWorkspace validation is skipped. When the workspace is deleted, only the binding is removed, and the AgentSpace is not deleted. The value must match the current account and region, and the associated CMS workspace must be found through reverse lookup. Otherwise, InvalidParameter is returned.
+      shared_ptr<string> agentSpace_ {};
+      // If specified, the workspace is bound to this CloudMonitor (CMS) workspace without creating a new one. When the workspace is deleted, only the binding is removed, and the CMS workspace is not deleted. The value must match the current account and region. Otherwise, InvalidParameter is returned.
+      shared_ptr<string> cmsWorkspace_ {};
       // The name of the workspace.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
       // The network configuration of the workspace.
       shared_ptr<Body::NetworkConfiguration> networkConfiguration_ {};
-      // The workspace storage type. PLATFORM indicates platform-managed storage, and PRIVATE indicates user private OSS storage.
+      // The storage type of the workspace. PLATFORM indicates platform-managed storage. PRIVATE indicates user-owned private Object Storage Service (OSS) storage.
       shared_ptr<string> storageType_ {};
     };
 
@@ -224,7 +246,7 @@ namespace Models
 
 
   protected:
-    // The workspace creation request body.
+    // The request body for creating a workspace.
     shared_ptr<CreateWorkspaceRequest::Body> body_ {};
     // The client idempotency token.
     shared_ptr<string> clientToken_ {};
