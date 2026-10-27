@@ -129,7 +129,7 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The user ID.
       shared_ptr<string> userId_ {};
-      // The workspace to which the policy belongs.
+      // The workspace where the policy resides.
       shared_ptr<string> workspace_ {};
     };
 
@@ -161,7 +161,7 @@ namespace Models
   protected:
     // Indicates whether the policy is created.
     shared_ptr<bool> created_ {};
-    // The policy.
+    // The uploaded policy.
     shared_ptr<CreateIntegrationPolicyResponseBody::Policy> policy_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

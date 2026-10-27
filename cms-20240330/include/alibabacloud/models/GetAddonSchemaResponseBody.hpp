@@ -159,11 +159,11 @@ namespace Models
 
 
       protected:
-        // The maximum value. The value is inclusive.
+        // The maximum value of the score range (inclusive).
         shared_ptr<int32_t> max_ {};
-        // The maximum length that is supported by the text control.
+        // The maximum length supported by the text control.
         shared_ptr<int32_t> maxLength_ {};
-        // The details.
+        // The detailed information.
         shared_ptr<string> message_ {};
         // The minimum value.
         shared_ptr<int32_t> min_ {};
@@ -238,7 +238,7 @@ namespace Models
         protected:
           // The label.
           shared_ptr<string> label_ {};
-          // The value of the label.
+          // The label value.
           shared_ptr<string> value_ {};
         };
 
@@ -270,11 +270,11 @@ namespace Models
 
 
       protected:
-        // The information about the data source.
+        // The data source information.
         shared_ptr<vector<Props::DataSource>> dataSource_ {};
-        // A collection of related data.
+        // The related data collection.
         shared_ptr<vector<string>> related_ {};
-        // The mode.
+        // The selection mode.
         shared_ptr<string> selectMode_ {};
       };
 
@@ -336,11 +336,11 @@ namespace Models
 
 
       protected:
-        // The control mode of the field.
+        // The field control mode.
         shared_ptr<string> action_ {};
-        // The name of the field.
+        // The field name.
         shared_ptr<string> field_ {};
-        // The operator for the condition.
+        // The condition operator.
         shared_ptr<string> op_ {};
         // The target value for the condition.
         Darabonba::Json value_ {};
@@ -443,29 +443,29 @@ namespace Models
 
 
     protected:
-      // A list of display conditions.
+      // The list of display conditions.
       shared_ptr<vector<Fields::Conditions>> conditions_ {};
       // The default value.
       Darabonba::Json defaultValue_ {};
       // The description.
       shared_ptr<string> description_ {};
-      // Specifies whether the field is hidden. Valid values: \\`true\\` (hidden) and \\`false\\` (displayed).
+      // Specifies whether the field is hidden. Valid values: true: Hidden. false: Displayed.
       shared_ptr<bool> disabled_ {};
-      // The type of the element.
+      // The element type.
       shared_ptr<string> element_ {};
-      // The path of the field.
+      // The field path.
       shared_ptr<string> fieldPath_ {};
       // The display name of the field.
       shared_ptr<string> label_ {};
-      // The name of the field.
+      // The field name.
       shared_ptr<string> name_ {};
-      // The placeholder text.
+      // The input prompt.
       shared_ptr<string> placeholder_ {};
-      // Other properties of the component.
+      // The other properties of the component.
       shared_ptr<Fields::Props> props_ {};
-      // The type of the field.
+      // The field type.
       shared_ptr<string> type_ {};
-      // The validation rule for the field.
+      // The field validation rules.
       shared_ptr<Fields::Validation> validation_ {};
     };
 
@@ -495,11 +495,11 @@ namespace Models
 
 
   protected:
-    // A list of data table fields.
+    // The list of data table fields.
     shared_ptr<vector<GetAddonSchemaResponseBody::Fields>> fields_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The type of the schema.
+    // The schema type.
     shared_ptr<string> type_ {};
   };
 

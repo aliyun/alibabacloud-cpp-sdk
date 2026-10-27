@@ -114,7 +114,7 @@ namespace Models
     protected:
       // The creation time.
       shared_ptr<string> createdAt_ {};
-      // The HTTP API URL.
+      // The HTTP API endpoint.
       shared_ptr<string> httpApiUrl_ {};
       // The applicable data source type: PROMETHEUS_DS.
       // 
@@ -174,11 +174,11 @@ namespace Models
     shared_ptr<vector<ListPrometheusVirtualInstancesResponseBody::Instances>> instances_ {};
     // The maximum number of instances to return per page.
     shared_ptr<string> maxResults_ {};
-    // The next token for the next page. It is empty when all results are returned.
+    // The next token for the next page. This parameter is empty when all results are returned.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The total number of instances returned.
+    // The total number of returned instances.
     shared_ptr<string> totalCount_ {};
   };
 

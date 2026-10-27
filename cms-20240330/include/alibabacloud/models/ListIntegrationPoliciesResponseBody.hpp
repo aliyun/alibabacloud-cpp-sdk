@@ -125,7 +125,7 @@ namespace Models
       protected:
         // The number of ready sub-releases.
         shared_ptr<int32_t> ready_ {};
-        // The number of rules.
+        // The total number of rules.
         shared_ptr<int32_t> total_ {};
       };
 
@@ -176,7 +176,7 @@ namespace Models
 
 
       protected:
-        // The ID of the elastic network interface (ENI) for the managed probe. Example: eni-xxxx.
+        // The elastic network interface (ENI) ID of the managed probe. Example: eni-xxxx.
         shared_ptr<string> eniId_ {};
         // The security group ID.
         shared_ptr<string> securityGroupId_ {};
@@ -301,11 +301,11 @@ namespace Models
 
 
           protected:
-            // The operation to perform.
+            // The operation to be performed.
             shared_ptr<string> op_ {};
-            // The tag key.
+            // The label key.
             shared_ptr<string> tagKey_ {};
-            // The tag values.
+            // The tag value.
             shared_ptr<vector<string>> tagValues_ {};
           };
 
@@ -358,11 +358,11 @@ namespace Models
 
 
           protected:
-            // The operation to perform.
+            // The operation to be performed.
             shared_ptr<string> op_ {};
-            // The tag key.
+            // The label key.
             shared_ptr<string> tagKey_ {};
-            // The tag values.
+            // The tag value.
             shared_ptr<vector<string>> tagValues_ {};
           };
 
@@ -461,9 +461,9 @@ namespace Models
           protected:
             // The unique identifier of the field.
             shared_ptr<string> fieldKey_ {};
-            // The field values. Separate multiple values with commas (,).
+            // The field content. Separate multiple values with commas (,).
             shared_ptr<vector<string>> fieldValues_ {};
-            // The operation to perform.
+            // The operation to be performed.
             shared_ptr<string> op_ {};
           };
 
@@ -516,11 +516,11 @@ namespace Models
 
 
           protected:
-            // The operation to perform.
+            // The operation to be performed.
             shared_ptr<string> op_ {};
             // The tag key.
             shared_ptr<string> tagKey_ {};
-            // The tag values.
+            // The tag value.
             shared_ptr<vector<string>> tagValues_ {};
           };
 
@@ -906,14 +906,15 @@ namespace Models
     protected:
       // The names of all add-ons installed in this policy.
       shared_ptr<vector<string>> addonNames_ {};
+      // The policy version.
       shared_ptr<string> apiVersion_ {};
-      // The information about the bound resources.
+      // The information about the bound resource.
       shared_ptr<Policies::BindResource> bindResource_ {};
       // The installation status of umodel in the container environment.
       shared_ptr<bool> csUmodelStatus_ {};
       // The entity group.
       shared_ptr<Policies::EntityGroup> entityGroup_ {};
-      // The billing type.
+      // The billing method.
       shared_ptr<string> feePackage_ {};
       // The network management information of the policy.
       shared_ptr<Policies::ManagedInfo> managedInfo_ {};
@@ -921,7 +922,7 @@ namespace Models
       shared_ptr<string> policyId_ {};
       // The rule name.
       shared_ptr<string> policyName_ {};
-      // The Access Center policy type.
+      // The access center policy type.
       shared_ptr<string> policyType_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};

@@ -75,7 +75,7 @@ namespace Cms20240330
       Models::ChangeResourceGroupResponse changeResourceGroup(const Models::ChangeResourceGroupRequest &request);
 
       /**
-       * @summary Installs an add-on component, which represents an integration operation.
+       * @summary Installs an integration component to perform an integration.
        *
        * @description Creates a site monitoring task.
        *
@@ -87,7 +87,7 @@ namespace Cms20240330
       Models::CreateAddonReleaseResponse createAddonReleaseWithOptions(const string &policyId, const Models::CreateAddonReleaseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Installs an add-on component, which represents an integration operation.
+       * @summary Installs an integration component to perform an integration.
        *
        * @description Creates a site monitoring task.
        *
@@ -551,6 +551,24 @@ namespace Cms20240330
        * @return CreateServiceTaskResponse
        */
       Models::CreateServiceTaskResponse createServiceTask(const string &workspace, const string &serviceId, const Models::CreateServiceTaskRequest &request);
+
+      /**
+       * @summary Creates a subscription.
+       *
+       * @param request CreateSubscriptionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateSubscriptionResponse
+       */
+      Models::CreateSubscriptionResponse createSubscriptionWithOptions(const Models::CreateSubscriptionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a subscription.
+       *
+       * @param request CreateSubscriptionRequest
+       * @return CreateSubscriptionResponse
+       */
+      Models::CreateSubscriptionResponse createSubscription(const Models::CreateSubscriptionRequest &request);
 
       /**
        * @summary Generates a ticket for passwordless access if you need to share console pages with others without requiring logon or embed them in third-party systems. After generating the ticket by calling CreateTicket, you can construct a passwordless access link.
@@ -1109,6 +1127,24 @@ namespace Cms20240330
       Models::DeleteServiceTaskResponse deleteServiceTask(const string &workspace, const string &serviceId, const string &taskId, const Models::DeleteServiceTaskRequest &request);
 
       /**
+       * @summary 删除订阅
+       *
+       * @param request DeleteSubscriptionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteSubscriptionResponse
+       */
+      Models::DeleteSubscriptionResponse deleteSubscriptionWithOptions(const string &subscriptionId, const Models::DeleteSubscriptionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除订阅
+       *
+       * @param request DeleteSubscriptionRequest
+       * @return DeleteSubscriptionResponse
+       */
+      Models::DeleteSubscriptionResponse deleteSubscription(const string &subscriptionId, const Models::DeleteSubscriptionRequest &request);
+
+      /**
        * @summary Deletes a Umodel configuration.
        *
        * @description Deletes a Umodel from a specified workspace.
@@ -1273,6 +1309,24 @@ namespace Cms20240330
       Models::DisableNotifyPolicyResponse disableNotifyPolicy(const string &uuid, const Models::DisableNotifyPolicyRequest &request);
 
       /**
+       * @summary 暂停订阅
+       *
+       * @param request DisableSubscriptionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DisableSubscriptionResponse
+       */
+      Models::DisableSubscriptionResponse disableSubscriptionWithOptions(const string &subscriptionId, const Models::DisableSubscriptionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 暂停订阅
+       *
+       * @param request DisableSubscriptionRequest
+       * @return DisableSubscriptionResponse
+       */
+      Models::DisableSubscriptionResponse disableSubscription(const string &subscriptionId, const Models::DisableSubscriptionRequest &request);
+
+      /**
        * @summary Enables a silence policy.
        *
        * @description Enables a specified silence policy. After the policy is enabled, the service refreshes the runtime cache through asynchronous messages. After the refresh is complete, events that match the filter conditions of the policy and fall within the effective period do not trigger notifications. Events may still be processed based on the pre-enablement state for a short period. If the specified silence policy does not exist, a ResourceNotFound error is returned.
@@ -1315,6 +1369,24 @@ namespace Cms20240330
        * @return EnableNotifyPolicyResponse
        */
       Models::EnableNotifyPolicyResponse enableNotifyPolicy(const string &uuid, const Models::EnableNotifyPolicyRequest &request);
+
+      /**
+       * @summary 启动订阅
+       *
+       * @param request EnableSubscriptionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnableSubscriptionResponse
+       */
+      Models::EnableSubscriptionResponse enableSubscriptionWithOptions(const string &subscriptionId, const Models::EnableSubscriptionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 启动订阅
+       *
+       * @param request EnableSubscriptionRequest
+       * @return EnableSubscriptionResponse
+       */
+      Models::EnableSubscriptionResponse enableSubscription(const string &subscriptionId, const Models::EnableSubscriptionRequest &request);
 
       /**
        * @summary Executes SQL, SPL, and other queries.
@@ -1397,9 +1469,9 @@ namespace Cms20240330
       Models::GetAddonReleaseResponse getAddonRelease(const string &releaseName, const string &policyId, const Models::GetAddonReleaseRequest &request);
 
       /**
-       * @summary The details of an add-on schema.
+       * @summary Queries the schema details of an add-on.
        *
-       * @description Retrieves the schema of an add-on.
+       * @description Retrieves the schema information of an add-on.
        *
        * @param request GetAddonSchemaRequest
        * @param headers map
@@ -1409,9 +1481,9 @@ namespace Cms20240330
       Models::GetAddonSchemaResponse getAddonSchemaWithOptions(const string &addonName, const Models::GetAddonSchemaRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The details of an add-on schema.
+       * @summary Queries the schema details of an add-on.
        *
-       * @description Retrieves the schema of an add-on.
+       * @description Retrieves the schema information of an add-on.
        *
        * @param request GetAddonSchemaRequest
        * @return GetAddonSchemaResponse
@@ -1985,6 +2057,24 @@ namespace Cms20240330
       Models::GetServiceTaskResponse getServiceTask(const string &workspace, const string &serviceId, const string &taskId, const Models::GetServiceTaskRequest &request);
 
       /**
+       * @summary 获取订阅
+       *
+       * @param request GetSubscriptionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSubscriptionResponse
+       */
+      Models::GetSubscriptionResponse getSubscriptionWithOptions(const string &subscriptionId, const Models::GetSubscriptionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取订阅
+       *
+       * @param request GetSubscriptionRequest
+       * @return GetSubscriptionResponse
+       */
+      Models::GetSubscriptionResponse getSubscription(const string &subscriptionId, const Models::GetSubscriptionRequest &request);
+
+      /**
        * @summary Retrieves Umodel configuration information.
        *
        * @description Retrieves Umodel configuration information.
@@ -2065,9 +2155,9 @@ namespace Cms20240330
       Models::GetWorkspaceResponse getWorkspace(const string &workspaceName, const Models::GetWorkspaceRequest &request);
 
       /**
-       * @summary Lists the releases of an add-on.
+       * @summary Lists add-on releases.
        *
-       * @description Queries the list of integration configurations.
+       * @description Queries the list of add-on configurations.
        *
        * @param request ListAddonReleasesRequest
        * @param headers map
@@ -2077,9 +2167,9 @@ namespace Cms20240330
       Models::ListAddonReleasesResponse listAddonReleasesWithOptions(const string &policyId, const Models::ListAddonReleasesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the releases of an add-on.
+       * @summary Lists add-on releases.
        *
-       * @description Queries the list of integration configurations.
+       * @description Queries the list of add-on configurations.
        *
        * @param request ListAddonReleasesRequest
        * @return ListAddonReleasesResponse
@@ -2743,6 +2833,24 @@ namespace Cms20240330
       Models::ListServicesResponse listServices(const string &workspace, const Models::ListServicesRequest &request);
 
       /**
+       * @summary 查询订阅规则列表
+       *
+       * @param request ListSubscriptionsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListSubscriptionsResponse
+       */
+      Models::ListSubscriptionsResponse listSubscriptionsWithOptions(const Models::ListSubscriptionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询订阅规则列表
+       *
+       * @param request ListSubscriptionsRequest
+       * @return ListSubscriptionsResponse
+       */
+      Models::ListSubscriptionsResponse listSubscriptions(const Models::ListSubscriptionsRequest &request);
+
+      /**
        * @summary Queries labels associated with resources.
        *
        * @param tmpReq ListTagResourcesRequest
@@ -2759,6 +2867,24 @@ namespace Cms20240330
        * @return ListTagResourcesResponse
        */
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
+
+      /**
+       * @summary List History name
+       *
+       * @param request ListUserNotifyHistoriesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListUserNotifyHistoriesResponse
+       */
+      Models::ListUserNotifyHistoriesResponse listUserNotifyHistoriesWithOptions(const Models::ListUserNotifyHistoriesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary List History name
+       *
+       * @param request ListUserNotifyHistoriesRequest
+       * @return ListUserNotifyHistoriesResponse
+       */
+      Models::ListUserNotifyHistoriesResponse listUserNotifyHistories(const Models::ListUserNotifyHistoriesRequest &request);
 
       /**
        * @summary Retrieves a list of workspaces.

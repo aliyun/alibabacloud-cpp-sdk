@@ -301,15 +301,15 @@ namespace Models
         protected:
           // The enabling status of the default policy for alert rules.
           shared_ptr<string> alertDefaultStatus_ {};
-          // Specifies whether to install the component by default.
+          // Specifies whether to install by default.
           shared_ptr<bool> defaultInstall_ {};
           // Specifies whether to assign a service account for communication with the console API.
           shared_ptr<bool> enableServiceAccount_ {};
           // The metric check rule.
           shared_ptr<Policies::MetricCheckRule> metricCheckRule_ {};
-          // Specifies whether to trigger a pod restart guide immediately after the plug-in installation is completed during integration.
+          // Specifies whether to initiate a pod restart guide immediately after the plug-in installation is completed during integration.
           shared_ptr<bool> needRestartAfterIntegration_ {};
-          // The supported protocol types in the configuration.
+          // The supported protocol types for configuration.
           shared_ptr<vector<Policies::Protocols>> protocols_ {};
           // The name of the target add-on.
           shared_ptr<string> targetAddonName_ {};
@@ -492,7 +492,7 @@ namespace Models
         shared_ptr<Environments::Dependencies> dependencies_ {};
         // The description of the integration policy type.
         shared_ptr<string> description_ {};
-        // Specifies whether the integration policy type is enabled.
+        // Specifies whether it is enabled.
         shared_ptr<bool> enable_ {};
         // The label of the integration policy type.
         shared_ptr<string> label_ {};
@@ -551,9 +551,9 @@ namespace Models
 
 
       protected:
-        // The dashboard description.
+        // The description of the dashboard.
         shared_ptr<string> description_ {};
-        // The dashboard name.
+        // The name of the dashboard.
         shared_ptr<string> name_ {};
         // The URL of the dashboard preview image.
         shared_ptr<string> url_ {};
@@ -686,7 +686,7 @@ namespace Models
       shared_ptr<vector<string>> keywords_ {};
       // The language.
       shared_ptr<string> language_ {};
-      // The latest release creation time.
+      // The time of the latest release. The time is in ISO 8601 format and includes the UTC identifier or time zone offset.
       shared_ptr<string> latestReleaseCreateTime_ {};
       // The name of the integration component.
       shared_ptr<string> name_ {};

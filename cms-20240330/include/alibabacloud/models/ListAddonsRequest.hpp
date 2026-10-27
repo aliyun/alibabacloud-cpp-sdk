@@ -75,14 +75,15 @@ namespace Models
 
 
   protected:
-    // The locale. Valid values: zh and en. Default value: zh.
+    // The language environment. Valid values: zh and en. Default value: zh.
     shared_ptr<string> aliyunLang_ {};
+    // The add-on catalog version. Valid values: v1 and v2. Default value: v2. If you specify v1, the add-ons in the v1 catalog are listed.
     shared_ptr<string> apiVersion_ {};
-    // The tag filter.
+    // The category filter.
     shared_ptr<string> category_ {};
     // Specifies whether to use regular expression matching for the query field. Default value: false.
     shared_ptr<bool> regexp_ {};
-    // The search query. Supports searching by add-on name, description, or keyword.
+    // The search keyword. You can search by add-on name, description, or keyword.
     shared_ptr<string> search_ {};
   };
 

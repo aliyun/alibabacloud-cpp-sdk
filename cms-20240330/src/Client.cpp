@@ -40,8 +40,6 @@ AlibabaCloud::Cms20240330::Client::Client(Config &config): OpenApiClient(config)
     {"cn-shanghai" , "metrics.cn-shanghai.aliyuncs.com"},
     {"cn-hongkong" , "metrics.cn-hongkong.aliyuncs.com"},
     {"cn-shenzhen" , "metrics.cn-shenzhen.aliyuncs.com"},
-    {"cn-nanjing" , "metrics.cn-nanjing.aliyuncs.com"},
-    {"cn-fuzhou" , "metrics.cn-fuzhou.aliyuncs.com"},
     {"cn-chengdu" , "metrics.cn-chengdu.aliyuncs.com"},
     {"cn-guangzhou" , "metrics.cn-guangzhou.aliyuncs.com"},
     {"cn-huhehaote" , "metrics.cn-huhehaote.aliyuncs.com"},
@@ -269,7 +267,7 @@ ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGrou
 }
 
 /**
- * @summary Installs an add-on component, which represents an integration operation.
+ * @summary Installs an integration component to perform an integration.
  *
  * @description Creates a site monitoring task.
  *
@@ -344,7 +342,7 @@ CreateAddonReleaseResponse Client::createAddonReleaseWithOptions(const string &p
 }
 
 /**
- * @summary Installs an add-on component, which represents an integration operation.
+ * @summary Installs an integration component to perform an integration.
  *
  * @description Creates a site monitoring task.
  *
@@ -1836,6 +1834,52 @@ CreateServiceTaskResponse Client::createServiceTask(const string &workspace, con
 }
 
 /**
+ * @summary Creates a subscription.
+ *
+ * @param request CreateSubscriptionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateSubscriptionResponse
+ */
+CreateSubscriptionResponse Client::createSubscriptionWithOptions(const CreateSubscriptionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkspace()) {
+    query["workspace"] = request.getWorkspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateSubscription"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/subscriptions")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateSubscriptionResponse>();
+}
+
+/**
+ * @summary Creates a subscription.
+ *
+ * @param request CreateSubscriptionRequest
+ * @return CreateSubscriptionResponse
+ */
+CreateSubscriptionResponse Client::createSubscription(const CreateSubscriptionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createSubscriptionWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Generates a ticket for passwordless access if you need to share console pages with others without requiring logon or embed them in third-party systems. After generating the ticket by calling CreateTicket, you can construct a passwordless access link.
  *
  * @param request CreateTicketRequest
@@ -3120,6 +3164,51 @@ DeleteServiceTaskResponse Client::deleteServiceTask(const string &workspace, con
 }
 
 /**
+ * @summary 删除订阅
+ *
+ * @param request DeleteSubscriptionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteSubscriptionResponse
+ */
+DeleteSubscriptionResponse Client::deleteSubscriptionWithOptions(const string &subscriptionId, const DeleteSubscriptionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkspace()) {
+    query["workspace"] = request.getWorkspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteSubscription"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/subscriptions/" , Darabonba::Encode::Encoder::percentEncode(subscriptionId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteSubscriptionResponse>();
+}
+
+/**
+ * @summary 删除订阅
+ *
+ * @param request DeleteSubscriptionRequest
+ * @return DeleteSubscriptionResponse
+ */
+DeleteSubscriptionResponse Client::deleteSubscription(const string &subscriptionId, const DeleteSubscriptionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteSubscriptionWithOptions(subscriptionId, request, headers, runtime);
+}
+
+/**
  * @summary Deletes a Umodel configuration.
  *
  * @description Deletes a Umodel from a specified workspace.
@@ -3534,6 +3623,51 @@ DisableNotifyPolicyResponse Client::disableNotifyPolicy(const string &uuid, cons
 }
 
 /**
+ * @summary 暂停订阅
+ *
+ * @param request DisableSubscriptionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableSubscriptionResponse
+ */
+DisableSubscriptionResponse Client::disableSubscriptionWithOptions(const string &subscriptionId, const DisableSubscriptionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkspace()) {
+    query["workspace"] = request.getWorkspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisableSubscription"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/subscriptions/" , Darabonba::Encode::Encoder::percentEncode(subscriptionId) , "/disable")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableSubscriptionResponse>();
+}
+
+/**
+ * @summary 暂停订阅
+ *
+ * @param request DisableSubscriptionRequest
+ * @return DisableSubscriptionResponse
+ */
+DisableSubscriptionResponse Client::disableSubscription(const string &subscriptionId, const DisableSubscriptionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return disableSubscriptionWithOptions(subscriptionId, request, headers, runtime);
+}
+
+/**
  * @summary Enables a silence policy.
  *
  * @description Enables a specified silence policy. After the policy is enabled, the service refreshes the runtime cache through asynchronous messages. After the refresh is complete, events that match the filter conditions of the policy and fall within the effective period do not trigger notifications. Events may still be processed based on the pre-enablement state for a short period. If the specified silence policy does not exist, a ResourceNotFound error is returned.
@@ -3629,6 +3763,51 @@ EnableNotifyPolicyResponse Client::enableNotifyPolicy(const string &uuid, const 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return enableNotifyPolicyWithOptions(uuid, request, headers, runtime);
+}
+
+/**
+ * @summary 启动订阅
+ *
+ * @param request EnableSubscriptionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableSubscriptionResponse
+ */
+EnableSubscriptionResponse Client::enableSubscriptionWithOptions(const string &subscriptionId, const EnableSubscriptionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkspace()) {
+    query["workspace"] = request.getWorkspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EnableSubscription"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/subscriptions/" , Darabonba::Encode::Encoder::percentEncode(subscriptionId) , "/enable")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableSubscriptionResponse>();
+}
+
+/**
+ * @summary 启动订阅
+ *
+ * @param request EnableSubscriptionRequest
+ * @return EnableSubscriptionResponse
+ */
+EnableSubscriptionResponse Client::enableSubscription(const string &subscriptionId, const EnableSubscriptionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return enableSubscriptionWithOptions(subscriptionId, request, headers, runtime);
 }
 
 /**
@@ -3830,9 +4009,9 @@ GetAddonReleaseResponse Client::getAddonRelease(const string &releaseName, const
 }
 
 /**
- * @summary The details of an add-on schema.
+ * @summary Queries the schema details of an add-on.
  *
- * @description Retrieves the schema of an add-on.
+ * @description Retrieves the schema information of an add-on.
  *
  * @param request GetAddonSchemaRequest
  * @param headers map
@@ -3877,9 +4056,9 @@ GetAddonSchemaResponse Client::getAddonSchemaWithOptions(const string &addonName
 }
 
 /**
- * @summary The details of an add-on schema.
+ * @summary Queries the schema details of an add-on.
  *
- * @description Retrieves the schema of an add-on.
+ * @description Retrieves the schema information of an add-on.
  *
  * @param request GetAddonSchemaRequest
  * @return GetAddonSchemaResponse
@@ -5191,6 +5370,51 @@ GetServiceTaskResponse Client::getServiceTask(const string &workspace, const str
 }
 
 /**
+ * @summary 获取订阅
+ *
+ * @param request GetSubscriptionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSubscriptionResponse
+ */
+GetSubscriptionResponse Client::getSubscriptionWithOptions(const string &subscriptionId, const GetSubscriptionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkspace()) {
+    query["workspace"] = request.getWorkspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetSubscription"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/subscriptions/" , Darabonba::Encode::Encoder::percentEncode(subscriptionId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSubscriptionResponse>();
+}
+
+/**
+ * @summary 获取订阅
+ *
+ * @param request GetSubscriptionRequest
+ * @return GetSubscriptionResponse
+ */
+GetSubscriptionResponse Client::getSubscription(const string &subscriptionId, const GetSubscriptionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getSubscriptionWithOptions(subscriptionId, request, headers, runtime);
+}
+
+/**
  * @summary Retrieves Umodel configuration information.
  *
  * @description Retrieves Umodel configuration information.
@@ -5367,9 +5591,9 @@ GetWorkspaceResponse Client::getWorkspace(const string &workspaceName, const Get
 }
 
 /**
- * @summary Lists the releases of an add-on.
+ * @summary Lists add-on releases.
  *
- * @description Queries the list of integration configurations.
+ * @description Queries the list of add-on configurations.
  *
  * @param request ListAddonReleasesRequest
  * @param headers map
@@ -5414,9 +5638,9 @@ ListAddonReleasesResponse Client::listAddonReleasesWithOptions(const string &pol
 }
 
 /**
- * @summary Lists the releases of an add-on.
+ * @summary Lists add-on releases.
  *
- * @description Queries the list of integration configurations.
+ * @description Queries the list of add-on configurations.
  *
  * @param request ListAddonReleasesRequest
  * @return ListAddonReleasesResponse
@@ -7516,6 +7740,95 @@ ListServicesResponse Client::listServices(const string &workspace, const ListSer
 }
 
 /**
+ * @summary 查询订阅规则列表
+ *
+ * @param request ListSubscriptionsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSubscriptionsResponse
+ */
+ListSubscriptionsResponse Client::listSubscriptionsWithOptions(const ListSubscriptionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentUuid()) {
+    query["agentUuid"] = request.getAgentUuid();
+  }
+
+  if (!!request.hasDirection()) {
+    query["direction"] = request.getDirection();
+  }
+
+  if (!!request.hasEnable()) {
+    query["enable"] = request.getEnable();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasNotifyStrategyUuid()) {
+    query["notifyStrategyUuid"] = request.getNotifyStrategyUuid();
+  }
+
+  if (!!request.hasOrderBy()) {
+    query["orderBy"] = request.getOrderBy();
+  }
+
+  if (!!request.hasSubscriptionId()) {
+    query["subscriptionId"] = request.getSubscriptionId();
+  }
+
+  if (!!request.hasSubscriptionName()) {
+    query["subscriptionName"] = request.getSubscriptionName();
+  }
+
+  if (!!request.hasSubscriptionType()) {
+    query["subscriptionType"] = request.getSubscriptionType();
+  }
+
+  if (!!request.hasUnbound()) {
+    query["unbound"] = request.getUnbound();
+  }
+
+  if (!!request.hasWorkspace()) {
+    query["workspace"] = request.getWorkspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListSubscriptions"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/subscriptions")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSubscriptionsResponse>();
+}
+
+/**
+ * @summary 查询订阅规则列表
+ *
+ * @param request ListSubscriptionsRequest
+ * @return ListSubscriptionsResponse
+ */
+ListSubscriptionsResponse Client::listSubscriptions(const ListSubscriptionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listSubscriptionsWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Queries labels associated with resources.
  *
  * @param tmpReq ListTagResourcesRequest
@@ -7584,6 +7897,143 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listTagResourcesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary List History name
+ *
+ * @param request ListUserNotifyHistoriesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListUserNotifyHistoriesResponse
+ */
+ListUserNotifyHistoriesResponse Client::listUserNotifyHistoriesWithOptions(const ListUserNotifyHistoriesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBatchId()) {
+    query["batchId"] = request.getBatchId();
+  }
+
+  if (!!request.hasBizSource()) {
+    query["bizSource"] = request.getBizSource();
+  }
+
+  if (!!request.hasChannel()) {
+    query["channel"] = request.getChannel();
+  }
+
+  if (!!request.hasChannelCategory()) {
+    query["channelCategory"] = request.getChannelCategory();
+  }
+
+  if (!!request.hasFrom()) {
+    query["from"] = request.getFrom();
+  }
+
+  if (!!request.hasGroup()) {
+    query["group"] = request.getGroup();
+  }
+
+  if (!!request.hasIncidentId()) {
+    query["incidentId"] = request.getIncidentId();
+  }
+
+  if (!!request.hasIncludeNoChannel()) {
+    query["includeNoChannel"] = request.getIncludeNoChannel();
+  }
+
+  if (!!request.hasIsDesc()) {
+    query["isDesc"] = request.getIsDesc();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasNotifyStrategyId()) {
+    query["notifyStrategyId"] = request.getNotifyStrategyId();
+  }
+
+  if (!!request.hasNotifyStrategyName()) {
+    query["notifyStrategyName"] = request.getNotifyStrategyName();
+  }
+
+  if (!!request.hasPartitionKey()) {
+    query["partitionKey"] = request.getPartitionKey();
+  }
+
+  if (!!request.hasReceiver()) {
+    query["receiver"] = request.getReceiver();
+  }
+
+  if (!!request.hasRuleId()) {
+    query["ruleId"] = request.getRuleId();
+  }
+
+  if (!!request.hasRuleName()) {
+    query["ruleName"] = request.getRuleName();
+  }
+
+  if (!!request.hasSendType()) {
+    query["sendType"] = request.getSendType();
+  }
+
+  if (!!request.hasSeverity()) {
+    query["severity"] = request.getSeverity();
+  }
+
+  if (!!request.hasSubscriptionId()) {
+    query["subscriptionId"] = request.getSubscriptionId();
+  }
+
+  if (!!request.hasSubscriptionName()) {
+    query["subscriptionName"] = request.getSubscriptionName();
+  }
+
+  if (!!request.hasSuccess()) {
+    query["success"] = request.getSuccess();
+  }
+
+  if (!!request.hasTo()) {
+    query["to"] = request.getTo();
+  }
+
+  if (!!request.hasWorkspace()) {
+    query["workspace"] = request.getWorkspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListUserNotifyHistories"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/userHistories")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListUserNotifyHistoriesResponse>();
+}
+
+/**
+ * @summary List History name
+ *
+ * @param request ListUserNotifyHistoriesRequest
+ * @return ListUserNotifyHistoriesResponse
+ */
+ListUserNotifyHistoriesResponse Client::listUserNotifyHistories(const ListUserNotifyHistoriesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listUserNotifyHistoriesWithOptions(request, headers, runtime);
 }
 
 /**

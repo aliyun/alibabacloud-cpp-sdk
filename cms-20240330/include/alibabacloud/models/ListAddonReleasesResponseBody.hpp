@@ -219,15 +219,15 @@ namespace Models
 
 
       protected:
-        // The time of the first transition.
+        // The first transition time.
         shared_ptr<string> firstTransitionTime_ {};
-        // The time of the last transition.
+        // The last transition time.
         shared_ptr<string> lastTransitionTime_ {};
-        // The detailed information.
+        // The details.
         shared_ptr<string> message_ {};
-        // The status of the phase.
+        // The phase status.
         shared_ptr<string> status_ {};
-        // The type of the phase.
+        // The phase type.
         shared_ptr<string> type_ {};
       };
 
@@ -441,15 +441,27 @@ namespace Models
 
 
     protected:
-      // The name of the add-on.
+      // The addon name.
       shared_ptr<string> addonName_ {};
       // The number of alert rules.
       shared_ptr<int64_t> alertRuleCount_ {};
       // The version number.
       shared_ptr<string> apiVersion_ {};
       // The summary of installation phase conditions.
+      // 
+      // Type includes four values: Loaded (loads configurations), Installed (executes installation), Ready (performs a readiness check after installation), and UnInstalled (executes uninstallation). These four conditions theoretically occur in sequence.
+      // 
+      // Status. Valid values:
+      // - Unknown: The current phase is being executed.
+      // - True: The execution is ready.
+      // - False: The execution failed.
+      // 
+      // Complete status determination rules:
+      // If the Status of Loaded, Installed, or Ready is False, the installation fails. If the Status of Ready is True, the installation succeeds. In other cases, the installation is in progress.
+      // 
+      // If UnInstalled exists, an uninstallation is in progress. If Status is True, the uninstallation succeeds. If Status is Unknown, the uninstallation is in progress. If Status is False, the uninstallation fails.
       shared_ptr<vector<Releases::Conditions>> conditions_ {};
-      // The configuration information of the component.
+      // The component configuration information.
       shared_ptr<string> config_ {};
       // The onboarding time.
       shared_ptr<string> createTime_ {};
@@ -457,7 +469,7 @@ namespace Models
       shared_ptr<int64_t> dashboardCount_ {};
       // The entity details.
       shared_ptr<EntityGroupBase> entityRules_ {};
-      // The type of the environment.
+      // The environment type.
       shared_ptr<string> envType_ {};
       // The environment ID.
       shared_ptr<string> environmentId_ {};
@@ -481,19 +493,19 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The release ID.
       shared_ptr<string> releaseId_ {};
-      // The name of the release.
+      // The release name.
       shared_ptr<string> releaseName_ {};
-      // The scenario of the component.
+      // The component scenario.
       shared_ptr<string> scene_ {};
       // The status.
       shared_ptr<string> status_ {};
-      // The statistics information of sub-add-on releases.
+      // The statistics information of sub-addon releases.
       shared_ptr<Releases::SubAddonRelease> subAddonRelease_ {};
       // The update time.
       shared_ptr<string> updateTime_ {};
-      // The ID of the owning user.
+      // The ID of the owner user.
       shared_ptr<string> userId_ {};
-      // The version of the component.
+      // The component version.
       shared_ptr<string> version_ {};
       // The workspace.
       shared_ptr<string> workspace_ {};

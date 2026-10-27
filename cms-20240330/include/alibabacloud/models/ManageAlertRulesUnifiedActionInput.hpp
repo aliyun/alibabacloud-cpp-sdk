@@ -126,7 +126,9 @@ namespace Models
 
 
     protected:
+      // The drill end time in Unix milliseconds. The end time must be later than the start time.
       shared_ptr<int64_t> endTime_ {};
+      // The drill start time in Unix milliseconds.
       shared_ptr<int64_t> startTime_ {};
     };
 
@@ -348,44 +350,47 @@ namespace Models
     shared_ptr<map<string, string>> annotations_ {};
     // The ARMS integration configuration.
     shared_ptr<ArmsIntegrationConfig> armsIntegrationConfig_ {};
-    // The business source (optional). Examples: managed_service_for_prometheus, umodel, application_insights, cloud_monitoring, sls. Provide as needed for CREATE/UPDATE/PATCH.
+    // The business source. Valid values include managed_service_for_prometheus, umodel, application_insights, cloud_monitoring, and sls. Pass this field as needed for CREATE, UPDATE, and PATCH actions.
     shared_ptr<string> bizSource_ {};
-    // The aggregated condition configuration.
+    // The condition aggregation configuration.
     shared_ptr<ConditionConfigUnified> conditionConfig_ {};
     // The content template.
     shared_ptr<string> contentTemplate_ {};
-    // The aggregated data source configuration.
+    // The data source aggregation configuration.
     shared_ptr<DatasourceConfigUnified> datasourceConfig_ {};
     // The display name.
     shared_ptr<string> displayName_ {};
+    // The alert drill evaluation time in Unix milliseconds. This field is required by the backend when drillMode is ONE_SHOT. The time cannot be later than the current time or earlier than 90 days ago.
     shared_ptr<int64_t> drillEvalTime_ {};
+    // The alert drill mode. This field is required by the backend when the action is DRILL_ALERT. Valid values: ONE_SHOT specifies a single point in time to simulate a complete lifecycle consisting of three events: OCCURRED, PERSISTENT, and RECOVERED. TIME_TRAVEL specifies a time range to simulate the lifecycle in multiple rounds based on the rule scheduling interval.
     shared_ptr<string> drillMode_ {};
+    // The alert drill time range in Unix milliseconds. This field is required by the backend when drillMode is TIME_TRAVEL. The endTime must be later than the startTime and cannot be later than the current time. The lifecycle is simulated in multiple rounds based on the rule scheduling interval. The maximum number of rounds is 500. If the limit is exceeded, the backend returns a 400 error.
     shared_ptr<ManageAlertRulesUnifiedActionInput::DrillTimeRange> drillTimeRange_ {};
     // Specifies whether the rule is enabled.
     shared_ptr<bool> enabled_ {};
     // The labels.
     shared_ptr<map<string, string>> labels_ {};
-    // The aggregated notification configuration.
+    // The notification aggregation configuration.
     shared_ptr<NotifyConfigUnified> notifyConfig_ {};
     // The observable resource configuration.
     shared_ptr<ObserveResourceConfig> observeResourceConfig_ {};
-    // **[Deprecated]** The monitored object instance ID. Use observeResourceConfig.resources instead. Retained only for backward compatibility with legacy SDKs.
+    // **[Deprecated]** The ID of the monitored object instance. For new integrations, use observeResourceConfig.resources instead. This field is retained only for compatibility with legacy SDKs.
     shared_ptr<string> observeResourceInstanceId_ {};
-    // **[Deprecated]** The monitored object resource type. Use observeResourceConfig.entityType instead. Retained only for backward compatibility with legacy SDKs.
+    // **[Deprecated]** The resource type of the monitored object. For new integrations, use observeResourceConfig.entityType instead. This field is retained only for compatibility with legacy SDKs.
     shared_ptr<string> observeResourceType_ {};
-    // The aggregated query configuration.
+    // The query aggregation configuration.
     shared_ptr<QueryConfigUnified> queryConfig_ {};
-    // The root cause analysis (RCA) configuration (optional). Provide as needed for CREATE/UPDATE/PATCH.
+    // The root cause analysis (RCA) configuration. Pass this field as needed for CREATE, UPDATE, and PATCH actions.
     shared_ptr<AlertRuleRcaConfig> rcaConfig_ {};
-    // The region ID. Aligned with V1 AlertRule.regionId. If not provided, the gateway callerRegionId is used.
+    // The region ID. This aligns with V1 AlertRule.regionId. If not provided, the gateway callerRegionId is used.
     shared_ptr<string> regionId_ {};
-    // The aggregated schedule configuration.
+    // The schedule aggregation configuration.
     shared_ptr<ScheduleConfigUnified> scheduleConfig_ {};
-    // The UUID of the rule. Required for UPDATE/PATCH.
+    // The UUID of the rule. This field is required for UPDATE and PATCH actions.
     shared_ptr<string> uuid_ {};
-    // The list of rule UUIDs to delete (BATCH_DELETE).
+    // The list of UUIDs for the rules to be deleted. This is used for the BATCH_DELETE action.
     shared_ptr<vector<string>> uuidList_ {};
-    // The workspace. Required for CREATE/UPDATE and other actions.
+    // The workspace ID. This field is required for CREATE, UPDATE, PATCH, DELETE, ENABLE, DISABLE, BATCH_DELETE, BATCH_ENABLE, and BATCH_DISABLE actions. It identifies the CloudMonitor workspace to which the rule belongs.
     shared_ptr<string> workspace_ {};
   };
 

@@ -282,7 +282,7 @@ namespace Models
 
 
           protected:
-            // The operation to perform.
+            // The operation to be performed.
             shared_ptr<string> op_ {};
             // The tag key of the instance.
             shared_ptr<string> tagKey_ {};
@@ -339,7 +339,7 @@ namespace Models
 
 
           protected:
-            // The operation to perform.
+            // The operation to be performed.
             shared_ptr<string> op_ {};
             // The tag key of the instance.
             shared_ptr<string> tagKey_ {};
@@ -444,7 +444,7 @@ namespace Models
             shared_ptr<string> fieldKey_ {};
             // The field content.
             shared_ptr<vector<string>> fieldValues_ {};
-            // The operation to perform.
+            // The operation to be performed.
             shared_ptr<string> op_ {};
           };
 
@@ -497,11 +497,11 @@ namespace Models
 
 
           protected:
-            // The operation to perform.
+            // The operation to be performed.
             shared_ptr<string> op_ {};
             // The tag key.
             shared_ptr<string> tagKey_ {};
-            // The tag value.
+            // The tag values.
             shared_ptr<vector<string>> tagValues_ {};
           };
 
@@ -594,7 +594,7 @@ namespace Models
           shared_ptr<vector<string>> entityTypes_ {};
           // The list of property rules.
           shared_ptr<vector<EntityRules::FieldRules>> fieldRules_ {};
-          // The instance ID.
+          // The instance IDs.
           shared_ptr<vector<string>> instanceIds_ {};
           // The IP matching rule.
           shared_ptr<EntityRules::IpMatchRule> ipMatchRule_ {};
@@ -604,7 +604,7 @@ namespace Models
           shared_ptr<vector<string>> regionIds_ {};
           // The resource group ID.
           shared_ptr<string> resourceGroupId_ {};
-          // The tag value.
+          // The tag values.
           shared_ptr<vector<EntityRules::Tags>> tags_ {};
         };
 
@@ -678,7 +678,7 @@ namespace Models
         shared_ptr<string> entityGroupName_ {};
         // The entity rules.
         shared_ptr<EntityGroup::EntityRules> entityRules_ {};
-        // The query.
+        // The query condition.
         shared_ptr<string> query_ {};
         // The region ID.
         shared_ptr<string> regionId_ {};
@@ -878,10 +878,11 @@ namespace Models
 
 
     protected:
-      // The names of all components installed in the policy.
+      // The names of all components installed in this policy.
       shared_ptr<vector<string>> addonNames_ {};
+      // The policy version.
       shared_ptr<string> apiVersion_ {};
-      // The information about the bound resource.
+      // The information about the bound resources.
       shared_ptr<Policy::BindResource> bindResource_ {};
       // The installation status of umodel in the container environment.
       shared_ptr<bool> csUmodelStatus_ {};
@@ -891,7 +892,7 @@ namespace Models
       shared_ptr<Policy::ManagedInfo> managedInfo_ {};
       // The policy ID.
       shared_ptr<string> policyId_ {};
-      // The policy name.
+      // The rule name.
       shared_ptr<string> policyName_ {};
       // The access policy type.
       shared_ptr<string> policyType_ {};

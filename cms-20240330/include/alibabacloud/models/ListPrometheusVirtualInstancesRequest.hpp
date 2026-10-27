@@ -70,7 +70,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The optional cloud services.
     shared_ptr<string> namespace_ {};
-    // The next paging token for the paged query.
+    // The next token for the paging query.
     shared_ptr<string> nextToken_ {};
     // The tenant ID.
     shared_ptr<string> tenantId_ {};
