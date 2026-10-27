@@ -114,6 +114,8 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Legacy, legacy_);
           DARABONBA_PTR_TO_JSON(Model, model_);
           DARABONBA_PTR_TO_JSON(OutputTokens, outputTokens_);
+          DARABONBA_PTR_TO_JSON(PlaybackStatus, playbackStatus_);
+          DARABONBA_PTR_TO_JSON(PlayedAnswer, playedAnswer_);
           DARABONBA_PTR_TO_JSON(PlayedWords, playedWords_);
           DARABONBA_PTR_TO_JSON(Role, role_);
           DARABONBA_PTR_TO_JSON(SessionId, sessionId_);
@@ -135,6 +137,8 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(Legacy, legacy_);
           DARABONBA_PTR_FROM_JSON(Model, model_);
           DARABONBA_PTR_FROM_JSON(OutputTokens, outputTokens_);
+          DARABONBA_PTR_FROM_JSON(PlaybackStatus, playbackStatus_);
+          DARABONBA_PTR_FROM_JSON(PlayedAnswer, playedAnswer_);
           DARABONBA_PTR_FROM_JSON(PlayedWords, playedWords_);
           DARABONBA_PTR_FROM_JSON(Role, role_);
           DARABONBA_PTR_FROM_JSON(SessionId, sessionId_);
@@ -157,8 +161,8 @@ namespace Models
         virtual bool empty() const override { return this->answer_ == nullptr
         && this->backchannels_ == nullptr && this->beginTime_ == nullptr && this->controlParamsList_ == nullptr && this->endTime_ == nullptr && this->eventTime_ == nullptr
         && this->extras_ == nullptr && this->inputTokens_ == nullptr && this->interrupted_ == nullptr && this->legacy_ == nullptr && this->model_ == nullptr
-        && this->outputTokens_ == nullptr && this->playedWords_ == nullptr && this->role_ == nullptr && this->sessionId_ == nullptr && this->streamId_ == nullptr
-        && this->totalTokens_ == nullptr && this->utterance_ == nullptr && this->vendorParams_ == nullptr; };
+        && this->outputTokens_ == nullptr && this->playbackStatus_ == nullptr && this->playedAnswer_ == nullptr && this->playedWords_ == nullptr && this->role_ == nullptr
+        && this->sessionId_ == nullptr && this->streamId_ == nullptr && this->totalTokens_ == nullptr && this->utterance_ == nullptr && this->vendorParams_ == nullptr; };
         // answer Field Functions 
         bool hasAnswer() const { return this->answer_ != nullptr;};
         void deleteAnswer() { this->answer_ = nullptr;};
@@ -243,6 +247,20 @@ namespace Models
         inline Transcripts& setOutputTokens(int32_t outputTokens) { DARABONBA_PTR_SET_VALUE(outputTokens_, outputTokens) };
 
 
+        // playbackStatus Field Functions 
+        bool hasPlaybackStatus() const { return this->playbackStatus_ != nullptr;};
+        void deletePlaybackStatus() { this->playbackStatus_ = nullptr;};
+        inline string getPlaybackStatus() const { DARABONBA_PTR_GET_DEFAULT(playbackStatus_, "") };
+        inline Transcripts& setPlaybackStatus(string playbackStatus) { DARABONBA_PTR_SET_VALUE(playbackStatus_, playbackStatus) };
+
+
+        // playedAnswer Field Functions 
+        bool hasPlayedAnswer() const { return this->playedAnswer_ != nullptr;};
+        void deletePlayedAnswer() { this->playedAnswer_ = nullptr;};
+        inline string getPlayedAnswer() const { DARABONBA_PTR_GET_DEFAULT(playedAnswer_, "") };
+        inline Transcripts& setPlayedAnswer(string playedAnswer) { DARABONBA_PTR_SET_VALUE(playedAnswer_, playedAnswer) };
+
+
         // playedWords Field Functions 
         bool hasPlayedWords() const { return this->playedWords_ != nullptr;};
         void deletePlayedWords() { this->playedWords_ = nullptr;};
@@ -317,6 +335,8 @@ namespace Models
         shared_ptr<string> model_ {};
         // The number of output tokens.
         shared_ptr<int32_t> outputTokens_ {};
+        shared_ptr<string> playbackStatus_ {};
+        shared_ptr<string> playedAnswer_ {};
         // The played text.
         shared_ptr<string> playedWords_ {};
         // The role.
