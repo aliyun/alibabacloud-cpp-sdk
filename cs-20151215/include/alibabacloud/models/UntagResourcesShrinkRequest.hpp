@@ -77,24 +77,24 @@ namespace Models
   protected:
     // Specifies whether to delete all custom tags. This parameter takes effect only when `tag_keys` is empty. Valid values:
     // 
-    // - `true`: Deletes all tags.
-    // - `false`: Does not delete all tags.
+    // - `true`: deletes all tags.
+    // - `false`: does not delete all tags.
     shared_ptr<bool> all_ {};
     // The region ID of the resource.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The list of resource IDs. You can specify up to 50 resource IDs.
+    // The list of resource IDs. Up to 50 resource IDs can be specified.
     // 
     // This parameter is required.
     shared_ptr<string> resourceIdsShrink_ {};
-    // The resource type.
+    // The resource type. Valid values:
     // 
-    // CLUSTER: cluster.
+    // - CLUSTER: cluster.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The list of tag keys for the resource. You can specify up to 20 tag keys.
+    // The list of tag keys for the resources. Up to 20 tag keys can be specified.
     // 
     // This parameter is required.
     shared_ptr<string> tagKeysShrink_ {};

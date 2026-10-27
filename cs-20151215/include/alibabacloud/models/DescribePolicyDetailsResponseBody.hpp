@@ -104,27 +104,27 @@ namespace Models
 
   protected:
     // The governance action of the rule. Valid values:
-    // - `enforce`: blocks non-compliant deployments.
-    // - `inform`: generates alerts.
+    // - `enforce`: Blocks non-compliant deployments.
+    // - `inform`: Triggers alerts.
     shared_ptr<string> action_ {};
-    // The templatetype of the rule.
+    // The rule templatetype.
     shared_ptr<string> category_ {};
     // The description of the rule template.
     shared_ptr<string> description_ {};
     // Indicates whether the rule is deleted. Valid values:
-    // - 0: not deleted.
-    // - 1: deleted.
+    // - 0: Not deleted.
+    // - 1: Deleted.
     shared_ptr<int32_t> isDeleted_ {};
     // The name of the policy governance rule.
     shared_ptr<string> name_ {};
-    // Indicates whether the policy requires configuration. Valid values: 
-    // - 0: parameter settings required.
-    // - 1: no parameter settings required.
+    // Specifies whether policy configuration is required. Valid values: 
+    // - 0: Parameter settings are required.
+    // - 1: No parameter settings are required.
     shared_ptr<int32_t> noConfig_ {};
     // The governance severity of the rule. Valid values:
-    // * `high`: high risk.
-    // * `medium`: medium risk.
-    // * `low`: low risk.
+    // * `high`: High-risk.
+    // * `medium`: Medium-risk.
+    // * `low`: Low-risk.
     shared_ptr<string> severity_ {};
     // The details of the rule template.
     shared_ptr<string> template_ {};

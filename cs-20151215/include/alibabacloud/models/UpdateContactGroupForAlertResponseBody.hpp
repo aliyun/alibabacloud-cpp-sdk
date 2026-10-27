@@ -51,7 +51,7 @@ namespace Models
     // The message returned when the operation fails.
     shared_ptr<string> msg_ {};
     // The status of the update result. Valid values:
-    // - true: The operation is successful.
+    // - true: The operation succeeded.
     // - false: The operation failed.
     shared_ptr<bool> status_ {};
   };

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The custom expiration time specified by the user. Unit: hours.
+    // The custom expiration time. Unit: hours.
     // 
-    // Valid values: [1, 876000], which indicates a maximum of 100 years.
+    // Valid values: 1 to 876000, which is equivalent to a maximum of 100 years.
     // 
     // This parameter is required.
     shared_ptr<int64_t> expireHour_ {};

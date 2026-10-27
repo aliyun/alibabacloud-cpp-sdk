@@ -125,7 +125,7 @@ namespace Models
       shared_ptr<string> name_ {};
       // The cluster ID.
       shared_ptr<string> clusterId_ {};
-      // The trigger project name. It consists of the namespace and the name of the application, in the format of `${namespace}/${name}`. Example: default/test-app.
+      // The trigger project name. It consists of the namespace and name of the application, in the `${namespace}/${name}` format. Example: default/test-app.
       shared_ptr<string> projectId_ {};
       // The trigger type. Valid values:
       // 

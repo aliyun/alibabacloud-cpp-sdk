@@ -95,11 +95,9 @@ namespace Models
     protected:
       // The minimum cluster version required by this component version.
       shared_ptr<string> minimumClusterVersion_ {};
-      // Indicates whether the component can be upgraded to this version.
-      // 
-      // - true: The upgrade is supported.
-      // 
-      // - false: The upgrade is not supported.
+      // Indicates whether the component can be upgraded to this version. Valid values:
+      // - true: Supported.
+      // - false: Not supported.
       shared_ptr<bool> upgradable_ {};
       // The latest version number of the component.
       shared_ptr<string> version_ {};
@@ -180,17 +178,17 @@ namespace Models
   protected:
     // The CPU architectures supported by the component.
     shared_ptr<vector<string>> architecture_ {};
-    // The component category.
+    // The category of the component.
     shared_ptr<string> category_ {};
-    // The schema of custom parameters for the component.
+    // The custom parameter schema of the component.
     shared_ptr<string> configSchema_ {};
     // Indicates whether the component is installed by default.
     shared_ptr<bool> installByDefault_ {};
-    // Indicates whether the component is managed.
+    // Indicates whether the component is a managed component.
     shared_ptr<bool> managed_ {};
     // The name of the component.
     shared_ptr<string> name_ {};
-    // The information about newer versions of the component.
+    // The information about the latest versions of the component.
     shared_ptr<vector<DescribeAddonResponseBody::NewerVersions>> newerVersions_ {};
     // The operations supported by the component.
     shared_ptr<vector<string>> supportedActions_ {};

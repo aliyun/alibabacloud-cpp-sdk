@@ -73,14 +73,14 @@ namespace Models
   protected:
     // The governance action of the rule. Valid values:
     // 
-    // - `deny`: blocks non-compliant deployments.
-    // - `warn`: generates alerts.
+    // - `deny`: Blocks non-compliant deployments.
+    // - `warn`: Generates an alert.
     shared_ptr<string> action_ {};
-    // The instance ID of the policy rule instance.
+    // The instance ID of the policy rule.
     shared_ptr<string> instanceName_ {};
-    // The namespaces to which the policy applies. An empty value indicates all namespaces.
+    // The namespaces where the policy is enforced. If this parameter is left empty, the policy is enforced in all namespaces.
     shared_ptr<vector<string>> namespaces_ {};
-    // The configuration parameters of the current rule instance. For more information about parameter settings rules, see [Container Security Policy Rule Library](https://help.aliyun.com/document_detail/359819.html).
+    // The configuration parameters of the current rule instance. For more information about the rules for parameter settings, see [Container security policy rule library](https://help.aliyun.com/document_detail/359819.html).
     Darabonba::Json parameters_ {};
   };
 

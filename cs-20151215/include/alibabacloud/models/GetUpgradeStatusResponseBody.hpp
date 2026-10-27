@@ -77,9 +77,9 @@ namespace Models
     protected:
       // The description of the upgrade task.
       shared_ptr<string> message_ {};
-      // The upgrade task status. Valid values:
+      // The status of the upgrade task. Valid values:
       // - `running`: Running.
-      // - `Success`: Successful.
+      // - `Success`: Succeeded.
       // - `Failed`: Failed.
       shared_ptr<string> status_ {};
     };
@@ -126,24 +126,24 @@ namespace Models
   protected:
     // The error message during the cluster upgrade.
     shared_ptr<string> errorMessage_ {};
-    // The precheck report ID.
+    // The ID of the precheck report.
     shared_ptr<string> precheckReportId_ {};
     // The current upgrade status of the cluster. Valid values:
     // 
-    // - `success`: The upgrade is successful.
-    // - `fail`: The upgrade failed.
-    // - `pause`: The upgrade is paused.
-    // - `running`: The upgrade is in progress.
+    // - `success`: Upgrade succeeded.
+    // - `fail`: Upgrade failed.
+    // - `pause`: Upgrade paused.
+    // - `running`: Upgrade in progress.
     shared_ptr<string> status_ {};
-    // The current upgrade phase of the cluster. Valid values:
+    // The current upgrade stage of the cluster. Valid values:
     // 
     // - `not_start`: Not started.
     // - `prechecking`: Prechecking.
     // - `upgrading`: Upgrading.
     // - `pause`: Paused.
-    // - `success`: The upgrade is successful.
+    // - `success`: Upgrade succeeded.
     shared_ptr<string> upgradeStep_ {};
-    // The upgrade task details.
+    // The details of the upgrade task.
     shared_ptr<GetUpgradeStatusResponseBody::UpgradeTask> upgradeTask_ {};
   };
 

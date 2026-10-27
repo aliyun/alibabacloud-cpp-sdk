@@ -48,6 +48,7 @@ namespace Models
 
 
   protected:
+    // Specifies whether to access the cluster over the internal network.
     shared_ptr<bool> privateIpAddress_ {};
     shared_ptr<int64_t> temporaryDurationMinutes_ {};
   };

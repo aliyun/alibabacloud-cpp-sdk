@@ -112,7 +112,7 @@ namespace Models
 
 
         protected:
-          // The package name.
+          // The name of the package.
           shared_ptr<string> name_ {};
         };
 
@@ -165,13 +165,13 @@ namespace Models
 
 
       protected:
-        // The vulnerability alias.
+        // The alias of the vulnerability.
         shared_ptr<string> aliasName_ {};
-        // The list of CVEs associated with the vulnerability.
+        // The list of CVEs corresponding to the vulnerability.
         shared_ptr<vector<string>> cveList_ {};
-        // The vulnerability name.
+        // The name of the vulnerability.
         shared_ptr<string> name_ {};
-        // The vulnerability severity level.
+        // The vulnerability level.
         shared_ptr<string> necessity_ {};
         // Indicates whether a restart is required.
         shared_ptr<bool> needReboot_ {};
@@ -207,7 +207,7 @@ namespace Models
     protected:
       // The node instance ID.
       shared_ptr<string> instanceId_ {};
-      // The node name, which is the identifier of the node within the cluster.
+      // The name of the node, which identifies the node in the cluster.
       shared_ptr<string> nodeName_ {};
       // The list of vulnerabilities.
       shared_ptr<vector<VulRecords::VulList>> vulList_ {};
@@ -232,12 +232,11 @@ namespace Models
 
 
   protected:
-    // The list of node pool vulnerabilities.
+    // The list of vulnerabilities in the node pool.
     shared_ptr<vector<DescribeNodePoolVulsResponseBody::VulRecords>> vulRecords_ {};
-    // Indicates whether the China Cloud Security CVE fix service has been purchased.
+    // Indicates whether the Security Center CVE fix service is purchased. Valid values:
     // 
     // - true: Purchased.
-    // 
     // - false: Not purchased.
     shared_ptr<bool> vulsFixServicePurchased_ {};
   };

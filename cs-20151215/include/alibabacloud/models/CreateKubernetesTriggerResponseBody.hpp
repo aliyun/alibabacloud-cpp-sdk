@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The action of the trigger. Example: `redeploy`: Redeployment.
+    // The action of the trigger. For example, `redeploy`: Redeploys the resources.
     shared_ptr<string> action_ {};
     // The cluster ID.
     shared_ptr<string> clusterId_ {};
@@ -84,9 +84,8 @@ namespace Models
     // The project name of the trigger.
     shared_ptr<string> projectId_ {};
     // The type of the trigger. Valid values:
-    // 
-    // - `deployment`: The trigger for stateless applications. 
-    // - `application`: The trigger for Hybrid Cloud Application Center applications.
+    // - `deployment`: The trigger for stateless applications.
+    // - `application`: The trigger for applications in Hybrid Cloud Application Center.
     shared_ptr<string> type_ {};
   };
 

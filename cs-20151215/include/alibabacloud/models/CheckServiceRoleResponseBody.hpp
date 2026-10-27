@@ -77,11 +77,11 @@ namespace Models
 
 
     protected:
-      // Indicates whether the role has been authorized.
+      // Indicates whether the service role is authorized.
       shared_ptr<bool> granted_ {};
-      // The message returned when the role is not authorized.
+      // The prompt message when the service role is not authorized.
       shared_ptr<string> message_ {};
-      // The service role name.
+      // The name of the service role.
       shared_ptr<string> name_ {};
     };
 
@@ -96,7 +96,7 @@ namespace Models
 
 
   protected:
-    // The service role check results.
+    // The check results of the service roles.
     shared_ptr<vector<CheckServiceRoleResponseBody::Roles>> roles_ {};
   };
 

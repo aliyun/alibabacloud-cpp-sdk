@@ -199,7 +199,7 @@ namespace Models
       shared_ptr<string> configRevision_ {};
       // The name of the component.
       shared_ptr<string> name_ {};
-      // The state of the component.
+      // The state of the component. Valid values: installing, failed, active, upgrading, updating, and uninstalling.
       shared_ptr<string> state_ {};
       // The version of the component.
       shared_ptr<string> version_ {};

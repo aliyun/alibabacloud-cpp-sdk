@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The KubeConfig of the cluster.
+    // The kubeconfig file of the cluster.
     shared_ptr<string> config_ {};
-    // The expiration time of the KubeConfig. Format: UTC time in RFC 3339 format.
+    // The expiration time of the kubeconfig file. The time is displayed in UTC and follows the RFC 3339 format.
     shared_ptr<string> expiration_ {};
   };
 

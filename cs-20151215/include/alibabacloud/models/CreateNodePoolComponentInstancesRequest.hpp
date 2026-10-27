@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The interval between batches in seconds. Default value: 0.
+      // The upgrade interval between batches, in seconds. Default value: 0.
       shared_ptr<int64_t> batchInterval_ {};
-      // The maximum number of nodes that can fail during the rolling update. Default value: 0. A value of 0 indicates that the task fails if any node fails. A value greater than 0 indicates that the task fails and stops if the cumulative number of failed nodes exceeds this value.
+      // The maximum number of nodes allowed to fail during the rolling update. Default value: 0. A value of 0 indicates that the task fails if any node fails. A value greater than 0 indicates that the task fails and stops if the cumulative number of failed nodes exceeds this value.
       shared_ptr<int64_t> maxFailedNodes_ {};
       // The maximum number of parallel updates per batch. Default value: 1.
       shared_ptr<int64_t> maxParallelism_ {};
-      // The auto-pause policy during the node upgrade. Valid values: NotPause, FirstBatch, and EveryBatch. Default value: NotPause.
+      // The auto-pause policy during the node upgrade process. Valid values: NotPause, FirstBatch, and EveryBatch. Default value: NotPause.
       shared_ptr<string> pausePolicy_ {};
     };
 
@@ -287,7 +287,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<vector<CreateNodePoolComponentInstancesRequest::Components>> components_ {};
-    // The list of nodes for the rolling update. Default value: all nodes.
+    // The list of nodes specified for the rolling update. Default value: all nodes.
     shared_ptr<vector<string>> nodeNames_ {};
     // The rolling update configuration.
     shared_ptr<CreateNodePoolComponentInstancesRequest::RollingPolicy> rollingPolicy_ {};

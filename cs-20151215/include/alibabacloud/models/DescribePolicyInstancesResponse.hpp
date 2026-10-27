@@ -192,7 +192,7 @@ namespace Models
 
 
     protected:
-      // The UID of the policy instance implementer.
+      // The UID of the policy instance enforcer.
       shared_ptr<string> aliUid_ {};
       // The ID of the target cluster.
       shared_ptr<string> clusterId_ {};
@@ -208,27 +208,27 @@ namespace Models
       shared_ptr<string> policyParameters_ {};
       // The governance level of the rule instance.
       shared_ptr<string> policySeverity_ {};
-      // The scope of the policy instance.
+      // The enforcement scope of the policy instance.
       // 
-      // By default, an asterisk (*) indicates all namespaces in the cluster.
+      // A value of "*" indicates all namespaces in the cluster.
       // 
-      // Otherwise, the names of the namespaces to which the policy applies are returned. Multiple namespaces are separated by commas (,).
+      // Otherwise, the names of the target namespaces are returned, separated by commas (,).
       shared_ptr<string> policyScope_ {};
       // The governance action of the rule. Valid values:
       // 
       // - `deny`: Blocks non-compliant deployments.
       // 
-      // - `warn`: Generates an alert.
+      // - `warn`: Triggers an alert.
       shared_ptr<string> policyAction_ {};
-      // The creation time. This parameter is deprecated. Do not use it.
+      // **[Deprecated]** The creation time. Do not use this parameter.
       shared_ptr<string> created_ {};
-      // The update time. This parameter is deprecated. Do not use it.
+      // **[Deprecated]** The update time. Do not use this parameter.
       shared_ptr<string> updated_ {};
-      // The resource ID. This parameter is deprecated. Do not use it.
+      // **[Deprecated]** The resource ID. Do not use this parameter.
       shared_ptr<string> resourceId_ {};
-      // The number of violations processed in the cluster. This parameter is deprecated. Do not use it.
+      // **[Deprecated]** The number of processed violations in the cluster. Do not use this parameter.
       shared_ptr<int64_t> totalViolations_ {};
-      // The deletion status. This parameter is deprecated. Do not use it.
+      // **[Deprecated]** The deletion status. Do not use this parameter.
       shared_ptr<int64_t> isDeleted_ {};
     };
 

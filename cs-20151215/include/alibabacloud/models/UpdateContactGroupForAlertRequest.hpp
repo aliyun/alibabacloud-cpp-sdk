@@ -69,13 +69,13 @@ namespace Models
 
 
   protected:
-    // The name of the alert metric contact group.
+    // The name of the contact group for the alert metric.
     shared_ptr<string> alertRuleGroupName_ {};
     // The list of contact group IDs.
     shared_ptr<vector<int64_t>> contactGroupIds_ {};
     // The name of the CR instance.
     shared_ptr<string> crName_ {};
-    // The namespace in which the resource resides.
+    // The namespace where the resource resides.
     shared_ptr<string> namespace_ {};
   };
 

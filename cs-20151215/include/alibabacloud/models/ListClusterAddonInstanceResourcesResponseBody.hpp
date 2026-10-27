@@ -105,7 +105,7 @@ namespace Models
       shared_ptr<string> name_ {};
       // The namespace to which the object belongs.
       shared_ptr<string> namespace_ {};
-      // The Kubernetes API version to which the object belongs.
+      // The Kubernetes API version of the object.
       shared_ptr<string> version_ {};
     };
 

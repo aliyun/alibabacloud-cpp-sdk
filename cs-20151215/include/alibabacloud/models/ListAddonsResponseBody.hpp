@@ -129,36 +129,31 @@ namespace Models
     protected:
       // The CPU architectures supported by the component.
       shared_ptr<vector<string>> architecture_ {};
-      // The component categorization. Valid values:
+      // The category of the component. Valid values:
+      // - core: core component
+      // - network: network component
+      // - security: security component
+      // - storage: storage component
+      // - monitor: logging and monitoring component
+      // - application: application component
       // 
-      // - core: core component.
-      // - network: network type component.
-      // - security: security component.
-      // - storage: storage component.
-      // - monitor: logging and monitoring component.
-      // - application: application component.
-      // 
-      // An empty value indicates that the component belongs to another categorization.
+      // An empty value indicates that the component belongs to another category.
       shared_ptr<string> category_ {};
       // The schema of custom parameters for the component.
       shared_ptr<string> configSchema_ {};
       // Indicates whether the component is installed by default. Valid values:
-      // 
-      // - true: The component is installed by default when a cluster is created.
-      // 
+      // - true: The component is installed by default when the cluster is created.
       // - false: The component is not installed by default.
       shared_ptr<bool> installByDefault_ {};
       // Indicates whether the component is managed. Valid values:
-      // 
       // - true: The component is managed.
-      // 
       // - false: The component is not managed.
       shared_ptr<bool> managed_ {};
-      // The component name.
+      // The name of the component.
       shared_ptr<string> name_ {};
       // The operations supported by the component.
       shared_ptr<vector<string>> supportedActions_ {};
-      // The component version.
+      // The version of the component.
       shared_ptr<string> version_ {};
     };
 
@@ -173,7 +168,7 @@ namespace Models
 
 
   protected:
-    // The list of available add-on components.
+    // The list of available components.
     shared_ptr<vector<ListAddonsResponseBody::Addons>> addons_ {};
   };
 

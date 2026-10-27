@@ -152,18 +152,18 @@ namespace Models
 
 
   protected:
-    // The quota of managed clusters. Default value: 20. If you need to exceed the default value, [submit a request on the Quota Center page](https://quotas.console.aliyun.com/products/csk/quotas) to increase the quota.
+    // The managed cluster quota. Default value: 20. To increase the quota, [submit an application in Quota Center](https://quotas.console.aliyun.com/products/csk/quotas).
     shared_ptr<int64_t> amkClusterQuota_ {};
-    // The quota of ASK clusters. Default value: 20. If you need to exceed the default value, [submit a request on the Quota Center page](https://quotas.console.aliyun.com/products/csk/quotas) to increase the quota.
+    // The ASK cluster quota. Default value: 20. To increase the quota, [submit an application in Quota Center](https://quotas.console.aliyun.com/products/csk/quotas).
     shared_ptr<int64_t> askClusterQuota_ {};
-    // The node pool quota per cluster. Default value: 20. If you need to exceed the default value, [submit a request on the Quota Center page](https://quotas.console.aliyun.com/products/csk/quotas) to increase the quota.
+    // The node pool quota per cluster. Default value: 20. To increase the quota, [submit an application in Quota Center](https://quotas.console.aliyun.com/products/csk/quotas).
     shared_ptr<int64_t> clusterNodepoolQuota_ {};
-    // The total cluster quota per account. Default value: 50. If you need to exceed the default value, [submit a request on the Quota Center page](https://quotas.console.aliyun.com/products/csk/quotas) to increase the quota.
+    // The total cluster quota per account. Default value: 50. To increase the quota, [submit an application in Quota Center](https://quotas.console.aliyun.com/products/csk/quotas).
     shared_ptr<int64_t> clusterQuota_ {};
     shared_ptr<DescribeUserQuotaResponseBody::EdgeImprovedNodepoolQuota> edgeImprovedNodepoolQuota_ {};
-    // The node quota per cluster. Default value: 100. If you need to exceed the default value, [submit a request on the Quota Center page](https://quotas.console.aliyun.com/products/csk/quotas) to increase the quota.
+    // The node quota per cluster. Default value: 100. To increase the quota, [submit an application in Quota Center](https://quotas.console.aliyun.com/products/csk/quotas).
     shared_ptr<int64_t> nodeQuota_ {};
-    // The new quota items. If this field exists, the values in this field take precedence.
+    // The new quota items. If this field is present, it takes precedence.
     shared_ptr<map<string, QuotasValue>> quotas_ {};
   };
 

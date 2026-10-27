@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The kubeconfig content.
     shared_ptr<string> config_ {};
   };
 

@@ -82,10 +82,10 @@ namespace Models
       // - restart.docker: Restarts Docker.
       // - restart.containerd: Restarts Containerd.
       // - restart.ntp: Restarts ntpd or chronyd.
-      // - remove.containerdContainerInSandbox: Removes a specified sandbox container under Containerd.
-      // - remove.dockerContainerInSandbox: Removes a specified sandbox container under Docker.
-      // - remove.containerdContainer: Removes a specified container under Containerd.
-      // - remove.dockerContainer: Removes a specified container under Docker.
+      // - remove.containerdContainerInSandbox: Deletes the specified sandbox container in Containerd.
+      // - remove.dockerContainerInSandbox: Deletes the specified sandbox container in Docker.
+      // - remove.containerdContainer: Deletes the specified container in Containerd.
+      // - remove.dockerContainer: Deletes the specified container in Docker.
       shared_ptr<string> operationId_ {};
     };
 
@@ -117,11 +117,11 @@ namespace Models
 
 
   protected:
-    // **[Deprecated]** Specifies whether to allow instance restart.
+    // **[Deprecated]** Specifies whether to restart the instance.
     shared_ptr<bool> autoRestart_ {};
     // The list of nodes.
     shared_ptr<vector<string>> nodes_ {};
-    // The repair operations to perform. If not specified, all repair operations are performed by default. In most scenarios, you do not need to specify this parameter.
+    // The repair operations to be performed. If you do not specify this parameter, all repair operations are performed by default. You do not need to specify this parameter in common scenarios.
     shared_ptr<vector<RepairClusterNodePoolRequest::Operations>> operations_ {};
   };
 

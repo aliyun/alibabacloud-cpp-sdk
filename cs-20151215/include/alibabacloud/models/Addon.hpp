@@ -66,16 +66,15 @@ namespace Models
 
 
   protected:
-    // The configuration of the component.
+    // The component configuration.
     shared_ptr<string> config_ {};
-    // Specifies whether to disable default installation. When a cluster is created, required components and additional components such as log components are installed by default. You can disable this default behavior and install these components later by calling the component installation API or by using the console. Valid values:
-    // 
+    // Specifies whether to disable default installation. When a cluster is created, in addition to required components, additional components such as log components are installed by default. You can disable this default behavior and install these components later by calling the component installation API or through the console. Valid values:
     // - `true`: Disables default installation.
     // - `false`: Allows default installation.
     shared_ptr<bool> disabled_ {};
-    // The name of the component.
+    // The component name.
     shared_ptr<string> name_ {};
-    // The version of the component.
+    // The component version.
     shared_ptr<string> version_ {};
   };
 

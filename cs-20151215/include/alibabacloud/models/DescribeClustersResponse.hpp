@@ -148,7 +148,9 @@ namespace Models
 
 
       protected:
+        // The key of the cluster tag.
         shared_ptr<string> key_ {};
+        // The value of the cluster tag.
         shared_ptr<string> value_ {};
       };
 
@@ -365,34 +367,63 @@ namespace Models
 
 
     protected:
+      // The cluster ID.
       shared_ptr<string> clusterId_ {};
+      // The cluster type.
       shared_ptr<string> clusterType_ {};
+      // The time when the cluster was created.
       shared_ptr<string> created_ {};
+      // The current version of the cluster.
       shared_ptr<string> currentVersion_ {};
+      // The data disk category of the node.
       shared_ptr<string> dataDiskCategory_ {};
+      // The data disk size of the node.
       shared_ptr<int64_t> dataDiskSize_ {};
+      // Indicates whether deletion protection is enabled for the cluster.
       shared_ptr<bool> deletionProtection_ {};
+      // The Docker version of the cluster.
       shared_ptr<string> dockerVersion_ {};
+      // The ID of the external load balancing instance used by the cluster.
       shared_ptr<string> externalLoadbalancerId_ {};
+      // The initial version of the cluster.
       shared_ptr<string> initVersion_ {};
+      // The access address of the cluster API server, including the internal network access address and the public network access address.
       shared_ptr<string> masterUrl_ {};
+      // The metadata of the cluster.
       shared_ptr<string> metaData_ {};
+      // The name of the cluster.
       shared_ptr<string> name_ {};
+      // The network mode of the cluster.
       shared_ptr<string> networkMode_ {};
+      // Indicates whether Private Zone is enabled for the cluster. Default value: false.
       shared_ptr<bool> privateZone_ {};
+      // The subtype of the cluster.
       shared_ptr<string> profile_ {};
+      // The region ID of the cluster.
       shared_ptr<string> regionId_ {};
+      // The resource group ID of the cluster.
       shared_ptr<string> resourceGroupId_ {};
+      // The security group ID of the cluster.
       shared_ptr<string> securityGroupId_ {};
+      // The current number of nodes in the cluster, including master and worker nodes.
       shared_ptr<int64_t> size_ {};
+      // The state of the cluster.
       shared_ptr<string> state_ {};
+      // The subnet CIDR of the cluster.
       shared_ptr<string> subnetCidr_ {};
+      // The tags of the cluster.
       shared_ptr<vector<Body::Tags>> tags_ {};
+      // The time when the cluster was updated.
       shared_ptr<string> updated_ {};
+      // The VPC ID of the cluster.
       shared_ptr<string> vpcId_ {};
+      // The vSwitch CIDR.
       shared_ptr<string> vswitchCidr_ {};
+      // The ID of the vSwitch where the cluster is deployed.
       shared_ptr<string> vswitchId_ {};
+      // The name of the RAM role used by the worker nodes.
       shared_ptr<string> workerRamRoleName_ {};
+      // The zone ID of the cluster.
       shared_ptr<string> zoneId_ {};
     };
 

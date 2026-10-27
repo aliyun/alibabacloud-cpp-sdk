@@ -66,21 +66,20 @@ namespace Models
 
 
   protected:
-    // The component configuration.
+    // The add-on configuration.
     shared_ptr<string> config_ {};
-    // The component name.
+    // The add-on name.
     shared_ptr<string> name_ {};
-    // The component status. Valid values:
-    // 
+    // The add-on state. Valid values:
     // - initial: Installing.
     // - active: Installed.
-    // - unhealthy: Unhealthy.
+    // - unhealthy: Abnormal.
     // - upgrading: Upgrading.
     // - updating: Updating.
     // - deleting: Uninstalling.
     // - deleted: Deleted.
     shared_ptr<string> state_ {};
-    // The component version.
+    // The add-on version.
     shared_ptr<string> version_ {};
   };
 

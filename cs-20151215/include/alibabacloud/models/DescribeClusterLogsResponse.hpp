@@ -106,7 +106,7 @@ namespace Models
       shared_ptr<string> clusterId_ {};
       // The log content.
       shared_ptr<string> clusterLog_ {};
-      // The time when the log was created.
+      // The time when the log was generated.
       shared_ptr<string> created_ {};
       // The time when the log was updated.
       shared_ptr<string> updated_ {};

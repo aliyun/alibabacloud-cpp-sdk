@@ -130,7 +130,7 @@ namespace Models
 
 
     protected:
-      // The tag resource.
+      // The tagged resource.
       shared_ptr<vector<TagResources::TagResource>> tagResource_ {};
     };
 
@@ -164,7 +164,7 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The collection of tag resources.
+    // The collection of tagged resources.
     shared_ptr<ListTagResourcesResponseBody::TagResources> tagResources_ {};
   };
 

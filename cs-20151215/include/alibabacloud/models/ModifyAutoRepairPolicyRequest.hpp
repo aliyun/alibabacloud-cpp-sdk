@@ -139,7 +139,7 @@ namespace Models
 
 
           protected:
-            // The key value of the label.
+            // The key of the label.
             shared_ptr<string> key_ {};
             // The value of the label.
             shared_ptr<string> value_ {};
@@ -183,7 +183,7 @@ namespace Models
 
 
           protected:
-            // The key value of the label.
+            // The key of the label.
             shared_ptr<string> key_ {};
             // The value of the label.
             shared_ptr<string> value_ {};
@@ -224,7 +224,7 @@ namespace Models
 
 
         protected:
-          // The label configuration for authorization confirmation. When you add the following labels to the node, you authorize ACK to execute the operation for this stage. After completing the operation for this stage, ACK automatically removes the authorization inquiry and authorization confirmation labels corresponding to this stage. If you do not promptly add the following labels to grant authorization, ACK will not execute the action for this stage and subsequent actions, and the node may remain in a damaged state.
+          // The label configuration for authorization confirmation. When you add the following labels to the node, you authorize ACK to execute the operation for this stage. After completing the operation for this stage, ACK automatically removes the authorization inquiry and confirmation labels corresponding to this stage. If you do not add the following labels in time to grant authorization, ACK will not execute the action for this stage and subsequent actions, and the node may remain in a damaged state.
           shared_ptr<Intervention::ApprovedLabel> approvedLabel_ {};
           // Specifies whether to enable manual approval.
           shared_ptr<bool> enable_ {};
@@ -308,7 +308,7 @@ namespace Models
 
 
       protected:
-        // The name of the fault.
+        // The name of the incident.
         shared_ptr<string> name_ {};
         // The type of manual approval.
         shared_ptr<string> type_ {};
@@ -335,7 +335,7 @@ namespace Models
 
 
     protected:
-      // The list of identified faults.
+      // The list of identified incidents.
       shared_ptr<vector<Rules::Incidents>> incidents_ {};
       // The repair procedure.
       shared_ptr<vector<Rules::RepairProcedure>> repairProcedure_ {};

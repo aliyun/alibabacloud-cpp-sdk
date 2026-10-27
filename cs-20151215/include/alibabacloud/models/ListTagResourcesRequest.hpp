@@ -93,11 +93,12 @@ namespace Models
     shared_ptr<vector<string>> resourceIds_ {};
     // The resource type.
     // 
-    // CLUSTER: cluster.
+    // Valid values:
+    // - CLUSTER: cluster.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The list of tags to query. A maximum of 20 items can be specified.
+    // The list of tags to query. You can specify a maximum of 20 tags.
     shared_ptr<vector<Tag>> tags_ {};
   };
 

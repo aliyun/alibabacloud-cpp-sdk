@@ -71,15 +71,15 @@ namespace Models
   protected:
     // The Alibaba Cloud account ID.
     shared_ptr<string> aliuid_ {};
-    // The list of components for which control plane logging is enabled.
+    // The list of components for which control plane logging is currently enabled.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> components_ {};
-    // The name of the SLS project that stores the control plane component logs.
+    // The name of the SLS project where control plane component logs are stored.
     // 
-    // Default value: k8s-log-$Cluster ID.
+    // Default value: k8s-log-$ClusterId.
     shared_ptr<string> logProject_ {};
-    // The data retention period of logs in the SLS Logstore. Unit: days.
+    // The retention period of logs in the SLS Logstore. Unit: days.
     shared_ptr<string> logTtl_ {};
   };
 

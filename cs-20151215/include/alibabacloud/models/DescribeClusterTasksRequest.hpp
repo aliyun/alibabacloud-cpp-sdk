@@ -66,11 +66,13 @@ namespace Models
 
 
   protected:
+    // The maximum number of results to return per request.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token. Set the value to the next_token parameter value returned from the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The current page number.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of items per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

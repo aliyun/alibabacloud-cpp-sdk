@@ -75,29 +75,29 @@ namespace Models
 
 
   protected:
-    // Specifies whether to remove nodes concurrently.
+    // Specifies whether to remove the nodes concurrently. Valid values:
     // 
-    // - true: Nodes are concurrently removed from the scaling group.
+    // - true: removes the nodes from the scaling group concurrently.
     // 
-    // - false: Nodes are sequentially removed from the scaling group.
+    // - false: removes the nodes from the scaling group sequentially.
     // 
     // Default value: false.
     shared_ptr<bool> concurrency_ {};
     // Specifies whether to drain the nodes. Valid values:
-    // - true: Drain the nodes.
-    // - false: Do not drain the nodes.
+    // - true: drains the nodes.
+    // - false: does not drain the nodes.
     shared_ptr<bool> drainNode_ {};
-    // The list of instances to remove.
+    // The list of instances to be removed.
     shared_ptr<string> instanceIdsShrink_ {};
     // **[Deprecated]**
     // 
-    // The list of nodes to remove.
+    // The list of nodes to be removed.
     // 
-    // >Danger: This parameter is deprecated. Use `instance_ids` instead.</danger>
+    // >Danger: This parameter is deprecated. Use instance_ids instead.</danger>
     shared_ptr<string> nodesShrink_ {};
     // Specifies whether to release the nodes. Valid values:
-    // - true: Release the nodes.
-    // - false: Do not release the nodes.
+    // - true: releases the nodes.
+    // - false: does not release the nodes.
     shared_ptr<bool> releaseNode_ {};
   };
 

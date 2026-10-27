@@ -135,15 +135,15 @@ namespace Models
       shared_ptr<string> display_ {};
       // The check item group.
       shared_ptr<string> group_ {};
-      // The assessment result of the check item.
+      // The evaluation result of the check item.
       shared_ptr<string> level_ {};
       // The check result message.
       shared_ptr<string> message_ {};
-      // The check item name.
+      // The name of the check item.
       shared_ptr<string> name_ {};
       // The reference value.
       shared_ptr<string> refer_ {};
-      // The check item value.
+      // The value of the check item.
       shared_ptr<string> value_ {};
     };
 

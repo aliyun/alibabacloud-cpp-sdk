@@ -127,19 +127,19 @@ namespace Models
     protected:
       // The list of CVEs.
       shared_ptr<vector<string>> cveList_ {};
-      // The vulnerability severity level.
+      // The severity level of the vulnerability.
       shared_ptr<string> necessity_ {};
-      // The number of nodes that have this vulnerability.
+      // The number of nodes that have the vulnerability.
       shared_ptr<int32_t> nodeCount_ {};
-      // The node pool ID.
+      // The ID of the node pool.
       shared_ptr<string> nodepoolId_ {};
-      // The node pool name.
+      // The name of the node pool.
       shared_ptr<string> nodepoolName_ {};
-      // The vulnerability alias.
+      // The alias of the vulnerability.
       shared_ptr<string> vulAliasName_ {};
-      // The vulnerability name.
+      // The name of the vulnerability.
       shared_ptr<string> vulName_ {};
-      // The vulnerability type.
+      // The type of the vulnerability.
       shared_ptr<string> vulType_ {};
     };
 

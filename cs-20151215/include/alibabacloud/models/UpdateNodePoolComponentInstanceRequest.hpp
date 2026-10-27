@@ -96,11 +96,11 @@ namespace Models
     protected:
       // The upgrade interval between batches, in seconds. Default value: 0.
       shared_ptr<int64_t> batchInterval_ {};
-      // The maximum number of nodes that are allowed to fail during the rolling update. Default value: 0. A value of 0 indicates that the task fails if any node fails. A value greater than 0 indicates that the task fails and stops if the cumulative number of failed nodes exceeds this value.
+      // The maximum number of nodes allowed to fail during the rolling update. Default value: 0. A value of 0 indicates that the task fails if any node fails. A value greater than 0 indicates that the task fails and stops if the cumulative number of failed nodes exceeds this value.
       shared_ptr<int64_t> maxFailedNodes_ {};
-      // The maximum number of parallel updates per batch. Default value: 1.
+      // The maximum number of parallel nodes per batch. Default value: 1.
       shared_ptr<int64_t> maxParallelism_ {};
-      // The auto-pause policy during the node upgrade process. Valid values: NotPause, FirstBatch, and EveryBatch. Default value: NotPause.
+      // The automatic pause policy during node upgrades. Valid values: NotPause, FirstBatch, and EveryBatch. Default value: NotPause.
       shared_ptr<string> pausePolicy_ {};
     };
 
@@ -242,9 +242,9 @@ namespace Models
   protected:
     // The node component configuration.
     shared_ptr<UpdateNodePoolComponentInstanceRequest::Config> config_ {};
-    // Specifies whether to disable the rolling update. Default value: false. Updating the baseline configuration triggers a rolling update of the nodes.
+    // Specifies whether to disable rolling updates. Default value: false. Updating the baseline configuration triggers a rolling update of the nodes.
     shared_ptr<bool> disableRolling_ {};
-    // The list of nodes to be updated in a rolling manner. By default, all nodes are updated.
+    // The list of nodes to be updated in a rolling manner. Default value: all nodes.
     shared_ptr<vector<string>> nodeNames_ {};
     // The rolling update configuration.
     shared_ptr<UpdateNodePoolComponentInstanceRequest::RollingPolicy> rollingPolicy_ {};

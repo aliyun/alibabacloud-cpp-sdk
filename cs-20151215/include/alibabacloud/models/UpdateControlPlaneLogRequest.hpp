@@ -73,13 +73,13 @@ namespace Models
     shared_ptr<string> aliuid_ {};
     // The list of components for which control plane logging is enabled.
     shared_ptr<vector<string>> components_ {};
-    // The name of the SLS project used to store control plane component logs.
+    // The name of the SLS project where control plane component logs are stored.
     // 
-    // Default value: k8s-log-$Cluster ID.
+    // Default value: k8s-log-$ClusterId.
     shared_ptr<string> logProject_ {};
-    // The log retention period in the SLS Logstore. Valid values: 1 to 3000. Unit: days.
+    // The retention period of logs in the SLS Logstore. Valid values: 1 to 3000. Unit: days.
     // 
-    // Default value: 30 days.
+    // Default value: 30.
     shared_ptr<string> logTtl_ {};
   };
 

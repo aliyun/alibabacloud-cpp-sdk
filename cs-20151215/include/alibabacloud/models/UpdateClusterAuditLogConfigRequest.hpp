@@ -49,17 +49,16 @@ namespace Models
 
   protected:
     // Specifies whether to disable the cluster audit log feature. Valid values:
-    // - false: Enables the audit log feature or updates the audit log configuration.
-    // 
-    // - true: Disables the audit log feature.
+    // - false: enables the audit log feature or updates the audit log configurations.
+    // - true: disables the audit log feature.
     shared_ptr<bool> disable_ {};
-    // The [SLS Project](https://help.aliyun.com/document_detail/48873.html) that contains the [Logstore](https://help.aliyun.com/document_detail/48874.html) for cluster audit logs.
+    // The [SLS project](https://help.aliyun.com/document_detail/48873.html) where the [Logstore](https://help.aliyun.com/document_detail/48874.html) for cluster audit logs is located.
     // 
-    // - Default value: k8s-log-{clusterid}.
+    // - The default value is k8s-log-{clusterid}.
     // 
-    // - After you enable the cluster audit log feature, a Logstore for cluster audit logs is created in the specified SLS Project.
+    // - After you enable the cluster audit log feature, a Logstore for cluster audit logs is created in the specified SLS project.
     // 
-    // - If you need to change the SLS Project after enabling the cluster audit log feature, use this parameter to specify a new SLS Project. Only ACK managed clusters support changing the SLS Project.
+    // - If you need to change the SLS project after enabling the cluster audit log feature, you can use this parameter to specify a new SLS project. Only ACK managed clusters support changing the SLS project.
     shared_ptr<string> slsProjectName_ {};
   };
 

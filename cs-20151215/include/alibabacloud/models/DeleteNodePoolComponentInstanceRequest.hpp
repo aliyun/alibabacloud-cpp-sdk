@@ -80,13 +80,13 @@ namespace Models
   protected:
     // The interval between batches, in seconds. Default value: 0.
     shared_ptr<int64_t> batchInterval_ {};
-    // The maximum number of nodes that can fail during the rolling process. Default value: 0. A value of 0 indicates that the task fails if any node fails. A value greater than 0 indicates that the task fails and stops if the cumulative number of failed nodes exceeds this value.
+    // The maximum number of nodes that are allowed to fail during the rolling process. Default value: 0. A value of 0 indicates that the task fails if any node fails. A value greater than 0 indicates that the task fails and stops if the cumulative number of failed nodes exceeds this value.
     shared_ptr<int64_t> maxFailedNodes_ {};
-    // The maximum number of parallel operations per batch. Default value: 1.
+    // The maximum number of parallel nodes per batch. Default value: 1.
     shared_ptr<int64_t> maxParallelism_ {};
     // The list of nodes to rotate. Default value: all nodes.
     shared_ptr<vector<string>> nodeNames_ {};
-    // The auto-pause policy during a node upgrade. Valid values:
+    // The auto-pause policy during the node upgrade process. Valid values:
     // - NotPause
     // - FirstBatch
     // - EveryBatch

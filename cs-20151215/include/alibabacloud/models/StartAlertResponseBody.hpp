@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The response message.
+    // The returned message.
     shared_ptr<string> msg_ {};
     // The status.
     shared_ptr<bool> status_ {};

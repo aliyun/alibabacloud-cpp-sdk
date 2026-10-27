@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The alert rule group name.
+    // The name of the alert rule group.
     shared_ptr<string> alertRuleGroupName_ {};
-    // The alert rule name.
+    // The name of the alert rule.
     shared_ptr<string> alertRuleName_ {};
   };
 

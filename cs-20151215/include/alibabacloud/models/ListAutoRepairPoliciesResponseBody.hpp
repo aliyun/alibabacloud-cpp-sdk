@@ -168,7 +168,7 @@ namespace Models
             protected:
               // The key value of the label.
               shared_ptr<string> key_ {};
-              // The value of the taint.
+              // The value of the label.
               shared_ptr<string> value_ {};
             };
 
@@ -251,7 +251,7 @@ namespace Models
 
 
           protected:
-            // The label configuration for authorization confirmation. When you add the following labels to the node, you authorize ACK to execute the operation for this stage. After completing the operation for this stage, ACK automatically removes the authorization inquiry and authorization confirmation labels corresponding to this stage. If you do not add the following labels in time to grant authorization, ACK will not execute the action for this stage and subsequent actions, and the node may remain in a damaged state.
+            // The label configuration for authorization confirmation. Adding the following labels to the node authorizes ACK to execute the operation for this stage. After completing the operation for this stage, ACK automatically removes the inquiry and confirmation labels associated with this stage. If you do not add the following labels promptly, ACK does not execute the action for this stage or any subsequent actions, and the node may remain in a damaged state.
             shared_ptr<Intervention::ApprovedLabel> approvedLabel_ {};
             // Specifies whether manual approval is enabled.
             shared_ptr<bool> enable_ {};
@@ -291,7 +291,7 @@ namespace Models
         protected:
           // The configuration parameters of the procedure.
           Darabonba::Json config_ {};
-          // The manual intervention configuration for the procedure.
+          // The configuration for the manual intervention procedure.
           shared_ptr<RepairProcedure::Intervention> intervention_ {};
           // The name of the procedure.
           shared_ptr<string> name_ {};
@@ -337,7 +337,7 @@ namespace Models
         protected:
           // The name of the fault.
           shared_ptr<string> name_ {};
-          // The diagnosis type.
+          // The diagnostic type.
           shared_ptr<string> type_ {};
         };
 
@@ -423,11 +423,11 @@ namespace Models
       shared_ptr<string> name_ {};
       // The list of resources bound to the self-healing rule.
       shared_ptr<vector<string>> resourceIds_ {};
-      // The subtype of resource bound to the self-healing rule.
+      // The subtype of the resource bound to the self-healing rule.
       shared_ptr<string> resourceSubType_ {};
       // The type of resource bound to the self-healing rule.
       shared_ptr<string> resourceType_ {};
-      // The list of self-healing sub-rules.
+      // The list of self-healing subrules.
       shared_ptr<vector<Items::Rules>> rules_ {};
     };
 

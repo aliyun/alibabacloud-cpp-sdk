@@ -55,7 +55,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> operationAction_ {};
-    // The list of parameters accepted by the O&M action.
+    // The list of parameters for the O&M action.
     shared_ptr<vector<string>> operationArgs_ {};
   };
 

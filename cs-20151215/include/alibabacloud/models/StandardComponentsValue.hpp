@@ -79,18 +79,18 @@ namespace Models
     shared_ptr<string> name_ {};
     // The version of the component.
     shared_ptr<string> version_ {};
-    // The description of the component.
+    // The description of the component features.
     shared_ptr<string> description_ {};
-    // Indicates whether the component is required for the cluster. Valid values:
+    // Specifies whether the component is required for the cluster. Valid values:
     // 
-    // - `true`: The component is required and must be installed when the cluster is created.
+    // - true: The component is required and must be installed when the cluster is created.
     // 
-    // - `false`: The component is not required. You can install it through component management after the cluster is created.
+    // - false: The component is not required. You can install it in the Components module after the cluster is created.
     shared_ptr<string> required_ {};
-    // Specifies whether to disable default installation. When a cluster is created, in addition to the required components, some log-related or routing-related components (such as Ingress) are installed by default. If you do not want these components to be installed by default, set this parameter to disable default installation. Valid values:
+    // Specifies whether to disable the default installation of the component. When a cluster is created, components required for the cluster are installed. In addition, some components related to logs or routing, such as Ingress, are installed by default. If you do not want to install these components by default, you can set this parameter to disable the default installation. Valid values:
     // 
-    // - `true`: Default installation is disabled.
-    // - `false`: Default installation is enabled.
+    // - true: disables the default installation.
+    // - false: enables the default installation.
     shared_ptr<bool> disabled_ {};
   };
 

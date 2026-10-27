@@ -115,9 +115,9 @@ namespace Models
 
 
   protected:
-    // The list of node components.
+    // The node components.
     shared_ptr<vector<ListNodePoolComponentsResponseBody::Components>> components_ {};
-    // The maximum number of results to return. Default value: 200.
+    // The maximum number of results per page. Default value: 200.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token.
     shared_ptr<string> nextToken_ {};

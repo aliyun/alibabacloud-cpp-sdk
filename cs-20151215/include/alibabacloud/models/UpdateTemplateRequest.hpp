@@ -75,21 +75,21 @@ namespace Models
 
 
   protected:
-    // The description of the deployment template.
+    // The description of the orchestration template.
     shared_ptr<string> description_ {};
-    // The name of the deployment template.
+    // The name of the orchestration template.
     shared_ptr<string> name_ {};
-    // The tags of the deployment template.
+    // The tags of the orchestration template.
     shared_ptr<string> tags_ {};
-    // The template content in YAML format.
+    // The content of the template in YAML format.
     shared_ptr<string> template_ {};
     // The templatetype.
     // 
-    // - If you set this parameter to `kubernetes`, the template is displayed on the Orchestration Templates page in the console.
+    // - If you set the value to `kubernetes`, the template is displayed on the Orchestration Templates page in the console.
     // 
-    // - If you leave this parameter empty or set it to other values, the template is not displayed on the Orchestration Templates page in the console.
+    // - If you do not specify this parameter or set the value to other values, the template is not displayed on the Orchestration Templates page in the console.
     // 
-    // Settings this parameter to `kubernetes` is recommended.
+    // Recommended Settings: `kubernetes`.
     shared_ptr<string> templateType_ {};
   };
 

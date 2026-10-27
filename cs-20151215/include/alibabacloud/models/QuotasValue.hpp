@@ -66,11 +66,11 @@ namespace Models
 
 
   protected:
-    // The quota value. If you need to exceed the quota, submit a request on the [Quota Center page](https://quotas.console.aliyun.com/products/csk/quotas) to increase the quota.
+    // The quota value. If the quota is exceeded, [submit an application in Quota Center](https://quotas.console.aliyun.com/products/csk/quotas) to increase the quota.
     shared_ptr<string> quota_ {};
     // The quota code.
     shared_ptr<string> operationCode_ {};
-    // Indicates whether the quota is adjustable.
+    // Indicates whether the quota can be adjusted.
     shared_ptr<bool> adjustable_ {};
     // The unit.
     shared_ptr<string> unit_ {};

@@ -146,13 +146,13 @@ namespace Models
 
 
     protected:
-      // The orchestration template ID. A new ID is generated each time the template is modified.
+      // The ID of the orchestration template. A new template ID is generated each time the template is modified.
       shared_ptr<string> id_ {};
       // The access permissions of the orchestration template. Valid values:
       // 
-      // - `private`: private.
-      // - `public`: public.
-      // - `shared`: shared.
+      // - `private`: Private.
+      // - `public`: Public.
+      // - `shared`: Shared.
       shared_ptr<string> acl_ {};
       // The name of the orchestration template.
       shared_ptr<string> name_ {};
@@ -162,7 +162,7 @@ namespace Models
       // 
       // - If the value is kubernetes, the template is displayed on the Orchestration Templates page in the console.
       // 
-      // - If this parameter is not set or is set to other values, the template is not displayed on the Orchestration Templates page in the console.
+      // - If this parameter is not specified or is set to another value, the template is not displayed on the Orchestration Templates page in the console.
       shared_ptr<string> templateType_ {};
       // The description of the orchestration template.
       shared_ptr<string> description_ {};
@@ -172,7 +172,7 @@ namespace Models
       shared_ptr<string> templateWithHistId_ {};
       // The time when the orchestration template was created.
       shared_ptr<string> created_ {};
-      // The time when the orchestration template was last updated.
+      // The time when the orchestration template was updated.
       shared_ptr<string> updated_ {};
     };
 

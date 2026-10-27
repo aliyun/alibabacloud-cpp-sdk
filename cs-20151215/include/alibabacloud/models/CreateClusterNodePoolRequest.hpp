@@ -7,6 +7,7 @@
 #include <alibabacloud/models/DiskInit.hpp>
 #include <alibabacloud/models/InstanceMetadataOptions.hpp>
 #include <alibabacloud/models/InstancePatterns.hpp>
+#include <alibabacloud/models/Hugepage.hpp>
 #include <alibabacloud/models/KubeletConfig.hpp>
 #include <alibabacloud/models/Tag.hpp>
 #include <alibabacloud/models/Taint.hpp>
@@ -95,7 +96,7 @@ namespace Models
 
 
     protected:
-      // Specifies whether to enable confidential computing for the cluster.
+      // Specifies whether to enable the confidential computing cluster. Valid values:
       // 
       // - true: Enables confidential computing.
       // 
@@ -306,14 +307,9 @@ namespace Models
 
 
       protected:
-        // The instance type of the spot instance.
+        // The spot instance type.
         shared_ptr<string> instanceType_ {};
-        // The maximum price per instance.
-        // <props="china">Unit: CNY/hour.
-        // 
-        // 
-        // 
-        // <props="intl">Unit: USD/hour.
+        // The maximum price per instance. <props="china">Unit: CNY/hour.  <props="intl">Unit: USD/hour.
         shared_ptr<string> priceLimit_ {};
       };
 
@@ -357,12 +353,12 @@ namespace Models
 
 
       protected:
-        // The list of private pool IDs, which are elasticity assurance IDs or capacity reservation IDs. Only Target mode private pool IDs can be specified. Valid values of N: 1 to 20.
+        // The list of private pool IDs, which are the IDs of elasticity assurances or capacity reservations. You can only specify the IDs of private pools in Target mode. Valid values of N: 1 to 20.
         shared_ptr<vector<string>> privatePoolIds_ {};
-        // The resource pool policy used when creating instances. Resource pools include private pools generated after an elasticity assurance or capacity reservation takes effect, and public pools, which are available for instance launch. Valid values:
-        // PrivatePoolFirst: Private pool first. When this policy is selected and resouce_pool_options.private_pool_ids is specified, the specified private pools are used first. If no private pool is specified or the specified private pool has insufficient capacity, open private pools are automatically matched. If no matching private pool is available, public pool resources are used to create instances.
-        // PrivatePoolOnly: Private pool only. When this policy is selected, resouce_pool_options.private_pool_ids must be specified. If the specified private pool has insufficient capacity, the instance fails to launch.
-        // None: No resource pool policy.
+        // The resource pool strategy used to create instances. Resource pools include private pools generated after elasticity assurances or capacity reservations take effect, as well as public pools. Valid values:
+        // PrivatePoolFirst: Private pool first. If you select this strategy and specify resouce_pool_options.private_pool_ids, the specified private pools are used first. If no private pool is specified or the specified private pools do not have sufficient capacity, open private pools are automatically matched. If no eligible private pool is available, the public pool is used to create instances.
+        // PrivatePoolOnly: Private pool only. If you select this strategy, you must specify resouce_pool_options.private_pool_ids. If the specified private pools do not have sufficient capacity, the instances fail to start.
+        // None: No resource pool strategy is used.
         // Default value: None.
         shared_ptr<string> strategy_ {};
       };
@@ -405,12 +401,12 @@ namespace Models
 
 
       protected:
-        // The private node pool ID. When `match_criteria` is set to `Target`, you must specify the private pool ID.
+        // The ID of the private pool, which is the ID of the elasticity assurance or capacity reservation. When `match_criteria` is set to `Target`, you must specify the private pool ID.
         shared_ptr<string> id_ {};
-        // The private node pool type. Specifies the private pool capacity option for instance launch. After an elasticity assurance or capacity reservation takes effect, a private pool is generated for instance launch. Valid values:
-        // - `Open`: Open mode. Automatically matches open private pool capacity. If no matching private pool capacity is available, public pool resources are used for launch.
-        // - `Target`: Targeted mode. Uses the specified private pool capacity to launch instances. If the specified private pool capacity is unavailable, the instance fails to launch.
-        // - `None`: No private pool. The instance launch does not use private pool capacity.
+        // The private pool capacity matching mode for instance startup. After an elasticity assurance or capacity reservation takes effect, private pool capacity is generated for you to select when starting instances. Valid values:
+        // - `Open`: open mode. The system automatically matches the capacity of open private pools. If no matching private pool capacity is available, public pool resources are used. In this mode, you do not need to specify the PrivatePoolOptions.Id parameter.
+        // - `Target`: targeted mode. The system uses the capacity of the specified private pool to start instances. If the specified private pool capacity is unavailable, the instances fail to start. In this mode, you must specify the private pool ID by setting the PrivatePoolOptions.Id parameter.
+        // - `None`: no private pool mode. The system does not use private pool capacity to start instances.
         shared_ptr<string> matchCriteria_ {};
       };
 
@@ -442,7 +438,7 @@ namespace Models
 
 
       protected:
-        // Specifies whether to enable nested virtualization. Valid values: disabled: Disables nested virtualization. enabled: Enables nested virtualization.
+        // Specifies whether to enable nested virtualization. Valid values: `disabled`: disables nested virtualization. `enabled`: enables nested virtualization.
         shared_ptr<string> nestedVirtualization_ {};
       };
 
@@ -858,41 +854,41 @@ namespace Models
       // 
       // Default value: `false`.
       shared_ptr<bool> autoRenew_ {};
-      // The auto-renewal duration for a single renewal. Valid values:
-      // - If PeriodUnit=Week: 1, 2, 3.
-      // - If PeriodUnit=Month: 1, 2, 3, 6, 12, 24, 36, 48, 60.
+      // The duration of each auto-renewal. Valid values:
+      // - When PeriodUnit is set to Week: 1, 2, and 3.
+      // - When PeriodUnit is set to Month: 1, 2, 3, 6, 12, 24, 36, 48, and 60.
       // 
       // Default value: 1.
       shared_ptr<int64_t> autoRenewPeriod_ {};
-      // **[Deprecated]** Use the security_hardening_os parameter instead.
+      // **[Deprecated]** Use the `security_hardening_os` parameter instead.
       shared_ptr<bool> cisEnabled_ {};
-      // Specifies whether to allow automatic creation of pay-as-you-go instances to meet the required number of ECS instances when `multi_az_policy` is set to `COST_OPTIMIZED` and spot instances cannot be created due to price, inventory, or other reasons. Valid values:
+      // Specifies whether to automatically create pay-as-you-go instances to meet the required number of ECS instances when spot instances cannot be created due to price or inventory issues and `multi_az_policy` is set to `COST_OPTIMIZED`. Valid values:
       // 
-      // - `true`: Allows automatic creation of pay-as-you-go instances to meet the required number of ECS instances.
-      // - `false`: Does not allow automatic creation of pay-as-you-go instances to meet the required number of ECS instances.
+      // - `true`: automatically creates pay-as-you-go instances to meet the required number of ECS instances.
+      // - `false`: does not automatically create pay-as-you-go instances.
       shared_ptr<bool> compensateWithOnDemand_ {};
       // The CPU-related configuration options.
       shared_ptr<ScalingGroup::CpuOptions> cpuOptions_ {};
-      // The data cloud disk configurations for nodes in the node pool.
+      // The data cloud disk configuration for nodes in the node pool.
       shared_ptr<vector<DataDisk>> dataDisks_ {};
-      // The deployment set ID. You can use a deployment set to distribute ECS instances scaled out by the node pool across different physical servers to ensure high availability and underlying disaster recovery. When ECS instances are created within a deployment set, they are launched in the specified region based on the preconfigured deployment policy.
+      // The ID of the deployment set. You can use a deployment set to distribute ECS instances created by the node pool across different physical servers to ensure high availability and underlying disaster recovery capabilities. When creating ECS instances in a deployment set, the instances are started in a distributed manner in the specified region based on the predefined deployment policy.
       // 
       // 
-      // >Notice: After you select a deployment set, the maximum number of nodes in the node pool is limited. The default maximum number of nodes supported by a deployment set is 20 × the number of zones (the number of zones is determined by the vSwitches). Select a deployment set carefully and make sure that the deployment set has sufficient quota to avoid node scale-out failures.
+      // >Notice: After you select a deployment set, the maximum number of nodes in the node pool is limited. By default, a deployment set supports up to 20 × the number of zones nodes. The number of zones is determined by the vSwitches. Proceed with caution and ensure that the quota in the deployment set is sufficient to prevent node scale-out failures.</notice>
       shared_ptr<string> deploymentsetId_ {};
-      // The desired number of nodes in the node pool.
+      // The expected number of nodes in the node pool.
       // 
-      // The total number of nodes that the node pool should maintain. We recommend that you configure at least two nodes to ensure that cluster components run properly. You can scale the node pool in or out by adjusting the desired number of nodes.
+      // This is the total number of nodes that the node pool should maintain. We recommend that you configure at least two nodes to ensure the normal operation of cluster components. You can scale out or scale in the node pool by adjusting the expected number of nodes.
       // 
-      // If you do not need to create nodes, set this parameter to 0. You can manually increase the number of nodes later.
+      // If you do not need to create nodes, set this parameter to 0 and manually increase the number of nodes later.
       shared_ptr<int64_t> desiredSize_ {};
       // The block device initialization configuration.
       shared_ptr<vector<DiskInit>> diskInit_ {};
-      // Specifies whether to enable high-density cloud disk mode. This is supported only when the node pool uses instance types. When enabled, the total number of system cloud disks and data cloud disks does not exceed the maximum number of high-density cloud disks supported by the instance type.
+      // Specifies whether to enable the high-density cloud disk mode. This mode is supported only when the node pool uses instance types. After this mode is enabled, the total number of system cloud disks and data cloud disks does not exceed the maximum number of high-density cloud disks supported by the instance type.
       shared_ptr<bool> enableHighDensityMode_ {};
-      // The custom image ID. By default, the system-provided image is used.
+      // The ID of the custom image. By default, the system-provided image is used.
       shared_ptr<string> imageId_ {};
-      // The type of operating system image. Valid values:
+      // The type of the operating system image. We recommend that you use this field to specify the operating system for nodes. Valid values:
       // 
       // - `AliyunLinux`: Alinux2 image.
       // - `AliyunLinuxSecurity`: Alinux2 UEFI image.
@@ -901,11 +897,11 @@ namespace Models
       // - `AliyunLinux3Security`: Alinux3 UEFI image.
       // - `CentOS`: CentOS image.
       // - `Windows`: Windows image.
-      // - `WindowsCore`: WindowsCore image.
-      // - `ContainerOS`: container-optimization image.
-      // - `AliyunLinux3ContainerOptimized`: Alinux3 container-optimization image.
+      // - `WindowsCore`: Windows Core image.
+      // - `ContainerOS`: container-optimized image.
+      // - `AliyunLinux3ContainerOptimized`: Alinux3 container-optimized image.
       shared_ptr<string> imageType_ {};
-      // The billing method of nodes in the node pool. Valid values:
+      // The billing method for nodes in the node pool. Valid values:
       //  
       // - `PrePaid`: subscription.
       // 
@@ -915,62 +911,63 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> instanceChargeType_ {};
-      // The ECS instance metadata access configuration.
+      // The instance metadata access configuration for ECS instances.
       shared_ptr<InstanceMetadataOptions> instanceMetadataOptions_ {};
-      // The instance attribute configuration.
+      // The instance property configuration.
       shared_ptr<vector<InstancePatterns>> instancePatterns_ {};
-      // The list of instance types for the node pool. When the node pool scales out, instances are created based on the instance types that meet the requirements from this list.
+      // The list of instance types for nodes in the node pool. When the node pool scales out nodes, it selects instance types that meet the requirements from the specified list to create instances.
       // 
-      // The number of supported instance types ranges from 1 to 10.
+      // Supported number of instance types: 1 to 10.
       // 
-      // > To ensure high availability, specify multiple instance types.
+      // 
+      // > To ensure high availability, we recommend that you select multiple instance types.
       // 
       // This parameter is required.
       shared_ptr<vector<string>> instanceTypes_ {};
-      // The billing method for public IP addresses. Valid values:
+      // The billing method for the public IP address. Valid values:
       // 
-      // - PayByBandwidth: billed by fixed bandwidth.
-      // - PayByTraffic: billed by traffic usage.
+      // - `PayByBandwidth`: pay-by-bandwidth.
+      // - `PayByTraffic`: pay-by-data-transfer.
       shared_ptr<string> internetChargeType_ {};
-      // The maximum outbound public bandwidth of the node. Unit: Mbit/s. Valid values: [1,100\\].
+      // The maximum outbound bandwidth for the public IP address of the node. Unit: Mbit/s. Valid values: 1 to 100.
       shared_ptr<int64_t> internetMaxBandwidthOut_ {};
-      // The name of the key pair for password-free logon. You must specify either this parameter or `login_password`.
+      // The name of the key pair for passwordless logon. This parameter and `login_password` are mutually exclusive.
       // 
-      // >If the node pool uses the ContainerOS operating system, only `key_pair` is supported.
+      // > If the node pool uses the ContainerOS operating system, only `key_pair` is supported.
       shared_ptr<string> keyPair_ {};
-      // Specifies whether the scaled-out ECS instance uses a non-root user for logon.
+      // Specifies whether to log on to the created ECS instances as a non-root user. Valid values:
       //  
-      // - true: logs on as a non-root user (ecs-user).
+      // - `true`: logs on as a non-root user (ecs-user).
       // 
-      // - false: logs on as the root user.
+      // - `false`: logs on as the root user.
       shared_ptr<bool> loginAsNonRoot_ {};
       // The SSH logon password. You must specify either this parameter or `key_pair`. The password must be 8 to 30 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
       shared_ptr<string> loginPassword_ {};
-      // The multi-zone scaling policy for ECS instances in the scaling group. Valid values:
+      // The scaling policy for ECS instances in a multi-zone scaling group. Valid values:
       // 
-      // - `PRIORITY`: Scales instances based on the vSwitches (VSwitchIds.N) that you define. When ECS instances cannot be created in the zone of the vSwitch with the highest priority, the system automatically uses the vSwitch with the next highest priority to create ECS instances.
+      // - `PRIORITY`: Scales instances based on the vSwitches (VSwitchIds.N) that you specify. If ECS instances cannot be created in the zone of the vSwitch with the highest priority, the system automatically uses the vSwitch with the next highest priority to create ECS instances.
       // 
-      // - `COST_OPTIMIZED`: Attempts to create instances in ascending order of vCPU unit price. When the scaling configuration sets multiple instance types with the spot billing method, spot instances are created first. You can use the `CompensateWithOnDemand` parameter to specify whether the system is allowed to automatically attempt to create pay-as-you-go instances when spot instances cannot be created due to insufficient inventory or other reasons.
+      // - `COST_OPTIMIZED`: Attempts to create instances based on the vCPU unit price from low to high. When the scaling configuration specifies multiple instance types with the spot billing method, the system preferentially creates the corresponding spot instances. You can use the `CompensateWithOnDemand` parameter to specify whether to automatically create pay-as-you-go instances when spot instances cannot be created due to inventory shortages or other reasons.
       // 
-      //   >`COST_OPTIMIZED` takes effect only when the scaling configuration sets multiple instance types or uses spot instances.
+      //   > `COST_OPTIMIZED` takes effect only when the scaling configuration specifies multiple instance types or uses spot instances.
       // 
-      // - `BALANCE`: Evenly allocates ECS instances across the multiple zones specified in the scaling group. If the zones become unbalanced due to insufficient inventory or other reasons, you can call the [RebalanceInstances](https://help.aliyun.com/document_detail/71516.html) API operation to rebalance resources.
+      // - `BALANCE`: Evenly allocates ECS instances across the multiple zones specified in the scaling group. If the instances are unevenly distributed across zones due to inventory shortages, you can call the [RebalanceInstances](https://help.aliyun.com/document_detail/71516.html) API operation to balance the resources.
       // 
       // Default value: `PRIORITY`.
       shared_ptr<string> multiAzPolicy_ {};
-      // The minimum number of pay-as-you-go instances required in the scaling group. Valid values: [0,1000\\]. When the number of pay-as-you-go instances is less than this value, pay-as-you-go instances are created first.
+      // The minimum number of pay-as-you-go instances required by the scaling group. Valid values: 0 to 1000. If the number of pay-as-you-go instances is less than this value, the system preferentially creates pay-as-you-go instances.
       shared_ptr<int64_t> onDemandBaseCapacity_ {};
-      // The percentage of pay-as-you-go instances among the extra instances that exceed the minimum number of pay-as-you-go instances (`on_demand_base_capacity`) required in the scaling group. Valid values: [0,100\\].
+      // The percentage of pay-as-you-go instances among the excess instances after the scaling group meets the minimum number of pay-as-you-go instances (`on_demand_base_capacity`). Valid values: 0 to 100.
       shared_ptr<int64_t> onDemandPercentageAboveBaseCapacity_ {};
-      // The subscription duration of nodes in the node pool. This parameter takes effect and is required only when `instance_charge_type` is set to `PrePaid`.
+      // The subscription duration for nodes in the node pool. This parameter is required and takes effect only when `instance_charge_type` is set to `PrePaid`.
       // 
-      // - If `period_unit=Week`, valid values of `period`: {1, 2, 3, 4}.
-      // - If `period_unit=Month`, valid values of `period`: {1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, 60}.
+      // - When `period_unit` is set to `Week`, valid values for `period` are 1, 2, 3, and 4.
+      // - When `period_unit` is set to `Month`, valid values for `period` are 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
       shared_ptr<int64_t> period_ {};
-      // The billing epoch of nodes in the node pool. This parameter takes effect and is required only when `instance_charge_type` is set to `PrePaid`.
+      // The billing cycle of nodes in the node pool. This parameter takes effect and is required only when `instance_charge_type` is set to `PrePaid`. Valid values:
       // 
-      // - `Month`: uses month as the compute unit (CU).
-      // - `Week`: uses week as the compute unit (CU).
+      // - `Month`: Uses month as the time unit.
+      // - `Week`: Uses week as the time unit.
       // 
       // Default value: `Month`.
       shared_ptr<string> periodUnit_ {};
@@ -986,110 +983,92 @@ namespace Models
       shared_ptr<string> platform_ {};
       // The private node pool configuration.
       shared_ptr<ScalingGroup::PrivatePoolOptions> privatePoolOptions_ {};
-      // The worker RAM role name.
+      // The name of the worker RAM role.
       // 
-      // * If left empty, the default worker RAM role created by the cluster is used.
-      // * If specified, the RAM role must be a **regular service role** with its **trusted service** configured as **Elastic Compute Service**. For more information, see [Create a regular service role](https://help.aliyun.com/document_detail/116800.html). When the specified RAM role is not the default worker RAM role created by the cluster, the role name cannot start with `KubernetesMasterRole-` or `KubernetesWorkerRole-`.
+      // * If this parameter is left empty, the default worker RAM role created for the cluster is used.
+      // * If this parameter is specified, the RAM role must be a **normal service role** and its **trusted service** must be set to **ECS**. For more information, see [Create a normal service role](https://help.aliyun.com/document_detail/116800.html). If the specified RAM role is not the default worker RAM role created for the cluster, the role name cannot start with `KubernetesMasterRole-` or `KubernetesWorkerRole-`.
       // 
-      // >Notice: This parameter is supported only by ACK managed clusters of version 1.22 or later.
+      // >Notice: This parameter is supported only by ACK managed clusters of version 1.22 and later.</notice>
       shared_ptr<string> ramRoleName_ {};
       // The list of ApsaraDB RDS instances.
       shared_ptr<vector<string>> rdsInstances_ {};
-      // The resource pool and resource pool policy used when creating instances. After you set this parameter, note the following:
-      // This parameter takes effect only when creating pay-as-you-go instances.
-      // This parameter cannot be set together with private_pool_options.match_criteria or private_pool_options.id.
+      // The resource pool and resource pool policy used for creating instances. Take note of the following items when you configure this parameter:
+      // This parameter takes effect only when you create pay-as-you-go instances.
+      // This parameter cannot be configured at the same time as private_pool_options.match_criteria and private_pool_options.id.
       shared_ptr<ScalingGroup::ResourcePoolOptions> resourcePoolOptions_ {};
-      // The scaling group pattern. Valid values:
-      // 
-      // - `release`: Standard pattern. Scales by creating and releasing ECS instances based on compute resource usage.
-      // - `recycle`: Swift pattern. Scales by creating, stopping, and starting instances, which improves the speed of subsequent scaling operations. Stopped instances do not incur compute resource charges. Only storage charges apply, except for instances with local disks.
-      // 
-      // Default value: `release`.
+      // The scaling group mode. Valid values:
+      // - release: Standard mode. Instances are scaled by creating and releasing ECS instances based on the requested resource usage.
+      // - recycle: Swift mode. Instances are scaled by creating, stopping, and starting instances to improve the speed of subsequent scaling operations. When an instance is stopped, you are not charged for compute resources, but you are still charged for storage resources, except for instances with local disks.
+      // Default value: release.
       shared_ptr<string> scalingPolicy_ {};
-      // The security group ID of the node pool. Specify either this parameter or `security_group_ids`. We recommend that you use `security_group_ids`.
+      // The security group ID of the node pool. You can specify this parameter or security_group_ids. We recommend that you use security_group_ids.
       shared_ptr<string> securityGroupId_ {};
-      // The list of security group IDs. You must specify either this parameter or `security_group_id`. We recommend that you use `security_group_ids`. If both `security_group_id` and `security_group_ids` are specified, `security_group_ids` takes precedence.
+      // The list of security group IDs. You can specify this parameter or security_group_id. We recommend that you use security_group_ids. If you specify both security_group_id and security_group_ids, security_group_ids takes precedence.
       shared_ptr<vector<string>> securityGroupIds_ {};
       // Specifies whether to enable Alibaba Cloud OS security hardening. Valid values:
-      // 
-      // - `true`: enables Alibaba Cloud OS security hardening.
-      // - `false`: disables Alibaba Cloud OS security hardening.
-      // 
-      // Default value: `false`.
+      // - true: enables Alibaba Cloud OS security hardening.
+      // - false: does not enable Alibaba Cloud OS security hardening.
+      // Default value: false.
       shared_ptr<bool> securityHardeningOs_ {};
-      // Specifies whether to enable MLPS 2.0 security hardening. This feature can be enabled only when the system image is Alibaba Cloud Linux 2 or Alibaba Cloud Linux 3. Alibaba Cloud provides classified protection compliance baseline check standards and scanning programs for Alibaba Cloud Linux 2 and Alibaba Cloud Linux 3 MLPS 2.0 Level 3 images.
+      // Specifies whether to enable MLPS 2.0 security hardening. You can enable this feature for nodes only when the system image is Alibaba Cloud Linux 2 or Alibaba Cloud Linux 3. Alibaba Cloud provides classified protection compliance baseline check standards and scanning programs for Alibaba Cloud Linux 2 and Alibaba Cloud Linux 3 MLPS 2.0 Level 3 images.
       shared_ptr<bool> socEnabled_ {};
-      // The number of available instance types. The scaling group creates spot instances of multiple types at the lowest cost. Valid values: [1,10\\].
+      // The number of available instance types. The scaling group evenly creates spot instances across multiple instance types with the lowest costs. Valid values: 1 to 10.
       shared_ptr<int64_t> spotInstancePools_ {};
-      // Specifies whether to enable supplementation of spot instances. If enabled, when the system sends a notification that a spot instance will be reclaimed, the scaling group attempts to create a new instance to replace the spot instance that will be reclaimed. Valid values:
-      // 
-      // - `true`: Enables supplementation of spot instances.
-      // - `false`: Disables supplementation of spot instances.
+      // Specifies whether to enable spot instance replenishment. After this feature is enabled, when the scaling group receives a system message that a spot instance is to be reclaimed, the scaling group attempts to create a new instance to replace the spot instance to be reclaimed. Valid values:
+      // - true: enables spot instance replenishment.
+      // - false: does not enable spot instance replenishment.
       shared_ptr<bool> spotInstanceRemedy_ {};
-      // The price range configurations for the current spot instance type.
+      // The market price range configuration for a single spot instance type.
       shared_ptr<vector<ScalingGroup::SpotPriceLimit>> spotPriceLimit_ {};
-      // The type of spot instance. Valid values:
-      // 
-      // - `NoSpot`: non-spot instance.
-      // 
-      // - `SpotWithPriceLimit`: spot instance with a price limit.
-      // 
-      // - `SpotAsPriceGo`: system automatically bids at the current market price.
-      // 
+      // The spot instance strategy. Valid values:
+      // - NoSpot: pay-as-you-go instance.
+      // - SpotWithPriceLimit: sets the maximum price for spot instances.
+      // - SpotAsPriceGo: uses the system\\"s automatic bidding, which follows the actual market price.
       // For more information, see [Spot instances](https://help.aliyun.com/document_detail/165053.html).
       shared_ptr<string> spotStrategy_ {};
-      // Specifies whether to enable burst (performance burst) for the node system cloud disk. Valid values:
-      // - true: enables burst.
-      // - false: disables burst.
-      // 
-      // This parameter is supported only when `system_disk_category` is set to `cloud_auto`. For more information, see [ESSD AutoPL cloud disks](https://help.aliyun.com/document_detail/368372.html).
+      // Specifies whether to enable performance burst for the system disk of the node. Valid values:
+      // - true: yes.
+      // - false: no.
+      // This parameter is supported only when system_disk_category is set to cloud_auto. For more information, see [ESSD AutoPL cloud disks](https://help.aliyun.com/document_detail/368372.html).
       shared_ptr<bool> systemDiskBurstingEnabled_ {};
-      // The multiple cloud disk types for the system cloud disk. If the highest-priority cloud disk type is unavailable, the system automatically attempts the next-priority cloud disk type to create the system cloud disk.
+      // The categories of the system disk. If the system disk cannot be created by using a disk category with a higher priority, the system automatically tries the next disk category in the priority list.
       shared_ptr<vector<string>> systemDiskCategories_ {};
-      // The type of the node system cloud disk. Valid values:
-      // - `cloud_efficiency`: ultra cloud disk.
-      // - `cloud_ssd`: standard SSD.
-      // - `cloud_essd`: ESSD.
-      // - `cloud_auto`: ESSD AutoPL cloud disk.
-      // - `cloud_essd_entry`: ESSD Entry cloud disk.
-      // 
-      // Default value: `cloud_efficiency`.
+      // The system disk category of the node. Valid values:
+      // - cloud_efficiency: ultra disk.
+      // - cloud_ssd: standard SSD.
+      // - cloud_essd: ESSD.
+      // - cloud_auto: ESSD AutoPL cloud disk.
+      // - cloud_essd_entry: ESSD Entry cloud disk.
+      // Default value: cloud_efficiency.
       shared_ptr<string> systemDiskCategory_ {};
-      // The encryption algorithm used by the system cloud disk. Valid values: aes-256.
+      // The encryption algorithm used for the system disk. Valid value: aes-256.
       shared_ptr<string> systemDiskEncryptAlgorithm_ {};
-      // Specifies whether to encrypt the system cloud disk. Valid values:
-      // 
-      // - true: encrypts the system cloud disk.
-      // 
-      // - false: does not encrypt the system cloud disk.
+      // Specifies whether to encrypt the system disk. Valid values:
+      // - true: encrypts the system disk.
+      // - false: does not encrypt the system disk.
       shared_ptr<bool> systemDiskEncrypted_ {};
-      // The KMS key ID used by the system cloud disk.
+      // The ID of the KMS key used for the system disk.
       shared_ptr<string> systemDiskKmsKeyId_ {};
-      // The performance level of the node system cloud disk. This parameter takes effect only for ESSD cloud disks. The performance level varies based on the cloud disk size. For more information, see [ESSD cloud disks](https://help.aliyun.com/document_detail/122389.html).
-      // - PL0: moderate maximum concurrent I/O performance with relatively stable read/write latency.
-      // - PL1: moderate maximum concurrent I/O performance with relatively stable read/write latency.
-      // - PL2: high maximum concurrent I/O performance with stable read/write latency.
-      // - PL3: ultra-high maximum concurrent I/O performance with extremely stable read/write latency.
+      // The performance level of the system cloud disk for nodes. This parameter takes effect only for ESSDs, not standard SSD. The performance level varies based on the disk size. For more information, see [ESSD](https://help.aliyun.com/document_detail/122389.html). Valid values:
+      // - PL0: Medium concurrent I/O performance and relatively stable read/write latency.
+      // - PL1: Medium concurrent I/O performance and relatively stable read/write latency.
+      // - PL2: High concurrent I/O performance and stable read/write latency.
+      // - PL3: Ultra-high concurrent I/O performance and highly stable read/write latency.
       shared_ptr<string> systemDiskPerformanceLevel_ {};
-      // The provisioned read/write IOPS of the node system cloud disk.
-      // 
-      // Valid values: 0 to min{50,000, 1000 × capacity - baseline performance}. Baseline performance = min{1,800 + 50 × capacity, 50,000}.
-      // 
-      // This parameter is supported only when `system_disk_category` is set to `cloud_auto`. For more information, see [ESSD AutoPL cloud disks](https://help.aliyun.com/document_detail/368372.html).
+      // The provisioned read/write IOPS for the system disk.
+      // Valid values: 0 to min{50,000, 1000 × Capacity - Baseline performance}. Baseline performance = min{1,800 + 50 × Capacity, 50000}.
+      // This parameter is supported only when system_disk_category is set to cloud_auto. For more information, see [ESSD AutoPL cloud disks](https://help.aliyun.com/document_detail/368372.html).
       shared_ptr<int64_t> systemDiskProvisionedIops_ {};
-      // The size of the node system cloud disk. Unit: GiB.
-      // 
-      // Valid values: [20,2048\\].
+      // The size of the system disk. Unit: GiB.
+      // Valid values: 20 to 2048.
       shared_ptr<int64_t> systemDiskSize_ {};
-      // The snapshot policy for the system cloud disk.
+      // The snapshot policy for the system disk.
       shared_ptr<string> systemDiskSnapshotPolicyId_ {};
-      // Tags that are added only to ECS instances.
-      // 
-      // Tag keys cannot be duplicated and can be up to 128 characters in length. Tag keys and tag values cannot start with "aliyun" or "acs:", or contain "https://" or "http://".
+      // Adds tags only to ECS instances.
+      // Tag keys must be unique and can be up to 128 characters in length. Tag keys and tag values cannot start with "aliyun" or "acs:", or contain "https://" or "http://".
       shared_ptr<vector<ScalingGroup::Tags>> tags_ {};
-      // The list of vSwitch IDs. Valid values: [1,8\\].
-      // 
-      // > To ensure high availability, select vSwitches in different zones.
+      // The list of vSwitch IDs. You can specify 1 to 8 vSwitch IDs.
+      // > To ensure high availability, we recommend that you select vSwitches in different zones.
       // 
       // This parameter is required.
       shared_ptr<vector<string>> vswitchIds_ {};
@@ -1142,17 +1121,17 @@ namespace Models
 
 
     protected:
-      // The node pool name.
+      // The name of the node pool.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The resource group ID of the node pool. Instances scaled out by the node pool belong to this resource group.
+      // The resource group ID of the node pool. The instances created by the node pool belong to this resource group.
       // 
-      // A resource can belong to only one resource group. You can map resource groups to concepts such as projects, applications, or organizations based on different business scenarios.
+      // A resource can belong to only one resource group. You can map resource groups to concepts such as projects, applications, or organizations based on your business scenarios.
       shared_ptr<string> resourceGroupId_ {};
       // The node pool type. Valid values:
       // 
-      // - `ess`: regular node pool (includes managed features and elastic scaling).
+      // - `ess`: standard node pool (includes managed and elastic scaling features).
       // - `edge`: edge node pool.
       // - `lingjun`: Lingjun node pool.
       // - `hybrid`: hybrid cloud node pool.
@@ -1163,9 +1142,11 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const NodeConfig& obj) { 
         DARABONBA_PTR_TO_JSON(kubelet_configuration, kubeletConfiguration_);
+        DARABONBA_PTR_TO_JSON(node_os_config, nodeOsConfig_);
       };
       friend void from_json(const Darabonba::Json& j, NodeConfig& obj) { 
         DARABONBA_PTR_FROM_JSON(kubelet_configuration, kubeletConfiguration_);
+        DARABONBA_PTR_FROM_JSON(node_os_config, nodeOsConfig_);
       };
       NodeConfig() = default ;
       NodeConfig(const NodeConfig &) = default ;
@@ -1178,7 +1159,56 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->kubeletConfiguration_ == nullptr; };
+      class NodeOsConfig : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const NodeOsConfig& obj) { 
+          DARABONBA_PTR_TO_JSON(hugepage, hugepage_);
+          DARABONBA_ANY_TO_JSON(sysctl, sysctl_);
+        };
+        friend void from_json(const Darabonba::Json& j, NodeOsConfig& obj) { 
+          DARABONBA_PTR_FROM_JSON(hugepage, hugepage_);
+          DARABONBA_ANY_FROM_JSON(sysctl, sysctl_);
+        };
+        NodeOsConfig() = default ;
+        NodeOsConfig(const NodeOsConfig &) = default ;
+        NodeOsConfig(NodeOsConfig &&) = default ;
+        NodeOsConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~NodeOsConfig() = default ;
+        NodeOsConfig& operator=(const NodeOsConfig &) = default ;
+        NodeOsConfig& operator=(NodeOsConfig &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->hugepage_ == nullptr
+        && this->sysctl_ == nullptr; };
+        // hugepage Field Functions 
+        bool hasHugepage() const { return this->hugepage_ != nullptr;};
+        void deleteHugepage() { this->hugepage_ = nullptr;};
+        inline const Hugepage & getHugepage() const { DARABONBA_PTR_GET_CONST(hugepage_, Hugepage) };
+        inline Hugepage getHugepage() { DARABONBA_PTR_GET(hugepage_, Hugepage) };
+        inline NodeOsConfig& setHugepage(const Hugepage & hugepage) { DARABONBA_PTR_SET_VALUE(hugepage_, hugepage) };
+        inline NodeOsConfig& setHugepage(Hugepage && hugepage) { DARABONBA_PTR_SET_RVALUE(hugepage_, hugepage) };
+
+
+        // sysctl Field Functions 
+        bool hasSysctl() const { return this->sysctl_ != nullptr;};
+        void deleteSysctl() { this->sysctl_ = nullptr;};
+        inline         const Darabonba::Json & getSysctl() const { DARABONBA_GET(sysctl_) };
+        Darabonba::Json & getSysctl() { DARABONBA_GET(sysctl_) };
+        inline NodeOsConfig& setSysctl(const Darabonba::Json & sysctl) { DARABONBA_SET_VALUE(sysctl_, sysctl) };
+        inline NodeOsConfig& setSysctl(Darabonba::Json && sysctl) { DARABONBA_SET_RVALUE(sysctl_, sysctl) };
+
+
+      protected:
+        // The Transparent HugePages configuration.
+        shared_ptr<Hugepage> hugepage_ {};
+        // The sysctl kernel parameter settings. Only some kernel parameters are supported, and the cluster version must be 1.28 or later.
+        Darabonba::Json sysctl_ {};
+      };
+
+      virtual bool empty() const override { return this->kubeletConfiguration_ == nullptr
+        && this->nodeOsConfig_ == nullptr; };
       // kubeletConfiguration Field Functions 
       bool hasKubeletConfiguration() const { return this->kubeletConfiguration_ != nullptr;};
       void deleteKubeletConfiguration() { this->kubeletConfiguration_ = nullptr;};
@@ -1188,9 +1218,20 @@ namespace Models
       inline NodeConfig& setKubeletConfiguration(KubeletConfig && kubeletConfiguration) { DARABONBA_PTR_SET_RVALUE(kubeletConfiguration_, kubeletConfiguration) };
 
 
+      // nodeOsConfig Field Functions 
+      bool hasNodeOsConfig() const { return this->nodeOsConfig_ != nullptr;};
+      void deleteNodeOsConfig() { this->nodeOsConfig_ = nullptr;};
+      inline const NodeConfig::NodeOsConfig & getNodeOsConfig() const { DARABONBA_PTR_GET_CONST(nodeOsConfig_, NodeConfig::NodeOsConfig) };
+      inline NodeConfig::NodeOsConfig getNodeOsConfig() { DARABONBA_PTR_GET(nodeOsConfig_, NodeConfig::NodeOsConfig) };
+      inline NodeConfig& setNodeOsConfig(const NodeConfig::NodeOsConfig & nodeOsConfig) { DARABONBA_PTR_SET_VALUE(nodeOsConfig_, nodeOsConfig) };
+      inline NodeConfig& setNodeOsConfig(NodeConfig::NodeOsConfig && nodeOsConfig) { DARABONBA_PTR_SET_RVALUE(nodeOsConfig_, nodeOsConfig) };
+
+
     protected:
-      // The kubelet parameter settings.
+      // The Kubelet parameter settings.
       shared_ptr<KubeletConfig> kubeletConfiguration_ {};
+      // The operating system configuration of the node.
+      shared_ptr<NodeConfig::NodeOsConfig> nodeOsConfig_ {};
     };
 
     class NodeComponents : public Darabonba::Model {
@@ -1435,28 +1476,28 @@ namespace Models
 
 
       protected:
-        // **[Deprecated]** Use the `auto_upgrade` parameter at the upper level instead.
+        // **[Deprecated]** Use the upper-level `auto_upgrade` parameter instead.
         // 
-        // Specifies whether to enable automatic upgrade. Valid values:
+        // Specifies whether to enable auto-upgrade. Valid values:
         // 
-        // - `true`: Automatic upgrade is enabled.
+        // - `true`: enables auto-upgrade.
         // 
-        // - `false`: Automatic upgrade is disabled.
+        // - `false`: disables auto-upgrade.
         shared_ptr<bool> autoUpgrade_ {};
         // The maximum number of unavailable nodes.
-        // Valid range: [1,1000\\].
+        // Valid values: [1, 1000].
         // 
         // Default value: 1.
         shared_ptr<int64_t> maxUnavailable_ {};
-        // The number of extra nodes. You can specify either this parameter or `surge_percentage`.
+        // The number of extra nodes. This parameter and `surge_percentage` are mutually exclusive.
         // 
-        // Nodes become unavailable during an upgrade. You can create extra nodes to compensate for the cluster workload.
+        // Nodes become unavailable during upgrades. You can create extra nodes to compensate for the cluster load.
         // 
-        // > The number of extra nodes should not exceed the current number of nodes.
+        // > Do not create more extra nodes than the current number of nodes.
         shared_ptr<int64_t> surge_ {};
-        // The percentage of extra nodes. You can specify either this parameter or `surge`.
+        // The percentage of extra nodes. This parameter and `surge` are mutually exclusive.
         // 
-        // Number of extra nodes = percentage of extra nodes × number of nodes. For example, if the percentage of extra nodes is set to 50% and 6 nodes exist, the number of extra nodes = 50% × 6 = 3.
+        // Number of extra nodes = Percentage of extra nodes × Number of nodes. For example, if the percentage of extra nodes is set to 50% and the number of existing nodes is 6, the number of extra nodes generated is 50% × 6 = 3.
         shared_ptr<int64_t> surgePercentage_ {};
       };
 
@@ -1507,21 +1548,21 @@ namespace Models
 
 
       protected:
-        // The packages to exclude during vulnerability fix.
+        // The packages to be excluded during vulnerability repair.
         // 
         // Default value: `kernel`.
         shared_ptr<string> excludePackages_ {};
-        // Specifies whether to allow node restarts. This parameter takes effect only when `auto_vul_fix=true`. Valid values:
-        // - `true`: Node restarts are allowed.
-        // - `false`: Node restarts are not allowed.
+        // Specifies whether to allow node restarts. This parameter takes effect only when `auto_vul_fix` is set to `true`. Valid values:
+        // - `true`: allows node restarts.
+        // - `false`: does not allow node restarts.
         // 
         // Default value: `true`.
         shared_ptr<bool> restartNode_ {};
-        // The vulnerability levels allowed for automatic fix, separated by commas. Example: `asap,later`. Valid values:
+        // The vulnerability levels that are allowed for auto-repair, separated by commas. Example: `asap,later`. Supported vulnerability levels:
         // 
-        // - `asap`: high
-        // - `later`: medium
-        // - `nntf`: low
+        // - `asap`: high.
+        // - `later`: medium.
+        // - `nntf`: low.
         // 
         // Default value: `asap`.
         shared_ptr<string> vulLevel_ {};
@@ -1574,22 +1615,21 @@ namespace Models
 
 
       protected:
-        // Specifies whether to allow automatic kubelet upgrade. This parameter takes effect only when `auto_upgrade=true`. Valid values:
-        // - `true`: Automatic kubelet upgrade is allowed.
-        // - `false`: Automatic kubelet upgrade is not allowed.
+        // Specifies whether to allow automatic kubelet upgrades. This parameter takes effect only when `auto_upgrade` is set to `true`. Valid values:
+        // - `true`: allows automatic kubelet upgrades.
+        // - `false`: does not allow automatic kubelet upgrades.
         // 
         // Default value: `true`.
         shared_ptr<bool> autoUpgradeKubelet_ {};
-        // Specifies whether to allow automatic operating system upgrade. This parameter takes effect only when `auto_upgrade=true`. Valid values:
-        // - `true`: Automatic operating system upgrade is allowed.
-        // - `false`: Automatic operating system upgrade is not allowed.
-        // 
+        // Specifies whether to allow automatic operating system upgrades. This parameter takes effect only when `auto_upgrade` is set to `true`. Valid values:
+        // - `true`: allows automatic operating system upgrades.
+        // - `false`: does not allow automatic operating system upgrades.
         // 
         // Default value: `false`.
         shared_ptr<bool> autoUpgradeOs_ {};
-        // Specifies whether to allow automatic runtime upgrade. This parameter takes effect only when `auto_upgrade=true`. Valid values:
-        // - `true`: Automatic runtime upgrade is allowed.
-        // - `false`: Automatic runtime upgrade is not allowed.
+        // Specifies whether to allow automatic runtime upgrades. This parameter takes effect only when `auto_upgrade` is set to `true`. Valid values:
+        // - `true`: allows automatic runtime upgrades.
+        // - `false`: does not allow automatic runtime upgrades.
         // 
         // Default value: `true`.
         shared_ptr<bool> autoUpgradeRuntime_ {};
@@ -1653,14 +1693,14 @@ namespace Models
       protected:
         // Specifies whether manual approval is required for node repair.
         shared_ptr<bool> approvalRequired_ {};
-        // The maximum number of nodes that can be repaired in parallel. When a large number of unhealthy nodes exist in the node pool, this parameter specifies the maximum number or percentage of nodes that can be repaired simultaneously. You can specify an absolute number (such as 5, valid range: 1 to 100000) or a percentage (such as 10%, valid range: 1% to 100%). Default value: 1.
+        // The maximum number of parallel repairs. When a large number of abnormal nodes exist in the node pool, this parameter specifies the maximum number or percentage of nodes that can be repaired at the same time. You can specify a number (such as 5, valid values: 1 to 100000) or a percentage (such as 10%, valid values: 1% to 100%). Default value on the backend: 1.
         shared_ptr<string> maxParallelRepairingNodes_ {};
-        // The self-healing circuit breaker condition. When the number or percentage of faulty nodes exceeds this threshold, self-healing enters a circuit breaker state and stops initiating new repair actions. You can specify an absolute number (such as 10, valid range: 1 to 100000) or a percentage (such as 20%, valid range: 1% to 100%). Default value: 100%.
+        // The circuit breaker condition for auto-healing. When the number or percentage of faulty nodes exceeds this threshold, auto-healing enters the circuit breaker state and stops initiating new auto-healing repair actions. You can specify a number (such as 10, valid values: 1 to 100000) or a percentage (such as 20%, valid values: 1% to 100%). Default circuit breaker condition on the backend: 100%.
         shared_ptr<string> maxUnhealthyNodesThreshold_ {};
-        // Specifies whether to allow node restarts. This parameter takes effect only when `auto_repair=true`. Valid values:
+        // Specifies whether to allow node restarts. This parameter takes effect only when `auto_repair` is set to `true`. Valid values:
         // 
-        // - `true`: Node restarts are allowed.
-        // - `false`: Node restarts are not allowed.
+        // - `true`: allows node restarts.
+        // - `false`: does not allow node restarts.
         // 
         // Default value: `true`.
         shared_ptr<bool> restartNode_ {};
@@ -1748,48 +1788,48 @@ namespace Models
 
 
     protected:
-      // Specifies whether to enable ECS fault detection for node self-healing.
+      // Specifies whether to enable ECS fault detection for node auto-healing.
       shared_ptr<bool> autoFaultDiagnosis_ {};
-      // Specifies whether to enable automatic node repair. This parameter takes effect only when `enable=true`.
+      // Specifies whether to automatically repair nodes. This parameter takes effect only when `enable` is set to `true`.
       // 
-      // - `true`: Enabled.
+      // - `true`: automatically repairs nodes.
       // 
-      // - `false`: Disabled.
+      // - `false`: does not automatically repair nodes.
       // 
       // Default value: `true`.
       shared_ptr<bool> autoRepair_ {};
-      // The automatic node repair policy.
+      // The auto-repair policy for nodes.
       shared_ptr<Management::AutoRepairPolicy> autoRepairPolicy_ {};
-      // Specifies whether to enable automatic node upgrade. This parameter takes effect only when `enable=true`.
-      // - `true`: Automatic upgrade is enabled.
-      // - `false`: Automatic upgrade is disabled.
+      // Specifies whether to automatically upgrade nodes. This parameter takes effect only when `enable` is set to `true`.
+      // - `true`: enables auto-upgrade.
+      // - `false`: disables auto-upgrade.
       // 
       // Default value: `true`.
       shared_ptr<bool> autoUpgrade_ {};
-      // The automatic node upgrade policy.
+      // The auto-upgrade policy for nodes.
       shared_ptr<Management::AutoUpgradePolicy> autoUpgradePolicy_ {};
-      // Specifies whether to enable automatic CVE vulnerability fix. This parameter takes effect only when `enable=true`.
+      // Specifies whether to automatically repair Common Vulnerabilities and Exposures (CVE) vulnerabilities. This parameter takes effect only when `enable` is set to `true`.
       // 
-      // - `true`: Automatic CVE fix is enabled.
-      // - `false`: Automatic CVE fix is disabled.
+      // - `true`: allows automatic CVE repairs.
+      // - `false`: does not allow automatic CVE repairs.
       // 
       // Default value: `true`.
       shared_ptr<bool> autoVulFix_ {};
-      // The automatic CVE fix policy.
+      // The CVE auto-repair policy.
       shared_ptr<Management::AutoVulFixPolicy> autoVulFixPolicy_ {};
-      // Specifies whether to enable node rotation. Only intelligent managed node pools support this feature, and it is enabled by default. Common node pools do not support this feature.
+      // Specifies whether to enable the node rotation capability. This feature is supported only by intelligent managed node pools and is enabled by default. It is not supported by regular node pools.
       shared_ptr<bool> driftEnabled_ {};
-      // Specifies whether to enable the managed node pool feature. Valid values:
+      // Specifies whether to enable the managed feature for the node pool. Valid values:
       // 
-      // - `true`: Enabled.
+      // - `true`: enables the managed feature.
       // 
-      // - `false`: Disabled. Other related configurations take effect only when enable is set to true.
+      // - `false`: disables the managed feature. Other related configurations take effect only when `enable` is set to `true`.
       // 
-      // Default value: false.
+      // Default value: `false`.
       shared_ptr<bool> enable_ {};
-      // **[Deprecated]** Use the `auto_upgrade` parameter at the upper level instead.
+      // **[Deprecated]** Use the upper-level `auto_upgrade` parameter instead.
       // 
-      // The automatic upgrade configuration. This parameter takes effect only when `enable=true`.
+      // The auto-upgrade configurations. This parameter takes effect only when `enable` is set to `true`.
       shared_ptr<Management::UpgradeConfig> upgradeConfig_ {};
     };
 
@@ -1908,61 +1948,61 @@ namespace Models
 
 
     protected:
-      // Specifies whether to install the CloudMonitor agent on ECS nodes. After installation, you can view monitoring information about the created ECS instances in the CloudMonitor console. We recommend that you enable this feature. Valid values:
+      // Specifies whether to install CloudMonitor on Elastic Compute Service (ECS) nodes. After installation, you can view the monitoring information of the created ECS instances in the CloudMonitor console. Enabling this feature is recommended. Valid values:
       // 
-      // - `true`: Installs the CloudMonitor agent on ECS nodes.
+      // - `true`: installs CloudMonitor on ECS nodes.
       // 
-      // - `false`: Does not install the CloudMonitor agent on ECS nodes.
+      // - `false`: does not install CloudMonitor on ECS nodes.
       // 
       // Default value: `false`.
       shared_ptr<bool> cmsEnabled_ {};
-      // The CPU management policy for nodes. The following two policies are supported for clusters of version 1.12.6 and later:
+      // The CPU management policy for nodes. The following two policies are supported when the cluster version is 1.12.6 or later:
       // 
-      // - `static`: Allows pods with certain resource characteristics on the node to be granted enhanced CPU affinity and exclusivity.
-      // - `none`: Enables the existing default CPU affinity scheme.
+      // - `static`: allows you to enhance CPU affinity and exclusivity for pods with specific resource characteristics on the node.
+      // - `none`: enables the existing default CPU affinity scheme.
       // 
       // Default value: `none`.
       shared_ptr<string> cpuPolicy_ {};
-      // The node labels. You can add labels to the nodes in the Kubernetes cluster.
+      // The labels added to the nodes in the Kubernetes cluster.
       shared_ptr<vector<Tag>> labels_ {};
-      // The custom node name. After you customize the node name, the node name, ECS instance name, and ECS instance hostname are all changed accordingly.
-      // > For Windows instances with custom node names enabled, the hostname is fixed to the IP address with hyphens (-) replacing the dots (.) in the IP address, and does not include the prefix or suffix. 
+      // The custom node name. After you customize the node name, the node name, ECS instance name, and ECS instance hostname are changed at the same time.
+      // > For Windows instances with custom node names enabled, the hostname is fixed to the IP address, with hyphens (-) replacing dots (.) in the IP address, and does not include prefixes or suffixes. 
       // 
-      // A node name consists of three parts: prefix, node IP address, and suffix.
+      // The node name consists of three parts: a prefix, the node IP address, and a suffix:
       // 
-      // - The total length is 2 to 64 characters. The node name must start and end with a lowercase letter or digit.
+      // - The total length is 2 to 64 characters. The node name must start and end with a lowercase letter or a digit.
       // 
-      // - The prefix and suffix can contain uppercase and lowercase letters, digits, hyphens (-), and periods (.). They must start with an uppercase or lowercase letter and cannot start or end with a hyphen (-) or period (.). Consecutive hyphens (-) or periods (.) are not allowed.
-      // - The prefix is required (ECS restriction). The suffix is optional.
-      // - The node IP is the full private IP address of the node.
+      // - The prefix and suffix can contain uppercase and lowercase letters, digits, hyphens (-), and dots (.). They must start with a letter and cannot start or end with a hyphen (-) or a dot (.). Consecutive hyphens (-) or dots (.) are not allowed.
+      // - The prefix is required (due to ECS limits), and the suffix is optional.
+      // - The node IP address is the complete private IP address of the node.
       // 
-      // Example: If the node IP address is 192.XX.YY.55, the prefix is aliyun.com, and the suffix is test:
+      // For example, if the node IP address is 192.XX.YY.55, the specified prefix is aliyun.com, and the suffix is test:
       // 
-      // - For a Linux node, the node name, ECS instance name, and ECS instance hostname are all aliyun.com192.XX.YY.55test.
+      // - If the node is a Linux node, the node name, ECS instance name, and ECS instance hostname are all aliyun.com192.XX.YY.55test.
       // 
-      // - For a Windows node, the ECS instance hostname is 192-XX-YY-55, and the node name and ECS instance name are both aliyun.com192.XX.YY.55test.
+      // - If the node is a Windows node, the ECS instance hostname is 192-XX-YY-55, and both the node name and ECS instance name are aliyun.com192.XX.YY.55test.
       shared_ptr<string> nodeNameMode_ {};
-      // The pre-user data for the instance. Before a node joins the cluster, the specified pre-user data script is run. For more information, see [User data scripts](https://help.aliyun.com/document_detail/49121.html).
+      // The pre-custom data of the instance. Before the node joins the cluster, the specified pre-custom data script is run. For more information, see [User data scripts](https://help.aliyun.com/document_detail/49121.html).
       shared_ptr<string> preUserData_ {};
-      // The container runtime name. ACK supports the following three container runtimes:
+      // The name of the container runtime. Container Service for Kubernetes (ACK) supports the following three container runtimes:
       // 
-      // - containerd: Recommended. Supported by all cluster versions.
-      // - Sandboxed-Container.runv: Sandboxed container that provides higher isolation. Supported by clusters of version 1.31 and earlier.
-      // - docker: No longer maintained. Supported by clusters of version 1.22 and earlier.
+      // - containerd: recommended. Supported by all cluster versions.
+      // - Sandboxed-Container.runv: secure sandboxed containers that provide higher isolation. Supported by clusters of version 1.31 and earlier.
+      // - docker: no longer maintained. Supported by clusters of version 1.22 and earlier.
       // 
       // Default value: containerd.
       shared_ptr<string> runtime_ {};
       // The container runtime version.
       shared_ptr<string> runtimeVersion_ {};
-      // The taint configuration.
+      // The taint configurations.
       shared_ptr<vector<Taint>> taints_ {};
-      // Specifies whether nodes added during scale-out are unschedulable.
+      // Specifies whether the scaled-out nodes are unschedulable.
       // 
-      // - true: Unschedulable.
+      // - true: unschedulable.
       // 
-      // - false: Schedulable.
+      // - false: schedulable.
       shared_ptr<bool> unschedulable_ {};
-      // The instance user data. After a node joins the cluster, the specified user data script is run. For more information, see [User data scripts](https://help.aliyun.com/document_detail/49121.html).
+      // The instance user data. After a node joins the cluster, the specified instance user data script runs. For more information, see [User data scripts](https://help.aliyun.com/document_detail/49121.html).
       shared_ptr<string> userData_ {};
     };
 
@@ -2031,25 +2071,19 @@ namespace Models
 
 
     protected:
-      // **[Deprecated]**
-      // 
-      // The network bandwidth of the enhanced edge node pool. Unit: Mbps.
+      // **[Deprecated]** The network bandwidth of the enhanced edge node pool. Unit: Mbit/s.
       shared_ptr<int64_t> bandwidth_ {};
       // **[Deprecated]**
       // 
-      // The Cloud Connect Network (CCN) instance ID bound to the enhanced edge node pool.
+      // The Cloud Connect Network (CCN) instance ID attached to the enhanced edge node pool.
       shared_ptr<string> ccnId_ {};
-      // **[Deprecated]**
-      // 
-      // The region of the Cloud Connect Network (CCN) instance bound to the enhanced edge node pool.
+      // **[Deprecated]** The region of the CCN instance bound to the enhanced edge node pool.
       shared_ptr<string> ccnRegionId_ {};
       // **[Deprecated]**
       // 
-      // The Cloud Enterprise Network (CEN) instance ID bound to the enhanced edge node pool.
+      // The Cloud Enterprise Network (CEN) instance ID attached to the enhanced edge node pool.
       shared_ptr<string> cenId_ {};
-      // **[Deprecated]**
-      // 
-      // The purchase duration of the enhanced edge node pool. Unit: months.
+      // **[Deprecated]** The subscription duration of the enhanced edge node pool. Unit: months.
       shared_ptr<string> improvedPeriod_ {};
     };
 
@@ -2109,11 +2143,11 @@ namespace Models
 
 
     protected:
-      // Specifies whether to enable automatic node addition for the Lingjun node pool.
+      // Specifies whether to enable automatic addition to the Lingjun node pool.
       shared_ptr<bool> autoAttachEnabled_ {};
-      // The Lingjun cluster ID to associate when creating a Lingjun node pool.
+      // The ID of the Lingjun cluster to associate when you create the Lingjun node pool.
       shared_ptr<string> clusterId_ {};
-      // The Lingjun group ID of the Lingjun cluster to associate when creating a Lingjun node pool.
+      // The ID of the Lingjun group in the Lingjun cluster to associate when you create the Lingjun node pool.
       shared_ptr<string> groupId_ {};
       // The worker RAM role used by the Lingjun node pool.
       shared_ptr<string> workerRamRoleName_ {};
@@ -2203,61 +2237,46 @@ namespace Models
 
 
     protected:
-      // **[Deprecated]** Use internet_charge_type and internet_max_bandwidth_out instead.
-      // 
-      // The peak bandwidth of the EIP. Unit: Mbit/s.
+      // **[Deprecated]** Use internet_charge_type and internet_max_bandwidth_out instead. The peak bandwidth of the EIP. Unit: Mbit/s.
       shared_ptr<int64_t> eipBandwidth_ {};
-      // **[Deprecated]** Use internet_charge_type and internet_max_bandwidth_out instead.
-      // 
-      // The billing method of the EIP. Valid values:
-      // - `PayByBandwidth`: pay-by-bandwidth.
-      // - `PayByTraffic`: pay-by-traffic.
-      // 
-      // Default value: `PayByBandwidth`.
+      // **[Deprecated]** Use internet_charge_type and internet_max_bandwidth_out instead. The billing method of the EIP. Valid values:
+      // - PayByBandwidth: pay-by-bandwidth.
+      // - PayByTraffic: pay-by-data-transfer.
+      // Default value: PayByBandwidth.
       shared_ptr<string> eipInternetChargeType_ {};
       // Specifies whether to enable auto scaling. Valid values:
-      // 
-      // - `true`: enables the auto scaling feature for the node pool. When the cluster capacity planning cannot meet application pod scheduling requirements, ACK automatically scales node resources based on the configured minimum and maximum instance counts. Clusters of version 1.24 or later enable instant node scaling by default. Clusters of versions earlier than 1.24 enable auto node scaling by default. For more information, see [Node scaling](https://help.aliyun.com/document_detail/2746785.html).
-      // 
-      // - `false`: disables auto scaling. ACK adjusts the number of nodes in the node pool based on the configured desired node count and always maintains the node count at the desired value.
-      // 
-      // When the value is false, other configuration parameters in `auto_scaling` do not take effect.
-      // 
-      // Default value: `false`.
+      // - true: enables auto scaling for the node pool. When the capacity planning of the cluster cannot meet the scheduling requirements of application pods, ACK automatically scales the node resources based on the configured minimum and maximum numbers of instances. For clusters running Kubernetes 1.24 or later, instant node elasticity is enabled by default. For clusters running Kubernetes versions earlier than 1.24, node auto scaling is enabled by default. For more information, see [Node auto scaling](https://help.aliyun.com/document_detail/2746785.html).
+      // - false: disables auto scaling. ACK adjusts the number of nodes in the node pool based on the configured expected number of nodes and always maintains the number of nodes at the expected value.
+      // When this parameter is set to false, other configuration parameters in auto_scaling do not take effect.
+      // Default value: false.
       shared_ptr<bool> enable_ {};
-      // **[Deprecated]** This parameter is deprecated. Use internet_charge_type and internet_max_bandwidth_out instead.
-      // 
-      // Specifies whether to associate an elastic IP address (EIP). Valid values:
-      // 
-      // - `true`: associates an EIP.
-      // 
-      // - `false`: does not associate an EIP.
-      // 
-      // Default value: `false`.
+      // **[Deprecated]** Use internet_charge_type and internet_max_bandwidth_out instead. Specifies whether to bind an EIP. Valid values:
+      // - true: binds an EIP.
+      // - false: does not bind an EIP.
+      // Default value: false.
       shared_ptr<bool> isBondEip_ {};
-      // The maximum number of scalable instances in the node pool, excluding your existing instances. This parameter takes effect only when `enable=true`.
-      // 
+      // The maximum number of scalable instances in the node pool, excluding existing instances. This parameter takes effect only when enable is set to true.
       // Valid values: [min_instances, 2000]. Default value: 0.
       shared_ptr<int64_t> maxInstances_ {};
       // The minimum number of scalable instances in the node pool, excluding your existing instances. This parameter takes effect only when `enable=true`.
       // 
       // Valid values: [0, max_instances]. Default value: 0.
       // 
-      // > - If the minimum number of instances is not 0, the corresponding number of ECS instances are subject to automatic creation after the scaling group takes effect.
-      // > - Settings for the maximum number of instances should not be less than the current number of nodes in the node pool. Otherwise, nodes in the node pool are scaled in after the elastic scaling feature takes effect.
+      // > - If the minimum number of instances is not 0, the automatic creation of the corresponding number of ECS instances is triggered after the scaling group takes effect.
+      // > - We recommend that you set the maximum number of instances to a value no less than the current number of nodes in the node pool. Otherwise, the nodes in the node pool are scaled in immediately after the elastic scaling feature takes effect.
       shared_ptr<int64_t> minInstances_ {};
-      // The elastic scaling instance type. This parameter takes effect only when `enable=true`. Valid values:
+      // The instance type for elastic scaling. This parameter takes effect only when `enable=true`. Valid values:
       // 
-      // - `cpu`: regular instance type.
+      // - `cpu`: regular instance.
       // 
-      // - `gpu`: GPU instance type.
+      // - `gpu`: GPU-accelerated instance.
       // 
-      // - `gpushare`: GPU sharing type.
+      // - `gpushare`: shared GPU instance.
       // 
-      // - `spot`: spot instance type.
+      // - `spot`: spot instance.
       // 
       // Default value: `cpu`.
-      // >Notice: This parameter cannot be modified after the node pool is created.
+      // >Notice: This field cannot be modified after the node pool is created.</notice>
       shared_ptr<string> type_ {};
     };
 
@@ -2289,10 +2308,9 @@ namespace Models
 
 
     protected:
-      // Specifies whether to enable intelligent managed mode.
-      // Valid values:
-      // - true: Enables intelligent managed mode. This can be enabled only when the cluster has intelligent managed mode enabled.
-      // - false: Does not enable intelligent managed mode.
+      // Specifies whether to enable auto mode. Valid values:
+      // - true: enables auto mode. This value is valid only when auto mode is enabled for the cluster.
+      // - false: disables auto mode.
       shared_ptr<bool> enable_ {};
     };
 
@@ -2435,40 +2453,33 @@ namespace Models
 
 
   protected:
-    // The intelligent managed configuration for the node pool.
+    // The auto mode configuration of the node pool.
     shared_ptr<CreateClusterNodePoolRequest::AutoMode> autoMode_ {};
     // The elastic scaling configuration.
     shared_ptr<CreateClusterNodePoolRequest::AutoScaling> autoScaling_ {};
-    // **[Deprecated]** Use desired_size instead.
-    // 
-    // The number of nodes in the node pool.
+    // **[Deprecated]** Use desired_size instead. The number of nodes in the node pool.
     shared_ptr<int64_t> count_ {};
     // The Lingjun node pool configuration.
     shared_ptr<CreateClusterNodePoolRequest::EfloNodeGroup> efloNodeGroup_ {};
-    // Specifies whether the pod network mode uses host network mode.
-    // - `true`: Host network. Pods directly use the host network stack and share the IP address and ports with the host.
-    // - `false`: Container network. Pods have independent network stacks and do not occupy host network ports.
+    // Specifies whether pods in the edge node pool use the host network mode. Valid values:
+    // - true: host network. Pods directly use the network stack of the host and share the IP address and ports with the host.
+    // - false: container network. Pods have independent network stacks and do not occupy the network ports of the host.
     shared_ptr<bool> hostNetwork_ {};
-    // **[Deprecated]**
-    // 
-    // The edge node pool configuration.
+    // **[Deprecated]** The configuration of the edge node pool.
     shared_ptr<CreateClusterNodePoolRequest::InterconnectConfig> interconnectConfig_ {};
-    // The network type of the edge node pool. This parameter takes effect only for node pools whose `type` is `edge`. Valid values:
-    // 
-    // - `basic`: Public network. Nodes in cloud node pool interact with cloud nodes over the Internet. Applications in cloud node pool cannot directly access the cloud VPC internal network.
-    // - `private`: Private network. Nodes in cloud node pool connect to the cloud through Express Connect, VPN, or CEN, providing higher cloud-edge communication quality and more effective security.
+    // The network type of the edge node pool. This parameter takes effect only when type is set to edge. Valid values:
+    // - basic: public network. Nodes in cloud node pool interact with cloud nodes over the public network. Applications in cloud node pool cannot directly access the internal network of the cloud VPC.
+    // - private: private network. Nodes in cloud node pool connect to the cloud network over Express Connect circuits, VPNs, or CEN. This provides higher cloud-edge communication quality and more effective security protection.
     shared_ptr<string> interconnectMode_ {};
-    // Specifies whether nodes in the edge node pool have Layer 3 network connectivity with each other.
-    // - `true`: Connected. All nodes in the node pool have Layer 3 network connectivity with each other.
-    // - `false`: Not connected. All nodes in the node pool do not have Layer 3 network connectivity with each other.
+    // Specifies whether Layer 3 network connectivity is enabled between nodes in the edge node pool. Valid values:
+    // - true: enabled. Layer 3 network connectivity is enabled between all nodes in the node pool.
+    // - false: disabled. Layer 3 network connectivity is disabled between all hosts in the node pool.
     shared_ptr<bool> intranet_ {};
-    // The cluster-related configuration.
+    // The cluster configurations.
     shared_ptr<CreateClusterNodePoolRequest::KubernetesConfig> kubernetesConfig_ {};
-    // The configuration of the managed node pool feature.
+    // The configurations for the managed node pool feature.
     shared_ptr<CreateClusterNodePoolRequest::Management> management_ {};
-    // **[Deprecated]**
-    // 
-    // The maximum number of nodes allowed in the edge node pool.
+    // **[Deprecated]** The maximum number of nodes allowed in an edge node pool.
     shared_ptr<int64_t> maxNodes_ {};
     // The list of node components.
     shared_ptr<vector<CreateClusterNodePoolRequest::NodeComponents>> nodeComponents_ {};

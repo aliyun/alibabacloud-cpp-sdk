@@ -94,17 +94,17 @@ namespace Models
 
 
   protected:
-    // The image ID of the node pool. Either this parameter or image_type is required if nodepool_id is not specified.
+    // The image ID of the node pool. This parameter is required if nodepool_id is not specified. You must specify either this parameter or image_type.
     shared_ptr<string> imageId_ {};
-    // The image type of the node pool. Either this parameter or image_id is required if nodepool_id is not specified.
+    // The image type of the node pool. This parameter is required if nodepool_id is not specified. You must specify either this parameter or image_id.
     shared_ptr<string> imageType_ {};
     // The instance types of the node pool. This parameter is required if nodepool_id is not specified.
     shared_ptr<string> instanceTypesShrink_ {};
-    // The maximum number of results to return. Default value: 200.
+    // The maximum number of results per page. Default value: 200.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token.
     shared_ptr<string> nextToken_ {};
-    // The node pool ID. If you specify a node pool ID, the system queries the list of components available for the node pool and ignores other parameters.
+    // The node pool ID. If you specify a node pool ID, the system queries the components available for the node pool and ignores other parameters.
     shared_ptr<string> nodepoolId_ {};
     // The node pool type. This parameter is required if nodepool_id is not specified.
     shared_ptr<string> nodepoolType_ {};
