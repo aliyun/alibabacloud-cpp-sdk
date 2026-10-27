@@ -6,6 +6,10 @@
 #include <alibabacloud/models/AigcChatCompletionStreamRequest.hpp>
 #include <alibabacloud/models/AigcChatCompletionStreamResponseBody.hpp>
 #include <alibabacloud/models/AigcChatCompletionStreamResponse.hpp>
+#include <alibabacloud/models/CuaChatCompletionStreamHeaders.hpp>
+#include <alibabacloud/models/CuaChatCompletionStreamRequest.hpp>
+#include <alibabacloud/models/CuaChatCompletionStreamResponseBody.hpp>
+#include <alibabacloud/models/CuaChatCompletionStreamResponse.hpp>
 #include <alibabacloud/models/GuiChatCompletionStreamHeaders.hpp>
 #include <alibabacloud/models/GuiChatCompletionStreamRequest.hpp>
 #include <alibabacloud/models/GuiChatCompletionStreamResponseBody.hpp>

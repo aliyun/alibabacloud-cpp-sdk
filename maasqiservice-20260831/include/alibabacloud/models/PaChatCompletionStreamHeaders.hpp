@@ -70,10 +70,15 @@ namespace Models
 
   protected:
     shared_ptr<map<string, string>> commonHeaders_ {};
+    // The Agent instance access key used for QICloud Customer API authentication.
+    // 
     // This parameter is required.
     shared_ptr<string> xQIAgentApiKey_ {};
+    // The published Mobile Planner Agent instance ID. Must correspond to the X-QI-Agent-Api-Key.
+    // 
     // This parameter is required.
     shared_ptr<string> xQIInstanceId_ {};
+    // The optional session identifier. Can be omitted for the first turn, in which case the server generates one. Pass it back in subsequent turns to continue the Mobile Planner Agent session.
     shared_ptr<string> xQISessionId_ {};
   };
 

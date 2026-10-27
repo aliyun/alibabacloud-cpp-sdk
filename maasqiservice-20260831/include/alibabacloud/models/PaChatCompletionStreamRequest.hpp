@@ -222,7 +222,9 @@ namespace Models
 
 
             protected:
+              // The sample parameter description.
               shared_ptr<string> description_ {};
+              // The JSON Schema type of the sample city field.
               shared_ptr<string> type_ {};
             };
 
@@ -237,6 +239,7 @@ namespace Models
 
 
           protected:
+            // The Schema for the sample business parameter city. The actual fields are determined by the caller\\"s tool definition.
             shared_ptr<Properties::City> city_ {};
           };
 
@@ -268,8 +271,11 @@ namespace Models
 
 
         protected:
+          // The property definitions of the JSON Schema.
           shared_ptr<Parameters::Properties> properties_ {};
+          // The array of required field names in the JSON Schema.
           shared_ptr<vector<string>> required_ {};
+          // The root Schema type of the function parameters. Typically set to object.
           shared_ptr<string> type_ {};
         };
 
@@ -306,9 +312,13 @@ namespace Models
 
 
       protected:
+        // The description of the function purpose. The model uses this to determine when to call the tool.
         shared_ptr<string> description_ {};
+        // The function name. This parameter is required. Used to match assistant.tool_calls with subsequent tool results.
         shared_ptr<string> name_ {};
+        // The JSON Schema for function parameters, passed to the model as raw JSON. If not provided, an empty object Schema is used.
         shared_ptr<Function::Parameters> parameters_ {};
+        // Specifies whether the model must strictly follow the function parameter JSON Schema.
         shared_ptr<bool> strict_ {};
       };
 
@@ -331,7 +341,9 @@ namespace Models
 
 
     protected:
+      // The function tool definition, including the name, description, and JSON Schema parameters.
       shared_ptr<Tools::Function> function_ {};
+      // The tool type. This parameter must be set to function.
       shared_ptr<string> type_ {};
     };
 
@@ -365,6 +377,7 @@ namespace Models
 
 
     protected:
+      // The set of allowed enumeration text values.
       shared_ptr<vector<string>> choice_ {};
     };
 
@@ -396,6 +409,7 @@ namespace Models
 
 
     protected:
+      // Specifies whether to output a usage statistics chunk before data:[DONE].
       shared_ptr<bool> includeUsage_ {};
     };
 
@@ -427,6 +441,7 @@ namespace Models
 
 
     protected:
+      // The response format type, such as text, json_object, or json_schema.
       shared_ptr<string> type_ {};
     };
 
@@ -458,6 +473,7 @@ namespace Models
 
 
     protected:
+      // Example: the maximum number of dynamic image patches allowed by the vision model.
       shared_ptr<int64_t> maxDynamicPatch_ {};
     };
 
@@ -547,7 +563,9 @@ namespace Models
 
 
         protected:
+          // The JSON object string of function arguments.
           shared_ptr<string> arguments_ {};
+          // The name of the function to call.
           shared_ptr<string> name_ {};
         };
 
@@ -577,8 +595,11 @@ namespace Models
 
 
       protected:
+        // The function information of a historical tool invocation entry, including name and arguments as a JSON character string. Retain the actual returned values in subsequent turns.
         shared_ptr<ToolCalls::Function> function_ {};
+        // The tool invocation ID. Subsequent tool messages reference this through tool_call_id.
         shared_ptr<string> id_ {};
+        // The tool invocation type. Currently fixed as function.
         shared_ptr<string> type_ {};
       };
 
@@ -633,6 +654,7 @@ namespace Models
 
 
         protected:
+          // The image URL. Remote images must use HTTPS. Base64 Data URLs are also accepted.
           shared_ptr<string> url_ {};
         };
 
@@ -662,8 +684,11 @@ namespace Models
 
 
       protected:
+        // The image reference when type=image_url. Supports HTTPS URLs or data:image/...;base64,... format.
         shared_ptr<Content::ImageUrl> imageUrl_ {};
+        // The non-empty text when type=text.
         shared_ptr<string> text_ {};
+        // The content part type. Mobile Planner Agent user messages support text or image_url.
         shared_ptr<string> type_ {};
       };
 
@@ -702,9 +727,13 @@ namespace Models
 
 
     protected:
+      // The message content. Mobile Planner Agent supports text and multimodal content. Image URLs or base64 Data URLs are passed through to the Mobile Planner Agent model if it supports multimodal input.
       shared_ptr<vector<Messages::Content>> content_ {};
+      // The message role: user, assistant, tool, system, or developer. system/developer is used for optional per-turn text instruction overrides. If omitted, the instructions from the instance configuration are used. Tool results use tool and are associated with tool_call_id.
       shared_ptr<string> role_ {};
+      // Required when role=tool. Must match an id from the preceding assistant.tool_calls.
       shared_ptr<string> toolCallId_ {};
+      // The list of function invocation entries that can be carried when role=assistant. Used for multi-turn tool invocation continuation.
       shared_ptr<vector<Messages::ToolCalls>> toolCalls_ {};
     };
 
@@ -746,7 +775,9 @@ namespace Models
 
 
     protected:
+      // Controls whether the model generates reasoning_content through chat_template_kwargs. This value is passed to the model used by the Mobile Planner Agent.
       shared_ptr<bool> enableThinking_ {};
+      // Specifies whether the model preserves and reuses existing reasoning content in subsequent turns. Passed through as-is per vLLM/Qwen chat_template_kwargs.
       shared_ptr<bool> preserveThinking_ {};
     };
 
@@ -1019,41 +1050,77 @@ namespace Models
 
 
   protected:
+    // The whitelist of token IDs allowed for generation.
     shared_ptr<vector<int64_t>> allowedTokenIds_ {};
+    // The list of words or strings prohibited from generation.
     shared_ptr<vector<string>> badWords_ {};
+    // The vLLM/OpenAI-Compatible template parameter object. Request values are merged with model defaults, with request keys taking precedence, and passed to the model as-is.
     shared_ptr<PaChatCompletionStreamRequest::ChatTemplateKwargs> chatTemplateKwargs_ {};
+    // The frequency penalty parameter passed through to the Mobile Planner Agent model.
     shared_ptr<double> frequencyPenalty_ {};
+    // Specifies whether to ignore EOS and continue generation.
     shared_ptr<bool> ignoreEos_ {};
+    // Specifies whether to request reasoning content from the upstream. The actual capability depends on the model.
     shared_ptr<bool> includeReasoning_ {};
+    // A model-compatible parameter with the JSON field name logprobs. Whether it is accepted and takes effect depends on the model used by the instance. The current Agent response does not provide token log probability details.
     shared_ptr<bool> logprobs_ {};
+    // The maximum number of completion tokens. Must be greater than 0 if provided, and is passed as an OpenAI-compatible model parameter.
     shared_ptr<int64_t> maxCompletionTokens_ {};
+    // The OpenAI-compatible maximum number of generated tokens. Must be greater than 0 if provided.
     shared_ptr<int64_t> maxTokens_ {};
+    // The list of conversation messages. The first call can submit one turn or an existing multi-turn conversation. When continuing with an existing session ID, retain the complete and unmodified historical message prefix and append the current turn messages. Tool results are associated through role=tool and the corresponding tool_call_id.
+    // 
     // This parameter is required.
     shared_ptr<vector<PaChatCompletionStreamRequest::Messages>> messages_ {};
+    // The vLLM Min-P sampling parameter.
     shared_ptr<double> minP_ {};
+    // The minimum number of tokens to generate.
     shared_ptr<int64_t> minTokens_ {};
+    // The multimodal preprocessor parameters passed through to vLLM as-is by key.
     shared_ptr<PaChatCompletionStreamRequest::MmProcessorKwargs> mmProcessorKwargs_ {};
+    // Reserved for OpenAI client compatibility. Ignored during routing. The actual model is determined by the published instance configuration. The model field in the response is always an empty string.
     shared_ptr<string> model_ {};
+    // Set this parameter to 1. Whether the model accepts this parameter depends on the model. The current Mobile Planner Agent response does not return multiple candidate results. Do not use this parameter for multiple-candidate responses.
     shared_ptr<int64_t> n_ {};
+    // Specifies whether the model is allowed to generate multiple tool calling requests in parallel. The model invokes tools concurrently when this parameter is enabled.
     shared_ptr<bool> parallelToolCalls_ {};
+    // The presence penalty parameter, passed through to the Mobile Planner Agent model.
     shared_ptr<double> presencePenalty_ {};
+    // A model compatibility parameter. The JSON field is prompt_logprobs. Whether the model accepts this parameter depends on the model. The current Agent response does not return probability details for input tokens.
     shared_ptr<int64_t> promptLogprobs_ {};
+    // The OpenAI-compatible reasoning effort level, such as low, medium, or high.
     shared_ptr<string> reasoningEffort_ {};
+    // The vLLM repetition penalty parameter.
     shared_ptr<double> repetitionPenalty_ {};
+    // The structured response format, such as json_object or json_schema.
     shared_ptr<PaChatCompletionStreamRequest::ResponseFormat> responseFormat_ {};
+    // The random seed.
     shared_ptr<int64_t> seed_ {};
+    // Specifies whether to skip special tokens.
     shared_ptr<bool> skipSpecialTokens_ {};
+    // The stop sequences. Compatible with a single string or an array of strings. This field is displayed in array format.
     shared_ptr<vector<string>> stop_ {};
+    // The vLLM stop token ID list.
     shared_ptr<vector<int64_t>> stopTokenIds_ {};
+    // Specifies whether to use SSE streaming responses. This parameter must be set to true for this operation.
+    // 
     // This parameter is required.
     shared_ptr<bool> stream_ {};
+    // The OpenAI-compatible streaming options.
     shared_ptr<PaChatCompletionStreamRequest::StreamOptions> streamOptions_ {};
+    // The vLLM structured output constraints.
     shared_ptr<PaChatCompletionStreamRequest::StructuredOutputs> structuredOutputs_ {};
+    // The sampling temperature. Passed as an OpenAI-compatible model parameter to override the model default value.
     shared_ptr<double> temperature_ {};
+    // The tool choice strategy. Valid values: auto, none, required, or a named selection supported by the model.
     shared_ptr<string> toolChoice_ {};
+    // The array of function tool definitions available for this request. Mobile Planner Agent registers each named function in the runtime Toolkit and returns tool_calls in the streaming response.
     shared_ptr<vector<PaChatCompletionStreamRequest::Tools>> tools_ {};
+    // The vLLM Top-K sampling parameter.
     shared_ptr<int64_t> topK_ {};
+    // A model compatibility parameter. The JSON field is top_logprobs. Used for models that support this feature. The current Agent response does not provide candidate token probability details.
     shared_ptr<int64_t> topLogprobs_ {};
+    // Top-P sampling parameter. Passed as an OpenAI-compatible model parameter to override the model default value.
     shared_ptr<double> topP_ {};
   };
 
