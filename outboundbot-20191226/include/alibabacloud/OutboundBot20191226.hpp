@@ -949,7 +949,7 @@ namespace OutboundBot20191226
       Models::DescribeIntentStatisticsResponse describeIntentStatistics(const Models::DescribeIntentStatisticsRequest &request);
 
       /**
-       * @summary Returns the conversation data of a job.
+       * @summary Retrieves the conversation data of a job.
        *
        * @param request DescribeJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -958,7 +958,7 @@ namespace OutboundBot20191226
       Models::DescribeJobResponse describeJobWithOptions(const Models::DescribeJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Returns the conversation data of a job.
+       * @summary Retrieves the conversation data of a job.
        *
        * @param request DescribeJobRequest
        * @return DescribeJobResponse
@@ -1753,7 +1753,7 @@ namespace OutboundBot20191226
       Models::ListChatbotInstancesResponse listChatbotInstances(const Models::ListChatbotInstancesRequest &request);
 
       /**
-       * @summary 查询自定义场景模板列表
+       * @summary Queries the custom script templates of a specified instance.
        *
        * @param request ListCustomScriptTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1762,7 +1762,7 @@ namespace OutboundBot20191226
       Models::ListCustomScriptTemplatesResponse listCustomScriptTemplatesWithOptions(const Models::ListCustomScriptTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询自定义场景模板列表
+       * @summary Queries the custom script templates of a specified instance.
        *
        * @param request ListCustomScriptTemplatesRequest
        * @return ListCustomScriptTemplatesResponse
@@ -2369,7 +2369,7 @@ namespace OutboundBot20191226
       Models::ModifyOutboundCallNumberResponse modifyOutboundCallNumber(const Models::ModifyOutboundCallNumberRequest &request);
 
       /**
-       * @summary Modify script information.
+       * @summary Updates script information.
        *
        * @param request ModifyScriptRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2378,7 +2378,7 @@ namespace OutboundBot20191226
       Models::ModifyScriptResponse modifyScriptWithOptions(const Models::ModifyScriptRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modify script information.
+       * @summary Updates script information.
        *
        * @param request ModifyScriptRequest
        * @return ModifyScriptResponse
@@ -2441,7 +2441,7 @@ namespace OutboundBot20191226
       Models::ModifyTagGroupsResponse modifyTagGroups(const Models::ModifyTagGroupsRequest &request);
 
       /**
-       * @summary 修改声音克隆
+       * @summary Modifies the name or status of a cloned voice.
        *
        * @param request ModifyVoiceCloneRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2450,7 +2450,7 @@ namespace OutboundBot20191226
       Models::ModifyVoiceCloneResponse modifyVoiceCloneWithOptions(const Models::ModifyVoiceCloneRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改声音克隆
+       * @summary Modifies the name or status of a cloned voice.
        *
        * @param request ModifyVoiceCloneRequest
        * @return ModifyVoiceCloneResponse

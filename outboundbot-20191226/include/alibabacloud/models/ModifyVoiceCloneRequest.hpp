@@ -66,11 +66,17 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The status of the voice. Note: For a newly created voice, you must call the ModifyVoiceClone operation and set Status to Enabled before it can be used.
     shared_ptr<string> status_ {};
+    // The ID of the cloned voice to modify.
+    // 
     // This parameter is required.
     shared_ptr<string> voiceId_ {};
+    // The name of the voice.
     shared_ptr<string> voiceName_ {};
   };
 

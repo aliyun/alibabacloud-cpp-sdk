@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(NlsServiceType, nlsServiceType_);
       DARABONBA_PTR_TO_JSON(PitchRate, pitchRate_);
+      DARABONBA_PTR_TO_JSON(SampleRate, sampleRate_);
       DARABONBA_PTR_TO_JSON(ScriptId, scriptId_);
       DARABONBA_PTR_TO_JSON(SecretKey, secretKey_);
       DARABONBA_PTR_TO_JSON(SpeechRate, speechRate_);
@@ -37,6 +38,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(NlsServiceType, nlsServiceType_);
       DARABONBA_PTR_FROM_JSON(PitchRate, pitchRate_);
+      DARABONBA_PTR_FROM_JSON(SampleRate, sampleRate_);
       DARABONBA_PTR_FROM_JSON(ScriptId, scriptId_);
       DARABONBA_PTR_FROM_JSON(SecretKey, secretKey_);
       DARABONBA_PTR_FROM_JSON(SpeechRate, speechRate_);
@@ -57,8 +59,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessKey_ == nullptr
         && this->aliCustomizedVoice_ == nullptr && this->appKey_ == nullptr && this->engine_ == nullptr && this->extParams_ == nullptr && this->instanceId_ == nullptr
-        && this->nlsServiceType_ == nullptr && this->pitchRate_ == nullptr && this->scriptId_ == nullptr && this->secretKey_ == nullptr && this->speechRate_ == nullptr
-        && this->text_ == nullptr && this->voice_ == nullptr && this->volume_ == nullptr; };
+        && this->nlsServiceType_ == nullptr && this->pitchRate_ == nullptr && this->sampleRate_ == nullptr && this->scriptId_ == nullptr && this->secretKey_ == nullptr
+        && this->speechRate_ == nullptr && this->text_ == nullptr && this->voice_ == nullptr && this->volume_ == nullptr; };
     // accessKey Field Functions 
     bool hasAccessKey() const { return this->accessKey_ != nullptr;};
     void deleteAccessKey() { this->accessKey_ = nullptr;};
@@ -115,6 +117,13 @@ namespace Models
     inline DescribeTTSDemoRequest& setPitchRate(int32_t pitchRate) { DARABONBA_PTR_SET_VALUE(pitchRate_, pitchRate) };
 
 
+    // sampleRate Field Functions 
+    bool hasSampleRate() const { return this->sampleRate_ != nullptr;};
+    void deleteSampleRate() { this->sampleRate_ = nullptr;};
+    inline int32_t getSampleRate() const { DARABONBA_PTR_GET_DEFAULT(sampleRate_, 0) };
+    inline DescribeTTSDemoRequest& setSampleRate(int32_t sampleRate) { DARABONBA_PTR_SET_VALUE(sampleRate_, sampleRate) };
+
+
     // scriptId Field Functions 
     bool hasScriptId() const { return this->scriptId_ != nullptr;};
     void deleteScriptId() { this->scriptId_ = nullptr;};
@@ -158,46 +167,49 @@ namespace Models
 
 
   protected:
-    // The AccessKey (AK) of the namespace.
-    // > When the engine is xunfei, enter the AK here.
+    // The AccessKey ID of the namespace.
+    // > When the engine is xunfei, you must enter the AccessKey ID.
     shared_ptr<string> accessKey_ {};
     // The Alibaba Cloud custom voice, which is the voice invocation ID.
     shared_ptr<string> aliCustomizedVoice_ {};
-    // The speech service type.
+    // The speech service type. 
     // 
-    // - When you use **ali** as the custom service, this field stores the appKey of the interactive voice response product project.
+    // - When **ali** is used as the custom service, this field stores the appKey of the interactive voice response product project.
     // 
-    // - When you use **xunfei** as the custom service provider, this field stores the corresponding appKey.
+    // - When **xunfei** is used as the custom service provider, this field stores the corresponding appKey.
     shared_ptr<string> appKey_ {};
-    // The storage engine. Valid values: ali, volc, xunfei.
+    // The storage engine. Valid values: **ali**, **volc**, and **xunfei**.
     // 
-    // - When using traditional voices, CosyVoice, or selecting Alibaba Cloud as the custom service, set this to **ali**.
-    // - When using the doubao service, set this to **volc**.
-    // - When using xunfei as the service provider, set this to **xunfei** (can only be used in small model scenarios).
-    // - When using your own service, set this to **dock**, and set NlsServiceType to Authorized.
-    // - When using CV-v3-flash and Qwen voices, set this to **bailian**.
+    // - To use traditional voices, CosyVoice, or Alibaba Cloud as the custom service, enter **ali**.
+    // - To use the doubao service, enter **volc**.
+    // - To use xunfei as the service provider, enter **xunfei**. This option is only available for small model scenarios.
+    // - To use a self-managed service, enter **dock** and set NlsServiceType to Authorized.
+    // - To use CV-v3-flash and Qwen voices, enter **bailian**.
     shared_ptr<string> engine_ {};
-    // The extended parameter. When Engine is set to **dock**, enter the configuration ID.
+    // The extended parameters. When Engine is set to **dock**, you must enter the configuration ID.
     shared_ptr<string> extParams_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The service type.
-    // Managed: the default service (public service) of the outbound robot product.
-    // Authorized: the interactive voice response service purchased by the public cloud customer (custom service), configured through system administration > Third-party Voice Configuration.
+    // Managed: the default service (public service) for the outbound robot product.
+    // Authorized: the interactive voice response service purchased by public cloud customers (custom service). You can configure it in system administration > Third-party Speech Configuration.
     // 
-    // > When using Alibaba Cloud interactive voice response as the custom service provider, set this to Authorized.
+    // > When you need to use Alibaba Cloud interactive voice response, that is, when you use Alibaba Cloud as the custom service provider, you must enter Authorized.
     shared_ptr<string> nlsServiceType_ {};
-    // The pitch.
+    // The intonation.
     shared_ptr<int32_t> pitchRate_ {};
+    // The sample rate.
+    shared_ptr<int32_t> sampleRate_ {};
     // The scenario ID.
     shared_ptr<string> scriptId_ {};
-    // The AccessKey Secret (SK) of the namespace.
+    // The AccessKey secret of the namespace.
     // 
-    // > When the engine is xunfei, enter the SK here.
+    // > When the engine is xunfei, you must enter the AccessKey secret.
     shared_ptr<string> secretKey_ {};
-    // The speech rate. The value is an integer in the range of [-500, 500]. Default value: 0.
+    // The speech rate.
+    // Valid values: integers from -500 to 500. Default value: 0.
     // 
     // A value greater than 0 increases the pitch.
     // 
@@ -207,11 +219,12 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> text_ {};
-    // The voice information, such as aixia, siyue, or xiaoyun. For the complete list of available voices, refer to the voice list below.
+    // The voice information, such as aixia, siyue, or xiaoyun. For the complete list of voices, refer to the voice list below.
     // 
-    // > Because the Voice value for cloned voices is a non-fixed value generated during voice cloning, a specific Voice value cannot be provided at this stage. You can obtain the specific VoiceID from the voice cloning page by calling the ListVoiceClone operation.
+    // > Because the Voice value for cloned voices is not fixed and is generated during voice cloning, a specific Voice value cannot be provided at this stage. You must obtain the specific Voice ID from the ListVoiceClone request on the voice cloning page.
     shared_ptr<string> voice_ {};
-    // The volume. The value is an integer in the range of [0, 100]. Default value: 50.
+    // The volume.
+    // Valid values: integers from 0 to 100. Default value: 50.
     // 
     // A value greater than 50 increases the volume.
     // 

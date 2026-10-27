@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The page number for paging. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page for paging. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
   };
 

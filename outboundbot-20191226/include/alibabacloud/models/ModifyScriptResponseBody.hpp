@@ -150,7 +150,7 @@ namespace Models
 
 
     protected:
-      // The debug status of the script.
+      // The script debug status.
       shared_ptr<string> debugStatus_ {};
       // The industry.
       shared_ptr<string> industry_ {};
@@ -160,13 +160,13 @@ namespace Models
       shared_ptr<bool> isDrafted_ {};
       // The scenario.
       shared_ptr<string> scene_ {};
-      // The description of the script.
+      // The script description.
       shared_ptr<string> scriptDescription_ {};
-      // The ID of the script.
+      // The script ID.
       shared_ptr<string> scriptId_ {};
-      // The name of the script.
+      // The script name.
       shared_ptr<string> scriptName_ {};
-      // The status of the script.
+      // The script status.
       shared_ptr<string> status_ {};
       // The update time.
       shared_ptr<int64_t> updateTime_ {};
@@ -219,7 +219,7 @@ namespace Models
 
 
   protected:
-    // The status of the API.
+    // The API status.
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
@@ -229,7 +229,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The script information.
     shared_ptr<ModifyScriptResponseBody::Script> script_ {};
-    // Indicates whether the call is successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

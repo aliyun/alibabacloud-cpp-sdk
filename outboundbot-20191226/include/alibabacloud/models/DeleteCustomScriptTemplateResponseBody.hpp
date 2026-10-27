@@ -86,7 +86,7 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The returned data. No business data is returned if the deletion succeeds.
+    // The returned data. No business data is returned when the deletion is successful.
     shared_ptr<string> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};

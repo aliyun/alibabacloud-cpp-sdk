@@ -180,15 +180,25 @@ namespace Models
 
 
       protected:
+        // The ID of the custom scenario template.
         shared_ptr<string> agentProfileId_ {};
+        // The creation time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<string> createTime_ {};
+        // The description of the custom scenario template.
         shared_ptr<string> description_ {};
+        // The instance ID to which the template belongs.
         shared_ptr<string> instanceId_ {};
+        // The label description. The value is a string in JSON array format.
         shared_ptr<string> labelsJson_ {};
+        // The ID of the model used.
         shared_ptr<string> model_ {};
+        // The name of the custom scenario template.
         shared_ptr<string> name_ {};
+        // The prompt in professional mode.
         shared_ptr<string> prompt_ {};
+        // The agent configuration. The value is a string in JSON format.
         shared_ptr<string> promptJson_ {};
+        // The ID of the scenario associated with the custom scenario template.
         shared_ptr<string> scriptId_ {};
       };
 
@@ -225,9 +235,13 @@ namespace Models
 
 
     protected:
+      // The list of custom scenario templates.
       shared_ptr<vector<Data::List>> list_ {};
+      // The current page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries returned per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of custom scenario templates.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -293,13 +307,21 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<ListCustomScriptTemplatesResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Not used.
     shared_ptr<int32_t> maxResults_ {};
+    // The message returned by the API operation.
     shared_ptr<string> message_ {};
+    // Not used.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

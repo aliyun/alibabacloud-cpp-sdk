@@ -113,7 +113,7 @@ namespace Models
     shared_ptr<string> model_ {};
     // The name of the custom scenario.
     shared_ptr<string> name_ {};
-    // The prompt for professional mode.
+    // The prompt in professional mode.
     shared_ptr<string> prompt_ {};
     // The agent configuration in JSON format.
     shared_ptr<string> promptJson_ {};

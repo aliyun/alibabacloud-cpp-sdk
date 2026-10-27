@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The API status code.
     shared_ptr<string> code_ {};
+    // The ID of the modified voice.
     shared_ptr<string> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The message returned by the API operation.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

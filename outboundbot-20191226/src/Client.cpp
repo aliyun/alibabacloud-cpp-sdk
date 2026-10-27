@@ -3071,7 +3071,7 @@ DescribeIntentStatisticsResponse Client::describeIntentStatistics(const Describe
 }
 
 /**
- * @summary Returns the conversation data of a job.
+ * @summary Retrieves the conversation data of a job.
  *
  * @param request DescribeJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3110,7 +3110,7 @@ DescribeJobResponse Client::describeJobWithOptions(const DescribeJobRequest &req
 }
 
 /**
- * @summary Returns the conversation data of a job.
+ * @summary Retrieves the conversation data of a job.
  *
  * @param request DescribeJobRequest
  * @return DescribeJobResponse
@@ -3444,6 +3444,10 @@ DescribeTTSDemoResponse Client::describeTTSDemoWithOptions(const DescribeTTSDemo
 
   if (!!request.hasPitchRate()) {
     query["PitchRate"] = request.getPitchRate();
+  }
+
+  if (!!request.hasSampleRate()) {
+    query["SampleRate"] = request.getSampleRate();
   }
 
   if (!!request.hasScriptId()) {
@@ -5440,7 +5444,7 @@ ListChatbotInstancesResponse Client::listChatbotInstances(const ListChatbotInsta
 }
 
 /**
- * @summary 查询自定义场景模板列表
+ * @summary Queries the custom script templates of a specified instance.
  *
  * @param request ListCustomScriptTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5479,7 +5483,7 @@ ListCustomScriptTemplatesResponse Client::listCustomScriptTemplatesWithOptions(c
 }
 
 /**
- * @summary 查询自定义场景模板列表
+ * @summary Queries the custom script templates of a specified instance.
  *
  * @param request ListCustomScriptTemplatesRequest
  * @return ListCustomScriptTemplatesResponse
@@ -7521,7 +7525,7 @@ ModifyOutboundCallNumberResponse Client::modifyOutboundCallNumber(const ModifyOu
 }
 
 /**
- * @summary Modify script information.
+ * @summary Updates script information.
  *
  * @param request ModifyScriptRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7644,7 +7648,7 @@ ModifyScriptResponse Client::modifyScriptWithOptions(const ModifyScriptRequest &
 }
 
 /**
- * @summary Modify script information.
+ * @summary Updates script information.
  *
  * @param request ModifyScriptRequest
  * @return ModifyScriptResponse
@@ -7841,7 +7845,7 @@ ModifyTagGroupsResponse Client::modifyTagGroups(const ModifyTagGroupsRequest &re
 }
 
 /**
- * @summary 修改声音克隆
+ * @summary Modifies the name or status of a cloned voice.
  *
  * @param request ModifyVoiceCloneRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7884,7 +7888,7 @@ ModifyVoiceCloneResponse Client::modifyVoiceCloneWithOptions(const ModifyVoiceCl
 }
 
 /**
- * @summary 修改声音克隆
+ * @summary Modifies the name or status of a cloned voice.
  *
  * @param request ModifyVoiceCloneRequest
  * @return ModifyVoiceCloneResponse
