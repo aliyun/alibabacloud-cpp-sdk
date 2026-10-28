@@ -1,0 +1,43 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_OPENAGENT20260801MODEL_HPP_
+#define ALIBABACLOUD_OPENAGENT20260801MODEL_HPP_
+#include <darabonba/Core.hpp>
+#include <alibabacloud/models/CancelRunHeaders.hpp>
+#include <alibabacloud/models/CancelRunRequest.hpp>
+#include <alibabacloud/models/CancelRunResponseBody.hpp>
+#include <alibabacloud/models/CancelRunResponse.hpp>
+#include <alibabacloud/models/CreateSessionHeaders.hpp>
+#include <alibabacloud/models/CreateSessionRequest.hpp>
+#include <alibabacloud/models/CreateSessionResponseBody.hpp>
+#include <alibabacloud/models/CreateSessionResponse.hpp>
+#include <alibabacloud/models/DeleteSessionHeaders.hpp>
+#include <alibabacloud/models/DeleteSessionRequest.hpp>
+#include <alibabacloud/models/DeleteSessionResponseBody.hpp>
+#include <alibabacloud/models/DeleteSessionResponse.hpp>
+#include <alibabacloud/models/GetReadonlyModeRequest.hpp>
+#include <alibabacloud/models/GetReadonlyModeResponseBody.hpp>
+#include <alibabacloud/models/GetReadonlyModeResponse.hpp>
+#include <alibabacloud/models/GetRunRequest.hpp>
+#include <alibabacloud/models/GetRunResponseBody.hpp>
+#include <alibabacloud/models/GetRunResponse.hpp>
+#include <alibabacloud/models/GetSessionRequest.hpp>
+#include <alibabacloud/models/GetSessionResponseBody.hpp>
+#include <alibabacloud/models/GetSessionResponse.hpp>
+#include <alibabacloud/models/ListMessagesRequest.hpp>
+#include <alibabacloud/models/ListMessagesResponseBody.hpp>
+#include <alibabacloud/models/ListMessagesResponse.hpp>
+#include <alibabacloud/models/ListSessionsRequest.hpp>
+#include <alibabacloud/models/ListSessionsResponseBody.hpp>
+#include <alibabacloud/models/ListSessionsResponse.hpp>
+#include <alibabacloud/models/SendMessageHeaders.hpp>
+#include <alibabacloud/models/SendMessageRequest.hpp>
+#include <alibabacloud/models/SendMessageResponse.hpp>
+#include <alibabacloud/models/UpdateReadonlyModeRequest.hpp>
+#include <alibabacloud/models/UpdateReadonlyModeResponseBody.hpp>
+#include <alibabacloud/models/UpdateReadonlyModeResponse.hpp>
+#include <alibabacloud/models/UpdateSessionHeaders.hpp>
+#include <alibabacloud/models/UpdateSessionRequest.hpp>
+#include <alibabacloud/models/UpdateSessionResponseBody.hpp>
+#include <alibabacloud/models/UpdateSessionResponse.hpp>
+
+#endif
