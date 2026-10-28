@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The device ID.
     shared_ptr<string> deviceId_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
   };
 

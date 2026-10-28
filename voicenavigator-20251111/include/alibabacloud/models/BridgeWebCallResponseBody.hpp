@@ -114,10 +114,15 @@ namespace Models
 
 
     protected:
+      // The channel ID.
       shared_ptr<string> channelId_ {};
+      // The expiration time of the token.
       shared_ptr<string> expirationTime_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The server URL.
       shared_ptr<string> serverUrl_ {};
+      // The session ID.
       shared_ptr<string> sessionId_ {};
       // token
       shared_ptr<string> token_ {};
@@ -172,11 +177,17 @@ namespace Models
 
 
   protected:
+    // The internal error code.
     shared_ptr<string> code_ {};
+    // The call record.
     shared_ptr<BridgeWebCallResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The list of error parameters.
     shared_ptr<vector<string>> params_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

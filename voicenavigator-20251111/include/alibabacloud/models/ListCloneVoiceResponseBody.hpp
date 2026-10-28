@@ -174,15 +174,25 @@ namespace Models
 
 
       protected:
+        // The ID of the cloned voice.
         shared_ptr<string> cloneVoiceId_ {};
+        // The creation timestamp of the cloned voice.
         shared_ptr<int64_t> createdTime_ {};
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
+        // The cloning model.
         shared_ptr<string> model_ {};
+        // The name of the cloned voice.
         shared_ptr<string> name_ {};
+        // The TTS engine.
         shared_ptr<string> nlsEngine_ {};
+        // The status of the cloned voice.
         shared_ptr<string> status_ {};
+        // The tenant ID.
         shared_ptr<string> tenantId_ {};
+        // The last update timestamp of the cloned voice.
         shared_ptr<int64_t> updatedTime_ {};
+        // The base voice used for cloning.
         shared_ptr<string> voice_ {};
       };
 
@@ -219,9 +229,13 @@ namespace Models
 
 
     protected:
+      // A list of cloned voices for the current page.
       shared_ptr<vector<Data::CloneVoices>> cloneVoices_ {};
+      // The returned page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of cloned voices that match the query.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -265,10 +279,15 @@ namespace Models
 
 
   protected:
+    // Internal error code
     shared_ptr<string> code_ {};
+    // The paginated list of cloned voices.
     shared_ptr<ListCloneVoiceResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

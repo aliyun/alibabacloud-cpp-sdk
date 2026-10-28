@@ -88,8 +88,11 @@ namespace Models
 
 
     protected:
+      // The pitch.
       shared_ptr<float> pitchRate_ {};
+      // The speech rate.
       shared_ptr<float> speechRate_ {};
+      // The volume.
       shared_ptr<int32_t> volume_ {};
     };
 
@@ -148,12 +151,19 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The TTS model.
     shared_ptr<string> model_ {};
+    // The TTS invocation method.
     shared_ptr<string> nlsAccessType_ {};
+    // The TTS engine.
     shared_ptr<string> nlsEngine_ {};
+    // The synthesis parameters.
     shared_ptr<PreviewVoiceRequest::Params> params_ {};
+    // The preview text.
     shared_ptr<string> text_ {};
+    // The voice.
     shared_ptr<string> voice_ {};
   };
 

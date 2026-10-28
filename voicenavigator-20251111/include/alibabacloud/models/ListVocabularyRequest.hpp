@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The ID of the instance.
     shared_ptr<string> instanceId_ {};
+    // The name of the vocabulary.
     shared_ptr<string> name_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

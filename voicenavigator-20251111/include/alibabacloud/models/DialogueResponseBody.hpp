@@ -99,6 +99,15 @@ namespace Models
 
 
       protected:
+        // The type of the control parameter.
+        // 
+        // > - `HangUp`: Hang up.
+        // >
+        // > - `Transfer`: Transfer.
+        // >
+        // > - `GatherDtmf`: Gather DTMF.
+        // >
+        // > - `Voice`: Voice.
         shared_ptr<string> type_ {};
       };
 
@@ -157,12 +166,19 @@ namespace Models
 
 
     protected:
+      // The bot\\"s reply.
       shared_ptr<string> answer_ {};
+      // A list of control parameters.
       shared_ptr<vector<Data::ControlParamsList>> controlParamsList_ {};
+      // The Unix timestamp for when the operation ended.
       shared_ptr<int64_t> endTime_ {};
+      // The session ID.
       shared_ptr<string> sessionId_ {};
+      // The Unix timestamp for when the operation started.
       shared_ptr<int64_t> startTime_ {};
+      // A flag that indicates whether the stream has ended. A value of `true` signifies the end of the stream.
       shared_ptr<bool> streamEnd_ {};
+      // The stream ID for the conversational turn.
       shared_ptr<string> streamId_ {};
     };
 
@@ -215,11 +231,17 @@ namespace Models
 
 
   protected:
+    // The business status code. A value of `OK` indicates that the operation was successful.
     shared_ptr<string> code_ {};
+    // The business-specific data returned by the operation.
     shared_ptr<DialogueResponseBody::Data> data_ {};
+    // The HTTP status code. A value of `200` indicates a successful response.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The HTTP response message.
     shared_ptr<string> message_ {};
+    // The parameters associated with an error.
     shared_ptr<vector<string>> params_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

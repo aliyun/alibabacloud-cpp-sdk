@@ -157,10 +157,15 @@ namespace Models
 
 
         protected:
+          // The API key.
           shared_ptr<string> apiKey_ {};
+          // The service endpoint.
           shared_ptr<string> endpoint_ {};
+          // The name of the configuration.
           shared_ptr<string> name_ {};
+          // The NLU access type.
           shared_ptr<string> nluAccessType_ {};
+          // The NLU engine.
           shared_ptr<string> nluEngine_ {};
         };
 
@@ -204,10 +209,15 @@ namespace Models
 
 
       protected:
+        // The configuration ID.
         shared_ptr<string> accessProfileId_ {};
+        // The creation time.
         shared_ptr<int64_t> createdTime_ {};
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
+        // The parameter configuration.
         shared_ptr<LlmAccessProfiles::Profile> profile_ {};
+        // The update time.
         shared_ptr<int64_t> updatedTime_ {};
       };
 
@@ -244,9 +254,13 @@ namespace Models
 
 
     protected:
+      // The list of third-party model configurations.
       shared_ptr<vector<Data::LlmAccessProfiles>> llmAccessProfiles_ {};
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -299,11 +313,17 @@ namespace Models
 
 
   protected:
+    // The internal error code.
     shared_ptr<string> code_ {};
+    // The paginated list of third-party model configurations.
     shared_ptr<ListLlmAccessProfilesResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // A list of dynamic parameters associated with the error.
     shared_ptr<vector<string>> params_ {};
+    // A unique identifier for the request.
     shared_ptr<string> requestId_ {};
   };
 

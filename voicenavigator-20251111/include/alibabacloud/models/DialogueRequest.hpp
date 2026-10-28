@@ -75,10 +75,23 @@ namespace Models
 
 
   protected:
+    // Extras.
+    // For example, a silence timeout: [{"dataType":"Silence"}]
+    // >Notice: Valid values for `dataType`: `DTMF`, `Silence`, or `RuntimePrompts`.
+    // 
+    // > - If `dataType` is `DTMF`, use the format: `[{"dataType":"DTMF","dtmf":"xxxx"}]`
+    // >
+    // > - If `dataType` is `Silence`, use the format: `[{"dataType":"Silence"}]`
+    // >
+    // > - If `dataType` is `RuntimePrompts`, use the format: `[{"dataType":"RuntimePrompts","prompts":"xxxx","persistent":false/true}]`
     shared_ptr<string> extras_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The script ID.
     shared_ptr<string> scriptId_ {};
+    // The session ID.
     shared_ptr<string> sessionId_ {};
+    // The user\\"s input for the conversational turn.
     shared_ptr<string> utterance_ {};
   };
 

@@ -176,15 +176,29 @@ namespace Models
 
 
       protected:
+        // The destination of the call transfer. Required if the transfer mode is `Bridge`.
         shared_ptr<string> destination_ {};
+        // The display name of the service provider.
         shared_ptr<string> displayName_ {};
+        // The extra data.>Notice:  Format: `k1=v1;k2=v2`
         shared_ptr<string> extras_ {};
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
+        // The service provider name.
         shared_ptr<string> name_ {};
+        // The originator of the call transfer. Required if the transfer mode is `Bridge`.
         shared_ptr<string> originator_ {};
+        // The call center provider ID.
         shared_ptr<string> providerId_ {};
+        // The provider type.
+        // 
+        // > - `CCC`: Cloud Contact Center
+        // >
+        // > - `CUSTOM`: customer-owned contact center
         shared_ptr<string> providerType_ {};
+        // The Refer address.>Notice:  Required if the transfer mode is `Refer`.
         shared_ptr<string> referTo_ {};
+        // The trunk ID.
         shared_ptr<string> trunkId_ {};
       };
 
@@ -221,9 +235,13 @@ namespace Models
 
 
     protected:
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // A list of call center providers.
       shared_ptr<vector<Data::Providers>> providers_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -276,11 +294,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The call center provider data.
     shared_ptr<ListCallCenterProvidersResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // A list of dynamic error parameters.
     shared_ptr<vector<string>> params_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

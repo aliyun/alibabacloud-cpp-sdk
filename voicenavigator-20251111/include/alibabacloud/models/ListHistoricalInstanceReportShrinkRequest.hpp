@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The end time for the query. The server rounds this value up to the next hour.
     shared_ptr<int64_t> endTime_ {};
+    // A JSON array of instance IDs. The array can contain up to 100 IDs.
     shared_ptr<string> instanceIdsShrink_ {};
+    // The number of the page to return. The maximum value is 100.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page. The maximum value is 100.
     shared_ptr<int32_t> pageSize_ {};
+    // The start time for the query. The server rounds this value up to the next hour.
     shared_ptr<int64_t> startTime_ {};
   };
 

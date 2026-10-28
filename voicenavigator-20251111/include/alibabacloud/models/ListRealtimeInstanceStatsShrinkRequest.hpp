@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The IDs of the instances. You can specify 1 to 100 instance IDs.
     shared_ptr<string> instanceIdsShrink_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

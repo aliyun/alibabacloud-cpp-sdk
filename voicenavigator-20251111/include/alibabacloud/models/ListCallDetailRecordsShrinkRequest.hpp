@@ -186,22 +186,41 @@ namespace Models
 
 
   protected:
+    // The channel ID.
     shared_ptr<string> accessChannelId_ {};
+    // The channel type.
     shared_ptr<string> accessChannelType_ {};
+    // The callee\\"s number.
     shared_ptr<string> callee_ {};
+    // The caller\\"s number.
     shared_ptr<string> caller_ {};
+    // The disposition codes.
     shared_ptr<string> dispositionCodesShrink_ {};
+    // The disposition reasons.
     shared_ptr<string> dispositionReasonsShrink_ {};
+    // Specifies whether to query a draft.
     shared_ptr<bool> draftVersion_ {};
+    // The end of the time range to query. This value is a Unix timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     shared_ptr<string> endTime_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // Indicates whether the issue was resolved.
     shared_ptr<bool> issueResolved_ {};
+    // The maximum number of conversational turns.
     shared_ptr<int32_t> maxTalkTurns_ {};
+    // The minimum number of conversational turns.
     shared_ptr<int32_t> minTalkTurns_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The script ID.
     shared_ptr<string> scriptId_ {};
+    // The session IDs.
+    // 
+    // > The value is a JSON array of strings. Example: `["session-id-1","session-id-2"]`.
     shared_ptr<string> sessionIdsShrink_ {};
+    // The beginning of the time range to query. This value is a Unix timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     shared_ptr<string> startTime_ {};
   };
 

@@ -206,21 +206,37 @@ namespace Models
 
 
     protected:
+      // The number of answered sessions.
       shared_ptr<int64_t> callsHandled_ {};
+      // The number of incoming sessions.
       shared_ptr<int64_t> callsOffered_ {};
+      // The number of rejected sessions.
       shared_ptr<int64_t> callsRejected_ {};
+      // The number of resolved sessions, based on the model evaluation results.
       shared_ptr<int64_t> callsResolved_ {};
+      // The latest configured concurrency.
       shared_ptr<int64_t> configuredConcurrency_ {};
+      // The distribution of labels.
       shared_ptr<string> labelBreakdown_ {};
+      // The maximum talk time, in milliseconds.
       shared_ptr<int64_t> maxTalkTime_ {};
+      // The distribution of rejection reasons.
       shared_ptr<string> rejectionBreakdown_ {};
+      // The distribution of hang-up reasons after a session is connected.
       shared_ptr<string> releaseReasonBreakdown_ {};
+      // The statistical time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> statsTime_ {};
+      // The distribution of dialog turns.
       shared_ptr<string> talkTurnsDistribution_ {};
+      // Reserved for future use.
       shared_ptr<int64_t> totalInputTokens_ {};
+      // Reserved for future use.
       shared_ptr<int64_t> totalOutputTokens_ {};
+      // The total talk time, in milliseconds.
       shared_ptr<int64_t> totalTalkTime_ {};
+      // Reserved for future use.
       shared_ptr<int64_t> totalTokens_ {};
+      // The maximum concurrency used.
       shared_ptr<int64_t> usedConcurrency_ {};
     };
 
@@ -273,10 +289,15 @@ namespace Models
 
 
   protected:
+    // The internal error code.
     shared_ptr<string> code_ {};
+    // The scenario ID.
     shared_ptr<vector<GetInstanceTrendingReportResponseBody::Data>> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The dynamic error parameters.
     shared_ptr<vector<string>> params_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

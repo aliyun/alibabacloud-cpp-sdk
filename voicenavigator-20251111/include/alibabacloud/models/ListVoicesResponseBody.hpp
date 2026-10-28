@@ -160,13 +160,21 @@ namespace Models
 
 
       protected:
+        // The category of the voice.
         shared_ptr<string> category_ {};
+        // The language supported by the voice.
         shared_ptr<string> language_ {};
+        // The TTS model.
         shared_ptr<string> model_ {};
+        // The name of the voice.
         shared_ptr<string> name_ {};
+        // The TTS engine.
         shared_ptr<string> nlsEngine_ {};
+        // The style of the voice.
         shared_ptr<string> style_ {};
+        // A list of supported parameters.
         shared_ptr<vector<string>> supportedParams_ {};
+        // The identifier for the voice.
         shared_ptr<string> voice_ {};
       };
 
@@ -203,9 +211,13 @@ namespace Models
 
 
     protected:
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries on the current page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total count of voices.
       shared_ptr<int32_t> totalCount_ {};
+      // A list of voices.
       shared_ptr<vector<Data::Voices>> voices_ {};
     };
 
@@ -258,11 +270,17 @@ namespace Models
 
 
   protected:
+    // The internal error code.
     shared_ptr<string> code_ {};
+    // A paginated list of voices.
     shared_ptr<ListVoicesResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // A list of dynamic parameters related to the error.
     shared_ptr<vector<string>> params_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

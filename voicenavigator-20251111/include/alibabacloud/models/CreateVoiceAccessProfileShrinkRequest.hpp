@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The speech engine.
     shared_ptr<string> nlsEngine_ {};
+    // The parameter settings.
     shared_ptr<string> profileShrink_ {};
   };
 

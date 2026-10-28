@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The concurrency.
     shared_ptr<int32_t> concurrency_ {};
+    // The description.
     shared_ptr<string> description_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The scenario name.
     shared_ptr<string> name_ {};
+    // The scenario ID.
     shared_ptr<string> scriptId_ {};
   };
 

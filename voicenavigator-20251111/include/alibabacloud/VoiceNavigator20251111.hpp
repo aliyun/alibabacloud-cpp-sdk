@@ -21,7 +21,7 @@ namespace VoiceNavigator20251111
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 开启会话
+       * @summary Initiates a session.
        *
        * @param request BeginSessionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace VoiceNavigator20251111
       FutureGenerator<Models::BeginSessionResponse> beginSessionWithSSE(const Models::BeginSessionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 开启会话
+       * @summary Initiates a session.
        *
        * @param request BeginSessionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -39,7 +39,7 @@ namespace VoiceNavigator20251111
       Models::BeginSessionResponse beginSessionWithOptions(const Models::BeginSessionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 开启会话
+       * @summary Initiates a session.
        *
        * @param request BeginSessionRequest
        * @return BeginSessionResponse
@@ -47,7 +47,7 @@ namespace VoiceNavigator20251111
       Models::BeginSessionResponse beginSession(const Models::BeginSessionRequest &request);
 
       /**
-       * @summary 发起呼叫
+       * @summary Initiates a web call.
        *
        * @param request BridgeWebCallRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -56,7 +56,7 @@ namespace VoiceNavigator20251111
       Models::BridgeWebCallResponse bridgeWebCallWithOptions(const Models::BridgeWebCallRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 发起呼叫
+       * @summary Initiates a web call.
        *
        * @param request BridgeWebCallRequest
        * @return BridgeWebCallResponse
@@ -64,7 +64,7 @@ namespace VoiceNavigator20251111
       Models::BridgeWebCallResponse bridgeWebCall(const Models::BridgeWebCallRequest &request);
 
       /**
-       * @summary 创建服务提供商
+       * @summary Creates a human agent service provider.
        *
        * @param request CreateCallCenterProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -73,7 +73,7 @@ namespace VoiceNavigator20251111
       Models::CreateCallCenterProviderResponse createCallCenterProviderWithOptions(const Models::CreateCallCenterProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建服务提供商
+       * @summary Creates a human agent service provider.
        *
        * @param request CreateCallCenterProviderRequest
        * @return CreateCallCenterProviderResponse
@@ -81,7 +81,7 @@ namespace VoiceNavigator20251111
       Models::CreateCallCenterProviderResponse createCallCenterProvider(const Models::CreateCallCenterProviderRequest &request);
 
       /**
-       * @summary 创建实例
+       * @summary Creates an instance.
        *
        * @param request CreateCloneVoiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -90,7 +90,7 @@ namespace VoiceNavigator20251111
       Models::CreateCloneVoiceResponse createCloneVoiceWithOptions(const Models::CreateCloneVoiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建实例
+       * @summary Creates an instance.
        *
        * @param request CreateCloneVoiceRequest
        * @return CreateCloneVoiceResponse
@@ -98,7 +98,7 @@ namespace VoiceNavigator20251111
       Models::CreateCloneVoiceResponse createCloneVoice(const Models::CreateCloneVoiceRequest &request);
 
       /**
-       * @summary 创建指令
+       * @summary Adds an instruction to the global configuration of a digital employee.
        *
        * @param request CreateInstructionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -107,7 +107,7 @@ namespace VoiceNavigator20251111
       Models::CreateInstructionResponse createInstructionWithOptions(const Models::CreateInstructionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建指令
+       * @summary Adds an instruction to the global configuration of a digital employee.
        *
        * @param request CreateInstructionRequest
        * @return CreateInstructionResponse
@@ -115,7 +115,7 @@ namespace VoiceNavigator20251111
       Models::CreateInstructionResponse createInstruction(const Models::CreateInstructionRequest &request);
 
       /**
-       * @summary 创建语言模型配置信息
+       * @summary Creates the configuration information for a language model.
        *
        * @param tmpReq CreateLlmAccessProfileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -124,7 +124,7 @@ namespace VoiceNavigator20251111
       Models::CreateLlmAccessProfileResponse createLlmAccessProfileWithOptions(const Models::CreateLlmAccessProfileRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建语言模型配置信息
+       * @summary Creates the configuration information for a language model.
        *
        * @param request CreateLlmAccessProfileRequest
        * @return CreateLlmAccessProfileResponse
@@ -132,7 +132,7 @@ namespace VoiceNavigator20251111
       Models::CreateLlmAccessProfileResponse createLlmAccessProfile(const Models::CreateLlmAccessProfileRequest &request);
 
       /**
-       * @summary 创建实例
+       * @summary Creates an instance.
        *
        * @param request CreateScriptRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -141,7 +141,7 @@ namespace VoiceNavigator20251111
       Models::CreateScriptResponse createScriptWithOptions(const Models::CreateScriptRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建实例
+       * @summary Creates an instance.
        *
        * @param request CreateScriptRequest
        * @return CreateScriptResponse
@@ -149,7 +149,7 @@ namespace VoiceNavigator20251111
       Models::CreateScriptResponse createScript(const Models::CreateScriptRequest &request);
 
       /**
-       * @summary 创建场景配置
+       * @summary Creates a scenario configuration.
        *
        * @param tmpReq CreateScriptVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -158,7 +158,7 @@ namespace VoiceNavigator20251111
       Models::CreateScriptVersionResponse createScriptVersionWithOptions(const Models::CreateScriptVersionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建场景配置
+       * @summary Creates a scenario configuration.
        *
        * @param request CreateScriptVersionRequest
        * @return CreateScriptVersionResponse
@@ -166,7 +166,7 @@ namespace VoiceNavigator20251111
       Models::CreateScriptVersionResponse createScriptVersion(const Models::CreateScriptVersionRequest &request);
 
       /**
-       * @summary 创建变量
+       * @summary Creates a variable.
        *
        * @param request CreateVariableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -175,7 +175,7 @@ namespace VoiceNavigator20251111
       Models::CreateVariableResponse createVariableWithOptions(const Models::CreateVariableRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建变量
+       * @summary Creates a variable.
        *
        * @param request CreateVariableRequest
        * @return CreateVariableResponse
@@ -183,7 +183,7 @@ namespace VoiceNavigator20251111
       Models::CreateVariableResponse createVariable(const Models::CreateVariableRequest &request);
 
       /**
-       * @summary 创建实例
+       * @summary Creates an instance.
        *
        * @param tmpReq CreateVocabularyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -192,7 +192,7 @@ namespace VoiceNavigator20251111
       Models::CreateVocabularyResponse createVocabularyWithOptions(const Models::CreateVocabularyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建实例
+       * @summary Creates an instance.
        *
        * @param request CreateVocabularyRequest
        * @return CreateVocabularyResponse
@@ -200,7 +200,7 @@ namespace VoiceNavigator20251111
       Models::CreateVocabularyResponse createVocabulary(const Models::CreateVocabularyRequest &request);
 
       /**
-       * @summary 创建实例
+       * @summary Creates an instance.
        *
        * @param tmpReq CreateVoiceAccessProfileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -209,7 +209,7 @@ namespace VoiceNavigator20251111
       Models::CreateVoiceAccessProfileResponse createVoiceAccessProfileWithOptions(const Models::CreateVoiceAccessProfileRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建实例
+       * @summary Creates an instance.
        *
        * @param request CreateVoiceAccessProfileRequest
        * @return CreateVoiceAccessProfileResponse
@@ -217,7 +217,7 @@ namespace VoiceNavigator20251111
       Models::CreateVoiceAccessProfileResponse createVoiceAccessProfile(const Models::CreateVoiceAccessProfileRequest &request);
 
       /**
-       * @summary 删除服务提供商
+       * @summary Deletes a human service provider in system administration.
        *
        * @param request DeleteCallCenterProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -226,7 +226,7 @@ namespace VoiceNavigator20251111
       Models::DeleteCallCenterProviderResponse deleteCallCenterProviderWithOptions(const Models::DeleteCallCenterProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除服务提供商
+       * @summary Deletes a human service provider in system administration.
        *
        * @param request DeleteCallCenterProviderRequest
        * @return DeleteCallCenterProviderResponse
@@ -234,7 +234,7 @@ namespace VoiceNavigator20251111
       Models::DeleteCallCenterProviderResponse deleteCallCenterProvider(const Models::DeleteCallCenterProviderRequest &request);
 
       /**
-       * @summary 删除场景
+       * @summary Deletes a scenario.
        *
        * @param request DeleteCloneVoiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -243,7 +243,7 @@ namespace VoiceNavigator20251111
       Models::DeleteCloneVoiceResponse deleteCloneVoiceWithOptions(const Models::DeleteCloneVoiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除场景
+       * @summary Deletes a scenario.
        *
        * @param request DeleteCloneVoiceRequest
        * @return DeleteCloneVoiceResponse
@@ -251,7 +251,7 @@ namespace VoiceNavigator20251111
       Models::DeleteCloneVoiceResponse deleteCloneVoice(const Models::DeleteCloneVoiceRequest &request);
 
       /**
-       * @summary 删除指令
+       * @summary Deletes an instruction from the global configuration of a digital employee.
        *
        * @param request DeleteInstructionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -260,7 +260,7 @@ namespace VoiceNavigator20251111
       Models::DeleteInstructionResponse deleteInstructionWithOptions(const Models::DeleteInstructionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除指令
+       * @summary Deletes an instruction from the global configuration of a digital employee.
        *
        * @param request DeleteInstructionRequest
        * @return DeleteInstructionResponse
@@ -268,7 +268,7 @@ namespace VoiceNavigator20251111
       Models::DeleteInstructionResponse deleteInstruction(const Models::DeleteInstructionRequest &request);
 
       /**
-       * @summary 删除语言模型配置信息
+       * @summary Deletes the language model configuration.
        *
        * @param request DeleteLlmAccessProfileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -277,7 +277,7 @@ namespace VoiceNavigator20251111
       Models::DeleteLlmAccessProfileResponse deleteLlmAccessProfileWithOptions(const Models::DeleteLlmAccessProfileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除语言模型配置信息
+       * @summary Deletes the language model configuration.
        *
        * @param request DeleteLlmAccessProfileRequest
        * @return DeleteLlmAccessProfileResponse
@@ -285,7 +285,7 @@ namespace VoiceNavigator20251111
       Models::DeleteLlmAccessProfileResponse deleteLlmAccessProfile(const Models::DeleteLlmAccessProfileRequest &request);
 
       /**
-       * @summary 删除场景
+       * @summary Deletes a scenario.
        *
        * @param request DeleteScriptRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -294,7 +294,7 @@ namespace VoiceNavigator20251111
       Models::DeleteScriptResponse deleteScriptWithOptions(const Models::DeleteScriptRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除场景
+       * @summary Deletes a scenario.
        *
        * @param request DeleteScriptRequest
        * @return DeleteScriptResponse
@@ -302,7 +302,7 @@ namespace VoiceNavigator20251111
       Models::DeleteScriptResponse deleteScript(const Models::DeleteScriptRequest &request);
 
       /**
-       * @summary 删除变量
+       * @summary Deletes a variable.
        *
        * @param request DeleteVariableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -311,7 +311,7 @@ namespace VoiceNavigator20251111
       Models::DeleteVariableResponse deleteVariableWithOptions(const Models::DeleteVariableRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除变量
+       * @summary Deletes a variable.
        *
        * @param request DeleteVariableRequest
        * @return DeleteVariableResponse
@@ -319,7 +319,7 @@ namespace VoiceNavigator20251111
       Models::DeleteVariableResponse deleteVariable(const Models::DeleteVariableRequest &request);
 
       /**
-       * @summary 删除场景
+       * @summary Deletes a vocabulary from a Voice Navigator instance.
        *
        * @param request DeleteVocabularyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -328,7 +328,7 @@ namespace VoiceNavigator20251111
       Models::DeleteVocabularyResponse deleteVocabularyWithOptions(const Models::DeleteVocabularyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除场景
+       * @summary Deletes a vocabulary from a Voice Navigator instance.
        *
        * @param request DeleteVocabularyRequest
        * @return DeleteVocabularyResponse
@@ -336,7 +336,7 @@ namespace VoiceNavigator20251111
       Models::DeleteVocabularyResponse deleteVocabulary(const Models::DeleteVocabularyRequest &request);
 
       /**
-       * @summary 删除场景
+       * @summary Deletes a Voice Access Profile.
        *
        * @param request DeleteVoiceAccessProfileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -345,7 +345,7 @@ namespace VoiceNavigator20251111
       Models::DeleteVoiceAccessProfileResponse deleteVoiceAccessProfileWithOptions(const Models::DeleteVoiceAccessProfileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除场景
+       * @summary Deletes a Voice Access Profile.
        *
        * @param request DeleteVoiceAccessProfileRequest
        * @return DeleteVoiceAccessProfileResponse
@@ -353,7 +353,7 @@ namespace VoiceNavigator20251111
       Models::DeleteVoiceAccessProfileResponse deleteVoiceAccessProfile(const Models::DeleteVoiceAccessProfileRequest &request);
 
       /**
-       * @summary 开启会话
+       * @summary Process a single conversational turn.
        *
        * @param request DialogueRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -362,7 +362,7 @@ namespace VoiceNavigator20251111
       FutureGenerator<Models::DialogueResponse> dialogueWithSSE(const Models::DialogueRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 开启会话
+       * @summary Process a single conversational turn.
        *
        * @param request DialogueRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -371,7 +371,7 @@ namespace VoiceNavigator20251111
       Models::DialogueResponse dialogueWithOptions(const Models::DialogueRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 开启会话
+       * @summary Process a single conversational turn.
        *
        * @param request DialogueRequest
        * @return DialogueResponse
@@ -379,7 +379,7 @@ namespace VoiceNavigator20251111
       Models::DialogueResponse dialogue(const Models::DialogueRequest &request);
 
       /**
-       * @summary 禁用消息订阅
+       * @summary Disables the subscription for a Voice Navigator instance.
        *
        * @param request DisableSubscriptionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -388,7 +388,7 @@ namespace VoiceNavigator20251111
       Models::DisableSubscriptionResponse disableSubscriptionWithOptions(const Models::DisableSubscriptionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 禁用消息订阅
+       * @summary Disables the subscription for a Voice Navigator instance.
        *
        * @param request DisableSubscriptionRequest
        * @return DisableSubscriptionResponse
@@ -396,7 +396,7 @@ namespace VoiceNavigator20251111
       Models::DisableSubscriptionResponse disableSubscription(const Models::DisableSubscriptionRequest &request);
 
       /**
-       * @summary 结束会话
+       * @summary Ends a session.
        *
        * @param request EndSessionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -405,7 +405,7 @@ namespace VoiceNavigator20251111
       Models::EndSessionResponse endSessionWithOptions(const Models::EndSessionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 结束会话
+       * @summary Ends a session.
        *
        * @param request EndSessionRequest
        * @return EndSessionResponse
@@ -413,7 +413,7 @@ namespace VoiceNavigator20251111
       Models::EndSessionResponse endSession(const Models::EndSessionRequest &request);
 
       /**
-       * @summary 获取实例详情
+       * @summary Exports a specified script.
        *
        * @param request ExportScriptRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -422,7 +422,7 @@ namespace VoiceNavigator20251111
       Models::ExportScriptResponse exportScriptWithOptions(const Models::ExportScriptRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取实例详情
+       * @summary Exports a specified script.
        *
        * @param request ExportScriptRequest
        * @return ExportScriptResponse
@@ -430,7 +430,7 @@ namespace VoiceNavigator20251111
       Models::ExportScriptResponse exportScript(const Models::ExportScriptRequest &request);
 
       /**
-       * @summary 导出热词
+       * @summary Exports vocabularies.
        *
        * @param tmpReq ExportVocabularyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -439,7 +439,7 @@ namespace VoiceNavigator20251111
       Models::ExportVocabularyResponse exportVocabularyWithOptions(const Models::ExportVocabularyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 导出热词
+       * @summary Exports vocabularies.
        *
        * @param request ExportVocabularyRequest
        * @return ExportVocabularyResponse
@@ -447,7 +447,7 @@ namespace VoiceNavigator20251111
       Models::ExportVocabularyResponse exportVocabulary(const Models::ExportVocabularyRequest &request);
 
       /**
-       * @summary 获取实例详情
+       * @summary Generates temporary credentials and parameters to upload a file to Object Storage Service (OSS).
        *
        * @param request GenerateFileUploadParamsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -456,7 +456,7 @@ namespace VoiceNavigator20251111
       Models::GenerateFileUploadParamsResponse generateFileUploadParamsWithOptions(const Models::GenerateFileUploadParamsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取实例详情
+       * @summary Generates temporary credentials and parameters to upload a file to Object Storage Service (OSS).
        *
        * @param request GenerateFileUploadParamsRequest
        * @return GenerateFileUploadParamsResponse
@@ -464,7 +464,7 @@ namespace VoiceNavigator20251111
       Models::GenerateFileUploadParamsResponse generateFileUploadParams(const Models::GenerateFileUploadParamsRequest &request);
 
       /**
-       * @summary 获取通话详情
+       * @summary Get call details.
        *
        * @param request GetCallDetailRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -473,7 +473,7 @@ namespace VoiceNavigator20251111
       Models::GetCallDetailRecordResponse getCallDetailRecordWithOptions(const Models::GetCallDetailRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取通话详情
+       * @summary Get call details.
        *
        * @param request GetCallDetailRecordRequest
        * @return GetCallDetailRecordResponse
@@ -481,7 +481,7 @@ namespace VoiceNavigator20251111
       Models::GetCallDetailRecordResponse getCallDetailRecord(const Models::GetCallDetailRecordRequest &request);
 
       /**
-       * @summary 获取语音对话参数
+       * @summary Retrieves a data channel credential.
        *
        * @param request GetDataChannelCredentialRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -490,7 +490,7 @@ namespace VoiceNavigator20251111
       Models::GetDataChannelCredentialResponse getDataChannelCredentialWithOptions(const Models::GetDataChannelCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取语音对话参数
+       * @summary Retrieves a data channel credential.
        *
        * @param request GetDataChannelCredentialRequest
        * @return GetDataChannelCredentialResponse
@@ -498,7 +498,12 @@ namespace VoiceNavigator20251111
       Models::GetDataChannelCredentialResponse getDataChannelCredential(const Models::GetDataChannelCredentialRequest &request);
 
       /**
-       * @summary 获取实例指标趋势详情
+       * @summary Retrieves the metric trends chart for an instance.
+       *
+       * @description ## Operation description
+       * - This API operation is used to query the script configuration details for a specific scenario, including settings for ASR, TTS, and dialog capabilities.
+       * - No additional parameters are required in the request. The response contains configuration data for both the draft version and the published version.
+       * - Check the `Data` field in the response to obtain detailed configuration information.
        *
        * @param request GetInstanceTrendingReportRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -507,7 +512,12 @@ namespace VoiceNavigator20251111
       Models::GetInstanceTrendingReportResponse getInstanceTrendingReportWithOptions(const Models::GetInstanceTrendingReportRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取实例指标趋势详情
+       * @summary Retrieves the metric trends chart for an instance.
+       *
+       * @description ## Operation description
+       * - This API operation is used to query the script configuration details for a specific scenario, including settings for ASR, TTS, and dialog capabilities.
+       * - No additional parameters are required in the request. The response contains configuration data for both the draft version and the published version.
+       * - Check the `Data` field in the response to obtain detailed configuration information.
        *
        * @param request GetInstanceTrendingReportRequest
        * @return GetInstanceTrendingReportResponse
@@ -515,7 +525,7 @@ namespace VoiceNavigator20251111
       Models::GetInstanceTrendingReportResponse getInstanceTrendingReport(const Models::GetInstanceTrendingReportRequest &request);
 
       /**
-       * @summary 获取实例实时指标
+       * @summary Retrieves real-time stats for an instance.
        *
        * @param request GetRealtimeInstanceStatsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -524,7 +534,7 @@ namespace VoiceNavigator20251111
       Models::GetRealtimeInstanceStatsResponse getRealtimeInstanceStatsWithOptions(const Models::GetRealtimeInstanceStatsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取实例实时指标
+       * @summary Retrieves real-time stats for an instance.
        *
        * @param request GetRealtimeInstanceStatsRequest
        * @return GetRealtimeInstanceStatsResponse
@@ -532,7 +542,7 @@ namespace VoiceNavigator20251111
       Models::GetRealtimeInstanceStatsResponse getRealtimeInstanceStats(const Models::GetRealtimeInstanceStatsRequest &request);
 
       /**
-       * @summary 获取场景实时指标
+       * @summary Queries the real-time statistics for a specified script.
        *
        * @param request GetRealtimeScriptStatsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -541,7 +551,7 @@ namespace VoiceNavigator20251111
       Models::GetRealtimeScriptStatsResponse getRealtimeScriptStatsWithOptions(const Models::GetRealtimeScriptStatsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取场景实时指标
+       * @summary Queries the real-time statistics for a specified script.
        *
        * @param request GetRealtimeScriptStatsRequest
        * @return GetRealtimeScriptStatsResponse
@@ -549,7 +559,7 @@ namespace VoiceNavigator20251111
       Models::GetRealtimeScriptStatsResponse getRealtimeScriptStats(const Models::GetRealtimeScriptStatsRequest &request);
 
       /**
-       * @summary 获取录音
+       * @summary Retrieves the download URL for a call recording.
        *
        * @param request GetRecordingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -558,7 +568,7 @@ namespace VoiceNavigator20251111
       Models::GetRecordingResponse getRecordingWithOptions(const Models::GetRecordingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取录音
+       * @summary Retrieves the download URL for a call recording.
        *
        * @param request GetRecordingRequest
        * @return GetRecordingResponse
@@ -566,7 +576,12 @@ namespace VoiceNavigator20251111
       Models::GetRecordingResponse getRecording(const Models::GetRecordingRequest &request);
 
       /**
-       * @summary 获取实例详情
+       * @summary Retrieves the detailed configuration information for the draft and published versions of a specified scenario.
+       *
+       * @description ## Request description
+       * - This operation queries the detailed script configuration for a specific scenario. The configuration includes settings for Automatic Speech Recognition (ASR), Text-to-Speech (TTS), and dialogue capabilities.
+       * - No additional parameters are required for the request. The response contains the configuration data for both the draft and published versions.
+       * - The detailed configuration information is returned in the `Data` field of the response.
        *
        * @param request GetScriptRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -575,7 +590,12 @@ namespace VoiceNavigator20251111
       Models::GetScriptResponse getScriptWithOptions(const Models::GetScriptRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取实例详情
+       * @summary Retrieves the detailed configuration information for the draft and published versions of a specified scenario.
+       *
+       * @description ## Request description
+       * - This operation queries the detailed script configuration for a specific scenario. The configuration includes settings for Automatic Speech Recognition (ASR), Text-to-Speech (TTS), and dialogue capabilities.
+       * - No additional parameters are required for the request. The response contains the configuration data for both the draft and published versions.
+       * - The detailed configuration information is returned in the `Data` field of the response.
        *
        * @param request GetScriptRequest
        * @return GetScriptResponse
@@ -583,7 +603,12 @@ namespace VoiceNavigator20251111
       Models::GetScriptResponse getScript(const Models::GetScriptRequest &request);
 
       /**
-       * @summary 获取场景指标趋势详情
+       * @summary View the scenario metric trend chart
+       *
+       * @description ## Request
+       * - This API returns the script configuration for a specific scenario, including settings for ASR, TTS, and conversational capability.
+       * - This request requires no parameters. The response includes configuration data for both the draft and published versions.
+       * - Check the `Data` field for configuration details.
        *
        * @param request GetScriptTrendingReportRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -592,7 +617,12 @@ namespace VoiceNavigator20251111
       Models::GetScriptTrendingReportResponse getScriptTrendingReportWithOptions(const Models::GetScriptTrendingReportRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取场景指标趋势详情
+       * @summary View the scenario metric trend chart
+       *
+       * @description ## Request
+       * - This API returns the script configuration for a specific scenario, including settings for ASR, TTS, and conversational capability.
+       * - This request requires no parameters. The response includes configuration data for both the draft and published versions.
+       * - Check the `Data` field for configuration details.
        *
        * @param request GetScriptTrendingReportRequest
        * @return GetScriptTrendingReportResponse
@@ -600,7 +630,7 @@ namespace VoiceNavigator20251111
       Models::GetScriptTrendingReportResponse getScriptTrendingReport(const Models::GetScriptTrendingReportRequest &request);
 
       /**
-       * @summary 获取MQ配置
+       * @summary Retrieves the details of a message queue (MQ) subscription.
        *
        * @param request GetSubscriptionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -609,7 +639,7 @@ namespace VoiceNavigator20251111
       Models::GetSubscriptionResponse getSubscriptionWithOptions(const Models::GetSubscriptionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取MQ配置
+       * @summary Retrieves the details of a message queue (MQ) subscription.
        *
        * @param request GetSubscriptionRequest
        * @return GetSubscriptionResponse
@@ -617,7 +647,7 @@ namespace VoiceNavigator20251111
       Models::GetSubscriptionResponse getSubscription(const Models::GetSubscriptionRequest &request);
 
       /**
-       * @summary 获取实例详情
+       * @summary Gets the details of a specified vocabulary.
        *
        * @param request GetVocabularyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -626,7 +656,7 @@ namespace VoiceNavigator20251111
       Models::GetVocabularyResponse getVocabularyWithOptions(const Models::GetVocabularyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取实例详情
+       * @summary Gets the details of a specified vocabulary.
        *
        * @param request GetVocabularyRequest
        * @return GetVocabularyResponse
@@ -634,7 +664,7 @@ namespace VoiceNavigator20251111
       Models::GetVocabularyResponse getVocabulary(const Models::GetVocabularyRequest &request);
 
       /**
-       * @summary 导入热词
+       * @summary Imports a custom vocabulary.
        *
        * @param request ImportVocabularyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -643,7 +673,7 @@ namespace VoiceNavigator20251111
       Models::ImportVocabularyResponse importVocabularyWithOptions(const Models::ImportVocabularyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 导入热词
+       * @summary Imports a custom vocabulary.
        *
        * @param request ImportVocabularyRequest
        * @return ImportVocabularyResponse
@@ -651,7 +681,7 @@ namespace VoiceNavigator20251111
       Models::ImportVocabularyResponse importVocabulary(const Models::ImportVocabularyRequest &request);
 
       /**
-       * @summary 获取背景音列表
+       * @summary Retrieves a list of background music tracks.
        *
        * @param request ListBackgroundMusicsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -660,7 +690,7 @@ namespace VoiceNavigator20251111
       Models::ListBackgroundMusicsResponse listBackgroundMusicsWithOptions(const Models::ListBackgroundMusicsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取背景音列表
+       * @summary Retrieves a list of background music tracks.
        *
        * @param request ListBackgroundMusicsRequest
        * @return ListBackgroundMusicsResponse
@@ -668,7 +698,7 @@ namespace VoiceNavigator20251111
       Models::ListBackgroundMusicsResponse listBackgroundMusics(const Models::ListBackgroundMusicsRequest &request);
 
       /**
-       * @summary 查询服务提供商
+       * @summary System Management > Manual Service Provider Management > Query
        *
        * @param request ListCallCenterProvidersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -677,7 +707,7 @@ namespace VoiceNavigator20251111
       Models::ListCallCenterProvidersResponse listCallCenterProvidersWithOptions(const Models::ListCallCenterProvidersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询服务提供商
+       * @summary System Management > Manual Service Provider Management > Query
        *
        * @param request ListCallCenterProvidersRequest
        * @return ListCallCenterProvidersResponse
@@ -685,7 +715,7 @@ namespace VoiceNavigator20251111
       Models::ListCallCenterProvidersResponse listCallCenterProviders(const Models::ListCallCenterProvidersRequest &request);
 
       /**
-       * @summary 获取实例详情
+       * @summary Gets the call list.
        *
        * @param tmpReq ListCallDetailRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -694,7 +724,7 @@ namespace VoiceNavigator20251111
       Models::ListCallDetailRecordsResponse listCallDetailRecordsWithOptions(const Models::ListCallDetailRecordsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取实例详情
+       * @summary Gets the call list.
        *
        * @param request ListCallDetailRecordsRequest
        * @return ListCallDetailRecordsResponse
@@ -702,7 +732,7 @@ namespace VoiceNavigator20251111
       Models::ListCallDetailRecordsResponse listCallDetailRecords(const Models::ListCallDetailRecordsRequest &request);
 
       /**
-       * @summary 获取实例详情
+       * @summary Lists the cloned voices in an instance.
        *
        * @param request ListCloneVoiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -711,7 +741,7 @@ namespace VoiceNavigator20251111
       Models::ListCloneVoiceResponse listCloneVoiceWithOptions(const Models::ListCloneVoiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取实例详情
+       * @summary Lists the cloned voices in an instance.
        *
        * @param request ListCloneVoiceRequest
        * @return ListCloneVoiceResponse
@@ -719,7 +749,7 @@ namespace VoiceNavigator20251111
       Models::ListCloneVoiceResponse listCloneVoice(const Models::ListCloneVoiceRequest &request);
 
       /**
-       * @summary 获取克隆音色可用模型列表
+       * @summary Lists the available clone voice models.
        *
        * @param request ListCloneVoiceModelsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -728,7 +758,7 @@ namespace VoiceNavigator20251111
       Models::ListCloneVoiceModelsResponse listCloneVoiceModelsWithOptions(const Models::ListCloneVoiceModelsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取克隆音色可用模型列表
+       * @summary Lists the available clone voice models.
        *
        * @param request ListCloneVoiceModelsRequest
        * @return ListCloneVoiceModelsResponse
@@ -736,7 +766,12 @@ namespace VoiceNavigator20251111
       Models::ListCloneVoiceModelsResponse listCloneVoiceModels(const Models::ListCloneVoiceModelsRequest &request);
 
       /**
-       * @summary 获取实例指标汇总数据
+       * @summary Retrieve aggregated instance metrics
+       *
+       * @description ## Request
+       * - This API retrieves the script configuration for a specific scenario, including settings for ASR, TTS, and dialogue capability.
+       * - This request requires no parameters. The response includes the configuration data for both the draft and published versions.
+       * - The configuration data is returned in the `Data` field of the response.
        *
        * @param tmpReq ListHistoricalInstanceReportRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -745,7 +780,12 @@ namespace VoiceNavigator20251111
       Models::ListHistoricalInstanceReportResponse listHistoricalInstanceReportWithOptions(const Models::ListHistoricalInstanceReportRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取实例指标汇总数据
+       * @summary Retrieve aggregated instance metrics
+       *
+       * @description ## Request
+       * - This API retrieves the script configuration for a specific scenario, including settings for ASR, TTS, and dialogue capability.
+       * - This request requires no parameters. The response includes the configuration data for both the draft and published versions.
+       * - The configuration data is returned in the `Data` field of the response.
        *
        * @param request ListHistoricalInstanceReportRequest
        * @return ListHistoricalInstanceReportResponse
@@ -753,7 +793,7 @@ namespace VoiceNavigator20251111
       Models::ListHistoricalInstanceReportResponse listHistoricalInstanceReport(const Models::ListHistoricalInstanceReportRequest &request);
 
       /**
-       * @summary 获取场景指标汇总数据
+       * @summary Get scene metric summary data
        *
        * @param tmpReq ListHistoricalScriptReportRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -762,7 +802,7 @@ namespace VoiceNavigator20251111
       Models::ListHistoricalScriptReportResponse listHistoricalScriptReportWithOptions(const Models::ListHistoricalScriptReportRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取场景指标汇总数据
+       * @summary Get scene metric summary data
        *
        * @param request ListHistoricalScriptReportRequest
        * @return ListHistoricalScriptReportResponse
@@ -770,7 +810,7 @@ namespace VoiceNavigator20251111
       Models::ListHistoricalScriptReportResponse listHistoricalScriptReport(const Models::ListHistoricalScriptReportRequest &request);
 
       /**
-       * @summary 查询指令
+       * @summary Lists the instructions that are configured for a Digital Employee.
        *
        * @param request ListInstructionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -779,7 +819,7 @@ namespace VoiceNavigator20251111
       Models::ListInstructionsResponse listInstructionsWithOptions(const Models::ListInstructionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询指令
+       * @summary Lists the instructions that are configured for a Digital Employee.
        *
        * @param request ListInstructionsRequest
        * @return ListInstructionsResponse
@@ -787,7 +827,7 @@ namespace VoiceNavigator20251111
       Models::ListInstructionsResponse listInstructions(const Models::ListInstructionsRequest &request);
 
       /**
-       * @summary 获取语言模型配置信息
+       * @summary Get the language model configuration.
        *
        * @param request ListLlmAccessProfilesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -796,7 +836,7 @@ namespace VoiceNavigator20251111
       Models::ListLlmAccessProfilesResponse listLlmAccessProfilesWithOptions(const Models::ListLlmAccessProfilesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取语言模型配置信息
+       * @summary Get the language model configuration.
        *
        * @param request ListLlmAccessProfilesRequest
        * @return ListLlmAccessProfilesResponse
@@ -804,7 +844,7 @@ namespace VoiceNavigator20251111
       Models::ListLlmAccessProfilesResponse listLlmAccessProfiles(const Models::ListLlmAccessProfilesRequest &request);
 
       /**
-       * @summary 获取对话模型列表
+       * @summary Lists the available NLU models.
        *
        * @param request ListNluModelsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -813,7 +853,7 @@ namespace VoiceNavigator20251111
       Models::ListNluModelsResponse listNluModelsWithOptions(const Models::ListNluModelsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取对话模型列表
+       * @summary Lists the available NLU models.
        *
        * @param request ListNluModelsRequest
        * @return ListNluModelsResponse
@@ -821,7 +861,7 @@ namespace VoiceNavigator20251111
       Models::ListNluModelsResponse listNluModels(const Models::ListNluModelsRequest &request);
 
       /**
-       * @summary 获取实例实时指标
+       * @summary Retrieves real-time statistics for instances.
        *
        * @param tmpReq ListRealtimeInstanceStatsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -830,7 +870,7 @@ namespace VoiceNavigator20251111
       Models::ListRealtimeInstanceStatsResponse listRealtimeInstanceStatsWithOptions(const Models::ListRealtimeInstanceStatsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取实例实时指标
+       * @summary Retrieves real-time statistics for instances.
        *
        * @param request ListRealtimeInstanceStatsRequest
        * @return ListRealtimeInstanceStatsResponse
@@ -838,7 +878,7 @@ namespace VoiceNavigator20251111
       Models::ListRealtimeInstanceStatsResponse listRealtimeInstanceStats(const Models::ListRealtimeInstanceStatsRequest &request);
 
       /**
-       * @summary 获取场景配置模板列表
+       * @summary Retrieves a list of scenario configuration templates.
        *
        * @param request ListScriptProfileTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -847,7 +887,7 @@ namespace VoiceNavigator20251111
       Models::ListScriptProfileTemplatesResponse listScriptProfileTemplatesWithOptions(const Models::ListScriptProfileTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取场景配置模板列表
+       * @summary Retrieves a list of scenario configuration templates.
        *
        * @param request ListScriptProfileTemplatesRequest
        * @return ListScriptProfileTemplatesResponse
@@ -855,7 +895,7 @@ namespace VoiceNavigator20251111
       Models::ListScriptProfileTemplatesResponse listScriptProfileTemplates(const Models::ListScriptProfileTemplatesRequest &request);
 
       /**
-       * @summary 获取实例详情
+       * @summary Retrieves the details of an instance.
        *
        * @param tmpReq ListScriptsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -864,7 +904,7 @@ namespace VoiceNavigator20251111
       Models::ListScriptsResponse listScriptsWithOptions(const Models::ListScriptsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取实例详情
+       * @summary Retrieves the details of an instance.
        *
        * @param request ListScriptsRequest
        * @return ListScriptsResponse
@@ -872,7 +912,7 @@ namespace VoiceNavigator20251111
       Models::ListScriptsResponse listScripts(const Models::ListScriptsRequest &request);
 
       /**
-       * @summary 获取变量列表
+       * @summary Retrieves a list of variables.
        *
        * @param request ListVariableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -881,7 +921,7 @@ namespace VoiceNavigator20251111
       Models::ListVariableResponse listVariableWithOptions(const Models::ListVariableRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取变量列表
+       * @summary Retrieves a list of variables.
        *
        * @param request ListVariableRequest
        * @return ListVariableResponse
@@ -889,7 +929,7 @@ namespace VoiceNavigator20251111
       Models::ListVariableResponse listVariable(const Models::ListVariableRequest &request);
 
       /**
-       * @summary 获取实例详情
+       * @summary Retrieves a list of vocabularies for a specified instance.
        *
        * @param request ListVocabularyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -898,7 +938,7 @@ namespace VoiceNavigator20251111
       Models::ListVocabularyResponse listVocabularyWithOptions(const Models::ListVocabularyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取实例详情
+       * @summary Retrieves a list of vocabularies for a specified instance.
        *
        * @param request ListVocabularyRequest
        * @return ListVocabularyResponse
@@ -906,7 +946,7 @@ namespace VoiceNavigator20251111
       Models::ListVocabularyResponse listVocabulary(const Models::ListVocabularyRequest &request);
 
       /**
-       * @summary 获取实例详情
+       * @summary Retrieves the details of an instance.
        *
        * @param request ListVoiceAccessProfileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -915,7 +955,7 @@ namespace VoiceNavigator20251111
       Models::ListVoiceAccessProfileResponse listVoiceAccessProfileWithOptions(const Models::ListVoiceAccessProfileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取实例详情
+       * @summary Retrieves the details of an instance.
        *
        * @param request ListVoiceAccessProfileRequest
        * @return ListVoiceAccessProfileResponse
@@ -923,7 +963,7 @@ namespace VoiceNavigator20251111
       Models::ListVoiceAccessProfileResponse listVoiceAccessProfile(const Models::ListVoiceAccessProfileRequest &request);
 
       /**
-       * @summary 获取引擎列表
+       * @summary Retrieves a list of engines.
        *
        * @param request ListVoiceEnginesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -932,7 +972,7 @@ namespace VoiceNavigator20251111
       Models::ListVoiceEnginesResponse listVoiceEnginesWithOptions(const Models::ListVoiceEnginesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取引擎列表
+       * @summary Retrieves a list of engines.
        *
        * @param request ListVoiceEnginesRequest
        * @return ListVoiceEnginesResponse
@@ -940,7 +980,7 @@ namespace VoiceNavigator20251111
       Models::ListVoiceEnginesResponse listVoiceEngines(const Models::ListVoiceEnginesRequest &request);
 
       /**
-       * @summary 获取实例详情
+       * @summary Retrieves a list of available voices.
        *
        * @param request ListVoicesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -949,7 +989,7 @@ namespace VoiceNavigator20251111
       Models::ListVoicesResponse listVoicesWithOptions(const Models::ListVoicesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取实例详情
+       * @summary Retrieves a list of available voices.
        *
        * @param request ListVoicesRequest
        * @return ListVoicesResponse
@@ -957,7 +997,7 @@ namespace VoiceNavigator20251111
       Models::ListVoicesResponse listVoices(const Models::ListVoicesRequest &request);
 
       /**
-       * @summary 试听
+       * @summary Creates an instance.
        *
        * @param tmpReq PreviewVoiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -966,7 +1006,7 @@ namespace VoiceNavigator20251111
       Models::PreviewVoiceResponse previewVoiceWithOptions(const Models::PreviewVoiceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 试听
+       * @summary Creates an instance.
        *
        * @param request PreviewVoiceRequest
        * @return PreviewVoiceResponse
@@ -974,7 +1014,7 @@ namespace VoiceNavigator20251111
       Models::PreviewVoiceResponse previewVoice(const Models::PreviewVoiceRequest &request);
 
       /**
-       * @summary 更新实例
+       * @summary Updates an instance.
        *
        * @param request PublishScriptRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -983,7 +1023,7 @@ namespace VoiceNavigator20251111
       Models::PublishScriptResponse publishScriptWithOptions(const Models::PublishScriptRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新实例
+       * @summary Updates an instance.
        *
        * @param request PublishScriptRequest
        * @return PublishScriptResponse
@@ -991,7 +1031,7 @@ namespace VoiceNavigator20251111
       Models::PublishScriptResponse publishScript(const Models::PublishScriptRequest &request);
 
       /**
-       * @summary 修改服务提供商
+       * @summary Updates an agent service provider in system administration.
        *
        * @param request UpdateCallCenterProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1000,7 +1040,7 @@ namespace VoiceNavigator20251111
       Models::UpdateCallCenterProviderResponse updateCallCenterProviderWithOptions(const Models::UpdateCallCenterProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改服务提供商
+       * @summary Updates an agent service provider in system administration.
        *
        * @param request UpdateCallCenterProviderRequest
        * @return UpdateCallCenterProviderResponse
@@ -1008,7 +1048,7 @@ namespace VoiceNavigator20251111
       Models::UpdateCallCenterProviderResponse updateCallCenterProvider(const Models::UpdateCallCenterProviderRequest &request);
 
       /**
-       * @summary 更新实例
+       * @summary Updates an instance.
        *
        * @param request UpdateCloneVoiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1017,7 +1057,7 @@ namespace VoiceNavigator20251111
       Models::UpdateCloneVoiceResponse updateCloneVoiceWithOptions(const Models::UpdateCloneVoiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新实例
+       * @summary Updates an instance.
        *
        * @param request UpdateCloneVoiceRequest
        * @return UpdateCloneVoiceResponse
@@ -1025,7 +1065,7 @@ namespace VoiceNavigator20251111
       Models::UpdateCloneVoiceResponse updateCloneVoice(const Models::UpdateCloneVoiceRequest &request);
 
       /**
-       * @summary 修改指令
+       * @summary Updates the global configuration of a specific instruction for a Digital Employee.
        *
        * @param request UpdateInstructionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1034,7 +1074,7 @@ namespace VoiceNavigator20251111
       Models::UpdateInstructionResponse updateInstructionWithOptions(const Models::UpdateInstructionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改指令
+       * @summary Updates the global configuration of a specific instruction for a Digital Employee.
        *
        * @param request UpdateInstructionRequest
        * @return UpdateInstructionResponse
@@ -1042,7 +1082,7 @@ namespace VoiceNavigator20251111
       Models::UpdateInstructionResponse updateInstruction(const Models::UpdateInstructionRequest &request);
 
       /**
-       * @summary 更新语言模型配置信息
+       * @summary Updates the language model configuration.
        *
        * @param tmpReq UpdateLlmAccessProfileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1051,7 +1091,7 @@ namespace VoiceNavigator20251111
       Models::UpdateLlmAccessProfileResponse updateLlmAccessProfileWithOptions(const Models::UpdateLlmAccessProfileRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新语言模型配置信息
+       * @summary Updates the language model configuration.
        *
        * @param request UpdateLlmAccessProfileRequest
        * @return UpdateLlmAccessProfileResponse
@@ -1059,7 +1099,7 @@ namespace VoiceNavigator20251111
       Models::UpdateLlmAccessProfileResponse updateLlmAccessProfile(const Models::UpdateLlmAccessProfileRequest &request);
 
       /**
-       * @summary 更新实例
+       * @summary Updates an instance.
        *
        * @param request UpdateScriptRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1068,7 +1108,7 @@ namespace VoiceNavigator20251111
       Models::UpdateScriptResponse updateScriptWithOptions(const Models::UpdateScriptRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新实例
+       * @summary Updates an instance.
        *
        * @param request UpdateScriptRequest
        * @return UpdateScriptResponse
@@ -1076,7 +1116,7 @@ namespace VoiceNavigator20251111
       Models::UpdateScriptResponse updateScript(const Models::UpdateScriptRequest &request);
 
       /**
-       * @summary 创建或更新MQ配置
+       * @summary Creates or updates the Message Queue (MQ) configuration.
        *
        * @param tmpReq UpdateSubscriptionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1085,7 +1125,7 @@ namespace VoiceNavigator20251111
       Models::UpdateSubscriptionResponse updateSubscriptionWithOptions(const Models::UpdateSubscriptionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建或更新MQ配置
+       * @summary Creates or updates the Message Queue (MQ) configuration.
        *
        * @param request UpdateSubscriptionRequest
        * @return UpdateSubscriptionResponse
@@ -1093,7 +1133,7 @@ namespace VoiceNavigator20251111
       Models::UpdateSubscriptionResponse updateSubscription(const Models::UpdateSubscriptionRequest &request);
 
       /**
-       * @summary 更新变量
+       * @summary Updates a variable.
        *
        * @param request UpdateVariableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1102,7 +1142,7 @@ namespace VoiceNavigator20251111
       Models::UpdateVariableResponse updateVariableWithOptions(const Models::UpdateVariableRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新变量
+       * @summary Updates a variable.
        *
        * @param request UpdateVariableRequest
        * @return UpdateVariableResponse
@@ -1110,7 +1150,7 @@ namespace VoiceNavigator20251111
       Models::UpdateVariableResponse updateVariable(const Models::UpdateVariableRequest &request);
 
       /**
-       * @summary 更新实例
+       * @summary Updates an instance.
        *
        * @param tmpReq UpdateVocabularyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1119,7 +1159,7 @@ namespace VoiceNavigator20251111
       Models::UpdateVocabularyResponse updateVocabularyWithOptions(const Models::UpdateVocabularyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新实例
+       * @summary Updates an instance.
        *
        * @param request UpdateVocabularyRequest
        * @return UpdateVocabularyResponse
@@ -1127,7 +1167,7 @@ namespace VoiceNavigator20251111
       Models::UpdateVocabularyResponse updateVocabulary(const Models::UpdateVocabularyRequest &request);
 
       /**
-       * @summary 更新实例
+       * @summary Updates a voice access profile.
        *
        * @param tmpReq UpdateVoiceAccessProfileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1136,7 +1176,7 @@ namespace VoiceNavigator20251111
       Models::UpdateVoiceAccessProfileResponse updateVoiceAccessProfileWithOptions(const Models::UpdateVoiceAccessProfileRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新实例
+       * @summary Updates a voice access profile.
        *
        * @param request UpdateVoiceAccessProfileRequest
        * @return UpdateVoiceAccessProfileResponse

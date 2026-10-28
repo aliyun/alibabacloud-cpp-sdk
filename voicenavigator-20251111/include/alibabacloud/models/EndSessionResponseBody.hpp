@@ -78,10 +78,15 @@ namespace Models
 
 
   protected:
+    // The business status code. A value of OK indicates that the operation was successful.
     shared_ptr<string> code_ {};
+    // The HTTP status code. A value of 200 indicates that the request was successful.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The HTTP response message.
     shared_ptr<string> message_ {};
+    // The dynamic error parameters.
     shared_ptr<vector<string>> params_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

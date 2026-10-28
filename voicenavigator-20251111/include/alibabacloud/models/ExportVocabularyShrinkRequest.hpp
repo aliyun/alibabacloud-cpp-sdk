@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the Voice Navigator instance.
     shared_ptr<string> instanceId_ {};
+    // The IDs of the vocabularies to export.
     shared_ptr<string> vocabularyIdsShrink_ {};
   };
 

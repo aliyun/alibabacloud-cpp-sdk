@@ -112,14 +112,23 @@ namespace Models
 
 
   protected:
+    // The endpoint. This parameter is required when ROCKET_MQ_4 or ROCKET_MQ_5 is used.
     shared_ptr<string> endpoint_ {};
+    // The list of subscribed events.
     shared_ptr<string> eventSubscriptionsShrink_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The MQ instance ID. This parameter is required when ROCKET_MQ_5 is used.
     shared_ptr<string> mqInstanceId_ {};
+    // The message push type.
     shared_ptr<string> mqType_ {};
+    // The password. This parameter is required when ROCKET_MQ_5 is used.
     shared_ptr<string> password_ {};
+    // The producer ID. This parameter is required when ROCKET_MQ_4 is used.
     shared_ptr<string> producerId_ {};
+    // The queue topic. This parameter is required when ROCKET_MQ_4 or ROCKET_MQ_5 is used.
     shared_ptr<string> topic_ {};
+    // The username. This parameter is required when ROCKET_MQ_5 is used.
     shared_ptr<string> userName_ {};
   };
 

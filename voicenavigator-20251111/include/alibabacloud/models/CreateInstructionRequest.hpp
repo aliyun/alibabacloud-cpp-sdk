@@ -75,10 +75,23 @@ namespace Models
 
 
   protected:
+    // The instruction code.
+    // >Notice: Globally unique.</notice>
     shared_ptr<string> code_ {};
+    // The instruction configuration.
+    // 
+    // > - providerId: the ID of the human agent service provider. You can obtain the ID by calling ListCallCenterProviders.
+    // > - transferMethod: the transfer method. Valid values: BYE, BRIDGE, and REFER.
+    // > - transferType: the transfer target type. Valid values: External (external number), Agent (agent), and SkillGroup (skill group).
+    // > - transferTarget: the transfer target.
+    // > - transferor: the caller number. If this parameter is left empty, the mobile phone number of the calling customer is used by default.
+    // > - timeoutSeconds: the timeout period for transferring to a human agent, in seconds. Default value: 30.
     shared_ptr<string> config_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The instruction name.
     shared_ptr<string> name_ {};
+    // The instruction type.
     shared_ptr<string> type_ {};
   };
 

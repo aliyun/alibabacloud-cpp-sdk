@@ -87,8 +87,11 @@ namespace Models
 
 
     protected:
+      // The configured concurrency.
       shared_ptr<int32_t> configuredConcurrency_ {};
+      // The time the statistics were collected, expressed as a Unix timestamp in milliseconds.
       shared_ptr<int64_t> statsTime_ {};
+      // The current concurrency.
       shared_ptr<int32_t> usedConcurrency_ {};
     };
 
@@ -141,12 +144,17 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> code_ {};
+    // The real-time script statistics.
     shared_ptr<GetRealtimeScriptStatsResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // A list of error parameters.
     shared_ptr<vector<string>> params_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

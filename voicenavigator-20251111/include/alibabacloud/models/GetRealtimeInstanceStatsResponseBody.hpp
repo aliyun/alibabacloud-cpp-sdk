@@ -130,10 +130,15 @@ namespace Models
 
 
       protected:
+        // The maximum number of concurrent tasks configured for this script.
         shared_ptr<int32_t> configuredConcurrency_ {};
+        // The script ID.
         shared_ptr<string> scriptId_ {};
+        // The script name.
         shared_ptr<string> scriptName_ {};
+        // The time when the statistics were collected, expressed as a Unix timestamp in milliseconds.
         shared_ptr<int64_t> statsTime_ {};
+        // The current number of concurrent tasks for this script.
         shared_ptr<int32_t> usedConcurrency_ {};
       };
 
@@ -170,9 +175,13 @@ namespace Models
 
 
     protected:
+      // The maximum number of concurrent tasks configured for the instance.
       shared_ptr<int32_t> configuredConcurrency_ {};
+      // A list of real-time stats for scripts.
       shared_ptr<vector<Data::RealtimeScriptStatsList>> realtimeScriptStatsList_ {};
+      // The time when the statistics were collected, expressed as a Unix timestamp in milliseconds.
       shared_ptr<int64_t> statsTime_ {};
+      // The current number of concurrent tasks for the instance.
       shared_ptr<int32_t> usedConcurrency_ {};
     };
 
@@ -225,12 +234,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The real-time stats for the instance.
     shared_ptr<GetRealtimeInstanceStatsResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // A list of parameters that are related to an error, if one occurred.
     shared_ptr<vector<string>> params_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

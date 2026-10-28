@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The access profile ID.
     shared_ptr<string> accessProfileId_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The voice engine.
     shared_ptr<string> nlsEngine_ {};
+    // The parameter configuration for the selected voice engine.
     shared_ptr<string> profileShrink_ {};
   };
 

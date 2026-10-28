@@ -121,15 +121,29 @@ namespace Models
 
 
   protected:
+    // The called number used during transfer when the transfer mode is set to Bridge.
     shared_ptr<string> destination_ {};
+    // The display name of the service provider.
     shared_ptr<string> displayName_ {};
+    // The associated data.
+    // >Notice: Format: k1=v1;k2=v2.</notice>
     shared_ptr<string> extras_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The name of the service provider.
     shared_ptr<string> name_ {};
+    // The calling number used during transfer when the transfer mode is set to Bridge.
     shared_ptr<string> originator_ {};
+    // The ID of the agent service provider.
     shared_ptr<string> providerId_ {};
+    // The provider type. Valid values:
+    // > 
+    // > - CCC: Cloud Call Center.
+    // > - CUSTOM: Customer-owned call center.
     shared_ptr<string> providerType_ {};
+    // The Refer address.
     shared_ptr<string> referTo_ {};
+    // The trunk ID.
     shared_ptr<string> trunkId_ {};
   };
 

@@ -119,12 +119,19 @@ namespace Models
 
 
     protected:
+      // This parameter is required when `NlsEngine` is set to `VOLC`.
       shared_ptr<string> accessKey_ {};
+      // This parameter is required when `NlsEngine` is set to `BAILIAN` or `IFLYTEK`.
       shared_ptr<string> apiKey_ {};
+      // This parameter is required when `NlsEngine` is set to `IFLYTEK`.
       shared_ptr<string> apiSecret_ {};
+      // This parameter is required when `NlsEngine` is set to `IFLYTEK`.
       shared_ptr<string> appId_ {};
+      // This parameter is required when `NlsEngine` is set to `VOLC`.
       shared_ptr<string> appKey_ {};
+      // Reserved for future use.
       shared_ptr<string> asrAppKey_ {};
+      // Reserved for future use.
       shared_ptr<string> ttsApiKey_ {};
     };
 
@@ -161,9 +168,13 @@ namespace Models
 
 
   protected:
+    // The access profile ID.
     shared_ptr<string> accessProfileId_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The voice engine.
     shared_ptr<string> nlsEngine_ {};
+    // The parameter configuration for the selected voice engine.
     shared_ptr<UpdateVoiceAccessProfileRequest::Profile> profile_ {};
   };
 

@@ -101,6 +101,8 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Extras, extras_);
           DARABONBA_PTR_TO_JSON(Interrupted, interrupted_);
           DARABONBA_PTR_TO_JSON(Legacy, legacy_);
+          DARABONBA_PTR_TO_JSON(PlaybackStatus, playbackStatus_);
+          DARABONBA_PTR_TO_JSON(PlayedAnswer, playedAnswer_);
           DARABONBA_PTR_TO_JSON(PlayedWords, playedWords_);
           DARABONBA_PTR_TO_JSON(Role, role_);
           DARABONBA_PTR_TO_JSON(StreamEnd, streamEnd_);
@@ -118,6 +120,8 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(Extras, extras_);
           DARABONBA_PTR_FROM_JSON(Interrupted, interrupted_);
           DARABONBA_PTR_FROM_JSON(Legacy, legacy_);
+          DARABONBA_PTR_FROM_JSON(PlaybackStatus, playbackStatus_);
+          DARABONBA_PTR_FROM_JSON(PlayedAnswer, playedAnswer_);
           DARABONBA_PTR_FROM_JSON(PlayedWords, playedWords_);
           DARABONBA_PTR_FROM_JSON(Role, role_);
           DARABONBA_PTR_FROM_JSON(StreamEnd, streamEnd_);
@@ -138,8 +142,9 @@ namespace Models
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->answer_ == nullptr
         && this->backchannels_ == nullptr && this->beginTime_ == nullptr && this->controlParamsList_ == nullptr && this->endTime_ == nullptr && this->eventTime_ == nullptr
-        && this->extras_ == nullptr && this->interrupted_ == nullptr && this->legacy_ == nullptr && this->playedWords_ == nullptr && this->role_ == nullptr
-        && this->streamEnd_ == nullptr && this->streamId_ == nullptr && this->utterance_ == nullptr && this->vendorParams_ == nullptr; };
+        && this->extras_ == nullptr && this->interrupted_ == nullptr && this->legacy_ == nullptr && this->playbackStatus_ == nullptr && this->playedAnswer_ == nullptr
+        && this->playedWords_ == nullptr && this->role_ == nullptr && this->streamEnd_ == nullptr && this->streamId_ == nullptr && this->utterance_ == nullptr
+        && this->vendorParams_ == nullptr; };
         // answer Field Functions 
         bool hasAnswer() const { return this->answer_ != nullptr;};
         void deleteAnswer() { this->answer_ = nullptr;};
@@ -203,6 +208,20 @@ namespace Models
         inline Transcripts& setLegacy(bool legacy) { DARABONBA_PTR_SET_VALUE(legacy_, legacy) };
 
 
+        // playbackStatus Field Functions 
+        bool hasPlaybackStatus() const { return this->playbackStatus_ != nullptr;};
+        void deletePlaybackStatus() { this->playbackStatus_ = nullptr;};
+        inline string getPlaybackStatus() const { DARABONBA_PTR_GET_DEFAULT(playbackStatus_, "") };
+        inline Transcripts& setPlaybackStatus(string playbackStatus) { DARABONBA_PTR_SET_VALUE(playbackStatus_, playbackStatus) };
+
+
+        // playedAnswer Field Functions 
+        bool hasPlayedAnswer() const { return this->playedAnswer_ != nullptr;};
+        void deletePlayedAnswer() { this->playedAnswer_ = nullptr;};
+        inline string getPlayedAnswer() const { DARABONBA_PTR_GET_DEFAULT(playedAnswer_, "") };
+        inline Transcripts& setPlayedAnswer(string playedAnswer) { DARABONBA_PTR_SET_VALUE(playedAnswer_, playedAnswer) };
+
+
         // playedWords Field Functions 
         bool hasPlayedWords() const { return this->playedWords_ != nullptr;};
         void deletePlayedWords() { this->playedWords_ = nullptr;};
@@ -246,20 +265,37 @@ namespace Models
 
 
       protected:
+        // The bot\\"s response. This parameter is valid when `Role` is `ASSISTANT`.
         shared_ptr<string> answer_ {};
+        // Indicates whether the user\\"s utterance is a backchannel (for example, "uh-huh" or "okay"). This parameter is valid when `Role` is `USER`.
         shared_ptr<bool> backchannels_ {};
+        // The start timestamp of the turn, in milliseconds since the Unix epoch.
         shared_ptr<int64_t> beginTime_ {};
+        // A list of control parameters. This parameter is valid when `Role` is `ASSISTANT`.
         shared_ptr<string> controlParamsList_ {};
+        // The end timestamp of the turn, in milliseconds since the Unix epoch.
         shared_ptr<int64_t> endTime_ {};
+        // The event timestamp, in milliseconds since the Unix epoch.
         shared_ptr<string> eventTime_ {};
+        // Additional input from the user other than speech. This parameter is valid when `Role` is `USER`.
         shared_ptr<string> extras_ {};
+        // Indicates whether the turn was interrupted.
         shared_ptr<bool> interrupted_ {};
+        // Indicates whether the bot\\"s response is obsolete. This parameter is valid when `Role` is `ASSISTANT`.
         shared_ptr<bool> legacy_ {};
+        shared_ptr<string> playbackStatus_ {};
+        shared_ptr<string> playedAnswer_ {};
+        // The number of words played from the bot\\"s response. This parameter is valid when `Role` is `USER`.
         shared_ptr<int32_t> playedWords_ {};
+        // The role of the speaker.
         shared_ptr<string> role_ {};
+        // Indicates if this is the final part of a streamed response.
         shared_ptr<bool> streamEnd_ {};
+        // The ID of the conversation turn.
         shared_ptr<string> streamId_ {};
+        // The user\\"s utterance. This parameter is valid when `Role` is `USER`.
         shared_ptr<string> utterance_ {};
+        // Vendor-specific data sent from the client. This parameter is valid when `Role` is `USER`.
         shared_ptr<string> vendorParams_ {};
       };
 
@@ -382,21 +418,37 @@ namespace Models
 
 
     protected:
+      // The phone number of the callee.
       shared_ptr<string> callee_ {};
+      // The phone number of the caller.
       shared_ptr<string> caller_ {};
+      // The disposition code for the call.
       shared_ptr<string> dispositionCode_ {};
+      // The reason for the call\\"s disposition.
       shared_ptr<string> dispositionReason_ {};
+      // The session duration, in seconds.
       shared_ptr<int32_t> duration_ {};
+      // The end time.
       shared_ptr<int64_t> endTime_ {};
+      // Indicates whether the user\\"s issue was resolved.
       shared_ptr<bool> issueResolved_ {};
+      // The party that ended the call.
       shared_ptr<string> releaseInitiator_ {};
+      // The basis for the resolution judgment.
       shared_ptr<string> resolutionEvidence_ {};
+      // The session ID.
       shared_ptr<string> sessionId_ {};
+      // The start time.
       shared_ptr<int64_t> startTime_ {};
+      // The talk time, in seconds.
       shared_ptr<int32_t> talkTime_ {};
+      // The number of conversation turns.
       shared_ptr<int32_t> talkTurns_ {};
+      // The conversation transcripts.
       shared_ptr<vector<Data::Transcripts>> transcripts_ {};
+      // The transfer target.
       shared_ptr<string> transferTarget_ {};
+      // The transfer type.
       shared_ptr<string> transferType_ {};
     };
 
@@ -449,12 +501,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The call detail record.
     shared_ptr<GetCallDetailRecordResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // A list of parameters related to the error.
     shared_ptr<vector<string>> params_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

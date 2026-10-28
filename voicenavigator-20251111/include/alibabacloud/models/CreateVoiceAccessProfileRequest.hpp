@@ -117,12 +117,19 @@ namespace Models
 
 
     protected:
+      // Required when Doubao is used.
       shared_ptr<string> accessKey_ {};
+      // Required when Model Studio or iFLYTEK is used.
       shared_ptr<string> apiKey_ {};
+      // Required when iFLYTEK is used.
       shared_ptr<string> apiSecret_ {};
+      // Required when iFLYTEK is used.
       shared_ptr<string> appId_ {};
+      // Required when Doubao is used.
       shared_ptr<string> appKey_ {};
+      // Not used.
       shared_ptr<string> asrAppKey_ {};
+      // Not used.
       shared_ptr<string> ttsApiKey_ {};
     };
 
@@ -152,8 +159,11 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The speech engine.
     shared_ptr<string> nlsEngine_ {};
+    // The parameter settings.
     shared_ptr<CreateVoiceAccessProfileRequest::Profile> profile_ {};
   };
 

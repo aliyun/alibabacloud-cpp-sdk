@@ -75,10 +75,27 @@ namespace Models
 
 
   protected:
+    // The unique code for the instruction.
     shared_ptr<string> code_ {};
+    // The configuration for the instruction, specified as a JSON string.
+    // 
+    // > - `providerId`: The ID of the live agent service provider. Call the `ListCallCenterProviders` operation to obtain this ID.
+    // >
+    // > - `transferMethod`: The method used for the transfer. Valid values: `BYE`, `BRIDGE`, and `REFER`.
+    // >
+    // > - `transferType`: The transfer destination type. Valid values: `External` (external number), `Agent` (agent), and `SkillGroup` (skill group).
+    // >
+    // > - `transferTarget`: The destination of the transfer, such as a phone number, an agent ID, or a skill group ID. The value of this parameter depends on the `transferType`.
+    // >
+    // > - `transferor`: The caller ID to display for the transfer. If this parameter is not specified, the caller\\"s original phone number is used.
+    // >
+    // > - `timeoutSeconds`: The timeout in seconds for transferring a call to an agent. Default: 30.
     shared_ptr<string> config_ {};
+    // The ID of the instance.
     shared_ptr<string> instanceId_ {};
+    // The name of the instruction.
     shared_ptr<string> name_ {};
+    // The type of the instruction.
     shared_ptr<string> type_ {};
   };
 

@@ -78,8 +78,11 @@ namespace Models
 
 
     protected:
+      // The API key of the third-party model.
       shared_ptr<string> apiKey_ {};
+      // The endpoint of the third-party model.
       shared_ptr<string> endpoint_ {};
+      // The name of the third-party model configuration.
       shared_ptr<string> name_ {};
     };
 
@@ -102,7 +105,9 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The parameter settings.
     shared_ptr<CreateLlmAccessProfileRequest::Profile> profile_ {};
   };
 

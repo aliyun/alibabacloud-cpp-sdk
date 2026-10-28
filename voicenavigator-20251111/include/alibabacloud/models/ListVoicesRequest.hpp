@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The ID of the instance.
     shared_ptr<string> instanceId_ {};
+    // The TTS access type.
     shared_ptr<string> nlsAccessType_ {};
+    // The TTS engine.
     shared_ptr<string> nlsEngine_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

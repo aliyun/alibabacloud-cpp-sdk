@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The cloned voice ID.
     shared_ptr<string> cloneVoiceId_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The name of the cloned voice.
     shared_ptr<string> name_ {};
   };
 

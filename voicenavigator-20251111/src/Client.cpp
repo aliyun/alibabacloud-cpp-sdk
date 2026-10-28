@@ -37,7 +37,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 开启会话
+ * @summary Initiates a session.
  *
  * @param request BeginSessionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -94,7 +94,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 开启会话
+ * @summary Initiates a session.
  *
  * @param request BeginSessionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -137,7 +137,7 @@ BeginSessionResponse Client::beginSessionWithOptions(const BeginSessionRequest &
 }
 
 /**
- * @summary 开启会话
+ * @summary Initiates a session.
  *
  * @param request BeginSessionRequest
  * @return BeginSessionResponse
@@ -148,7 +148,7 @@ BeginSessionResponse Client::beginSession(const BeginSessionRequest &request) {
 }
 
 /**
- * @summary 发起呼叫
+ * @summary Initiates a web call.
  *
  * @param request BridgeWebCallRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -215,7 +215,7 @@ BridgeWebCallResponse Client::bridgeWebCallWithOptions(const BridgeWebCallReques
 }
 
 /**
- * @summary 发起呼叫
+ * @summary Initiates a web call.
  *
  * @param request BridgeWebCallRequest
  * @return BridgeWebCallResponse
@@ -226,7 +226,7 @@ BridgeWebCallResponse Client::bridgeWebCall(const BridgeWebCallRequest &request)
 }
 
 /**
- * @summary 创建服务提供商
+ * @summary Creates a human agent service provider.
  *
  * @param request CreateCallCenterProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -291,7 +291,7 @@ CreateCallCenterProviderResponse Client::createCallCenterProviderWithOptions(con
 }
 
 /**
- * @summary 创建服务提供商
+ * @summary Creates a human agent service provider.
  *
  * @param request CreateCallCenterProviderRequest
  * @return CreateCallCenterProviderResponse
@@ -302,7 +302,7 @@ CreateCallCenterProviderResponse Client::createCallCenterProvider(const CreateCa
 }
 
 /**
- * @summary 创建实例
+ * @summary Creates an instance.
  *
  * @param request CreateCloneVoiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -341,7 +341,7 @@ CreateCloneVoiceResponse Client::createCloneVoiceWithOptions(const CreateCloneVo
 }
 
 /**
- * @summary 创建实例
+ * @summary Creates an instance.
  *
  * @param request CreateCloneVoiceRequest
  * @return CreateCloneVoiceResponse
@@ -352,7 +352,7 @@ CreateCloneVoiceResponse Client::createCloneVoice(const CreateCloneVoiceRequest 
 }
 
 /**
- * @summary 创建指令
+ * @summary Adds an instruction to the global configuration of a digital employee.
  *
  * @param request CreateInstructionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -399,7 +399,7 @@ CreateInstructionResponse Client::createInstructionWithOptions(const CreateInstr
 }
 
 /**
- * @summary 创建指令
+ * @summary Adds an instruction to the global configuration of a digital employee.
  *
  * @param request CreateInstructionRequest
  * @return CreateInstructionResponse
@@ -410,7 +410,7 @@ CreateInstructionResponse Client::createInstruction(const CreateInstructionReque
 }
 
 /**
- * @summary 创建语言模型配置信息
+ * @summary Creates the configuration information for a language model.
  *
  * @param tmpReq CreateLlmAccessProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -451,7 +451,7 @@ CreateLlmAccessProfileResponse Client::createLlmAccessProfileWithOptions(const C
 }
 
 /**
- * @summary 创建语言模型配置信息
+ * @summary Creates the configuration information for a language model.
  *
  * @param request CreateLlmAccessProfileRequest
  * @return CreateLlmAccessProfileResponse
@@ -462,7 +462,7 @@ CreateLlmAccessProfileResponse Client::createLlmAccessProfile(const CreateLlmAcc
 }
 
 /**
- * @summary 创建实例
+ * @summary Creates an instance.
  *
  * @param request CreateScriptRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -509,7 +509,7 @@ CreateScriptResponse Client::createScriptWithOptions(const CreateScriptRequest &
 }
 
 /**
- * @summary 创建实例
+ * @summary Creates an instance.
  *
  * @param request CreateScriptRequest
  * @return CreateScriptResponse
@@ -520,7 +520,7 @@ CreateScriptResponse Client::createScript(const CreateScriptRequest &request) {
 }
 
 /**
- * @summary 创建场景配置
+ * @summary Creates a scenario configuration.
  *
  * @param tmpReq CreateScriptVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -601,7 +601,7 @@ CreateScriptVersionResponse Client::createScriptVersionWithOptions(const CreateS
 }
 
 /**
- * @summary 创建场景配置
+ * @summary Creates a scenario configuration.
  *
  * @param request CreateScriptVersionRequest
  * @return CreateScriptVersionResponse
@@ -612,7 +612,7 @@ CreateScriptVersionResponse Client::createScriptVersion(const CreateScriptVersio
 }
 
 /**
- * @summary 创建变量
+ * @summary Creates a variable.
  *
  * @param request CreateVariableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -655,7 +655,7 @@ CreateVariableResponse Client::createVariableWithOptions(const CreateVariableReq
 }
 
 /**
- * @summary 创建变量
+ * @summary Creates a variable.
  *
  * @param request CreateVariableRequest
  * @return CreateVariableResponse
@@ -666,7 +666,7 @@ CreateVariableResponse Client::createVariable(const CreateVariableRequest &reque
 }
 
 /**
- * @summary 创建实例
+ * @summary Creates an instance.
  *
  * @param tmpReq CreateVocabularyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -715,7 +715,7 @@ CreateVocabularyResponse Client::createVocabularyWithOptions(const CreateVocabul
 }
 
 /**
- * @summary 创建实例
+ * @summary Creates an instance.
  *
  * @param request CreateVocabularyRequest
  * @return CreateVocabularyResponse
@@ -726,7 +726,7 @@ CreateVocabularyResponse Client::createVocabulary(const CreateVocabularyRequest 
 }
 
 /**
- * @summary 创建实例
+ * @summary Creates an instance.
  *
  * @param tmpReq CreateVoiceAccessProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -771,7 +771,7 @@ CreateVoiceAccessProfileResponse Client::createVoiceAccessProfileWithOptions(con
 }
 
 /**
- * @summary 创建实例
+ * @summary Creates an instance.
  *
  * @param request CreateVoiceAccessProfileRequest
  * @return CreateVoiceAccessProfileResponse
@@ -782,7 +782,7 @@ CreateVoiceAccessProfileResponse Client::createVoiceAccessProfile(const CreateVo
 }
 
 /**
- * @summary 删除服务提供商
+ * @summary Deletes a human service provider in system administration.
  *
  * @param request DeleteCallCenterProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -817,7 +817,7 @@ DeleteCallCenterProviderResponse Client::deleteCallCenterProviderWithOptions(con
 }
 
 /**
- * @summary 删除服务提供商
+ * @summary Deletes a human service provider in system administration.
  *
  * @param request DeleteCallCenterProviderRequest
  * @return DeleteCallCenterProviderResponse
@@ -828,7 +828,7 @@ DeleteCallCenterProviderResponse Client::deleteCallCenterProvider(const DeleteCa
 }
 
 /**
- * @summary 删除场景
+ * @summary Deletes a scenario.
  *
  * @param request DeleteCloneVoiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -863,7 +863,7 @@ DeleteCloneVoiceResponse Client::deleteCloneVoiceWithOptions(const DeleteCloneVo
 }
 
 /**
- * @summary 删除场景
+ * @summary Deletes a scenario.
  *
  * @param request DeleteCloneVoiceRequest
  * @return DeleteCloneVoiceResponse
@@ -874,7 +874,7 @@ DeleteCloneVoiceResponse Client::deleteCloneVoice(const DeleteCloneVoiceRequest 
 }
 
 /**
- * @summary 删除指令
+ * @summary Deletes an instruction from the global configuration of a digital employee.
  *
  * @param request DeleteInstructionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -909,7 +909,7 @@ DeleteInstructionResponse Client::deleteInstructionWithOptions(const DeleteInstr
 }
 
 /**
- * @summary 删除指令
+ * @summary Deletes an instruction from the global configuration of a digital employee.
  *
  * @param request DeleteInstructionRequest
  * @return DeleteInstructionResponse
@@ -920,7 +920,7 @@ DeleteInstructionResponse Client::deleteInstruction(const DeleteInstructionReque
 }
 
 /**
- * @summary 删除语言模型配置信息
+ * @summary Deletes the language model configuration.
  *
  * @param request DeleteLlmAccessProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -955,7 +955,7 @@ DeleteLlmAccessProfileResponse Client::deleteLlmAccessProfileWithOptions(const D
 }
 
 /**
- * @summary 删除语言模型配置信息
+ * @summary Deletes the language model configuration.
  *
  * @param request DeleteLlmAccessProfileRequest
  * @return DeleteLlmAccessProfileResponse
@@ -966,7 +966,7 @@ DeleteLlmAccessProfileResponse Client::deleteLlmAccessProfile(const DeleteLlmAcc
 }
 
 /**
- * @summary 删除场景
+ * @summary Deletes a scenario.
  *
  * @param request DeleteScriptRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1001,7 +1001,7 @@ DeleteScriptResponse Client::deleteScriptWithOptions(const DeleteScriptRequest &
 }
 
 /**
- * @summary 删除场景
+ * @summary Deletes a scenario.
  *
  * @param request DeleteScriptRequest
  * @return DeleteScriptResponse
@@ -1012,7 +1012,7 @@ DeleteScriptResponse Client::deleteScript(const DeleteScriptRequest &request) {
 }
 
 /**
- * @summary 删除变量
+ * @summary Deletes a variable.
  *
  * @param request DeleteVariableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1047,7 +1047,7 @@ DeleteVariableResponse Client::deleteVariableWithOptions(const DeleteVariableReq
 }
 
 /**
- * @summary 删除变量
+ * @summary Deletes a variable.
  *
  * @param request DeleteVariableRequest
  * @return DeleteVariableResponse
@@ -1058,7 +1058,7 @@ DeleteVariableResponse Client::deleteVariable(const DeleteVariableRequest &reque
 }
 
 /**
- * @summary 删除场景
+ * @summary Deletes a vocabulary from a Voice Navigator instance.
  *
  * @param request DeleteVocabularyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1093,7 +1093,7 @@ DeleteVocabularyResponse Client::deleteVocabularyWithOptions(const DeleteVocabul
 }
 
 /**
- * @summary 删除场景
+ * @summary Deletes a vocabulary from a Voice Navigator instance.
  *
  * @param request DeleteVocabularyRequest
  * @return DeleteVocabularyResponse
@@ -1104,7 +1104,7 @@ DeleteVocabularyResponse Client::deleteVocabulary(const DeleteVocabularyRequest 
 }
 
 /**
- * @summary 删除场景
+ * @summary Deletes a Voice Access Profile.
  *
  * @param request DeleteVoiceAccessProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1139,7 +1139,7 @@ DeleteVoiceAccessProfileResponse Client::deleteVoiceAccessProfileWithOptions(con
 }
 
 /**
- * @summary 删除场景
+ * @summary Deletes a Voice Access Profile.
  *
  * @param request DeleteVoiceAccessProfileRequest
  * @return DeleteVoiceAccessProfileResponse
@@ -1150,7 +1150,7 @@ DeleteVoiceAccessProfileResponse Client::deleteVoiceAccessProfile(const DeleteVo
 }
 
 /**
- * @summary 开启会话
+ * @summary Process a single conversational turn.
  *
  * @param request DialogueRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1211,7 +1211,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 开启会话
+ * @summary Process a single conversational turn.
  *
  * @param request DialogueRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1258,7 +1258,7 @@ DialogueResponse Client::dialogueWithOptions(const DialogueRequest &request, con
 }
 
 /**
- * @summary 开启会话
+ * @summary Process a single conversational turn.
  *
  * @param request DialogueRequest
  * @return DialogueResponse
@@ -1269,7 +1269,7 @@ DialogueResponse Client::dialogue(const DialogueRequest &request) {
 }
 
 /**
- * @summary 禁用消息订阅
+ * @summary Disables the subscription for a Voice Navigator instance.
  *
  * @param request DisableSubscriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1300,7 +1300,7 @@ DisableSubscriptionResponse Client::disableSubscriptionWithOptions(const Disable
 }
 
 /**
- * @summary 禁用消息订阅
+ * @summary Disables the subscription for a Voice Navigator instance.
  *
  * @param request DisableSubscriptionRequest
  * @return DisableSubscriptionResponse
@@ -1311,7 +1311,7 @@ DisableSubscriptionResponse Client::disableSubscription(const DisableSubscriptio
 }
 
 /**
- * @summary 结束会话
+ * @summary Ends a session.
  *
  * @param request EndSessionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1350,7 +1350,7 @@ EndSessionResponse Client::endSessionWithOptions(const EndSessionRequest &reques
 }
 
 /**
- * @summary 结束会话
+ * @summary Ends a session.
  *
  * @param request EndSessionRequest
  * @return EndSessionResponse
@@ -1361,7 +1361,7 @@ EndSessionResponse Client::endSession(const EndSessionRequest &request) {
 }
 
 /**
- * @summary 获取实例详情
+ * @summary Exports a specified script.
  *
  * @param request ExportScriptRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1396,7 +1396,7 @@ ExportScriptResponse Client::exportScriptWithOptions(const ExportScriptRequest &
 }
 
 /**
- * @summary 获取实例详情
+ * @summary Exports a specified script.
  *
  * @param request ExportScriptRequest
  * @return ExportScriptResponse
@@ -1407,7 +1407,7 @@ ExportScriptResponse Client::exportScript(const ExportScriptRequest &request) {
 }
 
 /**
- * @summary 导出热词
+ * @summary Exports vocabularies.
  *
  * @param tmpReq ExportVocabularyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1448,7 +1448,7 @@ ExportVocabularyResponse Client::exportVocabularyWithOptions(const ExportVocabul
 }
 
 /**
- * @summary 导出热词
+ * @summary Exports vocabularies.
  *
  * @param request ExportVocabularyRequest
  * @return ExportVocabularyResponse
@@ -1459,7 +1459,7 @@ ExportVocabularyResponse Client::exportVocabulary(const ExportVocabularyRequest 
 }
 
 /**
- * @summary 获取实例详情
+ * @summary Generates temporary credentials and parameters to upload a file to Object Storage Service (OSS).
  *
  * @param request GenerateFileUploadParamsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1498,7 +1498,7 @@ GenerateFileUploadParamsResponse Client::generateFileUploadParamsWithOptions(con
 }
 
 /**
- * @summary 获取实例详情
+ * @summary Generates temporary credentials and parameters to upload a file to Object Storage Service (OSS).
  *
  * @param request GenerateFileUploadParamsRequest
  * @return GenerateFileUploadParamsResponse
@@ -1509,7 +1509,7 @@ GenerateFileUploadParamsResponse Client::generateFileUploadParams(const Generate
 }
 
 /**
- * @summary 获取通话详情
+ * @summary Get call details.
  *
  * @param request GetCallDetailRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1544,7 +1544,7 @@ GetCallDetailRecordResponse Client::getCallDetailRecordWithOptions(const GetCall
 }
 
 /**
- * @summary 获取通话详情
+ * @summary Get call details.
  *
  * @param request GetCallDetailRecordRequest
  * @return GetCallDetailRecordResponse
@@ -1555,7 +1555,7 @@ GetCallDetailRecordResponse Client::getCallDetailRecord(const GetCallDetailRecor
 }
 
 /**
- * @summary 获取语音对话参数
+ * @summary Retrieves a data channel credential.
  *
  * @param request GetDataChannelCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1590,7 +1590,7 @@ GetDataChannelCredentialResponse Client::getDataChannelCredentialWithOptions(con
 }
 
 /**
- * @summary 获取语音对话参数
+ * @summary Retrieves a data channel credential.
  *
  * @param request GetDataChannelCredentialRequest
  * @return GetDataChannelCredentialResponse
@@ -1601,7 +1601,12 @@ GetDataChannelCredentialResponse Client::getDataChannelCredential(const GetDataC
 }
 
 /**
- * @summary 获取实例指标趋势详情
+ * @summary Retrieves the metric trends chart for an instance.
+ *
+ * @description ## Operation description
+ * - This API operation is used to query the script configuration details for a specific scenario, including settings for ASR, TTS, and dialog capabilities.
+ * - No additional parameters are required in the request. The response contains configuration data for both the draft version and the published version.
+ * - Check the `Data` field in the response to obtain detailed configuration information.
  *
  * @param request GetInstanceTrendingReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1644,7 +1649,12 @@ GetInstanceTrendingReportResponse Client::getInstanceTrendingReportWithOptions(c
 }
 
 /**
- * @summary 获取实例指标趋势详情
+ * @summary Retrieves the metric trends chart for an instance.
+ *
+ * @description ## Operation description
+ * - This API operation is used to query the script configuration details for a specific scenario, including settings for ASR, TTS, and dialog capabilities.
+ * - No additional parameters are required in the request. The response contains configuration data for both the draft version and the published version.
+ * - Check the `Data` field in the response to obtain detailed configuration information.
  *
  * @param request GetInstanceTrendingReportRequest
  * @return GetInstanceTrendingReportResponse
@@ -1655,7 +1665,7 @@ GetInstanceTrendingReportResponse Client::getInstanceTrendingReport(const GetIns
 }
 
 /**
- * @summary 获取实例实时指标
+ * @summary Retrieves real-time stats for an instance.
  *
  * @param request GetRealtimeInstanceStatsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1686,7 +1696,7 @@ GetRealtimeInstanceStatsResponse Client::getRealtimeInstanceStatsWithOptions(con
 }
 
 /**
- * @summary 获取实例实时指标
+ * @summary Retrieves real-time stats for an instance.
  *
  * @param request GetRealtimeInstanceStatsRequest
  * @return GetRealtimeInstanceStatsResponse
@@ -1697,7 +1707,7 @@ GetRealtimeInstanceStatsResponse Client::getRealtimeInstanceStats(const GetRealt
 }
 
 /**
- * @summary 获取场景实时指标
+ * @summary Queries the real-time statistics for a specified script.
  *
  * @param request GetRealtimeScriptStatsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1732,7 +1742,7 @@ GetRealtimeScriptStatsResponse Client::getRealtimeScriptStatsWithOptions(const G
 }
 
 /**
- * @summary 获取场景实时指标
+ * @summary Queries the real-time statistics for a specified script.
  *
  * @param request GetRealtimeScriptStatsRequest
  * @return GetRealtimeScriptStatsResponse
@@ -1743,7 +1753,7 @@ GetRealtimeScriptStatsResponse Client::getRealtimeScriptStats(const GetRealtimeS
 }
 
 /**
- * @summary 获取录音
+ * @summary Retrieves the download URL for a call recording.
  *
  * @param request GetRecordingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1778,7 +1788,7 @@ GetRecordingResponse Client::getRecordingWithOptions(const GetRecordingRequest &
 }
 
 /**
- * @summary 获取录音
+ * @summary Retrieves the download URL for a call recording.
  *
  * @param request GetRecordingRequest
  * @return GetRecordingResponse
@@ -1789,7 +1799,12 @@ GetRecordingResponse Client::getRecording(const GetRecordingRequest &request) {
 }
 
 /**
- * @summary 获取实例详情
+ * @summary Retrieves the detailed configuration information for the draft and published versions of a specified scenario.
+ *
+ * @description ## Request description
+ * - This operation queries the detailed script configuration for a specific scenario. The configuration includes settings for Automatic Speech Recognition (ASR), Text-to-Speech (TTS), and dialogue capabilities.
+ * - No additional parameters are required for the request. The response contains the configuration data for both the draft and published versions.
+ * - The detailed configuration information is returned in the `Data` field of the response.
  *
  * @param request GetScriptRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1824,7 +1839,12 @@ GetScriptResponse Client::getScriptWithOptions(const GetScriptRequest &request, 
 }
 
 /**
- * @summary 获取实例详情
+ * @summary Retrieves the detailed configuration information for the draft and published versions of a specified scenario.
+ *
+ * @description ## Request description
+ * - This operation queries the detailed script configuration for a specific scenario. The configuration includes settings for Automatic Speech Recognition (ASR), Text-to-Speech (TTS), and dialogue capabilities.
+ * - No additional parameters are required for the request. The response contains the configuration data for both the draft and published versions.
+ * - The detailed configuration information is returned in the `Data` field of the response.
  *
  * @param request GetScriptRequest
  * @return GetScriptResponse
@@ -1835,7 +1855,12 @@ GetScriptResponse Client::getScript(const GetScriptRequest &request) {
 }
 
 /**
- * @summary 获取场景指标趋势详情
+ * @summary View the scenario metric trend chart
+ *
+ * @description ## Request
+ * - This API returns the script configuration for a specific scenario, including settings for ASR, TTS, and conversational capability.
+ * - This request requires no parameters. The response includes configuration data for both the draft and published versions.
+ * - Check the `Data` field for configuration details.
  *
  * @param request GetScriptTrendingReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1882,7 +1907,12 @@ GetScriptTrendingReportResponse Client::getScriptTrendingReportWithOptions(const
 }
 
 /**
- * @summary 获取场景指标趋势详情
+ * @summary View the scenario metric trend chart
+ *
+ * @description ## Request
+ * - This API returns the script configuration for a specific scenario, including settings for ASR, TTS, and conversational capability.
+ * - This request requires no parameters. The response includes configuration data for both the draft and published versions.
+ * - Check the `Data` field for configuration details.
  *
  * @param request GetScriptTrendingReportRequest
  * @return GetScriptTrendingReportResponse
@@ -1893,7 +1923,7 @@ GetScriptTrendingReportResponse Client::getScriptTrendingReport(const GetScriptT
 }
 
 /**
- * @summary 获取MQ配置
+ * @summary Retrieves the details of a message queue (MQ) subscription.
  *
  * @param request GetSubscriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1924,7 +1954,7 @@ GetSubscriptionResponse Client::getSubscriptionWithOptions(const GetSubscription
 }
 
 /**
- * @summary 获取MQ配置
+ * @summary Retrieves the details of a message queue (MQ) subscription.
  *
  * @param request GetSubscriptionRequest
  * @return GetSubscriptionResponse
@@ -1935,7 +1965,7 @@ GetSubscriptionResponse Client::getSubscription(const GetSubscriptionRequest &re
 }
 
 /**
- * @summary 获取实例详情
+ * @summary Gets the details of a specified vocabulary.
  *
  * @param request GetVocabularyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1970,7 +2000,7 @@ GetVocabularyResponse Client::getVocabularyWithOptions(const GetVocabularyReques
 }
 
 /**
- * @summary 获取实例详情
+ * @summary Gets the details of a specified vocabulary.
  *
  * @param request GetVocabularyRequest
  * @return GetVocabularyResponse
@@ -1981,7 +2011,7 @@ GetVocabularyResponse Client::getVocabulary(const GetVocabularyRequest &request)
 }
 
 /**
- * @summary 导入热词
+ * @summary Imports a custom vocabulary.
  *
  * @param request ImportVocabularyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2016,7 +2046,7 @@ ImportVocabularyResponse Client::importVocabularyWithOptions(const ImportVocabul
 }
 
 /**
- * @summary 导入热词
+ * @summary Imports a custom vocabulary.
  *
  * @param request ImportVocabularyRequest
  * @return ImportVocabularyResponse
@@ -2027,7 +2057,7 @@ ImportVocabularyResponse Client::importVocabulary(const ImportVocabularyRequest 
 }
 
 /**
- * @summary 获取背景音列表
+ * @summary Retrieves a list of background music tracks.
  *
  * @param request ListBackgroundMusicsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2066,7 +2096,7 @@ ListBackgroundMusicsResponse Client::listBackgroundMusicsWithOptions(const ListB
 }
 
 /**
- * @summary 获取背景音列表
+ * @summary Retrieves a list of background music tracks.
  *
  * @param request ListBackgroundMusicsRequest
  * @return ListBackgroundMusicsResponse
@@ -2077,7 +2107,7 @@ ListBackgroundMusicsResponse Client::listBackgroundMusics(const ListBackgroundMu
 }
 
 /**
- * @summary 查询服务提供商
+ * @summary System Management > Manual Service Provider Management > Query
  *
  * @param request ListCallCenterProvidersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2120,7 +2150,7 @@ ListCallCenterProvidersResponse Client::listCallCenterProvidersWithOptions(const
 }
 
 /**
- * @summary 查询服务提供商
+ * @summary System Management > Manual Service Provider Management > Query
  *
  * @param request ListCallCenterProvidersRequest
  * @return ListCallCenterProvidersResponse
@@ -2131,7 +2161,7 @@ ListCallCenterProvidersResponse Client::listCallCenterProviders(const ListCallCe
 }
 
 /**
- * @summary 获取实例详情
+ * @summary Gets the call list.
  *
  * @param tmpReq ListCallDetailRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2242,7 +2272,7 @@ ListCallDetailRecordsResponse Client::listCallDetailRecordsWithOptions(const Lis
 }
 
 /**
- * @summary 获取实例详情
+ * @summary Gets the call list.
  *
  * @param request ListCallDetailRecordsRequest
  * @return ListCallDetailRecordsResponse
@@ -2253,7 +2283,7 @@ ListCallDetailRecordsResponse Client::listCallDetailRecords(const ListCallDetail
 }
 
 /**
- * @summary 获取实例详情
+ * @summary Lists the cloned voices in an instance.
  *
  * @param request ListCloneVoiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2296,7 +2326,7 @@ ListCloneVoiceResponse Client::listCloneVoiceWithOptions(const ListCloneVoiceReq
 }
 
 /**
- * @summary 获取实例详情
+ * @summary Lists the cloned voices in an instance.
  *
  * @param request ListCloneVoiceRequest
  * @return ListCloneVoiceResponse
@@ -2307,7 +2337,7 @@ ListCloneVoiceResponse Client::listCloneVoice(const ListCloneVoiceRequest &reque
 }
 
 /**
- * @summary 获取克隆音色可用模型列表
+ * @summary Lists the available clone voice models.
  *
  * @param request ListCloneVoiceModelsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2342,7 +2372,7 @@ ListCloneVoiceModelsResponse Client::listCloneVoiceModelsWithOptions(const ListC
 }
 
 /**
- * @summary 获取克隆音色可用模型列表
+ * @summary Lists the available clone voice models.
  *
  * @param request ListCloneVoiceModelsRequest
  * @return ListCloneVoiceModelsResponse
@@ -2353,7 +2383,12 @@ ListCloneVoiceModelsResponse Client::listCloneVoiceModels(const ListCloneVoiceMo
 }
 
 /**
- * @summary 获取实例指标汇总数据
+ * @summary Retrieve aggregated instance metrics
+ *
+ * @description ## Request
+ * - This API retrieves the script configuration for a specific scenario, including settings for ASR, TTS, and dialogue capability.
+ * - This request requires no parameters. The response includes the configuration data for both the draft and published versions.
+ * - The configuration data is returned in the `Data` field of the response.
  *
  * @param tmpReq ListHistoricalInstanceReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2406,7 +2441,12 @@ ListHistoricalInstanceReportResponse Client::listHistoricalInstanceReportWithOpt
 }
 
 /**
- * @summary 获取实例指标汇总数据
+ * @summary Retrieve aggregated instance metrics
+ *
+ * @description ## Request
+ * - This API retrieves the script configuration for a specific scenario, including settings for ASR, TTS, and dialogue capability.
+ * - This request requires no parameters. The response includes the configuration data for both the draft and published versions.
+ * - The configuration data is returned in the `Data` field of the response.
  *
  * @param request ListHistoricalInstanceReportRequest
  * @return ListHistoricalInstanceReportResponse
@@ -2417,7 +2457,7 @@ ListHistoricalInstanceReportResponse Client::listHistoricalInstanceReport(const 
 }
 
 /**
- * @summary 获取场景指标汇总数据
+ * @summary Get scene metric summary data
  *
  * @param tmpReq ListHistoricalScriptReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2474,7 +2514,7 @@ ListHistoricalScriptReportResponse Client::listHistoricalScriptReportWithOptions
 }
 
 /**
- * @summary 获取场景指标汇总数据
+ * @summary Get scene metric summary data
  *
  * @param request ListHistoricalScriptReportRequest
  * @return ListHistoricalScriptReportResponse
@@ -2485,7 +2525,7 @@ ListHistoricalScriptReportResponse Client::listHistoricalScriptReport(const List
 }
 
 /**
- * @summary 查询指令
+ * @summary Lists the instructions that are configured for a Digital Employee.
  *
  * @param request ListInstructionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2528,7 +2568,7 @@ ListInstructionsResponse Client::listInstructionsWithOptions(const ListInstructi
 }
 
 /**
- * @summary 查询指令
+ * @summary Lists the instructions that are configured for a Digital Employee.
  *
  * @param request ListInstructionsRequest
  * @return ListInstructionsResponse
@@ -2539,7 +2579,7 @@ ListInstructionsResponse Client::listInstructions(const ListInstructionsRequest 
 }
 
 /**
- * @summary 获取语言模型配置信息
+ * @summary Get the language model configuration.
  *
  * @param request ListLlmAccessProfilesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2578,7 +2618,7 @@ ListLlmAccessProfilesResponse Client::listLlmAccessProfilesWithOptions(const Lis
 }
 
 /**
- * @summary 获取语言模型配置信息
+ * @summary Get the language model configuration.
  *
  * @param request ListLlmAccessProfilesRequest
  * @return ListLlmAccessProfilesResponse
@@ -2589,7 +2629,7 @@ ListLlmAccessProfilesResponse Client::listLlmAccessProfiles(const ListLlmAccessP
 }
 
 /**
- * @summary 获取对话模型列表
+ * @summary Lists the available NLU models.
  *
  * @param request ListNluModelsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2620,7 +2660,7 @@ ListNluModelsResponse Client::listNluModelsWithOptions(const ListNluModelsReques
 }
 
 /**
- * @summary 获取对话模型列表
+ * @summary Lists the available NLU models.
  *
  * @param request ListNluModelsRequest
  * @return ListNluModelsResponse
@@ -2631,7 +2671,7 @@ ListNluModelsResponse Client::listNluModels(const ListNluModelsRequest &request)
 }
 
 /**
- * @summary 获取实例实时指标
+ * @summary Retrieves real-time statistics for instances.
  *
  * @param tmpReq ListRealtimeInstanceStatsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2676,7 +2716,7 @@ ListRealtimeInstanceStatsResponse Client::listRealtimeInstanceStatsWithOptions(c
 }
 
 /**
- * @summary 获取实例实时指标
+ * @summary Retrieves real-time statistics for instances.
  *
  * @param request ListRealtimeInstanceStatsRequest
  * @return ListRealtimeInstanceStatsResponse
@@ -2687,7 +2727,7 @@ ListRealtimeInstanceStatsResponse Client::listRealtimeInstanceStats(const ListRe
 }
 
 /**
- * @summary 获取场景配置模板列表
+ * @summary Retrieves a list of scenario configuration templates.
  *
  * @param request ListScriptProfileTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2718,7 +2758,7 @@ ListScriptProfileTemplatesResponse Client::listScriptProfileTemplatesWithOptions
 }
 
 /**
- * @summary 获取场景配置模板列表
+ * @summary Retrieves a list of scenario configuration templates.
  *
  * @param request ListScriptProfileTemplatesRequest
  * @return ListScriptProfileTemplatesResponse
@@ -2729,7 +2769,7 @@ ListScriptProfileTemplatesResponse Client::listScriptProfileTemplates(const List
 }
 
 /**
- * @summary 获取实例详情
+ * @summary Retrieves the details of an instance.
  *
  * @param tmpReq ListScriptsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2790,7 +2830,7 @@ ListScriptsResponse Client::listScriptsWithOptions(const ListScriptsRequest &tmp
 }
 
 /**
- * @summary 获取实例详情
+ * @summary Retrieves the details of an instance.
  *
  * @param request ListScriptsRequest
  * @return ListScriptsResponse
@@ -2801,7 +2841,7 @@ ListScriptsResponse Client::listScripts(const ListScriptsRequest &request) {
 }
 
 /**
- * @summary 获取变量列表
+ * @summary Retrieves a list of variables.
  *
  * @param request ListVariableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2844,7 +2884,7 @@ ListVariableResponse Client::listVariableWithOptions(const ListVariableRequest &
 }
 
 /**
- * @summary 获取变量列表
+ * @summary Retrieves a list of variables.
  *
  * @param request ListVariableRequest
  * @return ListVariableResponse
@@ -2855,7 +2895,7 @@ ListVariableResponse Client::listVariable(const ListVariableRequest &request) {
 }
 
 /**
- * @summary 获取实例详情
+ * @summary Retrieves a list of vocabularies for a specified instance.
  *
  * @param request ListVocabularyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2898,7 +2938,7 @@ ListVocabularyResponse Client::listVocabularyWithOptions(const ListVocabularyReq
 }
 
 /**
- * @summary 获取实例详情
+ * @summary Retrieves a list of vocabularies for a specified instance.
  *
  * @param request ListVocabularyRequest
  * @return ListVocabularyResponse
@@ -2909,7 +2949,7 @@ ListVocabularyResponse Client::listVocabulary(const ListVocabularyRequest &reque
 }
 
 /**
- * @summary 获取实例详情
+ * @summary Retrieves the details of an instance.
  *
  * @param request ListVoiceAccessProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2948,7 +2988,7 @@ ListVoiceAccessProfileResponse Client::listVoiceAccessProfileWithOptions(const L
 }
 
 /**
- * @summary 获取实例详情
+ * @summary Retrieves the details of an instance.
  *
  * @param request ListVoiceAccessProfileRequest
  * @return ListVoiceAccessProfileResponse
@@ -2959,7 +2999,7 @@ ListVoiceAccessProfileResponse Client::listVoiceAccessProfile(const ListVoiceAcc
 }
 
 /**
- * @summary 获取引擎列表
+ * @summary Retrieves a list of engines.
  *
  * @param request ListVoiceEnginesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2994,7 +3034,7 @@ ListVoiceEnginesResponse Client::listVoiceEnginesWithOptions(const ListVoiceEngi
 }
 
 /**
- * @summary 获取引擎列表
+ * @summary Retrieves a list of engines.
  *
  * @param request ListVoiceEnginesRequest
  * @return ListVoiceEnginesResponse
@@ -3005,7 +3045,7 @@ ListVoiceEnginesResponse Client::listVoiceEngines(const ListVoiceEnginesRequest 
 }
 
 /**
- * @summary 获取实例详情
+ * @summary Retrieves a list of available voices.
  *
  * @param request ListVoicesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3052,7 +3092,7 @@ ListVoicesResponse Client::listVoicesWithOptions(const ListVoicesRequest &reques
 }
 
 /**
- * @summary 获取实例详情
+ * @summary Retrieves a list of available voices.
  *
  * @param request ListVoicesRequest
  * @return ListVoicesResponse
@@ -3063,7 +3103,7 @@ ListVoicesResponse Client::listVoices(const ListVoicesRequest &request) {
 }
 
 /**
- * @summary 试听
+ * @summary Creates an instance.
  *
  * @param tmpReq PreviewVoiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3124,7 +3164,7 @@ PreviewVoiceResponse Client::previewVoiceWithOptions(const PreviewVoiceRequest &
 }
 
 /**
- * @summary 试听
+ * @summary Creates an instance.
  *
  * @param request PreviewVoiceRequest
  * @return PreviewVoiceResponse
@@ -3135,7 +3175,7 @@ PreviewVoiceResponse Client::previewVoice(const PreviewVoiceRequest &request) {
 }
 
 /**
- * @summary 更新实例
+ * @summary Updates an instance.
  *
  * @param request PublishScriptRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3174,7 +3214,7 @@ PublishScriptResponse Client::publishScriptWithOptions(const PublishScriptReques
 }
 
 /**
- * @summary 更新实例
+ * @summary Updates an instance.
  *
  * @param request PublishScriptRequest
  * @return PublishScriptResponse
@@ -3185,7 +3225,7 @@ PublishScriptResponse Client::publishScript(const PublishScriptRequest &request)
 }
 
 /**
- * @summary 修改服务提供商
+ * @summary Updates an agent service provider in system administration.
  *
  * @param request UpdateCallCenterProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3254,7 +3294,7 @@ UpdateCallCenterProviderResponse Client::updateCallCenterProviderWithOptions(con
 }
 
 /**
- * @summary 修改服务提供商
+ * @summary Updates an agent service provider in system administration.
  *
  * @param request UpdateCallCenterProviderRequest
  * @return UpdateCallCenterProviderResponse
@@ -3265,7 +3305,7 @@ UpdateCallCenterProviderResponse Client::updateCallCenterProvider(const UpdateCa
 }
 
 /**
- * @summary 更新实例
+ * @summary Updates an instance.
  *
  * @param request UpdateCloneVoiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3304,7 +3344,7 @@ UpdateCloneVoiceResponse Client::updateCloneVoiceWithOptions(const UpdateCloneVo
 }
 
 /**
- * @summary 更新实例
+ * @summary Updates an instance.
  *
  * @param request UpdateCloneVoiceRequest
  * @return UpdateCloneVoiceResponse
@@ -3315,7 +3355,7 @@ UpdateCloneVoiceResponse Client::updateCloneVoice(const UpdateCloneVoiceRequest 
 }
 
 /**
- * @summary 修改指令
+ * @summary Updates the global configuration of a specific instruction for a Digital Employee.
  *
  * @param request UpdateInstructionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3362,7 +3402,7 @@ UpdateInstructionResponse Client::updateInstructionWithOptions(const UpdateInstr
 }
 
 /**
- * @summary 修改指令
+ * @summary Updates the global configuration of a specific instruction for a Digital Employee.
  *
  * @param request UpdateInstructionRequest
  * @return UpdateInstructionResponse
@@ -3373,7 +3413,7 @@ UpdateInstructionResponse Client::updateInstruction(const UpdateInstructionReque
 }
 
 /**
- * @summary 更新语言模型配置信息
+ * @summary Updates the language model configuration.
  *
  * @param tmpReq UpdateLlmAccessProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3418,7 +3458,7 @@ UpdateLlmAccessProfileResponse Client::updateLlmAccessProfileWithOptions(const U
 }
 
 /**
- * @summary 更新语言模型配置信息
+ * @summary Updates the language model configuration.
  *
  * @param request UpdateLlmAccessProfileRequest
  * @return UpdateLlmAccessProfileResponse
@@ -3429,7 +3469,7 @@ UpdateLlmAccessProfileResponse Client::updateLlmAccessProfile(const UpdateLlmAcc
 }
 
 /**
- * @summary 更新实例
+ * @summary Updates an instance.
  *
  * @param request UpdateScriptRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3476,7 +3516,7 @@ UpdateScriptResponse Client::updateScriptWithOptions(const UpdateScriptRequest &
 }
 
 /**
- * @summary 更新实例
+ * @summary Updates an instance.
  *
  * @param request UpdateScriptRequest
  * @return UpdateScriptResponse
@@ -3487,7 +3527,7 @@ UpdateScriptResponse Client::updateScript(const UpdateScriptRequest &request) {
 }
 
 /**
- * @summary 创建或更新MQ配置
+ * @summary Creates or updates the Message Queue (MQ) configuration.
  *
  * @param tmpReq UpdateSubscriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3556,7 +3596,7 @@ UpdateSubscriptionResponse Client::updateSubscriptionWithOptions(const UpdateSub
 }
 
 /**
- * @summary 创建或更新MQ配置
+ * @summary Creates or updates the Message Queue (MQ) configuration.
  *
  * @param request UpdateSubscriptionRequest
  * @return UpdateSubscriptionResponse
@@ -3567,7 +3607,7 @@ UpdateSubscriptionResponse Client::updateSubscription(const UpdateSubscriptionRe
 }
 
 /**
- * @summary 更新变量
+ * @summary Updates a variable.
  *
  * @param request UpdateVariableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3610,7 +3650,7 @@ UpdateVariableResponse Client::updateVariableWithOptions(const UpdateVariableReq
 }
 
 /**
- * @summary 更新变量
+ * @summary Updates a variable.
  *
  * @param request UpdateVariableRequest
  * @return UpdateVariableResponse
@@ -3621,7 +3661,7 @@ UpdateVariableResponse Client::updateVariable(const UpdateVariableRequest &reque
 }
 
 /**
- * @summary 更新实例
+ * @summary Updates an instance.
  *
  * @param tmpReq UpdateVocabularyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3674,7 +3714,7 @@ UpdateVocabularyResponse Client::updateVocabularyWithOptions(const UpdateVocabul
 }
 
 /**
- * @summary 更新实例
+ * @summary Updates an instance.
  *
  * @param request UpdateVocabularyRequest
  * @return UpdateVocabularyResponse
@@ -3685,7 +3725,7 @@ UpdateVocabularyResponse Client::updateVocabulary(const UpdateVocabularyRequest 
 }
 
 /**
- * @summary 更新实例
+ * @summary Updates a voice access profile.
  *
  * @param tmpReq UpdateVoiceAccessProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3734,7 +3774,7 @@ UpdateVoiceAccessProfileResponse Client::updateVoiceAccessProfileWithOptions(con
 }
 
 /**
- * @summary 更新实例
+ * @summary Updates a voice access profile.
  *
  * @param request UpdateVoiceAccessProfileRequest
  * @return UpdateVoiceAccessProfileResponse

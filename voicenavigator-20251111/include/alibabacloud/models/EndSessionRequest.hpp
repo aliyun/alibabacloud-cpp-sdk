@@ -57,8 +57,12 @@ namespace Models
 
 
   protected:
+    // The ID of the instance.
     shared_ptr<string> instanceId_ {};
+    // The ID of the script.
     shared_ptr<string> scriptId_ {};
+    // The ID of the session.
+    // 
     // This parameter is required.
     shared_ptr<string> sessionId_ {};
   };

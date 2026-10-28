@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The ID of the human service provider.
     shared_ptr<string> providerId_ {};
   };
 

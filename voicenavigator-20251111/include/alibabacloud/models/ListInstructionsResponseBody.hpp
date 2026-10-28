@@ -130,10 +130,27 @@ namespace Models
 
 
       protected:
+        // The instruction code.
         shared_ptr<string> code_ {};
+        // The instruction configuration, in a JSON string format.
+        // 
+        // > - `providerId`: The ID of the call center provider. You can obtain this ID by calling the `ListCallCenterProviders` operation.
+        // >
+        // > - `transferMethod`: The transfer method. Valid values: `BYE`, `BRIDGE`, and `REFER`.
+        // >
+        // > - `transferType`: The transfer target type. Valid values: `External` (external number), `Agent` (agent), and `SkillGroup` (skill group).
+        // >
+        // > - `transferTarget`: The transfer target.
+        // >
+        // > - `transferor`: The caller ID. If not specified, the caller\\"s phone number is used.
+        // >
+        // > - `timeoutSeconds`: The transfer timeout, in seconds. The default value is 30.
         shared_ptr<string> config_ {};
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
+        // The instruction name.
         shared_ptr<string> name_ {};
+        // The instruction type.
         shared_ptr<string> type_ {};
       };
 
@@ -170,9 +187,13 @@ namespace Models
 
 
     protected:
+      // The list of instructions.
       shared_ptr<vector<Data::Instructions>> instructions_ {};
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of instructions.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -225,11 +246,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The data returned for the list of instructions.
     shared_ptr<ListInstructionsResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The result message.
     shared_ptr<string> message_ {};
+    // A list of request parameters that are echoed in the response.
     shared_ptr<vector<string>> params_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

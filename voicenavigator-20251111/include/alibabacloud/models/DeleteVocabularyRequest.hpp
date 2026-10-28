@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the Voice Navigator instance.
     shared_ptr<string> instanceId_ {};
+    // The ID of the vocabulary to delete.
     shared_ptr<string> vocabularyId_ {};
   };
 

@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The scenario ID.
     shared_ptr<string> scriptId_ {};
+    // The version ID.
     shared_ptr<string> versionId_ {};
   };
 

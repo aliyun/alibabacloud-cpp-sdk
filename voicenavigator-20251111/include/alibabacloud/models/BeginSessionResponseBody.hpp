@@ -99,6 +99,11 @@ namespace Models
 
 
       protected:
+        // The control parameter type. Valid values:
+        // >- HangUp: Hang up.
+        // >- Transfer: Transfer.
+        // >- GatherDtmf: Gather DTMF.
+        // >- Voice: Voice.
         shared_ptr<string> type_ {};
       };
 
@@ -157,12 +162,19 @@ namespace Models
 
 
     protected:
+      // The chatbot reply content.
       shared_ptr<string> answer_ {};
+      // The list of control parameters.
       shared_ptr<vector<Data::ControlParamsList>> controlParamsList_ {};
+      // The end time.
       shared_ptr<int64_t> endTime_ {};
+      // The session ID.
       shared_ptr<string> sessionId_ {};
+      // The start time.
       shared_ptr<int64_t> startTime_ {};
+      // Specifies whether the streaming response has ended.
       shared_ptr<bool> streamEnd_ {};
+      // The turn ID of the conversation.
       shared_ptr<string> streamId_ {};
     };
 
@@ -215,11 +227,17 @@ namespace Models
 
 
   protected:
+    // The business status code. A value of OK indicates that the request is successful.
     shared_ptr<string> code_ {};
+    // The business data.
     shared_ptr<BeginSessionResponseBody::Data> data_ {};
+    // The HTTP status code. A value of 200 indicates that the HTTP request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The HTTP response message.
     shared_ptr<string> message_ {};
+    // The dynamic error parameters.
     shared_ptr<vector<string>> params_ {};
+    // The POP request ID.
     shared_ptr<string> requestId_ {};
   };
 

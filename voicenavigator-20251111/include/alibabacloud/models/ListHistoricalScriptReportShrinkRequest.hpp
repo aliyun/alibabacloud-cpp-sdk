@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The end of the query time range, which is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> endTime_ {};
+    // The ID of the Voice Bot instance.
     shared_ptr<string> instanceId_ {};
+    // The page number to retrieve.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // A list of up to 100 script IDs.
     shared_ptr<string> scriptIdsShrink_ {};
+    // The start of the query time range, which is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
   };
 

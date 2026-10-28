@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The description.
     shared_ptr<string> description_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The name of the hot word.
     shared_ptr<string> name_ {};
+    // The hot word ID.
     shared_ptr<string> vocabularyId_ {};
+    // The list of hot words.
     shared_ptr<string> wordsShrink_ {};
   };
 

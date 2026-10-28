@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The page number to return. Defaults to 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page. Defaults to 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The status of the cloned voice.
     shared_ptr<string> status_ {};
   };
 

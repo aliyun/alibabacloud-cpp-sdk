@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The file type.
     shared_ptr<string> businessType_ {};
+    // The file name.
     shared_ptr<string> fileName_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
   };
 

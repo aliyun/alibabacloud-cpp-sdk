@@ -151,15 +151,25 @@ namespace Models
 
 
     protected:
+      // The AccessKey ID used to generate the signature.
       shared_ptr<string> accessKeyId_ {};
+      // The AccessKey Secret used to authorize the OSS file upload.
       shared_ptr<string> accessKeySecret_ {};
+      // The name of the OSS bucket.
       shared_ptr<string> bucket_ {};
+      // The expiration time of the upload credentials.
       shared_ptr<int64_t> expirationTime_ {};
+      // The object key for the uploaded file.
       shared_ptr<string> fileKey_ {};
+      // The OSS endpoint.
       shared_ptr<string> host_ {};
+      // The policy used to validate the request form fields.
       shared_ptr<string> policy_ {};
+      // The region.
       shared_ptr<string> region_ {};
+      // The security token.
       shared_ptr<string> securityToken_ {};
+      // The signature calculated from the **AccessKey Secret** and **policy**. OSS uses this signature to authenticate the request.
       shared_ptr<string> signature_ {};
     };
 
@@ -212,11 +222,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The parameters for uploading the file.
     shared_ptr<GenerateFileUploadParamsResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // A list of parameters for the error message.
     shared_ptr<vector<string>> params_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

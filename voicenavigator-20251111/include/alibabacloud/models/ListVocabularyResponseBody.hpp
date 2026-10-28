@@ -158,13 +158,21 @@ namespace Models
 
 
       protected:
+        // The time the vocabulary was created.
         shared_ptr<int64_t> createdTime_ {};
+        // The description of the vocabulary.
         shared_ptr<string> description_ {};
+        // The ID of the instance.
         shared_ptr<string> instanceId_ {};
+        // The name of the vocabulary.
         shared_ptr<string> name_ {};
+        // The ID of the tenant.
         shared_ptr<string> tenantId_ {};
+        // The time the vocabulary was last updated.
         shared_ptr<int64_t> updatedTime_ {};
+        // The ID of the vocabulary.
         shared_ptr<string> vocabularyId_ {};
+        // The number of words in the vocabulary.
         shared_ptr<int32_t> wordCount_ {};
       };
 
@@ -201,9 +209,13 @@ namespace Models
 
 
     protected:
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
+      // A list of vocabularies.
       shared_ptr<vector<Data::Vocabularies>> vocabularies_ {};
     };
 
@@ -256,11 +268,17 @@ namespace Models
 
 
   protected:
+    // The internal error code.
     shared_ptr<string> code_ {};
+    // The paginated list of vocabularies.
     shared_ptr<ListVocabularyResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The list of dynamic error parameters.
     shared_ptr<vector<string>> params_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -87,11 +87,17 @@ namespace Models
 
 
   protected:
+    // The error code. A value of `OK` indicates the request succeeded.
     shared_ptr<string> code_ {};
+    // The ID of the deleted vocabulary.
     shared_ptr<string> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // A list of dynamic error parameters.
     shared_ptr<vector<string>> params_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

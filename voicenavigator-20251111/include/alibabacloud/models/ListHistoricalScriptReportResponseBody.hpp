@@ -231,21 +231,37 @@ namespace Models
 
 
       protected:
+        // The number of calls handled.
         shared_ptr<int64_t> callsHandled_ {};
+        // The number of calls offered.
         shared_ptr<int64_t> callsOffered_ {};
+        // The number of calls rejected.
         shared_ptr<int64_t> callsRejected_ {};
+        // The number of calls that a large language model (LLM) determined to be resolved.
         shared_ptr<int64_t> callsResolved_ {};
+        // The most recent concurrency setting.
         shared_ptr<int64_t> configuredConcurrency_ {};
+        // A breakdown of call labels.
         shared_ptr<string> labelDistribution_ {};
+        // The maximum talk time, in milliseconds.
         shared_ptr<int64_t> maxTalkTime_ {};
+        // A breakdown of call rejection reasons.
         shared_ptr<string> rejectionBreakdown_ {};
+        // A breakdown of disconnection reasons for answered calls.
         shared_ptr<string> releaseReasonBreakdown_ {};
+        // The script ID.
         shared_ptr<string> scriptId_ {};
+        // A breakdown of conversation turns.
         shared_ptr<string> talkTurnsDistribution_ {};
+        // This parameter is reserved for future use.
         shared_ptr<int64_t> totalInputTokens_ {};
+        // This parameter is reserved for future use.
         shared_ptr<int64_t> totalOutputTokens_ {};
+        // The total talk time, in milliseconds.
         shared_ptr<int64_t> totalTalkTime_ {};
+        // This parameter is reserved for future use.
         shared_ptr<int64_t> totalTokens_ {};
+        // The peak concurrency.
         shared_ptr<int64_t> usedConcurrency_ {};
       };
 
@@ -282,9 +298,13 @@ namespace Models
 
 
     protected:
+      // A list of script reports.
       shared_ptr<vector<Data::List>> list_ {};
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -337,12 +357,17 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> code_ {};
+    // The cloned voice ID.
     shared_ptr<ListHistoricalScriptReportResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // A list of invalid parameters.
     shared_ptr<vector<string>> params_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

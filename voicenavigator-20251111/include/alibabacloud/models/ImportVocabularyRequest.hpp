@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The path to the uploaded file.
     shared_ptr<string> fileKey_ {};
+    // The ID of the instance.
     shared_ptr<string> instanceId_ {};
   };
 

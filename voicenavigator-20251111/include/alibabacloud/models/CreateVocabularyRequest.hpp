@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // The description.
     shared_ptr<string> description_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The hotword name.
     shared_ptr<string> name_ {};
+    // The list of hotwords.
     shared_ptr<map<string, string>> words_ {};
   };
 

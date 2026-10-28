@@ -206,21 +206,37 @@ namespace Models
 
 
     protected:
+      // The number of handled calls.
       shared_ptr<int64_t> callsHandled_ {};
+      // The number of offered calls.
       shared_ptr<int64_t> callsOffered_ {};
+      // The number of rejected calls.
       shared_ptr<int64_t> callsRejected_ {};
+      // The number of resolved calls, based on the large model\\"s evaluation.
       shared_ptr<int64_t> callsResolved_ {};
+      // The configured concurrency limit.
       shared_ptr<int64_t> configuredConcurrency_ {};
+      // A JSON string that provides a breakdown of label distribution.
       shared_ptr<string> labelBreakDown_ {};
+      // The maximum talk time, in milliseconds.
       shared_ptr<int64_t> maxTalkTime_ {};
+      // A JSON string that provides a breakdown of rejection reasons.
       shared_ptr<string> rejectionBreakdown_ {};
+      // A JSON string that provides a breakdown of call disconnection reasons.
       shared_ptr<string> releaseReasonBreakdown_ {};
+      // The start time of the interval. The value is a Unix timestamp in milliseconds.
       shared_ptr<int64_t> statsTime_ {};
+      // A JSON string that provides a breakdown of conversation turn distribution.
       shared_ptr<string> talkTurnsDistribution_ {};
+      // This parameter is reserved for future use.
       shared_ptr<int64_t> totalInputTokens_ {};
+      // This parameter is reserved for future use.
       shared_ptr<int64_t> totalOutputTokens_ {};
+      // The total talk time, in milliseconds.
       shared_ptr<int64_t> totalTalkTime_ {};
+      // This parameter is reserved for future use.
       shared_ptr<int64_t> totalTokens_ {};
+      // The peak concurrency for the interval.
       shared_ptr<int64_t> usedConcurrency_ {};
     };
 
@@ -273,12 +289,17 @@ namespace Models
 
 
   protected:
+    // The service-specific error code.
     shared_ptr<string> code_ {};
+    // An array of scenario template objects.
     shared_ptr<vector<GetScriptTrendingReportResponseBody::Data>> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // An array of error parameters.
     shared_ptr<vector<string>> params_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

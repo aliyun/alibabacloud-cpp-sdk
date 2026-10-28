@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The ID of the third-party model configuration.
     shared_ptr<string> accessProfileId_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The parameter settings.
     shared_ptr<string> profileShrink_ {};
   };
 

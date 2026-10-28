@@ -121,15 +121,34 @@ namespace Models
 
 
   protected:
+    // The channel ID.
+    // > This parameter is valid only when AccessChannelType is set to Web or Trial.
     shared_ptr<string> accessChannelId_ {};
+    // The channel type.
+    // 
+    // > - Text: text test window
+    // > - Test: test window
+    // > - Trial: trial link
     shared_ptr<string> accessChannelType_ {};
+    // The caller number.
     shared_ptr<string> caller_ {};
+    // The device ID.
     shared_ptr<string> deviceId_ {};
+    // Specifies whether the test environment is used.
+    // >Default value: false.
     shared_ptr<bool> draftVersion_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The sampling rate.
     shared_ptr<int32_t> sampleRate_ {};
+    // The script ID.
     shared_ptr<string> scriptId_ {};
+    // The attached data.
     shared_ptr<string> tags_ {};
+    // The timeout period.
+    // 
+    // > 
+    // > - If the call is not connected within the time specified by this parameter, the system actively hangs up the call. Unit: seconds. Default value: 60.
     shared_ptr<int32_t> timeoutSeconds_ {};
   };
 

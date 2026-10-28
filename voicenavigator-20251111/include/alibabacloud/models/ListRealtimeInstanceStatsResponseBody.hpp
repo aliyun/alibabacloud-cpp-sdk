@@ -121,9 +121,13 @@ namespace Models
 
 
       protected:
+        // The configured concurrency.
         shared_ptr<int64_t> configuredConcurrency_ {};
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
+        // The time of the statistics.
         shared_ptr<int64_t> statsTime_ {};
+        // The used concurrency.
         shared_ptr<int64_t> usedConcurrency_ {};
       };
 
@@ -160,9 +164,13 @@ namespace Models
 
 
     protected:
+      // The list of real-time statistics for instances.
       shared_ptr<vector<Data::List>> list_ {};
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -215,10 +223,15 @@ namespace Models
 
 
   protected:
+    // The internal error code.
     shared_ptr<string> code_ {};
+    // The call records.
     shared_ptr<ListRealtimeInstanceStatsResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The list of error parameters.
     shared_ptr<vector<string>> params_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

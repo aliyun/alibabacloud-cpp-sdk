@@ -112,8 +112,11 @@ namespace Models
 
 
       protected:
+        // The engine configuration.
         shared_ptr<string> configSchema_ {};
+        // The voice engine.
         shared_ptr<string> nlsEngine_ {};
+        // The display name.
         shared_ptr<string> nlsEngineName_ {};
       };
 
@@ -150,9 +153,13 @@ namespace Models
 
 
     protected:
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
+      // The list of voice engine objects.
       shared_ptr<vector<Data::VoiceEngines>> voiceEngines_ {};
     };
 
@@ -205,11 +212,17 @@ namespace Models
 
 
   protected:
+    // The internal error code.
     shared_ptr<string> code_ {};
+    // The paginated results of voice engines.
     shared_ptr<ListVoiceEnginesResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The list of dynamic error parameters.
     shared_ptr<vector<string>> params_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

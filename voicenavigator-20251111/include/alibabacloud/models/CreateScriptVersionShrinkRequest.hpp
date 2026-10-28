@@ -103,13 +103,20 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The interaction configuration.
     shared_ptr<string> interactionConfigShrink_ {};
+    // The custom label configuration.
     shared_ptr<string> labelConfigShrink_ {};
+    // The scenario ID.
     shared_ptr<string> scriptId_ {};
+    // The conversation capability configuration.
     shared_ptr<string> scriptProfileShrink_ {};
     shared_ptr<string> sourceVersionId_ {};
+    // The TTS configuration.
     shared_ptr<string> synthesizerConfigShrink_ {};
+    // The ASR configuration.
     shared_ptr<string> transcriberConfigShrink_ {};
   };
 

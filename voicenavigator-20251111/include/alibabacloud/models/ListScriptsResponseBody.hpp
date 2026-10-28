@@ -195,17 +195,29 @@ namespace Models
 
 
       protected:
+        // The concurrency.
         shared_ptr<int32_t> concurrency_ {};
+        // The creation time.
         shared_ptr<int64_t> createdTime_ {};
+        // The description.
         shared_ptr<string> description_ {};
+        // The draft version ID.
         shared_ptr<string> draftVersionId_ {};
+        // The scenario name.
         shared_ptr<string> name_ {};
+        // The NLU invocation method.
         shared_ptr<string> nluAccessType_ {};
+        // The NLU engine.
         shared_ptr<string> nluEngine_ {};
+        // The number.
         shared_ptr<string> number_ {};
+        // The published version ID.
         shared_ptr<string> publishedVersionId_ {};
+        // The scenario ID.
         shared_ptr<string> scriptId_ {};
+        // The status.
         shared_ptr<string> status_ {};
+        // The update time.
         shared_ptr<int64_t> updatedTime_ {};
       };
 
@@ -242,9 +254,13 @@ namespace Models
 
 
     protected:
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The list of scenarios.
       shared_ptr<vector<Data::Scripts>> scripts_ {};
+      // The total count.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -297,11 +313,17 @@ namespace Models
 
 
   protected:
+    // The internal error code.
     shared_ptr<string> code_ {};
+    // The paginated result of the scenario list.
     shared_ptr<ListScriptsResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The list of dynamic error parameters.
     shared_ptr<vector<string>> params_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -97,12 +97,19 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The scenario name.
     shared_ptr<string> name_ {};
+    // The number.
     shared_ptr<string> number_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The list of scenario IDs.
     shared_ptr<vector<string>> scriptIds_ {};
+    // The status.
     shared_ptr<string> status_ {};
   };
 

@@ -89,11 +89,17 @@ namespace Models
 
 
   protected:
+    // The result code.
     shared_ptr<string> code_ {};
+    // A list of vocabulary IDs.
     shared_ptr<vector<string>> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // Parameters used to dynamically generate the error message.
     shared_ptr<vector<string>> params_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

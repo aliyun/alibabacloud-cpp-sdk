@@ -222,20 +222,35 @@ namespace Models
 
 
       protected:
+        // The callee\\"s phone number.
         shared_ptr<string> callee_ {};
+        // The caller\\"s phone number.
         shared_ptr<string> caller_ {};
+        // The disposition code.
         shared_ptr<string> dispositionCode_ {};
+        // The disposition reason.
         shared_ptr<string> dispositionReason_ {};
+        // The total duration of the call, in seconds.
         shared_ptr<int32_t> duration_ {};
+        // The end time of the session, as a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> endTime_ {};
+        // Indicates whether the customer\\"s issue was resolved.
         shared_ptr<bool> issueResolved_ {};
+        // The party who released the call.
         shared_ptr<string> releaseInitiator_ {};
+        // The evidence for the `IssueResolved` status.
         shared_ptr<string> resolutionEvidence_ {};
+        // The session ID.
         shared_ptr<string> sessionId_ {};
+        // The start time of the session, as a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> startTime_ {};
+        // The talk time, in seconds.
         shared_ptr<int32_t> talkTime_ {};
+        // The number of talk turns.
         shared_ptr<int32_t> talkTurns_ {};
+        // The transfer target.
         shared_ptr<string> transferTarget_ {};
+        // The transfer type.
         shared_ptr<string> transferType_ {};
       };
 
@@ -272,9 +287,13 @@ namespace Models
 
 
     protected:
+      // A list of call detail records.
       shared_ptr<vector<Data::CallDetailRecords>> callDetailRecords_ {};
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries to return on each page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries that match the query.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -327,12 +346,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // An object containing the returned call records.
     shared_ptr<ListCallDetailRecordsResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // A list of invalid parameters in the request.
     shared_ptr<vector<string>> params_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

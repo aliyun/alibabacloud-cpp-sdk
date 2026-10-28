@@ -66,9 +66,15 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of the call center provider.
+    // 
+    // > You can obtain this ID by calling the `ListCallCenterProviders` operation.
     shared_ptr<string> providerId_ {};
   };
 

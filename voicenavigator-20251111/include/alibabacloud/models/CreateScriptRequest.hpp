@@ -75,10 +75,18 @@ namespace Models
 
 
   protected:
+    // The concurrency.
     shared_ptr<int32_t> concurrency_ {};
+    // The instance description.
     shared_ptr<string> description_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The instance name.
     shared_ptr<string> name_ {};
+    // The NLU engine. Valid values:
+    // - PROMPTS: Prompt mode.
+    // - FUNCTION: Function computing mode.
+    // - BEEBOT: Workflow mode.
     shared_ptr<string> nluEngine_ {};
   };
 

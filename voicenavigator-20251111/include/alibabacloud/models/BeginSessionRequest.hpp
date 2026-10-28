@@ -66,9 +66,14 @@ namespace Models
 
 
   protected:
+    // Specifies whether the draft version is used.
     shared_ptr<bool> draftVersion_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The scenario ID.
     shared_ptr<string> scriptId_ {};
+    // The vendor parameters.
+    // >JSON format: {"key1":"value1"}
     shared_ptr<string> vendorParams_ {};
   };
 

@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The description.
     shared_ptr<string> description_ {};
+    // The display name.
     shared_ptr<string> displayName_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The variable name.
     shared_ptr<string> name_ {};
   };
 

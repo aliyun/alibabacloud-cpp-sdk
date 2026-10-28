@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The instruction code.
     shared_ptr<string> code_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
   };
 

@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The path of the uploaded file.
     shared_ptr<string> fileKey_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The voice cloning model.
     shared_ptr<string> model_ {};
   };
 

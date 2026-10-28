@@ -124,8 +124,11 @@ namespace Models
 
 
       protected:
+        // Specifies whether pushes for this event are disabled.
         shared_ptr<bool> disabled_ {};
+        // The event\\"s display name.
         shared_ptr<string> displayName_ {};
+        // The event name.
         shared_ptr<string> name_ {};
       };
 
@@ -205,15 +208,25 @@ namespace Models
 
 
     protected:
+      // Specifies whether the subscription is disabled.
       shared_ptr<bool> disabled_ {};
+      // The message queue endpoint. This parameter is required if `MqType` is set to `ROCKET_MQ_4` or `ROCKET_MQ_5`. The example endpoint is for the China (Hangzhou) region.
       shared_ptr<string> endpoint_ {};
+      // A list of subscribed events.
       shared_ptr<vector<Data::EventList>> eventList_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The RocketMQ instance ID. This parameter is required if `MqType` is set to `ROCKET_MQ_5`.
       shared_ptr<string> mqInstanceId_ {};
+      // The message queue type.
       shared_ptr<string> mqType_ {};
+      // The password for authentication. This parameter is required if `MqType` is set to `ROCKET_MQ_5`.
       shared_ptr<string> password_ {};
+      // The producer ID. This parameter is required if `MqType` is set to `ROCKET_MQ_4`.
       shared_ptr<string> producerId_ {};
+      // The message queue topic. This parameter is required if `MqType` is set to `ROCKET_MQ_4` or `ROCKET_MQ_5`.
       shared_ptr<string> topic_ {};
+      // The username for authentication. This parameter is required if `MqType` is set to `ROCKET_MQ_5`.
       shared_ptr<string> userName_ {};
     };
 
@@ -266,11 +279,17 @@ namespace Models
 
 
   protected:
+    // The request status. `OK` indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The subscription details.
     shared_ptr<GetSubscriptionResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // Dynamic parameters used in the error message.
     shared_ptr<vector<string>> params_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

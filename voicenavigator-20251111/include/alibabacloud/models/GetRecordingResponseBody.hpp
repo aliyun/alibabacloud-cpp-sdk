@@ -87,8 +87,11 @@ namespace Models
 
 
     protected:
+      // The recording file name.
       shared_ptr<string> fileName_ {};
+      // The recording file URL.
       shared_ptr<string> fileUrl_ {};
+      // The session ID.
       shared_ptr<string> sessionId_ {};
     };
 
@@ -141,12 +144,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The recording object.
     shared_ptr<GetRecordingResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The error parameter list.
     shared_ptr<vector<string>> params_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

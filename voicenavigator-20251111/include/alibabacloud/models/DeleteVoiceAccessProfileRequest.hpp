@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the access profile.
     shared_ptr<string> accessProfileId_ {};
+    // The ID of the instance.
     shared_ptr<string> instanceId_ {};
   };
 

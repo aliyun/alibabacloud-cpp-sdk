@@ -114,11 +114,17 @@ namespace Models
 
 
     protected:
+      // The creation time.
       shared_ptr<int64_t> createdTime_ {};
+      // The description.
       shared_ptr<string> description_ {};
+      // The template name.
       shared_ptr<string> name_ {};
+      // The template definition.
       shared_ptr<string> schema_ {};
+      // The template ID.
       shared_ptr<string> templateId_ {};
+      // The update time.
       shared_ptr<int64_t> updatedTime_ {};
     };
 
@@ -171,11 +177,17 @@ namespace Models
 
 
   protected:
+    // The internal error code.
     shared_ptr<string> code_ {};
+    // The list of scenario templates.
     shared_ptr<vector<ListScriptProfileTemplatesResponseBody::Data>> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The list of error parameters.
     shared_ptr<vector<string>> params_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

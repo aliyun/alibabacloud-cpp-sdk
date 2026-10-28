@@ -112,14 +112,28 @@ namespace Models
 
 
   protected:
+    // The callee number during the transfer. This parameter is required when the transfer method is Bridge.
     shared_ptr<string> destination_ {};
+    // The display name of the service provider.
     shared_ptr<string> displayName_ {};
+    // The attached data.
+    // >Notice: Format: k1=v1;k2=v2.</notice>
     shared_ptr<string> extras_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The name of the service provider.
     shared_ptr<string> name_ {};
+    // The caller number during the transfer. This parameter is required when the transfer method is Bridge.
     shared_ptr<string> originator_ {};
+    // The provider type.
+    // > 
+    // > - CCC: Cloud Call Center.
+    // >- CUSTOM: Customer-owned call center.
     shared_ptr<string> providerType_ {};
+    // The Refer address.<notice>This parameter is required when the transfer method is Refer.</notice>
     shared_ptr<string> referTo_ {};
+    // The trunk ID.
+    // >Notice: This parameter is required when the transfer method is Bridge.</notice>
     shared_ptr<string> trunkId_ {};
   };
 

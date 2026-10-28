@@ -231,21 +231,37 @@ namespace Models
 
 
       protected:
+        // The number of answered calls.
         shared_ptr<int64_t> callsHandled_ {};
+        // The number of offered calls.
         shared_ptr<int64_t> callsOffered_ {};
+        // The number of rejected calls.
         shared_ptr<int64_t> callsRejected_ {};
+        // The number of calls classified as resolved by the large language model (LLM).
         shared_ptr<int64_t> callsResolved_ {};
+        // The most recent concurrency configuration.
         shared_ptr<int64_t> configuredConcurrency_ {};
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
+        // The breakdown of labels.
         shared_ptr<string> labelBreakdown_ {};
+        // The maximum talk time in milliseconds (ms).
         shared_ptr<int64_t> maxTalkTime_ {};
+        // The breakdown of rejection reasons.
         shared_ptr<string> rejectionBreakdown_ {};
+        // A breakdown of release reasons for answered calls.
         shared_ptr<string> releaseReasonBreakdown_ {};
+        // The distribution of conversation turns.
         shared_ptr<string> talkTurnsDistribution_ {};
+        // Reserved for future use.
         shared_ptr<int64_t> totalInputTokens_ {};
+        // Reserved for future use.
         shared_ptr<int64_t> totalOutputTokens_ {};
+        // The total talk time in milliseconds (ms).
         shared_ptr<int64_t> totalTalkTime_ {};
+        // Reserved for future use.
         shared_ptr<int64_t> totalTokens_ {};
+        // The peak number of concurrent calls.
         shared_ptr<int64_t> usedConcurrency_ {};
       };
 
@@ -282,9 +298,13 @@ namespace Models
 
 
     protected:
+      // A list of historical reports for the instances.
       shared_ptr<vector<Data::List>> list_ {};
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -337,12 +357,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<ListHistoricalInstanceReportResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The list of error parameters.
     shared_ptr<vector<string>> params_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 
