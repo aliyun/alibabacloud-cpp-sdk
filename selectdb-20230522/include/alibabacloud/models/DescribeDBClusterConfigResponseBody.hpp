@@ -158,21 +158,21 @@ namespace Models
 
 
       protected:
-        // The comments on the parameter.
+        // The comment of the field.
         shared_ptr<string> comment_ {};
         // The default value of the parameter.
         shared_ptr<string> defaultValue_ {};
-        // Indicates whether the parameter immediately takes effect without requiring a restart.
+        // Specifies whether the parameter takes effect dynamically without a restart.
         shared_ptr<int32_t> isDynamic_ {};
-        // Indicates whether the parameter is modifiable.
+        // Specifies whether users are allowed to modify the parameter.
         shared_ptr<int32_t> isUserModifiable_ {};
-        // The name of the parameter.
+        // The name of the configuration item.
         shared_ptr<string> name_ {};
-        // The value range of the parameter.
+        // The value range.
         shared_ptr<string> optional_ {};
-        // The category of the parameter.
+        // The category of the configuration item.
         shared_ptr<string> paramCategory_ {};
-        // The current value of the parameter.
+        // The current value.
         shared_ptr<string> value_ {};
       };
 
@@ -222,7 +222,7 @@ namespace Models
       shared_ptr<string> dbInstanceId_ {};
       // The instance ID.
       shared_ptr<string> dbInstanceName_ {};
-      // The details about each parameter returned.
+      // The user parameters.
       shared_ptr<vector<Data::Params>> params_ {};
       // The task ID.
       shared_ptr<int32_t> taskId_ {};
@@ -268,13 +268,13 @@ namespace Models
 
 
   protected:
-    // The details about the access denial. This parameter is returned only if Resource Access Management (RAM) authentication failed.
+    // The details of the access denial. This field is returned only when RAM authentication fails.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The information returned.
+    // The returned data.
     shared_ptr<DescribeDBClusterConfigResponseBody::Data> data_ {};
-    // The dynamic code. This parameter is not returned.
+    // The dynamic code. This field is not used and can be ignored.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic message. This parameter is not returned.
+    // The dynamic message. This field is not used and can be ignored.
     shared_ptr<string> dynamicMessage_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

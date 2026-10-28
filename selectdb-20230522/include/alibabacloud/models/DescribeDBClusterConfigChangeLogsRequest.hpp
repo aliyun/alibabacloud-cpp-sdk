@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The configuration file that was modified. For compute clusters, this value is fixed as be.conf. For FE clusters, this value is fixed as fe.conf.
+    // The configuration file to be modified. The value is fixed to be.conf for compute clusters and fe.conf for FE clusters.
     shared_ptr<string> configKey_ {};
     // The cluster ID.
     // 
@@ -94,7 +94,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The end time for querying change records. Format: yyyy-MM-dd HH:mm:ss.
+    // The end time to query change records. Format: yyyy-MM-dd HH:mm:ss.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
@@ -102,7 +102,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The start time for querying change records. Format: yyyy-MM-dd HH:mm:ss.
+    // The start time to query change records. Format: yyyy-MM-dd HH:mm:ss.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

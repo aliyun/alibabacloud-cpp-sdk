@@ -160,7 +160,7 @@ namespace Models
   protected:
     // The elastic cache space.
     shared_ptr<int64_t> cacheSize_ {};
-    // The billing type.
+    // The billing method.
     // 
     // This parameter is required.
     shared_ptr<string> chargeType_ {};
@@ -176,7 +176,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> dbInstanceId_ {};
-    // Specifies whether to query the price for converting the cluster billing type.
+    // Specifies whether to query the pricing for changing the billing method of the cluster.
     shared_ptr<bool> modifyClusterChargeType_ {};
     // The reserved cache space.
     shared_ptr<int64_t> preCacheSize_ {};
@@ -186,7 +186,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> pricingCycle_ {};
-    // The coupon code.
+    // The coupon ID.
     shared_ptr<string> promotionOptionNo_ {};
     // The quantity.
     // 

@@ -149,9 +149,9 @@ namespace Models
 
 
       protected:
-        // The task creation time (GMT).
+        // The time when the task was created (GMT).
         shared_ptr<string> gmtCreated_ {};
-        // The task modification time (GMT).
+        // The time when the task was modified (GMT).
         shared_ptr<string> gmtModified_ {};
         // The ID of the change record.
         shared_ptr<int64_t> id_ {};
@@ -257,13 +257,13 @@ namespace Models
 
 
   protected:
-    // The details about the access denial.
+    // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
     // The returned data.
     shared_ptr<DescribeDBClusterConfigChangeLogsResponseBody::Data> data_ {};
-    // The dynamic code. This parameter is not in use. Ignore this parameter.
+    // The dynamic code. This parameter is not in use and can be ignored.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic message. This parameter is not in use. Ignore this parameter.
+    // The dynamic message. This parameter is not in use and can be ignored.
     shared_ptr<string> dynamicMessage_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

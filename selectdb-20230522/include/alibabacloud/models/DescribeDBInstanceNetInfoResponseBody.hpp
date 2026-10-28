@@ -111,9 +111,9 @@ namespace Models
         shared_ptr<int32_t> port_ {};
         // The port type. Valid values:
         // 
-        // - **HttpPort**: HTTP protocol port.
+        // - **HttpPort**: HTTP port.
         // 
-        // - **MySQLPort**: MySQL protocol port.
+        // - **MySQLPort**: MySQL port.
         shared_ptr<string> protocol_ {};
       };
 
@@ -194,19 +194,19 @@ namespace Models
       shared_ptr<string> ip_ {};
       // The network type of the instance. Valid values:
       // 
-      // - **VPC**: virtual private cloud (VPC).
+      // - **VPC**: VPC.
       //                               
       // - **PUBLIC**: Internet.
       shared_ptr<string> netType_ {};
-      // The port objects.
+      // The ports.
       shared_ptr<vector<DBInstanceNetInfos::PortList>> portList_ {};
       // Indicates whether the network information is visible to users. Valid values:
       // 
-      // - **true**: Visible to users.
+      // - **true**: Visible.
       // 
-      // - **false**: Not visible to users.
+      // - **false**: Invisible.
       shared_ptr<bool> userVisible_ {};
-      // VPC ID。
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
       // The VPC instance ID.
       shared_ptr<string> vpcInstanceId_ {};
@@ -370,11 +370,11 @@ namespace Models
       shared_ptr<string> ip_ {};
       // The network type.
       shared_ptr<string> netType_ {};
-      // The port list.
+      // The ports.
       shared_ptr<vector<DBClustersNetInfos::PortList>> portList_ {};
       // Indicates whether the network information is visible to users.
       shared_ptr<bool> userVisible_ {};
-      // VPC ID。
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
       // The VPC instance ID.
       shared_ptr<string> vpcInstanceId_ {};
@@ -410,7 +410,7 @@ namespace Models
 
 
   protected:
-    // The network information list of the BE instances.
+    // The network information of the BE instances.
     shared_ptr<vector<DescribeDBInstanceNetInfoResponseBody::DBClustersNetInfos>> DBClustersNetInfos_ {};
     // The network information of the instance.
     shared_ptr<vector<DescribeDBInstanceNetInfoResponseBody::DBInstanceNetInfos>> DBInstanceNetInfos_ {};

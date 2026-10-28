@@ -101,7 +101,7 @@ AllocateInstancePublicConnectionResponse Client::allocateInstancePublicConnectio
 }
 
 /**
- * @summary Moves an instance to a different resource group.
+ * @summary Transfers an instance to a resource group.
  *
  * @param request ChangeResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -144,7 +144,7 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
 }
 
 /**
- * @summary Moves an instance to a different resource group.
+ * @summary Transfers an instance to a resource group.
  *
  * @param request ChangeResourceGroupRequest
  * @return ChangeResourceGroupResponse
@@ -461,10 +461,10 @@ CreateDBClusterResponse Client::createDBCluster(const CreateDBClusterRequest &re
 }
 
 /**
- * @summary Creates a binding relationship between two clusters for an instance deployed in cross-zone redundancy mode.
+ * @summary Creates a binding relationship between two clusters for an instance deployed in zone-disaster recovery mode.
  *
- * @description Only instances deployed in cross-zone redundancy mode support this operation. The following conditions must also be met:
- * - The two clusters are in different zones.
+ * @description Only instances deployed in zone-disaster recovery mode support this operation. The following conditions must be met:
+ * - The clusters must be located in different zones.
  * - The billing methods of the clusters must be the same.
  *
  * @param request CreateDBClusterBindingRequest
@@ -508,10 +508,10 @@ CreateDBClusterBindingResponse Client::createDBClusterBindingWithOptions(const C
 }
 
 /**
- * @summary Creates a binding relationship between two clusters for an instance deployed in cross-zone redundancy mode.
+ * @summary Creates a binding relationship between two clusters for an instance deployed in zone-disaster recovery mode.
  *
- * @description Only instances deployed in cross-zone redundancy mode support this operation. The following conditions must also be met:
- * - The two clusters are in different zones.
+ * @description Only instances deployed in zone-disaster recovery mode support this operation. The following conditions must be met:
+ * - The clusters must be located in different zones.
  * - The billing methods of the clusters must be the same.
  *
  * @param request CreateDBClusterBindingRequest
@@ -811,9 +811,9 @@ CreateServiceLinkedRoleForSelectDBResponse Client::createServiceLinkedRoleForSel
 /**
  * @summary Creates a virtual cluster.
  *
- * @description Only instances with cross-zone redundancy support this operation, and the following conditions must be met:
+ * @description Only zone-disaster recovery instances support this operation. The following conditions must be met:
  * - The minor engine version of the instance is 4.0.7 or later.
- * - The primary and secondary clusters are in different zones.
+ * - The primary and standby clusters are deployed in different zones.
  *
  * @param request CreateVirtualClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -862,9 +862,9 @@ CreateVirtualClusterResponse Client::createVirtualClusterWithOptions(const Creat
 /**
  * @summary Creates a virtual cluster.
  *
- * @description Only instances with cross-zone redundancy support this operation, and the following conditions must be met:
+ * @description Only zone-disaster recovery instances support this operation. The following conditions must be met:
  * - The minor engine version of the instance is 4.0.7 or later.
- * - The primary and secondary clusters are in different zones.
+ * - The primary and standby clusters are deployed in different zones.
  *
  * @param request CreateVirtualClusterRequest
  * @return CreateVirtualClusterResponse
@@ -991,7 +991,7 @@ DeleteDBClusterBindingResponse Client::deleteDBClusterBinding(const DeleteDBClus
 /**
  * @summary Deletes a specified ApsaraDB for SelectDB instance.
  *
- * @description Subscription instances cannot be deleted.
+ * @description You cannot delete subscription instances.
  *
  * @param request DeleteDBInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1034,7 +1034,7 @@ DeleteDBInstanceResponse Client::deleteDBInstanceWithOptions(const DeleteDBInsta
 /**
  * @summary Deletes a specified ApsaraDB for SelectDB instance.
  *
- * @description Subscription instances cannot be deleted.
+ * @description You cannot delete subscription instances.
  *
  * @param request DeleteDBInstanceRequest
  * @return DeleteDBInstanceResponse
@@ -1045,7 +1045,7 @@ DeleteDBInstanceResponse Client::deleteDBInstance(const DeleteDBInstanceRequest 
 }
 
 /**
- * @summary Deletes a time-based elastic scaling rule.
+ * @summary Deletes a time-based elastic rule.
  *
  * @param request DeleteElasticRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1096,7 +1096,7 @@ DeleteElasticRuleResponse Client::deleteElasticRuleWithOptions(const DeleteElast
 }
 
 /**
- * @summary Deletes a time-based elastic scaling rule.
+ * @summary Deletes a time-based elastic rule.
  *
  * @param request DeleteElasticRuleRequest
  * @return DeleteElasticRuleResponse
@@ -1110,7 +1110,7 @@ DeleteElasticRuleResponse Client::deleteElasticRule(const DeleteElasticRuleReque
  * @summary Deletes a virtual cluster.
  *
  * @description > 
- * > - Only the virtual cluster is deleted. The associated primary/secondary clusters are **not** deleted.
+ * > - Only the virtual cluster is deleted. The bound primary and secondary clusters are **not** deleted.
  *
  * @param request DeleteVirtualClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1152,7 +1152,7 @@ DeleteVirtualClusterResponse Client::deleteVirtualClusterWithOptions(const Delet
  * @summary Deletes a virtual cluster.
  *
  * @description > 
- * > - Only the virtual cluster is deleted. The associated primary/secondary clusters are **not** deleted.
+ * > - Only the virtual cluster is deleted. The bound primary and secondary clusters are **not** deleted.
  *
  * @param request DeleteVirtualClusterRequest
  * @return DeleteVirtualClusterResponse
@@ -1213,7 +1213,7 @@ DescribeAllDBInstanceClassResponse Client::describeAllDBInstanceClass(const Desc
 }
 
 /**
- * @summary Queries the configuration information about a cluster in an ApsaraDB for SelectDB instance.
+ * @summary Queries the cluster configuration.
  *
  * @param request DescribeDBClusterConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1256,7 +1256,7 @@ DescribeDBClusterConfigResponse Client::describeDBClusterConfigWithOptions(const
 }
 
 /**
- * @summary Queries the configuration information about a cluster in an ApsaraDB for SelectDB instance.
+ * @summary Queries the cluster configuration.
  *
  * @param request DescribeDBClusterConfigRequest
  * @return DescribeDBClusterConfigResponse
@@ -1483,7 +1483,7 @@ DescribeDBInstanceNetInfoResponse Client::describeDBInstanceNetInfo(const Descri
 }
 
 /**
- * @summary Queries the list of instances.
+ * @summary Queries a list of instances.
  *
  * @param tmpReq DescribeDBInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1552,7 +1552,7 @@ DescribeDBInstancesResponse Client::describeDBInstancesWithOptions(const Describ
 }
 
 /**
- * @summary Queries the list of instances.
+ * @summary Queries a list of instances.
  *
  * @param request DescribeDBInstancesRequest
  * @return DescribeDBInstancesResponse
@@ -1717,7 +1717,7 @@ DescribeQueryExplainResponse Client::describeQueryExplain(const DescribeQueryExp
 }
 
 /**
- * @summary Retrieves information about available regions and zones.
+ * @summary Retrieves the available regions and zones.
  *
  * @param request DescribeRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1744,7 +1744,7 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const DescribeRegions
 }
 
 /**
- * @summary Retrieves information about available regions and zones.
+ * @summary Retrieves the available regions and zones.
  *
  * @param request DescribeRegionsRequest
  * @return DescribeRegionsResponse
@@ -1755,7 +1755,7 @@ DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &re
 }
 
 /**
- * @summary Queries the IP address whitelist of a specified ApsaraDB for SelectDB instance.
+ * @summary Queries the IP addresses in the whitelist of a specified ApsaraDB for SelectDB instance.
  *
  * @param request DescribeSecurityIPListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1794,7 +1794,7 @@ DescribeSecurityIPListResponse Client::describeSecurityIPListWithOptions(const D
 }
 
 /**
- * @summary Queries the IP address whitelist of a specified ApsaraDB for SelectDB instance.
+ * @summary Queries the IP addresses in the whitelist of a specified ApsaraDB for SelectDB instance.
  *
  * @param request DescribeSecurityIPListRequest
  * @return DescribeSecurityIPListResponse
@@ -1921,7 +1921,7 @@ DescribeTableSchemaResponse Client::describeTableSchema(const DescribeTableSchem
 }
 
 /**
- * @summary Lists vSwitches in a zone.
+ * @summary Lists the vSwitches in a zone.
  *
  * @param request DescribeVSwitchesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1976,7 +1976,7 @@ DescribeVSwitchesResponse Client::describeVSwitchesWithOptions(const DescribeVSw
 }
 
 /**
- * @summary Lists vSwitches in a zone.
+ * @summary Lists the vSwitches in a zone.
  *
  * @param request DescribeVSwitchesRequest
  * @return DescribeVSwitchesResponse
@@ -1987,7 +1987,7 @@ DescribeVSwitchesResponse Client::describeVSwitches(const DescribeVSwitchesReque
 }
 
 /**
- * @summary Lists available zones for sale.
+ * @summary Lists the available zones.
  *
  * @param request DescribeZonesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2026,7 +2026,7 @@ DescribeZonesResponse Client::describeZonesWithOptions(const DescribeZonesReques
 }
 
 /**
- * @summary Lists available zones for sale.
+ * @summary Lists the available zones.
  *
  * @param request DescribeZonesRequest
  * @return DescribeZonesResponse
@@ -2137,7 +2137,7 @@ GetCreateBEClusterInquiryResponse Client::getCreateBEClusterInquiry(const GetCre
 }
 
 /**
- * @summary Retrieves pricing information when creating a cluster under a specified ApsaraDB for SelectDB instance.
+ * @summary Retrieves the pricing information for creating a cluster in a specified ApsaraDB for SelectDB instance.
  *
  * @param request GetModifyBEClusterInquiryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2164,7 +2164,7 @@ GetModifyBEClusterInquiryResponse Client::getModifyBEClusterInquiryWithOptions(c
 }
 
 /**
- * @summary Retrieves pricing information when creating a cluster under a specified ApsaraDB for SelectDB instance.
+ * @summary Retrieves the pricing information for creating a cluster in a specified ApsaraDB for SelectDB instance.
  *
  * @param request GetModifyBEClusterInquiryRequest
  * @return GetModifyBEClusterInquiryResponse
@@ -2581,9 +2581,9 @@ ModifySecurityIPListResponse Client::modifySecurityIPList(const ModifySecurityIP
 /**
  * @summary Modifies a virtual cluster.
  *
- * @description - You can modify the primary cluster separately.
- * - You can modify the secondary cluster separately.
- * - You can switch between the primary and secondary clusters.
+ * @description - Supports modifying the primary cluster separately.
+ * - Supports modifying the secondary cluster separately.
+ * - Supports switching between the primary and secondary clusters.
  * >Warning: Modifying both the primary and secondary clusters to other clusters at the same time is not supported.
  *
  * @param request ModifyVirtualClusterRequest
@@ -2633,9 +2633,9 @@ ModifyVirtualClusterResponse Client::modifyVirtualClusterWithOptions(const Modif
 /**
  * @summary Modifies a virtual cluster.
  *
- * @description - You can modify the primary cluster separately.
- * - You can modify the secondary cluster separately.
- * - You can switch between the primary and secondary clusters.
+ * @description - Supports modifying the primary cluster separately.
+ * - Supports modifying the secondary cluster separately.
+ * - Supports switching between the primary and secondary clusters.
  * >Warning: Modifying both the primary and secondary clusters to other clusters at the same time is not supported.
  *
  * @param request ModifyVirtualClusterRequest
@@ -2701,7 +2701,7 @@ ReleaseInstancePublicConnectionResponse Client::releaseInstancePublicConnection(
 }
 
 /**
- * @summary Resets the account password of an ApsaraDB for SelectDB instance.
+ * @summary Resets the password of an account for an ApsaraDB for SelectDB instance.
  *
  * @param request ResetAccountPasswordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2728,7 +2728,7 @@ ResetAccountPasswordResponse Client::resetAccountPasswordWithOptions(const Reset
 }
 
 /**
- * @summary Resets the account password of an ApsaraDB for SelectDB instance.
+ * @summary Resets the password of an account for an ApsaraDB for SelectDB instance.
  *
  * @param request ResetAccountPasswordRequest
  * @return ResetAccountPasswordResponse
@@ -2739,7 +2739,7 @@ ResetAccountPasswordResponse Client::resetAccountPassword(const ResetAccountPass
 }
 
 /**
- * @summary Restarts a cluster of a specified ApsaraDB for SelectDB instance.
+ * @summary Restarts the cluster of a specified ApsaraDB for SelectDB instance.
  *
  * @param request RestartDBClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2792,7 +2792,7 @@ RestartDBClusterResponse Client::restartDBClusterWithOptions(const RestartDBClus
 }
 
 /**
- * @summary Restarts a cluster of a specified ApsaraDB for SelectDB instance.
+ * @summary Restarts the cluster of a specified ApsaraDB for SelectDB instance.
  *
  * @param request RestartDBClusterRequest
  * @return RestartDBClusterResponse

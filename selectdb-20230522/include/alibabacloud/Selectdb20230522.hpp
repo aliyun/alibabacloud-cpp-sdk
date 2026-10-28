@@ -38,7 +38,7 @@ namespace Selectdb20230522
       Models::AllocateInstancePublicConnectionResponse allocateInstancePublicConnection(const Models::AllocateInstancePublicConnectionRequest &request);
 
       /**
-       * @summary Moves an instance to a different resource group.
+       * @summary Transfers an instance to a resource group.
        *
        * @param request ChangeResourceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +47,7 @@ namespace Selectdb20230522
       Models::ChangeResourceGroupResponse changeResourceGroupWithOptions(const Models::ChangeResourceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Moves an instance to a different resource group.
+       * @summary Transfers an instance to a resource group.
        *
        * @param request ChangeResourceGroupRequest
        * @return ChangeResourceGroupResponse
@@ -127,10 +127,10 @@ namespace Selectdb20230522
       Models::CreateDBClusterResponse createDBCluster(const Models::CreateDBClusterRequest &request);
 
       /**
-       * @summary Creates a binding relationship between two clusters for an instance deployed in cross-zone redundancy mode.
+       * @summary Creates a binding relationship between two clusters for an instance deployed in zone-disaster recovery mode.
        *
-       * @description Only instances deployed in cross-zone redundancy mode support this operation. The following conditions must also be met:
-       * - The two clusters are in different zones.
+       * @description Only instances deployed in zone-disaster recovery mode support this operation. The following conditions must be met:
+       * - The clusters must be located in different zones.
        * - The billing methods of the clusters must be the same.
        *
        * @param request CreateDBClusterBindingRequest
@@ -140,10 +140,10 @@ namespace Selectdb20230522
       Models::CreateDBClusterBindingResponse createDBClusterBindingWithOptions(const Models::CreateDBClusterBindingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a binding relationship between two clusters for an instance deployed in cross-zone redundancy mode.
+       * @summary Creates a binding relationship between two clusters for an instance deployed in zone-disaster recovery mode.
        *
-       * @description Only instances deployed in cross-zone redundancy mode support this operation. The following conditions must also be met:
-       * - The two clusters are in different zones.
+       * @description Only instances deployed in zone-disaster recovery mode support this operation. The following conditions must be met:
+       * - The clusters must be located in different zones.
        * - The billing methods of the clusters must be the same.
        *
        * @param request CreateDBClusterBindingRequest
@@ -209,9 +209,9 @@ namespace Selectdb20230522
       /**
        * @summary Creates a virtual cluster.
        *
-       * @description Only instances with cross-zone redundancy support this operation, and the following conditions must be met:
+       * @description Only zone-disaster recovery instances support this operation. The following conditions must be met:
        * - The minor engine version of the instance is 4.0.7 or later.
-       * - The primary and secondary clusters are in different zones.
+       * - The primary and standby clusters are deployed in different zones.
        *
        * @param request CreateVirtualClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -222,9 +222,9 @@ namespace Selectdb20230522
       /**
        * @summary Creates a virtual cluster.
        *
-       * @description Only instances with cross-zone redundancy support this operation, and the following conditions must be met:
+       * @description Only zone-disaster recovery instances support this operation. The following conditions must be met:
        * - The minor engine version of the instance is 4.0.7 or later.
-       * - The primary and secondary clusters are in different zones.
+       * - The primary and standby clusters are deployed in different zones.
        *
        * @param request CreateVirtualClusterRequest
        * @return CreateVirtualClusterResponse
@@ -268,7 +268,7 @@ namespace Selectdb20230522
       /**
        * @summary Deletes a specified ApsaraDB for SelectDB instance.
        *
-       * @description Subscription instances cannot be deleted.
+       * @description You cannot delete subscription instances.
        *
        * @param request DeleteDBInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -279,7 +279,7 @@ namespace Selectdb20230522
       /**
        * @summary Deletes a specified ApsaraDB for SelectDB instance.
        *
-       * @description Subscription instances cannot be deleted.
+       * @description You cannot delete subscription instances.
        *
        * @param request DeleteDBInstanceRequest
        * @return DeleteDBInstanceResponse
@@ -287,7 +287,7 @@ namespace Selectdb20230522
       Models::DeleteDBInstanceResponse deleteDBInstance(const Models::DeleteDBInstanceRequest &request);
 
       /**
-       * @summary Deletes a time-based elastic scaling rule.
+       * @summary Deletes a time-based elastic rule.
        *
        * @param request DeleteElasticRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -296,7 +296,7 @@ namespace Selectdb20230522
       Models::DeleteElasticRuleResponse deleteElasticRuleWithOptions(const Models::DeleteElasticRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a time-based elastic scaling rule.
+       * @summary Deletes a time-based elastic rule.
        *
        * @param request DeleteElasticRuleRequest
        * @return DeleteElasticRuleResponse
@@ -307,7 +307,7 @@ namespace Selectdb20230522
        * @summary Deletes a virtual cluster.
        *
        * @description > 
-       * > - Only the virtual cluster is deleted. The associated primary/secondary clusters are **not** deleted.
+       * > - Only the virtual cluster is deleted. The bound primary and secondary clusters are **not** deleted.
        *
        * @param request DeleteVirtualClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -319,7 +319,7 @@ namespace Selectdb20230522
        * @summary Deletes a virtual cluster.
        *
        * @description > 
-       * > - Only the virtual cluster is deleted. The associated primary/secondary clusters are **not** deleted.
+       * > - Only the virtual cluster is deleted. The bound primary and secondary clusters are **not** deleted.
        *
        * @param request DeleteVirtualClusterRequest
        * @return DeleteVirtualClusterResponse
@@ -344,7 +344,7 @@ namespace Selectdb20230522
       Models::DescribeAllDBInstanceClassResponse describeAllDBInstanceClass(const Models::DescribeAllDBInstanceClassRequest &request);
 
       /**
-       * @summary Queries the configuration information about a cluster in an ApsaraDB for SelectDB instance.
+       * @summary Queries the cluster configuration.
        *
        * @param request DescribeDBClusterConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -353,7 +353,7 @@ namespace Selectdb20230522
       Models::DescribeDBClusterConfigResponse describeDBClusterConfigWithOptions(const Models::DescribeDBClusterConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the configuration information about a cluster in an ApsaraDB for SelectDB instance.
+       * @summary Queries the cluster configuration.
        *
        * @param request DescribeDBClusterConfigRequest
        * @return DescribeDBClusterConfigResponse
@@ -433,7 +433,7 @@ namespace Selectdb20230522
       Models::DescribeDBInstanceNetInfoResponse describeDBInstanceNetInfo(const Models::DescribeDBInstanceNetInfoRequest &request);
 
       /**
-       * @summary Queries the list of instances.
+       * @summary Queries a list of instances.
        *
        * @param tmpReq DescribeDBInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -442,7 +442,7 @@ namespace Selectdb20230522
       Models::DescribeDBInstancesResponse describeDBInstancesWithOptions(const Models::DescribeDBInstancesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of instances.
+       * @summary Queries a list of instances.
        *
        * @param request DescribeDBInstancesRequest
        * @return DescribeDBInstancesResponse
@@ -513,7 +513,7 @@ namespace Selectdb20230522
       Models::DescribeQueryExplainResponse describeQueryExplain(const Models::DescribeQueryExplainRequest &request);
 
       /**
-       * @summary Retrieves information about available regions and zones.
+       * @summary Retrieves the available regions and zones.
        *
        * @param request DescribeRegionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -522,7 +522,7 @@ namespace Selectdb20230522
       Models::DescribeRegionsResponse describeRegionsWithOptions(const Models::DescribeRegionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves information about available regions and zones.
+       * @summary Retrieves the available regions and zones.
        *
        * @param request DescribeRegionsRequest
        * @return DescribeRegionsResponse
@@ -530,7 +530,7 @@ namespace Selectdb20230522
       Models::DescribeRegionsResponse describeRegions(const Models::DescribeRegionsRequest &request);
 
       /**
-       * @summary Queries the IP address whitelist of a specified ApsaraDB for SelectDB instance.
+       * @summary Queries the IP addresses in the whitelist of a specified ApsaraDB for SelectDB instance.
        *
        * @param request DescribeSecurityIPListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -539,7 +539,7 @@ namespace Selectdb20230522
       Models::DescribeSecurityIPListResponse describeSecurityIPListWithOptions(const Models::DescribeSecurityIPListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the IP address whitelist of a specified ApsaraDB for SelectDB instance.
+       * @summary Queries the IP addresses in the whitelist of a specified ApsaraDB for SelectDB instance.
        *
        * @param request DescribeSecurityIPListRequest
        * @return DescribeSecurityIPListResponse
@@ -581,7 +581,7 @@ namespace Selectdb20230522
       Models::DescribeTableSchemaResponse describeTableSchema(const Models::DescribeTableSchemaRequest &request);
 
       /**
-       * @summary Lists vSwitches in a zone.
+       * @summary Lists the vSwitches in a zone.
        *
        * @param request DescribeVSwitchesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -590,7 +590,7 @@ namespace Selectdb20230522
       Models::DescribeVSwitchesResponse describeVSwitchesWithOptions(const Models::DescribeVSwitchesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists vSwitches in a zone.
+       * @summary Lists the vSwitches in a zone.
        *
        * @param request DescribeVSwitchesRequest
        * @return DescribeVSwitchesResponse
@@ -598,7 +598,7 @@ namespace Selectdb20230522
       Models::DescribeVSwitchesResponse describeVSwitches(const Models::DescribeVSwitchesRequest &request);
 
       /**
-       * @summary Lists available zones for sale.
+       * @summary Lists the available zones.
        *
        * @param request DescribeZonesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -607,7 +607,7 @@ namespace Selectdb20230522
       Models::DescribeZonesResponse describeZonesWithOptions(const Models::DescribeZonesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists available zones for sale.
+       * @summary Lists the available zones.
        *
        * @param request DescribeZonesRequest
        * @return DescribeZonesResponse
@@ -649,7 +649,7 @@ namespace Selectdb20230522
       Models::GetCreateBEClusterInquiryResponse getCreateBEClusterInquiry(const Models::GetCreateBEClusterInquiryRequest &request);
 
       /**
-       * @summary Retrieves pricing information when creating a cluster under a specified ApsaraDB for SelectDB instance.
+       * @summary Retrieves the pricing information for creating a cluster in a specified ApsaraDB for SelectDB instance.
        *
        * @param request GetModifyBEClusterInquiryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -658,7 +658,7 @@ namespace Selectdb20230522
       Models::GetModifyBEClusterInquiryResponse getModifyBEClusterInquiryWithOptions(const Models::GetModifyBEClusterInquiryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves pricing information when creating a cluster under a specified ApsaraDB for SelectDB instance.
+       * @summary Retrieves the pricing information for creating a cluster in a specified ApsaraDB for SelectDB instance.
        *
        * @param request GetModifyBEClusterInquiryRequest
        * @return GetModifyBEClusterInquiryResponse
@@ -770,9 +770,9 @@ namespace Selectdb20230522
       /**
        * @summary Modifies a virtual cluster.
        *
-       * @description - You can modify the primary cluster separately.
-       * - You can modify the secondary cluster separately.
-       * - You can switch between the primary and secondary clusters.
+       * @description - Supports modifying the primary cluster separately.
+       * - Supports modifying the secondary cluster separately.
+       * - Supports switching between the primary and secondary clusters.
        * >Warning: Modifying both the primary and secondary clusters to other clusters at the same time is not supported.
        *
        * @param request ModifyVirtualClusterRequest
@@ -784,9 +784,9 @@ namespace Selectdb20230522
       /**
        * @summary Modifies a virtual cluster.
        *
-       * @description - You can modify the primary cluster separately.
-       * - You can modify the secondary cluster separately.
-       * - You can switch between the primary and secondary clusters.
+       * @description - Supports modifying the primary cluster separately.
+       * - Supports modifying the secondary cluster separately.
+       * - Supports switching between the primary and secondary clusters.
        * >Warning: Modifying both the primary and secondary clusters to other clusters at the same time is not supported.
        *
        * @param request ModifyVirtualClusterRequest
@@ -812,7 +812,7 @@ namespace Selectdb20230522
       Models::ReleaseInstancePublicConnectionResponse releaseInstancePublicConnection(const Models::ReleaseInstancePublicConnectionRequest &request);
 
       /**
-       * @summary Resets the account password of an ApsaraDB for SelectDB instance.
+       * @summary Resets the password of an account for an ApsaraDB for SelectDB instance.
        *
        * @param request ResetAccountPasswordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -821,7 +821,7 @@ namespace Selectdb20230522
       Models::ResetAccountPasswordResponse resetAccountPasswordWithOptions(const Models::ResetAccountPasswordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Resets the account password of an ApsaraDB for SelectDB instance.
+       * @summary Resets the password of an account for an ApsaraDB for SelectDB instance.
        *
        * @param request ResetAccountPasswordRequest
        * @return ResetAccountPasswordResponse
@@ -829,7 +829,7 @@ namespace Selectdb20230522
       Models::ResetAccountPasswordResponse resetAccountPassword(const Models::ResetAccountPasswordRequest &request);
 
       /**
-       * @summary Restarts a cluster of a specified ApsaraDB for SelectDB instance.
+       * @summary Restarts the cluster of a specified ApsaraDB for SelectDB instance.
        *
        * @param request RestartDBClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -838,7 +838,7 @@ namespace Selectdb20230522
       Models::RestartDBClusterResponse restartDBClusterWithOptions(const Models::RestartDBClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Restarts a cluster of a specified ApsaraDB for SelectDB instance.
+       * @summary Restarts the cluster of a specified ApsaraDB for SelectDB instance.
        *
        * @param request RestartDBClusterRequest
        * @return RestartDBClusterResponse

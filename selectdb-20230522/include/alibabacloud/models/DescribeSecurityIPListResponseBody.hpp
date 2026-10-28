@@ -109,7 +109,7 @@ namespace Models
       shared_ptr<string> groupName_ {};
       // The group tag.
       shared_ptr<string> groupTag_ {};
-      // The IP address whitelist of the instance. Multiple IP addresses are separated by commas (,).
+      // The IP addresses in the whitelist of the instance. Separate multiple IP addresses with commas (,).
       shared_ptr<string> securityIPList_ {};
       // The network type of the whitelist.
       shared_ptr<string> whitelistNetType_ {};

@@ -70,7 +70,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the target resource group.
+    // The destination resource group.
     // 
     // This parameter is required.
     shared_ptr<string> resourceGroupId_ {};

@@ -129,13 +129,13 @@ namespace Models
         // 
         // > This parameter is not applicable to the China site.
         shared_ptr<string> canPromFee_ {};
-        // The promotion rule description.
+        // The description of the promotion rule.
         shared_ptr<string> optionCode_ {};
         // The coupon description.
         shared_ptr<string> promotionDesc_ {};
         // The coupon name.
         shared_ptr<string> promotionName_ {};
-        // The coupon code.
+        // The coupon ID.
         shared_ptr<string> promotionOptionNo_ {};
       };
 
@@ -183,13 +183,13 @@ namespace Models
     protected:
       // The currency.
       shared_ptr<string> currency_ {};
-      // The coupon codes.
+      // The coupon ID.
       shared_ptr<vector<Data::OptionalPromotions>> optionalPromotions_ {};
-      // The unit price results of billing items.
+      // The unit price results of billable items.
       shared_ptr<map<string, string>> pricingRules_ {};
-      // The estimated refund amount when converting a subscription cluster to a pay-as-you-go cluster under a subscription instance.
+      // The estimated refund amount when a subscription cluster under a subscription instance is changed to a pay-as-you-go cluster.
       shared_ptr<string> refundAmount_ {};
-      // The trade amount.
+      // The amount.
       shared_ptr<string> tradeAmount_ {};
     };
 

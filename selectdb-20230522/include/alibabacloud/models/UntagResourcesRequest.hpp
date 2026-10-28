@@ -86,13 +86,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The list of instance IDs.
+    // The array of instance IDs.
     shared_ptr<vector<string>> resourceId_ {};
     // The resource type.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The list of tag keys.
+    // The array of tag keys.
     shared_ptr<vector<string>> tagKey_ {};
   };
 

@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The prefix of the target endpoint, which is the prefix part of the **ConnectionString** parameter.
+    // The prefix of the target endpoint, which is the prefix of the **ConnectionString** parameter.
     // 
     // This parameter is required.
     shared_ptr<string> connectionStringPrefix_ {};

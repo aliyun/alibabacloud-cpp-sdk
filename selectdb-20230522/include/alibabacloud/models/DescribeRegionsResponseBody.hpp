@@ -158,9 +158,9 @@ namespace Models
         shared_ptr<string> regionId_ {};
         // The subdomain.
         shared_ptr<string> subDomain_ {};
-        // Indicates whether VPC is enabled.
+        // Indicates whether the VPC is enabled.
         shared_ptr<bool> vpcEnabled_ {};
-        // Indicates whether VPC is available.
+        // Indicates whether the VPC is available.
         shared_ptr<string> zoneId_ {};
       };
 

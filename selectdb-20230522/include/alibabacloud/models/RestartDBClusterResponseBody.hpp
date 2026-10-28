@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The response data.
+    // The returned information.
     shared_ptr<RestartDBClusterResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

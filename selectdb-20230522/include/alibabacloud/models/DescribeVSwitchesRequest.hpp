@@ -94,11 +94,11 @@ namespace Models
 
 
   protected:
-    // The number of entries per page for a paged query.
-    // >Warning: This is a reserved parameter and is not supported.</warning>
+    // The number of entries per page for paging.
+    // >Warning: Reserved parameter. Not supported.
     shared_ptr<int32_t> maxResults_ {};
     // The token for the next query.
-    // >Warning: This is a reserved parameter and is not supported.</warning>
+    // >Warning: Reserved parameter. Not supported.</warning>
     shared_ptr<string> nextToken_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
@@ -108,7 +108,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The VPC ID of the instance.
+    // The VPC ID.
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};

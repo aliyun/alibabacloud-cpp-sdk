@@ -143,13 +143,13 @@ namespace Models
 
 
   protected:
-    // The details about the access denial.
+    // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
     // The returned data.
     shared_ptr<ModifyDBClusterConfigResponseBody::Data> data_ {};
-    // The dynamic code. This parameter is not in use. Ignore this parameter.
+    // The dynamic code. This parameter is not used and can be ignored.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic message. This parameter is not in use. Ignore this parameter.
+    // The dynamic message. This parameter is not used and can be ignored.
     shared_ptr<string> dynamicMessage_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -77,6 +77,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(StorageSize, storageSize_);
         DARABONBA_PTR_TO_JSON(StorageType, storageType_);
         DARABONBA_PTR_TO_JSON(Tags, tags_);
+        DARABONBA_PTR_TO_JSON(TdeEnabled, tdeEnabled_);
         DARABONBA_PTR_TO_JSON(TenantClusterId, tenantClusterId_);
         DARABONBA_PTR_TO_JSON(TenantToken, tenantToken_);
         DARABONBA_PTR_TO_JSON(TenantUserId, tenantUserId_);
@@ -122,6 +123,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(StorageSize, storageSize_);
         DARABONBA_PTR_FROM_JSON(StorageType, storageType_);
         DARABONBA_PTR_FROM_JSON(Tags, tags_);
+        DARABONBA_PTR_FROM_JSON(TdeEnabled, tdeEnabled_);
         DARABONBA_PTR_FROM_JSON(TenantClusterId, tenantClusterId_);
         DARABONBA_PTR_FROM_JSON(TenantToken, tenantToken_);
         DARABONBA_PTR_FROM_JSON(TenantUserId, tenantUserId_);
@@ -316,8 +318,8 @@ namespace Models
         && this->multiZone_ == nullptr && this->objectStoreSize_ == nullptr && this->parentInstance_ == nullptr && this->regionId_ == nullptr && this->resourceCpu_ == nullptr
         && this->resourceGroupId_ == nullptr && this->resourceMemory_ == nullptr && this->scaleMax_ == nullptr && this->scaleMin_ == nullptr && this->scaleReplica_ == nullptr
         && this->serverless_ == nullptr && this->status_ == nullptr && this->storageSize_ == nullptr && this->storageType_ == nullptr && this->tags_ == nullptr
-        && this->tenantClusterId_ == nullptr && this->tenantToken_ == nullptr && this->tenantUserId_ == nullptr && this->vpcId_ == nullptr && this->vswitchId_ == nullptr
-        && this->zoneId_ == nullptr && this->connectionString_ == nullptr; };
+        && this->tdeEnabled_ == nullptr && this->tenantClusterId_ == nullptr && this->tenantToken_ == nullptr && this->tenantUserId_ == nullptr && this->vpcId_ == nullptr
+        && this->vswitchId_ == nullptr && this->zoneId_ == nullptr && this->connectionString_ == nullptr; };
       // category Field Functions 
       bool hasCategory() const { return this->category_ != nullptr;};
       void deleteCategory() { this->category_ = nullptr;};
@@ -576,6 +578,13 @@ namespace Models
       inline Items& setTags(vector<Items::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
+      // tdeEnabled Field Functions 
+      bool hasTdeEnabled() const { return this->tdeEnabled_ != nullptr;};
+      void deleteTdeEnabled() { this->tdeEnabled_ = nullptr;};
+      inline bool getTdeEnabled() const { DARABONBA_PTR_GET_DEFAULT(tdeEnabled_, false) };
+      inline Items& setTdeEnabled(bool tdeEnabled) { DARABONBA_PTR_SET_VALUE(tdeEnabled_, tdeEnabled) };
+
+
       // tenantClusterId Field Functions 
       bool hasTenantClusterId() const { return this->tenantClusterId_ != nullptr;};
       void deleteTenantClusterId() { this->tenantClusterId_ = nullptr;};
@@ -626,10 +635,12 @@ namespace Models
 
 
     protected:
-      // The instance edition. Default value: basic.
+      // The edition of the instance. Default value: basic.
       shared_ptr<string> category_ {};
       // The billing method of the instance. Valid values:
+      // 
       // - **Postpaid**: pay-as-you-go
+      // 
       // - **Prepaid**: subscription
       shared_ptr<string> chargeType_ {};
       // The total number of clusters.
@@ -637,6 +648,7 @@ namespace Models
       // The instance ID.
       shared_ptr<string> DBInstanceId_ {};
       // The deployment mode of the instance. Valid values:
+      // 
       // - multi_az: zone-redundant
       // - single_az: locally redundant
       shared_ptr<string> deployScheme_ {};
@@ -648,20 +660,22 @@ namespace Models
       shared_ptr<string> engineMinorVersion_ {};
       // The database engine version.
       shared_ptr<string> engineVersion_ {};
-      // The expiration time of the cluster, in ISO 8601 format with time zone information.
-      // > This parameter is returned only for **Prepaid** (subscription) clusters. For **Postpaid** (pay-as-you-go) clusters, an empty value is returned.
+      // The expiration time of the cluster. The time is displayed in ISO 8601 format and includes the time zone.
+      // > This parameter is returned only for clusters whose billing method is **Prepaid** (subscription). For clusters whose billing method is **Postpaid** (pay-as-you-go), an empty value is returned.
       shared_ptr<string> expireTime_ {};
-      // The list of FE clusters.
+      // The FE cluster list.
       shared_ptr<vector<Items::FEClusterList>> FEClusterList_ {};
       // The time when the task was created (GMT).
       shared_ptr<string> gmtCreated_ {};
       // The time when the task was modified (GMT).
       shared_ptr<string> gmtModified_ {};
-      // The instance usage type.
+      // The usage type of the instance.
       shared_ptr<string> instanceUsedType_ {};
       // Indicates whether the instance is deleted. Valid values:
-      // - **true**: The instance is deleted.
-      // - **fasle**: The instance is not deleted.
+      // 
+      // - **true**: deleted
+      // 
+      // - **fasle**: not deleted
       shared_ptr<bool> isDeleted_ {};
       // The lock mode of the instance.
       shared_ptr<int64_t> lockMode_ {};
@@ -669,11 +683,11 @@ namespace Models
       shared_ptr<string> lockReason_ {};
       // The end timestamp of the maintenance window.
       shared_ptr<string> maintainEndTimeStr_ {};
-      // A reserved parameter that is not currently returned. The time format does not apply.
+      // Reserved parameter. Not returned. Therefore, the time format does not apply.
       shared_ptr<string> maintainEndtime_ {};
       // The start timestamp of the maintenance window.
       shared_ptr<string> maintainStartTimeStr_ {};
-      // A reserved parameter that is not currently returned. The time format does not apply.
+      // Reserved parameter. Not returned. Therefore, the time format does not apply.
       shared_ptr<string> maintainStarttime_ {};
       // The multi-zone configuration.
       shared_ptr<vector<Items::MultiZone>> multiZone_ {};
@@ -685,13 +699,13 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The CPU resources.
       shared_ptr<int64_t> resourceCpu_ {};
-      // The ID of the resource group.
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
       // The memory resources.
       shared_ptr<int64_t> resourceMemory_ {};
-      // The maximum number of RDS capacity units (RCUs) in the automatic scaling range of the instance.
+      // The maximum value of the automatic scaling range for the RDS Capacity Unit (RCU) of the instance.
       shared_ptr<int64_t> scaleMax_ {};
-      // The minimum number of RDS capacity units (RCUs) in the automatic scaling range of the instance.
+      // The minimum value of the automatic scaling range for the RDS Capacity Unit (RCU) of the instance.
       shared_ptr<int64_t> scaleMin_ {};
       // The redundant field.
       shared_ptr<int64_t> scaleReplica_ {};
@@ -699,23 +713,20 @@ namespace Models
       shared_ptr<bool> serverless_ {};
       // The status of the instance. Valid values:
       // - **CREATING**: Creating.
-      // 
       // - **ACTIVATION**: Running.
-      // 
       // - **RESOURCE_CHANGING**: Changing specifications.
-      // 
-      // - **ORDER_PREPARING**: Confirming the order.
-      // 
-      // - **READONLY_RESOURCE_CHANGING**: Changing resources (the instance is locked for writing).
-      // 
+      // - **ORDER_PREPARING**: Confirming order.
+      // - **READONLY_RESOURCE_CHANGING**: Changing resources (the instance is locked for write operations).
       // - **DELETING**: Deleting.
       shared_ptr<string> status_ {};
-      // The storage capacity.
+      // The storage space size.
       shared_ptr<int64_t> storageSize_ {};
       // The instance storage type.
       shared_ptr<string> storageType_ {};
       // The instance tags.
       shared_ptr<vector<Items::Tags>> tags_ {};
+      // Indicates whether TDE is enabled.
+      shared_ptr<bool> tdeEnabled_ {};
       // The ID of the Prometheus monitoring cluster.
       shared_ptr<string> tenantClusterId_ {};
       // The access token for Prometheus monitoring.
@@ -728,7 +739,7 @@ namespace Models
       shared_ptr<string> vswitchId_ {};
       // The zone ID.
       shared_ptr<string> zoneId_ {};
-      // The endpoint.
+      // The connection endpoint.
       shared_ptr<string> connectionString_ {};
     };
 
@@ -775,7 +786,7 @@ namespace Models
     // The list of instance details.
     shared_ptr<vector<DescribeDBInstancesResponseBody::Items>> items_ {};
     // The number of entries per page. Valid values:
-    // - **30** (default)
+    // - **30**: Default value.
     // - **50**
     // - **100**
     shared_ptr<int64_t> pageNumber_ {};

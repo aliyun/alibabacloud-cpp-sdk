@@ -66,11 +66,7 @@ namespace Models
 
 
   protected:
-    // The configuration file to be modified.
-    // 
-    // - For a compute cluster, set the value to be.conf.
-    // 
-    // - For a frontend (FE) cluster, set the value to fe.conf.
+    // The configuration file to modify. - For compute clusters: be.conf. - For FE clusters: fe.conf.
     // 
     // This parameter is required.
     shared_ptr<string> configKey_ {};

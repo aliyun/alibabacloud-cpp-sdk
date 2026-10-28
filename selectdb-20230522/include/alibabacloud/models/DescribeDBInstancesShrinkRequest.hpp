@@ -114,25 +114,20 @@ namespace Models
   protected:
     // The description of the instance.
     shared_ptr<string> DBInstanceDescription_ {};
-    // The IDs of the instances. Separate multiple instance IDs with commas (,).
+    // The instance IDs. Separate multiple instance IDs with commas (,).
     shared_ptr<string> DBInstanceIds_ {};
     // The status of the instance. Valid values:
     // - **CREATING**: Creating.
-    // 
     // - **ACTIVATION**: Running.
-    // 
     // - **RESOURCE_CHANGING**: Changing specifications.
-    // 
-    // - **ORDER_PREPARING**: Confirming the order.
-    // 
-    // - **READONLY_RESOURCE_CHANGING**: Changing resources (the instance is locked for writing).
-    // 
+    // - **ORDER_PREPARING**: Confirming order.
+    // - **READONLY_RESOURCE_CHANGING**: Changing resources (the instance is locked for write operations).
     // - **DELETING**: Deleting.
     shared_ptr<string> DBInstanceStatus_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page. Valid values:
-    // - **30** (default)
+    // - **30**: Default value.
     // - **50**
     // - **100**
     shared_ptr<int64_t> pageSize_ {};
@@ -140,7 +135,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The instance tags.

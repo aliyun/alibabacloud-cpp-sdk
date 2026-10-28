@@ -92,7 +92,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> dbInstanceId_ {};
-    // The cloud service type.
+    // The cloud product type.
     shared_ptr<string> product_ {};
     // The region ID.
     // 
