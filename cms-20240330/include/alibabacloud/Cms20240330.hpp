@@ -21,6 +21,24 @@ namespace Cms20240330
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 激活验证码
+       *
+       * @param request ActiveContactChannelRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ActiveContactChannelResponse
+       */
+      Models::ActiveContactChannelResponse activeContactChannelWithOptions(const Models::ActiveContactChannelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 激活验证码
+       *
+       * @param request ActiveContactChannelRequest
+       * @return ActiveContactChannelResponse
+       */
+      Models::ActiveContactChannelResponse activeContactChannel(const Models::ActiveContactChannelRequest &request);
+
+      /**
        * @summary Writes context.
        *
        * @param request AddContextsRequest
@@ -115,6 +133,42 @@ namespace Cms20240330
       Models::CreateAggTaskGroupResponse createAggTaskGroup(const string &instanceId, const Models::CreateAggTaskGroupRequest &request);
 
       /**
+       * @summary 创建告警动作
+       *
+       * @param request CreateAlertActionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAlertActionResponse
+       */
+      Models::CreateAlertActionResponse createAlertActionWithOptions(const Models::CreateAlertActionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建告警动作
+       *
+       * @param request CreateAlertActionRequest
+       * @return CreateAlertActionResponse
+       */
+      Models::CreateAlertActionResponse createAlertAction(const Models::CreateAlertActionRequest &request);
+
+      /**
+       * @summary 创建通知模板
+       *
+       * @param request CreateAlertNotifyTemplateRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAlertNotifyTemplateResponse
+       */
+      Models::CreateAlertNotifyTemplateResponse createAlertNotifyTemplateWithOptions(const Models::CreateAlertNotifyTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建通知模板
+       *
+       * @param request CreateAlertNotifyTemplateRequest
+       * @return CreateAlertNotifyTemplateResponse
+       */
+      Models::CreateAlertNotifyTemplateResponse createAlertNotifyTemplate(const Models::CreateAlertNotifyTemplateRequest &request);
+
+      /**
        * @summary Creates an alert robot.
        *
        * @param request CreateAlertRobotRequest
@@ -187,6 +241,42 @@ namespace Cms20240330
        * @return CreateCloudResourceResponse
        */
       Models::CreateCloudResourceResponse createCloudResource();
+
+      /**
+       * @summary 创建联系人
+       *
+       * @param request CreateContactRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateContactResponse
+       */
+      Models::CreateContactResponse createContactWithOptions(const Models::CreateContactRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建联系人
+       *
+       * @param request CreateContactRequest
+       * @return CreateContactResponse
+       */
+      Models::CreateContactResponse createContact(const Models::CreateContactRequest &request);
+
+      /**
+       * @summary 创建联系人组
+       *
+       * @param request CreateContactGroupRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateContactGroupResponse
+       */
+      Models::CreateContactGroupResponse createContactGroupWithOptions(const Models::CreateContactGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建联系人组
+       *
+       * @param request CreateContactGroupRequest
+       * @return CreateContactGroupResponse
+       */
+      Models::CreateContactGroupResponse createContactGroup(const Models::CreateContactGroupRequest &request);
 
       /**
        * @summary Creates a context store.
@@ -383,6 +473,24 @@ namespace Cms20240330
        * @return CreateNotifyPolicyResponse
        */
       Models::CreateNotifyPolicyResponse createNotifyPolicy(const Models::CreateNotifyPolicyRequest &request);
+
+      /**
+       * @summary 创建OncallSchedule
+       *
+       * @param request CreateOncallScheduleRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateOncallScheduleResponse
+       */
+      Models::CreateOncallScheduleResponse createOncallScheduleWithOptions(const Models::CreateOncallScheduleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建OncallSchedule
+       *
+       * @param request CreateOncallScheduleRequest
+       * @return CreateOncallScheduleResponse
+       */
+      Models::CreateOncallScheduleResponse createOncallSchedule(const Models::CreateOncallScheduleRequest &request);
 
       /**
        * @summary Create a pipeline.
@@ -647,6 +755,42 @@ namespace Cms20240330
       Models::DeleteAggTaskGroupResponse deleteAggTaskGroup(const string &instanceId, const string &groupId, const Models::DeleteAggTaskGroupRequest &request);
 
       /**
+       * @summary 删除告警动作
+       *
+       * @param tmpReq DeleteAlertActionsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAlertActionsResponse
+       */
+      Models::DeleteAlertActionsResponse deleteAlertActionsWithOptions(const Models::DeleteAlertActionsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除告警动作
+       *
+       * @param request DeleteAlertActionsRequest
+       * @return DeleteAlertActionsResponse
+       */
+      Models::DeleteAlertActionsResponse deleteAlertActions(const Models::DeleteAlertActionsRequest &request);
+
+      /**
+       * @summary 删除报警通知模板
+       *
+       * @param tmpReq DeleteAlertNotifyTemplatesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAlertNotifyTemplatesResponse
+       */
+      Models::DeleteAlertNotifyTemplatesResponse deleteAlertNotifyTemplatesWithOptions(const Models::DeleteAlertNotifyTemplatesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除报警通知模板
+       *
+       * @param request DeleteAlertNotifyTemplatesRequest
+       * @return DeleteAlertNotifyTemplatesResponse
+       */
+      Models::DeleteAlertNotifyTemplatesResponse deleteAlertNotifyTemplates(const Models::DeleteAlertNotifyTemplatesRequest &request);
+
+      /**
        * @summary Deletes a chatbot.
        *
        * @param tmpReq DeleteAlertRobotsRequest
@@ -715,6 +859,42 @@ namespace Cms20240330
        * @return DeleteCloudResourceResponse
        */
       Models::DeleteCloudResourceResponse deleteCloudResource();
+
+      /**
+       * @summary 删除联系人组
+       *
+       * @param tmpReq DeleteContactGroupsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteContactGroupsResponse
+       */
+      Models::DeleteContactGroupsResponse deleteContactGroupsWithOptions(const Models::DeleteContactGroupsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除联系人组
+       *
+       * @param request DeleteContactGroupsRequest
+       * @return DeleteContactGroupsResponse
+       */
+      Models::DeleteContactGroupsResponse deleteContactGroups(const Models::DeleteContactGroupsRequest &request);
+
+      /**
+       * @summary 删除联系人
+       *
+       * @param tmpReq DeleteContactsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteContactsResponse
+       */
+      Models::DeleteContactsResponse deleteContactsWithOptions(const Models::DeleteContactsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除联系人
+       *
+       * @param request DeleteContactsRequest
+       * @return DeleteContactsResponse
+       */
+      Models::DeleteContactsResponse deleteContacts(const Models::DeleteContactsRequest &request);
 
       /**
        * @summary Deletes a context.
@@ -979,6 +1159,24 @@ namespace Cms20240330
        * @return DeleteNotifyPolicyResponse
        */
       Models::DeleteNotifyPolicyResponse deleteNotifyPolicy(const Models::DeleteNotifyPolicyRequest &request);
+
+      /**
+       * @summary 删除OncallSchedule
+       *
+       * @param tmpReq DeleteOncallSchedulesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteOncallSchedulesResponse
+       */
+      Models::DeleteOncallSchedulesResponse deleteOncallSchedulesWithOptions(const Models::DeleteOncallSchedulesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除OncallSchedule
+       *
+       * @param request DeleteOncallSchedulesRequest
+       * @return DeleteOncallSchedulesResponse
+       */
+      Models::DeleteOncallSchedulesResponse deleteOncallSchedules(const Models::DeleteOncallSchedulesRequest &request);
 
       /**
        * @summary Deletes a pipeline.
@@ -1509,6 +1707,24 @@ namespace Cms20240330
       Models::GetAggTaskGroupResponse getAggTaskGroup(const string &instanceId, const string &groupId, const Models::GetAggTaskGroupRequest &request);
 
       /**
+       * @summary 查询告警动作
+       *
+       * @param request GetAlertActionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAlertActionResponse
+       */
+      Models::GetAlertActionResponse getAlertActionWithOptions(const string &alertActionId, const Models::GetAlertActionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询告警动作
+       *
+       * @param request GetAlertActionRequest
+       * @return GetAlertActionResponse
+       */
+      Models::GetAlertActionResponse getAlertAction(const string &alertActionId, const Models::GetAlertActionRequest &request);
+
+      /**
        * @summary Queries a business trace.
        *
        * @param request GetBizTraceRequest
@@ -1895,6 +2111,24 @@ namespace Cms20240330
       Models::GetNotifyPolicyResponse getNotifyPolicy(const Models::GetNotifyPolicyRequest &request);
 
       /**
+       * @summary 查询 OncallSchedule
+       *
+       * @param request GetOncallScheduleRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetOncallScheduleResponse
+       */
+      Models::GetOncallScheduleResponse getOncallScheduleWithOptions(const string &oncallScheduleId, const Models::GetOncallScheduleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询 OncallSchedule
+       *
+       * @param request GetOncallScheduleRequest
+       * @return GetOncallScheduleResponse
+       */
+      Models::GetOncallScheduleResponse getOncallSchedule(const string &oncallScheduleId, const Models::GetOncallScheduleRequest &request);
+
+      /**
        * @summary Queries a pipeline.
        *
        * @param request GetPipelineRequest
@@ -2233,6 +2467,24 @@ namespace Cms20240330
        * @return ListAlertActionsResponse
        */
       Models::ListAlertActionsResponse listAlertActions(const Models::ListAlertActionsRequest &request);
+
+      /**
+       * @summary 查询通知模板
+       *
+       * @param tmpReq ListAlertNotifyTemplatesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAlertNotifyTemplatesResponse
+       */
+      Models::ListAlertNotifyTemplatesResponse listAlertNotifyTemplatesWithOptions(const Models::ListAlertNotifyTemplatesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询通知模板
+       *
+       * @param request ListAlertNotifyTemplatesRequest
+       * @return ListAlertNotifyTemplatesResponse
+       */
+      Models::ListAlertNotifyTemplatesResponse listAlertNotifyTemplates(const Models::ListAlertNotifyTemplatesRequest &request);
 
       /**
        * @summary Queries chatbots.
@@ -2661,6 +2913,42 @@ namespace Cms20240330
       Models::ListNotifyPoliciesResponse listNotifyPolicies(const Models::ListNotifyPoliciesRequest &request);
 
       /**
+       * @summary 查询值班人
+       *
+       * @param request ListOncallContactsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListOncallContactsResponse
+       */
+      Models::ListOncallContactsResponse listOncallContactsWithOptions(const string &oncallScheduleId, const Models::ListOncallContactsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询值班人
+       *
+       * @param request ListOncallContactsRequest
+       * @return ListOncallContactsResponse
+       */
+      Models::ListOncallContactsResponse listOncallContacts(const string &oncallScheduleId, const Models::ListOncallContactsRequest &request);
+
+      /**
+       * @summary 查询当前账号下所有值班排班的配置信息
+       *
+       * @param tmpReq ListOncallSchedulesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListOncallSchedulesResponse
+       */
+      Models::ListOncallSchedulesResponse listOncallSchedulesWithOptions(const Models::ListOncallSchedulesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询当前账号下所有值班排班的配置信息
+       *
+       * @param request ListOncallSchedulesRequest
+       * @return ListOncallSchedulesResponse
+       */
+      Models::ListOncallSchedulesResponse listOncallSchedules(const Models::ListOncallSchedulesRequest &request);
+
+      /**
        * @summary Lists pipelines.
        *
        * @param request ListPipelinesRequest
@@ -2963,6 +3251,28 @@ namespace Cms20240330
       Models::PreviewDataPipelineResponse previewDataPipeline(const string &workspace, const Models::PreviewDataPipelineRequest &request);
 
       /**
+       * @summary 预览通知模板渲染结果
+       *
+       * @description 传入 Go template 语法的模板内容和渲染上下文数据，返回各模板的渲染结果。支持同时预览多个模板（如 title 和 content），用于前端模板编辑器的实时预览能力。
+       *
+       * @param request PreviewNotifyTemplateRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PreviewNotifyTemplateResponse
+       */
+      Models::PreviewNotifyTemplateResponse previewNotifyTemplateWithOptions(const Models::PreviewNotifyTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 预览通知模板渲染结果
+       *
+       * @description 传入 Go template 语法的模板内容和渲染上下文数据，返回各模板的渲染结果。支持同时预览多个模板（如 title 和 content），用于前端模板编辑器的实时预览能力。
+       *
+       * @param request PreviewNotifyTemplateRequest
+       * @return PreviewNotifyTemplateResponse
+       */
+      Models::PreviewNotifyTemplateResponse previewNotifyTemplate(const Models::PreviewNotifyTemplateRequest &request);
+
+      /**
        * @summary Creates a workspace.
        *
        * @param request PutWorkspaceRequest
@@ -3001,6 +3311,24 @@ namespace Cms20240330
        * @return QueryAlertRulesResponse
        */
       Models::QueryAlertRulesResponse queryAlertRules(const Models::QueryAlertRulesRequest &request);
+
+      /**
+       * @summary 重新发送激活链接
+       *
+       * @param request ResendVerifyActivateRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ResendVerifyActivateResponse
+       */
+      Models::ResendVerifyActivateResponse resendVerifyActivateWithOptions(const string &contactId, const Models::ResendVerifyActivateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 重新发送激活链接
+       *
+       * @param request ResendVerifyActivateRequest
+       * @return ResendVerifyActivateResponse
+       */
+      Models::ResendVerifyActivateResponse resendVerifyActivate(const string &contactId, const Models::ResendVerifyActivateRequest &request);
 
       /**
        * @summary Search context.
@@ -3135,6 +3463,42 @@ namespace Cms20240330
       Models::UpdateAggTaskGroupStatusResponse updateAggTaskGroupStatus(const string &instanceId, const string &groupId, const Models::UpdateAggTaskGroupStatusRequest &request);
 
       /**
+       * @summary 修改告警动作
+       *
+       * @param request UpdateAlertActionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAlertActionResponse
+       */
+      Models::UpdateAlertActionResponse updateAlertActionWithOptions(const string &alertActionId, const Models::UpdateAlertActionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改告警动作
+       *
+       * @param request UpdateAlertActionRequest
+       * @return UpdateAlertActionResponse
+       */
+      Models::UpdateAlertActionResponse updateAlertAction(const string &alertActionId, const Models::UpdateAlertActionRequest &request);
+
+      /**
+       * @summary 修改已存在的告警通知模板内容。
+       *
+       * @param request UpdateAlertNotifyTemplateRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAlertNotifyTemplateResponse
+       */
+      Models::UpdateAlertNotifyTemplateResponse updateAlertNotifyTemplateWithOptions(const string &alertNotifyTemplateId, const Models::UpdateAlertNotifyTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改已存在的告警通知模板内容。
+       *
+       * @param request UpdateAlertNotifyTemplateRequest
+       * @return UpdateAlertNotifyTemplateResponse
+       */
+      Models::UpdateAlertNotifyTemplateResponse updateAlertNotifyTemplate(const string &alertNotifyTemplateId, const Models::UpdateAlertNotifyTemplateRequest &request);
+
+      /**
        * @summary Updates an alert robot.
        *
        * @param request UpdateAlertRobotRequest
@@ -3187,6 +3551,42 @@ namespace Cms20240330
        * @return UpdateBizTraceResponse
        */
       Models::UpdateBizTraceResponse updateBizTrace(const string &bizTraceId, const Models::UpdateBizTraceRequest &request);
+
+      /**
+       * @summary 修改已存在的联系人的详细信息
+       *
+       * @param request UpdateContactRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateContactResponse
+       */
+      Models::UpdateContactResponse updateContactWithOptions(const string &contactId, const Models::UpdateContactRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改已存在的联系人的详细信息
+       *
+       * @param request UpdateContactRequest
+       * @return UpdateContactResponse
+       */
+      Models::UpdateContactResponse updateContact(const string &contactId, const Models::UpdateContactRequest &request);
+
+      /**
+       * @summary 修改已存在的联系人组信息。
+       *
+       * @param request UpdateContactGroupRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateContactGroupResponse
+       */
+      Models::UpdateContactGroupResponse updateContactGroupWithOptions(const string &contactGroupId, const Models::UpdateContactGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改已存在的联系人组信息。
+       *
+       * @param request UpdateContactGroupRequest
+       * @return UpdateContactGroupResponse
+       */
+      Models::UpdateContactGroupResponse updateContactGroup(const string &contactGroupId, const Models::UpdateContactGroupRequest &request);
 
       /**
        * @summary Updates a context.
@@ -3407,6 +3807,24 @@ namespace Cms20240330
       Models::UpdateNotifyStrategyResponse updateNotifyStrategy(const string &notifyStrategyId, const Models::UpdateNotifyStrategyRequest &request);
 
       /**
+       * @summary 更新UpdateOncallSchedule
+       *
+       * @param request UpdateOncallScheduleRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateOncallScheduleResponse
+       */
+      Models::UpdateOncallScheduleResponse updateOncallScheduleWithOptions(const string &oncallScheduleId, const Models::UpdateOncallScheduleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新UpdateOncallSchedule
+       *
+       * @param request UpdateOncallScheduleRequest
+       * @return UpdateOncallScheduleResponse
+       */
+      Models::UpdateOncallScheduleResponse updateOncallSchedule(const string &oncallScheduleId, const Models::UpdateOncallScheduleRequest &request);
+
+      /**
        * @summary Update pipeline
        *
        * @param request UpdatePipelineRequest
@@ -3601,6 +4019,24 @@ namespace Cms20240330
        * @return UpsertUmodelDataResponse
        */
       Models::UpsertUmodelDataResponse upsertUmodelData(const string &workspace, const Models::UpsertUmodelDataRequest &request);
+
+      /**
+       * @summary 查看值班日历
+       *
+       * @param request ViewOncallScheduleRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ViewOncallScheduleResponse
+       */
+      Models::ViewOncallScheduleResponse viewOncallScheduleWithOptions(const string &oncallScheduleId, const Models::ViewOncallScheduleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看值班日历
+       *
+       * @param request ViewOncallScheduleRequest
+       * @return ViewOncallScheduleResponse
+       */
+      Models::ViewOncallScheduleResponse viewOncallSchedule(const string &oncallScheduleId, const Models::ViewOncallScheduleRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace Cms20240330

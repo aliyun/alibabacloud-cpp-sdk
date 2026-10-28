@@ -80,6 +80,55 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 激活验证码
+ *
+ * @param request ActiveContactChannelRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ActiveContactChannelResponse
+ */
+ActiveContactChannelResponse Client::activeContactChannelWithOptions(const ActiveContactChannelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCode()) {
+    query["code"] = request.getCode();
+  }
+
+  if (!!request.hasSite()) {
+    query["site"] = request.getSite();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ActiveContactChannel"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/contacts/action/activate")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ActiveContactChannelResponse>();
+}
+
+/**
+ * @summary 激活验证码
+ *
+ * @param request ActiveContactChannelRequest
+ * @return ActiveContactChannelResponse
+ */
+ActiveContactChannelResponse Client::activeContactChannel(const ActiveContactChannelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return activeContactChannelWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Writes context.
  *
  * @param request AddContextsRequest
@@ -467,6 +516,152 @@ CreateAggTaskGroupResponse Client::createAggTaskGroup(const string &instanceId, 
 }
 
 /**
+ * @summary 创建告警动作
+ *
+ * @param request CreateAlertActionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAlertActionResponse
+ */
+CreateAlertActionResponse Client::createAlertActionWithOptions(const CreateAlertActionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAlertActionId()) {
+    body["alertActionId"] = request.getAlertActionId();
+  }
+
+  if (!!request.hasAlertActionName()) {
+    body["alertActionName"] = request.getAlertActionName();
+  }
+
+  if (!!request.hasEbParam()) {
+    body["ebParam"] = request.getEbParam();
+  }
+
+  if (!!request.hasEssParam()) {
+    body["essParam"] = request.getEssParam();
+  }
+
+  if (!!request.hasFc3Param()) {
+    body["fc3Param"] = request.getFc3Param();
+  }
+
+  if (!!request.hasFcParam()) {
+    body["fcParam"] = request.getFcParam();
+  }
+
+  if (!!request.hasMnsParam()) {
+    body["mnsParam"] = request.getMnsParam();
+  }
+
+  if (!!request.hasPagerDutyParam()) {
+    body["pagerDutyParam"] = request.getPagerDutyParam();
+  }
+
+  if (!!request.hasSlsParam()) {
+    body["slsParam"] = request.getSlsParam();
+  }
+
+  if (!!request.hasType()) {
+    body["type"] = request.getType();
+  }
+
+  if (!!request.hasWebhookParam()) {
+    body["webhookParam"] = request.getWebhookParam();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateAlertAction"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/alertAction")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAlertActionResponse>();
+}
+
+/**
+ * @summary 创建告警动作
+ *
+ * @param request CreateAlertActionRequest
+ * @return CreateAlertActionResponse
+ */
+CreateAlertActionResponse Client::createAlertAction(const CreateAlertActionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createAlertActionWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 创建通知模板
+ *
+ * @param request CreateAlertNotifyTemplateRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAlertNotifyTemplateResponse
+ */
+CreateAlertNotifyTemplateResponse Client::createAlertNotifyTemplateWithOptions(const CreateAlertNotifyTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAlertNotifyTemplateId()) {
+    body["alertNotifyTemplateId"] = request.getAlertNotifyTemplateId();
+  }
+
+  if (!!request.hasAlertNotifyTemplateName()) {
+    body["alertNotifyTemplateName"] = request.getAlertNotifyTemplateName();
+  }
+
+  if (!!request.hasProgramLang()) {
+    body["programLang"] = request.getProgramLang();
+  }
+
+  if (!!request.hasTemplates()) {
+    body["templates"] = request.getTemplates();
+  }
+
+  if (!!request.hasType()) {
+    body["type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateAlertNotifyTemplate"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/alertNotifyTemplate")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAlertNotifyTemplateResponse>();
+}
+
+/**
+ * @summary 创建通知模板
+ *
+ * @param request CreateAlertNotifyTemplateRequest
+ * @return CreateAlertNotifyTemplateResponse
+ */
+CreateAlertNotifyTemplateResponse Client::createAlertNotifyTemplate(const CreateAlertNotifyTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createAlertNotifyTemplateWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Creates an alert robot.
  *
  * @param request CreateAlertRobotRequest
@@ -711,6 +906,132 @@ CreateCloudResourceResponse Client::createCloudResource() {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return createCloudResourceWithOptions(headers, runtime);
+}
+
+/**
+ * @summary 创建联系人
+ *
+ * @param request CreateContactRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateContactResponse
+ */
+CreateContactResponse Client::createContactWithOptions(const CreateContactRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasContactId()) {
+    body["contactId"] = request.getContactId();
+  }
+
+  if (!!request.hasEmail()) {
+    body["email"] = request.getEmail();
+  }
+
+  if (!!request.hasImUserIds()) {
+    body["imUserIds"] = request.getImUserIds();
+  }
+
+  if (!!request.hasLang()) {
+    body["lang"] = request.getLang();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasPhone()) {
+    body["phone"] = request.getPhone();
+  }
+
+  if (!!request.hasWorkspace()) {
+    body["workspace"] = request.getWorkspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateContact"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/contact")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateContactResponse>();
+}
+
+/**
+ * @summary 创建联系人
+ *
+ * @param request CreateContactRequest
+ * @return CreateContactResponse
+ */
+CreateContactResponse Client::createContact(const CreateContactRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createContactWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 创建联系人组
+ *
+ * @param request CreateContactGroupRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateContactGroupResponse
+ */
+CreateContactGroupResponse Client::createContactGroupWithOptions(const CreateContactGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasContactGroupId()) {
+    body["contactGroupId"] = request.getContactGroupId();
+  }
+
+  if (!!request.hasContacts()) {
+    body["contacts"] = request.getContacts();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasWorkspace()) {
+    body["workspace"] = request.getWorkspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateContactGroup"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/contactGroup")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateContactGroupResponse>();
+}
+
+/**
+ * @summary 创建联系人组
+ *
+ * @param request CreateContactGroupRequest
+ * @return CreateContactGroupResponse
+ */
+CreateContactGroupResponse Client::createContactGroup(const CreateContactGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createContactGroupWithOptions(request, headers, runtime);
 }
 
 /**
@@ -1301,6 +1622,73 @@ CreateNotifyPolicyResponse Client::createNotifyPolicy(const CreateNotifyPolicyRe
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return createNotifyPolicyWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 创建OncallSchedule
+ *
+ * @param request CreateOncallScheduleRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateOncallScheduleResponse
+ */
+CreateOncallScheduleResponse Client::createOncallScheduleWithOptions(const CreateOncallScheduleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkspace()) {
+    query["workspace"] = request.getWorkspace();
+  }
+
+  json body = {};
+  if (!!request.hasOncallScheduleId()) {
+    body["oncallScheduleId"] = request.getOncallScheduleId();
+  }
+
+  if (!!request.hasOncallScheduleName()) {
+    body["oncallScheduleName"] = request.getOncallScheduleName();
+  }
+
+  if (!!request.hasRotations()) {
+    body["rotations"] = request.getRotations();
+  }
+
+  if (!!request.hasShiftRobotId()) {
+    body["shiftRobotId"] = request.getShiftRobotId();
+  }
+
+  if (!!request.hasSubstitudes()) {
+    body["substitudes"] = request.getSubstitudes();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateOncallSchedule"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/oncallschedule")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateOncallScheduleResponse>();
+}
+
+/**
+ * @summary 创建OncallSchedule
+ *
+ * @param request CreateOncallScheduleRequest
+ * @return CreateOncallScheduleResponse
+ */
+CreateOncallScheduleResponse Client::createOncallSchedule(const CreateOncallScheduleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createOncallScheduleWithOptions(request, headers, runtime);
 }
 
 /**
@@ -2070,6 +2458,108 @@ DeleteAggTaskGroupResponse Client::deleteAggTaskGroup(const string &instanceId, 
 }
 
 /**
+ * @summary 删除告警动作
+ *
+ * @param tmpReq DeleteAlertActionsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAlertActionsResponse
+ */
+DeleteAlertActionsResponse Client::deleteAlertActionsWithOptions(const DeleteAlertActionsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DeleteAlertActionsShrinkRequest request = DeleteAlertActionsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAlertActionIds()) {
+    request.setAlertActionIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAlertActionIds(), "alertActionIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAlertActionIdsShrink()) {
+    query["alertActionIds"] = request.getAlertActionIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAlertActions"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/alertActions")},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAlertActionsResponse>();
+}
+
+/**
+ * @summary 删除告警动作
+ *
+ * @param request DeleteAlertActionsRequest
+ * @return DeleteAlertActionsResponse
+ */
+DeleteAlertActionsResponse Client::deleteAlertActions(const DeleteAlertActionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteAlertActionsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 删除报警通知模板
+ *
+ * @param tmpReq DeleteAlertNotifyTemplatesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAlertNotifyTemplatesResponse
+ */
+DeleteAlertNotifyTemplatesResponse Client::deleteAlertNotifyTemplatesWithOptions(const DeleteAlertNotifyTemplatesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DeleteAlertNotifyTemplatesShrinkRequest request = DeleteAlertNotifyTemplatesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAlertNotifyTemplateIds()) {
+    request.setAlertNotifyTemplateIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAlertNotifyTemplateIds(), "alertNotifyTemplateIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAlertNotifyTemplateIdsShrink()) {
+    query["alertNotifyTemplateIds"] = request.getAlertNotifyTemplateIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAlertNotifyTemplates"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/alertNotifyTemplates")},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAlertNotifyTemplatesResponse>();
+}
+
+/**
+ * @summary 删除报警通知模板
+ *
+ * @param request DeleteAlertNotifyTemplatesRequest
+ * @return DeleteAlertNotifyTemplatesResponse
+ */
+DeleteAlertNotifyTemplatesResponse Client::deleteAlertNotifyTemplates(const DeleteAlertNotifyTemplatesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteAlertNotifyTemplatesWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Deletes a chatbot.
  *
  * @param tmpReq DeleteAlertRobotsRequest
@@ -2248,6 +2738,108 @@ DeleteCloudResourceResponse Client::deleteCloudResource() {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteCloudResourceWithOptions(headers, runtime);
+}
+
+/**
+ * @summary 删除联系人组
+ *
+ * @param tmpReq DeleteContactGroupsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteContactGroupsResponse
+ */
+DeleteContactGroupsResponse Client::deleteContactGroupsWithOptions(const DeleteContactGroupsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DeleteContactGroupsShrinkRequest request = DeleteContactGroupsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasContactGroupIds()) {
+    request.setContactGroupIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContactGroupIds(), "contactGroupIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasContactGroupIdsShrink()) {
+    query["contactGroupIds"] = request.getContactGroupIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteContactGroups"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/contactGroups")},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteContactGroupsResponse>();
+}
+
+/**
+ * @summary 删除联系人组
+ *
+ * @param request DeleteContactGroupsRequest
+ * @return DeleteContactGroupsResponse
+ */
+DeleteContactGroupsResponse Client::deleteContactGroups(const DeleteContactGroupsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteContactGroupsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 删除联系人
+ *
+ * @param tmpReq DeleteContactsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteContactsResponse
+ */
+DeleteContactsResponse Client::deleteContactsWithOptions(const DeleteContactsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DeleteContactsShrinkRequest request = DeleteContactsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasContactIds()) {
+    request.setContactIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContactIds(), "contactIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasContactIdsShrink()) {
+    query["contactIds"] = request.getContactIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteContacts"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/contacts")},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteContactsResponse>();
+}
+
+/**
+ * @summary 删除联系人
+ *
+ * @param request DeleteContactsRequest
+ * @return DeleteContactsResponse
+ */
+DeleteContactsResponse Client::deleteContacts(const DeleteContactsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteContactsWithOptions(request, headers, runtime);
 }
 
 /**
@@ -2856,6 +3448,57 @@ DeleteNotifyPolicyResponse Client::deleteNotifyPolicy(const DeleteNotifyPolicyRe
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteNotifyPolicyWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 删除OncallSchedule
+ *
+ * @param tmpReq DeleteOncallSchedulesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteOncallSchedulesResponse
+ */
+DeleteOncallSchedulesResponse Client::deleteOncallSchedulesWithOptions(const DeleteOncallSchedulesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DeleteOncallSchedulesShrinkRequest request = DeleteOncallSchedulesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasOncallScheduleIds()) {
+    request.setOncallScheduleIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOncallScheduleIds(), "oncallScheduleIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOncallScheduleIdsShrink()) {
+    query["oncallScheduleIds"] = request.getOncallScheduleIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteOncallSchedules"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/oncallSchedule")},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteOncallSchedulesResponse>();
+}
+
+/**
+ * @summary 删除OncallSchedule
+ *
+ * @param request DeleteOncallSchedulesRequest
+ * @return DeleteOncallSchedulesResponse
+ */
+DeleteOncallSchedulesResponse Client::deleteOncallSchedules(const DeleteOncallSchedulesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteOncallSchedulesWithOptions(request, headers, runtime);
 }
 
 /**
@@ -4109,6 +4752,45 @@ GetAggTaskGroupResponse Client::getAggTaskGroup(const string &instanceId, const 
 }
 
 /**
+ * @summary 查询告警动作
+ *
+ * @param request GetAlertActionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAlertActionResponse
+ */
+GetAlertActionResponse Client::getAlertActionWithOptions(const string &alertActionId, const GetAlertActionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAlertAction"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/alertAction/" , Darabonba::Encode::Encoder::percentEncode(alertActionId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAlertActionResponse>();
+}
+
+/**
+ * @summary 查询告警动作
+ *
+ * @param request GetAlertActionRequest
+ * @return GetAlertActionResponse
+ */
+GetAlertActionResponse Client::getAlertAction(const string &alertActionId, const GetAlertActionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getAlertActionWithOptions(alertActionId, request, headers, runtime);
+}
+
+/**
  * @summary Queries a business trace.
  *
  * @param request GetBizTraceRequest
@@ -5002,6 +5684,45 @@ GetNotifyPolicyResponse Client::getNotifyPolicy(const GetNotifyPolicyRequest &re
 }
 
 /**
+ * @summary 查询 OncallSchedule
+ *
+ * @param request GetOncallScheduleRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetOncallScheduleResponse
+ */
+GetOncallScheduleResponse Client::getOncallScheduleWithOptions(const string &oncallScheduleId, const GetOncallScheduleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetOncallSchedule"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/oncallSchedule/" , Darabonba::Encode::Encoder::percentEncode(oncallScheduleId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetOncallScheduleResponse>();
+}
+
+/**
+ * @summary 查询 OncallSchedule
+ *
+ * @param request GetOncallScheduleRequest
+ * @return GetOncallScheduleResponse
+ */
+GetOncallScheduleResponse Client::getOncallSchedule(const string &oncallScheduleId, const GetOncallScheduleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getOncallScheduleWithOptions(oncallScheduleId, request, headers, runtime);
+}
+
+/**
  * @summary Queries a pipeline.
  *
  * @param request GetPipelineRequest
@@ -5860,6 +6581,77 @@ ListAlertActionsResponse Client::listAlertActions(const ListAlertActionsRequest 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listAlertActionsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询通知模板
+ *
+ * @param tmpReq ListAlertNotifyTemplatesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAlertNotifyTemplatesResponse
+ */
+ListAlertNotifyTemplatesResponse Client::listAlertNotifyTemplatesWithOptions(const ListAlertNotifyTemplatesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListAlertNotifyTemplatesShrinkRequest request = ListAlertNotifyTemplatesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAlertNotifyTemplateIds()) {
+    request.setAlertNotifyTemplateIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAlertNotifyTemplateIds(), "alertNotifyTemplateIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAlertNotifyTemplateIdsShrink()) {
+    query["alertNotifyTemplateIds"] = request.getAlertNotifyTemplateIdsShrink();
+  }
+
+  if (!!request.hasAlertNotifyTemplateName()) {
+    query["alertNotifyTemplateName"] = request.getAlertNotifyTemplateName();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasProgramLang()) {
+    query["programLang"] = request.getProgramLang();
+  }
+
+  if (!!request.hasType()) {
+    query["type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAlertNotifyTemplates"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/alertNotifyTemplate")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAlertNotifyTemplatesResponse>();
+}
+
+/**
+ * @summary 查询通知模板
+ *
+ * @param request ListAlertNotifyTemplatesRequest
+ * @return ListAlertNotifyTemplatesResponse
+ */
+ListAlertNotifyTemplatesResponse Client::listAlertNotifyTemplates(const ListAlertNotifyTemplatesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listAlertNotifyTemplatesWithOptions(request, headers, runtime);
 }
 
 /**
@@ -7194,6 +7986,118 @@ ListNotifyPoliciesResponse Client::listNotifyPolicies(const ListNotifyPoliciesRe
 }
 
 /**
+ * @summary 查询值班人
+ *
+ * @param request ListOncallContactsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListOncallContactsResponse
+ */
+ListOncallContactsResponse Client::listOncallContactsWithOptions(const string &oncallScheduleId, const ListOncallContactsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTimestamp()) {
+    query["timestamp"] = request.getTimestamp();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListOncallContacts"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/oncallSchedule/" , Darabonba::Encode::Encoder::percentEncode(oncallScheduleId) , "/contacts")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListOncallContactsResponse>();
+}
+
+/**
+ * @summary 查询值班人
+ *
+ * @param request ListOncallContactsRequest
+ * @return ListOncallContactsResponse
+ */
+ListOncallContactsResponse Client::listOncallContacts(const string &oncallScheduleId, const ListOncallContactsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listOncallContactsWithOptions(oncallScheduleId, request, headers, runtime);
+}
+
+/**
+ * @summary 查询当前账号下所有值班排班的配置信息
+ *
+ * @param tmpReq ListOncallSchedulesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListOncallSchedulesResponse
+ */
+ListOncallSchedulesResponse Client::listOncallSchedulesWithOptions(const ListOncallSchedulesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListOncallSchedulesShrinkRequest request = ListOncallSchedulesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasOncallScheduleIds()) {
+    request.setOncallScheduleIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOncallScheduleIds(), "oncallScheduleIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOncallScheduleIdsShrink()) {
+    query["oncallScheduleIds"] = request.getOncallScheduleIdsShrink();
+  }
+
+  if (!!request.hasOncallScheduleName()) {
+    query["oncallScheduleName"] = request.getOncallScheduleName();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasWorkspace()) {
+    query["workspace"] = request.getWorkspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListOncallSchedules"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/oncallSchedules")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListOncallSchedulesResponse>();
+}
+
+/**
+ * @summary 查询当前账号下所有值班排班的配置信息
+ *
+ * @param request ListOncallSchedulesRequest
+ * @return ListOncallSchedulesResponse
+ */
+ListOncallSchedulesResponse Client::listOncallSchedules(const ListOncallSchedulesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listOncallSchedulesWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Lists pipelines.
  *
  * @param request ListPipelinesRequest
@@ -8293,6 +9197,59 @@ PreviewDataPipelineResponse Client::previewDataPipeline(const string &workspace,
 }
 
 /**
+ * @summary 预览通知模板渲染结果
+ *
+ * @description 传入 Go template 语法的模板内容和渲染上下文数据，返回各模板的渲染结果。支持同时预览多个模板（如 title 和 content），用于前端模板编辑器的实时预览能力。
+ *
+ * @param request PreviewNotifyTemplateRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PreviewNotifyTemplateResponse
+ */
+PreviewNotifyTemplateResponse Client::previewNotifyTemplateWithOptions(const PreviewNotifyTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasData()) {
+    body["data"] = request.getData();
+  }
+
+  if (!!request.hasTemplates()) {
+    body["templates"] = request.getTemplates();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "PreviewNotifyTemplate"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/template/batchRender")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PreviewNotifyTemplateResponse>();
+}
+
+/**
+ * @summary 预览通知模板渲染结果
+ *
+ * @description 传入 Go template 语法的模板内容和渲染上下文数据，返回各模板的渲染结果。支持同时预览多个模板（如 title 和 content），用于前端模板编辑器的实时预览能力。
+ *
+ * @param request PreviewNotifyTemplateRequest
+ * @return PreviewNotifyTemplateResponse
+ */
+PreviewNotifyTemplateResponse Client::previewNotifyTemplate(const PreviewNotifyTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return previewNotifyTemplateWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Creates a workspace.
  *
  * @param request PutWorkspaceRequest
@@ -8424,6 +9381,51 @@ QueryAlertRulesResponse Client::queryAlertRules(const QueryAlertRulesRequest &re
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return queryAlertRulesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 重新发送激活链接
+ *
+ * @param request ResendVerifyActivateRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ResendVerifyActivateResponse
+ */
+ResendVerifyActivateResponse Client::resendVerifyActivateWithOptions(const string &contactId, const ResendVerifyActivateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasChannelType()) {
+    body["channelType"] = request.getChannelType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ResendVerifyActivate"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/contact/" , Darabonba::Encode::Encoder::percentEncode(contactId) , "/action/reSendVerifyActivate")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ResendVerifyActivateResponse>();
+}
+
+/**
+ * @summary 重新发送激活链接
+ *
+ * @param request ResendVerifyActivateRequest
+ * @return ResendVerifyActivateResponse
+ */
+ResendVerifyActivateResponse Client::resendVerifyActivate(const string &contactId, const ResendVerifyActivateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return resendVerifyActivateWithOptions(contactId, request, headers, runtime);
 }
 
 /**
@@ -8910,6 +9912,136 @@ UpdateAggTaskGroupStatusResponse Client::updateAggTaskGroupStatus(const string &
 }
 
 /**
+ * @summary 修改告警动作
+ *
+ * @param request UpdateAlertActionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAlertActionResponse
+ */
+UpdateAlertActionResponse Client::updateAlertActionWithOptions(const string &alertActionId, const UpdateAlertActionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAlertActionName()) {
+    body["alertActionName"] = request.getAlertActionName();
+  }
+
+  if (!!request.hasEbParam()) {
+    body["ebParam"] = request.getEbParam();
+  }
+
+  if (!!request.hasEssParam()) {
+    body["essParam"] = request.getEssParam();
+  }
+
+  if (!!request.hasFc3Param()) {
+    body["fc3Param"] = request.getFc3Param();
+  }
+
+  if (!!request.hasFcParam()) {
+    body["fcParam"] = request.getFcParam();
+  }
+
+  if (!!request.hasMnsParam()) {
+    body["mnsParam"] = request.getMnsParam();
+  }
+
+  if (!!request.hasPagerDutyParam()) {
+    body["pagerDutyParam"] = request.getPagerDutyParam();
+  }
+
+  if (!!request.hasSlsParam()) {
+    body["slsParam"] = request.getSlsParam();
+  }
+
+  if (!!request.hasType()) {
+    body["type"] = request.getType();
+  }
+
+  if (!!request.hasWebhookParam()) {
+    body["webhookParam"] = request.getWebhookParam();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateAlertAction"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/alertAction/" , Darabonba::Encode::Encoder::percentEncode(alertActionId))},
+    {"method" , "PATCH"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAlertActionResponse>();
+}
+
+/**
+ * @summary 修改告警动作
+ *
+ * @param request UpdateAlertActionRequest
+ * @return UpdateAlertActionResponse
+ */
+UpdateAlertActionResponse Client::updateAlertAction(const string &alertActionId, const UpdateAlertActionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateAlertActionWithOptions(alertActionId, request, headers, runtime);
+}
+
+/**
+ * @summary 修改已存在的告警通知模板内容。
+ *
+ * @param request UpdateAlertNotifyTemplateRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAlertNotifyTemplateResponse
+ */
+UpdateAlertNotifyTemplateResponse Client::updateAlertNotifyTemplateWithOptions(const string &alertNotifyTemplateId, const UpdateAlertNotifyTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAlertNotifyTemplateName()) {
+    body["alertNotifyTemplateName"] = request.getAlertNotifyTemplateName();
+  }
+
+  if (!!request.hasTemplates()) {
+    body["templates"] = request.getTemplates();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateAlertNotifyTemplate"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/alertNotifyTemplate/" , Darabonba::Encode::Encoder::percentEncode(alertNotifyTemplateId))},
+    {"method" , "PATCH"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAlertNotifyTemplateResponse>();
+}
+
+/**
+ * @summary 修改已存在的告警通知模板内容。
+ *
+ * @param request UpdateAlertNotifyTemplateRequest
+ * @return UpdateAlertNotifyTemplateResponse
+ */
+UpdateAlertNotifyTemplateResponse Client::updateAlertNotifyTemplate(const string &alertNotifyTemplateId, const UpdateAlertNotifyTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateAlertNotifyTemplateWithOptions(alertNotifyTemplateId, request, headers, runtime);
+}
+
+/**
  * @summary Updates an alert robot.
  *
  * @param request UpdateAlertRobotRequest
@@ -9094,6 +10226,116 @@ UpdateBizTraceResponse Client::updateBizTrace(const string &bizTraceId, const Up
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateBizTraceWithOptions(bizTraceId, request, headers, runtime);
+}
+
+/**
+ * @summary 修改已存在的联系人的详细信息
+ *
+ * @param request UpdateContactRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateContactResponse
+ */
+UpdateContactResponse Client::updateContactWithOptions(const string &contactId, const UpdateContactRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasEmail()) {
+    body["email"] = request.getEmail();
+  }
+
+  if (!!request.hasImUserIds()) {
+    body["imUserIds"] = request.getImUserIds();
+  }
+
+  if (!!request.hasLang()) {
+    body["lang"] = request.getLang();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasPhone()) {
+    body["phone"] = request.getPhone();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateContact"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/contact/" , Darabonba::Encode::Encoder::percentEncode(contactId))},
+    {"method" , "PATCH"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateContactResponse>();
+}
+
+/**
+ * @summary 修改已存在的联系人的详细信息
+ *
+ * @param request UpdateContactRequest
+ * @return UpdateContactResponse
+ */
+UpdateContactResponse Client::updateContact(const string &contactId, const UpdateContactRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateContactWithOptions(contactId, request, headers, runtime);
+}
+
+/**
+ * @summary 修改已存在的联系人组信息。
+ *
+ * @param request UpdateContactGroupRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateContactGroupResponse
+ */
+UpdateContactGroupResponse Client::updateContactGroupWithOptions(const string &contactGroupId, const UpdateContactGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasContacts()) {
+    body["contacts"] = request.getContacts();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateContactGroup"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/contactGroup/" , Darabonba::Encode::Encoder::percentEncode(contactGroupId))},
+    {"method" , "PATCH"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateContactGroupResponse>();
+}
+
+/**
+ * @summary 修改已存在的联系人组信息。
+ *
+ * @param request UpdateContactGroupRequest
+ * @return UpdateContactGroupResponse
+ */
+UpdateContactGroupResponse Client::updateContactGroup(const string &contactGroupId, const UpdateContactGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateContactGroupWithOptions(contactGroupId, request, headers, runtime);
 }
 
 /**
@@ -9727,6 +10969,63 @@ UpdateNotifyStrategyResponse Client::updateNotifyStrategy(const string &notifySt
 }
 
 /**
+ * @summary 更新UpdateOncallSchedule
+ *
+ * @param request UpdateOncallScheduleRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateOncallScheduleResponse
+ */
+UpdateOncallScheduleResponse Client::updateOncallScheduleWithOptions(const string &oncallScheduleId, const UpdateOncallScheduleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasOncallScheduleName()) {
+    body["oncallScheduleName"] = request.getOncallScheduleName();
+  }
+
+  if (!!request.hasRotations()) {
+    body["rotations"] = request.getRotations();
+  }
+
+  if (!!request.hasShiftRobotId()) {
+    body["shiftRobotId"] = request.getShiftRobotId();
+  }
+
+  if (!!request.hasSubstitudes()) {
+    body["substitudes"] = request.getSubstitudes();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateOncallSchedule"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/oncallSchedule/" , Darabonba::Encode::Encoder::percentEncode(oncallScheduleId))},
+    {"method" , "PATCH"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateOncallScheduleResponse>();
+}
+
+/**
+ * @summary 更新UpdateOncallSchedule
+ *
+ * @param request UpdateOncallScheduleRequest
+ * @return UpdateOncallScheduleResponse
+ */
+UpdateOncallScheduleResponse Client::updateOncallSchedule(const string &oncallScheduleId, const UpdateOncallScheduleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateOncallScheduleWithOptions(oncallScheduleId, request, headers, runtime);
+}
+
+/**
  * @summary Update pipeline
  *
  * @param request UpdatePipelineRequest
@@ -10301,6 +11600,55 @@ UpsertUmodelDataResponse Client::upsertUmodelData(const string &workspace, const
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return upsertUmodelDataWithOptions(workspace, request, headers, runtime);
+}
+
+/**
+ * @summary 查看值班日历
+ *
+ * @param request ViewOncallScheduleRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ViewOncallScheduleResponse
+ */
+ViewOncallScheduleResponse Client::viewOncallScheduleWithOptions(const string &oncallScheduleId, const ViewOncallScheduleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndDate()) {
+    query["endDate"] = request.getEndDate();
+  }
+
+  if (!!request.hasStartDate()) {
+    query["startDate"] = request.getStartDate();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ViewOncallSchedule"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/oncallSchedule/" , Darabonba::Encode::Encoder::percentEncode(oncallScheduleId) , "/calendar")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ViewOncallScheduleResponse>();
+}
+
+/**
+ * @summary 查看值班日历
+ *
+ * @param request ViewOncallScheduleRequest
+ * @return ViewOncallScheduleResponse
+ */
+ViewOncallScheduleResponse Client::viewOncallSchedule(const string &oncallScheduleId, const ViewOncallScheduleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return viewOncallScheduleWithOptions(oncallScheduleId, request, headers, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace Cms20240330

@@ -19,6 +19,7 @@ namespace Models
   class IncidentForView : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const IncidentForView& obj) { 
+      DARABONBA_PTR_TO_JSON(blockingExpireTimestamp, blockingExpireTimestamp_);
       DARABONBA_PTR_TO_JSON(content, content_);
       DARABONBA_PTR_TO_JSON(escalations, escalations_);
       DARABONBA_PTR_TO_JSON(groupUuid, groupUuid_);
@@ -37,12 +38,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(state, state_);
       DARABONBA_PTR_TO_JSON(subscriptionName, subscriptionName_);
       DARABONBA_PTR_TO_JSON(subscriptionUuid, subscriptionUuid_);
+      DARABONBA_PTR_TO_JSON(tags, tags_);
       DARABONBA_PTR_TO_JSON(time, time_);
       DARABONBA_PTR_TO_JSON(title, title_);
       DARABONBA_PTR_TO_JSON(userId, userId_);
       DARABONBA_PTR_TO_JSON(workspace, workspace_);
     };
     friend void from_json(const Darabonba::Json& j, IncidentForView& obj) { 
+      DARABONBA_PTR_FROM_JSON(blockingExpireTimestamp, blockingExpireTimestamp_);
       DARABONBA_PTR_FROM_JSON(content, content_);
       DARABONBA_PTR_FROM_JSON(escalations, escalations_);
       DARABONBA_PTR_FROM_JSON(groupUuid, groupUuid_);
@@ -61,6 +64,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(state, state_);
       DARABONBA_PTR_FROM_JSON(subscriptionName, subscriptionName_);
       DARABONBA_PTR_FROM_JSON(subscriptionUuid, subscriptionUuid_);
+      DARABONBA_PTR_FROM_JSON(tags, tags_);
       DARABONBA_PTR_FROM_JSON(time, time_);
       DARABONBA_PTR_FROM_JSON(title, title_);
       DARABONBA_PTR_FROM_JSON(userId, userId_);
@@ -77,12 +81,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->content_ == nullptr
-        && this->escalations_ == nullptr && this->groupUuid_ == nullptr && this->groupingKeys_ == nullptr && this->incidentId_ == nullptr && this->notifyStrategyName_ == nullptr
-        && this->notifyStrategyUuid_ == nullptr && this->operator_ == nullptr && this->owners_ == nullptr && this->participants_ == nullptr && this->plan_ == nullptr
-        && this->relatedResources_ == nullptr && this->rootCauseCategory_ == nullptr && this->severity_ == nullptr && this->solution_ == nullptr && this->state_ == nullptr
-        && this->subscriptionName_ == nullptr && this->subscriptionUuid_ == nullptr && this->time_ == nullptr && this->title_ == nullptr && this->userId_ == nullptr
-        && this->workspace_ == nullptr; };
+    virtual bool empty() const override { return this->blockingExpireTimestamp_ == nullptr
+        && this->content_ == nullptr && this->escalations_ == nullptr && this->groupUuid_ == nullptr && this->groupingKeys_ == nullptr && this->incidentId_ == nullptr
+        && this->notifyStrategyName_ == nullptr && this->notifyStrategyUuid_ == nullptr && this->operator_ == nullptr && this->owners_ == nullptr && this->participants_ == nullptr
+        && this->plan_ == nullptr && this->relatedResources_ == nullptr && this->rootCauseCategory_ == nullptr && this->severity_ == nullptr && this->solution_ == nullptr
+        && this->state_ == nullptr && this->subscriptionName_ == nullptr && this->subscriptionUuid_ == nullptr && this->tags_ == nullptr && this->time_ == nullptr
+        && this->title_ == nullptr && this->userId_ == nullptr && this->workspace_ == nullptr; };
+    // blockingExpireTimestamp Field Functions 
+    bool hasBlockingExpireTimestamp() const { return this->blockingExpireTimestamp_ != nullptr;};
+    void deleteBlockingExpireTimestamp() { this->blockingExpireTimestamp_ = nullptr;};
+    inline int64_t getBlockingExpireTimestamp() const { DARABONBA_PTR_GET_DEFAULT(blockingExpireTimestamp_, 0L) };
+    inline IncidentForView& setBlockingExpireTimestamp(int64_t blockingExpireTimestamp) { DARABONBA_PTR_SET_VALUE(blockingExpireTimestamp_, blockingExpireTimestamp) };
+
+
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
@@ -223,6 +234,15 @@ namespace Models
     inline IncidentForView& setSubscriptionUuid(string subscriptionUuid) { DARABONBA_PTR_SET_VALUE(subscriptionUuid_, subscriptionUuid) };
 
 
+    // tags Field Functions 
+    bool hasTags() const { return this->tags_ != nullptr;};
+    void deleteTags() { this->tags_ = nullptr;};
+    inline const map<string, string> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, map<string, string>) };
+    inline map<string, string> getTags() { DARABONBA_PTR_GET(tags_, map<string, string>) };
+    inline IncidentForView& setTags(const map<string, string> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+    inline IncidentForView& setTags(map<string, string> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
     // time Field Functions 
     bool hasTime() const { return this->time_ != nullptr;};
     void deleteTime() { this->time_ = nullptr;};
@@ -252,6 +272,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<int64_t> blockingExpireTimestamp_ {};
     // The details of the incident.
     shared_ptr<string> content_ {};
     // The list of escalation policies.
@@ -288,6 +309,7 @@ namespace Models
     shared_ptr<string> subscriptionName_ {};
     // The UUID of the subscription policy.
     shared_ptr<string> subscriptionUuid_ {};
+    shared_ptr<map<string, string>> tags_ {};
     // The timestamp when the incident was created.
     shared_ptr<int64_t> time_ {};
     // The title of the incident.
