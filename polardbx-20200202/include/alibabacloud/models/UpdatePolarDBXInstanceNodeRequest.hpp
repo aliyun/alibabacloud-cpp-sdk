@@ -112,12 +112,13 @@ namespace Models
 
 
   protected:
+    // The node specifications of the storage nodes to add.
     shared_ptr<string> addDNSpec_ {};
     // The number of compute nodes.
     shared_ptr<int32_t> CNNodeCount_ {};
-    // The client token, which is an arbitrary random string.
+    // The client token. It can be any random string.
     shared_ptr<string> clientToken_ {};
-    // The instance name ID.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
@@ -125,11 +126,13 @@ namespace Models
     shared_ptr<int32_t> DNNodeCount_ {};
     // The target number of nodes for the instance. Valid values: 0 to 99.
     shared_ptr<int32_t> dbInstanceNodeCount_ {};
+    // The IDs of the storage nodes to remove.
     shared_ptr<string> deleteDNIds_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The name of the storage pool.
     shared_ptr<string> storagePoolName_ {};
   };
 

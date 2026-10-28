@@ -64,19 +64,7 @@ AlibabaCloud::Polardbx20200202::Client::Client(Config &config): OpenApiClient(co
     {"eu-west-1" , "polardbx.aliyuncs.com"},
     {"eu-west-1-oxs" , "polardbx.aliyuncs.com"},
     {"me-east-1" , "polardbx.aliyuncs.com"},
-    {"rus-west-1-pop" , "polardbx.aliyuncs.com"},
-    {"cn-beijing" , "polardbx.cn-beijing.aliyuncs.com"},
-    {"cn-qingdao" , "polardbx.cn-qingdao.aliyuncs.com"},
-    {"cn-shanghai" , "polardbx.cn-shanghai.aliyuncs.com"},
-    {"cn-hongkong" , "polardbx.cn-hongkong.aliyuncs.com"},
-    {"cn-zhangjiakou" , "polardbx.cn-zhangjiakou.aliyuncs.com"},
-    {"cn-shenzhen" , "polardbx.cn-shenzhen.aliyuncs.com"},
-    {"cn-chengdu" , "polardbx.cn-chengdu.aliyuncs.com"},
-    {"ap-southeast-1" , "polardbx.ap-southeast-1.aliyuncs.com"},
-    {"cn-huhehaote" , "polardbx.cn-huhehaote.aliyuncs.com"},
-    {"cn-hangzhou" , "polardbx.cn-hangzhou.aliyuncs.com"},
-    {"us-east-1" , "polardbx.us-east-1.aliyuncs.com"},
-    {"us-west-1" , "polardbx.us-west-1.aliyuncs.com"}
+    {"rus-west-1-pop" , "polardbx.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("polardbx", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -96,6 +84,8 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary Aligns the primary zone of the storage nodes of a PolarDB-X instance.
+ *
  * @param request AlignStoragePrimaryAzoneRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return AlignStoragePrimaryAzoneResponse
@@ -141,6 +131,8 @@ AlignStoragePrimaryAzoneResponse Client::alignStoragePrimaryAzoneWithOptions(con
 }
 
 /**
+ * @summary Aligns the primary zone of the storage nodes of a PolarDB-X instance.
+ *
  * @param request AlignStoragePrimaryAzoneRequest
  * @return AlignStoragePrimaryAzoneResponse
  */
@@ -196,9 +188,9 @@ AllocateColdDataVolumeResponse Client::allocateColdDataVolume(const AllocateCold
 }
 
 /**
- * @summary Enables a public network connection for a specified physical ReplicaSet of the context service.
+ * @summary Enables public network connections for a specified physical ReplicaSet of the context service.
  *
- * @description This operation is used to confirm that no active connections exist before a rollback task, ensuring operation safety.
+ * @description This operation confirms that no active connections exist before a rollback task to ensure operational security.
  *
  * @param request AllocateContext0PublicConnectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -245,9 +237,9 @@ AllocateContext0PublicConnectionResponse Client::allocateContext0PublicConnectio
 }
 
 /**
- * @summary Enables a public network connection for a specified physical ReplicaSet of the context service.
+ * @summary Enables public network connections for a specified physical ReplicaSet of the context service.
  *
- * @description This operation is used to confirm that no active connections exist before a rollback task, ensuring operation safety.
+ * @description This operation confirms that no active connections exist before a rollback task to ensure operational security.
  *
  * @param request AllocateContext0PublicConnectionRequest
  * @return AllocateContext0PublicConnectionResponse
@@ -394,9 +386,9 @@ AllocateInstancePublicConnectionResponse Client::allocateInstancePublicConnectio
 }
 
 /**
- * @summary Enables a public domain name for a Mem0 instance.
+ * @summary Enables the public domain name for a Mem0 instance.
  *
- * @description This operation is used to confirm that no active connections exist before a rollback task, to ensure operation safety.
+ * @description This operation checks for active connections before a rollback task to ensure operational security.
  *
  * @param request AllocateMem0PublicConnectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -439,9 +431,9 @@ AllocateMem0PublicConnectionResponse Client::allocateMem0PublicConnectionWithOpt
 }
 
 /**
- * @summary Enables a public domain name for a Mem0 instance.
+ * @summary Enables the public domain name for a Mem0 instance.
  *
- * @description This operation is used to confirm that no active connections exist before a rollback task, to ensure operation safety.
+ * @description This operation checks for active connections before a rollback task to ensure operational security.
  *
  * @param request AllocateMem0PublicConnectionRequest
  * @return AllocateMem0PublicConnectionResponse
@@ -449,6 +441,56 @@ AllocateMem0PublicConnectionResponse Client::allocateMem0PublicConnectionWithOpt
 AllocateMem0PublicConnectionResponse Client::allocateMem0PublicConnection(const AllocateMem0PublicConnectionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return allocateMem0PublicConnectionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Enables public network connection for PXFS.
+ *
+ * @description Enables public network connection for the agent file service.
+ *
+ * @param request AllocatePxfsPublicConnectionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AllocatePxfsPublicConnectionResponse
+ */
+AllocatePxfsPublicConnectionResponse Client::allocatePxfsPublicConnectionWithOptions(const AllocatePxfsPublicConnectionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AllocatePxfsPublicConnection"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AllocatePxfsPublicConnectionResponse>();
+}
+
+/**
+ * @summary Enables public network connection for PXFS.
+ *
+ * @description Enables public network connection for the agent file service.
+ *
+ * @param request AllocatePxfsPublicConnectionRequest
+ * @return AllocatePxfsPublicConnectionResponse
+ */
+AllocatePxfsPublicConnectionResponse Client::allocatePxfsPublicConnection(const AllocatePxfsPublicConnectionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return allocatePxfsPublicConnectionWithOptions(request, runtime);
 }
 
 /**
@@ -909,7 +951,7 @@ CreateAccountResponse Client::createAccount(const CreateAccountRequest &request)
 }
 
 /**
- * @summary Creates a backup by calling the CreateBackup operation.
+ * @summary Creates a backup.
  *
  * @param request CreateBackupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -948,7 +990,7 @@ CreateBackupResponse Client::createBackupWithOptions(const CreateBackupRequest &
 }
 
 /**
- * @summary Creates a backup by calling the CreateBackup operation.
+ * @summary Creates a backup.
  *
  * @param request CreateBackupRequest
  * @return CreateBackupResponse
@@ -1141,7 +1183,7 @@ CreateCustomEndpointResponse Client::createCustomEndpoint(const CreateCustomEndp
 }
 
 /**
- * @summary Creates a database by calling the CreateDB operation.
+ * @summary Creates a database.
  *
  * @param request CreateDBRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1212,7 +1254,7 @@ CreateDBResponse Client::createDBWithOptions(const CreateDBRequest &request, con
 }
 
 /**
- * @summary Creates a database by calling the CreateDB operation.
+ * @summary Creates a database.
  *
  * @param request CreateDBRequest
  * @return CreateDBResponse
@@ -1223,7 +1265,7 @@ CreateDBResponse Client::createDB(const CreateDBRequest &request) {
 }
 
 /**
- * @summary Calls the CreateDBInstance operation to create a PolarDB-X instance.
+ * @summary Creates a PolarDB-X instance.
  *
  * @description ****
  *
@@ -1382,7 +1424,7 @@ CreateDBInstanceResponse Client::createDBInstanceWithOptions(const CreateDBInsta
 }
 
 /**
- * @summary Calls the CreateDBInstance operation to create a PolarDB-X instance.
+ * @summary Creates a PolarDB-X instance.
  *
  * @description ****
  *
@@ -1483,7 +1525,7 @@ CreateDataImportTaskResponse Client::createDataImportTask(const CreateDataImport
 /**
  * @summary Creates an AI gateway consumer for a PolarDB-X instance.
  *
- * @description ****.
+ * @description ****
  *
  * @param request CreateGatewayConsumerForPolarDBXRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1520,7 +1562,7 @@ CreateGatewayConsumerForPolarDBXResponse Client::createGatewayConsumerForPolarDB
 /**
  * @summary Creates an AI gateway consumer for a PolarDB-X instance.
  *
- * @description ****.
+ * @description ****
  *
  * @param request CreateGatewayConsumerForPolarDBXRequest
  * @return CreateGatewayConsumerForPolarDBXResponse
@@ -1735,7 +1777,7 @@ CreateGdnStandbyMemberResponse Client::createGdnStandbyMember(const CreateGdnSta
 }
 
 /**
- * @summary Enable Memory Engine
+ * @summary Enables the memory engine.
  *
  * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
  *
@@ -1772,7 +1814,7 @@ CreateMem0Response Client::createMem0WithOptions(const CreateMem0Request &reques
 }
 
 /**
- * @summary Enable Memory Engine
+ * @summary Enables the memory engine.
  *
  * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
  *
@@ -1907,7 +1949,7 @@ CreateOpenSearchResponse Client::createOpenSearch(const CreateOpenSearchRequest 
 }
 
 /**
- * @summary Creates an account for a PolarDB-X Search instance.
+ * @summary Creates a PolarDB-X Search instance account.
  *
  * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
  *
@@ -1952,7 +1994,7 @@ CreateOpenSearchAccountResponse Client::createOpenSearchAccountWithOptions(const
 }
 
 /**
- * @summary Creates an account for a PolarDB-X Search instance.
+ * @summary Creates a PolarDB-X Search instance account.
  *
  * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
  *
@@ -2126,6 +2168,282 @@ CreatePolardbxSupabaseInstanceResponse Client::createPolardbxSupabaseInstanceWit
 CreatePolardbxSupabaseInstanceResponse Client::createPolardbxSupabaseInstance(const CreatePolardbxSupabaseInstanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createPolardbxSupabaseInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates an Agent file service instance.
+ *
+ * @description Creates an Agent file service instance.
+ *
+ * @param request CreatePxfsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreatePxfsResponse
+ */
+CreatePxfsResponse Client::createPxfsWithOptions(const CreatePxfsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClassCode()) {
+    query["ClassCode"] = request.getClassCode();
+  }
+
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasNodeCount()) {
+    query["NodeCount"] = request.getNodeCount();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSecurityIPList()) {
+    query["SecurityIPList"] = request.getSecurityIPList();
+  }
+
+  if (!!request.hasStorageSize()) {
+    query["StorageSize"] = request.getStorageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreatePxfs"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreatePxfsResponse>();
+}
+
+/**
+ * @summary Creates an Agent file service instance.
+ *
+ * @description Creates an Agent file service instance.
+ *
+ * @param request CreatePxfsRequest
+ * @return CreatePxfsResponse
+ */
+CreatePxfsResponse Client::createPxfs(const CreatePxfsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createPxfsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Issues an access token for the Agent file service.
+ *
+ * @description Issues an access token for the Agent file service.
+ *
+ * @param request CreatePxfsAccessTokenRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreatePxfsAccessTokenResponse
+ */
+CreatePxfsAccessTokenResponse Client::createPxfsAccessTokenWithOptions(const CreatePxfsAccessTokenRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasIdentityName()) {
+    query["IdentityName"] = request.getIdentityName();
+  }
+
+  if (!!request.hasLabel()) {
+    query["Label"] = request.getLabel();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTenantId()) {
+    query["TenantId"] = request.getTenantId();
+  }
+
+  if (!!request.hasTtlSeconds()) {
+    query["TtlSeconds"] = request.getTtlSeconds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreatePxfsAccessToken"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreatePxfsAccessTokenResponse>();
+}
+
+/**
+ * @summary Issues an access token for the Agent file service.
+ *
+ * @description Issues an access token for the Agent file service.
+ *
+ * @param request CreatePxfsAccessTokenRequest
+ * @return CreatePxfsAccessTokenResponse
+ */
+CreatePxfsAccessTokenResponse Client::createPxfsAccessToken(const CreatePxfsAccessTokenRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createPxfsAccessTokenWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates an Agent file service tenant.
+ *
+ * @description Creates an Agent file service tenant.
+ *
+ * @param request CreatePxfsTenantRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreatePxfsTenantResponse
+ */
+CreatePxfsTenantResponse Client::createPxfsTenantWithOptions(const CreatePxfsTenantRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasQuotaBytes()) {
+    query["QuotaBytes"] = request.getQuotaBytes();
+  }
+
+  if (!!request.hasQuotaFiles()) {
+    query["QuotaFiles"] = request.getQuotaFiles();
+  }
+
+  if (!!request.hasRateLimitRps()) {
+    query["RateLimitRps"] = request.getRateLimitRps();
+  }
+
+  if (!!request.hasRateLimitWbps()) {
+    query["RateLimitWbps"] = request.getRateLimitWbps();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTenantId()) {
+    query["TenantId"] = request.getTenantId();
+  }
+
+  if (!!request.hasTenantName()) {
+    query["TenantName"] = request.getTenantName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreatePxfsTenant"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreatePxfsTenantResponse>();
+}
+
+/**
+ * @summary Creates an Agent file service tenant.
+ *
+ * @description Creates an Agent file service tenant.
+ *
+ * @param request CreatePxfsTenantRequest
+ * @return CreatePxfsTenantResponse
+ */
+CreatePxfsTenantResponse Client::createPxfsTenant(const CreatePxfsTenantRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createPxfsTenantWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a tenant identity for the Agent file service.
+ *
+ * @description Creates a tenant identity for the Agent file service.
+ *
+ * @param request CreatePxfsUserRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreatePxfsUserResponse
+ */
+CreatePxfsUserResponse Client::createPxfsUserWithOptions(const CreatePxfsUserRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasIdentityName()) {
+    query["IdentityName"] = request.getIdentityName();
+  }
+
+  if (!!request.hasPosixGid()) {
+    query["PosixGid"] = request.getPosixGid();
+  }
+
+  if (!!request.hasPosixUid()) {
+    query["PosixUid"] = request.getPosixUid();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasRole()) {
+    query["Role"] = request.getRole();
+  }
+
+  if (!!request.hasTenantId()) {
+    query["TenantId"] = request.getTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreatePxfsUser"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreatePxfsUserResponse>();
+}
+
+/**
+ * @summary Creates a tenant identity for the Agent file service.
+ *
+ * @description Creates a tenant identity for the Agent file service.
+ *
+ * @param request CreatePxfsUserRequest
+ * @return CreatePxfsUserResponse
+ */
+CreatePxfsUserResponse Client::createPxfsUser(const CreatePxfsUserRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createPxfsUserWithOptions(request, runtime);
 }
 
 /**
@@ -2569,7 +2887,7 @@ CreateSubCNInstanceResponse Client::createSubCNInstance(const CreateSubCNInstanc
 }
 
 /**
- * @summary Enables the public endpoint for a Supabase instance.
+ * @summary Enables the public endpoint for Supabase.
  *
  * @description ****
  *
@@ -2610,7 +2928,7 @@ CreateSupabaseNetTypeResponse Client::createSupabaseNetTypeWithOptions(const Cre
 }
 
 /**
- * @summary Enables the public endpoint for a Supabase instance.
+ * @summary Enables the public endpoint for Supabase.
  *
  * @description ****
  *
@@ -3137,7 +3455,7 @@ DeleteGdnInstanceResponse Client::deleteGdnInstance(const DeleteGdnInstanceReque
 /**
  * @summary Disables the memory engine.
  *
- * @description Deletes the custom endpoint of a specified database instance and disables the access entry for the domain name.
+ * @description Deletes the custom endpoint of a specified database instance and disables access to the domain name.
  *
  * @param request DeleteMem0Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -3174,7 +3492,7 @@ DeleteMem0Response Client::deleteMem0WithOptions(const DeleteMem0Request &reques
 /**
  * @summary Disables the memory engine.
  *
- * @description Deletes the custom endpoint of a specified database instance and disables the access entry for the domain name.
+ * @description Deletes the custom endpoint of a specified database instance and disables access to the domain name.
  *
  * @param request DeleteMem0Request
  * @return DeleteMem0Response
@@ -3394,6 +3712,114 @@ DeletePolardbxSupabaseInstanceResponse Client::deletePolardbxSupabaseInstanceWit
 DeletePolardbxSupabaseInstanceResponse Client::deletePolardbxSupabaseInstance(const DeletePolardbxSupabaseInstanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deletePolardbxSupabaseInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes an Agent file service instance.
+ *
+ * @description Deletes an Agent file service instance.
+ *
+ * @param request DeletePxfsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeletePxfsResponse
+ */
+DeletePxfsResponse Client::deletePxfsWithOptions(const DeletePxfsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeletePxfs"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeletePxfsResponse>();
+}
+
+/**
+ * @summary Deletes an Agent file service instance.
+ *
+ * @description Deletes an Agent file service instance.
+ *
+ * @param request DeletePxfsRequest
+ * @return DeletePxfsResponse
+ */
+DeletePxfsResponse Client::deletePxfs(const DeletePxfsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deletePxfsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes an Agent file service tenant identity.
+ *
+ * @description Deletes an Agent file service tenant identity.
+ *
+ * @param request DeletePxfsUserRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeletePxfsUserResponse
+ */
+DeletePxfsUserResponse Client::deletePxfsUserWithOptions(const DeletePxfsUserRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasIdentityName()) {
+    query["IdentityName"] = request.getIdentityName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTenantId()) {
+    query["TenantId"] = request.getTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeletePxfsUser"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeletePxfsUserResponse>();
+}
+
+/**
+ * @summary Deletes an Agent file service tenant identity.
+ *
+ * @description Deletes an Agent file service tenant identity.
+ *
+ * @param request DeletePxfsUserRequest
+ * @return DeletePxfsUserResponse
+ */
+DeletePxfsUserResponse Client::deletePxfsUser(const DeletePxfsUserRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deletePxfsUserWithOptions(request, runtime);
 }
 
 /**
@@ -3659,7 +4085,7 @@ DescribeAccountListResponse Client::describeAccountList(const DescribeAccountLis
 }
 
 /**
- * @summary Calls the DescribeActiveOperationMaintainConf operation to display the O&M window configuration.
+ * @summary Queries the O&M time configuration.
  *
  * @param request DescribeActiveOperationMaintainConfRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3690,7 +4116,7 @@ DescribeActiveOperationMaintainConfResponse Client::describeActiveOperationMaint
 }
 
 /**
- * @summary Calls the DescribeActiveOperationMaintainConf operation to display the O&M window configuration.
+ * @summary Queries the O&M time configuration.
  *
  * @param request DescribeActiveOperationMaintainConfRequest
  * @return DescribeActiveOperationMaintainConfResponse
@@ -3739,7 +4165,7 @@ DescribeActiveOperationTaskCountResponse Client::describeActiveOperationTaskCoun
 }
 
 /**
- * @summary Queries O&M events by calling the DescribeActiveOperationTasks operation.
+ * @summary Queries O&M events.
  *
  * @param request DescribeActiveOperationTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3766,7 +4192,7 @@ DescribeActiveOperationTasksResponse Client::describeActiveOperationTasksWithOpt
 }
 
 /**
- * @summary Queries O&M events by calling the DescribeActiveOperationTasks operation.
+ * @summary Queries O&M events.
  *
  * @param request DescribeActiveOperationTasksRequest
  * @return DescribeActiveOperationTasksResponse
@@ -3777,7 +4203,7 @@ DescribeActiveOperationTasksResponse Client::describeActiveOperationTasks(const 
 }
 
 /**
- * @summary Queries the list of cold storage tables.
+ * @summary Lists cold storage tables.
  *
  * @param request DescribeArchiveTableListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3832,7 +4258,7 @@ DescribeArchiveTableListResponse Client::describeArchiveTableListWithOptions(con
 }
 
 /**
- * @summary Queries the list of cold storage tables.
+ * @summary Lists cold storage tables.
  *
  * @param request DescribeArchiveTableListRequest
  * @return DescribeArchiveTableListResponse
@@ -4027,11 +4453,11 @@ DescribeBackupSetListResponse Client::describeBackupSetList(const DescribeBackup
 }
 
 /**
- * @summary Queries binary logs by calling the DescribeBinaryLogList operation.
+ * @summary Queries binary logs.
  *
  * @description - Binary log files are retained for 15 days by default.
- * - The returned log list includes all logs log record end time is after the query start time and log record start time is before the query end time.
- * - When DownloadLink is not NULL, you can download the backup file from this URL. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+ * - The returned log list includes all log records whose end time is later than the query start time and whose start time is earlier than the query end time.
+ * - If the value of DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for two days after it is generated. Download the file before it expires.
  *
  * @param request DescribeBinaryLogListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4086,11 +4512,11 @@ DescribeBinaryLogListResponse Client::describeBinaryLogListWithOptions(const Des
 }
 
 /**
- * @summary Queries binary logs by calling the DescribeBinaryLogList operation.
+ * @summary Queries binary logs.
  *
  * @description - Binary log files are retained for 15 days by default.
- * - The returned log list includes all logs log record end time is after the query start time and log record start time is before the query end time.
- * - When DownloadLink is not NULL, you can download the backup file from this URL. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+ * - The returned log list includes all log records whose end time is later than the query start time and whose start time is earlier than the query end time.
+ * - If the value of DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for two days after it is generated. Download the file before it expires.
  *
  * @param request DescribeBinaryLogListRequest
  * @return DescribeBinaryLogListResponse
@@ -4205,11 +4631,11 @@ DescribeCdcInfoResponse Client::describeCdcInfo(const DescribeCdcInfoRequest &re
 }
 
 /**
- * @summary Retrieves the list of CDC versions.
+ * @summary Retrieves a list of CDC versions.
  *
  * @description - Binary log files are retained for 15 days by default.
- * - The returned log list includes all logs whose log record end time is after the query start time and whose log record start time is before the query end time.
- * - When DownloadLink is not NULL, you can download the backup file from this URL. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+ * - The returned log list includes all log records whose end time is after the query start time and whose start time is before the query end time.
+ * - If DownloadLink is not NULL, you can download the backup file by using this URL. The URL is valid for 2 days after it is generated. Download the file before it expires.
  *
  * @param request DescribeCdcVersionListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4248,11 +4674,11 @@ DescribeCdcVersionListResponse Client::describeCdcVersionListWithOptions(const D
 }
 
 /**
- * @summary Retrieves the list of CDC versions.
+ * @summary Retrieves a list of CDC versions.
  *
  * @description - Binary log files are retained for 15 days by default.
- * - The returned log list includes all logs whose log record end time is after the query start time and whose log record start time is before the query end time.
- * - When DownloadLink is not NULL, you can download the backup file from this URL. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+ * - The returned log list includes all log records whose end time is after the query start time and whose start time is before the query end time.
+ * - If DownloadLink is not NULL, you can download the backup file by using this URL. The URL is valid for 2 days after it is generated. Download the file before it expires.
  *
  * @param request DescribeCdcVersionListRequest
  * @return DescribeCdcVersionListResponse
@@ -4309,7 +4735,7 @@ DescribeCharacterSetResponse Client::describeCharacterSet(const DescribeCharacte
 }
 
 /**
- * @summary Retrieves the basic information of cold storage.
+ * @summary Queries the basic information of cold storage.
  *
  * @param request DescribeColdDataBasicInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4336,7 +4762,7 @@ DescribeColdDataBasicInfoResponse Client::describeColdDataBasicInfoWithOptions(c
 }
 
 /**
- * @summary Retrieves the basic information of cold storage.
+ * @summary Queries the basic information of cold storage.
  *
  * @param request DescribeColdDataBasicInfoRequest
  * @return DescribeColdDataBasicInfoResponse
@@ -4651,7 +5077,7 @@ DescribeContext0InfoResponse Client::describeContext0Info(const DescribeContext0
 }
 
 /**
- * @summary Queries the whitelist of the context service.
+ * @summary Queries the whitelist for the context service.
  *
  * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
  *
@@ -4688,7 +5114,7 @@ DescribeContext0SecurityIpsResponse Client::describeContext0SecurityIpsWithOptio
 }
 
 /**
- * @summary Queries the whitelist of the context service.
+ * @summary Queries the whitelist for the context service.
  *
  * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
  *
@@ -4909,7 +5335,9 @@ DescribeCustomEndpointListResponse Client::describeCustomEndpointList(const Desc
 }
 
 /**
- * @summary Calls the DescribeDBInstanceAttribute operation to retrieve instance attributes.
+ * @summary Queries the attributes of an instance.
+ *
+ * @description This operation retrieves the list of custom endpoints configured by the user to facilitate the management and viewing of private connections or VPC endpoint service settings.
  *
  * @param request DescribeDBInstanceAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4948,7 +5376,9 @@ DescribeDBInstanceAttributeResponse Client::describeDBInstanceAttributeWithOptio
 }
 
 /**
- * @summary Calls the DescribeDBInstanceAttribute operation to retrieve instance attributes.
+ * @summary Queries the attributes of an instance.
+ *
+ * @description This operation retrieves the list of custom endpoints configured by the user to facilitate the management and viewing of private connections or VPC endpoint service settings.
  *
  * @param request DescribeDBInstanceAttributeRequest
  * @return DescribeDBInstanceAttributeResponse
@@ -5067,7 +5497,7 @@ DescribeDBInstanceEndpointResponse Client::describeDBInstanceEndpoint(const Desc
 }
 
 /**
- * @summary Queries the high availability (HA) information of an instance.
+ * @summary Queries the high availability information of an instance.
  *
  * @param request DescribeDBInstanceHARequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5102,7 +5532,7 @@ DescribeDBInstanceHAResponse Client::describeDBInstanceHAWithOptions(const Descr
 }
 
 /**
- * @summary Queries the high availability (HA) information of an instance.
+ * @summary Queries the high availability information of an instance.
  *
  * @param request DescribeDBInstanceHARequest
  * @return DescribeDBInstanceHAResponse
@@ -5113,7 +5543,7 @@ DescribeDBInstanceHAResponse Client::describeDBInstanceHA(const DescribeDBInstan
 }
 
 /**
- * @summary Queries SSL information.
+ * @summary Retrieves SSL information.
  *
  * @param request DescribeDBInstanceSSLRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5148,7 +5578,7 @@ DescribeDBInstanceSSLResponse Client::describeDBInstanceSSLWithOptions(const Des
 }
 
 /**
- * @summary Queries SSL information.
+ * @summary Retrieves SSL information.
  *
  * @param request DescribeDBInstanceSSLRequest
  * @return DescribeDBInstanceSSLResponse
@@ -5205,7 +5635,7 @@ DescribeDBInstanceTDEResponse Client::describeDBInstanceTDE(const DescribeDBInst
 }
 
 /**
- * @summary Queries the topology information of an instance.
+ * @summary Retrieves the topology information of an instance.
  *
  * @param request DescribeDBInstanceTopologyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5252,7 +5682,7 @@ DescribeDBInstanceTopologyResponse Client::describeDBInstanceTopologyWithOptions
 }
 
 /**
- * @summary Queries the topology information of an instance.
+ * @summary Retrieves the topology information of an instance.
  *
  * @param request DescribeDBInstanceTopologyRequest
  * @return DescribeDBInstanceTopologyResponse
@@ -5309,7 +5739,7 @@ DescribeDBInstanceViaEndpointResponse Client::describeDBInstanceViaEndpoint(cons
 }
 
 /**
- * @summary Queries a list of instances by calling the DescribeDBInstances operation.
+ * @summary Queries a list of database instances.
  *
  * @param request DescribeDBInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5376,7 +5806,7 @@ DescribeDBInstancesResponse Client::describeDBInstancesWithOptions(const Describ
 }
 
 /**
- * @summary Queries a list of instances by calling the DescribeDBInstances operation.
+ * @summary Queries a list of database instances.
  *
  * @param request DescribeDBInstancesRequest
  * @return DescribeDBInstancesResponse
@@ -5811,7 +6241,7 @@ DescribeEventsResponse Client::describeEvents(const DescribeEventsRequest &reque
 }
 
 /**
- * @summary Retrieves the list of global database network (GDN) instances.
+ * @summary Queries the list of global database network (GDN) instances.
  *
  * @param request DescribeGdnInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5862,7 +6292,7 @@ DescribeGdnInstancesResponse Client::describeGdnInstancesWithOptions(const Descr
 }
 
 /**
- * @summary Retrieves the list of global database network (GDN) instances.
+ * @summary Queries the list of global database network (GDN) instances.
  *
  * @param request DescribeGdnInstancesRequest
  * @return DescribeGdnInstancesResponse
@@ -6123,7 +6553,7 @@ DescribeOpenSearchConnectionInfoResponse Client::describeOpenSearchConnectionInf
 }
 
 /**
- * @summary Queries the information about a PolarDB-X Search instance.
+ * @summary Queries the details of PolarDB-X Search instances.
  *
  * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
  *
@@ -6160,7 +6590,7 @@ DescribeOpenSearchInfoResponse Client::describeOpenSearchInfoWithOptions(const D
 }
 
 /**
- * @summary Queries the information about a PolarDB-X Search instance.
+ * @summary Queries the details of PolarDB-X Search instances.
  *
  * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
  *
@@ -6485,7 +6915,7 @@ DescribeParameterGroupsResponse Client::describeParameterGroups(const DescribePa
 }
 
 /**
- * @summary Calls the DescribeParameterTemplates operation to retrieve the parameter template list of an instance.
+ * @summary Queries the instance parameter templates.
  *
  * @param request DescribeParameterTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6528,7 +6958,7 @@ DescribeParameterTemplatesResponse Client::describeParameterTemplatesWithOptions
 }
 
 /**
- * @summary Calls the DescribeParameterTemplates operation to retrieve the parameter template list of an instance.
+ * @summary Queries the instance parameter templates.
  *
  * @param request DescribeParameterTemplatesRequest
  * @return DescribeParameterTemplatesResponse
@@ -6644,6 +7074,272 @@ DescribePolarxDataNodesResponse Client::describePolarxDataNodesWithOptions(const
 DescribePolarxDataNodesResponse Client::describePolarxDataNodes(const DescribePolarxDataNodesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describePolarxDataNodesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the access token for the Agent file service.
+ *
+ * @description Queries the access token for the Agent file service.
+ *
+ * @param request DescribePxfsAccessTokensRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePxfsAccessTokensResponse
+ */
+DescribePxfsAccessTokensResponse Client::describePxfsAccessTokensWithOptions(const DescribePxfsAccessTokensRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasIdentityName()) {
+    query["IdentityName"] = request.getIdentityName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTenantId()) {
+    query["TenantId"] = request.getTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePxfsAccessTokens"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePxfsAccessTokensResponse>();
+}
+
+/**
+ * @summary Queries the access token for the Agent file service.
+ *
+ * @description Queries the access token for the Agent file service.
+ *
+ * @param request DescribePxfsAccessTokensRequest
+ * @return DescribePxfsAccessTokensResponse
+ */
+DescribePxfsAccessTokensResponse Client::describePxfsAccessTokens(const DescribePxfsAccessTokensRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePxfsAccessTokensWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the information about an Agent file service instance.
+ *
+ * @description Queries the information about an Agent file service instance.
+ *
+ * @param request DescribePxfsInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePxfsInfoResponse
+ */
+DescribePxfsInfoResponse Client::describePxfsInfoWithOptions(const DescribePxfsInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePxfsInfo"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePxfsInfoResponse>();
+}
+
+/**
+ * @summary Queries the information about an Agent file service instance.
+ *
+ * @description Queries the information about an Agent file service instance.
+ *
+ * @param request DescribePxfsInfoRequest
+ * @return DescribePxfsInfoResponse
+ */
+DescribePxfsInfoResponse Client::describePxfsInfo(const DescribePxfsInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePxfsInfoWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the whitelist for the Agent file service.
+ *
+ * @description Queries the whitelist for the Agent file service.
+ *
+ * @param request DescribePxfsSecurityIpsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePxfsSecurityIpsResponse
+ */
+DescribePxfsSecurityIpsResponse Client::describePxfsSecurityIpsWithOptions(const DescribePxfsSecurityIpsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePxfsSecurityIps"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePxfsSecurityIpsResponse>();
+}
+
+/**
+ * @summary Queries the whitelist for the Agent file service.
+ *
+ * @description Queries the whitelist for the Agent file service.
+ *
+ * @param request DescribePxfsSecurityIpsRequest
+ * @return DescribePxfsSecurityIpsResponse
+ */
+DescribePxfsSecurityIpsResponse Client::describePxfsSecurityIps(const DescribePxfsSecurityIpsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePxfsSecurityIpsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the Agent file service tenant.
+ *
+ * @description Queries the Agent file service tenant.
+ *
+ * @param request DescribePxfsTenantRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePxfsTenantResponse
+ */
+DescribePxfsTenantResponse Client::describePxfsTenantWithOptions(const DescribePxfsTenantRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTenantId()) {
+    query["TenantId"] = request.getTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePxfsTenant"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePxfsTenantResponse>();
+}
+
+/**
+ * @summary Queries the Agent file service tenant.
+ *
+ * @description Queries the Agent file service tenant.
+ *
+ * @param request DescribePxfsTenantRequest
+ * @return DescribePxfsTenantResponse
+ */
+DescribePxfsTenantResponse Client::describePxfsTenant(const DescribePxfsTenantRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePxfsTenantWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the tenant identity of the Agent file service.
+ *
+ * @description Queries the tenant identity of the Agent file service.
+ *
+ * @param request DescribePxfsUsersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePxfsUsersResponse
+ */
+DescribePxfsUsersResponse Client::describePxfsUsersWithOptions(const DescribePxfsUsersRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTenantId()) {
+    query["TenantId"] = request.getTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePxfsUsers"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePxfsUsersResponse>();
+}
+
+/**
+ * @summary Queries the tenant identity of the Agent file service.
+ *
+ * @description Queries the tenant identity of the Agent file service.
+ *
+ * @param request DescribePxfsUsersRequest
+ * @return DescribePxfsUsersResponse
+ */
+DescribePxfsUsersResponse Client::describePxfsUsers(const DescribePxfsUsersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePxfsUsersWithOptions(request, runtime);
 }
 
 /**
@@ -6949,7 +7645,7 @@ DescribeRplInspectionTaskResponse Client::describeRplInspectionTask(const Descri
 }
 
 /**
- * @summary Displays the progress of a ScaleOut migration task.
+ * @summary Retrieves the progress of a scale-out migration task.
  *
  * @param request DescribeScaleOutMigrateTaskListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7000,7 +7696,7 @@ DescribeScaleOutMigrateTaskListResponse Client::describeScaleOutMigrateTaskListW
 }
 
 /**
- * @summary Displays the progress of a ScaleOut migration task.
+ * @summary Retrieves the progress of a scale-out migration task.
  *
  * @param request DescribeScaleOutMigrateTaskListRequest
  * @return DescribeScaleOutMigrateTaskListResponse
@@ -7438,8 +8134,8 @@ DescribeStructureImportTaskInfoResponse Client::describeStructureImportTaskInfo(
  * @summary Queries the Supabase API key.
  *
  * @description - Binary log files are retained for 15 days by default.
- * - The returned log list includes all logs whose log record end time is later than the query start time and whose log record start time is earlier than the query end time.
- * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+ * - The returned log list includes all log records whose end time is after the query start time and whose start time is before the query end time.
+ * - If DownloadLink is not NULL, you can use this URL to download the backup file. This URL is valid for 2 days after it is generated. Download the file before it expires.
  *
  * @param request DescribeSupabaseApiKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7477,8 +8173,8 @@ DescribeSupabaseApiKeyResponse Client::describeSupabaseApiKeyWithOptions(const D
  * @summary Queries the Supabase API key.
  *
  * @description - Binary log files are retained for 15 days by default.
- * - The returned log list includes all logs whose log record end time is later than the query start time and whose log record start time is earlier than the query end time.
- * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+ * - The returned log list includes all log records whose end time is after the query start time and whose start time is before the query end time.
+ * - If DownloadLink is not NULL, you can use this URL to download the backup file. This URL is valid for 2 days after it is generated. Download the file before it expires.
  *
  * @param request DescribeSupabaseApiKeyRequest
  * @return DescribeSupabaseApiKeyResponse
@@ -7541,7 +8237,7 @@ DescribeSupabaseInstanceAttributeResponse Client::describeSupabaseInstanceAttrib
 /**
  * @summary Queries a list of Supabase instances.
  *
- * @description Queries the list of custom endpoints configured by the user for managing and viewing private connection or VPC endpoint service settings.
+ * @description Retrieves the list of custom endpoints configured by the user to facilitate the management and viewing of private connections or VPC endpoint service settings.
  *
  * @param request DescribeSupabaseInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7598,7 +8294,7 @@ DescribeSupabaseInstancesResponse Client::describeSupabaseInstancesWithOptions(c
 /**
  * @summary Queries a list of Supabase instances.
  *
- * @description Queries the list of custom endpoints configured by the user for managing and viewing private connection or VPC endpoint service settings.
+ * @description Retrieves the list of custom endpoints configured by the user to facilitate the management and viewing of private connections or VPC endpoint service settings.
  *
  * @param request DescribeSupabaseInstancesRequest
  * @return DescribeSupabaseInstancesResponse
@@ -7609,11 +8305,11 @@ DescribeSupabaseInstancesResponse Client::describeSupabaseInstances(const Descri
 }
 
 /**
- * @summary Queries the IP whitelist of a Supabase instance.
+ * @summary Queries the Supabase IP whitelist.
  *
  * @description - Binary log files are retained for 15 days by default.
- * - The returned log list includes all logs whose log record end time is later than the specified query start time and whose log record start time is earlier than the specified query end time.
- * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+ * - The returned log list includes all log records whose record end time is after the query start time and whose record start time is before the query end time.
+ * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for two days after it is generated. Download the file before it expires.
  *
  * @param request DescribeSupabaseIpWhitelistRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7652,11 +8348,11 @@ DescribeSupabaseIpWhitelistResponse Client::describeSupabaseIpWhitelistWithOptio
 }
 
 /**
- * @summary Queries the IP whitelist of a Supabase instance.
+ * @summary Queries the Supabase IP whitelist.
  *
  * @description - Binary log files are retained for 15 days by default.
- * - The returned log list includes all logs whose log record end time is later than the specified query start time and whose log record start time is earlier than the specified query end time.
- * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+ * - The returned log list includes all log records whose record end time is after the query start time and whose record start time is before the query end time.
+ * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for two days after it is generated. Download the file before it expires.
  *
  * @param request DescribeSupabaseIpWhitelistRequest
  * @return DescribeSupabaseIpWhitelistResponse
@@ -7717,7 +8413,7 @@ DescribeTagsResponse Client::describeTags(const DescribeTagsRequest &request) {
 }
 
 /**
- * @summary Retrieves the task list of an instance.
+ * @summary Retrieves the list of tasks for an instance.
  *
  * @param request DescribeTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7784,7 +8480,7 @@ DescribeTasksResponse Client::describeTasksWithOptions(const DescribeTasksReques
 }
 
 /**
- * @summary Retrieves the task list of an instance.
+ * @summary Retrieves the list of tasks for an instance.
  *
  * @param request DescribeTasksRequest
  * @return DescribeTasksResponse
@@ -7891,7 +8587,7 @@ DescribeUserEncryptionKeyListResponse Client::describeUserEncryptionKeyList(cons
 }
 
 /**
- * @summary Disables public network access for PolarDB-X Search.
+ * @summary Disables public network access to PolarDB-X Search.
  *
  * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
  *
@@ -7932,7 +8628,7 @@ DisableOpenSearchPublicEndpointResponse Client::disableOpenSearchPublicEndpointW
 }
 
 /**
- * @summary Disables public network access for PolarDB-X Search.
+ * @summary Disables public network access to PolarDB-X Search.
  *
  * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
  *
@@ -8245,7 +8941,7 @@ EnableSqlAuditResponse Client::enableSqlAudit(const EnableSqlAuditRequest &reque
 /**
  * @summary Executes a metadata query.
  *
- * @description Deletes a custom endpoint of a specified database instance and disables access through the domain name.
+ * @description Deletes the custom endpoint of a specified database instance and disables access through the domain name.
  *
  * @param request ExecuteMetaQueryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8294,7 +8990,7 @@ ExecuteMetaQueryResponse Client::executeMetaQueryWithOptions(const ExecuteMetaQu
 /**
  * @summary Executes a metadata query.
  *
- * @description Deletes a custom endpoint of a specified database instance and disables access through the domain name.
+ * @description Deletes the custom endpoint of a specified database instance and disables access through the domain name.
  *
  * @param request ExecuteMetaQueryRequest
  * @return ExecuteMetaQueryResponse
@@ -8557,7 +9253,7 @@ ModifyAccountPrivilegeResponse Client::modifyAccountPrivilege(const ModifyAccoun
 }
 
 /**
- * @summary Modifies the time configuration of O&M events by calling the ModifyActiveOperationMaintainConf operation.
+ * @summary Modifies the time configuration for O&M events.
  *
  * @param request ModifyActiveOperationMaintainConfRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8584,7 +9280,7 @@ ModifyActiveOperationMaintainConfResponse Client::modifyActiveOperationMaintainC
 }
 
 /**
- * @summary Modifies the time configuration of O&M events by calling the ModifyActiveOperationMaintainConf operation.
+ * @summary Modifies the time configuration for O&M events.
  *
  * @param request ModifyActiveOperationMaintainConfRequest
  * @return ModifyActiveOperationMaintainConfResponse
@@ -8773,7 +9469,7 @@ ModifyColumnarClassResponse Client::modifyColumnarClass(const ModifyColumnarClas
 }
 
 /**
- * @summary Synchronously modifies the whitelists of the context service (Service) and Dashboard.
+ * @summary Synchronously modifies the whitelists for the context service and dashboard.
  *
  * @description ****
  *
@@ -8822,7 +9518,7 @@ ModifyContext0SecurityIpsResponse Client::modifyContext0SecurityIpsWithOptions(c
 }
 
 /**
- * @summary Synchronously modifies the whitelists of the context service (Service) and Dashboard.
+ * @summary Synchronously modifies the whitelists for the context service and dashboard.
  *
  * @description ****
  *
@@ -9037,7 +9733,7 @@ ModifyCustomEndpointNetResponse Client::modifyCustomEndpointNet(const ModifyCust
 }
 
 /**
- * @summary Calls the ModifyDBInstanceClass operation to modify the instance specifications.
+ * @summary Modifies the specifications of an instance.
  *
  * @param request ModifyDBInstanceClassRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9116,7 +9812,7 @@ ModifyDBInstanceClassResponse Client::modifyDBInstanceClassWithOptions(const Mod
 }
 
 /**
- * @summary Calls the ModifyDBInstanceClass operation to modify the instance specifications.
+ * @summary Modifies the specifications of an instance.
  *
  * @param request ModifyDBInstanceClassRequest
  * @return ModifyDBInstanceClassResponse
@@ -9347,9 +10043,9 @@ ModifyDBInstanceMaintainTimeResponse Client::modifyDBInstanceMaintainTime(const 
 }
 
 /**
- * @summary Modifies the virtual IP (VIP) address or network properties bound to a database instance. This operation supports changing the internal IP address, adjusting the vSwitch, migrating across zones, and other operations.
+ * @summary Modifies the virtual IP address or network properties of a database instance. This operation supports changing the internal IP address, adjusting the subnet, and migrating across zones.
  *
- * @description ****.
+ * @description ****
  *
  * @param request ModifyDBInstanceVipRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9396,9 +10092,9 @@ ModifyDBInstanceVipResponse Client::modifyDBInstanceVipWithOptions(const ModifyD
 }
 
 /**
- * @summary Modifies the virtual IP (VIP) address or network properties bound to a database instance. This operation supports changing the internal IP address, adjusting the vSwitch, migrating across zones, and other operations.
+ * @summary Modifies the virtual IP address or network properties of a database instance. This operation supports changing the internal IP address, adjusting the subnet, and migrating across zones.
  *
- * @description ****.
+ * @description ****
  *
  * @param request ModifyDBInstanceVipRequest
  * @return ModifyDBInstanceVipResponse
@@ -9645,7 +10341,7 @@ ModifyOpenSearchAccessProtocolResponse Client::modifyOpenSearchAccessProtocol(co
 }
 
 /**
- * @summary Changes the specifications of a PolarDB-X Search instance.
+ * @summary Modifies the specifications of a PolarDBX Search instance.
  *
  * @description ****
  *
@@ -9690,7 +10386,7 @@ ModifyOpenSearchClassResponse Client::modifyOpenSearchClassWithOptions(const Mod
 }
 
 /**
- * @summary Changes the specifications of a PolarDB-X Search instance.
+ * @summary Modifies the specifications of a PolarDBX Search instance.
  *
  * @description ****
  *
@@ -9765,7 +10461,7 @@ ModifyOpenSearchWhitelistGroupResponse Client::modifyOpenSearchWhitelistGroup(co
 }
 
 /**
- * @summary Modifies instance parameters, including parameters at the compute layer and storage layer.
+ * @summary Modifies the parameters of an instance, including the compute and storage layer parameters.
  *
  * @param request ModifyParameterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9816,7 +10512,7 @@ ModifyParameterResponse Client::modifyParameterWithOptions(const ModifyParameter
 }
 
 /**
- * @summary Modifies instance parameters, including parameters at the compute layer and storage layer.
+ * @summary Modifies the parameters of an instance, including the compute and storage layer parameters.
  *
  * @param request ModifyParameterRequest
  * @return ModifyParameterResponse
@@ -9824,6 +10520,68 @@ ModifyParameterResponse Client::modifyParameterWithOptions(const ModifyParameter
 ModifyParameterResponse Client::modifyParameter(const ModifyParameterRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyParameterWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies the whitelist of the Agent file service.
+ *
+ * @description Modifies the whitelist of the Agent file service.
+ *
+ * @param request ModifyPxfsSecurityIpsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyPxfsSecurityIpsResponse
+ */
+ModifyPxfsSecurityIpsResponse Client::modifyPxfsSecurityIpsWithOptions(const ModifyPxfsSecurityIpsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasGroupName()) {
+    query["GroupName"] = request.getGroupName();
+  }
+
+  if (!!request.hasModifyMode()) {
+    query["ModifyMode"] = request.getModifyMode();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSecurityIPList()) {
+    query["SecurityIPList"] = request.getSecurityIPList();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyPxfsSecurityIps"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyPxfsSecurityIpsResponse>();
+}
+
+/**
+ * @summary Modifies the whitelist of the Agent file service.
+ *
+ * @description Modifies the whitelist of the Agent file service.
+ *
+ * @param request ModifyPxfsSecurityIpsRequest
+ * @return ModifyPxfsSecurityIpsResponse
+ */
+ModifyPxfsSecurityIpsResponse Client::modifyPxfsSecurityIps(const ModifyPxfsSecurityIpsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyPxfsSecurityIpsWithOptions(request, runtime);
 }
 
 /**
@@ -10001,7 +10759,7 @@ ModifySupabaseDashboardPasswordResponse Client::modifySupabaseDashboardPassword(
 }
 
 /**
- * @summary Modifies the IP whitelist of a Supabase instance.
+ * @summary Modifies the IP whitelist for Supabase.
  *
  * @description ****
  *
@@ -10050,7 +10808,7 @@ ModifySupabaseSecurityIPListResponse Client::modifySupabaseSecurityIPListWithOpt
 }
 
 /**
- * @summary Modifies the IP whitelist of a Supabase instance.
+ * @summary Modifies the IP whitelist for Supabase.
  *
  * @description ****
  *
@@ -10179,7 +10937,7 @@ QueryColumnarLogResponse Client::queryColumnarLog(const QueryColumnarLogRequest 
 }
 
 /**
- * @summary Queries complete column store audit logs by using streaming.
+ * @summary Queries full column store audit logs by using streaming.
  *
  * @description ****
  *
@@ -10238,7 +10996,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary Queries complete column store audit logs by using streaming.
+ * @summary Queries full column store audit logs by using streaming.
  *
  * @description ****
  *
@@ -10283,7 +11041,7 @@ QueryColumnarLogSSEResponse Client::queryColumnarLogSSEWithOptions(const QueryCo
 }
 
 /**
- * @summary Queries complete column store audit logs by using streaming.
+ * @summary Queries full column store audit logs by using streaming.
  *
  * @description ****
  *
@@ -10612,6 +11370,56 @@ ReleaseMem0PublicConnectionResponse Client::releaseMem0PublicConnection(const Re
 }
 
 /**
+ * @summary Disables the public network connection for the Agent file service.
+ *
+ * @description Disables the public network connection for the Agent file service.
+ *
+ * @param request ReleasePxfsPublicConnectionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ReleasePxfsPublicConnectionResponse
+ */
+ReleasePxfsPublicConnectionResponse Client::releasePxfsPublicConnectionWithOptions(const ReleasePxfsPublicConnectionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ReleasePxfsPublicConnection"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ReleasePxfsPublicConnectionResponse>();
+}
+
+/**
+ * @summary Disables the public network connection for the Agent file service.
+ *
+ * @description Disables the public network connection for the Agent file service.
+ *
+ * @param request ReleasePxfsPublicConnectionRequest
+ * @return ReleasePxfsPublicConnectionResponse
+ */
+ReleasePxfsPublicConnectionResponse Client::releasePxfsPublicConnection(const ReleasePxfsPublicConnectionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return releasePxfsPublicConnectionWithOptions(request, runtime);
+}
+
+/**
  * @summary Resets the password of an account.
  *
  * @param request ResetAccountPasswordRequest
@@ -10742,7 +11550,7 @@ ResetAccountPasswordRestrictResponse Client::resetAccountPasswordRestrict(const 
 /**
  * @summary Resets the API key of the memory engine.
  *
- * @description ****.
+ * @description ****
  *
  * @param request ResetMem0AccountPasswordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10783,7 +11591,7 @@ ResetMem0AccountPasswordResponse Client::resetMem0AccountPasswordWithOptions(con
 /**
  * @summary Resets the API key of the memory engine.
  *
- * @description ****.
+ * @description ****
  *
  * @param request ResetMem0AccountPasswordRequest
  * @return ResetMem0AccountPasswordResponse
@@ -11002,6 +11810,56 @@ RestartOpenSearchResponse Client::restartOpenSearch(const RestartOpenSearchReque
 }
 
 /**
+ * @summary Restarts an Agent file service instance.
+ *
+ * @description Restarts an Agent file service instance.
+ *
+ * @param request RestartPxfsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RestartPxfsResponse
+ */
+RestartPxfsResponse Client::restartPxfsWithOptions(const RestartPxfsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RestartPxfs"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RestartPxfsResponse>();
+}
+
+/**
+ * @summary Restarts an Agent file service instance.
+ *
+ * @description Restarts an Agent file service instance.
+ *
+ * @param request RestartPxfsRequest
+ * @return RestartPxfsResponse
+ */
+RestartPxfsResponse Client::restartPxfs(const RestartPxfsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return restartPxfsWithOptions(request, runtime);
+}
+
+/**
  * @summary Restarts a Supabase instance.
  *
  * @description ****
@@ -11215,6 +12073,64 @@ RestoreDBInstanceResponse Client::restoreDBInstanceWithOptions(const RestoreDBIn
 RestoreDBInstanceResponse Client::restoreDBInstance(const RestoreDBInstanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return restoreDBInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary Revokes an access token for the Agent file service.
+ *
+ * @description Revokes an access token for the Agent file service.
+ *
+ * @param request RevokePxfsAccessTokenRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RevokePxfsAccessTokenResponse
+ */
+RevokePxfsAccessTokenResponse Client::revokePxfsAccessTokenWithOptions(const RevokePxfsAccessTokenRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTenantId()) {
+    query["TenantId"] = request.getTenantId();
+  }
+
+  if (!!request.hasTokenId()) {
+    query["TokenId"] = request.getTokenId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RevokePxfsAccessToken"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RevokePxfsAccessTokenResponse>();
+}
+
+/**
+ * @summary Revokes an access token for the Agent file service.
+ *
+ * @description Revokes an access token for the Agent file service.
+ *
+ * @param request RevokePxfsAccessTokenRequest
+ * @return RevokePxfsAccessTokenResponse
+ */
+RevokePxfsAccessTokenResponse Client::revokePxfsAccessToken(const RevokePxfsAccessTokenRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return revokePxfsAccessTokenWithOptions(request, runtime);
 }
 
 /**
@@ -11582,6 +12498,8 @@ SubmitSqlFlashbackTaskResponse Client::submitSqlFlashbackTask(const SubmitSqlFla
 }
 
 /**
+ * @summary Switches the zone of the primary node for a PolarDB-X instance.
+ *
  * @param request SwitchDBInstanceHARequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SwitchDBInstanceHAResponse
@@ -11631,6 +12549,8 @@ SwitchDBInstanceHAResponse Client::switchDBInstanceHAWithOptions(const SwitchDBI
 }
 
 /**
+ * @summary Switches the zone of the primary node for a PolarDB-X instance.
+ *
  * @param request SwitchDBInstanceHARequest
  * @return SwitchDBInstanceHAResponse
  */
@@ -11948,7 +12868,7 @@ UpdateBackupPolicyResponse Client::updateBackupPolicy(const UpdateBackupPolicyRe
 }
 
 /**
- * @summary Modifies instance tags.
+ * @summary Updates instance labels.
  *
  * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
  *
@@ -11993,7 +12913,7 @@ UpdateCustinsParamResponse Client::updateCustinsParamWithOptions(const UpdateCus
 }
 
 /**
- * @summary Modifies instance tags.
+ * @summary Updates instance labels.
  *
  * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
  *
@@ -12118,7 +13038,7 @@ UpdateDBInstanceTDEResponse Client::updateDBInstanceTDE(const UpdateDBInstanceTD
 }
 
 /**
- * @summary Calls the UpdatePolarDBXInstanceNode operation to change the number of nodes for an instance, including scaling out and scaling in. This request generates a billable order.
+ * @summary Changes the number of nodes for a PolarDB-X instance, including scaling out and scaling in. This request generates an order.
  *
  * @param request UpdatePolarDBXInstanceNodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12181,7 +13101,7 @@ UpdatePolarDBXInstanceNodeResponse Client::updatePolarDBXInstanceNodeWithOptions
 }
 
 /**
- * @summary Calls the UpdatePolarDBXInstanceNode operation to change the number of nodes for an instance, including scaling out and scaling in. This request generates a billable order.
+ * @summary Changes the number of nodes for a PolarDB-X instance, including scaling out and scaling in. This request generates an order.
  *
  * @param request UpdatePolarDBXInstanceNodeRequest
  * @return UpdatePolarDBXInstanceNodeResponse
@@ -12363,6 +13283,60 @@ UpgradeDBInstanceKernelVersionResponse Client::upgradeDBInstanceKernelVersionWit
 UpgradeDBInstanceKernelVersionResponse Client::upgradeDBInstanceKernelVersion(const UpgradeDBInstanceKernelVersionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return upgradeDBInstanceKernelVersionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Upgrades the minor version of the Agent file service.
+ *
+ * @description Upgrades the minor version of the Agent file service.
+ *
+ * @param request UpgradePxfsVersionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpgradePxfsVersionResponse
+ */
+UpgradePxfsVersionResponse Client::upgradePxfsVersionWithOptions(const UpgradePxfsVersionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasMinorVersion()) {
+    query["MinorVersion"] = request.getMinorVersion();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpgradePxfsVersion"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpgradePxfsVersionResponse>();
+}
+
+/**
+ * @summary Upgrades the minor version of the Agent file service.
+ *
+ * @description Upgrades the minor version of the Agent file service.
+ *
+ * @param request UpgradePxfsVersionRequest
+ * @return UpgradePxfsVersionResponse
+ */
+UpgradePxfsVersionResponse Client::upgradePxfsVersion(const UpgradePxfsVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return upgradePxfsVersionWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace Polardbx20200202

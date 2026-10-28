@@ -158,34 +158,34 @@ namespace Models
 
 
     protected:
-      // The start time of the log.
+      // The start time of the log. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> beginTime_ {};
-      // The creation time of the file.
+      // The creation time of the file. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createdTime_ {};
-      // The download link of the file. The link is valid for 2 days.
+      // The download URL of the file. The URL is valid for two days.
       shared_ptr<string> downloadLink_ {};
-      // The end time of the current binary log.
+      // The end time of the binary log. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> endTime_ {};
       // The name of the binary log file.
       shared_ptr<string> fileName_ {};
-      // The unique ID of the current record.
+      // The unique ID of the record.
       shared_ptr<int64_t> id_ {};
-      // The size of the current log file.
+      // The size of the log file.
       shared_ptr<int64_t> logSize_ {};
-      // The last modified time.
+      // The last update time. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> modifiedTime_ {};
-      // The purge status. Valid values:
+      // The cleanup status. Valid values:
       // 
-      // - 0: not deleted. 
-      // - 1: deleted.
+      // - 0: Not deleted. 
+      // - 1: Deleted.
       shared_ptr<int32_t> purgeStatus_ {};
       // The backup host.
       shared_ptr<string> uploadHost_ {};
       // The backup status. Valid values:
       // 
-      // - 0: not backed up. 
-      // - 1: being backed up. 
-      // - 2: backed up.
+      // - 0: Not backed up. 
+      // - 1: Being backed up. 
+      // - 2: Backed up.
       shared_ptr<int32_t> uploadStatus_ {};
     };
 
@@ -231,9 +231,9 @@ namespace Models
   protected:
     // The list of binary log files.
     shared_ptr<vector<DescribeBinaryLogListResponseBody::LogList>> logList_ {};
-    // The page number of the current query.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of binary logs displayed on the current page.
+    // The number of binary logs returned on the current page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

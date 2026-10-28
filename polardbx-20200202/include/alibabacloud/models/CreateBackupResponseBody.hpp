@@ -63,6 +63,7 @@ namespace Models
 
 
     protected:
+      // The ID of the backup set.
       shared_ptr<string> backupSetId_ {};
     };
 
@@ -101,11 +102,11 @@ namespace Models
   protected:
     // The returned data.
     shared_ptr<CreateBackupResponseBody::Data> data_ {};
-    // Empty if the request is successful. An error message is returned if the request fails.
+    // The message. If the request is successful, this field is empty. If the request fails, an error message is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

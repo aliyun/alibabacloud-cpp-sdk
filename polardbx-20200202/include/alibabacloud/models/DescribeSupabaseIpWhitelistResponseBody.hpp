@@ -102,9 +102,9 @@ namespace Models
 
 
       protected:
-        // The group name.
+        // The name of the group.
         shared_ptr<string> groupName_ {};
-        // The group tag.
+        // The tag of the group.
         shared_ptr<string> groupTag_ {};
         // The IP whitelist.
         shared_ptr<string> securityIPList_ {};
@@ -231,7 +231,7 @@ namespace Models
       shared_ptr<string> encodedDiagnosticMessage_ {};
       // The type of the permission denial.
       shared_ptr<string> noPermissionType_ {};
-      // The policy type.
+      // The type of the policy.
       shared_ptr<string> policyType_ {};
     };
 
@@ -263,7 +263,7 @@ namespace Models
 
 
   protected:
-    // The details of the access denial.
+    // The details of the access denied error.
     shared_ptr<DescribeSupabaseIpWhitelistResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The whitelist information.
     shared_ptr<DescribeSupabaseIpWhitelistResponseBody::Data> data_ {};

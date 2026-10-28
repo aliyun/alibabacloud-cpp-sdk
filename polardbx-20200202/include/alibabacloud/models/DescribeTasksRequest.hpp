@@ -121,11 +121,11 @@ namespace Models
 
 
   protected:
-    // The instance name.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The end time of the task.
+    // The end time of the task. The format is YYYY-MM-DD.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
@@ -141,7 +141,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The start time of the task.
+    // The start time of the task. The format is YYYY-MM-DD.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

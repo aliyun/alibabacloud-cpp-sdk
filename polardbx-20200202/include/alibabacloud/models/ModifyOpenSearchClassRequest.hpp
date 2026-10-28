@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The target disk size per node, in GB. If not specified, the current disk size is retained.
+    // The target disk size per node, in GB. If this parameter is not specified, the current disk size is retained.
     shared_ptr<int32_t> DBInstanceDiskSize_ {};
     // The name of the instance.
     // 
@@ -76,7 +76,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The node specifications code of the PolarDB-X Search data node. This parameter is required. Active node specifications depend on the region and sales configuration, and must differ from the current node specifications.
+    // The node specifications code for PolarDBX Search data nodes. This parameter is required. The active node specifications depend on the region and sales configuration, and must differ from the current node specifications.
     shared_ptr<string> searchClassCode_ {};
   };
 

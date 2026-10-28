@@ -79,6 +79,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
+    // The name of the CN cluster for the instance, such as default.
     shared_ptr<string> instanceClusterName_ {};
     // The region ID.
     // 
@@ -88,7 +89,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> vSwitchId_ {};
-    // The ID of the virtual private cloud (VPC) where the access endpoint resides.
+    // The ID of the VPC where the endpoint is located.
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};

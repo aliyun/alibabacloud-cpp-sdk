@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // Empty if the request is successful. An error message is returned if the request fails.
+    // The error message. This parameter is empty if the request is successful.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -61,7 +61,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
-    // The API key.
+    // apikey
     shared_ptr<string> mem0ApiKey_ {};
     // The region ID.
     // 

@@ -270,9 +270,12 @@ namespace Models
 
 
           protected:
-            // The zone of a node in the RDS three-node cluster.
+            // The zone to which a specific node in the three-node ApsaraDB RDS deployment belongs.
             shared_ptr<string> azone_ {};
-            // The role of a node in the RDS three-node cluster. Valid values:
+            // The role of a specific node in the three-node ApsaraDB RDS deployment. Valid values:
+            // - **leader**: Primary node.
+            // - **follower**: Secondary node.
+            // - **logger**: Logger node.
             shared_ptr<string> role_ {};
           };
 
@@ -498,19 +501,22 @@ namespace Models
 
 
         protected:
-          // Indicates whether the node is activated. For the compute layer, only the primary zone node is activated. After a primary/secondary switchover is performed on the instance, the standby compute node becomes the primary node. All storage layer nodes are activated.
+          // Indicates whether the node is enabled. In the compute layer, only the nodes in the primary zone are enabled. After a primary/secondary switchover is performed on the instance, the secondary nodes in the compute layer are switched to primary nodes. All nodes in the storage layer are enabled.
           shared_ptr<bool> activated_ {};
-          // The zone of the node. If the node is an RDS node, the zones of multiple child nodes are separated by semicolons (;).
+          // The zone to which the node belongs. If the node is an ApsaraDB RDS node, the zones of multiple child nodes are separated by semicolons (;).
           shared_ptr<string> azone_ {};
-          // The data information list of the RDS three-node cluster.
+          // The list of data information for the three-node ApsaraDB RDS deployment.
           shared_ptr<vector<Items::AzoneRoleList>> azoneRoleList_ {};
-          // The node property. Valid values:
+          // The node attribute. Valid values:
+          // - **polarx_cn**: Compute node.
+          // - **polarx_store**: Data node.
+          // - **polarx_gms**: GMS node.
           shared_ptr<string> characterType_ {};
-          // The data struct.
+          // The data structure.
           shared_ptr<vector<Items::ConnectionIp>> connectionIp_ {};
           // The connection type.
           shared_ptr<int32_t> DBInstanceConnType_ {};
-          // The instance creation time.
+          // The time when the instance was created.
           shared_ptr<string> DBInstanceCreateTime_ {};
           // The instance description.
           shared_ptr<string> DBInstanceDescription_ {};
@@ -524,39 +530,64 @@ namespace Models
           shared_ptr<string> DBInstanceStatusDescription_ {};
           // The disk size.
           shared_ptr<int64_t> diskSize_ {};
-          // The engine version. Valid values:
+          // The DPI engine version. Valid values:
+          // - **mysql**
+          // - **polarx_cdc**
+          // - **polarx_dn**
           shared_ptr<string> engine_ {};
-          // The engine version. Default value: 2.0.
+          // The DPI engine version. Default value: 2.0.
           shared_ptr<string> engineVersion_ {};
-          // The instance CN cluster name, such as default.
+          // The name of the CN cluster for the instance, such as default.
           shared_ptr<string> instanceClusterName_ {};
-          // Indicates whether the node is locked. Valid values:
+          // The lock status. Valid values:
+          // - **0**: Unlocked.
+          // - **1**: Locked.
           shared_ptr<int32_t> lockMode_ {};
           // The lock reason.
           shared_ptr<string> lockReason_ {};
-          // The O&M window end time.
+          // The end time of the O&M window.
           shared_ptr<string> maintainEndTime_ {};
-          // The O&M window start time.
+          // The start time of the O&M window.
           shared_ptr<string> maintainStartTime_ {};
           // The maximum number of connections.
           shared_ptr<int32_t> maxConnections_ {};
           // The maximum IOPS.
           shared_ptr<int32_t> maxIops_ {};
-          // The node specifications:
+          // The node specifications. Valid values:
+          // - **polarx.x4.medium.2e**: 2 vCPUs and 8 GB of memory.
+          // - **polarx.x4.large.2e**: 4 vCPUs and 16 GB of memory.
+          // - **polarx.x8.large.2e**: 4 vCPUs and 32 GB of memory.
+          // - **polarx.x4.xlarge.2e**: 8 vCPUs and 32 GB of memory.
+          // - **polarx.x8.xlarge.2e**: 8 vCPUs and 64 GB of memory.
+          // - **polarx.x4.2xlarge.2e**: 16 vCPUs and 64 GB of memory.
+          // - **polarx.x8.2xlarge.2e**: 16 vCPUs and 128 GB of memory.
+          // - **polarx.x4.4xlarge.2e**: 32 vCPUs and 128 GB of memory.
+          // - **polarx.x8.4xlarge.2e**: 32 vCPUs and 256 GB of memory.
+          // - **polarx.st.8xlarge.2e**: 60 vCPUs and 470 GB of memory.
+          // - **polarx.st.12xlarge.2e**: 90 vCPUs and 720 GB of memory.
           shared_ptr<string> nodeClass_ {};
-          // The physical instance name.
+          // The name of the physical instance.
           shared_ptr<string> phyInstanceName_ {};
           // The read/write type, such as ReadWrite.
           shared_ptr<string> readType_ {};
-          // The region of the node. If the node is an RDS node, the regions of multiple child nodes are separated by semicolons (;).
+          // The region to which the node belongs. If the node is an ApsaraDB RDS node, the regions of multiple child nodes are separated by semicolons (;).
           shared_ptr<string> region_ {};
           // The node role. Valid values:
+          // - **master**: Primary node.
+          // - **standby**: Secondary node.
           shared_ptr<string> role_ {};
-          // The node status:
+          // The node status. Valid values:
+          // - **0**: Running.
+          // - **1**: Creating.
+          // - **2**: Abnormal.
+          // - **3**: Expired.
+          // - **4**: Releasing.
+          // - **5**: Released.
+          // - **6**: Locked.
           shared_ptr<string> status_ {};
-          // The storage usage, in MB.
+          // The amount of used storage space. Unit: MB.
           shared_ptr<string> storageUsed_ {};
-          // The log node version.
+          // The version of the logger node.
           shared_ptr<string> version_ {};
         };
 
@@ -653,21 +684,26 @@ namespace Models
 
 
         protected:
-          // Indicates whether the node is activated. For the compute layer, only the primary zone node is activated. After a primary/secondary switchover is performed on the instance, the standby compute node becomes the primary node. All storage layer nodes are activated.
+          // Indicates whether the node is enabled. In the compute layer, only the nodes in the primary zone are enabled. After a primary/secondary switchover is performed on the instance, the secondary nodes in the compute layer are switched to primary nodes. All nodes in the storage layer are enabled.
           shared_ptr<bool> activated_ {};
-          // The zone of the node. If the node is an RDS node, the zones of multiple child nodes are separated by semicolons (;).
+          // The zone to which the node belongs. If the node is an ApsaraDB RDS node, the zones of multiple child nodes are separated by semicolons (;).
           shared_ptr<string> azone_ {};
-          // The node property. Valid values:
+          // The node attribute. Valid values:
+          // - **polarx_cn**: Compute node.
+          // - **polarx_store**: Data node.
+          // - **polarx_gms**: GMS node.
           shared_ptr<string> characterType_ {};
           // The instance ID.
           shared_ptr<string> DBInstanceId_ {};
           // The instance name.
           shared_ptr<string> DBInstanceName_ {};
-          // The physical instance name.
+          // The name of the physical instance.
           shared_ptr<string> phyInstanceName_ {};
-          // The region of the node. If the node is an RDS node, the regions of multiple child nodes are separated by semicolons (;).
+          // The region to which the node belongs. If the node is an ApsaraDB RDS node, the regions of multiple child nodes are separated by semicolons (;).
           shared_ptr<string> region_ {};
           // The node role. Valid values:
+          // - **master**: Primary node.
+          // - **standby**: Secondary node.
           shared_ptr<string> role_ {};
         };
 
@@ -794,7 +830,7 @@ namespace Models
       protected:
         // Indicates that LVS is used for load balancing.
         shared_ptr<string> DBInstanceConnType_ {};
-        // The instance creation time, in the format of yyyy-MM-dd HH:mm:ss.
+        // The time when the instance was created. The format is yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> DBInstanceCreateTime_ {};
         // The instance description.
         shared_ptr<string> DBInstanceDescription_ {};
@@ -810,19 +846,21 @@ namespace Models
         shared_ptr<int32_t> DBInstanceStorage_ {};
         // The engine. Default value: polarx.
         shared_ptr<string> engine_ {};
-        // The engine version. Default value: 2.0.
+        // The DPI engine version. Default value: 2.0.
         shared_ptr<string> engineVersion_ {};
-        // The historical node list.
+        // The list of historical nodes.
         shared_ptr<vector<LogicInstanceTopology::HistoryItems>> historyItems_ {};
-        // The node list.
+        // The list of nodes.
         shared_ptr<vector<LogicInstanceTopology::Items>> items_ {};
-        // The lock status:
+        // The lock status. Valid values:
+        // - **0**: Unlocked.
+        // - **1**: Locked.
         shared_ptr<int32_t> lockMode_ {};
         // The lock reason.
         shared_ptr<string> lockReason_ {};
-        // The O&M window end time, in the format of HH:mm:ss.
+        // The end time of the O&M window. The format is HH:mm:ss.
         shared_ptr<string> maintainEndTime_ {};
-        // The O&M window start time, in the format of HH:mm:ss.
+        // The start time of the O&M window. The format is HH:mm:ss.
         shared_ptr<string> maintainStartTime_ {};
       };
 
@@ -860,7 +898,7 @@ namespace Models
 
 
   protected:
-    // The data struct.
+    // The data structure.
     shared_ptr<DescribeDBInstanceTopologyResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

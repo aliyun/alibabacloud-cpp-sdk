@@ -79,7 +79,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
-    // The end time of the time range for querying historical instances in the topology. Format: yyyy-MM-dd HH:mm:ss.
+    // The end time of the historical instance range for the topology query, in the yyyy-MM-dd HH:mm:ss format.
     shared_ptr<string> endTime_ {};
     // Specifies whether to query the historical topology.
     shared_ptr<bool> minuteSimple_ {};
@@ -87,7 +87,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The start time of the time range for querying historical instances in the topology. Format: yyyy-MM-dd HH:mm:ss.
+    // The start time of the historical instance range for the topology query, in the yyyy-MM-dd HH:mm:ss format.
     shared_ptr<string> startTime_ {};
   };
 

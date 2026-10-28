@@ -57,10 +57,11 @@ namespace Models
 
 
   protected:
-    // The instance name.
+    // The name of the instance.
     shared_ptr<string> DBInstanceName_ {};
+    // The name of the CDC instance. This parameter specifies the CDC instance for which to query versions.
     shared_ptr<string> instanceName_ {};
-    // The region ID of the instance.
+    // The ID of the region where the instance resides.
     shared_ptr<string> regionId_ {};
   };
 

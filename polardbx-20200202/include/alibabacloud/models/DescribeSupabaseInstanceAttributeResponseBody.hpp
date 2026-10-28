@@ -366,7 +366,7 @@ namespace Models
     protected:
       // The list of endpoints.
       shared_ptr<vector<Data::ConnAddrs>> connAddrs_ {};
-      // The time when the instance was created.
+      // The creation time.
       shared_ptr<string> createTime_ {};
       // The instance name.
       shared_ptr<string> DBInstanceName_ {};
@@ -494,7 +494,7 @@ namespace Models
       shared_ptr<string> authPrincipalDisplayName_ {};
       // The owner ID of the authentication principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // The type of the authentication principal.
+      // The authentication principal type.
       shared_ptr<string> authPrincipalType_ {};
       // The encoded diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};

@@ -66,7 +66,7 @@ namespace Models
     // - **search**: data node. This is the default value.
     // - **dashboard**: dashboard node.
     shared_ptr<string> nodeType_ {};
-    // The region in which the instance resides.
+    // The region ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

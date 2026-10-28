@@ -117,17 +117,17 @@ namespace Models
 
 
     protected:
-      // The creation time.
+      // The creation time. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> createdTime_ {};
       // The cycle time.
       shared_ptr<string> cycleTime_ {};
       // The cycle type.
       shared_ptr<string> cycleType_ {};
-      // The O&M end time.
+      // The end time of the O&M window. The time is displayed in UTC in the HH:mm:ssZ format.
       shared_ptr<string> maintainEndTime_ {};
-      // The O&M start time.
+      // The start time of the O&M window. The time is displayed in UTC in the HH:mm:ssZ format.
       shared_ptr<string> maintainStartTime_ {};
-      // The modification time.
+      // The update time. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> modifiedTime_ {};
       // The status.
       shared_ptr<int64_t> status_ {};
@@ -161,7 +161,7 @@ namespace Models
   protected:
     // The configuration information.
     shared_ptr<DescribeActiveOperationMaintainConfResponseBody::Config> config_ {};
-    // Indicates whether the O&M window has been configured. Valid values:
+    // Specifies whether the settings are configured. Valid values:
     // 
     // - 1: Configured.
     // - 0: Not configured.

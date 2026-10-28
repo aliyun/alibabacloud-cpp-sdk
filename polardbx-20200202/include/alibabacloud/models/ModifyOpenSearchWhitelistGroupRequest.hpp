@@ -83,15 +83,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // The list of source IP address restrictions.
+    // The list of source IP addresses.
     // 
     // This parameter is required.
     shared_ptr<string> IPs_ {};
-    // The region in which the instance resides.
+    // The region of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The remarks.
+    // The remark.
     shared_ptr<string> remark_ {};
   };
 

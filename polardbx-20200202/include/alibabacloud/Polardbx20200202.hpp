@@ -21,6 +21,8 @@ namespace Polardbx20200202
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary Aligns the primary zone of the storage nodes of a PolarDB-X instance.
+       *
        * @param request AlignStoragePrimaryAzoneRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return AlignStoragePrimaryAzoneResponse
@@ -28,6 +30,8 @@ namespace Polardbx20200202
       Models::AlignStoragePrimaryAzoneResponse alignStoragePrimaryAzoneWithOptions(const Models::AlignStoragePrimaryAzoneRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Aligns the primary zone of the storage nodes of a PolarDB-X instance.
+       *
        * @param request AlignStoragePrimaryAzoneRequest
        * @return AlignStoragePrimaryAzoneResponse
        */
@@ -51,9 +55,9 @@ namespace Polardbx20200202
       Models::AllocateColdDataVolumeResponse allocateColdDataVolume(const Models::AllocateColdDataVolumeRequest &request);
 
       /**
-       * @summary Enables a public network connection for a specified physical ReplicaSet of the context service.
+       * @summary Enables public network connections for a specified physical ReplicaSet of the context service.
        *
-       * @description This operation is used to confirm that no active connections exist before a rollback task, ensuring operation safety.
+       * @description This operation confirms that no active connections exist before a rollback task to ensure operational security.
        *
        * @param request AllocateContext0PublicConnectionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -62,9 +66,9 @@ namespace Polardbx20200202
       Models::AllocateContext0PublicConnectionResponse allocateContext0PublicConnectionWithOptions(const Models::AllocateContext0PublicConnectionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables a public network connection for a specified physical ReplicaSet of the context service.
+       * @summary Enables public network connections for a specified physical ReplicaSet of the context service.
        *
-       * @description This operation is used to confirm that no active connections exist before a rollback task, ensuring operation safety.
+       * @description This operation confirms that no active connections exist before a rollback task to ensure operational security.
        *
        * @param request AllocateContext0PublicConnectionRequest
        * @return AllocateContext0PublicConnectionResponse
@@ -110,9 +114,9 @@ namespace Polardbx20200202
       Models::AllocateInstancePublicConnectionResponse allocateInstancePublicConnection(const Models::AllocateInstancePublicConnectionRequest &request);
 
       /**
-       * @summary Enables a public domain name for a Mem0 instance.
+       * @summary Enables the public domain name for a Mem0 instance.
        *
-       * @description This operation is used to confirm that no active connections exist before a rollback task, to ensure operation safety.
+       * @description This operation checks for active connections before a rollback task to ensure operational security.
        *
        * @param request AllocateMem0PublicConnectionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -121,14 +125,35 @@ namespace Polardbx20200202
       Models::AllocateMem0PublicConnectionResponse allocateMem0PublicConnectionWithOptions(const Models::AllocateMem0PublicConnectionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables a public domain name for a Mem0 instance.
+       * @summary Enables the public domain name for a Mem0 instance.
        *
-       * @description This operation is used to confirm that no active connections exist before a rollback task, to ensure operation safety.
+       * @description This operation checks for active connections before a rollback task to ensure operational security.
        *
        * @param request AllocateMem0PublicConnectionRequest
        * @return AllocateMem0PublicConnectionResponse
        */
       Models::AllocateMem0PublicConnectionResponse allocateMem0PublicConnection(const Models::AllocateMem0PublicConnectionRequest &request);
+
+      /**
+       * @summary Enables public network connection for PXFS.
+       *
+       * @description Enables public network connection for the agent file service.
+       *
+       * @param request AllocatePxfsPublicConnectionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AllocatePxfsPublicConnectionResponse
+       */
+      Models::AllocatePxfsPublicConnectionResponse allocatePxfsPublicConnectionWithOptions(const Models::AllocatePxfsPublicConnectionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Enables public network connection for PXFS.
+       *
+       * @description Enables public network connection for the agent file service.
+       *
+       * @param request AllocatePxfsPublicConnectionRequest
+       * @return AllocatePxfsPublicConnectionResponse
+       */
+      Models::AllocatePxfsPublicConnectionResponse allocatePxfsPublicConnection(const Models::AllocatePxfsPublicConnectionRequest &request);
 
       /**
        * @summary Mounts a columnar instance to a specified primary database instance.
@@ -302,7 +327,7 @@ namespace Polardbx20200202
       Models::CreateAccountResponse createAccount(const Models::CreateAccountRequest &request);
 
       /**
-       * @summary Creates a backup by calling the CreateBackup operation.
+       * @summary Creates a backup.
        *
        * @param request CreateBackupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -311,7 +336,7 @@ namespace Polardbx20200202
       Models::CreateBackupResponse createBackupWithOptions(const Models::CreateBackupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a backup by calling the CreateBackup operation.
+       * @summary Creates a backup.
        *
        * @param request CreateBackupRequest
        * @return CreateBackupResponse
@@ -382,7 +407,7 @@ namespace Polardbx20200202
       Models::CreateCustomEndpointResponse createCustomEndpoint(const Models::CreateCustomEndpointRequest &request);
 
       /**
-       * @summary Creates a database by calling the CreateDB operation.
+       * @summary Creates a database.
        *
        * @param request CreateDBRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -391,7 +416,7 @@ namespace Polardbx20200202
       Models::CreateDBResponse createDBWithOptions(const Models::CreateDBRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a database by calling the CreateDB operation.
+       * @summary Creates a database.
        *
        * @param request CreateDBRequest
        * @return CreateDBResponse
@@ -399,7 +424,7 @@ namespace Polardbx20200202
       Models::CreateDBResponse createDB(const Models::CreateDBRequest &request);
 
       /**
-       * @summary Calls the CreateDBInstance operation to create a PolarDB-X instance.
+       * @summary Creates a PolarDB-X instance.
        *
        * @description ****
        *
@@ -410,7 +435,7 @@ namespace Polardbx20200202
       Models::CreateDBInstanceResponse createDBInstanceWithOptions(const Models::CreateDBInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Calls the CreateDBInstance operation to create a PolarDB-X instance.
+       * @summary Creates a PolarDB-X instance.
        *
        * @description ****
        *
@@ -443,7 +468,7 @@ namespace Polardbx20200202
       /**
        * @summary Creates an AI gateway consumer for a PolarDB-X instance.
        *
-       * @description ****.
+       * @description ****
        *
        * @param request CreateGatewayConsumerForPolarDBXRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -454,7 +479,7 @@ namespace Polardbx20200202
       /**
        * @summary Creates an AI gateway consumer for a PolarDB-X instance.
        *
-       * @description ****.
+       * @description ****
        *
        * @param request CreateGatewayConsumerForPolarDBXRequest
        * @return CreateGatewayConsumerForPolarDBXResponse
@@ -500,7 +525,7 @@ namespace Polardbx20200202
       Models::CreateGdnStandbyMemberResponse createGdnStandbyMember(const Models::CreateGdnStandbyMemberRequest &request);
 
       /**
-       * @summary Enable Memory Engine
+       * @summary Enables the memory engine.
        *
        * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
        *
@@ -511,7 +536,7 @@ namespace Polardbx20200202
       Models::CreateMem0Response createMem0WithOptions(const Models::CreateMem0Request &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enable Memory Engine
+       * @summary Enables the memory engine.
        *
        * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
        *
@@ -542,7 +567,7 @@ namespace Polardbx20200202
       Models::CreateOpenSearchResponse createOpenSearch(const Models::CreateOpenSearchRequest &request);
 
       /**
-       * @summary Creates an account for a PolarDB-X Search instance.
+       * @summary Creates a PolarDB-X Search instance account.
        *
        * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
        *
@@ -553,7 +578,7 @@ namespace Polardbx20200202
       Models::CreateOpenSearchAccountResponse createOpenSearchAccountWithOptions(const Models::CreateOpenSearchAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an account for a PolarDB-X Search instance.
+       * @summary Creates a PolarDB-X Search instance account.
        *
        * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
        *
@@ -603,6 +628,90 @@ namespace Polardbx20200202
        * @return CreatePolardbxSupabaseInstanceResponse
        */
       Models::CreatePolardbxSupabaseInstanceResponse createPolardbxSupabaseInstance(const Models::CreatePolardbxSupabaseInstanceRequest &request);
+
+      /**
+       * @summary Creates an Agent file service instance.
+       *
+       * @description Creates an Agent file service instance.
+       *
+       * @param request CreatePxfsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreatePxfsResponse
+       */
+      Models::CreatePxfsResponse createPxfsWithOptions(const Models::CreatePxfsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an Agent file service instance.
+       *
+       * @description Creates an Agent file service instance.
+       *
+       * @param request CreatePxfsRequest
+       * @return CreatePxfsResponse
+       */
+      Models::CreatePxfsResponse createPxfs(const Models::CreatePxfsRequest &request);
+
+      /**
+       * @summary Issues an access token for the Agent file service.
+       *
+       * @description Issues an access token for the Agent file service.
+       *
+       * @param request CreatePxfsAccessTokenRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreatePxfsAccessTokenResponse
+       */
+      Models::CreatePxfsAccessTokenResponse createPxfsAccessTokenWithOptions(const Models::CreatePxfsAccessTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Issues an access token for the Agent file service.
+       *
+       * @description Issues an access token for the Agent file service.
+       *
+       * @param request CreatePxfsAccessTokenRequest
+       * @return CreatePxfsAccessTokenResponse
+       */
+      Models::CreatePxfsAccessTokenResponse createPxfsAccessToken(const Models::CreatePxfsAccessTokenRequest &request);
+
+      /**
+       * @summary Creates an Agent file service tenant.
+       *
+       * @description Creates an Agent file service tenant.
+       *
+       * @param request CreatePxfsTenantRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreatePxfsTenantResponse
+       */
+      Models::CreatePxfsTenantResponse createPxfsTenantWithOptions(const Models::CreatePxfsTenantRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an Agent file service tenant.
+       *
+       * @description Creates an Agent file service tenant.
+       *
+       * @param request CreatePxfsTenantRequest
+       * @return CreatePxfsTenantResponse
+       */
+      Models::CreatePxfsTenantResponse createPxfsTenant(const Models::CreatePxfsTenantRequest &request);
+
+      /**
+       * @summary Creates a tenant identity for the Agent file service.
+       *
+       * @description Creates a tenant identity for the Agent file service.
+       *
+       * @param request CreatePxfsUserRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreatePxfsUserResponse
+       */
+      Models::CreatePxfsUserResponse createPxfsUserWithOptions(const Models::CreatePxfsUserRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a tenant identity for the Agent file service.
+       *
+       * @description Creates a tenant identity for the Agent file service.
+       *
+       * @param request CreatePxfsUserRequest
+       * @return CreatePxfsUserResponse
+       */
+      Models::CreatePxfsUserResponse createPxfsUser(const Models::CreatePxfsUserRequest &request);
 
       /**
        * @summary Creates a PXFuse node.
@@ -740,7 +849,7 @@ namespace Polardbx20200202
       Models::CreateSubCNInstanceResponse createSubCNInstance(const Models::CreateSubCNInstanceRequest &request);
 
       /**
-       * @summary Enables the public endpoint for a Supabase instance.
+       * @summary Enables the public endpoint for Supabase.
        *
        * @description ****
        *
@@ -751,7 +860,7 @@ namespace Polardbx20200202
       Models::CreateSupabaseNetTypeResponse createSupabaseNetTypeWithOptions(const Models::CreateSupabaseNetTypeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables the public endpoint for a Supabase instance.
+       * @summary Enables the public endpoint for Supabase.
        *
        * @description ****
        *
@@ -949,7 +1058,7 @@ namespace Polardbx20200202
       /**
        * @summary Disables the memory engine.
        *
-       * @description Deletes the custom endpoint of a specified database instance and disables the access entry for the domain name.
+       * @description Deletes the custom endpoint of a specified database instance and disables access to the domain name.
        *
        * @param request DeleteMem0Request
        * @param runtime runtime options for this request RuntimeOptions
@@ -960,7 +1069,7 @@ namespace Polardbx20200202
       /**
        * @summary Disables the memory engine.
        *
-       * @description Deletes the custom endpoint of a specified database instance and disables the access entry for the domain name.
+       * @description Deletes the custom endpoint of a specified database instance and disables access to the domain name.
        *
        * @param request DeleteMem0Request
        * @return DeleteMem0Response
@@ -1054,6 +1163,48 @@ namespace Polardbx20200202
        * @return DeletePolardbxSupabaseInstanceResponse
        */
       Models::DeletePolardbxSupabaseInstanceResponse deletePolardbxSupabaseInstance(const Models::DeletePolardbxSupabaseInstanceRequest &request);
+
+      /**
+       * @summary Deletes an Agent file service instance.
+       *
+       * @description Deletes an Agent file service instance.
+       *
+       * @param request DeletePxfsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeletePxfsResponse
+       */
+      Models::DeletePxfsResponse deletePxfsWithOptions(const Models::DeletePxfsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes an Agent file service instance.
+       *
+       * @description Deletes an Agent file service instance.
+       *
+       * @param request DeletePxfsRequest
+       * @return DeletePxfsResponse
+       */
+      Models::DeletePxfsResponse deletePxfs(const Models::DeletePxfsRequest &request);
+
+      /**
+       * @summary Deletes an Agent file service tenant identity.
+       *
+       * @description Deletes an Agent file service tenant identity.
+       *
+       * @param request DeletePxfsUserRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeletePxfsUserResponse
+       */
+      Models::DeletePxfsUserResponse deletePxfsUserWithOptions(const Models::DeletePxfsUserRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes an Agent file service tenant identity.
+       *
+       * @description Deletes an Agent file service tenant identity.
+       *
+       * @param request DeletePxfsUserRequest
+       * @return DeletePxfsUserResponse
+       */
+      Models::DeletePxfsUserResponse deletePxfsUser(const Models::DeletePxfsUserRequest &request);
 
       /**
        * @summary Deletes a PXFuse node.
@@ -1157,7 +1308,7 @@ namespace Polardbx20200202
       Models::DescribeAccountListResponse describeAccountList(const Models::DescribeAccountListRequest &request);
 
       /**
-       * @summary Calls the DescribeActiveOperationMaintainConf operation to display the O&M window configuration.
+       * @summary Queries the O&M time configuration.
        *
        * @param request DescribeActiveOperationMaintainConfRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1166,7 +1317,7 @@ namespace Polardbx20200202
       Models::DescribeActiveOperationMaintainConfResponse describeActiveOperationMaintainConfWithOptions(const Models::DescribeActiveOperationMaintainConfRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Calls the DescribeActiveOperationMaintainConf operation to display the O&M window configuration.
+       * @summary Queries the O&M time configuration.
        *
        * @param request DescribeActiveOperationMaintainConfRequest
        * @return DescribeActiveOperationMaintainConfResponse
@@ -1191,7 +1342,7 @@ namespace Polardbx20200202
       Models::DescribeActiveOperationTaskCountResponse describeActiveOperationTaskCount(const Models::DescribeActiveOperationTaskCountRequest &request);
 
       /**
-       * @summary Queries O&M events by calling the DescribeActiveOperationTasks operation.
+       * @summary Queries O&M events.
        *
        * @param request DescribeActiveOperationTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1200,7 +1351,7 @@ namespace Polardbx20200202
       Models::DescribeActiveOperationTasksResponse describeActiveOperationTasksWithOptions(const Models::DescribeActiveOperationTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries O&M events by calling the DescribeActiveOperationTasks operation.
+       * @summary Queries O&M events.
        *
        * @param request DescribeActiveOperationTasksRequest
        * @return DescribeActiveOperationTasksResponse
@@ -1208,7 +1359,7 @@ namespace Polardbx20200202
       Models::DescribeActiveOperationTasksResponse describeActiveOperationTasks(const Models::DescribeActiveOperationTasksRequest &request);
 
       /**
-       * @summary Queries the list of cold storage tables.
+       * @summary Lists cold storage tables.
        *
        * @param request DescribeArchiveTableListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1217,7 +1368,7 @@ namespace Polardbx20200202
       Models::DescribeArchiveTableListResponse describeArchiveTableListWithOptions(const Models::DescribeArchiveTableListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of cold storage tables.
+       * @summary Lists cold storage tables.
        *
        * @param request DescribeArchiveTableListRequest
        * @return DescribeArchiveTableListResponse
@@ -1293,11 +1444,11 @@ namespace Polardbx20200202
       Models::DescribeBackupSetListResponse describeBackupSetList(const Models::DescribeBackupSetListRequest &request);
 
       /**
-       * @summary Queries binary logs by calling the DescribeBinaryLogList operation.
+       * @summary Queries binary logs.
        *
        * @description - Binary log files are retained for 15 days by default.
-       * - The returned log list includes all logs log record end time is after the query start time and log record start time is before the query end time.
-       * - When DownloadLink is not NULL, you can download the backup file from this URL. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+       * - The returned log list includes all log records whose end time is later than the query start time and whose start time is earlier than the query end time.
+       * - If the value of DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for two days after it is generated. Download the file before it expires.
        *
        * @param request DescribeBinaryLogListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1306,11 +1457,11 @@ namespace Polardbx20200202
       Models::DescribeBinaryLogListResponse describeBinaryLogListWithOptions(const Models::DescribeBinaryLogListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries binary logs by calling the DescribeBinaryLogList operation.
+       * @summary Queries binary logs.
        *
        * @description - Binary log files are retained for 15 days by default.
-       * - The returned log list includes all logs log record end time is after the query start time and log record start time is before the query end time.
-       * - When DownloadLink is not NULL, you can download the backup file from this URL. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+       * - The returned log list includes all log records whose end time is later than the query start time and whose start time is earlier than the query end time.
+       * - If the value of DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for two days after it is generated. Download the file before it expires.
        *
        * @param request DescribeBinaryLogListRequest
        * @return DescribeBinaryLogListResponse
@@ -1360,11 +1511,11 @@ namespace Polardbx20200202
       Models::DescribeCdcInfoResponse describeCdcInfo(const Models::DescribeCdcInfoRequest &request);
 
       /**
-       * @summary Retrieves the list of CDC versions.
+       * @summary Retrieves a list of CDC versions.
        *
        * @description - Binary log files are retained for 15 days by default.
-       * - The returned log list includes all logs whose log record end time is after the query start time and whose log record start time is before the query end time.
-       * - When DownloadLink is not NULL, you can download the backup file from this URL. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+       * - The returned log list includes all log records whose end time is after the query start time and whose start time is before the query end time.
+       * - If DownloadLink is not NULL, you can download the backup file by using this URL. The URL is valid for 2 days after it is generated. Download the file before it expires.
        *
        * @param request DescribeCdcVersionListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1373,11 +1524,11 @@ namespace Polardbx20200202
       Models::DescribeCdcVersionListResponse describeCdcVersionListWithOptions(const Models::DescribeCdcVersionListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of CDC versions.
+       * @summary Retrieves a list of CDC versions.
        *
        * @description - Binary log files are retained for 15 days by default.
-       * - The returned log list includes all logs whose log record end time is after the query start time and whose log record start time is before the query end time.
-       * - When DownloadLink is not NULL, you can download the backup file from this URL. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+       * - The returned log list includes all log records whose end time is after the query start time and whose start time is before the query end time.
+       * - If DownloadLink is not NULL, you can download the backup file by using this URL. The URL is valid for 2 days after it is generated. Download the file before it expires.
        *
        * @param request DescribeCdcVersionListRequest
        * @return DescribeCdcVersionListResponse
@@ -1402,7 +1553,7 @@ namespace Polardbx20200202
       Models::DescribeCharacterSetResponse describeCharacterSet(const Models::DescribeCharacterSetRequest &request);
 
       /**
-       * @summary Retrieves the basic information of cold storage.
+       * @summary Queries the basic information of cold storage.
        *
        * @param request DescribeColdDataBasicInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1411,7 +1562,7 @@ namespace Polardbx20200202
       Models::DescribeColdDataBasicInfoResponse describeColdDataBasicInfoWithOptions(const Models::DescribeColdDataBasicInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the basic information of cold storage.
+       * @summary Queries the basic information of cold storage.
        *
        * @param request DescribeColdDataBasicInfoRequest
        * @return DescribeColdDataBasicInfoResponse
@@ -1537,7 +1688,7 @@ namespace Polardbx20200202
       Models::DescribeContext0InfoResponse describeContext0Info(const Models::DescribeContext0InfoRequest &request);
 
       /**
-       * @summary Queries the whitelist of the context service.
+       * @summary Queries the whitelist for the context service.
        *
        * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
        *
@@ -1548,7 +1699,7 @@ namespace Polardbx20200202
       Models::DescribeContext0SecurityIpsResponse describeContext0SecurityIpsWithOptions(const Models::DescribeContext0SecurityIpsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the whitelist of the context service.
+       * @summary Queries the whitelist for the context service.
        *
        * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
        *
@@ -1642,7 +1793,9 @@ namespace Polardbx20200202
       Models::DescribeCustomEndpointListResponse describeCustomEndpointList(const Models::DescribeCustomEndpointListRequest &request);
 
       /**
-       * @summary Calls the DescribeDBInstanceAttribute operation to retrieve instance attributes.
+       * @summary Queries the attributes of an instance.
+       *
+       * @description This operation retrieves the list of custom endpoints configured by the user to facilitate the management and viewing of private connections or VPC endpoint service settings.
        *
        * @param request DescribeDBInstanceAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1651,7 +1804,9 @@ namespace Polardbx20200202
       Models::DescribeDBInstanceAttributeResponse describeDBInstanceAttributeWithOptions(const Models::DescribeDBInstanceAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Calls the DescribeDBInstanceAttribute operation to retrieve instance attributes.
+       * @summary Queries the attributes of an instance.
+       *
+       * @description This operation retrieves the list of custom endpoints configured by the user to facilitate the management and viewing of private connections or VPC endpoint service settings.
        *
        * @param request DescribeDBInstanceAttributeRequest
        * @return DescribeDBInstanceAttributeResponse
@@ -1697,7 +1852,7 @@ namespace Polardbx20200202
       Models::DescribeDBInstanceEndpointResponse describeDBInstanceEndpoint(const Models::DescribeDBInstanceEndpointRequest &request);
 
       /**
-       * @summary Queries the high availability (HA) information of an instance.
+       * @summary Queries the high availability information of an instance.
        *
        * @param request DescribeDBInstanceHARequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1706,7 +1861,7 @@ namespace Polardbx20200202
       Models::DescribeDBInstanceHAResponse describeDBInstanceHAWithOptions(const Models::DescribeDBInstanceHARequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the high availability (HA) information of an instance.
+       * @summary Queries the high availability information of an instance.
        *
        * @param request DescribeDBInstanceHARequest
        * @return DescribeDBInstanceHAResponse
@@ -1714,7 +1869,7 @@ namespace Polardbx20200202
       Models::DescribeDBInstanceHAResponse describeDBInstanceHA(const Models::DescribeDBInstanceHARequest &request);
 
       /**
-       * @summary Queries SSL information.
+       * @summary Retrieves SSL information.
        *
        * @param request DescribeDBInstanceSSLRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1723,7 +1878,7 @@ namespace Polardbx20200202
       Models::DescribeDBInstanceSSLResponse describeDBInstanceSSLWithOptions(const Models::DescribeDBInstanceSSLRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries SSL information.
+       * @summary Retrieves SSL information.
        *
        * @param request DescribeDBInstanceSSLRequest
        * @return DescribeDBInstanceSSLResponse
@@ -1748,7 +1903,7 @@ namespace Polardbx20200202
       Models::DescribeDBInstanceTDEResponse describeDBInstanceTDE(const Models::DescribeDBInstanceTDERequest &request);
 
       /**
-       * @summary Queries the topology information of an instance.
+       * @summary Retrieves the topology information of an instance.
        *
        * @param request DescribeDBInstanceTopologyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1757,7 +1912,7 @@ namespace Polardbx20200202
       Models::DescribeDBInstanceTopologyResponse describeDBInstanceTopologyWithOptions(const Models::DescribeDBInstanceTopologyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the topology information of an instance.
+       * @summary Retrieves the topology information of an instance.
        *
        * @param request DescribeDBInstanceTopologyRequest
        * @return DescribeDBInstanceTopologyResponse
@@ -1782,7 +1937,7 @@ namespace Polardbx20200202
       Models::DescribeDBInstanceViaEndpointResponse describeDBInstanceViaEndpoint(const Models::DescribeDBInstanceViaEndpointRequest &request);
 
       /**
-       * @summary Queries a list of instances by calling the DescribeDBInstances operation.
+       * @summary Queries a list of database instances.
        *
        * @param request DescribeDBInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1791,7 +1946,7 @@ namespace Polardbx20200202
       Models::DescribeDBInstancesResponse describeDBInstancesWithOptions(const Models::DescribeDBInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of instances by calling the DescribeDBInstances operation.
+       * @summary Queries a list of database instances.
        *
        * @param request DescribeDBInstancesRequest
        * @return DescribeDBInstancesResponse
@@ -1947,7 +2102,7 @@ namespace Polardbx20200202
       Models::DescribeEventsResponse describeEvents(const Models::DescribeEventsRequest &request);
 
       /**
-       * @summary Retrieves the list of global database network (GDN) instances.
+       * @summary Queries the list of global database network (GDN) instances.
        *
        * @param request DescribeGdnInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1956,7 +2111,7 @@ namespace Polardbx20200202
       Models::DescribeGdnInstancesResponse describeGdnInstancesWithOptions(const Models::DescribeGdnInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of global database network (GDN) instances.
+       * @summary Queries the list of global database network (GDN) instances.
        *
        * @param request DescribeGdnInstancesRequest
        * @return DescribeGdnInstancesResponse
@@ -2065,7 +2220,7 @@ namespace Polardbx20200202
       Models::DescribeOpenSearchConnectionInfoResponse describeOpenSearchConnectionInfo(const Models::DescribeOpenSearchConnectionInfoRequest &request);
 
       /**
-       * @summary Queries the information about a PolarDB-X Search instance.
+       * @summary Queries the details of PolarDB-X Search instances.
        *
        * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
        *
@@ -2076,7 +2231,7 @@ namespace Polardbx20200202
       Models::DescribeOpenSearchInfoResponse describeOpenSearchInfoWithOptions(const Models::DescribeOpenSearchInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a PolarDB-X Search instance.
+       * @summary Queries the details of PolarDB-X Search instances.
        *
        * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
        *
@@ -2216,7 +2371,7 @@ namespace Polardbx20200202
       Models::DescribeParameterGroupsResponse describeParameterGroups(const Models::DescribeParameterGroupsRequest &request);
 
       /**
-       * @summary Calls the DescribeParameterTemplates operation to retrieve the parameter template list of an instance.
+       * @summary Queries the instance parameter templates.
        *
        * @param request DescribeParameterTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2225,7 +2380,7 @@ namespace Polardbx20200202
       Models::DescribeParameterTemplatesResponse describeParameterTemplatesWithOptions(const Models::DescribeParameterTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Calls the DescribeParameterTemplates operation to retrieve the parameter template list of an instance.
+       * @summary Queries the instance parameter templates.
        *
        * @param request DescribeParameterTemplatesRequest
        * @return DescribeParameterTemplatesResponse
@@ -2265,6 +2420,111 @@ namespace Polardbx20200202
        * @return DescribePolarxDataNodesResponse
        */
       Models::DescribePolarxDataNodesResponse describePolarxDataNodes(const Models::DescribePolarxDataNodesRequest &request);
+
+      /**
+       * @summary Queries the access token for the Agent file service.
+       *
+       * @description Queries the access token for the Agent file service.
+       *
+       * @param request DescribePxfsAccessTokensRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePxfsAccessTokensResponse
+       */
+      Models::DescribePxfsAccessTokensResponse describePxfsAccessTokensWithOptions(const Models::DescribePxfsAccessTokensRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the access token for the Agent file service.
+       *
+       * @description Queries the access token for the Agent file service.
+       *
+       * @param request DescribePxfsAccessTokensRequest
+       * @return DescribePxfsAccessTokensResponse
+       */
+      Models::DescribePxfsAccessTokensResponse describePxfsAccessTokens(const Models::DescribePxfsAccessTokensRequest &request);
+
+      /**
+       * @summary Queries the information about an Agent file service instance.
+       *
+       * @description Queries the information about an Agent file service instance.
+       *
+       * @param request DescribePxfsInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePxfsInfoResponse
+       */
+      Models::DescribePxfsInfoResponse describePxfsInfoWithOptions(const Models::DescribePxfsInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the information about an Agent file service instance.
+       *
+       * @description Queries the information about an Agent file service instance.
+       *
+       * @param request DescribePxfsInfoRequest
+       * @return DescribePxfsInfoResponse
+       */
+      Models::DescribePxfsInfoResponse describePxfsInfo(const Models::DescribePxfsInfoRequest &request);
+
+      /**
+       * @summary Queries the whitelist for the Agent file service.
+       *
+       * @description Queries the whitelist for the Agent file service.
+       *
+       * @param request DescribePxfsSecurityIpsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePxfsSecurityIpsResponse
+       */
+      Models::DescribePxfsSecurityIpsResponse describePxfsSecurityIpsWithOptions(const Models::DescribePxfsSecurityIpsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the whitelist for the Agent file service.
+       *
+       * @description Queries the whitelist for the Agent file service.
+       *
+       * @param request DescribePxfsSecurityIpsRequest
+       * @return DescribePxfsSecurityIpsResponse
+       */
+      Models::DescribePxfsSecurityIpsResponse describePxfsSecurityIps(const Models::DescribePxfsSecurityIpsRequest &request);
+
+      /**
+       * @summary Queries the Agent file service tenant.
+       *
+       * @description Queries the Agent file service tenant.
+       *
+       * @param request DescribePxfsTenantRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePxfsTenantResponse
+       */
+      Models::DescribePxfsTenantResponse describePxfsTenantWithOptions(const Models::DescribePxfsTenantRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the Agent file service tenant.
+       *
+       * @description Queries the Agent file service tenant.
+       *
+       * @param request DescribePxfsTenantRequest
+       * @return DescribePxfsTenantResponse
+       */
+      Models::DescribePxfsTenantResponse describePxfsTenant(const Models::DescribePxfsTenantRequest &request);
+
+      /**
+       * @summary Queries the tenant identity of the Agent file service.
+       *
+       * @description Queries the tenant identity of the Agent file service.
+       *
+       * @param request DescribePxfsUsersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePxfsUsersResponse
+       */
+      Models::DescribePxfsUsersResponse describePxfsUsersWithOptions(const Models::DescribePxfsUsersRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the tenant identity of the Agent file service.
+       *
+       * @description Queries the tenant identity of the Agent file service.
+       *
+       * @param request DescribePxfsUsersRequest
+       * @return DescribePxfsUsersResponse
+       */
+      Models::DescribePxfsUsersResponse describePxfsUsers(const Models::DescribePxfsUsersRequest &request);
 
       /**
        * @summary Queries PXFuse instance information.
@@ -2387,7 +2647,7 @@ namespace Polardbx20200202
       Models::DescribeRplInspectionTaskResponse describeRplInspectionTask(const Models::DescribeRplInspectionTaskRequest &request);
 
       /**
-       * @summary Displays the progress of a ScaleOut migration task.
+       * @summary Retrieves the progress of a scale-out migration task.
        *
        * @param request DescribeScaleOutMigrateTaskListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2396,7 +2656,7 @@ namespace Polardbx20200202
       Models::DescribeScaleOutMigrateTaskListResponse describeScaleOutMigrateTaskListWithOptions(const Models::DescribeScaleOutMigrateTaskListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Displays the progress of a ScaleOut migration task.
+       * @summary Retrieves the progress of a scale-out migration task.
        *
        * @param request DescribeScaleOutMigrateTaskListRequest
        * @return DescribeScaleOutMigrateTaskListResponse
@@ -2555,8 +2815,8 @@ namespace Polardbx20200202
        * @summary Queries the Supabase API key.
        *
        * @description - Binary log files are retained for 15 days by default.
-       * - The returned log list includes all logs whose log record end time is later than the query start time and whose log record start time is earlier than the query end time.
-       * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+       * - The returned log list includes all log records whose end time is after the query start time and whose start time is before the query end time.
+       * - If DownloadLink is not NULL, you can use this URL to download the backup file. This URL is valid for 2 days after it is generated. Download the file before it expires.
        *
        * @param request DescribeSupabaseApiKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2568,8 +2828,8 @@ namespace Polardbx20200202
        * @summary Queries the Supabase API key.
        *
        * @description - Binary log files are retained for 15 days by default.
-       * - The returned log list includes all logs whose log record end time is later than the query start time and whose log record start time is earlier than the query end time.
-       * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+       * - The returned log list includes all log records whose end time is after the query start time and whose start time is before the query end time.
+       * - If DownloadLink is not NULL, you can use this URL to download the backup file. This URL is valid for 2 days after it is generated. Download the file before it expires.
        *
        * @param request DescribeSupabaseApiKeyRequest
        * @return DescribeSupabaseApiKeyResponse
@@ -2600,7 +2860,7 @@ namespace Polardbx20200202
       /**
        * @summary Queries a list of Supabase instances.
        *
-       * @description Queries the list of custom endpoints configured by the user for managing and viewing private connection or VPC endpoint service settings.
+       * @description Retrieves the list of custom endpoints configured by the user to facilitate the management and viewing of private connections or VPC endpoint service settings.
        *
        * @param request DescribeSupabaseInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2611,7 +2871,7 @@ namespace Polardbx20200202
       /**
        * @summary Queries a list of Supabase instances.
        *
-       * @description Queries the list of custom endpoints configured by the user for managing and viewing private connection or VPC endpoint service settings.
+       * @description Retrieves the list of custom endpoints configured by the user to facilitate the management and viewing of private connections or VPC endpoint service settings.
        *
        * @param request DescribeSupabaseInstancesRequest
        * @return DescribeSupabaseInstancesResponse
@@ -2619,11 +2879,11 @@ namespace Polardbx20200202
       Models::DescribeSupabaseInstancesResponse describeSupabaseInstances(const Models::DescribeSupabaseInstancesRequest &request);
 
       /**
-       * @summary Queries the IP whitelist of a Supabase instance.
+       * @summary Queries the Supabase IP whitelist.
        *
        * @description - Binary log files are retained for 15 days by default.
-       * - The returned log list includes all logs whose log record end time is later than the specified query start time and whose log record start time is earlier than the specified query end time.
-       * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+       * - The returned log list includes all log records whose record end time is after the query start time and whose record start time is before the query end time.
+       * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for two days after it is generated. Download the file before it expires.
        *
        * @param request DescribeSupabaseIpWhitelistRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2632,11 +2892,11 @@ namespace Polardbx20200202
       Models::DescribeSupabaseIpWhitelistResponse describeSupabaseIpWhitelistWithOptions(const Models::DescribeSupabaseIpWhitelistRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the IP whitelist of a Supabase instance.
+       * @summary Queries the Supabase IP whitelist.
        *
        * @description - Binary log files are retained for 15 days by default.
-       * - The returned log list includes all logs whose log record end time is later than the specified query start time and whose log record start time is earlier than the specified query end time.
-       * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+       * - The returned log list includes all log records whose record end time is after the query start time and whose record start time is before the query end time.
+       * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for two days after it is generated. Download the file before it expires.
        *
        * @param request DescribeSupabaseIpWhitelistRequest
        * @return DescribeSupabaseIpWhitelistResponse
@@ -2661,7 +2921,7 @@ namespace Polardbx20200202
       Models::DescribeTagsResponse describeTags(const Models::DescribeTagsRequest &request);
 
       /**
-       * @summary Retrieves the task list of an instance.
+       * @summary Retrieves the list of tasks for an instance.
        *
        * @param request DescribeTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2670,7 +2930,7 @@ namespace Polardbx20200202
       Models::DescribeTasksResponse describeTasksWithOptions(const Models::DescribeTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the task list of an instance.
+       * @summary Retrieves the list of tasks for an instance.
        *
        * @param request DescribeTasksRequest
        * @return DescribeTasksResponse
@@ -2712,7 +2972,7 @@ namespace Polardbx20200202
       Models::DescribeUserEncryptionKeyListResponse describeUserEncryptionKeyList(const Models::DescribeUserEncryptionKeyListRequest &request);
 
       /**
-       * @summary Disables public network access for PolarDB-X Search.
+       * @summary Disables public network access to PolarDB-X Search.
        *
        * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
        *
@@ -2723,7 +2983,7 @@ namespace Polardbx20200202
       Models::DisableOpenSearchPublicEndpointResponse disableOpenSearchPublicEndpointWithOptions(const Models::DisableOpenSearchPublicEndpointRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables public network access for PolarDB-X Search.
+       * @summary Disables public network access to PolarDB-X Search.
        *
        * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
        *
@@ -2832,7 +3092,7 @@ namespace Polardbx20200202
       /**
        * @summary Executes a metadata query.
        *
-       * @description Deletes a custom endpoint of a specified database instance and disables access through the domain name.
+       * @description Deletes the custom endpoint of a specified database instance and disables access through the domain name.
        *
        * @param request ExecuteMetaQueryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2843,7 +3103,7 @@ namespace Polardbx20200202
       /**
        * @summary Executes a metadata query.
        *
-       * @description Deletes a custom endpoint of a specified database instance and disables access through the domain name.
+       * @description Deletes the custom endpoint of a specified database instance and disables access through the domain name.
        *
        * @param request ExecuteMetaQueryRequest
        * @return ExecuteMetaQueryResponse
@@ -2919,7 +3179,7 @@ namespace Polardbx20200202
       Models::ModifyAccountPrivilegeResponse modifyAccountPrivilege(const Models::ModifyAccountPrivilegeRequest &request);
 
       /**
-       * @summary Modifies the time configuration of O&M events by calling the ModifyActiveOperationMaintainConf operation.
+       * @summary Modifies the time configuration for O&M events.
        *
        * @param request ModifyActiveOperationMaintainConfRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2928,7 +3188,7 @@ namespace Polardbx20200202
       Models::ModifyActiveOperationMaintainConfResponse modifyActiveOperationMaintainConfWithOptions(const Models::ModifyActiveOperationMaintainConfRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the time configuration of O&M events by calling the ModifyActiveOperationMaintainConf operation.
+       * @summary Modifies the time configuration for O&M events.
        *
        * @param request ModifyActiveOperationMaintainConfRequest
        * @return ModifyActiveOperationMaintainConfResponse
@@ -2995,7 +3255,7 @@ namespace Polardbx20200202
       Models::ModifyColumnarClassResponse modifyColumnarClass(const Models::ModifyColumnarClassRequest &request);
 
       /**
-       * @summary Synchronously modifies the whitelists of the context service (Service) and Dashboard.
+       * @summary Synchronously modifies the whitelists for the context service and dashboard.
        *
        * @description ****
        *
@@ -3006,7 +3266,7 @@ namespace Polardbx20200202
       Models::ModifyContext0SecurityIpsResponse modifyContext0SecurityIpsWithOptions(const Models::ModifyContext0SecurityIpsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Synchronously modifies the whitelists of the context service (Service) and Dashboard.
+       * @summary Synchronously modifies the whitelists for the context service and dashboard.
        *
        * @description ****
        *
@@ -3079,7 +3339,7 @@ namespace Polardbx20200202
       Models::ModifyCustomEndpointNetResponse modifyCustomEndpointNet(const Models::ModifyCustomEndpointNetRequest &request);
 
       /**
-       * @summary Calls the ModifyDBInstanceClass operation to modify the instance specifications.
+       * @summary Modifies the specifications of an instance.
        *
        * @param request ModifyDBInstanceClassRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3088,7 +3348,7 @@ namespace Polardbx20200202
       Models::ModifyDBInstanceClassResponse modifyDBInstanceClassWithOptions(const Models::ModifyDBInstanceClassRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Calls the ModifyDBInstanceClass operation to modify the instance specifications.
+       * @summary Modifies the specifications of an instance.
        *
        * @param request ModifyDBInstanceClassRequest
        * @return ModifyDBInstanceClassResponse
@@ -3168,9 +3428,9 @@ namespace Polardbx20200202
       Models::ModifyDBInstanceMaintainTimeResponse modifyDBInstanceMaintainTime(const Models::ModifyDBInstanceMaintainTimeRequest &request);
 
       /**
-       * @summary Modifies the virtual IP (VIP) address or network properties bound to a database instance. This operation supports changing the internal IP address, adjusting the vSwitch, migrating across zones, and other operations.
+       * @summary Modifies the virtual IP address or network properties of a database instance. This operation supports changing the internal IP address, adjusting the subnet, and migrating across zones.
        *
-       * @description ****.
+       * @description ****
        *
        * @param request ModifyDBInstanceVipRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3179,9 +3439,9 @@ namespace Polardbx20200202
       Models::ModifyDBInstanceVipResponse modifyDBInstanceVipWithOptions(const Models::ModifyDBInstanceVipRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the virtual IP (VIP) address or network properties bound to a database instance. This operation supports changing the internal IP address, adjusting the vSwitch, migrating across zones, and other operations.
+       * @summary Modifies the virtual IP address or network properties of a database instance. This operation supports changing the internal IP address, adjusting the subnet, and migrating across zones.
        *
-       * @description ****.
+       * @description ****
        *
        * @param request ModifyDBInstanceVipRequest
        * @return ModifyDBInstanceVipResponse
@@ -3269,7 +3529,7 @@ namespace Polardbx20200202
       Models::ModifyOpenSearchAccessProtocolResponse modifyOpenSearchAccessProtocol(const Models::ModifyOpenSearchAccessProtocolRequest &request);
 
       /**
-       * @summary Changes the specifications of a PolarDB-X Search instance.
+       * @summary Modifies the specifications of a PolarDBX Search instance.
        *
        * @description ****
        *
@@ -3280,7 +3540,7 @@ namespace Polardbx20200202
       Models::ModifyOpenSearchClassResponse modifyOpenSearchClassWithOptions(const Models::ModifyOpenSearchClassRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the specifications of a PolarDB-X Search instance.
+       * @summary Modifies the specifications of a PolarDBX Search instance.
        *
        * @description ****
        *
@@ -3311,7 +3571,7 @@ namespace Polardbx20200202
       Models::ModifyOpenSearchWhitelistGroupResponse modifyOpenSearchWhitelistGroup(const Models::ModifyOpenSearchWhitelistGroupRequest &request);
 
       /**
-       * @summary Modifies instance parameters, including parameters at the compute layer and storage layer.
+       * @summary Modifies the parameters of an instance, including the compute and storage layer parameters.
        *
        * @param request ModifyParameterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3320,12 +3580,33 @@ namespace Polardbx20200202
       Models::ModifyParameterResponse modifyParameterWithOptions(const Models::ModifyParameterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies instance parameters, including parameters at the compute layer and storage layer.
+       * @summary Modifies the parameters of an instance, including the compute and storage layer parameters.
        *
        * @param request ModifyParameterRequest
        * @return ModifyParameterResponse
        */
       Models::ModifyParameterResponse modifyParameter(const Models::ModifyParameterRequest &request);
+
+      /**
+       * @summary Modifies the whitelist of the Agent file service.
+       *
+       * @description Modifies the whitelist of the Agent file service.
+       *
+       * @param request ModifyPxfsSecurityIpsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyPxfsSecurityIpsResponse
+       */
+      Models::ModifyPxfsSecurityIpsResponse modifyPxfsSecurityIpsWithOptions(const Models::ModifyPxfsSecurityIpsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the whitelist of the Agent file service.
+       *
+       * @description Modifies the whitelist of the Agent file service.
+       *
+       * @param request ModifyPxfsSecurityIpsRequest
+       * @return ModifyPxfsSecurityIpsResponse
+       */
+      Models::ModifyPxfsSecurityIpsResponse modifyPxfsSecurityIps(const Models::ModifyPxfsSecurityIpsRequest &request);
 
       /**
        * @summary Modifies the PXFuse node whitelist.
@@ -3387,7 +3668,7 @@ namespace Polardbx20200202
       Models::ModifySupabaseDashboardPasswordResponse modifySupabaseDashboardPassword(const Models::ModifySupabaseDashboardPasswordRequest &request);
 
       /**
-       * @summary Modifies the IP whitelist of a Supabase instance.
+       * @summary Modifies the IP whitelist for Supabase.
        *
        * @description ****
        *
@@ -3398,7 +3679,7 @@ namespace Polardbx20200202
       Models::ModifySupabaseSecurityIPListResponse modifySupabaseSecurityIPListWithOptions(const Models::ModifySupabaseSecurityIPListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the IP whitelist of a Supabase instance.
+       * @summary Modifies the IP whitelist for Supabase.
        *
        * @description ****
        *
@@ -3446,7 +3727,7 @@ namespace Polardbx20200202
       Models::QueryColumnarLogResponse queryColumnarLog(const Models::QueryColumnarLogRequest &request);
 
       /**
-       * @summary Queries complete column store audit logs by using streaming.
+       * @summary Queries full column store audit logs by using streaming.
        *
        * @description ****
        *
@@ -3457,7 +3738,7 @@ namespace Polardbx20200202
       FutureGenerator<Models::QueryColumnarLogSSEResponse> queryColumnarLogSSEWithSSE(const Models::QueryColumnarLogSSERequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries complete column store audit logs by using streaming.
+       * @summary Queries full column store audit logs by using streaming.
        *
        * @description ****
        *
@@ -3468,7 +3749,7 @@ namespace Polardbx20200202
       Models::QueryColumnarLogSSEResponse queryColumnarLogSSEWithOptions(const Models::QueryColumnarLogSSERequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries complete column store audit logs by using streaming.
+       * @summary Queries full column store audit logs by using streaming.
        *
        * @description ****
        *
@@ -3592,6 +3873,27 @@ namespace Polardbx20200202
       Models::ReleaseMem0PublicConnectionResponse releaseMem0PublicConnection(const Models::ReleaseMem0PublicConnectionRequest &request);
 
       /**
+       * @summary Disables the public network connection for the Agent file service.
+       *
+       * @description Disables the public network connection for the Agent file service.
+       *
+       * @param request ReleasePxfsPublicConnectionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ReleasePxfsPublicConnectionResponse
+       */
+      Models::ReleasePxfsPublicConnectionResponse releasePxfsPublicConnectionWithOptions(const Models::ReleasePxfsPublicConnectionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Disables the public network connection for the Agent file service.
+       *
+       * @description Disables the public network connection for the Agent file service.
+       *
+       * @param request ReleasePxfsPublicConnectionRequest
+       * @return ReleasePxfsPublicConnectionResponse
+       */
+      Models::ReleasePxfsPublicConnectionResponse releasePxfsPublicConnection(const Models::ReleasePxfsPublicConnectionRequest &request);
+
+      /**
        * @summary Resets the password of an account.
        *
        * @param request ResetAccountPasswordRequest
@@ -3632,7 +3934,7 @@ namespace Polardbx20200202
       /**
        * @summary Resets the API key of the memory engine.
        *
-       * @description ****.
+       * @description ****
        *
        * @param request ResetMem0AccountPasswordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3643,7 +3945,7 @@ namespace Polardbx20200202
       /**
        * @summary Resets the API key of the memory engine.
        *
-       * @description ****.
+       * @description ****
        *
        * @param request ResetMem0AccountPasswordRequest
        * @return ResetMem0AccountPasswordResponse
@@ -3727,6 +4029,27 @@ namespace Polardbx20200202
       Models::RestartOpenSearchResponse restartOpenSearch(const Models::RestartOpenSearchRequest &request);
 
       /**
+       * @summary Restarts an Agent file service instance.
+       *
+       * @description Restarts an Agent file service instance.
+       *
+       * @param request RestartPxfsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RestartPxfsResponse
+       */
+      Models::RestartPxfsResponse restartPxfsWithOptions(const Models::RestartPxfsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Restarts an Agent file service instance.
+       *
+       * @description Restarts an Agent file service instance.
+       *
+       * @param request RestartPxfsRequest
+       * @return RestartPxfsResponse
+       */
+      Models::RestartPxfsResponse restartPxfs(const Models::RestartPxfsRequest &request);
+
+      /**
        * @summary Restarts a Supabase instance.
        *
        * @description ****
@@ -3767,6 +4090,27 @@ namespace Polardbx20200202
        * @return RestoreDBInstanceResponse
        */
       Models::RestoreDBInstanceResponse restoreDBInstance(const Models::RestoreDBInstanceRequest &request);
+
+      /**
+       * @summary Revokes an access token for the Agent file service.
+       *
+       * @description Revokes an access token for the Agent file service.
+       *
+       * @param request RevokePxfsAccessTokenRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RevokePxfsAccessTokenResponse
+       */
+      Models::RevokePxfsAccessTokenResponse revokePxfsAccessTokenWithOptions(const Models::RevokePxfsAccessTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Revokes an access token for the Agent file service.
+       *
+       * @description Revokes an access token for the Agent file service.
+       *
+       * @param request RevokePxfsAccessTokenRequest
+       * @return RevokePxfsAccessTokenResponse
+       */
+      Models::RevokePxfsAccessTokenResponse revokePxfsAccessToken(const Models::RevokePxfsAccessTokenRequest &request);
 
       /**
        * @summary Scales in nodes of a PolarDB-X Search cluster.
@@ -3879,6 +4223,8 @@ namespace Polardbx20200202
       Models::SubmitSqlFlashbackTaskResponse submitSqlFlashbackTask(const Models::SubmitSqlFlashbackTaskRequest &request);
 
       /**
+       * @summary Switches the zone of the primary node for a PolarDB-X instance.
+       *
        * @param request SwitchDBInstanceHARequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SwitchDBInstanceHAResponse
@@ -3886,6 +4232,8 @@ namespace Polardbx20200202
       Models::SwitchDBInstanceHAResponse switchDBInstanceHAWithOptions(const Models::SwitchDBInstanceHARequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Switches the zone of the primary node for a PolarDB-X instance.
+       *
        * @param request SwitchDBInstanceHARequest
        * @return SwitchDBInstanceHAResponse
        */
@@ -3960,7 +4308,7 @@ namespace Polardbx20200202
       Models::UpdateBackupPolicyResponse updateBackupPolicy(const Models::UpdateBackupPolicyRequest &request);
 
       /**
-       * @summary Modifies instance tags.
+       * @summary Updates instance labels.
        *
        * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
        *
@@ -3971,7 +4319,7 @@ namespace Polardbx20200202
       Models::UpdateCustinsParamResponse updateCustinsParamWithOptions(const Models::UpdateCustinsParamRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies instance tags.
+       * @summary Updates instance labels.
        *
        * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
        *
@@ -4015,7 +4363,7 @@ namespace Polardbx20200202
       Models::UpdateDBInstanceTDEResponse updateDBInstanceTDE(const Models::UpdateDBInstanceTDERequest &request);
 
       /**
-       * @summary Calls the UpdatePolarDBXInstanceNode operation to change the number of nodes for an instance, including scaling out and scaling in. This request generates a billable order.
+       * @summary Changes the number of nodes for a PolarDB-X instance, including scaling out and scaling in. This request generates an order.
        *
        * @param request UpdatePolarDBXInstanceNodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4024,7 +4372,7 @@ namespace Polardbx20200202
       Models::UpdatePolarDBXInstanceNodeResponse updatePolarDBXInstanceNodeWithOptions(const Models::UpdatePolarDBXInstanceNodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Calls the UpdatePolarDBXInstanceNode operation to change the number of nodes for an instance, including scaling out and scaling in. This request generates a billable order.
+       * @summary Changes the number of nodes for a PolarDB-X instance, including scaling out and scaling in. This request generates an order.
        *
        * @param request UpdatePolarDBXInstanceNodeRequest
        * @return UpdatePolarDBXInstanceNodeResponse
@@ -4081,6 +4429,27 @@ namespace Polardbx20200202
        * @return UpgradeDBInstanceKernelVersionResponse
        */
       Models::UpgradeDBInstanceKernelVersionResponse upgradeDBInstanceKernelVersion(const Models::UpgradeDBInstanceKernelVersionRequest &request);
+
+      /**
+       * @summary Upgrades the minor version of the Agent file service.
+       *
+       * @description Upgrades the minor version of the Agent file service.
+       *
+       * @param request UpgradePxfsVersionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpgradePxfsVersionResponse
+       */
+      Models::UpgradePxfsVersionResponse upgradePxfsVersionWithOptions(const Models::UpgradePxfsVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Upgrades the minor version of the Agent file service.
+       *
+       * @description Upgrades the minor version of the Agent file service.
+       *
+       * @param request UpgradePxfsVersionRequest
+       * @return UpgradePxfsVersionResponse
+       */
+      Models::UpgradePxfsVersionResponse upgradePxfsVersion(const Models::UpgradePxfsVersionRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace Polardbx20200202

@@ -62,7 +62,7 @@ namespace Models
 
 
     protected:
-      // The ID of the associated legacy project. You can ignore this parameter.
+      // The ID of the associated legacy project. You can ignore this field.
       shared_ptr<vector<string>> versionList_ {};
     };
 
@@ -85,7 +85,7 @@ namespace Models
 
 
   protected:
-    // The response struct.
+    // The data struct.
     shared_ptr<DescribeCdcVersionListResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

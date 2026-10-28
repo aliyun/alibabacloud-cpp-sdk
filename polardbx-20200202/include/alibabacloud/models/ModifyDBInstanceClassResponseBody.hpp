@@ -57,10 +57,11 @@ namespace Models
 
 
   protected:
-    // The order ID. An order is generated when you upgrade, downgrade, or change the instance specifications.
+    // The order ID. An order is generated when you upgrade or downgrade an instance, or change the instance specifications.
     shared_ptr<string> orderId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
+    // The ID of the instance specification change task.
     shared_ptr<int32_t> taskId_ {};
   };
 

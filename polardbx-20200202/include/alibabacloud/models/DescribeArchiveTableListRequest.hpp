@@ -94,18 +94,27 @@ namespace Models
 
 
   protected:
+    // The name of the PolarDB-X instance.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
     // The page number, starting from 1.
     // 
     // This parameter is required.
     shared_ptr<int64_t> pageIndex_ {};
+    // The number of tables to return on each page. Default value: 20.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> pageSize_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The database name used to filter archived tables.
     shared_ptr<string> schemaName_ {};
+    // The archiving status used to filter tables. Valid values: SUCCESS, PAUSE, and RUNNING.
     shared_ptr<string> status_ {};
+    // The table name used to filter archived tables.
     shared_ptr<string> tableName_ {};
   };
 

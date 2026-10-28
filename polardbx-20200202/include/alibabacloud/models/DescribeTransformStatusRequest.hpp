@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The instance name.
     shared_ptr<string> DBInstanceName_ {};
-    // The verification report.
+    // The check report.
     shared_ptr<bool> queryReport_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

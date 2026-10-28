@@ -100,10 +100,15 @@ namespace Models
 
 
     protected:
+      // The zone ID of the primary node.
       shared_ptr<string> primaryAzoneId_ {};
+      // The region ID of the primary node.
       shared_ptr<string> primaryRegionId_ {};
+      // The zone ID of the secondary node.
       shared_ptr<string> secondaryAzoneId_ {};
+      // The region ID of the secondary node.
       shared_ptr<string> secondaryRegionId_ {};
+      // The high availability topology type of the instance.
       shared_ptr<string> topologyType_ {};
     };
 
@@ -140,9 +145,13 @@ namespace Models
 
 
   protected:
+    // The high availability deployment information of the instance.
     shared_ptr<DescribeDBInstanceHAResponseBody::Data> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

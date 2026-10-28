@@ -116,20 +116,25 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
+    // The endpoint of the primary node of the target instance.
     shared_ptr<string> dstMainConnectString_ {};
+    // The port number of the primary node of the target instance.
     shared_ptr<string> dstMainPort_ {};
+    // Specifies whether the endpoint and port of the source or target instance is simultaneously modified.
     shared_ptr<string> isModifyEndpoint_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The endpoint of the primary node of the source instance.
     shared_ptr<string> srcMainConnectString_ {};
+    // The port number of the primary node of the source instance.
     shared_ptr<string> srcMainPort_ {};
     // The switchover mode.
     // 
     // This parameter is required.
     shared_ptr<string> switchMode_ {};
-    // The timeout period of the switchover task. Unit: seconds.
+    // The timeout period for the switchover task, in seconds.
     shared_ptr<int64_t> taskTimeout_ {};
   };
 

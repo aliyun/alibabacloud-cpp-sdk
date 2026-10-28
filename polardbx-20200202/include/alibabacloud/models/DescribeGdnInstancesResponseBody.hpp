@@ -312,9 +312,9 @@ namespace Models
 
 
         protected:
-          // The instance specifications.
+          // The instance type.
           shared_ptr<string> classCode_ {};
-          // The CN node specifications.
+          // The CN node specifications. Valid values:
           // 
           // - **polarx.x4.medium.2e**: 2 cores, 8 GB
           // - **polarx.x4.large.2e**: 4 cores, 16 GB
@@ -328,12 +328,14 @@ namespace Models
           // - **polarx.st.8xlarge.2e**: 60 cores, 470 GB
           // - **polarx.st.12xlarge.2e**: 90 cores, 720 GB
           shared_ptr<string> cnNodeClassCode_ {};
-          // The number of CN nodes.
+          // The number of compute nodes (CNs).
           shared_ptr<string> cnNodeCount_ {};
           // The commodity code.
           shared_ptr<string> commodityCode_ {};
+          // The data synchronization status of the member.
           shared_ptr<string> dataSyncStatus_ {};
-          // The DN node specifications.
+          // The DN node specifications. Valid values:
+          // 
           // - **mysql.n2.medium.25**: 2 cores, 4 GB
           // - **mysql.n4.medium.25**: 2 cores, 8 GB
           // - **mysql.x8.medium.25**: 2 cores, 16 GB
@@ -350,35 +352,36 @@ namespace Models
           // - **mysql.st.8xlarge.25**: 60 cores, 470 GB
           // - **mysql.st.12xlarge.25**: 90 cores, 720 GB
           shared_ptr<string> dnNodeClassCode_ {};
-          // The number of DN nodes.
+          // The number of data nodes (DNs).
           shared_ptr<string> dnNodeCount_ {};
-          // The expiration time.
+          // The expiration time. The format is YYYY-MM-DDTHH:mm:ss.SSS±HHmm, which includes the time zone offset.
           shared_ptr<string> expireTime_ {};
           // The creation time.
           shared_ptr<string> gmtCreated_ {};
-          // The member name (PolarDB-X instance name).
+          // The name of the member, which is the name of the PolarDB-X instance.
           shared_ptr<string> memberName_ {};
           // The billing method of the instance. Valid values:
           // 
-          // - **Postpaid**: pay-as-you-go.
-          // - **Prepaid**: subscription.
+          // - **Postpaid**: pay-as-you-go
+          // - **Prepaid**: subscription
           shared_ptr<string> payType_ {};
           // The primary zone.
           shared_ptr<string> primaryZone_ {};
+          // The read/write status of the member.
           shared_ptr<string> readWriteStatus_ {};
           // The region ID.
           shared_ptr<string> regionId_ {};
-          // The member role.
+          // The role of the member.
           shared_ptr<string> role_ {};
           // The secondary zone.
           shared_ptr<string> secondaryZone_ {};
-          // The data replication lag.
+          // The data synchronization latency.
           shared_ptr<string> secondsBehindMaster_ {};
-          // The member status.
+          // The status of the member.
           shared_ptr<string> status_ {};
-          // The switchover task status.
+          // The status of the switchover task.
           shared_ptr<string> taskStatus_ {};
-          // The zone for three-zone deployment. This zone is active along with the primary and secondary zones.
+          // The third active zone in a three-zone deployment.
           shared_ptr<string> tertiaryZone_ {};
           // The zone ID.
           shared_ptr<string> zoneId_ {};
@@ -469,21 +472,25 @@ namespace Models
       protected:
         // The description.
         shared_ptr<string> description_ {};
-        // The GDN instance name.
+        // The name of the GDN instance.
         shared_ptr<string> gdnInstanceName_ {};
+        // The replication mode of the GDN. Valid values: gdn_mode_master_slave and gdn_mode_bidirectional.
         shared_ptr<string> gdnMode_ {};
         // The creation time.
         shared_ptr<string> gmtCreated_ {};
-        // The member list.
+        // The list of members.
         shared_ptr<vector<GdnInstanceList::MemberList>> memberList_ {};
         // The MySQL version supported by the instance.
         shared_ptr<string> mysqlVersion_ {};
+        // The replication conflict handling strategy. Valid values: DIRECT_OVERWRITE, OVERWRITE, IGNORE, and INTERRUPT.
         shared_ptr<string> rplConflictStrategy_ {};
+        // The DML replication policy. Valid values: MERGE, SERIAL, TRANSACTION, and SPLIT.
         shared_ptr<string> rplDmlStrategy_ {};
+        // Specifies whether to synchronously replicate DDL operations.
         shared_ptr<bool> rplSyncDdl_ {};
         // The status.
         shared_ptr<string> status_ {};
-        // The switchover history.
+        // The switchover logs.
         shared_ptr<string> switchHistory_ {};
       };
 
@@ -565,12 +572,12 @@ namespace Models
   protected:
     // The list of instance details.
     shared_ptr<DescribeGdnInstancesResponseBody::Data> data_ {};
-    // The response message.
-    // > This parameter is empty when the request succeeds. If the request fails, an exception message is returned, such as an error code.
+    // The message returned for the request.
+    // > This parameter is empty if the request is successful. If the request fails, an error message such as an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

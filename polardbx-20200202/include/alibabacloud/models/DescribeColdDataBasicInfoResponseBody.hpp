@@ -146,17 +146,21 @@ namespace Models
       shared_ptr<int32_t> backupSetCount_ {};
       // The data size of valid backup sets.
       shared_ptr<double> backupSetSpaceSize_ {};
-      // The underlying storage cloud product.
+      // The underlying cloud storage service.
       shared_ptr<string> cloudProduct_ {};
       // The data size of cold storage.
       shared_ptr<double> currentSpaceSize_ {};
+      // The data redundancy type of cold storage. LRS indicates locally redundant storage.
       shared_ptr<string> dataRedundancyType_ {};
       // Indicates whether cold storage is enabled.
       shared_ptr<bool> enableStatus_ {};
+      // The number of read accesses to cold data.
       shared_ptr<int64_t> readAccessNum_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
-      // The storage volume name.
+      // The name of the storage volume.
       shared_ptr<string> volumeName_ {};
+      // The number of write accesses to cold data.
       shared_ptr<double> writeAccessNum_ {};
     };
 

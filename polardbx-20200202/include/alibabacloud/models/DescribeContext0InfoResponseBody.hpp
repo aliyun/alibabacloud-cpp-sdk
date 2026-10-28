@@ -61,6 +61,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
           DARABONBA_PTR_TO_JSON(DBInstanceName, DBInstanceName_);
           DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+          DARABONBA_PTR_TO_JSON(MinorVersion, minorVersion_);
           DARABONBA_PTR_TO_JSON(NodeCount, nodeCount_);
           DARABONBA_PTR_TO_JSON(OpenSearchInstanceName, openSearchInstanceName_);
           DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -77,6 +78,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
           DARABONBA_PTR_FROM_JSON(DBInstanceName, DBInstanceName_);
           DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+          DARABONBA_PTR_FROM_JSON(MinorVersion, minorVersion_);
           DARABONBA_PTR_FROM_JSON(NodeCount, nodeCount_);
           DARABONBA_PTR_FROM_JSON(OpenSearchInstanceName, openSearchInstanceName_);
           DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -434,9 +436,9 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->classCode_ == nullptr
-        && this->connAddrs_ == nullptr && this->createTime_ == nullptr && this->DBInstanceName_ == nullptr && this->instanceId_ == nullptr && this->nodeCount_ == nullptr
-        && this->openSearchInstanceName_ == nullptr && this->regionId_ == nullptr && this->replicaSets_ == nullptr && this->status_ == nullptr && this->storageType_ == nullptr
-        && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->connAddrs_ == nullptr && this->createTime_ == nullptr && this->DBInstanceName_ == nullptr && this->instanceId_ == nullptr && this->minorVersion_ == nullptr
+        && this->nodeCount_ == nullptr && this->openSearchInstanceName_ == nullptr && this->regionId_ == nullptr && this->replicaSets_ == nullptr && this->status_ == nullptr
+        && this->storageType_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
         // classCode Field Functions 
         bool hasClassCode() const { return this->classCode_ != nullptr;};
         void deleteClassCode() { this->classCode_ = nullptr;};
@@ -472,6 +474,13 @@ namespace Models
         void deleteInstanceId() { this->instanceId_ = nullptr;};
         inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
         inline Instance& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+        // minorVersion Field Functions 
+        bool hasMinorVersion() const { return this->minorVersion_ != nullptr;};
+        void deleteMinorVersion() { this->minorVersion_ = nullptr;};
+        inline string getMinorVersion() const { DARABONBA_PTR_GET_DEFAULT(minorVersion_, "") };
+        inline Instance& setMinorVersion(string minorVersion) { DARABONBA_PTR_SET_VALUE(minorVersion_, minorVersion) };
 
 
         // nodeCount Field Functions 
@@ -550,6 +559,8 @@ namespace Models
         shared_ptr<string> DBInstanceName_ {};
         // The instance ID.
         shared_ptr<string> instanceId_ {};
+        // Service 当前已确认的小版本完整 tag，未知时为空。
+        shared_ptr<string> minorVersion_ {};
         // The number of nodes.
         shared_ptr<int32_t> nodeCount_ {};
         // The PolarDB-X Search instance name.

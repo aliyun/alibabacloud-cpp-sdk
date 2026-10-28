@@ -135,16 +135,21 @@ namespace Models
 
 
     protected:
+      // The actual top-level LIMIT offset applied to the SQL statement. If no offset is specified, the value is 0.
       shared_ptr<int64_t> appliedOffset_ {};
+      // The effective upper limit of returned rows for this request.
       shared_ptr<int64_t> appliedRowLimit_ {};
       // The column names.
       shared_ptr<vector<string>> columns_ {};
+      // Indicates whether the query result contains at least one more row beyond the effective row limit for this request.
       shared_ptr<bool> hasMore_ {};
+      // The size in bytes of the Rows JSON array in the returned result after UTF-8 encoding, excluding protocol overhead.
       shared_ptr<int64_t> recordsSizeBytes_ {};
+      // The actual number of result rows returned for this request.
       shared_ptr<int64_t> returnedRowCount_ {};
       // The total number of data rows.
       shared_ptr<int32_t> rowCount_ {};
-      // The number of affected or returned rows. This field is available only for compute nodes (CNs).
+      // The number of affected or returned rows. This field is available only for CN.
       shared_ptr<vector<Darabonba::Json>> rows_ {};
     };
 
@@ -213,9 +218,9 @@ namespace Models
 
 
     protected:
-      // The description is the same as above.
+      // Same as above.
       shared_ptr<string> authAction_ {};
-      // The description is the same as above.
+      // Same as above.
       shared_ptr<string> authPrincipalType_ {};
       // The diagnostic information.
       shared_ptr<string> encodedDiagnosticMessage_ {};
@@ -267,11 +272,11 @@ namespace Models
 
 
   protected:
-    // The details about the access denial.
+    // The detailed information about the access denial.
     shared_ptr<ExecuteMetaQueryResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The list of instance details.
     shared_ptr<ExecuteMetaQueryResponseBody::Data> data_ {};
-    // The additional information returned by the operation. success is returned if the request is successful. Otherwise, an error code is returned.
+    // The additional message returned by the API operation. If the request is successful, success is returned. If an error occurs, the corresponding error code is returned.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

@@ -108,7 +108,7 @@ namespace Models
         shared_ptr<string> groupName_ {};
         // The tag of the group.
         shared_ptr<string> groupTag_ {};
-        // The details of the whitelist group.
+        // The details of the whitelist in the group.
         shared_ptr<string> securityIPList_ {};
       };
 
@@ -232,17 +232,17 @@ namespace Models
     protected:
       // The authentication action.
       shared_ptr<string> authAction_ {};
-      // The display name of the authentication principal.
+      // The name of the authentication principal.
       shared_ptr<string> authPrincipalDisplayName_ {};
       // The owner ID of the authentication principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
       // The type of the authentication principal.
       shared_ptr<string> authPrincipalType_ {};
-      // The encoded diagnostic message.
+      // The diagnostic information.
       shared_ptr<string> encodedDiagnosticMessage_ {};
       // NoPermissionType
       shared_ptr<string> noPermissionType_ {};
-      // The policy type.
+      // The type of the policy.
       shared_ptr<string> policyType_ {};
     };
 
@@ -274,7 +274,7 @@ namespace Models
 
 
   protected:
-    // The details of the access denial.
+    // The details of the access denied error.
     shared_ptr<DescribeContext0SecurityIpsResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The monitoring data.
     shared_ptr<DescribeContext0SecurityIpsResponseBody::Data> data_ {};

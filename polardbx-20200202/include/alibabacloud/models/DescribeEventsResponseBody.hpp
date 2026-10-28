@@ -162,13 +162,13 @@ namespace Models
       shared_ptr<int64_t> eventId_ {};
       // The event name.
       shared_ptr<string> eventName_ {};
-      // The supplementary information.
+      // The additional information.
       shared_ptr<string> eventPayload_ {};
       // The reason.
       shared_ptr<string> eventReason_ {};
-      // The record time.
+      // The record time. The time is in the YYYY-MM-DDTHH:mm:ssZ format in UTC.
       shared_ptr<string> eventRecordTime_ {};
-      // The event time.
+      // The event time. The time is in the YYYY-MM-DDTHH:mm:ssZ format in UTC.
       shared_ptr<string> eventTime_ {};
       // The event type.
       shared_ptr<string> eventType_ {};

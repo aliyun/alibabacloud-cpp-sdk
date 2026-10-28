@@ -85,7 +85,7 @@ namespace Models
       // - **true**: Enabled.
       // - **false**: Disabled.
       shared_ptr<bool> SSLEnabled_ {};
-      // The certificate expiration time.
+      // The expiration time of the certificate. The time is in the YYYY-MM-DDTHH:mm:ssZ format and is in UTC.
       shared_ptr<string> SSLExpiredTime_ {};
     };
 

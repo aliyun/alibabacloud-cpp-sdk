@@ -171,11 +171,11 @@ namespace Models
     shared_ptr<bool> autoRenew_ {};
     // The idempotency token.
     shared_ptr<string> clientToken_ {};
-    // The dashboard password.
+    // The Dashboard password.
     // 
     // This parameter is required.
     shared_ptr<string> dashboardPassword_ {};
-    // The instance description.
+    // The description of the instance.
     shared_ptr<string> dbInstanceDescription_ {};
     // The database password.
     // 
@@ -183,16 +183,11 @@ namespace Models
     shared_ptr<string> dbPassword_ {};
     // The node specifications.
     shared_ptr<string> nodeSpec_ {};
-    // The billing type. Valid values:
-    // - PREPAY: subscription.
-    // - POSTPAY: pay-as-you-go.
+    // The billing method. Valid values: PREPAY and POSTPAY.
     // 
     // This parameter is required.
     shared_ptr<string> payType_ {};
-    // The billing cycle. Valid values:
-    // - Year
-    // - Month
-    // - Hour
+    // The billing cycle. Valid values: Year, Month, and Hour.
     shared_ptr<string> period_ {};
     // The region ID.
     // 

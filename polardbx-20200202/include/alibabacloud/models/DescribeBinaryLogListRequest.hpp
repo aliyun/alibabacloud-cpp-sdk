@@ -98,20 +98,21 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
-    // The end time of the query for the binary log list.
+    // The end time of the query. Specify the time in the YYYY-MM-DD HH:mm:ss format.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The name of the instance.
     shared_ptr<string> instanceName_ {};
-    // The page number of the current binary log list. Default value: 1.
+    // The page number. Pages start from page 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of binary logs to return on each page. Default value: 30.
+    // The number of entries per page. Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The start time of the query for the binary log list.
+    // The start time of the query. Specify the time in the YYYY-MM-DD HH:mm:ss format.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

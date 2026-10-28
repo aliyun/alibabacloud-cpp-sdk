@@ -149,17 +149,19 @@ namespace Models
 
 
       protected:
+        // The archiving status. Valid values: SUCCESS, PAUSE, and RUNNING.
         shared_ptr<string> archiveStatus_ {};
-        // The creation time.
+        // The time when the table was created.
         shared_ptr<int64_t> createdDate_ {};
         // The number of files.
         shared_ptr<int32_t> fileCount_ {};
+        // The time of the last successful archiving.
         shared_ptr<int64_t> lastSuccessArchiveTime_ {};
-        // The database name.
+        // The name of the database.
         shared_ptr<string> schemaName_ {};
-        // The space size occupied by the table.
+        // The amount of storage space used.
         shared_ptr<double> spaceSize_ {};
-        // The table name.
+        // The name of the table.
         shared_ptr<string> tableName_ {};
       };
 
@@ -225,14 +227,19 @@ namespace Models
 
 
     protected:
-      // The page index.
+      // The page number.
       shared_ptr<int64_t> pageIndex_ {};
       // The number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
+      // The number of tables in the PAUSE state.
       shared_ptr<int32_t> pausedCount_ {};
+      // The number of tables being archived.
       shared_ptr<int32_t> runningCount_ {};
+      // The number of successfully archived tables.
       shared_ptr<int32_t> successCount_ {};
+      // The list of archived tables.
       shared_ptr<vector<Data::Tables>> tables_ {};
+      // The number of tables to be archived.
       shared_ptr<int32_t> tobeArchivedConut_ {};
       // The total number of entries.
       shared_ptr<int64_t> total_ {};
@@ -257,7 +264,7 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // The data.
     shared_ptr<DescribeArchiveTableListResponseBody::Data> data_ {};
     // requestId
     shared_ptr<string> requestId_ {};

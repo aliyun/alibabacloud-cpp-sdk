@@ -204,32 +204,32 @@ namespace Models
       protected:
         // The number of coordinator nodes.
         shared_ptr<int32_t> coordinatorNodeCount_ {};
-        // The number of CPU cores of a single coordinator node.
+        // The number of CPU cores per coordinator node.
         shared_ptr<int32_t> coordinatorNodeCpu_ {};
-        // Indicates whether coordinator nodes are enabled.
+        // Indicates whether the coordinator node is enabled.
         shared_ptr<bool> coordinatorNodeEnabled_ {};
-        // The memory size of a single coordinator node. Unit: GB.
+        // The memory size per coordinator node, in GB.
         shared_ptr<int32_t> coordinatorNodeMemoryGB_ {};
         // The number of data nodes.
         shared_ptr<int32_t> dataNodeCount_ {};
-        // The number of CPU cores of a single data node.
+        // The number of CPU cores per data node.
         shared_ptr<int32_t> dataNodeCpu_ {};
-        // The memory size of a single data node. Unit: GB.
+        // The memory size per data node, in GB.
         shared_ptr<int32_t> dataNodeMemoryGB_ {};
         // The master node type. Valid values:
-        // - **0**: The master node is a single node.
-        // - **2**: The master node is in Cluster Edition.
+        // - **0**: single-node master
+        // - **2**: cluster-edition master
         shared_ptr<int32_t> masterNodeCount_ {};
-        // The number of CPU cores of a single dedicated master node.
+        // The number of CPU cores per dedicated master node.
         shared_ptr<int32_t> masterNodeCpu_ {};
-        // Indicates whether dedicated master nodes are enabled.
+        // Indicates whether the dedicated master node is enabled.
         shared_ptr<bool> masterNodeEnabled_ {};
-        // The memory size of a single dedicated master node. Unit: GB.
+        // The memory size per dedicated master node, in GB.
         shared_ptr<int32_t> masterNodeMemoryGB_ {};
-        // The number of replica nodes in the primary zone.
-        // > The **ReplicaCount** and **SlaveReplicaCount** parameters apply only to cloud-native instances. If the instance uses a cluster architecture, these parameters indicate the number of replica nodes of a **single shard** in the primary and secondary zones.
+        // The number of secondary nodes in the primary zone.
+        // > The **ReplicaCount** and **SlaveReplicaCount** parameters apply only to cloud-native instances. If the instance uses a cluster architecture, these parameters indicate the number of secondary nodes per shard in the primary and secondary zones.
         shared_ptr<int32_t> replicaCount_ {};
-        // The storage size of a single data node. Unit: GB.
+        // The storage space per data node, in GB.
         shared_ptr<int32_t> storageSizeGB_ {};
         // The storage type.
         shared_ptr<string> storageType_ {};
@@ -384,16 +384,16 @@ namespace Models
 
       protected:
         // The billing method. Valid values:
-        // - **POSTPAY**: pay-as-you-go.
-        // - **PREPAY**: subscription.
+        // - **POSTPAY**: pay-as-you-go
+        // - **PREPAY**: subscription
         shared_ptr<string> chargeType_ {};
-        // The OpenSearch-compatible version.
+        // The OpenSearch compatible version.
         shared_ptr<string> compatibleVersion_ {};
         // The creation time.
         shared_ptr<string> createTime_ {};
         // The deployment mode. Valid values:
-        // - multiple: multi-zone deployment.
-        // - single: single-zone deployment.
+        // - multiple: multi-zone deployment
+        // - single: single-zone deployment
         shared_ptr<string> deployMode_ {};
         // The DPI engine version. Default value: 2.0.
         shared_ptr<string> engineVersion_ {};
@@ -404,17 +404,17 @@ namespace Models
         // The instance name.
         shared_ptr<string> instanceName_ {};
         // The network type of the connection string. Valid values:
-        // * **Public**: public endpoint.
-        // * **Private**: private endpoint.
-        // * **Inner**: private endpoint (classic network).
+        // * **Public**: public endpoint
+        // * **Private**: private endpoint
+        // * **Inner**: private endpoint (classic network)
         shared_ptr<string> netType_ {};
         // The region ID.
         shared_ptr<string> regionId_ {};
         // The instance status.
         shared_ptr<string> status_ {};
-        // The time when the last task was updated (in timestamp format).
+        // The last task update time in UNIX timestamp format.
         shared_ptr<string> updateTime_ {};
-        // The ID of the virtual private cloud (VPC) in which the access endpoint resides.
+        // The ID of the virtual private cloud (VPC) where the access endpoint resides.
         shared_ptr<string> vpcId_ {};
         // The vSwitch ID. This parameter is required when you create a DRDS instance of the VPC network type.
         shared_ptr<string> vswitchId_ {};
@@ -531,17 +531,17 @@ namespace Models
 
 
     protected:
-      // The authentication action.
+      // The authorization action.
       shared_ptr<string> authAction_ {};
-      // The identity used for authentication in the request.
+      // The identity used for authorization in the request.
       shared_ptr<string> authPrincipalDisplayName_ {};
-      // The owner ID of the authentication principal.
+      // The ID of the owner of the authorization principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // The authentication principal type.
+      // The type of the authorization principal.
       shared_ptr<string> authPrincipalType_ {};
-      // The encoded diagnostic message.
+      // The diagnostic information.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The type of the permission denial.
+      // The type of access denial.
       shared_ptr<string> noPermissionType_ {};
       // The policy type.
       shared_ptr<string> policyType_ {};
@@ -575,7 +575,7 @@ namespace Models
 
 
   protected:
-    // The details about the access denial.
+    // The details of the access denial.
     shared_ptr<DescribeOpenSearchInfoResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The returned result set.
     shared_ptr<DescribeOpenSearchInfoResponseBody::Data> data_ {};

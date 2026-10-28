@@ -213,6 +213,7 @@ namespace Models
     protected:
       // The list of original parameters.
       shared_ptr<vector<Data::ConfigParameters>> configParameters_ {};
+      // The instance ID.
       shared_ptr<string> DBInstanceId_ {};
       // The engine. Default value: polarx.
       shared_ptr<string> engine_ {};

@@ -75,22 +75,19 @@ namespace Models
 
 
   protected:
-    // The instance name.
+    // The name of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
-    // The whitelist group name.
+    // The name of the whitelist group.
     shared_ptr<string> groupName_ {};
-    // The modification mode. Valid values:
-    // - Cover: overwrites the existing whitelist.
-    // - Append: appends entries to the existing whitelist.
-    // - Delete: deletes entries from the existing whitelist.
+    // The modification mode. Valid values: Cover, Append, and Delete.
     shared_ptr<string> modifyMode_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The IP whitelist. Separate multiple IP addresses with commas (,).
+    // The IP whitelist. Separate multiple IP addresses with commas.
     // 
     // This parameter is required.
     shared_ptr<string> securityIPList_ {};

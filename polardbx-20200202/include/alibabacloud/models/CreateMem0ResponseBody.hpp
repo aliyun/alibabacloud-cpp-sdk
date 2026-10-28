@@ -149,12 +149,19 @@ namespace Models
 
 
     protected:
+      // The authentication action.
       shared_ptr<string> authAction_ {};
+      // The name of the authentication principal.
       shared_ptr<string> authPrincipalDisplayName_ {};
+      // The owner ID of the authentication principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
+      // The type of the authentication principal, such as RAM user SubUser or RAM role AssumedRoleUser.
       shared_ptr<string> authPrincipalType_ {};
+      // The diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
+      // The no-permission type.
       shared_ptr<string> noPermissionType_ {};
+      // The policy type.
       shared_ptr<string> policyType_ {};
     };
 
@@ -186,8 +193,9 @@ namespace Models
 
 
   protected:
+    // The detailed reasons for the access denial.
     shared_ptr<CreateMem0ResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
-    // The data structure.
+    // The data struct.
     shared_ptr<CreateMem0ResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

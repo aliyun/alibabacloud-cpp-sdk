@@ -88,17 +88,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> cycleTime_ {};
-    // The cycle mode. Valid values:
-    // 
-    // - Week: weekly.
+    // The cycle type. Valid value: Week.
     // 
     // This parameter is required.
     shared_ptr<string> cycleType_ {};
-    // The end time.
+    // The end time. Specify the time in the HH:mm:ssZ format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> maintainEndTime_ {};
-    // The start time.
+    // The start time. Specify the time in the HH:mm:ssZ format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> maintainStartTime_ {};
@@ -106,7 +104,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // Specifies whether to enable the configuration. Valid values:
+    // Specifies whether to enable the feature. Valid values:
     // 
     // - **1**: Enabled.
     // - **0**: Disabled.

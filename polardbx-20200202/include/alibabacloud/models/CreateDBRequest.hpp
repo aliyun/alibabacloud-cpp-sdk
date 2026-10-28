@@ -130,18 +130,18 @@ namespace Models
 
 
   protected:
-    // The name of the account that is authorized to access the created database.
+    // The name of the account to be authorized for the new database.
     // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
-    // The permissions granted to the account on the new database. Valid values:
+    // The permissions granted to the new account on the database. Valid values:
     // 
     // - **ReadWrite**
     // - **ReadOnly**
     // - **DMLOnly**
     // - **DDLOnly**
     shared_ptr<string> accountPrivilege_ {};
-    // The character set. The following character sets are supported:
+    // The character set. Valid values:
     // 
     // - **utf8**
     // - **gbk**
@@ -156,14 +156,14 @@ namespace Models
     shared_ptr<string> DBInstanceName_ {};
     // The description of the database.
     shared_ptr<string> dbDescription_ {};
-    // The name of the database to create.
+    // The name of the database to be created.
     // 
     // This parameter is required.
     shared_ptr<string> dbName_ {};
     // The mode selected when creating the database. Valid values:
     // 
     // - **auto**: The database supports automatic partitioning. You do not need to specify a partition key when creating a table.
-    // - **drds**: The database does not support automatic partitioning. You must use dedicated table and database sharding syntax and specify sharding keys when creating a table.
+    // - **drds**: The database does not support automatic partitioning. You must use the dedicated database and table sharding syntax and specify the shard keys when creating a table.
     shared_ptr<string> mode_ {};
     // The region where the instance resides.
     // 
@@ -171,12 +171,13 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The name of the security administrator account.
     // 
-    // > If the three-role mode is enabled, this parameter is required. If the three-role mode is not enabled, this parameter is optional.
+    // > This parameter is required if the three-role mode is enabled. If the three-role mode is not enabled, this parameter is optional.
     shared_ptr<string> securityAccountName_ {};
     // The password of the security administrator account.
     // 
-    // > If the three-role mode is enabled, this parameter is required. If the three-role mode is not enabled, this parameter is optional.
+    // > This parameter is required if the three-role mode is enabled. If the three-role mode is not enabled, this parameter is optional.
     shared_ptr<string> securityAccountPassword_ {};
+    // The name of the storage pool.
     shared_ptr<string> storagePoolName_ {};
   };
 

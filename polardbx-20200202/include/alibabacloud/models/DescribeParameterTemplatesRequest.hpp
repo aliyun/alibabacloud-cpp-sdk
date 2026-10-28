@@ -68,11 +68,11 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
+    // The DPI engine version. Default value: 2.0.
     shared_ptr<string> engineVersion_ {};
     // The parameter level. Valid values:
-    // 
-    // - **compute**: compute layer.
-    // - **storage**: storage layer.
+    // - **compute**: the compute layer.
+    // - **storage**: the storage layer.
     shared_ptr<string> paramLevel_ {};
     // The region ID of the instance.
     // 

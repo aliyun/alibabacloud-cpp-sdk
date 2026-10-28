@@ -174,15 +174,15 @@ namespace Models
     protected:
       // The authentication action.
       shared_ptr<string> authAction_ {};
-      // The display name of the authentication principal.
+      // The authentication principal name.
       shared_ptr<string> authPrincipalDisplayName_ {};
       // The owner ID of the authentication principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
       // The authentication principal type.
       shared_ptr<string> authPrincipalType_ {};
-      // The encoded diagnostic message.
+      // The diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The type of the permission denial.
+      // The no permission type.
       shared_ptr<string> noPermissionType_ {};
       // The policy type.
       shared_ptr<string> policyType_ {};
@@ -216,7 +216,7 @@ namespace Models
 
 
   protected:
-    // The details of the access denial.
+    // The access denied details.
     shared_ptr<DescribeSupabaseApiKeyResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The API key information.
     shared_ptr<DescribeSupabaseApiKeyResponseBody::Data> data_ {};

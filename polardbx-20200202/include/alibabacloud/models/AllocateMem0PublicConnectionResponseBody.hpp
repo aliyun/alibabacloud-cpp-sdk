@@ -115,13 +115,13 @@ namespace Models
 
 
     protected:
-      // As described above.
+      // Same as above.
       shared_ptr<string> authAction_ {};
       // The identity used for authentication in the request.
       shared_ptr<string> authPrincipalDisplayName_ {};
-      // As described above.
+      // Same as above.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // As described above.
+      // Same as above.
       shared_ptr<string> authPrincipalType_ {};
       // The encoded diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
@@ -150,7 +150,7 @@ namespace Models
 
 
   protected:
-    // The details about the access denial.
+    // The detailed reason for the access denial.
     shared_ptr<AllocateMem0PublicConnectionResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

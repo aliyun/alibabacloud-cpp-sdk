@@ -123,11 +123,11 @@ namespace Models
       shared_ptr<string> context0InstanceName_ {};
       // The instance name.
       shared_ptr<string> DBInstanceName_ {};
-      // The name of the context service dashboard instance.
+      // The dashboard instance name of the context service.
       shared_ptr<string> dashboardReplicaSetName_ {};
       // The name of the PolarDB-X Search instance.
       shared_ptr<string> openSearchInstanceName_ {};
-      // The name of the context service instance.
+      // The service instance name of the context service.
       shared_ptr<string> serviceReplicaSetName_ {};
       // The backend task ID.
       shared_ptr<int32_t> taskId_ {};
@@ -219,11 +219,11 @@ namespace Models
     protected:
       // The authentication action.
       shared_ptr<string> authAction_ {};
-      // The display name of the authentication principal.
+      // The name of the authentication principal.
       shared_ptr<string> authPrincipalDisplayName_ {};
       // The owner ID of the authentication principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // The type of the authentication principal.
+      // The authentication principal type.
       shared_ptr<string> authPrincipalType_ {};
       // The encoded diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
@@ -261,7 +261,7 @@ namespace Models
 
 
   protected:
-    // The details of the access denial.
+    // The access denial details.
     shared_ptr<CreateContext0ResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The instance data.
     shared_ptr<CreateContext0ResponseBody::Data> data_ {};

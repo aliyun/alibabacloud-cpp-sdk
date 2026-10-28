@@ -156,7 +156,7 @@ namespace Models
 
 
       protected:
-        // The creation time.
+        // The time when the instance was created.
         shared_ptr<string> createTime_ {};
         // The instance name.
         shared_ptr<string> DBInstanceName_ {};
@@ -166,7 +166,7 @@ namespace Models
         shared_ptr<string> regionId_ {};
         // The instance status.
         shared_ptr<string> status_ {};
-        // The Supabase specification code.
+        // The Supabase instance type code.
         shared_ptr<string> supabaseClassCode_ {};
         // The multi-tenant mode.
         shared_ptr<bool> tenantMode_ {};
@@ -303,15 +303,15 @@ namespace Models
     protected:
       // The authentication action.
       shared_ptr<string> authAction_ {};
-      // The display name of the authentication principal.
+      // The name of the authentication principal.
       shared_ptr<string> authPrincipalDisplayName_ {};
       // The owner ID of the authentication principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
       // The authentication principal type.
       shared_ptr<string> authPrincipalType_ {};
-      // The encoded diagnostic message.
+      // The diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The type of the permission denial.
+      // The access denial type.
       shared_ptr<string> noPermissionType_ {};
       // The policy type.
       shared_ptr<string> policyType_ {};
@@ -359,13 +359,13 @@ namespace Models
 
 
   protected:
-    // The details of the access denial.
+    // The access denied details.
     shared_ptr<DescribeSupabaseInstancesResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
-    // The paginated result of the instance list.
+    // The paginated list of instances.
     shared_ptr<DescribeSupabaseInstancesResponseBody::Data> data_ {};
-    // The maximum number of entries per page for a paged query. Maximum value: 100. Default value: If you do not specify this parameter or specify a value less than 10, the default value is 10. If you specify a value greater than 100, the default value is 100.
+    // The number of entries to return on each page in a paged query. Maximum value: 100. Default value: 10. If you do not specify the Settings or the Settings value is less than 10, the default value is 10. If the Settings value is greater than 100, the default value is 100. This parameter is used for paging.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query.
+    // The token used to start the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
