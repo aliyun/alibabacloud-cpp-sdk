@@ -130,27 +130,27 @@ namespace Models
 
 
   protected:
-    // Indicates whether the spot bid is active. If set to `false`, the bid is paused.
+    // Specifies whether it is active.
     shared_ptr<bool> active_ {};
-    // Determines whether instances can be deployed across different High-Performance Network (HPN) zones. Defaults to `false`.
+    // Specifies whether cross-super-node zones are allowed.
     shared_ptr<bool> allowCrossHpnZone_ {};
-    // The ID of the cluster where resources are provisioned.
+    // The cluster ID.
     shared_ptr<string> clusterId_ {};
-    // The GC level for the spot instance.
+    // The GC level.
     shared_ptr<string> gcLevel_ {};
-    // The type of compute instance.
+    // The instance type.
     shared_ptr<string> instanceType_ {};
-    // The name of the associated job.
+    // The job name.
     shared_ptr<string> jobName_ {};
-    // The maximum discount percentage from the on-demand price.
+    // The maximum discount price.
     shared_ptr<double> maxDiscount_ {};
-    // A message that provides additional details about the current phase.
+    // The message.
     shared_ptr<string> message_ {};
-    // The name of the spot bid preview.
+    // The pre-bid name.
     shared_ptr<string> name_ {};
-    // The current phase of the spot bid preview. Valid values are `Pending`, `Active`, and `Failed`.
+    // The phase.
     shared_ptr<string> phase_ {};
-    // The number of instance replicas.
+    // The number of replicas.
     shared_ptr<int32_t> replicas_ {};
   };
 

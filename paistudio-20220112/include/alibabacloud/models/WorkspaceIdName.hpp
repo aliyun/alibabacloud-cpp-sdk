@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The workspace ID.
     shared_ptr<string> workspaceId_ {};
-    // The workspace name.
+    // The name of the workspace to which the task belongs.
     shared_ptr<string> workspaceName_ {};
   };
 

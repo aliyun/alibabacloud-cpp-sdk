@@ -242,36 +242,45 @@ namespace Models
 
 
   protected:
-    // The ACS-related configurations.
+    // The ACS-related configuration.
     shared_ptr<ACS> ACS_ {};
     // The ID of the cluster where the quota resides.
     shared_ptr<string> clusterId_ {};
+    // The ID of the control plane cluster.
     shared_ptr<string> controlPlaneClusterId_ {};
-    // The default GPU driver version for the resource quota.
+    // The default driver version of the resource quota.
     shared_ptr<string> defaultGPUDriver_ {};
+    // Specifies whether GPU sharing is enabled.
     shared_ptr<bool> enableGPUShare_ {};
-    // Specifies whether workloads in sub-quotas can be preempted.
+    // Specifies whether sub-quota resources can be preempted.
     shared_ptr<bool> enablePreemptSubquotaWorkloads_ {};
-    // Specifies whether guaranteed resources within this quota can be preempted.
+    // Specifies whether guaranteed resource preemption for the current quota is enabled.
     shared_ptr<bool> enableSelfQuotaPreemption_ {};
-    // Specifies whether resources in sub-quotas can be preempted.
+    // Specifies whether sub-quota resources can be preempted.
     shared_ptr<bool> enableSubQuotaPreemption_ {};
+    // The elastic network interface controller (NIC) cache configuration.
     shared_ptr<EniCacheConfig> eniCacheConfig_ {};
+    // Specifies whether the resource is encrypted.
     shared_ptr<bool> isEncryptedResource_ {};
+    // The off-peak resource usage configuration.
     shared_ptr<OversoldUsageConfig> oversoldUsageConfig_ {};
-    // The resource specification templates.
+    // The resource specification template.
     shared_ptr<vector<WorkspaceSpecs>> resourceSpecs_ {};
+    // The sandbox cache configuration.
     shared_ptr<SandboxCacheConfig> sandboxCacheConfig_ {};
+    // The self-quota preemption configuration.
     shared_ptr<SelfQuotaPreemptionConfig> selfQuotaPreemptionConfig_ {};
-    // The configuration for the sub-quota preemption task.
+    // The sub-quota task preemption configuration.
     shared_ptr<SubQuotaPreemptionConfig> subQuotaPreemptionConfig_ {};
-    // The GPU driver versions supported by the resource quota.
+    // The driver versions supported by the resource quota.
     shared_ptr<vector<string>> supportGPUDrivers_ {};
     // Specifies whether RDMA is supported.
     shared_ptr<bool> supportRDMA_ {};
+    // The scenarios of the resource quota.
     shared_ptr<string> useCase_ {};
     // The user VPC information.
     shared_ptr<UserVpc> userVpc_ {};
+    // The workload types supported by the quota.
     shared_ptr<vector<string>> workloadTypes_ {};
   };
 

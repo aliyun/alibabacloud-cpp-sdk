@@ -65,7 +65,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The list of resource groups.
     shared_ptr<vector<ResourceGroup>> resourceGroups_ {};
-    // The total number of matching resource groups.
+    // The total number of resource groups returned.
     // 
     // This parameter is required.
     shared_ptr<int64_t> totalCount_ {};

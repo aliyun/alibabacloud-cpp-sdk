@@ -85,10 +85,15 @@ namespace Models
 
 
   protected:
+    // The exceeded resources.
     shared_ptr<vector<string>> exceedResources_ {};
+    // The resource quota.
     shared_ptr<ResourceAmount> limit_ {};
+    // The diagnosis status.
     shared_ptr<string> status_ {};
+    // The resource usage.
     shared_ptr<ResourceAmount> used_ {};
+    // The related workload IDs.
     shared_ptr<vector<string>> workloadIds_ {};
   };
 

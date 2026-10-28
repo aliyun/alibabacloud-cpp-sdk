@@ -153,31 +153,31 @@ namespace Models
 
 
   protected:
-    // Specifies whether the workload is scheduled. Valid values are `true` and `false`.
+    // Specifies whether the task is scheduled.
     shared_ptr<string> isScheduled_ {};
-    // The scheduling priority of the workload. A higher value indicates a higher priority.
+    // The task priority.
     shared_ptr<int32_t> priority_ {};
-    // A list of metadata for the queues associated with the workload.
+    // The information about the queue where the task resides.
     shared_ptr<vector<QueueMeta>> queueMetas_ {};
-    // The ID of the tenant that contains the workload.
+    // The ID of the Alibaba Cloud account that created the task.
     shared_ptr<string> tenantId_ {};
-    // The ID of the user who created the workload.
+    // The ID of the RAM user that created the task.
     shared_ptr<string> userId_ {};
-    // The name of the user who created the workload.
+    // The username of the task creator.
     shared_ptr<string> userName_ {};
-    // The creation time of the workload, in UTC format.
+    // The time when the task was created.
     shared_ptr<string> workloadCreatedTime_ {};
-    // The unique, system-generated ID for the workload.
+    // The task ID.
     shared_ptr<string> workloadId_ {};
-    // The user-defined name of the workload.
+    // The task name.
     shared_ptr<string> workloadName_ {};
-    // The current status of the workload. Possible values include `Pending`, `Running`, `Succeeded`, and `Failed`.
+    // The task status.
     shared_ptr<string> workloadStatus_ {};
-    // The type of the workload.
+    // The task type.
     shared_ptr<string> workloadType_ {};
-    // The ID of the workspace that contains the workload.
+    // The ID of the workspace where the task resides.
     shared_ptr<string> workspaceId_ {};
-    // The name of the workspace that contains the workload.
+    // The name of the workspace where the task resides.
     shared_ptr<string> workspaceName_ {};
   };
 

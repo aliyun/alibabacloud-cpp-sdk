@@ -70,9 +70,9 @@ namespace Models
 
 
     protected:
-      // The tag key.
+      // The tag key of the instance. Valid values of N: 1 to 20.
       shared_ptr<string> key_ {};
-      // The tag value.
+      // The tag value of the instance. Valid values of N: 1 to 20.
       shared_ptr<string> value_ {};
     };
 
@@ -95,9 +95,9 @@ namespace Models
 
 
   protected:
-    // Optional. Defaults to `true`.
+    // Specifies whether to enable AI workspace data. This parameter is optional. Default value: true.
     shared_ptr<bool> isAIWorkspaceDataEnabled_ {};
-    // A list of up to 20 tags to add to the instance.
+    // The list of tags to be added. A maximum of 20 tags can be added.
     shared_ptr<vector<GetResourceGroupRequest::Tag>> tag_ {};
   };
 

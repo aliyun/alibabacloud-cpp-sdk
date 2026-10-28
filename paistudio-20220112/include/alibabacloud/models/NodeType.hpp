@@ -130,16 +130,27 @@ namespace Models
 
 
   protected:
+    // The accelerator type of the resource node specifications (CPU/GPU).
     shared_ptr<string> acceleratorType_ {};
+    // The number of allocatable CPU cores.
     shared_ptr<string> allocatableCPU_ {};
+    // The allocatable memory size.
     shared_ptr<string> allocatableMemory_ {};
+    // The number of CPU cores.
     shared_ptr<string> CPU_ {};
+    // The number of GPUs.
     shared_ptr<string> GPU_ {};
+    // The GPU memory.
     shared_ptr<string> GPUMemory_ {};
+    // The GPU type.
     shared_ptr<string> GPUType_ {};
+    // The memory size.
     shared_ptr<string> memory_ {};
+    // The resource node specifications type.
     shared_ptr<string> nodeType_ {};
+    // The number of system-reserved CPU cores.
     shared_ptr<string> systemReservedCPU_ {};
+    // The system-reserved memory size.
     shared_ptr<string> systemReservedMemory_ {};
   };
 

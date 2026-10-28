@@ -63,9 +63,9 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // A list of historical spot instance price details
+    // The list of historical price details of spot instances.
     shared_ptr<vector<SpotPriceItem>> spotPriceHistory_ {};
-    // The total number of historical spot instance prices
+    // The total number of historical prices of spot instances.
     shared_ptr<int32_t> totalCount_ {};
   };
 

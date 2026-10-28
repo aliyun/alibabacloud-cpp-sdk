@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The available quantity.
     shared_ptr<int32_t> availableQuantity_ {};
+    // The cluster ID.
     shared_ptr<string> clusterId_ {};
+    // The spot instance type.
     shared_ptr<string> instanceType_ {};
+    // The current spot instance discount.
     shared_ptr<float> spotDiscount_ {};
+    // The spot instance inventory status.
     shared_ptr<string> stockStatus_ {};
   };
 

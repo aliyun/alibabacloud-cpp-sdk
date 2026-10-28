@@ -109,7 +109,7 @@ namespace PaiStudio20220112
       Models::CreateQuotaResponse createQuota(const Models::CreateQuotaRequest &request);
 
       /**
-       * @summary Use the CreateResourceGroup operation to create a resource group.
+       * @summary Creates a ResourceGroup using CreateResourceGroup.
        *
        * @param request CreateResourceGroupRequest
        * @param headers map
@@ -119,7 +119,7 @@ namespace PaiStudio20220112
       Models::CreateResourceGroupResponse createResourceGroupWithOptions(const Models::CreateResourceGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Use the CreateResourceGroup operation to create a resource group.
+       * @summary Creates a ResourceGroup using CreateResourceGroup.
        *
        * @param request CreateResourceGroupRequest
        * @return CreateResourceGroupResponse
@@ -231,7 +231,7 @@ namespace PaiStudio20220112
       /**
        * @deprecated OpenAPI DeleteResourceGroupMachineGroup is deprecated
        *
-       * @summary Deletes a machine group.
+       * @summary Deletes a machine group from a resource group.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -242,7 +242,7 @@ namespace PaiStudio20220112
       /**
        * @deprecated OpenAPI DeleteResourceGroupMachineGroup is deprecated
        *
-       * @summary Deletes a machine group.
+       * @summary Deletes a machine group from a resource group.
        *
        * @return DeleteResourceGroupMachineGroupResponse
        */
@@ -283,7 +283,7 @@ namespace PaiStudio20220112
       Models::DeleteTrainingJobLabelsResponse deleteTrainingJobLabels(const string &TrainingJobId, const Models::DeleteTrainingJobLabelsRequest &request);
 
       /**
-       * @summary Retrieves algorithm details.
+       * @summary Retrieves the details of an algorithm.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -292,14 +292,14 @@ namespace PaiStudio20220112
       Models::GetAlgorithmResponse getAlgorithmWithOptions(const string &AlgorithmId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves algorithm details.
+       * @summary Retrieves the details of an algorithm.
        *
        * @return GetAlgorithmResponse
        */
       Models::GetAlgorithmResponse getAlgorithm(const string &AlgorithmId);
 
       /**
-       * @summary Retrieve details about an algorithm version.
+       * @summary Retrieves the details of an algorithm version.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -308,7 +308,7 @@ namespace PaiStudio20220112
       Models::GetAlgorithmVersionResponse getAlgorithmVersionWithOptions(const string &AlgorithmId, const string &AlgorithmVersion, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieve details about an algorithm version.
+       * @summary Retrieves the details of an algorithm version.
        *
        * @return GetAlgorithmVersionResponse
        */
@@ -317,7 +317,7 @@ namespace PaiStudio20220112
       /**
        * @deprecated OpenAPI GetMachineGroup is deprecated
        *
-       * @summary Retrieves the details of a specific machine group.
+       * @summary Retrieves the details of a machine group.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -328,7 +328,7 @@ namespace PaiStudio20220112
       /**
        * @deprecated OpenAPI GetMachineGroup is deprecated
        *
-       * @summary Retrieves the details of a specific machine group.
+       * @summary Retrieves the details of a machine group.
        *
        * @return GetMachineGroupResponse
        */
@@ -337,7 +337,7 @@ namespace PaiStudio20220112
       /**
        * @deprecated OpenAPI GetNodeMetrics is deprecated
        *
-       * @summary Retrieves metric information for resource group nodes.
+       * @summary Retrieves the metrics of nodes in a resource group.
        *
        * @param request GetNodeMetricsRequest
        * @param headers map
@@ -349,7 +349,7 @@ namespace PaiStudio20220112
       /**
        * @deprecated OpenAPI GetNodeMetrics is deprecated
        *
-       * @summary Retrieves metric information for resource group nodes.
+       * @summary Retrieves the metrics of nodes in a resource group.
        *
        * @param request GetNodeMetricsRequest
        * @return GetNodeMetricsResponse
@@ -357,7 +357,7 @@ namespace PaiStudio20220112
       Models::GetNodeMetricsResponse getNodeMetrics(const string &ResourceGroupID, const string &MetricType, const Models::GetNodeMetricsRequest &request);
 
       /**
-       * @summary Retrieves the details of a resource quota to help you understand the current resource usage and facilitate resource management and planning.
+       * @summary Retrieves the details of a resource quota to understand current resource usage and facilitate resource management and planning.
        *
        * @param request GetQuotaRequest
        * @param headers map
@@ -367,7 +367,7 @@ namespace PaiStudio20220112
       Models::GetQuotaResponse getQuotaWithOptions(const string &QuotaId, const Models::GetQuotaRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a resource quota to help you understand the current resource usage and facilitate resource management and planning.
+       * @summary Retrieves the details of a resource quota to understand current resource usage and facilitate resource management and planning.
        *
        * @param request GetQuotaRequest
        * @return GetQuotaResponse
@@ -375,7 +375,7 @@ namespace PaiStudio20220112
       Models::GetQuotaResponse getQuota(const string &QuotaId, const Models::GetQuotaRequest &request);
 
       /**
-       * @summary `GetResourceGroup` retrieves details for a resource group.
+       * @summary Retrieves the details of a resource group.
        *
        * @param tmpReq GetResourceGroupRequest
        * @param headers map
@@ -385,7 +385,7 @@ namespace PaiStudio20220112
       Models::GetResourceGroupResponse getResourceGroupWithOptions(const string &ResourceGroupID, const Models::GetResourceGroupRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary `GetResourceGroup` retrieves details for a resource group.
+       * @summary Retrieves the details of a resource group.
        *
        * @param request GetResourceGroupRequest
        * @return GetResourceGroupResponse
@@ -393,7 +393,7 @@ namespace PaiStudio20220112
       Models::GetResourceGroupResponse getResourceGroup(const string &ResourceGroupID, const Models::GetResourceGroupRequest &request);
 
       /**
-       * @summary Call GetResourceGroupMachineGroup to retrieve the details of a machine group.
+       * @summary Retrieves the details of a machine group.
        *
        * @param tmpReq GetResourceGroupMachineGroupRequest
        * @param headers map
@@ -403,7 +403,7 @@ namespace PaiStudio20220112
       Models::GetResourceGroupMachineGroupResponse getResourceGroupMachineGroupWithOptions(const string &MachineGroupID, const string &ResourceGroupID, const Models::GetResourceGroupMachineGroupRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call GetResourceGroupMachineGroup to retrieve the details of a machine group.
+       * @summary Retrieves the details of a machine group.
        *
        * @param request GetResourceGroupMachineGroupRequest
        * @return GetResourceGroupMachineGroupResponse
@@ -469,7 +469,7 @@ namespace PaiStudio20220112
       Models::GetSpotPriceHistoryResponse getSpotPriceHistory(const string &InstanceType, const Models::GetSpotPriceHistoryRequest &request);
 
       /**
-       * @summary Obtains a share token for a training task.
+       * @summary Retrieves the sharing token for a training job.
        *
        * @param request GetTokenRequest
        * @param headers map
@@ -479,7 +479,7 @@ namespace PaiStudio20220112
       Models::GetTokenResponse getTokenWithOptions(const Models::GetTokenRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains a share token for a training task.
+       * @summary Retrieves the sharing token for a training job.
        *
        * @param request GetTokenRequest
        * @return GetTokenResponse
@@ -559,7 +559,7 @@ namespace PaiStudio20220112
       Models::GetUserViewMetricsResponse getUserViewMetrics(const string &ResourceGroupID, const Models::GetUserViewMetricsRequest &request);
 
       /**
-       * @summary Retrieve a list of algorithm version details.
+       * @summary Retrieves a list of algorithm version details.
        *
        * @param request ListAlgorithmVersionsRequest
        * @param headers map
@@ -569,7 +569,7 @@ namespace PaiStudio20220112
       Models::ListAlgorithmVersionsResponse listAlgorithmVersionsWithOptions(const string &AlgorithmId, const Models::ListAlgorithmVersionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieve a list of algorithm version details.
+       * @summary Retrieves a list of algorithm version details.
        *
        * @param request ListAlgorithmVersionsRequest
        * @return ListAlgorithmVersionsResponse
@@ -577,7 +577,7 @@ namespace PaiStudio20220112
       Models::ListAlgorithmVersionsResponse listAlgorithmVersions(const string &AlgorithmId, const Models::ListAlgorithmVersionsRequest &request);
 
       /**
-       * @summary Lists algorithm details.
+       * @summary Retrieves a list of algorithm details.
        *
        * @param request ListAlgorithmsRequest
        * @param headers map
@@ -587,7 +587,7 @@ namespace PaiStudio20220112
       Models::ListAlgorithmsResponse listAlgorithmsWithOptions(const Models::ListAlgorithmsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists algorithm details.
+       * @summary Retrieves a list of algorithm details.
        *
        * @param request ListAlgorithmsRequest
        * @return ListAlgorithmsResponse
@@ -653,9 +653,9 @@ namespace PaiStudio20220112
       Models::ListNodeTypesResponse listNodeTypes(const Models::ListNodeTypesRequest &request);
 
       /**
-       * @summary Retrieves a list of resource nodes.
+       * @summary Queries a list of resource nodes.
        *
-       * @description You can call ListNodes to retrieve resource nodes that match specified filter conditions.
+       * @description You can call ListNodes to retrieve resource nodes that meet specified filter conditions.
        *
        * @param tmpReq ListNodesRequest
        * @param headers map
@@ -665,9 +665,9 @@ namespace PaiStudio20220112
       Models::ListNodesResponse listNodesWithOptions(const Models::ListNodesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of resource nodes.
+       * @summary Queries a list of resource nodes.
        *
-       * @description You can call ListNodes to retrieve resource nodes that match specified filter conditions.
+       * @description You can call ListNodes to retrieve resource nodes that meet specified filter conditions.
        *
        * @param request ListNodesRequest
        * @return ListNodesResponse
@@ -675,9 +675,9 @@ namespace PaiStudio20220112
       Models::ListNodesResponse listNodes(const Models::ListNodesRequest &request);
 
       /**
-       * @summary Retrieves the list of users under the current resource quota and their resource usage.
+       * @summary Retrieves the list of users in the current resource quota and the resources that they use.
        *
-       * @description Retrieves the resource usage of users for a specified QuotaId.
+       * @description Retrieves the resource usage of users for the specified QuotaId.
        *
        * @param request ListQuotaActiveUserUsagesRequest
        * @param headers map
@@ -687,9 +687,9 @@ namespace PaiStudio20220112
       Models::ListQuotaActiveUserUsagesResponse listQuotaActiveUserUsagesWithOptions(const string &QuotaId, const Models::ListQuotaActiveUserUsagesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of users under the current resource quota and their resource usage.
+       * @summary Retrieves the list of users in the current resource quota and the resources that they use.
        *
-       * @description Retrieves the resource usage of users for a specified QuotaId.
+       * @description Retrieves the resource usage of users for the specified QuotaId.
        *
        * @param request ListQuotaActiveUserUsagesRequest
        * @return ListQuotaActiveUserUsagesResponse
@@ -697,7 +697,7 @@ namespace PaiStudio20220112
       Models::ListQuotaActiveUserUsagesResponse listQuotaActiveUserUsages(const string &QuotaId, const Models::ListQuotaActiveUserUsagesRequest &request);
 
       /**
-       * @summary Retrieves the list of node information on a resource quota.
+       * @summary Retrieves a list of workloads for a quota.
        *
        * @param request ListQuotaWorkloadsRequest
        * @param headers map
@@ -707,7 +707,7 @@ namespace PaiStudio20220112
       Models::ListQuotaWorkloadsResponse listQuotaWorkloadsWithOptions(const string &QuotaId, const Models::ListQuotaWorkloadsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of node information on a resource quota.
+       * @summary Retrieves a list of workloads for a quota.
        *
        * @param request ListQuotaWorkloadsRequest
        * @return ListQuotaWorkloadsResponse
@@ -733,7 +733,7 @@ namespace PaiStudio20220112
       Models::ListQuotasResponse listQuotas(const Models::ListQuotasRequest &request);
 
       /**
-       * @summary Retrieves a list of machine groups in a specified resource group.
+       * @summary Queries the machine groups in a specified resource group.
        *
        * @param request ListResourceGroupMachineGroupsRequest
        * @param headers map
@@ -743,7 +743,7 @@ namespace PaiStudio20220112
       Models::ListResourceGroupMachineGroupsResponse listResourceGroupMachineGroupsWithOptions(const string &ResourceGroupID, const Models::ListResourceGroupMachineGroupsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of machine groups in a specified resource group.
+       * @summary Queries the machine groups in a specified resource group.
        *
        * @param request ListResourceGroupMachineGroupsRequest
        * @return ListResourceGroupMachineGroupsResponse
@@ -751,9 +751,9 @@ namespace PaiStudio20220112
       Models::ListResourceGroupMachineGroupsResponse listResourceGroupMachineGroups(const string &ResourceGroupID, const Models::ListResourceGroupMachineGroupsRequest &request);
 
       /**
-       * @summary Call this operation to list resource groups for ECS or Lingjun intelligent computing resources.
+       * @summary Retrieves a list of resource groups for general compute resources or Lingjun AI compute resources.
        *
-       * @description Currently, AI computing resource groups (including ECS and Lingjun intelligent computing resources) are available only in specific regions. For a list of supported regions, see [AI computing resource management](https://help.aliyun.com/document_detail/143986.html).
+       * @description Currently, AI compute resource groups, including general compute resources and Lingjun AI compute resources, are available only in specific regions. For the list of supported regions, see [AI compute resource management](https://help.aliyun.com/document_detail/143986.html).
        *
        * @param request ListResourceGroupsRequest
        * @param headers map
@@ -763,9 +763,9 @@ namespace PaiStudio20220112
       Models::ListResourceGroupsResponse listResourceGroupsWithOptions(const Models::ListResourceGroupsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call this operation to list resource groups for ECS or Lingjun intelligent computing resources.
+       * @summary Retrieves a list of resource groups for general compute resources or Lingjun AI compute resources.
        *
-       * @description Currently, AI computing resource groups (including ECS and Lingjun intelligent computing resources) are available only in specific regions. For a list of supported regions, see [AI computing resource management](https://help.aliyun.com/document_detail/143986.html).
+       * @description Currently, AI compute resource groups, including general compute resources and Lingjun AI compute resources, are available only in specific regions. For the list of supported regions, see [AI compute resource management](https://help.aliyun.com/document_detail/143986.html).
        *
        * @param request ListResourceGroupsRequest
        * @return ListResourceGroupsResponse
@@ -839,7 +839,7 @@ namespace PaiStudio20220112
       Models::ListTrainingJobInstanceEventsResponse listTrainingJobInstanceEvents(const string &TrainingJobId, const string &InstanceId, const Models::ListTrainingJobInstanceEventsRequest &request);
 
       /**
-       * @summary Retrieve monitoring metrics for training job instances.
+       * @summary Retrieves the monitoring metrics of a training job instance.
        *
        * @param request ListTrainingJobInstanceMetricsRequest
        * @param headers map
@@ -849,7 +849,7 @@ namespace PaiStudio20220112
       Models::ListTrainingJobInstanceMetricsResponse listTrainingJobInstanceMetricsWithOptions(const string &TrainingJobId, const Models::ListTrainingJobInstanceMetricsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieve monitoring metrics for training job instances.
+       * @summary Retrieves the monitoring metrics of a training job instance.
        *
        * @param request ListTrainingJobInstanceMetricsRequest
        * @return ListTrainingJobInstanceMetricsResponse
@@ -875,7 +875,7 @@ namespace PaiStudio20220112
       Models::ListTrainingJobLogsResponse listTrainingJobLogs(const string &TrainingJobId, const Models::ListTrainingJobLogsRequest &request);
 
       /**
-       * @summary Retrieve monitoring data for a training task.
+       * @summary Retrieves the monitoring data of a training job.
        *
        * @param request ListTrainingJobMetricsRequest
        * @param headers map
@@ -885,7 +885,7 @@ namespace PaiStudio20220112
       Models::ListTrainingJobMetricsResponse listTrainingJobMetricsWithOptions(const string &TrainingJobId, const Models::ListTrainingJobMetricsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieve monitoring data for a training task.
+       * @summary Retrieves the monitoring data of a training job.
        *
        * @param request ListTrainingJobMetricsRequest
        * @return ListTrainingJobMetricsResponse
@@ -927,9 +927,9 @@ namespace PaiStudio20220112
       Models::ListTrainingJobsResponse listTrainingJobs(const Models::ListTrainingJobsRequest &request);
 
       /**
-       * @summary Operates on a specified node.
+       * @summary Performs operations on a node using OperateNode.
        *
-       * @description You can call OperateNode to operate on a specified resource node, including operations such as disabling scheduling and enabling scheduling.
+       * @description Uses OperateNode to perform operations on a specified resource node, including disabling scheduling, enabling scheduling, and other operations.
        *
        * @param request OperateNodeRequest
        * @param headers map
@@ -939,9 +939,9 @@ namespace PaiStudio20220112
       Models::OperateNodeResponse operateNodeWithOptions(const string &NodeId, const Models::OperateNodeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Operates on a specified node.
+       * @summary Performs operations on a node using OperateNode.
        *
-       * @description You can call OperateNode to operate on a specified resource node, including operations such as disabling scheduling and enabling scheduling.
+       * @description Uses OperateNode to perform operations on a specified resource node, including disabling scheduling, enabling scheduling, and other operations.
        *
        * @param request OperateNodeRequest
        * @return OperateNodeResponse

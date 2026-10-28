@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Optional. Defaults to `true`.
+    // Specifies whether to enable AI workspace data. This parameter is optional. Default value: true.
     shared_ptr<bool> isAIWorkspaceDataEnabled_ {};
-    // A list of up to 20 tags to add to the instance.
+    // The list of tags to be added. A maximum of 20 tags can be added.
     shared_ptr<string> tagShrink_ {};
   };
 

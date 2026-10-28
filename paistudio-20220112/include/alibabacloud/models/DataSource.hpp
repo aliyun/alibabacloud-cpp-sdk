@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The data source ID.
     shared_ptr<string> dataSourceId_ {};
+    // The mount path of the data source.
     shared_ptr<string> mountPath_ {};
+    // The URI of the data source.
     shared_ptr<string> uri_ {};
   };
 

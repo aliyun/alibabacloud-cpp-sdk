@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The list of nodes.
     shared_ptr<vector<string>> nodes_ {};
+    // The failure cause.
     shared_ptr<string> reason_ {};
   };
 

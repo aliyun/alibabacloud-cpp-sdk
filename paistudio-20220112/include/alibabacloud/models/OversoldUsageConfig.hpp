@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Indicates whether it is disabled.
     shared_ptr<bool> disabled_ {};
+    // The user who disabled it.
     shared_ptr<string> disabledBy_ {};
   };
 

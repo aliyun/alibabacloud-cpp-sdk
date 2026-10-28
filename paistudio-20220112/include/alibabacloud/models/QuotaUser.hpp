@@ -78,7 +78,9 @@ namespace Models
 
 
     protected:
+      // The submitted resources.
       shared_ptr<ResourceAmount> submitted_ {};
+      // The used resources.
       shared_ptr<ResourceAmount> used_ {};
     };
 
@@ -115,9 +117,13 @@ namespace Models
 
 
   protected:
+    // The resources.
     shared_ptr<QuotaUser::Resources> resources_ {};
+    // The user ID.
     shared_ptr<string> userId_ {};
+    // The username.
     shared_ptr<string> username_ {};
+    // The workload count.
     shared_ptr<int32_t> workloadCount_ {};
   };
 

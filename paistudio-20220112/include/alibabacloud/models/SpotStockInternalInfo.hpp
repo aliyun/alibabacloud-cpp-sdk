@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The number of available Spot Instances.
+    // The available quantity.
     shared_ptr<int32_t> availableQuantity_ {};
-    // The ID of the cluster.
+    // The cluster ID.
     shared_ptr<string> clusterId_ {};
-    // The ID of the high-performance network (HPN) zone.
+    // The high-performance network zone.
     shared_ptr<string> hpnZone_ {};
-    // The total number of Spot Instances.
+    // The total quantity.
     shared_ptr<int32_t> totalQuantity_ {};
   };
 

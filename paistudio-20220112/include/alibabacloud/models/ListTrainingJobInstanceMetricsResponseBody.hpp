@@ -93,9 +93,9 @@ namespace Models
 
 
       protected:
-        // UTC time in ISO 8601 format.
+        // The UTC time in ISO 8601 format.
         shared_ptr<string> time_ {};
-        // Metric value.
+        // The metric value.
         shared_ptr<double> value_ {};
       };
 
@@ -125,11 +125,11 @@ namespace Models
 
 
     protected:
-      // Instance ID.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // List of instance monitoring metrics.
+      // The list of instance monitoring metrics.
       shared_ptr<vector<InstanceMetrics::Metrics>> metrics_ {};
-      // Node name.
+      // The node name.
       shared_ptr<string> nodeName_ {};
     };
 
@@ -152,9 +152,9 @@ namespace Models
 
 
   protected:
-    // List of all monitoring metrics that match the filter condition.
+    // The list of all monitoring metrics that match the filter conditions.
     shared_ptr<vector<ListTrainingJobInstanceMetricsResponseBody::InstanceMetrics>> instanceMetrics_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

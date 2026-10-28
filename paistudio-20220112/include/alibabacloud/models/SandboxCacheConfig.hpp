@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Specifies whether the sandbox cache is enabled.
     shared_ptr<bool> enabled_ {};
   };
 

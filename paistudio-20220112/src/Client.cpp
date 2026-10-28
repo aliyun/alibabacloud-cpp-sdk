@@ -337,7 +337,7 @@ CreateQuotaResponse Client::createQuota(const CreateQuotaRequest &request) {
 }
 
 /**
- * @summary Use the CreateResourceGroup operation to create a resource group.
+ * @summary Creates a ResourceGroup using CreateResourceGroup.
  *
  * @param request CreateResourceGroupRequest
  * @param headers map
@@ -394,7 +394,7 @@ CreateResourceGroupResponse Client::createResourceGroupWithOptions(const CreateR
 }
 
 /**
- * @summary Use the CreateResourceGroup operation to create a resource group.
+ * @summary Creates a ResourceGroup using CreateResourceGroup.
  *
  * @param request CreateResourceGroupRequest
  * @return CreateResourceGroupResponse
@@ -725,7 +725,7 @@ DeleteResourceGroupResponse Client::deleteResourceGroup(const string &ResourceGr
 /**
  * @deprecated OpenAPI DeleteResourceGroupMachineGroup is deprecated
  *
- * @summary Deletes a machine group.
+ * @summary Deletes a machine group from a resource group.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -752,7 +752,7 @@ DeleteResourceGroupMachineGroupResponse Client::deleteResourceGroupMachineGroupW
 /**
  * @deprecated OpenAPI DeleteResourceGroupMachineGroup is deprecated
  *
- * @summary Deletes a machine group.
+ * @summary Deletes a machine group from a resource group.
  *
  * @return DeleteResourceGroupMachineGroupResponse
  */
@@ -844,7 +844,7 @@ DeleteTrainingJobLabelsResponse Client::deleteTrainingJobLabels(const string &Tr
 }
 
 /**
- * @summary Retrieves algorithm details.
+ * @summary Retrieves the details of an algorithm.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -869,7 +869,7 @@ GetAlgorithmResponse Client::getAlgorithmWithOptions(const string &AlgorithmId, 
 }
 
 /**
- * @summary Retrieves algorithm details.
+ * @summary Retrieves the details of an algorithm.
  *
  * @return GetAlgorithmResponse
  */
@@ -880,7 +880,7 @@ GetAlgorithmResponse Client::getAlgorithm(const string &AlgorithmId) {
 }
 
 /**
- * @summary Retrieve details about an algorithm version.
+ * @summary Retrieves the details of an algorithm version.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -905,7 +905,7 @@ GetAlgorithmVersionResponse Client::getAlgorithmVersionWithOptions(const string 
 }
 
 /**
- * @summary Retrieve details about an algorithm version.
+ * @summary Retrieves the details of an algorithm version.
  *
  * @return GetAlgorithmVersionResponse
  */
@@ -918,7 +918,7 @@ GetAlgorithmVersionResponse Client::getAlgorithmVersion(const string &AlgorithmI
 /**
  * @deprecated OpenAPI GetMachineGroup is deprecated
  *
- * @summary Retrieves the details of a specific machine group.
+ * @summary Retrieves the details of a machine group.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -945,7 +945,7 @@ GetMachineGroupResponse Client::getMachineGroupWithOptions(const string &Machine
 /**
  * @deprecated OpenAPI GetMachineGroup is deprecated
  *
- * @summary Retrieves the details of a specific machine group.
+ * @summary Retrieves the details of a machine group.
  *
  * @return GetMachineGroupResponse
  */
@@ -958,7 +958,7 @@ GetMachineGroupResponse Client::getMachineGroup(const string &MachineGroupID) {
 /**
  * @deprecated OpenAPI GetNodeMetrics is deprecated
  *
- * @summary Retrieves metric information for resource group nodes.
+ * @summary Retrieves the metrics of nodes in a resource group.
  *
  * @param request GetNodeMetricsRequest
  * @param headers map
@@ -1009,7 +1009,7 @@ GetNodeMetricsResponse Client::getNodeMetricsWithOptions(const string &ResourceG
 /**
  * @deprecated OpenAPI GetNodeMetrics is deprecated
  *
- * @summary Retrieves metric information for resource group nodes.
+ * @summary Retrieves the metrics of nodes in a resource group.
  *
  * @param request GetNodeMetricsRequest
  * @return GetNodeMetricsResponse
@@ -1021,7 +1021,7 @@ GetNodeMetricsResponse Client::getNodeMetrics(const string &ResourceGroupID, con
 }
 
 /**
- * @summary Retrieves the details of a resource quota to help you understand the current resource usage and facilitate resource management and planning.
+ * @summary Retrieves the details of a resource quota to understand current resource usage and facilitate resource management and planning.
  *
  * @param request GetQuotaRequest
  * @param headers map
@@ -1058,7 +1058,7 @@ GetQuotaResponse Client::getQuotaWithOptions(const string &QuotaId, const GetQuo
 }
 
 /**
- * @summary Retrieves the details of a resource quota to help you understand the current resource usage and facilitate resource management and planning.
+ * @summary Retrieves the details of a resource quota to understand current resource usage and facilitate resource management and planning.
  *
  * @param request GetQuotaRequest
  * @return GetQuotaResponse
@@ -1070,7 +1070,7 @@ GetQuotaResponse Client::getQuota(const string &QuotaId, const GetQuotaRequest &
 }
 
 /**
- * @summary `GetResourceGroup` retrieves details for a resource group.
+ * @summary Retrieves the details of a resource group.
  *
  * @param tmpReq GetResourceGroupRequest
  * @param headers map
@@ -1113,7 +1113,7 @@ GetResourceGroupResponse Client::getResourceGroupWithOptions(const string &Resou
 }
 
 /**
- * @summary `GetResourceGroup` retrieves details for a resource group.
+ * @summary Retrieves the details of a resource group.
  *
  * @param request GetResourceGroupRequest
  * @return GetResourceGroupResponse
@@ -1125,7 +1125,7 @@ GetResourceGroupResponse Client::getResourceGroup(const string &ResourceGroupID,
 }
 
 /**
- * @summary Call GetResourceGroupMachineGroup to retrieve the details of a machine group.
+ * @summary Retrieves the details of a machine group.
  *
  * @param tmpReq GetResourceGroupMachineGroupRequest
  * @param headers map
@@ -1164,7 +1164,7 @@ GetResourceGroupMachineGroupResponse Client::getResourceGroupMachineGroupWithOpt
 }
 
 /**
- * @summary Call GetResourceGroupMachineGroup to retrieve the details of a machine group.
+ * @summary Retrieves the details of a machine group.
  *
  * @param request GetResourceGroupMachineGroupRequest
  * @return GetResourceGroupMachineGroupResponse
@@ -1343,7 +1343,7 @@ GetSpotPriceHistoryResponse Client::getSpotPriceHistory(const string &InstanceTy
 }
 
 /**
- * @summary Obtains a share token for a training task.
+ * @summary Retrieves the sharing token for a training job.
  *
  * @param request GetTokenRequest
  * @param headers map
@@ -1380,7 +1380,7 @@ GetTokenResponse Client::getTokenWithOptions(const GetTokenRequest &request, con
 }
 
 /**
- * @summary Obtains a share token for a training task.
+ * @summary Retrieves the sharing token for a training job.
  *
  * @param request GetTokenRequest
  * @return GetTokenResponse
@@ -1582,7 +1582,7 @@ GetUserViewMetricsResponse Client::getUserViewMetrics(const string &ResourceGrou
 }
 
 /**
- * @summary Retrieve a list of algorithm version details.
+ * @summary Retrieves a list of algorithm version details.
  *
  * @param request ListAlgorithmVersionsRequest
  * @param headers map
@@ -1619,7 +1619,7 @@ ListAlgorithmVersionsResponse Client::listAlgorithmVersionsWithOptions(const str
 }
 
 /**
- * @summary Retrieve a list of algorithm version details.
+ * @summary Retrieves a list of algorithm version details.
  *
  * @param request ListAlgorithmVersionsRequest
  * @return ListAlgorithmVersionsResponse
@@ -1631,7 +1631,7 @@ ListAlgorithmVersionsResponse Client::listAlgorithmVersions(const string &Algori
 }
 
 /**
- * @summary Lists algorithm details.
+ * @summary Retrieves a list of algorithm details.
  *
  * @param request ListAlgorithmsRequest
  * @param headers map
@@ -1684,7 +1684,7 @@ ListAlgorithmsResponse Client::listAlgorithmsWithOptions(const ListAlgorithmsReq
 }
 
 /**
- * @summary Lists algorithm details.
+ * @summary Retrieves a list of algorithm details.
  *
  * @param request ListAlgorithmsRequest
  * @return ListAlgorithmsResponse
@@ -1832,9 +1832,9 @@ ListNodeTypesResponse Client::listNodeTypes(const ListNodeTypesRequest &request)
 }
 
 /**
- * @summary Retrieves a list of resource nodes.
+ * @summary Queries a list of resource nodes.
  *
- * @description You can call ListNodes to retrieve resource nodes that match specified filter conditions.
+ * @description You can call ListNodes to retrieve resource nodes that meet specified filter conditions.
  *
  * @param tmpReq ListNodesRequest
  * @param headers map
@@ -1997,9 +1997,9 @@ ListNodesResponse Client::listNodesWithOptions(const ListNodesRequest &tmpReq, c
 }
 
 /**
- * @summary Retrieves a list of resource nodes.
+ * @summary Queries a list of resource nodes.
  *
- * @description You can call ListNodes to retrieve resource nodes that match specified filter conditions.
+ * @description You can call ListNodes to retrieve resource nodes that meet specified filter conditions.
  *
  * @param request ListNodesRequest
  * @return ListNodesResponse
@@ -2011,9 +2011,9 @@ ListNodesResponse Client::listNodes(const ListNodesRequest &request) {
 }
 
 /**
- * @summary Retrieves the list of users under the current resource quota and their resource usage.
+ * @summary Retrieves the list of users in the current resource quota and the resources that they use.
  *
- * @description Retrieves the resource usage of users for a specified QuotaId.
+ * @description Retrieves the resource usage of users for the specified QuotaId.
  *
  * @param request ListQuotaActiveUserUsagesRequest
  * @param headers map
@@ -2078,9 +2078,9 @@ ListQuotaActiveUserUsagesResponse Client::listQuotaActiveUserUsagesWithOptions(c
 }
 
 /**
- * @summary Retrieves the list of users under the current resource quota and their resource usage.
+ * @summary Retrieves the list of users in the current resource quota and the resources that they use.
  *
- * @description Retrieves the resource usage of users for a specified QuotaId.
+ * @description Retrieves the resource usage of users for the specified QuotaId.
  *
  * @param request ListQuotaActiveUserUsagesRequest
  * @return ListQuotaActiveUserUsagesResponse
@@ -2092,7 +2092,7 @@ ListQuotaActiveUserUsagesResponse Client::listQuotaActiveUserUsages(const string
 }
 
 /**
- * @summary Retrieves the list of node information on a resource quota.
+ * @summary Retrieves a list of workloads for a quota.
  *
  * @param request ListQuotaWorkloadsRequest
  * @param headers map
@@ -2217,7 +2217,7 @@ ListQuotaWorkloadsResponse Client::listQuotaWorkloadsWithOptions(const string &Q
 }
 
 /**
- * @summary Retrieves the list of node information on a resource quota.
+ * @summary Retrieves a list of workloads for a quota.
  *
  * @param request ListQuotaWorkloadsRequest
  * @return ListQuotaWorkloadsResponse
@@ -2342,7 +2342,7 @@ ListQuotasResponse Client::listQuotas(const ListQuotasRequest &request) {
 }
 
 /**
- * @summary Retrieves a list of machine groups in a specified resource group.
+ * @summary Queries the machine groups in a specified resource group.
  *
  * @param request ListResourceGroupMachineGroupsRequest
  * @param headers map
@@ -2427,7 +2427,7 @@ ListResourceGroupMachineGroupsResponse Client::listResourceGroupMachineGroupsWit
 }
 
 /**
- * @summary Retrieves a list of machine groups in a specified resource group.
+ * @summary Queries the machine groups in a specified resource group.
  *
  * @param request ListResourceGroupMachineGroupsRequest
  * @return ListResourceGroupMachineGroupsResponse
@@ -2439,9 +2439,9 @@ ListResourceGroupMachineGroupsResponse Client::listResourceGroupMachineGroups(co
 }
 
 /**
- * @summary Call this operation to list resource groups for ECS or Lingjun intelligent computing resources.
+ * @summary Retrieves a list of resource groups for general compute resources or Lingjun AI compute resources.
  *
- * @description Currently, AI computing resource groups (including ECS and Lingjun intelligent computing resources) are available only in specific regions. For a list of supported regions, see [AI computing resource management](https://help.aliyun.com/document_detail/143986.html).
+ * @description Currently, AI compute resource groups, including general compute resources and Lingjun AI compute resources, are available only in specific regions. For the list of supported regions, see [AI compute resource management](https://help.aliyun.com/document_detail/143986.html).
  *
  * @param request ListResourceGroupsRequest
  * @param headers map
@@ -2518,9 +2518,9 @@ ListResourceGroupsResponse Client::listResourceGroupsWithOptions(const ListResou
 }
 
 /**
- * @summary Call this operation to list resource groups for ECS or Lingjun intelligent computing resources.
+ * @summary Retrieves a list of resource groups for general compute resources or Lingjun AI compute resources.
  *
- * @description Currently, AI computing resource groups (including ECS and Lingjun intelligent computing resources) are available only in specific regions. For a list of supported regions, see [AI computing resource management](https://help.aliyun.com/document_detail/143986.html).
+ * @description Currently, AI compute resource groups, including general compute resources and Lingjun AI compute resources, are available only in specific regions. For the list of supported regions, see [AI compute resource management](https://help.aliyun.com/document_detail/143986.html).
  *
  * @param request ListResourceGroupsRequest
  * @return ListResourceGroupsResponse
@@ -2729,7 +2729,7 @@ ListTrainingJobInstanceEventsResponse Client::listTrainingJobInstanceEvents(cons
 }
 
 /**
- * @summary Retrieve monitoring metrics for training job instances.
+ * @summary Retrieves the monitoring metrics of a training job instance.
  *
  * @param request ListTrainingJobInstanceMetricsRequest
  * @param headers map
@@ -2778,7 +2778,7 @@ ListTrainingJobInstanceMetricsResponse Client::listTrainingJobInstanceMetricsWit
 }
 
 /**
- * @summary Retrieve monitoring metrics for training job instances.
+ * @summary Retrieves the monitoring metrics of a training job instance.
  *
  * @param request ListTrainingJobInstanceMetricsRequest
  * @return ListTrainingJobInstanceMetricsResponse
@@ -2855,7 +2855,7 @@ ListTrainingJobLogsResponse Client::listTrainingJobLogs(const string &TrainingJo
 }
 
 /**
- * @summary Retrieve monitoring data for a training task.
+ * @summary Retrieves the monitoring data of a training job.
  *
  * @param request ListTrainingJobMetricsRequest
  * @param headers map
@@ -2908,7 +2908,7 @@ ListTrainingJobMetricsResponse Client::listTrainingJobMetricsWithOptions(const s
 }
 
 /**
- * @summary Retrieve monitoring data for a training task.
+ * @summary Retrieves the monitoring data of a training job.
  *
  * @param request ListTrainingJobMetricsRequest
  * @return ListTrainingJobMetricsResponse
@@ -3059,9 +3059,9 @@ ListTrainingJobsResponse Client::listTrainingJobs(const ListTrainingJobsRequest 
 }
 
 /**
- * @summary Operates on a specified node.
+ * @summary Performs operations on a node using OperateNode.
  *
- * @description You can call OperateNode to operate on a specified resource node, including operations such as disabling scheduling and enabling scheduling.
+ * @description Uses OperateNode to perform operations on a specified resource node, including disabling scheduling, enabling scheduling, and other operations.
  *
  * @param request OperateNodeRequest
  * @param headers map
@@ -3102,9 +3102,9 @@ OperateNodeResponse Client::operateNodeWithOptions(const string &NodeId, const O
 }
 
 /**
- * @summary Operates on a specified node.
+ * @summary Performs operations on a node using OperateNode.
  *
- * @description You can call OperateNode to operate on a specified resource node, including operations such as disabling scheduling and enabling scheduling.
+ * @description Uses OperateNode to perform operations on a specified resource node, including disabling scheduling, enabling scheduling, and other operations.
  *
  * @param request OperateNodeRequest
  * @return OperateNodeResponse
@@ -3443,8 +3443,20 @@ UpdateAlgorithmVersionResponse Client::updateAlgorithmVersion(const string &Algo
 UpdateQuotaResponse Client::updateQuotaWithOptions(const string &QuotaId, const UpdateQuotaRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasClusterSpec()) {
+    body["ClusterSpec"] = request.getClusterSpec();
+  }
+
   if (!!request.hasDescription()) {
     body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasEnableGracefulUpgrade()) {
+    body["EnableGracefulUpgrade"] = request.getEnableGracefulUpgrade();
+  }
+
+  if (!!request.hasGracefulUpgradeConfig()) {
+    body["GracefulUpgradeConfig"] = request.getGracefulUpgradeConfig();
   }
 
   if (!!request.hasLabels()) {

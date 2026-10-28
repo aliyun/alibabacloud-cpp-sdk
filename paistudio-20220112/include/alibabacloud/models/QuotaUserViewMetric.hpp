@@ -243,27 +243,49 @@ namespace Models
 
 
   protected:
+    // The number of CPU nodes.
     shared_ptr<int32_t> CPUNodeNumber_ {};
+    // The CPU utilization.
     shared_ptr<string> CPUUsageRate_ {};
+    // The CPU jobs.
     shared_ptr<vector<string>> cpuJobNames_ {};
+    // The CPU node list.
     shared_ptr<vector<string>> cpuNodeNames_ {};
+    // The disk read rate.
     shared_ptr<string> diskReadRate_ {};
+    // The disk write rate.
     shared_ptr<string> diskWriteRate_ {};
+    // The number of GPU nodes.
     shared_ptr<int32_t> GPUNodeNumber_ {};
+    // The GPU utilization.
     shared_ptr<string> GPUUsageRate_ {};
+    // The GPU jobs.
     shared_ptr<vector<string>> gpuJobNames_ {};
+    // The GPU node list.
     shared_ptr<vector<string>> gpuNodeNames_ {};
+    // The job type.
     shared_ptr<string> jobType_ {};
+    // The memory utilization.
     shared_ptr<string> memoryUsageRate_ {};
+    // The network input rate.
     shared_ptr<string> networkInputRate_ {};
+    // The network output rate.
     shared_ptr<string> networkOutputRate_ {};
+    // The node list.
     shared_ptr<vector<string>> nodeNames_ {};
+    // The number of requested CPU cores.
     shared_ptr<int32_t> requestCPU_ {};
+    // The number of requested GPU cores.
     shared_ptr<int32_t> requestGPU_ {};
+    // The requested memory in KB.
     shared_ptr<int64_t> requestMemory_ {};
+    // The total number of CPU cores.
     shared_ptr<int32_t> totalCPU_ {};
+    // The total number of GPUs.
     shared_ptr<int32_t> totalGPU_ {};
+    // The total memory in KB.
     shared_ptr<int64_t> totalMemory_ {};
+    // The user ID.
     shared_ptr<string> userId_ {};
   };
 

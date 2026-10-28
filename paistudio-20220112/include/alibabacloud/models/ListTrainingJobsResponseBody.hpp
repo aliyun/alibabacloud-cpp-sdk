@@ -187,7 +187,7 @@ namespace Models
         shared_ptr<string> securityGroupId_ {};
         // The vSwitch ID.
         shared_ptr<string> switchId_ {};
-        // VPC ID。
+        // The VPC ID.
         shared_ptr<string> vpcId_ {};
       };
 
@@ -256,13 +256,13 @@ namespace Models
 
 
       protected:
-        // The end time of the status.
+        // The end time of the status, in ISO 8601 format and UTC.
         shared_ptr<string> endTime_ {};
         // The status code.
         shared_ptr<string> reasonCode_ {};
         // The status update message.
         shared_ptr<string> reasonMessage_ {};
-        // The start time of the status.
+        // The start time of the status, in ISO 8601 format and UTC.
         shared_ptr<string> startTime_ {};
         // The status of the training job.
         shared_ptr<string> status_ {};
@@ -296,7 +296,7 @@ namespace Models
 
 
       protected:
-        // The maximum training runtime in seconds. A value of 0 indicates no limit on the maximum runtime.
+        // The maximum training duration, in seconds. A value of 0 indicates that the maximum running time is not limited.
         shared_ptr<int64_t> maxRunningTimeInSeconds_ {};
       };
 
@@ -369,9 +369,11 @@ namespace Models
         shared_ptr<string> datasetId_ {};
         // The output data name.
         shared_ptr<string> name_ {};
-        // The output data URI.
+        // The URI of the output data.
         shared_ptr<string> outputUri_ {};
+        // The ARN of the RAM role.
         shared_ptr<string> roleArn_ {};
+        // The data version name.
         shared_ptr<string> versionName_ {};
       };
 
@@ -486,11 +488,13 @@ namespace Models
       protected:
         // The dataset ID.
         shared_ptr<string> datasetId_ {};
-        // The input data URI.
+        // The URI of the input data.
         shared_ptr<string> inputUri_ {};
         // The input data name.
         shared_ptr<string> name_ {};
+        // The ARN of the RAM role.
         shared_ptr<string> roleArn_ {};
+        // The data version name.
         shared_ptr<string> versionName_ {};
       };
 
@@ -676,15 +680,15 @@ namespace Models
 
 
         protected:
-          // The number of CPU cores of the instance.
+          // The number of CPU cores for the instance.
           shared_ptr<string> CPU_ {};
-          // The number of GPUs of the instance.
+          // The number of GPUs for the instance.
           shared_ptr<string> GPU_ {};
           // The GPU type of the instance.
           shared_ptr<string> GPUType_ {};
-          // The memory size of the instance. Unit: GiB.
+          // The memory size of the instance, in GiB.
           shared_ptr<string> memory_ {};
-          // The shared memory size of the instance. Unit: GiB.
+          // The shared memory size of the instance, in GiB.
           shared_ptr<string> sharedMemory_ {};
         };
 
@@ -739,9 +743,9 @@ namespace Models
         shared_ptr<int64_t> ecsCount_ {};
         // The ECS instance type.
         shared_ptr<string> ecsSpec_ {};
-        // The number of resource quota instances.
+        // The number of instances in the resource quota.
         shared_ptr<int64_t> instanceCount_ {};
-        // The resource quota instance specification.
+        // The instance configuration for the resource quota.
         shared_ptr<ComputeResource::InstanceSpec> instanceSpec_ {};
         // The resource quota ID.
         shared_ptr<string> resourceId_ {};
@@ -986,24 +990,27 @@ namespace Models
 
 
     protected:
-      // The algorithm name.
+      // The name of the algorithm.
       shared_ptr<string> algorithmName_ {};
       // The algorithm provider.
       shared_ptr<string> algorithmProvider_ {};
       // The algorithm version.
       shared_ptr<string> algorithmVersion_ {};
+      // The specified node configuration.
       shared_ptr<AssignNodeSpec> assignNodeSpec_ {};
       // The compute resource configuration.
       shared_ptr<TrainingJobs::ComputeResource> computeResource_ {};
+      // The credential configuration.
       shared_ptr<CredentialConfig> credentialConfig_ {};
+      // The DLC job ID.
       shared_ptr<string> dlcJobId_ {};
       // The list of environment variables.
       shared_ptr<map<string, string>> environments_ {};
       // The experiment configuration associated with the training job.
       shared_ptr<TrainingJobs::ExperimentConfig> experimentConfig_ {};
-      // The time when the training job was created.
+      // The time when the training job was created, in ISO 8601 format and UTC.
       shared_ptr<string> gmtCreateTime_ {};
-      // The time when the training job status was last updated.
+      // The time when the training job status was updated, in ISO 8601 format and UTC.
       shared_ptr<string> gmtModifiedTime_ {};
       // The hyperparameter settings for training.
       shared_ptr<vector<TrainingJobs::HyperParameters>> hyperParameters_ {};
@@ -1019,19 +1026,19 @@ namespace Models
       shared_ptr<vector<string>> pythonRequirements_ {};
       // The status code of the training job.
       shared_ptr<string> reasonCode_ {};
-      // The error message of the training job.
+      // The error message for the training job.
       shared_ptr<string> reasonMessage_ {};
-      // The role ARN used for delegated authorization.
+      // The ARN of the role used for authorization.
       shared_ptr<string> roleArn_ {};
-      // The scheduling configuration of the training job.
+      // The scheduling configuration for the training job.
       shared_ptr<TrainingJobs::Scheduler> scheduler_ {};
       // The job status.
       shared_ptr<string> status_ {};
-      // The list of training job status transitions.
+      // The list of status transitions for the training job.
       shared_ptr<vector<TrainingJobs::StatusTransitions>> statusTransitions_ {};
       // The description of the training job.
       shared_ptr<string> trainingJobDescription_ {};
-      // The training job ID.
+      // The ID of the training job.
       shared_ptr<string> trainingJobId_ {};
       // The name of the training job.
       shared_ptr<string> trainingJobName_ {};

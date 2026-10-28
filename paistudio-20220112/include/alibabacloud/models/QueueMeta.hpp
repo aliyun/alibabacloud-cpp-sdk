@@ -133,27 +133,27 @@ namespace Models
 
 
   protected:
-    // The time the entry was removed from the queue.
+    // The time when the task was dequeued.
     shared_ptr<string> gmtDequeuedTime_ {};
-    // The time the entry was added to the queue.
+    // The time when the task was enqueued.
     shared_ptr<string> gmtEnqueuedTime_ {};
-    // The last time the position of the entry was modified.
+    // The time when the position of the task in the queue was changed.
     shared_ptr<string> gmtPositionModifiedTime_ {};
-    // The name of the queue entry.
+    // The name of the task in the queue.
     shared_ptr<string> name_ {};
-    // The position of the entry in the queue.
+    // The position of the task in the queue. This parameter takes effect only when the task is queued.
     shared_ptr<string> position_ {};
-    // The queuing strategy for the entry.
+    // The dequeue strategy.
     shared_ptr<string> queueStrategy_ {};
-    // The ID of the associated quota.
+    // The resource quota queue to which the task belongs.
     shared_ptr<string> quotaId_ {};
-    // The resources that the queue entry requires.
+    // The resources occupied by the task in the queue.
     shared_ptr<ResourceAmount> resource_ {};
-    // The resources scheduled for the entry.
+    // The scheduled resources occupied by the task in the queue.
     shared_ptr<string> scheduledResource_ {};
-    // The current status of the entry.
+    // The status of the task in the queue, such as enqueued or dequeued.
     shared_ptr<string> status_ {};
-    // Indicates whether the entry can use oversold resources.
+    // Specifies whether the task uses idle resources.
     shared_ptr<bool> useOversoldResource_ {};
   };
 

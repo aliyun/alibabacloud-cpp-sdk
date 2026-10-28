@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The AccessKey ID of the temporary access credential.
     shared_ptr<string> accessKeyId_ {};
+    // The ID of the assumed user.
     shared_ptr<string> id_ {};
+    // The temporary security token.
     shared_ptr<string> securityToken_ {};
+    // The identity type of the assumed user.
     shared_ptr<string> type_ {};
   };
 

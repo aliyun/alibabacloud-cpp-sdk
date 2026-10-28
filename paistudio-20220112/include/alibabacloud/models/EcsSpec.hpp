@@ -204,24 +204,41 @@ namespace Models
 
 
   protected:
+    // The accelerator type.
     shared_ptr<string> acceleratorType_ {};
+    // The number of CPU cores.
     shared_ptr<int32_t> cpu_ {};
+    // The ECS image ID.
     shared_ptr<string> ecsImageId_ {};
+    // The number of Elastic RDMA Interface (ERI) network interface controllers.
     shared_ptr<int32_t> eriQuantity_ {};
+    // The number of GPUs.
     shared_ptr<int32_t> gpu_ {};
+    // The GPU computing unit specifications.
     shared_ptr<string> gpuGUSpec_ {};
+    // The GPU memory size.
     shared_ptr<int32_t> gpuMemory_ {};
     shared_ptr<string> gpuType_ {};
+    // The GPU type alias.
     shared_ptr<string> gpuTypeAlias_ {};
+    // The instance type.
     shared_ptr<string> instanceType_ {};
+    // The machine model.
     shared_ptr<string> machineModel_ {};
+    // The memory resources.
     shared_ptr<int32_t> memory_ {};
+    // The network mode.
     shared_ptr<string> networkMode_ {};
+    // The planned number of CPU cores.
     shared_ptr<int32_t> plannedCpu_ {};
+    // The planned memory size.
     shared_ptr<int32_t> plannedMemory_ {};
+    // The resource type.
     shared_ptr<string> resourceType_ {};
+    // Specifies whether GPU sharing is supported.
     shared_ptr<bool> supportGPUShare_ {};
     shared_ptr<bool> supportRDMA_ {};
+    // Specifies whether setting the network interface controller index is supported.
     shared_ptr<bool> supportSetNetworkCardIndex_ {};
   };
 

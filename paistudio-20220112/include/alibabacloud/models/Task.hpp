@@ -156,18 +156,31 @@ namespace Models
 
 
   protected:
+    // The actions performed by the task.
     shared_ptr<vector<Action>> actions_ {};
+    // The description of the task.
     shared_ptr<string> description_ {};
+    // The time when the task was activated.
     shared_ptr<string> gmtActivatedTime_ {};
+    // The time when the task was created.
     shared_ptr<string> gmtCreatedTime_ {};
+    // The time when the task was updated.
     shared_ptr<string> gmtModifiedTime_ {};
+    // The time when the task was stopped.
     shared_ptr<string> gmtStoppedTime_ {};
+    // The ID of the quota.
     shared_ptr<string> quotaId_ {};
+    // The execution rules of the task.
     shared_ptr<Rules> rules_ {};
+    // The status of the task.
     shared_ptr<string> status_ {};
+    // The ID of the task.
     shared_ptr<string> taskId_ {};
+    // The name of the task.
     shared_ptr<string> taskName_ {};
+    // The ID of the user.
     shared_ptr<string> userId_ {};
+    // The username.
     shared_ptr<string> userName_ {};
   };
 

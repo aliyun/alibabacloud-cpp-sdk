@@ -198,23 +198,41 @@ namespace Models
 
 
   protected:
+    // The CPU utilization.
     shared_ptr<string> CPUUsageRate_ {};
+    // The disk read rate.
     shared_ptr<string> diskReadRate_ {};
+    // The disk write rate.
     shared_ptr<string> diskWriteRate_ {};
+    // The GPU utilization.
     shared_ptr<string> GPUUsageRate_ {};
+    // The job ID.
     shared_ptr<string> jobId_ {};
+    // The job type, such as DLC or DSW.
     shared_ptr<string> jobType_ {};
+    // The memory utilization.
     shared_ptr<string> memoryUsageRate_ {};
+    // The network inbound rate.
     shared_ptr<string> networkInputRate_ {};
+    // The network outbound rate.
     shared_ptr<string> networkOutputRate_ {};
+    // The node list.
     shared_ptr<vector<string>> nodeNames_ {};
+    // The number of requested CPU cores.
     shared_ptr<int32_t> requestCPU_ {};
+    // The number of requested GPU cores.
     shared_ptr<int32_t> requestGPU_ {};
+    // The requested memory in KB.
     shared_ptr<int64_t> requestMemory_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupID_ {};
+    // The total number of CPU cores.
     shared_ptr<int32_t> totalCPU_ {};
+    // The total number of GPU cards.
     shared_ptr<int32_t> totalGPU_ {};
+    // The total memory in KB.
     shared_ptr<int64_t> totalMemory_ {};
+    // The user ID.
     shared_ptr<string> userId_ {};
   };
 

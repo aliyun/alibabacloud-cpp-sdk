@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The end time.
+    // The end time in ISO 8601 format.
     shared_ptr<string> endTime_ {};
     // The GPU type. Valid values:
     // - V100
@@ -84,22 +84,22 @@ namespace Models
     // - T4
     // - P100
     shared_ptr<string> GPUType_ {};
-    // The start time.
+    // The start time in ISO 8601 format. The time zone is UTC.
     shared_ptr<string> startTime_ {};
     // The time step. Default value: 5m. Valid values for the time unit:
     // 
-    // - h: hours.
+    // - h: Hours.
     // 
-    // - m: minutes.
+    // - m: Minutes.
     // 
-    // - s: seconds.
+    // - s: Seconds.
     // 
     // If no unit is specified, the default unit is s (seconds).
     shared_ptr<string> timeStep_ {};
-    // Specifies whether to display non-essential information. Non-essential information currently includes Labels. Valid values:
+    // Specifies whether to display non-essential information. Non-essential information currently includes labels. Valid values:
     // 
-    // false: does not display non-essential information (default).
-    // true: displays non-essential information.
+    // - false: Does not display non-essential information. This is the default value.
+    // - true: Displays non-essential information.
     shared_ptr<bool> verbose_ {};
   };
 

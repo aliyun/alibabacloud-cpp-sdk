@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The target disk capacity after the change.
+    // The target disk capacity.
     shared_ptr<string> newDiskSize_ {};
   };
 

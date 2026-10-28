@@ -167,37 +167,33 @@ namespace Models
 
 
   protected:
-    // The list of data source cache information connected to the cache service. Each element corresponds to a data source and its access port.
+    // The list of connected data source cache information for the cache service, where each element corresponds to a data source and its access port.
     shared_ptr<vector<CacheInfo>> cacheInfos_ {};
-    // The cache service ID. This is the unique identifier of the cache service.
+    // The ID of the cache service, which is the unique identifier of the cache service.
     shared_ptr<string> cacheServiceId_ {};
-    // The ID of the cluster where the cache service resides.
+    // The ID of the cluster where the cache service is located.
     shared_ptr<string> clusterId_ {};
     // The ID of the resource quota that created the cache service.
     shared_ptr<string> createdBy_ {};
-    // The time when the cache service was created, in UTC in ISO 8601 format.
+    // The time when the cache service was created, in UTC and ISO 8601 format.
     shared_ptr<string> gmtCreated_ {};
-    // Indicates whether the service discovery of the cache service uses shard mode.
+    // Indicates whether the service discovery of the cache service uses the shard mode.
     shared_ptr<bool> isSharded_ {};
-    // The type of RDMA network interface controller used by the cache service. This parameter is returned only when SupportRDMA is set to true. Valid values:
-    // - eic: EIC network interface controller.
-    // - mlx: Mellanox network interface controller.
-    // 
-    // This parameter is empty when RDMA is not enabled.
+    // The type of RDMA network interface controller (NIC) used by the cache service. This parameter is returned only when SupportRDMA is true. Valid values: eic: EIC NIC. mlx: Mellanox NIC. If RDMA is not enabled, this parameter is empty.
     shared_ptr<string> networkType_ {};
     // The ID of the resource quota to which the cache service belongs.
     shared_ptr<string> quotaId_ {};
     // The current status of the cache service.
     shared_ptr<string> status_ {};
-    // Indicates whether the cache service supports access through RDMA networks.
+    // Indicates whether the cache service supports access over an RDMA network.
     shared_ptr<string> supportRDMA_ {};
     // The list of client quota IDs that are allowed to access the cache service.
     shared_ptr<vector<string>> supportedClientQuotaIds_ {};
-    // The tenant ID to which the cache service belongs, which is the Alibaba Cloud account ID.
+    // The ID of the tenant to which the cache service belongs, which is the Alibaba Cloud account ID.
     shared_ptr<string> tenantId_ {};
     // The ID of the user who created the cache service.
     shared_ptr<string> userId_ {};
-    // The VPC network information of the cache service, including the VPC, vSwitch, and security group configurations.
+    // The user VPC network information of the cache service, including configurations such as the VPC, vSwitch, and security group.
     shared_ptr<UserVpc> userVpc_ {};
   };
 

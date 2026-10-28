@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the machine group.
     shared_ptr<string> machineGroupID_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

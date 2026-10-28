@@ -61,7 +61,7 @@ namespace Models
 
 
   protected:
-    // A list of machine groups.
+    // The list of machine groups.
     shared_ptr<vector<MachineGroup>> machineGroups_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

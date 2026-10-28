@@ -452,12 +452,13 @@ namespace Models
 
 
   protected:
-    // The accelerator type of the resource node specifications (CPU/GPU).
+    // The accelerator type of the node specifications (CPU/GPU).
     shared_ptr<string> acceleratorType_ {};
-    // The number of CPU cores that can be allocated to users.
+    // The number of allocatable CPU cores.
     shared_ptr<string> allocatableCPU_ {};
-    // The memory size that can be allocated to users.
+    // The allocatable memory size.
     shared_ptr<string> allocatableMemory_ {};
+    // The number of workloads that use the ancestor quota.
     shared_ptr<int64_t> ancestorQuotaWorkloadNum_ {};
     // The zone.
     shared_ptr<string> availabilityZone_ {};
@@ -465,10 +466,13 @@ namespace Models
     shared_ptr<vector<QuotaIdName>> boundQuotas_ {};
     // The number of CPU cores.
     shared_ptr<string> CPU_ {};
-    // The creator of the resource node.
+    // The ID of the creator of the resource node.
     shared_ptr<string> creatorId_ {};
+    // The number of workloads that use the descendant quota.
     shared_ptr<int64_t> descendantQuotaWorkloadNum_ {};
+    // The data cloud disk capacity.
     shared_ptr<int64_t> diskCapacity_ {};
+    // The data cloud disk performance level.
     shared_ptr<string> diskPL_ {};
     // The number of GPUs.
     shared_ptr<string> GPU_ {};
@@ -486,13 +490,13 @@ namespace Models
     shared_ptr<string> gmtModifiedTime_ {};
     // The high-speed interconnect zone.
     shared_ptr<string> hyperZone_ {};
-    // Indicates whether the resource node is bound to a quota.
+    // Indicates whether a quota is bound.
     shared_ptr<bool> isBound_ {};
-    // The maximum number of CPU cores.
+    // The limit on the number of CPU cores.
     shared_ptr<string> limitCPU_ {};
-    // The maximum number of GPUs.
+    // The limit on the number of GPU cores.
     shared_ptr<string> limitGPU_ {};
-    // The maximum memory size.
+    // The limit on the memory size.
     shared_ptr<string> limitMemory_ {};
     // The ID of the machine group to which the resource node belongs.
     shared_ptr<string> machineGroupId_ {};
@@ -506,7 +510,7 @@ namespace Models
     shared_ptr<string> nodeName_ {};
     // The status of the resource node.
     shared_ptr<string> nodeStatus_ {};
-    // The node specifications type of the resource node.
+    // The type of node specifications of the resource node.
     shared_ptr<string> nodeType_ {};
     // The order status of the resource node.
     shared_ptr<string> orderStatus_ {};
@@ -518,7 +522,7 @@ namespace Models
     shared_ptr<string> reasonMessage_ {};
     // The number of requested CPU cores.
     shared_ptr<string> requestCPU_ {};
-    // The number of requested GPUs.
+    // The number of requested GPU cores.
     shared_ptr<string> requestGPU_ {};
     // The requested memory size.
     shared_ptr<string> requestMemory_ {};
@@ -526,12 +530,13 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     // The name of the resource group to which the resource node belongs.
     shared_ptr<string> resourceGroupName_ {};
+    // The number of workloads that use this quota.
     shared_ptr<int64_t> selfQuotaWorkloadNum_ {};
     // The names of the child nodes.
     shared_ptr<vector<string>> subNodes_ {};
     // The number of system-reserved CPU cores.
     shared_ptr<string> systemReservedCPU_ {};
-    // The system-reserved memory size.
+    // The size of the system reserved memory.
     shared_ptr<string> systemReservedMemory_ {};
     // The user information.
     shared_ptr<vector<UserInfo>> users_ {};

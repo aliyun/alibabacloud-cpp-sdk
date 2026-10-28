@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The count.
     shared_ptr<int64_t> count_ {};
+    // The idle count.
     shared_ptr<int64_t> idleNum_ {};
   };
 

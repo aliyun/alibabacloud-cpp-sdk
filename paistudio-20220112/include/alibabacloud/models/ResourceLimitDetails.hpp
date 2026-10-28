@@ -59,8 +59,11 @@ namespace Models
 
 
   protected:
+    // The GC level.
     shared_ptr<string> GCLevel_ {};
+    // The resource limit details.
     Darabonba::Json resourceLimit_ {};
+    // Specifies whether to ignore the resource check.
     shared_ptr<bool> shouldIgnoreResourceCheck_ {};
   };
 

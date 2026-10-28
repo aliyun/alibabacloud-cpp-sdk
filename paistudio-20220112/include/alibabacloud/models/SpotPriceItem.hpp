@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The spot instance type.
     shared_ptr<string> instanceType_ {};
+    // The spot instance discount.
     shared_ptr<float> spotDiscount_ {};
+    // The timestamp of the current spot instance price.
     shared_ptr<string> timestamp_ {};
+    // The zone ID.
     shared_ptr<string> zoneId_ {};
   };
 

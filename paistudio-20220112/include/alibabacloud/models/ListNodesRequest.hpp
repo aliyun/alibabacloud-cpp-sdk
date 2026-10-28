@@ -127,8 +127,9 @@ namespace Models
 
 
     protected:
-      // The comparison operator. Valid values: ge, gte, eq, lte, lt.
+      // The comparison operator. Valid values: ge, gte, eq, lte, and lt.
       shared_ptr<string> operation_ {};
+      // The health rate threshold. Unit: percentage.
       shared_ptr<int32_t> value_ {};
     };
 
@@ -170,8 +171,9 @@ namespace Models
 
 
     protected:
-      // The comparison operator. Valid values: ge, gte, eq, lte, lt.
+      // The comparison operator. Valid values: ge, gte, eq, lte, and lt.
       shared_ptr<string> operation_ {};
+      // The threshold for the number of healthy nodes.
       shared_ptr<int32_t> value_ {};
     };
 
@@ -409,63 +411,73 @@ namespace Models
     // - CPU
     // - GPU
     // 
-    // Default value: empty, which indicates all types.
+    // If this parameter is left empty, all types are queried.
     shared_ptr<string> acceleratorType_ {};
+    // The zone where the nodes reside.
     shared_ptr<string> availabilityZone_ {};
+    // The clique ID.
     shared_ptr<string> cliqueID_ {};
+    // The performance level (PL) of the cloud disk.
     shared_ptr<string> diskPL_ {};
-    // Used together with ResourceGroupIds to display nodes in the resource groups that are bound to the specified quotas.
+    // Used together with ResourceGroupIds to display nodes in the resource group that are bound to specific quotas.
     shared_ptr<string> filterByQuotaId_ {};
-    // Used together with QuotaId to display nodes in the quota that belong to the specified resource groups.
+    // Used together with QuotaId to display nodes in the quota that belong to specific resource groups.
     shared_ptr<string> filterByResourceGroupIds_ {};
-    // The GPU type. Fuzzy match is supported.
+    // The GPU card type. Fuzzy match is supported.
     shared_ptr<string> GPUType_ {};
     // The number of healthy nodes.
     shared_ptr<ListNodesRequest::HealthCount> healthCount_ {};
-    // The health rate of nodes (the proportion of healthy nodes).
+    // The health rate of the nodes, which is the proportion of healthy nodes.
     shared_ptr<ListNodesRequest::HealthRate> healthRate_ {};
+    // The name of the hypernode.
     shared_ptr<string> hyperNode_ {};
+    // The hyperzone where the nodes reside.
     shared_ptr<string> hyperZone_ {};
     // The layout mode.
     shared_ptr<string> layoutMode_ {};
+    // The IDs of the machine groups to which the nodes belong.
     shared_ptr<string> machineGroupIds_ {};
-    // The node names to display, separated by commas.
+    // The names of the nodes to display. Separate multiple names with commas.
     shared_ptr<string> nodeNames_ {};
-    // The node statuses, separated by commas. If this parameter is not specified, nodes in all statuses are returned.
+    // The status of the node. Separate multiple statuses with commas. If you do not specify this parameter, the system returns a list of nodes in all statuses.
     shared_ptr<string> nodeStatuses_ {};
-    // The resource node specifications, separated by commas. If this parameter is not configured, nodes of all node specifications are returned.
+    // The list of resource node specifications. Separate multiple specifications with commas. If you do not specify this parameter, the system returns a list of machines of all resource node specifications.
     shared_ptr<string> nodeTypes_ {};
     // The sort order. Valid values:
-    // - desc: Descending order.
-    // - asc: Ascending order.
+    // - desc: descending order.
+    // - asc: ascending order.
     shared_ptr<string> order_ {};
     // The order ID information.
     shared_ptr<string> orderInstanceIds_ {};
-    // The order statuses of the nodes.
+    // The order status of the node.
     shared_ptr<string> orderStatuses_ {};
-    // The page number, starting from 1.
+    // The page number. Pages start from page 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page for paged query. This parameter is used for paging.
+    // The number of entries to return on each page in a paged query. This parameter is used for paging.
     shared_ptr<int32_t> pageSize_ {};
+    // The billing method of the node order.
     shared_ptr<string> paymentType_ {};
+    // The number of pods on the node.
     shared_ptr<int32_t> podNum_ {};
-    // The resource quota ID to which the node belongs.
+    // The ID of the resource quota to which the node belongs.
     shared_ptr<string> quotaId_ {};
+    // The reason codes for the current status of the nodes.
     shared_ptr<string> reasonCodes_ {};
-    // The IDs of resource groups, separated by commas. Either this parameter or QuotaId is required.
-    // 
+    // The list of resource group IDs. Separate multiple IDs with commas. You must specify either this parameter or QuotaId.
     // Constraints:
-    // 1. The UserId of the specified ResourceGroupId must match the UserId of the request.
-    // 2. The specified resource groups must be of the same type.
-    // 3. The specified resource groups must be associated with the same VPC at this stage.
+    // 1. The user ID of the specified resource group must match the user ID of the request.
+    // 2. The resource groups in the list must be of the same type.
+    // 3. The VPCs associated with the resource groups in the list must be the same.
     shared_ptr<string> resourceGroupIds_ {};
     // The name of the resource group.
     shared_ptr<string> resourceGroupName_ {};
-    // The field used for sorting.
+    // The field based on which the results are sorted.
     shared_ptr<string> sortBy_ {};
     // Specifies whether to return resource usage information. This parameter takes effect only when QuotaId is specified.
     shared_ptr<bool> verbose_ {};
+    // The number of workloads on the node.
     shared_ptr<int32_t> workloadNum_ {};
+    // The ID of the workspace to which the nodes belong.
     shared_ptr<string> workspaceId_ {};
   };
 

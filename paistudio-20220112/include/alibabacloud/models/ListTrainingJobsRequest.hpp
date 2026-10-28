@@ -160,29 +160,32 @@ namespace Models
 
 
   protected:
-    // The algorithm name.
+    // The name of the algorithm.
     shared_ptr<string> algorithmName_ {};
     // The algorithm provider.
     shared_ptr<string> algorithmProvider_ {};
-    // The end time of the job creation time range for the query. Default value: current time.
+    // The end time of the creation time range used to query jobs. Default value: the current time. The time is in ISO 8601 format and the UTC time zone.
     shared_ptr<string> endTime_ {};
-    // Specifies whether the algorithm is a temporary algorithm.
+    // Specifies whether the algorithm is temporary.
     shared_ptr<bool> isTempAlgo_ {};
     // The labels of the training job.
     Darabonba::Json labels_ {};
     // The sort order. Valid values:
+    // 
+    // - ASC: Ascending order.
+    // - DESC: Descending order.
     shared_ptr<string> order_ {};
-    // The page number for paging.
+    // The page number for the paging query.
     shared_ptr<int64_t> pageNumber_ {};
     // The page size.
     shared_ptr<int64_t> pageSize_ {};
     // The field by which to sort the results.
     shared_ptr<string> sortBy_ {};
-    // The start time of the job creation time range for the query. Default value: 7 days ago.
+    // The start time of the creation time range used to query jobs. Default value: 7 days ago. The time is in ISO 8601 format and the UTC time zone.
     shared_ptr<string> startTime_ {};
     // The status of the training job.
     shared_ptr<string> status_ {};
-    // The training job ID.
+    // The ID of the training job.
     shared_ptr<string> trainingJobId_ {};
     // The name of the training job.
     shared_ptr<string> trainingJobName_ {};

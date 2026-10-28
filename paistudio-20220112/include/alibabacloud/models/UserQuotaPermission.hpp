@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The permissions.
     shared_ptr<vector<string>> permissions_ {};
+    // Quota ID
     shared_ptr<string> quotaId_ {};
   };
 

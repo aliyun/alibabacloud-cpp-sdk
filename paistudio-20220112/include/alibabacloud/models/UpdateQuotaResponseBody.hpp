@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // Quota ID。
+    // The quota ID.
     shared_ptr<string> quotaId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

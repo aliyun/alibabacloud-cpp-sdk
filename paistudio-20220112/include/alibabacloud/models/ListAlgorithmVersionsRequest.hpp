@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The current page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The page size for paging.
+    // The page size for pagination.
     shared_ptr<int64_t> pageSize_ {};
   };
 

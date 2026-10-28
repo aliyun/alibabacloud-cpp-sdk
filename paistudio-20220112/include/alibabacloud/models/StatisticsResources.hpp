@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The amount of CPU resources.
     shared_ptr<string> CPU_ {};
+    // The amount of GPU resources.
     shared_ptr<string> GPU_ {};
+    // The number of hypernodes.
     shared_ptr<int64_t> hyperNodeNum_ {};
+    // The amount of memory resources.
     shared_ptr<string> memory_ {};
+    // The number of nodes.
     shared_ptr<int64_t> nodeNum_ {};
   };
 

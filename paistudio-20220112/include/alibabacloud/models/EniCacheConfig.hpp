@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The size of the cache pool.
     shared_ptr<int32_t> cachePoolSize_ {};
+    // Specifies whether it is enabled.
     shared_ptr<bool> enabled_ {};
   };
 

@@ -87,7 +87,7 @@ namespace Models
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mmZ
       shared_ptr<string> timestamp_ {};
-      // The value of the metric.
+      // The metric value.
       shared_ptr<double> value_ {};
     };
 
@@ -119,8 +119,9 @@ namespace Models
   protected:
     // The list of metrics.
     shared_ptr<vector<ListTrainingJobMetricsResponseBody::Metrics>> metrics_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total count.
     shared_ptr<int64_t> totalCount_ {};
   };
 

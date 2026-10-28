@@ -78,10 +78,15 @@ namespace Models
 
 
   protected:
+    // The entity that uses the role credentials.
     shared_ptr<string> assumeRoleFor_ {};
+    // The user information for role assumption.
     shared_ptr<AssumeUserInfo> assumeUserInfo_ {};
+    // The access policy.
     shared_ptr<string> policy_ {};
+    // The ARN of the RAM role.
     shared_ptr<string> roleArn_ {};
+    // The role type.
     shared_ptr<string> roleType_ {};
   };
 

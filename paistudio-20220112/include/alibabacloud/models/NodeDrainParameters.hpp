@@ -62,10 +62,11 @@ namespace Models
 
 
   protected:
+    // Specifies whether to forcibly drain the node.
     shared_ptr<bool> force_ {};
-    // Delete pods of the specified job types
+    // The pods of the specified job types to drain.
     shared_ptr<vector<string>> podFromSubProducts_ {};
-    // Delete specified pods
+    // The specified pods to drain.
     shared_ptr<vector<string>> podNames_ {};
   };
 

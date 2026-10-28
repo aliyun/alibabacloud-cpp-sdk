@@ -181,37 +181,37 @@ namespace Models
 
 
   protected:
-    // Additional advanced parameter settings.
+    // The additional advanced parameter settings.
     Darabonba::Json advancedSettings_ {};
-    // User ID associated with the job.
+    // The ID of the user associated with the job.
     shared_ptr<string> businessUserId_ {};
-    // Caller.
+    // The caller.
     shared_ptr<string> caller_ {};
-    // NVIDIA driver configuration.
+    // The NVIDIA driver configuration.
     shared_ptr<string> driver_ {};
-    // Enable job fault tolerance monitoring.
+    // Specifies whether to enable fault tolerance monitoring for the job.
     shared_ptr<bool> enableErrorMonitoringInAIMaster_ {};
-    // Enable OSS append writes.
+    // Specifies whether to enable OSS append writing.
     shared_ptr<bool> enableOssAppend_ {};
-    // Enable the job to use RDMA.
+    // Specifies whether to allow the job to use RDMA.
     shared_ptr<bool> enableRDMA_ {};
-    // Enable computing power health check for the job.
+    // Specifies whether to enable computing power health checks for the job.
     shared_ptr<bool> enableSanityCheck_ {};
-    // Enable the job to use tide resources.
+    // Specifies whether to allow the job to use tide resources.
     shared_ptr<bool> enableTideResource_ {};
-    // Specify configuration parameters for fault tolerance monitoring, such as whether to enable log hang-based detection.
+    // The user-specified configuration parameters for fault tolerance monitoring, such as whether to enable log hang-based detection.
     shared_ptr<string> errorMonitoringArgs_ {};
-    // Duration in minutes to retain the job after completion.
+    // The retention duration after the job ends, in minutes.
     shared_ptr<int32_t> jobReservedMinutes_ {};
-    // Policy for retaining the job after completion.
+    // The retention policy after the job ends.
     shared_ptr<string> jobReservedPolicy_ {};
-    // Job\\"s oversold resource usage method (not accepted, accepted, or only accepted).
+    // The oversold resource usage type for the job, which can be not accepted, accepted, or only accepted.
     shared_ptr<string> oversoldType_ {};
-    // Workflow ID.
+    // The pipeline ID.
     shared_ptr<string> pipelineId_ {};
-    // Configuration parameters for computing power health check.
+    // The configuration parameters for computing power health checks.
     shared_ptr<string> sanityCheckArgs_ {};
-    // Custom tags.
+    // The custom labels.
     shared_ptr<map<string, string>> tags_ {};
   };
 

@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The node operation status message.
     shared_ptr<string> message_ {};
+    // The node name.
     shared_ptr<string> nodeName_ {};
+    // The node operation status.
     shared_ptr<string> status_ {};
   };
 

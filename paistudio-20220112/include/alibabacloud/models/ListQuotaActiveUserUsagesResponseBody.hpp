@@ -74,7 +74,7 @@ namespace Models
   protected:
     // The list of user resource usage details.
     shared_ptr<vector<QuotaUser>> quotaUserUsage_ {};
-    // The user usage information.
+    // The list of user resource usage details.
     shared_ptr<vector<QuotaUser>> quotaUserUsages_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

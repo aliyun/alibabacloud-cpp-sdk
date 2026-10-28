@@ -97,9 +97,9 @@ namespace Models
 
 
     protected:
-      // The tag key.
+      // The tag key of the instance. Valid values of N: 1 to 20.
       shared_ptr<string> tagKey_ {};
-      // The tag value.
+      // The tag value of the instance. Valid values of N: 1 to 20.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -219,32 +219,33 @@ namespace Models
   protected:
     // The ID of the cluster to which the resource group belongs.
     shared_ptr<string> clusterID_ {};
-    // The provider of computing resources for the resource group.
+    // The type of compute resources for the resource group.
     shared_ptr<string> computingResourceProvider_ {};
-    // The ID of the user who created the resource group.
+    // The user ID of the creator of the resource group.
     shared_ptr<string> creatorID_ {};
     // The description of the resource group.
     shared_ptr<string> description_ {};
-    // The time when the resource group was created.
+    // The time when the resource group was created. The time follows the ISO 8601 standard in the UTC time zone.
     shared_ptr<string> gmtCreatedTime_ {};
-    // The time when the resource group was last modified.
+    // The time when the resource group was updated. The time follows the ISO 8601 standard in the UTC time zone.
     shared_ptr<string> gmtModifiedTime_ {};
     // The name of the resource group.
     shared_ptr<string> name_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The type of computing resource for the resource group.
+    // The type of compute resources for the resource group.
     shared_ptr<string> resourceType_ {};
     // The status of the resource group.
     shared_ptr<string> status_ {};
     // Indicates whether the resource group supports RDMA.
     shared_ptr<bool> supportRDMA_ {};
-    // A list of tags.
+    // The list of tags.
     shared_ptr<vector<GetResourceGroupResponseBody::Tags>> tags_ {};
     // The details of the VPC connected to the resource group.
     shared_ptr<UserVpc> userVpc_ {};
+    // The version.
     shared_ptr<string> version_ {};
-    // The workspace ID.
+    // The ID of the workspace.
     shared_ptr<string> workspaceID_ {};
   };
 

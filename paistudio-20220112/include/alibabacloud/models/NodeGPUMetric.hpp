@@ -116,14 +116,23 @@ namespace Models
 
 
   protected:
+    // The accelerator type.
     shared_ptr<string> acceleratorType_ {};
+    // The GPU count.
     shared_ptr<int32_t> GPUCount_ {};
+    // The GPU metrics.
     shared_ptr<vector<GPUMetric>> GPUMetrics_ {};
+    // The GPU type.
     shared_ptr<string> GPUType_ {};
+    // The memory utilization.
     shared_ptr<float> memoryUtil_ {};
+    // The node ID.
     shared_ptr<string> nodeId_ {};
+    // The node type.
     shared_ptr<string> nodeType_ {};
+    // The total memory.
     shared_ptr<float> totalMemory_ {};
+    // The used memory.
     shared_ptr<float> usedMemory_ {};
   };
 

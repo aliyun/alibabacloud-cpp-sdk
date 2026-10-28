@@ -244,28 +244,53 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> code_ {};
+    // The error type.
     shared_ptr<string> codeType_ {};
+    // The task creation time.
     shared_ptr<string> gmtCreatedTime_ {};
+    // The dequeue time.
     shared_ptr<string> gmtDequeuedTime_ {};
+    // The enqueue time.
     shared_ptr<string> gmtEnqueuedTime_ {};
+    // The queue position change time.
     shared_ptr<string> gmtPositionModifiedTime_ {};
+    // The name of the underlying QueueUnit.
     shared_ptr<string> name_ {};
+    // The queue position.
     shared_ptr<int64_t> position_ {};
+    // The task priority.
     shared_ptr<int64_t> priority_ {};
+    // The dequeue strategy of the queue.
     shared_ptr<string> queueStrategy_ {};
+    // The quota used by the task.
     shared_ptr<string> quotaId_ {};
+    // The error message.
     shared_ptr<string> reason_ {};
+    // The resource usage.
     shared_ptr<ResourceAmount> resource_ {};
+    // The status.
     shared_ptr<string> status_ {};
+    // Specifies whether the task uses idle resources. Valid values:
+    // - true: Used.
+    // - false: Not used.
     shared_ptr<bool> useOversoldResource_ {};
+    // The creator information.
     shared_ptr<string> userId_ {};
+    // The username.
     shared_ptr<string> userName_ {};
+    // The task ID.
     shared_ptr<string> workloadId_ {};
+    // The task name.
     shared_ptr<string> workloadName_ {};
+    // The specific status of DLC, DSW, or EAS.
     shared_ptr<string> workloadStatus_ {};
+    // The task type.
     shared_ptr<string> workloadType_ {};
+    // The workspace of the task.
     shared_ptr<string> workspaceId_ {};
+    // The name of the workspace where the task resides.
     shared_ptr<string> workspaceName_ {};
   };
 

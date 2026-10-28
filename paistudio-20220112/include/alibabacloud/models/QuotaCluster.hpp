@@ -82,10 +82,15 @@ namespace Models
 
 
   protected:
+    // The cluster type.
     shared_ptr<string> clusterType_ {};
+    // The datasource config.
     shared_ptr<vector<DataSource>> dataSources_ {};
+    // The service access endpoints.
     shared_ptr<map<string, string>> endpoints_ {};
+    // The container image address.
     shared_ptr<string> image_ {};
+    // The status.
     shared_ptr<string> status_ {};
   };
 

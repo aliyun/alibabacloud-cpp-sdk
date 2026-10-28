@@ -63,9 +63,9 @@ namespace Models
   protected:
     // The instance type.
     shared_ptr<string> instanceType_ {};
-    // Internal information about the stock of the spot instance type.
+    // The inventory details.
     shared_ptr<vector<SpotStockInternalInfo>> internalInfo_ {};
-    // The stock status of the instance type. Valid values are `Available` and `SoldOut`.
+    // The inventory status.
     shared_ptr<string> stockStatus_ {};
   };
 

@@ -130,17 +130,29 @@ namespace Models
 
 
   protected:
+    // The code directory configuration.
     shared_ptr<Location> codeDir_ {};
+    // The command used for submit the job.
+    // 
     // This parameter is required.
     shared_ptr<string> command_ {};
+    // The hype parameter used by the algorithm.
     shared_ptr<vector<HyperParameterDefinition>> hyperParameters_ {};
+    // The docker image used by the job of this algorithm.
+    // 
     // This parameter is required.
     shared_ptr<string> image_ {};
+    // The input for the algorithm.
     shared_ptr<vector<Channel>> inputChannels_ {};
+    // Job type of the training job while running the algorithm.
+    // 
     // This parameter is required.
     shared_ptr<string> jobType_ {};
+    // The output metrics of the algorithm.
     shared_ptr<vector<MetricDefinition>> metricDefinitions_ {};
+    // The outputs of the algorithm.
     shared_ptr<vector<Channel>> outputChannels_ {};
+    // Resource requirements.
     shared_ptr<vector<ConditionExpression>> resourceRequirements_ {};
   };
 

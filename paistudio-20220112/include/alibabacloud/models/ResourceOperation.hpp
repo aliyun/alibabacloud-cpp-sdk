@@ -158,19 +158,33 @@ namespace Models
 
 
   protected:
+    // The ID of the creator of the resource change.
     shared_ptr<string> creatorId_ {};
+    // The time when the resource change was created.
     shared_ptr<string> gmtCreatedTime_ {};
+    // The time when the resource change ended.
     shared_ptr<string> gmtEndTime_ {};
+    // The time when the resource change was updated.
     shared_ptr<string> gmtModifiedTime_ {};
+    // The time when the resource change started.
     shared_ptr<string> gmtStartTime_ {};
+    // The object ID of the resource change.
     shared_ptr<string> objectId_ {};
+    // The object type of the resource change.
     shared_ptr<string> objectType_ {};
+    // The description of the resource change.
     shared_ptr<string> operationDescription_ {};
+    // The resource change ID.
     shared_ptr<string> operationId_ {};
+    // The details of the resource change.
     shared_ptr<string> operationSpecJson_ {};
+    // The type of the resource change.
     shared_ptr<string> operationType_ {};
+    // The error code.
     shared_ptr<string> reasonCode_ {};
+    // The error message.
     shared_ptr<string> reasonMessage_ {};
+    // The status of the resource change.
     shared_ptr<string> status_ {};
   };
 

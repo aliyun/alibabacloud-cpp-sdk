@@ -94,33 +94,30 @@ namespace Models
 
 
   protected:
-    // The end time for querying historical spot instance prices. Specify the time in ISO 8601 format using UTC+0, as yyyy-MM-ddTHH:mm:ssZ. Default value: empty. An empty value means the current time.
+    // The end time for querying the historical prices of spot instances. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. Default value: null, which indicates the current time.
     shared_ptr<string> endTime_ {};
     // The sort order. Default value: asc. Valid values:
-    // 
     // - desc: descending order.
-    // 
     // - asc: ascending order.
     // 
-    // This parameter applies only when you query historical prices for Lingjun instance types.
+    // This parameter takes effect only when you query the historical prices of Lingjun instance types.
     shared_ptr<string> order_ {};
-    // The page number of the current page. Default value: ***1***. This parameter applies only when you query historical prices for Lingjun instance types.
+    // The page number. Default value: ***1***. This parameter takes effect only when you query the historical prices of Lingjun instance types.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: **10**. This parameter applies only when you query historical prices for Lingjun instance types.
+    // The number of entries per page. Default value: **10**. This parameter takes effect only when you query the historical prices of Lingjun instance types.
     shared_ptr<int32_t> pageSize_ {};
-    // The field to sort by. Default value: GmtCreatedTime. Valid values:
+    // The field used for sorting. Default value: GmtCreatedTime. Valid values:
     // 
     // - GmtCreatedTime
     // 
-    // This parameter applies only when you query historical prices for Lingjun instance types.
+    // This parameter takes effect only when you query the historical prices of Lingjun instance types.
     shared_ptr<string> sortBy_ {};
-    // The retention period for the spot instance, in hours. Note that only ECS instance types support this parameter. Default value: 0. Valid values:
+    // The protection period of the spot instance. Unit: hours. Note that only ECS instance types support Settings for the protection period of spot instances. Default value: 0. Valid values:
     // 
-    // - 1: Alibaba Cloud guarantees that the instance runs for at least one hour after creation. After one hour, the system compares your bid price with the current market price and checks resource inventory to decide whether to retain or revoke the instance.
-    // 
-    // - 0: Alibaba Cloud does not guarantee one-hour runtime. The system compares your bid price with the current market price and checks resource inventory to decide whether to retain or revoke the instance.
+    // - 1: After the spot instance is created, Alibaba Cloud ensures that the instance runs for 1 hour without automatic release. After 1 hour, the system automatically compares the bid price with the marketplace price and checks resource inventory to determine whether to retain or revoke the instance.
+    // - 0: After the spot instance is created, Alibaba Cloud does not guarantee that the instance runs for 1 hour. The system automatically compares the bid price with the marketplace price and checks resource inventory to determine whether to retain or revoke the instance.
     shared_ptr<int32_t> spotDuration_ {};
-    // The start time for querying historical spot instance prices. This time must be no more than seven days before the end time. Specify the time in ISO 8601 format using UTC+0, as yyyy-MM-ddTHH:mm:ssZ. Default value: empty. An empty value means three days before the end time.
+    // The start time for querying the historical prices of spot instances. The maximum value cannot exceed 7 days before the specified end time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. Default value: null, which indicates 3 days before the end time.
     shared_ptr<string> startTime_ {};
   };
 

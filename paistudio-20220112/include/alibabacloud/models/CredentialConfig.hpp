@@ -61,8 +61,11 @@ namespace Models
 
 
   protected:
+    // The Alibaba Cloud environment role identifier.
     shared_ptr<string> aliyunEnvRoleKey_ {};
+    // The credential configuration items.
     shared_ptr<vector<CredentialConfigItem>> credentialConfigItems_ {};
+    // Specifies whether credential injection is enabled.
     shared_ptr<bool> enableCredentialInject_ {};
   };
 

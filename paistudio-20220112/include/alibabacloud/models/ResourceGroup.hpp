@@ -135,9 +135,9 @@ namespace Models
   protected:
     // The user ID of the creator.
     shared_ptr<string> creatorID_ {};
-    // The time the PAI resource group was created.
+    // The time when the PAI resource group was created.
     shared_ptr<string> gmtCreatedTime_ {};
-    // The time the PAI resource group was last modified.
+    // The time when the PAI resource group was updated.
     shared_ptr<string> gmtModifiedTime_ {};
     // The name of the PAI resource group.
     shared_ptr<string> name_ {};
@@ -145,12 +145,15 @@ namespace Models
     shared_ptr<int32_t> nodeCount_ {};
     // The ID of the PAI resource group.
     shared_ptr<string> resourceGroupID_ {};
+    // The type of compute resources in the resource group.
     shared_ptr<string> resourceType_ {};
+    // The status of the resource group.
     shared_ptr<string> status_ {};
     // The VPC configuration.
     shared_ptr<UserVpc> userVpc_ {};
+    // The version of the resource group.
     shared_ptr<string> version_ {};
-    // The workspace ID.
+    // The ID of the workspace.
     shared_ptr<string> workspaceID_ {};
   };
 

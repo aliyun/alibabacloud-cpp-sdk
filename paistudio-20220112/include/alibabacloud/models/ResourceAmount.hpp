@@ -84,15 +84,17 @@ namespace Models
 
 
   protected:
-    // Total CPU
+    // The total CPU amount.
     shared_ptr<string> CPU_ {};
-    // Total GPU cards
+    // The total number of GPU cards.
     shared_ptr<string> GPU_ {};
+    // The GPU memory.
     shared_ptr<string> GPUMemory_ {};
+    // The GPU memory, in bytes.
     shared_ptr<int64_t> GPUMemoryBytes_ {};
-    // GPU card type
+    // The GPU card type.
     shared_ptr<string> GPUType_ {};
-    // Total memory
+    // The total memory amount.
     shared_ptr<string> memory_ {};
   };
 

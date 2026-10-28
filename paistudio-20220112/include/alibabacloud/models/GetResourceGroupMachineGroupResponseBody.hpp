@@ -116,9 +116,9 @@ namespace Models
 
 
     protected:
-      // The tag key.
+      // The key of the tag. Valid values of N: 1 to 20.
       shared_ptr<string> tagKey_ {};
-      // The tag value.
+      // The value of the tag. Valid values of N: 1 to 20.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -308,58 +308,61 @@ namespace Models
 
 
   protected:
+    // The number of allocatable CPU cores on each machine in the machine group.
     shared_ptr<string> allocatableCpu_ {};
+    // The allocatable memory size on each machine in the machine group.
     shared_ptr<string> allocatableMemory_ {};
-    // The total number of CPU cores per machine in the machine group.
+    // The total number of CPU cores on each machine in the machine group.
     shared_ptr<string> cpu_ {};
-    // The default GPU driver version per machine in the machine group.
+    // The default GPU driver version of each machine in the machine group.
     shared_ptr<string> defaultDriver_ {};
     // The number of ECS instances.
     shared_ptr<int64_t> ecsCount_ {};
-    // The ECS spec.
+    // The ECS instance type.
     shared_ptr<string> ecsSpec_ {};
-    // The creation time of the machine group.
+    // The time when the machine group was created.
     shared_ptr<string> gmtCreatedTime_ {};
     // The expiration time of the machine group.
     shared_ptr<string> gmtExpiredTime_ {};
-    // The last modification time of the machine group.
+    // The time when the machine group was updated.
     shared_ptr<string> gmtModifiedTime_ {};
-    // The start time of the machine group.
+    // The time when the machine group was started.
     shared_ptr<string> gmtStartedTime_ {};
-    // The number of GPUs per machine in the machine group.
+    // The number of GPU cores on each machine in the machine group.
     shared_ptr<string> gpu_ {};
-    // The GPU type per machine in the machine group.
+    // The GPU type of each machine in the machine group.
     shared_ptr<string> gpuType_ {};
     // The ID of the machine group.
     shared_ptr<string> machineGroupID_ {};
-    // The amount of memory per machine in the machine group.
+    // The memory size of each machine in the machine group.
     shared_ptr<string> memory_ {};
     // The name of the machine group.
     shared_ptr<string> name_ {};
-    // The payment duration. When PaymentDurationUnit is set to Month, valid values are: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
+    // The billing duration. If PaymentDurationUnit is set to Month, valid values are 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
     shared_ptr<string> paymentDuration_ {};
-    // The unit of the billing cycle for the machine group.
+    // The billing duration unit of the machine group.
     shared_ptr<string> paymentDurationUnit_ {};
-    // The payment type.
+    // The billing method.
     shared_ptr<string> paymentType_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource group. This ID is globally unique and can be used to retrieve information about the resource group.
+    // The ID of the resource group. Each resource group has a globally unique ID. You can use the resource group ID to retrieve the information about the resource group.
     shared_ptr<string> resourceGroupID_ {};
-    // The status of the machine group.
-    // Valid values:
-    // Creating: The machine group is being created.
-    // Ready: The machine group is running.
-    // Expiring: The machine group is about to expire.
-    // Expired: The machine group has expired.
-    // Stopping: The machine group is being stopped.
-    // Stopped: The machine group has been stopped.
+    // The instance status. Valid values:
+    // - Creating: The instance is being created.
+    // - Ready: The instance is running.
+    // - Expiring: The instance is about to expire.
+    // - Expired: The instance has expired.
+    // - Stopping: The instance is being stopped.
+    // - Stopped: The instance is stopped.
     shared_ptr<string> status_ {};
-    // The GPU driver versions supported by the machines in the machine group.
+    // The GPU driver versions supported by nodes in the machine group.
     shared_ptr<vector<string>> supportedDrivers_ {};
+    // The number of system-reserved CPU cores on each machine in the machine group.
     shared_ptr<string> systemReservedCpu_ {};
+    // The size of system-reserved memory on each machine in the machine group.
     shared_ptr<string> systemReservedMemory_ {};
-    // The list of tags attached to the machine group.
+    // The list of tags to query. The value is a JSON string that contains up to 20 tags.
     shared_ptr<vector<GetResourceGroupMachineGroupResponseBody::Tags>> tags_ {};
   };
 

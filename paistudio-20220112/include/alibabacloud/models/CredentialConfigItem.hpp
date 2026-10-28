@@ -61,8 +61,11 @@ namespace Models
 
 
   protected:
+    // The configuration key.
     shared_ptr<string> key_ {};
+    // The role configuration.
     shared_ptr<vector<CredentialRole>> roles_ {};
+    // The credential configuration type.
     shared_ptr<string> type_ {};
   };
 

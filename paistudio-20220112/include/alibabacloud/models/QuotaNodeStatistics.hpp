@@ -88,17 +88,17 @@ namespace Models
 
 
   protected:
-    // The guaranteed minimum number of hyper nodes available in the quota.
+    // The number of super nodes.
     shared_ptr<int64_t> actualMinHyperNodeNum_ {};
-    // The guaranteed minimum number of nodes available in the quota.
+    // The number of nodes.
     shared_ptr<int64_t> actualMinNodeNum_ {};
-    // The details of an allocated hyper node.
+    // The super node details.
     shared_ptr<vector<AllocatedHyperNodeDetail>> allocatedHyperNodeDetails_ {};
-    // The number of hyper nodes currently allocated from the quota.
+    // The number of allocated super nodes.
     shared_ptr<int64_t> allocatedHyperNodeNum_ {};
-    // The number of nodes currently allocated from the quota.
+    // The number of allocated nodes.
     shared_ptr<int64_t> allocatedNodeNum_ {};
-    // The number of allocated nodes currently idle.
+    // The number of idle nodes.
     shared_ptr<int64_t> emptyNodeNum_ {};
   };
 

@@ -140,35 +140,34 @@ namespace Models
 
 
   protected:
-    // The provider of the compute resources.
+    // The compute resource type of the resource group.
     shared_ptr<string> computingResourceProvider_ {};
+    // Specifies whether the resource group contains resources.
     shared_ptr<bool> hasResource_ {};
     // The name of the resource group.
     shared_ptr<string> name_ {};
     // The sort order. Valid values:
-    // 
-    // - `desc`: descending.
-    // 
-    // - `asc`: ascending.
+    // - desc: descending order.
+    // - asc: ascending order.
     shared_ptr<string> order_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
+    // The list of resource group IDs.
     shared_ptr<string> resourceGroupIDs_ {};
-    // The resource type. Valid values:
+    // The list of resource types. Valid values:
     // 
-    // - `ECS`: ECS.
-    // 
-    // - `Lingjun`: Lingjun intelligent computing resources.
+    // - ECS: general compute resources.
+    // - Lingjun: Lingjun AI compute resources.
     shared_ptr<string> resourceType_ {};
     // Specifies whether to return all results.
     shared_ptr<bool> showAll_ {};
-    // The field to sort by. Valid values include: `DisplayName`, `GmtCreated`, `GmtModified`, `RegionID`, `Duration`, `PricingCycle`, and `PayType`.
+    // The name of the field used for sorting. Valid values: DisplayName, GmtCreated, GmtModified, RegionID, Duration, PricingCycle, and PayType.
     shared_ptr<string> sortBy_ {};
     // The status of the resource group.
     shared_ptr<string> status_ {};
-    // The version to filter by.
+    // The version to search for.
     shared_ptr<string> versions_ {};
   };
 

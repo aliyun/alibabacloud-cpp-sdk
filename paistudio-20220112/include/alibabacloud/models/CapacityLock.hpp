@@ -213,25 +213,45 @@ namespace Models
 
 
   protected:
+    // The number of available instances.
     shared_ptr<int32_t> availableCount_ {};
+    // The ID of the capacity reservation.
     shared_ptr<string> crsReservationId_ {};
+    // The description of the capacity reservation.
     shared_ptr<string> description_ {};
+    // The expiration time of the capacity reservation.
     shared_ptr<string> expireTime_ {};
+    // The creation time.
     shared_ptr<string> gmtCreated_ {};
+    // The modification time.
     shared_ptr<string> gmtModified_ {};
+    // The ID of the capacity reservation lock record.
     shared_ptr<string> id_ {};
+    // The instance type.
     shared_ptr<string> instanceType_ {};
+    // The time of the last reconciliation attempt.
     shared_ptr<string> lastReconcileAttemptTime_ {};
+    // The last synchronization time.
     shared_ptr<string> lastSyncTime_ {};
+    // The lock service provider.
     shared_ptr<string> lockProvider_ {};
+    // The number of locked instances.
     shared_ptr<int32_t> lockedCount_ {};
+    // The operator.
     shared_ptr<string> operator_ {};
+    // The billing method.
     shared_ptr<string> paymentType_ {};
+    // The ID of the private pool.
     shared_ptr<string> privatePoolId_ {};
+    // The number of requested instances.
     shared_ptr<int32_t> requestedCount_ {};
+    // The status.
     shared_ptr<string> status_ {};
+    // The ID of the tenant.
     shared_ptr<string> tenantId_ {};
+    // The number of used instances.
     shared_ptr<int32_t> usedCount_ {};
+    // The zone ID.
     shared_ptr<string> zoneId_ {};
   };
 

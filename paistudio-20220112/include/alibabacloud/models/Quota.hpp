@@ -289,41 +289,43 @@ namespace Models
     shared_ptr<string> allocateStrategy_ {};
     // The ID of the resource quota creator.
     shared_ptr<string> creatorId_ {};
-    // The resource quota description.
+    // The description of the resource quota.
     shared_ptr<string> description_ {};
     // The GPU type.
     shared_ptr<string> GPUType_ {};
     // The time when the resource quota was created.
     shared_ptr<string> gmtCreatedTime_ {};
-    // The time when the resource quota was last modified.
+    // The time when the resource quota was updated.
     shared_ptr<string> gmtModifiedTime_ {};
+    // The list of high-performance network zones.
     shared_ptr<vector<string>> hyperZones_ {};
-    // The resource quota labels.
+    // The labels of the resource quota.
     shared_ptr<vector<Label>> labels_ {};
     // The ID of the latest operation on the resource quota.
     shared_ptr<string> latestOperationId_ {};
     // The guaranteed resources.
     shared_ptr<ResourceSpec> min_ {};
-    // The parent resource quota ID.
+    // The ID of the parent resource quota.
     shared_ptr<string> parentQuotaId_ {};
     // The queue policy for the quota. Valid values:
-    // - PaiStrategyIntelligent: intelligent policies.
-    // - PaiStrategyBalance: balanced policy.
-    // - PaiStrategyRoundRobin: resource-priority policy.
-    // - PaiStrategyStrictFIFO: FIFO policy.
+    // - PaiStrategyIntelligent: intelligent policies
+    // - PaiStrategyBalance: balanced policy
+    // - PaiStrategyRoundRobin: resource priority policy
+    // - PaiStrategyStrictFIFO: FIFO policy
     shared_ptr<string> queueStrategy_ {};
+    // The specifications and status of the cluster composed of resources in the quota.
     shared_ptr<QuotaCluster> quotaCluster_ {};
-    // The resource quota configuration.
+    // The configuration of the resource quota.
     shared_ptr<QuotaConfig> quotaConfig_ {};
-    // The resource quota details.
+    // The details of the resource quota.
     shared_ptr<QuotaDetails> quotaDetails_ {};
-    // The resource quota ID.
+    // The ID of the resource quota.
     shared_ptr<string> quotaId_ {};
-    // The resource quota name.
+    // The name of the resource quota.
     shared_ptr<string> quotaName_ {};
     // The error code.
     shared_ptr<string> reasonCode_ {};
-    // The error reason.
+    // The cause of the error.
     shared_ptr<string> reasonMessage_ {};
     // The list of resource groups.
     shared_ptr<vector<string>> resourceGroupIds_ {};
@@ -332,9 +334,9 @@ namespace Models
     // - ECS (default)
     // - ACS
     shared_ptr<string> resourceType_ {};
-    // The resource quota status.
+    // The status of the resource quota.
     shared_ptr<string> status_ {};
-    // The list of sub-quotas under the resource quota.
+    // The list of sub-quotas of the resource quota.
     shared_ptr<vector<QuotaIdName>> subQuotas_ {};
     // The version.
     shared_ptr<string> version_ {};

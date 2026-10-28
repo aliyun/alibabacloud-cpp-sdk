@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The anti-affinity node names.
     shared_ptr<string> antiAffinityNodeNames_ {};
+    // Specifies whether to enable the specified node.
     shared_ptr<bool> enableAssignNode_ {};
+    // The node names.
     shared_ptr<string> nodeNames_ {};
   };
 

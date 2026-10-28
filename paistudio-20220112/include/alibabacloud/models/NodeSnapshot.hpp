@@ -93,8 +93,11 @@ namespace Models
 
 
     protected:
+      // The corresponding queue unit name.
       shared_ptr<string> name_ {};
+      // The workload ID.
       shared_ptr<string> workloadId_ {};
+      // The workload type.
       shared_ptr<string> workloadType_ {};
     };
 
@@ -167,14 +170,23 @@ namespace Models
 
 
   protected:
+    // The number of workloads using ancestor quotas.
     shared_ptr<int32_t> ancestorQuotaWorkloadNum_ {};
+    // The number of workloads using descendant quotas.
     shared_ptr<int32_t> descendantQuotaWorkloadNum_ {};
+    // The node name.
     shared_ptr<string> nodeName_ {};
+    // The CPU usage.
     shared_ptr<string> requestCPU_ {};
+    // The GPU usage.
     shared_ptr<string> requestGPU_ {};
+    // The memory usage.
     shared_ptr<string> requestMemory_ {};
+    // The number of workloads using the current quota.
     shared_ptr<int32_t> selfQuotaWorkloadNum_ {};
+    // The number of node workloads.
     shared_ptr<int32_t> workloadNum_ {};
+    // The node workload snapshot.
     shared_ptr<vector<NodeSnapshot::Workloads>> workloads_ {};
   };
 

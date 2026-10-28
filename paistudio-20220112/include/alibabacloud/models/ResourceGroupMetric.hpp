@@ -61,8 +61,11 @@ namespace Models
 
 
   protected:
+    // The GPU type.
     shared_ptr<string> gpuType_ {};
+    // The performance metrics.
     shared_ptr<vector<Metric>> metrics_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupID_ {};
   };
 

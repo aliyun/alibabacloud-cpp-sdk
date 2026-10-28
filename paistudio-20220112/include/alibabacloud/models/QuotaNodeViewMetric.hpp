@@ -237,27 +237,49 @@ namespace Models
 
 
   protected:
+    // The CPU utilization.
     shared_ptr<string> CPUUsageRate_ {};
+    // The node import time.
     shared_ptr<string> createdTime_ {};
+    // The disk read rate.
     shared_ptr<string> diskReadRate_ {};
+    // The disk write rate.
     shared_ptr<string> diskWriteRate_ {};
+    // The GPU model.
     shared_ptr<string> GPUType_ {};
+    // The memory utilization.
     shared_ptr<string> memoryUsageRate_ {};
+    // The network inbound rate.
     shared_ptr<string> networkInputRate_ {};
+    // The network outbound rate.
     shared_ptr<string> networkOutputRate_ {};
+    // The node ID.
     shared_ptr<string> nodeID_ {};
+    // The node status.
     shared_ptr<string> nodeStatus_ {};
+    // The GPU type.
     shared_ptr<string> nodeType_ {};
+    // The resource quota ID.
     shared_ptr<string> quotaId_ {};
+    // The used CPU.
     shared_ptr<int64_t> requestCPU_ {};
+    // The used GPU.
     shared_ptr<int64_t> requestGPU_ {};
+    // The used memory.
     shared_ptr<int64_t> requestMemory_ {};
+    // The node tasks.
     Darabonba::Json taskIdMap_ {};
+    // The total CPU.
     shared_ptr<int64_t> totalCPU_ {};
+    // The total GPU.
     shared_ptr<int64_t> totalGPU_ {};
+    // The total memory.
     shared_ptr<int64_t> totalMemory_ {};
+    // The total number of node tasks.
     shared_ptr<int64_t> totalTasks_ {};
+    // The user list.
     shared_ptr<vector<string>> userIDs_ {};
+    // The total number of users.
     shared_ptr<string> userNumber_ {};
   };
 

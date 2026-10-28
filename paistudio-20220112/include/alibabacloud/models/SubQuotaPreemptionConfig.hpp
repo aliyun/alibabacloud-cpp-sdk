@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The maximum priority of preempted nodes.
     shared_ptr<int64_t> preemptedPriorityUpperBound_ {};
+    // The preemptable node types.
     shared_ptr<vector<string>> preemptedProducts_ {};
   };
 

@@ -79,7 +79,9 @@ namespace Models
 
 
     protected:
+      // The count.
       shared_ptr<int64_t> count_ {};
+      // The idle count.
       shared_ptr<int64_t> idleNum_ {};
     };
 
@@ -121,7 +123,9 @@ namespace Models
 
 
     protected:
+      // The count.
       shared_ptr<int64_t> count_ {};
+      // The idle count.
       shared_ptr<int64_t> idleNum_ {};
     };
 
@@ -182,11 +186,17 @@ namespace Models
 
 
   protected:
+    // The total resources.
     shared_ptr<StatisticsResources> actualMinResources_ {};
+    // The GPU idle statistics.
     shared_ptr<vector<NodeStatistics::GPUDetails>> GPUDetails_ {};
+    // The hypernode idle statistics.
     shared_ptr<vector<NodeStatistics::HyperNodeDetails>> hyperNodeDetails_ {};
+    // The idle resources.
     shared_ptr<StatisticsResources> idleResources_ {};
+    // The amount of scheduling resources.
     shared_ptr<StatisticsResources> schedulableResources_ {};
+    // The system reserved resources.
     shared_ptr<StatisticsResources> systemReservedResources_ {};
   };
 

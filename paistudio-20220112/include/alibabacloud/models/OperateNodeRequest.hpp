@@ -60,7 +60,7 @@ namespace Models
 
 
   protected:
-    // The operation. Valid values:	
+    // The operation to perform. Valid values:	
     // - Cordon: disables scheduling
     // - Uncordon: enables scheduling
     // - Drain: evicts pods

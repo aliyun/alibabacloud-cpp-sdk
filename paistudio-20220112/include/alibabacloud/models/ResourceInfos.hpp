@@ -121,15 +121,25 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
     shared_ptr<string> clusterId_ {};
+    // The ECS instance type information.
     shared_ptr<string> ecsSpec_ {};
+    // The GPU card type.
     shared_ptr<string> gpuCardType_ {};
+    // The machine model.
     shared_ptr<string> machineModel_ {};
+    // The maximum quota.
     shared_ptr<int64_t> maxQuota_ {};
+    // The network pod ID.
     shared_ptr<string> networkPodId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The used quota.
     shared_ptr<int64_t> usedQuota_ {};
+    // The user ID.
     shared_ptr<string> userId_ {};
+    // The username.
     shared_ptr<string> userName_ {};
   };
 

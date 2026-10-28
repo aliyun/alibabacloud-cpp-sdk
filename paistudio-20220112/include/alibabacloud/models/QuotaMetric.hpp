@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // The GPU type.
     shared_ptr<string> GPUType_ {};
+    // The performance metrics.
     shared_ptr<vector<Metric>> metrics_ {};
   };
 

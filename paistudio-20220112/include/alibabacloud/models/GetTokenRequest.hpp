@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Time-to-live (TTL) of the share link in seconds. Default is 604800. Minimum is 0.
+    // The expiration duration of the sharing link, in seconds. Default value: 604800 seconds. Minimum value: 0 seconds.
     shared_ptr<int64_t> expireTime_ {};
-    // ID of the training task.
+    // The ID of the training job.
     // 
     // This parameter is required.
     shared_ptr<string> trainingJobId_ {};

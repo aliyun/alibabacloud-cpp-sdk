@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Share token for the training task. Use this token as the Token parameter in the GetJob API to view details of the shared task.
+    // The job sharing token. You can use this token as the Token parameter of the GetJob API to view information about the shared job.
     shared_ptr<string> token_ {};
   };
 

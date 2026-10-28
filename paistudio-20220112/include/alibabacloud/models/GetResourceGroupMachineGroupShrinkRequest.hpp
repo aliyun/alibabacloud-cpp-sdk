@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // A list of up to 20 tags.
+    // The list of tags to add. You can specify up to 20 tags.
     shared_ptr<string> tagShrink_ {};
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // IsEnabled
     shared_ptr<bool> isEnabled_ {};
+    // ResourceType
     shared_ptr<string> resourceType_ {};
   };
 

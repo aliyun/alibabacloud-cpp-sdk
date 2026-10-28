@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // The instance creation time.
     shared_ptr<string> gmtCreatedTime_ {};
+    // The instance end time.
     shared_ptr<string> gmtEndTime_ {};
+    // The task instance status.
     shared_ptr<string> status_ {};
+    // The task ID.
     shared_ptr<string> taskId_ {};
+    // The task instance ID.
     shared_ptr<string> taskInstanceId_ {};
+    // The cloud account ID.
     shared_ptr<string> tenantId_ {};
+    // The creator ID.
     shared_ptr<string> userId_ {};
   };
 

@@ -308,53 +308,65 @@ namespace Models
 
 
   protected:
+    // The number of allocatable CPU cores.
     shared_ptr<int64_t> allocatableCpu_ {};
+    // The allocatable memory size.
     shared_ptr<int64_t> allocatableMemory_ {};
+    // The number of CPU cores in the machine group.
     shared_ptr<int64_t> cpu_ {};
-    // Machine group creator ID
+    // The ID of the machine group creator.
     shared_ptr<string> creatorID_ {};
-    // Default driver supported by the machine group
+    // The default driver supported by the machine group.
     shared_ptr<string> defaultDriver_ {};
+    // The cloud disk size.
     shared_ptr<int64_t> diskCapacity_ {};
+    // The cloud disk performance level.
     shared_ptr<string> diskPL_ {};
-    // Resource count
+    // The resource count.
     shared_ptr<int64_t> ecsCount_ {};
-    // ECS specification
+    // The ECS instance type.
     shared_ptr<string> ecsSpec_ {};
-    // Creation Time
+    // The creation time.
     shared_ptr<string> gmtCreatedTime_ {};
-    // Expiration Time
+    // The expiration time.
     shared_ptr<string> gmtExpiredTime_ {};
-    // Update Time
+    // The update time.
     shared_ptr<string> gmtModifiedTime_ {};
-    // Start At
+    // The start time.
     shared_ptr<string> gmtStartedTime_ {};
+    // The number of GPUs in the machine group.
     shared_ptr<int64_t> gpu_ {};
+    // The GPU memory size of the machine group.
     shared_ptr<int64_t> gpuMemory_ {};
+    // The GPU type of the machine group.
     shared_ptr<string> gpuType_ {};
-    // Machine Group ID
+    // The machine group ID.
     shared_ptr<string> machineGroupID_ {};
+    // The memory size of the machine group.
     shared_ptr<int64_t> memory_ {};
-    // Order ID
+    // The order ID.
     shared_ptr<string> orderInstanceId_ {};
-    // Duration
+    // The duration.
     shared_ptr<string> paymentDuration_ {};
-    // Region ID
+    // region ID
     shared_ptr<string> paymentDurationUnit_ {};
-    // Payment type
+    // The billing method.
     shared_ptr<string> paymentType_ {};
-    // Machine group error code
+    // The machine group error code.
     shared_ptr<string> reasonCode_ {};
-    // Machine group fault message
+    // The machine group error message.
     shared_ptr<string> reasonMessage_ {};
-    // Resource group ID
+    // The resource group ID.
     shared_ptr<string> resourceGroupID_ {};
+    // The resource type.
     shared_ptr<string> resourceType_ {};
-    // Machine group status
+    // The machine group status.
     shared_ptr<string> status_ {};
-    // List of NVIDIA GPU driver versions supported by the machine group
+    // The list of NVIDIA GPU driver versions supported by the machine group.
     shared_ptr<vector<string>> supportedDrivers_ {};
+    // The number of system-reserved CPU cores.
     shared_ptr<int64_t> systemReservedCpu_ {};
+    // The size of system-reserved memory.
     shared_ptr<int64_t> systemReservedMemory_ {};
   };
 

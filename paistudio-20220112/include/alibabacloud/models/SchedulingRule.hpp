@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The cron tab. Only the minute, hour, day, month, and week fields are currently supported. Second-level configurations are discarded.
     shared_ptr<string> cronTab_ {};
+    // The stop time of the task.
     shared_ptr<string> endAt_ {};
+    // Specifies whether the task is executed only once.
     shared_ptr<bool> executeOnce_ {};
+    // The start time of the effective period for the node.
     shared_ptr<string> startAt_ {};
   };
 

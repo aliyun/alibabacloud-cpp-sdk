@@ -147,15 +147,15 @@ namespace Models
 
 
     protected:
-      // The default route interface. eth0 indicates that the default route uses the PAI VPC. eth1 indicates that the default route uses the user VPC. Default value: eth0.
+      // The default route interface. A value of eth0 indicates that the default route uses the PAI VPC. A value of eth1 indicates that the default route uses the user VPC. Default value: eth0.
       shared_ptr<string> defaultRoute_ {};
       // The extended CIDR block configuration.
       shared_ptr<vector<string>> extendedCIDRs_ {};
-      // The security group ID.
+      // The ID of the security group.
       shared_ptr<string> securityGroupId_ {};
-      // The vSwitch ID.
+      // The ID of the vSwitch.
       shared_ptr<string> switchId_ {};
-      // VPC ID。
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -197,9 +197,9 @@ namespace Models
 
 
     protected:
-      // The maximum training runtime in minutes. A value of 0 indicates no limit on the maximum runtime.
+      // The maximum training duration, in minutes. A value of 0 indicates that the maximum duration is not limited.
       shared_ptr<int64_t> maxRunningTimeInMinutes_ {};
-      // The maximum training runtime in seconds. A value of 0 indicates no limit on the maximum runtime.
+      // The maximum training duration, in seconds. A value of 0 indicates that the maximum duration is not limited.
       shared_ptr<int64_t> maxRunningTimeInSeconds_ {};
     };
 
@@ -268,13 +268,15 @@ namespace Models
 
 
     protected:
-      // The dataset ID.
+      // The ID of the dataset.
       shared_ptr<string> datasetId_ {};
-      // The output data name.
+      // The name of the output data.
       shared_ptr<string> name_ {};
-      // The output data URI.
+      // The output data configuration.
       shared_ptr<string> outputUri_ {};
+      // The ARN of the RAM role.
       shared_ptr<string> roleArn_ {};
+      // The name of the data version.
       shared_ptr<string> versionName_ {};
     };
 
@@ -396,15 +398,17 @@ namespace Models
 
 
     protected:
-      // The dataset ID.
+      // The ID of the dataset.
       shared_ptr<string> datasetId_ {};
-      // The input data URI.
+      // The URI of the input data.
       shared_ptr<string> inputUri_ {};
-      // The input data name.
+      // The name of the input data.
       shared_ptr<string> name_ {};
-      // The input data parameter settings.
+      // The parameter settings for the input data.
       shared_ptr<string> options_ {};
+      // The ARN of the RAM role.
       shared_ptr<string> roleArn_ {};
+      // The name of the data version.
       shared_ptr<string> versionName_ {};
     };
 
@@ -446,9 +450,9 @@ namespace Models
 
 
     protected:
-      // The parameter name.
+      // The name of the parameter.
       shared_ptr<string> name_ {};
-      // The parameter value.
+      // The value of the parameter.
       shared_ptr<string> value_ {};
     };
 
@@ -480,7 +484,7 @@ namespace Models
 
 
     protected:
-      // The experiment ID associated with the training job.
+      // The ID of the experiment associated with the training job.
       shared_ptr<string> experimentId_ {};
     };
 
@@ -553,11 +557,11 @@ namespace Models
 
 
       protected:
-        // The maximum hourly price discount for the instance. This parameter takes effect only when SpotStrategy is set to SpotWithPriceLimit.
+        // Sets the maximum hourly price discount for the instance. This parameter takes effect only when SpotStrategy is set to SpotWithPriceLimit.
         shared_ptr<float> spotDiscountLimit_ {};
-        // The bidding strategy for the spot instance. Valid values:
-        // - SpotWithPriceLimit: a spot instance with a maximum price limit.
-        // - SpotAsPriceGo: the system automatically bids at the current market price.
+        // The preemption policy for the instance. Valid values:
+        // - SpotWithPriceLimit: Sets a maximum price for the spot instance.
+        // - SpotAsPriceGo: The system automatically bids and follows the actual market price.
         shared_ptr<string> spotStrategy_ {};
       };
 
@@ -630,11 +634,11 @@ namespace Models
         shared_ptr<string> CPU_ {};
         // The number of GPUs for the instance.
         shared_ptr<string> GPU_ {};
-        // The GPU type for the instance.
+        // The GPU type of the instance.
         shared_ptr<string> GPUType_ {};
-        // The memory size of the instance. Unit: GiB.
+        // The memory size of the instance, in GiB.
         shared_ptr<string> memory_ {};
-        // The shared memory size of the instance. Unit: GB.
+        // The shared memory size of the instance, in GB.
         shared_ptr<string> sharedMemory_ {};
       };
 
@@ -699,11 +703,11 @@ namespace Models
       shared_ptr<int64_t> ecsCount_ {};
       // The ECS instance type.
       shared_ptr<string> ecsSpec_ {};
-      // The number of instances used from the resource quota.
+      // The number of instances used in the resource quota.
       shared_ptr<int64_t> instanceCount_ {};
-      // The instance specification for the resource quota.
+      // The instance configuration for the resource quota.
       shared_ptr<ComputeResource::InstanceSpec> instanceSpec_ {};
-      // The resource quota ID.
+      // The ID of the resource quota.
       shared_ptr<string> resourceId_ {};
       // The spot instance configuration.
       shared_ptr<ComputeResource::SpotSpec> spotSpec_ {};
@@ -909,39 +913,41 @@ namespace Models
 
 
   protected:
-    // The algorithm name.
+    // The name of the algorithm.
     shared_ptr<string> algorithmName_ {};
-    // The algorithm provider.
+    // The provider of the algorithm.
     shared_ptr<string> algorithmProvider_ {};
     // The algorithm configuration for the training job.
     shared_ptr<AlgorithmSpec> algorithmSpec_ {};
-    // The algorithm version.
+    // The version of the algorithm.
     shared_ptr<string> algorithmVersion_ {};
+    // The specified node configuration.
     shared_ptr<AssignNodeSpec> assignNodeSpec_ {};
-    // The code directory for the training job.
+    // The code configuration for the training job.
     shared_ptr<Location> codeDir_ {};
     // The compute resource configuration.
     shared_ptr<CreateTrainingJobRequest::ComputeResource> computeResource_ {};
+    // The credential configuration.
     shared_ptr<CredentialConfig> credentialConfig_ {};
     // The environment variables for the training job.
     shared_ptr<map<string, string>> environments_ {};
-    // The experiment configuration associated with the training job.
+    // The associated experiment configuration for the training job.
     shared_ptr<CreateTrainingJobRequest::ExperimentConfig> experimentConfig_ {};
     // The training hyperparameter settings.
     shared_ptr<vector<CreateTrainingJobRequest::HyperParameters>> hyperParameters_ {};
-    // The training input data configuration.
+    // The input data configuration for training.
     shared_ptr<vector<CreateTrainingJobRequest::InputChannels>> inputChannels_ {};
-    // The training job labels.
+    // The labels of the training job.
     shared_ptr<vector<CreateTrainingJobRequest::Labels>> labels_ {};
-    // The training output data configuration.
+    // The output data configuration for training.
     shared_ptr<vector<CreateTrainingJobRequest::OutputChannels>> outputChannels_ {};
     // The priority of the training job.
     shared_ptr<int32_t> priority_ {};
     // The Python package configuration for the training job.
     shared_ptr<vector<string>> pythonRequirements_ {};
-    // The Alibaba Cloud Resource Name (ARN) of the RAM role. Format: acs:ram::$accountID:role/$roleName.
+    // The ARN of the specified role. Format: acs:ram::$accountID:role/$roleName.
     shared_ptr<string> roleArn_ {};
-    // The training job scheduling configuration.
+    // The scheduling configuration for the training job.
     shared_ptr<CreateTrainingJobRequest::Scheduler> scheduler_ {};
     // The additional parameter settings for the training node.
     shared_ptr<JobSettings> settings_ {};
@@ -953,7 +959,7 @@ namespace Models
     shared_ptr<string> trainingJobName_ {};
     // The VPC configuration.
     shared_ptr<CreateTrainingJobRequest::UserVpc> userVpc_ {};
-    // The workspace ID.
+    // The ID of the workspace.
     // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};

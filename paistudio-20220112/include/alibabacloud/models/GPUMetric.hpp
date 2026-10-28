@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The GPU index.
     shared_ptr<int64_t> index_ {};
+    // The GPU model.
     shared_ptr<string> model_ {};
+    // The card status.
     shared_ptr<int64_t> status_ {};
+    // The GPU utilization.
     shared_ptr<float> usageRate_ {};
   };
 

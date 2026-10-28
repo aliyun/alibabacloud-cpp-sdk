@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The end time.
     shared_ptr<string> gmtEndTime_ {};
+    // The start time.
     shared_ptr<string> gmtStartTime_ {};
+    // The message content.
     shared_ptr<string> message_ {};
+    // The name of the pod involved in the task.
     shared_ptr<string> podName_ {};
+    // The status.
     shared_ptr<string> status_ {};
+    // The sub-product type involved in the task.
     shared_ptr<string> workloadType_ {};
   };
 

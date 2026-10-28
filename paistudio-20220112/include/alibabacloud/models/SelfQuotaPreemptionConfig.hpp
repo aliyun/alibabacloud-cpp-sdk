@@ -64,8 +64,11 @@ namespace Models
 
 
   protected:
+    // The priorities that can be preempted.
     shared_ptr<vector<int32_t>> preemptedPriorities_ {};
+    // The task types that can be preempted.
     shared_ptr<vector<string>> preemptedProducts_ {};
+    // The priorities that can initiate preemption.
     shared_ptr<vector<int32_t>> preemptorPriorities_ {};
   };
 
