@@ -161,30 +161,40 @@ namespace Models
     // The number of buckets.
     shared_ptr<int32_t> bucketCount_ {};
     // The bucketing method. Valid values:
+    // - Uid: UID bucketing (default).
+    // - UidHash: UID hashing.
+    // - Filter: Filter condition bucketing.
     shared_ptr<string> bucketType_ {};
-    // The assigned buckets.
+    // The assigned bucket numbers.
     shared_ptr<string> buckets_ {};
-    // The crowd ID.
+    // The ID of the crowd.
     shared_ptr<string> crowdId_ {};
-    // The debug crowd ID.
+    // The ID of the debug crowd.
     shared_ptr<string> debugCrowdId_ {};
     // The debug users.
     shared_ptr<string> debugUsers_ {};
-    // The laboratory description.
+    // The description of the laboratory.
     shared_ptr<string> description_ {};
-    // The environment. Valid values:
+    // The runtime environment. Valid values:
+    // - Daily: Daily environment.
+    // - Pre: Staging environment.
+    // - Prod: Production environment.
     shared_ptr<string> environment_ {};
-    // The filter.
+    // The filter condition.
     shared_ptr<string> filter_ {};
-    // The laboratory name.
+    // The name of the laboratory.
     shared_ptr<string> name_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
     // The scene ID.
     shared_ptr<string> sceneId_ {};
-    // The status of the laboratory. Valid values:
+    // The status. Valid values:
+    // - Offline: Not online.
+    // - Online: Online.
     shared_ptr<string> status_ {};
-    // The laboratory type. Valid values:
+    // The type of the laboratory. Valid values:
+    // - Base
+    // - NonBase
     shared_ptr<string> type_ {};
   };
 

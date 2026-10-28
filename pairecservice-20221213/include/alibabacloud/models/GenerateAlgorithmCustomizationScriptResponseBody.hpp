@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The log ID.
+    // The ID of the generated log.
     shared_ptr<string> logId_ {};
     // The OSS address of the generated package.
     shared_ptr<string> ossAddress_ {};

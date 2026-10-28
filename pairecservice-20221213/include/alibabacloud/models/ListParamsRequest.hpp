@@ -94,23 +94,24 @@ namespace Models
 
 
   protected:
+    // Specifies whether the parameter is encrypted.
     shared_ptr<bool> encrypted_ {};
     // The environment to which the parameter belongs. Valid values:
     // - Daily: daily environment
-    // - Pre: pre-release environment
+    // - Pre: staging environment
     // - Prod: production environment
     shared_ptr<string> environment_ {};
-    // The instance ID. You can call the ListInstances operation to obtain the instance ID.
+    // The instance ID. You can obtain this ID by calling the ListInstances operation.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The parameter name.
+    // The name of the parameter.
     shared_ptr<string> name_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The scene ID. You can call the ListScenes operation to obtain the scene ID.
+    // The scene ID. You can obtain this ID by calling the ListScenes operation.
     // 
     // This parameter is required.
     shared_ptr<string> sceneId_ {};

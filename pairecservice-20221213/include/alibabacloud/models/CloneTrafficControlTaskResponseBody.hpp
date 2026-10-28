@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Traffic control task ID.
+    // The ID of the traffic shaping task.
     shared_ptr<string> trafficControlTaskId_ {};
   };
 

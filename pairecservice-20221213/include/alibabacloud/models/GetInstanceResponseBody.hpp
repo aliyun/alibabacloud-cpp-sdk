@@ -515,34 +515,34 @@ namespace Models
     shared_ptr<string> commodityCode_ {};
     // The configuration of the instance.
     shared_ptr<GetInstanceResponseBody::Config> config_ {};
-    // The time when the instance expires. The time is displayed in UTC and follows the ISO 8601 standard.
+    // The time when the instance expires. The time follows the ISO 8601 standard and is displayed in UTC.
     shared_ptr<string> expiredTime_ {};
     // The Feature Store information.
     shared_ptr<GetInstanceResponseBody::FeatureStoreInfo> featureStoreInfo_ {};
-    // The time when the instance was created. The time is displayed in UTC and follows the ISO 8601 standard.
+    // The time when the instance was created. The time follows the ISO 8601 standard and is displayed in UTC.
     shared_ptr<string> gmtCreateTime_ {};
-    // The time when the instance was updated. The time is displayed in UTC and follows the ISO 8601 standard.
+    // The time when the instance was updated. The time follows the ISO 8601 standard and is displayed in UTC.
     shared_ptr<string> gmtModifiedTime_ {};
     // The ID of the instance.
     shared_ptr<string> instanceId_ {};
-    // The configurations of the operations tool.
+    // The configurations related to the operations tool.
     shared_ptr<GetInstanceResponseBody::OperatingTool> operatingTool_ {};
     // The recommendation customization configurations.
     shared_ptr<GetInstanceResponseBody::RecommendCustomization> recommendCustomization_ {};
     // The region ID. Valid values:
-    // - cn-shenzhen: Shenzhen.
-    // - cn-hangzhou: Hangzhou.
-    // - cn-beijing: Beijing.
-    // - cn-shanghai: Shanghai.
+    // - cn-shenzhen: Shenzhen
+    // - cn-hangzhou: Hangzhou
+    // - cn-beijing: Beijing
+    // - cn-shanghai: Shanghai
     shared_ptr<string> regionId_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The instance status. Valid values:
-    // - Initializing: Initializing.
-    // - Stopped: Stopped.
-    // - Running: Running.
+    // - Initializing: Initialization.
+    // - Stopped: The service is stopped.
+    // - Running: The instance is running.
     shared_ptr<string> status_ {};
-    // The instance type. Valid values:
+    // The type of the instance. Valid values:
     // - basic: Basic Edition.
     // - highleve: Upgraded Edition.
     // - advance: Advanced Edition.

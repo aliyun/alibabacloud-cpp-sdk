@@ -38,7 +38,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Applies an engine configuration.
+ * @summary Publishes an engine configuration.
  *
  * @param request ApplyEngineConfigRequest
  * @param headers map
@@ -71,7 +71,7 @@ ApplyEngineConfigResponse Client::applyEngineConfigWithOptions(const string &Eng
 }
 
 /**
- * @summary Applies an engine configuration.
+ * @summary Publishes an engine configuration.
  *
  * @param request ApplyEngineConfigRequest
  * @return ApplyEngineConfigResponse
@@ -168,14 +168,14 @@ BackflowFeatureConsistencyCheckJobDataResponse Client::backflowFeatureConsistenc
 }
 
 /**
- * @summary This API changes the version of a recall management service.
+ * @summary Updates the version of a specified recall management service.
  *
- * @description ## Request
- * Use this API to change the version of a recall management service. Ensure that the provided `RecallManagementServiceId`, `InstanceId`, and target `RecallManagementServiceVersionId` are valid, and that you have the required permissions for these resources.
- * - **RecallManagementServiceId**: The unique identifier of the recall management service.
- * - **InstanceId**: The instance ID associated with the recall management service.
- * - **RecallManagementServiceVersionId**: The target version ID to switch to.
- * Note: Before changing the version, confirm that the new version is fully tested and ready for production.
+ * @description ## Request description
+ * You can call this API to change the version of a specific recall management service. Ensure that the provided `RecallManagementServiceId`, `InstanceId`, and target `RecallManagementServiceVersionId` are valid and that you have the required permissions to manage these resources.
+ * - **RecallManagementServiceId**: The unique identifier of the recall management service whose version you want to change.
+ * - **InstanceId**: Instance ID of the instance associated with the recall management service.
+ * - **RecallManagementServiceVersionId**: Instance ID of the target version to switch to.
+ * Note: Before you change the version, ensure that the new version has been fully tested and is ready to go live.
  *
  * @param request ChangeRecallManagementServiceVersionRequest
  * @param headers map
@@ -212,14 +212,14 @@ ChangeRecallManagementServiceVersionResponse Client::changeRecallManagementServi
 }
 
 /**
- * @summary This API changes the version of a recall management service.
+ * @summary Updates the version of a specified recall management service.
  *
- * @description ## Request
- * Use this API to change the version of a recall management service. Ensure that the provided `RecallManagementServiceId`, `InstanceId`, and target `RecallManagementServiceVersionId` are valid, and that you have the required permissions for these resources.
- * - **RecallManagementServiceId**: The unique identifier of the recall management service.
- * - **InstanceId**: The instance ID associated with the recall management service.
- * - **RecallManagementServiceVersionId**: The target version ID to switch to.
- * Note: Before changing the version, confirm that the new version is fully tested and ready for production.
+ * @description ## Request description
+ * You can call this API to change the version of a specific recall management service. Ensure that the provided `RecallManagementServiceId`, `InstanceId`, and target `RecallManagementServiceVersionId` are valid and that you have the required permissions to manage these resources.
+ * - **RecallManagementServiceId**: The unique identifier of the recall management service whose version you want to change.
+ * - **InstanceId**: Instance ID of the instance associated with the recall management service.
+ * - **RecallManagementServiceVersionId**: Instance ID of the target version to switch to.
+ * Note: Before you change the version, ensure that the new version has been fully tested and is ready to go live.
  *
  * @param request ChangeRecallManagementServiceVersionRequest
  * @return ChangeRecallManagementServiceVersionResponse
@@ -418,10 +418,85 @@ CheckInstanceResourcesResponse Client::checkInstanceResources(const string &Inst
 }
 
 /**
- * @summary Validates a traffic control task expression.
+ * @summary Checks whether a specified recall management service is working properly.
  *
- * @description ## Description
- * This operation validates a traffic control task expression for a specific instance and table. Provide the correct `InstanceId`, `TableMetaId`, and `Expression` parameters.
+ * @description ## Request description
+ * This operation checks the status or performance of a specific recall management service by using the recall management service ID and related parameters. Ensure that the InstanceId field is correct to target the right instance. To test a specific version of the service, provide the RecallManagementServiceVersionId. You can also customize the request by using parameters such as Recalls, ContextParams, ExposureList, and RetainFields to accurately simulate real-world scenarios.
+ *
+ * @param request CheckRecallManagementServiceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CheckRecallManagementServiceResponse
+ */
+CheckRecallManagementServiceResponse Client::checkRecallManagementServiceWithOptions(const string &RecallManagementServiceId, const CheckRecallManagementServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasContextParams()) {
+    body["ContextParams"] = request.getContextParams();
+  }
+
+  if (!!request.hasExposureList()) {
+    body["ExposureList"] = request.getExposureList();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasRecallManagementServiceVersionId()) {
+    body["RecallManagementServiceVersionId"] = request.getRecallManagementServiceVersionId();
+  }
+
+  if (!!request.hasRecalls()) {
+    body["Recalls"] = request.getRecalls();
+  }
+
+  if (!!request.hasRetainFields()) {
+    body["RetainFields"] = request.getRetainFields();
+  }
+
+  if (!!request.hasUid()) {
+    body["Uid"] = request.getUid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CheckRecallManagementService"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/recallmanagementservices/" , Darabonba::Encode::Encoder::percentEncode(RecallManagementServiceId) , "/action/check")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CheckRecallManagementServiceResponse>();
+}
+
+/**
+ * @summary Checks whether a specified recall management service is working properly.
+ *
+ * @description ## Request description
+ * This operation checks the status or performance of a specific recall management service by using the recall management service ID and related parameters. Ensure that the InstanceId field is correct to target the right instance. To test a specific version of the service, provide the RecallManagementServiceVersionId. You can also customize the request by using parameters such as Recalls, ContextParams, ExposureList, and RetainFields to accurately simulate real-world scenarios.
+ *
+ * @param request CheckRecallManagementServiceRequest
+ * @return CheckRecallManagementServiceResponse
+ */
+CheckRecallManagementServiceResponse Client::checkRecallManagementService(const string &RecallManagementServiceId, const CheckRecallManagementServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return checkRecallManagementServiceWithOptions(RecallManagementServiceId, request, headers, runtime);
+}
+
+/**
+ * @summary Validates whether a specified traffic control task expression is valid.
+ *
+ * @description ## Request description
+ * This API operation checks the validity of a traffic control task expression for a specified instance and data table. Make sure that the `InstanceId`, `TableMetaId`, and `Expression` parameters are accurate to correctly perform the validation.
  *
  * @param request CheckTrafficControlTaskExpressionRequest
  * @param headers map
@@ -462,10 +537,10 @@ CheckTrafficControlTaskExpressionResponse Client::checkTrafficControlTaskExpress
 }
 
 /**
- * @summary Validates a traffic control task expression.
+ * @summary Validates whether a specified traffic control task expression is valid.
  *
- * @description ## Description
- * This operation validates a traffic control task expression for a specific instance and table. Provide the correct `InstanceId`, `TableMetaId`, and `Expression` parameters.
+ * @description ## Request description
+ * This API operation checks the validity of a traffic control task expression for a specified instance and data table. Make sure that the `InstanceId`, `TableMetaId`, and `Expression` parameters are accurate to correctly perform the validation.
  *
  * @param request CheckTrafficControlTaskExpressionRequest
  * @return CheckTrafficControlTaskExpressionResponse
@@ -636,7 +711,7 @@ CloneExperimentGroupResponse Client::cloneExperimentGroup(const string &Experime
 }
 
 /**
- * @summary Clones a feature consistency check job configuration.
+ * @summary Clones the feature consistency check job configuration.
  *
  * @param request CloneFeatureConsistencyCheckJobConfigRequest
  * @param headers map
@@ -669,7 +744,7 @@ CloneFeatureConsistencyCheckJobConfigResponse Client::cloneFeatureConsistencyChe
 }
 
 /**
- * @summary Clones a feature consistency check job configuration.
+ * @summary Clones the feature consistency check job configuration.
  *
  * @param request CloneFeatureConsistencyCheckJobConfigRequest
  * @return CloneFeatureConsistencyCheckJobConfigResponse
@@ -681,7 +756,7 @@ CloneFeatureConsistencyCheckJobConfigResponse Client::cloneFeatureConsistencyChe
 }
 
 /**
- * @summary Clones a specified laboratory to a designated environment. You can specify whether to clone the experiment groups within the laboratory.
+ * @summary Clones a specified laboratory to a specified environment and specifies whether to clone the experiment groups under the laboratory.
  *
  * @param request CloneLaboratoryRequest
  * @param headers map
@@ -722,7 +797,7 @@ CloneLaboratoryResponse Client::cloneLaboratoryWithOptions(const string &Laborat
 }
 
 /**
- * @summary Clones a specified laboratory to a designated environment. You can specify whether to clone the experiment groups within the laboratory.
+ * @summary Clones a specified laboratory to a specified environment and specifies whether to clone the experiment groups under the laboratory.
  *
  * @param request CloneLaboratoryRequest
  * @return CloneLaboratoryResponse
@@ -734,10 +809,10 @@ CloneLaboratoryResponse Client::cloneLaboratory(const string &LaboratoryId, cons
 }
 
 /**
- * @summary Clones a specified traffic control task to a new instance.
+ * @summary Clones a specified traffic shaping task to a new instance.
  *
  * @description ## Request description
- * This API clones an existing traffic control task to another specified instance. Ensure that the `InstanceId` you provide is valid and that you have the required permissions for the target instance.
+ * You can use this API to clone an existing traffic shaping task to another specified instance. Make sure that the `InstanceId` you provide is valid and that you have the required permissions to perform operations on the instance.
  * Note: The cloning process does not affect the status or configuration of the original task.
  *
  * @param request CloneTrafficControlTaskRequest
@@ -771,10 +846,10 @@ CloneTrafficControlTaskResponse Client::cloneTrafficControlTaskWithOptions(const
 }
 
 /**
- * @summary Clones a specified traffic control task to a new instance.
+ * @summary Clones a specified traffic shaping task to a new instance.
  *
  * @description ## Request description
- * This API clones an existing traffic control task to another specified instance. Ensure that the `InstanceId` you provide is valid and that you have the required permissions for the target instance.
+ * You can use this API to clone an existing traffic shaping task to another specified instance. Make sure that the `InstanceId` you provide is valid and that you have the required permissions to perform operations on the instance.
  * Note: The cloning process does not affect the status or configuration of the original task.
  *
  * @param request CloneTrafficControlTaskRequest
@@ -832,7 +907,7 @@ CompareSampleConsistencyJobResponse Client::compareSampleConsistencyJob(const st
 }
 
 /**
- * @summary Creates an AB metric.
+ * @summary Creates an AB test metric.
  *
  * @param request CreateABMetricRequest
  * @param headers map
@@ -933,7 +1008,7 @@ CreateABMetricResponse Client::createABMetricWithOptions(const CreateABMetricReq
 }
 
 /**
- * @summary Creates an AB metric.
+ * @summary Creates an AB test metric.
  *
  * @param request CreateABMetricRequest
  * @return CreateABMetricResponse
@@ -945,7 +1020,7 @@ CreateABMetricResponse Client::createABMetric(const CreateABMetricRequest &reque
 }
 
 /**
- * @summary Creates an A/B metric group.
+ * @summary Creates an AB test metric group.
  *
  * @param request CreateABMetricGroupRequest
  * @param headers map
@@ -998,7 +1073,7 @@ CreateABMetricGroupResponse Client::createABMetricGroupWithOptions(const CreateA
 }
 
 /**
- * @summary Creates an A/B metric group.
+ * @summary Creates an AB test metric group.
  *
  * @param request CreateABMetricGroupRequest
  * @return CreateABMetricGroupResponse
@@ -1067,7 +1142,7 @@ CreateCalculationJobsResponse Client::createCalculationJobs(const CreateCalculat
 }
 
 /**
- * @summary Creates a crowd that represents a group of users.
+ * @summary Creates a crowd to represent a user group.
  *
  * @param request CreateCrowdRequest
  * @param headers map
@@ -1120,7 +1195,7 @@ CreateCrowdResponse Client::createCrowdWithOptions(const CreateCrowdRequest &req
 }
 
 /**
- * @summary Creates a crowd that represents a group of users.
+ * @summary Creates a crowd to represent a user group.
  *
  * @param request CreateCrowdRequest
  * @return CreateCrowdResponse
@@ -1442,7 +1517,7 @@ CreateExperimentResponse Client::createExperiment(const CreateExperimentRequest 
 }
 
 /**
- * @summary Creates an experiment group in a specified layer. You can use experiment groups to categorize experiments and observe their overall performance.
+ * @summary Creates an experiment group under a specified layer. You can categorize experiment groups by experiment type to observe the overall performance of experiments by group.
  *
  * @param request CreateExperimentGroupRequest
  * @param headers map
@@ -1531,7 +1606,7 @@ CreateExperimentGroupResponse Client::createExperimentGroupWithOptions(const Cre
 }
 
 /**
- * @summary Creates an experiment group in a specified layer. You can use experiment groups to categorize experiments and observe their overall performance.
+ * @summary Creates an experiment group under a specified layer. You can categorize experiment groups by experiment type to observe the overall performance of experiments by group.
  *
  * @param request CreateExperimentGroupRequest
  * @return CreateExperimentGroupResponse
@@ -1829,7 +1904,7 @@ CreateFeatureConsistencyCheckJobConfigResponse Client::createFeatureConsistencyC
 }
 
 /**
- * @summary Creates a configuration resource for a specified instance.
+ * @summary Creates a configuration resource for the specified instance.
  *
  * @param request CreateInstanceResourceRequest
  * @param headers map
@@ -1874,7 +1949,7 @@ CreateInstanceResourceResponse Client::createInstanceResourceWithOptions(const s
 }
 
 /**
- * @summary Creates a configuration resource for a specified instance.
+ * @summary Creates a configuration resource for the specified instance.
  *
  * @param request CreateInstanceResourceRequest
  * @return CreateInstanceResourceResponse
@@ -2223,13 +2298,13 @@ CreateRecallManagementServiceResponse Client::createRecallManagementService(cons
 /**
  * @summary Creates a new recall management service version that supports configuring multiple recall strategies.
  *
- * @description ## Request
- * - Use this API to create a new version of a recall management service.
- * - To create a new version from an existing one, specify the source recall management service version ID.
- * - You can configure detailed recall rules, such as the recall name, description, priority, and recall type.
- * - Configure operators such as filter, trigger, feature extraction, and join.
- * - The merge configuration specifies how to merge multiple recall results and supports two merge methods: weight-based and alternating.
- * - All configuration items are optional.
+ * @description ## Request description
+ * - This operation allows you to create a new version for a specific recall management service.
+ * - You can create a new version based on an existing version by specifying the source recall management service version ID.
+ * - You can configure detailed recall rules, including but not limited to the recall name, description, priority, and recall type.
+ * - The operation provides flexible operator configuration options, such as filtering, triggering, feature extraction, and join operations, to meet various business requirements.
+ * - The merge configuration allows you to specify how to merge multiple recall results. Two merge methods are supported: weight and alternate.
+ * - All configuration items are optional. Specify them as needed.
  *
  * @param request CreateRecallManagementServiceVersionRequest
  * @param headers map
@@ -2272,13 +2347,13 @@ CreateRecallManagementServiceVersionResponse Client::createRecallManagementServi
 /**
  * @summary Creates a new recall management service version that supports configuring multiple recall strategies.
  *
- * @description ## Request
- * - Use this API to create a new version of a recall management service.
- * - To create a new version from an existing one, specify the source recall management service version ID.
- * - You can configure detailed recall rules, such as the recall name, description, priority, and recall type.
- * - Configure operators such as filter, trigger, feature extraction, and join.
- * - The merge configuration specifies how to merge multiple recall results and supports two merge methods: weight-based and alternating.
- * - All configuration items are optional.
+ * @description ## Request description
+ * - This operation allows you to create a new version for a specific recall management service.
+ * - You can create a new version based on an existing version by specifying the source recall management service version ID.
+ * - You can configure detailed recall rules, including but not limited to the recall name, description, priority, and recall type.
+ * - The operation provides flexible operator configuration options, such as filtering, triggering, feature extraction, and join operations, to meet various business requirements.
+ * - The merge configuration allows you to specify how to merge multiple recall results. Two merge methods are supported: weight and alternate.
+ * - All configuration items are optional. Specify them as needed.
  *
  * @param request CreateRecallManagementServiceVersionRequest
  * @return CreateRecallManagementServiceVersionResponse
@@ -2719,7 +2794,7 @@ CreateSampleConsistencyJobResponse Client::createSampleConsistencyJob(const Crea
 }
 
 /**
- * @summary Creates a scene for metric and experiment analysis.
+ * @summary Creates a scenario for metric and experiment analysis.
  *
  * @param request CreateSceneRequest
  * @param headers map
@@ -2764,7 +2839,7 @@ CreateSceneResponse Client::createSceneWithOptions(const CreateSceneRequest &req
 }
 
 /**
- * @summary Creates a scene for metric and experiment analysis.
+ * @summary Creates a scenario for metric and experiment analysis.
  *
  * @param request CreateSceneRequest
  * @return CreateSceneResponse
@@ -3652,7 +3727,7 @@ DeleteLaboratoryResponse Client::deleteLaboratory(const string &LaboratoryId, co
 }
 
 /**
- * @summary Delete the specified layer.
+ * @summary Deletes a specified layer.
  *
  * @param request DeleteLayerRequest
  * @param headers map
@@ -3685,7 +3760,7 @@ DeleteLayerResponse Client::deleteLayerWithOptions(const string &LayerId, const 
 }
 
 /**
- * @summary Delete the specified layer.
+ * @summary Deletes a specified layer.
  *
  * @param request DeleteLayerRequest
  * @return DeleteLayerResponse
@@ -3742,10 +3817,10 @@ DeleteParamResponse Client::deleteParam(const string &ParamId, const DeleteParam
 }
 
 /**
- * @summary Deletes a recall management service.
+ * @summary Deletes a specified recall management service.
  *
  * @description ## Request description
- * This operation deletes a recall management service based on the RecallManagementServiceId and InstanceId. Before you call this API, ensure you have the correct information for the service to be deleted.
+ * This API operation deletes a specific recall management service based on the provided recall management service ID and instance ID. Make sure that you have obtained the information about the service to be deleted before you call this operation.
  *
  * @param request DeleteRecallManagementServiceRequest
  * @param headers map
@@ -3778,10 +3853,10 @@ DeleteRecallManagementServiceResponse Client::deleteRecallManagementServiceWithO
 }
 
 /**
- * @summary Deletes a recall management service.
+ * @summary Deletes a specified recall management service.
  *
  * @description ## Request description
- * This operation deletes a recall management service based on the RecallManagementServiceId and InstanceId. Before you call this API, ensure you have the correct information for the service to be deleted.
+ * This API operation deletes a specific recall management service based on the provided recall management service ID and instance ID. Make sure that you have obtained the information about the service to be deleted before you call this operation.
  *
  * @param request DeleteRecallManagementServiceRequest
  * @return DeleteRecallManagementServiceResponse
@@ -3793,10 +3868,10 @@ DeleteRecallManagementServiceResponse Client::deleteRecallManagementService(cons
 }
 
 /**
- * @summary Deletes a specified version of a recall management service.
+ * @summary Deletes a specified recall management service version.
  *
- * @description ## Request
- * This operation deletes a specific version of a recall management service. You must provide the recall management service ID, the recall management service version ID, and the instance ID. This operation is irreversible, so back up all critical data before proceeding.
+ * @description ## Request description
+ * This operation allows you to delete a specific version of a recall management service by providing the recall management service ID, recall management service version ID, and instance ID. Back up important data before calling this operation because the deletion is irreversible.
  *
  * @param request DeleteRecallManagementServiceVersionRequest
  * @param headers map
@@ -3829,10 +3904,10 @@ DeleteRecallManagementServiceVersionResponse Client::deleteRecallManagementServi
 }
 
 /**
- * @summary Deletes a specified version of a recall management service.
+ * @summary Deletes a specified recall management service version.
  *
- * @description ## Request
- * This operation deletes a specific version of a recall management service. You must provide the recall management service ID, the recall management service version ID, and the instance ID. This operation is irreversible, so back up all critical data before proceeding.
+ * @description ## Request description
+ * This operation allows you to delete a specific version of a recall management service by providing the recall management service ID, recall management service version ID, and instance ID. Back up important data before calling this operation because the deletion is irreversible.
  *
  * @param request DeleteRecallManagementServiceVersionRequest
  * @return DeleteRecallManagementServiceVersionResponse
@@ -3899,12 +3974,12 @@ DeleteRecallManagementServiceVersionConfigResponse Client::deleteRecallManagemen
 }
 
 /**
- * @summary This API deletes a recall management table using the specified recall management table ID and instance ID.
+ * @summary Deletes a recall management data table based on the specified data table ID and instance ID.
  *
- * @description ## Request
- * - The required **path parameter** `RecallManagementTableId` specifies the ID of the recall management table to delete.
- * - The required **query parameter** `InstanceId` specifies the ID of the instance.
- * - A successful operation returns a `RequestId` in the response body for request tracking.
+ * @description ## Request description
+ * - The **path parameter** `RecallManagementTableId` is required and specifies instance ID of the data table to delete.
+ * - The **query parameter** `InstanceId` is also required and specifies instance ID of the instance on which the operation is performed.
+ * - After a successful execution, a response body containing the request ID (`RequestId`) is returned, which can be used to track the request.
  *
  * @param request DeleteRecallManagementTableRequest
  * @param headers map
@@ -3937,12 +4012,12 @@ DeleteRecallManagementTableResponse Client::deleteRecallManagementTableWithOptio
 }
 
 /**
- * @summary This API deletes a recall management table using the specified recall management table ID and instance ID.
+ * @summary Deletes a recall management data table based on the specified data table ID and instance ID.
  *
- * @description ## Request
- * - The required **path parameter** `RecallManagementTableId` specifies the ID of the recall management table to delete.
- * - The required **query parameter** `InstanceId` specifies the ID of the instance.
- * - A successful operation returns a `RequestId` in the response body for request tracking.
+ * @description ## Request description
+ * - The **path parameter** `RecallManagementTableId` is required and specifies instance ID of the data table to delete.
+ * - The **query parameter** `InstanceId` is also required and specifies instance ID of the instance on which the operation is performed.
+ * - After a successful execution, a response body containing the request ID (`RequestId`) is returned, which can be used to track the request.
  *
  * @param request DeleteRecallManagementTableRequest
  * @return DeleteRecallManagementTableResponse
@@ -4089,7 +4164,7 @@ DeleteSampleConsistencyJobResponse Client::deleteSampleConsistencyJob(const stri
 }
 
 /**
- * @summary Delete the specified scenario.
+ * @summary Deletes a specified scenario.
  *
  * @param request DeleteSceneRequest
  * @param headers map
@@ -4122,7 +4197,7 @@ DeleteSceneResponse Client::deleteSceneWithOptions(const string &SceneId, const 
 }
 
 /**
- * @summary Delete the specified scenario.
+ * @summary Deletes a specified scenario.
  *
  * @param request DeleteSceneRequest
  * @return DeleteSceneResponse
@@ -4134,7 +4209,7 @@ DeleteSceneResponse Client::deleteScene(const string &SceneId, const DeleteScene
 }
 
 /**
- * @summary Deletes the specified subcrowd.
+ * @summary Deletes a specified sub-crowd.
  *
  * @param request DeleteSubCrowdRequest
  * @param headers map
@@ -4167,7 +4242,7 @@ DeleteSubCrowdResponse Client::deleteSubCrowdWithOptions(const string &CrowdId, 
 }
 
 /**
- * @summary Deletes the specified subcrowd.
+ * @summary Deletes a specified sub-crowd.
  *
  * @param request DeleteSubCrowdRequest
  * @return DeleteSubCrowdResponse
@@ -4224,12 +4299,12 @@ DeleteTableMetaResponse Client::deleteTableMeta(const string &TableMetaId, const
 }
 
 /**
- * @summary Deletes the specified traffic control target.
+ * @summary Deletes a specified traffic control target by its ID.
  *
- * @description ## Request
- * - **TrafficControlTargetId** is a required path parameter that specifies the traffic control target to delete.
- * - **InstanceId** is a required query parameter that specifies the instance ID for this operation.
- * - A successful response includes a `RequestId` field to track the request.
+ * @description ## Request description
+ * - **TrafficControlTargetId** is a required path parameter used as the identity of the specific traffic control target to delete.
+ * - **InstanceId** is a required query parameter that specifies the instance ID to execute the operation.
+ * - A successful response returns a `RequestId` field for tracking the request.
  *
  * @param request DeleteTrafficControlTargetRequest
  * @param headers map
@@ -4262,12 +4337,12 @@ DeleteTrafficControlTargetResponse Client::deleteTrafficControlTargetWithOptions
 }
 
 /**
- * @summary Deletes the specified traffic control target.
+ * @summary Deletes a specified traffic control target by its ID.
  *
- * @description ## Request
- * - **TrafficControlTargetId** is a required path parameter that specifies the traffic control target to delete.
- * - **InstanceId** is a required query parameter that specifies the instance ID for this operation.
- * - A successful response includes a `RequestId` field to track the request.
+ * @description ## Request description
+ * - **TrafficControlTargetId** is a required path parameter used as the identity of the specific traffic control target to delete.
+ * - **InstanceId** is a required query parameter that specifies the instance ID to execute the operation.
+ * - A successful response returns a `RequestId` field for tracking the request.
  *
  * @param request DeleteTrafficControlTargetRequest
  * @return DeleteTrafficControlTargetResponse
@@ -4281,10 +4356,10 @@ DeleteTrafficControlTargetResponse Client::deleteTrafficControlTarget(const stri
 /**
  * @summary Deletes a specified traffic control task.
  *
- * @description ## Description
- * - This API uses `TrafficControlTaskId` and `InstanceId` to delete a traffic control task.
- * - Ensure the `TrafficControlTaskId` and `InstanceId` are correct, or the operation may fail.
- * - This operation is irreversible. Proceed with caution.
+ * @description ## Request description
+ * - This API locates and deletes a specific traffic control task by providing the `TrafficControlTaskId` and `InstanceId`.
+ * - Ensure that the provided `TrafficControlTaskId` and `InstanceId` are correct. Otherwise, the deletion may fail.
+ * - Once the deletion is complete, the related data cannot be recovered. Proceed with caution.
  *
  * @param request DeleteTrafficControlTaskRequest
  * @param headers map
@@ -4319,10 +4394,10 @@ DeleteTrafficControlTaskResponse Client::deleteTrafficControlTaskWithOptions(con
 /**
  * @summary Deletes a specified traffic control task.
  *
- * @description ## Description
- * - This API uses `TrafficControlTaskId` and `InstanceId` to delete a traffic control task.
- * - Ensure the `TrafficControlTaskId` and `InstanceId` are correct, or the operation may fail.
- * - This operation is irreversible. Proceed with caution.
+ * @description ## Request description
+ * - This API locates and deletes a specific traffic control task by providing the `TrafficControlTaskId` and `InstanceId`.
+ * - Ensure that the provided `TrafficControlTaskId` and `InstanceId` are correct. Otherwise, the deletion may fail.
+ * - Once the deletion is complete, the related data cannot be recovered. Proceed with caution.
  *
  * @param request DeleteTrafficControlTaskRequest
  * @return DeleteTrafficControlTaskResponse
@@ -4533,12 +4608,12 @@ GenerateAlgorithmCustomizationScriptResponse Client::generateAlgorithmCustomizat
 }
 
 /**
- * @summary Generates Flink code for a specified traffic control task ID and instance information.
+ * @summary Generates the corresponding Flink code based on the specified traffic control task ID and instance information.
  *
- * @description ## Description
- * - This API generates Flink code for a specified traffic control task ID, instance ID, and environment type.
- * - The `Environment` parameter accepts three values: `Daily` for the daily environment, `Pre` for the pre-release environment, and `Prod` for the production environment.
- * - Check the `PreNeedConfig` field in the response. A `true` value indicates that necessary configuration information might be missing in the pre-release environment. If this occurs, add or adjust the required settings.
+ * @description ## Request description
+ * - This API operation generates the corresponding Flink code based on the specified traffic control task ID, instance ID, and environment type.
+ * - The Environment parameter supports three values: Daily (daily environment), Pre (pre-release environment), and Prod (production environment). Make sure to select the correct value to meet your requirements.
+ * - Check the PreNeedConfig field in the response. If the value is true, it indicates that required configuration information may be missing in the pre-release environment. Adjust or supplement the relevant settings as needed.
  *
  * @param request GenerateTrafficControlTaskCodeRequest
  * @param headers map
@@ -4575,12 +4650,12 @@ GenerateTrafficControlTaskCodeResponse Client::generateTrafficControlTaskCodeWit
 }
 
 /**
- * @summary Generates Flink code for a specified traffic control task ID and instance information.
+ * @summary Generates the corresponding Flink code based on the specified traffic control task ID and instance information.
  *
- * @description ## Description
- * - This API generates Flink code for a specified traffic control task ID, instance ID, and environment type.
- * - The `Environment` parameter accepts three values: `Daily` for the daily environment, `Pre` for the pre-release environment, and `Prod` for the production environment.
- * - Check the `PreNeedConfig` field in the response. A `true` value indicates that necessary configuration information might be missing in the pre-release environment. If this occurs, add or adjust the required settings.
+ * @description ## Request description
+ * - This API operation generates the corresponding Flink code based on the specified traffic control task ID, instance ID, and environment type.
+ * - The Environment parameter supports three values: Daily (daily environment), Pre (pre-release environment), and Prod (production environment). Make sure to select the correct value to meet your requirements.
+ * - Check the PreNeedConfig field in the response. If the value is true, it indicates that required configuration information may be missing in the pre-release environment. Adjust or supplement the relevant settings as needed.
  *
  * @param request GenerateTrafficControlTaskCodeRequest
  * @return GenerateTrafficControlTaskCodeResponse
@@ -4682,7 +4757,7 @@ GetABMetricResponse Client::getABMetric(const string &ABMetricId, const GetABMet
 }
 
 /**
- * @summary Retrieves the details of an A/B testing metric group.
+ * @summary Retrieves the details of an ABTest metric group.
  *
  * @param request GetABMetricGroupRequest
  * @param headers map
@@ -4715,7 +4790,7 @@ GetABMetricGroupResponse Client::getABMetricGroupWithOptions(const string &ABMet
 }
 
 /**
- * @summary Retrieves the details of an A/B testing metric group.
+ * @summary Retrieves the details of an ABTest metric group.
  *
  * @param request GetABMetricGroupRequest
  * @return GetABMetricGroupResponse
@@ -4919,7 +4994,7 @@ GetExperimentResponse Client::getExperiment(const string &ExperimentId, const Ge
 }
 
 /**
- * @summary Retrieves details for a specified experiment group.
+ * @summary Retrieves the details of a specified experiment group.
  *
  * @param request GetExperimentGroupRequest
  * @param headers map
@@ -4952,7 +5027,7 @@ GetExperimentGroupResponse Client::getExperimentGroupWithOptions(const string &E
 }
 
 /**
- * @summary Retrieves details for a specified experiment group.
+ * @summary Retrieves the details of a specified experiment group.
  *
  * @param request GetExperimentGroupRequest
  * @return GetExperimentGroupResponse
@@ -5653,7 +5728,7 @@ GetSampleConsistencyJobResponse Client::getSampleConsistencyJob(const string &Sa
 }
 
 /**
- * @summary Retrieves the details of a specified scene.
+ * @summary Retrieves the details of a specified scenario.
  *
  * @param request GetSceneRequest
  * @param headers map
@@ -5686,7 +5761,7 @@ GetSceneResponse Client::getSceneWithOptions(const string &SceneId, const GetSce
 }
 
 /**
- * @summary Retrieves the details of a specified scene.
+ * @summary Retrieves the details of a specified scenario.
  *
  * @param request GetSceneRequest
  * @return GetSceneResponse
@@ -6857,7 +6932,7 @@ ListFeatureConsistencyCheckJobFeatureReportsResponse Client::listFeatureConsiste
 }
 
 /**
- * @summary Retrieves the score difference reports for a feature consistency check job.
+ * @summary Retrieves the score report for a feature consistency check task.
  *
  * @param tmpReq ListFeatureConsistencyCheckJobScoreReportsRequest
  * @param headers map
@@ -6900,7 +6975,7 @@ ListFeatureConsistencyCheckJobScoreReportsResponse Client::listFeatureConsistenc
 }
 
 /**
- * @summary Retrieves the score difference reports for a feature consistency check job.
+ * @summary Retrieves the score report for a feature consistency check task.
  *
  * @param request ListFeatureConsistencyCheckJobScoreReportsRequest
  * @return ListFeatureConsistencyCheckJobScoreReportsResponse
@@ -6977,10 +7052,10 @@ ListFeatureConsistencyCheckJobsResponse Client::listFeatureConsistencyCheckJobs(
 }
 
 /**
- * @summary Lists all schemas for a specified resource in an instance.
+ * @summary Queries all schemas for a specified instance and resource.
  *
- * @description ## Description
- * To retrieve a list of all schemas for a specified resource, provide the instance ID (InstanceId) and resource ID (ResourceId). Use the optional SchemaName parameter to filter the schemas by a name prefix.
+ * @description ## Request description
+ * Provide the instance ID (InstanceId) and resource ID (ResourceId) to retrieve a list of all schemas for the instance resource. You can use the optional SchemaName parameter to filter results by name prefix and locate the required schemas more precisely.
  *
  * @param request ListInstanceResourceSchemasRequest
  * @param headers map
@@ -7013,10 +7088,10 @@ ListInstanceResourceSchemasResponse Client::listInstanceResourceSchemasWithOptio
 }
 
 /**
- * @summary Lists all schemas for a specified resource in an instance.
+ * @summary Queries all schemas for a specified instance and resource.
  *
- * @description ## Description
- * To retrieve a list of all schemas for a specified resource, provide the instance ID (InstanceId) and resource ID (ResourceId). Use the optional SchemaName parameter to filter the schemas by a name prefix.
+ * @description ## Request description
+ * Provide the instance ID (InstanceId) and resource ID (ResourceId) to retrieve a list of all schemas for the instance resource. You can use the optional SchemaName parameter to filter results by name prefix and locate the required schemas more precisely.
  *
  * @param request ListInstanceResourceSchemasRequest
  * @return ListInstanceResourceSchemasResponse
@@ -7079,7 +7154,7 @@ ListInstanceResourceTablesResponse Client::listInstanceResourceTables(const stri
 }
 
 /**
- * @summary Lists the resources configured for an instance.
+ * @summary Retrieves the list of resources configured for an instance.
  *
  * @param request ListInstanceResourcesRequest
  * @param headers map
@@ -7120,7 +7195,7 @@ ListInstanceResourcesResponse Client::listInstanceResourcesWithOptions(const str
 }
 
 /**
- * @summary Lists the resources configured for an instance.
+ * @summary Retrieves the list of resources configured for an instance.
  *
  * @param request ListInstanceResourcesRequest
  * @return ListInstanceResourcesResponse
@@ -7303,7 +7378,7 @@ ListLayersResponse Client::listLayers(const ListLayersRequest &request) {
 }
 
 /**
- * @summary Retrieves a list of parameters.
+ * @summary Retrieves the list of parameters.
  *
  * @param request ListParamsRequest
  * @param headers map
@@ -7360,7 +7435,7 @@ ListParamsResponse Client::listParamsWithOptions(const ListParamsRequest &reques
 }
 
 /**
- * @summary Retrieves a list of parameters.
+ * @summary Retrieves the list of parameters.
  *
  * @param request ListParamsRequest
  * @return ListParamsResponse
@@ -7923,7 +7998,7 @@ ListSampleConsistencyJobsResponse Client::listSampleConsistencyJobs(const ListSa
 }
 
 /**
- * @summary Retrieves a list of scenes.
+ * @summary Retrieves the list of scenes.
  *
  * @param request ListScenesRequest
  * @param headers map
@@ -7960,7 +8035,7 @@ ListScenesResponse Client::listScenesWithOptions(const ListScenesRequest &reques
 }
 
 /**
- * @summary Retrieves a list of scenes.
+ * @summary Retrieves the list of scenes.
  *
  * @param request ListScenesRequest
  * @return ListScenesResponse
@@ -8276,7 +8351,7 @@ ListTrafficControlTasksResponse Client::listTrafficControlTasks(const ListTraffi
 }
 
 /**
- * @summary Takes an experiment offline.
+ * @summary Takes the specified experiment offline.
  *
  * @param request OfflineExperimentRequest
  * @param headers map
@@ -8309,7 +8384,7 @@ OfflineExperimentResponse Client::offlineExperimentWithOptions(const string &Exp
 }
 
 /**
- * @summary Takes an experiment offline.
+ * @summary Takes the specified experiment offline.
  *
  * @param request OfflineExperimentRequest
  * @return OfflineExperimentResponse
@@ -8321,7 +8396,7 @@ OfflineExperimentResponse Client::offlineExperiment(const string &ExperimentId, 
 }
 
 /**
- * @summary Takes a specified experiment group offline.
+ * @summary Takes the specified experiment group offline.
  *
  * @param request OfflineExperimentGroupRequest
  * @param headers map
@@ -8354,7 +8429,7 @@ OfflineExperimentGroupResponse Client::offlineExperimentGroupWithOptions(const s
 }
 
 /**
- * @summary Takes a specified experiment group offline.
+ * @summary Takes the specified experiment group offline.
  *
  * @param request OfflineExperimentGroupRequest
  * @return OfflineExperimentGroupResponse
@@ -8466,7 +8541,7 @@ OfflineRecallManagementServiceResponse Client::offlineRecallManagementService(co
 }
 
 /**
- * @summary Brings a specified experiment online.
+ * @summary Publishes the specified experiment online.
  *
  * @param request OnlineExperimentRequest
  * @param headers map
@@ -8499,7 +8574,7 @@ OnlineExperimentResponse Client::onlineExperimentWithOptions(const string &Exper
 }
 
 /**
- * @summary Brings a specified experiment online.
+ * @summary Publishes the specified experiment online.
  *
  * @param request OnlineExperimentRequest
  * @return OnlineExperimentResponse
@@ -8894,10 +8969,10 @@ QueryDataDiagnosisStatisticsResponse Client::queryDataDiagnosisStatistics(const 
 }
 
 /**
- * @summary Retrieves records from a specified recall management table.
+ * @summary Retrieves a list of records from a specified recall management table.
  *
- * @description ## Request
- * This API retrieves records from a specific recall management table using the provided primary keys. You must provide a valid `InstanceId` and `RecallManagementTableId`, and a non-empty `PrimaryKeys` list. If you specify `RecallManagementTableVersionId`, the API returns records from that version; otherwise, it uses the currently published version.
+ * @description ## Request description
+ * This operation retrieves data records from a specific recall management table based on the specified primary keys. Ensure that the provided `InstanceId` and `RecallManagementTableId` are valid and that the `PrimaryKeys` list is not empty. If `RecallManagementTableVersionId` is specified, data of that version is returned. Otherwise, the current published version is used by default.
  *
  * @param request QueryRecallManagementTableRecordsRequest
  * @param headers map
@@ -8938,10 +9013,10 @@ QueryRecallManagementTableRecordsResponse Client::queryRecallManagementTableReco
 }
 
 /**
- * @summary Retrieves records from a specified recall management table.
+ * @summary Retrieves a list of records from a specified recall management table.
  *
- * @description ## Request
- * This API retrieves records from a specific recall management table using the provided primary keys. You must provide a valid `InstanceId` and `RecallManagementTableId`, and a non-empty `PrimaryKeys` list. If you specify `RecallManagementTableVersionId`, the API returns records from that version; otherwise, it uses the currently published version.
+ * @description ## Request description
+ * This operation retrieves data records from a specific recall management table based on the specified primary keys. Ensure that the provided `InstanceId` and `RecallManagementTableId` are valid and that the `PrimaryKeys` list is not empty. If `RecallManagementTableVersionId` is specified, data of that version is returned. Otherwise, the current published version is used by default.
  *
  * @param request QueryRecallManagementTableRecordsRequest
  * @return QueryRecallManagementTableRecordsResponse
@@ -9067,8 +9142,8 @@ QueryTrafficControlTargetItemReportDetailResponse Client::queryTrafficControlTar
 /**
  * @summary Retrieves the deployment status and related information of a specified traffic control task in a specific environment.
  *
- * @description ## Operation description
- * You can call this operation to query the deployment result of a traffic control task specified by TrafficControlTaskId for a given instance ID and environment. Make sure that the specified InstanceId is associated with your account and that the Environment parameter value is valid (Daily for daily environment, Pre for staging environment, Prod for production environment). All request parameters are required.
+ * @description ## Request description
+ * You can use this API to query the deployment results of a traffic control task with a specific TrafficControlTaskId for a given instance ID and environment. Make sure that the provided InstanceId is associated with your account and the Environment parameter value meets your expectations (Daily: daily environment, Pre: staging environment, Prod: production environment). All request parameters are required.
  *
  * @param request QueryTrafficControlTaskDeployResultRequest
  * @param headers map
@@ -9107,8 +9182,8 @@ QueryTrafficControlTaskDeployResultResponse Client::queryTrafficControlTaskDeplo
 /**
  * @summary Retrieves the deployment status and related information of a specified traffic control task in a specific environment.
  *
- * @description ## Operation description
- * You can call this operation to query the deployment result of a traffic control task specified by TrafficControlTaskId for a given instance ID and environment. Make sure that the specified InstanceId is associated with your account and that the Environment parameter value is valid (Daily for daily environment, Pre for staging environment, Prod for production environment). All request parameters are required.
+ * @description ## Request description
+ * You can use this API to query the deployment results of a traffic control task with a specific TrafficControlTaskId for a given instance ID and environment. Make sure that the provided InstanceId is associated with your account and the Environment parameter value meets your expectations (Daily: daily environment, Pre: staging environment, Prod: production environment). All request parameters are required.
  *
  * @param request QueryTrafficControlTaskDeployResultRequest
  * @return QueryTrafficControlTaskDeployResultResponse
@@ -9193,14 +9268,14 @@ QueryTrafficControlTaskItemReportResponse Client::queryTrafficControlTaskItemRep
 }
 
 /**
- * @summary Releases a traffic control task for the specified instance and environment.
+ * @summary Publishes a traffic control task for a specified instance and environment.
  *
- * @description ## Request
- * Use this API to release a traffic control task for a specific instance and environment (Daily, Pre, or Prod). Your request must include the `TrafficControlTaskId`, `InstanceId`, and `Environment` parameters.
- * - `TrafficControlTaskId`: The unique ID of the traffic control task.
- * - `InstanceId`: The ID of the target instance.
- * - `Environment`: The execution environment for the traffic control task. Valid values: `Daily`, `Pre`, and `Prod`.
- * The request succeeds only if all required parameters are provided correctly. A successful response includes a `RequestId`.
+ * @description ## Request description
+ * This API allows you to publish a traffic control task for a specific instance ID and environment (daily, staging, or production). Make sure to correctly specify the `TrafficControlTaskId`, `InstanceId`, and `Environment` parameters in the request.
+ * - `TrafficControlTaskId`: the unique identifier of the traffic control task to be published.
+ * - `InstanceId`: the ID of the target instance to which the traffic control settings will be applied.
+ * - `Environment`: the environment in which the traffic control task is executed. Valid values: Daily (daily environment), Pre (staging environment), and Prod (production environment). Select an environment based on your business requirements.
+ * Note: The request is processed and a RequestId is returned in the response only when all required fields are correctly provided.
  *
  * @param request ReleaseTrafficControlTaskRequest
  * @param headers map
@@ -9237,14 +9312,14 @@ ReleaseTrafficControlTaskResponse Client::releaseTrafficControlTaskWithOptions(c
 }
 
 /**
- * @summary Releases a traffic control task for the specified instance and environment.
+ * @summary Publishes a traffic control task for a specified instance and environment.
  *
- * @description ## Request
- * Use this API to release a traffic control task for a specific instance and environment (Daily, Pre, or Prod). Your request must include the `TrafficControlTaskId`, `InstanceId`, and `Environment` parameters.
- * - `TrafficControlTaskId`: The unique ID of the traffic control task.
- * - `InstanceId`: The ID of the target instance.
- * - `Environment`: The execution environment for the traffic control task. Valid values: `Daily`, `Pre`, and `Prod`.
- * The request succeeds only if all required parameters are provided correctly. A successful response includes a `RequestId`.
+ * @description ## Request description
+ * This API allows you to publish a traffic control task for a specific instance ID and environment (daily, staging, or production). Make sure to correctly specify the `TrafficControlTaskId`, `InstanceId`, and `Environment` parameters in the request.
+ * - `TrafficControlTaskId`: the unique identifier of the traffic control task to be published.
+ * - `InstanceId`: the ID of the target instance to which the traffic control settings will be applied.
+ * - `Environment`: the environment in which the traffic control task is executed. Valid values: Daily (daily environment), Pre (staging environment), and Prod (production environment). Select an environment based on your business requirements.
+ * Note: The request is processed and a RequestId is returned in the response only when all required fields are correctly provided.
  *
  * @param request ReleaseTrafficControlTaskRequest
  * @return ReleaseTrafficControlTaskResponse
@@ -9691,13 +9766,13 @@ StartTrafficControlTargetResponse Client::startTrafficControlTarget(const string
 }
 
 /**
- * @summary Starts a traffic control task with a specified ID for instances in different environments.
+ * @summary Starts the traffic shaping task with the specified ID for instances in different environments.
  *
- * @description ## Request details
- * - This operation starts the traffic control task identified by `TrafficControlTaskId`.
+ * @description ## Request description
+ * - This API operation starts the traffic shaping task identified by the specified `TrafficControlTaskId`.
  * - `InstanceId` specifies the target instance.
- * - `Environment` specifies the target environment. Valid values: Daily, Pre, and Prod.
- * - Ensure that all required parameters are set correctly before you call this operation. The specified `TrafficControlTaskId` must exist in the system.
+ * - The `Environment` parameter defines the target environment for this operation (daily, staging, or production).
+ * - Ensure that all required parameters are correctly configured before you call this operation. Specifically, the `TrafficControlTaskId` must exist in the system.
  *
  * @param request StartTrafficControlTaskRequest
  * @param headers map
@@ -9734,13 +9809,13 @@ StartTrafficControlTaskResponse Client::startTrafficControlTaskWithOptions(const
 }
 
 /**
- * @summary Starts a traffic control task with a specified ID for instances in different environments.
+ * @summary Starts the traffic shaping task with the specified ID for instances in different environments.
  *
- * @description ## Request details
- * - This operation starts the traffic control task identified by `TrafficControlTaskId`.
+ * @description ## Request description
+ * - This API operation starts the traffic shaping task identified by the specified `TrafficControlTaskId`.
  * - `InstanceId` specifies the target instance.
- * - `Environment` specifies the target environment. Valid values: Daily, Pre, and Prod.
- * - Ensure that all required parameters are set correctly before you call this operation. The specified `TrafficControlTaskId` must exist in the system.
+ * - The `Environment` parameter defines the target environment for this operation (daily, staging, or production).
+ * - Ensure that all required parameters are correctly configured before you call this operation. Specifically, the `TrafficControlTaskId` must exist in the system.
  *
  * @param request StartTrafficControlTaskRequest
  * @return StartTrafficControlTaskResponse
@@ -10094,14 +10169,14 @@ TerminateFeatureConsistencyCheckJobResponse Client::terminateFeatureConsistencyC
 }
 
 /**
- * @summary Modifies the metric configuration of an existing ABTest experiment.
+ * @summary Updates the metric configuration of an existing AB test.
  *
- * @description ## Operation description
- * This API operation allows you to update the attributes of a specified ABTest metric, including whether to calculate significance and the aggregation method. Make sure that you have obtained the correct `ABMetricId` before calling this operation.
+ * @description ## Request description
+ * This API operation allows you to update the properties of a specified AB test metric, including whether to calculate significance and the aggregation method. Make sure that you have obtained the correct `ABMetricId` before calling this operation.
  * - `NeedSignificance`: Specifies whether to perform significance analysis on the current metric. Default value: `false`.
- * - `AggregationByUser`: When significance calculation is enabled, specifies whether to aggregate data by user or by sample. Default value: `false` (by sample).
- * - `Numerator` and `Denominator`: The specific definitions of the numerator and denominator used in significance calculation.
- * - `IsBinomialDistribution`: Valid only for derived metrics. Specifies whether the metric follows a binomial distribution, which affects subsequent data processing logic.
+ * - `AggregationByUser`: When significance calculation is selected, specifies whether to aggregate data by user or by sample. Default value: `false` (by sample).
+ * - `Numerator` and `Denominator`: Represent the specific definitions of the numerator and denominator when performing significance calculation.
+ * - `IsBinomialDistribution`: Valid only for derived metrics. Indicates whether the metric follows a binomial distribution, which affects subsequent data processing logic.
  * Note: You do not need to provide all fields at the same time. Include only the parameters whose values you want to change in the request body.
  *
  * @param request UpdateABMetricRequest
@@ -10203,14 +10278,14 @@ UpdateABMetricResponse Client::updateABMetricWithOptions(const string &ABMetricI
 }
 
 /**
- * @summary Modifies the metric configuration of an existing ABTest experiment.
+ * @summary Updates the metric configuration of an existing AB test.
  *
- * @description ## Operation description
- * This API operation allows you to update the attributes of a specified ABTest metric, including whether to calculate significance and the aggregation method. Make sure that you have obtained the correct `ABMetricId` before calling this operation.
+ * @description ## Request description
+ * This API operation allows you to update the properties of a specified AB test metric, including whether to calculate significance and the aggregation method. Make sure that you have obtained the correct `ABMetricId` before calling this operation.
  * - `NeedSignificance`: Specifies whether to perform significance analysis on the current metric. Default value: `false`.
- * - `AggregationByUser`: When significance calculation is enabled, specifies whether to aggregate data by user or by sample. Default value: `false` (by sample).
- * - `Numerator` and `Denominator`: The specific definitions of the numerator and denominator used in significance calculation.
- * - `IsBinomialDistribution`: Valid only for derived metrics. Specifies whether the metric follows a binomial distribution, which affects subsequent data processing logic.
+ * - `AggregationByUser`: When significance calculation is selected, specifies whether to aggregate data by user or by sample. Default value: `false` (by sample).
+ * - `Numerator` and `Denominator`: Represent the specific definitions of the numerator and denominator when performing significance calculation.
+ * - `IsBinomialDistribution`: Valid only for derived metrics. Indicates whether the metric follows a binomial distribution, which affects subsequent data processing logic.
  * Note: You do not need to provide all fields at the same time. Include only the parameters whose values you want to change in the request body.
  *
  * @param request UpdateABMetricRequest
@@ -10590,7 +10665,7 @@ UpdateExperimentResponse Client::updateExperiment(const string &ExperimentId, co
 }
 
 /**
- * @summary Updates information for a specified experiment group, such as its name and description.
+ * @summary Updates the information of a specified experiment group, such as the name and description.
  *
  * @param request UpdateExperimentGroupRequest
  * @param headers map
@@ -10679,7 +10754,7 @@ UpdateExperimentGroupResponse Client::updateExperimentGroupWithOptions(const str
 }
 
 /**
- * @summary Updates information for a specified experiment group, such as its name and description.
+ * @summary Updates the information of a specified experiment group, such as the name and description.
  *
  * @param request UpdateExperimentGroupRequest
  * @return UpdateExperimentGroupResponse
@@ -11590,7 +11665,7 @@ UpdateResourceRuleItemResponse Client::updateResourceRuleItem(const string &Reso
 }
 
 /**
- * @summary Updates information for a scene, such as its name and description.
+ * @summary Updates scene information, such as the name and description of a scene.
  *
  * @param request UpdateSceneRequest
  * @param headers map
@@ -11635,7 +11710,7 @@ UpdateSceneResponse Client::updateSceneWithOptions(const string &SceneId, const 
 }
 
 /**
- * @summary Updates information for a scene, such as its name and description.
+ * @summary Updates scene information, such as the name and description of a scene.
  *
  * @param request UpdateSceneRequest
  * @return UpdateSceneResponse

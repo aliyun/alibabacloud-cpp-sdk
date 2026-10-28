@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The AB metric ID.
+    // The ID of the AB test metric.
     shared_ptr<string> ABMetricId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

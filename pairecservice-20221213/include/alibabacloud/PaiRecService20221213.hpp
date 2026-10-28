@@ -21,7 +21,7 @@ namespace PaiRecService20221213
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Applies an engine configuration.
+       * @summary Publishes an engine configuration.
        *
        * @param request ApplyEngineConfigRequest
        * @param headers map
@@ -31,7 +31,7 @@ namespace PaiRecService20221213
       Models::ApplyEngineConfigResponse applyEngineConfigWithOptions(const string &EngineConfigId, const Models::ApplyEngineConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Applies an engine configuration.
+       * @summary Publishes an engine configuration.
        *
        * @param request ApplyEngineConfigRequest
        * @return ApplyEngineConfigResponse
@@ -57,14 +57,14 @@ namespace PaiRecService20221213
       Models::BackflowFeatureConsistencyCheckJobDataResponse backflowFeatureConsistencyCheckJobData(const Models::BackflowFeatureConsistencyCheckJobDataRequest &request);
 
       /**
-       * @summary This API changes the version of a recall management service.
+       * @summary Updates the version of a specified recall management service.
        *
-       * @description ## Request
-       * Use this API to change the version of a recall management service. Ensure that the provided `RecallManagementServiceId`, `InstanceId`, and target `RecallManagementServiceVersionId` are valid, and that you have the required permissions for these resources.
-       * - **RecallManagementServiceId**: The unique identifier of the recall management service.
-       * - **InstanceId**: The instance ID associated with the recall management service.
-       * - **RecallManagementServiceVersionId**: The target version ID to switch to.
-       * Note: Before changing the version, confirm that the new version is fully tested and ready for production.
+       * @description ## Request description
+       * You can call this API to change the version of a specific recall management service. Ensure that the provided `RecallManagementServiceId`, `InstanceId`, and target `RecallManagementServiceVersionId` are valid and that you have the required permissions to manage these resources.
+       * - **RecallManagementServiceId**: The unique identifier of the recall management service whose version you want to change.
+       * - **InstanceId**: Instance ID of the instance associated with the recall management service.
+       * - **RecallManagementServiceVersionId**: Instance ID of the target version to switch to.
+       * Note: Before you change the version, ensure that the new version has been fully tested and is ready to go live.
        *
        * @param request ChangeRecallManagementServiceVersionRequest
        * @param headers map
@@ -74,14 +74,14 @@ namespace PaiRecService20221213
       Models::ChangeRecallManagementServiceVersionResponse changeRecallManagementServiceVersionWithOptions(const string &RecallManagementServiceId, const Models::ChangeRecallManagementServiceVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This API changes the version of a recall management service.
+       * @summary Updates the version of a specified recall management service.
        *
-       * @description ## Request
-       * Use this API to change the version of a recall management service. Ensure that the provided `RecallManagementServiceId`, `InstanceId`, and target `RecallManagementServiceVersionId` are valid, and that you have the required permissions for these resources.
-       * - **RecallManagementServiceId**: The unique identifier of the recall management service.
-       * - **InstanceId**: The instance ID associated with the recall management service.
-       * - **RecallManagementServiceVersionId**: The target version ID to switch to.
-       * Note: Before changing the version, confirm that the new version is fully tested and ready for production.
+       * @description ## Request description
+       * You can call this API to change the version of a specific recall management service. Ensure that the provided `RecallManagementServiceId`, `InstanceId`, and target `RecallManagementServiceVersionId` are valid and that you have the required permissions to manage these resources.
+       * - **RecallManagementServiceId**: The unique identifier of the recall management service whose version you want to change.
+       * - **InstanceId**: Instance ID of the instance associated with the recall management service.
+       * - **RecallManagementServiceVersionId**: Instance ID of the target version to switch to.
+       * Note: Before you change the version, ensure that the new version has been fully tested and is ready to go live.
        *
        * @param request ChangeRecallManagementServiceVersionRequest
        * @return ChangeRecallManagementServiceVersionResponse
@@ -153,10 +153,34 @@ namespace PaiRecService20221213
       Models::CheckInstanceResourcesResponse checkInstanceResources(const string &InstanceId, const Models::CheckInstanceResourcesRequest &request);
 
       /**
-       * @summary Validates a traffic control task expression.
+       * @summary Checks whether a specified recall management service is working properly.
        *
-       * @description ## Description
-       * This operation validates a traffic control task expression for a specific instance and table. Provide the correct `InstanceId`, `TableMetaId`, and `Expression` parameters.
+       * @description ## Request description
+       * This operation checks the status or performance of a specific recall management service by using the recall management service ID and related parameters. Ensure that the InstanceId field is correct to target the right instance. To test a specific version of the service, provide the RecallManagementServiceVersionId. You can also customize the request by using parameters such as Recalls, ContextParams, ExposureList, and RetainFields to accurately simulate real-world scenarios.
+       *
+       * @param request CheckRecallManagementServiceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CheckRecallManagementServiceResponse
+       */
+      Models::CheckRecallManagementServiceResponse checkRecallManagementServiceWithOptions(const string &RecallManagementServiceId, const Models::CheckRecallManagementServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Checks whether a specified recall management service is working properly.
+       *
+       * @description ## Request description
+       * This operation checks the status or performance of a specific recall management service by using the recall management service ID and related parameters. Ensure that the InstanceId field is correct to target the right instance. To test a specific version of the service, provide the RecallManagementServiceVersionId. You can also customize the request by using parameters such as Recalls, ContextParams, ExposureList, and RetainFields to accurately simulate real-world scenarios.
+       *
+       * @param request CheckRecallManagementServiceRequest
+       * @return CheckRecallManagementServiceResponse
+       */
+      Models::CheckRecallManagementServiceResponse checkRecallManagementService(const string &RecallManagementServiceId, const Models::CheckRecallManagementServiceRequest &request);
+
+      /**
+       * @summary Validates whether a specified traffic control task expression is valid.
+       *
+       * @description ## Request description
+       * This API operation checks the validity of a traffic control task expression for a specified instance and data table. Make sure that the `InstanceId`, `TableMetaId`, and `Expression` parameters are accurate to correctly perform the validation.
        *
        * @param request CheckTrafficControlTaskExpressionRequest
        * @param headers map
@@ -166,10 +190,10 @@ namespace PaiRecService20221213
       Models::CheckTrafficControlTaskExpressionResponse checkTrafficControlTaskExpressionWithOptions(const Models::CheckTrafficControlTaskExpressionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Validates a traffic control task expression.
+       * @summary Validates whether a specified traffic control task expression is valid.
        *
-       * @description ## Description
-       * This operation validates a traffic control task expression for a specific instance and table. Provide the correct `InstanceId`, `TableMetaId`, and `Expression` parameters.
+       * @description ## Request description
+       * This API operation checks the validity of a traffic control task expression for a specified instance and data table. Make sure that the `InstanceId`, `TableMetaId`, and `Expression` parameters are accurate to correctly perform the validation.
        *
        * @param request CheckTrafficControlTaskExpressionRequest
        * @return CheckTrafficControlTaskExpressionResponse
@@ -231,7 +255,7 @@ namespace PaiRecService20221213
       Models::CloneExperimentGroupResponse cloneExperimentGroup(const string &ExperimentGroupId, const Models::CloneExperimentGroupRequest &request);
 
       /**
-       * @summary Clones a feature consistency check job configuration.
+       * @summary Clones the feature consistency check job configuration.
        *
        * @param request CloneFeatureConsistencyCheckJobConfigRequest
        * @param headers map
@@ -241,7 +265,7 @@ namespace PaiRecService20221213
       Models::CloneFeatureConsistencyCheckJobConfigResponse cloneFeatureConsistencyCheckJobConfigWithOptions(const string &SourceFeatureConsistencyCheckJobConfigId, const Models::CloneFeatureConsistencyCheckJobConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Clones a feature consistency check job configuration.
+       * @summary Clones the feature consistency check job configuration.
        *
        * @param request CloneFeatureConsistencyCheckJobConfigRequest
        * @return CloneFeatureConsistencyCheckJobConfigResponse
@@ -249,7 +273,7 @@ namespace PaiRecService20221213
       Models::CloneFeatureConsistencyCheckJobConfigResponse cloneFeatureConsistencyCheckJobConfig(const string &SourceFeatureConsistencyCheckJobConfigId, const Models::CloneFeatureConsistencyCheckJobConfigRequest &request);
 
       /**
-       * @summary Clones a specified laboratory to a designated environment. You can specify whether to clone the experiment groups within the laboratory.
+       * @summary Clones a specified laboratory to a specified environment and specifies whether to clone the experiment groups under the laboratory.
        *
        * @param request CloneLaboratoryRequest
        * @param headers map
@@ -259,7 +283,7 @@ namespace PaiRecService20221213
       Models::CloneLaboratoryResponse cloneLaboratoryWithOptions(const string &LaboratoryId, const Models::CloneLaboratoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Clones a specified laboratory to a designated environment. You can specify whether to clone the experiment groups within the laboratory.
+       * @summary Clones a specified laboratory to a specified environment and specifies whether to clone the experiment groups under the laboratory.
        *
        * @param request CloneLaboratoryRequest
        * @return CloneLaboratoryResponse
@@ -267,10 +291,10 @@ namespace PaiRecService20221213
       Models::CloneLaboratoryResponse cloneLaboratory(const string &LaboratoryId, const Models::CloneLaboratoryRequest &request);
 
       /**
-       * @summary Clones a specified traffic control task to a new instance.
+       * @summary Clones a specified traffic shaping task to a new instance.
        *
        * @description ## Request description
-       * This API clones an existing traffic control task to another specified instance. Ensure that the `InstanceId` you provide is valid and that you have the required permissions for the target instance.
+       * You can use this API to clone an existing traffic shaping task to another specified instance. Make sure that the `InstanceId` you provide is valid and that you have the required permissions to perform operations on the instance.
        * Note: The cloning process does not affect the status or configuration of the original task.
        *
        * @param request CloneTrafficControlTaskRequest
@@ -281,10 +305,10 @@ namespace PaiRecService20221213
       Models::CloneTrafficControlTaskResponse cloneTrafficControlTaskWithOptions(const string &TrafficControlTaskId, const Models::CloneTrafficControlTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Clones a specified traffic control task to a new instance.
+       * @summary Clones a specified traffic shaping task to a new instance.
        *
        * @description ## Request description
-       * This API clones an existing traffic control task to another specified instance. Ensure that the `InstanceId` you provide is valid and that you have the required permissions for the target instance.
+       * You can use this API to clone an existing traffic shaping task to another specified instance. Make sure that the `InstanceId` you provide is valid and that you have the required permissions to perform operations on the instance.
        * Note: The cloning process does not affect the status or configuration of the original task.
        *
        * @param request CloneTrafficControlTaskRequest
@@ -311,7 +335,7 @@ namespace PaiRecService20221213
       Models::CompareSampleConsistencyJobResponse compareSampleConsistencyJob(const string &SampleConsistencyJobId, const Models::CompareSampleConsistencyJobRequest &request);
 
       /**
-       * @summary Creates an AB metric.
+       * @summary Creates an AB test metric.
        *
        * @param request CreateABMetricRequest
        * @param headers map
@@ -321,7 +345,7 @@ namespace PaiRecService20221213
       Models::CreateABMetricResponse createABMetricWithOptions(const Models::CreateABMetricRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an AB metric.
+       * @summary Creates an AB test metric.
        *
        * @param request CreateABMetricRequest
        * @return CreateABMetricResponse
@@ -329,7 +353,7 @@ namespace PaiRecService20221213
       Models::CreateABMetricResponse createABMetric(const Models::CreateABMetricRequest &request);
 
       /**
-       * @summary Creates an A/B metric group.
+       * @summary Creates an AB test metric group.
        *
        * @param request CreateABMetricGroupRequest
        * @param headers map
@@ -339,7 +363,7 @@ namespace PaiRecService20221213
       Models::CreateABMetricGroupResponse createABMetricGroupWithOptions(const Models::CreateABMetricGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an A/B metric group.
+       * @summary Creates an AB test metric group.
        *
        * @param request CreateABMetricGroupRequest
        * @return CreateABMetricGroupResponse
@@ -365,7 +389,7 @@ namespace PaiRecService20221213
       Models::CreateCalculationJobsResponse createCalculationJobs(const Models::CreateCalculationJobsRequest &request);
 
       /**
-       * @summary Creates a crowd that represents a group of users.
+       * @summary Creates a crowd to represent a user group.
        *
        * @param request CreateCrowdRequest
        * @param headers map
@@ -375,7 +399,7 @@ namespace PaiRecService20221213
       Models::CreateCrowdResponse createCrowdWithOptions(const Models::CreateCrowdRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a crowd that represents a group of users.
+       * @summary Creates a crowd to represent a user group.
        *
        * @param request CreateCrowdRequest
        * @return CreateCrowdResponse
@@ -473,7 +497,7 @@ namespace PaiRecService20221213
       Models::CreateExperimentResponse createExperiment(const Models::CreateExperimentRequest &request);
 
       /**
-       * @summary Creates an experiment group in a specified layer. You can use experiment groups to categorize experiments and observe their overall performance.
+       * @summary Creates an experiment group under a specified layer. You can categorize experiment groups by experiment type to observe the overall performance of experiments by group.
        *
        * @param request CreateExperimentGroupRequest
        * @param headers map
@@ -483,7 +507,7 @@ namespace PaiRecService20221213
       Models::CreateExperimentGroupResponse createExperimentGroupWithOptions(const Models::CreateExperimentGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an experiment group in a specified layer. You can use experiment groups to categorize experiments and observe their overall performance.
+       * @summary Creates an experiment group under a specified layer. You can categorize experiment groups by experiment type to observe the overall performance of experiments by group.
        *
        * @param request CreateExperimentGroupRequest
        * @return CreateExperimentGroupResponse
@@ -527,7 +551,7 @@ namespace PaiRecService20221213
       Models::CreateFeatureConsistencyCheckJobConfigResponse createFeatureConsistencyCheckJobConfig(const Models::CreateFeatureConsistencyCheckJobConfigRequest &request);
 
       /**
-       * @summary Creates a configuration resource for a specified instance.
+       * @summary Creates a configuration resource for the specified instance.
        *
        * @param request CreateInstanceResourceRequest
        * @param headers map
@@ -537,7 +561,7 @@ namespace PaiRecService20221213
       Models::CreateInstanceResourceResponse createInstanceResourceWithOptions(const string &InstanceId, const Models::CreateInstanceResourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a configuration resource for a specified instance.
+       * @summary Creates a configuration resource for the specified instance.
        *
        * @param request CreateInstanceResourceRequest
        * @return CreateInstanceResourceResponse
@@ -651,13 +675,13 @@ namespace PaiRecService20221213
       /**
        * @summary Creates a new recall management service version that supports configuring multiple recall strategies.
        *
-       * @description ## Request
-       * - Use this API to create a new version of a recall management service.
-       * - To create a new version from an existing one, specify the source recall management service version ID.
-       * - You can configure detailed recall rules, such as the recall name, description, priority, and recall type.
-       * - Configure operators such as filter, trigger, feature extraction, and join.
-       * - The merge configuration specifies how to merge multiple recall results and supports two merge methods: weight-based and alternating.
-       * - All configuration items are optional.
+       * @description ## Request description
+       * - This operation allows you to create a new version for a specific recall management service.
+       * - You can create a new version based on an existing version by specifying the source recall management service version ID.
+       * - You can configure detailed recall rules, including but not limited to the recall name, description, priority, and recall type.
+       * - The operation provides flexible operator configuration options, such as filtering, triggering, feature extraction, and join operations, to meet various business requirements.
+       * - The merge configuration allows you to specify how to merge multiple recall results. Two merge methods are supported: weight and alternate.
+       * - All configuration items are optional. Specify them as needed.
        *
        * @param request CreateRecallManagementServiceVersionRequest
        * @param headers map
@@ -669,13 +693,13 @@ namespace PaiRecService20221213
       /**
        * @summary Creates a new recall management service version that supports configuring multiple recall strategies.
        *
-       * @description ## Request
-       * - Use this API to create a new version of a recall management service.
-       * - To create a new version from an existing one, specify the source recall management service version ID.
-       * - You can configure detailed recall rules, such as the recall name, description, priority, and recall type.
-       * - Configure operators such as filter, trigger, feature extraction, and join.
-       * - The merge configuration specifies how to merge multiple recall results and supports two merge methods: weight-based and alternating.
-       * - All configuration items are optional.
+       * @description ## Request description
+       * - This operation allows you to create a new version for a specific recall management service.
+       * - You can create a new version based on an existing version by specifying the source recall management service version ID.
+       * - You can configure detailed recall rules, including but not limited to the recall name, description, priority, and recall type.
+       * - The operation provides flexible operator configuration options, such as filtering, triggering, feature extraction, and join operations, to meet various business requirements.
+       * - The merge configuration allows you to specify how to merge multiple recall results. Two merge methods are supported: weight and alternate.
+       * - All configuration items are optional. Specify them as needed.
        *
        * @param request CreateRecallManagementServiceVersionRequest
        * @return CreateRecallManagementServiceVersionResponse
@@ -805,7 +829,7 @@ namespace PaiRecService20221213
       Models::CreateSampleConsistencyJobResponse createSampleConsistencyJob(const Models::CreateSampleConsistencyJobRequest &request);
 
       /**
-       * @summary Creates a scene for metric and experiment analysis.
+       * @summary Creates a scenario for metric and experiment analysis.
        *
        * @param request CreateSceneRequest
        * @param headers map
@@ -815,7 +839,7 @@ namespace PaiRecService20221213
       Models::CreateSceneResponse createSceneWithOptions(const Models::CreateSceneRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a scene for metric and experiment analysis.
+       * @summary Creates a scenario for metric and experiment analysis.
        *
        * @param request CreateSceneRequest
        * @return CreateSceneResponse
@@ -1113,7 +1137,7 @@ namespace PaiRecService20221213
       Models::DeleteLaboratoryResponse deleteLaboratory(const string &LaboratoryId, const Models::DeleteLaboratoryRequest &request);
 
       /**
-       * @summary Delete the specified layer.
+       * @summary Deletes a specified layer.
        *
        * @param request DeleteLayerRequest
        * @param headers map
@@ -1123,7 +1147,7 @@ namespace PaiRecService20221213
       Models::DeleteLayerResponse deleteLayerWithOptions(const string &LayerId, const Models::DeleteLayerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete the specified layer.
+       * @summary Deletes a specified layer.
        *
        * @param request DeleteLayerRequest
        * @return DeleteLayerResponse
@@ -1149,10 +1173,10 @@ namespace PaiRecService20221213
       Models::DeleteParamResponse deleteParam(const string &ParamId, const Models::DeleteParamRequest &request);
 
       /**
-       * @summary Deletes a recall management service.
+       * @summary Deletes a specified recall management service.
        *
        * @description ## Request description
-       * This operation deletes a recall management service based on the RecallManagementServiceId and InstanceId. Before you call this API, ensure you have the correct information for the service to be deleted.
+       * This API operation deletes a specific recall management service based on the provided recall management service ID and instance ID. Make sure that you have obtained the information about the service to be deleted before you call this operation.
        *
        * @param request DeleteRecallManagementServiceRequest
        * @param headers map
@@ -1162,10 +1186,10 @@ namespace PaiRecService20221213
       Models::DeleteRecallManagementServiceResponse deleteRecallManagementServiceWithOptions(const string &RecallManagementServiceId, const Models::DeleteRecallManagementServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a recall management service.
+       * @summary Deletes a specified recall management service.
        *
        * @description ## Request description
-       * This operation deletes a recall management service based on the RecallManagementServiceId and InstanceId. Before you call this API, ensure you have the correct information for the service to be deleted.
+       * This API operation deletes a specific recall management service based on the provided recall management service ID and instance ID. Make sure that you have obtained the information about the service to be deleted before you call this operation.
        *
        * @param request DeleteRecallManagementServiceRequest
        * @return DeleteRecallManagementServiceResponse
@@ -1173,10 +1197,10 @@ namespace PaiRecService20221213
       Models::DeleteRecallManagementServiceResponse deleteRecallManagementService(const string &RecallManagementServiceId, const Models::DeleteRecallManagementServiceRequest &request);
 
       /**
-       * @summary Deletes a specified version of a recall management service.
+       * @summary Deletes a specified recall management service version.
        *
-       * @description ## Request
-       * This operation deletes a specific version of a recall management service. You must provide the recall management service ID, the recall management service version ID, and the instance ID. This operation is irreversible, so back up all critical data before proceeding.
+       * @description ## Request description
+       * This operation allows you to delete a specific version of a recall management service by providing the recall management service ID, recall management service version ID, and instance ID. Back up important data before calling this operation because the deletion is irreversible.
        *
        * @param request DeleteRecallManagementServiceVersionRequest
        * @param headers map
@@ -1186,10 +1210,10 @@ namespace PaiRecService20221213
       Models::DeleteRecallManagementServiceVersionResponse deleteRecallManagementServiceVersionWithOptions(const string &RecallManagementServiceId, const string &RecallManagementServiceVersionId, const Models::DeleteRecallManagementServiceVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a specified version of a recall management service.
+       * @summary Deletes a specified recall management service version.
        *
-       * @description ## Request
-       * This operation deletes a specific version of a recall management service. You must provide the recall management service ID, the recall management service version ID, and the instance ID. This operation is irreversible, so back up all critical data before proceeding.
+       * @description ## Request description
+       * This operation allows you to delete a specific version of a recall management service by providing the recall management service ID, recall management service version ID, and instance ID. Back up important data before calling this operation because the deletion is irreversible.
        *
        * @param request DeleteRecallManagementServiceVersionRequest
        * @return DeleteRecallManagementServiceVersionResponse
@@ -1225,12 +1249,12 @@ namespace PaiRecService20221213
       Models::DeleteRecallManagementServiceVersionConfigResponse deleteRecallManagementServiceVersionConfig(const string &RecallManagementServiceId, const string &RecallManagementServiceVersionId, const string &RecallManagementServiceVersionConfigId, const Models::DeleteRecallManagementServiceVersionConfigRequest &request);
 
       /**
-       * @summary This API deletes a recall management table using the specified recall management table ID and instance ID.
+       * @summary Deletes a recall management data table based on the specified data table ID and instance ID.
        *
-       * @description ## Request
-       * - The required **path parameter** `RecallManagementTableId` specifies the ID of the recall management table to delete.
-       * - The required **query parameter** `InstanceId` specifies the ID of the instance.
-       * - A successful operation returns a `RequestId` in the response body for request tracking.
+       * @description ## Request description
+       * - The **path parameter** `RecallManagementTableId` is required and specifies instance ID of the data table to delete.
+       * - The **query parameter** `InstanceId` is also required and specifies instance ID of the instance on which the operation is performed.
+       * - After a successful execution, a response body containing the request ID (`RequestId`) is returned, which can be used to track the request.
        *
        * @param request DeleteRecallManagementTableRequest
        * @param headers map
@@ -1240,12 +1264,12 @@ namespace PaiRecService20221213
       Models::DeleteRecallManagementTableResponse deleteRecallManagementTableWithOptions(const string &RecallManagementTableId, const Models::DeleteRecallManagementTableRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This API deletes a recall management table using the specified recall management table ID and instance ID.
+       * @summary Deletes a recall management data table based on the specified data table ID and instance ID.
        *
-       * @description ## Request
-       * - The required **path parameter** `RecallManagementTableId` specifies the ID of the recall management table to delete.
-       * - The required **query parameter** `InstanceId` specifies the ID of the instance.
-       * - A successful operation returns a `RequestId` in the response body for request tracking.
+       * @description ## Request description
+       * - The **path parameter** `RecallManagementTableId` is required and specifies instance ID of the data table to delete.
+       * - The **query parameter** `InstanceId` is also required and specifies instance ID of the instance on which the operation is performed.
+       * - After a successful execution, a response body containing the request ID (`RequestId`) is returned, which can be used to track the request.
        *
        * @param request DeleteRecallManagementTableRequest
        * @return DeleteRecallManagementTableResponse
@@ -1307,7 +1331,7 @@ namespace PaiRecService20221213
       Models::DeleteSampleConsistencyJobResponse deleteSampleConsistencyJob(const string &SampleConsistencyJobId, const Models::DeleteSampleConsistencyJobRequest &request);
 
       /**
-       * @summary Delete the specified scenario.
+       * @summary Deletes a specified scenario.
        *
        * @param request DeleteSceneRequest
        * @param headers map
@@ -1317,7 +1341,7 @@ namespace PaiRecService20221213
       Models::DeleteSceneResponse deleteSceneWithOptions(const string &SceneId, const Models::DeleteSceneRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete the specified scenario.
+       * @summary Deletes a specified scenario.
        *
        * @param request DeleteSceneRequest
        * @return DeleteSceneResponse
@@ -1325,7 +1349,7 @@ namespace PaiRecService20221213
       Models::DeleteSceneResponse deleteScene(const string &SceneId, const Models::DeleteSceneRequest &request);
 
       /**
-       * @summary Deletes the specified subcrowd.
+       * @summary Deletes a specified sub-crowd.
        *
        * @param request DeleteSubCrowdRequest
        * @param headers map
@@ -1335,7 +1359,7 @@ namespace PaiRecService20221213
       Models::DeleteSubCrowdResponse deleteSubCrowdWithOptions(const string &CrowdId, const string &SubCrowdId, const Models::DeleteSubCrowdRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes the specified subcrowd.
+       * @summary Deletes a specified sub-crowd.
        *
        * @param request DeleteSubCrowdRequest
        * @return DeleteSubCrowdResponse
@@ -1361,12 +1385,12 @@ namespace PaiRecService20221213
       Models::DeleteTableMetaResponse deleteTableMeta(const string &TableMetaId, const Models::DeleteTableMetaRequest &request);
 
       /**
-       * @summary Deletes the specified traffic control target.
+       * @summary Deletes a specified traffic control target by its ID.
        *
-       * @description ## Request
-       * - **TrafficControlTargetId** is a required path parameter that specifies the traffic control target to delete.
-       * - **InstanceId** is a required query parameter that specifies the instance ID for this operation.
-       * - A successful response includes a `RequestId` field to track the request.
+       * @description ## Request description
+       * - **TrafficControlTargetId** is a required path parameter used as the identity of the specific traffic control target to delete.
+       * - **InstanceId** is a required query parameter that specifies the instance ID to execute the operation.
+       * - A successful response returns a `RequestId` field for tracking the request.
        *
        * @param request DeleteTrafficControlTargetRequest
        * @param headers map
@@ -1376,12 +1400,12 @@ namespace PaiRecService20221213
       Models::DeleteTrafficControlTargetResponse deleteTrafficControlTargetWithOptions(const string &TrafficControlTargetId, const Models::DeleteTrafficControlTargetRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes the specified traffic control target.
+       * @summary Deletes a specified traffic control target by its ID.
        *
-       * @description ## Request
-       * - **TrafficControlTargetId** is a required path parameter that specifies the traffic control target to delete.
-       * - **InstanceId** is a required query parameter that specifies the instance ID for this operation.
-       * - A successful response includes a `RequestId` field to track the request.
+       * @description ## Request description
+       * - **TrafficControlTargetId** is a required path parameter used as the identity of the specific traffic control target to delete.
+       * - **InstanceId** is a required query parameter that specifies the instance ID to execute the operation.
+       * - A successful response returns a `RequestId` field for tracking the request.
        *
        * @param request DeleteTrafficControlTargetRequest
        * @return DeleteTrafficControlTargetResponse
@@ -1391,10 +1415,10 @@ namespace PaiRecService20221213
       /**
        * @summary Deletes a specified traffic control task.
        *
-       * @description ## Description
-       * - This API uses `TrafficControlTaskId` and `InstanceId` to delete a traffic control task.
-       * - Ensure the `TrafficControlTaskId` and `InstanceId` are correct, or the operation may fail.
-       * - This operation is irreversible. Proceed with caution.
+       * @description ## Request description
+       * - This API locates and deletes a specific traffic control task by providing the `TrafficControlTaskId` and `InstanceId`.
+       * - Ensure that the provided `TrafficControlTaskId` and `InstanceId` are correct. Otherwise, the deletion may fail.
+       * - Once the deletion is complete, the related data cannot be recovered. Proceed with caution.
        *
        * @param request DeleteTrafficControlTaskRequest
        * @param headers map
@@ -1406,10 +1430,10 @@ namespace PaiRecService20221213
       /**
        * @summary Deletes a specified traffic control task.
        *
-       * @description ## Description
-       * - This API uses `TrafficControlTaskId` and `InstanceId` to delete a traffic control task.
-       * - Ensure the `TrafficControlTaskId` and `InstanceId` are correct, or the operation may fail.
-       * - This operation is irreversible. Proceed with caution.
+       * @description ## Request description
+       * - This API locates and deletes a specific traffic control task by providing the `TrafficControlTaskId` and `InstanceId`.
+       * - Ensure that the provided `TrafficControlTaskId` and `InstanceId` are correct. Otherwise, the deletion may fail.
+       * - Once the deletion is complete, the related data cannot be recovered. Proceed with caution.
        *
        * @param request DeleteTrafficControlTaskRequest
        * @return DeleteTrafficControlTaskResponse
@@ -1499,12 +1523,12 @@ namespace PaiRecService20221213
       Models::GenerateAlgorithmCustomizationScriptResponse generateAlgorithmCustomizationScript(const string &AlgorithmCustomizationId, const Models::GenerateAlgorithmCustomizationScriptRequest &request);
 
       /**
-       * @summary Generates Flink code for a specified traffic control task ID and instance information.
+       * @summary Generates the corresponding Flink code based on the specified traffic control task ID and instance information.
        *
-       * @description ## Description
-       * - This API generates Flink code for a specified traffic control task ID, instance ID, and environment type.
-       * - The `Environment` parameter accepts three values: `Daily` for the daily environment, `Pre` for the pre-release environment, and `Prod` for the production environment.
-       * - Check the `PreNeedConfig` field in the response. A `true` value indicates that necessary configuration information might be missing in the pre-release environment. If this occurs, add or adjust the required settings.
+       * @description ## Request description
+       * - This API operation generates the corresponding Flink code based on the specified traffic control task ID, instance ID, and environment type.
+       * - The Environment parameter supports three values: Daily (daily environment), Pre (pre-release environment), and Prod (production environment). Make sure to select the correct value to meet your requirements.
+       * - Check the PreNeedConfig field in the response. If the value is true, it indicates that required configuration information may be missing in the pre-release environment. Adjust or supplement the relevant settings as needed.
        *
        * @param request GenerateTrafficControlTaskCodeRequest
        * @param headers map
@@ -1514,12 +1538,12 @@ namespace PaiRecService20221213
       Models::GenerateTrafficControlTaskCodeResponse generateTrafficControlTaskCodeWithOptions(const string &TrafficControlTaskId, const Models::GenerateTrafficControlTaskCodeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Generates Flink code for a specified traffic control task ID and instance information.
+       * @summary Generates the corresponding Flink code based on the specified traffic control task ID and instance information.
        *
-       * @description ## Description
-       * - This API generates Flink code for a specified traffic control task ID, instance ID, and environment type.
-       * - The `Environment` parameter accepts three values: `Daily` for the daily environment, `Pre` for the pre-release environment, and `Prod` for the production environment.
-       * - Check the `PreNeedConfig` field in the response. A `true` value indicates that necessary configuration information might be missing in the pre-release environment. If this occurs, add or adjust the required settings.
+       * @description ## Request description
+       * - This API operation generates the corresponding Flink code based on the specified traffic control task ID, instance ID, and environment type.
+       * - The Environment parameter supports three values: Daily (daily environment), Pre (pre-release environment), and Prod (production environment). Make sure to select the correct value to meet your requirements.
+       * - Check the PreNeedConfig field in the response. If the value is true, it indicates that required configuration information may be missing in the pre-release environment. Adjust or supplement the relevant settings as needed.
        *
        * @param request GenerateTrafficControlTaskCodeRequest
        * @return GenerateTrafficControlTaskCodeResponse
@@ -1563,7 +1587,7 @@ namespace PaiRecService20221213
       Models::GetABMetricResponse getABMetric(const string &ABMetricId, const Models::GetABMetricRequest &request);
 
       /**
-       * @summary Retrieves the details of an A/B testing metric group.
+       * @summary Retrieves the details of an ABTest metric group.
        *
        * @param request GetABMetricGroupRequest
        * @param headers map
@@ -1573,7 +1597,7 @@ namespace PaiRecService20221213
       Models::GetABMetricGroupResponse getABMetricGroupWithOptions(const string &ABMetricGroupId, const Models::GetABMetricGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of an A/B testing metric group.
+       * @summary Retrieves the details of an ABTest metric group.
        *
        * @param request GetABMetricGroupRequest
        * @return GetABMetricGroupResponse
@@ -1665,7 +1689,7 @@ namespace PaiRecService20221213
       Models::GetExperimentResponse getExperiment(const string &ExperimentId, const Models::GetExperimentRequest &request);
 
       /**
-       * @summary Retrieves details for a specified experiment group.
+       * @summary Retrieves the details of a specified experiment group.
        *
        * @param request GetExperimentGroupRequest
        * @param headers map
@@ -1675,7 +1699,7 @@ namespace PaiRecService20221213
       Models::GetExperimentGroupResponse getExperimentGroupWithOptions(const string &ExperimentGroupId, const Models::GetExperimentGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves details for a specified experiment group.
+       * @summary Retrieves the details of a specified experiment group.
        *
        * @param request GetExperimentGroupRequest
        * @return GetExperimentGroupResponse
@@ -1985,7 +2009,7 @@ namespace PaiRecService20221213
       Models::GetSampleConsistencyJobResponse getSampleConsistencyJob(const string &SampleConsistencyJobId, const Models::GetSampleConsistencyJobRequest &request);
 
       /**
-       * @summary Retrieves the details of a specified scene.
+       * @summary Retrieves the details of a specified scenario.
        *
        * @param request GetSceneRequest
        * @param headers map
@@ -1995,7 +2019,7 @@ namespace PaiRecService20221213
       Models::GetSceneResponse getSceneWithOptions(const string &SceneId, const Models::GetSceneRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a specified scene.
+       * @summary Retrieves the details of a specified scenario.
        *
        * @param request GetSceneRequest
        * @return GetSceneResponse
@@ -2413,7 +2437,7 @@ namespace PaiRecService20221213
       Models::ListFeatureConsistencyCheckJobFeatureReportsResponse listFeatureConsistencyCheckJobFeatureReports(const string &FeatureConsistencyCheckJobId, const Models::ListFeatureConsistencyCheckJobFeatureReportsRequest &request);
 
       /**
-       * @summary Retrieves the score difference reports for a feature consistency check job.
+       * @summary Retrieves the score report for a feature consistency check task.
        *
        * @param tmpReq ListFeatureConsistencyCheckJobScoreReportsRequest
        * @param headers map
@@ -2423,7 +2447,7 @@ namespace PaiRecService20221213
       Models::ListFeatureConsistencyCheckJobScoreReportsResponse listFeatureConsistencyCheckJobScoreReportsWithOptions(const string &FeatureConsistencyCheckJobId, const Models::ListFeatureConsistencyCheckJobScoreReportsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the score difference reports for a feature consistency check job.
+       * @summary Retrieves the score report for a feature consistency check task.
        *
        * @param request ListFeatureConsistencyCheckJobScoreReportsRequest
        * @return ListFeatureConsistencyCheckJobScoreReportsResponse
@@ -2449,10 +2473,10 @@ namespace PaiRecService20221213
       Models::ListFeatureConsistencyCheckJobsResponse listFeatureConsistencyCheckJobs(const Models::ListFeatureConsistencyCheckJobsRequest &request);
 
       /**
-       * @summary Lists all schemas for a specified resource in an instance.
+       * @summary Queries all schemas for a specified instance and resource.
        *
-       * @description ## Description
-       * To retrieve a list of all schemas for a specified resource, provide the instance ID (InstanceId) and resource ID (ResourceId). Use the optional SchemaName parameter to filter the schemas by a name prefix.
+       * @description ## Request description
+       * Provide the instance ID (InstanceId) and resource ID (ResourceId) to retrieve a list of all schemas for the instance resource. You can use the optional SchemaName parameter to filter results by name prefix and locate the required schemas more precisely.
        *
        * @param request ListInstanceResourceSchemasRequest
        * @param headers map
@@ -2462,10 +2486,10 @@ namespace PaiRecService20221213
       Models::ListInstanceResourceSchemasResponse listInstanceResourceSchemasWithOptions(const string &InstanceId, const string &ResourceId, const Models::ListInstanceResourceSchemasRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists all schemas for a specified resource in an instance.
+       * @summary Queries all schemas for a specified instance and resource.
        *
-       * @description ## Description
-       * To retrieve a list of all schemas for a specified resource, provide the instance ID (InstanceId) and resource ID (ResourceId). Use the optional SchemaName parameter to filter the schemas by a name prefix.
+       * @description ## Request description
+       * Provide the instance ID (InstanceId) and resource ID (ResourceId) to retrieve a list of all schemas for the instance resource. You can use the optional SchemaName parameter to filter results by name prefix and locate the required schemas more precisely.
        *
        * @param request ListInstanceResourceSchemasRequest
        * @return ListInstanceResourceSchemasResponse
@@ -2497,7 +2521,7 @@ namespace PaiRecService20221213
       Models::ListInstanceResourceTablesResponse listInstanceResourceTables(const string &InstanceId, const string &ResourceId, const Models::ListInstanceResourceTablesRequest &request);
 
       /**
-       * @summary Lists the resources configured for an instance.
+       * @summary Retrieves the list of resources configured for an instance.
        *
        * @param request ListInstanceResourcesRequest
        * @param headers map
@@ -2507,7 +2531,7 @@ namespace PaiRecService20221213
       Models::ListInstanceResourcesResponse listInstanceResourcesWithOptions(const string &InstanceId, const Models::ListInstanceResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the resources configured for an instance.
+       * @summary Retrieves the list of resources configured for an instance.
        *
        * @param request ListInstanceResourcesRequest
        * @return ListInstanceResourcesResponse
@@ -2569,7 +2593,7 @@ namespace PaiRecService20221213
       Models::ListLayersResponse listLayers(const Models::ListLayersRequest &request);
 
       /**
-       * @summary Retrieves a list of parameters.
+       * @summary Retrieves the list of parameters.
        *
        * @param request ListParamsRequest
        * @param headers map
@@ -2579,7 +2603,7 @@ namespace PaiRecService20221213
       Models::ListParamsResponse listParamsWithOptions(const Models::ListParamsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of parameters.
+       * @summary Retrieves the list of parameters.
        *
        * @param request ListParamsRequest
        * @return ListParamsResponse
@@ -2777,7 +2801,7 @@ namespace PaiRecService20221213
       Models::ListSampleConsistencyJobsResponse listSampleConsistencyJobs(const Models::ListSampleConsistencyJobsRequest &request);
 
       /**
-       * @summary Retrieves a list of scenes.
+       * @summary Retrieves the list of scenes.
        *
        * @param request ListScenesRequest
        * @param headers map
@@ -2787,7 +2811,7 @@ namespace PaiRecService20221213
       Models::ListScenesResponse listScenesWithOptions(const Models::ListScenesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of scenes.
+       * @summary Retrieves the list of scenes.
        *
        * @param request ListScenesRequest
        * @return ListScenesResponse
@@ -2895,7 +2919,7 @@ namespace PaiRecService20221213
       Models::ListTrafficControlTasksResponse listTrafficControlTasks(const Models::ListTrafficControlTasksRequest &request);
 
       /**
-       * @summary Takes an experiment offline.
+       * @summary Takes the specified experiment offline.
        *
        * @param request OfflineExperimentRequest
        * @param headers map
@@ -2905,7 +2929,7 @@ namespace PaiRecService20221213
       Models::OfflineExperimentResponse offlineExperimentWithOptions(const string &ExperimentId, const Models::OfflineExperimentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Takes an experiment offline.
+       * @summary Takes the specified experiment offline.
        *
        * @param request OfflineExperimentRequest
        * @return OfflineExperimentResponse
@@ -2913,7 +2937,7 @@ namespace PaiRecService20221213
       Models::OfflineExperimentResponse offlineExperiment(const string &ExperimentId, const Models::OfflineExperimentRequest &request);
 
       /**
-       * @summary Takes a specified experiment group offline.
+       * @summary Takes the specified experiment group offline.
        *
        * @param request OfflineExperimentGroupRequest
        * @param headers map
@@ -2923,7 +2947,7 @@ namespace PaiRecService20221213
       Models::OfflineExperimentGroupResponse offlineExperimentGroupWithOptions(const string &ExperimentGroupId, const Models::OfflineExperimentGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Takes a specified experiment group offline.
+       * @summary Takes the specified experiment group offline.
        *
        * @param request OfflineExperimentGroupRequest
        * @return OfflineExperimentGroupResponse
@@ -2977,7 +3001,7 @@ namespace PaiRecService20221213
       Models::OfflineRecallManagementServiceResponse offlineRecallManagementService(const string &RecallManagementServiceId, const Models::OfflineRecallManagementServiceRequest &request);
 
       /**
-       * @summary Brings a specified experiment online.
+       * @summary Publishes the specified experiment online.
        *
        * @param request OnlineExperimentRequest
        * @param headers map
@@ -2987,7 +3011,7 @@ namespace PaiRecService20221213
       Models::OnlineExperimentResponse onlineExperimentWithOptions(const string &ExperimentId, const Models::OnlineExperimentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Brings a specified experiment online.
+       * @summary Publishes the specified experiment online.
        *
        * @param request OnlineExperimentRequest
        * @return OnlineExperimentResponse
@@ -3147,10 +3171,10 @@ namespace PaiRecService20221213
       Models::QueryDataDiagnosisStatisticsResponse queryDataDiagnosisStatistics(const string &DataDiagnosisId, const Models::QueryDataDiagnosisStatisticsRequest &request);
 
       /**
-       * @summary Retrieves records from a specified recall management table.
+       * @summary Retrieves a list of records from a specified recall management table.
        *
-       * @description ## Request
-       * This API retrieves records from a specific recall management table using the provided primary keys. You must provide a valid `InstanceId` and `RecallManagementTableId`, and a non-empty `PrimaryKeys` list. If you specify `RecallManagementTableVersionId`, the API returns records from that version; otherwise, it uses the currently published version.
+       * @description ## Request description
+       * This operation retrieves data records from a specific recall management table based on the specified primary keys. Ensure that the provided `InstanceId` and `RecallManagementTableId` are valid and that the `PrimaryKeys` list is not empty. If `RecallManagementTableVersionId` is specified, data of that version is returned. Otherwise, the current published version is used by default.
        *
        * @param request QueryRecallManagementTableRecordsRequest
        * @param headers map
@@ -3160,10 +3184,10 @@ namespace PaiRecService20221213
       Models::QueryRecallManagementTableRecordsResponse queryRecallManagementTableRecordsWithOptions(const string &RecallManagementTableId, const Models::QueryRecallManagementTableRecordsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves records from a specified recall management table.
+       * @summary Retrieves a list of records from a specified recall management table.
        *
-       * @description ## Request
-       * This API retrieves records from a specific recall management table using the provided primary keys. You must provide a valid `InstanceId` and `RecallManagementTableId`, and a non-empty `PrimaryKeys` list. If you specify `RecallManagementTableVersionId`, the API returns records from that version; otherwise, it uses the currently published version.
+       * @description ## Request description
+       * This operation retrieves data records from a specific recall management table based on the specified primary keys. Ensure that the provided `InstanceId` and `RecallManagementTableId` are valid and that the `PrimaryKeys` list is not empty. If `RecallManagementTableVersionId` is specified, data of that version is returned. Otherwise, the current published version is used by default.
        *
        * @param request QueryRecallManagementTableRecordsRequest
        * @return QueryRecallManagementTableRecordsResponse
@@ -3215,8 +3239,8 @@ namespace PaiRecService20221213
       /**
        * @summary Retrieves the deployment status and related information of a specified traffic control task in a specific environment.
        *
-       * @description ## Operation description
-       * You can call this operation to query the deployment result of a traffic control task specified by TrafficControlTaskId for a given instance ID and environment. Make sure that the specified InstanceId is associated with your account and that the Environment parameter value is valid (Daily for daily environment, Pre for staging environment, Prod for production environment). All request parameters are required.
+       * @description ## Request description
+       * You can use this API to query the deployment results of a traffic control task with a specific TrafficControlTaskId for a given instance ID and environment. Make sure that the provided InstanceId is associated with your account and the Environment parameter value meets your expectations (Daily: daily environment, Pre: staging environment, Prod: production environment). All request parameters are required.
        *
        * @param request QueryTrafficControlTaskDeployResultRequest
        * @param headers map
@@ -3228,8 +3252,8 @@ namespace PaiRecService20221213
       /**
        * @summary Retrieves the deployment status and related information of a specified traffic control task in a specific environment.
        *
-       * @description ## Operation description
-       * You can call this operation to query the deployment result of a traffic control task specified by TrafficControlTaskId for a given instance ID and environment. Make sure that the specified InstanceId is associated with your account and that the Environment parameter value is valid (Daily for daily environment, Pre for staging environment, Prod for production environment). All request parameters are required.
+       * @description ## Request description
+       * You can use this API to query the deployment results of a traffic control task with a specific TrafficControlTaskId for a given instance ID and environment. Make sure that the provided InstanceId is associated with your account and the Environment parameter value meets your expectations (Daily: daily environment, Pre: staging environment, Prod: production environment). All request parameters are required.
        *
        * @param request QueryTrafficControlTaskDeployResultRequest
        * @return QueryTrafficControlTaskDeployResultResponse
@@ -3271,14 +3295,14 @@ namespace PaiRecService20221213
       Models::QueryTrafficControlTaskItemReportResponse queryTrafficControlTaskItemReport(const string &TrafficControlTaskId, const Models::QueryTrafficControlTaskItemReportRequest &request);
 
       /**
-       * @summary Releases a traffic control task for the specified instance and environment.
+       * @summary Publishes a traffic control task for a specified instance and environment.
        *
-       * @description ## Request
-       * Use this API to release a traffic control task for a specific instance and environment (Daily, Pre, or Prod). Your request must include the `TrafficControlTaskId`, `InstanceId`, and `Environment` parameters.
-       * - `TrafficControlTaskId`: The unique ID of the traffic control task.
-       * - `InstanceId`: The ID of the target instance.
-       * - `Environment`: The execution environment for the traffic control task. Valid values: `Daily`, `Pre`, and `Prod`.
-       * The request succeeds only if all required parameters are provided correctly. A successful response includes a `RequestId`.
+       * @description ## Request description
+       * This API allows you to publish a traffic control task for a specific instance ID and environment (daily, staging, or production). Make sure to correctly specify the `TrafficControlTaskId`, `InstanceId`, and `Environment` parameters in the request.
+       * - `TrafficControlTaskId`: the unique identifier of the traffic control task to be published.
+       * - `InstanceId`: the ID of the target instance to which the traffic control settings will be applied.
+       * - `Environment`: the environment in which the traffic control task is executed. Valid values: Daily (daily environment), Pre (staging environment), and Prod (production environment). Select an environment based on your business requirements.
+       * Note: The request is processed and a RequestId is returned in the response only when all required fields are correctly provided.
        *
        * @param request ReleaseTrafficControlTaskRequest
        * @param headers map
@@ -3288,14 +3312,14 @@ namespace PaiRecService20221213
       Models::ReleaseTrafficControlTaskResponse releaseTrafficControlTaskWithOptions(const string &TrafficControlTaskId, const Models::ReleaseTrafficControlTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Releases a traffic control task for the specified instance and environment.
+       * @summary Publishes a traffic control task for a specified instance and environment.
        *
-       * @description ## Request
-       * Use this API to release a traffic control task for a specific instance and environment (Daily, Pre, or Prod). Your request must include the `TrafficControlTaskId`, `InstanceId`, and `Environment` parameters.
-       * - `TrafficControlTaskId`: The unique ID of the traffic control task.
-       * - `InstanceId`: The ID of the target instance.
-       * - `Environment`: The execution environment for the traffic control task. Valid values: `Daily`, `Pre`, and `Prod`.
-       * The request succeeds only if all required parameters are provided correctly. A successful response includes a `RequestId`.
+       * @description ## Request description
+       * This API allows you to publish a traffic control task for a specific instance ID and environment (daily, staging, or production). Make sure to correctly specify the `TrafficControlTaskId`, `InstanceId`, and `Environment` parameters in the request.
+       * - `TrafficControlTaskId`: the unique identifier of the traffic control task to be published.
+       * - `InstanceId`: the ID of the target instance to which the traffic control settings will be applied.
+       * - `Environment`: the environment in which the traffic control task is executed. Valid values: Daily (daily environment), Pre (staging environment), and Prod (production environment). Select an environment based on your business requirements.
+       * Note: The request is processed and a RequestId is returned in the response only when all required fields are correctly provided.
        *
        * @param request ReleaseTrafficControlTaskRequest
        * @return ReleaseTrafficControlTaskResponse
@@ -3434,13 +3458,13 @@ namespace PaiRecService20221213
       Models::StartTrafficControlTargetResponse startTrafficControlTarget(const string &TrafficControlTargetId, const Models::StartTrafficControlTargetRequest &request);
 
       /**
-       * @summary Starts a traffic control task with a specified ID for instances in different environments.
+       * @summary Starts the traffic shaping task with the specified ID for instances in different environments.
        *
-       * @description ## Request details
-       * - This operation starts the traffic control task identified by `TrafficControlTaskId`.
+       * @description ## Request description
+       * - This API operation starts the traffic shaping task identified by the specified `TrafficControlTaskId`.
        * - `InstanceId` specifies the target instance.
-       * - `Environment` specifies the target environment. Valid values: Daily, Pre, and Prod.
-       * - Ensure that all required parameters are set correctly before you call this operation. The specified `TrafficControlTaskId` must exist in the system.
+       * - The `Environment` parameter defines the target environment for this operation (daily, staging, or production).
+       * - Ensure that all required parameters are correctly configured before you call this operation. Specifically, the `TrafficControlTaskId` must exist in the system.
        *
        * @param request StartTrafficControlTaskRequest
        * @param headers map
@@ -3450,13 +3474,13 @@ namespace PaiRecService20221213
       Models::StartTrafficControlTaskResponse startTrafficControlTaskWithOptions(const string &TrafficControlTaskId, const Models::StartTrafficControlTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Starts a traffic control task with a specified ID for instances in different environments.
+       * @summary Starts the traffic shaping task with the specified ID for instances in different environments.
        *
-       * @description ## Request details
-       * - This operation starts the traffic control task identified by `TrafficControlTaskId`.
+       * @description ## Request description
+       * - This API operation starts the traffic shaping task identified by the specified `TrafficControlTaskId`.
        * - `InstanceId` specifies the target instance.
-       * - `Environment` specifies the target environment. Valid values: Daily, Pre, and Prod.
-       * - Ensure that all required parameters are set correctly before you call this operation. The specified `TrafficControlTaskId` must exist in the system.
+       * - The `Environment` parameter defines the target environment for this operation (daily, staging, or production).
+       * - Ensure that all required parameters are correctly configured before you call this operation. Specifically, the `TrafficControlTaskId` must exist in the system.
        *
        * @param request StartTrafficControlTaskRequest
        * @return StartTrafficControlTaskResponse
@@ -3594,14 +3618,14 @@ namespace PaiRecService20221213
       Models::TerminateFeatureConsistencyCheckJobResponse terminateFeatureConsistencyCheckJob(const string &FeatureConsistencyCheckJobId, const Models::TerminateFeatureConsistencyCheckJobRequest &request);
 
       /**
-       * @summary Modifies the metric configuration of an existing ABTest experiment.
+       * @summary Updates the metric configuration of an existing AB test.
        *
-       * @description ## Operation description
-       * This API operation allows you to update the attributes of a specified ABTest metric, including whether to calculate significance and the aggregation method. Make sure that you have obtained the correct `ABMetricId` before calling this operation.
+       * @description ## Request description
+       * This API operation allows you to update the properties of a specified AB test metric, including whether to calculate significance and the aggregation method. Make sure that you have obtained the correct `ABMetricId` before calling this operation.
        * - `NeedSignificance`: Specifies whether to perform significance analysis on the current metric. Default value: `false`.
-       * - `AggregationByUser`: When significance calculation is enabled, specifies whether to aggregate data by user or by sample. Default value: `false` (by sample).
-       * - `Numerator` and `Denominator`: The specific definitions of the numerator and denominator used in significance calculation.
-       * - `IsBinomialDistribution`: Valid only for derived metrics. Specifies whether the metric follows a binomial distribution, which affects subsequent data processing logic.
+       * - `AggregationByUser`: When significance calculation is selected, specifies whether to aggregate data by user or by sample. Default value: `false` (by sample).
+       * - `Numerator` and `Denominator`: Represent the specific definitions of the numerator and denominator when performing significance calculation.
+       * - `IsBinomialDistribution`: Valid only for derived metrics. Indicates whether the metric follows a binomial distribution, which affects subsequent data processing logic.
        * Note: You do not need to provide all fields at the same time. Include only the parameters whose values you want to change in the request body.
        *
        * @param request UpdateABMetricRequest
@@ -3612,14 +3636,14 @@ namespace PaiRecService20221213
       Models::UpdateABMetricResponse updateABMetricWithOptions(const string &ABMetricId, const Models::UpdateABMetricRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the metric configuration of an existing ABTest experiment.
+       * @summary Updates the metric configuration of an existing AB test.
        *
-       * @description ## Operation description
-       * This API operation allows you to update the attributes of a specified ABTest metric, including whether to calculate significance and the aggregation method. Make sure that you have obtained the correct `ABMetricId` before calling this operation.
+       * @description ## Request description
+       * This API operation allows you to update the properties of a specified AB test metric, including whether to calculate significance and the aggregation method. Make sure that you have obtained the correct `ABMetricId` before calling this operation.
        * - `NeedSignificance`: Specifies whether to perform significance analysis on the current metric. Default value: `false`.
-       * - `AggregationByUser`: When significance calculation is enabled, specifies whether to aggregate data by user or by sample. Default value: `false` (by sample).
-       * - `Numerator` and `Denominator`: The specific definitions of the numerator and denominator used in significance calculation.
-       * - `IsBinomialDistribution`: Valid only for derived metrics. Specifies whether the metric follows a binomial distribution, which affects subsequent data processing logic.
+       * - `AggregationByUser`: When significance calculation is selected, specifies whether to aggregate data by user or by sample. Default value: `false` (by sample).
+       * - `Numerator` and `Denominator`: Represent the specific definitions of the numerator and denominator when performing significance calculation.
+       * - `IsBinomialDistribution`: Valid only for derived metrics. Indicates whether the metric follows a binomial distribution, which affects subsequent data processing logic.
        * Note: You do not need to provide all fields at the same time. Include only the parameters whose values you want to change in the request body.
        *
        * @param request UpdateABMetricRequest
@@ -3736,7 +3760,7 @@ namespace PaiRecService20221213
       Models::UpdateExperimentResponse updateExperiment(const string &ExperimentId, const Models::UpdateExperimentRequest &request);
 
       /**
-       * @summary Updates information for a specified experiment group, such as its name and description.
+       * @summary Updates the information of a specified experiment group, such as the name and description.
        *
        * @param request UpdateExperimentGroupRequest
        * @param headers map
@@ -3746,7 +3770,7 @@ namespace PaiRecService20221213
       Models::UpdateExperimentGroupResponse updateExperimentGroupWithOptions(const string &ExperimentGroupId, const Models::UpdateExperimentGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates information for a specified experiment group, such as its name and description.
+       * @summary Updates the information of a specified experiment group, such as the name and description.
        *
        * @param request UpdateExperimentGroupRequest
        * @return UpdateExperimentGroupResponse
@@ -4016,7 +4040,7 @@ namespace PaiRecService20221213
       Models::UpdateResourceRuleItemResponse updateResourceRuleItem(const string &ResourceRuleId, const string &ResourceRuleItemId, const Models::UpdateResourceRuleItemRequest &request);
 
       /**
-       * @summary Updates information for a scene, such as its name and description.
+       * @summary Updates scene information, such as the name and description of a scene.
        *
        * @param request UpdateSceneRequest
        * @param headers map
@@ -4026,7 +4050,7 @@ namespace PaiRecService20221213
       Models::UpdateSceneResponse updateSceneWithOptions(const string &SceneId, const Models::UpdateSceneRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates information for a scene, such as its name and description.
+       * @summary Updates scene information, such as the name and description of a scene.
        *
        * @param request UpdateSceneRequest
        * @return UpdateSceneResponse

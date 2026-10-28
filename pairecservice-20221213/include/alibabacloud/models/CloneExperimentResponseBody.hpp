@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the cloned experiment.
+    // The experiment ID.
     shared_ptr<string> experimentId_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

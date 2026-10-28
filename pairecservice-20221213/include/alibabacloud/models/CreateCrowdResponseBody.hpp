@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The crowd ID.
+    // The ID of the crowd.
     shared_ptr<string> crowdId_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

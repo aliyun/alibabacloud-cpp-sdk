@@ -111,25 +111,25 @@ namespace Models
 
 
     protected:
-      // The private endpoint.
+      // The private network endpoint.
       shared_ptr<string> privateLinkAddress_ {};
-      // The public endpoint.
+      // The public network connection endpoint.
       shared_ptr<string> publicEndpoint_ {};
       // The network connectivity status. Valid values:
       // 
-      // - Connecting: connecting.
+      // - Connecting: Connecting.
       // 
-      // - Connected: connected.
+      // - Connected: Connected.
       // 
-      // - ConnectionFailed: connection failed.
+      // - ConnectionFailed: Connection failed.
       // 
-      // - Updating: updating.
+      // - Updating: Updating.
       // 
-      // - UpdateFailed: update failed.
+      // - UpdateFailed: Update failed.
       shared_ptr<string> status_ {};
       // The public network connection token.
       shared_ptr<string> token_ {};
-      // The virtual private cloud (VPC) ID.
+      // The ID of the virtual private cloud (VPC).
       shared_ptr<string> vpcId_ {};
       // The zones.
       shared_ptr<map<string, string>> vswitchIds_ {};

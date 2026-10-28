@@ -140,35 +140,35 @@ namespace Models
 
 
   protected:
-    // The message returned for the Flink platform deployment operation.
+    // The message about the deployment operation on the Flink platform.
     shared_ptr<string> deployMessage_ {};
     // The status of deploying the draft. Valid values:
-    // - Failed: failed.
-    // - Running: running.
-    // - Success: succeeded.
+    // - `Failed`: Failed.
+    // - `Running`: Running.
+    // - `Success`: Successful.
     shared_ptr<string> deployStatus_ {};
-    // The message returned for pushing the draft to Flink.
+    // The message about pushing the draft to Flink.
     shared_ptr<string> draftMessage_ {};
     // The status of pushing the draft to Flink. Valid values:
-    // - Failed: failed.
-    // - Running: running.
-    // - Success: succeeded.
+    // - `Failed`: Failed.
+    // - `Running`: Running.
+    // - `Success`: Successful.
     shared_ptr<string> draftStatus_ {};
-    // The message returned for the preparation phase.
+    // The message about the preparation phase.
     shared_ptr<string> prepareMessage_ {};
     // The status of the preparation phase. Valid values:
-    // - Failed: failed.
-    // - Running: running.
-    // - Success: succeeded.
+    // - `Failed`: Failed.
+    // - `Running`: Running.
+    // - `Success`: Successful.
     shared_ptr<string> prepareStatus_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The message returned for starting the Flink task.
+    // The message about starting the Flink task.
     shared_ptr<string> startMessage_ {};
     // The status of starting the Flink task. Valid values:
-    // - Failed: failed.
-    // - Running: running.
-    // - Success: succeeded.
+    // - `Failed`: Failed.
+    // - `Running`: Running.
+    // - `Success`: Successful.
     shared_ptr<string> startStatus_ {};
     // The stop details.
     shared_ptr<string> stopMessage_ {};

@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the new feature consistency check job configuration.
+    // The new feature consistency check configuration ID after cloning.
     shared_ptr<string> featureConsistencyCheckId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

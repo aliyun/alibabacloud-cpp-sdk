@@ -101,16 +101,16 @@ namespace Models
     protected:
       // The environment to which the parameter belongs. Valid values:
       // - Daily: daily environment
-      // - Prepub: pre-release environment
+      // - Prepub: staging environment
       // - Product: production environment
       shared_ptr<string> environment_ {};
-      // The update time. The time is formatted in ISO 8601 and includes the time zone offset.
+      // The update time. The time follows the ISO 8601 standard and includes the time zone offset.
       shared_ptr<string> gmtModifiedTime_ {};
-      // The parameter name.
+      // The name of the parameter.
       shared_ptr<string> name_ {};
       // The parameter ID.
       shared_ptr<string> paramId_ {};
-      // The parameter value.
+      // The value of the parameter.
       shared_ptr<string> value_ {};
     };
 

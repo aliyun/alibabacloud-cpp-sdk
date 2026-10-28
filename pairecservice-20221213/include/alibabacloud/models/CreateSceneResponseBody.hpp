@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The scene ID.
+    // The scenario ID.
     shared_ptr<string> sceneId_ {};
   };
 

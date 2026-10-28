@@ -186,39 +186,43 @@ namespace Models
 
 
   protected:
-    // The alias of the experiment.
+    // The alias of the experiment ID.
     shared_ptr<string> aliasExperimentId_ {};
-    // A comma-separated list of bucket numbers.
+    // The allocated bucket numbers.
     shared_ptr<string> buckets_ {};
-    // The experiment configuration, in JSON format.
+    // The configuration of the experiment.
     shared_ptr<string> config_ {};
-    // The debug crowd ID.
+    // The ID of the debug crowd.
     shared_ptr<string> debugCrowdId_ {};
-    // The UIDs of debug users, which can be the UIDs of an Alibaba Cloud main account or a RAM user. Separate multiple UIDs with a comma (,).
+    // The debug users. The value must be the UIDs of Alibaba Cloud accounts or RAM users. Separate multiple UIDs with commas.
     shared_ptr<string> debugUsers_ {};
-    // The experiment description.
+    // The description of the experiment.
     shared_ptr<string> description_ {};
-    // The experiment group ID.
+    // The ID of the experiment group.
     shared_ptr<string> experimentGroupId_ {};
-    // The traffic percentage.
+    // The traffic allocation percentage.
     shared_ptr<int32_t> flowPercent_ {};
-    // The creation time, in ISO 8601 format.
+    // The creation time.
     shared_ptr<string> gmtCreateTime_ {};
-    // The modification time, in ISO 8601 format.
+    // The update time.
     shared_ptr<string> gmtModifiedTime_ {};
-    // The laboratory ID.
+    // The ID of the laboratory.
     shared_ptr<string> laboratoryId_ {};
-    // The layer ID.
+    // The ID of the layer.
     shared_ptr<string> layerId_ {};
-    // The experiment name.
+    // The name of the experiment.
     shared_ptr<string> name_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The scene ID.
+    // The ID of the scene.
     shared_ptr<string> sceneId_ {};
-    // The status of the experiment. Valid values:<br>● Offline<br>● Online<br><br>
+    // The status filter. Valid values:
+    // - Offline: offline
+    // - Online: online
     shared_ptr<string> status_ {};
-    // The type of the experiment. Valid values:<br>● Baseline: a baseline experiment.<br>● Normal: a normal experiment.<br><br>
+    // The type of the experiment. Valid values:
+    // - Baseline: baseline experiment
+    // - Normal: normal experiment
     shared_ptr<string> type_ {};
   };
 

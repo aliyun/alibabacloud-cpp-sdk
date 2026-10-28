@@ -20,6 +20,9 @@
 #include <alibabacloud/models/CheckInstanceResourcesRequest.hpp>
 #include <alibabacloud/models/CheckInstanceResourcesResponseBody.hpp>
 #include <alibabacloud/models/CheckInstanceResourcesResponse.hpp>
+#include <alibabacloud/models/CheckRecallManagementServiceRequest.hpp>
+#include <alibabacloud/models/CheckRecallManagementServiceResponseBody.hpp>
+#include <alibabacloud/models/CheckRecallManagementServiceResponse.hpp>
 #include <alibabacloud/models/CheckTrafficControlTaskExpressionRequest.hpp>
 #include <alibabacloud/models/CheckTrafficControlTaskExpressionResponseBody.hpp>
 #include <alibabacloud/models/CheckTrafficControlTaskExpressionResponse.hpp>

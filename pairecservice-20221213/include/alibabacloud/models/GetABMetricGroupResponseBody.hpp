@@ -103,21 +103,21 @@ namespace Models
 
 
   protected:
-    // A comma-separated list of A/B testing metric IDs.
+    // The IDs of the ABTest metrics, separated by commas.
     shared_ptr<string> ABMetricIds_ {};
-    // A comma-separated list of A/B testing metric names.
+    // The names of the ABTest metrics, separated by commas.
     shared_ptr<string> ABMetricNames_ {};
-    // The metric group description.
+    // The description of the metric group.
     shared_ptr<string> description_ {};
-    // The metric group name.
+    // The name of the metric group.
     shared_ptr<string> name_ {};
     // The owner.
     shared_ptr<string> owner_ {};
-    // Whether the metric group is a real-time metric group.
+    // Indicates whether the metric group is real-time.
     shared_ptr<bool> realtime_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The scene ID. You can get this ID by calling the [ListScenes](https://icms.alibaba-inc.com/content/learn/pai?l=1\\&m=16768\\&n=4298955) operation.
+    // The ID of the scene. You can obtain the ID by calling the [ListScenes](https://icms.alibaba-inc.com/content/learn/pai?l=1&m=16768&n=4298955) operation.
     shared_ptr<string> sceneId_ {};
   };
 

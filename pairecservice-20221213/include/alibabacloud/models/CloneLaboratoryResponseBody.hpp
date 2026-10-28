@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The ID of the cloned laboratory.
     shared_ptr<string> laboratoryId_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

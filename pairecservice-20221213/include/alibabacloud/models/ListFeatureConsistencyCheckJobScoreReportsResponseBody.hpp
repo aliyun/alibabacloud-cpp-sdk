@@ -103,13 +103,13 @@ namespace Models
     protected:
       // The item ID.
       shared_ptr<string> logItemId_ {};
-      // The request ID recorded in the log.
+      // The request ID.
       shared_ptr<string> logRequestId_ {};
       // The user ID.
       shared_ptr<string> logUserId_ {};
       // The score difference.
       shared_ptr<string> scoreDiff_ {};
-      // The score difference details.
+      // The score comparison details.
       shared_ptr<string> scoreDiffDetail_ {};
     };
 
@@ -150,9 +150,9 @@ namespace Models
     shared_ptr<string> dataPath_ {};
     // The OSS path.
     shared_ptr<string> ossPath_ {};
-    // A list of score difference reports.
+    // The score comparison report.
     shared_ptr<vector<ListFeatureConsistencyCheckJobScoreReportsResponseBody::ReportsOfScoreDiff>> reportsOfScoreDiff_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

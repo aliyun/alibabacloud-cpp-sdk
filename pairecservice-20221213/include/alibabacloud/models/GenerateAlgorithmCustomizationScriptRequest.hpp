@@ -59,15 +59,13 @@ namespace Models
 
 
   protected:
-    // The deployment mode. Valid values:
-    // 
-    // - **EasyDeploy**: Performs a one-click deployment.
-    // 
-    // - **GenerateScript**: Generates a deployment script.
+    // Specifies whether to generate a deployment script or perform one-click deployment. Valid values:
+    // - EasyDeploy: one-click deployment
+    // - GenerateScript: script generation
     shared_ptr<string> deployMode_ {};
-    // The ID of the instance. To obtain this ID, see [ListInstances](https://help.aliyun.com/document_detail/2411819.html).
+    // The instance ID. For information about how to obtain the instance ID, see [ListInstances](https://help.aliyun.com/document_detail/2411819.html).
     shared_ptr<string> instanceId_ {};
-    // The data types of fields in the JSON configuration.
+    // The types of fields in the JSON configuration.
     Darabonba::Json moduleFieldTypes_ {};
   };
 

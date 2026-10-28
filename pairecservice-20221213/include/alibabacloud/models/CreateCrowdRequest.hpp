@@ -88,19 +88,21 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> description_ {};
-    // The instance ID. To get this ID, call the ListInstances operation.
+    // The ID of the instance. You can call the ListInstances operation to obtain the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The crowd label.
+    // The label of the crowd.
     shared_ptr<string> label_ {};
-    // The crowd name.
+    // The name of the crowd.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The source of the user data. Valid values: ● ManualInput: Users are provided in the Users parameter. ● UploadFile: Users are provided from an uploaded file.
+    // The source of the crowd. Valid values:
+    // - ManualInput: Manual input.
+    // - UploadFile: File upload.
     shared_ptr<string> source_ {};
-    // The users to include in the crowd. Separate multiple users with commas (,).
+    // The users included in the crowd. Separate multiple users with commas.
     shared_ptr<string> users_ {};
   };
 

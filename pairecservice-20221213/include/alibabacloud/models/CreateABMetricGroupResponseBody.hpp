@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the A/B metric group.
+    // The ID of the metric group.
     shared_ptr<string> ABMetricGroupId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

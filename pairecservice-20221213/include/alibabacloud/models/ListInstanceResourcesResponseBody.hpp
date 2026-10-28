@@ -127,7 +127,7 @@ namespace Models
 
 
     protected:
-      // The category of the resource. Valid values:
+      // The resource category. Valid values:
       // 
       // - DataManagement
       // 
@@ -135,15 +135,15 @@ namespace Models
       // 
       // - Monitor
       shared_ptr<string> category_ {};
-      // The configuration of the resource.
+      // The configuration information of the resource.
       shared_ptr<string> config_ {};
       // The creation time.
       shared_ptr<string> gmtCreateAt_ {};
       // The update time.
       shared_ptr<string> gmtModifiedAt_ {};
-      // The group of the resource.
+      // The resource group.
       // 
-      // If `Category` is `DataManagement`, valid values are:
+      // If the resource category is DataManagement, valid values are:
       // 
       // - storage
       // 
@@ -153,7 +153,7 @@ namespace Models
       // 
       // - modeltrain
       // 
-      // If `Category` is `Engine`, valid values are:
+      // If the resource category is Engine, valid values are:
       // 
       // - feature
       // 
@@ -163,7 +163,7 @@ namespace Models
       // 
       // - recengine
       // 
-      // If `Category` is `Monitor`, valid values are:
+      // If the resource category is Monitor, valid values are:
       // 
       // - logs
       // 
@@ -175,7 +175,7 @@ namespace Models
       shared_ptr<string> group_ {};
       // The resource ID.
       shared_ptr<string> resourceId_ {};
-      // The type of the resource.
+      // The resource type. Valid values:
       // 
       // - Hologres
       // 
@@ -191,9 +191,9 @@ namespace Models
       // 
       // - DataHub
       // 
-      // - ApsaraMQ for Kafka
+      // - Kafka
       // 
-      // - Realtime Compute for Apache Flink
+      // - Flinkvvp
       // 
       // - ACR
       // 
@@ -205,11 +205,11 @@ namespace Models
       // 
       // - MaxCompute
       // 
-      // - Graph Compute Service
+      // - GraphCompute
       // 
-      // - ApsaraDB for Redis
+      // - Redis
       shared_ptr<string> type_ {};
-      // The resource URI.
+      // The URI of the resource.
       shared_ptr<string> uri_ {};
     };
 
@@ -241,7 +241,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // A list of resource objects.
+    // The list of resource objects.
     shared_ptr<vector<ListInstanceResourcesResponseBody::Resources>> resources_ {};
     // The total number of resources.
     shared_ptr<int64_t> totalCount_ {};

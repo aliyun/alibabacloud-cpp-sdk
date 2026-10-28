@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The generated Flink code.
     shared_ptr<string> code_ {};
-    // Indicates whether the engine configuration for the pre-release environment is incomplete.
+    // Indicates whether configuration information is missing for the engine configuration in the pre-release environment.
     shared_ptr<bool> preNeedConfig_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
-    // The target environment. Valid values:
+    // The environment. Valid values:
+    // - Daily: the daily environment.
+    // - Pre: the staging environment.
+    // - Prod: the production environment.
     shared_ptr<string> environment_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};

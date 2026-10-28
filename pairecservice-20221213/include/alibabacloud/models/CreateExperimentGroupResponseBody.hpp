@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The ID of the experiment group.
     shared_ptr<string> experimentGroupId_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

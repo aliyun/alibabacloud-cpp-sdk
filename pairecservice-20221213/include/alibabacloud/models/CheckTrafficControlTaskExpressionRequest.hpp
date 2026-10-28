@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The expression to validate.
+    // The expression.
     // 
     // This parameter is required.
     shared_ptr<string> expression_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the table.
+    // The data table ID.
     // 
     // This parameter is required.
     shared_ptr<string> tableMetaId_ {};

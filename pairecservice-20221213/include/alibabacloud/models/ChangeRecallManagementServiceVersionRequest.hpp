@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The recall management service version ID.
+    // The version ID of the recall management service.
     shared_ptr<string> recallManagementServiceVersionId_ {};
   };
 

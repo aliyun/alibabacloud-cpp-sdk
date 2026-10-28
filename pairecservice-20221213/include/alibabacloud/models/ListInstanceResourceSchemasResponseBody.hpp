@@ -96,7 +96,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The list of schemas.
     shared_ptr<vector<ListInstanceResourceSchemasResponseBody::Schemas>> schemas_ {};
-    // The total count of schemas.
+    // The total number of schemas.
     shared_ptr<int64_t> totalCount_ {};
   };
 

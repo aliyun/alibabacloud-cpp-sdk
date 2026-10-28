@@ -59,7 +59,7 @@ namespace Models
   protected:
     // Indicates whether the expression is valid.
     shared_ptr<bool> isValie_ {};
-    // If `IsValid` is `false`, this field provides the reason for the failure.
+    // This field is meaningful only when `IsValid` is `false`.
     shared_ptr<string> reason_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

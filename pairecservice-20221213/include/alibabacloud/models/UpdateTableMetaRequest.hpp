@@ -118,23 +118,23 @@ namespace Models
     protected:
       // The data type of the field.
       shared_ptr<string> dataType_ {};
-      // Indicates whether the field is a dimension field.
+      // Specifies whether the field is a dimension field.
       // 
       // This parameter is required.
       shared_ptr<bool> isDimensionField_ {};
-      // Indicates whether the field is a partition field.
+      // Specifies whether the field is a partition field.
       // 
       // This parameter is required.
       shared_ptr<string> isPartitionField_ {};
-      // The business meaning of the field.
+      // The meaning of the field.
       // 
       // This parameter is required.
       shared_ptr<string> meaning_ {};
-      // The field name.
+      // The name of the field.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The data type of the field.
+      // The type of the field.
       // 
       // This parameter is required.
       shared_ptr<string> type_ {};
@@ -195,9 +195,9 @@ namespace Models
 
 
   protected:
-    // The description of the data table.
+    // The description of the table.
     shared_ptr<string> description_ {};
-    // The fields of the data table.
+    // The list of table fields.
     // 
     // This parameter is required.
     shared_ptr<vector<UpdateTableMetaRequest::Fields>> fields_ {};
@@ -205,13 +205,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The module to which the data table belongs.
+    // The module of the data table.
     // 
-    // - ABTest: a data table for A/B testing.
+    // - ABTest: experiment data table.
     // 
-    // - ExperimentTool: a data table for experiment tools.
+    // - ExperimentTool: experiment tool table.
     // 
-    // - DataDiagnosis: a data table for data diagnosis.
+    // - DataDiagnosis: data diagnosis.
     // 
     // This parameter is required.
     shared_ptr<string> module_ {};

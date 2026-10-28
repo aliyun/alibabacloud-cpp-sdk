@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can get this ID by calling the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation.
+    // Instance ID of the instance. You can call the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation to query instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

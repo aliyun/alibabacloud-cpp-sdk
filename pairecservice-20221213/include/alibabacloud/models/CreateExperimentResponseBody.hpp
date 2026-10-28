@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The experiment ID.
     shared_ptr<string> experimentId_ {};
-    // The unique identifier for the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

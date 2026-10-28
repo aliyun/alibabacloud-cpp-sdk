@@ -217,31 +217,27 @@ namespace Models
     shared_ptr<string> config_ {};
     // The ID of the crowd.
     shared_ptr<string> crowdId_ {};
-    // The method for targeting traffic to the experiment group. Valid values:
-    // 
-    // - `All`: all traffic
-    // 
-    // - `Filter`: traffic that matches the filter
-    // 
-    // - `CrowdId`: traffic from the specified crowd
-    // 
-    // - `Random`: a random percentage of traffic
+    // The type of traffic targeting for the experiment group. Valid values:
+    // - All: All traffic.
+    // - Filter: Traffic that uses filter conditions.
+    // - CrowdId: Traffic targeted by a specified crowd ID.
+    // - Random: Random traffic based on a percentage.
     shared_ptr<string> crowdTargetType_ {};
     // The ID of the debug crowd.
     shared_ptr<string> debugCrowdId_ {};
-    // The user IDs for debugging, separated by commas.
+    // The debug users. Separate multiple users with commas.
     shared_ptr<string> debugUsers_ {};
     // The description of the experiment group.
     shared_ptr<string> description_ {};
-    // The distribution duration.
+    // The time period for traffic distribution.
     shared_ptr<int32_t> distributionTimeDuration_ {};
-    // The traffic distribution method.
-    // ● `UserId`: Distributes traffic by user ID.
-    // ● `TimeDuration`: Distributes traffic by time period.
+    // The traffic distribution method. Valid values:
+    // - UserId: User ID.
+    // - TimeDuration: Time period.
     shared_ptr<string> distributionType_ {};
-    // The filter.
+    // The filter conditions.
     shared_ptr<string> filter_ {};
-    // The bucket IDs that correspond to the `RandomFlow` percentage. This parameter is returned only when `CrowdTargetType` is set to `Random`.
+    // The specific bucket numbers returned based on the RandomFlow value when the traffic targeting type is Random.
     shared_ptr<string> holdingBuckets_ {};
     // The ID of the laboratory.
     shared_ptr<string> laboratoryId_ {};
@@ -249,22 +245,22 @@ namespace Models
     shared_ptr<string> layerId_ {};
     // The name of the experiment group.
     shared_ptr<string> name_ {};
-    // Indicates whether an A/B test is required.
+    // Indicates whether an AB experiment group is required.
     shared_ptr<bool> needAA_ {};
-    // The owner of the experiment group.
+    // The creator.
     shared_ptr<string> owner_ {};
-    // The percentage of traffic from 0 to 100 that is randomly allocated to this experiment group. This parameter is returned only when `CrowdTargetType` is set to `Random`.
+    // The percentage of random traffic used to match the experiment group when the traffic targeting type is Random. Valid values: 0 to 100.
     shared_ptr<int64_t> randomFlow_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The reserved bucket IDs.
+    // The reserved bucket numbers.
     shared_ptr<string> reservedBuckets_ {};
     // The ID of the scene.
     shared_ptr<string> sceneId_ {};
     // The status of the experiment group. Valid values:
-    // ● `Offline`: The experiment group is not launched.
-    // ● `Online`: The experiment group is launched.
-    // ● `Pushed`: The experiment group is fully launched.
+    // - Offline: Not online.
+    // - Online: Online.
+    // - Pushed: Fully rolled out.
     shared_ptr<string> status_ {};
   };
 

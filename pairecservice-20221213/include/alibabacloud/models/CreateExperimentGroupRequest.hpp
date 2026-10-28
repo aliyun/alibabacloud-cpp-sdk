@@ -169,35 +169,33 @@ namespace Models
   protected:
     // The configuration of the experiment group.
     shared_ptr<string> config_ {};
-    // The ID of the crowd for crowd targeting. You can obtain this ID by calling the ListCrowds operation.
+    // The ID of the specified crowd for crowd targeting. You can call the ListCrowds operation to obtain the crowd ID.
     shared_ptr<string> crowdId_ {};
-    // The crowd targeting type for the experiment group. Valid values:
-    // 
-    // - `All`: All traffic
-    // 
-    // - `Filter`: Traffic that matches the filter condition
-    // 
-    // - `CrowdId`: Traffic from a specific crowd
-    // 
-    // - `Random`: A random percentage of traffic
+    // The type of traffic targeting for the experiment group. Valid values:
+    // - All: All traffic.
+    // - Filter: Traffic that uses filter conditions.
+    // - CrowdId: Traffic specified by a crowd ID.
+    // - Random: Random traffic based on a percentage.
     shared_ptr<string> crowdTargetType_ {};
-    // The ID of the debug crowd. You can obtain this ID by calling the ListCrowds operation.
+    // The ID of the debug crowd. You can call the ListCrowds operation to obtain the crowd ID.
     shared_ptr<string> debugCrowdId_ {};
-    // The UIDs of the debug users. The value must be the UID of an Alibaba Cloud account or a RAM user. Separate multiple UIDs with a comma.
+    // The debug users. The users must be the UIDs of Alibaba Cloud accounts or RAM users. Separate multiple UIDs with commas.
     shared_ptr<string> debugUsers_ {};
     // The description of the experiment group.
     shared_ptr<string> description_ {};
-    // The time duration for traffic distribution.
+    // The time period for traffic distribution.
     shared_ptr<int32_t> distributionTimeDuration_ {};
-    // The distribution type. Valid values: `UserId` (by user ID) and `TimeDuration` (by time duration).
+    // The traffic distribution method. Valid values:
+    // - UserId: User ID.
+    // - TimeDuration: Time period.
     shared_ptr<string> distributionType_ {};
-    // The filter condition for crowd targeting.
+    // The filter conditions for crowd targeting.
     shared_ptr<string> filter_ {};
-    // The instance ID. You can obtain this ID by calling the ListInstances operation.
+    // The ID of the instance. You can call the ListInstances operation to obtain the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the layer. You can obtain this ID by calling the ListLayers operation.
+    // The ID of the layer. You can call the ListLayers operation to obtain the layer ID.
     // 
     // This parameter is required.
     shared_ptr<string> layerId_ {};
@@ -205,13 +203,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // Specifies whether to create an A/A experiment group.
+    // Specifies whether an AA experiment group is required.
     // 
     // This parameter is required.
     shared_ptr<bool> needAA_ {};
-    // The percentage of traffic to randomly allocate to this experiment group. This parameter is used only when `CrowdTargetType` is set to `Random`. Valid values: 0 to 100.
+    // The percentage of random traffic used to match the experiment group when the traffic targeting type is Random. Valid values: 0 to 100.
     shared_ptr<int64_t> randomFlow_ {};
-    // A comma-separated list of reserved bucket numbers.
+    // The reserved bucket numbers.
     shared_ptr<string> reservedBuckets_ {};
   };
 
