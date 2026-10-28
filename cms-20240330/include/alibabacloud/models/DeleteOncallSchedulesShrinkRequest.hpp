@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The IDs of the on-call schedules.
     shared_ptr<string> oncallScheduleIdsShrink_ {};
   };
 

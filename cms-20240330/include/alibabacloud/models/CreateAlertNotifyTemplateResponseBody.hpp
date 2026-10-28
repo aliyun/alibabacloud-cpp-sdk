@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the notification template.
     shared_ptr<string> alertNotifyTemplateId_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

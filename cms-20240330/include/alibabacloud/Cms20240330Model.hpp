@@ -580,6 +580,10 @@
 #include <alibabacloud/models/ListAlertActionsShrinkRequest.hpp>
 #include <alibabacloud/models/ListAlertActionsResponseBody.hpp>
 #include <alibabacloud/models/ListAlertActionsResponse.hpp>
+#include <alibabacloud/models/ListAlertHistoriesRequest.hpp>
+#include <alibabacloud/models/ListAlertHistoriesShrinkRequest.hpp>
+#include <alibabacloud/models/ListAlertHistoriesResponseBody.hpp>
+#include <alibabacloud/models/ListAlertHistoriesResponse.hpp>
 #include <alibabacloud/models/ListAlertNotifyTemplatesRequest.hpp>
 #include <alibabacloud/models/ListAlertNotifyTemplatesShrinkRequest.hpp>
 #include <alibabacloud/models/ListAlertNotifyTemplatesResponseBody.hpp>

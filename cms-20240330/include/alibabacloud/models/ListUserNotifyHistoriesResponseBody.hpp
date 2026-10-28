@@ -241,25 +241,65 @@ namespace Models
 
 
     protected:
+      // The notification channel. The valid values are the same as those of the `channel` request parameter.
       shared_ptr<string> channel_ {};
+      // The list of contacts. Multiple contacts are separated by commas.
       shared_ptr<string> contacts_ {};
+      // The list of contact groups. Multiple contact groups are separated by commas.
       shared_ptr<string> groups_ {};
+      // The incident ID.
       shared_ptr<string> incidentId_ {};
+      // The notification job ID.
       shared_ptr<string> jobId_ {};
+      // Indicates whether the notification record has no actual delivery channel. Valid values:
+      // - true: The notification record has no actual delivery channel, and the notifyResult is NO_CHANNEL.
+      // - false: The notification record has an actual delivery channel.
       shared_ptr<bool> noChannel_ {};
+      // The notification policy ID.
       shared_ptr<string> notifyStrategyId_ {};
+      // The notification policy name.
       shared_ptr<string> notifyStrategyName_ {};
+      // The recipient address, such as a phone number, email address, or webhook URL, depending on the notification channel.
       shared_ptr<string> receiver_ {};
+      // The notification delivery result details. This is the raw response content returned by the channel, such as the API response from a DingTalk or Lark bot.
       shared_ptr<string> result_ {};
+      // The alert rule ID.
       shared_ptr<string> ruleId_ {};
+      // The alert rule name.
       shared_ptr<string> ruleName_ {};
+      // The notification delivery type. Valid values:
+      // - SUBSCRIBE: subscription notifications
+      // - DIRECT: direct event notifications
+      // - ITSM: ticket or action notifications
       shared_ptr<string> sendType_ {};
+      // The alert severity. Valid values:
+      // - CRITICAL: critical
+      // - ERROR: error
+      // - WARNING: warning
+      // - INFO: information
       shared_ptr<string> severity_ {};
+      // The incident status. Valid values:
+      // - TRIGGERED: triggered
+      // - RESOLVED: resolved
+      // - ACK: acknowledged
+      // - ESCALATED: escalated
+      // - MANUAL_RESOLVED: manually resolved
+      // - TIMEOUT: automatically resolved due to timeout
+      // - RETRIGGERED: retriggered
+      // - PARTIAL_RESOLVED: partially resolved
+      // - INVALID: invalid
       shared_ptr<string> status_ {};
+      // The subscription ID.
       shared_ptr<string> subscriptionId_ {};
+      // The subscription name.
       shared_ptr<string> subscriptionName_ {};
+      // Indicates whether the notification was delivered successfully. Valid values:
+      // - true: The notification was delivered successfully.
+      // - false: The notification delivery failed.
       shared_ptr<bool> success_ {};
+      // The time when the notification record was generated. The value is a UNIX timestamp in seconds.
       shared_ptr<int32_t> timestamp_ {};
+      // The Alibaba Cloud account ID to which the notification record belongs.
       shared_ptr<string> userId_ {};
     };
 
@@ -303,10 +343,15 @@ namespace Models
 
 
   protected:
+    // The notification history list.
     shared_ptr<vector<ListUserNotifyHistoriesResponseBody::HistoryList>> historyList_ {};
+    // The maximum number of entries returned by this request.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token for the next page. It is an opaque string generated and encrypted by the server. An empty value indicates that no more data is available.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of notification history entries that meet the query conditions.
     shared_ptr<int64_t> total_ {};
   };
 

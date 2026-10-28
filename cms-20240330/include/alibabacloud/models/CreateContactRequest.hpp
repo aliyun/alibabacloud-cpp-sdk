@@ -97,12 +97,19 @@ namespace Models
 
 
   protected:
+    // The ID of the contact.
     shared_ptr<string> contactId_ {};
+    // The email address.
     shared_ptr<string> email_ {};
+    // The instant messaging (IM) user ID mapping, which supports multi-platform integration. The key is the IM type (such as DING or WEIXIN), and the value is the corresponding user ID.
     shared_ptr<map<string, string>> imUserIds_ {};
+    // The language.
     shared_ptr<string> lang_ {};
+    // The name of the contact.
     shared_ptr<string> name_ {};
+    // The mobile phone number. Currently, only mobile phone numbers in the Chinese mainland are supported.
     shared_ptr<string> phone_ {};
+    // The name of the workspace.
     shared_ptr<string> workspace_ {};
   };
 

@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The IDs of the on-call schedules.
     shared_ptr<string> oncallScheduleIdsShrink_ {};
+    // The name of the on-call schedule.
     shared_ptr<string> oncallScheduleName_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Default value: 100.
     shared_ptr<int32_t> pageSize_ {};
+    // The name of the workspace.
     shared_ptr<string> workspace_ {};
   };
 

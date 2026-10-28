@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the contact group.
     shared_ptr<string> contactGroupId_ {};
+    // The IDs of the contacts.
     shared_ptr<vector<string>> contacts_ {};
+    // The name of the contact.
     shared_ptr<string> name_ {};
+    // The name of the workspace.
     shared_ptr<string> workspace_ {};
   };
 

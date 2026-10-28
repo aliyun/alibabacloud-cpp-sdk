@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The IDs of the contacts.
     shared_ptr<string> contactIdsShrink_ {};
   };
 

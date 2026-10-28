@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The ID of the on-call contact.
     shared_ptr<string> contactId_ {};
+    // The name of the on-call contact.
     shared_ptr<string> contactName_ {};
+    // The end time. Format: yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> end_ {};
+    // The start time. Format: yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> start_ {};
   };
 

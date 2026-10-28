@@ -48,8 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the contact.
     shared_ptr<string> contactId_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

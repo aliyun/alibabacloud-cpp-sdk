@@ -41,6 +41,8 @@ namespace Models
 
 
   protected:
+    // The IDs of the contact groups.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> contactGroupIds_ {};
   };

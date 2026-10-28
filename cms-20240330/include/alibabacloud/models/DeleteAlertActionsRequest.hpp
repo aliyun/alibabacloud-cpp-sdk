@@ -41,6 +41,8 @@ namespace Models
 
 
   protected:
+    // The unique identifiers of the alert action integrations to delete.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> alertActionIds_ {};
   };

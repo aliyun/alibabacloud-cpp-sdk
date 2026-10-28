@@ -78,10 +78,15 @@ namespace Models
 
 
   protected:
+    // The email address of the contact.
     shared_ptr<string> email_ {};
+    // The IM user ID mappings. Multiple instant messaging tools are supported.
     shared_ptr<map<string, string>> imUserIds_ {};
+    // The language.
     shared_ptr<string> lang_ {};
+    // The name of the contact.
     shared_ptr<string> name_ {};
+    // The mobile phone number of the contact. Only mobile phone numbers in the Chinese mainland are supported.
     shared_ptr<string> phone_ {};
   };
 

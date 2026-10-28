@@ -41,6 +41,8 @@ namespace Models
 
 
   protected:
+    // The IDs of the notification templates.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> alertNotifyTemplateIds_ {};
   };

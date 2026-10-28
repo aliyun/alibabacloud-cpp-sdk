@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The IDs of the on-call schedules.
     shared_ptr<vector<string>> oncallScheduleIds_ {};
   };
 

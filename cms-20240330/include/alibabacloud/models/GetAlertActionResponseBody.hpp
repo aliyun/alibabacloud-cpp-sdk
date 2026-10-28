@@ -129,9 +129,13 @@ namespace Models
 
 
       protected:
+        // The data format. This parameter takes effect only when the request method is POST.
         shared_ptr<string> contentType_ {};
+        // The request header information.
         shared_ptr<map<string, string>> headers_ {};
+        // The webhook request method.
         shared_ptr<string> method_ {};
+        // The URL for the alert callback.
         shared_ptr<string> url_ {};
       };
 
@@ -182,8 +186,11 @@ namespace Models
 
 
       protected:
+        // The name of the Simple Log Service Logstore.
         shared_ptr<string> logstore_ {};
+        // The name of the Simple Log Service project.
         shared_ptr<string> project_ {};
+        // The region ID.
         shared_ptr<string> regionId_ {};
       };
 
@@ -225,7 +232,9 @@ namespace Models
 
 
       protected:
+        // The integration key of PagerDuty.
         shared_ptr<string> key_ {};
+        // The integration webhook URL for PagerDuty. V1 and V2 are supported.
         shared_ptr<string> url_ {};
       };
 
@@ -276,8 +285,14 @@ namespace Models
 
 
       protected:
+        // The resource type of Simple Message Queue (formerly MNS).
         shared_ptr<string> mnsType_ {};
+        // The name of the resource.
+        // 
+        // - If the resource type is queue, the resource name is the name of the queue.
+        // - If the resource type is topic, the resource name is the name of the topic.
         shared_ptr<string> name_ {};
+        // The region ID.
         shared_ptr<string> regionId_ {};
       };
 
@@ -328,8 +343,11 @@ namespace Models
 
 
       protected:
+        // The name of the function in Function Compute.
         shared_ptr<string> function_ {};
+        // The region ID.
         shared_ptr<string> regionId_ {};
+        // The service name in Function Compute.
         shared_ptr<string> service_ {};
       };
 
@@ -380,8 +398,11 @@ namespace Models
 
 
       protected:
+        // The name of the function.
         shared_ptr<string> function_ {};
+        // The version or alias of the function.
         shared_ptr<string> qualifier_ {};
+        // The region ID.
         shared_ptr<string> regionId_ {};
       };
 
@@ -432,8 +453,11 @@ namespace Models
 
 
       protected:
+        // The ID of the elastic scaling group.
         shared_ptr<string> essGroupId_ {};
+        // The ID of the elastic scaling rule.
         shared_ptr<string> essRuleId_ {};
+        // The region ID.
         shared_ptr<string> regionId_ {};
       };
 
@@ -493,9 +517,13 @@ namespace Models
 
 
       protected:
+        // The event source.
         shared_ptr<string> ebSource_ {};
+        // The name of the event bus.
         shared_ptr<string> eventBusName_ {};
+        // The region ID.
         shared_ptr<string> regionId_ {};
+        // The subject.
         shared_ptr<string> subject_ {};
       };
 
@@ -596,16 +624,27 @@ namespace Models
 
 
     protected:
+      // The unique identifier of the alert action integration.
       shared_ptr<string> alertActionId_ {};
+      // The name of the alert action integration.
       shared_ptr<string> alertActionName_ {};
+      // The event bus parameters.
       shared_ptr<AlertActions::EbParam> ebParam_ {};
+      // The elastic scaling parameters.
       shared_ptr<AlertActions::EssParam> essParam_ {};
+      // The Function Compute 3.0 parameters.
       shared_ptr<AlertActions::Fc3Param> fc3Param_ {};
+      // The Function Compute parameters.
       shared_ptr<AlertActions::FcParam> fcParam_ {};
+      // The Simple Message Queue (formerly MNS) parameters.
       shared_ptr<AlertActions::MnsParam> mnsParam_ {};
+      // The PagerDuty parameters.
       shared_ptr<AlertActions::PagerDutyParam> pagerDutyParam_ {};
+      // The Simple Log Service parameters.
       shared_ptr<AlertActions::SlsParam> slsParam_ {};
+      // The type of the alert action integration.
       shared_ptr<string> type_ {};
+      // The webhook parameters.
       shared_ptr<AlertActions::WebhookParam> webhookParam_ {};
     };
 
@@ -628,7 +667,9 @@ namespace Models
 
 
   protected:
+    // The list of alert action integration configurations.
     shared_ptr<GetAlertActionResponseBody::AlertActions> alertActions_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

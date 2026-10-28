@@ -80,7 +80,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 激活验证码
+ * @summary Activates the contact channel.
  *
  * @param request ActiveContactChannelRequest
  * @param headers map
@@ -117,7 +117,7 @@ ActiveContactChannelResponse Client::activeContactChannelWithOptions(const Activ
 }
 
 /**
- * @summary 激活验证码
+ * @summary Activates the contact channel.
  *
  * @param request ActiveContactChannelRequest
  * @return ActiveContactChannelResponse
@@ -516,7 +516,7 @@ CreateAggTaskGroupResponse Client::createAggTaskGroup(const string &instanceId, 
 }
 
 /**
- * @summary 创建告警动作
+ * @summary Creates an alert action integration.
  *
  * @param request CreateAlertActionRequest
  * @param headers map
@@ -589,7 +589,7 @@ CreateAlertActionResponse Client::createAlertActionWithOptions(const CreateAlert
 }
 
 /**
- * @summary 创建告警动作
+ * @summary Creates an alert action integration.
  *
  * @param request CreateAlertActionRequest
  * @return CreateAlertActionResponse
@@ -601,7 +601,7 @@ CreateAlertActionResponse Client::createAlertAction(const CreateAlertActionReque
 }
 
 /**
- * @summary 创建通知模板
+ * @summary Creates a notification template.
  *
  * @param request CreateAlertNotifyTemplateRequest
  * @param headers map
@@ -650,7 +650,7 @@ CreateAlertNotifyTemplateResponse Client::createAlertNotifyTemplateWithOptions(c
 }
 
 /**
- * @summary 创建通知模板
+ * @summary Creates a notification template.
  *
  * @param request CreateAlertNotifyTemplateRequest
  * @return CreateAlertNotifyTemplateResponse
@@ -909,7 +909,7 @@ CreateCloudResourceResponse Client::createCloudResource() {
 }
 
 /**
- * @summary 创建联系人
+ * @summary Creates a contact.
  *
  * @param request CreateContactRequest
  * @param headers map
@@ -966,7 +966,7 @@ CreateContactResponse Client::createContactWithOptions(const CreateContactReques
 }
 
 /**
- * @summary 创建联系人
+ * @summary Creates a contact.
  *
  * @param request CreateContactRequest
  * @return CreateContactResponse
@@ -978,7 +978,7 @@ CreateContactResponse Client::createContact(const CreateContactRequest &request)
 }
 
 /**
- * @summary 创建联系人组
+ * @summary Creates a contact group.
  *
  * @param request CreateContactGroupRequest
  * @param headers map
@@ -1023,7 +1023,7 @@ CreateContactGroupResponse Client::createContactGroupWithOptions(const CreateCon
 }
 
 /**
- * @summary 创建联系人组
+ * @summary Creates a contact group.
  *
  * @param request CreateContactGroupRequest
  * @return CreateContactGroupResponse
@@ -1625,7 +1625,9 @@ CreateNotifyPolicyResponse Client::createNotifyPolicy(const CreateNotifyPolicyRe
 }
 
 /**
- * @summary 创建OncallSchedule
+ * @summary Creates an on-call schedule.
+ *
+ * @description Creates an on-call schedule.
  *
  * @param request CreateOncallScheduleRequest
  * @param headers map
@@ -1680,7 +1682,9 @@ CreateOncallScheduleResponse Client::createOncallScheduleWithOptions(const Creat
 }
 
 /**
- * @summary 创建OncallSchedule
+ * @summary Creates an on-call schedule.
+ *
+ * @description Creates an on-call schedule.
  *
  * @param request CreateOncallScheduleRequest
  * @return CreateOncallScheduleResponse
@@ -2458,7 +2462,7 @@ DeleteAggTaskGroupResponse Client::deleteAggTaskGroup(const string &instanceId, 
 }
 
 /**
- * @summary 删除告警动作
+ * @summary Deletes an alert action integration.
  *
  * @param tmpReq DeleteAlertActionsRequest
  * @param headers map
@@ -2497,7 +2501,7 @@ DeleteAlertActionsResponse Client::deleteAlertActionsWithOptions(const DeleteAle
 }
 
 /**
- * @summary 删除告警动作
+ * @summary Deletes an alert action integration.
  *
  * @param request DeleteAlertActionsRequest
  * @return DeleteAlertActionsResponse
@@ -2509,7 +2513,7 @@ DeleteAlertActionsResponse Client::deleteAlertActions(const DeleteAlertActionsRe
 }
 
 /**
- * @summary 删除报警通知模板
+ * @summary Deletes notification templates.
  *
  * @param tmpReq DeleteAlertNotifyTemplatesRequest
  * @param headers map
@@ -2548,7 +2552,7 @@ DeleteAlertNotifyTemplatesResponse Client::deleteAlertNotifyTemplatesWithOptions
 }
 
 /**
- * @summary 删除报警通知模板
+ * @summary Deletes notification templates.
  *
  * @param request DeleteAlertNotifyTemplatesRequest
  * @return DeleteAlertNotifyTemplatesResponse
@@ -2741,7 +2745,7 @@ DeleteCloudResourceResponse Client::deleteCloudResource() {
 }
 
 /**
- * @summary 删除联系人组
+ * @summary Deletes contact groups.
  *
  * @param tmpReq DeleteContactGroupsRequest
  * @param headers map
@@ -2780,7 +2784,7 @@ DeleteContactGroupsResponse Client::deleteContactGroupsWithOptions(const DeleteC
 }
 
 /**
- * @summary 删除联系人组
+ * @summary Deletes contact groups.
  *
  * @param request DeleteContactGroupsRequest
  * @return DeleteContactGroupsResponse
@@ -2792,7 +2796,7 @@ DeleteContactGroupsResponse Client::deleteContactGroups(const DeleteContactGroup
 }
 
 /**
- * @summary 删除联系人
+ * @summary Deletes a contact.
  *
  * @param tmpReq DeleteContactsRequest
  * @param headers map
@@ -2831,7 +2835,7 @@ DeleteContactsResponse Client::deleteContactsWithOptions(const DeleteContactsReq
 }
 
 /**
- * @summary 删除联系人
+ * @summary Deletes a contact.
  *
  * @param request DeleteContactsRequest
  * @return DeleteContactsResponse
@@ -3451,7 +3455,9 @@ DeleteNotifyPolicyResponse Client::deleteNotifyPolicy(const DeleteNotifyPolicyRe
 }
 
 /**
- * @summary 删除OncallSchedule
+ * @summary Deletes an on-call schedule.
+ *
+ * @description Creates an on-call schedule.
  *
  * @param tmpReq DeleteOncallSchedulesRequest
  * @param headers map
@@ -3490,7 +3496,9 @@ DeleteOncallSchedulesResponse Client::deleteOncallSchedulesWithOptions(const Del
 }
 
 /**
- * @summary 删除OncallSchedule
+ * @summary Deletes an on-call schedule.
+ *
+ * @description Creates an on-call schedule.
  *
  * @param request DeleteOncallSchedulesRequest
  * @return DeleteOncallSchedulesResponse
@@ -3807,7 +3815,7 @@ DeleteServiceTaskResponse Client::deleteServiceTask(const string &workspace, con
 }
 
 /**
- * @summary 删除订阅
+ * @summary Deletes a subscription.
  *
  * @param request DeleteSubscriptionRequest
  * @param headers map
@@ -3840,7 +3848,7 @@ DeleteSubscriptionResponse Client::deleteSubscriptionWithOptions(const string &s
 }
 
 /**
- * @summary 删除订阅
+ * @summary Deletes a subscription.
  *
  * @param request DeleteSubscriptionRequest
  * @return DeleteSubscriptionResponse
@@ -4266,7 +4274,7 @@ DisableNotifyPolicyResponse Client::disableNotifyPolicy(const string &uuid, cons
 }
 
 /**
- * @summary 暂停订阅
+ * @summary Disables a subscription.
  *
  * @param request DisableSubscriptionRequest
  * @param headers map
@@ -4299,7 +4307,7 @@ DisableSubscriptionResponse Client::disableSubscriptionWithOptions(const string 
 }
 
 /**
- * @summary 暂停订阅
+ * @summary Disables a subscription.
  *
  * @param request DisableSubscriptionRequest
  * @return DisableSubscriptionResponse
@@ -4409,7 +4417,7 @@ EnableNotifyPolicyResponse Client::enableNotifyPolicy(const string &uuid, const 
 }
 
 /**
- * @summary 启动订阅
+ * @summary Activates a subscription.
  *
  * @param request EnableSubscriptionRequest
  * @param headers map
@@ -4442,7 +4450,7 @@ EnableSubscriptionResponse Client::enableSubscriptionWithOptions(const string &s
 }
 
 /**
- * @summary 启动订阅
+ * @summary Activates a subscription.
  *
  * @param request EnableSubscriptionRequest
  * @return EnableSubscriptionResponse
@@ -4752,7 +4760,7 @@ GetAggTaskGroupResponse Client::getAggTaskGroup(const string &instanceId, const 
 }
 
 /**
- * @summary 查询告警动作
+ * @summary Retrieves alert action integrations.
  *
  * @param request GetAlertActionRequest
  * @param headers map
@@ -4779,7 +4787,7 @@ GetAlertActionResponse Client::getAlertActionWithOptions(const string &alertActi
 }
 
 /**
- * @summary 查询告警动作
+ * @summary Retrieves alert action integrations.
  *
  * @param request GetAlertActionRequest
  * @return GetAlertActionResponse
@@ -5684,7 +5692,9 @@ GetNotifyPolicyResponse Client::getNotifyPolicy(const GetNotifyPolicyRequest &re
 }
 
 /**
- * @summary 查询 OncallSchedule
+ * @summary Retrieves the on-call schedule.
+ *
+ * @description Creates an on-call schedule.
  *
  * @param request GetOncallScheduleRequest
  * @param headers map
@@ -5711,7 +5721,9 @@ GetOncallScheduleResponse Client::getOncallScheduleWithOptions(const string &onc
 }
 
 /**
- * @summary 查询 OncallSchedule
+ * @summary Retrieves the on-call schedule.
+ *
+ * @description Creates an on-call schedule.
  *
  * @param request GetOncallScheduleRequest
  * @return GetOncallScheduleResponse
@@ -6091,7 +6103,7 @@ GetServiceTaskResponse Client::getServiceTask(const string &workspace, const str
 }
 
 /**
- * @summary 获取订阅
+ * @summary Retrieves a subscription.
  *
  * @param request GetSubscriptionRequest
  * @param headers map
@@ -6124,7 +6136,7 @@ GetSubscriptionResponse Client::getSubscriptionWithOptions(const string &subscri
 }
 
 /**
- * @summary 获取订阅
+ * @summary Retrieves a subscription.
  *
  * @param request GetSubscriptionRequest
  * @return GetSubscriptionResponse
@@ -6584,7 +6596,166 @@ ListAlertActionsResponse Client::listAlertActions(const ListAlertActionsRequest 
 }
 
 /**
- * @summary 查询通知模板
+ * @summary Queries CloudMonitor 2.0 alert history records.
+ *
+ * @description Queries CloudMonitor 2.0 alert history records. You can filter the records by multiple dimensions such as alert rule, alert status, alert level, alert object, workspace, time range, label, notification recipient, observed object type, and data source type. You can also use the structured filter parameter to implement more flexible combined queries.
+ *
+ * @param tmpReq ListAlertHistoriesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAlertHistoriesResponse
+ */
+ListAlertHistoriesResponse Client::listAlertHistoriesWithOptions(const ListAlertHistoriesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListAlertHistoriesShrinkRequest request = ListAlertHistoriesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasLabelFilter()) {
+    request.setLabelFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLabelFilter(), "labelFilter", "json"));
+  }
+
+  if (!!tmpReq.hasNotificationFilter()) {
+    request.setNotificationFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNotificationFilter(), "notificationFilter", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAlertHistoryId()) {
+    query["alertHistoryId"] = request.getAlertHistoryId();
+  }
+
+  if (!!request.hasAlertRuleId()) {
+    query["alertRuleId"] = request.getAlertRuleId();
+  }
+
+  if (!!request.hasBizSource()) {
+    query["bizSource"] = request.getBizSource();
+  }
+
+  if (!!request.hasCmsNamespace()) {
+    query["cmsNamespace"] = request.getCmsNamespace();
+  }
+
+  if (!!request.hasCmsProductCategory()) {
+    query["cmsProductCategory"] = request.getCmsProductCategory();
+  }
+
+  if (!!request.hasDisplayNameKeyWord()) {
+    query["displayNameKeyWord"] = request.getDisplayNameKeyWord();
+  }
+
+  if (!!request.hasInstanceKey()) {
+    query["instanceKey"] = request.getInstanceKey();
+  }
+
+  if (!!request.hasLabelFilterShrink()) {
+    query["labelFilter"] = request.getLabelFilterShrink();
+  }
+
+  if (!!request.hasLatestLevel()) {
+    query["latestLevel"] = request.getLatestLevel();
+  }
+
+  if (!!request.hasMaxLevel()) {
+    query["maxLevel"] = request.getMaxLevel();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasMigrationStatus()) {
+    query["migrationStatus"] = request.getMigrationStatus();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasNotificationFilterShrink()) {
+    query["notificationFilter"] = request.getNotificationFilterShrink();
+  }
+
+  if (!!request.hasObserveRelationType()) {
+    query["observeRelationType"] = request.getObserveRelationType();
+  }
+
+  if (!!request.hasObserveResourceDomain()) {
+    query["observeResourceDomain"] = request.getObserveResourceDomain();
+  }
+
+  if (!!request.hasObserveResourceGlobalScope()) {
+    query["observeResourceGlobalScope"] = request.getObserveResourceGlobalScope();
+  }
+
+  if (!!request.hasObserveResourceInstanceId()) {
+    query["observeResourceInstanceId"] = request.getObserveResourceInstanceId();
+  }
+
+  if (!!request.hasObserveResourceType()) {
+    query["observeResourceType"] = request.getObserveResourceType();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPartitionKey()) {
+    query["partitionKey"] = request.getPartitionKey();
+  }
+
+  if (!!request.hasStartTimeFrom()) {
+    query["startTimeFrom"] = request.getStartTimeFrom();
+  }
+
+  if (!!request.hasStartTimeTo()) {
+    query["startTimeTo"] = request.getStartTimeTo();
+  }
+
+  if (!!request.hasStatus()) {
+    query["status"] = request.getStatus();
+  }
+
+  if (!!request.hasWorkspace()) {
+    query["workspace"] = request.getWorkspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAlertHistories"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/alertHistories")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAlertHistoriesResponse>();
+}
+
+/**
+ * @summary Queries CloudMonitor 2.0 alert history records.
+ *
+ * @description Queries CloudMonitor 2.0 alert history records. You can filter the records by multiple dimensions such as alert rule, alert status, alert level, alert object, workspace, time range, label, notification recipient, observed object type, and data source type. You can also use the structured filter parameter to implement more flexible combined queries.
+ *
+ * @param request ListAlertHistoriesRequest
+ * @return ListAlertHistoriesResponse
+ */
+ListAlertHistoriesResponse Client::listAlertHistories(const ListAlertHistoriesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listAlertHistoriesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Queries notification templates.
  *
  * @param tmpReq ListAlertNotifyTemplatesRequest
  * @param headers map
@@ -6643,7 +6814,7 @@ ListAlertNotifyTemplatesResponse Client::listAlertNotifyTemplatesWithOptions(con
 }
 
 /**
- * @summary 查询通知模板
+ * @summary Queries notification templates.
  *
  * @param request ListAlertNotifyTemplatesRequest
  * @return ListAlertNotifyTemplatesResponse
@@ -7986,7 +8157,9 @@ ListNotifyPoliciesResponse Client::listNotifyPolicies(const ListNotifyPoliciesRe
 }
 
 /**
- * @summary 查询值班人
+ * @summary Queries the on-call contacts at a specified time.
+ *
+ * @description This topic provides an example of creating an alert contact group named `ECS_Group`.
  *
  * @param request ListOncallContactsRequest
  * @param headers map
@@ -8019,7 +8192,9 @@ ListOncallContactsResponse Client::listOncallContactsWithOptions(const string &o
 }
 
 /**
- * @summary 查询值班人
+ * @summary Queries the on-call contacts at a specified time.
+ *
+ * @description This topic provides an example of creating an alert contact group named `ECS_Group`.
  *
  * @param request ListOncallContactsRequest
  * @return ListOncallContactsResponse
@@ -8031,7 +8206,7 @@ ListOncallContactsResponse Client::listOncallContacts(const string &oncallSchedu
 }
 
 /**
- * @summary 查询当前账号下所有值班排班的配置信息
+ * @summary Queries on-call schedules.
  *
  * @param tmpReq ListOncallSchedulesRequest
  * @param headers map
@@ -8086,7 +8261,7 @@ ListOncallSchedulesResponse Client::listOncallSchedulesWithOptions(const ListOnc
 }
 
 /**
- * @summary 查询当前账号下所有值班排班的配置信息
+ * @summary Queries on-call schedules.
  *
  * @param request ListOncallSchedulesRequest
  * @return ListOncallSchedulesResponse
@@ -8644,7 +8819,7 @@ ListServicesResponse Client::listServices(const string &workspace, const ListSer
 }
 
 /**
- * @summary 查询订阅规则列表
+ * @summary Queries subscriptions.
  *
  * @param request ListSubscriptionsRequest
  * @param headers map
@@ -8721,7 +8896,7 @@ ListSubscriptionsResponse Client::listSubscriptionsWithOptions(const ListSubscri
 }
 
 /**
- * @summary 查询订阅规则列表
+ * @summary Queries subscriptions.
  *
  * @param request ListSubscriptionsRequest
  * @return ListSubscriptionsResponse
@@ -8804,7 +8979,7 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 }
 
 /**
- * @summary List History name
+ * @summary Queries the alert notification delivery history in a specified workspace by using paging, and supports filtering by conditions such as notification channel, alert severity, subscription, alert rule, recipient, delivery result, and time range.
  *
  * @param request ListUserNotifyHistoriesRequest
  * @param headers map
@@ -8929,7 +9104,7 @@ ListUserNotifyHistoriesResponse Client::listUserNotifyHistoriesWithOptions(const
 }
 
 /**
- * @summary List History name
+ * @summary Queries the alert notification delivery history in a specified workspace by using paging, and supports filtering by conditions such as notification channel, alert severity, subscription, alert rule, recipient, delivery result, and time range.
  *
  * @param request ListUserNotifyHistoriesRequest
  * @return ListUserNotifyHistoriesResponse
@@ -9197,9 +9372,9 @@ PreviewDataPipelineResponse Client::previewDataPipeline(const string &workspace,
 }
 
 /**
- * @summary 预览通知模板渲染结果
+ * @summary Renders templates written in Go template syntax by using the provided context data and returns the rendering results. This operation supports the simultaneous preview of multiple templates, such as title and content, to enable real-time preview in frontend template editors.
  *
- * @description 传入 Go template 语法的模板内容和渲染上下文数据，返回各模板的渲染结果。支持同时预览多个模板（如 title 和 content），用于前端模板编辑器的实时预览能力。
+ * @description Renders templates written in Go template syntax by using the provided context data and returns the rendering results. This operation supports the simultaneous preview of multiple templates, such as title and content, to enable real-time preview in frontend template editors.
  *
  * @param request PreviewNotifyTemplateRequest
  * @param headers map
@@ -9236,9 +9411,9 @@ PreviewNotifyTemplateResponse Client::previewNotifyTemplateWithOptions(const Pre
 }
 
 /**
- * @summary 预览通知模板渲染结果
+ * @summary Renders templates written in Go template syntax by using the provided context data and returns the rendering results. This operation supports the simultaneous preview of multiple templates, such as title and content, to enable real-time preview in frontend template editors.
  *
- * @description 传入 Go template 语法的模板内容和渲染上下文数据，返回各模板的渲染结果。支持同时预览多个模板（如 title 和 content），用于前端模板编辑器的实时预览能力。
+ * @description Renders templates written in Go template syntax by using the provided context data and returns the rendering results. This operation supports the simultaneous preview of multiple templates, such as title and content, to enable real-time preview in frontend template editors.
  *
  * @param request PreviewNotifyTemplateRequest
  * @return PreviewNotifyTemplateResponse
@@ -9384,7 +9559,7 @@ QueryAlertRulesResponse Client::queryAlertRules(const QueryAlertRulesRequest &re
 }
 
 /**
- * @summary 重新发送激活链接
+ * @summary Resends the activation link.
  *
  * @param request ResendVerifyActivateRequest
  * @param headers map
@@ -9417,7 +9592,7 @@ ResendVerifyActivateResponse Client::resendVerifyActivateWithOptions(const strin
 }
 
 /**
- * @summary 重新发送激活链接
+ * @summary Resends the activation link.
  *
  * @param request ResendVerifyActivateRequest
  * @return ResendVerifyActivateResponse
@@ -9912,7 +10087,7 @@ UpdateAggTaskGroupStatusResponse Client::updateAggTaskGroupStatus(const string &
 }
 
 /**
- * @summary 修改告警动作
+ * @summary Updates an alert action integration.
  *
  * @param request UpdateAlertActionRequest
  * @param headers map
@@ -9981,7 +10156,7 @@ UpdateAlertActionResponse Client::updateAlertActionWithOptions(const string &ale
 }
 
 /**
- * @summary 修改告警动作
+ * @summary Updates an alert action integration.
  *
  * @param request UpdateAlertActionRequest
  * @return UpdateAlertActionResponse
@@ -9993,7 +10168,7 @@ UpdateAlertActionResponse Client::updateAlertAction(const string &alertActionId,
 }
 
 /**
- * @summary 修改已存在的告警通知模板内容。
+ * @summary Updates a notification template.
  *
  * @param request UpdateAlertNotifyTemplateRequest
  * @param headers map
@@ -10030,7 +10205,7 @@ UpdateAlertNotifyTemplateResponse Client::updateAlertNotifyTemplateWithOptions(c
 }
 
 /**
- * @summary 修改已存在的告警通知模板内容。
+ * @summary Updates a notification template.
  *
  * @param request UpdateAlertNotifyTemplateRequest
  * @return UpdateAlertNotifyTemplateResponse
@@ -10229,7 +10404,7 @@ UpdateBizTraceResponse Client::updateBizTrace(const string &bizTraceId, const Up
 }
 
 /**
- * @summary 修改已存在的联系人的详细信息
+ * @summary Updates a contact.
  *
  * @param request UpdateContactRequest
  * @param headers map
@@ -10278,7 +10453,7 @@ UpdateContactResponse Client::updateContactWithOptions(const string &contactId, 
 }
 
 /**
- * @summary 修改已存在的联系人的详细信息
+ * @summary Updates a contact.
  *
  * @param request UpdateContactRequest
  * @return UpdateContactResponse
@@ -10290,7 +10465,7 @@ UpdateContactResponse Client::updateContact(const string &contactId, const Updat
 }
 
 /**
- * @summary 修改已存在的联系人组信息。
+ * @summary Updates a contact group.
  *
  * @param request UpdateContactGroupRequest
  * @param headers map
@@ -10327,7 +10502,7 @@ UpdateContactGroupResponse Client::updateContactGroupWithOptions(const string &c
 }
 
 /**
- * @summary 修改已存在的联系人组信息。
+ * @summary Updates a contact group.
  *
  * @param request UpdateContactGroupRequest
  * @return UpdateContactGroupResponse
@@ -10969,7 +11144,9 @@ UpdateNotifyStrategyResponse Client::updateNotifyStrategy(const string &notifySt
 }
 
 /**
- * @summary 更新UpdateOncallSchedule
+ * @summary Updates an on-call schedule.
+ *
+ * @description Creates an on-call schedule.
  *
  * @param request UpdateOncallScheduleRequest
  * @param headers map
@@ -11014,7 +11191,9 @@ UpdateOncallScheduleResponse Client::updateOncallScheduleWithOptions(const strin
 }
 
 /**
- * @summary 更新UpdateOncallSchedule
+ * @summary Updates an on-call schedule.
+ *
+ * @description Creates an on-call schedule.
  *
  * @param request UpdateOncallScheduleRequest
  * @return UpdateOncallScheduleResponse
@@ -11603,7 +11782,9 @@ UpsertUmodelDataResponse Client::upsertUmodelData(const string &workspace, const
 }
 
 /**
- * @summary 查看值班日历
+ * @summary Queries the on-call calendar of a specified on-call schedule within a given date range, and returns the contacts and start and end times of each on-call shift grouped by shift name.
+ *
+ * @description Retrieves the on-call calendar. Returns the on-call arrangements of a specified on-call schedule within the queried date range. The response is grouped by shift name, where the key is the shift name and the value is a list of on-call shifts. Each shift includes the on-call contact and the start and end times.
  *
  * @param request ViewOncallScheduleRequest
  * @param headers map
@@ -11640,7 +11821,9 @@ ViewOncallScheduleResponse Client::viewOncallScheduleWithOptions(const string &o
 }
 
 /**
- * @summary 查看值班日历
+ * @summary Queries the on-call calendar of a specified on-call schedule within a given date range, and returns the contacts and start and end times of each on-call shift grouped by shift name.
+ *
+ * @description Retrieves the on-call calendar. Returns the on-call arrangements of a specified on-call schedule within the queried date range. The response is grouped by shift name, where the key is the shift name and the value is a list of on-call shifts. Each shift includes the on-call contact and the start and end times.
  *
  * @param request ViewOncallScheduleRequest
  * @return ViewOncallScheduleResponse

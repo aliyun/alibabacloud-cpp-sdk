@@ -77,7 +77,9 @@ namespace Models
 
 
     protected:
+      // The mapping of failed rendering results. The key is the template identifier, and the value is the cause of the failure, such as a template syntax error or a reference to an undefined variable.
       Darabonba::Json failed_ {};
+      // The mapping of successful rendering results. The key is the template identifier, which corresponds to templates[].key in the request, and the value is the rendered string content.
       Darabonba::Json success_ {};
     };
 
@@ -114,10 +116,15 @@ namespace Models
 
 
   protected:
+    // The rendering result object, which contains two mappings: success for successfully rendered items and failed for items that failed to render.
     shared_ptr<PreviewNotifyTemplateResponseBody::Data> data_ {};
+    // The processing result message. The value is success if the request is successful, or an error message if the request fails.
     shared_ptr<string> msg_ {};
-    // 请求ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful. Valid values:
+    // - true: The request is successful.
+    // - false: The request fails.
     shared_ptr<bool> success_ {};
   };
 

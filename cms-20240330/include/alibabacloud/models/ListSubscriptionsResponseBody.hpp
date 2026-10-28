@@ -70,10 +70,13 @@ namespace Models
 
 
   protected:
+    // The maximum number of records returned for the current request.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The list of subscriptions.
     shared_ptr<vector<SubscriptionForView>> subscriptionList_ {};
   };
 

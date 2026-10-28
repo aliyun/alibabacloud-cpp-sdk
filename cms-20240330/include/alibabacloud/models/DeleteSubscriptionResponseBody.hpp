@@ -50,6 +50,7 @@ namespace Models
   protected:
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The ID of the subscription.
     shared_ptr<string> subscriptionId_ {};
   };
 

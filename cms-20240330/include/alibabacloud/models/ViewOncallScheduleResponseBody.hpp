@@ -53,7 +53,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The on-call calendar. The key is the shift name, and the value is a list of on-call shifts for the shift within the queried date range.
     shared_ptr<map<string, vector<ScheduleValue>>> schedule_ {};
   };
 

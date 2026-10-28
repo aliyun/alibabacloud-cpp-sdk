@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the on-call schedule.
     shared_ptr<string> oncallScheduleId_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

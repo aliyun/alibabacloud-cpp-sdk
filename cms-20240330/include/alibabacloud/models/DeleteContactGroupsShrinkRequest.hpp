@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The IDs of the contact groups.
+    // 
     // This parameter is required.
     shared_ptr<string> contactGroupIdsShrink_ {};
   };

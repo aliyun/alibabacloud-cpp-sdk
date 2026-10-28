@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The timestamp of the on-call shift to query. Unit: milliseconds.
     shared_ptr<string> timestamp_ {};
   };
 

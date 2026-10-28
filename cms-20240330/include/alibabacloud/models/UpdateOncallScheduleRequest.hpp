@@ -92,9 +92,13 @@ namespace Models
 
 
     protected:
+      // The contact ID of the substitute.
       shared_ptr<string> contactId_ {};
+      // The end time of the substitution. Format: YYYY-MM-DD HH:mm.
       shared_ptr<string> endTime_ {};
+      // The contact ID of the replaced person.
       shared_ptr<string> replacedContactId_ {};
+      // The start time of the substitution. Format: YYYY-MM-DD HH:mm.
       shared_ptr<string> startTime_ {};
     };
 
@@ -204,21 +208,38 @@ namespace Models
 
 
     protected:
+      // The days of the week when the rotation takes effect.
+      // 
       // This parameter is required.
       shared_ptr<vector<int32_t>> activeDays_ {};
+      // The IDs of the contacts.
+      // 
       // This parameter is required.
       shared_ptr<vector<string>> contacts_ {};
+      // The end time of the rotation. Format: HH:mm.
+      // 
       // This parameter is required.
       shared_ptr<string> rotationEndTime_ {};
+      // The name of the rotation.
+      // 
       // This parameter is required.
       shared_ptr<string> rotationName_ {};
+      // The start time of the rotation. Format: HH:mm.
+      // 
       // This parameter is required.
       shared_ptr<string> rotationStartTime_ {};
+      // The length of the shift cycle. Used in conjunction with shiftRecurrenceFrequency, such as switching to the next on-call person every 3 days.
       shared_ptr<int32_t> shiftLength_ {};
+      // The unit of the shift cycle. Used in conjunction with shiftRecurrenceFrequency, such as switching to the next on-call person every week.
+      // 
       // This parameter is required.
       shared_ptr<string> shiftRecurrenceFrequency_ {};
+      // The start date of the rotation. Format: yyyy-MM-dd.
+      // 
       // This parameter is required.
       shared_ptr<string> startDate_ {};
+      // The time zone name. Uses the IANA Time Zone Database standard, such as Asia/Shanghai.
+      // 
       // This parameter is required.
       shared_ptr<string> timeZone_ {};
     };
@@ -258,9 +279,13 @@ namespace Models
 
 
   protected:
+    // The name of the on-call schedule.
     shared_ptr<string> oncallScheduleName_ {};
+    // The list of rotations.
     shared_ptr<vector<UpdateOncallScheduleRequest::Rotations>> rotations_ {};
+    // The ID of the shift reminder chatbot.
     shared_ptr<string> shiftRobotId_ {};
+    // The list of substitution rules.
     shared_ptr<vector<UpdateOncallScheduleRequest::Substitudes>> substitudes_ {};
   };
 

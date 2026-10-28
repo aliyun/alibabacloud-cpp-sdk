@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The activation verification code. This 32-character string is sent by the system to the mobile phone number or email address of the contact.
     shared_ptr<string> code_ {};
+    // The site. Valid values: cn_hangzhou (China site) and ap_southeast_1 (International site). Default value: cn_hangzhou.
     shared_ptr<string> site_ {};
   };
 

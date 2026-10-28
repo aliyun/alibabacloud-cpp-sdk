@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The end date of the query. Format: yyyy-MM-dd. This parameter must be specified together with startDate.
     shared_ptr<string> endDate_ {};
+    // The start date of the query. Format: yyyy-MM-dd. This parameter must be specified together with endDate.
     shared_ptr<string> startDate_ {};
   };
 

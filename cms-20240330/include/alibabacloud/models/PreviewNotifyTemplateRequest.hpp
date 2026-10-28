@@ -70,11 +70,11 @@ namespace Models
 
 
     protected:
-      // 模板标识，前端自定义，原样返回。建议使用 title / content 等语义名称
+      // The template identifier. This identifier is defined by the frontend and returned as-is. Use semantic names such as title or content.
       // 
       // This parameter is required.
       shared_ptr<string> key_ {};
-      // Go template 语法的模板内容字符串
+      // The template content string in Go template syntax.
       // 
       // This parameter is required.
       shared_ptr<string> template_ {};
@@ -101,8 +101,9 @@ namespace Models
 
 
   protected:
+    // The rendering context data in key-value pair format. This data source is used to populate Go template placeholders in the templates, such as {{.incident.title}}.
     Darabonba::Json data_ {};
-    // 待渲染的模板列表，每项包含模板标识和模板内容
+    // The list of templates to be rendered. Each item includes a template identifier and the template content.
     // 
     // This parameter is required.
     shared_ptr<vector<PreviewNotifyTemplateRequest::Templates>> templates_ {};
