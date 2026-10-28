@@ -45,6 +45,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const AttachInfos& obj) { 
         DARABONBA_PTR_TO_JSON(AttachedAt, attachedAt_);
         DARABONBA_PTR_TO_JSON(Capacity, capacity_);
+        DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_TO_JSON(KvcsId, kvcsId_);
         DARABONBA_PTR_TO_JSON(MountPointId, mountPointId_);
         DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -56,6 +57,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, AttachInfos& obj) { 
         DARABONBA_PTR_FROM_JSON(AttachedAt, attachedAt_);
         DARABONBA_PTR_FROM_JSON(Capacity, capacity_);
+        DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_FROM_JSON(KvcsId, kvcsId_);
         DARABONBA_PTR_FROM_JSON(MountPointId, mountPointId_);
         DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -76,8 +78,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->attachedAt_ == nullptr
-        && this->capacity_ == nullptr && this->kvcsId_ == nullptr && this->mountPointId_ == nullptr && this->regionId_ == nullptr && this->status_ == nullptr
-        && this->type_ == nullptr && this->vscId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->capacity_ == nullptr && this->instanceId_ == nullptr && this->kvcsId_ == nullptr && this->mountPointId_ == nullptr && this->regionId_ == nullptr
+        && this->status_ == nullptr && this->type_ == nullptr && this->vscId_ == nullptr && this->zoneId_ == nullptr; };
       // attachedAt Field Functions 
       bool hasAttachedAt() const { return this->attachedAt_ != nullptr;};
       void deleteAttachedAt() { this->attachedAt_ = nullptr;};
@@ -90,6 +92,13 @@ namespace Models
       void deleteCapacity() { this->capacity_ = nullptr;};
       inline int64_t getCapacity() const { DARABONBA_PTR_GET_DEFAULT(capacity_, 0L) };
       inline AttachInfos& setCapacity(int64_t capacity) { DARABONBA_PTR_SET_VALUE(capacity_, capacity) };
+
+
+      // instanceId Field Functions 
+      bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+      void deleteInstanceId() { this->instanceId_ = nullptr;};
+      inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+      inline AttachInfos& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
       // kvcsId Field Functions 
@@ -142,26 +151,23 @@ namespace Models
 
 
     protected:
-      // The time of the most recent attach operation, in ISO 8601 format. This value is null if the instance has not been attached.
+      // The time of the last attach operation in ISO 8601 format. If the instance is not attached, the value is null.
       shared_ptr<string> attachedAt_ {};
-      // The file system capacity, in GiB.
+      // The capacity of the file system in GiB.
       shared_ptr<int64_t> capacity_ {};
+      // The ID of the compute resource, which is the ECS instance ID or the Lingjun compute node ID.
+      shared_ptr<string> instanceId_ {};
       // KVCacheStore KvcsId
       shared_ptr<string> kvcsId_ {};
-      // The file system-level mount point ID.
+      // The ID of the file system-level mount point.
       shared_ptr<string> mountPointId_ {};
       // The region where the instance is deployed.
       shared_ptr<string> regionId_ {};
-      // The attach status. Valid values:
-      // - Attaching: The instance is being mounted.
-      // - Attached: The instance is mounted.
-      // - Detaching: The instance is being unmounted.
-      // 
-      // After unmounting is complete, the record is deleted and not returned.
+      // The attach status. Valid values: Attaching, Attached, and Detaching. After the instance is detached, the record is deleted and not returned.
       shared_ptr<string> status_ {};
-      // The instance type. Valid values: kvcs (KVCacheStore, CPFS).
+      // The instance type. Valid value: kvcs.
       shared_ptr<string> type_ {};
-      // The VSC ID on the compute side.
+      // The ID of the compute-side VSC.
       shared_ptr<string> vscId_ {};
       // The zone where the instance is deployed.
       shared_ptr<string> zoneId_ {};
@@ -214,17 +220,17 @@ namespace Models
 
 
   protected:
-    // The list of mount information.
+    // The list of mount records.
     shared_ptr<vector<ListKVCacheStoreAttachInfoResponseBody::AttachInfos>> attachInfos_ {};
-    // The pagination token. Used to query the next batch of data.
+    // The query token, which is used to query the next batch of data.
     shared_ptr<string> nextToken_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID. A request ID is returned regardless of whether the call is successful.
+    // The request ID. This ID is returned regardless of whether the call is successful.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned for the paged query.
+    // The total number of entries returned for a paging query.
     shared_ptr<int64_t> totalCount_ {};
   };
 

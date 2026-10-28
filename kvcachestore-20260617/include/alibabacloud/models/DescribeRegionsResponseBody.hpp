@@ -108,7 +108,7 @@ namespace Models
   protected:
     // The list of regions.
     shared_ptr<vector<DescribeRegionsResponseBody::Regions>> regions_ {};
-    // The request ID. A request ID is returned regardless of whether the API call is successful.
+    // The request ID. The request ID is returned regardless of whether the API call is successful.
     shared_ptr<string> requestId_ {};
   };
 

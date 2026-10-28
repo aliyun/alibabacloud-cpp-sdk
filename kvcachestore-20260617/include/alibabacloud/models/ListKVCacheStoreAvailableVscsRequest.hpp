@@ -89,7 +89,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> assumeRoleFor_ {};
-      // The Alibaba Cloud Resource Name (ARN) of the RAM role.
+      // The ARN of the RAM role.
       // 
       // This parameter is required.
       shared_ptr<string> roleArn_ {};

@@ -95,9 +95,9 @@ namespace Models
 
 
   protected:
-    // The request ID. The request ID is returned regardless of whether the API call is successful.
+    // The request ID. This ID is returned regardless of whether the API call is successful.
     shared_ptr<string> requestId_ {};
-    // The list of zones.
+    // The list of available zones.
     shared_ptr<vector<DescribeZonesResponseBody::Zones>> zones_ {};
   };
 

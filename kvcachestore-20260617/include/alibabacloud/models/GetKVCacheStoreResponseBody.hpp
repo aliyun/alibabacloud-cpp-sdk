@@ -235,18 +235,18 @@ namespace Models
 
 
     protected:
-      // The storage capacity, in GiB.
+      // The storage capacity in GiB.
       shared_ptr<int64_t> capacity_ {};
       // The creation time in ISO 8601 format.
       shared_ptr<string> createTime_ {};
       // The instance description.
       shared_ptr<string> description_ {};
       // The extra status information. Valid values:
-      // - CapacityExpanding
-      // - CapacityExpandSuccess
-      // - CapacityExpandFail
+      // - CapacityExpanding: The capacity is being expanded.
+      // - CapacityExpandSuccess: The capacity expansion succeeded.
+      // - CapacityExpandFail: The capacity expansion failed.
       shared_ptr<string> extraStatus_ {};
-      // The cluster number.
+      // The cluster ID.
       shared_ptr<string> hpnZone_ {};
       // The instance ID.
       shared_ptr<string> kvcsId_ {};
@@ -255,20 +255,20 @@ namespace Models
       // The instance name.
       shared_ptr<string> name_ {};
       // The payment type. Valid values:
-      // - PREPAY
-      // - POSTPAY
+      // - PREPAY: subscription.
+      // - POSTPAY: pay-as-you-go.
       shared_ptr<string> paymentType_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
       // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
       // The instance status. Valid values:
-      // - Creating
-      // - Available
-      // - InUse
-      // - Stopping
-      // - Stopped
-      // - Deleting
+      // - Creating: The instance is being created.
+      // - Available: The instance is available.
+      // - InUse: The instance is in use.
+      // - Stopping: The instance is being stopped.
+      // - Stopped: The instance is stopped.
+      // - Deleting: The instance is being deleted.
       shared_ptr<string> status_ {};
       // The list of resource tags.
       shared_ptr<vector<KvCacheStore::Tags>> tags_ {};

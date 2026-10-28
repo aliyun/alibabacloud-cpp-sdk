@@ -97,15 +97,15 @@ namespace Models
 
 
     protected:
-      // The error code returned when the operation fails. This value is null when the operation succeeds.
+      // The error code returned upon failure. This value is null upon success.
       shared_ptr<string> errorCode_ {};
-      // The error message returned when the operation fails. This value is null when the operation succeeds.
+      // The error message returned upon failure. This value is null upon success.
       shared_ptr<string> errorMessage_ {};
       // KVCacheStore KvcsId
       shared_ptr<string> kvcsId_ {};
       // The operation result. Valid values:
       // - ATTACHING: The request has been accepted and the asynchronous mount is in progress.
-      // - ATTACHED: The resource is already mounted (idempotent).
+      // - ATTACHED: Idempotent. The mount is already complete.
       // - Success: The synchronous verification passed and the asynchronous operation is complete.
       // - Failed: The operation failed.
       shared_ptr<string> status_ {};
@@ -134,7 +134,7 @@ namespace Models
   protected:
     // The list of mount results.
     shared_ptr<vector<AttachKVCacheStoreResponseBody::AttachResults>> attachResults_ {};
-    // The request ID. A request ID is returned regardless of whether the API call succeeds.
+    // The request ID. A request ID is returned regardless of whether the call is successful.
     shared_ptr<string> requestId_ {};
   };
 

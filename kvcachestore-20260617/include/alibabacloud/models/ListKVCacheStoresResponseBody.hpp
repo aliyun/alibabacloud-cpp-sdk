@@ -247,7 +247,7 @@ namespace Models
 
 
     protected:
-      // The storage capacity. Unit: GiB.
+      // The storage capacity, in GiB.
       shared_ptr<int64_t> capacity_ {};
       // The creation time in ISO 8601 format.
       shared_ptr<string> createTime_ {};
@@ -259,7 +259,7 @@ namespace Models
       shared_ptr<string> hpnZone_ {};
       // The instance ID.
       shared_ptr<string> kvcsId_ {};
-      // The file system-level mount point ID. Instances under the same file system share this mount point. For more information, call ListKVCacheInstanceAttachInfo.
+      // The file system-level mount point ID. Instances under the same file system share this mount point. For more information, use the ListKVCacheInstanceAttachInfo operation.
       shared_ptr<string> mountPointId_ {};
       // The instance name.
       shared_ptr<string> name_ {};
@@ -341,9 +341,9 @@ namespace Models
 
 
   protected:
-    // The list of KVCacheStore instances. Each element contains the following fields: KvcsId, Name, Status, ExtraStatus, RegionId, ZoneId, HpnZone, Type, Capacity, PaymentType, MountPointId, CreateTime, and Description.
+    // The list of KVCacheStore instances. Each element contains the following parameters: KvcsId, Name, Status, ExtraStatus, RegionId, ZoneId, HpnZone, Type, Capacity, PaymentType, MountPointId, CreateTime, and Description.
     shared_ptr<vector<ListKVCacheStoresResponseBody::KVCacheStores>> KVCacheStores_ {};
-    // The maximum number of entries returned per pagination request.
+    // The maximum number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token for the next page. This value is empty when no more data is available. This parameter is valid only for cursor-based pagination.
     shared_ptr<string> nextToken_ {};
@@ -351,11 +351,11 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. This parameter is valid only for page number-based pagination.
     shared_ptr<int32_t> pageSize_ {};
-    // The total number of pages. This value is returned only for page number-based pagination.
+    // The total number of pages. This parameter is returned only for page number-based pagination.
     shared_ptr<int32_t> pageTotal_ {};
-    // The request ID. A request ID is returned regardless of whether the API call succeeds.
+    // The request ID. A request ID is returned regardless of whether the call is successful.
     shared_ptr<string> requestId_ {};
-    // The total number of instances. This value is returned only for page number-based pagination. For cursor-based pagination, the value is -1.
+    // The total number of instances. This parameter is returned only for page number-based pagination. For cursor-based pagination, the value is -1.
     shared_ptr<int32_t> totalCount_ {};
   };
 
