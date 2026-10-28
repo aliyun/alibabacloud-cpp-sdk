@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The domain of the Active Directory (AD) workspace.
+    // The address of the AD office network.
     shared_ptr<string> adDomain_ {};
-    // Channel
+    // The channel.
     shared_ptr<string> businessChannel_ {};
-    // The serial number of the virtual MFA device. The serial number is unique for each device.
+    // The serial number of the bound virtual MFA device. The user must first complete the MFA binding in the client authentication flow. You can call [DescribeMfaDevices](~~DescribeMfaDevices~~) to query the serial number of the bound device.
     shared_ptr<string> serialNumber_ {};
   };
 

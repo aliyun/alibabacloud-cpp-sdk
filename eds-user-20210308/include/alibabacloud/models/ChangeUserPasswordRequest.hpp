@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // Channel
+    // The channel.
     shared_ptr<string> businessChannel_ {};
     // The username of the convenience account whose password is to be modified.
     shared_ptr<string> endUserId_ {};
-    // The new password for the user.
+    // The new password for the user. The password must meet the password length and character type policies of the current enterprise. If no policy is configured, the password must be at least 10 characters in length and contain uppercase letters, lowercase letters, and digits.
     shared_ptr<string> newPassword_ {};
   };
 

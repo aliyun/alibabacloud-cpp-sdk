@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // >  This parameter is not available for public use.
+    // > This parameter is not publicly available.
     shared_ptr<string> bizType_ {};
-    // Channel
+    // The channel.
     shared_ptr<string> businessChannel_ {};
-    // The fuzzy search string that matches the username (EndUserId) and email address (Email) of the regular user.
+    // The fuzzy search string. This parameter supports matching the username (EndUserId) and email address (Email).
     shared_ptr<string> filter_ {};
     // The ID of the user group.
     shared_ptr<string> groupId_ {};
-    // The number of entries to return on each page.
+    // The number of entries to return per page for paging in a paged query.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query. You can obtain this parameter from the response parameters of the last call to this operation.
+    // The token for the next query. You can obtain the token from the response parameters of the previous call to this operation.
     shared_ptr<string> nextToken_ {};
-    // >  This parameter is not available for public use.
+    // > This parameter is not publicly available.
     shared_ptr<string> solutionId_ {};
   };
 

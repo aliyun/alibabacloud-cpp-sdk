@@ -60,8 +60,9 @@ namespace Models
 
 
   protected:
-    // The channel.
+    // The business channel.
     shared_ptr<string> businessChannel_ {};
+    // Specifies whether to log off the current session of the convenience account when the account is locked.
     shared_ptr<bool> logoutSession_ {};
     // The usernames of the convenience accounts to lock.
     // 

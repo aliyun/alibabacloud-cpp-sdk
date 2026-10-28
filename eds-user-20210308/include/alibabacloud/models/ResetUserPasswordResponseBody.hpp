@@ -100,7 +100,7 @@ namespace Models
 
 
       protected:
-        // The ID of the convenience user whose password failed to be reset.
+        // The convenience user for whom the password reset failed.
         shared_ptr<string> endUserId_ {};
         // The error code.
         shared_ptr<string> errorCode_ {};
@@ -129,9 +129,9 @@ namespace Models
 
 
     protected:
-      // The information about the convenience users whose passwords failed to be reset.
+      // The list of convenience users for whom the password reset failed.
       shared_ptr<vector<ResetUsersResult::FailedUsers>> failedUsers_ {};
-      // The convenience users to which the system sent a password reset email.
+      // The list of convenience users to whom the password reset emails have been sent.
       shared_ptr<vector<string>> resetUsers_ {};
     };
 
@@ -154,9 +154,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The result of resetting the password of the convenience user.
+    // The result of the password reset operation for the convenience users.
     shared_ptr<ResetUserPasswordResponseBody::ResetUsersResult> resetUsersResult_ {};
   };
 

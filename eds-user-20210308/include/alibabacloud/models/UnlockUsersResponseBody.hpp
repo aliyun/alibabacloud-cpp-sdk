@@ -100,7 +100,7 @@ namespace Models
 
 
       protected:
-        // The ID of the convenience user that failed to be unlocked.
+        // The convenience user that fails to be unlocked.
         shared_ptr<string> endUserId_ {};
         // The error code.
         shared_ptr<string> errorCode_ {};
@@ -129,9 +129,9 @@ namespace Models
 
 
     protected:
-      // The convenience users that failed to be unlocked.
+      // The list of convenience users that fail to be unlocked.
       shared_ptr<vector<UnlockUsersResult::FailedUsers>> failedUsers_ {};
-      // The convenience users that were unlocked.
+      // The list of convenience users that are successfully unlocked.
       shared_ptr<vector<string>> unlockedUsers_ {};
     };
 
@@ -154,9 +154,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The result of unlocking the convenience user.
+    // The result of the unlock operation for the convenience users.
     shared_ptr<UnlockUsersResponseBody::UnlockUsersResult> unlockUsersResult_ {};
   };
 

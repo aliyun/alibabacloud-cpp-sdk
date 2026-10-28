@@ -60,16 +60,11 @@ namespace Models
 
 
   protected:
-    // Channel
+    // The channel.
     shared_ptr<string> businessChannel_ {};
-    // Whether the convenience account has the local administrator permissions on cloud computers.
-    // 
-    // Valid values:
-    // 
-    // *   0: no
-    // *   1 (default): yes
+    // Specifies whether the convenience account has local administrator permissions on the cloud desktop.
     shared_ptr<string> isDesktopManager_ {};
-    // The convenience accounts.
+    // The list of convenience accounts.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> users_ {};

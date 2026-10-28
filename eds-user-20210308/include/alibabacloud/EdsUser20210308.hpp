@@ -21,9 +21,9 @@ namespace EdsUser20210308
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Add or remove local administrator permissions on a cloud computer for a convenience account.
+       * @summary Grants or revokes local administrator permissions on a cloud desktop for a convenience account.
        *
-       * @description A convenience account with local administrator permissions can install software or modify certain system settings on the cloud computer.
+       * @description A convenience account with local administrator permissions can install software or modify specific system settings on the cloud desktop.
        *
        * @param request BatchSetDesktopManagerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -32,9 +32,9 @@ namespace EdsUser20210308
       Models::BatchSetDesktopManagerResponse batchSetDesktopManagerWithOptions(const Models::BatchSetDesktopManagerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Add or remove local administrator permissions on a cloud computer for a convenience account.
+       * @summary Grants or revokes local administrator permissions on a cloud desktop for a convenience account.
        *
-       * @description A convenience account with local administrator permissions can install software or modify certain system settings on the cloud computer.
+       * @description A convenience account with local administrator permissions can install software or modify specific system settings on the cloud desktop.
        *
        * @param request BatchSetDesktopManagerRequest
        * @return BatchSetDesktopManagerResponse
@@ -42,7 +42,7 @@ namespace EdsUser20210308
       Models::BatchSetDesktopManagerResponse batchSetDesktopManager(const Models::BatchSetDesktopManagerRequest &request);
 
       /**
-       * @summary When the administrator activates the mode, you can use this API to modify the user logon password.
+       * @summary Modifies the logon password of a user in administrator activation mode.
        *
        * @param request ChangeUserPasswordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -51,7 +51,7 @@ namespace EdsUser20210308
       Models::ChangeUserPasswordResponse changeUserPasswordWithOptions(const Models::ChangeUserPasswordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary When the administrator activates the mode, you can use this API to modify the user logon password.
+       * @summary Modifies the logon password of a user in administrator activation mode.
        *
        * @param request ChangeUserPasswordRequest
        * @return ChangeUserPasswordResponse
@@ -59,7 +59,7 @@ namespace EdsUser20210308
       Models::ChangeUserPasswordResponse changeUserPassword(const Models::ChangeUserPasswordRequest &request);
 
       /**
-       * @summary Query the number of convenience accounts associated with a specified custom property.
+       * @summary Queries the number of convenience accounts associated with a specified custom property.
        *
        * @param request CheckUsedPropertyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -68,7 +68,7 @@ namespace EdsUser20210308
       Models::CheckUsedPropertyResponse checkUsedPropertyWithOptions(const Models::CheckUsedPropertyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the number of convenience accounts associated with a specified custom property.
+       * @summary Queries the number of convenience accounts associated with a specified custom property.
        *
        * @param request CheckUsedPropertyRequest
        * @return CheckUsedPropertyResponse
@@ -76,7 +76,7 @@ namespace EdsUser20210308
       Models::CheckUsedPropertyResponse checkUsedProperty(const Models::CheckUsedPropertyRequest &request);
 
       /**
-       * @summary Query the number of convenience accounts associated with a specified custom attribute value.
+       * @summary Queries the number of convenience accounts associated with a specified custom property value.
        *
        * @param request CheckUsedPropertyValueRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -85,7 +85,7 @@ namespace EdsUser20210308
       Models::CheckUsedPropertyValueResponse checkUsedPropertyValueWithOptions(const Models::CheckUsedPropertyValueRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the number of convenience accounts associated with a specified custom attribute value.
+       * @summary Queries the number of convenience accounts associated with a specified custom property value.
        *
        * @param request CheckUsedPropertyValueRequest
        * @return CheckUsedPropertyValueResponse
@@ -93,7 +93,7 @@ namespace EdsUser20210308
       Models::CheckUsedPropertyValueResponse checkUsedPropertyValue(const Models::CheckUsedPropertyValueRequest &request);
 
       /**
-       * @summary Create a group.
+       * @summary Creates a user group.
        *
        * @param request CreateGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -102,7 +102,7 @@ namespace EdsUser20210308
       Models::CreateGroupResponse createGroupWithOptions(const Models::CreateGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a group.
+       * @summary Creates a user group.
        *
        * @param request CreateGroupRequest
        * @return CreateGroupResponse
@@ -110,7 +110,7 @@ namespace EdsUser20210308
       Models::CreateGroupResponse createGroup(const Models::CreateGroupRequest &request);
 
       /**
-       * @summary Create an organization.
+       * @summary Creates an organization.
        *
        * @param request CreateOrgRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -119,7 +119,7 @@ namespace EdsUser20210308
       Models::CreateOrgResponse createOrgWithOptions(const Models::CreateOrgRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create an organization.
+       * @summary Creates an organization.
        *
        * @param request CreateOrgRequest
        * @return CreateOrgResponse
@@ -127,10 +127,10 @@ namespace EdsUser20210308
       Models::CreateOrgResponse createOrg(const Models::CreateOrgRequest &request);
 
       /**
-       * @summary Create a user attribute.
+       * @summary Creates a user property.
        *
-       * @description - You can create up to 10 different properties under one Alibaba Cloud account. Each property includes a property name (PropertyKey) and multiple attribute values (PropertyValue).  
-       * - You can add up to 50 different attribute values to a single property.
+       * @description - You can create up to 10 different properties under an Alibaba Cloud account. Each property includes a property key (PropertyKey) and multiple property values (PropertyValue).
+       * - You can add up to 50 different property values to a single property.
        *
        * @param request CreatePropertyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -139,10 +139,10 @@ namespace EdsUser20210308
       Models::CreatePropertyResponse createPropertyWithOptions(const Models::CreatePropertyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a user attribute.
+       * @summary Creates a user property.
        *
-       * @description - You can create up to 10 different properties under one Alibaba Cloud account. Each property includes a property name (PropertyKey) and multiple attribute values (PropertyValue).  
-       * - You can add up to 50 different attribute values to a single property.
+       * @description - You can create up to 10 different properties under an Alibaba Cloud account. Each property includes a property key (PropertyKey) and multiple property values (PropertyValue).
+       * - You can add up to 50 different property values to a single property.
        *
        * @param request CreatePropertyRequest
        * @return CreatePropertyResponse
@@ -167,12 +167,10 @@ namespace EdsUser20210308
       Models::CreateResourceGroupResponse createResourceGroup(const Models::CreateResourceGroupRequest &request);
 
       /**
-       * @summary Easily create accounts for your end users.
+       * @summary Creates a convenience account for an end user.
        *
-       * @description <props="china">
-       * A convenience account is a dedicated account system in Wuying Workspace for simple use cases that do not require enterprise AD integration. Accounts require a username, and either an email or a phone number.
-       * <props="intl">
-       * A convenience account is a dedicated account system in Wuying Workspace for simple use cases that do not require enterprise AD integration. Accounts require both a username and an email.
+       * @description <props="china">A convenience account is an account system dedicated to Wuying Workspace, which is suitable for simple scenarios where you do not want to connect to an enterprise Active Directory (AD). The information of a convenience account includes the username, email address, and phone number. The username is required, and you must specify at least one of the email address and phone number.
+       * <props="intl">A convenience account is an account system dedicated to Wuying Workspace, which is suitable for simple scenarios where you do not want to connect to an enterprise Active Directory (AD). The information of a convenience account includes the username and email address, both of which are required.
        *
        * @param request CreateUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -181,12 +179,10 @@ namespace EdsUser20210308
       Models::CreateUsersResponse createUsersWithOptions(const Models::CreateUsersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Easily create accounts for your end users.
+       * @summary Creates a convenience account for an end user.
        *
-       * @description <props="china">
-       * A convenience account is a dedicated account system in Wuying Workspace for simple use cases that do not require enterprise AD integration. Accounts require a username, and either an email or a phone number.
-       * <props="intl">
-       * A convenience account is a dedicated account system in Wuying Workspace for simple use cases that do not require enterprise AD integration. Accounts require both a username and an email.
+       * @description <props="china">A convenience account is an account system dedicated to Wuying Workspace, which is suitable for simple scenarios where you do not want to connect to an enterprise Active Directory (AD). The information of a convenience account includes the username, email address, and phone number. The username is required, and you must specify at least one of the email address and phone number.
+       * <props="intl">A convenience account is an account system dedicated to Wuying Workspace, which is suitable for simple scenarios where you do not want to connect to an enterprise Active Directory (AD). The information of a convenience account includes the username and email address, both of which are required.
        *
        * @param request CreateUsersRequest
        * @return CreateUsersResponse
@@ -194,7 +190,7 @@ namespace EdsUser20210308
       Models::CreateUsersResponse createUsers(const Models::CreateUsersRequest &request);
 
       /**
-       * @summary Delete a resource group.
+       * @summary Deletes a resource group.
        *
        * @param request DeleteResourceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -203,7 +199,7 @@ namespace EdsUser20210308
       Models::DeleteResourceGroupResponse deleteResourceGroupWithOptions(const Models::DeleteResourceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete a resource group.
+       * @summary Deletes a resource group.
        *
        * @param request DeleteResourceGroupRequest
        * @return DeleteResourceGroupResponse
@@ -211,7 +207,7 @@ namespace EdsUser20210308
       Models::DeleteResourceGroupResponse deleteResourceGroup(const Models::DeleteResourceGroupRequest &request);
 
       /**
-       * @summary Detach a user from a user attribute.
+       * @summary Dissociates a user from a user property.
        *
        * @param request DeleteUserPropertyValueRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -220,7 +216,7 @@ namespace EdsUser20210308
       Models::DeleteUserPropertyValueResponse deleteUserPropertyValueWithOptions(const Models::DeleteUserPropertyValueRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Detach a user from a user attribute.
+       * @summary Dissociates a user from a user property.
        *
        * @param request DeleteUserPropertyValueRequest
        * @return DeleteUserPropertyValueResponse
@@ -228,7 +224,7 @@ namespace EdsUser20210308
       Models::DeleteUserPropertyValueResponse deleteUserPropertyValue(const Models::DeleteUserPropertyValueRequest &request);
 
       /**
-       * @summary Query group members.
+       * @summary Queries the members of a user group.
        *
        * @param request DescribeGroupUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -237,7 +233,7 @@ namespace EdsUser20210308
       Models::DescribeGroupUserResponse describeGroupUserWithOptions(const Models::DescribeGroupUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query group members.
+       * @summary Queries the members of a user group.
        *
        * @param request DescribeGroupUserRequest
        * @return DescribeGroupUserResponse
@@ -262,7 +258,7 @@ namespace EdsUser20210308
       Models::DescribeGroupsResponse describeGroups(const Models::DescribeGroupsRequest &request);
 
       /**
-       * @summary Lists virtual MFA devices bound to directory accounts.
+       * @summary Queries the virtual MFA devices bound to convenience accounts.
        *
        * @param request DescribeMfaDevicesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -271,7 +267,7 @@ namespace EdsUser20210308
       Models::DescribeMfaDevicesResponse describeMfaDevicesWithOptions(const Models::DescribeMfaDevicesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists virtual MFA devices bound to directory accounts.
+       * @summary Queries the virtual MFA devices bound to convenience accounts.
        *
        * @param request DescribeMfaDevicesRequest
        * @return DescribeMfaDevicesResponse
@@ -279,7 +275,7 @@ namespace EdsUser20210308
       Models::DescribeMfaDevicesResponse describeMfaDevices(const Models::DescribeMfaDevicesRequest &request);
 
       /**
-       * @summary Find subordinate organizations.
+       * @summary Queries subordinate organizations.
        *
        * @param request DescribeOrgByLayerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -288,7 +284,7 @@ namespace EdsUser20210308
       Models::DescribeOrgByLayerResponse describeOrgByLayerWithOptions(const Models::DescribeOrgByLayerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Find subordinate organizations.
+       * @summary Queries subordinate organizations.
        *
        * @param request DescribeOrgByLayerRequest
        * @return DescribeOrgByLayerResponse
@@ -298,7 +294,7 @@ namespace EdsUser20210308
       /**
        * @summary Queries the list of organizations.
        *
-       * @description Organizations have a tree structure. The root organization ID is org-aliyun-wy-org-id.
+       * @description Organizations use a tree structure. The root organization ID is org-aliyun-wy-org-id.
        *
        * @param tmpReq DescribeOrgsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -309,7 +305,7 @@ namespace EdsUser20210308
       /**
        * @summary Queries the list of organizations.
        *
-       * @description Organizations have a tree structure. The root organization ID is org-aliyun-wy-org-id.
+       * @description Organizations use a tree structure. The root organization ID is org-aliyun-wy-org-id.
        *
        * @param request DescribeOrgsRequest
        * @return DescribeOrgsResponse
@@ -334,7 +330,7 @@ namespace EdsUser20210308
       Models::DescribeResourceGroupsResponse describeResourceGroups(const Models::DescribeResourceGroupsRequest &request);
 
       /**
-       * @summary Query user basic information
+       * @summary Queries the basic information of a user.
        *
        * @param request DescribeUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -343,7 +339,7 @@ namespace EdsUser20210308
       Models::DescribeUserResponse describeUserWithOptions(const Models::DescribeUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query user basic information
+       * @summary Queries the basic information of a user.
        *
        * @param request DescribeUserRequest
        * @return DescribeUserResponse
@@ -351,7 +347,7 @@ namespace EdsUser20210308
       Models::DescribeUserResponse describeUser(const Models::DescribeUserRequest &request);
 
       /**
-       * @summary Queries convenience account information, such as usernames, email addresses, and remarks.
+       * @summary Queries the information of convenience users, such as usernames, email addresses, and remarks.
        *
        * @param tmpReq DescribeUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -360,7 +356,7 @@ namespace EdsUser20210308
       Models::DescribeUsersResponse describeUsersWithOptions(const Models::DescribeUsersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries convenience account information, such as usernames, email addresses, and remarks.
+       * @summary Queries the information of convenience users, such as usernames, email addresses, and remarks.
        *
        * @param request DescribeUsersRequest
        * @return DescribeUsersResponse
@@ -368,7 +364,7 @@ namespace EdsUser20210308
       Models::DescribeUsersResponse describeUsers(const Models::DescribeUsersRequest &request);
 
       /**
-       * @summary Filter account information by user attribute.
+       * @summary Queries convenience account information by filtering based on user property.
        *
        * @param tmpReq FilterUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -377,7 +373,7 @@ namespace EdsUser20210308
       Models::FilterUsersResponse filterUsersWithOptions(const Models::FilterUsersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Filter account information by user attribute.
+       * @summary Queries convenience account information by filtering based on user property.
        *
        * @param request FilterUsersRequest
        * @return FilterUsersResponse
@@ -385,10 +381,10 @@ namespace EdsUser20210308
       Models::FilterUsersResponse filterUsers(const Models::FilterUsersRequest &request);
 
       /**
-       * @summary 获取用户数量
+       * @summary Retrieves the number of Active Directory (AD) users.
        *
-       * @description 出于安全考虑，您可以锁定便捷账号。被锁定的便捷用户无法登录无影终端，因此也无法访问任何无影云资源。
-       * > 您可以调用[DescribeUsers](https://help.aliyun.com/document_detail/283609.html)查询便捷账号信息。若返回数据中`Status`取值为0，表示该便捷账号未被锁定；若`Status`取值为9，表示该便捷账号已被锁定。
+       * @description For security purposes, you can lock convenience accounts. Locked convenience users cannot log on to Wuying terminals and therefore cannot access any Wuying cloud resources.
+       * > You can call [DescribeUsers](https://help.aliyun.com/document_detail/283609.html) to query convenience account information. If the `Status` value in the returned data is 0, the convenience account is not locked. If the `Status` value is 9, the convenience account is locked.
        *
        * @param request GetAdUsersCountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -397,10 +393,10 @@ namespace EdsUser20210308
       Models::GetAdUsersCountResponse getAdUsersCountWithOptions(const Models::GetAdUsersCountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取用户数量
+       * @summary Retrieves the number of Active Directory (AD) users.
        *
-       * @description 出于安全考虑，您可以锁定便捷账号。被锁定的便捷用户无法登录无影终端，因此也无法访问任何无影云资源。
-       * > 您可以调用[DescribeUsers](https://help.aliyun.com/document_detail/283609.html)查询便捷账号信息。若返回数据中`Status`取值为0，表示该便捷账号未被锁定；若`Status`取值为9，表示该便捷账号已被锁定。
+       * @description For security purposes, you can lock convenience accounts. Locked convenience users cannot log on to Wuying terminals and therefore cannot access any Wuying cloud resources.
+       * > You can call [DescribeUsers](https://help.aliyun.com/document_detail/283609.html) to query convenience account information. If the `Status` value in the returned data is 0, the convenience account is not locked. If the `Status` value is 9, the convenience account is locked.
        *
        * @param request GetAdUsersCountRequest
        * @return GetAdUsersCountResponse
@@ -408,7 +404,7 @@ namespace EdsUser20210308
       Models::GetAdUsersCountResponse getAdUsersCount(const Models::GetAdUsersCountRequest &request);
 
       /**
-       * @summary Obtains the information about the current logon administrator based on the authorization code.
+       * @summary Retrieves the information about the currently logged-on administrator based on the authorization code.
        *
        * @param request GetManagerInfoByAuthCodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -417,7 +413,7 @@ namespace EdsUser20210308
       Models::GetManagerInfoByAuthCodeResponse getManagerInfoByAuthCodeWithOptions(const Models::GetManagerInfoByAuthCodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the information about the current logon administrator based on the authorization code.
+       * @summary Retrieves the information about the currently logged-on administrator based on the authorization code.
        *
        * @param request GetManagerInfoByAuthCodeRequest
        * @return GetManagerInfoByAuthCodeResponse
@@ -425,10 +421,10 @@ namespace EdsUser20210308
       Models::GetManagerInfoByAuthCodeResponse getManagerInfoByAuthCode(const Models::GetManagerInfoByAuthCodeRequest &request);
 
       /**
-       * @summary 获取用户数量
+       * @summary Retrieves the total number of Wuying convenience users.
        *
-       * @description 出于安全考虑，您可以锁定便捷账号。被锁定的便捷用户无法登录无影终端，因此也无法访问任何无影云资源。
-       * > 您可以调用[DescribeUsers](https://help.aliyun.com/document_detail/283609.html)查询便捷账号信息。若返回数据中`Status`取值为0，表示该便捷账号未被锁定；若`Status`取值为9，表示该便捷账号已被锁定。
+       * @description For security purposes, you can lock convenience accounts. Locked convenience users cannot log on to Wuying terminals and therefore cannot access any Wuying cloud resources.
+       * > You can call [DescribeUsers](https://help.aliyun.com/document_detail/283609.html) to query convenience account information. If the `Status` value in the returned data is 0, the convenience account is not locked. If the `Status` value is 9, the convenience account is locked.
        *
        * @param request GetUsersCountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -437,10 +433,10 @@ namespace EdsUser20210308
       Models::GetUsersCountResponse getUsersCountWithOptions(const Models::GetUsersCountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取用户数量
+       * @summary Retrieves the total number of Wuying convenience users.
        *
-       * @description 出于安全考虑，您可以锁定便捷账号。被锁定的便捷用户无法登录无影终端，因此也无法访问任何无影云资源。
-       * > 您可以调用[DescribeUsers](https://help.aliyun.com/document_detail/283609.html)查询便捷账号信息。若返回数据中`Status`取值为0，表示该便捷账号未被锁定；若`Status`取值为9，表示该便捷账号已被锁定。
+       * @description For security purposes, you can lock convenience accounts. Locked convenience users cannot log on to Wuying terminals and therefore cannot access any Wuying cloud resources.
+       * > You can call [DescribeUsers](https://help.aliyun.com/document_detail/283609.html) to query convenience account information. If the `Status` value in the returned data is 0, the convenience account is not locked. If the `Status` value is 9, the convenience account is locked.
        *
        * @param request GetUsersCountRequest
        * @return GetUsersCountResponse
@@ -448,7 +444,7 @@ namespace EdsUser20210308
       Models::GetUsersCountResponse getUsersCount(const Models::GetUsersCountRequest &request);
 
       /**
-       * @summary Initialize the organization ID.
+       * @summary Initializes the organization ID.
        *
        * @param request InitTenantAliasRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -457,7 +453,7 @@ namespace EdsUser20210308
       Models::InitTenantAliasResponse initTenantAliasWithOptions(const Models::InitTenantAliasRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Initialize the organization ID.
+       * @summary Initializes the organization ID.
        *
        * @param request InitTenantAliasRequest
        * @return InitTenantAliasResponse
@@ -465,7 +461,7 @@ namespace EdsUser20210308
       Models::InitTenantAliasResponse initTenantAlias(const Models::InitTenantAliasRequest &request);
 
       /**
-       * @summary Query the list of existing user attributes under the current account.
+       * @summary Queries the list of user properties under the current account.
        *
        * @param request ListPropertyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -474,7 +470,7 @@ namespace EdsUser20210308
       Models::ListPropertyResponse listPropertyWithOptions(const Models::ListPropertyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the list of existing user attributes under the current account.
+       * @summary Queries the list of user properties under the current account.
        *
        * @param request ListPropertyRequest
        * @return ListPropertyResponse
@@ -482,7 +478,7 @@ namespace EdsUser20210308
       Models::ListPropertyResponse listProperty(const Models::ListPropertyRequest &request);
 
       /**
-       * @summary Query the list of attribute values for a specific user attribute.
+       * @summary Queries the list of property values for a specific user property.
        *
        * @param request ListPropertyValueRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -491,7 +487,7 @@ namespace EdsUser20210308
       Models::ListPropertyValueResponse listPropertyValueWithOptions(const Models::ListPropertyValueRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the list of attribute values for a specific user attribute.
+       * @summary Queries the list of property values for a specific user property.
        *
        * @param request ListPropertyValueRequest
        * @return ListPropertyValueResponse
@@ -499,9 +495,9 @@ namespace EdsUser20210308
       Models::ListPropertyValueResponse listPropertyValue(const Models::ListPropertyValueRequest &request);
 
       /**
-       * @summary Lock the virtual MFA device attached to a convenience account.
+       * @summary Locks the virtual MFA device bound to a convenience account.
        *
-       * @description After locking, the status of the virtual MFA device changes to LOCKED. When the associated convenience account attempts to log on to a WUYING Terminal through an office network with MFA enabled, authentication will fail due to the locked MFA device, preventing successful logon. You can invoke [UnlockMfaDevice](~~UnlockMfaDevice~~) to unlock it.
+       * @description After the device is locked, the status of the virtual MFA device changes to LOCKED. When the corresponding convenience account logs on to a Wuying terminal through an office network with MFA enabled, the logon fails because the MFA device cannot be authenticated. You can call [UnlockMfaDevice](~~UnlockMfaDevice~~) to unlock the device.
        *
        * @param request LockMfaDeviceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -510,9 +506,9 @@ namespace EdsUser20210308
       Models::LockMfaDeviceResponse lockMfaDeviceWithOptions(const Models::LockMfaDeviceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lock the virtual MFA device attached to a convenience account.
+       * @summary Locks the virtual MFA device bound to a convenience account.
        *
-       * @description After locking, the status of the virtual MFA device changes to LOCKED. When the associated convenience account attempts to log on to a WUYING Terminal through an office network with MFA enabled, authentication will fail due to the locked MFA device, preventing successful logon. You can invoke [UnlockMfaDevice](~~UnlockMfaDevice~~) to unlock it.
+       * @description After the device is locked, the status of the virtual MFA device changes to LOCKED. When the corresponding convenience account logs on to a Wuying terminal through an office network with MFA enabled, the logon fails because the MFA device cannot be authenticated. You can call [UnlockMfaDevice](~~UnlockMfaDevice~~) to unlock the device.
        *
        * @param request LockMfaDeviceRequest
        * @return LockMfaDeviceResponse
@@ -520,10 +516,10 @@ namespace EdsUser20210308
       Models::LockMfaDeviceResponse lockMfaDevice(const Models::LockMfaDeviceRequest &request);
 
       /**
-       * @summary Locks one or more convenience accounts. Locked convenience accounts cannot be used to sign in to Wuying clients.
+       * @summary Locks one or more convenience accounts. Locked convenience accounts cannot log on to cloud desktop terminals.
        *
-       * @description For security purposes, you can lock convenience accounts. Locked convenience users cannot sign in to Wuying clients, and therefore cannot access any Wuying cloud resources.
-       * > Call the [DescribeUsers](https://help.aliyun.com/document_detail/283609.html) operation to check the lock status of convenience accounts. The `Status` value in the response is 0 for unlocked accounts and 9 for locked accounts.
+       * @description For security purposes, you can lock convenience accounts. Locked convenience users cannot log on to cloud desktop terminals and therefore cannot access any cloud desktop resources.
+       * > You can call [DescribeUsers](https://help.aliyun.com/document_detail/283609.html) to query convenience account information. If the `Status` value in the response is 0, the convenience account is not locked. If the `Status` value is 9, the convenience account is locked.
        *
        * @param request LockUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -532,10 +528,10 @@ namespace EdsUser20210308
       Models::LockUsersResponse lockUsersWithOptions(const Models::LockUsersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Locks one or more convenience accounts. Locked convenience accounts cannot be used to sign in to Wuying clients.
+       * @summary Locks one or more convenience accounts. Locked convenience accounts cannot log on to cloud desktop terminals.
        *
-       * @description For security purposes, you can lock convenience accounts. Locked convenience users cannot sign in to Wuying clients, and therefore cannot access any Wuying cloud resources.
-       * > Call the [DescribeUsers](https://help.aliyun.com/document_detail/283609.html) operation to check the lock status of convenience accounts. The `Status` value in the response is 0 for unlocked accounts and 9 for locked accounts.
+       * @description For security purposes, you can lock convenience accounts. Locked convenience users cannot log on to cloud desktop terminals and therefore cannot access any cloud desktop resources.
+       * > You can call [DescribeUsers](https://help.aliyun.com/document_detail/283609.html) to query convenience account information. If the `Status` value in the response is 0, the convenience account is not locked. If the `Status` value is 9, the convenience account is locked.
        *
        * @param request LockUsersRequest
        * @return LockUsersResponse
@@ -543,7 +539,7 @@ namespace EdsUser20210308
       Models::LockUsersResponse lockUsers(const Models::LockUsersRequest &request);
 
       /**
-       * @summary Modify the name and description of a group.
+       * @summary Modifies the name and description of a user group.
        *
        * @param request ModifyGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -552,7 +548,7 @@ namespace EdsUser20210308
       Models::ModifyGroupResponse modifyGroupWithOptions(const Models::ModifyGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modify the name and description of a group.
+       * @summary Modifies the name and description of a user group.
        *
        * @param request ModifyGroupRequest
        * @return ModifyGroupResponse
@@ -560,7 +556,7 @@ namespace EdsUser20210308
       Models::ModifyGroupResponse modifyGroup(const Models::ModifyGroupRequest &request);
 
       /**
-       * @summary Modify an organization.
+       * @summary Updates an organization.
        *
        * @param request ModifyOrgRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -569,7 +565,7 @@ namespace EdsUser20210308
       Models::ModifyOrgResponse modifyOrgWithOptions(const Models::ModifyOrgRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modify an organization.
+       * @summary Updates an organization.
        *
        * @param request ModifyOrgRequest
        * @return ModifyOrgResponse
@@ -577,7 +573,7 @@ namespace EdsUser20210308
       Models::ModifyOrgResponse modifyOrg(const Models::ModifyOrgRequest &request);
 
       /**
-       * @summary Modify the contact information of a convenience account.
+       * @summary Updates the contact information of a convenience account.
        *
        * @param request ModifyUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -586,7 +582,7 @@ namespace EdsUser20210308
       Models::ModifyUserResponse modifyUserWithOptions(const Models::ModifyUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modify the contact information of a convenience account.
+       * @summary Updates the contact information of a convenience account.
        *
        * @param request ModifyUserRequest
        * @return ModifyUserResponse
@@ -594,7 +590,7 @@ namespace EdsUser20210308
       Models::ModifyUserResponse modifyUser(const Models::ModifyUserRequest &request);
 
       /**
-       * @summary Shift organization.
+       * @summary Moves an organization.
        *
        * @param request MoveOrgRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -603,7 +599,7 @@ namespace EdsUser20210308
       Models::MoveOrgResponse moveOrgWithOptions(const Models::MoveOrgRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Shift organization.
+       * @summary Moves an organization.
        *
        * @param request MoveOrgRequest
        * @return MoveOrgResponse
@@ -611,7 +607,7 @@ namespace EdsUser20210308
       Models::MoveOrgResponse moveOrg(const Models::MoveOrgRequest &request);
 
       /**
-       * @summary Shift users to the target organization architecture.
+       * @summary Moves users to the target organizational structure.
        *
        * @param request MoveUserOrgRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -620,7 +616,7 @@ namespace EdsUser20210308
       Models::MoveUserOrgResponse moveUserOrgWithOptions(const Models::MoveUserOrgRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Shift users to the target organization architecture.
+       * @summary Moves users to the target organizational structure.
        *
        * @param request MoveUserOrgRequest
        * @return MoveUserOrgResponse
@@ -628,7 +624,7 @@ namespace EdsUser20210308
       Models::MoveUserOrgResponse moveUserOrg(const Models::MoveUserOrgRequest &request);
 
       /**
-       * @summary Query the user synchronization status.
+       * @summary Queries the user synchronization status.
        *
        * @param request QuerySyncStatusByAliUidRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -637,7 +633,7 @@ namespace EdsUser20210308
       Models::QuerySyncStatusByAliUidResponse querySyncStatusByAliUidWithOptions(const Models::QuerySyncStatusByAliUidRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the user synchronization status.
+       * @summary Queries the user synchronization status.
        *
        * @param request QuerySyncStatusByAliUidRequest
        * @return QuerySyncStatusByAliUidResponse
@@ -645,7 +641,7 @@ namespace EdsUser20210308
       Models::QuerySyncStatusByAliUidResponse querySyncStatusByAliUid(const Models::QuerySyncStatusByAliUidRequest &request);
 
       /**
-       * @summary Delete a group. Supports batch operations.
+       * @summary Deletes one or more user groups. Batch operations are supported.
        *
        * @param request RemoveGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -654,7 +650,7 @@ namespace EdsUser20210308
       Models::RemoveGroupResponse removeGroupWithOptions(const Models::RemoveGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete a group. Supports batch operations.
+       * @summary Deletes one or more user groups. Batch operations are supported.
        *
        * @param request RemoveGroupRequest
        * @return RemoveGroupResponse
@@ -662,9 +658,9 @@ namespace EdsUser20210308
       Models::RemoveGroupResponse removeGroup(const Models::RemoveGroupRequest &request);
 
       /**
-       * @summary Delete the virtual MFA device attached to a convenience account.
+       * @summary Deletes the virtual MFA device bound to a convenience user.
        *
-       * @description Deleting the virtual MFA device attached to a convenience account unbinds the MFA device, which is equivalent to resetting or disabling it. The corresponding convenience account must reattach a new virtual MFA device when logging on to a WUYING Terminal.
+       * @description Deleting the virtual MFA device bound to a convenience user unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The convenience user must bind a new virtual MFA device when logging on to the Wuying terminal.
        *
        * @param request RemoveMfaDeviceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -673,9 +669,9 @@ namespace EdsUser20210308
       Models::RemoveMfaDeviceResponse removeMfaDeviceWithOptions(const Models::RemoveMfaDeviceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete the virtual MFA device attached to a convenience account.
+       * @summary Deletes the virtual MFA device bound to a convenience user.
        *
-       * @description Deleting the virtual MFA device attached to a convenience account unbinds the MFA device, which is equivalent to resetting or disabling it. The corresponding convenience account must reattach a new virtual MFA device when logging on to a WUYING Terminal.
+       * @description Deleting the virtual MFA device bound to a convenience user unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The convenience user must bind a new virtual MFA device when logging on to the Wuying terminal.
        *
        * @param request RemoveMfaDeviceRequest
        * @return RemoveMfaDeviceResponse
@@ -683,7 +679,7 @@ namespace EdsUser20210308
       Models::RemoveMfaDeviceResponse removeMfaDevice(const Models::RemoveMfaDeviceRequest &request);
 
       /**
-       * @summary Remove an organization.
+       * @summary Removes an organization.
        *
        * @param request RemoveOrgRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -692,7 +688,7 @@ namespace EdsUser20210308
       Models::RemoveOrgResponse removeOrgWithOptions(const Models::RemoveOrgRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Remove an organization.
+       * @summary Removes an organization.
        *
        * @param request RemoveOrgRequest
        * @return RemoveOrgResponse
@@ -700,7 +696,7 @@ namespace EdsUser20210308
       Models::RemoveOrgResponse removeOrg(const Models::RemoveOrgRequest &request);
 
       /**
-       * @summary Delete a set of user attributes.
+       * @summary Deletes a set of user properties.
        *
        * @param request RemovePropertyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -709,7 +705,7 @@ namespace EdsUser20210308
       Models::RemovePropertyResponse removePropertyWithOptions(const Models::RemovePropertyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete a set of user attributes.
+       * @summary Deletes a set of user properties.
        *
        * @param request RemovePropertyRequest
        * @return RemovePropertyResponse
@@ -717,7 +713,7 @@ namespace EdsUser20210308
       Models::RemovePropertyResponse removeProperty(const Models::RemovePropertyRequest &request);
 
       /**
-       * @summary Delete one or more convenience accounts.
+       * @summary Deletes one or more convenience users.
        *
        * @param request RemoveUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -726,7 +722,7 @@ namespace EdsUser20210308
       Models::RemoveUsersResponse removeUsersWithOptions(const Models::RemoveUsersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete one or more convenience accounts.
+       * @summary Deletes one or more convenience users.
        *
        * @param request RemoveUsersRequest
        * @return RemoveUsersResponse
@@ -734,7 +730,7 @@ namespace EdsUser20210308
       Models::RemoveUsersResponse removeUsers(const Models::RemoveUsersRequest &request);
 
       /**
-       * @summary Reset the password of a convenience account, including generating a password reset token and sending a password reset email to the mailbox of the convenience account.
+       * @summary Resets the password of a convenience user, including generating a password reset token and sending a password reset email to the email address of the convenience user.
        *
        * @param request ResetUserPasswordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -743,7 +739,7 @@ namespace EdsUser20210308
       Models::ResetUserPasswordResponse resetUserPasswordWithOptions(const Models::ResetUserPasswordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Reset the password of a convenience account, including generating a password reset token and sending a password reset email to the mailbox of the convenience account.
+       * @summary Resets the password of a convenience user, including generating a password reset token and sending a password reset email to the email address of the convenience user.
        *
        * @param request ResetUserPasswordRequest
        * @return ResetUserPasswordResponse
@@ -751,7 +747,7 @@ namespace EdsUser20210308
       Models::ResetUserPasswordResponse resetUserPassword(const Models::ResetUserPasswordRequest &request);
 
       /**
-       * @summary Associate a user attribute with a specific user.
+       * @summary Associates a user property with a specified user.
        *
        * @param request SetUserPropertyValueRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -760,7 +756,7 @@ namespace EdsUser20210308
       Models::SetUserPropertyValueResponse setUserPropertyValueWithOptions(const Models::SetUserPropertyValueRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Associate a user attribute with a specific user.
+       * @summary Associates a user property with a specified user.
        *
        * @param request SetUserPropertyValueRequest
        * @return SetUserPropertyValueResponse
@@ -768,7 +764,7 @@ namespace EdsUser20210308
       Models::SetUserPropertyValueResponse setUserPropertyValue(const Models::SetUserPropertyValueRequest &request);
 
       /**
-       * @summary Synchronize all education information.
+       * @summary Synchronizes all education information.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return SyncAllEduInfoResponse
@@ -776,14 +772,14 @@ namespace EdsUser20210308
       Models::SyncAllEduInfoResponse syncAllEduInfoWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Synchronize all education information.
+       * @summary Synchronizes all education information.
        *
        * @return SyncAllEduInfoResponse
        */
       Models::SyncAllEduInfoResponse syncAllEduInfo();
 
       /**
-       * @summary 将资源转移到资源组中
+       * @summary Transfers resources to a resource group.
        *
        * @param request TransferResourcesIntoGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -792,7 +788,7 @@ namespace EdsUser20210308
       Models::TransferResourcesIntoGroupResponse transferResourcesIntoGroupWithOptions(const Models::TransferResourcesIntoGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 将资源转移到资源组中
+       * @summary Transfers resources to a resource group.
        *
        * @param request TransferResourcesIntoGroupRequest
        * @return TransferResourcesIntoGroupResponse
@@ -800,7 +796,7 @@ namespace EdsUser20210308
       Models::TransferResourcesIntoGroupResponse transferResourcesIntoGroup(const Models::TransferResourcesIntoGroupRequest &request);
 
       /**
-       * @summary 将资源从资源组中转出
+       * @summary Moves resources out of a resource group.
        *
        * @param request TransferResourcesOutofGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -809,7 +805,7 @@ namespace EdsUser20210308
       Models::TransferResourcesOutofGroupResponse transferResourcesOutofGroupWithOptions(const Models::TransferResourcesOutofGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 将资源从资源组中转出
+       * @summary Moves resources out of a resource group.
        *
        * @param request TransferResourcesOutofGroupRequest
        * @return TransferResourcesOutofGroupResponse
@@ -817,7 +813,7 @@ namespace EdsUser20210308
       Models::TransferResourcesOutofGroupResponse transferResourcesOutofGroup(const Models::TransferResourcesOutofGroupRequest &request);
 
       /**
-       * @summary Unlock the virtual MFA device attached to a convenience account.
+       * @summary Unlocks the virtual MFA device bound to a convenience account.
        *
        * @param request UnlockMfaDeviceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -826,7 +822,7 @@ namespace EdsUser20210308
       Models::UnlockMfaDeviceResponse unlockMfaDeviceWithOptions(const Models::UnlockMfaDeviceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Unlock the virtual MFA device attached to a convenience account.
+       * @summary Unlocks the virtual MFA device bound to a convenience account.
        *
        * @param request UnlockMfaDeviceRequest
        * @return UnlockMfaDeviceResponse
@@ -834,10 +830,10 @@ namespace EdsUser20210308
       Models::UnlockMfaDeviceResponse unlockMfaDevice(const Models::UnlockMfaDeviceRequest &request);
 
       /**
-       * @summary Unlock one or more convenience accounts. After being unlocked, the convenience accounts can log on to WUYING Terminal.
+       * @summary Unlocks one or more convenience users. Unlocked convenience users can log on to Wuying terminals.
        *
-       * @description Locked convenience accounts cannot log on to WUYING Terminal and therefore cannot access any WUYING cloud resources. To allow a convenience account to log on to WUYING Terminal, you must first unlock it.  
-       * > You can invoke [DescribeUsers](https://help.aliyun.com/document_detail/283609.html) to query convenience account information. If the value of `Status` in the returned data is 0, the convenience account is not locked. If the value of `Status` is 9, the convenience account is locked.
+       * @description Locked convenience users cannot log on to Wuying terminals and therefore cannot access any Wuying cloud resources. To allow a convenience user to log on to a Wuying terminal, you must unlock the user first.
+       * > You can call [DescribeUsers](https://help.aliyun.com/document_detail/283609.html) to query the information of convenience users. If the `Status` parameter in the response is 0, the convenience user is not locked. If the `Status` parameter is 9, the convenience user is locked.
        *
        * @param request UnlockUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -846,10 +842,10 @@ namespace EdsUser20210308
       Models::UnlockUsersResponse unlockUsersWithOptions(const Models::UnlockUsersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Unlock one or more convenience accounts. After being unlocked, the convenience accounts can log on to WUYING Terminal.
+       * @summary Unlocks one or more convenience users. Unlocked convenience users can log on to Wuying terminals.
        *
-       * @description Locked convenience accounts cannot log on to WUYING Terminal and therefore cannot access any WUYING cloud resources. To allow a convenience account to log on to WUYING Terminal, you must first unlock it.  
-       * > You can invoke [DescribeUsers](https://help.aliyun.com/document_detail/283609.html) to query convenience account information. If the value of `Status` in the returned data is 0, the convenience account is not locked. If the value of `Status` is 9, the convenience account is locked.
+       * @description Locked convenience users cannot log on to Wuying terminals and therefore cannot access any Wuying cloud resources. To allow a convenience user to log on to a Wuying terminal, you must unlock the user first.
+       * > You can call [DescribeUsers](https://help.aliyun.com/document_detail/283609.html) to query the information of convenience users. If the `Status` parameter in the response is 0, the convenience user is not locked. If the `Status` parameter is 9, the convenience user is locked.
        *
        * @param request UnlockUsersRequest
        * @return UnlockUsersResponse
@@ -857,7 +853,7 @@ namespace EdsUser20210308
       Models::UnlockUsersResponse unlockUsers(const Models::UnlockUsersRequest &request);
 
       /**
-       * @summary Modify User Attributes.
+       * @summary Updates user properties.
        *
        * @param request UpdatePropertyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -866,7 +862,7 @@ namespace EdsUser20210308
       Models::UpdatePropertyResponse updatePropertyWithOptions(const Models::UpdatePropertyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modify User Attributes.
+       * @summary Updates user properties.
        *
        * @param request UpdatePropertyRequest
        * @return UpdatePropertyResponse
@@ -874,7 +870,7 @@ namespace EdsUser20210308
       Models::UpdatePropertyResponse updateProperty(const Models::UpdatePropertyRequest &request);
 
       /**
-       * @summary Add users to a group in batch.
+       * @summary Adds users to a user group in batches.
        *
        * @param request UserBatchJoinGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -883,7 +879,7 @@ namespace EdsUser20210308
       Models::UserBatchJoinGroupResponse userBatchJoinGroupWithOptions(const Models::UserBatchJoinGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Add users to a group in batch.
+       * @summary Adds users to a user group in batches.
        *
        * @param request UserBatchJoinGroupRequest
        * @return UserBatchJoinGroupResponse
@@ -891,7 +887,7 @@ namespace EdsUser20210308
       Models::UserBatchJoinGroupResponse userBatchJoinGroup(const Models::UserBatchJoinGroupRequest &request);
 
       /**
-       * @summary Remove users from a group in batch.
+       * @summary Removes multiple users from a user group.
        *
        * @param request UserBatchQuitGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -900,7 +896,7 @@ namespace EdsUser20210308
       Models::UserBatchQuitGroupResponse userBatchQuitGroupWithOptions(const Models::UserBatchQuitGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Remove users from a group in batch.
+       * @summary Removes multiple users from a user group.
        *
        * @param request UserBatchQuitGroupRequest
        * @return UserBatchQuitGroupResponse

@@ -126,8 +126,9 @@ namespace Models
 
 
   protected:
+    // The agent subtype of the DesktopAgent resource group. Valid values: JVSClaw and HermesAgent.
     shared_ptr<string> agentType_ {};
-    // The Alibaba Cloud resource group ID.
+    // The IDs of the cloud platform resource groups.
     shared_ptr<vector<string>> aliyunResourceGroupIds_ {};
     // The channel tag.
     shared_ptr<string> businessChannel_ {};
@@ -138,13 +139,13 @@ namespace Models
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // > Fixed value: AliyunConsole.
-    // > - For Elastic Desktop Service Enterprise Edition, set this parameter to AliyunConsole. Other platforms are not publicly available.
+    // > - For Wuying Enterprise Edition, set this parameter to AliyunConsole. Other platforms are not publicly available.
     shared_ptr<string> platform_ {};
-    // The resource classification within the resource group.
+    // The resource classification in the resource group.
     shared_ptr<string> resourceClassification_ {};
-    // The list of resource group IDs.
+    // The IDs of the resource groups.
     shared_ptr<vector<string>> resourceGroupIds_ {};
-    // The resource group name.
+    // The name of the resource group.
     shared_ptr<string> resourceGroupName_ {};
   };
 

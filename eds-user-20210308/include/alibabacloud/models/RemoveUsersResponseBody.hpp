@@ -36,11 +36,15 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const RemoveUsersResult& obj) { 
         DARABONBA_PTR_TO_JSON(FailedUsers, failedUsers_);
+        DARABONBA_PTR_TO_JSON(ProcessingUsers, processingUsers_);
         DARABONBA_PTR_TO_JSON(RemovedUsers, removedUsers_);
+        DARABONBA_PTR_TO_JSON(SubmittedUsers, submittedUsers_);
       };
       friend void from_json(const Darabonba::Json& j, RemoveUsersResult& obj) { 
         DARABONBA_PTR_FROM_JSON(FailedUsers, failedUsers_);
+        DARABONBA_PTR_FROM_JSON(ProcessingUsers, processingUsers_);
         DARABONBA_PTR_FROM_JSON(RemovedUsers, removedUsers_);
+        DARABONBA_PTR_FROM_JSON(SubmittedUsers, submittedUsers_);
       };
       RemoveUsersResult() = default ;
       RemoveUsersResult(const RemoveUsersResult &) = default ;
@@ -100,7 +104,7 @@ namespace Models
 
 
       protected:
-        // The ID of the convenience user that failed to be removed.
+        // The convenience user that failed to be deleted.
         shared_ptr<string> endUserId_ {};
         // The error code.
         shared_ptr<string> errorCode_ {};
@@ -109,7 +113,7 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->failedUsers_ == nullptr
-        && this->removedUsers_ == nullptr; };
+        && this->processingUsers_ == nullptr && this->removedUsers_ == nullptr && this->submittedUsers_ == nullptr; };
       // failedUsers Field Functions 
       bool hasFailedUsers() const { return this->failedUsers_ != nullptr;};
       void deleteFailedUsers() { this->failedUsers_ = nullptr;};
@@ -117,6 +121,15 @@ namespace Models
       inline vector<RemoveUsersResult::FailedUsers> getFailedUsers() { DARABONBA_PTR_GET(failedUsers_, vector<RemoveUsersResult::FailedUsers>) };
       inline RemoveUsersResult& setFailedUsers(const vector<RemoveUsersResult::FailedUsers> & failedUsers) { DARABONBA_PTR_SET_VALUE(failedUsers_, failedUsers) };
       inline RemoveUsersResult& setFailedUsers(vector<RemoveUsersResult::FailedUsers> && failedUsers) { DARABONBA_PTR_SET_RVALUE(failedUsers_, failedUsers) };
+
+
+      // processingUsers Field Functions 
+      bool hasProcessingUsers() const { return this->processingUsers_ != nullptr;};
+      void deleteProcessingUsers() { this->processingUsers_ = nullptr;};
+      inline const vector<string> & getProcessingUsers() const { DARABONBA_PTR_GET_CONST(processingUsers_, vector<string>) };
+      inline vector<string> getProcessingUsers() { DARABONBA_PTR_GET(processingUsers_, vector<string>) };
+      inline RemoveUsersResult& setProcessingUsers(const vector<string> & processingUsers) { DARABONBA_PTR_SET_VALUE(processingUsers_, processingUsers) };
+      inline RemoveUsersResult& setProcessingUsers(vector<string> && processingUsers) { DARABONBA_PTR_SET_RVALUE(processingUsers_, processingUsers) };
 
 
       // removedUsers Field Functions 
@@ -128,11 +141,22 @@ namespace Models
       inline RemoveUsersResult& setRemovedUsers(vector<string> && removedUsers) { DARABONBA_PTR_SET_RVALUE(removedUsers_, removedUsers) };
 
 
+      // submittedUsers Field Functions 
+      bool hasSubmittedUsers() const { return this->submittedUsers_ != nullptr;};
+      void deleteSubmittedUsers() { this->submittedUsers_ = nullptr;};
+      inline const vector<string> & getSubmittedUsers() const { DARABONBA_PTR_GET_CONST(submittedUsers_, vector<string>) };
+      inline vector<string> getSubmittedUsers() { DARABONBA_PTR_GET(submittedUsers_, vector<string>) };
+      inline RemoveUsersResult& setSubmittedUsers(const vector<string> & submittedUsers) { DARABONBA_PTR_SET_VALUE(submittedUsers_, submittedUsers) };
+      inline RemoveUsersResult& setSubmittedUsers(vector<string> && submittedUsers) { DARABONBA_PTR_SET_RVALUE(submittedUsers_, submittedUsers) };
+
+
     protected:
-      // The convenience users that failed to be removed.
+      // The information about the users that failed to be deleted.
       shared_ptr<vector<RemoveUsersResult::FailedUsers>> failedUsers_ {};
-      // The convenience users that were removed.
+      shared_ptr<vector<string>> processingUsers_ {};
+      // The convenience users that are successfully deleted.
       shared_ptr<vector<string>> removedUsers_ {};
+      shared_ptr<vector<string>> submittedUsers_ {};
     };
 
     virtual bool empty() const override { return this->removeUsersResult_ == nullptr
@@ -154,9 +178,9 @@ namespace Models
 
 
   protected:
-    // The result of removing the convenience user.
+    // The result of deleting the convenience users.
     shared_ptr<RemoveUsersResponseBody::RemoveUsersResult> removeUsersResult_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

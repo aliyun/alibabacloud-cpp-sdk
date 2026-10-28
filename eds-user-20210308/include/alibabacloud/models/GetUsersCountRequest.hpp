@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // > This parameter is not available.
     shared_ptr<string> bizType_ {};
+    // The business channel type.
     shared_ptr<string> businessChannel_ {};
+    // > This parameter is currently not available.
     shared_ptr<string> solutionId_ {};
   };
 

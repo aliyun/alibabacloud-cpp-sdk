@@ -86,7 +86,7 @@ namespace Models
   protected:
     // The organization ID.
     shared_ptr<string> orgId_ {};
-    // The mobile number.
+    // The phone number.
     shared_ptr<string> phone_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
@@ -94,7 +94,7 @@ namespace Models
     shared_ptr<string> teamName_ {};
     // The tenant name.
     shared_ptr<string> userName_ {};
-    // The ID of the Elastic Desktop Service account.
+    // The Wuying account ID of the tenant.
     shared_ptr<int64_t> waId_ {};
   };
 

@@ -74,7 +74,9 @@ namespace Models
 
 
     protected:
+      // Specifies whether it is enabled.
       shared_ptr<bool> enable_ {};
+      // The ciphertext.
       shared_ptr<string> secret_ {};
     };
 
@@ -217,14 +219,23 @@ namespace Models
 
 
       protected:
+        // The authorization endpoint.
         shared_ptr<string> authorizationEndpoint_ {};
+        // The discovery endpoint.
         shared_ptr<string> discoveryEndpoint_ {};
+        // The guest authorization endpoint.
         shared_ptr<string> guestAuthorizationEndpoint_ {};
+        // Issuer
         shared_ptr<string> issuer_ {};
+        // The signature public key endpoint.
         shared_ptr<string> jwksEndpoint_ {};
+        // The logout endpoint.
         shared_ptr<string> logoutEndpoint_ {};
+        // The revocation endpoint.
         shared_ptr<string> revokeEndpoint_ {};
+        // The token endpoint.
         shared_ptr<string> tokenEndpoint_ {};
+        // The user information endpoint.
         shared_ptr<string> userinfoEndpoint_ {};
       };
 
@@ -310,15 +321,25 @@ namespace Models
 
 
     protected:
+      // 1
       shared_ptr<int32_t> accessTokenEffectiveTime_ {};
+      // 1
       shared_ptr<int32_t> codeEffectiveTime_ {};
+      // Specifies whether to enable authorized logon.
       shared_ptr<bool> enableAuthLogin_ {};
+      // The endpoints.
       shared_ptr<OidcSsoConfig::Endpoints> endpoints_ {};
+      // The grant scopes.
       shared_ptr<vector<string>> grantScopes_ {};
+      // The grant types.
       shared_ptr<vector<string>> grantTypes_ {};
+      // The signature type.
       shared_ptr<string> idTokenAlgorithmType_ {};
+      // 1
       shared_ptr<int32_t> idTokenEffectiveTime_ {};
+      // The URI whitelist.
       shared_ptr<vector<string>> redirectUris_ {};
+      // 1
       shared_ptr<int32_t> refreshTokenEffective_ {};
     };
 
@@ -357,9 +378,13 @@ namespace Models
 
 
   protected:
+    // The application ID.
     shared_ptr<string> appKey_ {};
+    // The application name.
     shared_ptr<string> name_ {};
+    // The OIDC configuration.
     shared_ptr<ThirdApp::OidcSsoConfig> oidcSsoConfig_ {};
+    // The secrets.
     shared_ptr<vector<ThirdApp::Secrets>> secrets_ {};
   };
 

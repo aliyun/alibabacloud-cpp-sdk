@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(IsResourceGroupWithOfficeSite, isResourceGroupWithOfficeSite_);
       DARABONBA_PTR_TO_JSON(Platform, platform_);
       DARABONBA_PTR_TO_JSON(ResourceClassification, resourceClassification_);
+      DARABONBA_PTR_TO_JSON(ResourceGroupDescription, resourceGroupDescription_);
       DARABONBA_PTR_TO_JSON(ResourceGroupName, resourceGroupName_);
     };
     friend void from_json(const Darabonba::Json& j, CreateResourceGroupRequest& obj) { 
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(IsResourceGroupWithOfficeSite, isResourceGroupWithOfficeSite_);
       DARABONBA_PTR_FROM_JSON(Platform, platform_);
       DARABONBA_PTR_FROM_JSON(ResourceClassification, resourceClassification_);
+      DARABONBA_PTR_FROM_JSON(ResourceGroupDescription, resourceGroupDescription_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupName, resourceGroupName_);
     };
     CreateResourceGroupRequest() = default ;
@@ -43,7 +45,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentType_ == nullptr
         && this->businessChannel_ == nullptr && this->enableAliyunResourceGroup_ == nullptr && this->isResourceGroupWithOfficeSite_ == nullptr && this->platform_ == nullptr && this->resourceClassification_ == nullptr
-        && this->resourceGroupName_ == nullptr; };
+        && this->resourceGroupDescription_ == nullptr && this->resourceGroupName_ == nullptr; };
     // agentType Field Functions 
     bool hasAgentType() const { return this->agentType_ != nullptr;};
     void deleteAgentType() { this->agentType_ = nullptr;};
@@ -86,6 +88,13 @@ namespace Models
     inline CreateResourceGroupRequest& setResourceClassification(string resourceClassification) { DARABONBA_PTR_SET_VALUE(resourceClassification_, resourceClassification) };
 
 
+    // resourceGroupDescription Field Functions 
+    bool hasResourceGroupDescription() const { return this->resourceGroupDescription_ != nullptr;};
+    void deleteResourceGroupDescription() { this->resourceGroupDescription_ = nullptr;};
+    inline string getResourceGroupDescription() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupDescription_, "") };
+    inline CreateResourceGroupRequest& setResourceGroupDescription(string resourceGroupDescription) { DARABONBA_PTR_SET_VALUE(resourceGroupDescription_, resourceGroupDescription) };
+
+
     // resourceGroupName Field Functions 
     bool hasResourceGroupName() const { return this->resourceGroupName_ != nullptr;};
     void deleteResourceGroupName() { this->resourceGroupName_ = nullptr;};
@@ -100,9 +109,12 @@ namespace Models
     shared_ptr<bool> enableAliyunResourceGroup_ {};
     // > This parameter is not publicly available.
     shared_ptr<int64_t> isResourceGroupWithOfficeSite_ {};
-    // For WUYING Workspace Enterprise Edition, set this parameter to `AliyunConsole`. Other platforms are not supported.
+    // For Elastic Desktop Service (EDS) Enterprise Edition, set the value to `AliyunConsole`. Other platforms are not supported.
     shared_ptr<string> platform_ {};
+    // The resource category.
     shared_ptr<string> resourceClassification_ {};
+    // The description of the resource group. This parameter is optional. The description can be up to 500 characters in length and is saved as-is.
+    shared_ptr<string> resourceGroupDescription_ {};
     // The name of the resource group.
     shared_ptr<string> resourceGroupName_ {};
   };

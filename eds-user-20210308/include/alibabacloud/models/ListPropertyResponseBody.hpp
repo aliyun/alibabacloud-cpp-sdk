@@ -95,9 +95,9 @@ namespace Models
 
 
       protected:
-        // The value of the property.
+        // The property value.
         shared_ptr<string> propertyValue_ {};
-        // The ID of the property value.
+        // The property value ID.
         shared_ptr<int64_t> propertyValueId_ {};
       };
 
@@ -127,11 +127,11 @@ namespace Models
 
 
     protected:
-      // The ID of the property.
+      // The property ID.
       shared_ptr<int64_t> propertyId_ {};
-      // The name of the property.
+      // The property name.
       shared_ptr<string> propertyKey_ {};
-      // Details about the property values.
+      // The property value information.
       shared_ptr<vector<Properties::PropertyValues>> propertyValues_ {};
     };
 
@@ -161,11 +161,11 @@ namespace Models
 
 
   protected:
-    // The token that is used for the next query. If this parameter is empty, all results have been returned.
+    // The token used to start the next query. An empty NextToken indicates that no more results are available.
     shared_ptr<string> nextToken_ {};
-    // The information about the properties.
+    // The property information.
     shared_ptr<vector<ListPropertyResponseBody::Properties>> properties_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

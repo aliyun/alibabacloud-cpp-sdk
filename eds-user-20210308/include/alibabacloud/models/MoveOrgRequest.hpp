@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // Channel
+    // The business channel.
     shared_ptr<string> businessChannel_ {};
-    // The ID of the parent organization.
+    // The ID of the target parent organization.
     // 
     // This parameter is required.
     shared_ptr<string> newParentOrgId_ {};
-    // The ID of the organization that you want to move.
+    // The ID of the organization to be moved.
     // 
     // This parameter is required.
     shared_ptr<string> orgId_ {};

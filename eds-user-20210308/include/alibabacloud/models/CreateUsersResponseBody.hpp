@@ -122,7 +122,7 @@ namespace Models
       protected:
         // The email address.
         shared_ptr<string> email_ {};
-        // The user name.
+        // The username.
         shared_ptr<string> endUserId_ {};
         // The error code.
         shared_ptr<string> errorCode_ {};
@@ -199,13 +199,13 @@ namespace Models
       protected:
         // The email address.
         shared_ptr<string> email_ {};
-        // The user name.
+        // The username.
         shared_ptr<string> endUserId_ {};
         // The phone number.
         shared_ptr<string> phone_ {};
-        // The display name.
+        // The display name of the user.
         shared_ptr<string> realNickName_ {};
-        // The user\\"s remark.
+        // The user remarks.
         shared_ptr<string> remark_ {};
       };
 
@@ -230,9 +230,9 @@ namespace Models
 
 
     protected:
-      // The convenience accounts that were successfully created.
+      // The information about the convenience accounts that are created.
       shared_ptr<vector<CreateResult::CreatedUsers>> createdUsers_ {};
-      // The convenience accounts that failed to be created.
+      // The information about the convenience accounts that failed to be created.
       shared_ptr<vector<CreateResult::FailedUsers>> failedUsers_ {};
     };
 
@@ -262,8 +262,9 @@ namespace Models
 
 
   protected:
+    // Indicates whether all convenience accounts are created.
     shared_ptr<bool> allSucceed_ {};
-    // The result of creating convenience accounts.
+    // The result of the convenience account creation operation.
     shared_ptr<CreateUsersResponseBody::CreateResult> createResult_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

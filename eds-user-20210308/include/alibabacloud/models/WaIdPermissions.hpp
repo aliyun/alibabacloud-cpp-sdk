@@ -79,10 +79,15 @@ namespace Models
 
 
   protected:
+    // code
     shared_ptr<string> code_ {};
+    // basic
     shared_ptr<bool> isBasicChild_ {};
+    // name
     shared_ptr<string> name_ {};
+    // subPermissions
     shared_ptr<vector<WaIdPermissions>> subPermissions_ {};
+    // type
     shared_ptr<string> type_ {};
   };
 

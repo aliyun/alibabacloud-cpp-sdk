@@ -44,6 +44,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(Policies, policies_);
         DARABONBA_PTR_TO_JSON(ResourceCount, resourceCount_);
+        DARABONBA_PTR_TO_JSON(ResourceGroupDescription, resourceGroupDescription_);
         DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
         DARABONBA_PTR_TO_JSON(ResourceGroupName, resourceGroupName_);
         DARABONBA_PTR_TO_JSON(Timers, timers_);
@@ -56,6 +57,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(Policies, policies_);
         DARABONBA_PTR_FROM_JSON(ResourceCount, resourceCount_);
+        DARABONBA_PTR_FROM_JSON(ResourceGroupDescription, resourceGroupDescription_);
         DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
         DARABONBA_PTR_FROM_JSON(ResourceGroupName, resourceGroupName_);
         DARABONBA_PTR_FROM_JSON(Timers, timers_);
@@ -136,12 +138,15 @@ namespace Models
 
 
       protected:
+        // The association status between the scheduled task and the resource group.
         shared_ptr<string> bindStatus_ {};
-        // The scheduled task ID.
+        // The ID of the scheduled task.
         shared_ptr<string> id_ {};
-        // The scheduled task name.
+        // The name of the scheduled task.
         shared_ptr<string> name_ {};
+        // The running status of the scheduled task.
         shared_ptr<string> timerStatus_ {};
+        // The type of the scheduled task.
         shared_ptr<string> type_ {};
       };
 
@@ -192,9 +197,9 @@ namespace Models
 
 
       protected:
-        // The policy ID.
+        // The ID of the policy.
         shared_ptr<string> id_ {};
-        // Indicates whether the policy is the default policy.
+        // Specifies whether the policy is the default policy.
         shared_ptr<bool> isDefault_ {};
         // The policy name.
         shared_ptr<string> name_ {};
@@ -247,14 +252,17 @@ namespace Models
 
 
       protected:
+        // The ID of the application rule.
         shared_ptr<string> id_ {};
+        // The name of the application rule.
         shared_ptr<string> name_ {};
+        // The type of the application rule.
         shared_ptr<int32_t> type_ {};
       };
 
       virtual bool empty() const override { return this->agentType_ == nullptr
         && this->aliyunResourceGroupId_ == nullptr && this->appRules_ == nullptr && this->authCount_ == nullptr && this->createTime_ == nullptr && this->policies_ == nullptr
-        && this->resourceCount_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceGroupName_ == nullptr && this->timers_ == nullptr; };
+        && this->resourceCount_ == nullptr && this->resourceGroupDescription_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceGroupName_ == nullptr && this->timers_ == nullptr; };
       // agentType Field Functions 
       bool hasAgentType() const { return this->agentType_ != nullptr;};
       void deleteAgentType() { this->agentType_ = nullptr;};
@@ -308,6 +316,13 @@ namespace Models
       inline ResourceGroup& setResourceCount(string resourceCount) { DARABONBA_PTR_SET_VALUE(resourceCount_, resourceCount) };
 
 
+      // resourceGroupDescription Field Functions 
+      bool hasResourceGroupDescription() const { return this->resourceGroupDescription_ != nullptr;};
+      void deleteResourceGroupDescription() { this->resourceGroupDescription_ = nullptr;};
+      inline string getResourceGroupDescription() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupDescription_, "") };
+      inline ResourceGroup& setResourceGroupDescription(string resourceGroupDescription) { DARABONBA_PTR_SET_VALUE(resourceGroupDescription_, resourceGroupDescription) };
+
+
       // resourceGroupId Field Functions 
       bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
       void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
@@ -332,26 +347,30 @@ namespace Models
 
 
     protected:
+      // The agent subtype of the DesktopAgent resource group. Valid values: JVSClaw and HermesAgent.
       shared_ptr<string> agentType_ {};
-      // The Alibaba Cloud resource group ID.
+      // The ID of the Alibaba Cloud resource group.
       shared_ptr<string> aliyunResourceGroupId_ {};
+      // The list of application rules associated with the resource group.
       shared_ptr<vector<ResourceGroup::AppRules>> appRules_ {};
       // The number of administrators authorized for the resource group.
       shared_ptr<string> authCount_ {};
-      // The creation time.
+      // The creation time in ISO 8601 UTC format.
       shared_ptr<string> createTime_ {};
       // > The policies associated with the resource group.
-      // > - Associated policies take effect on cloud computers in the resource group. If multiple policies are associated, they take effect based on policy priority.
-      // > - If a cloud computer in the resource group already has other policies specified, the policies associated with the resource group take effect first.
+      // > - The associated policies take effect on the cloud computers in the resource group. If multiple policies exist, they take effect based on their priorities.
+      // > - If a cloud computer in the resource group is already assigned another policy, the policy associated with the resource group takes precedence.
       shared_ptr<vector<ResourceGroup::Policies>> policies_ {};
       // The resource count in the resource group.
       shared_ptr<string> resourceCount_ {};
-      // The resource group ID.
+      // The description of the resource group. If not set, an empty string is returned.
+      shared_ptr<string> resourceGroupDescription_ {};
+      // The ID of the resource group.
       shared_ptr<string> resourceGroupId_ {};
-      // The resource group name.
+      // The name of the resource group.
       shared_ptr<string> resourceGroupName_ {};
-      // > The associated scheduled tasks.
-      // > - Associated scheduled tasks take effect on cloud computers in the resource group. If a cloud computer in the resource group already has other scheduled tasks associated, the tasks associated with the resource group take effect first.
+      // > The scheduled tasks associated with the resource group.
+      // > - The associated scheduled tasks take effect on the cloud computers in the resource group. If a cloud computer in the resource group is already associated with another scheduled task, the task associated with the resource group takes precedence.
       shared_ptr<vector<ResourceGroup::Timers>> timers_ {};
     };
 
@@ -381,7 +400,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The list of resource group information.
     shared_ptr<vector<DescribeResourceGroupsResponseBody::ResourceGroup>> resourceGroup_ {};

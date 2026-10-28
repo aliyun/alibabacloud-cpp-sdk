@@ -106,9 +106,9 @@ namespace Models
 
 
   protected:
-    // The organizations.
+    // The list of organization information.
     shared_ptr<vector<DescribeOrgByLayerResponseBody::Orgs>> orgs_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

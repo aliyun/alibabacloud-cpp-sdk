@@ -114,9 +114,9 @@ namespace Models
 
 
         protected:
-          // The value of the property.
+          // The property value.
           shared_ptr<string> propertyValue_ {};
-          // The ID of the property value.
+          // The property value ID.
           shared_ptr<int64_t> propertyValueId_ {};
         };
 
@@ -180,9 +180,9 @@ namespace Models
           shared_ptr<string> errorCode_ {};
           // The error message.
           shared_ptr<string> errorMessage_ {};
-          // The ID of the property.
+          // The property ID.
           shared_ptr<int64_t> propertyId_ {};
-          // The value of the property.
+          // The property value.
           shared_ptr<string> propertyValue_ {};
         };
 
@@ -207,9 +207,9 @@ namespace Models
 
 
       protected:
-        // The property values that failed to be modified.
+        // The property values that failed to update.
         shared_ptr<vector<SavePropertyValueModel::FailedPropertyValues>> failedPropertyValues_ {};
-        // The property values that were modified.
+        // The successfully updated property values.
         shared_ptr<vector<SavePropertyValueModel::SavePropertyValues>> savePropertyValues_ {};
       };
 
@@ -239,11 +239,11 @@ namespace Models
 
 
     protected:
-      // The ID of the property.
+      // The property ID.
       shared_ptr<int64_t> propertyId_ {};
-      // The name of the property.
+      // The property name.
       shared_ptr<string> propertyKey_ {};
-      // The result of the property value modification.
+      // The property value update result.
       shared_ptr<UpdateResult::SavePropertyValueModel> savePropertyValueModel_ {};
     };
 
@@ -266,9 +266,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The result of the modification.
+    // The update result.
     shared_ptr<UpdatePropertyResponseBody::UpdateResult> updateResult_ {};
   };
 

@@ -106,20 +106,21 @@ namespace Models
 
 
   protected:
-    // The channel.
+    // The business channel.
     shared_ptr<string> businessChannel_ {};
+    // The list of organization IDs to query.
     shared_ptr<vector<string>> includeOrgIds_ {};
     // Specifies whether to query all subordinate organizations when a parent organization is specified.
     shared_ptr<bool> isQueryAllSubOrgs_ {};
-    // The maximum number of results to return. Valid values: 1 to 100.    
-    // Default value: 100.
+    // The maximum number of results to return. Valid values: 1 to 100. Default value: 100.
     shared_ptr<int64_t> maxResults_ {};
-    // The pagination token. Set this parameter to the value of NextToken that was returned in the previous API call.
+    // The pagination token. Set the value to the NextToken parameter returned by the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The organization name.
+    // The name of the organization.
     shared_ptr<string> orgName_ {};
-    // The parent organization ID.
+    // The ID of the parent organization.
     shared_ptr<string> parentOrgId_ {};
+    // The switch mapping for additional response information. This parameter controls whether to return organization paths and resource policy information.
     shared_ptr<string> showExtrasShrink_ {};
   };
 

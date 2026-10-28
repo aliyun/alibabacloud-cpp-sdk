@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Channel
+    // The business channel.
     shared_ptr<string> businessChannel_ {};
   };
 

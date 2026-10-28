@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of convenience users that are associated with the property.
+    // The number of convenience accounts associated with the specified custom property.
     shared_ptr<int64_t> useCount_ {};
   };
 

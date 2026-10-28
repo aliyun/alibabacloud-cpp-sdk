@@ -89,18 +89,13 @@ namespace Models
 
 
     protected:
-      // The reason why modification is not allowed.
+      // The reason why editing is not allowed.
       shared_ptr<string> aliasEditDisabledReason_ {};
-      // Indicates whether modification is allowed.
+      // Indicates whether editing is allowed.
       shared_ptr<bool> aliasEditable_ {};
       // The source of the organization ID.
-      // 
-      // Valid values:
-      // 
-      // *   Generated: auto-generated.
-      // *   Customized: user-defined.
       shared_ptr<string> aliasSourceType_ {};
-      // The time window during which modification is allowed.
+      // The time when editing is allowed, in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> nextModifyTime_ {};
     };
 
@@ -130,9 +125,9 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The returned data.
     shared_ptr<InitTenantAliasResponseBody::AliasInfo> aliasInfo_ {};
-    // The generated ID of the organization.
+    // The generated organization ID.
     shared_ptr<string> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

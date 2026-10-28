@@ -66,17 +66,15 @@ namespace Models
 
 
   protected:
-    // Channel
+    // The business channel.
     shared_ptr<string> businessChannel_ {};
-    // The email address of the convenience user. For a user-activated convenience user, the email address or mobile number must be verified. You can choose to verify the email address or the mobile number. For an administrator-activated convenience user, the email address and mobile number can be left empty.
+    // The email address of the convenience account.
     shared_ptr<string> email_ {};
-    // The name of the user.
+    // The user ID of the convenience account, which corresponds to the username field displayed in the console.
     // 
     // This parameter is required.
     shared_ptr<string> endUserId_ {};
-    // The mobile number of the convenience user. For a user-activated convenience user, the email address or mobile number must be verified. You can choose to verify the email address or the mobile number. For an administrator-activated convenience user, the email address and mobile number can be left empty.
-    // 
-    // >  Accounts created on the International site (alibabacloud.com) do not support mobile number-based authentication.
+    // The mobile phone number of the convenience account.
     shared_ptr<string> phone_ {};
   };
 

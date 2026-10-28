@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The number of Active Directory (AD) users.
     shared_ptr<int32_t> adUserCount_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

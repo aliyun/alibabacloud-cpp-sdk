@@ -114,9 +114,9 @@ namespace Models
 
 
         protected:
-          // The value of the property.
+          // The property value.
           shared_ptr<string> propertyValue_ {};
-          // The ID of the property value.
+          // The property value ID.
           shared_ptr<int64_t> propertyValueId_ {};
         };
 
@@ -180,9 +180,9 @@ namespace Models
           shared_ptr<string> errorCode_ {};
           // The error message.
           shared_ptr<string> errorMessage_ {};
-          // The ID of the property value.
+          // The property value ID.
           shared_ptr<int64_t> propertyId_ {};
-          // The value of the property.
+          // The property value.
           shared_ptr<string> propertyValue_ {};
         };
 
@@ -209,7 +209,7 @@ namespace Models
       protected:
         // The property values that failed to be created.
         shared_ptr<vector<SavePropertyValueModel::FailedPropertyValues>> failedPropertyValues_ {};
-        // Details of the property values that were created.
+        // The successfully created property values.
         shared_ptr<vector<SavePropertyValueModel::SavePropertyValues>> savePropertyValues_ {};
       };
 
@@ -239,11 +239,11 @@ namespace Models
 
 
     protected:
-      // The ID of the property.
+      // The property ID.
       shared_ptr<int64_t> propertyId_ {};
-      // The name of the property.
+      // The property key.
       shared_ptr<string> propertyKey_ {};
-      // The result of creating the property value.
+      // The property value creation result.
       shared_ptr<CreateResult::SavePropertyValueModel> savePropertyValueModel_ {};
     };
 
@@ -266,9 +266,9 @@ namespace Models
 
 
   protected:
-    // The result of creating the property.
+    // The creation result.
     shared_ptr<CreatePropertyResponseBody::CreateResult> createResult_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

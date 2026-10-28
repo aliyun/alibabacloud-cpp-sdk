@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the user group.
+    // The user group ID.
     shared_ptr<string> groupId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

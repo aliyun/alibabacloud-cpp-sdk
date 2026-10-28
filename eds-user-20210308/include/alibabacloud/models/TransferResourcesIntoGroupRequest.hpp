@@ -83,8 +83,11 @@ namespace Models
 
 
     protected:
+      // The region ID of the resource.
       shared_ptr<string> regionId_ {};
+      // The resource ID.
       shared_ptr<string> resourceId_ {};
+      // The resource type.
       shared_ptr<string> resourceType_ {};
     };
 
@@ -121,9 +124,13 @@ namespace Models
 
 
   protected:
+    // The channel.
     shared_ptr<string> businessChannel_ {};
+    // The WUYING product type.
     shared_ptr<string> platform_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
+    // The list of resource objects.
     shared_ptr<vector<TransferResourcesIntoGroupRequest::Resources>> resources_ {};
   };
 

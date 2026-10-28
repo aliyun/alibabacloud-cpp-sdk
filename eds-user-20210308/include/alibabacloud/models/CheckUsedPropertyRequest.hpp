@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Channel
+    // The channel.
     shared_ptr<string> businessChannel_ {};
-    // The ID of the property. You can call the [ListProperty](https://help.aliyun.com/document_detail/410890.html) operation to query the property ID.
+    // The property ID. You can call the [ListProperty](~~ListProperty~~) operation to query property IDs.
     // 
     // This parameter is required.
     shared_ptr<int64_t> propertyId_ {};

@@ -60,13 +60,13 @@ namespace Models
 
 
   protected:
-    // Channel
+    // The channel.
     shared_ptr<string> businessChannel_ {};
-    // The property name.
+    // The property key.
     // 
     // This parameter is required.
     shared_ptr<string> propertyKey_ {};
-    // The values of the property. You can specify up to 50 values for a property.
+    // The property values. You can add up to 50 different property values to a single property.
     shared_ptr<vector<string>> propertyValues_ {};
   };
 

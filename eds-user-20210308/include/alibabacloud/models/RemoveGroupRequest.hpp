@@ -60,11 +60,11 @@ namespace Models
 
 
   protected:
-    // Channel
+    // The business channel.
     shared_ptr<string> businessChannel_ {};
-    // The ID of the user group to be deleted.
+    // The ID of the user group to delete.
     shared_ptr<string> groupId_ {};
-    // The IDs of the user groups to be deleted.
+    // The IDs of the user groups to delete.
     shared_ptr<vector<string>> groupIds_ {};
   };
 

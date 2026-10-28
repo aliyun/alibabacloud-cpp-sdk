@@ -105,9 +105,9 @@ namespace Models
 
 
     protected:
-      // The property key.
+      // The name of the attribute.
       shared_ptr<string> propertyKey_ {};
-      // The property value.
+      // The values of the attribute.
       shared_ptr<string> propertyValues_ {};
     };
 
@@ -149,9 +149,9 @@ namespace Models
 
 
     protected:
-      // The property ID.
+      // The ID of the attribute.
       shared_ptr<int64_t> propertyId_ {};
-      // The property value ID.
+      // The IDs of the attribute values.
       shared_ptr<string> propertyValueIds_ {};
     };
 
@@ -193,9 +193,9 @@ namespace Models
 
 
     protected:
-      // The field by which to sort the results.
+      // The field by which to sort.
       shared_ptr<string> orderField_ {};
-      // The sort order.
+      // The sort order, which can be ascending or descending.
       shared_ptr<string> orderType_ {};
     };
 
@@ -354,38 +354,41 @@ namespace Models
   protected:
     // The channel.
     shared_ptr<string> businessChannel_ {};
-    // The usernames (`EndUserId`) to exclude by exact match.
+    // The list of usernames (EndUserIds) to exclude by exact match.
     shared_ptr<vector<string>> excludeEndUserIds_ {};
-    // The string for a fuzzy search on the username (`EndUserId`) and email address (`Email`). The wildcard character (`*`) is supported. For example, if you set this parameter to `a*m`, the query returns all results where the username or email address starts with `a` and ends with `m`.
+    // The fuzzy search string. This parameter supports matching the username (EndUserId) and email address (Email). Wildcards (*) are supported. For example, if you set this parameter to a*m, all results where the username or email address starts with a and ends with m are returned.
     shared_ptr<string> filter_ {};
+    // The fuzzy match condition mapping for user information. This parameter supports fields such as the username, remarks, phone number, email address, nickname, and employee ID.
     shared_ptr<map<string, string>> filterMap_ {};
-    // Specifies whether to return the number of cloud desktops that are assigned to the user.
+    // Specifies whether to return the number of cloud computers assigned to the user.
     shared_ptr<bool> includeDesktopCount_ {};
-    // Specifies whether to return the number of desktop groups that are assigned to the user.
+    // Specifies whether to return the number of cloud computer pools assigned to the user.
     shared_ptr<bool> includeDesktopGroupCount_ {};
+    // The list of convenience account usernames to include in the query results.
     shared_ptr<vector<string>> includeEndUserIds_ {};
-    // Specifies whether to include organization information in the response.
+    // Specifies whether to include organization information.
     shared_ptr<bool> includeOrgInfo_ {};
-    // Specifies whether to include the supported logon types in the response.
+    // Specifies whether to include the supported logon types.
     shared_ptr<bool> includeSupportIdps_ {};
     // Specifies whether to query all sub-organizations.
     shared_ptr<bool> isQueryAllSubOrgs_ {};
-    // The number of entries per page. If you specify a value greater than 100, the system automatically sets this parameter to 100.
+    // The number of entries per page in a paged query. If the value exceeds 100, it is automatically reset to 100.
     shared_ptr<int64_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. If the number of results exceeds the value of the `MaxResults` parameter, a `NextToken` is returned. You can use the `NextToken` to query the next page of results.
+    // The token for the next query. You do not need to specify this parameter when you call this operation for the first time. If the response does not contain all results, a non-empty NextToken is returned. You can use the returned NextToken in subsequent queries to obtain the remaining results.
     shared_ptr<string> nextToken_ {};
-    // The sorting parameters.
+    // The supported sorting parameters.
     shared_ptr<FilterUsersRequest::OrderParam> orderParam_ {};
-    // The organization ID.
+    // The ID of the enterprise organization.
     shared_ptr<string> orgId_ {};
     // The account activation type.
     shared_ptr<string> ownerType_ {};
-    // The user properties for a fuzzy search.
+    // The list of user attributes for fuzzy queries.
     shared_ptr<vector<FilterUsersRequest::PropertyFilterParam>> propertyFilterParam_ {};
-    // The information about property keys and property values.
+    // The list of attribute names and attribute values.
     shared_ptr<vector<FilterUsersRequest::PropertyKeyValueFilterParam>> propertyKeyValueFilterParam_ {};
+    // The switch mapping for additional response information. This parameter controls whether to include desktop policy information.
     shared_ptr<map<string, string>> showExtras_ {};
-    // The user status by which to filter the results.
+    // The user status used to filter results.
     shared_ptr<int32_t> status_ {};
   };
 

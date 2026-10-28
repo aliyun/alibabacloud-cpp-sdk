@@ -74,9 +74,9 @@ namespace Models
 
 
     protected:
-      // The new property value.
+      // The updated property value.
       shared_ptr<string> propertyValue_ {};
-      // The ID of property value that you want to modify. You can call the [ListProperty](https://help.aliyun.com/document_detail/410890.html) operation to query the property value ID.
+      // The ID of the updated property value.
       shared_ptr<int64_t> propertyValueId_ {};
     };
 
@@ -113,17 +113,19 @@ namespace Models
 
 
   protected:
-    // Channel
+    // The business channel.
     shared_ptr<string> businessChannel_ {};
-    // The ID of the property that you want to modify. You can call the [ListProperty](https://help.aliyun.com/document_detail/410890.html) operation to query the property ID.
+    // The ID of the property to update. You can call [ListProperty](~~ListProperty~~) to query the property ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> propertyId_ {};
-    // The new property name.
+    // The updated property name.
     // 
     // This parameter is required.
     shared_ptr<string> propertyKey_ {};
-    // The values of property.
+    // The list of all updated property values for the property.
+    // 
+    // >Notice: The property values specified here overwrite the existing property values instead of appending to them.
     shared_ptr<vector<UpdatePropertyRequest::PropertyValues>> propertyValues_ {};
   };
 

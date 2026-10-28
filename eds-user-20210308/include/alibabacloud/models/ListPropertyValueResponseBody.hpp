@@ -70,9 +70,9 @@ namespace Models
 
 
     protected:
-      // The value of the property.
+      // The property value.
       shared_ptr<string> propertyValue_ {};
-      // The ID of the property value.
+      // The property value ID.
       shared_ptr<int64_t> propertyValueId_ {};
     };
 
@@ -95,9 +95,9 @@ namespace Models
 
 
   protected:
-    // Details about property values.
+    // The list of property values.
     shared_ptr<vector<ListPropertyValueResponseBody::PropertyValueInfos>> propertyValueInfos_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

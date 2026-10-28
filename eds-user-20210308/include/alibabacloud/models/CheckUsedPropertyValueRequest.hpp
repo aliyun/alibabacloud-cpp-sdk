@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // Channel
+    // The channel.
     shared_ptr<string> businessChannel_ {};
-    // The property ID. You can call the [ListProperty](~~ListProperty~~) operation to query property ID.
+    // The property ID. You can call the [ListProperty](~~ListProperty~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<int64_t> propertyId_ {};
-    // The ID of the property value. You can call the [ListProperty](~~ListProperty~~) operation to query the ID of the property value.
+    // The property value ID. You can call the [ListProperty](~~ListProperty~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<int64_t> propertyValueId_ {};

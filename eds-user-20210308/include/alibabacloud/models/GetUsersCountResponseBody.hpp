@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The number of user groups.
     shared_ptr<int32_t> groupCount_ {};
+    // The user quota.
     shared_ptr<int32_t> maxUserNumber_ {};
+    // The number of organizations.
     shared_ptr<int32_t> orgCount_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The number of users.
     shared_ptr<int32_t> userCount_ {};
   };
 

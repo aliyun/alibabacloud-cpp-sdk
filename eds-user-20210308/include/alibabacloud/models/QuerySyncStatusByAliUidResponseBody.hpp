@@ -141,21 +141,21 @@ namespace Models
 
 
     protected:
-      // Alibaba Cloud account ID.
+      // The Alibaba Cloud account ID.
       shared_ptr<int64_t> aliUid_ {};
       // The enterprise ID.
       shared_ptr<string> corpId_ {};
-      // Creation Time.
+      // The creation time.
       shared_ptr<string> gmtCreated_ {};
-      // The updated at time.
+      // The modification time.
       shared_ptr<string> gmtModified_ {};
-      // Auto increment ID.
+      // The auto-increment ID.
       shared_ptr<int64_t> id_ {};
-      // The latest start time.
+      // The last start time. The format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> latestBeginTime_ {};
-      // The latest end time, regardless of whether the operation succeeded or failed.
+      // The last end time, regardless of success or failure. The format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> latestEndTime_ {};
-      // The latest success time.
+      // The last success time. The format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> latestSuccessTime_ {};
       // The user synchronization status.
       shared_ptr<string> status_ {};
@@ -208,17 +208,17 @@ namespace Models
 
 
   protected:
-    // System status code.
+    // The system status code.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<QuerySyncStatusByAliUidResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message returned when the request fails.
+    // The error message returned if the request fails.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

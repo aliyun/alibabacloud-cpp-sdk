@@ -15,10 +15,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const RemoveUsersRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BusinessChannel, businessChannel_);
+      DARABONBA_PTR_TO_JSON(UnbindDesktops, unbindDesktops_);
       DARABONBA_PTR_TO_JSON(Users, users_);
     };
     friend void from_json(const Darabonba::Json& j, RemoveUsersRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BusinessChannel, businessChannel_);
+      DARABONBA_PTR_FROM_JSON(UnbindDesktops, unbindDesktops_);
       DARABONBA_PTR_FROM_JSON(Users, users_);
     };
     RemoveUsersRequest() = default ;
@@ -33,12 +35,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->businessChannel_ == nullptr
-        && this->users_ == nullptr; };
+        && this->unbindDesktops_ == nullptr && this->users_ == nullptr; };
     // businessChannel Field Functions 
     bool hasBusinessChannel() const { return this->businessChannel_ != nullptr;};
     void deleteBusinessChannel() { this->businessChannel_ = nullptr;};
     inline string getBusinessChannel() const { DARABONBA_PTR_GET_DEFAULT(businessChannel_, "") };
     inline RemoveUsersRequest& setBusinessChannel(string businessChannel) { DARABONBA_PTR_SET_VALUE(businessChannel_, businessChannel) };
+
+
+    // unbindDesktops Field Functions 
+    bool hasUnbindDesktops() const { return this->unbindDesktops_ != nullptr;};
+    void deleteUnbindDesktops() { this->unbindDesktops_ = nullptr;};
+    inline bool getUnbindDesktops() const { DARABONBA_PTR_GET_DEFAULT(unbindDesktops_, false) };
+    inline RemoveUsersRequest& setUnbindDesktops(bool unbindDesktops) { DARABONBA_PTR_SET_VALUE(unbindDesktops_, unbindDesktops) };
 
 
     // users Field Functions 
@@ -51,9 +60,10 @@ namespace Models
 
 
   protected:
-    // Channel
+    // The business channel.
     shared_ptr<string> businessChannel_ {};
-    // The usernames of the convenience users that you want to remove.
+    shared_ptr<bool> unbindDesktops_ {};
+    // The usernames of the convenience users to delete.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> users_ {};

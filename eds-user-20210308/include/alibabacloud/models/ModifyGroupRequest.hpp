@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // Channel
+    // The channel.
     shared_ptr<string> businessChannel_ {};
     // The new description of the user group.
     shared_ptr<string> description_ {};
@@ -74,7 +74,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // The name of the new user group.
+    // The new name of the user group.
     // 
     // This parameter is required.
     shared_ptr<string> newGroupName_ {};

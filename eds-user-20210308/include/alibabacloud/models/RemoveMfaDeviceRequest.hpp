@@ -59,9 +59,9 @@ namespace Models
   protected:
     // The address of the AD office network.
     shared_ptr<string> adDomain_ {};
-    // Channel
+    // The channel.
     shared_ptr<string> businessChannel_ {};
-    // The serial number of the virtual MFA device. You can call the [DescribeMfaDevices](~~DescribeMfaDevices~~) operation to get this information.
+    // The serial number of the virtual MFA device. You can call the [DescribeMfaDevices](~~DescribeMfaDevices~~) operation to obtain the serial number.
     // 
     // This parameter is required.
     shared_ptr<string> serialNumber_ {};

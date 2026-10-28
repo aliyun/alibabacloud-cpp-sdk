@@ -101,7 +101,9 @@ namespace Models
 
 
       protected:
+        // The resource policy ID.
         shared_ptr<string> policyId_ {};
+        // The Policy Name.
         shared_ptr<string> policyName_ {};
       };
 
@@ -152,17 +154,17 @@ namespace Models
 
 
     protected:
-      // The access type of the organization node. Valid values:
-      // - MANAGEABLE: indicates a manageable node.
-      // - PATH_ONLY: indicates a node used only to display the full path to the root organization.
+      // The access type of the organization node. A value of MANAGEABLE indicates a manageable node. A value of PATH_ONLY indicates that the node is used only to display the full path to the root organization.
       shared_ptr<string> accessType_ {};
       // The organization ID.
       shared_ptr<string> orgId_ {};
-      // The organization name.
+      // The name of the organization.
       shared_ptr<string> orgName_ {};
+      // The name path from the root organization to the current organization.
       shared_ptr<string> orgNamePath_ {};
-      // The parent organization ID.
+      // The ID of the parent organization.
       shared_ptr<string> parentOrgId_ {};
+      // The list of resource policies associated with the organization.
       shared_ptr<vector<Orgs::ResourcePolicyList>> resourcePolicyList_ {};
     };
 
@@ -192,7 +194,7 @@ namespace Models
 
 
   protected:
-    // The pagination token. Set this parameter to the value of NextToken that was returned in the previous API call.
+    // The pagination token. Set the value to the NextToken parameter returned by the previous API call.
     shared_ptr<string> nextToken_ {};
     // The list of organizations.
     shared_ptr<vector<DescribeOrgsResponseBody::Orgs>> orgs_ {};

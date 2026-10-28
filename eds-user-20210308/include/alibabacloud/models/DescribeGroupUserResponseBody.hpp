@@ -147,25 +147,25 @@ namespace Models
 
 
     protected:
-      // >  This field is deprecated.
+      // > **[Deprecated]** This field is deprecated.
       shared_ptr<string> address_ {};
-      // >  This field is deprecated.
+      // > **[Deprecated]** This field is deprecated.
       shared_ptr<string> avatar_ {};
       // The email address.
       shared_ptr<string> email_ {};
-      // The user name.
+      // The username.
       shared_ptr<string> endUserId_ {};
       // The time when the user was created.
       shared_ptr<string> gmtCreated_ {};
-      // The time when the user was added to the user group.
+      // The time when the member was added.
       shared_ptr<string> gmtJoinGroup_ {};
-      // >  This field is deprecated.
+      // > **[Deprecated]** This field is deprecated.
       shared_ptr<string> jobNumber_ {};
       // The display name.
       shared_ptr<string> nickName_ {};
-      // The mobile number.
+      // The mobile phone number.
       shared_ptr<string> phone_ {};
-      // The remarks on the user.
+      // The remarks of the user.
       shared_ptr<string> remark_ {};
     };
 
@@ -216,11 +216,11 @@ namespace Models
 
 
     protected:
-      // The user group ID.
+      // The ID of the user group.
       shared_ptr<string> groupId_ {};
       // The name of the user group.
       shared_ptr<string> groupName_ {};
-      // The number of members in the user group.
+      // The number of members.
       shared_ptr<string> userCount_ {};
     };
 
@@ -259,13 +259,13 @@ namespace Models
 
 
   protected:
-    // >  This field is deprecated.
+    // > **[Deprecated]** This field is deprecated.
     shared_ptr<vector<DescribeGroupUserResponseBody::Groups>> groups_ {};
-    // The token for the next query. If NextToken is empty, all results have been queried.
+    // The token for the next query. If NextToken is empty, all results have been returned.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The members.
+    // The list of members.
     shared_ptr<vector<DescribeGroupUserResponseBody::Users>> users_ {};
   };
 

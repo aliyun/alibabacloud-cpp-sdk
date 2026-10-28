@@ -60,13 +60,13 @@ namespace Models
 
 
   protected:
-    // Channel
+    // The channel.
     shared_ptr<string> businessChannel_ {};
-    // The user IDs.
+    // The list of user IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> endUserIds_ {};
-    // The organization ID.
+    // The ID of the organizational structure.
     // 
     // This parameter is required.
     shared_ptr<string> orgId_ {};

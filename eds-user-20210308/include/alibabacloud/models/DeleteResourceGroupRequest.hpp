@@ -60,15 +60,15 @@ namespace Models
 
 
   protected:
-    // Channel
+    // The channel.
     shared_ptr<string> businessChannel_ {};
-    // >  The ID of the resource group that you want to delete.
+    // The ID of the resource group to delete.
     // 
-    // *   If you also specify ResourceGroupIds, both parameters take effect.
+    // > If the `ResourceGroupIds` parameter is not empty, both parameters take effect.
     shared_ptr<string> resourceGroupId_ {};
-    // >  The IDs of the resource groups that you want to delete.
+    // The list of IDs of the resource groups to delete.
     // 
-    // *   If you also specify ResourceGroupId, both parameters take effect.
+    // > If the `ResourceGroupIds` parameter is not empty, both parameters take effect.
     shared_ptr<vector<string>> resourceGroupIds_ {};
   };
 

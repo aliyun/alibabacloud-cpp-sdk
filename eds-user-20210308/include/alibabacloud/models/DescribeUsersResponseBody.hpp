@@ -190,10 +190,11 @@ namespace Models
 
 
       protected:
-        // The department ID.
+        // The ID of the department.
         shared_ptr<string> orgId_ {};
-        // The department name.
+        // The name of the department.
         shared_ptr<string> orgName_ {};
+        // The name path from the root organization to the current organization.
         shared_ptr<string> orgNamePath_ {};
       };
 
@@ -235,9 +236,9 @@ namespace Models
 
 
       protected:
-        // The user group ID.
+        // The ID of the user group.
         shared_ptr<string> groupId_ {};
-        // The user group name.
+        // The name of the user group.
         shared_ptr<string> groupName_ {};
       };
 
@@ -300,7 +301,9 @@ namespace Models
 
 
         protected:
+          // The ID of the resource policy.
           shared_ptr<string> policyId_ {};
+          // The Policy Name of the resource policy.
           shared_ptr<string> policyName_ {};
         };
 
@@ -325,8 +328,9 @@ namespace Models
 
 
       protected:
-        // The number of assigned cloud resources.
+        // The number of allocated cloud resources.
         Darabonba::Json assignedResourceCount_ {};
+        // The list of resource policies associated with the user.
         shared_ptr<vector<Extras::ResourcePolicyList>> resourcePolicyList_ {};
       };
 
@@ -508,56 +512,56 @@ namespace Models
     protected:
       // The work address of the user.
       shared_ptr<string> address_ {};
-      // The URL of the user\\"s profile picture.
+      // The URL of the profile picture.
       shared_ptr<string> avatar_ {};
       // The email address.
       shared_ptr<string> email_ {};
-      // Indicates whether administrator access permissions are enabled.
+      // Specifies whether to enable administrator access permissions.
       shared_ptr<bool> enableAdminAccess_ {};
       // The username.
       shared_ptr<string> endUserId_ {};
-      // The username imported from an external source.
-      // 
+      // The name of the externally imported user.
       // > This field is not publicly available.
       shared_ptr<string> externalName_ {};
-      // The extended user information.
+      // The extended information of the user.
       shared_ptr<Users::Extras> extras_ {};
-      // The collection of user groups to which the convenience account belongs.
+      // The collection of user groups to which the convenience user belongs.
       shared_ptr<vector<Users::Groups>> groups_ {};
-      // The convenience account ID.
+      // The ID of the convenience user.
       shared_ptr<int64_t> id_ {};
-      // Indicates whether the user is a user administrator. If the convenience account is of the administrator-activated type, a user administrator must be specified. Notifications such as password resets initiated by end users through the client are sent to the user administrator\\"s email or phone. For more information, see [Create a convenience account](https://help.aliyun.com/document_detail/214472.html).
+      // Indicates whether the user is a tenant administrator. If the convenience user to be created uses the administrator activation type, you must specify a tenant administrator. Notifications such as password resets initiated by end users through the client are sent to the email address or mobile phone number of the tenant administrator. For more information, see [Create a convenience user](https://help.aliyun.com/document_detail/214472.html).
       shared_ptr<bool> isTenantManager_ {};
       // The employee ID of the user.
       shared_ptr<string> jobNumber_ {};
-      // The nickname of the user. The value is determined in the following order:
+      // The nickname of the user. The value is obtained in the following order:
       // - RealNickName
       // - Remark
       // - EndUserId
       shared_ptr<string> nickName_ {};
-      // The department ID to which the convenience account belongs.
-      // > This parameter will be deprecated soon.
+      // The ID of the department to which the convenience user belongs.
+      // > **[Deprecated]** This parameter will be deprecated soon.
       shared_ptr<string> orgId_ {};
-      // The collection of departments to which the convenience account belongs.
+      // The collection of departments to which the convenience user belongs.
       shared_ptr<vector<Users::Orgs>> orgs_ {};
-      // The convenience account type, which includes:
-      // 
-      // * Administrator-activated type: The administrator sets the username and password. User notifications such as password resets are sent to the administrator\\"s email or phone.
-      // * User-activated type: The administrator sets the username and the user\\"s email or phone for receiving notifications. User notifications such as cloud computer provisioning notifications (including the initial password) are sent to the user\\"s email or phone.
+      // The convenience user type. Valid values:
+      // - CreateFromManager: administrator-activated. The administrator sets the username and password. User notifications such as password reset notifications are sent to the email address or mobile phone number of the administrator.
+      // - Normal: user-activated. The administrator sets the username and the email address or mobile phone number for receiving notifications. User notifications such as cloud desktop activation notifications (including the initial password) are sent to the email address or mobile phone number of the user.
       shared_ptr<string> ownerType_ {};
+      // The password validity period, in days. Valid values: 30 to 365. By default, the password never expires.
       shared_ptr<int32_t> passwordExpireDays_ {};
+      // The remaining days of the password validity period.
       shared_ptr<int32_t> passwordExpireRestDays_ {};
-      // The phone number. This parameter is not returned if it is not set.
+      // The mobile phone number. This parameter is not returned if it is not configured.
       shared_ptr<string> phone_ {};
       // The user properties.
       shared_ptr<vector<Users::Properties>> properties_ {};
       // The display name of the user.
       shared_ptr<string> realNickName_ {};
-      // The remark of the convenience account.
+      // The remarks for the convenience user.
       shared_ptr<string> remark_ {};
       // The status.
       shared_ptr<int64_t> status_ {};
-      // The globally unique ID of the convenience account.
+      // The globally unique ID of the convenience user.
       shared_ptr<string> wyId_ {};
     };
 
@@ -594,13 +598,13 @@ namespace Models
 
 
   protected:
-    // The total number of users that meet the query conditions
+    // The total number of users that meet the query conditions.
     shared_ptr<int32_t> count_ {};
-    // The pagination token for the next query. An empty NextToken indicates that no more results exist.
+    // The token for the next query. An empty NextToken indicates that no more results are available.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The collection of convenience account information.
+    // The collection of convenience user information.
     shared_ptr<vector<DescribeUsersResponseBody::Users>> users_ {};
   };
 

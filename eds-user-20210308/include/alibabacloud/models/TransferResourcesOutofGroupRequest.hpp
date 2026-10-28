@@ -14,18 +14,24 @@ namespace Models
   class TransferResourcesOutofGroupRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const TransferResourcesOutofGroupRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AppRuleId, appRuleId_);
       DARABONBA_PTR_TO_JSON(BusinessChannel, businessChannel_);
       DARABONBA_PTR_TO_JSON(Platform, platform_);
+      DARABONBA_PTR_TO_JSON(PolicyId, policyId_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(Resources, resources_);
       DARABONBA_PTR_TO_JSON(TargetResourceGroupId, targetResourceGroupId_);
+      DARABONBA_PTR_TO_JSON(TimerId, timerId_);
     };
     friend void from_json(const Darabonba::Json& j, TransferResourcesOutofGroupRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AppRuleId, appRuleId_);
       DARABONBA_PTR_FROM_JSON(BusinessChannel, businessChannel_);
       DARABONBA_PTR_FROM_JSON(Platform, platform_);
+      DARABONBA_PTR_FROM_JSON(PolicyId, policyId_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(Resources, resources_);
       DARABONBA_PTR_FROM_JSON(TargetResourceGroupId, targetResourceGroupId_);
+      DARABONBA_PTR_FROM_JSON(TimerId, timerId_);
     };
     TransferResourcesOutofGroupRequest() = default ;
     TransferResourcesOutofGroupRequest(const TransferResourcesOutofGroupRequest &) = default ;
@@ -85,13 +91,24 @@ namespace Models
 
 
     protected:
+      // The region ID of the resource.
       shared_ptr<string> regionId_ {};
+      // The resource ID.
       shared_ptr<string> resourceId_ {};
+      // The resource type.
       shared_ptr<string> resourceType_ {};
     };
 
-    virtual bool empty() const override { return this->businessChannel_ == nullptr
-        && this->platform_ == nullptr && this->resourceGroupId_ == nullptr && this->resources_ == nullptr && this->targetResourceGroupId_ == nullptr; };
+    virtual bool empty() const override { return this->appRuleId_ == nullptr
+        && this->businessChannel_ == nullptr && this->platform_ == nullptr && this->policyId_ == nullptr && this->resourceGroupId_ == nullptr && this->resources_ == nullptr
+        && this->targetResourceGroupId_ == nullptr && this->timerId_ == nullptr; };
+    // appRuleId Field Functions 
+    bool hasAppRuleId() const { return this->appRuleId_ != nullptr;};
+    void deleteAppRuleId() { this->appRuleId_ = nullptr;};
+    inline string getAppRuleId() const { DARABONBA_PTR_GET_DEFAULT(appRuleId_, "") };
+    inline TransferResourcesOutofGroupRequest& setAppRuleId(string appRuleId) { DARABONBA_PTR_SET_VALUE(appRuleId_, appRuleId) };
+
+
     // businessChannel Field Functions 
     bool hasBusinessChannel() const { return this->businessChannel_ != nullptr;};
     void deleteBusinessChannel() { this->businessChannel_ = nullptr;};
@@ -104,6 +121,13 @@ namespace Models
     void deletePlatform() { this->platform_ = nullptr;};
     inline string getPlatform() const { DARABONBA_PTR_GET_DEFAULT(platform_, "") };
     inline TransferResourcesOutofGroupRequest& setPlatform(string platform) { DARABONBA_PTR_SET_VALUE(platform_, platform) };
+
+
+    // policyId Field Functions 
+    bool hasPolicyId() const { return this->policyId_ != nullptr;};
+    void deletePolicyId() { this->policyId_ = nullptr;};
+    inline string getPolicyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, "") };
+    inline TransferResourcesOutofGroupRequest& setPolicyId(string policyId) { DARABONBA_PTR_SET_VALUE(policyId_, policyId) };
 
 
     // resourceGroupId Field Functions 
@@ -129,12 +153,31 @@ namespace Models
     inline TransferResourcesOutofGroupRequest& setTargetResourceGroupId(string targetResourceGroupId) { DARABONBA_PTR_SET_VALUE(targetResourceGroupId_, targetResourceGroupId) };
 
 
+    // timerId Field Functions 
+    bool hasTimerId() const { return this->timerId_ != nullptr;};
+    void deleteTimerId() { this->timerId_ = nullptr;};
+    inline string getTimerId() const { DARABONBA_PTR_GET_DEFAULT(timerId_, "") };
+    inline TransferResourcesOutofGroupRequest& setTimerId(string timerId) { DARABONBA_PTR_SET_VALUE(timerId_, timerId) };
+
+
   protected:
+    // The software blacklists and whitelists rule ID to associate with the resources after they are moved out of the resource group. This parameter is used only for pure move-out operations and cannot be set together with TargetResourceGroupId. If this parameter is left empty, no rule is associated.
+    shared_ptr<string> appRuleId_ {};
+    // The channel.
     shared_ptr<string> businessChannel_ {};
+    // > Fixed value: AliyunConsole.
+    // > - For Wuying Enterprise Edition, set this parameter to AliyunConsole. Other platforms are not publicly available.
     shared_ptr<string> platform_ {};
+    // The policy ID to associate with the resources after they are moved out of the resource group. This parameter is used only for pure move-out operations and cannot be specified together with TargetResourceGroupId. If this parameter is left empty, the system default behavior is used.
+    shared_ptr<string> policyId_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
+    // The list of resources.
     shared_ptr<vector<TransferResourcesOutofGroupRequest::Resources>> resources_ {};
+    // The ID of the target resource group to which you want to move the resources.
     shared_ptr<string> targetResourceGroupId_ {};
+    // The scheduled task ID to associate with the resources after they are moved out of the resource group. This parameter is used only for pure move-out operations and cannot be specified together with TargetResourceGroupId. If this parameter is left empty, no scheduled task is associated.
+    shared_ptr<string> timerId_ {};
   };
 
   } // namespace Models

@@ -114,9 +114,9 @@ namespace Models
 
 
       protected:
-        // Attribute key.
+        // The property key.
         shared_ptr<string> key_ {};
-        // Attribute value.
+        // The property value.
         shared_ptr<string> value_ {};
       };
 
@@ -176,13 +176,13 @@ namespace Models
 
 
       protected:
-        // External User ID.
+        // The external user ID.
         shared_ptr<string> externalId_ {};
-        // External information name.
+        // The external information name.
         shared_ptr<string> externalName_ {};
-        // Employee ID.
+        // The employee ID.
         shared_ptr<string> jobNumber_ {};
-        // SSO logon type.
+        // The SSO logon type.
         shared_ptr<string> ssoType_ {};
       };
 
@@ -292,30 +292,31 @@ namespace Models
 
 
     protected:
-      // Mailbox.
+      // The email address.
       shared_ptr<string> email_ {};
-      // Username.
+      // The username.
       shared_ptr<string> endUserId_ {};
-      // Associated external user information.
+      // The associated external user information.
       shared_ptr<User::ExternalInfo> externalInfo_ {};
-      // Extension information.
+      // The extended information.
       shared_ptr<map<string, string>> extras_ {};
-      // Creation Time.
+      // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
+      // The display nickname of the convenience user.
       shared_ptr<string> nickName_ {};
-      // List of organization IDs.
+      // The list of organization IDs.
       shared_ptr<vector<string>> orgIds_ {};
-      // List of organizations.
+      // The list of organizations.
       shared_ptr<vector<string>> orgPaths_ {};
-      // Phone number.
+      // The mobile phone number.
       shared_ptr<string> phone_ {};
-      // User attributes.
+      // The user properties.
       shared_ptr<vector<User::Properties>> properties_ {};
-      // Remarks.
+      // The remark.
       shared_ptr<string> remark_ {};
-      // User status.
+      // The user status.
       shared_ptr<int32_t> status_ {};
-      // Unique ID of the Wuying user.
+      // The unique ID of the Wuying user.
       shared_ptr<string> wyId_ {};
     };
 
@@ -338,9 +339,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // User information.
+    // The user information.
     shared_ptr<DescribeUserResponseBody::User> user_ {};
   };
 

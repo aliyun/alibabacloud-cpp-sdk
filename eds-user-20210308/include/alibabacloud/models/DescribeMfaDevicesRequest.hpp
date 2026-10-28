@@ -99,18 +99,19 @@ namespace Models
 
 
   protected:
-    // The AD domain name.
+    // The address of the AD office network.
     shared_ptr<string> adDomain_ {};
-    // The business channel.
+    // The channel.
     shared_ptr<string> businessChannel_ {};
-    // An array of end user usernames.
+    // The list of usernames of the convenience accounts.
     shared_ptr<vector<string>> endUserIds_ {};
+    // Filters the virtual MFA devices by convenience account username.
     shared_ptr<string> filter_ {};
-    // The maximum number of results to return per page. Valid range: 1–500.<br>Default value: 100.<br>
+    // The maximum number of results to return. Valid values: 1 to 500. Default value: 100.
     shared_ptr<int64_t> maxResults_ {};
-    // The token for the next page of results. This value is the `NextToken` returned from a previous call.
+    // The query token. Set the value to the NextToken value returned from the previous API call.
     shared_ptr<string> nextToken_ {};
-    // An array of serial numbers for virtual MFA devices.
+    // The list of serial numbers of the virtual MFA devices.
     shared_ptr<vector<string>> serialNumbers_ {};
   };
 
