@@ -75,13 +75,13 @@ namespace Models
 
 
   protected:
-    // The error code returned if the call failed.
+    // The error code returned if the call fails.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the call failed.
+    // The error message returned if the call fails.
     shared_ptr<string> errMessage_ {};
     // The instance ID of the data migration instance.
     shared_ptr<string> migrationJobId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<string> success_ {};

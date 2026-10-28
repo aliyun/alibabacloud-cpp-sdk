@@ -75,11 +75,11 @@ namespace Models
 
 
   protected:
-    // The ID of the DTS migration, synchronization, or change tracking task.
+    // The ID of the DTS data migration, data synchronization, or change tracking task.
     // 
     // This parameter is required.
     shared_ptr<string> dtsJobId_ {};
-    // The DU upper limit of the task.
+    // The DU limit for the task.
     // 
     // > The minimum value is **1**.
     // 

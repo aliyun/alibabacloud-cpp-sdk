@@ -86,15 +86,15 @@ namespace Models
   protected:
     // The download URL of the verification report.
     shared_ptr<string> dynamicMessage_ {};
-    // The error code returned when the call fails.
+    // The error code returned if the call fails.
     shared_ptr<string> errCode_ {};
-    // The error message returned when the call fails.
+    // The error message returned if the call fails.
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<string> success_ {};
   };
 

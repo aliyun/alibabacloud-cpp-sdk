@@ -132,31 +132,31 @@ namespace Models
   protected:
     // The mobile phone number of the contact for latency alerts.
     shared_ptr<string> delayAlertPhone_ {};
-    // Indicates whether latency alerting is enabled. Valid values:
+    // Indicates whether the latency status is monitored. Valid values:
     // 
-    // - **enable**: Enabled.
-    // - **disable**: Disabled.
+    // - **enable**: Yes.
+    // - **disable**: No.
     shared_ptr<string> delayAlertStatus_ {};
-    // The threshold for triggering latency alerts. Unit: seconds. The value must be an integer. A value of 10 seconds is recommended.
+    // The threshold for triggering a latency alert. Unit: seconds. The value must be an integer. Recommended value: 10.
     shared_ptr<string> delayOverSeconds_ {};
-    // The error code returned if the call failed.
+    // The error code returned if the call fails.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the call failed.
+    // The error message returned if the call fails.
     shared_ptr<string> errMessage_ {};
-    // The mobile phone number of the contact for error alerts.
+    // The mobile phone number of the contact for exception alerts.
     shared_ptr<string> errorAlertPhone_ {};
-    // Indicates whether error alerting is enabled. Valid values:
+    // Indicates whether the exception status is monitored. Valid values:
     // 
-    // - **enable**: Enabled.
-    // - **disable**: Disabled.
+    // - **enable**: Yes.
+    // - **disable**: No.
     shared_ptr<string> errorAlertStatus_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The change tracking instance ID.
     shared_ptr<string> subscriptionInstanceID_ {};
     // The name of the change tracking instance.
     shared_ptr<string> subscriptionInstanceName_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<string> success_ {};
   };
 

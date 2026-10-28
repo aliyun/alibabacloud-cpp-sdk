@@ -75,14 +75,14 @@ namespace Models
 
 
   protected:
-    // The ID of the DTS task. You can call [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) to query the task ID.
+    // The ID of the DTS task. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the ID.
     shared_ptr<string> dtsJobId_ {};
     shared_ptr<string> ownerId_ {};
-    // The parameters to be modified, in JSON character string format. For more information, see [Parameters metric description](https://help.aliyun.com/document_detail/2536412.html).
+    // The parameters to be modified. The value must be a JSON character string. For more information, see [Parameters metric description](https://help.aliyun.com/document_detail/2536412.html).
     shared_ptr<string> parameters_ {};
-    // The region in which the instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+    // The region where the instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
   };
 

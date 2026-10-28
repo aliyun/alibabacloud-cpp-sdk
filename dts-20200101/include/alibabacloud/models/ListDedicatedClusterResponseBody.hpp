@@ -374,21 +374,21 @@ namespace Models
 
   protected:
     shared_ptr<ListDedicatedClusterResponseBody::DedicatedClusterStatusList> dedicatedClusterStatusList_ {};
-    // The error code returned if the request failed.
+    // The error code returned if the request fails.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the request failed.
+    // The error message returned if the request fails.
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // The page number. The value is a positive integer that does not exceed the maximum value of the Integer data type. Default value: 1.
+    // The page number. The value must be an integer greater than 0 and less than or equal to the maximum value of the Integer data type. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The maximum number of records that can be displayed on the current page.
+    // The maximum number of entries that can be displayed on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<string> success_ {};
-    // The total number of clusters that meet the specified conditions.
+    // The total number of clusters that meet the query conditions.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

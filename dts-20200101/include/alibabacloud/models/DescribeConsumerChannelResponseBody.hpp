@@ -120,21 +120,21 @@ namespace Models
 
 
     protected:
-      // The consumer group ID.
+      // The ID of the consumer group.
       shared_ptr<string> consumerGroupId_ {};
       // The name of the consumer group.
       shared_ptr<string> consumerGroupName_ {};
       // The account of the consumer group.
       shared_ptr<string> consumerGroupUserName_ {};
-      // The consumption checkpoint, which is the point in time when the client consumed the last message in the subscription channel. The time is displayed in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
+      // The consumption checkpoint, which is the time when the client consumed the last message in the change tracking channel. The time is in the yyyy-MM-ddTHH:mm:ssZ format (UTC time).
       shared_ptr<string> consumptionCheckpoint_ {};
-      // The message delay. This value is calculated as the timestamp of the latest data consumed by the downstream client minus the timestamp of the latest data in the change tracking task. The value is a UNIX timestamp. Unit: seconds.
-      // For example, if the latest data in the source database was generated at 10:00, the DTS change tracking task has read data up to 09:55, and the downstream client has consumed data up to 09:30, the message delay is the difference in UNIX timestamps between 09:55 and 09:30.
+      // The message delay, which is the difference between the timestamp of the latest data tracked in the change tracking task and the timestamp of the latest data consumed by the downstream client. The value is a UNIX timestamp in seconds.
+      // For example, if the latest data in the source database is generated at 10:00, the DTS change tracking task has tracked data up to 09:55, and the downstream client has consumed data up to 09:30, the message delay is the difference between the UNIX timestamps of 09:55 and 09:30.
       // 
-      // > If this parameter returns **-1**, no client is connected to the consumer group.
+      // > If this parameter returns **-1**, it indicates that no client is connected to the consumer group.
       shared_ptr<int64_t> messageDelay_ {};
-      // The total number of unconsumed messages, which is the sum of unconsumed subscription data and heartbeat messages.
-      // > If this parameter returns -1, no client is connected to the consumer group.
+      // The total number of unconsumed messages, which is the sum of the number of unconsumed tracked data records and the number of heartbeat messages.
+      // > If this parameter returns -1, it indicates that no client is connected to the consumer group.
       shared_ptr<int64_t> unconsumedData_ {};
     };
 
@@ -209,15 +209,15 @@ namespace Models
   protected:
     // The list of consumer groups.
     shared_ptr<vector<DescribeConsumerChannelResponseBody::ConsumerChannels>> consumerChannels_ {};
-    // The error code returned if the call failed.
+    // The error code returned if the call fails.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the call failed.
+    // The error message returned if the call fails.
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The maximum number of consumer groups that can be displayed on one page.
+    // The maximum number of consumer groups that can be displayed on a single page.
     shared_ptr<int32_t> pageRecordCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

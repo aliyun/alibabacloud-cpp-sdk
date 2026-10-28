@@ -130,7 +130,7 @@ namespace Models
 
 
   protected:
-    // The billing method after conversion. Valid values:
+    // The new billing method. Valid values:
     // - **PrePaid**: subscription.
     // - **PostPaid**: pay-as-you-go.
     shared_ptr<string> chargeType_ {};
@@ -138,16 +138,16 @@ namespace Models
     shared_ptr<string> code_ {};
     // The task ID.
     shared_ptr<string> dtsJobId_ {};
-    // The dynamic error message used to replace the **%s** variable in the **ErrMessage** parameter.
-    // > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace **%s** in the error message returned in the **ErrMessage** parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the specified request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The time when the subscription instance expires, in UNIX timestamp format.
-    // > - If the instance is converted to pay-as-you-go, this value is empty.
-    // - You can use a search engine to find a UNIX timestamp conversion tool.
+    // The time when the subscription instance expires. The value is a UNIX timestamp.
+    // > - If the modified instance is a pay-as-you-go instance, this value is null.
+    // - You can obtain a UNIX timestamp conversion tool by using a search engine.
     shared_ptr<string> endTime_ {};
-    // The error code returned if the call failed.
+    // The error code returned if the call fails.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the call failed.
+    // The error message returned if the call fails.
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};

@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // Migration or sync task ID.
+    // The ID of the migration or synchronization task.
     // 
     // This parameter is required.
     shared_ptr<string> dtsJobId_ {};
-    // The region where the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+    // The region ID of the DTS instance. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
-    // Resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // Indicates whether the job is a seamless integration (Zero-ETL) job. Valid values:
+    // Specifies whether the task is a seamless integration (Zero-ETL) task. Valid values:
     // - **true**: Yes.
     // - **false**: No.
     shared_ptr<bool> zeroEtlJob_ {};

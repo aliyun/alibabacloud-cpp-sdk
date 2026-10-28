@@ -118,9 +118,9 @@ namespace Models
 
 
     protected:
-      // The description of the ETL task running status.
+      // The description of the running status of the ETL task.
       shared_ptr<string> content_ {};
-      // The status, which indicates the name of the module that generated the log, such as the transformation module of the ETL task.
+      // The status, which indicates the name of the module that generates the log, such as the transformation module of the ETL task.
       shared_ptr<string> contentKey_ {};
       // The ID of the ETL task.
       shared_ptr<string> etlId_ {};
@@ -128,7 +128,7 @@ namespace Models
       shared_ptr<string> logDatetime_ {};
       // The log level. Valid values: ERROR, WARN, INFO, and DEBUG.
       shared_ptr<string> status_ {};
-      // The user ID.
+      // The ID of the user.
       shared_ptr<string> userId_ {};
     };
 
@@ -194,21 +194,21 @@ namespace Models
 
 
   protected:
-    // The dynamic error code associated with this request.
+    // The dynamic error code related to the request.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message associated with this request.
+    // The dynamic error message related to the request.
     shared_ptr<string> dynamicMessage_ {};
-    // The error code returned when the specified ETL task ID is invalid and the corresponding task cannot be found.
+    // The error code returned if the specified ETL task ID is invalid and the corresponding task cannot be found.
     shared_ptr<string> errCode_ {};
-    // The error message returned when the specified ETL task ID is invalid and the corresponding task cannot be found. The task may have been deleted.
+    // The error message returned if the specified ETL task ID is invalid and the corresponding task cannot be found. The task may have been deleted.
     shared_ptr<string> errMessage_ {};
-    // The array of ETL task running log objects.
+    // The array of running log objects for the ETL task.
     shared_ptr<vector<DescribeEtlJobLogsResponseBody::EtlRunningLogs>> etlRunningLogs_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. A value of false indicates a failure.
+    // Indicates whether the request was successful. false is returned if the request fails.
     shared_ptr<bool> success_ {};
   };
 

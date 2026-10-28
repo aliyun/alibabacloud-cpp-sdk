@@ -84,16 +84,16 @@ namespace Models
 
 
   protected:
-    // The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter is about to be discontinued.
+    // The ID of the Alibaba Cloud account. You do not need to specify this parameter because it will be deprecated soon.
     shared_ptr<string> accountId_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken parameter supports only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. You can generate the value from your client. Make sure that the value is unique across different requests. The **ClientToken** parameter supports only ASCII characters and can be up to 64 characters in length.
     shared_ptr<string> clientToken_ {};
     shared_ptr<string> ownerId_ {};
     // The region ID. Specify this parameter to indicate the region where the instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The task ID. This value is returned after you successfully call the [SwitchSynchronizationEndpoint](https://help.aliyun.com/document_detail/201858.html) operation.
+    // The task ID. This value is returned after a successful call to the [SwitchSynchronizationEndpoint](https://help.aliyun.com/document_detail/201858.html) operation.
     // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};

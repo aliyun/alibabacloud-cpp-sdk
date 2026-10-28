@@ -635,20 +635,20 @@ namespace Models
   protected:
     shared_ptr<DescribeMigrationJobDetailResponseBody::DataInitializationDetailList> dataInitializationDetailList_ {};
     shared_ptr<DescribeMigrationJobDetailResponseBody::DataSynchronizationDetailList> dataSynchronizationDetailList_ {};
-    // The error code returned if the call failed.
+    // The error code returned if the call fails.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the call failed.
+    // The error message returned if the call fails.
     shared_ptr<string> errMessage_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The maximum number of migration instances that can be displayed on one page.
+    // The maximum number of migration instances that can be displayed on a single page.
     shared_ptr<int32_t> pageRecordCount_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeMigrationJobDetailResponseBody::StructureInitializationDetailList> structureInitializationDetailList_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<string> success_ {};
-    // The total number of records.
+    // The total number of entries.
     shared_ptr<int64_t> totalRecordCount_ {};
   };
 

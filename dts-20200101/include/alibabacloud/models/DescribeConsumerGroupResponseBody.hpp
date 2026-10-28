@@ -222,13 +222,13 @@ namespace Models
 
   protected:
     shared_ptr<DescribeConsumerGroupResponseBody::ConsumerChannels> consumerChannels_ {};
-    // The error code returned if the call failed.
+    // The error code returned if the call fails.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the call failed.
+    // The error message returned if the call fails.
     shared_ptr<string> errMessage_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The maximum number of consumer groups that can be displayed on one page.
+    // The maximum number of consumer groups that can be displayed on a single page.
     shared_ptr<int32_t> pageRecordCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

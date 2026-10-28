@@ -103,20 +103,20 @@ namespace Models
 
 
   protected:
-    // The internal error code. This parameter will be deprecated.
+    // The internal service error code. This parameter will be deprecated.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message used to replace the **%s** placeholder in the **ErrMessage** parameter.
-    // > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace **%s** in the **ErrMessage** parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the specified **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error code returned if the call fails.
+    // The error code returned when an error occurs.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the call fails.
+    // The error message returned when an error occurs.
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
     // The total number of data synchronization instances that meet the specified conditions under the Alibaba Cloud account.
     shared_ptr<int64_t> totalRecordCount_ {};

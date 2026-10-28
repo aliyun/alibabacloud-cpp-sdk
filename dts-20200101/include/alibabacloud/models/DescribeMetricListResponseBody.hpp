@@ -92,7 +92,7 @@ namespace Models
     protected:
       // The statistical value.
       shared_ptr<float> statistics_ {};
-      // The record timestamp, in milliseconds.
+      // The record timestamp in milliseconds.
       shared_ptr<int64_t> timestamp_ {};
     };
 
@@ -187,38 +187,39 @@ namespace Models
 
 
   protected:
-    // The backend error code, which is an incrementing number.
+    // The backend error code.
     shared_ptr<string> code_ {};
     // The monitoring statistics information.
     shared_ptr<vector<DescribeMetricListResponseBody::DataPoints>> dataPoints_ {};
-    // The dynamic error message, which is used to replace the %s placeholder in the **ErrMessage** error message.
+    // The dynamic error message, which is used to replace the %s placeholder in the **ErrMessage** parameter.
     shared_ptr<string> dynamicMessage_ {};
     // The error code returned when the call fails.
     shared_ptr<string> errCode_ {};
     // The error message.
     shared_ptr<string> errMessage_ {};
-    // The HTTP status code corresponding to the exception.
+    // The HTTP status code for the exception.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Specifies the metric name. Valid values:
     // - **InternetOut**: outbound Internet traffic, in bytes.
     // - **diskusage_utilization**: disk usage.
     // - **IntranetInRate**: inbound internal network traffic, in bytes.
     // - **InternetIn**: inbound Internet traffic, in bytes.
-    // - **cpu_total**: CPU utilization.
-    // - **memory_usedutilization**: memory utilization.
+    // - **cpu_total**: CPU usage.
+    // - **memory_usedutilization**: memory usage.
     // - **IntranetOutRate**: outbound internal network traffic, in bytes.
     shared_ptr<string> metricName_ {};
-    // Specifies whether to query a cluster or a node. Valid values:
+    // Specifies the query target. Valid values:
     // - **CLUSTER**: cluster.
     // - **NODE**: node.
     shared_ptr<string> metricType_ {};
     // The observation value.
     // 
-    // - If **MetricType** is set to **NODE**, the value is **nodeid**.
-    // - If **MetricType** is set to **CLUSTER**, the value is the ID of the dedicated cluster, which can be obtained by calling the ListDedicatedCluster operation.
+    // - If **MetricType** is **NODE**, the value is the **nodeid**.
+    // - If **MetricType** is **CLUSTER**, the value is the dedicated cluster ID, which can be obtained by calling the ListDedicatedCluster operation.
     shared_ptr<string> param_ {};
     // The observation interval in seconds. The minimum interval is 15 seconds.
     shared_ptr<int64_t> period_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};

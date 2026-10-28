@@ -75,12 +75,12 @@ namespace Models
 
 
   protected:
-    // The instance ID of the GAD instance group.
+    // The instance ID of the global active database (GAD) instance group.
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> ownerId_ {};
-    // The region ID. Specify this parameter to indicate the region where the instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+    // The region ID. You can set this parameter to specify the region where the instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     // The ID of the precheck task.
     shared_ptr<string> taskId_ {};

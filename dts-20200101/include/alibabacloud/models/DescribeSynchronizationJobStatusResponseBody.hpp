@@ -204,11 +204,11 @@ namespace Models
 
 
     protected:
-      // The name mapped to the database to be synchronized in the destination database.
+      // The mapped name of the database to be synchronized in the destination database.
       shared_ptr<string> newSchemaName_ {};
       // The name of the database to be synchronized.
       shared_ptr<string> schemaName_ {};
-      // The tables excluded from the database to be synchronized. These tables will not be synchronized.
+      // The tables excluded from the database to be synchronized. These tables are not synchronized.
       shared_ptr<vector<SynchronizationObjects::TableExcludes>> tableExcludes_ {};
       // The tables to be synchronized.
       shared_ptr<vector<SynchronizationObjects::TableIncludes>> tableIncludes_ {};
@@ -270,17 +270,17 @@ namespace Models
 
 
     protected:
-      // The error message returned when initial schema synchronization encountered an exception.
+      // The error message returned when an exception occurs during initial schema synchronization.
       shared_ptr<string> errorMessage_ {};
       // The progress of initial schema synchronization, in percentage.
       shared_ptr<string> percent_ {};
-      // The number of tables that have completed initial schema synchronization.
+      // The number of tables that have been synchronized during initial schema synchronization.
       shared_ptr<string> progress_ {};
       // The status of initial schema synchronization. Valid values:
-      // - **NotStarted**: not started.
-      // - **Migrating**: in progress.
-      // - **Failed**: failed.
-      // - **Finished**: completed.
+      // - **NotStarted**: not started
+      // - **Migrating**: initializing
+      // - **Failed**: initialization failed
+      // - **Finished**: initialization completed
       shared_ptr<string> status_ {};
     };
 
@@ -358,7 +358,7 @@ namespace Models
 
 
     protected:
-      // The database type of the source instance.
+      // The database engine of the source instance.
       shared_ptr<string> engineName_ {};
       // The endpoint of the source instance.
       shared_ptr<string> IP_ {};
@@ -452,16 +452,16 @@ namespace Models
 
       protected:
         // The check result. Valid values:
-        // - **Success**: passed.
-        // - **Failed**: failed.
+        // - **Success**: The check item passed.
+        // - **Failed**: The check item failed.
         shared_ptr<string> checkStatus_ {};
-        // The error message returned when the precheck failed.
-        // > This parameter is returned only when the value of the **CheckStatus** parameter is **Failed**.
+        // The error message returned when a precheck item fails.
+        // > This parameter is returned only when the **CheckStatus** parameter is set to **Failed**.
         shared_ptr<string> errorMessage_ {};
-        // The precheck item.
+        // The name of the precheck item.
         shared_ptr<string> itemName_ {};
-        // The repair method when the precheck failed.
-        // > This parameter is returned only when the value of the **CheckStatus** parameter is **Failed**.
+        // The solution for a failed precheck item.
+        // > This parameter is returned only when the **CheckStatus** parameter is set to **Failed**.
         shared_ptr<string> repairMethod_ {};
       };
 
@@ -491,13 +491,13 @@ namespace Models
 
 
     protected:
-      // The details of each precheck item.
+      // The execution details of each precheck item.
       shared_ptr<vector<PrecheckStatus::Detail>> detail_ {};
       // The overall progress of the precheck, in percentage.
       shared_ptr<string> percent_ {};
       // The precheck result. Valid values:
-      // - **Success**: passed.
-      // - **Failed**: failed.
+      // - **Success**: The check item passed.
+      // - **Failed**: The check item failed.
       shared_ptr<string> status_ {};
     };
 
@@ -539,9 +539,9 @@ namespace Models
 
 
     protected:
-      // The data flow rate of synchronization per second, in MB/s.
+      // The amount of data synchronized per second, in MB/s.
       shared_ptr<string> FLOW_ {};
-      // The number of SQL statements synchronized per second, including BEGIN, COMMIT, DML statements (INSERT, DELETE, UPDATE), and DDL statements.
+      // The number of SQL statements synchronized per second, including BEGIN, COMMIT, DML (INSERT, DELETE, and UPDATE), and DDL statements.
       shared_ptr<string> RPS_ {};
     };
 
@@ -619,13 +619,13 @@ namespace Models
 
 
     protected:
-      // The database type of the destination instance.
+      // The database engine of the destination instance.
       shared_ptr<string> engineName_ {};
       // The endpoint of the destination instance.
       shared_ptr<string> IP_ {};
       // The instance ID of the destination instance.
       shared_ptr<string> instanceId_ {};
-      // The type of the destination instance.
+      // The destination instance type.
       shared_ptr<string> instanceType_ {};
       // The database service port of the destination instance.
       shared_ptr<string> port_ {};
@@ -707,22 +707,22 @@ namespace Models
 
 
     protected:
-      // The timestamp of the latest synchronized data, in UNIX timestamp format.
+      // The timestamp when the latest data record is synchronized. The value is a UNIX timestamp.
       shared_ptr<string> checkpoint_ {};
-      // The synchronization latency of incremental data synchronization, in seconds.
+      // The incremental data synchronization latency, in seconds.
       shared_ptr<string> delay_ {};
-      // The synchronization latency of incremental data synchronization, in milliseconds.
+      // The incremental data synchronization latency, in milliseconds.
       shared_ptr<int64_t> delayMillis_ {};
-      // The error message returned when incremental data synchronization failed.
+      // The error message returned when incremental data synchronization fails.
       shared_ptr<string> errorMessage_ {};
       // The progress of incremental data synchronization, in percentage.
       shared_ptr<string> percent_ {};
       // The status of incremental data synchronization. Valid values:
       // 
-      // - **NotStarted**: not started.
-      // - **Migrating**: synchronizing.
-      // - **Failed**: failed.
-      // - **Finished**: completed.
+      // - **NotStarted**: not started
+      // - **Migrating**: synchronizing
+      // - **Failed**: synchronization failed
+      // - **Finished**: synchronization completed
       shared_ptr<string> status_ {};
     };
 
@@ -782,17 +782,17 @@ namespace Models
 
 
     protected:
-      // The error message returned when initial full data synchronization failed.
+      // The error message returned when initial full data synchronization fails.
       shared_ptr<string> errorMessage_ {};
       // The progress of initial full data synchronization, in percentage.
       shared_ptr<string> percent_ {};
-      // The number of records that have been synchronized during initial full data synchronization.
+      // The number of data records that have been synchronized during initial full data synchronization.
       shared_ptr<string> progress_ {};
       // The status of initial full data synchronization. Valid values:
-      // - **NotStarted**: not started.
-      // - **Migrating**: in progress.
-      // - **Failed**: failed.
-      // - **Finished**: completed.
+      // - **NotStarted**: not started
+      // - **Migrating**: initializing
+      // - **Failed**: initialization failed
+      // - **Finished**: initialization completed
       shared_ptr<string> status_ {};
     };
 
@@ -1001,14 +1001,14 @@ namespace Models
 
 
   protected:
-    // The timestamp of the latest synchronized data, in UNIX timestamp format.
+    // The timestamp when the latest data record is synchronized. The value is a UNIX timestamp.
     // 
-    // > You can use a search engine to find a UNIX timestamp converter.
+    // > You can use a search engine to obtain a UNIX timestamp converter.
     shared_ptr<string> checkpoint_ {};
-    // Indicates whether initial full data synchronization was performed. Valid values:
+    // Specifies whether to perform initial full data synchronization. Valid values:
     // 
-    // - **true**: Yes.
-    // - **false**: No.
+    // - **true**: yes
+    // - **false**: no
     shared_ptr<string> dataInitialization_ {};
     // The status of initial full data synchronization.
     shared_ptr<DescribeSynchronizationJobStatusResponseBody::DataInitializationStatus> dataInitializationStatus_ {};
@@ -1020,21 +1020,21 @@ namespace Models
     shared_ptr<int64_t> delayMillis_ {};
     // The connection information of the destination instance.
     shared_ptr<DescribeSynchronizationJobStatusResponseBody::DestinationEndpoint> destinationEndpoint_ {};
-    // The error code returned when the call failed.
+    // The error code returned when the call fails.
     shared_ptr<string> errCode_ {};
-    // The error message returned when the call failed.
+    // The error message returned when the call fails.
     shared_ptr<string> errMessage_ {};
-    // The error message returned when data synchronization failed.
+    // The error message returned when data synchronization fails.
     shared_ptr<string> errorMessage_ {};
-    // The expiration time of the synchronization instance, in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
-    // > This parameter is returned only when the value of the **PayType** parameter is **PrePaid**.
+    // The expiration time of the data synchronization instance. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+    // > This parameter is returned only when the **PayType** parameter is set to **PrePaid**.
     shared_ptr<string> expireTime_ {};
-    // The billing method of the synchronization instance. Valid values:
+    // The billing method of the data synchronization instance. Valid values:
     // 
-    // - **PrePaid**: subscription.
-    // - **PostPaid**: pay-as-you-go.
+    // - **PrePaid**: subscription
+    // - **PostPaid**: pay-as-you-go
     shared_ptr<string> payType_ {};
-    // The overview of the synchronization link.
+    // The performance overview of the synchronization task.
     shared_ptr<DescribeSynchronizationJobStatusResponseBody::Performance> performance_ {};
     // The precheck status.
     shared_ptr<DescribeSynchronizationJobStatusResponseBody::PrecheckStatus> precheckStatus_ {};
@@ -1042,37 +1042,37 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The connection information of the source instance.
     shared_ptr<DescribeSynchronizationJobStatusResponseBody::SourceEndpoint> sourceEndpoint_ {};
-    // The status of the synchronization instance. Valid values:
+    // The status of the data synchronization instance. Valid values:
     // 
     // - **notStarted**: not started.
-    // - **prechecking**: running a precheck.
+    // - **prechecking**: precheck in progress.
     // - **precheckFailed**: precheck failed.
-    // - **initializating**: performing initial synchronization.
-    // - **initializeFailed**: initial synchronization failed.
+    // - **initializating**: synchronization initialization in progress.
+    // - **initializeFailed**: synchronization initialization failed.
     // - **synchronizing**: synchronizing.
     // - **failed**: synchronization failed.
-    // - **suspending**: paused.
+    // - **suspending**: pausing.
     // - **modifying**: modifying synchronization objects.
-    // - **finished**: completed.
+    // - **finished**: finished.
     shared_ptr<string> status_ {};
-    // Indicates whether initial schema synchronization was performed. Valid values:
+    // Specifies whether to perform initial schema synchronization. Valid values:
     // 
-    // - **true**: Yes.
-    // - **false**: No.
+    // - **true**: yes
+    // - **false**: no
     shared_ptr<string> structureInitialization_ {};
     // The status of initial schema synchronization.
     shared_ptr<DescribeSynchronizationJobStatusResponseBody::StructureInitializationStatus> structureInitializationStatus_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<string> success_ {};
     // The synchronization direction. Valid values:
-    // - **Forward**: forward.
-    // - **Reverse**: reverse.
+    // - **Forward**: forward
+    // - **Reverse**: reverse
     shared_ptr<string> synchronizationDirection_ {};
-    // The specification of the synchronization link.
+    // The specifications of the synchronization task.
     shared_ptr<string> synchronizationJobClass_ {};
     // The instance ID of the data synchronization instance.
     shared_ptr<string> synchronizationJobId_ {};
-    // The name of the synchronization instance.
+    // The name of the data synchronization instance.
     shared_ptr<string> synchronizationJobName_ {};
     // The synchronization objects.
     shared_ptr<vector<DescribeSynchronizationJobStatusResponseBody::SynchronizationObjects>> synchronizationObjects_ {};

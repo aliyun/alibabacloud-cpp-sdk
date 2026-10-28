@@ -87,9 +87,9 @@ namespace Models
 
 
   protected:
-    // The tag type.
+    // The tag category.
     shared_ptr<string> category_ {};
-    // The page number of the returned page.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of tags returned per page.
     shared_ptr<int32_t> pageSize_ {};

@@ -143,21 +143,21 @@ namespace Models
 
 
     protected:
-      // The additional remarks.
+      // Additional remarks.
       shared_ptr<string> content_ {};
-      // The primary key of the log record table.
+      // The primary key of the log record.
       shared_ptr<string> id_ {};
       // The timestamp. Unit: milliseconds.
       shared_ptr<int64_t> logDatetime_ {};
-      // The new parameter value when the operation type is update.
+      // The new parameter value if the operation type is modification.
       shared_ptr<string> newValue_ {};
-      // The old parameter value when the operation type is update.
+      // The original parameter value if the operation type is modification.
       shared_ptr<string> oldValue_ {};
       // The operation type.
       shared_ptr<string> operationName_ {};
       // The operator.
       shared_ptr<string> operationUser_ {};
-      // The call result. Indicates whether the call was successful. A value of **1** indicates success.
+      // The call result. A value of **1** indicates success.
       shared_ptr<int32_t> success_ {};
     };
 
@@ -244,11 +244,11 @@ namespace Models
 
 
   protected:
-    // The backend error code, which is incrementally numeric.
+    // The backend error code.
     shared_ptr<string> code_ {};
     // The monitoring statistics information.
     shared_ptr<vector<DescribeClusterOperateLogsResponseBody::DataPoints>> dataPoints_ {};
-    // The dynamic error message, which is used to replace the %s placeholder in the ErrMessage response parameter.
+    // The dynamic error message, which is used to replace the %s placeholder in the ErrMessage parameter.
     shared_ptr<string> dynamicMessage_ {};
     // The error code returned when the call fails.
     shared_ptr<string> errCode_ {};
@@ -258,13 +258,13 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries displayed on the current page.
+    // The number of entries returned on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The call result.
     shared_ptr<bool> success_ {};
-    // The total number of records.
+    // The total number of entries.
     shared_ptr<int64_t> totalRecordCount_ {};
   };
 

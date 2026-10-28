@@ -123,7 +123,7 @@ namespace Models
   protected:
     // The type of the destination database.
     shared_ptr<string> destDbType_ {};
-    // The parent task ID of a distributed synchronization task.
+    // The ID of the parent task for a distributed synchronization task.
     shared_ptr<string> groupId_ {};
     // The task type. Valid values:
     // 
@@ -131,9 +131,9 @@ namespace Models
     // - **SYNC**: data synchronization.
     // - **SUBSCRIBE**: change tracking.
     shared_ptr<string> jobType_ {};
-    // The query value that corresponds to JobType.
+    // The query value, which corresponds to JobType.
     shared_ptr<string> params_ {};
-    // The region ID used as a filter condition. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+    // The region ID, which is one of the filter conditions. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     // 
     // This parameter is required.
     shared_ptr<string> region_ {};
@@ -141,66 +141,66 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID. This is a global parameter and does not need to be passed for this API operation.
+    // The resource group ID. This is a global parameter and is not required for this operation.
     shared_ptr<string> resourceGroupId_ {};
     // The type of the source database.
     shared_ptr<string> srcDbType_ {};
-    // The instance status of the DTS instance. Valid values:
+    // The DTS instance status. Valid values:
     // 
-    // Data migration node statuses:
+    // Status of a data migration task:
     // - **NotStarted**: not started.
-    // - **Prechecking**: running a dry run.
-    // - **PrecheckFailed**: dry run failed.
-    // - **PreCheckPass**: dry run passed.
+    // - **Prechecking**: performing a precheck.
+    // - **PrecheckFailed**: precheck failed.
+    // - **PreCheckPass**: precheck passed.
     // - **NotConfigured**: not configured.
-    // - **Migrating**: migrating.
-    // - **Suspending**: paused.
+    // - **Migrating**: migrating data.
+    // - **Suspending**: being paused.
     // - **MigrationFailed**: migration failed.
-    // - **Finished**: finished.
-    // - **Retrying**: retrying.
-    // - **Upgrade**: upgrading.
+    // - **Finished**: completed.
+    // - **Retrying**: being retried.
+    // - **Upgrade**: being upgraded.
     // - **Locked**: locked.
-    // - **Downgrade**: downgrading.
+    // - **Downgrade**: being downgraded.
     // 
-    // Data synchronization node statuses:
+    // Status of a data synchronization task:
     // - **NotStarted**: not started.
-    // - **Prechecking**: running a dry run.
-    // - **PrecheckFailed**: dry run failed.
-    // - **PreCheckPass**: dry run passed.
+    // - **Prechecking**: performing a precheck.
+    // - **PrecheckFailed**: precheck failed.
+    // - **PreCheckPass**: precheck passed.
     // - **NotConfigured**: not configured.
     // - **Initializing**: performing initial synchronization.
     // - **InitializeFailed**: initial synchronization failed.
-    // - **Synchronizing**: synchronizing.
+    // - **Synchronizing**: synchronizing data.
     // - **Failed**: synchronization failed.
-    // - **Suspending**: paused.
+    // - **Suspending**: being paused.
     // - **Modifying**: modifying sub-objects.
-    // - **Finished**: finished.
-    // - **Retrying**: retrying.
-    // - **Upgrade**: upgrading.
+    // - **Finished**: completed.
+    // - **Retrying**: being retried.
+    // - **Upgrade**: being upgraded.
     // - **Locked**: locked.
-    // - **Downgrade**: downgrading.
+    // - **Downgrade**: being downgraded.
     // 
-    // Subscribe node statuses:
+    // Status of a change tracking task:
     // - **NotConfigured**: not configured.
     // - **NotStarted**: not started.
-    // - **Prechecking**: running a dry run.
-    // - **PrecheckFailed**: dry run failed.
-    // - **PreCheckPass**: dry run passed.
-    // - **Starting**: starting.
-    // - **Normal**: Normal.
-    // - **Retrying**: retrying.
+    // - **Prechecking**: performing a precheck.
+    // - **PrecheckFailed**: precheck failed.
+    // - **PreCheckPass**: precheck passed.
+    // - **Starting**: being started.
+    // - **Normal**: normal.
+    // - **Retrying**: being retried.
     // - **Abnormal**: abnormal.
-    // - **Upgrade**: upgrading.
+    // - **Upgrade**: being upgraded.
     // - **Locked**: locked.
-    // - **Downgrade**: downgrading.
+    // - **Downgrade**: being downgraded.
     shared_ptr<string> status_ {};
-    // The query type. Valid values:  
+    // Specifies the query type. Valid values:  
     // - **name**: queries by job name.  
     // - **rds**: queries by destination instance ID.  
     // - **instance**: queries by DTS instance ID.
     // - **srcRds**: queries by source instance ID.
     // 
-    // > This parameter corresponds to the **JobType** parameter.
+    // > This parameter corresponds to the query value and **JobType**.
     shared_ptr<string> type_ {};
   };
 

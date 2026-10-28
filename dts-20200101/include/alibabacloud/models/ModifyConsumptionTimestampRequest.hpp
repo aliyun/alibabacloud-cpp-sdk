@@ -84,16 +84,16 @@ namespace Models
 
 
   protected:
-    // The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter is about to be deprecated.
+    // The ID of the Alibaba Cloud account. This parameter is not required and will be deprecated.
     shared_ptr<string> accountId_ {};
-    // The consumption checkpoint in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+    // The consumption checkpoint. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC time).
     // 
     // This parameter is required.
     shared_ptr<string> consumptionTimestamp_ {};
     shared_ptr<string> ownerId_ {};
-    // The region ID. Specify this parameter to indicate the region where the instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+    // The region ID. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     // The ID of the change tracking instance. You can call the **DescribeSubscriptionInstances** operation to query the instance ID.
     // 

@@ -125,33 +125,33 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> dtsJobId_ {};
-    // The task code. Specify this parameter to query a specific subtask type of the DTS task. Valid values:
+    // The task code. Set this parameter to specify the type of the subtask for the DTS task to query. Valid values:
     // 
-    // - **01**: precheck.
-    // - **02**: schema migration or initial schema synchronization.
-    // - **03**: full data migration or initial full data synchronization.
-    // - **04**: incremental data migration or incremental data synchronization.
+    // - **01**: Precheck.
+    // - **02**: Database and table structure migration or initialization.
+    // - **03**: Full data migration or initialization.
+    // - **04**: Incremental data migration or synchronization.
     // 
     // This parameter is required.
     shared_ptr<string> jobCode_ {};
-    // The filter. Performs a fuzzy match on table names.
+    // The filter condition used to perform a fuzzy match on table names.
     shared_ptr<string> name_ {};
-    // The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: **1**.
+    // The page number. Valid values: an integer greater than **0** and less than or equal to the maximum value of the Integer data type. Default value: **1**.
     shared_ptr<string> pageNo_ {};
-    // The number of records per page. Default value: **20**.
+    // The number of entries per page. Default value: **20**.
     shared_ptr<string> pageSize_ {};
-    // The ID of the region where the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+    // The region ID of the DTS instance. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The filter. Filters tables, views, and functions in schema migration.
+    // The filter condition for schema migration. Valid values: tables, views, and functions.
     shared_ptr<string> structPhase_ {};
-    // The type of schema definition. Valid values:
+    // The type of the schema definition. Valid values:
     // 
-    // - **before**: schema migration or initial schema synchronization.
-    // - **after**: DDL operations during incremental data migration or incremental data synchronization.
+    // - **before**: Schema migration or initial schema synchronization.
+    // - **after**: DDL operations in incremental data migration or synchronization.
     shared_ptr<string> structType_ {};
-    // Specifies whether the node is a seamless integration (Zero-ETL) node. Valid values:
+    // Specifies whether the task is a seamless integration (Zero-ETL) task. Valid values:
     // 
     // - **false**: No.
     // - **true**: Yes.

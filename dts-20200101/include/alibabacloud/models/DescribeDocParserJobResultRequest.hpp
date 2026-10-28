@@ -66,9 +66,9 @@ namespace Models
 
 
   protected:
-    // The task ID (DtsJobId) returned when the document parsing task was created.
+    // The task ID (DtsJobId) returned when the document parsing task is created.
     shared_ptr<string> dtsJobId_ {};
-    // The instance ID of the DTS RagFlow instance.
+    // The instance ID of the DTS RagFlow.
     shared_ptr<string> ragInstanceId_ {};
     // The region ID of the task. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};

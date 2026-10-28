@@ -75,17 +75,17 @@ namespace Models
 
 
   protected:
-    // The ID of the data migration, synchronization, or change tracking task. This parameter is deprecated and no longer takes effect.
+    // The ID of the data migration, data synchronization, or change tracking task. **[Deprecated]** This parameter is deprecated and no longer takes effect.
     shared_ptr<string> dtsJobId_ {};
-    // The primary key ID of JobProgress. Each object in a full data migration task corresponds to a JobProgress entry. Specify this parameter to identify the table to skip.
+    // The primary key ID of JobProgress. Each object in a full data migration task corresponds to a JobProgress record. Specify this parameter to determine the tables to skip.
     shared_ptr<string> jobProgressId_ {};
-    // The region in which the DTS instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+    // The region where the DTS instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // Specifies whether the node is a seamless integration (zero-ETL) node. Valid values:
-    // - **true**: The node is a zero-ETL node.
-    // - **false**: The node is not a zero-ETL node.
+    // Specifies whether the node is a seamless integration (Zero-ETL) node. Valid values:
+    // - **true**: yes
+    // - **false**: no
     shared_ptr<bool> zeroEtlJob_ {};
   };
 

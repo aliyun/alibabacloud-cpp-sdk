@@ -94,23 +94,23 @@ namespace Models
 
 
   protected:
-    // The ID of the change tracking instance. You can call [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) to query the instance ID.
-    // > You must specify one of the **DtsInstanceId** and **DtsJobId** parameters.
+    // The ID of the change tracking instance. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the instance ID.
+    // > You must specify at least one of the **DtsInstanceId** and **DtsJobId** parameters.
     shared_ptr<string> dtsInstanceId_ {};
-    // The ID of the change tracking task. You can call [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) to query the task ID.
-    // > You must specify one of the **DtsInstanceId** and **DtsJobId** parameters.
+    // The ID of the change tracking task. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the task ID.
+    // > You must specify at least one of the **DtsInstanceId** and **DtsJobId** parameters.
     shared_ptr<string> dtsJobId_ {};
-    // The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: **1**.
+    // The page number. The value must be greater than **0** and cannot exceed the maximum value of the INTEGER data type. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of records per page. Valid values: **1** to **100**. Default value: **20**.
+    // The number of entries per page. Valid values: **1** to **100**. Default value: **20**.
     shared_ptr<int32_t> pageSize_ {};
-    // The parent task ChannelId of the distributed task.
+    // The channel ID of the parent task for a distributed task.
     shared_ptr<string> parentChannelId_ {};
-    // The region ID of the DTS change tracking instance. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+    // The ID of the region where the DTS change tracking instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
   };
 

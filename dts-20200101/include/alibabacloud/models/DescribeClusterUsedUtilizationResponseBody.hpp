@@ -186,21 +186,21 @@ namespace Models
 
 
   protected:
-    // The internal error code. The value is incremented.
+    // The backend error code, which increments numerically.
     shared_ptr<string> code_ {};
     // The CPU utilization of the cluster. Unit: %.
     shared_ptr<float> cpuTotal_ {};
-    // The cluster ID.
+    // The ID of the cluster.
     shared_ptr<string> dedicatedClusterId_ {};
     // The total disk space of the cluster. Unit: GB.
     shared_ptr<float> diskTotal_ {};
-    // The disk usage of the cluster. Unit: GB.
+    // The used disk space of the cluster. Unit: GB.
     shared_ptr<float> diskUsed_ {};
     // The total number of DUs.
     shared_ptr<int32_t> duTotal_ {};
     // The number of used DUs.
     shared_ptr<int32_t> duUsed_ {};
-    // The dynamic error message. This parameter is used to replace the %s placeholder in the ErrMessage response parameter.
+    // The dynamic error message, which is used to replace %s in the error message returned in the ErrMessage parameter.
     shared_ptr<string> dynamicMessage_ {};
     // The error code returned when the call fails.
     shared_ptr<string> errCode_ {};
@@ -208,13 +208,13 @@ namespace Models
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The total memory. The value 0 is returned.
+    // The total memory. This parameter temporarily returns 0.
     shared_ptr<float> memoryTotal_ {};
-    // The memory usage. The value 0 is returned.
+    // The amount of used memory. This parameter temporarily returns 0.
     shared_ptr<float> memoryUsed_ {};
     // The memory usage percentage.
     shared_ptr<float> memoryUsedPercentage_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};

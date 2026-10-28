@@ -94,14 +94,14 @@ namespace Models
 
 
   protected:
-    // The backend error code, which increments numerically.
+    // The backend error code, which is an incrementing number.
     shared_ptr<string> code_ {};
-    // The dynamic error message, which is used to replace the **%s** placeholder in the **ErrMessage** response parameter.
-    // > For example, if **The Value of Input Parameter %s is not valid** is returned and DynamicMessage returns DtsJobId, the request parameter DtsJobId that you specified is invalid.
+    // The dynamic error message, which is used to replace **%s** in the error message of the **ErrMessage** response parameter.
+    // > If **The Value of Input Parameter %s is not valid** is returned and the DynamicMessage parameter returns DtsJobId, it indicates that the specified DtsJobId request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error code returned if the call failed.
+    // The error code returned if the request fails.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the call failed.
+    // The error message returned if the request fails.
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};

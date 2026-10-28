@@ -84,14 +84,14 @@ namespace Models
 
 
   protected:
-    // The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter is about to be discontinued.
+    // The ID of the Alibaba Cloud account. You do not need to specify this parameter because it will be deprecated soon.
     shared_ptr<string> accountId_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The value can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, and you must ensure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
     shared_ptr<string> ownerId_ {};
     // The ID of the region where the change tracking instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     // The ID of the change tracking instance. You can call the DescribeSubscriptionInstances operation to query the instance ID.
     // 

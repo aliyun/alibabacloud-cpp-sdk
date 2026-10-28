@@ -142,32 +142,32 @@ namespace Models
   protected:
     // The mobile phone number of the contact for latency alerts.
     shared_ptr<string> delayAlertPhone_ {};
-    // Indicates whether latency monitoring is enabled. Valid values:
+    // Indicates whether the latency status is monitored. Valid values:
     // 
-    // - **enable**: enabled.
-    // - **disable**: disabled.
+    // - **enable**: Yes.
+    // - **disable**: No.
     shared_ptr<string> delayAlertStatus_ {};
-    // The threshold that triggers a latency alert. Unit: seconds.
+    // The threshold for triggering a latency alert. Unit: seconds.
     shared_ptr<string> delayOverSeconds_ {};
-    // The error code returned if the call failed.
+    // The error code returned if the call fails.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the call failed.
+    // The error message returned if the call fails.
     shared_ptr<string> errMessage_ {};
-    // The mobile phone number of the contact for error alerts.
+    // The mobile phone number of the contact for abnormal alerts.
     shared_ptr<string> errorAlertPhone_ {};
-    // Indicates whether error status monitoring is enabled. Valid values:
+    // Indicates whether the abnormal status is monitored. Valid values:
     // 
-    // - **enable**: enabled.
-    // - **disable**: disabled.
+    // - **enable**: Yes.
+    // - **disable**: No.
     shared_ptr<string> errorAlertStatus_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<string> success_ {};
     // The synchronization direction. Valid values:
     // 
-    // - **Forward**: forward.
-    // - **Reverse**: reverse.
+    // - **Forward**: Forward.
+    // - **Reverse**: Reverse.
     // 
     // > Default value: **Forward**.
     shared_ptr<string> synchronizationDirection_ {};

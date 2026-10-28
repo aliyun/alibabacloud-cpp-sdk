@@ -112,36 +112,36 @@ namespace Models
 
 
   protected:
-    // The instance ID of the data migration, synchronization, or subscribe instance.
+    // The instance ID of the data migration, data synchronization, or subscribe instance.
     shared_ptr<string> dtsInstanceId_ {};
-    // The ID of the data migration, synchronization, or change tracking task.
+    // The ID of the data migration, data synchronization, or change tracking task.
     shared_ptr<string> dtsJobId_ {};
-    // The database to which the account belongs. Valid values:
+    // The database to which the account and password to be modified belong. Valid values:
     // 
-    // - **src**: the source database.
-    // - **dest**: the destination database.
+    // - **src**: The source database.
+    // - **dest**: The destination database.
     // 
     // > This parameter is required.
     shared_ptr<string> endpoint_ {};
-    // The new password for the database account.
-    // > This parameter is required and must be different from the current password.
+    // The new password of the database account.
+    // > This parameter is required and cannot be the same as the current password.
     shared_ptr<string> password_ {};
     // The region ID of the instance. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The synchronization direction. Valid values:
-    // - **Forward**: forward.
-    // - **Reverse**: reverse.
+    // Specifies the synchronization direction. Valid values:
+    // - **Forward**: Forward.
+    // - **Reverse**: Reverse.
     // 
     // > - Default value: **Forward**.
     // - This parameter is required only when the synchronization topology of the data synchronization instance is two-way synchronization.
     shared_ptr<string> synchronizationDirection_ {};
-    // The username of the database account to modify.
+    // The name of the database account.
     shared_ptr<string> userName_ {};
     // Specifies whether the node is a seamless integration (Zero-ETL) node. Valid values:
-    // - **true**
-    // - **false**.
+    // - **true**: Yes.
+    // - **false**: No.
     shared_ptr<bool> zeroEtlJob_ {};
   };
 

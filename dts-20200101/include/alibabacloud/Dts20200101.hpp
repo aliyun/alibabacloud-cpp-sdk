@@ -25,8 +25,8 @@ namespace Dts20200101
       /**
        * @summary Configures a data migration or synchronization task.
        *
-       * @description - You can perform the required pre-configurations in the console and then preview the corresponding OpenAPI parameter information to help you specify request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
-       * - Tasks on dedicated clusters support only the configure-before-purchase mode and do not support cross-region tasks.
+       * @description - You can preconfigure the task in the console based on your requirements and then preview the OpenAPI parameters for the configuration to help you fill in the request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
+       * - Tasks in dedicated clusters only support the configure-then-purchase mode and do not support cross-region tasks.
        *
        * @param request ConfigureDtsJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -37,8 +37,8 @@ namespace Dts20200101
       /**
        * @summary Configures a data migration or synchronization task.
        *
-       * @description - You can perform the required pre-configurations in the console and then preview the corresponding OpenAPI parameter information to help you specify request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
-       * - Tasks on dedicated clusters support only the configure-before-purchase mode and do not support cross-region tasks.
+       * @description - You can preconfigure the task in the console based on your requirements and then preview the OpenAPI parameters for the configuration to help you fill in the request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
+       * - Tasks in dedicated clusters only support the configure-then-purchase mode and do not support cross-region tasks.
        *
        * @param request ConfigureDtsJobRequest
        * @return ConfigureDtsJobResponse
@@ -65,7 +65,7 @@ namespace Dts20200101
       Models::ConfigureMigrationJobResponse configureMigrationJob(const Models::ConfigureMigrationJobRequest &request);
 
       /**
-       * @summary Configures monitoring alerts to monitor the latency and exception status of a data migration task.
+       * @summary Configures monitoring alerts for the latency and abnormal status of a migration task.
        *
        * @param request ConfigureMigrationJobAlertRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -74,7 +74,7 @@ namespace Dts20200101
       Models::ConfigureMigrationJobAlertResponse configureMigrationJobAlertWithOptions(const Models::ConfigureMigrationJobAlertRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures monitoring alerts to monitor the latency and exception status of a data migration task.
+       * @summary Configures monitoring alerts for the latency and abnormal status of a migration task.
        *
        * @param request ConfigureMigrationJobAlertRequest
        * @return ConfigureMigrationJobAlertResponse
@@ -84,7 +84,7 @@ namespace Dts20200101
       /**
        * @summary Configures a DTS change tracking task.
        *
-       * @description > You can perform the required pre-configurations in the console and then preview the corresponding OpenAPI parameter information to help you specify request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
+       * @description > You can preconfigure settings in the console as needed and then preview the OpenAPI parameters for the configurations to help you fill in the request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
        *
        * @param request ConfigureSubscriptionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -95,7 +95,7 @@ namespace Dts20200101
       /**
        * @summary Configures a DTS change tracking task.
        *
-       * @description > You can perform the required pre-configurations in the console and then preview the corresponding OpenAPI parameter information to help you specify request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
+       * @description > You can preconfigure settings in the console as needed and then preview the OpenAPI parameters for the configurations to help you fill in the request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
        *
        * @param request ConfigureSubscriptionRequest
        * @return ConfigureSubscriptionResponse
@@ -103,10 +103,10 @@ namespace Dts20200101
       Models::ConfigureSubscriptionResponse configureSubscription(const Models::ConfigureSubscriptionRequest &request);
 
       /**
-       * @summary Configures a change tracking channel. This is a legacy operation.
+       * @summary Configures a legacy change tracking channel.
        *
        * @description Before you call this operation, you must call the [CreateSubscriptionInstance](https://help.aliyun.com/document_detail/49436.html) operation to create a change tracking instance.
-       * > In the **Advanced Settings** step of the console, move the pointer over the **Next: Save the task and perform a precheck** button, and then click **Preview OpenAPI parameters** in the tooltip to view the parameter information for configuring this instance by using API operations.
+       * > In the **Advanced Settings** step of the console, move the pointer over the **Save Task and Precheck** button, and then click **Preview OpenAPI Call** in the tooltip to view the parameter settings for configuring the instance by using API operations.
        *
        * @param request ConfigureSubscriptionInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -115,10 +115,10 @@ namespace Dts20200101
       Models::ConfigureSubscriptionInstanceResponse configureSubscriptionInstanceWithOptions(const Models::ConfigureSubscriptionInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures a change tracking channel. This is a legacy operation.
+       * @summary Configures a legacy change tracking channel.
        *
        * @description Before you call this operation, you must call the [CreateSubscriptionInstance](https://help.aliyun.com/document_detail/49436.html) operation to create a change tracking instance.
-       * > In the **Advanced Settings** step of the console, move the pointer over the **Next: Save the task and perform a precheck** button, and then click **Preview OpenAPI parameters** in the tooltip to view the parameter information for configuring this instance by using API operations.
+       * > In the **Advanced Settings** step of the console, move the pointer over the **Save Task and Precheck** button, and then click **Preview OpenAPI Call** in the tooltip to view the parameter settings for configuring the instance by using API operations.
        *
        * @param request ConfigureSubscriptionInstanceRequest
        * @return ConfigureSubscriptionInstanceResponse
@@ -126,7 +126,7 @@ namespace Dts20200101
       Models::ConfigureSubscriptionInstanceResponse configureSubscriptionInstance(const Models::ConfigureSubscriptionInstanceRequest &request);
 
       /**
-       * @summary Configures monitoring and alerting to monitor the latency and exception status of a change tracking channel.
+       * @summary Configures monitoring alerts to monitor the latency and abnormal status of a change tracking channel.
        *
        * @param request ConfigureSubscriptionInstanceAlertRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -135,7 +135,7 @@ namespace Dts20200101
       Models::ConfigureSubscriptionInstanceAlertResponse configureSubscriptionInstanceAlertWithOptions(const Models::ConfigureSubscriptionInstanceAlertRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures monitoring and alerting to monitor the latency and exception status of a change tracking channel.
+       * @summary Configures monitoring alerts to monitor the latency and abnormal status of a change tracking channel.
        *
        * @param request ConfigureSubscriptionInstanceAlertRequest
        * @return ConfigureSubscriptionInstanceAlertResponse
@@ -143,11 +143,11 @@ namespace Dts20200101
       Models::ConfigureSubscriptionInstanceAlertResponse configureSubscriptionInstanceAlert(const Models::ConfigureSubscriptionInstanceAlertRequest &request);
 
       /**
-       * @summary Configures a data synchronization task by using the previous version.
+       * @summary Configures a legacy data synchronization task.
        *
        * @description Before you call this operation, you must call the [CreateSynchronizationJob](https://help.aliyun.com/document_detail/49446.html) operation to create a data synchronization instance.
-       * > - After this operation is called, the data synchronization instance automatically starts and performs a precheck. You do not need to call the [StartSynchronizationJob](https://help.aliyun.com/document_detail/49448.html) operation to start the instance.
-       * - If the data synchronization instance fails to start, the precheck may have failed. You can call the [DescribeSynchronizationJobStatus](https://help.aliyun.com/document_detail/49453.html) operation to query the status of the data synchronization instance, obtain the error message of the precheck failure, and adjust the parameters. After the adjustment, you can call the [StartSynchronizationJob](https://help.aliyun.com/document_detail/49448.html) operation to restart the data synchronization instance.
+       * > - After this operation is called, the data synchronization instance automatically starts and runs a precheck. You do not need to call the [StartSynchronizationJob](https://help.aliyun.com/document_detail/49448.html) operation to start the instance.
+       * - If the data synchronization instance fails to start, the precheck may have failed. You can call the [DescribeSynchronizationJobStatus](https://help.aliyun.com/document_detail/49453.html) operation to query the status of the data synchronization instance, obtain the error message for the precheck failure, and adjust the parameters. After the adjustment, you can call the [StartSynchronizationJob](https://help.aliyun.com/document_detail/49448.html) operation to restart the data synchronization instance.
        *
        * @param request ConfigureSynchronizationJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -156,11 +156,11 @@ namespace Dts20200101
       Models::ConfigureSynchronizationJobResponse configureSynchronizationJobWithOptions(const Models::ConfigureSynchronizationJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures a data synchronization task by using the previous version.
+       * @summary Configures a legacy data synchronization task.
        *
        * @description Before you call this operation, you must call the [CreateSynchronizationJob](https://help.aliyun.com/document_detail/49446.html) operation to create a data synchronization instance.
-       * > - After this operation is called, the data synchronization instance automatically starts and performs a precheck. You do not need to call the [StartSynchronizationJob](https://help.aliyun.com/document_detail/49448.html) operation to start the instance.
-       * - If the data synchronization instance fails to start, the precheck may have failed. You can call the [DescribeSynchronizationJobStatus](https://help.aliyun.com/document_detail/49453.html) operation to query the status of the data synchronization instance, obtain the error message of the precheck failure, and adjust the parameters. After the adjustment, you can call the [StartSynchronizationJob](https://help.aliyun.com/document_detail/49448.html) operation to restart the data synchronization instance.
+       * > - After this operation is called, the data synchronization instance automatically starts and runs a precheck. You do not need to call the [StartSynchronizationJob](https://help.aliyun.com/document_detail/49448.html) operation to start the instance.
+       * - If the data synchronization instance fails to start, the precheck may have failed. You can call the [DescribeSynchronizationJobStatus](https://help.aliyun.com/document_detail/49453.html) operation to query the status of the data synchronization instance, obtain the error message for the precheck failure, and adjust the parameters. After the adjustment, you can call the [StartSynchronizationJob](https://help.aliyun.com/document_detail/49448.html) operation to restart the data synchronization instance.
        *
        * @param request ConfigureSynchronizationJobRequest
        * @return ConfigureSynchronizationJobResponse
@@ -168,7 +168,7 @@ namespace Dts20200101
       Models::ConfigureSynchronizationJobResponse configureSynchronizationJob(const Models::ConfigureSynchronizationJobRequest &request);
 
       /**
-       * @summary Configures monitoring and alerting to monitor the latency and exception status of a synchronization task.
+       * @summary Configures alert rules to monitor the latency and abnormal status of a data synchronization task.
        *
        * @param request ConfigureSynchronizationJobAlertRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -177,7 +177,7 @@ namespace Dts20200101
       Models::ConfigureSynchronizationJobAlertResponse configureSynchronizationJobAlertWithOptions(const Models::ConfigureSynchronizationJobAlertRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures monitoring and alerting to monitor the latency and exception status of a synchronization task.
+       * @summary Configures alert rules to monitor the latency and abnormal status of a data synchronization task.
        *
        * @param request ConfigureSynchronizationJobAlertRequest
        * @return ConfigureSynchronizationJobAlertResponse
@@ -185,7 +185,7 @@ namespace Dts20200101
       Models::ConfigureSynchronizationJobAlertResponse configureSynchronizationJobAlert(const Models::ConfigureSynchronizationJobAlertRequest &request);
 
       /**
-       * @summary Configures the full image matching switch for a data synchronization instance.
+       * @summary Configures the full-image matching switch for synchronization.
        *
        * @param request ConfigureSynchronizationJobReplicatorCompareRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -194,7 +194,7 @@ namespace Dts20200101
       Models::ConfigureSynchronizationJobReplicatorCompareResponse configureSynchronizationJobReplicatorCompareWithOptions(const Models::ConfigureSynchronizationJobReplicatorCompareRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures the full image matching switch for a data synchronization instance.
+       * @summary Configures the full-image matching switch for synchronization.
        *
        * @param request ConfigureSynchronizationJobReplicatorCompareRequest
        * @return ConfigureSynchronizationJobReplicatorCompareResponse
@@ -202,7 +202,7 @@ namespace Dts20200101
       Models::ConfigureSynchronizationJobReplicatorCompareResponse configureSynchronizationJobReplicatorCompare(const Models::ConfigureSynchronizationJobReplicatorCompareRequest &request);
 
       /**
-       * @summary Transfers a DTS instance to a different resource group.
+       * @summary Changes the resource group of a DTS instance.
        *
        * @param request ConvertInstanceResourceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -211,7 +211,7 @@ namespace Dts20200101
       Models::ConvertInstanceResourceGroupResponse convertInstanceResourceGroupWithOptions(const Models::ConvertInstanceResourceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Transfers a DTS instance to a different resource group.
+       * @summary Changes the resource group of a DTS instance.
        *
        * @param request ConvertInstanceResourceGroupRequest
        * @return ConvertInstanceResourceGroupResponse
@@ -219,7 +219,7 @@ namespace Dts20200101
       Models::ConvertInstanceResourceGroupResponse convertInstanceResourceGroup(const Models::ConvertInstanceResourceGroupRequest &request);
 
       /**
-       * @summary Queries the count of tasks by conditions.
+       * @summary Queries task statistics based on specified conditions.
        *
        * @param request CountJobByConditionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -228,7 +228,7 @@ namespace Dts20200101
       Models::CountJobByConditionResponse countJobByConditionWithOptions(const Models::CountJobByConditionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the count of tasks by conditions.
+       * @summary Queries task statistics based on specified conditions.
        *
        * @param request CountJobByConditionRequest
        * @return CountJobByConditionResponse
@@ -236,7 +236,7 @@ namespace Dts20200101
       Models::CountJobByConditionResponse countJobByCondition(const Models::CountJobByConditionRequest &request);
 
       /**
-       * @summary Creates a consumer group for a change tracking task (new version).
+       * @summary Creates a consumer group for a change tracking task.
        *
        * @param request CreateConsumerChannelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -245,7 +245,7 @@ namespace Dts20200101
       Models::CreateConsumerChannelResponse createConsumerChannelWithOptions(const Models::CreateConsumerChannelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a consumer group for a change tracking task (new version).
+       * @summary Creates a consumer group for a change tracking task.
        *
        * @param request CreateConsumerChannelRequest
        * @return CreateConsumerChannelResponse
@@ -289,9 +289,9 @@ namespace Dts20200101
       /**
        * @summary Creates a document parsing task.
        *
-       * @description Calling this operation creates a document parsing task and returns a task ID (DtsJobId).
-       * > - This operation relies on Object Storage Service (OSS) for file transfer. We recommend that you call this operation by using an SDK. The CreateDocParserJobAdvance operation automatically encapsulates the file transfer process.
-       * > - After you obtain the DtsJobId response parameter, you can call the DescribeDocParserJobStatus operation to query the execution status of the document parsing task, and call the DescribeDocParserJobResult operation to obtain the output of the document parsing task.
+       * @description Creates a document parsing task and returns a task ID (DtsJobId).
+       * > - This operation relies on Object Storage Service (OSS) for file transfer. Use an SDK to call this operation. Calling the CreateDocParserJobAdvance operation automatically encapsulates the file transfer process.
+       * > - After you obtain the DtsJobId response parameter, you can call the DescribeDocParserJobStatus operation to query the execution status of the document parsing task and call the DescribeDocParserJobResult operation to obtain the document parsing results.
        *
        * @param request CreateDocParserJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -302,9 +302,9 @@ namespace Dts20200101
       /**
        * @summary Creates a document parsing task.
        *
-       * @description Calling this operation creates a document parsing task and returns a task ID (DtsJobId).
-       * > - This operation relies on Object Storage Service (OSS) for file transfer. We recommend that you call this operation by using an SDK. The CreateDocParserJobAdvance operation automatically encapsulates the file transfer process.
-       * > - After you obtain the DtsJobId response parameter, you can call the DescribeDocParserJobStatus operation to query the execution status of the document parsing task, and call the DescribeDocParserJobResult operation to obtain the output of the document parsing task.
+       * @description Creates a document parsing task and returns a task ID (DtsJobId).
+       * > - This operation relies on Object Storage Service (OSS) for file transfer. Use an SDK to call this operation. Calling the CreateDocParserJobAdvance operation automatically encapsulates the file transfer process.
+       * > - After you obtain the DtsJobId response parameter, you can call the DescribeDocParserJobStatus operation to query the execution status of the document parsing task and call the DescribeDocParserJobResult operation to obtain the document parsing results.
        *
        * @param request CreateDocParserJobRequest
        * @return CreateDocParserJobResponse
@@ -314,13 +314,13 @@ namespace Dts20200101
       Models::CreateDocParserJobResponse createDocParserJobAdvance(const Models::CreateDocParserJobAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Purchases a DTS instance by calling the CreateDtsInstance operation.
+       * @summary Purchases a DTS instance.
        *
        * @description <props="china">
-       * - Before invoking this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/dts/detail) of Data Transmission Service (DTS).
+       * - Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/dts/detail) of the cloud database DTS product.
        * <props="intl">
-       * - Before invoking this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/product/data-transmission-service/pricing) of Data Transmission Service (DTS).
-       * - Nodes on a dedicated cluster support only the workflow of configuring a node before purchasing an instance. You can invoke the [ConfigureDtsJob](https://help.aliyun.com/document_detail/208399.html) operation to configure a node.
+       * - Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/product/data-transmission-service/pricing) of the cloud database DTS product.
+       * - For nodes in a dedicated cluster, you must configure the node before you purchase the instance. You can invoke the [ConfigureDtsJob](https://help.aliyun.com/document_detail/208399.html) operation to configure the node.
        *
        * @param request CreateDtsInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -329,13 +329,13 @@ namespace Dts20200101
       Models::CreateDtsInstanceResponse createDtsInstanceWithOptions(const Models::CreateDtsInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Purchases a DTS instance by calling the CreateDtsInstance operation.
+       * @summary Purchases a DTS instance.
        *
        * @description <props="china">
-       * - Before invoking this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/dts/detail) of Data Transmission Service (DTS).
+       * - Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/dts/detail) of the cloud database DTS product.
        * <props="intl">
-       * - Before invoking this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/product/data-transmission-service/pricing) of Data Transmission Service (DTS).
-       * - Nodes on a dedicated cluster support only the workflow of configuring a node before purchasing an instance. You can invoke the [ConfigureDtsJob](https://help.aliyun.com/document_detail/208399.html) operation to configure a node.
+       * - Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/product/data-transmission-service/pricing) of the cloud database DTS product.
+       * - For nodes in a dedicated cluster, you must configure the node before you purchase the instance. You can invoke the [ConfigureDtsJob](https://help.aliyun.com/document_detail/208399.html) operation to configure the node.
        *
        * @param request CreateDtsInstanceRequest
        * @return CreateDtsInstanceResponse
@@ -343,12 +343,50 @@ namespace Dts20200101
       Models::CreateDtsInstanceResponse createDtsInstance(const Models::CreateDtsInstanceRequest &request);
 
       /**
-       * @summary Creates or modifies an alert rule for a DTS task.
+       * @summary Creates a GAD instance.
        *
-       * @description DTS currently supports the following alert metrics: **Latency**, **Migration Status**, and **Full Migration Duration**:
-       * - **Latency**: Monitors incremental data migration latency. An alert is triggered when the migration latency, synchronization latency, or change tracking latency exceeds the specified threshold (in seconds).
-       * - **Migration Status**: Monitors the task status. An alert is triggered when the task status is **Error** or **Recovered**.
-       * - **Full Migration Duration**: Monitors the duration of full data migration. An alert is triggered when the duration exceeds the specified threshold (in hours).
+       * @param request CreateGadInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateGadInstanceResponse
+       */
+      Models::CreateGadInstanceResponse createGadInstanceWithOptions(const Models::CreateGadInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a GAD instance.
+       *
+       * @param request CreateGadInstanceRequest
+       * @return CreateGadInstanceResponse
+       */
+      Models::CreateGadInstanceResponse createGadInstance(const Models::CreateGadInstanceRequest &request);
+
+      /**
+       * @summary Creates a globally active database (GAD) instance group for ApsaraDB RDS.
+       *
+       * @description When NeedCreateSlave is set to true, the following additional parameters are required: DbInstanceClass, DbInstanceStorage, DbInstanceStorageType, ZoneId, ZoneIdSlave1, ZoneIdSlave2, VpcId, VSwitchId, SecurityIPList, PayType, Port, Amount, AutoRenew, Period, UsedTime, Category, EngineVersion, DbInstanceDescription, and AutoCreateProxy. These parameters have the same meanings as those in the CreateDBInstance operation.
+       *
+       * @param tmpReq CreateGadOrderRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateGadOrderResponse
+       */
+      Models::CreateGadOrderResponse createGadOrderWithOptions(const Models::CreateGadOrderRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a globally active database (GAD) instance group for ApsaraDB RDS.
+       *
+       * @description When NeedCreateSlave is set to true, the following additional parameters are required: DbInstanceClass, DbInstanceStorage, DbInstanceStorageType, ZoneId, ZoneIdSlave1, ZoneIdSlave2, VpcId, VSwitchId, SecurityIPList, PayType, Port, Amount, AutoRenew, Period, UsedTime, Category, EngineVersion, DbInstanceDescription, and AutoCreateProxy. These parameters have the same meanings as those in the CreateDBInstance operation.
+       *
+       * @param request CreateGadOrderRequest
+       * @return CreateGadOrderResponse
+       */
+      Models::CreateGadOrderResponse createGadOrder(const Models::CreateGadOrderRequest &request);
+
+      /**
+       * @summary Creates or modifies an alert rule for a task.
+       *
+       * @description Data Transmission Service (DTS) currently supports the following monitoring metrics: **latency**, **migration status**, and **full run duration**:
+       * - **Latency**: Monitors the latency of incremental data migration. An alert is triggered when the migration latency, synchronization latency, or change tracking latency exceeds the specified threshold in seconds.
+       * - **Migration status**: Monitors the status of the task. An alert is triggered when the task status is **Abnormal** or **Recovered**.
+       * - **Full run duration**: Monitors the duration of the full run. An alert is triggered when the duration exceeds the specified threshold in hours.
        *
        * @param request CreateJobMonitorRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -357,12 +395,12 @@ namespace Dts20200101
       Models::CreateJobMonitorRuleResponse createJobMonitorRuleWithOptions(const Models::CreateJobMonitorRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates or modifies an alert rule for a DTS task.
+       * @summary Creates or modifies an alert rule for a task.
        *
-       * @description DTS currently supports the following alert metrics: **Latency**, **Migration Status**, and **Full Migration Duration**:
-       * - **Latency**: Monitors incremental data migration latency. An alert is triggered when the migration latency, synchronization latency, or change tracking latency exceeds the specified threshold (in seconds).
-       * - **Migration Status**: Monitors the task status. An alert is triggered when the task status is **Error** or **Recovered**.
-       * - **Full Migration Duration**: Monitors the duration of full data migration. An alert is triggered when the duration exceeds the specified threshold (in hours).
+       * @description Data Transmission Service (DTS) currently supports the following monitoring metrics: **latency**, **migration status**, and **full run duration**:
+       * - **Latency**: Monitors the latency of incremental data migration. An alert is triggered when the migration latency, synchronization latency, or change tracking latency exceeds the specified threshold in seconds.
+       * - **Migration status**: Monitors the status of the task. An alert is triggered when the task status is **Abnormal** or **Recovered**.
+       * - **Full run duration**: Monitors the duration of the full run. An alert is triggered when the duration exceeds the specified threshold in hours.
        *
        * @param request CreateJobMonitorRuleRequest
        * @return CreateJobMonitorRuleResponse
@@ -387,10 +425,10 @@ namespace Dts20200101
       Models::CreateMigrationJobResponse createMigrationJob(const Models::CreateMigrationJobRequest &request);
 
       /**
-       * @summary Creates a reverse task for a specified synchronization or migration task by calling the CreateReverseDtsJob operation.
+       * @summary Creates a reverse task for a specified synchronization or migration task.
        *
-       * @description The reverse task created by calling this operation immediately starts a precheck. After the precheck is passed, incremental data collection begins, but the incremental data write module does not run. You must call the **StartReverseWriter** operation to start it.
-       * > The created reverse task is a synchronization task that contains only the incremental write module.
+       * @description A reverse task created by calling this operation immediately undergoes a precheck. After the precheck is passed, incremental data collection starts, but the incremental data writer does not run. You must call the **StartReverseWriter** operation to start the incremental data writer.
+       * > A created reverse task is always a synchronization task and includes only the incremental data writer.
        *
        * @param request CreateReverseDtsJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -399,10 +437,10 @@ namespace Dts20200101
       Models::CreateReverseDtsJobResponse createReverseDtsJobWithOptions(const Models::CreateReverseDtsJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a reverse task for a specified synchronization or migration task by calling the CreateReverseDtsJob operation.
+       * @summary Creates a reverse task for a specified synchronization or migration task.
        *
-       * @description The reverse task created by calling this operation immediately starts a precheck. After the precheck is passed, incremental data collection begins, but the incremental data write module does not run. You must call the **StartReverseWriter** operation to start it.
-       * > The created reverse task is a synchronization task that contains only the incremental write module.
+       * @description A reverse task created by calling this operation immediately undergoes a precheck. After the precheck is passed, incremental data collection starts, but the incremental data writer does not run. You must call the **StartReverseWriter** operation to start the incremental data writer.
+       * > A created reverse task is always a synchronization task and includes only the incremental data writer.
        *
        * @param request CreateReverseDtsJobRequest
        * @return CreateReverseDtsJobResponse
@@ -410,7 +448,7 @@ namespace Dts20200101
       Models::CreateReverseDtsJobResponse createReverseDtsJob(const Models::CreateReverseDtsJobRequest &request);
 
       /**
-       * @summary Creates a change tracking channel. This is a legacy operation.
+       * @summary Creates a legacy change tracking instance.
        *
        * @param request CreateSubscriptionInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -419,7 +457,7 @@ namespace Dts20200101
       Models::CreateSubscriptionInstanceResponse createSubscriptionInstanceWithOptions(const Models::CreateSubscriptionInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a change tracking channel. This is a legacy operation.
+       * @summary Creates a legacy change tracking instance.
        *
        * @param request CreateSubscriptionInstanceRequest
        * @return CreateSubscriptionInstanceResponse
@@ -427,7 +465,7 @@ namespace Dts20200101
       Models::CreateSubscriptionInstanceResponse createSubscriptionInstance(const Models::CreateSubscriptionInstanceRequest &request);
 
       /**
-       * @summary Creates a data synchronization job instance. This is a legacy API operation.
+       * @summary Creates a legacy data synchronization job instance.
        *
        * @param request CreateSynchronizationJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -436,7 +474,7 @@ namespace Dts20200101
       Models::CreateSynchronizationJobResponse createSynchronizationJobWithOptions(const Models::CreateSynchronizationJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a data synchronization job instance. This is a legacy API operation.
+       * @summary Creates a legacy data synchronization job instance.
        *
        * @param request CreateSynchronizationJobRequest
        * @return CreateSynchronizationJobResponse
@@ -444,7 +482,7 @@ namespace Dts20200101
       Models::CreateSynchronizationJobResponse createSynchronizationJob(const Models::CreateSynchronizationJobRequest &request);
 
       /**
-       * @summary Deletes a consumer group of a change tracking task (new version).
+       * @summary Deletes a consumer group for a change tracking task.
        *
        * @param request DeleteConsumerChannelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -453,7 +491,7 @@ namespace Dts20200101
       Models::DeleteConsumerChannelResponse deleteConsumerChannelWithOptions(const Models::DeleteConsumerChannelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a consumer group of a change tracking task (new version).
+       * @summary Deletes a consumer group for a change tracking task.
        *
        * @param request DeleteConsumerChannelRequest
        * @return DeleteConsumerChannelResponse
@@ -478,9 +516,9 @@ namespace Dts20200101
       Models::DeleteConsumerGroupResponse deleteConsumerGroup(const Models::DeleteConsumerGroupRequest &request);
 
       /**
-       * @summary Releases a data migration, synchronization, or change tracking instance.
+       * @summary Releases a data migration, data synchronization, or change tracking instance.
        *
-       * @description > <props="china"><ph>Subscription DTS instances cannot be released by calling this API operation. You can release them by unsubscribing. For more information, see [Release a DTS instance](https://help.aliyun.com/document_detail/289054.html).</ph><props="intl"><ph>Subscription DTS instances cannot be released.</ph>.
+       * @description > <props="china"><ph>You cannot release subscription DTS instances by calling API operations. You can release them by unsubscribing from the instances. For more information, see [Release a DTS instance](https://help.aliyun.com/document_detail/289054.html).</ph><props="intl"><ph>Subscription DTS instances cannot be released.</ph>
        *
        * @param request DeleteDtsJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -489,9 +527,9 @@ namespace Dts20200101
       Models::DeleteDtsJobResponse deleteDtsJobWithOptions(const Models::DeleteDtsJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Releases a data migration, synchronization, or change tracking instance.
+       * @summary Releases a data migration, data synchronization, or change tracking instance.
        *
-       * @description > <props="china"><ph>Subscription DTS instances cannot be released by calling this API operation. You can release them by unsubscribing. For more information, see [Release a DTS instance](https://help.aliyun.com/document_detail/289054.html).</ph><props="intl"><ph>Subscription DTS instances cannot be released.</ph>.
+       * @description > <props="china"><ph>You cannot release subscription DTS instances by calling API operations. You can release them by unsubscribing from the instances. For more information, see [Release a DTS instance](https://help.aliyun.com/document_detail/289054.html).</ph><props="intl"><ph>Subscription DTS instances cannot be released.</ph>
        *
        * @param request DeleteDtsJobRequest
        * @return DeleteDtsJobResponse
@@ -499,9 +537,9 @@ namespace Dts20200101
       Models::DeleteDtsJobResponse deleteDtsJob(const Models::DeleteDtsJobRequest &request);
 
       /**
-       * @summary Releases data migration, data synchronization, or change tracking tasks in batches by calling the DeleteDtsJobs operation.
+       * @summary Releases multiple data migration, data synchronization, or change tracking tasks.
        *
-       * @description > <props="china"><ph>Subscription DTS instances cannot be released by calling API operations. You can release them by unsubscribing. For more information, see [Release a DTS instance](https://help.aliyun.com/document_detail/289054.html).</ph><props="intl"><ph>Subscription DTS instances cannot be released.</ph>.
+       * @description > <props="china"><ph>Subscription DTS instances cannot be released by calling API operations. You can release them by unsubscribing from the instances. For more information, see [Release DTS instances](https://help.aliyun.com/document_detail/289054.html).</ph><props="intl"><ph>Subscription DTS instances cannot be released.</ph>
        *
        * @param request DeleteDtsJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -510,14 +548,31 @@ namespace Dts20200101
       Models::DeleteDtsJobsResponse deleteDtsJobsWithOptions(const Models::DeleteDtsJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Releases data migration, data synchronization, or change tracking tasks in batches by calling the DeleteDtsJobs operation.
+       * @summary Releases multiple data migration, data synchronization, or change tracking tasks.
        *
-       * @description > <props="china"><ph>Subscription DTS instances cannot be released by calling API operations. You can release them by unsubscribing. For more information, see [Release a DTS instance](https://help.aliyun.com/document_detail/289054.html).</ph><props="intl"><ph>Subscription DTS instances cannot be released.</ph>.
+       * @description > <props="china"><ph>Subscription DTS instances cannot be released by calling API operations. You can release them by unsubscribing from the instances. For more information, see [Release DTS instances](https://help.aliyun.com/document_detail/289054.html).</ph><props="intl"><ph>Subscription DTS instances cannot be released.</ph>
        *
        * @param request DeleteDtsJobsRequest
        * @return DeleteDtsJobsResponse
        */
       Models::DeleteDtsJobsResponse deleteDtsJobs(const Models::DeleteDtsJobsRequest &request);
+
+      /**
+       * @summary Deletes a GAD instance.
+       *
+       * @param request DeleteGadInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteGadInstanceResponse
+       */
+      Models::DeleteGadInstanceResponse deleteGadInstanceWithOptions(const Models::DeleteGadInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a GAD instance.
+       *
+       * @param request DeleteGadInstanceRequest
+       * @return DeleteGadInstanceResponse
+       */
+      Models::DeleteGadInstanceResponse deleteGadInstance(const Models::DeleteGadInstanceRequest &request);
 
       /**
        * @summary Releases a data migration instance.
@@ -554,7 +609,7 @@ namespace Dts20200101
       Models::DeleteSubscriptionInstanceResponse deleteSubscriptionInstance(const Models::DeleteSubscriptionInstanceRequest &request);
 
       /**
-       * @summary Releases a data synchronization instance.
+       * @summary Releases a data synchronization job instance.
        *
        * @param request DeleteSynchronizationJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -563,7 +618,7 @@ namespace Dts20200101
       Models::DeleteSynchronizationJobResponse deleteSynchronizationJobWithOptions(const Models::DeleteSynchronizationJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Releases a data synchronization instance.
+       * @summary Releases a data synchronization job instance.
        *
        * @param request DeleteSynchronizationJobRequest
        * @return DeleteSynchronizationJobResponse
@@ -588,7 +643,7 @@ namespace Dts20200101
       Models::DescribeChannelAccountResponse describeChannelAccount(const Models::DescribeChannelAccountRequest &request);
 
       /**
-       * @summary Contains data validation tasks associated with data migration tasks and data synchronization tasks.
+       * @summary Queries the verification tasks associated with data migration tasks and data synchronization tasks.
        *
        * @param request DescribeCheckJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -597,7 +652,7 @@ namespace Dts20200101
       Models::DescribeCheckJobsResponse describeCheckJobsWithOptions(const Models::DescribeCheckJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Contains data validation tasks associated with data migration tasks and data synchronization tasks.
+       * @summary Queries the verification tasks associated with data migration tasks and data synchronization tasks.
        *
        * @param request DescribeCheckJobsRequest
        * @return DescribeCheckJobsResponse
@@ -605,7 +660,7 @@ namespace Dts20200101
       Models::DescribeCheckJobsResponse describeCheckJobs(const Models::DescribeCheckJobsRequest &request);
 
       /**
-       * @summary Queries the log information of a DTS cluster by calling the DescribeClusterOperateLogs operation.
+       * @summary Queries the operation logs of a DTS cluster.
        *
        * @param request DescribeClusterOperateLogsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -614,7 +669,7 @@ namespace Dts20200101
       Models::DescribeClusterOperateLogsResponse describeClusterOperateLogsWithOptions(const Models::DescribeClusterOperateLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the log information of a DTS cluster by calling the DescribeClusterOperateLogs operation.
+       * @summary Queries the operation logs of a DTS cluster.
        *
        * @param request DescribeClusterOperateLogsRequest
        * @return DescribeClusterOperateLogsResponse
@@ -622,7 +677,7 @@ namespace Dts20200101
       Models::DescribeClusterOperateLogsResponse describeClusterOperateLogs(const Models::DescribeClusterOperateLogsRequest &request);
 
       /**
-       * @summary Queries the current usage of a cluster by calling the DescribeClusterUsedUtilization operation.
+       * @summary Queries the current usage of a cluster.
        *
        * @param request DescribeClusterUsedUtilizationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -631,7 +686,7 @@ namespace Dts20200101
       Models::DescribeClusterUsedUtilizationResponse describeClusterUsedUtilizationWithOptions(const Models::DescribeClusterUsedUtilizationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the current usage of a cluster by calling the DescribeClusterUsedUtilization operation.
+       * @summary Queries the current usage of a cluster.
        *
        * @param request DescribeClusterUsedUtilizationRequest
        * @return DescribeClusterUsedUtilizationResponse
@@ -690,7 +745,7 @@ namespace Dts20200101
       Models::DescribeConsumerGroupResponse describeConsumerGroup(const Models::DescribeConsumerGroupRequest &request);
 
       /**
-       * @summary Retrieves the DTS IP addresses that must be added to the whitelists of both the source and destination databases.
+       * @summary Queries the DTS IP addresses that must be added to the whitelists of both the source and destination databases.
        *
        * @param request DescribeDTSIPRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -699,7 +754,7 @@ namespace Dts20200101
       Models::DescribeDTSIPResponse describeDTSIPWithOptions(const Models::DescribeDTSIPRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the DTS IP addresses that must be added to the whitelists of both the source and destination databases.
+       * @summary Queries the DTS IP addresses that must be added to the whitelists of both the source and destination databases.
        *
        * @param request DescribeDTSIPRequest
        * @return DescribeDTSIPResponse
@@ -707,7 +762,7 @@ namespace Dts20200101
       Models::DescribeDTSIPResponse describeDTSIP(const Models::DescribeDTSIPRequest &request);
 
       /**
-       * @summary Obtains the download URL for the list data of inconsistent data.
+       * @summary Retrieves the download link for the list of inconsistent data.
        *
        * @param request DescribeDataCheckReportUrlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -716,7 +771,7 @@ namespace Dts20200101
       Models::DescribeDataCheckReportUrlResponse describeDataCheckReportUrlWithOptions(const Models::DescribeDataCheckReportUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the download URL for the list data of inconsistent data.
+       * @summary Retrieves the download link for the list of inconsistent data.
        *
        * @param request DescribeDataCheckReportUrlRequest
        * @return DescribeDataCheckReportUrlResponse
@@ -724,7 +779,7 @@ namespace Dts20200101
       Models::DescribeDataCheckReportUrlResponse describeDataCheckReportUrl(const Models::DescribeDataCheckReportUrlRequest &request);
 
       /**
-       * @summary Queries data consistency verification results at the table level.
+       * @summary Lists the verification results by table.
        *
        * @param request DescribeDataCheckTableDetailsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -733,7 +788,7 @@ namespace Dts20200101
       Models::DescribeDataCheckTableDetailsResponse describeDataCheckTableDetailsWithOptions(const Models::DescribeDataCheckTableDetailsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries data consistency verification results at the table level.
+       * @summary Lists the verification results by table.
        *
        * @param request DescribeDataCheckTableDetailsRequest
        * @return DescribeDataCheckTableDetailsResponse
@@ -741,7 +796,7 @@ namespace Dts20200101
       Models::DescribeDataCheckTableDetailsResponse describeDataCheckTableDetails(const Models::DescribeDataCheckTableDetailsRequest &request);
 
       /**
-       * @summary Lists data inconsistency results grouped by inconsistent data.
+       * @summary Lists the data inconsistency check results.
        *
        * @param request DescribeDataCheckTableDiffDetailsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -750,7 +805,7 @@ namespace Dts20200101
       Models::DescribeDataCheckTableDiffDetailsResponse describeDataCheckTableDiffDetailsWithOptions(const Models::DescribeDataCheckTableDiffDetailsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists data inconsistency results grouped by inconsistent data.
+       * @summary Lists the data inconsistency check results.
        *
        * @param request DescribeDataCheckTableDiffDetailsRequest
        * @return DescribeDataCheckTableDiffDetailsResponse
@@ -758,7 +813,7 @@ namespace Dts20200101
       Models::DescribeDataCheckTableDiffDetailsResponse describeDataCheckTableDiffDetails(const Models::DescribeDataCheckTableDiffDetailsRequest &request);
 
       /**
-       * @summary Queries the details of a specified cluster by calling the DescribeDedicatedCluster operation.
+       * @summary Queries the details of a dedicated cluster.
        *
        * @param request DescribeDedicatedClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -767,7 +822,7 @@ namespace Dts20200101
       Models::DescribeDedicatedClusterResponse describeDedicatedClusterWithOptions(const Models::DescribeDedicatedClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a specified cluster by calling the DescribeDedicatedCluster operation.
+       * @summary Queries the details of a dedicated cluster.
        *
        * @param request DescribeDedicatedClusterRequest
        * @return DescribeDedicatedClusterResponse
@@ -775,7 +830,7 @@ namespace Dts20200101
       Models::DescribeDedicatedClusterResponse describeDedicatedCluster(const Models::DescribeDedicatedClusterRequest &request);
 
       /**
-       * @summary Queries alert rules by calling the DescribeDedicatedClusterMonitorRule operation.
+       * @summary Queries the alert rules.
        *
        * @param request DescribeDedicatedClusterMonitorRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -784,7 +839,7 @@ namespace Dts20200101
       Models::DescribeDedicatedClusterMonitorRuleResponse describeDedicatedClusterMonitorRuleWithOptions(const Models::DescribeDedicatedClusterMonitorRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries alert rules by calling the DescribeDedicatedClusterMonitorRule operation.
+       * @summary Queries the alert rules.
        *
        * @param request DescribeDedicatedClusterMonitorRuleRequest
        * @return DescribeDedicatedClusterMonitorRuleResponse
@@ -792,11 +847,11 @@ namespace Dts20200101
       Models::DescribeDedicatedClusterMonitorRuleResponse describeDedicatedClusterMonitorRule(const Models::DescribeDedicatedClusterMonitorRuleRequest &request);
 
       /**
-       * @summary Retrieves the result of a document parsing task.
+       * @summary Retrieves the results of a document parsing task.
        *
-       * @description This operation has rate limits. Calls that exceed the limits are rejected.
-       * - The cumulative call threshold per region is 100 calls per second.
-       * - The call threshold per account per region is 5 calls per second.
+       * @description This operation has call limits. Calls that exceed the limits are rejected.
+       * - The cumulative call limit per region is 100 calls per second.
+       * - The call limit per account per region is 5 calls per second.
        *
        * @param request DescribeDocParserJobResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -805,11 +860,11 @@ namespace Dts20200101
       Models::DescribeDocParserJobResultResponse describeDocParserJobResultWithOptions(const Models::DescribeDocParserJobResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the result of a document parsing task.
+       * @summary Retrieves the results of a document parsing task.
        *
-       * @description This operation has rate limits. Calls that exceed the limits are rejected.
-       * - The cumulative call threshold per region is 100 calls per second.
-       * - The call threshold per account per region is 5 calls per second.
+       * @description This operation has call limits. Calls that exceed the limits are rejected.
+       * - The cumulative call limit per region is 100 calls per second.
+       * - The call limit per account per region is 5 calls per second.
        *
        * @param request DescribeDocParserJobResultRequest
        * @return DescribeDocParserJobResultResponse
@@ -819,7 +874,7 @@ namespace Dts20200101
       /**
        * @summary Queries the execution status of a document parsing task.
        *
-       * @description This operation has call frequency limits. Calls that exceed the limits are rejected.
+       * @description This operation has a limit on the number of calls. Calls that exceed the limit are rejected.
        * - The cumulative call threshold for a single region is 200 calls per second.
        * - The call threshold for a single account in a single region is 20 calls per second.
        *
@@ -832,7 +887,7 @@ namespace Dts20200101
       /**
        * @summary Queries the execution status of a document parsing task.
        *
-       * @description This operation has call frequency limits. Calls that exceed the limits are rejected.
+       * @description This operation has a limit on the number of calls. Calls that exceed the limit are rejected.
        * - The cumulative call threshold for a single region is 200 calls per second.
        * - The call threshold for a single account in a single region is 20 calls per second.
        *
@@ -876,11 +931,11 @@ namespace Dts20200101
       Models::DescribeDtsJobConfigResponse describeDtsJobConfig(const Models::DescribeDtsJobConfigRequest &request);
 
       /**
-       * @summary Queries the details of a DTS task by calling DescribeDtsJobDetail.
+       * @summary Queries the details of a DTS task.
        *
-       * @description This operation has rate limits. Calls that exceed the limits are rejected.
-       * - The cumulative threshold for calls in a single region is 160 calls per second.
-       * - The threshold for calls by a single account in a single region is 40 calls per second.
+       * @description This operation has limits on the number of calls. Calls that exceed the limits are rejected.
+       * - The cumulative threshold for calls allowed in a single region is 160 calls per second.
+       * - The threshold for calls allowed per account in a single region is 40 calls per second.
        *
        * @param request DescribeDtsJobDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -889,11 +944,11 @@ namespace Dts20200101
       Models::DescribeDtsJobDetailResponse describeDtsJobDetailWithOptions(const Models::DescribeDtsJobDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a DTS task by calling DescribeDtsJobDetail.
+       * @summary Queries the details of a DTS task.
        *
-       * @description This operation has rate limits. Calls that exceed the limits are rejected.
-       * - The cumulative threshold for calls in a single region is 160 calls per second.
-       * - The threshold for calls by a single account in a single region is 40 calls per second.
+       * @description This operation has limits on the number of calls. Calls that exceed the limits are rejected.
+       * - The cumulative threshold for calls allowed in a single region is 160 calls per second.
+       * - The threshold for calls allowed per account in a single region is 40 calls per second.
        *
        * @param request DescribeDtsJobDetailRequest
        * @return DescribeDtsJobDetailResponse
@@ -977,7 +1032,7 @@ namespace Dts20200101
       Models::DescribeEtlJobLogsResponse describeEtlJobLogs(const Models::DescribeEtlJobLogsRequest &request);
 
       /**
-       * @summary Queries the running details of a full data migration task.
+       * @summary Queries the execution details of a full data migration task.
        *
        * @param request DescribeFullProcessListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -986,7 +1041,7 @@ namespace Dts20200101
       Models::DescribeFullProcessListResponse describeFullProcessListWithOptions(const Models::DescribeFullProcessListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the running details of a full data migration task.
+       * @summary Queries the execution details of a full data migration task.
        *
        * @param request DescribeFullProcessListRequest
        * @return DescribeFullProcessListResponse
@@ -994,7 +1049,58 @@ namespace Dts20200101
       Models::DescribeFullProcessListResponse describeFullProcessList(const Models::DescribeFullProcessListRequest &request);
 
       /**
-       * @summary Queries a list of Global Active Database (GAD) instances.
+       * @summary Queries the database instances of a GAD instance.
+       *
+       * @param request DescribeGadInstanceDbMembersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeGadInstanceDbMembersResponse
+       */
+      Models::DescribeGadInstanceDbMembersResponse describeGadInstanceDbMembersWithOptions(const Models::DescribeGadInstanceDbMembersRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the database instances of a GAD instance.
+       *
+       * @param request DescribeGadInstanceDbMembersRequest
+       * @return DescribeGadInstanceDbMembersResponse
+       */
+      Models::DescribeGadInstanceDbMembersResponse describeGadInstanceDbMembers(const Models::DescribeGadInstanceDbMembersRequest &request);
+
+      /**
+       * @summary Queries the details of a GAD instance.
+       *
+       * @param request DescribeGadInstanceDetailRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeGadInstanceDetailResponse
+       */
+      Models::DescribeGadInstanceDetailResponse describeGadInstanceDetailWithOptions(const Models::DescribeGadInstanceDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of a GAD instance.
+       *
+       * @param request DescribeGadInstanceDetailRequest
+       * @return DescribeGadInstanceDetailResponse
+       */
+      Models::DescribeGadInstanceDetailResponse describeGadInstanceDetail(const Models::DescribeGadInstanceDetailRequest &request);
+
+      /**
+       * @summary Queries the list of DTS tasks for a GAD instance.
+       *
+       * @param request DescribeGadInstanceDtsMembersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeGadInstanceDtsMembersResponse
+       */
+      Models::DescribeGadInstanceDtsMembersResponse describeGadInstanceDtsMembersWithOptions(const Models::DescribeGadInstanceDtsMembersRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of DTS tasks for a GAD instance.
+       *
+       * @param request DescribeGadInstanceDtsMembersRequest
+       * @return DescribeGadInstanceDtsMembersResponse
+       */
+      Models::DescribeGadInstanceDtsMembersResponse describeGadInstanceDtsMembers(const Models::DescribeGadInstanceDtsMembersRequest &request);
+
+      /**
+       * @summary Queries a list of GAD instances.
        *
        * @param request DescribeGadInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1003,7 +1109,7 @@ namespace Dts20200101
       Models::DescribeGadInstancesResponse describeGadInstancesWithOptions(const Models::DescribeGadInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of Global Active Database (GAD) instances.
+       * @summary Queries a list of GAD instances.
        *
        * @param request DescribeGadInstancesRequest
        * @return DescribeGadInstancesResponse
@@ -1011,7 +1117,7 @@ namespace Dts20200101
       Models::DescribeGadInstancesResponse describeGadInstances(const Models::DescribeGadInstancesRequest &request);
 
       /**
-       * @summary Queries the initialization status. This is an earlier version of the operation.
+       * @summary Queries the initialization status of the legacy version.
        *
        * @param request DescribeInitializationStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1020,7 +1126,7 @@ namespace Dts20200101
       Models::DescribeInitializationStatusResponse describeInitializationStatusWithOptions(const Models::DescribeInitializationStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the initialization status. This is an earlier version of the operation.
+       * @summary Queries the initialization status of the legacy version.
        *
        * @param request DescribeInitializationStatusRequest
        * @return DescribeInitializationStatusResponse
@@ -1028,7 +1134,7 @@ namespace Dts20200101
       Models::DescribeInitializationStatusResponse describeInitializationStatus(const Models::DescribeInitializationStatusRequest &request);
 
       /**
-       * @summary Queries the alert rules of a DTS task by calling DescribeJobMonitorRule.
+       * @summary Queries the alert rules of a DTS task.
        *
        * @param request DescribeJobMonitorRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1037,7 +1143,7 @@ namespace Dts20200101
       Models::DescribeJobMonitorRuleResponse describeJobMonitorRuleWithOptions(const Models::DescribeJobMonitorRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the alert rules of a DTS task by calling DescribeJobMonitorRule.
+       * @summary Queries the alert rules of a DTS task.
        *
        * @param request DescribeJobMonitorRuleRequest
        * @return DescribeJobMonitorRuleResponse
@@ -1045,7 +1151,7 @@ namespace Dts20200101
       Models::DescribeJobMonitorRuleResponse describeJobMonitorRule(const Models::DescribeJobMonitorRuleRequest &request);
 
       /**
-       * @summary Queries cluster monitoring information by calling the DescribeMetricList operation.
+       * @summary Queries the monitoring information of a cluster.
        *
        * @param request DescribeMetricListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1054,7 +1160,7 @@ namespace Dts20200101
       Models::DescribeMetricListResponse describeMetricListWithOptions(const Models::DescribeMetricListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries cluster monitoring information by calling the DescribeMetricList operation.
+       * @summary Queries the monitoring information of a cluster.
        *
        * @param request DescribeMetricListRequest
        * @return DescribeMetricListResponse
@@ -1079,7 +1185,7 @@ namespace Dts20200101
       Models::DescribeMigrationJobAlertResponse describeMigrationJobAlert(const Models::DescribeMigrationJobAlertRequest &request);
 
       /**
-       * @summary Queries the execution details of a data migration task. This is a legacy operation.
+       * @summary Queries the execution details of a legacy data migration task.
        *
        * @param request DescribeMigrationJobDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1088,7 +1194,7 @@ namespace Dts20200101
       Models::DescribeMigrationJobDetailResponse describeMigrationJobDetailWithOptions(const Models::DescribeMigrationJobDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the execution details of a data migration task. This is a legacy operation.
+       * @summary Queries the execution details of a legacy data migration task.
        *
        * @param request DescribeMigrationJobDetailRequest
        * @return DescribeMigrationJobDetailResponse
@@ -1096,7 +1202,7 @@ namespace Dts20200101
       Models::DescribeMigrationJobDetailResponse describeMigrationJobDetail(const Models::DescribeMigrationJobDetailRequest &request);
 
       /**
-       * @summary Queries the status of a data migration task. This is a legacy operation.
+       * @summary Queries the status of a legacy data migration task.
        *
        * @param request DescribeMigrationJobStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1105,7 +1211,7 @@ namespace Dts20200101
       Models::DescribeMigrationJobStatusResponse describeMigrationJobStatusWithOptions(const Models::DescribeMigrationJobStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the status of a data migration task. This is a legacy operation.
+       * @summary Queries the status of a legacy data migration task.
        *
        * @param request DescribeMigrationJobStatusRequest
        * @return DescribeMigrationJobStatusResponse
@@ -1113,7 +1219,7 @@ namespace Dts20200101
       Models::DescribeMigrationJobStatusResponse describeMigrationJobStatus(const Models::DescribeMigrationJobStatusRequest &request);
 
       /**
-       * @summary Queries the list of data migration instances and details of each migration instance.
+       * @summary Queries a list of data migration instances and their details.
        *
        * @param request DescribeMigrationJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1122,7 +1228,7 @@ namespace Dts20200101
       Models::DescribeMigrationJobsResponse describeMigrationJobsWithOptions(const Models::DescribeMigrationJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of data migration instances and details of each migration instance.
+       * @summary Queries a list of data migration instances and their details.
        *
        * @param request DescribeMigrationJobsRequest
        * @return DescribeMigrationJobsResponse
@@ -1130,7 +1236,7 @@ namespace Dts20200101
       Models::DescribeMigrationJobsResponse describeMigrationJobs(const Models::DescribeMigrationJobsRequest &request);
 
       /**
-       * @summary Queries the task result of a precheck for creating a Global Active Database (GAD) order node.
+       * @summary Queries the result of the precheck task for creating a GAD order.
        *
        * @param request DescribePreCheckCreateGadOrderResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1139,7 +1245,7 @@ namespace Dts20200101
       Models::DescribePreCheckCreateGadOrderResultResponse describePreCheckCreateGadOrderResultWithOptions(const Models::DescribePreCheckCreateGadOrderResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the task result of a precheck for creating a Global Active Database (GAD) order node.
+       * @summary Queries the result of the precheck task for creating a GAD order.
        *
        * @param request DescribePreCheckCreateGadOrderResultRequest
        * @return DescribePreCheckCreateGadOrderResultResponse
@@ -1147,7 +1253,7 @@ namespace Dts20200101
       Models::DescribePreCheckCreateGadOrderResultResponse describePreCheckCreateGadOrderResult(const Models::DescribePreCheckCreateGadOrderResultRequest &request);
 
       /**
-       * @summary Queries the execution details of subtasks of a DTS task, including precheck, schema migration or synchronization, full data migration or synchronization, and incremental data migration or synchronization.
+       * @summary Queries the execution details of subtasks for a DTS task, including the precheck, schema migration or initial schema synchronization, full data migration or initial full data synchronization, and incremental data migration or synchronization.
        *
        * @param request DescribePreCheckStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1156,7 +1262,7 @@ namespace Dts20200101
       Models::DescribePreCheckStatusResponse describePreCheckStatusWithOptions(const Models::DescribePreCheckStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the execution details of subtasks of a DTS task, including precheck, schema migration or synchronization, full data migration or synchronization, and incremental data migration or synchronization.
+       * @summary Queries the execution details of subtasks for a DTS task, including the precheck, schema migration or initial schema synchronization, full data migration or initial full data synchronization, and incremental data migration or synchronization.
        *
        * @param request DescribePreCheckStatusRequest
        * @return DescribePreCheckStatusResponse
@@ -1164,7 +1270,7 @@ namespace Dts20200101
       Models::DescribePreCheckStatusResponse describePreCheckStatus(const Models::DescribePreCheckStatusRequest &request);
 
       /**
-       * @summary Queries the monitoring and alerting settings of a change tracking instance.
+       * @summary Queries the details of the monitoring and alerting settings for a change tracking instance.
        *
        * @param request DescribeSubscriptionInstanceAlertRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1173,7 +1279,7 @@ namespace Dts20200101
       Models::DescribeSubscriptionInstanceAlertResponse describeSubscriptionInstanceAlertWithOptions(const Models::DescribeSubscriptionInstanceAlertRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the monitoring and alerting settings of a change tracking instance.
+       * @summary Queries the details of the monitoring and alerting settings for a change tracking instance.
        *
        * @param request DescribeSubscriptionInstanceAlertRequest
        * @return DescribeSubscriptionInstanceAlertResponse
@@ -1181,7 +1287,7 @@ namespace Dts20200101
       Models::DescribeSubscriptionInstanceAlertResponse describeSubscriptionInstanceAlert(const Models::DescribeSubscriptionInstanceAlertRequest &request);
 
       /**
-       * @summary Queries the instance status details of a change tracking channel. This is a legacy operation.
+       * @summary Queries the instance status details of a legacy change tracking channel.
        *
        * @param request DescribeSubscriptionInstanceStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1190,7 +1296,7 @@ namespace Dts20200101
       Models::DescribeSubscriptionInstanceStatusResponse describeSubscriptionInstanceStatusWithOptions(const Models::DescribeSubscriptionInstanceStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the instance status details of a change tracking channel. This is a legacy operation.
+       * @summary Queries the instance status details of a legacy change tracking channel.
        *
        * @param request DescribeSubscriptionInstanceStatusRequest
        * @return DescribeSubscriptionInstanceStatusResponse
@@ -1218,12 +1324,11 @@ namespace Dts20200101
        * @summary Queries the information about subtasks of a PolarDB-X 1.0 distributed change tracking task.
        *
        * @description <props="china">
-       * - Because a PolarDB-X 1.0 change tracking task is a distributed change tracking task, each ApsaraDB RDS for MySQL instance associated with the task corresponds to a change tracking subtask. You can call this operation to query the information about change tracking subtasks.
-       * - You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the instance ID, consumer group ID, and other information about a PolarDB-X 1.0 change tracking task.
+       * - Because a PolarDB-X 1.0 change tracking task is a distributed change tracking task, each attached ApsaraDB RDS for MySQL instance corresponds to a change tracking subtask. You can call this operation to query the information about the change tracking subtasks.
+       * - You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query information such as the instance ID and consumer group ID of the PolarDB-X 1.0 change tracking task.
        * <props="intl">
-       * - Because a DRDS change tracking task is a distributed change tracking task, each ApsaraDB RDS for MySQL instance associated with the task corresponds to a change tracking subtask. You can call this operation to query the information about change tracking subtasks.
-       * - You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the instance ID, consumer group ID, and other information about a DRDS change tracking task.
-       * .
+       * - Because a DRDS change tracking task is a distributed change tracking task, each attached ApsaraDB RDS for MySQL instance corresponds to a change tracking subtask. You can call this operation to query the information about the change tracking subtasks.
+       * - You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query information such as the instance ID and consumer group ID of the DRDS change tracking task.
        *
        * @param tmpReq DescribeSubscriptionMetaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1235,12 +1340,11 @@ namespace Dts20200101
        * @summary Queries the information about subtasks of a PolarDB-X 1.0 distributed change tracking task.
        *
        * @description <props="china">
-       * - Because a PolarDB-X 1.0 change tracking task is a distributed change tracking task, each ApsaraDB RDS for MySQL instance associated with the task corresponds to a change tracking subtask. You can call this operation to query the information about change tracking subtasks.
-       * - You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the instance ID, consumer group ID, and other information about a PolarDB-X 1.0 change tracking task.
+       * - Because a PolarDB-X 1.0 change tracking task is a distributed change tracking task, each attached ApsaraDB RDS for MySQL instance corresponds to a change tracking subtask. You can call this operation to query the information about the change tracking subtasks.
+       * - You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query information such as the instance ID and consumer group ID of the PolarDB-X 1.0 change tracking task.
        * <props="intl">
-       * - Because a DRDS change tracking task is a distributed change tracking task, each ApsaraDB RDS for MySQL instance associated with the task corresponds to a change tracking subtask. You can call this operation to query the information about change tracking subtasks.
-       * - You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the instance ID, consumer group ID, and other information about a DRDS change tracking task.
-       * .
+       * - Because a DRDS change tracking task is a distributed change tracking task, each attached ApsaraDB RDS for MySQL instance corresponds to a change tracking subtask. You can call this operation to query the information about the change tracking subtasks.
+       * - You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query information such as the instance ID and consumer group ID of the DRDS change tracking task.
        *
        * @param request DescribeSubscriptionMetaRequest
        * @return DescribeSubscriptionMetaResponse
@@ -1265,7 +1369,7 @@ namespace Dts20200101
       Models::DescribeSyncStatusResponse describeSyncStatus(const Models::DescribeSyncStatusRequest &request);
 
       /**
-       * @summary Queries the monitoring and alerting settings of a synchronization task.
+       * @summary Queries the details of the monitoring and alerting settings for a synchronization task.
        *
        * @param request DescribeSynchronizationJobAlertRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1274,7 +1378,7 @@ namespace Dts20200101
       Models::DescribeSynchronizationJobAlertResponse describeSynchronizationJobAlertWithOptions(const Models::DescribeSynchronizationJobAlertRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the monitoring and alerting settings of a synchronization task.
+       * @summary Queries the details of the monitoring and alerting settings for a synchronization task.
        *
        * @param request DescribeSynchronizationJobAlertRequest
        * @return DescribeSynchronizationJobAlertResponse
@@ -1299,7 +1403,7 @@ namespace Dts20200101
       Models::DescribeSynchronizationJobReplicatorCompareResponse describeSynchronizationJobReplicatorCompare(const Models::DescribeSynchronizationJobReplicatorCompareRequest &request);
 
       /**
-       * @summary Queries the running status of a data synchronization task. This is a legacy API operation.
+       * @summary Queries the running status of a legacy synchronization task.
        *
        * @param request DescribeSynchronizationJobStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1308,7 +1412,7 @@ namespace Dts20200101
       Models::DescribeSynchronizationJobStatusResponse describeSynchronizationJobStatusWithOptions(const Models::DescribeSynchronizationJobStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the running status of a data synchronization task. This is a legacy API operation.
+       * @summary Queries the running status of a legacy synchronization task.
        *
        * @param request DescribeSynchronizationJobStatusRequest
        * @return DescribeSynchronizationJobStatusResponse
@@ -1316,7 +1420,7 @@ namespace Dts20200101
       Models::DescribeSynchronizationJobStatusResponse describeSynchronizationJobStatus(const Models::DescribeSynchronizationJobStatusRequest &request);
 
       /**
-       * @summary Queries the status list of synchronization jobs. This is a legacy operation.
+       * @summary Queries the status list of synchronization jobs in the legacy version.
        *
        * @param request DescribeSynchronizationJobStatusListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1325,7 +1429,7 @@ namespace Dts20200101
       Models::DescribeSynchronizationJobStatusListResponse describeSynchronizationJobStatusListWithOptions(const Models::DescribeSynchronizationJobStatusListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the status list of synchronization jobs. This is a legacy operation.
+       * @summary Queries the status list of synchronization jobs in the legacy version.
        *
        * @param request DescribeSynchronizationJobStatusListRequest
        * @return DescribeSynchronizationJobStatusListResponse
@@ -1333,7 +1437,7 @@ namespace Dts20200101
       Models::DescribeSynchronizationJobStatusListResponse describeSynchronizationJobStatusList(const Models::DescribeSynchronizationJobStatusListRequest &request);
 
       /**
-       * @summary Queries a list of data synchronization instances and the details of each instance by calling DescribeSynchronizationJobs.
+       * @summary Queries the list of data synchronization instances and the details of each synchronization instance.
        *
        * @param request DescribeSynchronizationJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1342,7 +1446,7 @@ namespace Dts20200101
       Models::DescribeSynchronizationJobsResponse describeSynchronizationJobsWithOptions(const Models::DescribeSynchronizationJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of data synchronization instances and the details of each instance by calling DescribeSynchronizationJobs.
+       * @summary Queries the list of data synchronization instances and the details of each synchronization instance.
        *
        * @param request DescribeSynchronizationJobsRequest
        * @return DescribeSynchronizationJobsResponse
@@ -1367,7 +1471,7 @@ namespace Dts20200101
       Models::DescribeSynchronizationObjectModifyStatusResponse describeSynchronizationObjectModifyStatus(const Models::DescribeSynchronizationObjectModifyStatusRequest &request);
 
       /**
-       * @summary Queries all tags that are bound to a data migration, data synchronization, or change tracking instance.
+       * @summary Queries all tags bound to a data migration, data synchronization, or change tracking instance.
        *
        * @param request DescribeTagKeysRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1376,7 +1480,7 @@ namespace Dts20200101
       Models::DescribeTagKeysResponse describeTagKeysWithOptions(const Models::DescribeTagKeysRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all tags that are bound to a data migration, data synchronization, or change tracking instance.
+       * @summary Queries all tags bound to a data migration, data synchronization, or change tracking instance.
        *
        * @param request DescribeTagKeysRequest
        * @return DescribeTagKeysResponse
@@ -1418,10 +1522,10 @@ namespace Dts20200101
       Models::DetachGadInstanceDbMemberResponse detachGadInstanceDbMember(const Models::DetachGadInstanceDbMemberRequest &request);
 
       /**
-       * @summary Initializes a built-in account in a node of an active geo-redundancy database cluster. Data Transmission Service (DTS) uses this account to connect to the node and perform synchronization tasks.
+       * @summary Initializes a built-in account in a node of a global active-active database cluster. Data Transmission Service (DTS) uses this account to connect to the node and perform synchronization tasks.
        *
        * @description - The unit node must be an ApsaraDB RDS for MySQL instance or a self-managed MySQL database connected through Cloud Enterprise Network (CEN).
-       * - This operation initializes a built-in account named rdsdt_dtsacct in a unit node of an active geo-redundancy database cluster. DTS uses this account to connect to the node and perform synchronization tasks.
+       * - This operation initializes a built-in account named rdsdt_dtsacct in a unit node of a global active-active database cluster. DTS uses this account to connect to the node and perform synchronization tasks.
        *
        * @param request InitDtsRdsInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1430,10 +1534,10 @@ namespace Dts20200101
       Models::InitDtsRdsInstanceResponse initDtsRdsInstanceWithOptions(const Models::InitDtsRdsInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Initializes a built-in account in a node of an active geo-redundancy database cluster. Data Transmission Service (DTS) uses this account to connect to the node and perform synchronization tasks.
+       * @summary Initializes a built-in account in a node of a global active-active database cluster. Data Transmission Service (DTS) uses this account to connect to the node and perform synchronization tasks.
        *
        * @description - The unit node must be an ApsaraDB RDS for MySQL instance or a self-managed MySQL database connected through Cloud Enterprise Network (CEN).
-       * - This operation initializes a built-in account named rdsdt_dtsacct in a unit node of an active geo-redundancy database cluster. DTS uses this account to connect to the node and perform synchronization tasks.
+       * - This operation initializes a built-in account named rdsdt_dtsacct in a unit node of a global active-active database cluster. DTS uses this account to connect to the node and perform synchronization tasks.
        *
        * @param request InitDtsRdsInstanceRequest
        * @return InitDtsRdsInstanceResponse
@@ -1441,7 +1545,7 @@ namespace Dts20200101
       Models::InitDtsRdsInstanceResponse initDtsRdsInstance(const Models::InitDtsRdsInstanceRequest &request);
 
       /**
-       * @summary Queries all clusters created by the current user. You can also filter specific clusters based on specified conditions.
+       * @summary Queries all clusters created by the current user, or filters specific clusters based on specified conditions.
        *
        * @param request ListDedicatedClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1450,7 +1554,7 @@ namespace Dts20200101
       Models::ListDedicatedClusterResponse listDedicatedClusterWithOptions(const Models::ListDedicatedClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all clusters created by the current user. You can also filter specific clusters based on specified conditions.
+       * @summary Queries all clusters created by the current user, or filters specific clusters based on specified conditions.
        *
        * @param request ListDedicatedClusterRequest
        * @return ListDedicatedClusterResponse
@@ -1458,7 +1562,7 @@ namespace Dts20200101
       Models::ListDedicatedClusterResponse listDedicatedCluster(const Models::ListDedicatedClusterRequest &request);
 
       /**
-       * @summary Query the JobStep list
+       * @summary Queries the list of job steps.
        *
        * @param request ListJobStepRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1467,7 +1571,7 @@ namespace Dts20200101
       Models::ListJobStepResponse listJobStepWithOptions(const Models::ListJobStepRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the JobStep list
+       * @summary Queries the list of job steps.
        *
        * @param request ListJobStepRequest
        * @return ListJobStepResponse
@@ -1475,9 +1579,9 @@ namespace Dts20200101
       Models::ListJobStepResponse listJobStep(const Models::ListJobStepRequest &request);
 
       /**
-       * @summary Queries the tags bound to data migration, data synchronization, and change tracking instances. You can also query the instances bound to specific tags.
+       * @summary Queries the tags bound to data migration, data synchronization, and change tracking instances, or queries the instances bound to specific tags.
        *
-       * @description ****.
+       * @description ****
        *
        * @param request ListTagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1486,9 +1590,9 @@ namespace Dts20200101
       Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the tags bound to data migration, data synchronization, and change tracking instances. You can also query the instances bound to specific tags.
+       * @summary Queries the tags bound to data migration, data synchronization, and change tracking instances, or queries the instances bound to specific tags.
        *
-       * @description ****.
+       * @description ****
        *
        * @param request ListTagResourcesRequest
        * @return ListTagResourcesResponse
@@ -1496,7 +1600,7 @@ namespace Dts20200101
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
 
       /**
-       * @summary Modifies the information of a consumer group in a change tracking channel (new version).
+       * @summary Modifies the information about a consumer group in a change tracking channel.
        *
        * @param request ModifyConsumerChannelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1505,7 +1609,7 @@ namespace Dts20200101
       Models::ModifyConsumerChannelResponse modifyConsumerChannelWithOptions(const Models::ModifyConsumerChannelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the information of a consumer group in a change tracking channel (new version).
+       * @summary Modifies the information about a consumer group in a change tracking channel.
        *
        * @param request ModifyConsumerChannelRequest
        * @return ModifyConsumerChannelResponse
@@ -1513,7 +1617,7 @@ namespace Dts20200101
       Models::ModifyConsumerChannelResponse modifyConsumerChannel(const Models::ModifyConsumerChannelRequest &request);
 
       /**
-       * @summary Modifies the password of a consumer group. This is a legacy operation.
+       * @summary Modifies the password of a consumer group.
        *
        * @param request ModifyConsumerGroupPasswordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1522,7 +1626,7 @@ namespace Dts20200101
       Models::ModifyConsumerGroupPasswordResponse modifyConsumerGroupPasswordWithOptions(const Models::ModifyConsumerGroupPasswordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the password of a consumer group. This is a legacy operation.
+       * @summary Modifies the password of a consumer group.
        *
        * @param request ModifyConsumerGroupPasswordRequest
        * @return ModifyConsumerGroupPasswordResponse
@@ -1547,9 +1651,9 @@ namespace Dts20200101
       Models::ModifyConsumptionTimestampResponse modifyConsumptionTimestamp(const Models::ModifyConsumptionTimestampRequest &request);
 
       /**
-       * @summary Modifies the configuration of a dedicated cluster by calling the ModifyDedicatedCluster operation.
+       * @summary Modifies the configuration of a dedicated cluster.
        *
-       * @description Currently, only the overcommit ratio can be modified.
+       * @description Currently, only the oversubscription ratio can be modified.
        *
        * @param request ModifyDedicatedClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1558,9 +1662,9 @@ namespace Dts20200101
       Models::ModifyDedicatedClusterResponse modifyDedicatedClusterWithOptions(const Models::ModifyDedicatedClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the configuration of a dedicated cluster by calling the ModifyDedicatedCluster operation.
+       * @summary Modifies the configuration of a dedicated cluster.
        *
-       * @description Currently, only the overcommit ratio can be modified.
+       * @description Currently, only the oversubscription ratio can be modified.
        *
        * @param request ModifyDedicatedClusterRequest
        * @return ModifyDedicatedClusterResponse
@@ -1568,9 +1672,9 @@ namespace Dts20200101
       Models::ModifyDedicatedClusterResponse modifyDedicatedCluster(const Models::ModifyDedicatedClusterRequest &request);
 
       /**
-       * @summary Modifies a data synchronization task by calling the ModifyDtsJob operation.
+       * @summary Modifies a data synchronization task.
        *
-       * @description > You can preconfigure settings in the console as needed, and then preview the corresponding OpenAPI parameter information to help you specify request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
+       * @description > You can perform the corresponding preconfigurations in the console based on your requirements and then preview the OpenAPI parameter information for the configurations to help you fill in the request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
        *
        * @param tmpReq ModifyDtsJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1579,9 +1683,9 @@ namespace Dts20200101
       Models::ModifyDtsJobResponse modifyDtsJobWithOptions(const Models::ModifyDtsJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies a data synchronization task by calling the ModifyDtsJob operation.
+       * @summary Modifies a data synchronization task.
        *
-       * @description > You can preconfigure settings in the console as needed, and then preview the corresponding OpenAPI parameter information to help you specify request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
+       * @description > You can perform the corresponding preconfigurations in the console based on your requirements and then preview the OpenAPI parameter information for the configurations to help you fill in the request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
        *
        * @param request ModifyDtsJobRequest
        * @return ModifyDtsJobResponse
@@ -1591,7 +1695,7 @@ namespace Dts20200101
       Models::ModifyDtsJobResponse modifyDtsJobAdvance(const Models::ModifyDtsJobAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the parameters of a DTS task by calling the ModifyDtsJobConfig operation.
+       * @summary Modifies the parameters of a DTS task.
        *
        * @param request ModifyDtsJobConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1600,7 +1704,7 @@ namespace Dts20200101
       Models::ModifyDtsJobConfigResponse modifyDtsJobConfigWithOptions(const Models::ModifyDtsJobConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the parameters of a DTS task by calling the ModifyDtsJobConfig operation.
+       * @summary Modifies the parameters of a DTS task.
        *
        * @param request ModifyDtsJobConfigRequest
        * @return ModifyDtsJobConfigResponse
@@ -1610,7 +1714,7 @@ namespace Dts20200101
       /**
        * @summary Changes the dedicated cluster on which a task runs.
        *
-       * @description > After a migration task is changed from a dedicated cluster to a public cluster, the billing method of the task changes to pay-as-you-go, and billing starts.
+       * @description > After a data migration task is changed from running in a dedicated cluster to running in a public cluster, the billing method of the task changes to pay-as-you-go, and billing starts.
        *
        * @param request ModifyDtsJobDedicatedClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1621,7 +1725,7 @@ namespace Dts20200101
       /**
        * @summary Changes the dedicated cluster on which a task runs.
        *
-       * @description > After a migration task is changed from a dedicated cluster to a public cluster, the billing method of the task changes to pay-as-you-go, and billing starts.
+       * @description > After a data migration task is changed from running in a dedicated cluster to running in a public cluster, the billing method of the task changes to pay-as-you-go, and billing starts.
        *
        * @param request ModifyDtsJobDedicatedClusterRequest
        * @return ModifyDtsJobDedicatedClusterResponse
@@ -1629,10 +1733,10 @@ namespace Dts20200101
       Models::ModifyDtsJobDedicatedClusterResponse modifyDtsJobDedicatedCluster(const Models::ModifyDtsJobDedicatedClusterRequest &request);
 
       /**
-       * @summary Modifies the DU upper limit of a DTS task by calling the ModifyDtsJobDuLimit operation.
+       * @summary Modifies the DU limit for a task.
        *
-       * @description - DTS instances in a dedicated cluster must support specification changes. By changing the resources consumed by a task at runtime, you can dynamically adjust the number of schedulable tasks in the current cluster, thereby deducting or releasing the total number of DUs in the cluster.
-       * - Before modifying the DU upper limit of a task, ensure that sufficient resources are available.
+       * @description - DTS instances in dedicated clusters support specification upgrades and downgrades. By changing the resources consumed during task execution, you can dynamically adjust the number of schedulable tasks in the cluster, which deducts or releases the total DUs of the cluster.
+       * - Before modifying the DU limit for a task, ensure that sufficient resources are available.
        *
        * @param request ModifyDtsJobDuLimitRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1641,10 +1745,10 @@ namespace Dts20200101
       Models::ModifyDtsJobDuLimitResponse modifyDtsJobDuLimitWithOptions(const Models::ModifyDtsJobDuLimitRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the DU upper limit of a DTS task by calling the ModifyDtsJobDuLimit operation.
+       * @summary Modifies the DU limit for a task.
        *
-       * @description - DTS instances in a dedicated cluster must support specification changes. By changing the resources consumed by a task at runtime, you can dynamically adjust the number of schedulable tasks in the current cluster, thereby deducting or releasing the total number of DUs in the cluster.
-       * - Before modifying the DU upper limit of a task, ensure that sufficient resources are available.
+       * @description - DTS instances in dedicated clusters support specification upgrades and downgrades. By changing the resources consumed during task execution, you can dynamically adjust the number of schedulable tasks in the cluster, which deducts or releases the total DUs of the cluster.
+       * - Before modifying the DU limit for a task, ensure that sufficient resources are available.
        *
        * @param request ModifyDtsJobDuLimitRequest
        * @return ModifyDtsJobDuLimitResponse
@@ -1673,7 +1777,7 @@ namespace Dts20200101
       Models::ModifyDtsJobEndpointResponse modifyDtsJobEndpoint(const Models::ModifyDtsJobEndpointRequest &request);
 
       /**
-       * @summary Modifies the name of a DTS task by calling ModifyDtsJobName.
+       * @summary Modifies the name of a DTS task.
        *
        * @param request ModifyDtsJobNameRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1682,7 +1786,7 @@ namespace Dts20200101
       Models::ModifyDtsJobNameResponse modifyDtsJobNameWithOptions(const Models::ModifyDtsJobNameRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the name of a DTS task by calling ModifyDtsJobName.
+       * @summary Modifies the name of a DTS task.
        *
        * @param request ModifyDtsJobNameRequest
        * @return ModifyDtsJobNameResponse
@@ -1690,7 +1794,7 @@ namespace Dts20200101
       Models::ModifyDtsJobNameResponse modifyDtsJobName(const Models::ModifyDtsJobNameRequest &request);
 
       /**
-       * @summary Modifies the password of a DTS task (new version).
+       * @summary Modifies the password of a job.
        *
        * @param request ModifyDtsJobPasswordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1699,7 +1803,7 @@ namespace Dts20200101
       Models::ModifyDtsJobPasswordResponse modifyDtsJobPasswordWithOptions(const Models::ModifyDtsJobPasswordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the password of a DTS task (new version).
+       * @summary Modifies the password of a job.
        *
        * @param request ModifyDtsJobPasswordRequest
        * @return ModifyDtsJobPasswordResponse
@@ -1707,7 +1811,7 @@ namespace Dts20200101
       Models::ModifyDtsJobPasswordResponse modifyDtsJobPassword(const Models::ModifyDtsJobPasswordRequest &request);
 
       /**
-       * @summary Adjusts the migration rate of a data synchronization or migration instance.
+       * @summary Adjusts the migration rate of a synchronization or migration instance.
        *
        * @param request ModifyDynamicConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1716,7 +1820,7 @@ namespace Dts20200101
       Models::ModifyDynamicConfigResponse modifyDynamicConfigWithOptions(const Models::ModifyDynamicConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adjusts the migration rate of a data synchronization or migration instance.
+       * @summary Adjusts the migration rate of a synchronization or migration instance.
        *
        * @param request ModifyDynamicConfigRequest
        * @return ModifyDynamicConfigResponse
@@ -1724,7 +1828,7 @@ namespace Dts20200101
       Models::ModifyDynamicConfigResponse modifyDynamicConfig(const Models::ModifyDynamicConfigRequest &request);
 
       /**
-       * @summary Modifies the name of a Global Active Database (GAD) instance.
+       * @summary Modifies the name of a GAD instance.
        *
        * @param request ModifyGadInstanceNameRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1733,7 +1837,7 @@ namespace Dts20200101
       Models::ModifyGadInstanceNameResponse modifyGadInstanceNameWithOptions(const Models::ModifyGadInstanceNameRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the name of a Global Active Database (GAD) instance.
+       * @summary Modifies the name of a GAD instance.
        *
        * @param request ModifyGadInstanceNameRequest
        * @return ModifyGadInstanceNameResponse
@@ -1741,7 +1845,7 @@ namespace Dts20200101
       Models::ModifyGadInstanceNameResponse modifyGadInstanceName(const Models::ModifyGadInstanceNameRequest &request);
 
       /**
-       * @summary Modify the offset for incremental data writing.
+       * @summary Modifies the checkpoint for incremental writes.
        *
        * @param request ModifyJobStepCheckpointRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1750,7 +1854,7 @@ namespace Dts20200101
       Models::ModifyJobStepCheckpointResponse modifyJobStepCheckpointWithOptions(const Models::ModifyJobStepCheckpointRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modify the offset for incremental data writing.
+       * @summary Modifies the checkpoint for incremental writes.
        *
        * @param request ModifyJobStepCheckpointRequest
        * @return ModifyJobStepCheckpointResponse
@@ -1758,9 +1862,9 @@ namespace Dts20200101
       Models::ModifyJobStepCheckpointResponse modifyJobStepCheckpoint(const Models::ModifyJobStepCheckpointRequest &request);
 
       /**
-       * @summary Modifies a change tracking task (new version).
+       * @summary Modifies a change tracking task.
        *
-       * @description > You can perform the required preconfigurations in the console and then preview the corresponding OpenAPI parameter information to help you fill in the request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
+       * @description > You can preconfigure settings in the console as needed and preview the OpenAPI parameters for the configurations to help you fill in the request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
        *
        * @param request ModifySubscriptionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1769,9 +1873,9 @@ namespace Dts20200101
       Models::ModifySubscriptionResponse modifySubscriptionWithOptions(const Models::ModifySubscriptionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies a change tracking task (new version).
+       * @summary Modifies a change tracking task.
        *
-       * @description > You can perform the required preconfigurations in the console and then preview the corresponding OpenAPI parameter information to help you fill in the request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
+       * @description > You can preconfigure settings in the console as needed and preview the OpenAPI parameters for the configurations to help you fill in the request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
        *
        * @param request ModifySubscriptionRequest
        * @return ModifySubscriptionResponse
@@ -1779,7 +1883,7 @@ namespace Dts20200101
       Models::ModifySubscriptionResponse modifySubscription(const Models::ModifySubscriptionRequest &request);
 
       /**
-       * @summary Modifies the subscription objects of a change tracking task. This is a legacy operation.
+       * @summary Modifies the subscription objects of a legacy change tracking instance.
        *
        * @param request ModifySubscriptionObjectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1788,7 +1892,7 @@ namespace Dts20200101
       Models::ModifySubscriptionObjectResponse modifySubscriptionObjectWithOptions(const Models::ModifySubscriptionObjectRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the subscription objects of a change tracking task. This is a legacy operation.
+       * @summary Modifies the subscription objects of a legacy change tracking instance.
        *
        * @param request ModifySubscriptionObjectRequest
        * @return ModifySubscriptionObjectResponse
@@ -1796,7 +1900,7 @@ namespace Dts20200101
       Models::ModifySubscriptionObjectResponse modifySubscriptionObject(const Models::ModifySubscriptionObjectRequest &request);
 
       /**
-       * @summary Modifies the synchronization objects in a data synchronization job instance. This is a legacy operation.
+       * @summary Modifies the synchronization objects in a legacy data synchronization job instance.
        *
        * @param request ModifySynchronizationObjectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1805,7 +1909,7 @@ namespace Dts20200101
       Models::ModifySynchronizationObjectResponse modifySynchronizationObjectWithOptions(const Models::ModifySynchronizationObjectRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the synchronization objects in a data synchronization job instance. This is a legacy operation.
+       * @summary Modifies the synchronization objects in a legacy data synchronization job instance.
        *
        * @param request ModifySynchronizationObjectRequest
        * @return ModifySynchronizationObjectResponse
@@ -1813,7 +1917,7 @@ namespace Dts20200101
       Models::ModifySynchronizationObjectResponse modifySynchronizationObject(const Models::ModifySynchronizationObjectRequest &request);
 
       /**
-       * @summary Prechecks an order for creating a Global Active Database (GAD) instance group.
+       * @summary Prechecks the creation of a GAD order.
        *
        * @param request PreCheckCreateGadOrderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1822,7 +1926,7 @@ namespace Dts20200101
       Models::PreCheckCreateGadOrderResponse preCheckCreateGadOrderWithOptions(const Models::PreCheckCreateGadOrderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Prechecks an order for creating a Global Active Database (GAD) instance group.
+       * @summary Prechecks the creation of a GAD order.
        *
        * @param request PreCheckCreateGadOrderRequest
        * @return PreCheckCreateGadOrderResponse
@@ -1830,7 +1934,7 @@ namespace Dts20200101
       Models::PreCheckCreateGadOrderResponse preCheckCreateGadOrder(const Models::PreCheckCreateGadOrderRequest &request);
 
       /**
-       * @summary Promote a geo-disaster recovery instance from the secondary role to the primary role
+       * @summary Promotes a secondary geo-disaster recovery instance to the primary role.
        *
        * @param request PromoteToMasterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1839,7 +1943,7 @@ namespace Dts20200101
       Models::PromoteToMasterResponse promoteToMasterWithOptions(const Models::PromoteToMasterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Promote a geo-disaster recovery instance from the secondary role to the primary role
+       * @summary Promotes a secondary geo-disaster recovery instance to the primary role.
        *
        * @param request PromoteToMasterRequest
        * @return PromoteToMasterResponse
@@ -1847,7 +1951,7 @@ namespace Dts20200101
       Models::PromoteToMasterResponse promoteToMaster(const Models::PromoteToMasterRequest &request);
 
       /**
-       * @summary Renews a DTS instance. This operation is applicable only to subscription DTS instances.
+       * @summary Renews a Data Transmission Service (DTS) instance. This operation is applicable only to subscription DTS instances.
        *
        * @param request RenewInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1856,7 +1960,7 @@ namespace Dts20200101
       Models::RenewInstanceResponse renewInstanceWithOptions(const Models::RenewInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Renews a DTS instance. This operation is applicable only to subscription DTS instances.
+       * @summary Renews a Data Transmission Service (DTS) instance. This operation is applicable only to subscription DTS instances.
        *
        * @param request RenewInstanceRequest
        * @return RenewInstanceResponse
@@ -1866,7 +1970,7 @@ namespace Dts20200101
       /**
        * @summary Resets a data synchronization or change tracking task.
        *
-       * @description > After the configuration of a data synchronization or change tracking task is cleared, the original task is deleted. DTS creates a new unconfigured task. You must call the [ConfigureDtsJob](https://help.aliyun.com/document_detail/208399.html) operation to reconfigure the task.
+       * @description > After you clear the configurations of a data synchronization or change tracking task, the original task is deleted and DTS creates an unconfigured task. You must call the [ConfigureDtsJob](https://help.aliyun.com/document_detail/208399.html) operation to reconfigure the task.
        *
        * @param request ResetDtsJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1877,7 +1981,7 @@ namespace Dts20200101
       /**
        * @summary Resets a data synchronization or change tracking task.
        *
-       * @description > After the configuration of a data synchronization or change tracking task is cleared, the original task is deleted. DTS creates a new unconfigured task. You must call the [ConfigureDtsJob](https://help.aliyun.com/document_detail/208399.html) operation to reconfigure the task.
+       * @description > After you clear the configurations of a data synchronization or change tracking task, the original task is deleted and DTS creates an unconfigured task. You must call the [ConfigureDtsJob](https://help.aliyun.com/document_detail/208399.html) operation to reconfigure the task.
        *
        * @param request ResetDtsJobRequest
        * @return ResetDtsJobResponse
@@ -1885,9 +1989,9 @@ namespace Dts20200101
       Models::ResetDtsJobResponse resetDtsJob(const Models::ResetDtsJobRequest &request);
 
       /**
-       * @summary Resets the configuration of a data synchronization task.
+       * @summary Clears the configuration of a data synchronization task.
        *
-       * @description > After you reset the configuration of a data synchronization task, the original synchronization task is released. You must call the **ConfigureSynchronizationJob** operation to reconfigure the synchronization task before you can start the task.
+       * @description > After you clear the configuration of a data synchronization task, the original synchronization task is released. To start the task again, you must call the **ConfigureSynchronizationJob** operation to reconfigure the synchronization task.
        *
        * @param request ResetSynchronizationJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1896,9 +2000,9 @@ namespace Dts20200101
       Models::ResetSynchronizationJobResponse resetSynchronizationJobWithOptions(const Models::ResetSynchronizationJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Resets the configuration of a data synchronization task.
+       * @summary Clears the configuration of a data synchronization task.
        *
-       * @description > After you reset the configuration of a data synchronization task, the original synchronization task is released. You must call the **ConfigureSynchronizationJob** operation to reconfigure the synchronization task before you can start the task.
+       * @description > After you clear the configuration of a data synchronization task, the original synchronization task is released. To start the task again, you must call the **ConfigureSynchronizationJob** operation to reconfigure the synchronization task.
        *
        * @param request ResetSynchronizationJobRequest
        * @return ResetSynchronizationJobResponse
@@ -1923,7 +2027,7 @@ namespace Dts20200101
       Models::ReverseTwoWayDirectionResponse reverseTwoWayDirection(const Models::ReverseTwoWayDirectionRequest &request);
 
       /**
-       * @summary Skips the precheck for a legacy data migration or synchronization task.
+       * @summary Masks precheck items.
        *
        * @param request ShieldPrecheckRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1932,7 +2036,7 @@ namespace Dts20200101
       Models::ShieldPrecheckResponse shieldPrecheckWithOptions(const Models::ShieldPrecheckRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Skips the precheck for a legacy data migration or synchronization task.
+       * @summary Masks precheck items.
        *
        * @param request ShieldPrecheckRequest
        * @return ShieldPrecheckResponse
@@ -1940,7 +2044,7 @@ namespace Dts20200101
       Models::ShieldPrecheckResponse shieldPrecheck(const Models::ShieldPrecheckRequest &request);
 
       /**
-       * @summary Skips tables that do not need to be synchronized during the full data synchronization phase.
+       * @summary Skips tables that do not need to be synchronized during the full data phase.
        *
        * @param request SkipFullJobTableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1949,7 +2053,7 @@ namespace Dts20200101
       Models::SkipFullJobTableResponse skipFullJobTableWithOptions(const Models::SkipFullJobTableRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Skips tables that do not need to be synchronized during the full data synchronization phase.
+       * @summary Skips tables that do not need to be synchronized during the full data phase.
        *
        * @param request SkipFullJobTableRequest
        * @return SkipFullJobTableResponse
@@ -1957,7 +2061,7 @@ namespace Dts20200101
       Models::SkipFullJobTableResponse skipFullJobTable(const Models::SkipFullJobTableRequest &request);
 
       /**
-       * @summary Suppresses or unsuppresses precheck alert items.
+       * @summary Skips or unskips precheck alert items.
        *
        * @param request SkipPreCheckRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1966,7 +2070,7 @@ namespace Dts20200101
       Models::SkipPreCheckResponse skipPreCheckWithOptions(const Models::SkipPreCheckRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Suppresses or unsuppresses precheck alert items.
+       * @summary Skips or unskips precheck alert items.
        *
        * @param request SkipPreCheckRequest
        * @return SkipPreCheckResponse
@@ -1974,7 +2078,7 @@ namespace Dts20200101
       Models::SkipPreCheckResponse skipPreCheck(const Models::SkipPreCheckRequest &request);
 
       /**
-       * @summary Starts a data migration, data synchronization, or change tracking task by calling the StartDtsJob operation.
+       * @summary Starts a data migration, data synchronization, or change tracking task.
        *
        * @param request StartDtsJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1983,7 +2087,7 @@ namespace Dts20200101
       Models::StartDtsJobResponse startDtsJobWithOptions(const Models::StartDtsJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Starts a data migration, data synchronization, or change tracking task by calling the StartDtsJob operation.
+       * @summary Starts a data migration, data synchronization, or change tracking task.
        *
        * @param request StartDtsJobRequest
        * @return StartDtsJobResponse
@@ -2046,7 +2150,7 @@ namespace Dts20200101
       Models::StartReverseWriterResponse startReverseWriter(const Models::StartReverseWriterRequest &request);
 
       /**
-       * @summary Starts the channel of a change tracking instance. This is a legacy operation.
+       * @summary Starts the channel for a legacy change tracking instance.
        *
        * @param request StartSubscriptionInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2055,7 +2159,7 @@ namespace Dts20200101
       Models::StartSubscriptionInstanceResponse startSubscriptionInstanceWithOptions(const Models::StartSubscriptionInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Starts the channel of a change tracking instance. This is a legacy operation.
+       * @summary Starts the channel for a legacy change tracking instance.
        *
        * @param request StartSubscriptionInstanceRequest
        * @return StartSubscriptionInstanceResponse
@@ -2080,7 +2184,7 @@ namespace Dts20200101
       Models::StartSynchronizationJobResponse startSynchronizationJob(const Models::StartSynchronizationJobRequest &request);
 
       /**
-       * @summary Releases a cluster by calling the StopDedicatedCluster operation.
+       * @summary Releases a dedicated cluster.
        *
        * @param request StopDedicatedClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2089,7 +2193,7 @@ namespace Dts20200101
       Models::StopDedicatedClusterResponse stopDedicatedClusterWithOptions(const Models::StopDedicatedClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Releases a cluster by calling the StopDedicatedCluster operation.
+       * @summary Releases a dedicated cluster.
        *
        * @param request StopDedicatedClusterRequest
        * @return StopDedicatedClusterResponse
@@ -2097,7 +2201,7 @@ namespace Dts20200101
       Models::StopDedicatedClusterResponse stopDedicatedCluster(const Models::StopDedicatedClusterRequest &request);
 
       /**
-       * @summary Stops a data migration, data synchronization, or change tracking task by calling StopDtsJob.
+       * @summary Stops a data migration, data synchronization, or change tracking task.
        *
        * @param request StopDtsJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2106,7 +2210,7 @@ namespace Dts20200101
       Models::StopDtsJobResponse stopDtsJobWithOptions(const Models::StopDtsJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stops a data migration, data synchronization, or change tracking task by calling StopDtsJob.
+       * @summary Stops a data migration, data synchronization, or change tracking task.
        *
        * @param request StopDtsJobRequest
        * @return StopDtsJobResponse
@@ -2114,7 +2218,7 @@ namespace Dts20200101
       Models::StopDtsJobResponse stopDtsJob(const Models::StopDtsJobRequest &request);
 
       /**
-       * @summary Stops multiple DTS tasks at a time.
+       * @summary Stops multiple DTS tasks.
        *
        * @param request StopDtsJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2123,7 +2227,7 @@ namespace Dts20200101
       Models::StopDtsJobsResponse stopDtsJobsWithOptions(const Models::StopDtsJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stops multiple DTS tasks at a time.
+       * @summary Stops multiple DTS tasks.
        *
        * @param request StopDtsJobsRequest
        * @return StopDtsJobsResponse
@@ -2131,7 +2235,7 @@ namespace Dts20200101
       Models::StopDtsJobsResponse stopDtsJobs(const Models::StopDtsJobsRequest &request);
 
       /**
-       * @summary Ends a data migration task that is in a migration state.
+       * @summary Ends a data migration task that is in the migrating state.
        *
        * @param request StopMigrationJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2140,7 +2244,7 @@ namespace Dts20200101
       Models::StopMigrationJobResponse stopMigrationJobWithOptions(const Models::StopMigrationJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Ends a data migration task that is in a migration state.
+       * @summary Ends a data migration task that is in the migrating state.
        *
        * @param request StopMigrationJobRequest
        * @return StopMigrationJobResponse
@@ -2148,7 +2252,7 @@ namespace Dts20200101
       Models::StopMigrationJobResponse stopMigrationJob(const Models::StopMigrationJobRequest &request);
 
       /**
-       * @summary Queries the number of tables migrated in a Data Transmission Service (DTS) data migration or synchronization task.
+       * @summary Queries the number of migrated tables in a Data Transmission Service (DTS) data migration or synchronization task.
        *
        * @param request SummaryJobDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2157,7 +2261,7 @@ namespace Dts20200101
       Models::SummaryJobDetailResponse summaryJobDetailWithOptions(const Models::SummaryJobDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the number of tables migrated in a Data Transmission Service (DTS) data migration or synchronization task.
+       * @summary Queries the number of migrated tables in a Data Transmission Service (DTS) data migration or synchronization task.
        *
        * @param request SummaryJobDetailRequest
        * @return SummaryJobDetailResponse
@@ -2165,7 +2269,7 @@ namespace Dts20200101
       Models::SummaryJobDetailResponse summaryJobDetail(const Models::SummaryJobDetailRequest &request);
 
       /**
-       * @summary Suspends a data migration or synchronization task. Change tracking tasks are not supported. Change tracking instances do not support the suspend capability. Do not call this operation on change tracking instances.
+       * @summary Suspends a data migration or synchronization task. Change tracking tasks are not supported. Change tracking instances do not support suspension. Do not call this operation on change tracking instances.
        *
        * @description ****
        *
@@ -2176,7 +2280,7 @@ namespace Dts20200101
       Models::SuspendDtsJobResponse suspendDtsJobWithOptions(const Models::SuspendDtsJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Suspends a data migration or synchronization task. Change tracking tasks are not supported. Change tracking instances do not support the suspend capability. Do not call this operation on change tracking instances.
+       * @summary Suspends a data migration or synchronization task. Change tracking tasks are not supported. Change tracking instances do not support suspension. Do not call this operation on change tracking instances.
        *
        * @description ****
        *
@@ -2186,7 +2290,7 @@ namespace Dts20200101
       Models::SuspendDtsJobResponse suspendDtsJob(const Models::SuspendDtsJobRequest &request);
 
       /**
-       * @summary Suspends multiple DTS tasks at a time.
+       * @summary Pauses multiple DTS tasks.
        *
        * @param request SuspendDtsJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2195,7 +2299,7 @@ namespace Dts20200101
       Models::SuspendDtsJobsResponse suspendDtsJobsWithOptions(const Models::SuspendDtsJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Suspends multiple DTS tasks at a time.
+       * @summary Pauses multiple DTS tasks.
        *
        * @param request SuspendDtsJobsRequest
        * @return SuspendDtsJobsResponse
@@ -2220,11 +2324,11 @@ namespace Dts20200101
       Models::SuspendMigrationJobResponse suspendMigrationJob(const Models::SuspendMigrationJobRequest &request);
 
       /**
-       * @summary Pauses a data synchronization task that is in the Synchronizing state.
+       * @summary Suspends a data synchronization task that is in the synchronizing state.
        *
-       * @description > - When you call this operation, the synchronization task must be in the Synchronizing state.
-       * - A synchronization task cannot be paused for more than 6 hours. Otherwise, the task cannot be restarted.
-       * - DTS continues to charge fees for a pay-as-you-go synchronization task even if the task is paused. This is because DTS only pauses writing data to the destination instance but continues to pull logs from the source instance to ensure quick resumption when the task is restarted. Therefore, the task still consumes resources such as bandwidth of the source database.
+       * @description > - When you call this operation, the data synchronization task must be in the Synchronizing state.
+       * - You can suspend a data synchronization task for up to 6 hours. If the suspension exceeds 6 hours, the task cannot be restarted.
+       * - You are still charged for a pay-as-you-go data synchronization task even when it is suspended. This is because DTS only stops writing data to the destination database but continues to pull logs from the source database to ensure fast recovery after the task is restarted. As a result, the task still consumes resources such as the bandwidth of the source database.
        *
        * @param request SuspendSynchronizationJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2233,11 +2337,11 @@ namespace Dts20200101
       Models::SuspendSynchronizationJobResponse suspendSynchronizationJobWithOptions(const Models::SuspendSynchronizationJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Pauses a data synchronization task that is in the Synchronizing state.
+       * @summary Suspends a data synchronization task that is in the synchronizing state.
        *
-       * @description > - When you call this operation, the synchronization task must be in the Synchronizing state.
-       * - A synchronization task cannot be paused for more than 6 hours. Otherwise, the task cannot be restarted.
-       * - DTS continues to charge fees for a pay-as-you-go synchronization task even if the task is paused. This is because DTS only pauses writing data to the destination instance but continues to pull logs from the source instance to ensure quick resumption when the task is restarted. Therefore, the task still consumes resources such as bandwidth of the source database.
+       * @description > - When you call this operation, the data synchronization task must be in the Synchronizing state.
+       * - You can suspend a data synchronization task for up to 6 hours. If the suspension exceeds 6 hours, the task cannot be restarted.
+       * - You are still charged for a pay-as-you-go data synchronization task even when it is suspended. This is because DTS only stops writing data to the destination database but continues to pull logs from the source database to ensure fast recovery after the task is restarted. As a result, the task still consumes resources such as the bandwidth of the source database.
        *
        * @param request SuspendSynchronizationJobRequest
        * @return SuspendSynchronizationJobResponse
@@ -2245,7 +2349,7 @@ namespace Dts20200101
       Models::SuspendSynchronizationJobResponse suspendSynchronizationJob(const Models::SuspendSynchronizationJobRequest &request);
 
       /**
-       * @summary Performs physical migration of an MSSQL database to Alibaba Cloud.
+       * @summary Migrates an SQL Server database to the cloud by using physical migration.
        *
        * @param request SwitchPhysicalDtsJobToCloudRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2254,7 +2358,7 @@ namespace Dts20200101
       Models::SwitchPhysicalDtsJobToCloudResponse switchPhysicalDtsJobToCloudWithOptions(const Models::SwitchPhysicalDtsJobToCloudRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs physical migration of an MSSQL database to Alibaba Cloud.
+       * @summary Migrates an SQL Server database to the cloud by using physical migration.
        *
        * @param request SwitchPhysicalDtsJobToCloudRequest
        * @return SwitchPhysicalDtsJobToCloudResponse
@@ -2333,14 +2437,14 @@ namespace Dts20200101
       Models::TransferInstanceClassResponse transferInstanceClass(const Models::TransferInstanceClassRequest &request);
 
       /**
-       * @summary Transforms the payment method of a DTS instance.
+       * @summary Changes the billing method.
        *
        * @description <props="china">Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/dts/detail) of Data Transmission Service (DTS).
        * <props="intl">Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of Data Transmission Service (DTS).
-       * - To avoid resource waste, confirm the payment method transformation before you perform the operation.
-       * - Data migration instances support only the pay-as-you-go billing method. No transformation is required.
+       * - To prevent resource waste, confirm the billing method change before you proceed.
+       * - Data migration instances support only the pay-as-you-go billing method and do not require billing method changes.
        * <props="china">
-       * - Serverless instances do not support payment method transformation.
+       * - Serverless instances do not support billing method changes.
        *
        * @param request TransferPayTypeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2349,14 +2453,14 @@ namespace Dts20200101
       Models::TransferPayTypeResponse transferPayTypeWithOptions(const Models::TransferPayTypeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Transforms the payment method of a DTS instance.
+       * @summary Changes the billing method.
        *
        * @description <props="china">Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/dts/detail) of Data Transmission Service (DTS).
        * <props="intl">Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of Data Transmission Service (DTS).
-       * - To avoid resource waste, confirm the payment method transformation before you perform the operation.
-       * - Data migration instances support only the pay-as-you-go billing method. No transformation is required.
+       * - To prevent resource waste, confirm the billing method change before you proceed.
+       * - Data migration instances support only the pay-as-you-go billing method and do not require billing method changes.
        * <props="china">
-       * - Serverless instances do not support payment method transformation.
+       * - Serverless instances do not support billing method changes.
        *
        * @param request TransferPayTypeRequest
        * @return TransferPayTypeResponse
@@ -2364,9 +2468,9 @@ namespace Dts20200101
       Models::TransferPayTypeResponse transferPayType(const Models::TransferPayTypeRequest &request);
 
       /**
-       * @summary Unbinds tags from data migration, synchronization, and change tracking instances.
+       * @summary Removes tags from data migration, data synchronization, and change tracking instances.
        *
-       * @description > After a tag is unbound from an instance, the tag is automatically deleted if it is not bound to any other instance.
+       * @description > If a tag is removed from an instance and is not attached to any other instances, the tag is automatically deleted.
        *
        * @param request UntagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2375,9 +2479,9 @@ namespace Dts20200101
       Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Unbinds tags from data migration, synchronization, and change tracking instances.
+       * @summary Removes tags from data migration, data synchronization, and change tracking instances.
        *
-       * @description > After a tag is unbound from an instance, the tag is automatically deleted if it is not bound to any other instance.
+       * @description > If a tag is removed from an instance and is not attached to any other instances, the tag is automatically deleted.
        *
        * @param request UntagResourcesRequest
        * @return UntagResourcesResponse
@@ -2385,15 +2489,15 @@ namespace Dts20200101
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
-       * @summary Upgrades the synchronization topology of a DTS data synchronization instance from one-way synchronization to two-way synchronization.
+       * @summary Upgrades the synchronization topology of a data synchronization instance from one-way synchronization to two-way synchronization.
        *
-       * @description <props="china">Before you use this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/dts/detail) of ApsaraDB DTS.
-       * <props="intl">Before you use this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of ApsaraDB DTS.
-       * Before you begin:
-       * - The database type of both the source instance and the destination instance of the data synchronization node must be **MySQL**.
+       * @description <props="china">Make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/dts/detail) of ApsaraDB DTS before you call this operation.
+       * <props="intl">Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of ApsaraDB DTS before you call this operation.
+       * When you call this operation, take note of the following items:
+       * - The database engines of the source instance and destination instance for the data synchronization node must be **MySQL**.
        * - The synchronization topology of the data synchronization node must be **one-way synchronization**.
-       * - The data synchronization node must be in the **Synchronizing** state.
-       * - During the upgrade, data synchronization may experience a latency of approximately 5 seconds. Perform this operation during off-peak hours.
+       * - The status of the data synchronization node must be **Synchronizing**.
+       * - Data synchronization may be delayed by about 5 seconds while the upgrade takes effect. Perform this operation during off-peak hours.
        *
        * @param request UpgradeTwoWayRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2402,15 +2506,15 @@ namespace Dts20200101
       Models::UpgradeTwoWayResponse upgradeTwoWayWithOptions(const Models::UpgradeTwoWayRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Upgrades the synchronization topology of a DTS data synchronization instance from one-way synchronization to two-way synchronization.
+       * @summary Upgrades the synchronization topology of a data synchronization instance from one-way synchronization to two-way synchronization.
        *
-       * @description <props="china">Before you use this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/dts/detail) of ApsaraDB DTS.
-       * <props="intl">Before you use this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of ApsaraDB DTS.
-       * Before you begin:
-       * - The database type of both the source instance and the destination instance of the data synchronization node must be **MySQL**.
+       * @description <props="china">Make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/dts/detail) of ApsaraDB DTS before you call this operation.
+       * <props="intl">Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of ApsaraDB DTS before you call this operation.
+       * When you call this operation, take note of the following items:
+       * - The database engines of the source instance and destination instance for the data synchronization node must be **MySQL**.
        * - The synchronization topology of the data synchronization node must be **one-way synchronization**.
-       * - The data synchronization node must be in the **Synchronizing** state.
-       * - During the upgrade, data synchronization may experience a latency of approximately 5 seconds. Perform this operation during off-peak hours.
+       * - The status of the data synchronization node must be **Synchronizing**.
+       * - Data synchronization may be delayed by about 5 seconds while the upgrade takes effect. Perform this operation during off-peak hours.
        *
        * @param request UpgradeTwoWayRequest
        * @return UpgradeTwoWayResponse
@@ -2418,11 +2522,11 @@ namespace Dts20200101
       Models::UpgradeTwoWayResponse upgradeTwoWay(const Models::UpgradeTwoWayRequest &request);
 
       /**
-       * @summary Queries the IP addresses of DTS servers by calling the WhiteIpList operation.
+       * @summary Queries the IP addresses of Data Transmission Service (DTS) servers.
        *
-       * @description <props="china">If the **source or destination instance** is a **self-managed database** or a **third-party ApsaraDB database**, you need to invoke this operation to query the IP addresses of DTS servers, and then add the returned IP addresses to the security settings (typically the firewall) of the source or destination instance. For more information about how to add IP addresses, see [Add the CIDR blocks of DTS servers to the whitelist of a self-managed database for migration, synchronization, or subscribe](https://help.aliyun.com/document_detail/84900.html).
-       * <props="intl">If the **source or destination instance** is a **self-managed database** or a **third-party ApsaraDB database**, you need to invoke this operation to query the IP addresses of DTS servers, and then add the returned IP addresses to the security settings (typically the firewall) of the source or destination instance. For more information about how to add IP addresses, see [Add the CIDR blocks of DTS servers to the whitelist of a self-managed database](https://help.aliyun.com/document_detail/176627.html).
-       * > If the **source or destination database** is an **Alibaba Cloud database instance** (such as ApsaraDB RDS or ApsaraDB for MongoDB) or a **self-managed database hosted on ECS**, the system automatically adds the IP addresses of DTS servers to the security settings of the instance when you click **Authorize Whitelist and Proceed to Next Step** during the configuration of the source or destination instance. You do not need to manually add the IP addresses.
+       * @description <props="china">If the **source or destination instance** is a **self-managed database** or a **third-party cloud database**, you must call this operation to query the IP addresses of DTS servers, and then add the queried IP addresses to the security settings of the source or destination instance, such as the firewall of the database. For more information, see [IP address whitelist required when you migrate, synchronize, or subscribe to a local database](https://help.aliyun.com/document_detail/84900.html).
+       * <props="intl">If the **source or destination instance** is a **self-managed database** or a **third-party cloud database**, you must call this operation to query the IP addresses of DTS servers, and then add the queried IP addresses to the security settings of the source or destination instance, such as the firewall of the database. For more information, see [Add the CIDR blocks of DTS servers to the IP address whitelist of a self-managed database](https://help.aliyun.com/document_detail/176627.html).
+       * > If the **source or destination database** is an **Alibaba Cloud database instance** (such as ApsaraDB RDS or MongoDB) or a **self-managed database on an ECS instance**, the system automatically adds the IP addresses of DTS servers to the security settings of the instance when you configure the source or destination instance information and click **Authorize Whitelist and Proceed to Next Step**. You do not need to manually add the IP addresses.
        *
        * @param request WhiteIpListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2431,11 +2535,11 @@ namespace Dts20200101
       Models::WhiteIpListResponse whiteIpListWithOptions(const Models::WhiteIpListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the IP addresses of DTS servers by calling the WhiteIpList operation.
+       * @summary Queries the IP addresses of Data Transmission Service (DTS) servers.
        *
-       * @description <props="china">If the **source or destination instance** is a **self-managed database** or a **third-party ApsaraDB database**, you need to invoke this operation to query the IP addresses of DTS servers, and then add the returned IP addresses to the security settings (typically the firewall) of the source or destination instance. For more information about how to add IP addresses, see [Add the CIDR blocks of DTS servers to the whitelist of a self-managed database for migration, synchronization, or subscribe](https://help.aliyun.com/document_detail/84900.html).
-       * <props="intl">If the **source or destination instance** is a **self-managed database** or a **third-party ApsaraDB database**, you need to invoke this operation to query the IP addresses of DTS servers, and then add the returned IP addresses to the security settings (typically the firewall) of the source or destination instance. For more information about how to add IP addresses, see [Add the CIDR blocks of DTS servers to the whitelist of a self-managed database](https://help.aliyun.com/document_detail/176627.html).
-       * > If the **source or destination database** is an **Alibaba Cloud database instance** (such as ApsaraDB RDS or ApsaraDB for MongoDB) or a **self-managed database hosted on ECS**, the system automatically adds the IP addresses of DTS servers to the security settings of the instance when you click **Authorize Whitelist and Proceed to Next Step** during the configuration of the source or destination instance. You do not need to manually add the IP addresses.
+       * @description <props="china">If the **source or destination instance** is a **self-managed database** or a **third-party cloud database**, you must call this operation to query the IP addresses of DTS servers, and then add the queried IP addresses to the security settings of the source or destination instance, such as the firewall of the database. For more information, see [IP address whitelist required when you migrate, synchronize, or subscribe to a local database](https://help.aliyun.com/document_detail/84900.html).
+       * <props="intl">If the **source or destination instance** is a **self-managed database** or a **third-party cloud database**, you must call this operation to query the IP addresses of DTS servers, and then add the queried IP addresses to the security settings of the source or destination instance, such as the firewall of the database. For more information, see [Add the CIDR blocks of DTS servers to the IP address whitelist of a self-managed database](https://help.aliyun.com/document_detail/176627.html).
+       * > If the **source or destination database** is an **Alibaba Cloud database instance** (such as ApsaraDB RDS or MongoDB) or a **self-managed database on an ECS instance**, the system automatically adds the IP addresses of DTS servers to the security settings of the instance when you configure the source or destination instance information and click **Authorize Whitelist and Proceed to Next Step**. You do not need to manually add the IP addresses.
        *
        * @param request WhiteIpListRequest
        * @return WhiteIpListResponse

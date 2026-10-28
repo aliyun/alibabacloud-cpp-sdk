@@ -163,19 +163,19 @@ namespace Models
     protected:
       // The timestamp when the ETL task was created.
       shared_ptr<string> createTime_ {};
-      // The creator ID.
+      // The ID of the creator.
       shared_ptr<string> creator_ {};
       // The username of the creator.
       shared_ptr<string> creatorName_ {};
       // The DTS instance ID.
       shared_ptr<string> dtsInstanceId_ {};
-      // The ETL task ID.
+      // The ID of the ETL task.
       shared_ptr<string> dtsJobId_ {};
       // The name of the ETL task.
       shared_ptr<string> dtsJobName_ {};
       // The modification timestamp.
       shared_ptr<string> modifyTime_ {};
-      // The safe checkpoint, which indicates the current position of the ETL task.
+      // The security checkpoint, which is the current checkpoint of the ETL task.
       shared_ptr<string> safeCheckpoint_ {};
       // The log level. Valid values: ERROR, WARN, INFO, and DEBUG.
       shared_ptr<string> status_ {};
@@ -268,25 +268,25 @@ namespace Models
   protected:
     // The array of ETL task information objects.
     shared_ptr<vector<DescribeDtsEtlJobVersionInfoResponseBody::DtsEtlJobVersionInfos>> dtsEtlJobVersionInfos_ {};
-    // The dynamic error code associated with this request.
+    // The dynamic error code associated with the request.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message associated with this request.
+    // The dynamic error message associated with the request.
     shared_ptr<string> dynamicMessage_ {};
-    // The error code returned when the specified ETL task ID is invalid and the corresponding task cannot be found.
+    // The error code returned when the specified ETL task ID is incorrect and the corresponding task cannot be found.
     shared_ptr<string> errCode_ {};
-    // The error message returned when the specified ETL task ID is invalid and the corresponding task cannot be found. The task may have been deleted.
+    // The error message returned when the specified ETL task ID is incorrect and the corresponding task cannot be found. The task may have been deleted.
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
     // The page number of the instance status list. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of records on the current page.
+    // The number of entries returned on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. A value of false indicates a failure.
+    // Indicates whether the request was successful. If the request fails, false is returned.
     shared_ptr<bool> success_ {};
-    // The total number of records.
+    // The total number of entries.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

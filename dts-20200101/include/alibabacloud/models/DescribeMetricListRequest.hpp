@@ -142,38 +142,39 @@ namespace Models
   protected:
     // The ID of the Alibaba Cloud account.
     shared_ptr<string> accountId_ {};
-    // Ensures the idempotency of the request. Generate a parameter value from your client to make sure that the value is unique among different requests. **ClientToken** supports only ASCII characters and cannot exceed 64 characters in length.
+    // Ensures the idempotency of the request. Generate a value on your client and ensure that the value is unique across different requests. **ClientToken** supports only ASCII characters and can be up to 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The ID of the data migration or data synchronization task.
+    // The ID of the migration or synchronization task.
     shared_ptr<string> dtsJobId_ {};
-    // The end timestamp, in milliseconds.
+    // The end timestamp in milliseconds.
     shared_ptr<int64_t> endTime_ {};
-    // Default value: **ALIYUN**.
+    // The environment. Default value: **ALIYUN**.
     shared_ptr<string> env_ {};
+    // Specifies the metric name. Valid values:
     // - **InternetOut**: outbound Internet traffic, in bytes.
     // - **diskusage_utilization**: disk usage.
     // - **IntranetInRate**: inbound internal network traffic, in bytes.
     // - **InternetIn**: inbound Internet traffic, in bytes.
-    // - **cpu_total**: CPU utilization.
-    // - **memory_usedutilization**: memory utilization.
+    // - **cpu_total**: CPU usage.
+    // - **memory_usedutilization**: memory usage.
     // - **IntranetOutRate**: outbound internal network traffic, in bytes.
     // 
     // This parameter is required.
     shared_ptr<string> metricName_ {};
-    // Specifies whether to query a cluster or a node. Valid values:
+    // Specifies the query target. Valid values:
     // - **CLUSTER**: cluster.
     // - **NODE**: node.
     shared_ptr<string> metricType_ {};
     shared_ptr<string> ownerID_ {};
-    // The observation value. If **MetricType** is set to **NODE**, the value is **nodeid**.
+    // The observation value. If **MetricType** is **NODE**, the value is the **nodeid**.
     // 
     // This parameter is required.
     shared_ptr<string> param_ {};
     // The observation interval in seconds. The minimum interval is 15 seconds.
     shared_ptr<int64_t> period_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The start timestamp, in milliseconds.
+    // The start timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
   };
 

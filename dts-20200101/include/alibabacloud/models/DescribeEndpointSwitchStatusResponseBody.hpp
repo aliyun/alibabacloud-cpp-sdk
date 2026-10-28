@@ -84,23 +84,23 @@ namespace Models
 
 
   protected:
-    // The error code returned when the call fails.
+    // The error code returned if the call fails.
     shared_ptr<string> errCode_ {};
-    // The error message returned when the call fails.
+    // The error message returned if the call fails.
     shared_ptr<string> errMessage_ {};
-    // This parameter is discontinued.
+    // This parameter is deprecated.
     shared_ptr<string> errorMessage_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The execution status of the task. Valid values:
     // 
-    // - **NotStarted**: not started.
-    // - **Initializing**: initializing.
-    // - **Switching**: switching.
-    // - **Failed**: failed.
-    // - **Finished**: succeeded.
+    // - **NotStarted**: The task is not started.
+    // - **Initializing**: The task is being initialized.
+    // - **Switching**: The task is being switched.
+    // - **Failed**: The task failed.
+    // - **Finished**: The task is completed.
     shared_ptr<string> status_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<string> success_ {};
   };
 

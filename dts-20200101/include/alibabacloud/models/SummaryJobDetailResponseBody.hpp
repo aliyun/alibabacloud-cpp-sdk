@@ -87,7 +87,7 @@ namespace Models
 
 
     protected:
-      // The object type of the migration object. Valid values: **Table**, **Constraint**, **Index**, **View**, **Materialize View**, **Type** (user-defined type), **Synonym**, **Trigger**, **Function**, **Procedure** (stored procedure), **Package**, **Default**, **Rule**, **PlanGuide** (execute plan), and **Sequence**.
+      // The migrated object type. Valid values: **Table** (table), **Constraint** (constraint), **Index** (index), **View** (view), **Materialize View** (materialized view), **Type** (custom type), **Synonym** (synonym), **Trigger** (trigger), **Function** (function), **Procedure** (stored procedure), **Package** (package), **Default** (default value), **Rule** (rule), **PlanGuide** (execute plan), and **Sequence** (sequence).
       shared_ptr<string> key_ {};
       // The migration status. Valid values:
       // - **0**: finish (completed).
@@ -97,7 +97,7 @@ namespace Models
       // - **4**: warning (error).
       // - **5**: failed (failed).
       shared_ptr<int32_t> state_ {};
-      // The total number of migration objects.
+      // The total number of migrated objects.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -152,10 +152,10 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The ID of the data migration or synchronization task.
+    // The ID of the migration or synchronization task.
     shared_ptr<string> jobId_ {};
-    // The array of migration object information.
-    // > The array is returned in the following format: [{"key":"Function","state":5,"totalCount":22},{"key":"Procedure","state":5,"totalCount":26},{"key":"Table","state":0,"totalCount":68},{"key":"View","state":5,"totalCount":100}].
+    // The returned information about the array of migrated objects.
+    // > The array is returned in the following format: [{"key":"Function","state":5,"totalCount":22},{"key":"Procedure","state":5,"totalCount":26},{"key":"Table","state":0,"totalCount":68},{"key":"View","state":5,"totalCount":100}\\].
     shared_ptr<vector<SummaryJobDetailResponseBody::ProgressSummaryDetails>> progressSummaryDetails_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

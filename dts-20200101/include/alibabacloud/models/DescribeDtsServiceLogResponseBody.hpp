@@ -97,11 +97,11 @@ namespace Models
 
 
     protected:
-      // The specific log information.
+      // The log content.
       shared_ptr<string> context_ {};
-      // The status of the log entry.
+      // The state of the log.
       shared_ptr<string> state_ {};
-      // The time when the log was collected, in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
+      // The time when the log was collected. The time is displayed in the yyyy-MM-ddTHH:mm:ssZ format in UTC.
       shared_ptr<string> time_ {};
     };
 
@@ -190,25 +190,25 @@ namespace Models
   protected:
     // The dynamic error code. This parameter will be deprecated.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message used to replace the **%s** variable in the **ErrMessage** parameter.
+    // The dynamic error message, which is used to replace **%s** in the **ErrMessage** response parameter.
     shared_ptr<string> dynamicMessage_ {};
-    // The error code returned if the call failed.
+    // The error code returned if the call fails.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the call failed.
+    // The error message returned if the call fails.
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of log entries per page.
+    // The number of log entries returned on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The task logs details of the node.
+    // The details of the task logs.
     shared_ptr<vector<DescribeDtsServiceLogResponseBody::ServiceLogContexts>> serviceLogContexts_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
-    // The total number of log entries that meet the specified conditions.
+    // The total number of log entries that meet the query conditions.
     shared_ptr<int64_t> totalRecordCount_ {};
   };
 

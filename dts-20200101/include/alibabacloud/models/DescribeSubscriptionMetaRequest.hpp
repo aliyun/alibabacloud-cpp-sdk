@@ -92,7 +92,7 @@ namespace Models
     // 
     // > This parameter is required.
     shared_ptr<string> dtsInstanceId_ {};
-    // The region in which the change tracking instance resides.
+    // The region where the change tracking instance resides.
     shared_ptr<string> regionId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
@@ -100,11 +100,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> sid_ {};
-    // The IDs of all change tracking subtasks in the distributed change tracking task. Separate multiple IDs with commas (,).
-    // > You must specify at least one of this parameter and **Topics**. We recommend that you specify this parameter.
+    // The IDs of all change tracking subtasks under the distributed change tracking task. Separate multiple subtask IDs with commas (,).
+    // > You must specify at least one of this parameter and the **Topics** parameter. We recommend that you specify this parameter.
     Darabonba::Json subMigrationJobIds_ {};
-    // All topics of the distributed change tracking task. Separate multiple topics with commas (,).
-    // > You must specify at least one of this parameter and **SubMigrationJobIds**. We recommend that you specify **SubMigrationJobIds**.
+    // All change tracking topics under the distributed change tracking task. Separate multiple topics with commas (,).
+    // > You must specify at least one of this parameter and the **SubMigrationJobIds** parameter. We recommend that you specify the **SubMigrationJobIds** parameter.
     Darabonba::Json topics_ {};
   };
 

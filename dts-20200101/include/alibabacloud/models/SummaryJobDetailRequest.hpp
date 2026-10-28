@@ -105,7 +105,7 @@ namespace Models
   protected:
     // The migration or synchronization instance ID.
     shared_ptr<string> dtsInstanceId_ {};
-    // The ID of the data migration or synchronization task.
+    // The ID of the migration or synchronization task.
     // 
     // This parameter is required.
     shared_ptr<string> dtsJobId_ {};
@@ -115,25 +115,25 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> jobCode_ {};
-    // The region in which the DTS instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+    // The region where the DTS instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     // The type of schema definition. Valid values:
     // 
-    // - **before**: schema migration or initial schema synchronization.
+    // - **before**: schema migration or initial schema synchronization for databases and tables.
     // - **after**: DDL operations during incremental data migration or synchronization.
     shared_ptr<string> structType_ {};
-    // The synchronization direction. Valid values:
+    // The direction of the synchronization link. Valid values:
     // - **Forward**: forward.
     // - **Reverse**: reverse.
     // 
     // > - Default value: **Forward**.
-    // - You can set this parameter to **Reverse** to release the reverse synchronization link only when the topology of the data synchronization instance is two-way synchronization.
+    // - You can set this parameter to **Reverse** to release the reverse synchronization link only when the synchronization topology of the data synchronization instance is two-way.
     shared_ptr<string> synchronizationDirection_ {};
-    // Specifies whether the node is a seamless integration (zero-ETL) node. Valid values:
-    // - **true**: The node is a seamless integration node.
-    // - **false**: The node is not a seamless integration node.
+    // Specifies whether the node is a seamless integration (Zero-ETL) node. Valid values:
+    // - **true**: yes.
+    // - **false**: no.
     shared_ptr<bool> zeroEtlJob_ {};
   };
 

@@ -121,47 +121,47 @@ namespace Models
 
 
   protected:
-    // The sort column when the response contains multiple DTS dedicated cluster instances. Valid values:
+    // The sort field when the response contains multiple DTS dedicated cluster instances. Valid values:
     // 
-    // - **gmtCreated**: creation time.
-    // - **orderCount**: number of nodes.
+    // - **gmtCreated**: Creation time.
+    // - **orderCount**: Number of nodes.
     shared_ptr<string> orderColumn_ {};
     // The sort order. Valid values:
     // 
-    // - **asc**: ascending order. This is the default value.
-    // - **desc**: descending order.
+    // - **asc**: Ascending order. This is the default value.
+    // - **desc**: Descending order.
     shared_ptr<string> orderDirection_ {};
     shared_ptr<string> ownerId_ {};
-    // The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: **1**.
+    // The page number. The value must be an integer greater than 0 and less than or equal to the maximum value of the Integer data type. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of clusters to display per page.
+    // The number of clusters to return on each page.
     shared_ptr<int32_t> pageSize_ {};
     // The specific content of the query condition.
     // 
-    // > You must first specify the **Type** parameter to define the query key.
+    // > You must specify **Type** to define the query key.
     shared_ptr<string> params_ {};
-    // The region ID. This parameter is used as a query condition.
+    // The region ID.
     shared_ptr<string> regionId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     // The cluster status. Valid values:
     // 
-    // - **init**: initializing.
-    // - **schedule**: pending scheduling.
-    // - **running**: running.
-    // - **upgrade**: upgrading.
-    // - **downgrade**: downgrading.
-    // - **locked**: locked.
-    // - **releasing**: being released.
-    // - **released**: released.
+    // - **init**: Initializing.
+    // - **schedule**: Pending scheduling.
+    // - **running**: Running.
+    // - **upgrade**: Upgrading.
+    // - **downgrade**: Downgrading.
+    // - **locked**: Locked.
+    // - **releasing**: Releasing.
+    // - **released**: Released.
     shared_ptr<string> state_ {};
     // The query key. Valid values:
     // 
-    // - **NAME**: cluster name.
-    // - **INSTANCE**: cluster instance ID.
-    // - **DEDICATEDCLUSTERID**: dedicated cluster ID.
+    // - **NAME**: The cluster name.
+    // - **INSTANCE**: The cluster instance ID.
+    // - **DEDICATEDCLUSTERID**: The dedicated cluster ID.
     // 
-    // > You must also specify the **Params** parameter to provide the specific content of the query condition.
+    // > You must specify **Params** to define the query condition.
     shared_ptr<string> type_ {};
   };
 

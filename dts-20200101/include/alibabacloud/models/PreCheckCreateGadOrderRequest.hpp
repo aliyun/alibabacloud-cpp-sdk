@@ -140,22 +140,25 @@ namespace Models
 
 
   protected:
-    // The ID of the active geo-redundancy instance group.
+    // The ID of the global active instance group.
     shared_ptr<string> instanceId_ {};
+    // The name of the primary database.
     shared_ptr<string> masterDatabaseName_ {};
     shared_ptr<string> masterEngineArchType_ {};
     shared_ptr<string> masterShardAccountName_ {};
     shared_ptr<string> masterShardAccountPassword_ {};
     shared_ptr<string> ownerId_ {};
-    // The region in which the DTS instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+    // The region where the DTS instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
+    // The name of the secondary database.
     shared_ptr<string> slaveDatabaseName_ {};
-    // The instance ID of the database instance that assumes the secondary role.
+    // The instance ID of the secondary database.
     shared_ptr<string> slaveDbInstanceId_ {};
-    // The region of the database instance that assumes the secondary role.
+    // The region of the secondary database instance.
     shared_ptr<string> slaveDbInstanceRegion_ {};
+    // The architecture type of the secondary database engine.
     shared_ptr<string> slaveEngineArchType_ {};
   };
 

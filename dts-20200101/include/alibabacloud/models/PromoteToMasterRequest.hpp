@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // Instance ID.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // Primary instance ID.
+    // The instance ID of the primary instance.
     shared_ptr<string> masterDbInstanceId_ {};
-    // Region ID. Specify this parameter to indicate the region where the instance resides. For more information, see the list of supported regions.
+    // The region ID. Specify this parameter to indicate the region where the instance resides. For more information, see the list of supported regions.
     shared_ptr<string> regionId_ {};
-    // Resource group ID.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // Secondary instance ID.
+    // The instance ID of the secondary instance.
     shared_ptr<string> slaveDbInstanceId_ {};
   };
 

@@ -112,6 +112,7 @@ namespace Models
 
 
   protected:
+    // The list of database engine types. Separate multiple types with commas (,).
     shared_ptr<string> dbEngineTypes_ {};
     // The name of the active geo-redundancy instance group.
     shared_ptr<string> instanceName_ {};
@@ -121,10 +122,11 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Valid values: **1** to **100**. Default value: **20**.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID. Specify this parameter to query instances in a specific region. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+    // The region ID. Specify this parameter to indicate the region where the instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
+    // The ID of the secondary database instance.
     shared_ptr<string> slaveDbInstanceId_ {};
   };
 

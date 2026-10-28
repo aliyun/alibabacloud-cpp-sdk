@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // The tag type. Valid values:
+    // The tag category. Valid values:
     // - **System**: tags created by the system.
     // - **Custom**: tags added by users.
     // 
-    // > If this parameter is left empty, publicly visible tags are returned by default.
+    // > If this parameter is left empty, public tags are returned by default.
     shared_ptr<string> category_ {};
-    // The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. This parameter is used together with PageSize. Default value: 1.
+    // The page number. The value must be greater than 0 and cannot exceed the maximum value of the Integer data type. This parameter is typically used in combination with PageSize. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of tag keys to return on each page. Default value: 20.
+    // The number of entries to return on each page. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // The region in which the DTS instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+    // The region ID of the DTS instance. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     // The ID of the data migration, data synchronization, or change tracking instance. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the instance ID.
     shared_ptr<string> resourceId_ {};

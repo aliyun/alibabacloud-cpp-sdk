@@ -178,23 +178,22 @@ namespace Models
       shared_ptr<string> bootTime_ {};
       // The number of rows with data inconsistency.
       shared_ptr<int64_t> diffCount_ {};
-      // The error code returned when the task fails. Valid values:
+      // The error code returned when an error occurs during task execution. Valid values:
       // 
-      // - **1**: the number of tables without primary key exceeds the limit.
-      // - **2**: the number of rows with data inconsistency exceeds 300.
+      // - **1**: the number of table without primary key exceeds the limit.
+      // - **2**: the number of inconsistent data rows exceeds 300.
       // - **3**: the table to be queried does not exist.
-      // - **4**: the SQL statement used to query data contains a syntax error.
+      // - **4**: an SQL syntax error occurred while querying data.
       shared_ptr<int32_t> errorCode_ {};
-      // The number of rows that have been verified in the table.
+      // The number of data rows that have been verified in the table.
       shared_ptr<int64_t> finishCount_ {};
-      // The auto-increment primary key that identifies a verification result record.
+      // The auto-increment primary key used to identify a verification result record.
       shared_ptr<int64_t> id_ {};
       // The name of the source database.
       shared_ptr<string> sourceDbName_ {};
       // The name of the source table.
       shared_ptr<string> sourceTbName_ {};
       // The status of the verification result. Valid values:
-      // 
       // - **0**: completed.
       // - **2**: initializing.
       // - **3**: running.
@@ -204,7 +203,7 @@ namespace Models
       shared_ptr<string> targetDbName_ {};
       // The name of the destination table.
       shared_ptr<string> targetTbName_ {};
-      // The total number of rows to be verified.
+      // The total number of verified data rows.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -310,16 +309,16 @@ namespace Models
     shared_ptr<int64_t> diffTableCount_ {};
     // The dynamic error code. This parameter will be deprecated.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message used to replace the **%s** variable in the **ErrMessage** response parameter.
-    // > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **Type**, the request parameter **Type** is invalid.
+    // The dynamic error message, which is used to replace **%s** in the error message of the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **Type**, the specified **Type** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error code returned if the call failed.
+    // The error code returned if the call fails.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the call failed.
+    // The error message returned if the call fails.
     shared_ptr<string> errMessage_ {};
     // The number of tables that failed the verification.
     shared_ptr<int64_t> failedTableCount_ {};
-    // The total number of rows that have been verified.
+    // The total number of data rows that have been verified.
     shared_ptr<int64_t> finishedCount_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
@@ -329,9 +328,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
-    // The details of the data consistency verification results for tables.
+    // The details of the data table verification results.
     shared_ptr<vector<DescribeDataCheckTableDetailsResponseBody::TableDetails>> tableDetails_ {};
-    // The total number of tables to be verified.
+    // The total number of verified tables.
     shared_ptr<int64_t> totalCount_ {};
   };
 

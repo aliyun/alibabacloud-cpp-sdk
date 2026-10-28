@@ -187,8 +187,8 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 /**
  * @summary Configures a data migration or synchronization task.
  *
- * @description - You can perform the required pre-configurations in the console and then preview the corresponding OpenAPI parameter information to help you specify request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
- * - Tasks on dedicated clusters support only the configure-before-purchase mode and do not support cross-region tasks.
+ * @description - You can preconfigure the task in the console based on your requirements and then preview the OpenAPI parameters for the configuration to help you fill in the request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
+ * - Tasks in dedicated clusters only support the configure-then-purchase mode and do not support cross-region tasks.
  *
  * @param request ConfigureDtsJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -479,8 +479,8 @@ ConfigureDtsJobResponse Client::configureDtsJobWithOptions(const ConfigureDtsJob
 /**
  * @summary Configures a data migration or synchronization task.
  *
- * @description - You can perform the required pre-configurations in the console and then preview the corresponding OpenAPI parameter information to help you specify request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
- * - Tasks on dedicated clusters support only the configure-before-purchase mode and do not support cross-region tasks.
+ * @description - You can preconfigure the task in the console based on your requirements and then preview the OpenAPI parameters for the configuration to help you fill in the request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
+ * - Tasks in dedicated clusters only support the configure-then-purchase mode and do not support cross-region tasks.
  *
  * @param request ConfigureDtsJobRequest
  * @return ConfigureDtsJobResponse
@@ -665,7 +665,7 @@ ConfigureMigrationJobResponse Client::configureMigrationJob(const ConfigureMigra
 }
 
 /**
- * @summary Configures monitoring alerts to monitor the latency and exception status of a data migration task.
+ * @summary Configures monitoring alerts for the latency and abnormal status of a migration task.
  *
  * @param request ConfigureMigrationJobAlertRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -732,7 +732,7 @@ ConfigureMigrationJobAlertResponse Client::configureMigrationJobAlertWithOptions
 }
 
 /**
- * @summary Configures monitoring alerts to monitor the latency and exception status of a data migration task.
+ * @summary Configures monitoring alerts for the latency and abnormal status of a migration task.
  *
  * @param request ConfigureMigrationJobAlertRequest
  * @return ConfigureMigrationJobAlertResponse
@@ -745,7 +745,7 @@ ConfigureMigrationJobAlertResponse Client::configureMigrationJobAlert(const Conf
 /**
  * @summary Configures a DTS change tracking task.
  *
- * @description > You can perform the required pre-configurations in the console and then preview the corresponding OpenAPI parameter information to help you specify request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
+ * @description > You can preconfigure settings in the console as needed and then preview the OpenAPI parameters for the configurations to help you fill in the request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
  *
  * @param request ConfigureSubscriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -930,7 +930,7 @@ ConfigureSubscriptionResponse Client::configureSubscriptionWithOptions(const Con
 /**
  * @summary Configures a DTS change tracking task.
  *
- * @description > You can perform the required pre-configurations in the console and then preview the corresponding OpenAPI parameter information to help you specify request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
+ * @description > You can preconfigure settings in the console as needed and then preview the OpenAPI parameters for the configurations to help you fill in the request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
  *
  * @param request ConfigureSubscriptionRequest
  * @return ConfigureSubscriptionResponse
@@ -941,10 +941,10 @@ ConfigureSubscriptionResponse Client::configureSubscription(const ConfigureSubsc
 }
 
 /**
- * @summary Configures a change tracking channel. This is a legacy operation.
+ * @summary Configures a legacy change tracking channel.
  *
  * @description Before you call this operation, you must call the [CreateSubscriptionInstance](https://help.aliyun.com/document_detail/49436.html) operation to create a change tracking instance.
- * > In the **Advanced Settings** step of the console, move the pointer over the **Next: Save the task and perform a precheck** button, and then click **Preview OpenAPI parameters** in the tooltip to view the parameter information for configuring this instance by using API operations.
+ * > In the **Advanced Settings** step of the console, move the pointer over the **Save Task and Precheck** button, and then click **Preview OpenAPI Call** in the tooltip to view the parameter settings for configuring the instance by using API operations.
  *
  * @param request ConfigureSubscriptionInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1017,10 +1017,10 @@ ConfigureSubscriptionInstanceResponse Client::configureSubscriptionInstanceWithO
 }
 
 /**
- * @summary Configures a change tracking channel. This is a legacy operation.
+ * @summary Configures a legacy change tracking channel.
  *
  * @description Before you call this operation, you must call the [CreateSubscriptionInstance](https://help.aliyun.com/document_detail/49436.html) operation to create a change tracking instance.
- * > In the **Advanced Settings** step of the console, move the pointer over the **Next: Save the task and perform a precheck** button, and then click **Preview OpenAPI parameters** in the tooltip to view the parameter information for configuring this instance by using API operations.
+ * > In the **Advanced Settings** step of the console, move the pointer over the **Save Task and Precheck** button, and then click **Preview OpenAPI Call** in the tooltip to view the parameter settings for configuring the instance by using API operations.
  *
  * @param request ConfigureSubscriptionInstanceRequest
  * @return ConfigureSubscriptionInstanceResponse
@@ -1031,7 +1031,7 @@ ConfigureSubscriptionInstanceResponse Client::configureSubscriptionInstance(cons
 }
 
 /**
- * @summary Configures monitoring and alerting to monitor the latency and exception status of a change tracking channel.
+ * @summary Configures monitoring alerts to monitor the latency and abnormal status of a change tracking channel.
  *
  * @param request ConfigureSubscriptionInstanceAlertRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1098,7 +1098,7 @@ ConfigureSubscriptionInstanceAlertResponse Client::configureSubscriptionInstance
 }
 
 /**
- * @summary Configures monitoring and alerting to monitor the latency and exception status of a change tracking channel.
+ * @summary Configures monitoring alerts to monitor the latency and abnormal status of a change tracking channel.
  *
  * @param request ConfigureSubscriptionInstanceAlertRequest
  * @return ConfigureSubscriptionInstanceAlertResponse
@@ -1109,11 +1109,11 @@ ConfigureSubscriptionInstanceAlertResponse Client::configureSubscriptionInstance
 }
 
 /**
- * @summary Configures a data synchronization task by using the previous version.
+ * @summary Configures a legacy data synchronization task.
  *
  * @description Before you call this operation, you must call the [CreateSynchronizationJob](https://help.aliyun.com/document_detail/49446.html) operation to create a data synchronization instance.
- * > - After this operation is called, the data synchronization instance automatically starts and performs a precheck. You do not need to call the [StartSynchronizationJob](https://help.aliyun.com/document_detail/49448.html) operation to start the instance.
- * - If the data synchronization instance fails to start, the precheck may have failed. You can call the [DescribeSynchronizationJobStatus](https://help.aliyun.com/document_detail/49453.html) operation to query the status of the data synchronization instance, obtain the error message of the precheck failure, and adjust the parameters. After the adjustment, you can call the [StartSynchronizationJob](https://help.aliyun.com/document_detail/49448.html) operation to restart the data synchronization instance.
+ * > - After this operation is called, the data synchronization instance automatically starts and runs a precheck. You do not need to call the [StartSynchronizationJob](https://help.aliyun.com/document_detail/49448.html) operation to start the instance.
+ * - If the data synchronization instance fails to start, the precheck may have failed. You can call the [DescribeSynchronizationJobStatus](https://help.aliyun.com/document_detail/49453.html) operation to query the status of the data synchronization instance, obtain the error message for the precheck failure, and adjust the parameters. After the adjustment, you can call the [StartSynchronizationJob](https://help.aliyun.com/document_detail/49448.html) operation to restart the data synchronization instance.
  *
  * @param request ConfigureSynchronizationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1202,11 +1202,11 @@ ConfigureSynchronizationJobResponse Client::configureSynchronizationJobWithOptio
 }
 
 /**
- * @summary Configures a data synchronization task by using the previous version.
+ * @summary Configures a legacy data synchronization task.
  *
  * @description Before you call this operation, you must call the [CreateSynchronizationJob](https://help.aliyun.com/document_detail/49446.html) operation to create a data synchronization instance.
- * > - After this operation is called, the data synchronization instance automatically starts and performs a precheck. You do not need to call the [StartSynchronizationJob](https://help.aliyun.com/document_detail/49448.html) operation to start the instance.
- * - If the data synchronization instance fails to start, the precheck may have failed. You can call the [DescribeSynchronizationJobStatus](https://help.aliyun.com/document_detail/49453.html) operation to query the status of the data synchronization instance, obtain the error message of the precheck failure, and adjust the parameters. After the adjustment, you can call the [StartSynchronizationJob](https://help.aliyun.com/document_detail/49448.html) operation to restart the data synchronization instance.
+ * > - After this operation is called, the data synchronization instance automatically starts and runs a precheck. You do not need to call the [StartSynchronizationJob](https://help.aliyun.com/document_detail/49448.html) operation to start the instance.
+ * - If the data synchronization instance fails to start, the precheck may have failed. You can call the [DescribeSynchronizationJobStatus](https://help.aliyun.com/document_detail/49453.html) operation to query the status of the data synchronization instance, obtain the error message for the precheck failure, and adjust the parameters. After the adjustment, you can call the [StartSynchronizationJob](https://help.aliyun.com/document_detail/49448.html) operation to restart the data synchronization instance.
  *
  * @param request ConfigureSynchronizationJobRequest
  * @return ConfigureSynchronizationJobResponse
@@ -1217,7 +1217,7 @@ ConfigureSynchronizationJobResponse Client::configureSynchronizationJob(const Co
 }
 
 /**
- * @summary Configures monitoring and alerting to monitor the latency and exception status of a synchronization task.
+ * @summary Configures alert rules to monitor the latency and abnormal status of a data synchronization task.
  *
  * @param request ConfigureSynchronizationJobAlertRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1288,7 +1288,7 @@ ConfigureSynchronizationJobAlertResponse Client::configureSynchronizationJobAler
 }
 
 /**
- * @summary Configures monitoring and alerting to monitor the latency and exception status of a synchronization task.
+ * @summary Configures alert rules to monitor the latency and abnormal status of a data synchronization task.
  *
  * @param request ConfigureSynchronizationJobAlertRequest
  * @return ConfigureSynchronizationJobAlertResponse
@@ -1299,7 +1299,7 @@ ConfigureSynchronizationJobAlertResponse Client::configureSynchronizationJobAler
 }
 
 /**
- * @summary Configures the full image matching switch for a data synchronization instance.
+ * @summary Configures the full-image matching switch for synchronization.
  *
  * @param request ConfigureSynchronizationJobReplicatorCompareRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1358,7 +1358,7 @@ ConfigureSynchronizationJobReplicatorCompareResponse Client::configureSynchroniz
 }
 
 /**
- * @summary Configures the full image matching switch for a data synchronization instance.
+ * @summary Configures the full-image matching switch for synchronization.
  *
  * @param request ConfigureSynchronizationJobReplicatorCompareRequest
  * @return ConfigureSynchronizationJobReplicatorCompareResponse
@@ -1369,7 +1369,7 @@ ConfigureSynchronizationJobReplicatorCompareResponse Client::configureSynchroniz
 }
 
 /**
- * @summary Transfers a DTS instance to a different resource group.
+ * @summary Changes the resource group of a DTS instance.
  *
  * @param request ConvertInstanceResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1420,7 +1420,7 @@ ConvertInstanceResourceGroupResponse Client::convertInstanceResourceGroupWithOpt
 }
 
 /**
- * @summary Transfers a DTS instance to a different resource group.
+ * @summary Changes the resource group of a DTS instance.
  *
  * @param request ConvertInstanceResourceGroupRequest
  * @return ConvertInstanceResourceGroupResponse
@@ -1431,7 +1431,7 @@ ConvertInstanceResourceGroupResponse Client::convertInstanceResourceGroup(const 
 }
 
 /**
- * @summary Queries the count of tasks by conditions.
+ * @summary Queries task statistics based on specified conditions.
  *
  * @param request CountJobByConditionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1498,7 +1498,7 @@ CountJobByConditionResponse Client::countJobByConditionWithOptions(const CountJo
 }
 
 /**
- * @summary Queries the count of tasks by conditions.
+ * @summary Queries task statistics based on specified conditions.
  *
  * @param request CountJobByConditionRequest
  * @return CountJobByConditionResponse
@@ -1509,7 +1509,7 @@ CountJobByConditionResponse Client::countJobByCondition(const CountJobByConditio
 }
 
 /**
- * @summary Creates a consumer group for a change tracking task (new version).
+ * @summary Creates a consumer group for a change tracking task.
  *
  * @param request CreateConsumerChannelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1564,7 +1564,7 @@ CreateConsumerChannelResponse Client::createConsumerChannelWithOptions(const Cre
 }
 
 /**
- * @summary Creates a consumer group for a change tracking task (new version).
+ * @summary Creates a consumer group for a change tracking task.
  *
  * @param request CreateConsumerChannelRequest
  * @return CreateConsumerChannelResponse
@@ -1729,9 +1729,9 @@ CreateDedicatedClusterMonitorRuleResponse Client::createDedicatedClusterMonitorR
 /**
  * @summary Creates a document parsing task.
  *
- * @description Calling this operation creates a document parsing task and returns a task ID (DtsJobId).
- * > - This operation relies on Object Storage Service (OSS) for file transfer. We recommend that you call this operation by using an SDK. The CreateDocParserJobAdvance operation automatically encapsulates the file transfer process.
- * > - After you obtain the DtsJobId response parameter, you can call the DescribeDocParserJobStatus operation to query the execution status of the document parsing task, and call the DescribeDocParserJobResult operation to obtain the output of the document parsing task.
+ * @description Creates a document parsing task and returns a task ID (DtsJobId).
+ * > - This operation relies on Object Storage Service (OSS) for file transfer. Use an SDK to call this operation. Calling the CreateDocParserJobAdvance operation automatically encapsulates the file transfer process.
+ * > - After you obtain the DtsJobId response parameter, you can call the DescribeDocParserJobStatus operation to query the execution status of the document parsing task and call the DescribeDocParserJobResult operation to obtain the document parsing results.
  *
  * @param request CreateDocParserJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1784,9 +1784,9 @@ CreateDocParserJobResponse Client::createDocParserJobWithOptions(const CreateDoc
 /**
  * @summary Creates a document parsing task.
  *
- * @description Calling this operation creates a document parsing task and returns a task ID (DtsJobId).
- * > - This operation relies on Object Storage Service (OSS) for file transfer. We recommend that you call this operation by using an SDK. The CreateDocParserJobAdvance operation automatically encapsulates the file transfer process.
- * > - After you obtain the DtsJobId response parameter, you can call the DescribeDocParserJobStatus operation to query the execution status of the document parsing task, and call the DescribeDocParserJobResult operation to obtain the output of the document parsing task.
+ * @description Creates a document parsing task and returns a task ID (DtsJobId).
+ * > - This operation relies on Object Storage Service (OSS) for file transfer. Use an SDK to call this operation. Calling the CreateDocParserJobAdvance operation automatically encapsulates the file transfer process.
+ * > - After you obtain the DtsJobId response parameter, you can call the DescribeDocParserJobStatus operation to query the execution status of the document parsing task and call the DescribeDocParserJobResult operation to obtain the document parsing results.
  *
  * @param request CreateDocParserJobRequest
  * @return CreateDocParserJobResponse
@@ -1883,13 +1883,13 @@ CreateDocParserJobResponse Client::createDocParserJobAdvance(const CreateDocPars
 }
 
 /**
- * @summary Purchases a DTS instance by calling the CreateDtsInstance operation.
+ * @summary Purchases a DTS instance.
  *
  * @description <props="china">
- * - Before invoking this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/dts/detail) of Data Transmission Service (DTS).
+ * - Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/dts/detail) of the cloud database DTS product.
  * <props="intl">
- * - Before invoking this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/product/data-transmission-service/pricing) of Data Transmission Service (DTS).
- * - Nodes on a dedicated cluster support only the workflow of configuring a node before purchasing an instance. You can invoke the [ConfigureDtsJob](https://help.aliyun.com/document_detail/208399.html) operation to configure a node.
+ * - Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/product/data-transmission-service/pricing) of the cloud database DTS product.
+ * - For nodes in a dedicated cluster, you must configure the node before you purchase the instance. You can invoke the [ConfigureDtsJob](https://help.aliyun.com/document_detail/208399.html) operation to configure the node.
  *
  * @param request CreateDtsInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2012,13 +2012,13 @@ CreateDtsInstanceResponse Client::createDtsInstanceWithOptions(const CreateDtsIn
 }
 
 /**
- * @summary Purchases a DTS instance by calling the CreateDtsInstance operation.
+ * @summary Purchases a DTS instance.
  *
  * @description <props="china">
- * - Before invoking this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/dts/detail) of Data Transmission Service (DTS).
+ * - Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/dts/detail) of the cloud database DTS product.
  * <props="intl">
- * - Before invoking this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/product/data-transmission-service/pricing) of Data Transmission Service (DTS).
- * - Nodes on a dedicated cluster support only the workflow of configuring a node before purchasing an instance. You can invoke the [ConfigureDtsJob](https://help.aliyun.com/document_detail/208399.html) operation to configure a node.
+ * - Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/product/data-transmission-service/pricing) of the cloud database DTS product.
+ * - For nodes in a dedicated cluster, you must configure the node before you purchase the instance. You can invoke the [ConfigureDtsJob](https://help.aliyun.com/document_detail/208399.html) operation to configure the node.
  *
  * @param request CreateDtsInstanceRequest
  * @return CreateDtsInstanceResponse
@@ -2029,12 +2029,458 @@ CreateDtsInstanceResponse Client::createDtsInstance(const CreateDtsInstanceReque
 }
 
 /**
- * @summary Creates or modifies an alert rule for a DTS task.
+ * @summary Creates a GAD instance.
  *
- * @description DTS currently supports the following alert metrics: **Latency**, **Migration Status**, and **Full Migration Duration**:
- * - **Latency**: Monitors incremental data migration latency. An alert is triggered when the migration latency, synchronization latency, or change tracking latency exceeds the specified threshold (in seconds).
- * - **Migration Status**: Monitors the task status. An alert is triggered when the task status is **Error** or **Recovered**.
- * - **Full Migration Duration**: Monitors the duration of full data migration. An alert is triggered when the duration exceeds the specified threshold (in hours).
+ * @param request CreateGadInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateGadInstanceResponse
+ */
+CreateGadInstanceResponse Client::createGadInstanceWithOptions(const CreateGadInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceName()) {
+    query["InstanceName"] = request.getInstanceName();
+  }
+
+  if (!!request.hasInstanceType()) {
+    query["InstanceType"] = request.getInstanceType();
+  }
+
+  if (!!request.hasMasterDbEngineType()) {
+    query["MasterDbEngineType"] = request.getMasterDbEngineType();
+  }
+
+  if (!!request.hasMasterDbInstanceId()) {
+    query["MasterDbInstanceId"] = request.getMasterDbInstanceId();
+  }
+
+  if (!!request.hasMasterDbInstanceRegion()) {
+    query["MasterDbInstanceRegion"] = request.getMasterDbInstanceRegion();
+  }
+
+  if (!!request.hasMasterDbZoneId()) {
+    query["MasterDbZoneId"] = request.getMasterDbZoneId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateGadInstance"},
+    {"version" , "2020-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateGadInstanceResponse>();
+}
+
+/**
+ * @summary Creates a GAD instance.
+ *
+ * @param request CreateGadInstanceRequest
+ * @return CreateGadInstanceResponse
+ */
+CreateGadInstanceResponse Client::createGadInstance(const CreateGadInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createGadInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a globally active database (GAD) instance group for ApsaraDB RDS.
+ *
+ * @description When NeedCreateSlave is set to true, the following additional parameters are required: DbInstanceClass, DbInstanceStorage, DbInstanceStorageType, ZoneId, ZoneIdSlave1, ZoneIdSlave2, VpcId, VSwitchId, SecurityIPList, PayType, Port, Amount, AutoRenew, Period, UsedTime, Category, EngineVersion, DbInstanceDescription, and AutoCreateProxy. These parameters have the same meanings as those in the CreateDBInstance operation.
+ *
+ * @param tmpReq CreateGadOrderRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateGadOrderResponse
+ */
+CreateGadOrderResponse Client::createGadOrderWithOptions(const CreateGadOrderRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateGadOrderShrinkRequest request = CreateGadOrderShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasServerlessConfig()) {
+    request.setServerlessConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getServerlessConfig(), "ServerlessConfig", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAmount()) {
+    query["Amount"] = request.getAmount();
+  }
+
+  if (!!request.hasAutoCreateProxy()) {
+    query["AutoCreateProxy"] = request.getAutoCreateProxy();
+  }
+
+  if (!!request.hasAutoPay()) {
+    query["AutoPay"] = request.getAutoPay();
+  }
+
+  if (!!request.hasAutoRenew()) {
+    query["AutoRenew"] = request.getAutoRenew();
+  }
+
+  if (!!request.hasBabelfishConfig()) {
+    query["BabelfishConfig"] = request.getBabelfishConfig();
+  }
+
+  if (!!request.hasBpeEnabled()) {
+    query["BpeEnabled"] = request.getBpeEnabled();
+  }
+
+  if (!!request.hasBurstingEnabled()) {
+    query["BurstingEnabled"] = request.getBurstingEnabled();
+  }
+
+  if (!!request.hasBusinessInfo()) {
+    query["BusinessInfo"] = request.getBusinessInfo();
+  }
+
+  if (!!request.hasCategory()) {
+    query["Category"] = request.getCategory();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasColdDataEnabled()) {
+    query["ColdDataEnabled"] = request.getColdDataEnabled();
+  }
+
+  if (!!request.hasConnectionMode()) {
+    query["ConnectionMode"] = request.getConnectionMode();
+  }
+
+  if (!!request.hasConnectionString()) {
+    query["ConnectionString"] = request.getConnectionString();
+  }
+
+  if (!!request.hasCreateStrategy()) {
+    query["CreateStrategy"] = request.getCreateStrategy();
+  }
+
+  if (!!request.hasDBInstanceClass()) {
+    query["DBInstanceClass"] = request.getDBInstanceClass();
+  }
+
+  if (!!request.hasDBInstanceDescription()) {
+    query["DBInstanceDescription"] = request.getDBInstanceDescription();
+  }
+
+  if (!!request.hasDBInstanceNetType()) {
+    query["DBInstanceNetType"] = request.getDBInstanceNetType();
+  }
+
+  if (!!request.hasDBInstanceStorage()) {
+    query["DBInstanceStorage"] = request.getDBInstanceStorage();
+  }
+
+  if (!!request.hasDBInstanceStorageType()) {
+    query["DBInstanceStorageType"] = request.getDBInstanceStorageType();
+  }
+
+  if (!!request.hasDBIsIgnoreCase()) {
+    query["DBIsIgnoreCase"] = request.getDBIsIgnoreCase();
+  }
+
+  if (!!request.hasDBParamGroupId()) {
+    query["DBParamGroupId"] = request.getDBParamGroupId();
+  }
+
+  if (!!request.hasDBTimeZone()) {
+    query["DBTimeZone"] = request.getDBTimeZone();
+  }
+
+  if (!!request.hasDbList()) {
+    query["DbList"] = request.getDbList();
+  }
+
+  if (!!request.hasDbListMode()) {
+    query["DbListMode"] = request.getDbListMode();
+  }
+
+  if (!!request.hasDedicatedHostGroupId()) {
+    query["DedicatedHostGroupId"] = request.getDedicatedHostGroupId();
+  }
+
+  if (!!request.hasDeletionProtection()) {
+    query["DeletionProtection"] = request.getDeletionProtection();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
+  if (!!request.hasEncryptionKey()) {
+    query["EncryptionKey"] = request.getEncryptionKey();
+  }
+
+  if (!!request.hasEngine()) {
+    query["Engine"] = request.getEngine();
+  }
+
+  if (!!request.hasEngineVersion()) {
+    query["EngineVersion"] = request.getEngineVersion();
+  }
+
+  if (!!request.hasInstanceNetworkType()) {
+    query["InstanceNetworkType"] = request.getInstanceNetworkType();
+  }
+
+  if (!!request.hasIoAccelerationEnabled()) {
+    query["IoAccelerationEnabled"] = request.getIoAccelerationEnabled();
+  }
+
+  if (!!request.hasMasterAccountExist()) {
+    query["MasterAccountExist"] = request.getMasterAccountExist();
+  }
+
+  if (!!request.hasMasterAccountName()) {
+    query["MasterAccountName"] = request.getMasterAccountName();
+  }
+
+  if (!!request.hasMasterAccountPassword()) {
+    query["MasterAccountPassword"] = request.getMasterAccountPassword();
+  }
+
+  if (!!request.hasMasterDatabaseName()) {
+    query["MasterDatabaseName"] = request.getMasterDatabaseName();
+  }
+
+  if (!!request.hasMasterEngineArchType()) {
+    query["MasterEngineArchType"] = request.getMasterEngineArchType();
+  }
+
+  if (!!request.hasMasterInstanceId()) {
+    query["MasterInstanceId"] = request.getMasterInstanceId();
+  }
+
+  if (!!request.hasMasterRegion()) {
+    query["MasterRegion"] = request.getMasterRegion();
+  }
+
+  if (!!request.hasMasterShardAccountName()) {
+    query["MasterShardAccountName"] = request.getMasterShardAccountName();
+  }
+
+  if (!!request.hasMasterShardAccountPassword()) {
+    query["MasterShardAccountPassword"] = request.getMasterShardAccountPassword();
+  }
+
+  if (!!request.hasNeedCreateSlave()) {
+    query["NeedCreateSlave"] = request.getNeedCreateSlave();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPayType()) {
+    query["PayType"] = request.getPayType();
+  }
+
+  if (!!request.hasPeriod()) {
+    query["Period"] = request.getPeriod();
+  }
+
+  if (!!request.hasPort()) {
+    query["Port"] = request.getPort();
+  }
+
+  if (!!request.hasPrivateIpAddress()) {
+    query["PrivateIpAddress"] = request.getPrivateIpAddress();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasRoleARN()) {
+    query["RoleARN"] = request.getRoleARN();
+  }
+
+  if (!!request.hasSecurityIPList()) {
+    query["SecurityIPList"] = request.getSecurityIPList();
+  }
+
+  if (!!request.hasServerlessConfigShrink()) {
+    query["ServerlessConfig"] = request.getServerlessConfigShrink();
+  }
+
+  if (!!request.hasSlaveAccountExist()) {
+    query["SlaveAccountExist"] = request.getSlaveAccountExist();
+  }
+
+  if (!!request.hasSlaveAccountName()) {
+    query["SlaveAccountName"] = request.getSlaveAccountName();
+  }
+
+  if (!!request.hasSlaveAccountPassword()) {
+    query["SlaveAccountPassword"] = request.getSlaveAccountPassword();
+  }
+
+  if (!!request.hasSlaveDatabaseName()) {
+    query["SlaveDatabaseName"] = request.getSlaveDatabaseName();
+  }
+
+  if (!!request.hasSlaveEngineArchType()) {
+    query["SlaveEngineArchType"] = request.getSlaveEngineArchType();
+  }
+
+  if (!!request.hasSlaveInstanceId()) {
+    query["SlaveInstanceId"] = request.getSlaveInstanceId();
+  }
+
+  if (!!request.hasSlaveReadOnly()) {
+    query["SlaveReadOnly"] = request.getSlaveReadOnly();
+  }
+
+  if (!!request.hasSlaveRegion()) {
+    query["SlaveRegion"] = request.getSlaveRegion();
+  }
+
+  if (!!request.hasStorageAutoScale()) {
+    query["StorageAutoScale"] = request.getStorageAutoScale();
+  }
+
+  if (!!request.hasStorageThreshold()) {
+    query["StorageThreshold"] = request.getStorageThreshold();
+  }
+
+  if (!!request.hasStorageUpperBound()) {
+    query["StorageUpperBound"] = request.getStorageUpperBound();
+  }
+
+  if (!!request.hasSyncAccountType()) {
+    query["SyncAccountType"] = request.getSyncAccountType();
+  }
+
+  if (!!request.hasSyncArchitecture()) {
+    query["SyncArchitecture"] = request.getSyncArchitecture();
+  }
+
+  if (!!request.hasSyncConflict()) {
+    query["SyncConflict"] = request.getSyncConflict();
+  }
+
+  if (!!request.hasSystemDBCharset()) {
+    query["SystemDBCharset"] = request.getSystemDBCharset();
+  }
+
+  if (!!request.hasTag()) {
+    query["Tag"] = request.getTag();
+  }
+
+  if (!!request.hasTargetDedicatedHostIdForLog()) {
+    query["TargetDedicatedHostIdForLog"] = request.getTargetDedicatedHostIdForLog();
+  }
+
+  if (!!request.hasTargetDedicatedHostIdForMaster()) {
+    query["TargetDedicatedHostIdForMaster"] = request.getTargetDedicatedHostIdForMaster();
+  }
+
+  if (!!request.hasTargetDedicatedHostIdForSlave()) {
+    query["TargetDedicatedHostIdForSlave"] = request.getTargetDedicatedHostIdForSlave();
+  }
+
+  if (!!request.hasTargetMinorVersion()) {
+    query["TargetMinorVersion"] = request.getTargetMinorVersion();
+  }
+
+  if (!!request.hasUsedTime()) {
+    query["UsedTime"] = request.getUsedTime();
+  }
+
+  if (!!request.hasUserBackupId()) {
+    query["UserBackupId"] = request.getUserBackupId();
+  }
+
+  if (!!request.hasVSwitchId()) {
+    query["VSwitchId"] = request.getVSwitchId();
+  }
+
+  if (!!request.hasVpcId()) {
+    query["VpcId"] = request.getVpcId();
+  }
+
+  if (!!request.hasWhitelistTemplateList()) {
+    query["WhitelistTemplateList"] = request.getWhitelistTemplateList();
+  }
+
+  if (!!request.hasZoneId()) {
+    query["ZoneId"] = request.getZoneId();
+  }
+
+  if (!!request.hasZoneIdSlave1()) {
+    query["ZoneIdSlave1"] = request.getZoneIdSlave1();
+  }
+
+  if (!!request.hasZoneIdSlave2()) {
+    query["ZoneIdSlave2"] = request.getZoneIdSlave2();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateGadOrder"},
+    {"version" , "2020-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateGadOrderResponse>();
+}
+
+/**
+ * @summary Creates a globally active database (GAD) instance group for ApsaraDB RDS.
+ *
+ * @description When NeedCreateSlave is set to true, the following additional parameters are required: DbInstanceClass, DbInstanceStorage, DbInstanceStorageType, ZoneId, ZoneIdSlave1, ZoneIdSlave2, VpcId, VSwitchId, SecurityIPList, PayType, Port, Amount, AutoRenew, Period, UsedTime, Category, EngineVersion, DbInstanceDescription, and AutoCreateProxy. These parameters have the same meanings as those in the CreateDBInstance operation.
+ *
+ * @param request CreateGadOrderRequest
+ * @return CreateGadOrderResponse
+ */
+CreateGadOrderResponse Client::createGadOrder(const CreateGadOrderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createGadOrderWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates or modifies an alert rule for a task.
+ *
+ * @description Data Transmission Service (DTS) currently supports the following monitoring metrics: **latency**, **migration status**, and **full run duration**:
+ * - **Latency**: Monitors the latency of incremental data migration. An alert is triggered when the migration latency, synchronization latency, or change tracking latency exceeds the specified threshold in seconds.
+ * - **Migration status**: Monitors the status of the task. An alert is triggered when the task status is **Abnormal** or **Recovered**.
+ * - **Full run duration**: Monitors the duration of the full run. An alert is triggered when the duration exceeds the specified threshold in hours.
  *
  * @param request CreateJobMonitorRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2101,12 +2547,12 @@ CreateJobMonitorRuleResponse Client::createJobMonitorRuleWithOptions(const Creat
 }
 
 /**
- * @summary Creates or modifies an alert rule for a DTS task.
+ * @summary Creates or modifies an alert rule for a task.
  *
- * @description DTS currently supports the following alert metrics: **Latency**, **Migration Status**, and **Full Migration Duration**:
- * - **Latency**: Monitors incremental data migration latency. An alert is triggered when the migration latency, synchronization latency, or change tracking latency exceeds the specified threshold (in seconds).
- * - **Migration Status**: Monitors the task status. An alert is triggered when the task status is **Error** or **Recovered**.
- * - **Full Migration Duration**: Monitors the duration of full data migration. An alert is triggered when the duration exceeds the specified threshold (in hours).
+ * @description Data Transmission Service (DTS) currently supports the following monitoring metrics: **latency**, **migration status**, and **full run duration**:
+ * - **Latency**: Monitors the latency of incremental data migration. An alert is triggered when the migration latency, synchronization latency, or change tracking latency exceeds the specified threshold in seconds.
+ * - **Migration status**: Monitors the status of the task. An alert is triggered when the task status is **Abnormal** or **Recovered**.
+ * - **Full run duration**: Monitors the duration of the full run. An alert is triggered when the duration exceeds the specified threshold in hours.
  *
  * @param request CreateJobMonitorRuleRequest
  * @return CreateJobMonitorRuleResponse
@@ -2183,10 +2629,10 @@ CreateMigrationJobResponse Client::createMigrationJob(const CreateMigrationJobRe
 }
 
 /**
- * @summary Creates a reverse task for a specified synchronization or migration task by calling the CreateReverseDtsJob operation.
+ * @summary Creates a reverse task for a specified synchronization or migration task.
  *
- * @description The reverse task created by calling this operation immediately starts a precheck. After the precheck is passed, incremental data collection begins, but the incremental data write module does not run. You must call the **StartReverseWriter** operation to start it.
- * > The created reverse task is a synchronization task that contains only the incremental write module.
+ * @description A reverse task created by calling this operation immediately undergoes a precheck. After the precheck is passed, incremental data collection starts, but the incremental data writer does not run. You must call the **StartReverseWriter** operation to start the incremental data writer.
+ * > A created reverse task is always a synchronization task and includes only the incremental data writer.
  *
  * @param request CreateReverseDtsJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2229,10 +2675,10 @@ CreateReverseDtsJobResponse Client::createReverseDtsJobWithOptions(const CreateR
 }
 
 /**
- * @summary Creates a reverse task for a specified synchronization or migration task by calling the CreateReverseDtsJob operation.
+ * @summary Creates a reverse task for a specified synchronization or migration task.
  *
- * @description The reverse task created by calling this operation immediately starts a precheck. After the precheck is passed, incremental data collection begins, but the incremental data write module does not run. You must call the **StartReverseWriter** operation to start it.
- * > The created reverse task is a synchronization task that contains only the incremental write module.
+ * @description A reverse task created by calling this operation immediately undergoes a precheck. After the precheck is passed, incremental data collection starts, but the incremental data writer does not run. You must call the **StartReverseWriter** operation to start the incremental data writer.
+ * > A created reverse task is always a synchronization task and includes only the incremental data writer.
  *
  * @param request CreateReverseDtsJobRequest
  * @return CreateReverseDtsJobResponse
@@ -2243,7 +2689,7 @@ CreateReverseDtsJobResponse Client::createReverseDtsJob(const CreateReverseDtsJo
 }
 
 /**
- * @summary Creates a change tracking channel. This is a legacy operation.
+ * @summary Creates a legacy change tracking instance.
  *
  * @param request CreateSubscriptionInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2310,7 +2756,7 @@ CreateSubscriptionInstanceResponse Client::createSubscriptionInstanceWithOptions
 }
 
 /**
- * @summary Creates a change tracking channel. This is a legacy operation.
+ * @summary Creates a legacy change tracking instance.
  *
  * @param request CreateSubscriptionInstanceRequest
  * @return CreateSubscriptionInstanceResponse
@@ -2321,7 +2767,7 @@ CreateSubscriptionInstanceResponse Client::createSubscriptionInstance(const Crea
 }
 
 /**
- * @summary Creates a data synchronization job instance. This is a legacy API operation.
+ * @summary Creates a legacy data synchronization job instance.
  *
  * @param request CreateSynchronizationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2412,7 +2858,7 @@ CreateSynchronizationJobResponse Client::createSynchronizationJobWithOptions(con
 }
 
 /**
- * @summary Creates a data synchronization job instance. This is a legacy API operation.
+ * @summary Creates a legacy data synchronization job instance.
  *
  * @param request CreateSynchronizationJobRequest
  * @return CreateSynchronizationJobResponse
@@ -2423,7 +2869,7 @@ CreateSynchronizationJobResponse Client::createSynchronizationJob(const CreateSy
 }
 
 /**
- * @summary Deletes a consumer group of a change tracking task (new version).
+ * @summary Deletes a consumer group for a change tracking task.
  *
  * @param request DeleteConsumerChannelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2470,7 +2916,7 @@ DeleteConsumerChannelResponse Client::deleteConsumerChannelWithOptions(const Del
 }
 
 /**
- * @summary Deletes a consumer group of a change tracking task (new version).
+ * @summary Deletes a consumer group for a change tracking task.
  *
  * @param request DeleteConsumerChannelRequest
  * @return DeleteConsumerChannelResponse
@@ -2543,9 +2989,9 @@ DeleteConsumerGroupResponse Client::deleteConsumerGroup(const DeleteConsumerGrou
 }
 
 /**
- * @summary Releases a data migration, synchronization, or change tracking instance.
+ * @summary Releases a data migration, data synchronization, or change tracking instance.
  *
- * @description > <props="china"><ph>Subscription DTS instances cannot be released by calling this API operation. You can release them by unsubscribing. For more information, see [Release a DTS instance](https://help.aliyun.com/document_detail/289054.html).</ph><props="intl"><ph>Subscription DTS instances cannot be released.</ph>.
+ * @description > <props="china"><ph>You cannot release subscription DTS instances by calling API operations. You can release them by unsubscribing from the instances. For more information, see [Release a DTS instance](https://help.aliyun.com/document_detail/289054.html).</ph><props="intl"><ph>Subscription DTS instances cannot be released.</ph>
  *
  * @param request DeleteDtsJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2600,9 +3046,9 @@ DeleteDtsJobResponse Client::deleteDtsJobWithOptions(const DeleteDtsJobRequest &
 }
 
 /**
- * @summary Releases a data migration, synchronization, or change tracking instance.
+ * @summary Releases a data migration, data synchronization, or change tracking instance.
  *
- * @description > <props="china"><ph>Subscription DTS instances cannot be released by calling this API operation. You can release them by unsubscribing. For more information, see [Release a DTS instance](https://help.aliyun.com/document_detail/289054.html).</ph><props="intl"><ph>Subscription DTS instances cannot be released.</ph>.
+ * @description > <props="china"><ph>You cannot release subscription DTS instances by calling API operations. You can release them by unsubscribing from the instances. For more information, see [Release a DTS instance](https://help.aliyun.com/document_detail/289054.html).</ph><props="intl"><ph>Subscription DTS instances cannot be released.</ph>
  *
  * @param request DeleteDtsJobRequest
  * @return DeleteDtsJobResponse
@@ -2613,9 +3059,9 @@ DeleteDtsJobResponse Client::deleteDtsJob(const DeleteDtsJobRequest &request) {
 }
 
 /**
- * @summary Releases data migration, data synchronization, or change tracking tasks in batches by calling the DeleteDtsJobs operation.
+ * @summary Releases multiple data migration, data synchronization, or change tracking tasks.
  *
- * @description > <props="china"><ph>Subscription DTS instances cannot be released by calling API operations. You can release them by unsubscribing. For more information, see [Release a DTS instance](https://help.aliyun.com/document_detail/289054.html).</ph><props="intl"><ph>Subscription DTS instances cannot be released.</ph>.
+ * @description > <props="china"><ph>Subscription DTS instances cannot be released by calling API operations. You can release them by unsubscribing from the instances. For more information, see [Release DTS instances](https://help.aliyun.com/document_detail/289054.html).</ph><props="intl"><ph>Subscription DTS instances cannot be released.</ph>
  *
  * @param request DeleteDtsJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2658,9 +3104,9 @@ DeleteDtsJobsResponse Client::deleteDtsJobsWithOptions(const DeleteDtsJobsReques
 }
 
 /**
- * @summary Releases data migration, data synchronization, or change tracking tasks in batches by calling the DeleteDtsJobs operation.
+ * @summary Releases multiple data migration, data synchronization, or change tracking tasks.
  *
- * @description > <props="china"><ph>Subscription DTS instances cannot be released by calling API operations. You can release them by unsubscribing. For more information, see [Release a DTS instance](https://help.aliyun.com/document_detail/289054.html).</ph><props="intl"><ph>Subscription DTS instances cannot be released.</ph>.
+ * @description > <props="china"><ph>Subscription DTS instances cannot be released by calling API operations. You can release them by unsubscribing from the instances. For more information, see [Release DTS instances](https://help.aliyun.com/document_detail/289054.html).</ph><props="intl"><ph>Subscription DTS instances cannot be released.</ph>
  *
  * @param request DeleteDtsJobsRequest
  * @return DeleteDtsJobsResponse
@@ -2668,6 +3114,60 @@ DeleteDtsJobsResponse Client::deleteDtsJobsWithOptions(const DeleteDtsJobsReques
 DeleteDtsJobsResponse Client::deleteDtsJobs(const DeleteDtsJobsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteDtsJobsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes a GAD instance.
+ *
+ * @param request DeleteGadInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteGadInstanceResponse
+ */
+DeleteGadInstanceResponse Client::deleteGadInstanceWithOptions(const DeleteGadInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteGadInstance"},
+    {"version" , "2020-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteGadInstanceResponse>();
+}
+
+/**
+ * @summary Deletes a GAD instance.
+ *
+ * @param request DeleteGadInstanceRequest
+ * @return DeleteGadInstanceResponse
+ */
+DeleteGadInstanceResponse Client::deleteGadInstance(const DeleteGadInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteGadInstanceWithOptions(request, runtime);
 }
 
 /**
@@ -2787,7 +3287,7 @@ DeleteSubscriptionInstanceResponse Client::deleteSubscriptionInstance(const Dele
 }
 
 /**
- * @summary Releases a data synchronization instance.
+ * @summary Releases a data synchronization job instance.
  *
  * @param request DeleteSynchronizationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2834,7 +3334,7 @@ DeleteSynchronizationJobResponse Client::deleteSynchronizationJobWithOptions(con
 }
 
 /**
- * @summary Releases a data synchronization instance.
+ * @summary Releases a data synchronization job instance.
  *
  * @param request DeleteSynchronizationJobRequest
  * @return DeleteSynchronizationJobResponse
@@ -2911,7 +3411,7 @@ DescribeChannelAccountResponse Client::describeChannelAccount(const DescribeChan
 }
 
 /**
- * @summary Contains data validation tasks associated with data migration tasks and data synchronization tasks.
+ * @summary Queries the verification tasks associated with data migration tasks and data synchronization tasks.
  *
  * @param request DescribeCheckJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2966,7 +3466,7 @@ DescribeCheckJobsResponse Client::describeCheckJobsWithOptions(const DescribeChe
 }
 
 /**
- * @summary Contains data validation tasks associated with data migration tasks and data synchronization tasks.
+ * @summary Queries the verification tasks associated with data migration tasks and data synchronization tasks.
  *
  * @param request DescribeCheckJobsRequest
  * @return DescribeCheckJobsResponse
@@ -2977,7 +3477,7 @@ DescribeCheckJobsResponse Client::describeCheckJobs(const DescribeCheckJobsReque
 }
 
 /**
- * @summary Queries the log information of a DTS cluster by calling the DescribeClusterOperateLogs operation.
+ * @summary Queries the operation logs of a DTS cluster.
  *
  * @param request DescribeClusterOperateLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3046,7 +3546,7 @@ DescribeClusterOperateLogsResponse Client::describeClusterOperateLogsWithOptions
 }
 
 /**
- * @summary Queries the log information of a DTS cluster by calling the DescribeClusterOperateLogs operation.
+ * @summary Queries the operation logs of a DTS cluster.
  *
  * @param request DescribeClusterOperateLogsRequest
  * @return DescribeClusterOperateLogsResponse
@@ -3057,7 +3557,7 @@ DescribeClusterOperateLogsResponse Client::describeClusterOperateLogs(const Desc
 }
 
 /**
- * @summary Queries the current usage of a cluster by calling the DescribeClusterUsedUtilization operation.
+ * @summary Queries the current usage of a cluster.
  *
  * @param request DescribeClusterUsedUtilizationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3126,7 +3626,7 @@ DescribeClusterUsedUtilizationResponse Client::describeClusterUsedUtilizationWit
 }
 
 /**
- * @summary Queries the current usage of a cluster by calling the DescribeClusterUsedUtilization operation.
+ * @summary Queries the current usage of a cluster.
  *
  * @param request DescribeClusterUsedUtilizationRequest
  * @return DescribeClusterUsedUtilizationResponse
@@ -3403,7 +3903,7 @@ DescribeConsumerGroupResponse Client::describeConsumerGroup(const DescribeConsum
 }
 
 /**
- * @summary Retrieves the DTS IP addresses that must be added to the whitelists of both the source and destination databases.
+ * @summary Queries the DTS IP addresses that must be added to the whitelists of both the source and destination databases.
  *
  * @param request DescribeDTSIPRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3446,7 +3946,7 @@ DescribeDTSIPResponse Client::describeDTSIPWithOptions(const DescribeDTSIPReques
 }
 
 /**
- * @summary Retrieves the DTS IP addresses that must be added to the whitelists of both the source and destination databases.
+ * @summary Queries the DTS IP addresses that must be added to the whitelists of both the source and destination databases.
  *
  * @param request DescribeDTSIPRequest
  * @return DescribeDTSIPResponse
@@ -3457,7 +3957,7 @@ DescribeDTSIPResponse Client::describeDTSIP(const DescribeDTSIPRequest &request)
 }
 
 /**
- * @summary Obtains the download URL for the list data of inconsistent data.
+ * @summary Retrieves the download link for the list of inconsistent data.
  *
  * @param request DescribeDataCheckReportUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3504,7 +4004,7 @@ DescribeDataCheckReportUrlResponse Client::describeDataCheckReportUrlWithOptions
 }
 
 /**
- * @summary Obtains the download URL for the list data of inconsistent data.
+ * @summary Retrieves the download link for the list of inconsistent data.
  *
  * @param request DescribeDataCheckReportUrlRequest
  * @return DescribeDataCheckReportUrlResponse
@@ -3515,7 +4015,7 @@ DescribeDataCheckReportUrlResponse Client::describeDataCheckReportUrl(const Desc
 }
 
 /**
- * @summary Queries data consistency verification results at the table level.
+ * @summary Lists the verification results by table.
  *
  * @param request DescribeDataCheckTableDetailsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3574,7 +4074,7 @@ DescribeDataCheckTableDetailsResponse Client::describeDataCheckTableDetailsWithO
 }
 
 /**
- * @summary Queries data consistency verification results at the table level.
+ * @summary Lists the verification results by table.
  *
  * @param request DescribeDataCheckTableDetailsRequest
  * @return DescribeDataCheckTableDetailsResponse
@@ -3585,7 +4085,7 @@ DescribeDataCheckTableDetailsResponse Client::describeDataCheckTableDetails(cons
 }
 
 /**
- * @summary Lists data inconsistency results grouped by inconsistent data.
+ * @summary Lists the data inconsistency check results.
  *
  * @param request DescribeDataCheckTableDiffDetailsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3640,7 +4140,7 @@ DescribeDataCheckTableDiffDetailsResponse Client::describeDataCheckTableDiffDeta
 }
 
 /**
- * @summary Lists data inconsistency results grouped by inconsistent data.
+ * @summary Lists the data inconsistency check results.
  *
  * @param request DescribeDataCheckTableDiffDetailsRequest
  * @return DescribeDataCheckTableDiffDetailsResponse
@@ -3651,7 +4151,7 @@ DescribeDataCheckTableDiffDetailsResponse Client::describeDataCheckTableDiffDeta
 }
 
 /**
- * @summary Queries the details of a specified cluster by calling the DescribeDedicatedCluster operation.
+ * @summary Queries the details of a dedicated cluster.
  *
  * @param request DescribeDedicatedClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3694,7 +4194,7 @@ DescribeDedicatedClusterResponse Client::describeDedicatedClusterWithOptions(con
 }
 
 /**
- * @summary Queries the details of a specified cluster by calling the DescribeDedicatedCluster operation.
+ * @summary Queries the details of a dedicated cluster.
  *
  * @param request DescribeDedicatedClusterRequest
  * @return DescribeDedicatedClusterResponse
@@ -3705,7 +4205,7 @@ DescribeDedicatedClusterResponse Client::describeDedicatedCluster(const Describe
 }
 
 /**
- * @summary Queries alert rules by calling the DescribeDedicatedClusterMonitorRule operation.
+ * @summary Queries the alert rules.
  *
  * @param request DescribeDedicatedClusterMonitorRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3748,7 +4248,7 @@ DescribeDedicatedClusterMonitorRuleResponse Client::describeDedicatedClusterMoni
 }
 
 /**
- * @summary Queries alert rules by calling the DescribeDedicatedClusterMonitorRule operation.
+ * @summary Queries the alert rules.
  *
  * @param request DescribeDedicatedClusterMonitorRuleRequest
  * @return DescribeDedicatedClusterMonitorRuleResponse
@@ -3759,11 +4259,11 @@ DescribeDedicatedClusterMonitorRuleResponse Client::describeDedicatedClusterMoni
 }
 
 /**
- * @summary Retrieves the result of a document parsing task.
+ * @summary Retrieves the results of a document parsing task.
  *
- * @description This operation has rate limits. Calls that exceed the limits are rejected.
- * - The cumulative call threshold per region is 100 calls per second.
- * - The call threshold per account per region is 5 calls per second.
+ * @description This operation has call limits. Calls that exceed the limits are rejected.
+ * - The cumulative call limit per region is 100 calls per second.
+ * - The call limit per account per region is 5 calls per second.
  *
  * @param request DescribeDocParserJobResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3806,11 +4306,11 @@ DescribeDocParserJobResultResponse Client::describeDocParserJobResultWithOptions
 }
 
 /**
- * @summary Retrieves the result of a document parsing task.
+ * @summary Retrieves the results of a document parsing task.
  *
- * @description This operation has rate limits. Calls that exceed the limits are rejected.
- * - The cumulative call threshold per region is 100 calls per second.
- * - The call threshold per account per region is 5 calls per second.
+ * @description This operation has call limits. Calls that exceed the limits are rejected.
+ * - The cumulative call limit per region is 100 calls per second.
+ * - The call limit per account per region is 5 calls per second.
  *
  * @param request DescribeDocParserJobResultRequest
  * @return DescribeDocParserJobResultResponse
@@ -3823,7 +4323,7 @@ DescribeDocParserJobResultResponse Client::describeDocParserJobResult(const Desc
 /**
  * @summary Queries the execution status of a document parsing task.
  *
- * @description This operation has call frequency limits. Calls that exceed the limits are rejected.
+ * @description This operation has a limit on the number of calls. Calls that exceed the limit are rejected.
  * - The cumulative call threshold for a single region is 200 calls per second.
  * - The call threshold for a single account in a single region is 20 calls per second.
  *
@@ -3870,7 +4370,7 @@ DescribeDocParserJobStatusResponse Client::describeDocParserJobStatusWithOptions
 /**
  * @summary Queries the execution status of a document parsing task.
  *
- * @description This operation has call frequency limits. Calls that exceed the limits are rejected.
+ * @description This operation has a limit on the number of calls. Calls that exceed the limit are rejected.
  * - The cumulative call threshold for a single region is 200 calls per second.
  * - The call threshold for a single account in a single region is 20 calls per second.
  *
@@ -4007,11 +4507,11 @@ DescribeDtsJobConfigResponse Client::describeDtsJobConfig(const DescribeDtsJobCo
 }
 
 /**
- * @summary Queries the details of a DTS task by calling DescribeDtsJobDetail.
+ * @summary Queries the details of a DTS task.
  *
- * @description This operation has rate limits. Calls that exceed the limits are rejected.
- * - The cumulative threshold for calls in a single region is 160 calls per second.
- * - The threshold for calls by a single account in a single region is 40 calls per second.
+ * @description This operation has limits on the number of calls. Calls that exceed the limits are rejected.
+ * - The cumulative threshold for calls allowed in a single region is 160 calls per second.
+ * - The threshold for calls allowed per account in a single region is 40 calls per second.
  *
  * @param request DescribeDtsJobDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4070,11 +4570,11 @@ DescribeDtsJobDetailResponse Client::describeDtsJobDetailWithOptions(const Descr
 }
 
 /**
- * @summary Queries the details of a DTS task by calling DescribeDtsJobDetail.
+ * @summary Queries the details of a DTS task.
  *
- * @description This operation has rate limits. Calls that exceed the limits are rejected.
- * - The cumulative threshold for calls in a single region is 160 calls per second.
- * - The threshold for calls by a single account in a single region is 40 calls per second.
+ * @description This operation has limits on the number of calls. Calls that exceed the limits are rejected.
+ * - The cumulative threshold for calls allowed in a single region is 160 calls per second.
+ * - The threshold for calls allowed per account in a single region is 40 calls per second.
  *
  * @param request DescribeDtsJobDetailRequest
  * @return DescribeDtsJobDetailResponse
@@ -4421,7 +4921,7 @@ DescribeEtlJobLogsResponse Client::describeEtlJobLogs(const DescribeEtlJobLogsRe
 }
 
 /**
- * @summary Queries the running details of a full data migration task.
+ * @summary Queries the execution details of a full data migration task.
  *
  * @param request DescribeFullProcessListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4464,7 +4964,7 @@ DescribeFullProcessListResponse Client::describeFullProcessListWithOptions(const
 }
 
 /**
- * @summary Queries the running details of a full data migration task.
+ * @summary Queries the execution details of a full data migration task.
  *
  * @param request DescribeFullProcessListRequest
  * @return DescribeFullProcessListResponse
@@ -4475,7 +4975,169 @@ DescribeFullProcessListResponse Client::describeFullProcessList(const DescribeFu
 }
 
 /**
- * @summary Queries a list of Global Active Database (GAD) instances.
+ * @summary Queries the database instances of a GAD instance.
+ *
+ * @param request DescribeGadInstanceDbMembersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeGadInstanceDbMembersResponse
+ */
+DescribeGadInstanceDbMembersResponse Client::describeGadInstanceDbMembersWithOptions(const DescribeGadInstanceDbMembersRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeGadInstanceDbMembers"},
+    {"version" , "2020-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeGadInstanceDbMembersResponse>();
+}
+
+/**
+ * @summary Queries the database instances of a GAD instance.
+ *
+ * @param request DescribeGadInstanceDbMembersRequest
+ * @return DescribeGadInstanceDbMembersResponse
+ */
+DescribeGadInstanceDbMembersResponse Client::describeGadInstanceDbMembers(const DescribeGadInstanceDbMembersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeGadInstanceDbMembersWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the details of a GAD instance.
+ *
+ * @param request DescribeGadInstanceDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeGadInstanceDetailResponse
+ */
+DescribeGadInstanceDetailResponse Client::describeGadInstanceDetailWithOptions(const DescribeGadInstanceDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeGadInstanceDetail"},
+    {"version" , "2020-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeGadInstanceDetailResponse>();
+}
+
+/**
+ * @summary Queries the details of a GAD instance.
+ *
+ * @param request DescribeGadInstanceDetailRequest
+ * @return DescribeGadInstanceDetailResponse
+ */
+DescribeGadInstanceDetailResponse Client::describeGadInstanceDetail(const DescribeGadInstanceDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeGadInstanceDetailWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the list of DTS tasks for a GAD instance.
+ *
+ * @param request DescribeGadInstanceDtsMembersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeGadInstanceDtsMembersResponse
+ */
+DescribeGadInstanceDtsMembersResponse Client::describeGadInstanceDtsMembersWithOptions(const DescribeGadInstanceDtsMembersRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeGadInstanceDtsMembers"},
+    {"version" , "2020-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeGadInstanceDtsMembersResponse>();
+}
+
+/**
+ * @summary Queries the list of DTS tasks for a GAD instance.
+ *
+ * @param request DescribeGadInstanceDtsMembersRequest
+ * @return DescribeGadInstanceDtsMembersResponse
+ */
+DescribeGadInstanceDtsMembersResponse Client::describeGadInstanceDtsMembers(const DescribeGadInstanceDtsMembersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeGadInstanceDtsMembersWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries a list of GAD instances.
  *
  * @param request DescribeGadInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4538,7 +5200,7 @@ DescribeGadInstancesResponse Client::describeGadInstancesWithOptions(const Descr
 }
 
 /**
- * @summary Queries a list of Global Active Database (GAD) instances.
+ * @summary Queries a list of GAD instances.
  *
  * @param request DescribeGadInstancesRequest
  * @return DescribeGadInstancesResponse
@@ -4549,7 +5211,7 @@ DescribeGadInstancesResponse Client::describeGadInstances(const DescribeGadInsta
 }
 
 /**
- * @summary Queries the initialization status. This is an earlier version of the operation.
+ * @summary Queries the initialization status of the legacy version.
  *
  * @param request DescribeInitializationStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4604,7 +5266,7 @@ DescribeInitializationStatusResponse Client::describeInitializationStatusWithOpt
 }
 
 /**
- * @summary Queries the initialization status. This is an earlier version of the operation.
+ * @summary Queries the initialization status of the legacy version.
  *
  * @param request DescribeInitializationStatusRequest
  * @return DescribeInitializationStatusResponse
@@ -4615,7 +5277,7 @@ DescribeInitializationStatusResponse Client::describeInitializationStatus(const 
 }
 
 /**
- * @summary Queries the alert rules of a DTS task by calling DescribeJobMonitorRule.
+ * @summary Queries the alert rules of a DTS task.
  *
  * @param request DescribeJobMonitorRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4654,7 +5316,7 @@ DescribeJobMonitorRuleResponse Client::describeJobMonitorRuleWithOptions(const D
 }
 
 /**
- * @summary Queries the alert rules of a DTS task by calling DescribeJobMonitorRule.
+ * @summary Queries the alert rules of a DTS task.
  *
  * @param request DescribeJobMonitorRuleRequest
  * @return DescribeJobMonitorRuleResponse
@@ -4665,7 +5327,7 @@ DescribeJobMonitorRuleResponse Client::describeJobMonitorRule(const DescribeJobM
 }
 
 /**
- * @summary Queries cluster monitoring information by calling the DescribeMetricList operation.
+ * @summary Queries the monitoring information of a cluster.
  *
  * @param request DescribeMetricListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4742,7 +5404,7 @@ DescribeMetricListResponse Client::describeMetricListWithOptions(const DescribeM
 }
 
 /**
- * @summary Queries cluster monitoring information by calling the DescribeMetricList operation.
+ * @summary Queries the monitoring information of a cluster.
  *
  * @param request DescribeMetricListRequest
  * @return DescribeMetricListResponse
@@ -4815,7 +5477,7 @@ DescribeMigrationJobAlertResponse Client::describeMigrationJobAlert(const Descri
 }
 
 /**
- * @summary Queries the execution details of a data migration task. This is a legacy operation.
+ * @summary Queries the execution details of a legacy data migration task.
  *
  * @param request DescribeMigrationJobDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4878,7 +5540,7 @@ DescribeMigrationJobDetailResponse Client::describeMigrationJobDetailWithOptions
 }
 
 /**
- * @summary Queries the execution details of a data migration task. This is a legacy operation.
+ * @summary Queries the execution details of a legacy data migration task.
  *
  * @param request DescribeMigrationJobDetailRequest
  * @return DescribeMigrationJobDetailResponse
@@ -4889,7 +5551,7 @@ DescribeMigrationJobDetailResponse Client::describeMigrationJobDetail(const Desc
 }
 
 /**
- * @summary Queries the status of a data migration task. This is a legacy operation.
+ * @summary Queries the status of a legacy data migration task.
  *
  * @param request DescribeMigrationJobStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4940,7 +5602,7 @@ DescribeMigrationJobStatusResponse Client::describeMigrationJobStatusWithOptions
 }
 
 /**
- * @summary Queries the status of a data migration task. This is a legacy operation.
+ * @summary Queries the status of a legacy data migration task.
  *
  * @param request DescribeMigrationJobStatusRequest
  * @return DescribeMigrationJobStatusResponse
@@ -4951,7 +5613,7 @@ DescribeMigrationJobStatusResponse Client::describeMigrationJobStatus(const Desc
 }
 
 /**
- * @summary Queries the list of data migration instances and details of each migration instance.
+ * @summary Queries a list of data migration instances and their details.
  *
  * @param request DescribeMigrationJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5010,7 +5672,7 @@ DescribeMigrationJobsResponse Client::describeMigrationJobsWithOptions(const Des
 }
 
 /**
- * @summary Queries the list of data migration instances and details of each migration instance.
+ * @summary Queries a list of data migration instances and their details.
  *
  * @param request DescribeMigrationJobsRequest
  * @return DescribeMigrationJobsResponse
@@ -5021,7 +5683,7 @@ DescribeMigrationJobsResponse Client::describeMigrationJobs(const DescribeMigrat
 }
 
 /**
- * @summary Queries the task result of a precheck for creating a Global Active Database (GAD) order node.
+ * @summary Queries the result of the precheck task for creating a GAD order.
  *
  * @param request DescribePreCheckCreateGadOrderResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5068,7 +5730,7 @@ DescribePreCheckCreateGadOrderResultResponse Client::describePreCheckCreateGadOr
 }
 
 /**
- * @summary Queries the task result of a precheck for creating a Global Active Database (GAD) order node.
+ * @summary Queries the result of the precheck task for creating a GAD order.
  *
  * @param request DescribePreCheckCreateGadOrderResultRequest
  * @return DescribePreCheckCreateGadOrderResultResponse
@@ -5079,7 +5741,7 @@ DescribePreCheckCreateGadOrderResultResponse Client::describePreCheckCreateGadOr
 }
 
 /**
- * @summary Queries the execution details of subtasks of a DTS task, including precheck, schema migration or synchronization, full data migration or synchronization, and incremental data migration or synchronization.
+ * @summary Queries the execution details of subtasks for a DTS task, including the precheck, schema migration or initial schema synchronization, full data migration or initial full data synchronization, and incremental data migration or synchronization.
  *
  * @param request DescribePreCheckStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5146,7 +5808,7 @@ DescribePreCheckStatusResponse Client::describePreCheckStatusWithOptions(const D
 }
 
 /**
- * @summary Queries the execution details of subtasks of a DTS task, including precheck, schema migration or synchronization, full data migration or synchronization, and incremental data migration or synchronization.
+ * @summary Queries the execution details of subtasks for a DTS task, including the precheck, schema migration or initial schema synchronization, full data migration or initial full data synchronization, and incremental data migration or synchronization.
  *
  * @param request DescribePreCheckStatusRequest
  * @return DescribePreCheckStatusResponse
@@ -5157,7 +5819,7 @@ DescribePreCheckStatusResponse Client::describePreCheckStatus(const DescribePreC
 }
 
 /**
- * @summary Queries the monitoring and alerting settings of a change tracking instance.
+ * @summary Queries the details of the monitoring and alerting settings for a change tracking instance.
  *
  * @param request DescribeSubscriptionInstanceAlertRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5208,7 +5870,7 @@ DescribeSubscriptionInstanceAlertResponse Client::describeSubscriptionInstanceAl
 }
 
 /**
- * @summary Queries the monitoring and alerting settings of a change tracking instance.
+ * @summary Queries the details of the monitoring and alerting settings for a change tracking instance.
  *
  * @param request DescribeSubscriptionInstanceAlertRequest
  * @return DescribeSubscriptionInstanceAlertResponse
@@ -5219,7 +5881,7 @@ DescribeSubscriptionInstanceAlertResponse Client::describeSubscriptionInstanceAl
 }
 
 /**
- * @summary Queries the instance status details of a change tracking channel. This is a legacy operation.
+ * @summary Queries the instance status details of a legacy change tracking channel.
  *
  * @param request DescribeSubscriptionInstanceStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5266,7 +5928,7 @@ DescribeSubscriptionInstanceStatusResponse Client::describeSubscriptionInstanceS
 }
 
 /**
- * @summary Queries the instance status details of a change tracking channel. This is a legacy operation.
+ * @summary Queries the instance status details of a legacy change tracking channel.
  *
  * @param request DescribeSubscriptionInstanceStatusRequest
  * @return DescribeSubscriptionInstanceStatusResponse
@@ -5354,12 +6016,11 @@ DescribeSubscriptionInstancesResponse Client::describeSubscriptionInstances(cons
  * @summary Queries the information about subtasks of a PolarDB-X 1.0 distributed change tracking task.
  *
  * @description <props="china">
- * - Because a PolarDB-X 1.0 change tracking task is a distributed change tracking task, each ApsaraDB RDS for MySQL instance associated with the task corresponds to a change tracking subtask. You can call this operation to query the information about change tracking subtasks.
- * - You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the instance ID, consumer group ID, and other information about a PolarDB-X 1.0 change tracking task.
+ * - Because a PolarDB-X 1.0 change tracking task is a distributed change tracking task, each attached ApsaraDB RDS for MySQL instance corresponds to a change tracking subtask. You can call this operation to query the information about the change tracking subtasks.
+ * - You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query information such as the instance ID and consumer group ID of the PolarDB-X 1.0 change tracking task.
  * <props="intl">
- * - Because a DRDS change tracking task is a distributed change tracking task, each ApsaraDB RDS for MySQL instance associated with the task corresponds to a change tracking subtask. You can call this operation to query the information about change tracking subtasks.
- * - You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the instance ID, consumer group ID, and other information about a DRDS change tracking task.
- * .
+ * - Because a DRDS change tracking task is a distributed change tracking task, each attached ApsaraDB RDS for MySQL instance corresponds to a change tracking subtask. You can call this operation to query the information about the change tracking subtasks.
+ * - You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query information such as the instance ID and consumer group ID of the DRDS change tracking task.
  *
  * @param tmpReq DescribeSubscriptionMetaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5423,12 +6084,11 @@ DescribeSubscriptionMetaResponse Client::describeSubscriptionMetaWithOptions(con
  * @summary Queries the information about subtasks of a PolarDB-X 1.0 distributed change tracking task.
  *
  * @description <props="china">
- * - Because a PolarDB-X 1.0 change tracking task is a distributed change tracking task, each ApsaraDB RDS for MySQL instance associated with the task corresponds to a change tracking subtask. You can call this operation to query the information about change tracking subtasks.
- * - You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the instance ID, consumer group ID, and other information about a PolarDB-X 1.0 change tracking task.
+ * - Because a PolarDB-X 1.0 change tracking task is a distributed change tracking task, each attached ApsaraDB RDS for MySQL instance corresponds to a change tracking subtask. You can call this operation to query the information about the change tracking subtasks.
+ * - You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query information such as the instance ID and consumer group ID of the PolarDB-X 1.0 change tracking task.
  * <props="intl">
- * - Because a DRDS change tracking task is a distributed change tracking task, each ApsaraDB RDS for MySQL instance associated with the task corresponds to a change tracking subtask. You can call this operation to query the information about change tracking subtasks.
- * - You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the instance ID, consumer group ID, and other information about a DRDS change tracking task.
- * .
+ * - Because a DRDS change tracking task is a distributed change tracking task, each attached ApsaraDB RDS for MySQL instance corresponds to a change tracking subtask. You can call this operation to query the information about the change tracking subtasks.
+ * - You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query information such as the instance ID and consumer group ID of the DRDS change tracking task.
  *
  * @param request DescribeSubscriptionMetaRequest
  * @return DescribeSubscriptionMetaResponse
@@ -5497,7 +6157,7 @@ DescribeSyncStatusResponse Client::describeSyncStatus(const DescribeSyncStatusRe
 }
 
 /**
- * @summary Queries the monitoring and alerting settings of a synchronization task.
+ * @summary Queries the details of the monitoring and alerting settings for a synchronization task.
  *
  * @param request DescribeSynchronizationJobAlertRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5552,7 +6212,7 @@ DescribeSynchronizationJobAlertResponse Client::describeSynchronizationJobAlertW
 }
 
 /**
- * @summary Queries the monitoring and alerting settings of a synchronization task.
+ * @summary Queries the details of the monitoring and alerting settings for a synchronization task.
  *
  * @param request DescribeSynchronizationJobAlertRequest
  * @return DescribeSynchronizationJobAlertResponse
@@ -5629,7 +6289,7 @@ DescribeSynchronizationJobReplicatorCompareResponse Client::describeSynchronizat
 }
 
 /**
- * @summary Queries the running status of a data synchronization task. This is a legacy API operation.
+ * @summary Queries the running status of a legacy synchronization task.
  *
  * @param request DescribeSynchronizationJobStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5684,7 +6344,7 @@ DescribeSynchronizationJobStatusResponse Client::describeSynchronizationJobStatu
 }
 
 /**
- * @summary Queries the running status of a data synchronization task. This is a legacy API operation.
+ * @summary Queries the running status of a legacy synchronization task.
  *
  * @param request DescribeSynchronizationJobStatusRequest
  * @return DescribeSynchronizationJobStatusResponse
@@ -5695,7 +6355,7 @@ DescribeSynchronizationJobStatusResponse Client::describeSynchronizationJobStatu
 }
 
 /**
- * @summary Queries the status list of synchronization jobs. This is a legacy operation.
+ * @summary Queries the status list of synchronization jobs in the legacy version.
  *
  * @param request DescribeSynchronizationJobStatusListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5746,7 +6406,7 @@ DescribeSynchronizationJobStatusListResponse Client::describeSynchronizationJobS
 }
 
 /**
- * @summary Queries the status list of synchronization jobs. This is a legacy operation.
+ * @summary Queries the status list of synchronization jobs in the legacy version.
  *
  * @param request DescribeSynchronizationJobStatusListRequest
  * @return DescribeSynchronizationJobStatusListResponse
@@ -5757,7 +6417,7 @@ DescribeSynchronizationJobStatusListResponse Client::describeSynchronizationJobS
 }
 
 /**
- * @summary Queries a list of data synchronization instances and the details of each instance by calling DescribeSynchronizationJobs.
+ * @summary Queries the list of data synchronization instances and the details of each synchronization instance.
  *
  * @param request DescribeSynchronizationJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5820,7 +6480,7 @@ DescribeSynchronizationJobsResponse Client::describeSynchronizationJobsWithOptio
 }
 
 /**
- * @summary Queries a list of data synchronization instances and the details of each instance by calling DescribeSynchronizationJobs.
+ * @summary Queries the list of data synchronization instances and the details of each synchronization instance.
  *
  * @param request DescribeSynchronizationJobsRequest
  * @return DescribeSynchronizationJobsResponse
@@ -5893,7 +6553,7 @@ DescribeSynchronizationObjectModifyStatusResponse Client::describeSynchronizatio
 }
 
 /**
- * @summary Queries all tags that are bound to a data migration, data synchronization, or change tracking instance.
+ * @summary Queries all tags bound to a data migration, data synchronization, or change tracking instance.
  *
  * @param request DescribeTagKeysRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5948,7 +6608,7 @@ DescribeTagKeysResponse Client::describeTagKeysWithOptions(const DescribeTagKeys
 }
 
 /**
- * @summary Queries all tags that are bound to a data migration, data synchronization, or change tracking instance.
+ * @summary Queries all tags bound to a data migration, data synchronization, or change tracking instance.
  *
  * @param request DescribeTagKeysRequest
  * @return DescribeTagKeysResponse
@@ -6087,10 +6747,10 @@ DetachGadInstanceDbMemberResponse Client::detachGadInstanceDbMember(const Detach
 }
 
 /**
- * @summary Initializes a built-in account in a node of an active geo-redundancy database cluster. Data Transmission Service (DTS) uses this account to connect to the node and perform synchronization tasks.
+ * @summary Initializes a built-in account in a node of a global active-active database cluster. Data Transmission Service (DTS) uses this account to connect to the node and perform synchronization tasks.
  *
  * @description - The unit node must be an ApsaraDB RDS for MySQL instance or a self-managed MySQL database connected through Cloud Enterprise Network (CEN).
- * - This operation initializes a built-in account named rdsdt_dtsacct in a unit node of an active geo-redundancy database cluster. DTS uses this account to connect to the node and perform synchronization tasks.
+ * - This operation initializes a built-in account named rdsdt_dtsacct in a unit node of a global active-active database cluster. DTS uses this account to connect to the node and perform synchronization tasks.
  *
  * @param request InitDtsRdsInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6145,10 +6805,10 @@ InitDtsRdsInstanceResponse Client::initDtsRdsInstanceWithOptions(const InitDtsRd
 }
 
 /**
- * @summary Initializes a built-in account in a node of an active geo-redundancy database cluster. Data Transmission Service (DTS) uses this account to connect to the node and perform synchronization tasks.
+ * @summary Initializes a built-in account in a node of a global active-active database cluster. Data Transmission Service (DTS) uses this account to connect to the node and perform synchronization tasks.
  *
  * @description - The unit node must be an ApsaraDB RDS for MySQL instance or a self-managed MySQL database connected through Cloud Enterprise Network (CEN).
- * - This operation initializes a built-in account named rdsdt_dtsacct in a unit node of an active geo-redundancy database cluster. DTS uses this account to connect to the node and perform synchronization tasks.
+ * - This operation initializes a built-in account named rdsdt_dtsacct in a unit node of a global active-active database cluster. DTS uses this account to connect to the node and perform synchronization tasks.
  *
  * @param request InitDtsRdsInstanceRequest
  * @return InitDtsRdsInstanceResponse
@@ -6159,7 +6819,7 @@ InitDtsRdsInstanceResponse Client::initDtsRdsInstance(const InitDtsRdsInstanceRe
 }
 
 /**
- * @summary Queries all clusters created by the current user. You can also filter specific clusters based on specified conditions.
+ * @summary Queries all clusters created by the current user, or filters specific clusters based on specified conditions.
  *
  * @param request ListDedicatedClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6226,7 +6886,7 @@ ListDedicatedClusterResponse Client::listDedicatedClusterWithOptions(const ListD
 }
 
 /**
- * @summary Queries all clusters created by the current user. You can also filter specific clusters based on specified conditions.
+ * @summary Queries all clusters created by the current user, or filters specific clusters based on specified conditions.
  *
  * @param request ListDedicatedClusterRequest
  * @return ListDedicatedClusterResponse
@@ -6237,7 +6897,7 @@ ListDedicatedClusterResponse Client::listDedicatedCluster(const ListDedicatedClu
 }
 
 /**
- * @summary Query the JobStep list
+ * @summary Queries the list of job steps.
  *
  * @param request ListJobStepRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6280,7 +6940,7 @@ ListJobStepResponse Client::listJobStepWithOptions(const ListJobStepRequest &req
 }
 
 /**
- * @summary Query the JobStep list
+ * @summary Queries the list of job steps.
  *
  * @param request ListJobStepRequest
  * @return ListJobStepResponse
@@ -6291,9 +6951,9 @@ ListJobStepResponse Client::listJobStep(const ListJobStepRequest &request) {
 }
 
 /**
- * @summary Queries the tags bound to data migration, data synchronization, and change tracking instances. You can also query the instances bound to specific tags.
+ * @summary Queries the tags bound to data migration, data synchronization, and change tracking instances, or queries the instances bound to specific tags.
  *
- * @description ****.
+ * @description ****
  *
  * @param request ListTagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6344,9 +7004,9 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary Queries the tags bound to data migration, data synchronization, and change tracking instances. You can also query the instances bound to specific tags.
+ * @summary Queries the tags bound to data migration, data synchronization, and change tracking instances, or queries the instances bound to specific tags.
  *
- * @description ****.
+ * @description ****
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -6357,7 +7017,7 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 }
 
 /**
- * @summary Modifies the information of a consumer group in a change tracking channel (new version).
+ * @summary Modifies the information about a consumer group in a change tracking channel.
  *
  * @param request ModifyConsumerChannelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6416,7 +7076,7 @@ ModifyConsumerChannelResponse Client::modifyConsumerChannelWithOptions(const Mod
 }
 
 /**
- * @summary Modifies the information of a consumer group in a change tracking channel (new version).
+ * @summary Modifies the information about a consumer group in a change tracking channel.
  *
  * @param request ModifyConsumerChannelRequest
  * @return ModifyConsumerChannelResponse
@@ -6427,7 +7087,7 @@ ModifyConsumerChannelResponse Client::modifyConsumerChannel(const ModifyConsumer
 }
 
 /**
- * @summary Modifies the password of a consumer group. This is a legacy operation.
+ * @summary Modifies the password of a consumer group.
  *
  * @param request ModifyConsumerGroupPasswordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6494,7 +7154,7 @@ ModifyConsumerGroupPasswordResponse Client::modifyConsumerGroupPasswordWithOptio
 }
 
 /**
- * @summary Modifies the password of a consumer group. This is a legacy operation.
+ * @summary Modifies the password of a consumer group.
  *
  * @param request ModifyConsumerGroupPasswordRequest
  * @return ModifyConsumerGroupPasswordResponse
@@ -6567,9 +7227,9 @@ ModifyConsumptionTimestampResponse Client::modifyConsumptionTimestamp(const Modi
 }
 
 /**
- * @summary Modifies the configuration of a dedicated cluster by calling the ModifyDedicatedCluster operation.
+ * @summary Modifies the configuration of a dedicated cluster.
  *
- * @description Currently, only the overcommit ratio can be modified.
+ * @description Currently, only the oversubscription ratio can be modified.
  *
  * @param request ModifyDedicatedClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6624,9 +7284,9 @@ ModifyDedicatedClusterResponse Client::modifyDedicatedClusterWithOptions(const M
 }
 
 /**
- * @summary Modifies the configuration of a dedicated cluster by calling the ModifyDedicatedCluster operation.
+ * @summary Modifies the configuration of a dedicated cluster.
  *
- * @description Currently, only the overcommit ratio can be modified.
+ * @description Currently, only the oversubscription ratio can be modified.
  *
  * @param request ModifyDedicatedClusterRequest
  * @return ModifyDedicatedClusterResponse
@@ -6637,9 +7297,9 @@ ModifyDedicatedClusterResponse Client::modifyDedicatedCluster(const ModifyDedica
 }
 
 /**
- * @summary Modifies a data synchronization task by calling the ModifyDtsJob operation.
+ * @summary Modifies a data synchronization task.
  *
- * @description > You can preconfigure settings in the console as needed, and then preview the corresponding OpenAPI parameter information to help you specify request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
+ * @description > You can perform the corresponding preconfigurations in the console based on your requirements and then preview the OpenAPI parameter information for the configurations to help you fill in the request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
  *
  * @param tmpReq ModifyDtsJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6738,9 +7398,9 @@ ModifyDtsJobResponse Client::modifyDtsJobWithOptions(const ModifyDtsJobRequest &
 }
 
 /**
- * @summary Modifies a data synchronization task by calling the ModifyDtsJob operation.
+ * @summary Modifies a data synchronization task.
  *
- * @description > You can preconfigure settings in the console as needed, and then preview the corresponding OpenAPI parameter information to help you specify request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
+ * @description > You can perform the corresponding preconfigurations in the console based on your requirements and then preview the OpenAPI parameter information for the configurations to help you fill in the request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
  *
  * @param request ModifyDtsJobRequest
  * @return ModifyDtsJobResponse
@@ -6837,7 +7497,7 @@ ModifyDtsJobResponse Client::modifyDtsJobAdvance(const ModifyDtsJobAdvanceReques
 }
 
 /**
- * @summary Modifies the parameters of a DTS task by calling the ModifyDtsJobConfig operation.
+ * @summary Modifies the parameters of a DTS task.
  *
  * @param request ModifyDtsJobConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6884,7 +7544,7 @@ ModifyDtsJobConfigResponse Client::modifyDtsJobConfigWithOptions(const ModifyDts
 }
 
 /**
- * @summary Modifies the parameters of a DTS task by calling the ModifyDtsJobConfig operation.
+ * @summary Modifies the parameters of a DTS task.
  *
  * @param request ModifyDtsJobConfigRequest
  * @return ModifyDtsJobConfigResponse
@@ -6897,7 +7557,7 @@ ModifyDtsJobConfigResponse Client::modifyDtsJobConfig(const ModifyDtsJobConfigRe
 /**
  * @summary Changes the dedicated cluster on which a task runs.
  *
- * @description > After a migration task is changed from a dedicated cluster to a public cluster, the billing method of the task changes to pay-as-you-go, and billing starts.
+ * @description > After a data migration task is changed from running in a dedicated cluster to running in a public cluster, the billing method of the task changes to pay-as-you-go, and billing starts.
  *
  * @param request ModifyDtsJobDedicatedClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6946,7 +7606,7 @@ ModifyDtsJobDedicatedClusterResponse Client::modifyDtsJobDedicatedClusterWithOpt
 /**
  * @summary Changes the dedicated cluster on which a task runs.
  *
- * @description > After a migration task is changed from a dedicated cluster to a public cluster, the billing method of the task changes to pay-as-you-go, and billing starts.
+ * @description > After a data migration task is changed from running in a dedicated cluster to running in a public cluster, the billing method of the task changes to pay-as-you-go, and billing starts.
  *
  * @param request ModifyDtsJobDedicatedClusterRequest
  * @return ModifyDtsJobDedicatedClusterResponse
@@ -6957,10 +7617,10 @@ ModifyDtsJobDedicatedClusterResponse Client::modifyDtsJobDedicatedCluster(const 
 }
 
 /**
- * @summary Modifies the DU upper limit of a DTS task by calling the ModifyDtsJobDuLimit operation.
+ * @summary Modifies the DU limit for a task.
  *
- * @description - DTS instances in a dedicated cluster must support specification changes. By changing the resources consumed by a task at runtime, you can dynamically adjust the number of schedulable tasks in the current cluster, thereby deducting or releasing the total number of DUs in the cluster.
- * - Before modifying the DU upper limit of a task, ensure that sufficient resources are available.
+ * @description - DTS instances in dedicated clusters support specification upgrades and downgrades. By changing the resources consumed during task execution, you can dynamically adjust the number of schedulable tasks in the cluster, which deducts or releases the total DUs of the cluster.
+ * - Before modifying the DU limit for a task, ensure that sufficient resources are available.
  *
  * @param request ModifyDtsJobDuLimitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7007,10 +7667,10 @@ ModifyDtsJobDuLimitResponse Client::modifyDtsJobDuLimitWithOptions(const ModifyD
 }
 
 /**
- * @summary Modifies the DU upper limit of a DTS task by calling the ModifyDtsJobDuLimit operation.
+ * @summary Modifies the DU limit for a task.
  *
- * @description - DTS instances in a dedicated cluster must support specification changes. By changing the resources consumed by a task at runtime, you can dynamically adjust the number of schedulable tasks in the current cluster, thereby deducting or releasing the total number of DUs in the cluster.
- * - Before modifying the DU upper limit of a task, ensure that sufficient resources are available.
+ * @description - DTS instances in dedicated clusters support specification upgrades and downgrades. By changing the resources consumed during task execution, you can dynamically adjust the number of schedulable tasks in the cluster, which deducts or releases the total DUs of the cluster.
+ * - Before modifying the DU limit for a task, ensure that sufficient resources are available.
  *
  * @param request ModifyDtsJobDuLimitRequest
  * @return ModifyDtsJobDuLimitResponse
@@ -7159,7 +7819,7 @@ ModifyDtsJobEndpointResponse Client::modifyDtsJobEndpoint(const ModifyDtsJobEndp
 }
 
 /**
- * @summary Modifies the name of a DTS task by calling ModifyDtsJobName.
+ * @summary Modifies the name of a DTS task.
  *
  * @param request ModifyDtsJobNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7206,7 +7866,7 @@ ModifyDtsJobNameResponse Client::modifyDtsJobNameWithOptions(const ModifyDtsJobN
 }
 
 /**
- * @summary Modifies the name of a DTS task by calling ModifyDtsJobName.
+ * @summary Modifies the name of a DTS task.
  *
  * @param request ModifyDtsJobNameRequest
  * @return ModifyDtsJobNameResponse
@@ -7217,7 +7877,7 @@ ModifyDtsJobNameResponse Client::modifyDtsJobName(const ModifyDtsJobNameRequest 
 }
 
 /**
- * @summary Modifies the password of a DTS task (new version).
+ * @summary Modifies the password of a job.
  *
  * @param request ModifyDtsJobPasswordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7280,7 +7940,7 @@ ModifyDtsJobPasswordResponse Client::modifyDtsJobPasswordWithOptions(const Modif
 }
 
 /**
- * @summary Modifies the password of a DTS task (new version).
+ * @summary Modifies the password of a job.
  *
  * @param request ModifyDtsJobPasswordRequest
  * @return ModifyDtsJobPasswordResponse
@@ -7291,7 +7951,7 @@ ModifyDtsJobPasswordResponse Client::modifyDtsJobPassword(const ModifyDtsJobPass
 }
 
 /**
- * @summary Adjusts the migration rate of a data synchronization or migration instance.
+ * @summary Adjusts the migration rate of a synchronization or migration instance.
  *
  * @param request ModifyDynamicConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7342,7 +8002,7 @@ ModifyDynamicConfigResponse Client::modifyDynamicConfigWithOptions(const ModifyD
 }
 
 /**
- * @summary Adjusts the migration rate of a data synchronization or migration instance.
+ * @summary Adjusts the migration rate of a synchronization or migration instance.
  *
  * @param request ModifyDynamicConfigRequest
  * @return ModifyDynamicConfigResponse
@@ -7353,7 +8013,7 @@ ModifyDynamicConfigResponse Client::modifyDynamicConfig(const ModifyDynamicConfi
 }
 
 /**
- * @summary Modifies the name of a Global Active Database (GAD) instance.
+ * @summary Modifies the name of a GAD instance.
  *
  * @param request ModifyGadInstanceNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7400,7 +8060,7 @@ ModifyGadInstanceNameResponse Client::modifyGadInstanceNameWithOptions(const Mod
 }
 
 /**
- * @summary Modifies the name of a Global Active Database (GAD) instance.
+ * @summary Modifies the name of a GAD instance.
  *
  * @param request ModifyGadInstanceNameRequest
  * @return ModifyGadInstanceNameResponse
@@ -7411,7 +8071,7 @@ ModifyGadInstanceNameResponse Client::modifyGadInstanceName(const ModifyGadInsta
 }
 
 /**
- * @summary Modify the offset for incremental data writing.
+ * @summary Modifies the checkpoint for incremental writes.
  *
  * @param request ModifyJobStepCheckpointRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7458,7 +8118,7 @@ ModifyJobStepCheckpointResponse Client::modifyJobStepCheckpointWithOptions(const
 }
 
 /**
- * @summary Modify the offset for incremental data writing.
+ * @summary Modifies the checkpoint for incremental writes.
  *
  * @param request ModifyJobStepCheckpointRequest
  * @return ModifyJobStepCheckpointResponse
@@ -7469,9 +8129,9 @@ ModifyJobStepCheckpointResponse Client::modifyJobStepCheckpoint(const ModifyJobS
 }
 
 /**
- * @summary Modifies a change tracking task (new version).
+ * @summary Modifies a change tracking task.
  *
- * @description > You can perform the required preconfigurations in the console and then preview the corresponding OpenAPI parameter information to help you fill in the request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
+ * @description > You can preconfigure settings in the console as needed and preview the OpenAPI parameters for the configurations to help you fill in the request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
  *
  * @param request ModifySubscriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7534,9 +8194,9 @@ ModifySubscriptionResponse Client::modifySubscriptionWithOptions(const ModifySub
 }
 
 /**
- * @summary Modifies a change tracking task (new version).
+ * @summary Modifies a change tracking task.
  *
- * @description > You can perform the required preconfigurations in the console and then preview the corresponding OpenAPI parameter information to help you fill in the request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
+ * @description > You can preconfigure settings in the console as needed and preview the OpenAPI parameters for the configurations to help you fill in the request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
  *
  * @param request ModifySubscriptionRequest
  * @return ModifySubscriptionResponse
@@ -7547,7 +8207,7 @@ ModifySubscriptionResponse Client::modifySubscription(const ModifySubscriptionRe
 }
 
 /**
- * @summary Modifies the subscription objects of a change tracking task. This is a legacy operation.
+ * @summary Modifies the subscription objects of a legacy change tracking instance.
  *
  * @param request ModifySubscriptionObjectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7598,7 +8258,7 @@ ModifySubscriptionObjectResponse Client::modifySubscriptionObjectWithOptions(con
 }
 
 /**
- * @summary Modifies the subscription objects of a change tracking task. This is a legacy operation.
+ * @summary Modifies the subscription objects of a legacy change tracking instance.
  *
  * @param request ModifySubscriptionObjectRequest
  * @return ModifySubscriptionObjectResponse
@@ -7609,7 +8269,7 @@ ModifySubscriptionObjectResponse Client::modifySubscriptionObject(const ModifySu
 }
 
 /**
- * @summary Modifies the synchronization objects in a data synchronization job instance. This is a legacy operation.
+ * @summary Modifies the synchronization objects in a legacy data synchronization job instance.
  *
  * @param request ModifySynchronizationObjectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7666,7 +8326,7 @@ ModifySynchronizationObjectResponse Client::modifySynchronizationObjectWithOptio
 }
 
 /**
- * @summary Modifies the synchronization objects in a data synchronization job instance. This is a legacy operation.
+ * @summary Modifies the synchronization objects in a legacy data synchronization job instance.
  *
  * @param request ModifySynchronizationObjectRequest
  * @return ModifySynchronizationObjectResponse
@@ -7677,7 +8337,7 @@ ModifySynchronizationObjectResponse Client::modifySynchronizationObject(const Mo
 }
 
 /**
- * @summary Prechecks an order for creating a Global Active Database (GAD) instance group.
+ * @summary Prechecks the creation of a GAD order.
  *
  * @param request PreCheckCreateGadOrderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7752,7 +8412,7 @@ PreCheckCreateGadOrderResponse Client::preCheckCreateGadOrderWithOptions(const P
 }
 
 /**
- * @summary Prechecks an order for creating a Global Active Database (GAD) instance group.
+ * @summary Prechecks the creation of a GAD order.
  *
  * @param request PreCheckCreateGadOrderRequest
  * @return PreCheckCreateGadOrderResponse
@@ -7763,7 +8423,7 @@ PreCheckCreateGadOrderResponse Client::preCheckCreateGadOrder(const PreCheckCrea
 }
 
 /**
- * @summary Promote a geo-disaster recovery instance from the secondary role to the primary role
+ * @summary Promotes a secondary geo-disaster recovery instance to the primary role.
  *
  * @param request PromoteToMasterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7810,7 +8470,7 @@ PromoteToMasterResponse Client::promoteToMasterWithOptions(const PromoteToMaster
 }
 
 /**
- * @summary Promote a geo-disaster recovery instance from the secondary role to the primary role
+ * @summary Promotes a secondary geo-disaster recovery instance to the primary role.
  *
  * @param request PromoteToMasterRequest
  * @return PromoteToMasterResponse
@@ -7821,7 +8481,7 @@ PromoteToMasterResponse Client::promoteToMaster(const PromoteToMasterRequest &re
 }
 
 /**
- * @summary Renews a DTS instance. This operation is applicable only to subscription DTS instances.
+ * @summary Renews a Data Transmission Service (DTS) instance. This operation is applicable only to subscription DTS instances.
  *
  * @param request RenewInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7872,7 +8532,7 @@ RenewInstanceResponse Client::renewInstanceWithOptions(const RenewInstanceReques
 }
 
 /**
- * @summary Renews a DTS instance. This operation is applicable only to subscription DTS instances.
+ * @summary Renews a Data Transmission Service (DTS) instance. This operation is applicable only to subscription DTS instances.
  *
  * @param request RenewInstanceRequest
  * @return RenewInstanceResponse
@@ -7885,7 +8545,7 @@ RenewInstanceResponse Client::renewInstance(const RenewInstanceRequest &request)
 /**
  * @summary Resets a data synchronization or change tracking task.
  *
- * @description > After the configuration of a data synchronization or change tracking task is cleared, the original task is deleted. DTS creates a new unconfigured task. You must call the [ConfigureDtsJob](https://help.aliyun.com/document_detail/208399.html) operation to reconfigure the task.
+ * @description > After you clear the configurations of a data synchronization or change tracking task, the original task is deleted and DTS creates an unconfigured task. You must call the [ConfigureDtsJob](https://help.aliyun.com/document_detail/208399.html) operation to reconfigure the task.
  *
  * @param request ResetDtsJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7934,7 +8594,7 @@ ResetDtsJobResponse Client::resetDtsJobWithOptions(const ResetDtsJobRequest &req
 /**
  * @summary Resets a data synchronization or change tracking task.
  *
- * @description > After the configuration of a data synchronization or change tracking task is cleared, the original task is deleted. DTS creates a new unconfigured task. You must call the [ConfigureDtsJob](https://help.aliyun.com/document_detail/208399.html) operation to reconfigure the task.
+ * @description > After you clear the configurations of a data synchronization or change tracking task, the original task is deleted and DTS creates an unconfigured task. You must call the [ConfigureDtsJob](https://help.aliyun.com/document_detail/208399.html) operation to reconfigure the task.
  *
  * @param request ResetDtsJobRequest
  * @return ResetDtsJobResponse
@@ -7945,9 +8605,9 @@ ResetDtsJobResponse Client::resetDtsJob(const ResetDtsJobRequest &request) {
 }
 
 /**
- * @summary Resets the configuration of a data synchronization task.
+ * @summary Clears the configuration of a data synchronization task.
  *
- * @description > After you reset the configuration of a data synchronization task, the original synchronization task is released. You must call the **ConfigureSynchronizationJob** operation to reconfigure the synchronization task before you can start the task.
+ * @description > After you clear the configuration of a data synchronization task, the original synchronization task is released. To start the task again, you must call the **ConfigureSynchronizationJob** operation to reconfigure the synchronization task.
  *
  * @param request ResetSynchronizationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7998,9 +8658,9 @@ ResetSynchronizationJobResponse Client::resetSynchronizationJobWithOptions(const
 }
 
 /**
- * @summary Resets the configuration of a data synchronization task.
+ * @summary Clears the configuration of a data synchronization task.
  *
- * @description > After you reset the configuration of a data synchronization task, the original synchronization task is released. You must call the **ConfigureSynchronizationJob** operation to reconfigure the synchronization task before you can start the task.
+ * @description > After you clear the configuration of a data synchronization task, the original synchronization task is released. To start the task again, you must call the **ConfigureSynchronizationJob** operation to reconfigure the synchronization task.
  *
  * @param request ResetSynchronizationJobRequest
  * @return ResetSynchronizationJobResponse
@@ -8065,7 +8725,7 @@ ReverseTwoWayDirectionResponse Client::reverseTwoWayDirection(const ReverseTwoWa
 }
 
 /**
- * @summary Skips the precheck for a legacy data migration or synchronization task.
+ * @summary Masks precheck items.
  *
  * @param request ShieldPrecheckRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8108,7 +8768,7 @@ ShieldPrecheckResponse Client::shieldPrecheckWithOptions(const ShieldPrecheckReq
 }
 
 /**
- * @summary Skips the precheck for a legacy data migration or synchronization task.
+ * @summary Masks precheck items.
  *
  * @param request ShieldPrecheckRequest
  * @return ShieldPrecheckResponse
@@ -8119,7 +8779,7 @@ ShieldPrecheckResponse Client::shieldPrecheck(const ShieldPrecheckRequest &reque
 }
 
 /**
- * @summary Skips tables that do not need to be synchronized during the full data synchronization phase.
+ * @summary Skips tables that do not need to be synchronized during the full data phase.
  *
  * @param request SkipFullJobTableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8166,7 +8826,7 @@ SkipFullJobTableResponse Client::skipFullJobTableWithOptions(const SkipFullJobTa
 }
 
 /**
- * @summary Skips tables that do not need to be synchronized during the full data synchronization phase.
+ * @summary Skips tables that do not need to be synchronized during the full data phase.
  *
  * @param request SkipFullJobTableRequest
  * @return SkipFullJobTableResponse
@@ -8177,7 +8837,7 @@ SkipFullJobTableResponse Client::skipFullJobTable(const SkipFullJobTableRequest 
 }
 
 /**
- * @summary Suppresses or unsuppresses precheck alert items.
+ * @summary Skips or unskips precheck alert items.
  *
  * @param request SkipPreCheckRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8232,7 +8892,7 @@ SkipPreCheckResponse Client::skipPreCheckWithOptions(const SkipPreCheckRequest &
 }
 
 /**
- * @summary Suppresses or unsuppresses precheck alert items.
+ * @summary Skips or unskips precheck alert items.
  *
  * @param request SkipPreCheckRequest
  * @return SkipPreCheckResponse
@@ -8243,7 +8903,7 @@ SkipPreCheckResponse Client::skipPreCheck(const SkipPreCheckRequest &request) {
 }
 
 /**
- * @summary Starts a data migration, data synchronization, or change tracking task by calling the StartDtsJob operation.
+ * @summary Starts a data migration, data synchronization, or change tracking task.
  *
  * @param request StartDtsJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8294,7 +8954,7 @@ StartDtsJobResponse Client::startDtsJobWithOptions(const StartDtsJobRequest &req
 }
 
 /**
- * @summary Starts a data migration, data synchronization, or change tracking task by calling the StartDtsJob operation.
+ * @summary Starts a data migration, data synchronization, or change tracking task.
  *
  * @param request StartDtsJobRequest
  * @return StartDtsJobResponse
@@ -8471,7 +9131,7 @@ StartReverseWriterResponse Client::startReverseWriter(const StartReverseWriterRe
 }
 
 /**
- * @summary Starts the channel of a change tracking instance. This is a legacy operation.
+ * @summary Starts the channel for a legacy change tracking instance.
  *
  * @param request StartSubscriptionInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8518,7 +9178,7 @@ StartSubscriptionInstanceResponse Client::startSubscriptionInstanceWithOptions(c
 }
 
 /**
- * @summary Starts the channel of a change tracking instance. This is a legacy operation.
+ * @summary Starts the channel for a legacy change tracking instance.
  *
  * @param request StartSubscriptionInstanceRequest
  * @return StartSubscriptionInstanceResponse
@@ -8591,7 +9251,7 @@ StartSynchronizationJobResponse Client::startSynchronizationJob(const StartSynch
 }
 
 /**
- * @summary Releases a cluster by calling the StopDedicatedCluster operation.
+ * @summary Releases a dedicated cluster.
  *
  * @param request StopDedicatedClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8642,7 +9302,7 @@ StopDedicatedClusterResponse Client::stopDedicatedClusterWithOptions(const StopD
 }
 
 /**
- * @summary Releases a cluster by calling the StopDedicatedCluster operation.
+ * @summary Releases a dedicated cluster.
  *
  * @param request StopDedicatedClusterRequest
  * @return StopDedicatedClusterResponse
@@ -8653,7 +9313,7 @@ StopDedicatedClusterResponse Client::stopDedicatedCluster(const StopDedicatedClu
 }
 
 /**
- * @summary Stops a data migration, data synchronization, or change tracking task by calling StopDtsJob.
+ * @summary Stops a data migration, data synchronization, or change tracking task.
  *
  * @param request StopDtsJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8704,7 +9364,7 @@ StopDtsJobResponse Client::stopDtsJobWithOptions(const StopDtsJobRequest &reques
 }
 
 /**
- * @summary Stops a data migration, data synchronization, or change tracking task by calling StopDtsJob.
+ * @summary Stops a data migration, data synchronization, or change tracking task.
  *
  * @param request StopDtsJobRequest
  * @return StopDtsJobResponse
@@ -8715,7 +9375,7 @@ StopDtsJobResponse Client::stopDtsJob(const StopDtsJobRequest &request) {
 }
 
 /**
- * @summary Stops multiple DTS tasks at a time.
+ * @summary Stops multiple DTS tasks.
  *
  * @param request StopDtsJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8758,7 +9418,7 @@ StopDtsJobsResponse Client::stopDtsJobsWithOptions(const StopDtsJobsRequest &req
 }
 
 /**
- * @summary Stops multiple DTS tasks at a time.
+ * @summary Stops multiple DTS tasks.
  *
  * @param request StopDtsJobsRequest
  * @return StopDtsJobsResponse
@@ -8769,7 +9429,7 @@ StopDtsJobsResponse Client::stopDtsJobs(const StopDtsJobsRequest &request) {
 }
 
 /**
- * @summary Ends a data migration task that is in a migration state.
+ * @summary Ends a data migration task that is in the migrating state.
  *
  * @param request StopMigrationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8820,7 +9480,7 @@ StopMigrationJobResponse Client::stopMigrationJobWithOptions(const StopMigration
 }
 
 /**
- * @summary Ends a data migration task that is in a migration state.
+ * @summary Ends a data migration task that is in the migrating state.
  *
  * @param request StopMigrationJobRequest
  * @return StopMigrationJobResponse
@@ -8831,7 +9491,7 @@ StopMigrationJobResponse Client::stopMigrationJob(const StopMigrationJobRequest 
 }
 
 /**
- * @summary Queries the number of tables migrated in a Data Transmission Service (DTS) data migration or synchronization task.
+ * @summary Queries the number of migrated tables in a Data Transmission Service (DTS) data migration or synchronization task.
  *
  * @param request SummaryJobDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8890,7 +9550,7 @@ SummaryJobDetailResponse Client::summaryJobDetailWithOptions(const SummaryJobDet
 }
 
 /**
- * @summary Queries the number of tables migrated in a Data Transmission Service (DTS) data migration or synchronization task.
+ * @summary Queries the number of migrated tables in a Data Transmission Service (DTS) data migration or synchronization task.
  *
  * @param request SummaryJobDetailRequest
  * @return SummaryJobDetailResponse
@@ -8901,7 +9561,7 @@ SummaryJobDetailResponse Client::summaryJobDetail(const SummaryJobDetailRequest 
 }
 
 /**
- * @summary Suspends a data migration or synchronization task. Change tracking tasks are not supported. Change tracking instances do not support the suspend capability. Do not call this operation on change tracking instances.
+ * @summary Suspends a data migration or synchronization task. Change tracking tasks are not supported. Change tracking instances do not support suspension. Do not call this operation on change tracking instances.
  *
  * @description ****
  *
@@ -8954,7 +9614,7 @@ SuspendDtsJobResponse Client::suspendDtsJobWithOptions(const SuspendDtsJobReques
 }
 
 /**
- * @summary Suspends a data migration or synchronization task. Change tracking tasks are not supported. Change tracking instances do not support the suspend capability. Do not call this operation on change tracking instances.
+ * @summary Suspends a data migration or synchronization task. Change tracking tasks are not supported. Change tracking instances do not support suspension. Do not call this operation on change tracking instances.
  *
  * @description ****
  *
@@ -8967,7 +9627,7 @@ SuspendDtsJobResponse Client::suspendDtsJob(const SuspendDtsJobRequest &request)
 }
 
 /**
- * @summary Suspends multiple DTS tasks at a time.
+ * @summary Pauses multiple DTS tasks.
  *
  * @param request SuspendDtsJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9010,7 +9670,7 @@ SuspendDtsJobsResponse Client::suspendDtsJobsWithOptions(const SuspendDtsJobsReq
 }
 
 /**
- * @summary Suspends multiple DTS tasks at a time.
+ * @summary Pauses multiple DTS tasks.
  *
  * @param request SuspendDtsJobsRequest
  * @return SuspendDtsJobsResponse
@@ -9083,11 +9743,11 @@ SuspendMigrationJobResponse Client::suspendMigrationJob(const SuspendMigrationJo
 }
 
 /**
- * @summary Pauses a data synchronization task that is in the Synchronizing state.
+ * @summary Suspends a data synchronization task that is in the synchronizing state.
  *
- * @description > - When you call this operation, the synchronization task must be in the Synchronizing state.
- * - A synchronization task cannot be paused for more than 6 hours. Otherwise, the task cannot be restarted.
- * - DTS continues to charge fees for a pay-as-you-go synchronization task even if the task is paused. This is because DTS only pauses writing data to the destination instance but continues to pull logs from the source instance to ensure quick resumption when the task is restarted. Therefore, the task still consumes resources such as bandwidth of the source database.
+ * @description > - When you call this operation, the data synchronization task must be in the Synchronizing state.
+ * - You can suspend a data synchronization task for up to 6 hours. If the suspension exceeds 6 hours, the task cannot be restarted.
+ * - You are still charged for a pay-as-you-go data synchronization task even when it is suspended. This is because DTS only stops writing data to the destination database but continues to pull logs from the source database to ensure fast recovery after the task is restarted. As a result, the task still consumes resources such as the bandwidth of the source database.
  *
  * @param request SuspendSynchronizationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9138,11 +9798,11 @@ SuspendSynchronizationJobResponse Client::suspendSynchronizationJobWithOptions(c
 }
 
 /**
- * @summary Pauses a data synchronization task that is in the Synchronizing state.
+ * @summary Suspends a data synchronization task that is in the synchronizing state.
  *
- * @description > - When you call this operation, the synchronization task must be in the Synchronizing state.
- * - A synchronization task cannot be paused for more than 6 hours. Otherwise, the task cannot be restarted.
- * - DTS continues to charge fees for a pay-as-you-go synchronization task even if the task is paused. This is because DTS only pauses writing data to the destination instance but continues to pull logs from the source instance to ensure quick resumption when the task is restarted. Therefore, the task still consumes resources such as bandwidth of the source database.
+ * @description > - When you call this operation, the data synchronization task must be in the Synchronizing state.
+ * - You can suspend a data synchronization task for up to 6 hours. If the suspension exceeds 6 hours, the task cannot be restarted.
+ * - You are still charged for a pay-as-you-go data synchronization task even when it is suspended. This is because DTS only stops writing data to the destination database but continues to pull logs from the source database to ensure fast recovery after the task is restarted. As a result, the task still consumes resources such as the bandwidth of the source database.
  *
  * @param request SuspendSynchronizationJobRequest
  * @return SuspendSynchronizationJobResponse
@@ -9153,7 +9813,7 @@ SuspendSynchronizationJobResponse Client::suspendSynchronizationJob(const Suspen
 }
 
 /**
- * @summary Performs physical migration of an MSSQL database to Alibaba Cloud.
+ * @summary Migrates an SQL Server database to the cloud by using physical migration.
  *
  * @param request SwitchPhysicalDtsJobToCloudRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9200,7 +9860,7 @@ SwitchPhysicalDtsJobToCloudResponse Client::switchPhysicalDtsJobToCloudWithOptio
 }
 
 /**
- * @summary Performs physical migration of an MSSQL database to Alibaba Cloud.
+ * @summary Migrates an SQL Server database to the cloud by using physical migration.
  *
  * @param request SwitchPhysicalDtsJobToCloudRequest
  * @return SwitchPhysicalDtsJobToCloudResponse
@@ -9421,14 +10081,14 @@ TransferInstanceClassResponse Client::transferInstanceClass(const TransferInstan
 }
 
 /**
- * @summary Transforms the payment method of a DTS instance.
+ * @summary Changes the billing method.
  *
  * @description <props="china">Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/dts/detail) of Data Transmission Service (DTS).
  * <props="intl">Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of Data Transmission Service (DTS).
- * - To avoid resource waste, confirm the payment method transformation before you perform the operation.
- * - Data migration instances support only the pay-as-you-go billing method. No transformation is required.
+ * - To prevent resource waste, confirm the billing method change before you proceed.
+ * - Data migration instances support only the pay-as-you-go billing method and do not require billing method changes.
  * <props="china">
- * - Serverless instances do not support payment method transformation.
+ * - Serverless instances do not support billing method changes.
  *
  * @param request TransferPayTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9495,14 +10155,14 @@ TransferPayTypeResponse Client::transferPayTypeWithOptions(const TransferPayType
 }
 
 /**
- * @summary Transforms the payment method of a DTS instance.
+ * @summary Changes the billing method.
  *
  * @description <props="china">Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/dts/detail) of Data Transmission Service (DTS).
  * <props="intl">Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of Data Transmission Service (DTS).
- * - To avoid resource waste, confirm the payment method transformation before you perform the operation.
- * - Data migration instances support only the pay-as-you-go billing method. No transformation is required.
+ * - To prevent resource waste, confirm the billing method change before you proceed.
+ * - Data migration instances support only the pay-as-you-go billing method and do not require billing method changes.
  * <props="china">
- * - Serverless instances do not support payment method transformation.
+ * - Serverless instances do not support billing method changes.
  *
  * @param request TransferPayTypeRequest
  * @return TransferPayTypeResponse
@@ -9513,9 +10173,9 @@ TransferPayTypeResponse Client::transferPayType(const TransferPayTypeRequest &re
 }
 
 /**
- * @summary Unbinds tags from data migration, synchronization, and change tracking instances.
+ * @summary Removes tags from data migration, data synchronization, and change tracking instances.
  *
- * @description > After a tag is unbound from an instance, the tag is automatically deleted if it is not bound to any other instance.
+ * @description > If a tag is removed from an instance and is not attached to any other instances, the tag is automatically deleted.
  *
  * @param request UntagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9566,9 +10226,9 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 }
 
 /**
- * @summary Unbinds tags from data migration, synchronization, and change tracking instances.
+ * @summary Removes tags from data migration, data synchronization, and change tracking instances.
  *
- * @description > After a tag is unbound from an instance, the tag is automatically deleted if it is not bound to any other instance.
+ * @description > If a tag is removed from an instance and is not attached to any other instances, the tag is automatically deleted.
  *
  * @param request UntagResourcesRequest
  * @return UntagResourcesResponse
@@ -9579,15 +10239,15 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
- * @summary Upgrades the synchronization topology of a DTS data synchronization instance from one-way synchronization to two-way synchronization.
+ * @summary Upgrades the synchronization topology of a data synchronization instance from one-way synchronization to two-way synchronization.
  *
- * @description <props="china">Before you use this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/dts/detail) of ApsaraDB DTS.
- * <props="intl">Before you use this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of ApsaraDB DTS.
- * Before you begin:
- * - The database type of both the source instance and the destination instance of the data synchronization node must be **MySQL**.
+ * @description <props="china">Make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/dts/detail) of ApsaraDB DTS before you call this operation.
+ * <props="intl">Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of ApsaraDB DTS before you call this operation.
+ * When you call this operation, take note of the following items:
+ * - The database engines of the source instance and destination instance for the data synchronization node must be **MySQL**.
  * - The synchronization topology of the data synchronization node must be **one-way synchronization**.
- * - The data synchronization node must be in the **Synchronizing** state.
- * - During the upgrade, data synchronization may experience a latency of approximately 5 seconds. Perform this operation during off-peak hours.
+ * - The status of the data synchronization node must be **Synchronizing**.
+ * - Data synchronization may be delayed by about 5 seconds while the upgrade takes effect. Perform this operation during off-peak hours.
  *
  * @param request UpgradeTwoWayRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9630,15 +10290,15 @@ UpgradeTwoWayResponse Client::upgradeTwoWayWithOptions(const UpgradeTwoWayReques
 }
 
 /**
- * @summary Upgrades the synchronization topology of a DTS data synchronization instance from one-way synchronization to two-way synchronization.
+ * @summary Upgrades the synchronization topology of a data synchronization instance from one-way synchronization to two-way synchronization.
  *
- * @description <props="china">Before you use this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/dts/detail) of ApsaraDB DTS.
- * <props="intl">Before you use this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of ApsaraDB DTS.
- * Before you begin:
- * - The database type of both the source instance and the destination instance of the data synchronization node must be **MySQL**.
+ * @description <props="china">Make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/dts/detail) of ApsaraDB DTS before you call this operation.
+ * <props="intl">Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of ApsaraDB DTS before you call this operation.
+ * When you call this operation, take note of the following items:
+ * - The database engines of the source instance and destination instance for the data synchronization node must be **MySQL**.
  * - The synchronization topology of the data synchronization node must be **one-way synchronization**.
- * - The data synchronization node must be in the **Synchronizing** state.
- * - During the upgrade, data synchronization may experience a latency of approximately 5 seconds. Perform this operation during off-peak hours.
+ * - The status of the data synchronization node must be **Synchronizing**.
+ * - Data synchronization may be delayed by about 5 seconds while the upgrade takes effect. Perform this operation during off-peak hours.
  *
  * @param request UpgradeTwoWayRequest
  * @return UpgradeTwoWayResponse
@@ -9649,11 +10309,11 @@ UpgradeTwoWayResponse Client::upgradeTwoWay(const UpgradeTwoWayRequest &request)
 }
 
 /**
- * @summary Queries the IP addresses of DTS servers by calling the WhiteIpList operation.
+ * @summary Queries the IP addresses of Data Transmission Service (DTS) servers.
  *
- * @description <props="china">If the **source or destination instance** is a **self-managed database** or a **third-party ApsaraDB database**, you need to invoke this operation to query the IP addresses of DTS servers, and then add the returned IP addresses to the security settings (typically the firewall) of the source or destination instance. For more information about how to add IP addresses, see [Add the CIDR blocks of DTS servers to the whitelist of a self-managed database for migration, synchronization, or subscribe](https://help.aliyun.com/document_detail/84900.html).
- * <props="intl">If the **source or destination instance** is a **self-managed database** or a **third-party ApsaraDB database**, you need to invoke this operation to query the IP addresses of DTS servers, and then add the returned IP addresses to the security settings (typically the firewall) of the source or destination instance. For more information about how to add IP addresses, see [Add the CIDR blocks of DTS servers to the whitelist of a self-managed database](https://help.aliyun.com/document_detail/176627.html).
- * > If the **source or destination database** is an **Alibaba Cloud database instance** (such as ApsaraDB RDS or ApsaraDB for MongoDB) or a **self-managed database hosted on ECS**, the system automatically adds the IP addresses of DTS servers to the security settings of the instance when you click **Authorize Whitelist and Proceed to Next Step** during the configuration of the source or destination instance. You do not need to manually add the IP addresses.
+ * @description <props="china">If the **source or destination instance** is a **self-managed database** or a **third-party cloud database**, you must call this operation to query the IP addresses of DTS servers, and then add the queried IP addresses to the security settings of the source or destination instance, such as the firewall of the database. For more information, see [IP address whitelist required when you migrate, synchronize, or subscribe to a local database](https://help.aliyun.com/document_detail/84900.html).
+ * <props="intl">If the **source or destination instance** is a **self-managed database** or a **third-party cloud database**, you must call this operation to query the IP addresses of DTS servers, and then add the queried IP addresses to the security settings of the source or destination instance, such as the firewall of the database. For more information, see [Add the CIDR blocks of DTS servers to the IP address whitelist of a self-managed database](https://help.aliyun.com/document_detail/176627.html).
+ * > If the **source or destination database** is an **Alibaba Cloud database instance** (such as ApsaraDB RDS or MongoDB) or a **self-managed database on an ECS instance**, the system automatically adds the IP addresses of DTS servers to the security settings of the instance when you configure the source or destination instance information and click **Authorize Whitelist and Proceed to Next Step**. You do not need to manually add the IP addresses.
  *
  * @param request WhiteIpListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9744,11 +10404,11 @@ WhiteIpListResponse Client::whiteIpListWithOptions(const WhiteIpListRequest &req
 }
 
 /**
- * @summary Queries the IP addresses of DTS servers by calling the WhiteIpList operation.
+ * @summary Queries the IP addresses of Data Transmission Service (DTS) servers.
  *
- * @description <props="china">If the **source or destination instance** is a **self-managed database** or a **third-party ApsaraDB database**, you need to invoke this operation to query the IP addresses of DTS servers, and then add the returned IP addresses to the security settings (typically the firewall) of the source or destination instance. For more information about how to add IP addresses, see [Add the CIDR blocks of DTS servers to the whitelist of a self-managed database for migration, synchronization, or subscribe](https://help.aliyun.com/document_detail/84900.html).
- * <props="intl">If the **source or destination instance** is a **self-managed database** or a **third-party ApsaraDB database**, you need to invoke this operation to query the IP addresses of DTS servers, and then add the returned IP addresses to the security settings (typically the firewall) of the source or destination instance. For more information about how to add IP addresses, see [Add the CIDR blocks of DTS servers to the whitelist of a self-managed database](https://help.aliyun.com/document_detail/176627.html).
- * > If the **source or destination database** is an **Alibaba Cloud database instance** (such as ApsaraDB RDS or ApsaraDB for MongoDB) or a **self-managed database hosted on ECS**, the system automatically adds the IP addresses of DTS servers to the security settings of the instance when you click **Authorize Whitelist and Proceed to Next Step** during the configuration of the source or destination instance. You do not need to manually add the IP addresses.
+ * @description <props="china">If the **source or destination instance** is a **self-managed database** or a **third-party cloud database**, you must call this operation to query the IP addresses of DTS servers, and then add the queried IP addresses to the security settings of the source or destination instance, such as the firewall of the database. For more information, see [IP address whitelist required when you migrate, synchronize, or subscribe to a local database](https://help.aliyun.com/document_detail/84900.html).
+ * <props="intl">If the **source or destination instance** is a **self-managed database** or a **third-party cloud database**, you must call this operation to query the IP addresses of DTS servers, and then add the queried IP addresses to the security settings of the source or destination instance, such as the firewall of the database. For more information, see [Add the CIDR blocks of DTS servers to the IP address whitelist of a self-managed database](https://help.aliyun.com/document_detail/176627.html).
+ * > If the **source or destination database** is an **Alibaba Cloud database instance** (such as ApsaraDB RDS or MongoDB) or a **self-managed database on an ECS instance**, the system automatically adds the IP addresses of DTS servers to the security settings of the instance when you configure the source or destination instance information and click **Authorize Whitelist and Proceed to Next Step**. You do not need to manually add the IP addresses.
  *
  * @param request WhiteIpListRequest
  * @return WhiteIpListResponse

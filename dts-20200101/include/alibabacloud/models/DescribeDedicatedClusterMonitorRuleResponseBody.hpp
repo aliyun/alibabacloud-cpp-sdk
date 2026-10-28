@@ -140,28 +140,28 @@ namespace Models
 
 
   protected:
-    // The CPU alert threshold, in percentage.
+    // The CPU alert threshold. Unit: percentage.
     shared_ptr<string> cpuAlarmThreshold_ {};
     // The cluster ID.
     shared_ptr<string> dedicatedClusterId_ {};
-    // The disk alert threshold, in percentage.
+    // The disk alert threshold. Unit: percentage.
     shared_ptr<string> diskAlarmThreshold_ {};
-    // The DU alert threshold, in percentage.
+    // The DU alert threshold. Unit: percentage.
     shared_ptr<string> duAlarmThreshold_ {};
-    // The error code returned if the call fails.
+    // The error code returned when an error occurs.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the call fails.
+    // The error message returned when an error occurs.
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // The memory alert threshold, in percentage.
+    // The memory alert threshold. Unit: percentage.
     shared_ptr<string> memAlarmThreshold_ {};
     // The alert switch. Valid values:
     // 
-    // - **1**: enabled.
-    // - **0**: disabled.
+    // - **1**: Enabled.
+    // - **0**: Disabled.
     shared_ptr<string> noticeSwitch_ {};
-    // The phone numbers that receive alerts. If there are multiple phone numbers, they are separated by commas (,).
+    // The phone numbers that receive alert notifications. If multiple phone numbers are specified, separate them with commas (,).
     shared_ptr<string> phones_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

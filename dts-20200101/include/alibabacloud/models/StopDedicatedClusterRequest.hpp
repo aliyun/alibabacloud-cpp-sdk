@@ -84,18 +84,18 @@ namespace Models
 
 
   protected:
-    // The cluster ID.
-    // > You must specify either **InstanceId** or **DedicatedClusterId**.
+    // The dedicated cluster ID.
+    // > You must specify either the **InstanceId** or **DedicatedClusterId** parameter.
     shared_ptr<string> dedicatedClusterId_ {};
-    // The cluster name.
+    // The dedicated cluster name.
     shared_ptr<string> dedicatedClusterName_ {};
     // The instance ID.
-    // > You must specify either **InstanceId** or **DedicatedClusterId**.
+    // > You must specify either the **InstanceId** or **DedicatedClusterId** parameter.
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> ownerId_ {};
-    // The region in which the instance resides.
+    // The region where the instance resides.
     shared_ptr<string> regionId_ {};
-    // The resource group ID. This is a global parameter that does not need to be specified for this operation.
+    // The resource group ID. This is a global parameter and is not required for this API operation.
     shared_ptr<string> resourceGroupId_ {};
   };
 

@@ -105,27 +105,28 @@ namespace Models
   protected:
     // The ID of the Alibaba Cloud account. You do not need to specify this parameter because it will be deprecated.
     shared_ptr<string> accountId_ {};
-    // The name of the consumer group. The name can be up to 128 characters in length. We recommend that you use a descriptive name for easy identification.
+    // The name of the consumer group. The name can be up to 128 characters in length. Specify a descriptive name for easy identification.
     // 
     // This parameter is required.
     shared_ptr<string> consumerGroupName_ {};
     // The password of the consumer group account.
     // 
-    // - The password must contain characters from at least two of the following categories: uppercase letters, lowercase letters, digits, and special characters.
+    // - The password must contain at least two of the following character types: uppercase letters, lowercase letters, digits, and special characters.
     // - The password must be 8 to 32 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> consumerGroupPassword_ {};
-    // The account of the consumer group.
+    // The username of the consumer group.
     // 
-    // The account can contain uppercase letters, lowercase letters, digits, and underscores (_). The account can be up to 16 characters in length.
+    // The username can contain uppercase letters, lowercase letters, digits, and underscores (_).
+    // The username can be up to 16 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> consumerGroupUserName_ {};
     shared_ptr<string> ownerId_ {};
     // The ID of the region where the change tracking instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     // The ID of the change tracking instance. You can call the DescribeSubscriptionInstances operation to query the instance ID.
     // 

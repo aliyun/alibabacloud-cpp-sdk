@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The ID of the migration, synchronization, or tracking task.
+    // The ID of the data migration, data synchronization, or change tracking task.
     shared_ptr<string> dtsJobId_ {};
-    // The task step ID, which corresponds to the **synchronization** step ID returned by the ListJobStep API.
+    // The ID of the task step, which is the ID of the **synchronization** step returned by the ListJobStep operation.
     shared_ptr<string> jobStepId_ {};
-    // The new offset as a UNIX timestamp in seconds. The specified value must fall within the offset range of the incremental data collection step.
+    // The timestamp in seconds for the new checkpoint. The new checkpoint must be within the timestamp range of the incremental data collection step.
     shared_ptr<int64_t> newCheckPoint_ {};
     // The region where the DTS instance resides.
     // 
-    // > For regions that support dedicated clusters, see [DTS dedicated cluster](https://help.aliyun.com/document_detail/417481.html).
+    // > For the regions supported by dedicated clusters, see [DTS dedicated clusters](https://help.aliyun.com/document_detail/417481.html).
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

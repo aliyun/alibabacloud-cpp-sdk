@@ -178,9 +178,9 @@ namespace Models
 
 
         protected:
-          // Error code.
+          // The error code.
           shared_ptr<string> errorCode_ {};
-          // URL of the help document.
+          // The URL of the help document.
           shared_ptr<string> helpUrl_ {};
         };
 
@@ -296,50 +296,50 @@ namespace Models
 
 
       protected:
-        // The time when the sub-job was started, in the format <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+        // The time when the subtask was started. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
         shared_ptr<string> bootTime_ {};
-        // Sub-task step identity.
+        // The identifier of the subtask step.
         shared_ptr<string> code_ {};
-        // The time when the sub-job was created, in the format <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+        // The time when the subtask was created. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
         shared_ptr<string> createTime_ {};
-        // Error message.
+        // The error message.
         shared_ptr<string> errMsg_ {};
-        // Error message.
+        // The fault information.
         shared_ptr<vector<SubJobSteps::ErrorDetails>> errorDetails_ {};
-        // End time of the sub-task, in the format <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+        // The time when the subtask was finished. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
         shared_ptr<string> finishTime_ {};
-        // Incremental data latency, in milliseconds.
+        // The incremental data latency, in milliseconds.
         shared_ptr<string> incLatencyMilliseconds_ {};
-        // Incremental data latency, in seconds.
+        // The incremental data latency, in seconds.
         shared_ptr<int64_t> incLatencySeconds_ {};
-        // Job ID.
+        // The ID of the job step.
         shared_ptr<string> jobStepId_ {};
-        // Sub-job step information. Valid values are as follows:
+        // The subtask step information. Valid values:
         // 
-        // - Precheck: precheck phase
-        // - Incremental data service: incremental data collection phase
-        // - dts.step.struct.load: schema migration phase
-        // - dts.step.data.load: full migration phase
-        // - etl-check: extract, transform, and load (ETL) phase
-        // - Consistency validation: data verification phase
-        // - Synchronization: incremental synchronization phase
+        // - Precheck: The precheck phase.
+        // - Incremental data service: The incremental data collection phase.
+        // - dts.step.struct.load: The schema migration phase.
+        // - dts.step.data.load: The full data migration phase.
+        // - etl-check: The ETL phase.
+        // - Consistency check: The data validation phase.
+        // - Synchronization: The incremental synchronization phase.
         shared_ptr<string> jobStepName_ {};
-        // The time when the sub-job was updated, in the format <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+        // The time when the subtask was modified. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
         shared_ptr<string> modifyTime_ {};
         // Indicates whether the acceleration feature is required.
         shared_ptr<bool> needAcceleration_ {};
-        // Progress of the sub-job step.
+        // The progress of the subtask step.
         shared_ptr<int32_t> progress_ {};
-        // Serial number of the sub-task step. Indicates the task execution order; the smaller the numeric value, the earlier the execution order.
+        // The sequence number of the subtask step. A smaller value indicates an earlier execution order.
         shared_ptr<int32_t> serial_ {};
-        // Status of the sub-task step. Valid values:
-        // - Failed: failed.
-        // - Pause: paused.
-        // - Schedule: scheduled.
-        // - Init: initialization.
-        // - Running: synchronizing.
-        // - Catched: waiting for synchronization.
-        // - Finished: ended.
+        // The status of the subtask step. Valid values:
+        // - Failed: Failed.
+        // - Pause: Paused.
+        // - Schedule: Scheduled.
+        // - Init: Initialized.
+        // - Running: Synchronizing.
+        // - Catched: Waiting for synchronization.
+        // - Finished: Finished.
         shared_ptr<string> state_ {};
       };
 
@@ -381,9 +381,9 @@ namespace Models
 
 
       protected:
-        // Error code.
+        // The error code.
         shared_ptr<string> errorCode_ {};
-        // URL of the help document.
+        // The URL of the help document.
         shared_ptr<string> helpUrl_ {};
       };
 
@@ -523,51 +523,51 @@ namespace Models
 
 
     protected:
-      // The job start time, in the format <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+      // The time when the task was started. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
       shared_ptr<string> bootTime_ {};
-      // Task step identity.
+      // The identifier of the task step.
       shared_ptr<string> code_ {};
-      // The job creation time, in the format <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+      // The time when the task was created. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
       shared_ptr<string> createTime_ {};
       // The error message.
       shared_ptr<string> errMsg_ {};
-      // The error message.
+      // The fault information.
       shared_ptr<vector<JobSteps::ErrorDetails>> errorDetails_ {};
-      // Task end time, in the format <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+      // The time when the task was finished. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
       shared_ptr<string> finishTime_ {};
-      // Incremental data latency, in milliseconds.
+      // The incremental data latency, in milliseconds.
       shared_ptr<int64_t> incLatencyMilliseconds_ {};
-      // Incremental data latency, in seconds.
+      // The incremental data latency, in seconds.
       shared_ptr<int64_t> incLatencySeconds_ {};
-      // The task step ID.
+      // The ID of the task step.
       shared_ptr<string> jobStepId_ {};
-      // Task step information. Valid values:
+      // The task step information. Valid values:
       // 
-      // - Precheck: precheck phase
-      // - Incremental data service: incremental data collection phase
-      // - dts.step.struct.load: schema migration phase
-      // - dts.step.data.load: full migration phase
-      // - etl-check: extract, transform, and load phase
-      // - Consistency validation: data verification phase
-      // - Synchronization: incremental synchronization phase
+      // - Precheck: The precheck phase.
+      // - Incremental data service: The incremental data collection phase.
+      // - dts.step.struct.load: The schema migration phase.
+      // - dts.step.data.load: The full data migration phase.
+      // - etl-check: The ETL phase.
+      // - Consistency check: The data validation phase.
+      // - Synchronization: The incremental synchronization phase.
       shared_ptr<string> jobStepName_ {};
-      // The time when the job was updated, in the format <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+      // The time when the task was modified. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
       shared_ptr<string> modifyTime_ {};
-      // Indicates whether the acceleration feature should be provided.
+      // Indicates whether the acceleration feature is required.
       shared_ptr<bool> needAcceleration_ {};
       // The progress of the task step.
       shared_ptr<int32_t> progress_ {};
-      // Task step serial number. Indicates the task execution order. A smaller value indicates an earlier execution order.
+      // The sequence number of the task step. A smaller value indicates an earlier execution order.
       shared_ptr<int32_t> serial_ {};
-      // Task step status.
+      // The status of the task step.
       shared_ptr<string> state_ {};
-      // The number of sub-jobs.
+      // The number of subtasks.
       shared_ptr<int32_t> subJobCount_ {};
-      // Step information of the sub-job.
+      // The step information of the subtask.
       shared_ptr<vector<JobSteps::SubJobSteps>> subJobSteps_ {};
-      // Used to distinguish between the Redis full and incremental phases. Valid values:
-      // - full: Full phase
-      // - inc: Incremental phase
+      // The phase type used to distinguish between the full data and incremental data phases for Redis. Valid values:
+      // - full: The full data phase.
+      // - inc: The incremental data phase.
       shared_ptr<string> redisPhaseType_ {};
     };
 
@@ -618,15 +618,15 @@ namespace Models
 
 
   protected:
-    // Error code.
+    // The error code.
     shared_ptr<string> code_ {};
-    // Status code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The task step information.
     shared_ptr<vector<ListJobStepResponseBody::JobSteps>> jobSteps_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
     // Indicates whether the Console 2.0 API is used.
     shared_ptr<bool> useV2API_ {};

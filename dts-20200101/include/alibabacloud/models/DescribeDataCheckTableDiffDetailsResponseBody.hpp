@@ -97,7 +97,7 @@ namespace Models
 
 
     protected:
-      // The specific inconsistency details, which is a JSON string.
+      // The specific inconsistency details in JSON string format.
       // 
       // - column: the field name.
       // - source: the value in the source database.
@@ -106,7 +106,7 @@ namespace Models
       shared_ptr<string> diff_ {};
       // The time when the verification was performed.
       shared_ptr<string> gmtCreated_ {};
-      // The auto-increment primary key that identifies a verification result record.
+      // The auto-increment primary key used to identify a verification result record.
       shared_ptr<int64_t> id_ {};
     };
 
@@ -193,25 +193,25 @@ namespace Models
 
 
   protected:
-    // The name of the database in the source instance that contains the table with inconsistent data.
+    // The name of the source database to which the table with inconsistent data belongs.
     shared_ptr<string> dbName_ {};
     // The number of rows with data inconsistency.
     shared_ptr<int64_t> diffCount_ {};
     // The inconsistency details.
     shared_ptr<vector<DescribeDataCheckTableDiffDetailsResponseBody::DiffDetails>> diffDetails_ {};
-    // The dynamic error message, which is used to replace the **%s** placeholder in the **ErrMessage** response element.
+    // The dynamic error message, which is used to replace **%s** in the **ErrMessage** response parameter.
     // 
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **Type**, the request parameter **Type** that you specified is invalid.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **Type**, the specified request parameter **Type** is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error code returned if the call failed.
+    // The error code returned if the request fails.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the call failed.
+    // The error message returned if the request fails.
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

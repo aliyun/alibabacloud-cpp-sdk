@@ -120,18 +120,18 @@ namespace Models
 
 
     protected:
-      // The error message returned when schema migration failed.
+      // The error message returned if the schema migration fails.
       shared_ptr<string> errorMessage_ {};
-      // The progress of schema migration, in percentage.
+      // The progress of the schema migration. Unit: %.
       shared_ptr<string> percent_ {};
-      // The number of tables for which schema migration has been completed.
+      // The number of tables for which the schema migration is complete.
       shared_ptr<string> progress_ {};
-      // The status of schema migration. Valid values:
+      // The status of the schema migration. Valid values:
       // 
-      // - **NotStarted**: not started.
-      // - **Migrating**: migrating.
-      // - **Failed**: migration failed.
-      // - **Finished**: migration completed.
+      // - **NotStarted**: The migration is not started.
+      // - **Migrating**: The migration is in progress.
+      // - **Failed**: The migration failed.
+      // - **Finished**: The migration is complete.
       shared_ptr<string> status_ {};
     };
 
@@ -228,7 +228,7 @@ namespace Models
 
 
     protected:
-      // The name of the database to which the objects to be migrated belong in the source instance.
+      // The name of the database to which the migration objects in the source instance belong.
       shared_ptr<string> databaseName_ {};
       // The database type of the source instance.
       shared_ptr<string> engineName_ {};
@@ -238,12 +238,12 @@ namespace Models
       shared_ptr<string> instanceId_ {};
       // The type of the source instance. Valid values:
       // 
-      // - **RDS**: ApsaraDB RDS instance.
-      // - **ECS**: self-managed database hosted on ECS.
-      // - **LocalInstance**: self-managed database with a public IP address.
-      // - **Express**: self-managed database connected over Express Connect, VPN Gateway, or Smart Access Gateway.
-      // - **MongoDB**: ApsaraDB for MongoDB instance.
-      // - **POLARDB**: PolarDB for MySQL cluster (this value is applicable only to the China site).
+      // - **RDS**: An ApsaraDB RDS instance.
+      // - **ECS**: A self-managed database hosted on an ECS instance.
+      // - **LocalInstance**: A self-managed database with a public IP address.
+      // - **Express**: A self-managed database connected over an Express Connect circuit, a VPN gateway, or a Smart Access Gateway (SAG).
+      // - **MongoDB**: An ApsaraDB for MongoDB instance.
+      // - **POLARDB**: A PolarDB for MySQL cluster. This value is available only on the Alibaba Cloud China site.
       shared_ptr<string> instanceType_ {};
       // The database service port of the source instance.
       shared_ptr<string> port_ {};
@@ -399,14 +399,14 @@ namespace Models
 
     protected:
       shared_ptr<PrecheckStatus::Detail> detail_ {};
-      // The overall progress of the precheck, in percentage.
+      // The overall progress of the precheck. Unit: %.
       shared_ptr<string> percent_ {};
-      // The precheck status. Valid values:
+      // The status of the precheck. Valid values:
       // 
-      // - **NotStarted**: not started.
-      // - **Checking**: running the precheck.
-      // - **Failed**: precheck failed.
-      // - **Finished**: precheck completed.
+      // - **NotStarted**: The precheck is not started.
+      // - **Checking**: The precheck is in progress.
+      // - **Failed**: The precheck failed.
+      // - **Finished**: The precheck is complete.
       shared_ptr<string> status_ {};
     };
 
@@ -457,20 +457,20 @@ namespace Models
 
 
     protected:
-      // Indicates whether full data migration is performed. Valid values:
+      // Specifies whether to migrate full data. Valid values:
       // 
-      // - **true**: yes.
-      // - **false**: no.
+      // - **true**: Yes.
+      // - **false**: No.
       shared_ptr<bool> dataInitialization_ {};
-      // Indicates whether incremental data migration is performed. Valid values:
+      // Specifies whether to migrate incremental data. Valid values:
       // 
-      // - **true**: yes.
-      // - **false**: no.
+      // - **true**: Yes.
+      // - **false**: No.
       shared_ptr<bool> dataSynchronization_ {};
-      // Indicates whether schema migration is performed. Valid values:
+      // Specifies whether to perform schema migration. Valid values:
       // 
-      // - **true**: yes.
-      // - **false**: no.
+      // - **true**: Yes.
+      // - **false**: No.
       shared_ptr<bool> structureInitialization_ {};
     };
 
@@ -567,7 +567,7 @@ namespace Models
 
 
     protected:
-      // The name of the database to which the objects to be migrated belong in the destination instance.
+      // The name of the database to which the migration objects in the destination instance belong.
       shared_ptr<string> databaseName_ {};
       // The database type of the destination instance.
       shared_ptr<string> engineName_ {};
@@ -575,13 +575,13 @@ namespace Models
       shared_ptr<string> IP_ {};
       // The instance ID of the destination instance.
       shared_ptr<string> instanceId_ {};
-      // The type of the destination instance.
+      // The destination instance type.
       shared_ptr<string> instanceType_ {};
       // The database service port of the destination instance.
       shared_ptr<string> port_ {};
       // The database account of the destination instance.
       shared_ptr<string> userName_ {};
-      // The SID of the Oracle database.
+      // The system ID (SID) of the Oracle database.
       // > This parameter is returned only when the database type of the destination instance is **Oracle**.
       shared_ptr<string> oracleSID_ {};
     };
@@ -651,21 +651,21 @@ namespace Models
 
 
     protected:
-      // The timestamp of the latest incremental data that has been migrated. The value is a UNIX timestamp, in seconds.
+      // The timestamp of the latest incremental data record migrated. The value is a UNIX timestamp. Unit: seconds.
       shared_ptr<string> checkpoint_ {};
-      // The migration latency of incremental data migration, in seconds.
+      // The migration latency of the incremental data migration. Unit: seconds.
       shared_ptr<string> delay_ {};
-      // The error message returned when incremental data migration failed.
+      // The error message returned if the incremental data migration fails.
       shared_ptr<string> errorMessage_ {};
-      // The progress of incremental data migration, in percentage.
+      // The progress of the incremental data migration. Unit: %.
       shared_ptr<string> percent_ {};
-      // The status of incremental data migration. Valid values:
+      // The status of the incremental data migration. Valid values:
       // 
-      // - **NotStarted**: not started.
-      // - **Migrating**: migrating.
-      // - **Failed**: migration failed.
-      // - **Finished**: migration completed.
-      // - **Catched**: no latency.
+      // - **NotStarted**: The migration is not started.
+      // - **Migrating**: The migration is in progress.
+      // - **Failed**: The migration failed.
+      // - **Finished**: The migration is complete.
+      // - **Catched**: No latency.
       shared_ptr<string> status_ {};
     };
 
@@ -725,18 +725,18 @@ namespace Models
 
 
     protected:
-      // The error message returned when full data migration failed.
+      // The error message returned if the full data migration fails.
       shared_ptr<string> errorMessage_ {};
-      // The progress of full data migration, in percentage.
+      // The progress of the full data migration. Unit: %.
       shared_ptr<string> percent_ {};
-      // The number of records that have been migrated during initial full data synchronization.
+      // The number of records for which the initial full data synchronization is complete.
       shared_ptr<string> progress_ {};
-      // The status of full data migration. Valid values:
+      // The status of the full data migration. Valid values:
       // 
-      // - **NotStarted**: not started.
-      // - **Migrating**: migrating.
-      // - **Failed**: migration failed.
-      // - **Finished**: migration completed.
+      // - **NotStarted**: The migration is not started.
+      // - **Migrating**: The migration is in progress.
+      // - **Failed**: The migration failed.
+      // - **Finished**: The migration is complete.
       shared_ptr<string> status_ {};
     };
 
@@ -886,46 +886,46 @@ namespace Models
 
 
   protected:
-    // The execution status of full data migration.
+    // The status of the full data migration.
     shared_ptr<DescribeMigrationJobStatusResponseBody::DataInitializationStatus> dataInitializationStatus_ {};
-    // The execution status of incremental data migration.
+    // The status of the incremental data migration.
     shared_ptr<DescribeMigrationJobStatusResponseBody::DataSynchronizationStatus> dataSynchronizationStatus_ {};
     // The connection information of the destination instance.
     shared_ptr<DescribeMigrationJobStatusResponseBody::DestinationEndpoint> destinationEndpoint_ {};
-    // The error code returned if the call failed.
+    // The error code returned if the call fails.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the call failed.
+    // The error message returned if the call fails.
     shared_ptr<string> errMessage_ {};
-    // The specification of the data migration instance. Valid values: **small**, **medium**, **large**, **xlarge**, and **2xlarge**. For more information, see [Specifications of data migration instances](https://help.aliyun.com/document_detail/26606.html).
+    // The specifications of the data migration instance. Valid values: **small**, **medium**, **large**, **xlarge**, and **2xlarge**. For more information, see [Specifications of data migration links](https://help.aliyun.com/document_detail/26606.html).
     shared_ptr<string> migrationJobClass_ {};
     // The instance ID of the data migration instance.
     shared_ptr<string> migrationJobId_ {};
     // The name of the data migration instance.
     shared_ptr<string> migrationJobName_ {};
     // The status of the data migration task. Valid values:
-    // - **NotStarted**: not started.
-    // - **Prechecking**: running the precheck.
-    // - **PrecheckFailed**: precheck failed.
-    // - **Migrating**: migrating.
-    // - **Suspending**: paused.
-    // - **MigrationFailed**: migration failed.
-    // - **Finished**: migration completed.
+    // - **NotStarted**: The task is not started.
+    // - **Prechecking**: The precheck is in progress.
+    // - **PrecheckFailed**: The precheck failed.
+    // - **Migrating**: The migration is in progress.
+    // - **Suspending**: The task is being suspended.
+    // - **MigrationFailed**: The migration failed.
+    // - **Finished**: The migration is complete.
     shared_ptr<string> migrationJobStatus_ {};
     // The migration types.
     shared_ptr<DescribeMigrationJobStatusResponseBody::MigrationMode> migrationMode_ {};
     // The migration objects.
     shared_ptr<string> migrationObject_ {};
-    // The billing method of the data migration task. The return value is fixed as **PostPaid** (pay-as-you-go).
+    // The billing method of the data migration task. The value is fixed to **PostPaid** (pay-as-you-go).
     shared_ptr<string> payType_ {};
     // The precheck status.
     shared_ptr<DescribeMigrationJobStatusResponseBody::PrecheckStatus> precheckStatus_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The connection information of the source instance.
     shared_ptr<DescribeMigrationJobStatusResponseBody::SourceEndpoint> sourceEndpoint_ {};
-    // The execution status of schema migration.
+    // The status of the schema migration.
     shared_ptr<DescribeMigrationJobStatusResponseBody::StructureInitializationStatus> structureInitializationStatus_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<string> success_ {};
     // The ID of the data migration task.
     shared_ptr<string> taskId_ {};

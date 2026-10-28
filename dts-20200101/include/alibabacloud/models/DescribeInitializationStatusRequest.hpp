@@ -94,18 +94,18 @@ namespace Models
 
 
   protected:
-    // The ID of the Alibaba Cloud account. You do not need to specify this parameter. This parameter will be discontinued.
+    // The ID of the Alibaba Cloud account. You do not need to specify this parameter. This parameter will be deprecated soon.
     shared_ptr<string> accountId_ {};
     shared_ptr<string> ownerId_ {};
-    // The page number. The value must be greater than **0** and cannot exceed the maximum value of the Integer data type. Default value: **1**.
+    // The page number. Valid values: any integer greater than **0** and less than or equal to the maximum value of the Integer data type. Default value: **1**.
     shared_ptr<int32_t> pageNum_ {};
     // The number of entries per page. Valid values: **1** to **100**. Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the region where the data synchronization instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The ID of the data synchronization instance. You can call the [DescribeSynchronizationJobs](https://help.aliyun.com/document_detail/49454.html) operation to query the instance ID.
+    // Instance ID of the data synchronization instance. You can call the [DescribeSynchronizationJobs](https://help.aliyun.com/document_detail/49454.html) operation to query instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> synchronizationJobId_ {};

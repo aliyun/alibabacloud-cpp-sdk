@@ -675,20 +675,20 @@ namespace Models
 
 
   protected:
-    // The error code returned if the request failed.
+    // The error code returned if the call fails.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the request failed.
+    // The error message returned if the call fails.
     shared_ptr<string> errMessage_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The maximum number of records that can be displayed on the current page.
+    // The maximum number of entries that can be displayed on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeSubscriptionInstancesResponseBody::SubscriptionInstances> subscriptionInstances_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<string> success_ {};
-    // The total number of change tracking instances that meet the specified conditions under the Alibaba Cloud account.
+    // The total number of change tracking instances that meet the query conditions under the Alibaba Cloud account.
     shared_ptr<int64_t> totalRecordCount_ {};
   };
 

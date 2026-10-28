@@ -105,16 +105,16 @@ namespace Models
 
 
     protected:
-      // The consumption checkpoint of the subtask, which is the timestamp of the first data record consumed by the client. The value is a UNIX timestamp. Unit: seconds.
-      // > You can use a search engine to find a UNIX timestamp converter.
+      // The consumption checkpoint of the subtask, which is the timestamp when the client consumes the first data record. The value is a UNIX timestamp in seconds.
+      // > You can use a search engine to obtain a UNIX timestamp converter.
       shared_ptr<int64_t> checkpoint_ {};
-      // The objects of the subtask. For more information, see [Objects of DTS tasks](https://help.aliyun.com/document_detail/209545.html).
+      // The change tracking objects of the subtask. For more information, see [Objects for data migration, synchronization, and change tracking](https://help.aliyun.com/document_detail/209545.html).
       shared_ptr<string> DBList_ {};
       // The network address and port number of the change tracking channel.
       shared_ptr<string> DProxyUrl_ {};
       // The consumer group ID of the subtask.
       shared_ptr<string> sid_ {};
-      // The topic of the subtask.
+      // The change tracking topic of the subtask.
       shared_ptr<string> topic_ {};
     };
 
@@ -165,17 +165,17 @@ namespace Models
 
 
   protected:
-    // The error code returned if the call failed.
+    // The error code returned when the call fails.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the call failed.
+    // The error message returned when the call fails.
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The data information about the change tracking subtasks.
+    // The data information of the change tracking subtasks.
     shared_ptr<vector<DescribeSubscriptionMetaResponseBody::SubscriptionMetaList>> subscriptionMetaList_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<string> success_ {};
   };
 

@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The cluster ID.
+    // The ID of the cluster.
     shared_ptr<string> dedicatedClusterId_ {};
     // The error code returned if the call fails.
     shared_ptr<string> errCode_ {};
@@ -94,7 +94,7 @@ namespace Models
     shared_ptr<string> httpStatusCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<string> success_ {};
   };
 

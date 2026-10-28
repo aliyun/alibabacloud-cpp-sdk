@@ -90,11 +90,11 @@ namespace Models
   protected:
     // The connectivity test result of the destination database.
     Darabonba::Json destinationConnectionStatus_ {};
-    // The error code returned if the call failed.
+    // The error code returned when the call fails.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the call failed.
+    // The error message returned when the call fails.
     shared_ptr<string> errMessage_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The connectivity test result of the source database.
     Darabonba::Json sourceConnectionStatus_ {};

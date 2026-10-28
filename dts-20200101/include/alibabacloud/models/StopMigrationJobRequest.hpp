@@ -84,9 +84,9 @@ namespace Models
 
 
   protected:
-    // The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be discontinued.
+    // The ID of the Alibaba Cloud account. You do not need to specify this parameter. This parameter is about to be deprecated.
     shared_ptr<string> accountId_ {};
-    // The client token that is used to ensure the idempotence of the request. Generate a value from your client to ensure uniqueness across different requests. **ClientToken** supports only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
     // Instance ID of the data migration instance. You can call the **DescribeMigrationJobs** operation to query instance ID.
     // 
@@ -95,7 +95,7 @@ namespace Models
     shared_ptr<string> ownerId_ {};
     // The region ID. Specify this parameter to indicate the region where the instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
   };
 

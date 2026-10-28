@@ -84,18 +84,18 @@ namespace Models
 
 
   protected:
-    // The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter is about to be deprecated.
+    // The Alibaba Cloud account ID. You do not need to specify this parameter. This parameter will be deprecated soon.
     shared_ptr<string> accountId_ {};
     shared_ptr<string> ownerId_ {};
     // The region ID. Specify this parameter to indicate the region where the instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     // The ID of the change tracking instance. You can call the [DescribeSubscriptionInstances](https://help.aliyun.com/document_detail/49442.html) operation to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> subscriptionInstanceId_ {};
-    // The subscription objects. The value is a JSON string that supports regular expressions. For more information, see [Subscription object configuration](https://help.aliyun.com/document_detail/141902.html).
+    // The subscription objects. The value is a JSON string and supports specific regular expressions. For more information, see [Subscription object configuration](https://help.aliyun.com/document_detail/141902.html).
     // 
     // This parameter is required.
     shared_ptr<string> subscriptionObject_ {};

@@ -150,35 +150,35 @@ namespace Models
 
 
     protected:
-      // The threshold that triggers a latency alert. Unit: seconds.
+      // The threshold that triggers a latency alert, in seconds.
       shared_ptr<int64_t> delayRuleTime_ {};
       // The task ID.
       shared_ptr<string> jobId_ {};
       // The task type of the DTS instance. Valid values:
-      // - **normal**: data migration or data synchronization task.
-      // - **full_check**: associated full data validation task.
-      // - **etl_check**: associated incremental data validation task.
+      // - **normal**: Data migration or data synchronization task.
+      // - **full_check**: Associated full data check task.
+      // - **etl_check**: Associated incremental data check task.
       shared_ptr<string> jobType_ {};
       // The alert threshold.
       shared_ptr<int32_t> noticeValue_ {};
-      // The statistical period of the incremental data validation task. Unit: minutes.
+      // The statistical period of the incremental data check task, in minutes.
       // 
-      // > Valid values: 1, 5, 10, and 30 minutes.
+      // > Valid values are 1, 5, 10, and 30.
       shared_ptr<int32_t> period_ {};
-      // The phone numbers of the contacts to be notified when an alert is triggered. Multiple phone numbers are separated by commas (,).
+      // The mobile phone numbers of the contacts to be notified after an alert is triggered. Separate multiple mobile phone numbers with commas (,).
       shared_ptr<string> phone_ {};
       // Indicates whether the monitoring rule is enabled. Valid values:
       // 
-      // - **Y**: enabled.
-      // - **N**: disabled.
+      // - **Y**: The monitoring rule is enabled.
+      // - **N**: The monitoring rule is disabled.
       shared_ptr<string> state_ {};
-      // The number of periods for the incremental data validation task.
+      // The number of periods for the incremental data check task.
       shared_ptr<int32_t> times_ {};
       // The type of the monitoring rule. Valid values:
-      // - **delay**: latency alert.
-      // - **error**: anomaly alert.
-      // - **full_timeout**: alert for the runtime of the full data module.
-      // - **warn**: notification alert (the task succeeded but the result did not meet expectations).
+      // - **delay**: Latency alerting.
+      // - **error**: Anomaly alert.
+      // - **full_timeout**: Full module execution duration alerting.
+      // - **warn**: Notification alerting (the node is executed successfully, but the result does not meet expectations).
       shared_ptr<string> type_ {};
     };
 
@@ -260,12 +260,12 @@ namespace Models
 
 
   protected:
-    // The error code. This parameter will be deprecated.
+    // The error code. This parameter will be deprecated soon.
     shared_ptr<string> code_ {};
     // The ID of the data migration, data synchronization, or change tracking task.
     shared_ptr<string> dtsJobId_ {};
-    // The dynamic error message used to replace the **%s** placeholder in the **ErrMessage** response parameter.
-    // > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace **%s** in the **ErrMessage** parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the specified **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
     // The error code returned if the call fails.
     shared_ptr<string> errCode_ {};
@@ -273,13 +273,13 @@ namespace Models
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The monitoring rule information of the DTS task.
+    // The monitoring rules of the DTS task.
     shared_ptr<vector<DescribeJobMonitorRuleResponseBody::MonitorRules>> monitorRules_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // - **true**: The request was successful.
-    // - **false**: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - **true**: The request is successful.
+    // - **false**: The request fails.
     shared_ptr<bool> success_ {};
     // The Kafka topics.
     shared_ptr<vector<string>> topics_ {};

@@ -94,13 +94,13 @@ namespace Models
 
 
   protected:
-    // The instance ID of the subscribe instance.
+    // The change tracking instance ID.
     shared_ptr<string> dtsInstanceId_ {};
     // The ID of the change tracking task.
     shared_ptr<string> dtsJobId_ {};
-    // The error code returned if the call failed.
+    // The error code returned when the call fails.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the call failed.
+    // The error message returned when the call fails.
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};

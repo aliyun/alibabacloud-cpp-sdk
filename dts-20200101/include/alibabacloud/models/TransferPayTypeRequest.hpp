@@ -122,47 +122,47 @@ namespace Models
 
   protected:
     shared_ptr<bool> autoPay_ {};
-    // The subscription duration of the instance.
-    // - If Period is set to **Year**, valid values are **1** to **5**.
-    // - If Period is set to **Month**, valid values are **1** to **60**.
+    // The subscription duration.
+    // - If **Period** is set to **Year**, valid values are **1** to **5**.
+    // - If **Period** is set to **Month**, valid values are **1** to **60**.
     // 
-    // > This parameter is valid and required only when ChargeType is set to **Prepaid**.
+    // > This parameter is valid and required only when **ChargeType** is set to **Prepaid**.
     shared_ptr<string> buyCount_ {};
-    // The billing method after conversion. Valid values:
+    // The new billing method. Valid values:
     // - **PrePaid**: subscription.
     // - **PostPaid**: pay-as-you-go.
     // <props="china">
-    // - **sync_serverless**: pay-as-you-go Serverless..
+    // - **sync_serverless**: pay-as-you-go Serverless.
     // 
     // This parameter is required.
     shared_ptr<string> chargeType_ {};
-    // The ID of the data synchronization or change tracking task. You can call [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) to query the task ID.
+    // The ID of the data synchronization or change tracking task. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the task ID.
     // 
     // This parameter is required.
     shared_ptr<string> dtsJobId_ {};
     shared_ptr<string> instanceClass_ {};
     // The maximum number of DUs for the Serverless instance. Valid values: 2, 4, 8, and 16.
     // <props="intl">
-    // > This feature is currently not supported. Do not specify this parameter.
+    // > This feature is not supported. Do not specify this parameter.
     // <props="china">
-    // > This parameter is valid and required only when ChargeType is set to **sync_serverless**..
+    // > This parameter is valid and required only when **ChargeType** is set to **sync_serverless**.
     shared_ptr<int32_t> maxDu_ {};
-    // The minimum number of DTS Units (DUs) for the Serverless instance. Valid values: 1, 2, 4, 8, and 16.
+    // The minimum number of DUs for the Serverless instance. Valid values: 1, 2, 4, 8, and 16.
     // 
     // <props="intl">
-    // > This feature is currently not supported. Do not specify this parameter.
+    // > This feature is not supported. Do not specify this parameter.
     // <props="china">
-    // > This parameter is valid and required only when ChargeType is set to **sync_serverless**..
+    // > This parameter is valid and required only when **ChargeType** is set to **sync_serverless**.
     shared_ptr<int32_t> minDu_ {};
     // The billing method of the subscription instance. Valid values:
-    // - **Year**: annual subscription.
-    // - **Month**: monthly subscription.
+    // - **Year**: yearly.
+    // - **Month**: monthly.
     // 
-    // > This parameter is valid and required only when ChargeType is set to **PrePaid** (subscription).
+    // > This parameter is valid and required only when **ChargeType** is set to **PrePaid** (subscription).
     shared_ptr<string> period_ {};
     // The region ID of the instance. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
   };
 

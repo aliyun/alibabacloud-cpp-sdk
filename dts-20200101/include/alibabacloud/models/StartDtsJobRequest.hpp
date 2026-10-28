@@ -84,24 +84,24 @@ namespace Models
 
 
   protected:
-    // The ID of the data migration, data synchronization, or change tracking instance.
-    // > You can query the instance ID by invoking [Query the list of data migration instances and details of each instance](https://help.aliyun.com/document_detail/208139.html), [Query the list of change tracking instances and details of each instance](https://help.aliyun.com/document_detail/49442.html), or [Query the list of data synchronization instances and details of each instance](https://help.aliyun.com/document_detail/49454.html).
+    // Instance ID of the data migration, data synchronization, or change tracking instance.
+    // > You can call the [Query data migration instances and their details](https://help.aliyun.com/document_detail/208139.html), [Query change tracking instances and their details](https://help.aliyun.com/document_detail/49442.html), or [Query data synchronization instances and their details](https://help.aliyun.com/document_detail/49454.html) operations to query instance ID.
     shared_ptr<string> dtsInstanceId_ {};
     // The ID of the data migration, data synchronization, or change tracking task.
     shared_ptr<string> dtsJobId_ {};
-    // The region in which the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+    // The region where the DTS instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     // The synchronization direction. Valid values:
-    // - **Forward**: forward. This is the default value.
-    // - **Reverse**: reverse.
-    // > You can set this parameter to **Reverse** to start the reverse synchronization link only when the topology of the data synchronization instance is two-way synchronization.
+    // - **Forward**: Forward synchronization. This is the default value.
+    // - **Reverse**: Reverse synchronization.
+    // > You can set this parameter to **Reverse** to start the reverse synchronization link only when the topology of the data synchronization instance is two-way.
     shared_ptr<string> synchronizationDirection_ {};
-    // Specifies whether the node is a zero-ETL node. Valid values:
+    // Specifies whether the node is a seamless integration (Zero-ETL) node. Valid values:
     // 
-    // - **false**: no.
-    // - **true**: yes.
+    // - **false**: No.
+    // - **true**: Yes.
     shared_ptr<bool> zeroEtlJob_ {};
   };
 

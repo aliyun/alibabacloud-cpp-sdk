@@ -70,9 +70,9 @@ namespace Models
     shared_ptr<string> errCode_ {};
     // The error message returned when the call fails.
     shared_ptr<string> errMessage_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<string> success_ {};
   };
 

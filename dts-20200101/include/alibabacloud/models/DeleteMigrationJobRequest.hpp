@@ -75,16 +75,16 @@ namespace Models
 
 
   protected:
-    // The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter is about to be discontinued.
+    // The ID of the Alibaba Cloud account. You do not need to specify this parameter because it will soon be deprecated.
     shared_ptr<string> accountId_ {};
-    // The ID of the data migration instance. You can call the **DescribeMigrationJobs** operation to query the instance ID.
+    // Instance ID of the data migration instance. You can query instance ID by calling the **DescribeMigrationJobs** operation.
     // 
     // This parameter is required.
     shared_ptr<string> migrationJobId_ {};
     shared_ptr<string> ownerId_ {};
-    // The region ID. Specify this parameter to indicate the region where the instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+    // The region ID. Set this parameter to specify the region where the instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
   };
 

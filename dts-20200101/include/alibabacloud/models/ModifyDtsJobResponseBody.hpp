@@ -84,18 +84,18 @@ namespace Models
 
 
   protected:
-    // The DTS task ID.
+    // The ID of the DTS task.
     shared_ptr<string> dtsJobId_ {};
-    // The error code returned if the call failed.
+    // The error code returned when the call fails.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the call failed.
-    // > The data type of this parameter should be String. An example value is **The request processing has failed due to some unknown error**.
+    // The error message returned when the call fails.
+    // > The data type of this parameter should be String, and the actual example value is **The request processing has failed due to some unknown error**.
     shared_ptr<bool> errMessage_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status code.
+    // The HTTP status code.
     shared_ptr<string> status_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

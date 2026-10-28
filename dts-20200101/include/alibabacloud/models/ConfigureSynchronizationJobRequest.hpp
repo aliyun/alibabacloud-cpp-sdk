@@ -159,41 +159,41 @@ namespace Models
 
 
     protected:
-      // 源实例中的同步对象所属数据库名称。
+      // The name of the database to which the synchronization objects in the source instance belong.
       shared_ptr<string> databaseName_ {};
-      // 源库的IP地址。
-      // > 当**SourceEndpoint.InstanceType**取值为**ECS**、**Express**、**dg**或**cen**时，本参数才可用且必须传入。
+      // The IP address of the source database.
+      // > This parameter is available and required only when the **SourceEndpoint.InstanceType** parameter is set to **ECS**, **Express**, **dg**, or **cen**.
       shared_ptr<string> IP_ {};
-      // 源实例ID。
+      // The instance ID of the source instance.
       shared_ptr<string> instanceId_ {};
-      // 源实例类型，取值为：
+      // The type of the source instance. Valid values:
       // 
-      // - **RDS**：阿里云RDS实例。
-      // - **Redis**：阿里云Redis实例。
-      // - **PolarDB**：阿里云PolarDB集群（仅支持MySQL或兼容Oracle语法的引擎）。
-      // - **ECS**：ECS上的自建数据库。
-      // - **Express**：通过专线接入的自建数据库。
-      // - **dg**：通过数据库网关DG接入的自建数据库。
-      // - **cen**：通过云企业网CEN接入的自建数据库。
+      // - **RDS**: ApsaraDB RDS instance.
+      // - **Redis**: Alibaba Cloud Redis instance.
+      // - **PolarDB**: PolarDB cluster (only MySQL or Oracle-compatible engines are supported).
+      // - **ECS**: Self-managed database hosted on Elastic Compute Service (ECS).
+      // - **Express**: Self-managed database connected over Express Connect.
+      // - **dg**: Self-managed database connected over Database Gateway.
+      // - **cen**: Self-managed database connected over Cloud Enterprise Network (CEN).
       // 
-      // > 默认取值为**RDS**。
+      // > Default value: **RDS**.
       shared_ptr<string> instanceType_ {};
-      // 源RDS实例所属的阿里云账号ID。
-      // > 传入本参数即代表执行跨阿里云账号的数据同步，同时您还需要传入**SourceEndpoint.Role**参数。
+      // The Alibaba Cloud account ID to which the source ApsaraDB RDS instance belongs.
+      // > Specifying this parameter indicates that cross-Alibaba Cloud account data synchronization is executed. You must also specify the **SourceEndpoint.Role** parameter.
       shared_ptr<string> ownerID_ {};
-      // 源库数据库账号密码。
-      // > 当**SourceEndpoint.InstanceType**取值为**ECS**、**Express**、**dg**或**cen**时，本参数必须传入。
+      // The password of the database account for the source database.
+      // > This parameter is required only when the **SourceEndpoint.InstanceType** parameter is set to **ECS**, **Express**, **dg**, or **cen**.
       shared_ptr<string> password_ {};
-      // 源库的数据库服务端口。
-      // > 当**SourceEndpoint.InstanceType**取值为**ECS**、**Express**、**dg**或**cen**时，本参数才可用且必须传入。
+      // The service port number of the source database.
+      // > This parameter is available and required only when the **SourceEndpoint.InstanceType** parameter is set to **ECS**, **Express**, **dg**, or **cen**.
       shared_ptr<string> port_ {};
-      // 源实例所属云账号配置的角色名称。
-      // > 执行跨阿里云账号的数据同步时须传入本参数，该角色所需的权限及授权方式请参见[跨阿里云账号数据迁移或同步时如何配置RAM授权](https://help.aliyun.com/document_detail/48468.html)。
+      // The name of the RAM role configured for the Alibaba Cloud account to which the source instance belongs.
+      // > This parameter is required for cross-account data synchronization. For more information about the permissions required for the role and how to grant the permissions, see [Configure RAM authorization for cross-account data migration or synchronization](https://help.aliyun.com/document_detail/48468.html).
       shared_ptr<string> role_ {};
-      // 源库的数据库账号。
-      // > - 当**SourceEndpoint.InstanceType**取值为**ECS**、**Express**、**dg**或**cen**时，本参数才可用且必须传入。
-      // - 当**SourceEndpoint.InstanceType**取值为**Redis**时，本参数无需传入。
-      // - 同步不同的数据库所需的权限有所差异，详情请参见[DTS数据同步方案概览](https://help.aliyun.com/document_detail/140954.html)中对应的配置案例。
+      // The database account of the source database.
+      // > - This parameter is available and required only when the **SourceEndpoint.InstanceType** parameter is set to **ECS**, **Express**, **dg**, or **cen**.
+      // - This parameter is not required when the **SourceEndpoint.InstanceType** parameter is set to **Redis**.
+      // - The permissions required for synchronizing different databases vary. For more information, see the corresponding configuration examples in [Overview of DTS data synchronization solutions](https://help.aliyun.com/document_detail/140954.html).
       shared_ptr<string> userName_ {};
     };
 
@@ -262,21 +262,21 @@ namespace Models
 
 
     protected:
-      // 设置增量日志表是否包含以增量更新时间对应日期信息定义的分区，取值：**true**或**false**。
-      // > 当**DestinationEndpoint.InstanceType**参数取值为**Maxcompute**时，本参数才可用。
+      // Specifies whether the incremental log table contains partitions defined by the day of the incremental update time. Valid values: **true** and **false**.
+      // > This parameter is available only when the **DestinationEndpoint.InstanceType** parameter is set to **MaxCompute**.
       shared_ptr<bool> modifyTimeDay_ {};
-      // 设置增量日志表是否包含以增量更新时间对应小时信息定义的分区，取值：**true**或**false**。
-      // > 当**DestinationEndpoint.InstanceType**参数取值为**Maxcompute**时，本参数才可用。
+      // Specifies whether the incremental log table contains partitions defined by the hour of the incremental update time. Valid values: **true** and **false**.
+      // > This parameter is available only when the **DestinationEndpoint.InstanceType** parameter is set to **MaxCompute**.
       shared_ptr<bool> modifyTimeHour_ {};
-      // 设置增量日志表是否包含以增量更新时间对应分钟信息定义的分区，取值：**true**或**false**。
+      // Specifies whether the incremental log table contains partitions defined by the minute of the incremental update time. Valid values: **true** and **false**.
       // 
-      // > 当**DestinationEndpoint.InstanceType**参数取值为**Maxcompute**时，本参数才可用。
+      // > This parameter is available only when the **DestinationEndpoint.InstanceType** parameter is set to **MaxCompute**.
       shared_ptr<bool> modifyTimeMinute_ {};
-      // 设置增量日志表是否包含以增量更新时间对应月份信息定义的分区，取值：**true**或**false**。
-      // > 当**DestinationEndpoint.InstanceType**参数取值为**Maxcompute**时，本参数才可用。
+      // Specifies whether the incremental log table contains partitions defined by the month of the incremental update time. Valid values: **true** and **false**.
+      // > This parameter is available only when the **DestinationEndpoint.InstanceType** parameter is set to **MaxCompute**.
       shared_ptr<bool> modifyTimeMonth_ {};
-      // 设置增量日志表是否包含以增量更新时间对应年份信息定义的分区，取值：**true**或**false**。
-      // > 当**DestinationEndpoint.InstanceType**参数取值为**Maxcompute**时，本参数才可用。
+      // Specifies whether the incremental log table contains partitions defined by the year of the incremental update time. Valid values: **true** and **false**.
+      // > This parameter is available only when the **DestinationEndpoint.InstanceType** parameter is set to **MaxCompute**.
       shared_ptr<bool> modifyTimeYear_ {};
     };
 
@@ -364,41 +364,41 @@ namespace Models
 
 
     protected:
-      // 目标实例中的同步对象所属数据库名称。
+      // The name of the database to which the synchronization objects in the destination instance belong.
       shared_ptr<string> dataBaseName_ {};
-      // 目标库的IP地址。
-      // > 当**DestinationEndpoint.InstanceType**取值为**Express**、**dg**或**cen**时，本参数必须传入本参数才可用且必须传入。
+      // The IP address of the destination database.
+      // > This parameter is available and required only when the **DestinationEndpoint.InstanceType** parameter is set to **Express**, **dg**, or **cen**.
       shared_ptr<string> IP_ {};
-      // 同步目标实例的实例ID
-      // > 当**DestinationEndpoint.InstanceType**取值为**MaxCompute**或**DataHub**时，本参数传入MaxCompute实例或DataHub的Project名称。
-      // 当目标实例为阿里云分析型数据库MySQL版时，传入分析型数据库MySQL版的集群ID。
+      // The instance ID of the destination instance for synchronization.
+      // > When the **DestinationEndpoint.InstanceType** parameter is set to **MaxCompute** or **DataHub**, set this parameter to the name of the MaxCompute project or DataHub project.
+      // If the destination instance is an Alibaba Cloud AnalyticDB for MySQL database, set this parameter to the cluster ID of the AnalyticDB for MySQL database.
       shared_ptr<string> instanceId_ {};
-      // 目标实例类型，取值为：
+      // The destination instance type. Valid values:
       // 
-      // - **Redis**：阿里云Redis实例。
-      // - **RDS**：阿里云RDS实例。
-      // - **PolarDB**：阿里云PolarDB集群（仅支持MySQL或兼容Oracle语法的引擎）。
-      // - **ECS**：ECS上的自建数据库。
-      // - **Express**：通过专线接入的本地数据库。
-      // - **DataHub**：阿里云DataHub实例。
-      // - **MaxCompute**：阿里云MaxCompute实例。
-      // - **AnalyticDB**：云原生数据仓库AnalyticDB MySQL  3.0和2.0版本。
-      // - **Greenplum**：云原生数据仓库ADB PostgreSQL版（原分析型数据库PostgreSQL版）。
+      // - **Redis**: Alibaba Cloud Redis instance.
+      // - **RDS**: ApsaraDB RDS instance.
+      // - **PolarDB**: PolarDB cluster (only MySQL or Oracle-compatible engines are supported).
+      // - **ECS**: Self-managed database hosted on ECS.
+      // - **Express**: Self-managed database connected over Express Connect.
+      // - **DataHub**: DataHub instance.
+      // - **MaxCompute**: MaxCompute instance.
+      // - **AnalyticDB**: AnalyticDB for MySQL 3.0 and 2.0.
+      // - **Greenplum**: AnalyticDB for PostgreSQL.
       // 
-      // > 默认取值为**RDS**。
+      // > Default value: **RDS**.
       shared_ptr<string> instanceType_ {};
-      // 目标库数据库账号密码。
+      // The password of the database account for the destination database.
       // 
-      // > - 当**DestinationEndpoint.InstanceType**取值为**ECS**、**Express**、**dg**或**cen**时，本参数必须传入。
+      // > - This parameter is required when the **DestinationEndpoint.InstanceType** parameter is set to **ECS**, **Express**, **dg**, or **cen**.
       shared_ptr<string> password_ {};
-      // 目标库的数据库服务端口。
-      // > 当**DestinationEndpoint.InstanceType**取值为**ECS**、**Express**、**dg**或**cen**时，本参数才可用且必须传入。
+      // The service port number of the destination database.
+      // > This parameter is available and required only when the **DestinationEndpoint.InstanceType** parameter is set to **ECS**, **Express**, **dg**, or **cen**.
       shared_ptr<string> port_ {};
-      // 目标库的数据库账号。
-      // > - 同步不同的数据库所需的权限有所差异，详情请参见[DTS数据同步方案概览](https://help.aliyun.com/document_detail/140954.html)中对应的配置案例。
-      // - 当**DestinationEndpoint.InstanceType**取值为**ECS**、**Express**、**dg**或**cen**时，本参数必须传入。
-      // - 当**DestinationEndpoint.InstanceType**取值为RDS且数据库版本为MySQL 5.5或MySQL 5.6，无需传入本参数和**DestinationEndpoint.Password**参数。
-      // - 当**DestinationEndpoint.InstanceType**取值为**Redis**时，无需传入本参数。
+      // The database account of the destination database.
+      // > - The permissions required for synchronizing different databases vary. For more information, see the corresponding configuration examples in [Overview of DTS data synchronization solutions](https://help.aliyun.com/document_detail/140954.html).
+      // - This parameter is required when the **DestinationEndpoint.InstanceType** parameter is set to **ECS**, **Express**, **dg**, or **cen**.
+      // - This parameter and the **DestinationEndpoint.Password** parameter are not required when the **DestinationEndpoint.InstanceType** parameter is set to **RDS** and the database engine version is MySQL 5.5 or MySQL 5.6.
+      // - This parameter is not required when the **DestinationEndpoint.InstanceType** parameter is set to **Redis**.
       shared_ptr<string> userName_ {};
     };
 
@@ -521,50 +521,50 @@ namespace Models
     shared_ptr<ConfigureSynchronizationJobRequest::DestinationEndpoint> destinationEndpoint_ {};
     shared_ptr<ConfigureSynchronizationJobRequest::PartitionKey> partitionKey_ {};
     shared_ptr<ConfigureSynchronizationJobRequest::SourceEndpoint> sourceEndpoint_ {};
-    // The ID of the Alibaba Cloud account. You do not need to specify this parameter because it will be discontinued.
+    // The ID of the Alibaba Cloud account. You do not need to specify this parameter. This parameter will be deprecated soon.
     shared_ptr<string> accountId_ {};
     // The synchronization checkpoint.
     shared_ptr<string> checkpoint_ {};
     // Specifies whether to perform initial full data synchronization. Valid values:
     // 
-    // - **true**: yes.
-    // - **false**: no.
+    // - **true**: Yes.
+    // - **false**: No.
     // 
     // > Default value: **true**.
     // 
     // This parameter is required.
     shared_ptr<bool> dataInitialization_ {};
-    // The reserved parameter of DTS. The value is a JSON string. You can specify this parameter to meet special requirements, such as specifying whether to automatically start the precheck. For more information, see [MigrationReserved parameter description](https://help.aliyun.com/document_detail/176470.html).
-    // > For example, you can use this parameter for data synchronization between ApsaraDB for Redis Enhanced Edition (Tair) instances. For more information, see [Use OpenAPI to configure one-way or bidirectional data synchronization between ApsaraDB for Redis Enhanced Edition instances](https://help.aliyun.com/document_detail/155967.html).
+    // The reserved parameter for DTS. The value is a JSON string. You can specify this parameter to meet specific requirements, such as whether to automatically start a precheck. For more information, see [MigrationReserved parameter description](https://help.aliyun.com/document_detail/176470.html).
+    // > For example, you can use this parameter for data synchronization between Redis Enterprise instances. For more information, see [Call OpenAPI operations to configure one-way or two-way data synchronization between Redis Enterprise instances](https://help.aliyun.com/document_detail/155967.html).
     shared_ptr<string> migrationReserved_ {};
     shared_ptr<string> ownerId_ {};
     // The ID of the region where the data synchronization instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     // Specifies whether to perform initial schema synchronization. Valid values:
-    // - **true**: yes.
-    // - **false**: no.
+    // - **true**: Yes.
+    // - **false**: No.
     // 
     // > Default value: **true**.
     // 
     // This parameter is required.
     shared_ptr<bool> structureInitialization_ {};
     // The synchronization direction. Valid values:
-    // - **Forward**: forward.
-    // - **Reverse**: reverse.
+    // - **Forward**: Forward synchronization.
+    // - **Reverse**: Reverse synchronization.
     // 
     // > - Default value: **Forward**.
-    // - This parameter takes effect only if you set it to **Reverse** and the synchronization topology of the data synchronization instance is two-way synchronization.
+    // - This parameter takes effect only when the synchronization topology of the data synchronization instance is two-way synchronization and the value is set to **Reverse**.
     shared_ptr<string> synchronizationDirection_ {};
     // The ID of the data synchronization instance. You can call the [DescribeSynchronizationJobs](https://help.aliyun.com/document_detail/49454.html) operation to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> synchronizationJobId_ {};
     // The name of the synchronization task.
-    // > Specify a descriptive name that makes it easy to identify the task. It does not need to be unique.
+    // > Specify a descriptive name that is easy to identify. The name does not need to be unique.
     shared_ptr<string> synchronizationJobName_ {};
-    // The objects to be synchronized. The value is a JSON string and supports certain regular expressions. For more information, see [Synchronization object configuration](https://help.aliyun.com/document_detail/141901.html).
+    // The objects to be synchronized. The value is a JSON string and supports specific regular expressions. For more information, see [Configure synchronization objects](https://help.aliyun.com/document_detail/141901.html).
     // 
     // This parameter is required.
     shared_ptr<string> synchronizationObjects_ {};

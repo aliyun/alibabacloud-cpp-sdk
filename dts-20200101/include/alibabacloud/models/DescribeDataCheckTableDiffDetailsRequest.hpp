@@ -96,24 +96,24 @@ namespace Models
   protected:
     // The data validation method. Valid values:
     // 
-    // - **1**: full verification.
-    // - **2**: incremental verification.
+    // - **1**: Full validation.
+    // - **2**: Incremental validation.
     // 
     // This parameter is required.
     shared_ptr<int32_t> checkType_ {};
-    // The name of the database that contains the table with inconsistent data.
+    // The name of the database to which the table with inconsistent data belongs.
     // 
     // This parameter is required.
     shared_ptr<string> dbName_ {};
-    // The ID of the data migration or data synchronization task. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the task ID.
+    // The ID of the migration or synchronization task. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the ID.
     // 
     // This parameter is required.
     shared_ptr<string> dtsJobId_ {};
-    // The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: 1.
+    // The page number. The value must be greater than 0 and less than or equal to the maximum value of the Integer data type. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of records per page.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     // The name of the table that contains inconsistent data.
     // 

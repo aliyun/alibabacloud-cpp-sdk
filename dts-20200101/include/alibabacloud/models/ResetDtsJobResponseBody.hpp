@@ -94,20 +94,20 @@ namespace Models
 
 
   protected:
-    // The dynamic error code. This parameter will be deprecated.
+    // The dynamic error code. This parameter will be deprecated soon.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace the **%s** variable in the **ErrMessage** response parameter.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace **%s** in the error message of the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the specified **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error code returned if the call failed.
+    // The error code returned when an error occurs.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the call failed.
+    // The error message returned when an error occurs.
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

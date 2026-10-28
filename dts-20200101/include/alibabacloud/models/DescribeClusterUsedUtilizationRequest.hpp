@@ -121,26 +121,26 @@ namespace Models
 
 
   protected:
-    // The ID of the Alibaba Cloud account. You do not need to specify this parameter because it will be deprecated.
+    // The ID of the Alibaba Cloud account. You do not need to specify this parameter. This parameter will be deprecated soon.
     shared_ptr<string> accountId_ {};
-    // Ensures the idempotency of the request. Generate a parameter value from your client to make sure that the value is unique among different requests. **ClientToken** supports only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The dedicated cluster ID if **MetricType** is set to **CLUSTER**. Otherwise, set this parameter to the **nodeid**.
+    // The ID of the dedicated cluster. Specify this parameter when **MetricType** is set to **CLUSTER**. Otherwise, specify the node ID.
     // 
     // This parameter is required.
     shared_ptr<string> dedicatedClusterId_ {};
-    // The ID of the data migration or data synchronization task.
+    // The ID of the migration or synchronization task.
     shared_ptr<string> dtsJobId_ {};
     // The environment. Default value: **ALIYUN**.
     shared_ptr<string> env_ {};
-    // Specifies whether to query a cluster or a node. Valid values:
+    // The type of the resource to query. Valid values:
     // - **CLUSTER** (default): cluster.
     // - **NODE**: node.
     shared_ptr<string> metricType_ {};
     shared_ptr<string> ownerID_ {};
     // The region ID of the instance.
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> securityToken_ {};
   };

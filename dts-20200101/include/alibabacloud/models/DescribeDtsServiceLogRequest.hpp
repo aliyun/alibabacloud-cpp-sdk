@@ -130,40 +130,40 @@ namespace Models
 
 
   protected:
-    // The ID of the data migration or synchronization task.
+    // The ID of the migration or synchronization task.
     shared_ptr<string> dtsJobId_ {};
-    // The end time of the log information. You can call [DescribePreCheckStatus](https://help.aliyun.com/document_detail/209718.html) to query the end time.
-    // > - To query the log information of a DTS subtask within a specific time range, call [DescribePreCheckStatus](https://help.aliyun.com/document_detail/209718.html) to query the execution time of the DTS subtask.
-    // - The time is a 13-digit UNIX timestamp in milliseconds. You can use a search engine to find a UNIX timestamp converter.
+    // The end time of the logs. You can call the [DescribePreCheckStatus](https://help.aliyun.com/document_detail/209718.html) operation to query the time.
+    // > - To query the logs of a DTS subtask within a specific time range, call the [DescribePreCheckStatus](https://help.aliyun.com/document_detail/209718.html) operation to obtain the execution time of the DTS subtask.
+    // - Specify the time as a 13-digit UNIX timestamp in milliseconds. You can use a search engine to find a UNIX timestamp converter.
     shared_ptr<int64_t> endTime_ {};
-    // The keyword used to filter query results.
-    // > Fuzzy match is used and the keyword is case-sensitive.
+    // The keyword used to filter the logs.
+    // > Fuzzy matching is supported and the keyword is case-sensitive.
     shared_ptr<string> keyword_ {};
-    // The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: **1**.
+    // The page number. The value must be a positive integer. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of log entries per page. Valid values: **20**, **50**, **100**, **500**, and **1000**. Default value: **20**.
+    // The number of log entries to return on each page. Valid values: **20**, **50**, **100**, **500**, and **1000**. Default value: **20**.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID. Specify this parameter to indicate the region where the instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+    // The ID of the region where the instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The start time of the log information.
+    // The start time of the logs.
     // 
-    // > - To query the log information of a DTS subtask within a specific time range, call [DescribePreCheckStatus](https://help.aliyun.com/document_detail/209718.html) to query the execution time of the DTS subtask.
-    // - The start time is a 13-digit UNIX timestamp in milliseconds. You can use a search engine to find a UNIX timestamp converter.
+    // > - To query the logs of a DTS subtask within a specific time range, call the [DescribePreCheckStatus](https://help.aliyun.com/document_detail/209718.html) operation to obtain the execution time of the DTS subtask.
+    // - Specify the time as a 13-digit UNIX timestamp in milliseconds. You can use a search engine to find a UNIX timestamp converter.
     shared_ptr<int64_t> startTime_ {};
-    // The log level of the log information. Separate multiple values with commas (,). Valid values:
+    // The log level. Separate multiple log levels with commas (,). Valid values:
     // 
     // - **NORMAL**: Normal.
     // - **WARN**: Warning.
     // - **ERROR**: Error.
     shared_ptr<string> status_ {};
-    // The type of the DTS task subnode. Valid values:
+    // The specific sub-node type of the DTS task. Valid values:
     // 
     // 
-    // - **DATA_LOAD**: full data migration or initial full data synchronization.
-    // - **ONLINE_WRITER**: incremental data migration.
-    // - **SYNC_WRITER**: incremental data synchronization.
+    // - **DATA_LOAD**: Full data migration or full data synchronization.
+    // - **ONLINE_WRITER**: Incremental data migration.
+    // - **SYNC_WRITER**: Incremental data synchronization.
     shared_ptr<string> subJobType_ {};
     // Specifies whether the node is a seamless integration (Zero-ETL) node. Valid values:
     // - **true**: Yes.

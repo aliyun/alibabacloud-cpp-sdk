@@ -84,19 +84,19 @@ namespace Models
 
 
   protected:
-    // A legacy parameter. This parameter does not take effect. You do not need to pass this parameter.
+    // A legacy parameter. This parameter does not take effect and does not need to be specified.
     shared_ptr<string> dtsJobId_ {};
-    // The ID of the new resource group. You can obtain the ID from the Resource Management console. For more information, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+    // The ID of the new resource group. You can obtain the ID from the Resource Management console. For more information, see [View the basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
     shared_ptr<string> newResourceGroupId_ {};
-    // The region in which the DTS instance resides.
+    // The region ID of the DTS instance.
     shared_ptr<string> regionId_ {};
-    // A parameter reserved for special business scenarios. You do not need to pass this parameter.
+    // A field reserved for specific business scenarios. You do not need to specify this parameter.
     shared_ptr<string> resourceGroupId_ {};
     // The ID of the DTS instance. You can view the ID in the **ID/Name** column on the task list page in the console.
     // 
     // > This parameter is required.
     shared_ptr<string> resourceId_ {};
-    // A parameter reserved for special business scenarios. You do not need to pass this parameter.
+    // A field reserved for specific business scenarios. You do not need to specify this parameter.
     shared_ptr<bool> zeroEtlJob_ {};
   };
 

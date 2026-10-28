@@ -86,15 +86,15 @@ namespace Models
   protected:
     // The internal error code of the service. This parameter will be deprecated.
     shared_ptr<string> dynamicCode_ {};
-    // The IP addresses of the DTS service.
+    // The IP address of the DTS service.
     shared_ptr<string> dynamicMessage_ {};
-    // The error code returned if the call failed.
+    // The error code returned if the call fails.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the call failed.
+    // The error message returned if the call fails.
     shared_ptr<string> errMessage_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<string> success_ {};
   };
 

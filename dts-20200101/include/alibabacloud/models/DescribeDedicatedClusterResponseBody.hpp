@@ -270,11 +270,11 @@ namespace Models
   protected:
     // The CPU utilization percentage.
     shared_ptr<int64_t> cpuUtilization_ {};
-    // The cluster ID.
+    // The ID of the dedicated cluster.
     shared_ptr<string> dedicatedClusterId_ {};
-    // The cluster name.
+    // The name of the dedicated cluster.
     shared_ptr<string> dedicatedClusterName_ {};
-    // The disk utilization.
+    // The disk usage.
     shared_ptr<int64_t> diskUtilization_ {};
     // The instance ID.
     shared_ptr<string> dtsInstanceID_ {};
@@ -282,52 +282,51 @@ namespace Models
     shared_ptr<int64_t> du_ {};
     // The DU utilization percentage.
     shared_ptr<int64_t> duUtilization_ {};
-    // The error code returned when the call fails.
+    // The error code returned if the call fails.
     shared_ptr<string> errCode_ {};
-    // The error message returned when the call fails.
+    // The error message returned if the call fails.
     shared_ptr<string> errMessage_ {};
     // The creation time.
     shared_ptr<int64_t> gmtCreated_ {};
-    // The end time.
+    // The completion time.
     shared_ptr<int64_t> gmtFinished_ {};
     // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // The memory utilization.
+    // The memory usage.
     shared_ptr<int64_t> memUtilization_ {};
-    // The number of nodes in the cluster.
+    // The number of nodes in the dedicated cluster.
     shared_ptr<int64_t> nodeCount_ {};
     // The number of oversold DUs.
     shared_ptr<int64_t> oversoldDu_ {};
-    // The region in which the instance resides.
+    // The region where the instance is deployed.
     shared_ptr<string> regionId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The cluster status. Valid values:
-    // 
-    // - **init**: initialization.
-    // - **schedule**: pending scheduling.
-    // - **running**: running.
-    // - **upgrade**: upgrading.
-    // - **downgrade**: downgrading.
-    // - **locked**: locked.
-    // - **releasing**: being released.
-    // - **released**: released.
+    // The status of the dedicated cluster. Valid values:
+    // - **init**: initializing
+    // - **schedule**: pending scheduling
+    // - **running**: running
+    // - **upgrade**: upgrading
+    // - **downgrade**: downgrading
+    // - **locked**: locked
+    // - **releasing**: releasing
+    // - **released**: released
     shared_ptr<string> state_ {};
     // Indicates whether the request was successful.
     shared_ptr<string> success_ {};
     // The total number of CPU cores.
     shared_ptr<int64_t> totalCpuCore_ {};
-    // The total disk size, in GB.
+    // The total disk size in GB.
     shared_ptr<int64_t> totalDiskGBSize_ {};
-    // The total memory size, in GB.
+    // The total memory size in GB.
     shared_ptr<int64_t> totalMemGBSize_ {};
     // The number of used CPU cores.
     shared_ptr<int64_t> usedCpuCore_ {};
-    // The used disk size, in GB.
+    // The used disk size in GB.
     shared_ptr<int64_t> usedDiskGBSize_ {};
     // The number of used DUs.
     shared_ptr<int64_t> usedDu_ {};
-    // The used memory size, in GB.
+    // The used memory size in GB.
     shared_ptr<int64_t> usedMemGBSize_ {};
   };
 

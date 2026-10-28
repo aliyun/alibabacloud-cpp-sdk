@@ -217,6 +217,7 @@ namespace Models
 
     protected:
       // The billing method. Valid values:
+      // 
       // - **POSTPAY**: pay-as-you-go.
       // - **PREPAY**: subscription.
       shared_ptr<string> chargeType_ {};
@@ -224,34 +225,38 @@ namespace Models
       shared_ptr<int64_t> checkPoint_ {};
       // The data validation method. Valid values:
       // 
-      // - **1**: full data validation.
-      // - **2**: incremental data validation.
+      // - **1**: Full data validation.
+      // - **2**: Incremental data validation.
       shared_ptr<int32_t> checkType_ {};
       // The number of rows with data inconsistency.
       shared_ptr<int64_t> diffCount_ {};
       // The progress of initial synchronization, in percentage.
       shared_ptr<int64_t> diffSum_ {};
-      // The ID of the data migration, data synchronization, or change tracking instance.
+      // The ID of the data migration, synchronization, or change tracking instance.
       shared_ptr<string> dtsInstanceID_ {};
-      // The ID of the data migration, data synchronization, or change tracking task.
+      // The ID of the data migration, synchronization, or change tracking task.
       shared_ptr<string> dtsJobId_ {};
-      // The number of rows that have been validated in the table.
+      // The number of verified data rows in the table.
       shared_ptr<int64_t> finishCount_ {};
-      // The DTS task ID. > In most cases, you do not need to specify this parameter.
+      // The ID of the DTS task.
+      // > In most cases, you do not need to specify this parameter.
       shared_ptr<string> groupId_ {};
       // The instance specifications.
       shared_ptr<string> instanceClass_ {};
-      // The name of the data validation task.
+      // The name of the verification task.
       shared_ptr<string> jobName_ {};
-      // The task ID.
+      // The ID of the task.
       shared_ptr<string> jobStepId_ {};
       // This parameter will be deprecated.
       shared_ptr<string> parentJobType_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The validation result. Valid values: - **0**: passed. - **1**: failed.
+      // The verification result. Valid values:
+      // 
+      // - **0**: Passed.
+      // - **1**: Failed.
       shared_ptr<int32_t> status_ {};
-      // The total number of rows to be validated.
+      // The total number of verified data rows.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -338,27 +343,27 @@ namespace Models
 
 
   protected:
-    // The information about the data validation tasks.
+    // The information about the verification tasks.
     shared_ptr<vector<DescribeCheckJobsResponseBody::CheckJobs>> checkJobs_ {};
     // The dynamic error code. This parameter will be deprecated.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message used to replace the **%s** variable in the **ErrMessage** parameter. > If **ErrMessage** returns **The value of input parameter %s is not valid** and **DynamicMessage** returns **[1,2,3]**, the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace **%s** in the error message of the **ErrMessage** parameter. > If **ErrMessage** returns **The value of input parameter %s is not valid** and **DynamicMessage** returns **[1,2,3]**, it indicates that the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error code returned if the call failed.
+    // The error code returned if the call fails.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the call failed.
+    // The error message returned if the call fails.
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The maximum number of records that can be displayed on the current page.
+    // The maximum number of entries that can be displayed on the current page.
     shared_ptr<int64_t> pageRecordCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
-    // The total number of records.
+    // The total number of entries.
     shared_ptr<int64_t> totalRecordCount_ {};
   };
 

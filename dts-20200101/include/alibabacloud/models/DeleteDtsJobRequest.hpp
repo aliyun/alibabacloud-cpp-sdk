@@ -94,28 +94,28 @@ namespace Models
 
 
   protected:
-    // The instance ID of the data migration, synchronization, or subscribe instance.
+    // The data migration, data synchronization, or subscribe instance ID.
     shared_ptr<string> dtsInstanceId_ {};
-    // The ID of the data migration, synchronization, or change tracking task.
+    // The ID of the data migration, data synchronization, or change tracking task.
     shared_ptr<string> dtsJobId_ {};
-    // The node type of the DTS instance. Valid values:
+    // The task type of the DTS instance. Valid values:
     // 
     // - **MIGRATION**: data migration.
     // - **SYNC**: data synchronization.
     // - **SUBSCRIBE**: change tracking.
     shared_ptr<string> jobType_ {};
-    // The ID of the region where the data migration or synchronization instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+    // The region ID of the data migration or data synchronization instance. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
-    // A special business-specific field. You do not need to pass this parameter.
+    // The field reserved for special business scenarios. You do not need to specify this parameter.
     shared_ptr<string> resourceGroupId_ {};
     // The synchronization direction. Valid values:
-    // - **Forward**: forward.
-    // - **Reverse**: reverse.
+    // - **Forward**: forward synchronization.
+    // - **Reverse**: reverse synchronization.
     // 
     // > - Default value: **Forward**.
-    // - You can set this parameter to **Reverse** to release the reverse synchronization link only if the topology of the data synchronization instance is two-way synchronization.
+    // - You can set this parameter to **Reverse** to release the reverse synchronization link only when the synchronization topology of the data synchronization instance is two-way.
     shared_ptr<string> synchronizationDirection_ {};
-    // A special business-specific field. You do not need to pass this parameter.
+    // The field reserved for special business scenarios. You do not need to specify this parameter.
     shared_ptr<bool> zeroEtlJob_ {};
   };
 

@@ -123,24 +123,24 @@ namespace Models
   protected:
     // The ID of the Alibaba Cloud account.
     shared_ptr<string> accountId_ {};
-    // Ensures the idempotency of the request. Generate a parameter value from your client to ensure that the value is unique across different requests. **ClientToken** supports only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. You can generate the value from your client. Make sure that the value is unique across different requests. The **ClientToken** parameter supports only ASCII characters and can be up to 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The ID of the DTS dedicated cluster.
+    // The ID of the dedicated DTS cluster.
     // 
     // This parameter is required.
     shared_ptr<string> dedicatedClusterId_ {};
-    // The ID of the data migration or data synchronization task.
+    // The ID of the data migration or synchronization task.
     shared_ptr<string> dtsJobId_ {};
-    // The end timestamp. Unit: milliseconds (ms).
+    // The end timestamp. Unit: milliseconds.
     shared_ptr<int64_t> endTime_ {};
     shared_ptr<string> ownerID_ {};
-    // The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: **1**.
+    // The page number. The value must be greater than 0 and cannot exceed the maximum value of the Integer data type. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of log entries per page. Default value: **20**.
+    // The number of entries to return on each page. Default value: **20**.
     shared_ptr<int32_t> pageSize_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The start timestamp. If this parameter is not specified, data from the last seven days is returned by default. Unit: milliseconds (ms).
+    // The start timestamp. If you do not specify this parameter, the logs generated within the last seven days are returned by default. Unit: milliseconds.
     shared_ptr<int64_t> startTime_ {};
   };
 

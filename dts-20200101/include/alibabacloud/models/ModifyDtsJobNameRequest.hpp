@@ -80,17 +80,17 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> dtsJobId_ {};
     // The new name of the task.
-    // > Configure a descriptive name that has business meaning (uniqueness is not required) for easy identification.
+    // > Specify a meaningful name for your business to facilitate identification. The name does not need to be unique.
     // 
     // This parameter is required.
     shared_ptr<string> dtsJobName_ {};
     // The region ID of the task. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // Specifies whether the node is a seamless integration (zero-ETL) node. Valid values:
-    // - **true**: The node is a seamless integration (zero-ETL) node.
-    // - **false**: The node is not a seamless integration (zero-ETL) node.
+    // Specifies whether the node is a seamless integration (Zero-ETL) node. Valid values:
+    // - **true**: Yes.
+    // - **false**: No.
     shared_ptr<bool> zeroEtlJob_ {};
   };
 

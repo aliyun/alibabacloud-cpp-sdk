@@ -86,7 +86,7 @@ namespace Models
 
 
     protected:
-      // The text content of the corresponding page, which is the complete Markdown text after parsing.
+      // The text content of the corresponding page, which is the complete parsed Markdown text.
       shared_ptr<string> content_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
@@ -169,20 +169,20 @@ namespace Models
 
   protected:
     // The complete text parsing content.
-    // > If the task type is content, ContentList splits the original document by page. Each page has a separate Markdown text entry.
+    // > For a content task, ContentList splits the original document by page. Each page has a separate Markdown text block.
     shared_ptr<vector<DescribeDocParserJobResultResponseBody::ContentList>> contentList_ {};
-    // The dynamic error code. This parameter will be deprecated.
+    // The dynamic error code. This parameter will be deprecated soon.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message used to replace the **%s** variable in the **ErrMessage** response parameter.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+    // The dynamic error message. It is used to replace the **%s** placeholder in the **ErrMessage** error message.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the specified **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error code returned when the call fails.
+    // The error code returned when an error occurs.
     shared_ptr<string> errCode_ {};
-    // The error message returned when the call fails.
+    // The error message returned when an error occurs.
     shared_ptr<string> errMessage_ {};
     // The OSS download URL of the file.
     // 
-    // > If the task type is zip, this field returns the download URL of the zip package. The URL is valid for 30 minutes.
+    // > For a ZIP task, this field returns the download URL of the ZIP package. The URL is valid for 30 minutes.
     shared_ptr<string> fileUrl_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
@@ -190,7 +190,7 @@ namespace Models
     shared_ptr<string> outerFileUrl_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 
