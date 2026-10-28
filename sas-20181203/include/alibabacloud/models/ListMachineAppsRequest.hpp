@@ -103,9 +103,9 @@ namespace Models
 
 
   protected:
-    // The SAE application ID.
+    // The ID of the SAE application.
     shared_ptr<string> appId_ {};
-    // The SAE application name.
+    // The name of the SAE application.
     shared_ptr<string> appName_ {};
     // The region ID.
     shared_ptr<string> appRegionId_ {};
@@ -114,15 +114,15 @@ namespace Models
     // - **5**: Premium Edition
     // - **3**: Enterprise Edition
     // - **7**: Ultimate Edition
-    // - **10**: value-added service Edition.
+    // - **10**: Value-added Service Edition
     shared_ptr<string> authVersion_ {};
-    // The page number of the current page in a paging query.
+    // The page number of the current page returned during paging in a paged query.
     shared_ptr<int32_t> currentPage_ {};
     // The language of the request and response. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The maximum number of entries per page in a paging query.
+    // The maximum number of entries to return per page during paging in a paged query.
     shared_ptr<int32_t> pageSize_ {};
     // The UID of the resource directory.
     shared_ptr<int64_t> resourceDirectoryUid_ {};

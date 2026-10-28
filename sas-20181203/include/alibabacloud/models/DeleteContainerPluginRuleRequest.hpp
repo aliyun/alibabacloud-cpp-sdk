@@ -48,12 +48,12 @@ namespace Models
 
 
   protected:
-    // The language type of the request and response. Default value: **zh**. Valid values:
+    // The language of the request and response. Default value: **zh**. Valid values:
     // 
     // - **zh**: Chinese
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The rule ID. You can call the addContainerWebDefenseRule operation to obtain the rule ID.
+    // The ID of the rule. You can call the addContainerWebDefenseRule operation to obtain the rule ID.
     // 
     // This parameter is required.
     shared_ptr<int32_t> ruleId_ {};

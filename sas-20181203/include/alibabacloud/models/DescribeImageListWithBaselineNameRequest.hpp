@@ -194,33 +194,33 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> baselineNameKey_ {};
     // The ID of the container cluster to query.
-    // > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain this parameter.
+    // > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain the value of this parameter.
     shared_ptr<string> clusterId_ {};
-    // The cluster name.
+    // The name of the cluster.
     shared_ptr<string> clusterName_ {};
-    // The container ID.
+    // The ID of the container.
     shared_ptr<string> containerId_ {};
     // The query condition for the baseline.
     shared_ptr<string> criteria_ {};
     // The query type for the baseline. Valid values:
     // 
     // - **BaselineNameAlias**: baseline name
-    // - **BaselineClassAlias**: baseline category.
+    // - **BaselineClassAlias**: baseline classification
     shared_ptr<string> criteriaType_ {};
-    // The page number of the page to return. Default value: **1**, which indicates that the first page is returned.
+    // The page number of the page to return. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
-    // The container image name.
+    // The name of the container image.
     shared_ptr<string> image_ {};
-    // The SHA256 value of the image digest.
+    // The SHA-256 value of the image digest.
     shared_ptr<string> imageDigest_ {};
-    // The language type for the request and response messages. Default value: **zh**. Valid values:
+    // The language of the request and response. Default value: **zh**. Valid values:
     // 
     // - **zh**: Chinese
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
     // The namespace.
     shared_ptr<string> namespace_ {};
-    // Settings for paged query paging. The number of image baseline check result details to display per page. Default value: **10**, which indicates that 10 image baseline check result details are displayed per page.
+    // The Settings for the number of image baseline check result details to return on each page in a paged query. Default value: **10**, which indicates that 10 image baseline check result details are displayed on each page during paging.
     shared_ptr<int32_t> pageSize_ {};
     // The pod.
     shared_ptr<string> pod_ {};

@@ -181,12 +181,12 @@ namespace Models
   protected:
     // The cluster ID of the server for which you want to query exception events.
     shared_ptr<string> clusterId_ {};
-    // The page number of the page to return. Minimum value: **1**. Default value: **1**, which indicates that the first page is returned.
+    // The number of the page to return. Pages start from page **1**. Default value: **1**.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // The name of the malicious file that you want to query.
-    // > Fuzzy match is supported.
+    // The name of the malicious file to query.
+    // > Fuzzy search is supported.
     shared_ptr<string> fuzzyMaliciousName_ {};
     // The image digest.
     shared_ptr<string> imageDigest_ {};
@@ -196,30 +196,30 @@ namespace Models
     shared_ptr<string> imageTag_ {};
     // The language of the request and response. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The severity levels of the malicious samples in container images that you want to query. Separate multiple values with commas (,). Valid values:
-    // - **serious**: urgent
-    // - **suspicious**: suspicious
-    // - **remind**: reminder.
+    // The severity levels of the malicious image samples to query. You can specify multiple values separated by commas (,). Valid values:
+    // - **serious**: Urgent
+    // - **suspicious**: Suspicious
+    // - **remind**: Reminder
     shared_ptr<string> levels_ {};
-    // The MD5 hash of the malicious file.
+    // The MD5 hash value of the malicious file.
     shared_ptr<string> maliciousMd5_ {};
-    // The maximum number of entries per page in a paging query. Default value: **20**.
+    // The maximum number of entries to return on each page in a paging query. Default value: **20**.
     // 
     // This parameter is required.
     shared_ptr<string> pageSize_ {};
     // The ID of the image repository.
-    // > Call the [ListRepository](https://help.aliyun.com/document_detail/145293.html) operation of Container Registry to obtain the value of the **RepoId** response parameter.
+    // > You can call the [ListRepository](https://help.aliyun.com/document_detail/145293.html) operation of Container Registry to obtain the repository ID from the **RepoId** response parameter.
     shared_ptr<string> repoId_ {};
     // The instance ID of the container image.
-    // > Call the [ListRepository](https://help.aliyun.com/document_detail/145293.html) operation of Container Registry to obtain the value of the **InstanceId** response parameter.
+    // > You can call the [ListRepository](https://help.aliyun.com/document_detail/145293.html) operation of Container Registry to obtain the instance ID from the **InstanceId** response parameter.
     shared_ptr<string> repoInstanceId_ {};
     // The name of the image repository.
-    // > Fuzzy match is supported.
+    // > Fuzzy search is supported.
     shared_ptr<string> repoName_ {};
     // The namespace of the image repository.
-    // > Fuzzy match is supported.
+    // > Fuzzy search is supported.
     shared_ptr<string> repoNamespace_ {};
     // The region ID of the image repository. Valid values:
     // - **cn-beijing**: China (Beijing)
@@ -233,9 +233,9 @@ namespace Models
     // - **us-east-1**: US (Virginia)
     // - **us-west-1**: US (Silicon Valley)
     // - **eu-central-1**: Germany (Frankfurt)
-    // - **eu-west-1**: UK (London).
+    // - **eu-west-1**: UK (London)
     shared_ptr<string> repoRegionId_ {};
-    // The collection of scan ranges.
+    // The scan ranges.
     shared_ptr<vector<string>> scanRange_ {};
   };
 

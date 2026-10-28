@@ -60,7 +60,7 @@ namespace Models
     // The language of the request and response. Default value: **zh**. Valid values:
     // 
     // - **zh**: Chinese
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The source IP address of the request.

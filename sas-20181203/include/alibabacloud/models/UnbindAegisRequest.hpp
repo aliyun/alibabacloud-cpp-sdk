@@ -39,7 +39,7 @@ namespace Models
 
   protected:
     // The UUIDs of the non-Alibaba Cloud servers that you want to unbind. Separate multiple UUIDs with commas (,).
-    // > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain this parameter.
+    // > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs.
     // 
     // This parameter is required.
     shared_ptr<string> uuids_ {};

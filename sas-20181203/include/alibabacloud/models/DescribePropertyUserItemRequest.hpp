@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The page number of the current page to display in a paged query.
+    // The page number of the current page returned for a paging query.
     shared_ptr<int32_t> currentPage_ {};
-    // Specifies whether to forcefully refresh the data to be queried. Valid values:
-    // - **true**: Forcefully refresh.
-    // - **false**: Do not forcefully refresh.
+    // Specifies whether to forcibly refresh the data to be queried. Valid values:
+    // - **true**: Forces a refresh.
+    // - **false**: Does not force a refresh.
     shared_ptr<bool> forceFlush_ {};
-    // The maximum number of entries to display on each page in a paged query.
+    // The maximum number of entries returned per page for a paging query.
     shared_ptr<int32_t> pageSize_ {};
     // The account information of Asset Fingerprints.
     shared_ptr<string> user_ {};

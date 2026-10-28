@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The service modules that you want to query.
+    // The list of product modules to query.
     // 
     // This parameter is required.
     shared_ptr<string> moduleNamesShrink_ {};

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The name of the function module.
+    // The name of the feature module.
     shared_ptr<string> functionName_ {};
   };
 

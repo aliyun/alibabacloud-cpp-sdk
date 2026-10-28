@@ -68,11 +68,9 @@ namespace Models
 
 
     protected:
-      // The ID of the alert.
-      // 
-      // >  You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to query the alert IDs.
+      // The alert ID. You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to query this parameter.
       shared_ptr<int64_t> eventId_ {};
-      // The description.
+      // The note.
       shared_ptr<string> note_ {};
     };
 
@@ -87,7 +85,7 @@ namespace Models
 
 
   protected:
-    // The batches.
+    // The batch list.
     shared_ptr<vector<BatchCreateMaliciousNoteRequest::ImageMaliciousFileList>> imageMaliciousFileList_ {};
   };
 

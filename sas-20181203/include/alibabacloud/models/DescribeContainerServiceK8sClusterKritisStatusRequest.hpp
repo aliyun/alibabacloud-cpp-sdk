@@ -60,7 +60,7 @@ namespace Models
     // The cluster ID.
     shared_ptr<string> clusterId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The source IP address of the request.
+    // The source IP address.
     shared_ptr<string> sourceIp_ {};
   };
 

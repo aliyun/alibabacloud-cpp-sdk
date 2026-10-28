@@ -111,15 +111,15 @@ namespace Models
     shared_ptr<string> clusterId_ {};
     // The container image information.
     shared_ptr<string> image_ {};
-    // The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The webhook certificate in Base64 encoding.
     shared_ptr<string> tlsCertBase64_ {};
     // The webhook private key in Base64 encoding.
     shared_ptr<string> tlsKeyBase64_ {};
     // Indicates whether incremental scanning is enabled. Valid values:
-    // - **0**: Disabled.
-    // - **1**: Enabled.
+    // - **0**: disabled.
+    // - **1**: enabled.
     shared_ptr<int32_t> webhookOpen_ {};
   };
 

@@ -97,33 +97,33 @@ namespace Models
 
 
     protected:
-      // Subtype of the cloud product asset.
+      // The subtype of the cloud service asset.
       // 
-      // > You can call [ListCloudAssetInstances](~~ListCloudAssetInstances~~) to query the subtype of the cloud product asset.
+      // > You can call the [ListCloudAssetInstances](~~ListCloudAssetInstances~~) operation to query the subtype of the cloud service asset.
       // 
       // This parameter is required.
       shared_ptr<int32_t> assetSubType_ {};
-      // Type of the cloud product asset.
+      // The type of the cloud service asset.
       // 
-      // > You can call [ListCloudAssetInstances](~~ListCloudAssetInstances~~) to query the type of the cloud product asset.
+      // > You can call the [ListCloudAssetInstances](~~ListCloudAssetInstances~~) operation to query the type of the cloud service asset.
       // 
       // This parameter is required.
       shared_ptr<int32_t> assetType_ {};
-      // Cloud product asset instance ID.
+      // The instance ID of the cloud service asset.
       // 
-      // > You can call [ListCloudAssetInstances](~~ListCloudAssetInstances~~) to query the cloud product asset instance ID.
+      // > You can call the [ListCloudAssetInstances](~~ListCloudAssetInstances~~) operation to query the instance ID of the cloud service asset.
       // 
       // This parameter is required.
       shared_ptr<string> instanceId_ {};
-      // Region ID of the cloud product asset instance.
+      // The region ID of the cloud service asset instance.
       // 
-      // > You can call [ListCloudAssetInstances](~~ListCloudAssetInstances~~) to query the region ID of the cloud product asset instance.
+      // > You can call the [ListCloudAssetInstances](~~ListCloudAssetInstances~~) operation to query the region ID of the cloud service asset instance.
       // 
       // This parameter is required.
       shared_ptr<string> regionId_ {};
-      // Cloud product asset vendor.
+      // The vendor of the cloud service asset.
       // 
-      // > You can call [ListCloudAssetInstances](~~ListCloudAssetInstances~~) to query the cloud product asset vendor.
+      // > You can call the [ListCloudAssetInstances](~~ListCloudAssetInstances~~) operation to query the vendor of the cloud service asset.
       // 
       // This parameter is required.
       shared_ptr<int32_t> vendor_ {};
@@ -148,12 +148,12 @@ namespace Models
 
 
   protected:
-    // List of cloud product assets.
+    // The list of cloud service assets.
     // 
     // This parameter is required.
     shared_ptr<vector<CreateAttackPathSensitiveAssetConfigRequest::AttackPathAssetList>> attackPathAssetList_ {};
-    // Configuration type. Possible values:
-    // - asset_instance: Asset.
+    // The configuration type. Valid values:
+    // - asset_instance: asset.
     // 
     // This parameter is required.
     shared_ptr<string> configType_ {};

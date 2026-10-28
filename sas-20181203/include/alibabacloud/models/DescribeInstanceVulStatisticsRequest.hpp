@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The vulnerability type of the Serverless asset. Valid values:
+    // The vulnerability types for serverless assets. Valid values:
     // 
-    // - **sca**: middleware vulnerability
+    // - **sca**: middleware vulnerabilities
     // 
-    // - **app**: scanner vulnerability
+    // - **app**: scanner vulnerabilities
     // 
     // >Serverless assets currently support only application vulnerability scanning.
     shared_ptr<string> types_ {};

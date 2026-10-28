@@ -121,30 +121,26 @@ namespace Models
 
 
     protected:
-      // The rule conditions. The value is in the JSON format. Valid values of keys:
-      // 
-      // *   **condition**: the matching condition.
-      // *   **type**: the matching type.
-      // *   **value**: the matching value.
+      // The rule conditions. The value is in JSON format. Valid keys:
+      // - **condition**: The matching condition.
+      // - **type**: The matching type.
+      // - **value**: The matching value.
       shared_ptr<string> conditions_ {};
-      // The keyword of the alert item.
+      // The alert metric keyword.
       shared_ptr<string> eventKey_ {};
-      // The name of the alert item.
+      // The alert metric name.
       shared_ptr<string> eventName_ {};
-      // The alert type.
-      // 
-      // *   Only **sensitiveFile** may be returned.
+      // The Alarm Metric for alerting. Valid values:
+      // - **sensitiveFile**: Sensitive file.
       shared_ptr<string> eventType_ {};
       // The primary key of the alert handling rule.
       shared_ptr<int64_t> id_ {};
-      // The operation code.
-      // 
-      // *   Only **whitelist** may be returned, which indicates that the alert item is added to the whitelist.
+      // The operation code. Valid values:
+      // - **whitelist**: Whitelist.
       shared_ptr<string> operationCode_ {};
-      // The application scope of the rule. The value is in the JSON format. Valid values of keys:
-      // 
-      // *   **type**
-      // *   **value**
+      // The rule scope. The value is in JSON format. Valid keys:
+      // - **type**: The scope type.
+      // - **value**: The scope value.
       shared_ptr<string> scenarios_ {};
     };
 
@@ -188,18 +184,18 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The status code returned.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<AddImageEventOperationResponseBody::Data> data_ {};
-    // The returned message.
+    // The message returned.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the API call is successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The API call succeeded.
+    // - **false**: The API call failed.
     shared_ptr<bool> success_ {};
   };
 

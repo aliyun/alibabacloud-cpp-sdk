@@ -125,16 +125,16 @@ namespace Models
       // The ID of the task.
       shared_ptr<string> leafTaskId_ {};
       // The status of the task. Valid values:
-      // - **INIT**: Pending.
-      // - **START**: Started.
-      // - **MESSAGE_SEND**: Command issued.
-      // - **SUCCESS**: Completed.
-      // - **FAIL**: Failed.
-      // - **TIMEOUT**: Timed out.
+      // - **INIT**: pending
+      // - **START**: started
+      // - **MESSAGE_SEND**: command issued
+      // - **SUCCESS**: completed
+      // - **FAIL**: failed
+      // - **TIMEOUT**: timed out
       shared_ptr<string> leafTaskStatus_ {};
       // The description of the task.
       shared_ptr<string> taskMsg_ {};
-      // The timestamp when the task was reported.
+      // The timestamp of the report time.
       shared_ptr<int64_t> taskReportTime_ {};
       // The number of unprotected assets.
       shared_ptr<int32_t> unprotectedAssetCount_ {};
@@ -196,11 +196,11 @@ namespace Models
 
 
     protected:
-      // The number of IDC scan task details returned on the current page.
+      // The number of IDC scan task details displayed on the current page.
       shared_ptr<int32_t> count_ {};
-      // The page number of the current page during paging in a paged query.
+      // The page number of the current page in a paged query during paging.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of IDC scan node details returned on each page during paging in a paged query. Default value: 20, which indicates that 20 IDC scan node details are returned per page.
+      // The number of IDC scan node details displayed on each page in a paged query. Default value: 20. This indicates that 20 IDC scan node details are displayed on each page during paging.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of IDC scan task details returned.
       shared_ptr<int32_t> totalCount_ {};

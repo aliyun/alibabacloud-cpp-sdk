@@ -75,18 +75,17 @@ namespace Models
 
 
   protected:
-    // The response code. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+    // The result code. A value of **200** indicates success, whereas other values indicate failure. You can use this field to determine the cause of the failure.
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message returned.
+    // The message returned in the response.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Indicates whether the API call was successful. Valid values:
+    // - **true**: Successful.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

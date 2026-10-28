@@ -57,17 +57,17 @@ namespace Models
 
 
   protected:
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // The language of the request and response. Default value: **zh**. Valid values:
     // 
-    // *   **zh**: Chinese.
-    // *   **en**: English.
+    // - **zh**: Chinese
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The source IP address of the request.
+    // The source IP address.
     shared_ptr<string> sourceIp_ {};
-    // The type of the asset. Valid values:
+    // The Asset Type to query. Valid values:
     // 
-    // *   **ecs**: Elastic Compute Service (ECS) instances.
-    // *   **cloud_product**: cloud services except ECS.
+    // - **ecs**: queries the filter conditions for all ECS servers.
+    // - **cloud_product**: queries the filter conditions for all other cloud services.
     shared_ptr<string> type_ {};
   };
 

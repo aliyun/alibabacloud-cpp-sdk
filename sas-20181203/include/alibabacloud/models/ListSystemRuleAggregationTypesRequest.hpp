@@ -40,7 +40,7 @@ namespace Models
   protected:
     // The language of the request and response. Default value: zh. Valid values:
     // - **zh**: Chinese
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
   };
 

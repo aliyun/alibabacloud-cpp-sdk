@@ -94,24 +94,24 @@ namespace Models
 
 
   protected:
-    // The page number of the current page in a paging query. Minimum value: 1. Default value: 1.
+    // The page number of the current page returned for a paging query. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> currentPage_ {};
     // The language of the request and response. Valid values:
     // - **zh**: Chinese
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The maximum number of entries per page in a paging query. Default value: 20.
+    // The maximum number of entries to return on each page for a paging query. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // The fuzzy match field for the server. The value can be a server name or IP address.
+    // The fuzzy match keyword for the server, which can be the server name or IP address.
     shared_ptr<string> remark_ {};
-    // The IP address of the access source.
+    // The source IP address.
     shared_ptr<string> sourceIp_ {};
-    // The protection status of the servers that you want to query. Valid values:
+    // The protection status of the servers to query. Valid values:
     // - **on**: Protection is enabled.
     // - **off**: Protection is disabled.
     shared_ptr<string> status_ {};
-    // The UUID of the asset that you want to query.
-    // > Call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain this parameter.
+    // The UUID of the asset to query.
+    // > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain this parameter.
     shared_ptr<string> uuid_ {};
   };
 

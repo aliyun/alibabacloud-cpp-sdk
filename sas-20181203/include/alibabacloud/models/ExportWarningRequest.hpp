@@ -176,27 +176,27 @@ namespace Models
 
 
   protected:
-    // Specifies whether the baseline issues are handled. Valid values:
+    // Specifies whether the baseline issue is handled. Valid values:
     // 
-    // - **Y**: handled
-    // - **N**: unhandled
+    // - **Y**: The issue is handled.
+    // - **N**: The issue is not handled.
     shared_ptr<string> dealed_ {};
-    // The type of the export task. Set the value to **hc_check_warning**, which indicates that baseline check results are exported.
+    // The type of the export task. Set the value to **hc_check_warning**, which indicates exporting baseline check results.
     shared_ptr<string> exportType_ {};
     // The ID of the server group.
     // > You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to obtain the ID of the server group.
     shared_ptr<int64_t> groupId_ {};
-    // The export method for weak password baseline check results. Valid values:
+    // Specifies the export method for weak password baseline check results. Valid values:
     // 
-    // - **0**: Export weak passwords after masking.
-    // - **1**: Export weak passwords in plaintext.
+    // - **0**: Weak passwords are masked before export.
+    // - **1**: Weak passwords are exported in plaintext.
     shared_ptr<int32_t> isCleartextPwd_ {};
-    // Specifies whether to export a summary of the baseline check results. Valid values:
+    // Specifies whether to export the baseline check results in summary mode. Valid values:
     // 
-    // - **0**: no
-    // - **1**: yes
+    // - **0**: The results are not exported in summary mode.
+    // - **1**: The results are exported in summary mode.
     shared_ptr<int32_t> isSummaryExport_ {};
-    // Specifies the language of the request and response. Default value: **zh**. Valid values:
+    // Specifies the language type for the request and response messages. Default value: **zh**. Valid values:
     // 
     // - **zh**: Chinese
     // - **en**: English
@@ -205,9 +205,9 @@ namespace Models
     shared_ptr<string> riskIds_ {};
     // The risk levels of the baselines. Separate multiple risk levels with commas (,). Valid values:
     // 
-    // - **high**: high-risk
-    // - **medium**: medium-risk
-    // - **low**: low-risk
+    // - **high**: High
+    // - **medium**: Medium
+    // - **low**: Low
     shared_ptr<string> riskLevels_ {};
     // The name of the baseline.
     shared_ptr<string> riskName_ {};
@@ -215,8 +215,8 @@ namespace Models
     shared_ptr<string> sourceIp_ {};
     // The statuses of the risk items in the baseline check results. Separate multiple status values with commas (,). Valid values:
     // 
-    // - **3**: passed
-    // - **1**: failed
+    // - **3**: Passed
+    // - **1**: Failed
     shared_ptr<string> statusList_ {};
     // The ID of the baseline check policy.
     shared_ptr<int64_t> strategyId_ {};
@@ -231,7 +231,7 @@ namespace Models
     // 
     // > The value is the **TypeName** field returned by the [DescribeRiskType](~~DescribeRiskType~~) operation. If both **TypeName** and **TypeNames** are specified, only **TypeName** takes effect.
     shared_ptr<string> typeNames_ {};
-    // The UUIDs of the servers for which you want to export the baseline check results. Separate multiple UUIDs with commas (,).
+    // The UUIDs of the server assets for which you want to export the baseline check results. Separate multiple UUIDs with commas (,).
     shared_ptr<string> uuids_ {};
   };
 

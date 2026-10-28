@@ -66,19 +66,19 @@ namespace Models
 
 
   protected:
-    // The source of the request. Set the value to **honeypot**.
+    // Specifies the source of the request. Set the value to **honeypot**.
     // 
     // This parameter is required.
     shared_ptr<string> from_ {};
-    // The language of the request and response. Default value: **zh**. Valid values:
+    // Specifies the language of the request and response. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The time range of the data to query. Unit: days.
+    // Specifies the time range of the data to query. Unit: days.
     // 
     // This parameter is required.
     shared_ptr<int32_t> statisticsDays_ {};
-    // The Asset Type to query. Valid values:
+    // Specifies the asset type to query. Valid values:
     // - **vpcInstanceId**: VPC-connected instance
     // - **uuid**: server
     // 

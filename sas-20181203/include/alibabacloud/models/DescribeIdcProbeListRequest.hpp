@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // The page number of the page to return. Default value: 1, which indicates that the first page is returned.
+    // Specifies the page number of the page to return. Default value: 1.
     shared_ptr<int32_t> currentPage_ {};
     // The name of the IDC.
     shared_ptr<string> idcName_ {};
-    // The maximum number of entries per page when paging. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
-    // > Do not leave PageSize empty.
+    // Specifies the maximum number of entries to return on each page for a paging query. The default number of entries per page is 20. If the PageSize parameter is left empty, 20 entries are returned by default.
+    // > Specify a value for the PageSize parameter.
     shared_ptr<int32_t> pageSize_ {};
-    // The usage status of the probe. Valid values:
+    // The status of the probe. Valid values:
     // 
-    // - **0**: enabled
-    // - **1**: disabled.
+    // - **0**: Enabled.
+    // - **1**: Disabled.
     shared_ptr<int32_t> status_ {};
   };
 

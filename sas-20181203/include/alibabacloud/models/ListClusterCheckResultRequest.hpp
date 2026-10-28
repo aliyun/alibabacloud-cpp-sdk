@@ -108,33 +108,30 @@ namespace Models
 
 
   protected:
-    // Fuzzy search key for check items.
+    // The keyword for fuzzy search of check items.
     shared_ptr<string> checkKey_ {};
-    // Cluster ID.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // Page number for the current page in a paginated query. The default value is **1**.
+    // Specifies the page number of the current page during paging in a paged query. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
-    // Language type for requests and responses. The default value is **zh**. Values:
-    // 
-    // - **zh**: Chinese
-    // 
-    // - **en**: English
+    // The language of the request and response. Default value: **zh**. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
     // 
     // This parameter is required.
     shared_ptr<string> lang_ {};
-    // Number of records to display per page when performing a paginated query. The default value is **20**, indicating 20 records per page.
+    // The Settings for paging in a paged query. Specifies the number of records to display on each page. Default value: **20**, which indicates that 20 records are displayed on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // List of risk levels.
+    // The list of risk levels.
     shared_ptr<vector<string>> riskLevels_ {};
-    // Custom sorting type. Values:
+    // The custom sort type. Valid values:
     // 
     // - **RISK_LEVEL**: Risk level.
-    // 
     // - **STATUS**: Check item status.
     shared_ptr<string> sortType_ {};
-    // List of check item statuses.
+    // The list of check item statuses.
     shared_ptr<vector<string>> statuses_ {};
   };
 

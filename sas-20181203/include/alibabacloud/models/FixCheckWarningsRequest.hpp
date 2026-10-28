@@ -94,14 +94,14 @@ namespace Models
 
 
   protected:
-    // The parameters of the baseline check items to fix. The following parameters are included:
+    // The parameters of the baseline check items to be fixed. Parameter description:
     // - **checkId**: The ID of the check item.
-    // - **rules**: The fix rules (in array format).
-    //     - **value**: Specifies whether the fix method is selected. Valid values: **0** (not selected), **1** (selected).
+    // - **rules**: The fix rules. This parameter is an array.
+    //     - **value**: Specifies whether the fix method is selected. Valid values: **0** (not selected) and **1** (selected).
     //     - **ruleId**: The ID of the fix method.
-    //     - **paramList**: The list of fix methods (in array format).  
+    //     - **paramList**: The list of fix methods. This parameter is an array.  
     //                 • **paramName**: The name of the fix method.  
-    //                 • **value**: The value of the fix method.
+    //                 • **value**: The specific value of the fix method.
     // 
     // This parameter is required.
     shared_ptr<string> checkParams_ {};
@@ -109,17 +109,17 @@ namespace Models
     // - **zh**: Chinese.
     // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The retention period of the snapshot to create when performing the baseline fix operation. Valid values: 1 to 365. Unit: days.
+    // The retention period of the snapshot created when the baseline fix operation is performed. Valid values: 1 to 365. Unit: days.
     shared_ptr<int32_t> retentionDays_ {};
     // The ID of the risk item.
     // 
-    // > To query the check item information for a specified risk item and a specified server, you must provide the risk item ID. You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to obtain the ID.
+    // > To query the check item information for a specified risk item and server, you must provide the risk item ID. You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to obtain the ID.
     shared_ptr<int64_t> riskId_ {};
-    // The name of the snapshot to create when performing the baseline fix operation.
+    // The name of the snapshot created when the baseline fix operation is performed.
     shared_ptr<string> snapshotName_ {};
-    // The IP address of the access source.
+    // The source IP address.
     shared_ptr<string> sourceIp_ {};
-    // The unique ID of the asset instance to fix. You can call the [DescribeWarningMachines](~~DescribeWarningMachines~~) operation to obtain the ID.
+    // The UUIDs of the asset instances to be fixed. You can call the [DescribeWarningMachines](~~DescribeWarningMachines~~) operation to obtain the UUIDs.
     shared_ptr<string> uuids_ {};
   };
 

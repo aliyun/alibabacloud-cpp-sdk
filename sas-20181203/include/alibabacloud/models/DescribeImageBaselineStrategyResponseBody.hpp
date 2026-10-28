@@ -112,11 +112,11 @@ namespace Models
 
 
       protected:
-        // The classification key of the baseline main item.
+        // The classification key of the primary baseline item.
         shared_ptr<string> classKey_ {};
-        // The key of the baseline subitem.
+        // The key of the sub-baseline item.
         shared_ptr<string> itemKey_ {};
-        // The name key of the baseline main item.
+        // The name key of the primary baseline item.
         shared_ptr<string> nameKey_ {};
       };
 
@@ -186,21 +186,21 @@ namespace Models
       shared_ptr<string> baselineItem_ {};
       // The list of baseline items.
       shared_ptr<vector<Strategy::BaselineItemList>> baselineItemList_ {};
-      // The retention period of baseline risks. Unit: days.
+      // The retention period of baseline risks, in days.
       shared_ptr<int32_t> imageVulClean_ {};
       // The number of selected baseline check items.
       shared_ptr<int32_t> selectedItemCount_ {};
       // The ID of the baseline check policy.
       shared_ptr<int64_t> strategyId_ {};
-      // The Policy Name.
+      // The policy name.
       shared_ptr<string> strategyName_ {};
       // The total number of baseline check items.
       shared_ptr<int32_t> totalItemCount_ {};
       // The type of the baseline check policy. Valid values:
       // 
-      // - **default**: default policy
-      // - **full**: full baseline item policy
-      // - **normal**: common baseline item policy.
+      // - **default**: Default policy
+      // - **full**: Full baseline item policy
+      // - **normal**: Standard baseline item policy
       shared_ptr<string> type_ {};
     };
 

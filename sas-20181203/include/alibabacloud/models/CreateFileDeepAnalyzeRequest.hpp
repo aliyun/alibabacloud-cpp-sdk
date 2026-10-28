@@ -83,9 +83,9 @@ namespace Models
     shared_ptr<string> hash_ {};
     // The request source. The system verifies the purchased edition based on the request source. Valid values:
     // 
-    // - **edr**: AgenticEDR
+    // - **edr**: AgenticEDR.
     // 
-    // - **secOpsAgent**: Security O&M agent
+    // - **secOpsAgent**: Security operations agent.
     shared_ptr<string> source_ {};
     // The IP address of the access source.
     shared_ptr<string> sourceIp_ {};

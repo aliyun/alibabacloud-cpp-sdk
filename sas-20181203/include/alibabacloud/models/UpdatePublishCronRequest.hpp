@@ -75,26 +75,26 @@ namespace Models
 
 
   protected:
-    // The Cron expression for the upgrade start time.
+    // The cron expression for the upgrade start time.
     // 
     // This parameter is required.
     shared_ptr<string> cron_ {};
     // The day of the week for the upgrade time. Valid values:
-    // - **MON**: Monday
-    // - **TUE**: Tuesday
-    // - **WED**: Wednesday
-    // - **THU**: Thursday
-    // - **FRI**: Friday
-    // - **SAT**: Saturday
+    // - **MON**: Monday.
+    // - **TUE**: Tuesday.
+    // - **WED**: Wednesday.
+    // - **THU**: Thursday.
+    // - **FRI**: Friday.
+    // - **SAT**: Saturday.
     // - **SUN**: Sunday.
     shared_ptr<string> cronDay_ {};
-    // The publish start timestamp. Unit: milliseconds.
+    // The start timestamp of the release, in milliseconds.
     shared_ptr<int64_t> cronTime_ {};
-    // The upgrade start cycle type. Valid values:
-    // - **day**: every day
-    // - **week**: every week.
+    // The cycle type for the upgrade start time. Valid values:
+    // - **day**: Daily.
+    // - **week**: Weekly.
     shared_ptr<string> cronType_ {};
-    // The upgrade duration. Unit: hours.
+    // The duration of the upgrade, in hours.
     // 
     // This parameter is required.
     shared_ptr<int32_t> duration_ {};

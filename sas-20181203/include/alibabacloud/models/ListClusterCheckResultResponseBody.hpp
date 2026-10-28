@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The number of data entries displayed on the current page during pagination.
+      // The number of data entries displayed on the current page during paging in a paged query.
       shared_ptr<int32_t> count_ {};
-      // Page number in the pagination query.
+      // The page number of the current page during paging in a paged query.
       shared_ptr<int32_t> currentPage_ {};
-      // Number of items per page in the pagination query. The default value is **20**, indicating that 20 items are displayed per page.
+      // The number of alerting events to display on each page during paging in a paged query. Default value: **20**, which indicates that 20 alerting events are displayed on each page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of data entries.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -219,17 +219,17 @@ namespace Models
 
 
       protected:
-        // Requirement ID of the check item.
+        // The ID of the regulation for the check item.
         shared_ptr<int64_t> requirementId_ {};
-        // Display name of the requirement for the check item.
+        // The display name of the regulation for the check item.
         shared_ptr<string> requirementShowName_ {};
-        // Section ID of the check item.
+        // The ID of the section for the check item.
         shared_ptr<int64_t> sectionId_ {};
-        // Display name of the section for the check item.
+        // The display name of the section for the check item.
         shared_ptr<string> sectionShowName_ {};
-        // Standard ID of the check item.
+        // The ID of the standard for the check item.
         shared_ptr<int64_t> standardId_ {};
-        // Display name of the standard for the check item.
+        // The display name of the standard for the check item.
         shared_ptr<string> standardShowName_ {};
       };
 
@@ -338,91 +338,70 @@ namespace Models
 
 
     protected:
-      // Subtype of the cloud product.
+      // The subtype of the cloud service.
       shared_ptr<int32_t> assetSubType_ {};
-      // Asset type.
+      // The asset type.
       shared_ptr<int32_t> assetType_ {};
-      // ID of the check item.
+      // The ID of the check item.
       shared_ptr<int64_t> checkId_ {};
-      // Information about the standards, requirements, and sections associated with the check result.
+      // The standards, regulations, and sections associated with the check result.
       shared_ptr<vector<Checks::CheckPolicies>> checkPolicies_ {};
-      // Name of the check item.
+      // The name of the check item.
       shared_ptr<string> checkShowName_ {};
-      // Source type of the security check item:
-      // 
-      // - **CUSTOM**:User-defined
-      // 
-      // - **SYSTEM**:Predefined by the Security Platform
+      // The source type of the Threat Detection Service check item. Valid values:
+      //  - **CUSTOM**: Custom.
+      //  - **SYSTEM**: Predefined by the Threat Detection Service platform.
       shared_ptr<string> checkType_ {};
-      // Subtype of the cloud product asset. Values:
+      // The asset subtype of the cloud service. Valid values:
       // 
-      // - When **InstanceType** is **ECS**, this parameter can take the following values:
-      // 
-      //   - **INSTANCE**
-      // 
-      //   - **DISK**
-      // 
-      //   - **SECURITY_GROUP**
-      // 
-      // - When **InstanceType** is **ACR**, this parameter can take the following values:
-      // 
-      //   - **REPOSITORY_ENTERPRISE**
-      // 
-      //   - **REPOSITORY_PERSON**
-      // 
-      // - When **InstanceType** is **RAM**, this parameter can take the following values:
-      // 
-      //   - **ALIAS**
-      // 
-      //   - **USER**
-      // 
-      //   - **POLICY**
-      // 
-      //   - **GROUP**
-      // 
-      // - When **InstanceType** is **WAF**, this parameter can take the following values:
-      // 
-      //   - **DOMAIN**
-      // 
-      // - For other **InstanceType** values, this parameter can take the following value:
-      // 
-      //   - **INSTANCE**
+      // - If **InstanceType** is set to **ECS**, valid values are:
+      //     - **INSTANCE**
+      //     - **DISK**
+      //     - **SECURITY_GROUP**
+      // - If **InstanceType** is set to **ACR**, valid values are:
+      //     - **REPOSITORY_ENTERPRISE**
+      //     - **REPOSITORY_PERSON**
+      // - If **InstanceType** is set to **RAM**, valid values are:
+      //     - **ALIAS**
+      //     - **USER**
+      //     - **POLICY**
+      //     - **GROUP**
+      // - If **InstanceType** is set to **WAF**, valid values are:
+      //     - **DOMAIN**
+      // - If **InstanceType** is set to other values, valid values are:
+      //     - **INSTANCE**
       shared_ptr<string> instanceSubType_ {};
-      // Asset type of the cloud product.
+      // The asset type of the cloud service.
       shared_ptr<string> instanceType_ {};
-      // Timestamp of the latest check, in milliseconds.
+      // The timestamp of the latest check. Unit: milliseconds.
       shared_ptr<int64_t> lastCheckTime_ {};
-      // Risk level of the check item. Possible values:
+      // The risk level of the check item. Valid values:
       // 
-      // - **HIGH**:High
-      // 
-      // - **MEDIUM**:Medium
-      // 
-      // - **LOW**:Low
+      // - **HIGH**: High.
+      // - **MEDIUM**: Medium.
+      // - **LOW**: Low.
       shared_ptr<string> riskLevel_ {};
-      // Status of the check item. Values:
+      // The status of the check item. Valid values:
       // 
-      // - **PASS**: Passed
-      // 
-      // - **NOT_PASS**: Not passed
-      // 
-      // - **CHECKING**: Checking
-      // 
-      // - **NOT_CHECK**: Not checked
-      // 
-      // - **WHITELIST**: Whitelisted
+      // - **PASS**: Passed.
+      // - **NOT_PASS**: Failed.
+      // - **CHECKING**: Checking.
+      // - **NOT_CHECK**: Not checked.
+      // - **WHITELIST**: Whitelisted.
       shared_ptr<string> status_ {};
-      // Whether the check depends on TRIAL permissions.
+      // Specifies whether the check depends on the TRIAL permission.
       shared_ptr<bool> trialPermission_ {};
-      // Whether the check item requires enabling data delivery of operation audit for more than 30 days to build a behavior baseline.
-      // 
-      // - **1**:Required
-      // 
-      // - **0**:Not Required
+      // Specifies whether the check item requires enabling data delivery for ActionTrail for more than 30 days to build a behavior baseline. Valid values:
+      // - **1**: Yes.
+      // - **0**: No.
       shared_ptr<int32_t> trialPermissionType_ {};
-      // Vendor of the asset. Values:
+      // The vendor of the asset. Valid values:
       // 
-      // 0: Alibaba Cloud 3: Other cloud 4: Other cloud 5: Other cloud 7: Other cloud
+      // 0: Alibaba Cloud.
+      // 3: Other cloud.
+      // 4: Other cloud.
+      // 5: Other cloud.
+      // 7: Other cloud.
       shared_ptr<string> vendor_ {};
     };
 
@@ -454,11 +433,11 @@ namespace Models
 
 
   protected:
-    // Information on check results.
+    // The check result information.
     shared_ptr<vector<ListClusterCheckResultResponseBody::Checks>> checks_ {};
-    // Pagination information.
+    // The pagination information.
     shared_ptr<ListClusterCheckResultResponseBody::PageInfo> pageInfo_ {};
-    // The ID of the current request.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

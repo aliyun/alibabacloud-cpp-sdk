@@ -57,12 +57,11 @@ namespace Models
 
 
   protected:
-    // The page number of the page to return. Default value: **1**, which indicates that the first page is returned.
+    // The number of the page to return. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
-    // The maximum number of entries per page in a paging query. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
-    // > Do not leave PageSize empty.
+    // The maximum number of entries to return per page during paging. Default value: 20. If this parameter is left empty, 20 entries are returned. Specify a value for this parameter.
     shared_ptr<int32_t> pageSize_ {};
-    // The rule name.
+    // The name of the rule.
     shared_ptr<string> ruleName_ {};
   };
 

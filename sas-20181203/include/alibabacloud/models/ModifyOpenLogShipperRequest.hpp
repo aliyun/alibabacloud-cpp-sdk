@@ -53,10 +53,10 @@ namespace Models
     // - **aegis**: Server Guard edition.
     // - **sas**: Security Center edition.
     // 
-    // > Server Guard users must use **aegis**, and Security Center users must use **sas**.
+    // > If you use Server Guard, set this parameter to **aegis**. If you use Security Center, set this parameter to **sas**.
     shared_ptr<string> from_ {};
-    // The ID of the member accounts in the resource directory (Alibaba Cloud account).
-    // > You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+    // The ID of the member accounts (Alibaba Cloud account) in the resource folder.
+    // > You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
   };
 

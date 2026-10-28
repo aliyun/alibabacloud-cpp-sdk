@@ -140,7 +140,7 @@ AddAssetSelectionCriteriaResponse Client::addAssetSelectionCriteria(const AddAss
 }
 
 /**
- * @summary Creates a whitelist rule for a baseline check item.
+ * @summary Creates a baseline whitelist record.
  *
  * @param request AddBaselineCheckWhiteRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -187,7 +187,7 @@ AddBaselineCheckWhiteRecordResponse Client::addBaselineCheckWhiteRecordWithOptio
 }
 
 /**
- * @summary Creates a whitelist rule for a baseline check item.
+ * @summary Creates a baseline whitelist record.
  *
  * @param request AddBaselineCheckWhiteRecordRequest
  * @return AddBaselineCheckWhiteRecordResponse
@@ -846,7 +846,7 @@ AddIdcProbeResponse Client::addIdcProbe(const AddIdcProbeRequest &request) {
 }
 
 /**
- * @summary Creates an alert handling rule.
+ * @summary Adds an image alert handling rule.
  *
  * @param request AddImageEventOperationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -905,7 +905,7 @@ AddImageEventOperationResponse Client::addImageEventOperationWithOptions(const A
 }
 
 /**
- * @summary Creates an alert handling rule.
+ * @summary Adds an image alert handling rule.
  *
  * @param request AddImageEventOperationRequest
  * @return AddImageEventOperationResponse
@@ -1288,7 +1288,7 @@ AddSasContainerWebDefenseRuleResponse Client::addSasContainerWebDefenseRule(cons
 }
 
 /**
- * @summary Enables the trial use of Security Center value-added features, including vulnerability fixing and threat analysis and response.
+ * @summary Adds a trial for the value-added modules of Security Center, including vulnerability remediation and threat analysis and response.
  *
  * @param request AddSasModuleTrialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1323,7 +1323,7 @@ AddSasModuleTrialResponse Client::addSasModuleTrialWithOptions(const AddSasModul
 }
 
 /**
- * @summary Enables the trial use of Security Center value-added features, including vulnerability fixing and threat analysis and response.
+ * @summary Adds a trial for the value-added modules of Security Center, including vulnerability remediation and threat analysis and response.
  *
  * @param request AddSasModuleTrialRequest
  * @return AddSasModuleTrialResponse
@@ -1596,7 +1596,7 @@ AdvanceSecurityEventOperationsResponse Client::advanceSecurityEventOperations(co
 }
 
 /**
- * @summary Adds alert description in batches.
+ * @summary Adds notes to multiple security alerts.
  *
  * @param request BatchCreateMaliciousNoteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1627,7 +1627,7 @@ BatchCreateMaliciousNoteResponse Client::batchCreateMaliciousNoteWithOptions(con
 }
 
 /**
- * @summary Adds alert description in batches.
+ * @summary Adds notes to multiple security alerts.
  *
  * @param request BatchCreateMaliciousNoteRequest
  * @return BatchCreateMaliciousNoteResponse
@@ -1638,7 +1638,7 @@ BatchCreateMaliciousNoteResponse Client::batchCreateMaliciousNote(const BatchCre
 }
 
 /**
- * @summary Deletes whitelist rules for alerts generated for sensitive files that are detected by using the agentless detection feature in batches.
+ * @summary Deletes multiple whitelist rules for sensitive file alerts in agentless detection.
  *
  * @param request BatchDeleteMaliciousFileWhitelistConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1669,7 +1669,7 @@ BatchDeleteMaliciousFileWhitelistConfigResponse Client::batchDeleteMaliciousFile
 }
 
 /**
- * @summary Deletes whitelist rules for alerts generated for sensitive files that are detected by using the agentless detection feature in batches.
+ * @summary Deletes multiple whitelist rules for sensitive file alerts in agentless detection.
  *
  * @param request BatchDeleteMaliciousFileWhitelistConfigRequest
  * @return BatchDeleteMaliciousFileWhitelistConfigResponse
@@ -1726,7 +1726,7 @@ BatchOperateCommonOverallConfigResponse Client::batchOperateCommonOverallConfig(
 }
 
 /**
- * @summary Modifies multiple alert whitelist rules of sensitive files that are detected by using the agentless detection feature at a time.
+ * @summary Modifies multiple whitelist rules for sensitive file alerts in agentless detection.
  *
  * @param request BatchUpdateMaliciousFileWhitelistConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1757,7 +1757,7 @@ BatchUpdateMaliciousFileWhitelistConfigResponse Client::batchUpdateMaliciousFile
 }
 
 /**
- * @summary Modifies multiple alert whitelist rules of sensitive files that are detected by using the agentless detection feature at a time.
+ * @summary Modifies multiple whitelist rules for sensitive file alerts in agentless detection.
  *
  * @param request BatchUpdateMaliciousFileWhitelistConfigRequest
  * @return BatchUpdateMaliciousFileWhitelistConfigResponse
@@ -1862,7 +1862,7 @@ BindAuthToMachineResponse Client::bindAuthToMachine(const BindAuthToMachineReque
 }
 
 /**
- * @summary Adds servers to Security Center over a proxy server. After you create a proxy cluster and deploy a proxy server, you can connect a server to the proxy cluster as a client. This way, the server is added to Security Center over the proxy server and is protected.
+ * @summary Connects servers to a proxy server. After you create a cluster and deploy the proxy server, you can add servers as clients to the proxy cluster. This enables the servers to connect to Security Center through the proxy for protection.
  *
  * @param request BindHybridProxyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1897,7 +1897,7 @@ BindHybridProxyResponse Client::bindHybridProxyWithOptions(const BindHybridProxy
 }
 
 /**
- * @summary Adds servers to Security Center over a proxy server. After you create a proxy cluster and deploy a proxy server, you can connect a server to the proxy cluster as a client. This way, the server is added to Security Center over the proxy server and is protected.
+ * @summary Connects servers to a proxy server. After you create a cluster and deploy the proxy server, you can add servers as clients to the proxy cluster. This enables the servers to connect to Security Center through the proxy for protection.
  *
  * @param request BindHybridProxyRequest
  * @return BindHybridProxyResponse
@@ -1950,7 +1950,7 @@ CancelOnceTaskResponse Client::cancelOnceTask(const CancelOnceTaskRequest &reque
 }
 
 /**
- * @summary Modifies the interval of asset synchronization configurations.
+ * @summary Modifies the custom refresh cycle configuration for assets.
  *
  * @param request ChangeAssetRefreshTaskConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1985,7 +1985,7 @@ ChangeAssetRefreshTaskConfigResponse Client::changeAssetRefreshTaskConfigWithOpt
 }
 
 /**
- * @summary Modifies the interval of asset synchronization configurations.
+ * @summary Modifies the custom refresh cycle configuration for assets.
  *
  * @param request ChangeAssetRefreshTaskConfigRequest
  * @return ChangeAssetRefreshTaskConfigResponse
@@ -2366,7 +2366,7 @@ CheckSecurityEventIdResponse Client::checkSecurityEventId(const CheckSecurityEve
 }
 
 /**
- * @summary Checks a Security Token Service (STS) token and returns the ID of the Alibaba Cloud account.
+ * @summary Authenticates an STS token and returns the Alibaba Cloud account ID.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return CheckStsTokenAuthResponse
@@ -2388,7 +2388,7 @@ CheckStsTokenAuthResponse Client::checkStsTokenAuthWithOptions(const Darabonba::
 }
 
 /**
- * @summary Checks a Security Token Service (STS) token and returns the ID of the Alibaba Cloud account.
+ * @summary Authenticates an STS token and returns the Alibaba Cloud account ID.
  *
  * @return CheckStsTokenAuthResponse
  */
@@ -2818,7 +2818,7 @@ CreateAssetSelectionConfigResponse Client::createAssetSelectionConfig(const Crea
 }
 
 /**
- * @summary Create attack path sensitive asset configuration.
+ * @summary Creates the sensitive asset configuration for attack paths.
  *
  * @param request CreateAttackPathSensitiveAssetConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2853,7 +2853,7 @@ CreateAttackPathSensitiveAssetConfigResponse Client::createAttackPathSensitiveAs
 }
 
 /**
- * @summary Create attack path sensitive asset configuration.
+ * @summary Creates the sensitive asset configuration for attack paths.
  *
  * @param request CreateAttackPathSensitiveAssetConfigRequest
  * @return CreateAttackPathSensitiveAssetConfigResponse
@@ -3680,9 +3680,9 @@ CreateDynamicDictResponse Client::createDynamicDict(const CreateDynamicDictReque
 /**
  * @summary Initiates deep analysis for a malicious file.
  *
- * @description Initiates deep analysis for a specified file and streams the progress of each analysis stage in real time by using Server-Sent Events (SSE).
- * [Input parameters] You must provide at least one of the Hash and EventId parameters. If EventId is provided, the file hash is preferentially parsed from the details of the corresponding alert. Otherwise, the provided Hash (MD5 or SHA-256) is used. The Source parameter identifies the call source and is used for commercial verification based on the source.
- * [Response] The response is of the text/event-stream type. The server pushes events sequentially based on the processing stages. Valid values for the event name (event):
+ * @description Initiates deep analysis for a specified file and streams the progress of each analysis phase in real time by using Server-Sent Events (SSE).
+ * [Input parameters] You must provide at least one of the Hash and EventId parameters. If EventId is provided, the file hash is preferentially parsed from the details of the corresponding alert. Otherwise, the provided Hash (MD5 or SHA-256) is used. The Source parameter identifies the call source and is used for commercial edition verification based on the source.
+ * [Response] The response is of the text/event-stream type. The server pushes events sequentially based on the processing phases. Valid values for the event name (event):
  * - accepted: The request is accepted.
  * - authorized: The purchase verification for the source is passed.
  * - alertResolved: The file hash is parsed from the alert or input parameters.
@@ -3691,7 +3691,7 @@ CreateDynamicDictResponse Client::createDynamicDict(const CreateDynamicDictReque
  * - result: The analysis result is matched. This parameter is optional and pushed after the asynchronous result is ready.
  * - done: The current analysis process is completed.
  * - error: A processing exception occurs, including the error code and message.
- * The data body of each event is a JSON object in the data field. The fields vary depending on the event type. For more information, see the response structure description.
+ * The data payload of each event is a JSON object in the data field. The fields vary depending on the event type. For more information, see the response structure description.
  *
  * @param request CreateFileDeepAnalyzeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3754,9 +3754,9 @@ return Darabonba::FutureGenerator<json>(__retrun);
 /**
  * @summary Initiates deep analysis for a malicious file.
  *
- * @description Initiates deep analysis for a specified file and streams the progress of each analysis stage in real time by using Server-Sent Events (SSE).
- * [Input parameters] You must provide at least one of the Hash and EventId parameters. If EventId is provided, the file hash is preferentially parsed from the details of the corresponding alert. Otherwise, the provided Hash (MD5 or SHA-256) is used. The Source parameter identifies the call source and is used for commercial verification based on the source.
- * [Response] The response is of the text/event-stream type. The server pushes events sequentially based on the processing stages. Valid values for the event name (event):
+ * @description Initiates deep analysis for a specified file and streams the progress of each analysis phase in real time by using Server-Sent Events (SSE).
+ * [Input parameters] You must provide at least one of the Hash and EventId parameters. If EventId is provided, the file hash is preferentially parsed from the details of the corresponding alert. Otherwise, the provided Hash (MD5 or SHA-256) is used. The Source parameter identifies the call source and is used for commercial edition verification based on the source.
+ * [Response] The response is of the text/event-stream type. The server pushes events sequentially based on the processing phases. Valid values for the event name (event):
  * - accepted: The request is accepted.
  * - authorized: The purchase verification for the source is passed.
  * - alertResolved: The file hash is parsed from the alert or input parameters.
@@ -3765,7 +3765,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
  * - result: The analysis result is matched. This parameter is optional and pushed after the asynchronous result is ready.
  * - done: The current analysis process is completed.
  * - error: A processing exception occurs, including the error code and message.
- * The data body of each event is a JSON object in the data field. The fields vary depending on the event type. For more information, see the response structure description.
+ * The data payload of each event is a JSON object in the data field. The fields vary depending on the event type. For more information, see the response structure description.
  *
  * @param request CreateFileDeepAnalyzeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3814,9 +3814,9 @@ CreateFileDeepAnalyzeResponse Client::createFileDeepAnalyzeWithOptions(const Cre
 /**
  * @summary Initiates deep analysis for a malicious file.
  *
- * @description Initiates deep analysis for a specified file and streams the progress of each analysis stage in real time by using Server-Sent Events (SSE).
- * [Input parameters] You must provide at least one of the Hash and EventId parameters. If EventId is provided, the file hash is preferentially parsed from the details of the corresponding alert. Otherwise, the provided Hash (MD5 or SHA-256) is used. The Source parameter identifies the call source and is used for commercial verification based on the source.
- * [Response] The response is of the text/event-stream type. The server pushes events sequentially based on the processing stages. Valid values for the event name (event):
+ * @description Initiates deep analysis for a specified file and streams the progress of each analysis phase in real time by using Server-Sent Events (SSE).
+ * [Input parameters] You must provide at least one of the Hash and EventId parameters. If EventId is provided, the file hash is preferentially parsed from the details of the corresponding alert. Otherwise, the provided Hash (MD5 or SHA-256) is used. The Source parameter identifies the call source and is used for commercial edition verification based on the source.
+ * [Response] The response is of the text/event-stream type. The server pushes events sequentially based on the processing phases. Valid values for the event name (event):
  * - accepted: The request is accepted.
  * - authorized: The purchase verification for the source is passed.
  * - alertResolved: The file hash is parsed from the alert or input parameters.
@@ -3825,7 +3825,7 @@ CreateFileDeepAnalyzeResponse Client::createFileDeepAnalyzeWithOptions(const Cre
  * - result: The analysis result is matched. This parameter is optional and pushed after the asynchronous result is ready.
  * - done: The current analysis process is completed.
  * - error: A processing exception occurs, including the error code and message.
- * The data body of each event is a JSON object in the data field. The fields vary depending on the event type. For more information, see the response structure description.
+ * The data payload of each event is a JSON object in the data field. The fields vary depending on the event type. For more information, see the response structure description.
  *
  * @param request CreateFileDeepAnalyzeRequest
  * @return CreateFileDeepAnalyzeResponse
@@ -6804,7 +6804,7 @@ DeleteBackupPolicyMachineResponse Client::deleteBackupPolicyMachine(const Delete
 }
 
 /**
- * @summary Deletes snapshots of anti-ransomware backups in Security Center.
+ * @summary Deletes the snapshots of anti-ransomware backups for servers in Security Center.
  *
  * @param request DeleteBackupSnapshotRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6843,7 +6843,7 @@ DeleteBackupSnapshotResponse Client::deleteBackupSnapshotWithOptions(const Delet
 }
 
 /**
- * @summary Deletes snapshots of anti-ransomware backups in Security Center.
+ * @summary Deletes the snapshots of anti-ransomware backups for servers in Security Center.
  *
  * @param request DeleteBackupSnapshotRequest
  * @return DeleteBackupSnapshotResponse
@@ -6854,7 +6854,7 @@ DeleteBackupSnapshotResponse Client::deleteBackupSnapshot(const DeleteBackupSnap
 }
 
 /**
- * @summary Deletes the whitelist record for a baseline check item.
+ * @summary Deletes baseline whitelist records.
  *
  * @param request DeleteBaselineCheckWhiteRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6897,7 +6897,7 @@ DeleteBaselineCheckWhiteRecordResponse Client::deleteBaselineCheckWhiteRecordWit
 }
 
 /**
- * @summary Deletes the whitelist record for a baseline check item.
+ * @summary Deletes baseline whitelist records.
  *
  * @param request DeleteBaselineCheckWhiteRecordRequest
  * @return DeleteBaselineCheckWhiteRecordResponse
@@ -7222,7 +7222,7 @@ DeleteContainerPluginRuleResponse Client::deleteContainerPluginRule(const Delete
 }
 
 /**
- * @summary Deletes the blocking records of specific IP addresses that are custom-defined on one or more servers.
+ * @summary Deletes the blocking records for specific IP addresses on one or more user-defined servers.
  *
  * @param request DeleteCustomBlockRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7257,7 +7257,7 @@ DeleteCustomBlockRecordResponse Client::deleteCustomBlockRecordWithOptions(const
 }
 
 /**
- * @summary Deletes the blocking records of specific IP addresses that are custom-defined on one or more servers.
+ * @summary Deletes the blocking records for specific IP addresses on one or more user-defined servers.
  *
  * @param request DeleteCustomBlockRecordRequest
  * @return DeleteCustomBlockRecordResponse
@@ -7502,7 +7502,7 @@ DeleteFileProtectClientRuleResponse Client::deleteFileProtectClientRule(const De
 }
 
 /**
- * @summary Deletes core file monitoring rules.
+ * @summary Deletes core file protection rules.
  *
  * @param request DeleteFileProtectRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7533,7 +7533,7 @@ DeleteFileProtectRuleResponse Client::deleteFileProtectRuleWithOptions(const Del
 }
 
 /**
- * @summary Deletes core file monitoring rules.
+ * @summary Deletes core file protection rules.
  *
  * @param request DeleteFileProtectRuleRequest
  * @return DeleteFileProtectRuleResponse
@@ -7546,7 +7546,7 @@ DeleteFileProtectRuleResponse Client::deleteFileProtectRule(const DeleteFileProt
 /**
  * @summary Deletes a server group.
  *
- * @description You cannot delete the default server group provided by Security Center, which is **Ungrouped**. After you delete a group, the assets in the group are moved to **Ungrouped** by default.
+ * @description You cannot delete the default server group provided by Security Center, which is **Ungrouped**. After you delete a group, the assets in the group are moved to the **Ungrouped** group by default.
  *
  * @param request DeleteGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7583,7 +7583,7 @@ DeleteGroupResponse Client::deleteGroupWithOptions(const DeleteGroupRequest &req
 /**
  * @summary Deletes a server group.
  *
- * @description You cannot delete the default server group provided by Security Center, which is **Ungrouped**. After you delete a group, the assets in the group are moved to **Ungrouped** by default.
+ * @description You cannot delete the default server group provided by Security Center, which is **Ungrouped**. After you delete a group, the assets in the group are moved to the **Ungrouped** group by default.
  *
  * @param request DeleteGroupRequest
  * @return DeleteGroupResponse
@@ -7640,7 +7640,7 @@ DeleteHoneypotResponse Client::deleteHoneypot(const DeleteHoneypotRequest &reque
 }
 
 /**
- * @summary Deletes a specified management node.
+ * @summary Deletes a specified honeypot node.
  *
  * @param request DeleteHoneypotNodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7675,7 +7675,7 @@ DeleteHoneypotNodeResponse Client::deleteHoneypotNodeWithOptions(const DeleteHon
 }
 
 /**
- * @summary Deletes a specified management node.
+ * @summary Deletes a specified honeypot node.
  *
  * @param request DeleteHoneypotNodeRequest
  * @return DeleteHoneypotNodeResponse
@@ -7958,7 +7958,7 @@ DeleteIdcProbeResponse Client::deleteIdcProbe(const DeleteIdcProbeRequest &reque
 }
 
 /**
- * @summary Deletes an alert disposal rule.
+ * @summary Deletes an alert handling rule.
  *
  * @param request DeleteImageEventOperationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7989,7 +7989,7 @@ DeleteImageEventOperationResponse Client::deleteImageEventOperationWithOptions(c
 }
 
 /**
- * @summary Deletes an alert disposal rule.
+ * @summary Deletes an alert handling rule.
  *
  * @param request DeleteImageEventOperationRequest
  * @return DeleteImageEventOperationResponse
@@ -8280,7 +8280,7 @@ DeleteLoginBaseConfigResponse Client::deleteLoginBaseConfig(const DeleteLoginBas
 }
 
 /**
- * @summary Deletes a whitelist rule for agentless detection of sensitive file alerts.
+ * @summary Deletes a whitelist rule for sensitive file alerts in agentless detection.
  *
  * @param request DeleteMaliciousFileWhitelistConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8311,7 +8311,7 @@ DeleteMaliciousFileWhitelistConfigResponse Client::deleteMaliciousFileWhitelistC
 }
 
 /**
- * @summary Deletes a whitelist rule for agentless detection of sensitive file alerts.
+ * @summary Deletes a whitelist rule for sensitive file alerts in agentless detection.
  *
  * @param request DeleteMaliciousFileWhitelistConfigRequest
  * @return DeleteMaliciousFileWhitelistConfigResponse
@@ -8410,7 +8410,7 @@ DeleteMonitorAccountResponse Client::deleteMonitorAccount(const DeleteMonitorAcc
 }
 
 /**
- * @summary Deletes a risky image blocking policy.
+ * @summary Deletes risky image blocking policies.
  *
  * @param request DeleteOpaStrategyNewRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8441,7 +8441,7 @@ DeleteOpaStrategyNewResponse Client::deleteOpaStrategyNewWithOptions(const Delet
 }
 
 /**
- * @summary Deletes a risky image blocking policy.
+ * @summary Deletes risky image blocking policies.
  *
  * @param request DeleteOpaStrategyNewRequest
  * @return DeleteOpaStrategyNewResponse
@@ -9088,7 +9088,7 @@ DeleteVpcHoneyPotResponse Client::deleteVpcHoneyPot(const DeleteVpcHoneyPotReque
 }
 
 /**
- * @summary Deletes the configurations of vulnerabilities that can be automatically fixed in the vulnerability task center in batches.
+ * @summary Deletes the auto-repair configurations for vulnerabilities in the task center in batches.
  *
  * @param request DeleteVulAutoRepairConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9127,7 +9127,7 @@ DeleteVulAutoRepairConfigResponse Client::deleteVulAutoRepairConfigWithOptions(c
 }
 
 /**
- * @summary Deletes the configurations of vulnerabilities that can be automatically fixed in the vulnerability task center in batches.
+ * @summary Deletes the auto-repair configurations for vulnerabilities in the task center in batches.
  *
  * @param request DeleteVulAutoRepairConfigRequest
  * @return DeleteVulAutoRepairConfigResponse
@@ -9550,7 +9550,7 @@ DescribeAgentInstallStatusResponse Client::describeAgentInstallStatus(const Desc
 }
 
 /**
- * @summary Retrieves the list of assets that contain a specific type of sensitive file detected by the agentless detection feature.
+ * @summary Queries the list of assets that contain a specific type of sensitive file detected by the agentless detection feature.
  *
  * @description Only Alibaba Cloud accounts that have activated the pay-as-you-go billing method for the agentless detection feature of Security Center can call this operation.
  *
@@ -9585,7 +9585,7 @@ DescribeAgentlessSensitiveFileByKeyResponse Client::describeAgentlessSensitiveFi
 }
 
 /**
- * @summary Retrieves the list of assets that contain a specific type of sensitive file detected by the agentless detection feature.
+ * @summary Queries the list of assets that contain a specific type of sensitive file detected by the agentless detection feature.
  *
  * @description Only Alibaba Cloud accounts that have activated the pay-as-you-go billing method for the agentless detection feature of Security Center can call this operation.
  *
@@ -10706,7 +10706,7 @@ DescribeBackupPolicyResponse Client::describeBackupPolicy(const DescribeBackupPo
 }
 
 /**
- * @summary Queries data of anti-ransomware restoration tasks.
+ * @summary Queries the data of anti-ransomware restoration tasks.
  *
  * @description If you have created anti-ransomware restoration tasks, you can call this operation to query the number of anti-ransomware restoration tasks in the **Restored** and **Restoring** states.
  *
@@ -10730,7 +10730,7 @@ DescribeBackupRestoreCountResponse Client::describeBackupRestoreCountWithOptions
 }
 
 /**
- * @summary Queries data of anti-ransomware restoration tasks.
+ * @summary Queries the data of anti-ransomware restoration tasks.
  *
  * @description If you have created anti-ransomware restoration tasks, you can call this operation to query the number of anti-ransomware restoration tasks in the **Restored** and **Restoring** states.
  *
@@ -11206,7 +11206,7 @@ DescribeChartDataResponse Client::describeChartData(const DescribeChartDataReque
 }
 
 /**
- * @summary Queries the charts supported for statistics in Security Center security reports.
+ * @summary Queries the statistical charts supported by Security Center security reports.
  *
  * @param request DescribeChartListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11245,7 +11245,7 @@ DescribeChartListResponse Client::describeChartListWithOptions(const DescribeCha
 }
 
 /**
- * @summary Queries the charts supported for statistics in Security Center security reports.
+ * @summary Queries the statistical charts supported by Security Center security reports.
  *
  * @param request DescribeChartListRequest
  * @return DescribeChartListResponse
@@ -11804,7 +11804,7 @@ DescribeClientConfSetupResponse Client::describeClientConfSetup(const DescribeCl
 }
 
 /**
- * @summary Queries the machine configuration information for different client tags.
+ * @summary Queries the server configuration information for clients with different tags.
  *
  * @param request DescribeClientConfStrategyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11839,7 +11839,7 @@ DescribeClientConfStrategyResponse Client::describeClientConfStrategyWithOptions
 }
 
 /**
- * @summary Queries the machine configuration information for different client tags.
+ * @summary Queries the server configuration information for clients with different tags.
  *
  * @param request DescribeClientConfStrategyRequest
  * @return DescribeClientConfStrategyResponse
@@ -12138,7 +12138,7 @@ DescribeCloudVendorProductTemplateConfigResponse Client::describeCloudVendorProd
 }
 
 /**
- * @summary Query the trail configuration attributes of the corresponding AK configuration
+ * @summary Queries the integration configurations for audit logs of third-party cloud assets.
  *
  * @param request DescribeCloudVendorTrialConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12165,7 +12165,7 @@ DescribeCloudVendorTrialConfigResponse Client::describeCloudVendorTrialConfigWit
 }
 
 /**
- * @summary Query the trail configuration attributes of the corresponding AK configuration
+ * @summary Queries the integration configurations for audit logs of third-party cloud assets.
  *
  * @param request DescribeCloudVendorTrialConfigRequest
  * @return DescribeCloudVendorTrialConfigResponse
@@ -12226,7 +12226,7 @@ DescribeClusterBasicInfoResponse Client::describeClusterBasicInfo(const Describe
 }
 
 /**
- * @summary Queries the security statistics of a host.
+ * @summary Queries the statistics on host security information.
  *
  * @param request DescribeClusterHostSecuritySummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12277,7 +12277,7 @@ DescribeClusterHostSecuritySummaryResponse Client::describeClusterHostSecuritySu
 }
 
 /**
- * @summary Queries the security statistics of a host.
+ * @summary Queries the statistics on host security information.
  *
  * @param request DescribeClusterHostSecuritySummaryRequest
  * @return DescribeClusterHostSecuritySummaryResponse
@@ -12288,7 +12288,7 @@ DescribeClusterHostSecuritySummaryResponse Client::describeClusterHostSecuritySu
 }
 
 /**
- * @summary Queries the security statistics of container images.
+ * @summary Retrieves image security statistics.
  *
  * @param request DescribeClusterImageSecuritySummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12351,7 +12351,7 @@ DescribeClusterImageSecuritySummaryResponse Client::describeClusterImageSecurity
 }
 
 /**
- * @summary Queries the security statistics of container images.
+ * @summary Retrieves image security statistics.
  *
  * @param request DescribeClusterImageSecuritySummaryRequest
  * @return DescribeClusterImageSecuritySummaryResponse
@@ -12554,7 +12554,7 @@ DescribeClusterVulStatisticsResponse Client::describeClusterVulStatistics(const 
 }
 
 /**
- * @summary Queries the global configuration of the master switch.
+ * @summary Queries the global configuration of the main switch.
  *
  * @param request DescribeCommonOverallConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12589,7 +12589,7 @@ DescribeCommonOverallConfigResponse Client::describeCommonOverallConfigWithOptio
 }
 
 /**
- * @summary Queries the global configuration of the master switch.
+ * @summary Queries the global configuration of the main switch.
  *
  * @param request DescribeCommonOverallConfigRequest
  * @return DescribeCommonOverallConfigResponse
@@ -13050,7 +13050,7 @@ DescribeContainerScanConfigResponse Client::describeContainerScanConfig(const De
 }
 
 /**
- * @summary Queries the Kritis status of a Container Service for Kubernetes (ACK) cluster.
+ * @summary Queries the Kritis status of a Container Service for Kubernetes cluster.
  *
  * @param request DescribeContainerServiceK8sClusterKritisStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13089,7 +13089,7 @@ DescribeContainerServiceK8sClusterKritisStatusResponse Client::describeContainer
 }
 
 /**
- * @summary Queries the Kritis status of a Container Service for Kubernetes (ACK) cluster.
+ * @summary Queries the Kritis status of a Container Service for Kubernetes cluster.
  *
  * @param request DescribeContainerServiceK8sClusterKritisStatusRequest
  * @return DescribeContainerServiceK8sClusterKritisStatusResponse
@@ -13202,7 +13202,7 @@ DescribeContainerServiceK8sClustersResponse Client::describeContainerServiceK8sC
 /**
  * @summary Queries the alert statistics of container assets.
  *
- * @description Only users who have purchased Container Registry Enterprise instances can invoke this operation.
+ * @description Only users who have purchased Container Registry Enterprise instances can invoke this API operation.
  *
  * @param request DescribeContainerStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13235,7 +13235,7 @@ DescribeContainerStatisticsResponse Client::describeContainerStatisticsWithOptio
 /**
  * @summary Queries the alert statistics of container assets.
  *
- * @description Only users who have purchased Container Registry Enterprise instances can invoke this operation.
+ * @description Only users who have purchased Container Registry Enterprise instances can invoke this API operation.
  *
  * @param request DescribeContainerStatisticsRequest
  * @return DescribeContainerStatisticsResponse
@@ -13344,7 +13344,7 @@ DescribeCountNotScannedImageResponse Client::describeCountNotScannedImage() {
 }
 
 /**
- * @summary Queries statistics on scanned image data.
+ * @summary Retrieves statistics on scanned images.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeCountScannedImageResponse
@@ -13366,7 +13366,7 @@ DescribeCountScannedImageResponse Client::describeCountScannedImageWithOptions(c
 }
 
 /**
- * @summary Queries statistics on scanned image data.
+ * @summary Retrieves statistics on scanned images.
  *
  * @return DescribeCountScannedImageResponse
  */
@@ -13376,7 +13376,7 @@ DescribeCountScannedImageResponse Client::describeCountScannedImage() {
 }
 
 /**
- * @summary Queries the fuzzy match conditions for asset properties that can be displayed when you query assets.
+ * @summary Queries the fuzzy match criteria for asset properties displayed during asset queries.
  *
  * @param request DescribeCriteriaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13419,7 +13419,7 @@ DescribeCriteriaResponse Client::describeCriteriaWithOptions(const DescribeCrite
 }
 
 /**
- * @summary Queries the fuzzy match conditions for asset properties that can be displayed when you query assets.
+ * @summary Queries the fuzzy match criteria for asset properties displayed during asset queries.
  *
  * @param request DescribeCriteriaRequest
  * @return DescribeCriteriaResponse
@@ -13492,7 +13492,7 @@ DescribeCustomBlockInstancesResponse Client::describeCustomBlockInstances(const 
 }
 
 /**
- * @summary Queries brute-force attacks interception records for custom blocked IP addresses defined on one or more servers.
+ * @summary Queries interception records for IP addresses blocked due to brute-force attacks on one or more servers.
  *
  * @param request DescribeCustomBlockRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13539,7 +13539,7 @@ DescribeCustomBlockRecordsResponse Client::describeCustomBlockRecordsWithOptions
 }
 
 /**
- * @summary Queries brute-force attacks interception records for custom blocked IP addresses defined on one or more servers.
+ * @summary Queries interception records for IP addresses blocked due to brute-force attacks on one or more servers.
  *
  * @param request DescribeCustomBlockRecordsRequest
  * @return DescribeCustomBlockRecordsResponse
@@ -13670,7 +13670,7 @@ DescribeCustomizeReportListResponse Client::describeCustomizeReportList(const De
 }
 
 /**
- * @summary Queries the upload result of a custom weak password file.
+ * @summary Retrieves the upload results of custom weak passwords.
  *
  * @param request DescribeCustomizedDictRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13701,7 +13701,7 @@ DescribeCustomizedDictResponse Client::describeCustomizedDictWithOptions(const D
 }
 
 /**
- * @summary Queries the upload result of a custom weak password file.
+ * @summary Retrieves the upload results of custom weak passwords.
  *
  * @param request DescribeCustomizedDictRequest
  * @return DescribeCustomizedDictResponse
@@ -15606,7 +15606,7 @@ DescribeGroupedInstancesResponse Client::describeGroupedInstances(const Describe
 }
 
 /**
- * @summary Queries the list of malicious sample files in container images.
+ * @summary Queries the list of malicious sample files in images.
  *
  * @param request DescribeGroupedMaliciousFilesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15697,7 +15697,7 @@ DescribeGroupedMaliciousFilesResponse Client::describeGroupedMaliciousFilesWithO
 }
 
 /**
- * @summary Queries the list of malicious sample files in container images.
+ * @summary Queries the list of malicious sample files in images.
  *
  * @param request DescribeGroupedMaliciousFilesRequest
  * @return DescribeGroupedMaliciousFilesResponse
@@ -15948,7 +15948,7 @@ DescribeHoneyPotAuthResponse Client::describeHoneyPotAuth(const DescribeHoneyPot
 }
 
 /**
- * @summary Queries information about the top 5 VPCs or assets ranked by the number of security alerts.
+ * @summary Queries the top 5 VPCs or assets by number of security alerts.
  *
  * @param request DescribeHoneyPotSuspStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15991,7 +15991,7 @@ DescribeHoneyPotSuspStatisticsResponse Client::describeHoneyPotSuspStatisticsWit
 }
 
 /**
- * @summary Queries information about the top 5 VPCs or assets ranked by the number of security alerts.
+ * @summary Queries the top 5 VPCs or assets by number of security alerts.
  *
  * @param request DescribeHoneyPotSuspStatisticsRequest
  * @return DescribeHoneyPotSuspStatisticsResponse
@@ -16002,7 +16002,7 @@ DescribeHoneyPotSuspStatisticsResponse Client::describeHoneyPotSuspStatistics(co
 }
 
 /**
- * @summary Queries proxy clusters by using paging.
+ * @summary Queries the list of proxy clusters by using paging.
  *
  * @param request DescribeHybridProxyClusterListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16041,7 +16041,7 @@ DescribeHybridProxyClusterListResponse Client::describeHybridProxyClusterListWit
 }
 
 /**
- * @summary Queries proxy clusters by using paging.
+ * @summary Queries the list of proxy clusters by using paging.
  *
  * @param request DescribeHybridProxyClusterListRequest
  * @return DescribeHybridProxyClusterListResponse
@@ -16252,7 +16252,7 @@ DescribeIdcAssetCriteriaResponse Client::describeIdcAssetCriteria(const Describe
 }
 
 /**
- * @summary Retrieves the list of IDC probe instances used for asset discovery in the multi-cloud configuration management feature.
+ * @summary Queries the list of IDC probes for asset discovery in the multi-cloud configuration management feature.
  *
  * @param request DescribeIdcProbeListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16295,7 +16295,7 @@ DescribeIdcProbeListResponse Client::describeIdcProbeListWithOptions(const Descr
 }
 
 /**
- * @summary Retrieves the list of IDC probe instances used for asset discovery in the multi-cloud configuration management feature.
+ * @summary Queries the list of IDC probes for asset discovery in the multi-cloud configuration management feature.
  *
  * @param request DescribeIdcProbeListRequest
  * @return DescribeIdcProbeListResponse
@@ -16426,7 +16426,7 @@ DescribeImageResponse Client::describeImage(const DescribeImageRequest &request)
 }
 
 /**
- * @summary Queries the detection results of image security scans.
+ * @summary Queries the results of image security scans.
  *
  * @param request DescribeImageBaselineCheckResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16485,7 +16485,7 @@ DescribeImageBaselineCheckResultResponse Client::describeImageBaselineCheckResul
 }
 
 /**
- * @summary Queries the detection results of image security scans.
+ * @summary Queries the results of image security scans.
  *
  * @param request DescribeImageBaselineCheckResultRequest
  * @return DescribeImageBaselineCheckResultResponse
@@ -16864,7 +16864,7 @@ DescribeImageBuildRiskListResponse Client::describeImageBuildRiskList(const Desc
 }
 
 /**
- * @summary Retrieves image search criteria.
+ * @summary Retrieves the image search criteria.
  *
  * @param request DescribeImageCriteriaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16895,7 +16895,7 @@ DescribeImageCriteriaResponse Client::describeImageCriteriaWithOptions(const Des
 }
 
 /**
- * @summary Retrieves image search criteria.
+ * @summary Retrieves the image search criteria.
  *
  * @param request DescribeImageCriteriaRequest
  * @return DescribeImageCriteriaResponse
@@ -17462,7 +17462,7 @@ DescribeImageListByBuildRiskResponse Client::describeImageListByBuildRisk(const 
 }
 
 /**
- * @summary Queries the information about images affected by sensitive files.
+ * @summary Queries the details of images affected by sensitive files.
  *
  * @param tmpReq DescribeImageListBySensitiveFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17539,7 +17539,7 @@ DescribeImageListBySensitiveFileResponse Client::describeImageListBySensitiveFil
 }
 
 /**
- * @summary Queries the information about images affected by sensitive files.
+ * @summary Queries the details of images affected by sensitive files.
  *
  * @param request DescribeImageListBySensitiveFileRequest
  * @return DescribeImageListBySensitiveFileResponse
@@ -17752,7 +17752,7 @@ DescribeImageRepoDetailListResponse Client::describeImageRepoDetailList(const De
 }
 
 /**
- * @summary Retrieves statistics information on image defense switch configurations.
+ * @summary Retrieves the statistics of image defense switch configurations.
  *
  * @param request DescribeImageRepoListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17819,7 +17819,7 @@ DescribeImageRepoListResponse Client::describeImageRepoListWithOptions(const Des
 }
 
 /**
- * @summary Retrieves statistics information on image defense switch configurations.
+ * @summary Retrieves the statistics of image defense switch configurations.
  *
  * @param request DescribeImageRepoListRequest
  * @return DescribeImageRepoListResponse
@@ -17972,7 +17972,7 @@ DescribeImageSecurityScanCountResponse Client::describeImageSecurityScanCount(co
 }
 
 /**
- * @summary Queries sensitive files in an image.
+ * @summary Queries the sensitive files in an image.
  *
  * @param tmpReq DescribeImageSensitiveFileByKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18029,7 +18029,7 @@ DescribeImageSensitiveFileByKeyResponse Client::describeImageSensitiveFileByKeyW
 }
 
 /**
- * @summary Queries sensitive files in an image.
+ * @summary Queries the sensitive files in an image.
  *
  * @param request DescribeImageSensitiveFileByKeyRequest
  * @return DescribeImageSensitiveFileByKeyResponse
@@ -18464,11 +18464,11 @@ DescribeInstallCodeResponse Client::describeInstallCode() {
 }
 
 /**
- * @summary Queries the list of commands for manually installing the Security Center agent.
+ * @summary Queries the list of installation commands for manually installing the Security Center agent.
  *
- * @description This operation queries the commands for manually installing the Security Center agent on servers. The query results include installation verification codes and server-related information. If you need to manually install the Security Center agent on a server, call this operation to obtain the manual installation commands.
- * ### Rate limit
- * The single-user queries per second (QPS) limit for this operation is 10. If the number of calls exceeds the limit, throttling is triggered, which may affect your business. Call this operation as needed.
+ * @description This operation queries the installation commands used to manually install the Security Center agent on a server. The query result includes the installation verification code and server-related information. When you need to manually install the Security Center agent on a server, you can call this operation to obtain the manual installation commands.
+ * ### QPS limits
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable rate.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeInstallCodesResponse
@@ -18490,11 +18490,11 @@ DescribeInstallCodesResponse Client::describeInstallCodesWithOptions(const Darab
 }
 
 /**
- * @summary Queries the list of commands for manually installing the Security Center agent.
+ * @summary Queries the list of installation commands for manually installing the Security Center agent.
  *
- * @description This operation queries the commands for manually installing the Security Center agent on servers. The query results include installation verification codes and server-related information. If you need to manually install the Security Center agent on a server, call this operation to obtain the manual installation commands.
- * ### Rate limit
- * The single-user queries per second (QPS) limit for this operation is 10. If the number of calls exceeds the limit, throttling is triggered, which may affect your business. Call this operation as needed.
+ * @description This operation queries the installation commands used to manually install the Security Center agent on a server. The query result includes the installation verification code and server-related information. When you need to manually install the Security Center agent on a server, you can call this operation to obtain the manual installation commands.
+ * ### QPS limits
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable rate.
  *
  * @return DescribeInstallCodesResponse
  */
@@ -18658,7 +18658,7 @@ DescribeInstanceStatisticsResponse Client::describeInstanceStatistics(const Desc
 }
 
 /**
- * @summary Queries vulnerability statistics for a cluster.
+ * @summary Queries the vulnerability statistics of a cluster.
  *
  * @param request DescribeInstanceVulStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18693,7 +18693,7 @@ DescribeInstanceVulStatisticsResponse Client::describeInstanceVulStatisticsWithO
 }
 
 /**
- * @summary Queries vulnerability statistics for a cluster.
+ * @summary Queries the vulnerability statistics of a cluster.
  *
  * @param request DescribeInstanceVulStatisticsRequest
  * @return DescribeInstanceVulStatisticsResponse
@@ -18736,7 +18736,7 @@ DescribeLatestScanTaskResponse Client::describeLatestScanTask() {
 }
 
 /**
- * @summary Queries the configuration information of log analysis in Security Center.
+ * @summary Queries the log analysis configurations of Security Center.
  *
  * @param request DescribeLogMetaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18779,7 +18779,7 @@ DescribeLogMetaResponse Client::describeLogMetaWithOptions(const DescribeLogMeta
 }
 
 /**
- * @summary Queries the configuration information of log analysis in Security Center.
+ * @summary Queries the log analysis configurations of Security Center.
  *
  * @param request DescribeLogMetaRequest
  * @return DescribeLogMetaResponse
@@ -20208,7 +20208,7 @@ DescribePropertyScaItemResponse Client::describePropertyScaItem(const DescribePr
 }
 
 /**
- * @summary Queries the Java processes that are collected by the asset fingerprints feature of Security Center in your assets.
+ * @summary Queries the list of Java processes collected by the Asset Fingerprints feature of Security Center for your assets.
  *
  * @param request DescribePropertyScaProcessDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20263,7 +20263,7 @@ DescribePropertyScaProcessDetailResponse Client::describePropertyScaProcessDetai
 }
 
 /**
- * @summary Queries the Java processes that are collected by the asset fingerprints feature of Security Center in your assets.
+ * @summary Queries the list of Java processes collected by the Asset Fingerprints feature of Security Center for your assets.
  *
  * @param request DescribePropertyScaProcessDetailRequest
  * @return DescribePropertyScaProcessDetailResponse
@@ -21180,9 +21180,9 @@ DescribeRiskCheckSummaryResponse Client::describeRiskCheckSummary(const Describe
 /**
  * @deprecated OpenAPI DescribeRiskItemType is deprecated
  *
- * @summary Queries the types of all cloud service configuration check items.
+ * @summary Queries the types of configuration check items for all cloud services.
  *
- * @description This operation is offline. Use the upgraded operation ListCheckStandard instead.
+ * @description This operation is deprecated. Use the upgraded operation ListCheckStandard instead.
  *
  * @param request DescribeRiskItemTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21223,9 +21223,9 @@ DescribeRiskItemTypeResponse Client::describeRiskItemTypeWithOptions(const Descr
 /**
  * @deprecated OpenAPI DescribeRiskItemType is deprecated
  *
- * @summary Queries the types of all cloud service configuration check items.
+ * @summary Queries the types of configuration check items for all cloud services.
  *
- * @description This operation is offline. Use the upgraded operation ListCheckStandard instead.
+ * @description This operation is deprecated. Use the upgraded operation ListCheckStandard instead.
  *
  * @param request DescribeRiskItemTypeRequest
  * @return DescribeRiskItemTypeResponse
@@ -21598,7 +21598,7 @@ DescribeScreenScoreThreadResponse Client::describeScreenScoreThread(const Descri
 }
 
 /**
- * @summary Queries the filter conditions that are used to search for assets.
+ * @summary Queries the filter conditions for the Security Center asset list.
  *
  * @param request DescribeSearchConditionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21637,7 +21637,7 @@ DescribeSearchConditionResponse Client::describeSearchConditionWithOptions(const
 }
 
 /**
- * @summary Queries the filter conditions that are used to search for assets.
+ * @summary Queries the filter conditions for the Security Center asset list.
  *
  * @param request DescribeSearchConditionRequest
  * @return DescribeSearchConditionResponse
@@ -21764,7 +21764,7 @@ DescribeSecurityCheckScheduleConfigResponse Client::describeSecurityCheckSchedul
 }
 
 /**
- * @summary Queries the auto-whitelist rules for security alerts.
+ * @summary Queries the automatic whitelist rules for alerts.
  *
  * @param request DescribeSecurityEventMarkMissListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21815,7 +21815,7 @@ DescribeSecurityEventMarkMissListResponse Client::describeSecurityEventMarkMissL
 }
 
 /**
- * @summary Queries the auto-whitelist rules for security alerts.
+ * @summary Queries the automatic whitelist rules for alerts.
  *
  * @param request DescribeSecurityEventMarkMissListRequest
  * @return DescribeSecurityEventMarkMissListResponse
@@ -21934,7 +21934,7 @@ DescribeSecurityEventOperationsResponse Client::describeSecurityEventOperations(
 }
 
 /**
- * @summary Queries the statistics of each security check item and the daily statistics in the security check item trend chart.
+ * @summary Queries the statistical values of each security check item and the daily statistical values in the trend chart of security check items.
  *
  * @param request DescribeSecurityStatInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21973,7 +21973,7 @@ DescribeSecurityStatInfoResponse Client::describeSecurityStatInfoWithOptions(con
 }
 
 /**
- * @summary Queries the statistics of each security check item and the daily statistics in the security check item trend chart.
+ * @summary Queries the statistical values of each security check item and the daily statistical values in the trend chart of security check items.
  *
  * @param request DescribeSecurityStatInfoRequest
  * @return DescribeSecurityStatInfoResponse
@@ -22212,9 +22212,9 @@ DescribeSnapshotsResponse Client::describeSnapshots(const DescribeSnapshotsReque
 }
 
 /**
- * @summary Query the execution details of a remediation task playbook
+ * @summary Retrieves the execution results of the playbook corresponding to a policy in Task Center.
  *
- * @description This API is only supported by the Enterprise and Flagship editions of Cloud Security Center, other versions do not support it.
+ * @description Only the Enterprise and Ultimate editions of Security Center support this API operation.
  *
  * @param request DescribeSoarPlaybookTaskDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22253,9 +22253,9 @@ DescribeSoarPlaybookTaskDetailResponse Client::describeSoarPlaybookTaskDetailWit
 }
 
 /**
- * @summary Query the execution details of a remediation task playbook
+ * @summary Retrieves the execution results of the playbook corresponding to a policy in Task Center.
  *
- * @description This API is only supported by the Enterprise and Flagship editions of Cloud Security Center, other versions do not support it.
+ * @description Only the Enterprise and Ultimate editions of Security Center support this API operation.
  *
  * @param request DescribeSoarPlaybookTaskDetailRequest
  * @return DescribeSoarPlaybookTaskDetailResponse
@@ -22412,9 +22412,9 @@ DescribeSoarStrategyTaskDetailResponse Client::describeSoarStrategyTaskDetail(co
 }
 
 /**
- * @summary Queries the parameters of a policy task in the task center.
+ * @summary Queries the parameters of a policy task in the Task Center.
  *
- * @description Only the Enterprise and Ultimate editions of Security Center support this API operation. Other editions do not support this operation.
+ * @description This API operation is supported only by the Enterprise and Ultimate editions of Security Center.
  *
  * @param request DescribeSoarStrategyTaskParamsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22441,9 +22441,9 @@ DescribeSoarStrategyTaskParamsResponse Client::describeSoarStrategyTaskParamsWit
 }
 
 /**
- * @summary Queries the parameters of a policy task in the task center.
+ * @summary Queries the parameters of a policy task in the Task Center.
  *
- * @description Only the Enterprise and Ultimate editions of Security Center support this API operation. Other editions do not support this operation.
+ * @description This API operation is supported only by the Enterprise and Ultimate editions of Security Center.
  *
  * @param request DescribeSoarStrategyTaskParamsRequest
  * @return DescribeSoarStrategyTaskParamsResponse
@@ -22804,7 +22804,7 @@ DescribeStrategyTargetResponse Client::describeStrategyTarget(const DescribeStra
 }
 
 /**
- * @summary Strict mode supports alarm queries
+ * @summary Queries the names of all alerts that support strict mode.
  *
  * @param request DescribeStrictEventNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22831,7 +22831,7 @@ DescribeStrictEventNameResponse Client::describeStrictEventNameWithOptions(const
 }
 
 /**
- * @summary Strict mode supports alarm queries
+ * @summary Queries the names of all alerts that support strict mode.
  *
  * @param request DescribeStrictEventNameRequest
  * @return DescribeStrictEventNameResponse
@@ -22888,7 +22888,7 @@ DescribeSummaryInfoResponse Client::describeSummaryInfo(const DescribeSummaryInf
 }
 
 /**
- * @summary Queries the latest system vulnerability discovery time.
+ * @summary Queries the discovery time of the latest system vulnerability.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeSupervisonInfoResponse
@@ -22910,7 +22910,7 @@ DescribeSupervisonInfoResponse Client::describeSupervisonInfoWithOptions(const D
 }
 
 /**
- * @summary Queries the latest system vulnerability discovery time.
+ * @summary Queries the discovery time of the latest system vulnerability.
  *
  * @return DescribeSupervisonInfoResponse
  */
@@ -23412,7 +23412,7 @@ DescribeSuspiciousOverallConfigResponse Client::describeSuspiciousOverallConfig(
 }
 
 /**
- * @summary Query Alarm Security Event Statistics
+ * @summary Queries the statistics on security alert events.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeSuspiciousSecurityEventyStatisticsResponse
@@ -23434,7 +23434,7 @@ DescribeSuspiciousSecurityEventyStatisticsResponse Client::describeSuspiciousSec
 }
 
 /**
- * @summary Query Alarm Security Event Statistics
+ * @summary Queries the statistics on security alert events.
  *
  * @return DescribeSuspiciousSecurityEventyStatisticsResponse
  */
@@ -23606,7 +23606,7 @@ DescribeSyncAssetTaskLogDetailResponse Client::describeSyncAssetTaskLogDetail(co
 }
 
 /**
- * @summary Queries the machine list settings for vulnerability scanning.
+ * @summary Queries the machine list settings for enabled vulnerability scanning.
  *
  * @param request DescribeTargetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23641,7 +23641,7 @@ DescribeTargetResponse Client::describeTargetWithOptions(const DescribeTargetReq
 }
 
 /**
- * @summary Queries the machine list settings for vulnerability scanning.
+ * @summary Queries the machine list settings for enabled vulnerability scanning.
  *
  * @param request DescribeTargetRequest
  * @return DescribeTargetResponse
@@ -24152,7 +24152,7 @@ DescribeUniSupportRegionResponse Client::describeUniSupportRegion() {
 }
 
 /**
- * @summary Queries servers that have anti-ransomware backup policies enabled.
+ * @summary Queries the servers that have the anti-ransomware backup policy enabled.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeUserBackupMachinesResponse
@@ -24174,7 +24174,7 @@ DescribeUserBackupMachinesResponse Client::describeUserBackupMachinesWithOptions
 }
 
 /**
- * @summary Queries servers that have anti-ransomware backup policies enabled.
+ * @summary Queries the servers that have the anti-ransomware backup policy enabled.
  *
  * @return DescribeUserBackupMachinesResponse
  */
@@ -25186,7 +25186,7 @@ DescribeVulMetaCountStatisticsResponse Client::describeVulMetaCountStatistics() 
 }
 
 /**
- * @summary Get vulnerability statistics.
+ * @summary Retrieves vulnerability statistics information.
  *
  * @param request DescribeVulNumStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -25221,7 +25221,7 @@ DescribeVulNumStatisticsResponse Client::describeVulNumStatisticsWithOptions(con
 }
 
 /**
- * @summary Get vulnerability statistics.
+ * @summary Retrieves vulnerability statistics information.
  *
  * @param request DescribeVulNumStatisticsRequest
  * @return DescribeVulNumStatisticsResponse
@@ -25510,7 +25510,7 @@ DescribeWarningMachinesResponse Client::describeWarningMachines(const DescribeWa
 }
 
 /**
- * @summary Retrieves the list of servers that have web tamper-proofing protection enabled.
+ * @summary Queries the list of servers protected by web tamper-proofing.
  *
  * @param request DescribeWebLockBindListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -25565,7 +25565,7 @@ DescribeWebLockBindListResponse Client::describeWebLockBindListWithOptions(const
 }
 
 /**
- * @summary Retrieves the list of servers that have web tamper-proofing protection enabled.
+ * @summary Queries the list of servers protected by web tamper-proofing.
  *
  * @param request DescribeWebLockBindListRequest
  * @return DescribeWebLockBindListResponse
@@ -25774,7 +25774,7 @@ DescribeWebLockFileEventsResponse Client::describeWebLockFileEvents(const Descri
 }
 
 /**
- * @summary Queries the WebLock file type summary.
+ * @summary Queries the summary of WebLock file types.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeWebLockFileTypeSummaryResponse
@@ -25796,7 +25796,7 @@ DescribeWebLockFileTypeSummaryResponse Client::describeWebLockFileTypeSummaryWit
 }
 
 /**
- * @summary Queries the WebLock file type summary.
+ * @summary Queries the summary of WebLock file types.
  *
  * @return DescribeWebLockFileTypeSummaryResponse
  */
@@ -26832,9 +26832,9 @@ EnableCustomInstanceBlockRecordResponse Client::enableCustomInstanceBlockRecord(
 }
 
 /**
- * @summary Enables the multi-account management feature of Security Center.
+ * @summary Enables the multi-account security management feature of Security Center.
  *
- * @description Call this operation by using the management account of the resource directory or a delegated administrator account of Security Center.
+ * @description You must use the management account of a resource directory or the delegated administrator account of Security Center to call this operation.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return EnableServiceAccessResourceDirectoryResponse
@@ -26856,9 +26856,9 @@ EnableServiceAccessResourceDirectoryResponse Client::enableServiceAccessResource
 }
 
 /**
- * @summary Enables the multi-account management feature of Security Center.
+ * @summary Enables the multi-account security management feature of Security Center.
  *
- * @description Call this operation by using the management account of the resource directory or a delegated administrator account of Security Center.
+ * @description You must use the management account of a resource directory or the delegated administrator account of Security Center to call this operation.
  *
  * @return EnableServiceAccessResourceDirectoryResponse
  */
@@ -26868,7 +26868,7 @@ EnableServiceAccessResourceDirectoryResponse Client::enableServiceAccessResource
 }
 
 /**
- * @summary Performs a baseline check on machines within a specified policy.
+ * @summary Executes a specified policy to scan the servers within the policy for check items.
  *
  * @param request ExecStrategyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -26907,7 +26907,7 @@ ExecStrategyResponse Client::execStrategyWithOptions(const ExecStrategyRequest &
 }
 
 /**
- * @summary Performs a baseline check on machines within a specified policy.
+ * @summary Executes a specified policy to scan the servers within the policy for check items.
  *
  * @param request ExecStrategyRequest
  * @return ExecStrategyResponse
@@ -26968,7 +26968,7 @@ ExportCustomizeReportResponse Client::exportCustomizeReport(const ExportCustomiz
 }
 
 /**
- * @summary Exports the detection results of the Asset Center, cloud platform configuration check, image security scan, attack analysis, AccessKey leak detection, and baseline check to an Excel file.
+ * @summary Exports the detection results of the Asset Center, cloud platform configuration assessment, image security scanning, attack analysis, AccessKey leak detection, and baseline checks to an Excel file.
  *
  * @description After you call this operation, you can call the [DescribeExportInfo](~~DescribeExportInfo~~) operation to query the file export progress and obtain the download link for the exported Excel file.
  *
@@ -27017,7 +27017,7 @@ ExportRecordResponse Client::exportRecordWithOptions(const ExportRecordRequest &
 }
 
 /**
- * @summary Exports the detection results of the Asset Center, cloud platform configuration check, image security scan, attack analysis, AccessKey leak detection, and baseline check to an Excel file.
+ * @summary Exports the detection results of the Asset Center, cloud platform configuration assessment, image security scanning, attack analysis, AccessKey leak detection, and baseline checks to an Excel file.
  *
  * @description After you call this operation, you can call the [DescribeExportInfo](~~DescribeExportInfo~~) operation to query the file export progress and obtain the download link for the exported Excel file.
  *
@@ -27164,12 +27164,12 @@ ExportSuspEventsResponse Client::exportSuspEvents(const ExportSuspEventsRequest 
 }
 
 /**
- * @summary Exports a vulnerability list.
+ * @summary Exports the vulnerability list.
  *
- * @description Exports a vulnerability list. You can export vulnerability lists for Linux software vulnerabilities, Windows system vulnerabilities, Web-CMS vulnerabilities, application vulnerabilities, and emergency vulnerabilities.
- * This operation is used together with the DescribeVulExportInfo operation. After you call this operation to create a vulnerability export task, call the [DescribeVulExportInfo](~~DescribeVulExportInfo~~) operation with the export task ID to check the progress of the export task.
+ * @description This operation exports vulnerability lists. You can use it to export lists of Linux software vulnerabilities, Windows system vulnerabilities, Web-CMS vulnerabilities, application vulnerabilities, and emergency vulnerabilities.
+ * This operation is used together with the DescribeVulExportInfo operation. After you use this operation to create a vulnerability export task, you can call the DescribeVulExportInfo operation and specify the ID of the vulnerability export task to view the progress of the export task.
  * ### QPS limit
- * The single-user QPS limit for this operation is 10 calls per second. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Manage your calls appropriately.
+ * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered, which may affect your business. Call this operation at a reasonable frequency.
  *
  * @param request ExportVulRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -27276,12 +27276,12 @@ ExportVulResponse Client::exportVulWithOptions(const ExportVulRequest &request, 
 }
 
 /**
- * @summary Exports a vulnerability list.
+ * @summary Exports the vulnerability list.
  *
- * @description Exports a vulnerability list. You can export vulnerability lists for Linux software vulnerabilities, Windows system vulnerabilities, Web-CMS vulnerabilities, application vulnerabilities, and emergency vulnerabilities.
- * This operation is used together with the DescribeVulExportInfo operation. After you call this operation to create a vulnerability export task, call the [DescribeVulExportInfo](~~DescribeVulExportInfo~~) operation with the export task ID to check the progress of the export task.
+ * @description This operation exports vulnerability lists. You can use it to export lists of Linux software vulnerabilities, Windows system vulnerabilities, Web-CMS vulnerabilities, application vulnerabilities, and emergency vulnerabilities.
+ * This operation is used together with the DescribeVulExportInfo operation. After you use this operation to create a vulnerability export task, you can call the DescribeVulExportInfo operation and specify the ID of the vulnerability export task to view the progress of the export task.
  * ### QPS limit
- * The single-user QPS limit for this operation is 10 calls per second. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Manage your calls appropriately.
+ * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered, which may affect your business. Call this operation at a reasonable frequency.
  *
  * @param request ExportVulRequest
  * @return ExportVulResponse
@@ -27294,9 +27294,9 @@ ExportVulResponse Client::exportVul(const ExportVulRequest &request) {
 /**
  * @deprecated OpenAPI ExportWarning is deprecated, please use Sas::2018-12-03::ExportRecord instead.
  *
- * @summary Exports the list of baseline check results. This operation is deprecated.
+ * @summary **[Deprecated]** This operation is deprecated. Use ExportRecord instead.
  *
- * @description Exports the list of baseline check results. This operation is deprecated. Use [ExportRecord](~~ExportRecord~~) instead.
+ * @description **[Deprecated]** Exports the list of baseline check results. This operation is deprecated. Use [ExportRecord](~~ExportRecord~~) instead.
  *
  * @param request ExportWarningRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -27389,9 +27389,9 @@ ExportWarningResponse Client::exportWarningWithOptions(const ExportWarningReques
 /**
  * @deprecated OpenAPI ExportWarning is deprecated, please use Sas::2018-12-03::ExportRecord instead.
  *
- * @summary Exports the list of baseline check results. This operation is deprecated.
+ * @summary **[Deprecated]** This operation is deprecated. Use ExportRecord instead.
  *
- * @description Exports the list of baseline check results. This operation is deprecated. Use [ExportRecord](~~ExportRecord~~) instead.
+ * @description **[Deprecated]** Exports the list of baseline check results. This operation is deprecated. Use [ExportRecord](~~ExportRecord~~) instead.
  *
  * @param request ExportWarningRequest
  * @return ExportWarningResponse
@@ -28578,7 +28578,7 @@ GetAttackPathEventDetailResponse Client::getAttackPathEventDetail(const GetAttac
 }
 
 /**
- * @summary Queries attack path event statistics.
+ * @summary Queries the statistics of attack path events.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetAttackPathEventStatisticsResponse
@@ -28600,7 +28600,7 @@ GetAttackPathEventStatisticsResponse Client::getAttackPathEventStatisticsWithOpt
 }
 
 /**
- * @summary Queries attack path event statistics.
+ * @summary Queries the statistics of attack path events.
  *
  * @return GetAttackPathEventStatisticsResponse
  */
@@ -29834,7 +29834,7 @@ GetClusterRuleSummaryResponse Client::getClusterRuleSummary(const GetClusterRule
 }
 
 /**
- * @summary Queries the scan access configuration of a Kubernetes cluster.
+ * @summary Queries the scan integration configuration for a Kubernetes cluster.
  *
  * @param request GetClusterScannerYamlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -29865,7 +29865,7 @@ GetClusterScannerYamlResponse Client::getClusterScannerYamlWithOptions(const Get
 }
 
 /**
- * @summary Queries the scan access configuration of a Kubernetes cluster.
+ * @summary Queries the scan integration configuration for a Kubernetes cluster.
  *
  * @param request GetClusterScannerYamlRequest
  * @return GetClusterScannerYamlResponse
@@ -29996,7 +29996,7 @@ GetCommonSwitchConfigResponse Client::getCommonSwitchConfig(const GetCommonSwitc
 }
 
 /**
- * @summary Query whether the core function\\"s gray switch is hit
+ * @summary Retrieves the grayscale status of console feature modules.
  *
  * @param request GetConsoleFuncGrayStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -30031,7 +30031,7 @@ GetConsoleFuncGrayStatusResponse Client::getConsoleFuncGrayStatusWithOptions(con
 }
 
 /**
- * @summary Query whether the core function\\"s gray switch is hit
+ * @summary Retrieves the grayscale status of console feature modules.
  *
  * @param request GetConsoleFuncGrayStatusRequest
  * @return GetConsoleFuncGrayStatusResponse
@@ -30042,7 +30042,7 @@ GetConsoleFuncGrayStatusResponse Client::getConsoleFuncGrayStatus(const GetConso
 }
 
 /**
- * @summary Retrieves the details of a non-image program defense rule.
+ * @summary Retrieves the details of a defense rule for non-image programs.
  *
  * @param request GetContainerDefenseRuleDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -30077,7 +30077,7 @@ GetContainerDefenseRuleDetailResponse Client::getContainerDefenseRuleDetailWithO
 }
 
 /**
- * @summary Retrieves the details of a non-image program defense rule.
+ * @summary Retrieves the details of a defense rule for non-image programs.
  *
  * @param request GetContainerDefenseRuleDetailRequest
  * @return GetContainerDefenseRuleDetailResponse
@@ -30210,7 +30210,7 @@ GetDefenceCountResponse Client::getDefenceCount() {
 }
 
 /**
- * @summary Queries the rankings of images by various dimensions.
+ * @summary Queries the rankings of images across different dimensions.
  *
  * @param request GetDockerhubImageRiskRankInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -30241,7 +30241,7 @@ GetDockerhubImageRiskRankInfoResponse Client::getDockerhubImageRiskRankInfoWithO
 }
 
 /**
- * @summary Queries the rankings of images by various dimensions.
+ * @summary Queries the rankings of images across different dimensions.
  *
  * @param request GetDockerhubImageRiskRankInfoRequest
  * @return GetDockerhubImageRiskRankInfoResponse
@@ -30294,7 +30294,7 @@ GetDockerhubImageRiskStatisticResponse Client::getDockerhubImageRiskStatistic(co
 }
 
 /**
- * @summary Obtains the usage information of the malicious file detection SDK.
+ * @summary Retrieves the usage information of the malicious file detection SDK.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetFileDetectApiInvokeInfoResponse
@@ -30316,7 +30316,7 @@ GetFileDetectApiInvokeInfoResponse Client::getFileDetectApiInvokeInfoWithOptions
 }
 
 /**
- * @summary Obtains the usage information of the malicious file detection SDK.
+ * @summary Retrieves the usage information of the malicious file detection SDK.
  *
  * @return GetFileDetectApiInvokeInfoResponse
  */
@@ -30815,7 +30815,7 @@ GetFileUploadLimitResponse Client::getFileUploadLimit() {
 }
 
 /**
- * @summary Get Trial Status
+ * @summary Retrieves the trial eligibility status of a feature.
  *
  * @param request GetFunctionTrialStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -30846,7 +30846,7 @@ GetFunctionTrialStatusResponse Client::getFunctionTrialStatusWithOptions(const G
 }
 
 /**
- * @summary Get Trial Status
+ * @summary Retrieves the trial eligibility status of a feature.
  *
  * @param request GetFunctionTrialStatusRequest
  * @return GetFunctionTrialStatusResponse
@@ -30899,7 +30899,7 @@ GetHoneyPotUploadPolicyInfoResponse Client::getHoneyPotUploadPolicyInfo(const Ge
 }
 
 /**
- * @summary Queries the attack event statistics information of a honeypot attack source.
+ * @summary Retrieves the statistics on attack events from honeypot attack sources.
  *
  * @param request GetHoneypotAttackStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -30958,7 +30958,7 @@ GetHoneypotAttackStatisticsResponse Client::getHoneypotAttackStatisticsWithOptio
 }
 
 /**
- * @summary Queries the attack event statistics information of a honeypot attack source.
+ * @summary Retrieves the statistics on attack events from honeypot attack sources.
  *
  * @param request GetHoneypotAttackStatisticsRequest
  * @return GetHoneypotAttackStatisticsResponse
@@ -31239,7 +31239,7 @@ GetHoneypotProbeResponse Client::getHoneypotProbe(const GetHoneypotProbeRequest 
 }
 
 /**
- * @summary Get statistics on honey pot usage.
+ * @summary Retrieves the statistics on honeypot usage.
  *
  * @param request GetHoneypotStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -31270,7 +31270,7 @@ GetHoneypotStatisticsResponse Client::getHoneypotStatisticsWithOptions(const Get
 }
 
 /**
- * @summary Get statistics on honey pot usage.
+ * @summary Retrieves the statistics on honeypot usage.
  *
  * @param request GetHoneypotStatisticsRequest
  * @return GetHoneypotStatisticsResponse
@@ -31853,7 +31853,7 @@ GetModuleConfigResponse Client::getModuleConfig(const GetModuleConfigRequest &re
 }
 
 /**
- * @summary Checks whether the purchased Security Center features are enabled and whether related configurations take effect.
+ * @summary Queries whether the features of the purchased Security Center modules are enabled or configured.
  *
  * @param tmpReq GetModuleConfigStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -31890,7 +31890,7 @@ GetModuleConfigStatusResponse Client::getModuleConfigStatusWithOptions(const Get
 }
 
 /**
- * @summary Checks whether the purchased Security Center features are enabled and whether related configurations take effect.
+ * @summary Queries whether the features of the purchased Security Center modules are enabled or configured.
  *
  * @param request GetModuleConfigStatusRequest
  * @return GetModuleConfigStatusResponse
@@ -32237,7 +32237,7 @@ GetOpaClusterNamespaceListResponse Client::getOpaClusterNamespaceList(const GetO
 }
 
 /**
- * @summary Queries the installation status of the components that are required for clusters protected by proactive defense for containers.
+ * @summary Queries the installation status of the container proactive defense component.
  *
  * @param request GetOpaPluginStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -32268,7 +32268,7 @@ GetOpaPluginStatusResponse Client::getOpaPluginStatusWithOptions(const GetOpaPlu
 }
 
 /**
- * @summary Queries the installation status of the components that are required for clusters protected by proactive defense for containers.
+ * @summary Queries the installation status of the container proactive defense component.
  *
  * @param request GetOpaPluginStatusRequest
  * @return GetOpaPluginStatusResponse
@@ -32279,7 +32279,7 @@ GetOpaPluginStatusResponse Client::getOpaPluginStatus(const GetOpaPluginStatusRe
 }
 
 /**
- * @summary Queries the details of a risky image blocking policy.
+ * @summary Retrieves the details of a risky image blocking policy.
  *
  * @param request GetOpaStrategyDetailNewRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -32310,7 +32310,7 @@ GetOpaStrategyDetailNewResponse Client::getOpaStrategyDetailNewWithOptions(const
 }
 
 /**
- * @summary Queries the details of a risky image blocking policy.
+ * @summary Retrieves the details of a risky image blocking policy.
  *
  * @param request GetOpaStrategyDetailNewRequest
  * @return GetOpaStrategyDetailNewResponse
@@ -33730,9 +33730,9 @@ HandleSecurityEventsResponse Client::handleSecurityEvents(const HandleSecurityEv
 }
 
 /**
- * @summary Batch processes malicious sample alerts.
+ * @summary Processes malicious sample alerts in batches.
  *
- * @description ****.
+ * @description ****
  *
  * @param request HandleSimilarMaliciousFilesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -33779,9 +33779,9 @@ HandleSimilarMaliciousFilesResponse Client::handleSimilarMaliciousFilesWithOptio
 }
 
 /**
- * @summary Batch processes malicious sample alerts.
+ * @summary Processes malicious sample alerts in batches.
  *
- * @description ****.
+ * @description ****
  *
  * @param request HandleSimilarMaliciousFilesRequest
  * @return HandleSimilarMaliciousFilesResponse
@@ -34200,9 +34200,9 @@ InstallBackupClientResponse Client::installBackupClient(const InstallBackupClien
 }
 
 /**
- * @summary Installs the CloudMonitor agent on a specified server.
+ * @summary Installs the CloudMonitor agent on specified servers.
  *
- * @description > Before installation, make sure that the Security Center client on your server is online and that your server can access Alibaba Cloud services over the network.
+ * @description > Before installation, ensure that the Security Center agent on your server is online and that your server has Normal access to Alibaba Cloud services.
  *
  * @param request InstallCloudMonitorRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -34249,9 +34249,9 @@ InstallCloudMonitorResponse Client::installCloudMonitorWithOptions(const Install
 }
 
 /**
- * @summary Installs the CloudMonitor agent on a specified server.
+ * @summary Installs the CloudMonitor agent on specified servers.
  *
- * @description > Before installation, make sure that the Security Center client on your server is online and that your server can access Alibaba Cloud services over the network.
+ * @description > Before installation, ensure that the Security Center agent on your server is online and that your server has Normal access to Alibaba Cloud services.
  *
  * @param request InstallCloudMonitorRequest
  * @return InstallCloudMonitorResponse
@@ -34879,6 +34879,10 @@ ListAgentlessRiskUuidResponse Client::listAgentlessRiskUuidWithOptions(const Lis
     query["IntranetIp"] = request.getIntranetIp();
   }
 
+  if (!!request.hasLang()) {
+    query["Lang"] = request.getLang();
+  }
+
   if (!!request.hasMachineName()) {
     query["MachineName"] = request.getMachineName();
   }
@@ -35334,7 +35338,7 @@ ListAttackEventInfoResponse Client::listAttackEventInfo(const ListAttackEventInf
 }
 
 /**
- * @summary Queries the list of attack path events.
+ * @summary Queries the attack path events.
  *
  * @param request ListAttackPathEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -35397,7 +35401,7 @@ ListAttackPathEventResponse Client::listAttackPathEventWithOptions(const ListAtt
 }
 
 /**
- * @summary Queries the list of attack path events.
+ * @summary Queries the attack path events.
  *
  * @param request ListAttackPathEventRequest
  * @return ListAttackPathEventResponse
@@ -35408,7 +35412,7 @@ ListAttackPathEventResponse Client::listAttackPathEvent(const ListAttackPathEven
 }
 
 /**
- * @summary Queries the attack path whitelist.
+ * @summary Queries the attack path whitelists.
  *
  * @param request ListAttackPathWhitelistRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -35459,7 +35463,7 @@ ListAttackPathWhitelistResponse Client::listAttackPathWhitelistWithOptions(const
 }
 
 /**
- * @summary Queries the attack path whitelist.
+ * @summary Queries the attack path whitelists.
  *
  * @param request ListAttackPathWhitelistRequest
  * @return ListAttackPathWhitelistResponse
@@ -35604,7 +35608,7 @@ ListAvailableHoneypotResponse Client::listAvailableHoneypot(const ListAvailableH
 }
 
 /**
- * @summary Queries a list of backup records.
+ * @summary Queries the backup records.
  *
  * @param request ListBackupRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -35655,7 +35659,7 @@ ListBackupRecordResponse Client::listBackupRecordWithOptions(const ListBackupRec
 }
 
 /**
- * @summary Queries a list of backup records.
+ * @summary Queries the backup records.
  *
  * @param request ListBackupRecordRequest
  * @return ListBackupRecordResponse
@@ -35874,7 +35878,7 @@ ListCheckItemResponse Client::listCheckItem(const ListCheckItemRequest &request)
 }
 
 /**
- * @summary Query the list of warning machines for a specific baseline check item.
+ * @summary Queries the list of servers affected by baseline check item risks.
  *
  * @param request ListCheckItemWarningMachineRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -35953,7 +35957,7 @@ ListCheckItemWarningMachineResponse Client::listCheckItemWarningMachineWithOptio
 }
 
 /**
- * @summary Query the list of warning machines for a specific baseline check item.
+ * @summary Queries the list of servers affected by baseline check item risks.
  *
  * @param request ListCheckItemWarningMachineRequest
  * @return ListCheckItemWarningMachineResponse
@@ -36336,7 +36340,7 @@ ListCheckRuleInstanceResponse Client::listCheckRuleInstance(const ListCheckRuleI
 }
 
 /**
- * @summary Queries the standards of configuration checks.
+ * @summary Retrieves the list of standards for cloud platform configuration checks.
  *
  * @param request ListCheckStandardRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -36387,7 +36391,7 @@ ListCheckStandardResponse Client::listCheckStandardWithOptions(const ListCheckSt
 }
 
 /**
- * @summary Queries the standards of configuration checks.
+ * @summary Retrieves the list of standards for cloud platform configuration checks.
  *
  * @param request ListCheckStandardRequest
  * @return ListCheckStandardResponse
@@ -36816,7 +36820,7 @@ ListCloudVendorRegionsResponse Client::listCloudVendorRegions(const ListCloudVen
 }
 
 /**
- * @summary Query Cluster Check Item Scan Results
+ * @summary Queries the details of risk items in cluster configuration check results.
  *
  * @param request ListClusterCheckResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -36875,7 +36879,7 @@ ListClusterCheckResultResponse Client::listClusterCheckResultWithOptions(const L
 }
 
 /**
- * @summary Query Cluster Check Item Scan Results
+ * @summary Queries the details of risk items in cluster configuration check results.
  *
  * @param request ListClusterCheckResultRequest
  * @return ListClusterCheckResultResponse
@@ -37118,7 +37122,7 @@ ListCompressFileDetectResultResponse Client::listCompressFileDetectResult(const 
 }
 
 /**
- * @summary Retrieves the list of defense rules for non-image programs.
+ * @summary Queries a list of non-image program defense rules.
  *
  * @param request ListContainerDefenseRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -37169,7 +37173,7 @@ ListContainerDefenseRuleResponse Client::listContainerDefenseRuleWithOptions(con
 }
 
 /**
- * @summary Retrieves the list of defense rules for non-image programs.
+ * @summary Queries a list of non-image program defense rules.
  *
  * @param request ListContainerDefenseRuleRequest
  * @return ListContainerDefenseRuleResponse
@@ -37687,7 +37691,7 @@ ListFileProtectRuleResponse Client::listFileProtectRule(const ListFileProtectRul
 }
 
 /**
- * @summary Retrieves the list of server groups for the current user.
+ * @summary Retrieves the list of server groups.
  *
  * @param request ListGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -37734,7 +37738,7 @@ ListGroupsResponse Client::listGroupsWithOptions(const ListGroupsRequest &reques
 }
 
 /**
- * @summary Retrieves the list of server groups for the current user.
+ * @summary Retrieves the list of server groups.
  *
  * @param request ListGroupsRequest
  * @return ListGroupsResponse
@@ -37907,7 +37911,7 @@ ListHoneypotAttackerPortraitResponse Client::listHoneypotAttackerPortrait(const 
 }
 
 /**
- * @summary Queries the attack source IP addresses that are used to attack a honeypot.
+ * @summary Retrieves a list of attack sources that launched attacks on honeypots.
  *
  * @param request ListHoneypotAttackerSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -37962,7 +37966,7 @@ ListHoneypotAttackerSourceResponse Client::listHoneypotAttackerSourceWithOptions
 }
 
 /**
- * @summary Queries the attack source IP addresses that are used to attack a honeypot.
+ * @summary Retrieves a list of attack sources that launched attacks on honeypots.
  *
  * @param request ListHoneypotAttackerSourceRequest
  * @return ListHoneypotAttackerSourceResponse
@@ -38347,7 +38351,7 @@ ListImageBuildRiskItemResponse Client::listImageBuildRiskItem(const ListImageBui
 }
 
 /**
- * @summary Queries the extra configuration information of an image repository.
+ * @summary Queries the additional configuration information of an image registry.
  *
  * @param request ListImageRegistryExtraRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -38378,7 +38382,7 @@ ListImageRegistryExtraResponse Client::listImageRegistryExtraWithOptions(const L
 }
 
 /**
- * @summary Queries the extra configuration information of an image repository.
+ * @summary Queries the additional configuration information of an image registry.
  *
  * @param request ListImageRegistryExtraRequest
  * @return ListImageRegistryExtraResponse
@@ -38493,7 +38497,7 @@ ListImageRiskResponse Client::listImageRisk(const ListImageRiskRequest &request)
 }
 
 /**
- * @summary Queries the asset types and asset subtypes for configuration assessment.
+ * @summary Queries the assets and sub-assets for cloud platform configuration checks.
  *
  * @param request ListInstanceCatalogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -38548,7 +38552,7 @@ ListInstanceCatalogResponse Client::listInstanceCatalogWithOptions(const ListIns
 }
 
 /**
- * @summary Queries the asset types and asset subtypes for configuration assessment.
+ * @summary Queries the assets and sub-assets for cloud platform configuration checks.
  *
  * @param request ListInstanceCatalogRequest
  * @return ListInstanceCatalogResponse
@@ -38601,7 +38605,7 @@ ListInstanceRiskLevelsResponse Client::listInstanceRiskLevels(const ListInstance
 }
 
 /**
- * @summary Queries the statistics about risks in instances.
+ * @summary Retrieves the number of security issues for instances.
  *
  * @param request ListInstanceRiskNumRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -38632,7 +38636,7 @@ ListInstanceRiskNumResponse Client::listInstanceRiskNumWithOptions(const ListIns
 }
 
 /**
- * @summary Queries the statistics about risks in instances.
+ * @summary Retrieves the number of security issues for instances.
  *
  * @param request ListInstanceRiskNumRequest
  * @return ListInstanceRiskNumResponse
@@ -38993,7 +38997,7 @@ ListLogShipperRegionsResponse Client::listLogShipperRegions() {
 }
 
 /**
- * @summary Queries the Serverless Application Engine (SAE) applications of a serverless instance.
+ * @summary Queries the SAE applications of a serverless instance.
  *
  * @param request ListMachineAppsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -39052,7 +39056,7 @@ ListMachineAppsResponse Client::listMachineAppsWithOptions(const ListMachineApps
 }
 
 /**
- * @summary Queries the Serverless Application Engine (SAE) applications of a serverless instance.
+ * @summary Queries the SAE applications of a serverless instance.
  *
  * @param request ListMachineAppsRequest
  * @return ListMachineAppsResponse
@@ -40225,7 +40229,7 @@ ListSupportObjectSuffixResponse Client::listSupportObjectSuffix() {
 }
 
 /**
- * @summary Retrieves the details of system rule clusters.
+ * @summary Queries the details of system rule aggregations.
  *
  * @param request ListSystemAggregationRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -40252,7 +40256,7 @@ ListSystemAggregationRulesResponse Client::listSystemAggregationRulesWithOptions
 }
 
 /**
- * @summary Retrieves the details of system rule clusters.
+ * @summary Queries the details of system rule aggregations.
  *
  * @param request ListSystemAggregationRulesRequest
  * @return ListSystemAggregationRulesResponse
@@ -40365,7 +40369,7 @@ ListSystemClientRulesResponse Client::listSystemClientRules(const ListSystemClie
 }
 
 /**
- * @summary Queries the aggregation types of system defense rules.
+ * @summary Queries the clustering types of system defense rules.
  *
  * @param request ListSystemRuleAggregationTypesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -40392,7 +40396,7 @@ ListSystemRuleAggregationTypesResponse Client::listSystemRuleAggregationTypesWit
 }
 
 /**
- * @summary Queries the aggregation types of system defense rules.
+ * @summary Queries the clustering types of system defense rules.
  *
  * @param request ListSystemRuleAggregationTypesRequest
  * @return ListSystemRuleAggregationTypesResponse
@@ -40927,7 +40931,7 @@ ListUnknownThreatDetectStrategyResponse Client::listUnknownThreatDetectStrategy(
 }
 
 /**
- * @summary Retrieves VPC data for the user in a specified region by using the third-party image repository integration feature of Container Asset in Security Center.
+ * @summary Retrieves the VPC data of users in a specified region by using the container assets and third-party image repository access features of Security Center.
  *
  * @param request ListUserVpcRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -40958,7 +40962,7 @@ ListUserVpcResponse Client::listUserVpcWithOptions(const ListUserVpcRequest &req
 }
 
 /**
- * @summary Retrieves VPC data for the user in a specified region by using the third-party image repository integration feature of Container Asset in Security Center.
+ * @summary Retrieves the VPC data of users in a specified region by using the container assets and third-party image repository access features of Security Center.
  *
  * @param request ListUserVpcRequest
  * @return ListUserVpcResponse
@@ -40969,7 +40973,7 @@ ListUserVpcResponse Client::listUserVpc(const ListUserVpcRequest &request) {
 }
 
 /**
- * @summary Queries the UUIDs of Serverless instances by application ID.
+ * @summary Queries the UUIDs of Serverless instances based on the application ID.
  *
  * @param request ListUuidsByAppIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -41020,7 +41024,7 @@ ListUuidsByAppIdResponse Client::listUuidsByAppIdWithOptions(const ListUuidsByAp
 }
 
 /**
- * @summary Queries the UUIDs of Serverless instances by application ID.
+ * @summary Queries the UUIDs of Serverless instances based on the application ID.
  *
  * @param request ListUuidsByAppIdRequest
  * @return ListUuidsByAppIdResponse
@@ -41197,7 +41201,7 @@ ListVirusScanMachineEventResponse Client::listVirusScanMachineEvent(const ListVi
 }
 
 /**
- * @summary Queries virus scan tasks that match specified conditions such as scan type, scan status, and scanned machine information.
+ * @summary Queries virus scan tasks that meet the specified conditions based on the scan type, scan status, and machine information.
  *
  * @param request ListVirusScanTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -41280,7 +41284,7 @@ ListVirusScanTaskResponse Client::listVirusScanTaskWithOptions(const ListVirusSc
 }
 
 /**
- * @summary Queries virus scan tasks that match specified conditions such as scan type, scan status, and scanned machine information.
+ * @summary Queries virus scan tasks that meet the specified conditions based on the scan type, scan status, and machine information.
  *
  * @param request ListVirusScanTaskRequest
  * @return ListVirusScanTaskResponse
@@ -42125,9 +42129,9 @@ ModifyCheckRuleResponse Client::modifyCheckRule(const ModifyCheckRuleRequest &re
 }
 
 /**
- * @summary Clears the storage capacity space for log analysis.
+ * @summary Clears the storage capacity for log analysis.
  *
- * @description Cleared logs cannot be recovered. Before calling this operation, perform a log export and save the logs to a local device, and then call this operation to clear the logs and free up storage capacity space.
+ * @description Logs cannot be recovered after they are cleared. Perform log export and store the logs locally before you call this operation to clear the logs and release storage capacity.
  *
  * @param request ModifyClearLogstoreStorageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -42170,9 +42174,9 @@ ModifyClearLogstoreStorageResponse Client::modifyClearLogstoreStorageWithOptions
 }
 
 /**
- * @summary Clears the storage capacity space for log analysis.
+ * @summary Clears the storage capacity for log analysis.
  *
- * @description Cleared logs cannot be recovered. Before calling this operation, perform a log export and save the logs to a local device, and then call this operation to clear the logs and free up storage capacity space.
+ * @description Logs cannot be recovered after they are cleared. Perform log export and store the logs locally before you call this operation to clear the logs and release storage capacity.
  *
  * @param request ModifyClearLogstoreStorageRequest
  * @return ModifyClearLogstoreStorageResponse
@@ -43915,7 +43919,7 @@ ModifyLoginSwitchConfigResponse Client::modifyLoginSwitchConfig(const ModifyLogi
 }
 
 /**
- * @summary Modifies notification configuration information.
+ * @summary Modifies the notification configuration.
  *
  * @param request ModifyNoticeConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -43974,7 +43978,7 @@ ModifyNoticeConfigResponse Client::modifyNoticeConfigWithOptions(const ModifyNot
 }
 
 /**
- * @summary Modifies notification configuration information.
+ * @summary Modifies the notification configuration.
  *
  * @param request ModifyNoticeConfigRequest
  * @return ModifyNoticeConfigResponse
@@ -43985,14 +43989,13 @@ ModifyNoticeConfigResponse Client::modifyNoticeConfig(const ModifyNoticeConfigRe
 }
 
 /**
- * @summary Activates Simple Log Service.
+ * @summary Enables Simple Log Service.
  *
  * @description **Before you begin**
  * Activate <props="china">[Simple Log Service](https://help.aliyun.com/document_detail/48863.html)
- * <props="intl">[Log Service](https://www.alibabacloud.com/help/en/log-service/latest/billable-items).
- * Create a service-linked role and authorize Security Center to access cloud resources. You can call the [CreateServiceLinkedRole](~~CreateServiceLinkedRole~~) operation to create a service-linked role and authorize Security Center to access cloud resources.
- * **Common scenarios**
- * Before you use the log analysis feature of Security Center, call the [ModifyOpenLogShipper](~~ModifyOpenLogShipper~~) operation to activate Simple Log Service.
+ * <props="intl">[Simple Log Service](https://www.alibabacloud.com/help/en/log-service/latest/billable-items) first, and create a service-linked role to authorize Security Center to access cloud resources. You can call the [CreateServiceLinkedRole](~~CreateServiceLinkedRole~~) operation to create a service-linked role and authorize Security Center to access cloud resources.
+ * **Scenarios**
+ * Before you use the log analysis feature of Security Center, you must call the [ModifyOpenLogShipper](~~ModifyOpenLogShipper~~) operation to enable Simple Log Service.
  *
  * @param request ModifyOpenLogShipperRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -44027,14 +44030,13 @@ ModifyOpenLogShipperResponse Client::modifyOpenLogShipperWithOptions(const Modif
 }
 
 /**
- * @summary Activates Simple Log Service.
+ * @summary Enables Simple Log Service.
  *
  * @description **Before you begin**
  * Activate <props="china">[Simple Log Service](https://help.aliyun.com/document_detail/48863.html)
- * <props="intl">[Log Service](https://www.alibabacloud.com/help/en/log-service/latest/billable-items).
- * Create a service-linked role and authorize Security Center to access cloud resources. You can call the [CreateServiceLinkedRole](~~CreateServiceLinkedRole~~) operation to create a service-linked role and authorize Security Center to access cloud resources.
- * **Common scenarios**
- * Before you use the log analysis feature of Security Center, call the [ModifyOpenLogShipper](~~ModifyOpenLogShipper~~) operation to activate Simple Log Service.
+ * <props="intl">[Simple Log Service](https://www.alibabacloud.com/help/en/log-service/latest/billable-items) first, and create a service-linked role to authorize Security Center to access cloud resources. You can call the [CreateServiceLinkedRole](~~CreateServiceLinkedRole~~) operation to create a service-linked role and authorize Security Center to access cloud resources.
+ * **Scenarios**
+ * Before you use the log analysis feature of Security Center, you must call the [ModifyOpenLogShipper](~~ModifyOpenLogShipper~~) operation to enable Simple Log Service.
  *
  * @param request ModifyOpenLogShipperRequest
  * @return ModifyOpenLogShipperResponse
@@ -44195,9 +44197,9 @@ ModifyPostPayModuleSwitchResponse Client::modifyPostPayModuleSwitch(const Modify
 }
 
 /**
- * @summary Adds processes to or removes processes from the whitelist in the application whitelist feature.
+ * @summary Adds a process to or removes a process from the application whitelist.
  *
- * @description The application whitelist is a China-site public preview feature that is no longer open for new applications. Users who have already applied for or are using this feature can call this operation as expected.
+ * @description The application whitelist feature is in public preview and is no longer available for new applications. Users who have already applied for or are currently using this feature can call this operation as usual.
  *
  * @param request ModifyProcessWhiteListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -44244,9 +44246,9 @@ ModifyProcessWhiteListResponse Client::modifyProcessWhiteListWithOptions(const M
 }
 
 /**
- * @summary Adds processes to or removes processes from the whitelist in the application whitelist feature.
+ * @summary Adds a process to or removes a process from the application whitelist.
  *
- * @description The application whitelist is a China-site public preview feature that is no longer open for new applications. Users who have already applied for or are using this feature can call this operation as expected.
+ * @description The application whitelist feature is in public preview and is no longer available for new applications. Users who have already applied for or are currently using this feature can call this operation as usual.
  *
  * @param request ModifyProcessWhiteListRequest
  * @return ModifyProcessWhiteListResponse
@@ -44739,9 +44741,9 @@ ModifyServerlessAuthToMachineResponse Client::modifyServerlessAuthToMachine(cons
 }
 
 /**
- * @summary Adds or removes a policy template to or from My Policies in the task center.
+ * @summary Adds or removes a strategy template to or from My Strategies in Task Center.
  *
- * @description Only the Enterprise and Ultimate editions of Security Center support this API call. Other editions do not support this call.
+ * @description Only the Enterprise and Ultimate editions of Security Center support this API operation.
  *
  * @param request ModifySoarStrategySubscribeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -44776,9 +44778,9 @@ ModifySoarStrategySubscribeResponse Client::modifySoarStrategySubscribeWithOptio
 }
 
 /**
- * @summary Adds or removes a policy template to or from My Policies in the task center.
+ * @summary Adds or removes a strategy template to or from My Strategies in Task Center.
  *
- * @description Only the Enterprise and Ultimate editions of Security Center support this API call. Other editions do not support this call.
+ * @description Only the Enterprise and Ultimate editions of Security Center support this API operation.
  *
  * @param request ModifySoarStrategySubscribeRequest
  * @return ModifySoarStrategySubscribeResponse
@@ -44789,7 +44791,7 @@ ModifySoarStrategySubscribeResponse Client::modifySoarStrategySubscribe(const Mo
 }
 
 /**
- * @summary Enables the one-click scan feature on the vulnerability management page of the console.
+ * @summary Enables the quick scan feature on the Vulnerability Management page in the console.
  *
  * @param request ModifyStartVulScanRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -44836,7 +44838,7 @@ ModifyStartVulScanResponse Client::modifyStartVulScanWithOptions(const ModifySta
 }
 
 /**
- * @summary Enables the one-click scan feature on the vulnerability management page of the console.
+ * @summary Enables the quick scan feature on the Vulnerability Management page in the console.
  *
  * @param request ModifyStartVulScanRequest
  * @return ModifyStartVulScanResponse
@@ -45229,7 +45231,7 @@ ModifyVulConfigResponse Client::modifyVulConfig(const ModifyVulConfigRequest &re
 }
 
 /**
- * @summary Modifies the machine-level toggle settings for vulnerability scanning.
+ * @summary Modifies the machine switch settings for vulnerability scanning.
  *
  * @param request ModifyVulTargetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -45264,7 +45266,7 @@ ModifyVulTargetResponse Client::modifyVulTargetWithOptions(const ModifyVulTarget
 }
 
 /**
- * @summary Modifies the machine-level toggle settings for vulnerability scanning.
+ * @summary Modifies the machine switch settings for vulnerability scanning.
  *
  * @param request ModifyVulTargetRequest
  * @return ModifyVulTargetResponse
@@ -45709,7 +45711,7 @@ ModifyWebLockStartResponse Client::modifyWebLockStart(const ModifyWebLockStartRe
 }
 
 /**
- * @summary Enables or shuts down web tamper-proofing for a server.
+ * @summary Enables or initiates a shutdown of the web tamper-proofing protection status of a server.
  *
  * @param request ModifyWebLockStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -45752,7 +45754,7 @@ ModifyWebLockStatusResponse Client::modifyWebLockStatusWithOptions(const ModifyW
 }
 
 /**
- * @summary Enables or shuts down web tamper-proofing for a server.
+ * @summary Enables or initiates a shutdown of the web tamper-proofing protection status of a server.
  *
  * @param request ModifyWebLockStatusRequest
  * @return ModifyWebLockStatusResponse
@@ -45763,7 +45765,7 @@ ModifyWebLockStatusResponse Client::modifyWebLockStatus(const ModifyWebLockStatu
 }
 
 /**
- * @summary Removes the web tamper proofing protection folder from a specified server.
+ * @summary Dissociates the web tamper-proofing protected directory from a specified server.
  *
  * @param request ModifyWebLockUnbindRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -45794,7 +45796,7 @@ ModifyWebLockUnbindResponse Client::modifyWebLockUnbindWithOptions(const ModifyW
 }
 
 /**
- * @summary Removes the web tamper proofing protection folder from a specified server.
+ * @summary Dissociates the web tamper-proofing protected directory from a specified server.
  *
  * @param request ModifyWebLockUnbindRequest
  * @return ModifyWebLockUnbindResponse
@@ -45945,7 +45947,7 @@ ModifyWebPathResponse Client::modifyWebPath(const ModifyWebPathRequest &request)
 }
 
 /**
- * @summary Enables the anti-ransomware managed service to configure server backup policies with one click. This operation can be called only after you purchase the anti-ransomware managed service.
+ * @summary Enables the one-click configuration of anti-ransomware backup policies for servers in the managed anti-ransomware service. You can call this operation only after you purchase the managed anti-ransomware service.
  *
  * @param request OpenBackupAutoConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -45976,7 +45978,7 @@ OpenBackupAutoConfigResponse Client::openBackupAutoConfigWithOptions(const OpenB
 }
 
 /**
- * @summary Enables the anti-ransomware managed service to configure server backup policies with one click. This operation can be called only after you purchase the anti-ransomware managed service.
+ * @summary Enables the one-click configuration of anti-ransomware backup policies for servers in the managed anti-ransomware service. You can call this operation only after you purchase the managed anti-ransomware service.
  *
  * @param request OpenBackupAutoConfigRequest
  * @return OpenBackupAutoConfigResponse
@@ -47591,7 +47593,7 @@ QueryGroupedSecurityEventMarkMissListResponse Client::queryGroupedSecurityEventM
 }
 
 /**
- * @summary Security Center provides rewards such as value-added service authorization quotas and log analysis storage capacity to users who complete tasks. Queries the completion status and reward information of configuration tasks.
+ * @summary Queries the completion status and reward information of onboarding tasks. Security Center provides rewards such as value-added service authorizations and log analysis storage capacity for users who complete tasks. You can call this API operation to query the completion status and reward information of configured tasks.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryGuidTaskListResponse
@@ -47613,7 +47615,7 @@ QueryGuidTaskListResponse Client::queryGuidTaskListWithOptions(const Darabonba::
 }
 
 /**
- * @summary Security Center provides rewards such as value-added service authorization quotas and log analysis storage capacity to users who complete tasks. Queries the completion status and reward information of configuration tasks.
+ * @summary Queries the completion status and reward information of onboarding tasks. Security Center provides rewards such as value-added service authorizations and log analysis storage capacity for users who complete tasks. You can call this API operation to query the completion status and reward information of configured tasks.
  *
  * @return QueryGuidTaskListResponse
  */
@@ -47757,7 +47759,7 @@ RebootMachineResponse Client::rebootMachine(const RebootMachineRequest &request)
 }
 
 /**
- * @summary Claims a trial reward for the cloud honeypot or malicious file detection SDK feature after completing a task.
+ * @summary Grants the trial reward for enabling the cloud honeypot or malicious file detection SDK feature upon task completion.
  *
  * @param request ReceiveFunctionTrialRewardByAliUidRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -47792,7 +47794,7 @@ ReceiveFunctionTrialRewardByAliUidResponse Client::receiveFunctionTrialRewardByA
 }
 
 /**
- * @summary Claims a trial reward for the cloud honeypot or malicious file detection SDK feature after completing a task.
+ * @summary Grants the trial reward for enabling the cloud honeypot or malicious file detection SDK feature upon task completion.
  *
  * @param request ReceiveFunctionTrialRewardByAliUidRequest
  * @return ReceiveFunctionTrialRewardByAliUidResponse
@@ -48183,7 +48185,7 @@ ResetHoneypotResponse Client::resetHoneypot(const ResetHoneypotRequest &request)
 }
 
 /**
- * @summary Resets and upgrades the log analysis feature. You can call this operation only when the log analysis feature uses the pay-as-you-go billing method.
+ * @summary Resets and upgrades the log analysis feature. You can invoke this operation only in the pay-as-you-go pattern for logs.
  *
  * @param request ResetLogShipperRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -48222,7 +48224,7 @@ ResetLogShipperResponse Client::resetLogShipperWithOptions(const ResetLogShipper
 }
 
 /**
- * @summary Resets and upgrades the log analysis feature. You can call this operation only when the log analysis feature uses the pay-as-you-go billing method.
+ * @summary Resets and upgrades the log analysis feature. You can invoke this operation only in the pay-as-you-go pattern for logs.
  *
  * @param request ResetLogShipperRequest
  * @return ResetLogShipperResponse
@@ -49623,7 +49625,7 @@ SubmitTenantCheckResponse Client::submitTenantCheck() {
 }
 
 /**
- * @summary Triggers ISO 27001 compliance checks of Security Center.
+ * @summary Triggers an ISO 27001 compliance check task in Security Center.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return TriggerCheckResponse
@@ -49645,7 +49647,7 @@ TriggerCheckResponse Client::triggerCheckWithOptions(const Darabonba::RuntimeOpt
 }
 
 /**
- * @summary Triggers ISO 27001 compliance checks of Security Center.
+ * @summary Triggers an ISO 27001 compliance check task in Security Center.
  *
  * @return TriggerCheckResponse
  */
@@ -49655,7 +49657,7 @@ TriggerCheckResponse Client::triggerCheck() {
 }
 
 /**
- * @summary Removes servers from a proxy cluster.
+ * @summary Dissociates the client from the current proxy cluster.
  *
  * @param request UnBindHybridProxyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -49690,7 +49692,7 @@ UnBindHybridProxyResponse Client::unBindHybridProxyWithOptions(const UnBindHybri
 }
 
 /**
- * @summary Removes servers from a proxy cluster.
+ * @summary Dissociates the client from the current proxy cluster.
  *
  * @param request UnBindHybridProxyRequest
  * @return UnBindHybridProxyResponse
@@ -49743,13 +49745,13 @@ UnMarkMonitorAccountsResponse Client::unMarkMonitorAccounts(const UnMarkMonitorA
 }
 
 /**
- * @summary Unbinds non-Alibaba Cloud servers from Security Center.
+ * @summary Unbinds a non-Alibaba Cloud server from Security Center.
  *
- * @description If you no longer need Security Center to protect your non-Alibaba Cloud servers, you can call the UnbindAegis operation to unbind the servers. After a non-Alibaba Cloud server is unbound, the server no longer consumes your Security Center quota (the number of servers or compute cores). The released quota can then be used to protect other servers.
- * > Only non-Alibaba Cloud servers require the unbinding operation. Alibaba Cloud ECS instances do not require unbinding. For ECS instances, even if you uninstall the agent, the server still appears in the asset management list in an offline state and is not removed from the list.  
+ * @description If you no longer need Security Center to protect your non-Alibaba Cloud servers, you can call the UnbindAegis operation to unbind the servers. After a non-Alibaba Cloud server is unbound, it no longer consumes the quota of Security Center (the number of protected servers or CPU cores). The released quota can be used to protect other servers.
+ * > Only non-Alibaba Cloud servers need to be unbound. You do not need to unbind Alibaba Cloud ECS instances. Even if you uninstall the agent from an ECS instance, the instance remains in the asset management list in the offline state and is not removed from the list.  
  * **Before you begin**
- * - The agent on the non-Alibaba Cloud server that you want to unbind has been paused (the client status is disabled). You can call the [PauseClient](~~PauseClient~~) operation to pause the agent.
- * - Client self-protection has been disabled on the non-Alibaba Cloud server that you want to unbind. For more information, see [Client self-protection](https://help.aliyun.com/document_detail/460802.html).
+ * - The agent on the non-Alibaba Cloud server that you want to unbind is paused (the client status is Disabled). You can call the [PauseClient](~~PauseClient~~) operation to pause the agent.
+ * - Client self-protection is disabled for the non-Alibaba Cloud server that you want to unbind. For more information about how to disable client self-protection, see [Client self-protection](https://help.aliyun.com/document_detail/460802.html).
  *
  * @param request UnbindAegisRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -49780,13 +49782,13 @@ UnbindAegisResponse Client::unbindAegisWithOptions(const UnbindAegisRequest &req
 }
 
 /**
- * @summary Unbinds non-Alibaba Cloud servers from Security Center.
+ * @summary Unbinds a non-Alibaba Cloud server from Security Center.
  *
- * @description If you no longer need Security Center to protect your non-Alibaba Cloud servers, you can call the UnbindAegis operation to unbind the servers. After a non-Alibaba Cloud server is unbound, the server no longer consumes your Security Center quota (the number of servers or compute cores). The released quota can then be used to protect other servers.
- * > Only non-Alibaba Cloud servers require the unbinding operation. Alibaba Cloud ECS instances do not require unbinding. For ECS instances, even if you uninstall the agent, the server still appears in the asset management list in an offline state and is not removed from the list.  
+ * @description If you no longer need Security Center to protect your non-Alibaba Cloud servers, you can call the UnbindAegis operation to unbind the servers. After a non-Alibaba Cloud server is unbound, it no longer consumes the quota of Security Center (the number of protected servers or CPU cores). The released quota can be used to protect other servers.
+ * > Only non-Alibaba Cloud servers need to be unbound. You do not need to unbind Alibaba Cloud ECS instances. Even if you uninstall the agent from an ECS instance, the instance remains in the asset management list in the offline state and is not removed from the list.  
  * **Before you begin**
- * - The agent on the non-Alibaba Cloud server that you want to unbind has been paused (the client status is disabled). You can call the [PauseClient](~~PauseClient~~) operation to pause the agent.
- * - Client self-protection has been disabled on the non-Alibaba Cloud server that you want to unbind. For more information, see [Client self-protection](https://help.aliyun.com/document_detail/460802.html).
+ * - The agent on the non-Alibaba Cloud server that you want to unbind is paused (the client status is Disabled). You can call the [PauseClient](~~PauseClient~~) operation to pause the agent.
+ * - Client self-protection is disabled for the non-Alibaba Cloud server that you want to unbind. For more information about how to disable client self-protection, see [Client self-protection](https://help.aliyun.com/document_detail/460802.html).
  *
  * @param request UnbindAegisRequest
  * @return UnbindAegisResponse
@@ -49991,7 +49993,7 @@ UpdateAttackPathSensitiveAssetConfigResponse Client::updateAttackPathSensitiveAs
 }
 
 /**
- * @summary Update Attack Path Whitelist.
+ * @summary Updates the attack path whitelist.
  *
  * @param request UpdateAttackPathWhitelistRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -50046,7 +50048,7 @@ UpdateAttackPathWhitelistResponse Client::updateAttackPathWhitelistWithOptions(c
 }
 
 /**
- * @summary Update Attack Path Whitelist.
+ * @summary Updates the attack path whitelist.
  *
  * @param request UpdateAttackPathWhitelistRequest
  * @return UpdateAttackPathWhitelistResponse
@@ -50997,7 +50999,7 @@ UpdateFileProtectRuleResponse Client::updateFileProtectRule(const UpdateFileProt
 }
 
 /**
- * @summary Modifies the QPS for client file uploads.
+ * @summary Modifies the QPS limit for client file uploads.
  *
  * @param request UpdateFileUploadLimitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -51028,7 +51030,7 @@ UpdateFileUploadLimitResponse Client::updateFileUploadLimitWithOptions(const Upd
 }
 
 /**
- * @summary Modifies the QPS for client file uploads.
+ * @summary Modifies the QPS limit for client file uploads.
  *
  * @param request UpdateFileUploadLimitRequest
  * @return UpdateFileUploadLimitResponse
@@ -52099,8 +52101,7 @@ UpdatePublishBatchResponse Client::updatePublishBatch(const UpdatePublishBatchRe
 }
 
 /**
- * @summary Modifies the configuration of the client upgrade time.
- * To use this feature, contact technical support.
+ * @summary Modifies the client upgrade time configuration. To use this feature, contact technical support.
  *
  * @param request UpdatePublishCronRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -52147,8 +52148,7 @@ UpdatePublishCronResponse Client::updatePublishCronWithOptions(const UpdatePubli
 }
 
 /**
- * @summary Modifies the configuration of the client upgrade time.
- * To use this feature, contact technical support.
+ * @summary Modifies the client upgrade time configuration. To use this feature, contact technical support.
  *
  * @param request UpdatePublishCronRequest
  * @return UpdatePublishCronResponse
@@ -52983,7 +52983,7 @@ VerifyCheckInstanceResultResponse Client::verifyCheckInstanceResult(const Verify
 }
 
 /**
- * @summary Validates check items.
+ * @summary Validates check item dimensions.
  *
  * @param request VerifyCheckResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -53026,7 +53026,7 @@ VerifyCheckResultResponse Client::verifyCheckResultWithOptions(const VerifyCheck
 }
 
 /**
- * @summary Validates check items.
+ * @summary Validates check item dimensions.
  *
  * @param request VerifyCheckResultRequest
  * @return VerifyCheckResultResponse

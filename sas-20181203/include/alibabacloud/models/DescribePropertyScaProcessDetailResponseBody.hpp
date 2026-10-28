@@ -147,11 +147,11 @@ namespace Models
     protected:
       // The command line of the process.
       shared_ptr<string> cmdline_ {};
-      // The timestamp at which the last asset fingerprint collection is performed. Unit: milliseconds.
+      // The timestamp of the latest scan by Asset Fingerprints. Unit: milliseconds.
       shared_ptr<int64_t> createTimestamp_ {};
       // The instance ID of the server.
       shared_ptr<string> instanceId_ {};
-      // The instance name of the server.
+      // The name of the server instance.
       shared_ptr<string> instanceName_ {};
       // The public IP address of the server.
       shared_ptr<string> internetIp_ {};
@@ -159,11 +159,11 @@ namespace Models
       shared_ptr<string> intranetIp_ {};
       // The name of the process.
       shared_ptr<string> name_ {};
-      // The ID of the process.
+      // The process ID.
       shared_ptr<string> pid_ {};
       // The UUID of the server.
       shared_ptr<string> uuid_ {};
-      // The version of web application service.
+      // The version of the web application service.
       shared_ptr<string> version_ {};
     };
 
@@ -223,11 +223,11 @@ namespace Models
 
 
     protected:
-      // The number of entries returned on the current page.
+      // The number of entries returned on the current page for paging in a paged query.
       shared_ptr<int32_t> count_ {};
-      // The page number.
+      // The page number of the current page for paging in a paged query.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries per page. Default value: **10**.
+      // The number of processes returned on each page for paging in a paged query. Default value: **10**.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries returned.
       shared_ptr<int32_t> totalCount_ {};
@@ -263,9 +263,9 @@ namespace Models
   protected:
     // The pagination information.
     shared_ptr<DescribePropertyScaProcessDetailResponseBody::PageInfo> pageInfo_ {};
-    // The processes collected by the asset fingerprints feature.
+    // The list of processes in Asset Fingerprints.
     shared_ptr<vector<DescribePropertyScaProcessDetailResponseBody::Propertys>> propertys_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

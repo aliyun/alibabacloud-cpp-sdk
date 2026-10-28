@@ -84,9 +84,13 @@ namespace Models
 
 
   protected:
-    // The ID of the SAE application.
+    // The SAE application ID.
+    // > You can call the [ListMachineApps](~~ListMachineApps~~) operation to obtain the value of this parameter.
+    // This parameter is required. If it is not provided, the API returns HTTP 400 with the error code -101.
     shared_ptr<string> appId_ {};
     // The region ID.
+    // > You can call the [ListMachineApps](~~ListMachineApps~~) operation to obtain the value of this parameter.
+    // This parameter is required. If it is not provided, the API returns HTTP 400 with the error code -101.
     shared_ptr<string> appRegionId_ {};
     // The page number of the current page in a paging query.
     shared_ptr<int32_t> currentPage_ {};
@@ -96,7 +100,7 @@ namespace Models
     shared_ptr<string> lang_ {};
     // The number of entries to return on each page in a paging query.
     shared_ptr<int32_t> pageSize_ {};
-    // The UID of the resource directory.
+    // The UID of the associated resource directory.
     shared_ptr<int64_t> resourceDirectoryUid_ {};
   };
 

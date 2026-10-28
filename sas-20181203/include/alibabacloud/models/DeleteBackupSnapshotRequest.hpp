@@ -120,28 +120,28 @@ namespace Models
       shared_ptr<string> instanceId_ {};
       // The region of the Security Center instance. Valid values:
       // 
-      // - **cn-hangzhou**: China (Hangzhou).
-      // - **ap-southeast-1**: Singapore.
-      // - **cn-beijing**: China (Beijing).
+      // - **cn-hangzhou**: China (Hangzhou)
+      // - **ap-southeast-1**: Singapore
+      // - **cn-beijing**: China (Beijing)
       // 
       // This parameter is required.
       shared_ptr<string> regionId_ {};
-      // The ID of the snapshot to delete.
-      // >You can call the [DescribeSnapshots](~~DescribeSnapshots~~) operation to obtain this parameter.
+      // The ID of the snapshot to be deleted.
+      // > You can call the [DescribeSnapshots](~~DescribeSnapshots~~) operation to obtain this parameter.
       // 
       // This parameter is required.
       shared_ptr<string> snapshotId_ {};
       // The type of the data source. Valid values:
       // 
-      // - **ECS_FILE**: backup snapshot of ECS files.
-      // - **OSS**: backup snapshot of Alibaba Cloud OSS.
-      // - **NAS**: backup snapshot of Alibaba Cloud NAS.
-      // - **OTS_TABLE**: backup snapshot of Alibaba Cloud Tablestore.
+      // - **ECS_FILE**: backup snapshots of ECS files
+      // - **OSS**: backup snapshots of Alibaba Cloud OSS
+      // - **NAS**: backup snapshots of Alibaba Cloud NAS
+      // - **OTS_TABLE**: backup snapshots of Alibaba Cloud Tablestore
       // 
       // This parameter is required.
       shared_ptr<string> sourceType_ {};
       // The ID of the backup vault for the restoration task.
-      // >You can call the [DescribeSnapshots](~~DescribeSnapshots~~) operation to obtain this parameter.
+      // > You can call the [DescribeSnapshots](~~DescribeSnapshots~~) operation to obtain this parameter.
       // 
       // This parameter is required.
       shared_ptr<string> vaultId_ {};
@@ -180,8 +180,8 @@ namespace Models
     // The backup snapshots.
     shared_ptr<vector<DeleteBackupSnapshotRequest::BackupSnapshotList>> backupSnapshotList_ {};
     // Specifies whether to retain the latest snapshot. Valid values:
-    // - **true**: retains the latest snapshot.
-    // - **false**: does not retain the latest snapshot.
+    // - **true**: Yes.
+    // - **false**: No.
     shared_ptr<bool> retainLatestSnapshot_ {};
   };
 

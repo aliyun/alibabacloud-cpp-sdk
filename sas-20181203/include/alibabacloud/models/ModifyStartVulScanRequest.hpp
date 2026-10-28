@@ -75,31 +75,30 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. You must use different tokens for different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to perform only a dry run, without performing the actual request. Valid values:
-    // - true: performs only a dry run without performing the actual operation.
-    // - false: performs the actual request.
-    // 
+    // Specifies whether to perform a dry run on the request. Valid values:
+    // - true: performs a dry run only. The system checks the request but does not perform the actual operation.
+    // - false: performs the request.
     // Default value: false.
     shared_ptr<bool> dryRun_ {};
-    // The Alibaba Cloud account ID of the member accounts in the resource folder.
+    // The ID of the main account of the member accounts in the resource folder.
     // > You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
-    // Settings for the vulnerability types to be detected by the one-click scan feature. Valid values:
+    // Settings for the vulnerability types to be detected by the quick scan feature. Valid values:
     // - **cve**: Linux software vulnerability.
     // - **sys**: Windows system vulnerability.
     // - **cms**: Web-CMS vulnerability.
-    // - **app**: Application vulnerability detected by the web scanner.
-    // - **emg**: Emergency vulnerability.
-    // - **image**: Container image vulnerability.
-    // - **sca**: Application vulnerability detected by software constituency parsing.
+    // - **app**: Application vulnerabilities detected by web scanners.
+    // - **emg**: Emergency vulnerabilities.
+    // - **image**: Container image vulnerabilities.
+    // - **sca**: Application vulnerabilities detected by software constituency parsing.
     // > If this parameter is left empty, all vulnerability types are detected.
     shared_ptr<string> types_ {};
     // The list of server UUIDs. Separate multiple UUIDs with commas (,).
     // 
     // 
-    // > You can call the [DescribeCloudCenterInstances](https://help.aliyun.com/document_detail/421726.html) operation to obtain this parameter.
+    // > You can call the [DescribeCloudCenterInstances](https://help.aliyun.com/document_detail/421726.html) operation to obtain the UUIDs.
     shared_ptr<string> uuids_ {};
   };
 

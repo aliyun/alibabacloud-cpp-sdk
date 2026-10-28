@@ -82,7 +82,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> nodeName_ {};
-    // The collection of allowed CIDR blocks.
+    // The list of allowed CIDR blocks.
     shared_ptr<vector<string>> securityGroupProbeIpList_ {};
   };
 

@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // The primary key of the alert disposal rule.
+      // The primary key of the alert handling rule.
       shared_ptr<int64_t> id_ {};
     };
 
@@ -109,17 +109,17 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The status code of the API call.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<DeleteImageEventOperationResponseBody::Data> data_ {};
-    // The response message.
+    // The message returned in the response.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful. Valid values:
-    // - **true**: Successful.
-    // - **false**: Failed.
+    // Indicates whether the API call was successful. Valid values:
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

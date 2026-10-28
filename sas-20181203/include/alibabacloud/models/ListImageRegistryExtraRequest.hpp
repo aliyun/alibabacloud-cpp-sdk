@@ -38,8 +38,8 @@ namespace Models
 
 
   protected:
-    // The image repository ID.
-    // >Call the [PageImageRegistry](~~PageImageRegistry~~) operation to obtain this parameter.
+    // The ID of the image registry.
+    // >You can call the [PageImageRegistry](~~PageImageRegistry~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<int64_t> registryId_ {};

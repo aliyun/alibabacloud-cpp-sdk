@@ -135,7 +135,7 @@ namespace Models
         protected:
           // The condition key. Valid values:
           // - **MD5**: MD5.
-          // - **PATH**: path.
+          // - **PATH**: Path.
           shared_ptr<string> conditionKey_ {};
           // The condition name.
           shared_ptr<string> conditionName_ {};
@@ -172,7 +172,7 @@ namespace Models
         // The rule conditions.
         shared_ptr<vector<Operations::Conditions>> conditions_ {};
         // The operation code. Valid values:
-        // - **whitelist**: whitelist.
+        // - **whitelist**: Whitelist.
         shared_ptr<string> operationCode_ {};
         // The operation name.
         shared_ptr<string> operationName_ {};
@@ -207,7 +207,7 @@ namespace Models
 
     protected:
       // The alerting type. Valid values:
-      // - **sensitiveFile**: sensitive file.
+      // - **sensitiveFile**: Sensitive file.
       shared_ptr<string> eventType_ {};
       // The list of operations.
       shared_ptr<vector<Data::Operations>> operations_ {};
@@ -255,7 +255,7 @@ namespace Models
 
 
   protected:
-    // The return code of the call.
+    // The return code.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<DescribeImageEventOperationConditionResponseBody::Data> data_ {};
@@ -263,9 +263,9 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful. Valid values:
-    // - **true**: The call was successful.
-    // - **false**: The call failed.
+    // Indicates whether the call is successful. Valid values:
+    // - **true**: The call is successful.
+    // - **false**: The call fails.
     shared_ptr<bool> success_ {};
   };
 

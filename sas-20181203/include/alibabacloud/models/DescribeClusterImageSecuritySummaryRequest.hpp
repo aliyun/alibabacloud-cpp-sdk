@@ -116,25 +116,25 @@ namespace Models
     shared_ptr<string> clusterId_ {};
     // The container search field. Valid values:
     // 
-    // - **instanceId**: container instance ID
-    // - **clusterId**: cluster ID
-    // - **regionId**: container region
-    // - **clusterName**: cluster name
-    // - **image**: image name
-    // - **imageRepoName**: image repository name
-    // - **imageRepoNamespace**: image repository namespace
-    // - **imageRepoTag**: image repository tag
-    // - **imageDigest**: image digest
-    // - **clusterType**: cluster type
-    // - **hostIp**: public IP address
-    // - **pod**: pod
-    // - **podIp**: pod IP address
-    // - **containerId**: container ID
+    // - **instanceId**: the container instance ID
+    // - **clusterId**: the cluster ID
+    // - **regionId**: the container region
+    // - **clusterName**: the cluster name
+    // - **image**: the image name
+    // - **imageRepoName**: the image repository name
+    // - **imageRepoNamespace**: the image repository namespace
+    // - **imageRepoTag**: the image repository tag
+    // - **imageDigest**: the image digest
+    // - **clusterType**: the cluster type
+    // - **hostIp**: the public IP address
+    // - **pod**: the pod
+    // - **podIp**: the pod IP address
+    // - **containerId**: the container ID
     // - **vulStatus**: whether the container has vulnerabilities
     // - **alarmStatus**: whether the container has security alerts
     // - **riskStatus**: whether the container has risks
-    // - **riskLevel**: container risk level
-    // - **containerScope**: container type.
+    // - **riskLevel**: the container risk level
+    // - **containerScope**: the container type
     shared_ptr<string> containerFieldName_ {};
     // The value of the container search field.
     shared_ptr<string> containerFieldValue_ {};
@@ -147,7 +147,7 @@ namespace Models
     // The image tag.
     shared_ptr<string> imageTag_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The IP address of the access source.
+    // The source IP address.
     shared_ptr<string> sourceIp_ {};
   };
 

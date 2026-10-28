@@ -57,16 +57,16 @@ namespace Models
 
 
   protected:
-    // The pinning time. Unit: milliseconds.
+    // The time when the report is pinned. Unit: milliseconds.
     shared_ptr<int64_t> pinnedTime_ {};
     // The report ID.
-    // >Call [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) to obtain this parameter.
+    // >You can call the [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<int64_t> reportId_ {};
-    // The report status. Valid values:
-    //  - **0**: Disabled.
-    //  - **1**: Enabled.
+    // The status of the report. Valid values:
+    //  - **0**: disabled
+    //  - **1**: enabled
     // 
     // This parameter is required.
     shared_ptr<int32_t> reportStatus_ {};

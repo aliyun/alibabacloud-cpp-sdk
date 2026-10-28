@@ -48,14 +48,14 @@ namespace Models
 
 
   protected:
-    // Unique ID of the AK.
+    // The unique ID of the AccessKey.
     // 
-    // > You can call [DescribeCloudVendorAccountAKList](~~DescribeCloudVendorAccountAKList~~) to get the AuthId.
+    // > You can call [DescribeCloudVendorAccountAKList](~~DescribeCloudVendorAccountAKList~~) to obtain the AuthId.
     // > -
     // 
     // This parameter is required.
     shared_ptr<int64_t> authId_ {};
-    // Cloud asset vendor. Values:
+    // The cloud asset vendor. Valid values:
     // - **Tencent**: Tencent Cloud
     // - **AWS**: Amazon Web Services
     // 

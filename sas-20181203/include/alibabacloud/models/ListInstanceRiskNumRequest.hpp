@@ -68,9 +68,9 @@ namespace Models
 
 
     protected:
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The UUID of the instance.
+      // The UUID of the instance. You can call the [DescribeCloudCenterInstances](https://help.aliyun.com/document_detail/141932.html) operation to obtain the UUID of the server.
       shared_ptr<string> uuid_ {};
     };
 
@@ -85,7 +85,7 @@ namespace Models
 
 
   protected:
-    // The instances.
+    // The instance list.
     shared_ptr<vector<ListInstanceRiskNumRequest::InstanceList>> instanceList_ {};
   };
 

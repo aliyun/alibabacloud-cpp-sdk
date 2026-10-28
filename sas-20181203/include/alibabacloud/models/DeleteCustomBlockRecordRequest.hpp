@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the record to delete.
+    // The ID of the data to delete.
     // > Call the [DescribeCustomBlockRecords](~~DescribeCustomBlockRecords~~) operation to obtain this parameter.
     // 
     // This parameter is required.

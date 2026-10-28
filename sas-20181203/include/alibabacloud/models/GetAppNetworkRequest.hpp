@@ -62,11 +62,11 @@ namespace Models
     shared_ptr<string> clusterId_ {};
     // The timestamp of the end time. Unit: milliseconds.
     // 
-    // > The difference between the start timestamp and the end timestamp cannot exceed **7** days.
+    // > The interval between the start timestamp and the end timestamp cannot exceed **7** days.
     shared_ptr<int64_t> endTime_ {};
     // The timestamp of the start time. Unit: milliseconds.
     // 
-    // > The difference between the start timestamp and the end timestamp cannot exceed **7** days.
+    // > The interval between the start timestamp and the end timestamp cannot exceed **7** days.
     shared_ptr<int64_t> startTime_ {};
   };
 

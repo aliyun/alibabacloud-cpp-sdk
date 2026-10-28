@@ -97,33 +97,31 @@ namespace Models
 
 
     protected:
-      // The type of the configuration. Valid values:
-      // 
-      // *   **0**: server synchronization task
-      // *   **1**: cloud service synchronization task
-      // *   **2**: scheduled AccessKey pair verification task
+      // The configuration type. Valid values:
+      // - **0**: Host refresh task
+      // - **1**: Cloud service refresh task
+      // - **2**: AccessKey scheduled check task
       shared_ptr<int32_t> refreshConfigType_ {};
       // The synchronization cycle. Valid values:
       // 
-      // *   **60**: 60 minutes
-      // *   **180**: 3 hours
-      // *   **360**: 6 hours
-      // *   **720**: 12 hours
-      // *   **1440**: 1 day
-      // *   **10080**: 7 days
+      //  - **60**: 60 minutes
+      //  - **180**: 3 hours
+      //  - **360**: 6 hours
+      //  - **720**: 12 hours
+      //  - **1440**: 1 day
+      //  - **10080**: 7 days
       shared_ptr<int32_t> schedulePeriod_ {};
-      // The status of the configuration. Valid values:
-      // 
-      // *   **1**: enabled
-      // *   **0**: disabled
+      // The enabling status of the configuration. Valid values:
+      //  - **1**: Enabled
+      // - **0**: Disabled
       shared_ptr<int32_t> status_ {};
-      // The ID of the data entry containing the AccessKey pair that you specify when you configure the scheduled AccessKey pair verification task.
+      // The ID of the specified AccessKey record when you configure an AccessKey scheduled check task.
       shared_ptr<int64_t> targetId_ {};
-      // The service provider of the cloud asset. Valid values:
+      // The cloud asset vendor. Valid values:
       // 
-      // *   **3**: Tencent Cloud
-      // *   **4**: Huawei Cloud
-      // *   **7**: Amazon Web Services (AWS) Cloud
+      // - **3**: Tencent Cloud
+      // - **4**: Huawei Cloud
+      // - **7**: Amazon Web Services
       shared_ptr<int32_t> vendor_ {};
     };
 
@@ -146,9 +144,9 @@ namespace Models
 
 
   protected:
-    // The asset synchronization configuration.
+    // The list of asset refresh configurations.
     shared_ptr<vector<ChangeAssetRefreshTaskConfigRequest::AssetRefreshConfigs>> assetRefreshConfigs_ {};
-    // The region in which your Security Center service resides.
+    // The region of the Security Center instance.
     shared_ptr<string> regionId_ {};
   };
 

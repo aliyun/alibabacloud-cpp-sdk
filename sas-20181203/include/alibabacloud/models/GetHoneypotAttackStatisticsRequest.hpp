@@ -106,16 +106,16 @@ namespace Models
 
 
   protected:
-    // The page number of the page to return. Minimum value: **1**. Default value: **1**, which indicates that the first page is returned.
+    // The page number of the returned page. Pages start from page **1**. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
-    // The end time in timestamp format.
+    // The end time in the timestamp format.
     shared_ptr<int64_t> endTimeStamp_ {};
     // The language of the request and response. Default value: **zh**. Valid values:
     // 
     // - **zh**: Chinese
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The maximum number of entries to return on each page in a paged query. Default value: 20. If you leave this parameter empty, 20 entries are returned by default. > Specify a value for the paging parameter.
+    // The maximum number of entries to return on each page in a paging query. Default value: 20. If this parameter is left empty, 20 entries are returned by default. Do not leave this parameter empty.
     shared_ptr<int32_t> pageSize_ {};
     // The list of risk levels.
     shared_ptr<vector<string>> riskLevelList_ {};
@@ -123,14 +123,14 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> srcIp_ {};
-    // The start time in timestamp format.
+    // The start time in the timestamp format.
     shared_ptr<int64_t> startTimeStamp_ {};
-    // The type of attack source statistics information. Valid values:
+    // The type of statistics for the attack source. Valid values:
     // 
-    // - **TOP_ATTACKED_AGENT**: the top 5 probes by number of attacks.
-    // - **TOP_ATTACKED_IP**: the top 5 IP addresses by number of attacks.
-    // - **ATTACK_EVENT_TYPE**: the intrusion event type.
-    // - **ATTACK_HONEYPOT_TYPE**: the type of the compromised honeypot.
+    // - **TOP_ATTACKED_AGENT**: The top 5 probes that are attacked most frequently.
+    // - **TOP_ATTACKED_IP**: The top 5 IP addresses that are attacked most frequently.
+    // - **ATTACK_EVENT_TYPE**: The intrusion event type.
+    // - **ATTACK_HONEYPOT_TYPE**: The type of the attacked honeypot.
     // 
     // This parameter is required.
     shared_ptr<string> statisticsType_ {};

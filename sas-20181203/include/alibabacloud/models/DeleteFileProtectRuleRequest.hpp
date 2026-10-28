@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The IDs of the core file monitoring rules that you want to delete.
+    // The IDs of the rules to delete.
     shared_ptr<vector<int64_t>> id_ {};
   };
 

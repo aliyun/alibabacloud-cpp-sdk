@@ -53,9 +53,9 @@ namespace Models
     // - **cms**: Web-CMS vulnerability
     // - **sys**: Windows system vulnerability
     // - **cve**: Linux software vulnerability
-    // - **emg**: emergency vulnerability.
+    // - **emg**: emergency vulnerability
     shared_ptr<string> config_ {};
-    // The query type. Set this parameter to vul.
+    // The query type. Set the value to vul.
     shared_ptr<string> type_ {};
   };
 

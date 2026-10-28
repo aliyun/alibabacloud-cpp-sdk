@@ -60,7 +60,6 @@ namespace Models
 
     protected:
       // Indicates whether Kritis is installed. Valid values:
-      // 
       // - **true**: Installed.
       // - **false**: Not installed.
       shared_ptr<bool> install_ {};
@@ -85,9 +84,9 @@ namespace Models
 
 
   protected:
-    // The Kritis status information of the ACK cluster.
+    // The Kritis status information of the Container Service for Kubernetes cluster.
     shared_ptr<DescribeContainerServiceK8sClusterKritisStatusResponseBody::KritisStatus> kritisStatus_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

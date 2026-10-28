@@ -74,7 +74,7 @@ namespace Models
     protected:
       // The number of servers associated with the account.
       shared_ptr<int32_t> count_ {};
-      // The account name.
+      // The name of the account.
       shared_ptr<string> user_ {};
     };
 
@@ -134,11 +134,11 @@ namespace Models
 
 
     protected:
-      // The number of entries on the current page in a paged query.
+      // The number of entries returned on the current page for a paging query.
       shared_ptr<int32_t> count_ {};
-      // The page number of the current page to display in a paged query.
+      // The page number of the current page returned for a paging query.
       shared_ptr<int32_t> currentPage_ {};
-      // The maximum number of entries displayed on each page in a paged query.
+      // The maximum number of entries returned per page for a paging query.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
@@ -176,7 +176,7 @@ namespace Models
     shared_ptr<DescribePropertyUserItemResponseBody::PageInfo> pageInfo_ {};
     // The account information.
     shared_ptr<vector<DescribePropertyUserItemResponseBody::PropertyItems>> propertyItems_ {};
-    // The unique identifier that Alibaba Cloud generated for the request.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

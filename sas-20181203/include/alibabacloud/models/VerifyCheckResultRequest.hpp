@@ -73,14 +73,14 @@ namespace Models
   protected:
     // The list of check item IDs.
     shared_ptr<vector<int64_t>> checkIds_ {};
-    // Specifies whether to forcibly run the specified check items. Default value: false.
+    // Specifies whether to forcibly execute the specified check item. Default value: false.
     // 
-    // - true: Forcibly runs the specified check items. Forced execution bypasses frequency and quantity limits and initiates the check directly, which may cause duplicate checks to run multiple times within a short period.
-    // - false (default): Does not forcibly run the specified check items. This ensures that the same check item is executed only once within a short period.
+    // - true: Forcibly executes the specified check item. Forcible execution bypasses frequency and quantity limits and directly initiates the check, which may result in repeated executions within a short period.
+    // - false (default): Does not forcibly execute the specified check item. This ensures that the same check item is executed only once within a short period.
     shared_ptr<bool> force_ {};
-    // The list of instance IDs of the assets associated with the check items.
+    // The list of instance IDs for the check item assets.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The task source. Valid values:
+    // The source of the task. Valid values:
     // 
     // - **YAO_CHI**: ApsaraDB console.
     shared_ptr<string> taskSource_ {};

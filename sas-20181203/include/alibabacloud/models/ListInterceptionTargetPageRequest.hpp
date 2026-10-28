@@ -110,21 +110,21 @@ namespace Models
   protected:
     // The application name of the network object.
     shared_ptr<string> appName_ {};
-    // The page number of the page to return. Default value: **1**, which indicates the first page.
+    // The number of the page to return. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
     // The list of images included in the network object.
     shared_ptr<vector<string>> imageList_ {};
-    // The namespace of the network object.
+    // The namespace to which the network object belongs.
     shared_ptr<string> namespace_ {};
-    // The maximum number of entries per page for paging. Default value: 20. If you leave this parameter empty, 20 entries are returned by default.
-    // > Do not leave PageSize empty.
+    // The maximum number of entries to return per page in a paging query. Default value: 20. If this parameter is left empty, 20 entries are returned by default.
+    // > Do not leave this parameter empty.
     shared_ptr<int32_t> pageSize_ {};
     // The list of tags included in the network object.
     shared_ptr<vector<string>> tagList_ {};
     // The name of the network object.
     shared_ptr<string> targetName_ {};
     // The object type. Valid values:
-    // - IMAGE: image.
+    // - IMAGE: Image.
     shared_ptr<string> targetType_ {};
   };
 

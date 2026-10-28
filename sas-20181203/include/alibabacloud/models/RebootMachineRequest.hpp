@@ -38,8 +38,8 @@ namespace Models
 
 
   protected:
-    // The UUID of the server that you want to restart.
-    // >Call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain this parameter.
+    // The UUID of the server to restart.
+    // > Call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> uuid_ {};

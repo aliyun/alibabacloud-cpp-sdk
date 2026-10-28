@@ -92,11 +92,11 @@ namespace Models
     protected:
       // The number of affected assets returned on the current page.
       shared_ptr<int32_t> count_ {};
-      // The page number of the returned page.
+      // The page number of the current page during paging in a paged query.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned per page.
+      // The maximum number of entries displayed on each page during paging in a paged query.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of affected assets.
+      // The total number of affected assets returned.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -414,74 +414,76 @@ namespace Models
 
 
     protected:
-      // Type of cloud product assets
+      // The type of the cloud service asset.
       shared_ptr<string> assetType_ {};
-      // The edition of Security Center that is authorized to protect the asset. Valid values:
+      // The authorization version of the asset. Valid values:
       // 
-      // *   **1**: Basic edition
-      // *   **6**: Anti-virus edition
-      // *   **5**: Advanced edition
-      // *   **3**: Enterprise edition
-      // *   **7**: Ultimate edition
-      // *   **10**: Value-added Plan edition
+      // - **1**: Free Edition
+      // - **6**: Anti-virus Edition
+      // - **5**: Premium Edition
+      // - **3**: Enterprise Edition
+      // - **7**: Ultimate Edition
+      // - **10**: Value-added Service Edition
       shared_ptr<int32_t> authVersion_ {};
-      // Indicates whether Security Center is authorized to protect the asset. Valid values:
+      // Indicates whether the asset is bound to an authorization. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: The asset is bound to an authorization.
+      // - **false**: The asset is not bound to an authorization.
       shared_ptr<bool> bind_ {};
       // The ID of the container.
       shared_ptr<string> containerId_ {};
       // The name of the container.
       shared_ptr<string> containerName_ {};
-      // The details of the baselines for which the risk item can be fixed.
+      // The list of fixable baselines in which the risk of this check item is detected.
       shared_ptr<vector<List::FixList>> fixList_ {};
-      // Whether the repair is supported. Valid values:
-      // *   **0**: Supported
-      // *   **1**: Not Supported
+      // Indicates whether fixing is supported. Valid values:
+      // 
+      // - **0**: not supported
+      // - **1**: supported
       shared_ptr<int32_t> fixStatus_ {};
       // The instance ID of the server.
       shared_ptr<string> instanceId_ {};
-      // The name of the server.
+      // The name of the server instance.
       shared_ptr<string> instanceName_ {};
-      // The public IP address of the affected asset.
+      // The public IP address of the affected asset instance.
       shared_ptr<string> internetIp_ {};
-      // The private IP address of the affected asset.
+      // The private IP address of the affected asset instance.
       shared_ptr<string> intranetIp_ {};
-      // The timestamp of the latest processing of the check item risk of the machine. Unit: milliseconds.
+      // The timestamp of the latest handling of the check item risk on the server. Unit: milliseconds.
       shared_ptr<int64_t> lastHandleTime_ {};
-      // The timestamp generated when the last scan was performed. Unit: milliseconds.
+      // The timestamp of the latest scan. Unit: milliseconds.
       shared_ptr<int64_t> lastScanTime_ {};
-      // Indicates whether a port on the server is accessible over the Internet. Valid values:
+      // Indicates whether the server has ports open to the Internet. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: The server has ports open to the Internet.
+      // 
+      // - **false**: The server does not have ports open to the Internet.
       shared_ptr<bool> portOpen_ {};
-      // The prompt for the risk item.
+      // The check prompt for the baseline check risk item.
       shared_ptr<string> prompt_ {};
-      // The region ID of the asset.
+      // The ID of the region where the asset resides.
       shared_ptr<string> regionId_ {};
       // The status of the check item. Valid values:
       // 
-      // *   **1**: failed
-      // *   **2**: verifying
-      // *   **3**: passed
-      // *   **6**: ignored
-      // *   **7**: fixing
-      // *   **8**: fixed
+      // - **1**: failed
+      // - **2**: verifying
+      // - **3**: passed
+      // - **6**: ignored
+      // - **7**: fixing
+      // - **8**: fixed
       shared_ptr<int32_t> status_ {};
-      // The ID of the asset that is scanned.
+      // The ID of the scan target.
       shared_ptr<string> targetId_ {};
-      // The name of the asset on which the malicious image sample is detected.
+      // The name of the scan target.
       shared_ptr<string> targetName_ {};
-      // The type of the asset. Valid values:
+      // The object type. Valid values:
       // 
-      // *   **ECS_SNAPSHOT**
-      // *   **ECS_IMAGE**
+      // - **ECS_SNAPSHOT**: snapshot
+      // - **ECS_IMAGE**: image
       shared_ptr<string> targetType_ {};
       // The UUID of the server.
       shared_ptr<string> uuid_ {};
-      // The information about the baselines on which the risk item is detected.
+      // The list of baselines in which the risk of this check item is detected.
       shared_ptr<vector<List::WarningRiskList>> warningRiskList_ {};
     };
 
@@ -513,11 +515,11 @@ namespace Models
 
 
   protected:
-    // The servers on which the alerts are generated.
+    // The list of servers with alerts.
     shared_ptr<vector<ListCheckItemWarningMachineResponseBody::List>> list_ {};
-    // The pagination information.
+    // The pagination information of the query results.
     shared_ptr<ListCheckItemWarningMachineResponseBody::PageInfo> pageInfo_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request, which is a unique identifier generated by Alibaba Cloud for the request and can be used for troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

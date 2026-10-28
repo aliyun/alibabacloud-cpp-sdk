@@ -99,25 +99,25 @@ namespace Models
   protected:
     // The ID of the check item.
     // 
-    // > Call the [ListCheckItemWarningSummary](~~ListCheckItemWarningSummary~~) operation to obtain the check item ID.
+    // > You can call the [ListCheckItemWarningSummary](~~ListCheckItemWarningSummary~~) operation to obtain the check item ID.
     shared_ptr<int64_t> checkId_ {};
-    // The language type for the request and response messages. Default value: **zh**. Valid values:
+    // The language of the request and response. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The reason for adding the whitelist entry.
+    // The reason for adding the item to the whitelist.
     shared_ptr<string> reason_ {};
     // The ID of the whitelist record.
     shared_ptr<int64_t> recordId_ {};
-    // The list of asset UUIDs for which container names are to be removed from the whitelist.
+    // The list of UUIDs of the assets whose container names need to be removed from the whitelist.
     shared_ptr<vector<string>> removeContainerUuids_ {};
     // The data source. Valid values:
-    // - **default**: host
-    // - **agentless**: agentless.
+    // - **default**: Server
+    // - **agentless**: agentless
     shared_ptr<string> source_ {};
-    // The type of the target on which the whitelist takes effect. Valid values:
-    // - **all_instance**: all servers
-    // - **instance**: specific servers.
+    // The type of the target to which the whitelist applies. Valid values:
+    // - **all_instance**: All servers
+    // - **instance**: Specified servers
     shared_ptr<string> targetType_ {};
   };
 

@@ -90,11 +90,11 @@ namespace Models
 
 
     protected:
-      // The number of entries on the current page in a paged query.
+      // The number of entries returned on the current page when paging.
       shared_ptr<int32_t> count_ {};
-      // The page number of the current page in a paged query.
+      // The page number of the current page when paging.
       shared_ptr<int32_t> currentPage_ {};
-      // The maximum number of entries per page in a paged query.
+      // The maximum number of entries returned per page when paging.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries returned.
       shared_ptr<int32_t> totalCount_ {};
@@ -257,20 +257,20 @@ namespace Models
 
 
     protected:
-      // The backup end time. The value is a timestamp in milliseconds.
+      // The end time of the backup. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> backupEndTime_ {};
-      // The backup task ID.
+      // The ID of the backup task.
       shared_ptr<string> backupJobId_ {};
-      // The backup plan ID.
+      // The ID of the backup plan.
       shared_ptr<string> backupPlanId_ {};
-      // The backup start time. The value is a timestamp in milliseconds.
+      // The start time of the backup. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> backupStartTime_ {};
-      // The backup task status. Valid values:
-      // - **BACKUP_COMPLETE**: backup succeeded
-      // - **BACKUP_FAILED**: backup failed
-      // - **PARTIAL_COMPLETE**: partial backup succeeded.
+      // The status of the backup task. Valid values:
+      // - **BACKUP_COMPLETE**: The backup is successful.
+      // - **BACKUP_FAILED**: The backup fails.
+      // - **PARTIAL_COMPLETE**: The backup is partially successful.
       shared_ptr<string> backupStatus_ {};
-      // The anti-ransomware client ID.
+      // The ID of the anti-ransomware client.
       shared_ptr<string> clientId_ {};
       // The error code of the backup task.
       shared_ptr<string> errorCode_ {};
@@ -288,7 +288,7 @@ namespace Models
       shared_ptr<string> ip_ {};
       // The region ID of the backup service.
       shared_ptr<string> regionId_ {};
-      // The UUID of the server backed up by database anti-ransomware.
+      // The UUID of the server backed up by the database anti-ransomware feature.
       shared_ptr<string> uuid_ {};
     };
 
@@ -320,11 +320,11 @@ namespace Models
 
 
   protected:
-    // The list of backup records.
+    // The backup records.
     shared_ptr<vector<ListBackupRecordResponseBody::BackupRecordList>> backupRecordList_ {};
     // The pagination information.
     shared_ptr<ListBackupRecordResponseBody::PageInfo> pageInfo_ {};
-    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

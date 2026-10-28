@@ -88,9 +88,9 @@ namespace Models
     shared_ptr<int32_t> currentPage_ {};
     // The timestamp of the end time.
     shared_ptr<int64_t> endTime_ {};
-    // Specifies the maximum number of entries to return on each page during paging in a paged query. The default number of entries per page is 20. If the PageSize parameter is left empty, 20 entries are returned by default. Do not leave PageSize empty.
+    // Specifies the maximum number of entries to return on each page in a paged query. The default number of entries per page for paging is 20. If this parameter is left empty, 20 entries are returned by default. Do not leave this parameter empty.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the IDC scan task to query. You can call the [DescribeSyncAssetTaskList](https://help.aliyun.com/document_detail/141932.html) operation to obtain the task ID.
+    // The ID of the IDC scan task to query. You can call the [DescribeSyncAssetTaskList](https://help.aliyun.com/document_detail/141932.html) operation to obtain the ID of the abnormal task. This parameter is required. If this parameter is not specified, the API returns HTTP 400 and the error code -101.
     shared_ptr<string> rootTaskId_ {};
     // The timestamp of the start time.
     shared_ptr<int64_t> startTime_ {};

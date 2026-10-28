@@ -39,7 +39,7 @@ namespace Models
 
   protected:
     // The ID of the policy task.
-    // >Call the [DescribeSoarStrategyTasks](~~DescribeSoarStrategyTasks~~) operation to obtain this parameter.
+    // > You can call the [DescribeSoarStrategyTasks](~~DescribeSoarStrategyTasks~~) operation to query this parameter.
     shared_ptr<int64_t> strategyTaskId_ {};
   };
 

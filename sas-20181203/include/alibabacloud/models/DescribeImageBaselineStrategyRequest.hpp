@@ -59,11 +59,11 @@ namespace Models
   protected:
     // The language of the request and response. Valid values:
     // - **zh**: Chinese
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
     // The data source. If this parameter is left empty, the image baseline policy is queried by default. Valid values:
-    // - **default**: image
-    // - **agentless**: agentless.
+    // - **default**: Image
+    // - **agentless**: Agentless
     shared_ptr<string> source_ {};
     // The ID of the baseline check policy.
     shared_ptr<int64_t> strategyId_ {};

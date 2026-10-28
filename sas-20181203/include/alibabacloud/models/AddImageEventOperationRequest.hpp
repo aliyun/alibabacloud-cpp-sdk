@@ -103,35 +103,32 @@ namespace Models
 
 
   protected:
-    // The rule conditions. The value is in the JSON format. Valid values of keys:
-    // 
-    // *   **condition**: the matching condition.
-    // *   **type**: the matching type.
-    // *   **value**: the matching value.
+    // The rule conditions. The value is in JSON format. Valid keys:
+    // - **condition**: The matching condition.
+    // - **type**: The matching type.
+    // - **value**: The matching value.
     shared_ptr<string> conditions_ {};
-    // The keyword of the alert item.
+    // The alert metric keyword.
     shared_ptr<string> eventKey_ {};
-    // The name of the alert item.
+    // The alert metric name.
     shared_ptr<string> eventName_ {};
-    // The alert type.
-    // 
-    // *   Set the value to **sensitiveFile**.
+    // The Alarm Metric for alerting. Valid values:
+    // - **sensitiveFile**: Sensitive file.
     shared_ptr<string> eventType_ {};
-    // The remarks that you want to add.
+    // The note to add.
     shared_ptr<string> note_ {};
-    // The operation code.
-    // 
-    // *   Set the value to **whitelist** to add the alert item to the whitelist.
+    // The operation code. Valid values:
+    // - **whitelist**: Whitelist.
     shared_ptr<string> operationCode_ {};
-    // The application scope of the rule. The value is in the JSON format. Valid values of keys:
-    // 
-    // *   **type**
-    // *   **value**
+    // The rule scope. The value is in JSON format. Valid keys:
+    // - **type**: The scope type.
+    // - **value**: The scope value.
+    // > This parameter and **Source** cannot be empty at the same time. If **Source** is set to **agentless**, this parameter does not take effect.
     shared_ptr<string> scenarios_ {};
     // The source of the whitelist. Valid values:
-    // 
-    // *   **image**: image.
-    // *   **agentless**: agentless detection.
+    // - **image**: Image.
+    // - **agentless**: Agentless detection.
+    // > This parameter and **Scenarios** cannot be empty at the same time. If this parameter is set to **agentless**, the **Scenarios** parameter does not take effect.
     shared_ptr<string> source_ {};
   };
 

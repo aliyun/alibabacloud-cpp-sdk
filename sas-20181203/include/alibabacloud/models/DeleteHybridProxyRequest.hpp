@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> clusterName_ {};
-    // The UUID of the proxy server to delete. The value starts with inet-proxy-.
+    // The UUID of the proxy server to delete. The UUID starts with inet-proxy-.
     // 
     // This parameter is required.
     shared_ptr<string> uuid_ {};

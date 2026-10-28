@@ -95,26 +95,26 @@ namespace Models
 
   protected:
     // The ID of the check item.
-    // > You can call the [ListCheckItemWarningSummary](~~ListCheckItemWarningSummary~~) operation to obtain the check item ID.>Notice: When this parameter is specified, the Uuid parameter is required.
+    // > You can call the [ListCheckItemWarningSummary](~~ListCheckItemWarningSummary~~) operation to obtain the check item ID.>Notice: If this parameter is specified, the Uuid parameter is required.
     shared_ptr<string> checkId_ {};
-    // The alert ID of the check item.
+    // The ID of the check item alert.
     // 
-    // > To query the details of a specified check item, provide the alert ID of the check item. You can call the [DescribeCheckWarnings](~~DescribeCheckWarnings~~) operation to obtain this ID.
-    // >Notice: This parameter is required when both Uuid and CheckId are empty.
+    // > To query the details of a specified check item, you must provide the check item alert ID. You can call the [DescribeCheckWarnings](~~DescribeCheckWarnings~~) operation to obtain the ID.
+    // >Notice: This parameter is required if both the Uuid and CheckId parameters are left empty.
     shared_ptr<int64_t> checkWarningId_ {};
-    // The container name.
+    // The name of the container.
     shared_ptr<string> containerName_ {};
     // The language of the request and response. Valid values:
     // - **zh**: Chinese
     // - **en**: English
     shared_ptr<string> lang_ {};
-    // The Alibaba Cloud account ID of the member accounts in the resource folder.
-    // >You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+    // The ID of the Alibaba Cloud account for the member accounts in the resource folder.
+    // > You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
-    // The source IP address of the request.
+    // The source IP address.
     shared_ptr<string> sourceIp_ {};
     // The UUID of the server to query.
-    // > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain this parameter.>Notice: When this parameter is specified, the CheckId parameter is required.
+    // > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain this parameter.>Notice: If this parameter is specified, the CheckId parameter is required.
     shared_ptr<string> uuid_ {};
   };
 

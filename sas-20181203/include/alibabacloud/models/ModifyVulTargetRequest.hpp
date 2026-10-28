@@ -51,18 +51,18 @@ namespace Models
     // The configuration target. This parameter is in JSON format and contains the following fields:
     // 
     // - **vulType**: The vulnerability type. Valid values:
-    //      - **cve**: Linux software vulnerability.
-    //     - **sys**: Windows system vulnerability.
-    //     - **cms**: Web-CMS vulnerability.
-    //     - **emg**: Emergency vulnerability.
+    //   - **cve**: Linux system vulnerability.
+    //   - **sys**: Windows system vulnerability.
+    //   - **cms**: Web-CMS vulnerability.
+    //   - **emg**: Emergency vulnerability.
     shared_ptr<string> config_ {};
     // The operation target. This parameter is in JSON format and contains the following fields:
     // 
     // - **target**: The UUID of the target machine.
     // - **targetType**: The target type. Fixed value: uuid.
     // - **flag**: The flag. Valid values:
-    //     - **add**: Selected.
-    //     - **del**: Deselected.
+    //   - **add**: Selected.
+    //   - **del**: Deselected.
     shared_ptr<string> target_ {};
   };
 

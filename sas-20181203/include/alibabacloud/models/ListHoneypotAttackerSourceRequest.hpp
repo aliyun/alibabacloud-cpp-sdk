@@ -97,23 +97,22 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The page number of the current page in a paging query.
     shared_ptr<int32_t> currentPage_ {};
-    // The end of the time range to query. This value is a timestamp.
+    // The end time in UNIX timestamp format.
     shared_ptr<int64_t> endTimeStamp_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // The language of the request and response. Default value: **zh**. Valid values:
     // 
-    // - **zh**: Chinese
-    // 
-    // - **en**: English
+    // - **zh**: Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The number of entries to return on each page.
+    // The maximum number of entries to return on each page in a paging query.
     shared_ptr<int32_t> pageSize_ {};
-    // An array that consists of risk levels.
+    // The list of risk levels.
     shared_ptr<vector<string>> riskLevelList_ {};
     // The source IP address of the attack.
     shared_ptr<string> srcIp_ {};
-    // The beginning of the time range to query. This value is a timestamp.
+    // The start time in UNIX timestamp format.
     shared_ptr<int64_t> startTimeStamp_ {};
   };
 

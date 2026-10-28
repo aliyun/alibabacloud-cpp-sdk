@@ -156,48 +156,44 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> checkId_ {};
-    // The name of the field that is used to query containers.
+    // The name of the container security query parameter.
     shared_ptr<string> containerFieldName_ {};
-    // The value of the field that is used to query containers.
+    // The value of the container security query parameter.
     shared_ptr<string> containerFieldValue_ {};
-    // The number of the page to return. Pages start from page **1**. Default value: **1**.
+    // The page number of the page to return. Pages start from page **1**. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
-    // The ID of the asset group.
-    // 
-    // > You can call the [DescribeAllGroups](https://help.aliyun.com/document_detail/130972.html) operation to query the ID of the asset group.
+    // The ID of the asset group to query.
+    // > You can call the [DescribeAllGroups](https://help.aliyun.com/document_detail/130972.html) operation to obtain the value of this parameter.
     shared_ptr<int64_t> groupId_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // The language of the request and response. Default value: **zh**. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-    // 
-    // > We recommend that you do not leave this parameter empty.
+    // The maximum number of entries to display on each page during paging in a paged query. Default value: 20. If you leave the PageSize parameter empty, 20 entries are returned by default.
+    // > Do not leave this parameter empty.
     shared_ptr<int32_t> pageSize_ {};
-    // The keyword that is used to query servers in fuzzy match mode.
+    // The fuzzy match keyword for servers.
     shared_ptr<string> remark_ {};
-    // The Alibaba Cloud account ID of the member in the resource directory.
-    // 
-    // >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+    // The ID of the member accounts in the resource folder (Alibaba Cloud account).
+    // > You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
-    // The type of the check item.
+    // The category to which the check item belongs.
     shared_ptr<string> riskType_ {};
-    // The data source. Default value: default. Valid values:
-    // 
-    // *   **default**: The check items of baselines for hosts.
-    // *   **agentless**: The check items of baselines for agentless detection.
+    // The data source. If you leave this parameter empty, the baseline check results for servers are queried by default. Valid values:
+    // - **default**: server
+    // - **agentless**: agentless
     shared_ptr<string> source_ {};
-    // The status of the check item. Valid values:
+    // The status of the check item. Default value: null. Valid values:
     // 
-    // *   **1**: failed
-    // *   **2**: verifying
-    // *   **3**: passed
-    // *   **6**: ignored
-    // *   **7**: fixing
-    // *   **8**: fixed
+    // - **1**: failed
+    // - **2**: verifying
+    // - **3**: passed
+    // - **6**: ignored
+    // - **7**: fixing
+    // - **8**: fixed
     shared_ptr<int32_t> status_ {};
-    // The UUID array of the servers.
+    // The list of server UUIDs.
     shared_ptr<vector<string>> uuidList_ {};
   };
 

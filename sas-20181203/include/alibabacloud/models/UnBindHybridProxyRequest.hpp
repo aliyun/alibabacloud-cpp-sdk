@@ -55,7 +55,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> clusterName_ {};
-    // The UUIDs of the servers that you want to remove from the proxy cluster.
+    // The list of Security Center client UUIDs for the machines connected to the proxy.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> yundunUuids_ {};

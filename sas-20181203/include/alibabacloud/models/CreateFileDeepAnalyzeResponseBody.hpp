@@ -79,11 +79,11 @@ namespace Models
     shared_ptr<string> code_ {};
     // The analysis result.
     shared_ptr<string> data_ {};
-    // The stage description.
+    // The phase description.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The stage status.
+    // The phase status.
     shared_ptr<string> status_ {};
   };
 

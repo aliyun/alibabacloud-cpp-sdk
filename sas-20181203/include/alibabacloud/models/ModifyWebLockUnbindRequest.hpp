@@ -38,8 +38,8 @@ namespace Models
 
 
   protected:
-    // The UUID of the server from which you want to remove the protection directories.
-    // > Call [DescribeWebLockBindList](~~DescribeWebLockBindList~~) to obtain the UUID of the server.
+    // The UUID of the server from which you want to dissociate the protected directory.
+    // > You can call the [DescribeWebLockBindList](~~DescribeWebLockBindList~~) operation to retrieve the UUID of the server.
     shared_ptr<string> uuid_ {};
   };
 

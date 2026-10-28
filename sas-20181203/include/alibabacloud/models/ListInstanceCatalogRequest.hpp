@@ -103,28 +103,27 @@ namespace Models
 
 
   protected:
-    // The language of the content within the request and response. Valid values:
-    // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // The language type of the request and response messages. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Specifies whether to filter the assets that support custom checks. Valid values:
+    // Specifies whether to filter assets that support custom checks. Valid values:
     // 
-    // *   **true**: Filter assets that support custom checks.
-    // *   **false**: All assets are selected. This is the default value.
+    // - **true**: Filters assets that support custom checks.
+    // - **false**: All check assets. This is the default value.
     shared_ptr<bool> onlyCustom_ {};
-    // The ID of the region in which the asset resides. Valid values:
+    // The ID of the region where the instance to be queried is located. Valid values:
     // 
-    // *   **cn-hangzhou**: International
-    // *   **ap-southeast-1**: Singapore
+    // - **cn-hangzhou**: Center.
+    // - **ap-southeast-1**: Singapore.
     shared_ptr<string> regionId_ {};
-    // The IDs of requirement items.
+    // The list of requirement IDs.
     shared_ptr<vector<int64_t>> requirementIds_ {};
-    // The IDs of standards.
+    // The list of standard IDs.
     shared_ptr<vector<int64_t>> standardIds_ {};
-    // List of task sources.
+    // The list of task sources.
     shared_ptr<vector<string>> taskSources_ {};
-    // The types of check standards.
+    // The list of types to which the check standards belong.
     shared_ptr<vector<string>> types_ {};
   };
 

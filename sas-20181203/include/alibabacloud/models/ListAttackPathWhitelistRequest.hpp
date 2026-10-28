@@ -84,19 +84,19 @@ namespace Models
 
 
   protected:
-    // The page number when using paging. Default value: **1**.
+    // The page number Settings of the current page for paging in a paged query. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
     // The language of the request and response. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The maximum number of entries per page when using paging. Default value: 20.
+    // The maximum number of entries to return per page for paging in a paged query. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
     // The path name description.
-    // > Call [ListAvailableAttackPath](~~ListAvailableAttackPath~~) to query path name descriptions.
+    // > You can call [ListAvailableAttackPath](~~ListAvailableAttackPath~~) to query path name descriptions.
     shared_ptr<string> pathNameDesc_ {};
     // The path type.
-    // > Call [ListAvailableAttackPath](~~ListAvailableAttackPath~~) to query path types.
+    // > You can call [ListAvailableAttackPath](~~ListAvailableAttackPath~~) to query path types.
     shared_ptr<string> pathType_ {};
     // The whitelist name.
     shared_ptr<string> whitelistName_ {};

@@ -88,28 +88,28 @@ namespace Models
     shared_ptr<string> clusterId_ {};
     // The container search field. Valid values:
     // 
-    // - **instanceId**: instance ID.
-    // - **appName**: application name.
-    // - **clusterId**: cluster ID.
-    // - **regionId**: region.
-    // - **nodeName**: node name.
-    // - **namespace**: namespace.
-    // - **clusterName**: cluster name.
-    // - **image**: image name.
-    // - **imageRepoName**: image repository name.
-    // - **imageRepoNamespace**: image repository namespace.
-    // - **imageRepoTag**: image tag.
-    // - **imageDigest**: image digest.
+    // - **instanceId**: The instance ID.
+    // - **appName**: The application name.
+    // - **clusterId**: The cluster ID.
+    // - **regionId**: The region ID.
+    // - **nodeName**: The node name.
+    // - **namespace**: The namespace.
+    // - **clusterName**: The cluster name.
+    // - **image**: The image name.
+    // - **imageRepoName**: The image repository name.
+    // - **imageRepoNamespace**: The image repository namespace.
+    // - **imageRepoTag**: The image tag.
+    // - **imageDigest**: The image digest.
     shared_ptr<string> containerFieldName_ {};
     // The value of the container search field.
     shared_ptr<string> containerFieldValue_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The IP address of the access source.
+    // The source IP address.
     shared_ptr<string> sourceIp_ {};
     // The query type. Valid values:
     // 
-    // - **containerId**: container ID.
-    // - **uuid**: asset ID.
+    // - **containerId**: The container ID.
+    // - **uuid**: The asset ID.
     shared_ptr<string> targetType_ {};
   };
 

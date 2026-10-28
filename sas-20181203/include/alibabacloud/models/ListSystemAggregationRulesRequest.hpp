@@ -99,21 +99,21 @@ namespace Models
 
 
   protected:
-    // The rule cluster ID.
+    // The ID of the rule aggregation.
     shared_ptr<vector<int32_t>> aggregationIds_ {};
-    // The page number of the current page in a paging query.
+    // The page number of the current page for a paged query. This parameter is used for paging.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // The language type of the request and response. Default value: **zh**. Valid values:
+    // Specifies the language type for requests and responses. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The maximum number of entries per page in a paging query.
+    // The maximum number of entries to return on each page for a paged query. This parameter is used for paging.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The rule name.
+    // The name of the rule.
     shared_ptr<string> ruleName_ {};
     // The list of rule types.
     shared_ptr<vector<int32_t>> ruleTypes_ {};
@@ -121,7 +121,7 @@ namespace Models
     // 
     // - **2**: Windows
     // - **1**: Linux
-    // - **0**: all.
+    // - **0**: All
     shared_ptr<int32_t> systemType_ {};
   };
 

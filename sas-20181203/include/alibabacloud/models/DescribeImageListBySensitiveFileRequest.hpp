@@ -133,17 +133,17 @@ namespace Models
 
 
   protected:
-    // The page number of the current page returned. Pages start from 1. Default value: 1.
+    // The page number of the returned page. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> currentPage_ {};
     // The image digest.
     // > Fuzzy match is supported.
     shared_ptr<string> imageDigest_ {};
-    // Specifies the language type for requests and responses. Default value: **zh**. Valid values:
+    // The language of the request and response. Default value: **zh**. Valid values:
     // 
-    // - **zh**: Chinese
-    // - **en**: English
+    // - **zh**: Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The maximum number of entries returned per page in a paged query. Default value: 20.
+    // The maximum number of entries to return on each page during paging in a paged query. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the container image instance.
     // > You can call the [ListRepository](https://help.aliyun.com/document_detail/451339.html) operation of Container Registry to obtain the container image instance ID from the **InstanceId** response parameter.
@@ -151,21 +151,21 @@ namespace Models
     // The name of the image repository.
     // > Fuzzy match is supported.
     shared_ptr<string> repoName_ {};
-    // The name of the image repository namespace.
+    // The name of the namespace of the image repository.
     // > Fuzzy match is supported.
     shared_ptr<string> repoNamespace_ {};
-    // The risk level of the file. Separate multiple levels with commas (,). Valid values:
+    // The risk level of the file. Separate multiple risk levels with commas (,). Valid values:
     // 
-    // - **high**: high
-    // - **medium**: medium
-    // - **low**: low
+    // - **high**: High.
+    // - **medium**: Medium.
+    // - **low**: Low.
     shared_ptr<string> riskLevel_ {};
-    // The scan scope collection. Valid values:
+    // The scan scope. Valid values:
     // 
-    // - **image**: image
-    // - **container**: container
+    // - **image**: Images.
+    // - **container**: Containers.
     shared_ptr<vector<string>> scanRange_ {};
-    // The alerting type for sensitive files. Valid values:
+    // The alert type for sensitive files. Valid values:
     // 
     // - **npm_token**: NPM access token
     // - **ftp_cfg**: FTP configuration
@@ -184,7 +184,7 @@ namespace Models
     // - **esmtp_cfg**: ESMTP mail server configuration
     // - **docker_registry_cfg**: Docker image repository configuration
     // - **pem**: PEM
-    // - **common_cred**: common credential
+    // - **common_cred**: Common credential
     // - **sftp_cfg**: SFTP connection configuration
     // - **grafana_token**: Grafana token
     // - **slack_token**: Slack token
@@ -198,7 +198,7 @@ namespace Models
     // - **openssh_private_key**: OpenSSH private key
     // - **square_oauth**: Square OAuth credential
     // - **typeform_token**: Typeform token
-    // - **common_database_cfg**: common database connection configuration
+    // - **common_database_cfg**: Common database connection configuration
     // - **wordpress_database_cfg**: WordPress database configuration
     // - **googlecloud_api_key**: Google Cloud API key
     // - **vscode_sftp**: VSCode SFTP configuration
@@ -213,7 +213,7 @@ namespace Models
     // - **tencentcloud_ak**: SecretId of other cloud providers
     // - **rsa_private_key**: RSA private key
     // - **github_personal_token**: GitHub personal access token
-    // - **pgp**: PGP ciphertext file
+    // - **pgp**: PGP encrypt file
     // - **stripe_skpk**: Stripe secret key
     // - **square_token**: Square access token
     // - **rails_carrierwave**: Rails Carrierwave file upload credential
@@ -258,7 +258,7 @@ namespace Models
     // - **huaweicloud_ak**: Secret Access Key of other cloud providers
     // - **aws_s3cmd**: AWS S3cmd configuration
     // - **php_config**: PHP configuration
-    // - **common_private_key**: common private key type
+    // - **common_private_key**: Common private key type
     // - **microsoft_mdf**: Microsoft SQL database
     // - **mediawiki_cfg**: MediaWiki configuration
     // - **jenkins_cred**: Jenkins credential
@@ -277,13 +277,14 @@ namespace Models
     // - **rails_app_token**: Rails app token
     // - **git_cred**: Git user credential
     // - **newrelic_api_key**: New Relic user API key
-    // - **github_hub**: hub configuration that stores GitHub tokens
+    // - **github_hub**: Hub configuration that stores GitHub tokens
     // - **rubygem**: RubyGems token
+    // > This parameter is required. If you do not specify this parameter, the API returns an HTTP 400 error with the error code -101.
     shared_ptr<string> sensitiveFileKey_ {};
     // The status of the sensitive file. Valid values:
-    // - **0**: unhandled
-    // - **1**: ignored
-    // - **2**: false positive
+    // - **0**: Unhandled.
+    // - **1**: Ignored.
+    // - **2**: False positive.
     shared_ptr<string> status_ {};
   };
 

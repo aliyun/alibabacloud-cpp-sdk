@@ -48,12 +48,12 @@ namespace Models
 
 
   protected:
-    // The request source.
-    // * When querying Security Center data, set this parameter to **sas**.
-    // * When querying Server Guard data, you do not need to set this parameter.
+    // The source of the request.
+    // * When querying data related to Security Center, set this parameter to **sas**.
+    // * When querying data related to Server Guard, you do not need to specify this parameter.
     shared_ptr<string> from_ {};
-    // The member account ID in the resource directory (Alibaba Cloud account).
-    // >You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+    // The ID of the member accounts (Alibaba Cloud accounts) in the resource folder.
+    // > You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the value of this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
   };
 

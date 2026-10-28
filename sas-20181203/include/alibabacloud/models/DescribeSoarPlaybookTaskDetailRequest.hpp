@@ -57,18 +57,18 @@ namespace Models
 
 
   protected:
-    // Playbook ID.
-    // > You can obtain this parameter by calling the [DescribePlaybooks](https://help.aliyun.com/document_detail/2627461.html) interface.
+    // The ID of the playbook.
+    // >You can call the [DescribePlaybooks](https://help.aliyun.com/document_detail/3000306.html) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<int64_t> playbookId_ {};
-    // The vulnerability ID passed when creating the policy task.
-    // > You can obtain this parameter by calling the [DescribeVulList](~~DescribeVulList~~) interface.
+    // The ID of the vulnerability passed when creating the policy task.
+    // >You can call the [DescribeVulList](~~DescribeVulList~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<int64_t> recordId_ {};
-    // UUID of the playbook task execution.
-    // > You can obtain this parameter by calling the [DescribeSoarRecords](https://help.aliyun.com/document_detail/2627455.html) interface.
+    // The UUID of the playbook task execution.
+    // >You can call the [DescribeSoarRecords](https://help.aliyun.com/document_detail/2627455.html) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> requestUuid_ {};

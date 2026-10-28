@@ -104,18 +104,18 @@ namespace Models
     protected:
       // The subtype of the cloud service asset.
       // 
-      // > Call [ListSupportAttackPathAsset](~~ListSupportAttackPathAsset~~) to query the subtypes of cloud service assets.
+      // > You can call the [ListSupportAttackPathAsset](~~ListSupportAttackPathAsset~~) operation to query the subtype of the cloud service asset.
       shared_ptr<int32_t> assetSubType_ {};
       // The type of the cloud service asset.
       // 
-      // > Call [ListSupportAttackPathAsset](~~ListSupportAttackPathAsset~~) to query the types of cloud service assets.
+      // > You can call the [ListSupportAttackPathAsset](~~ListSupportAttackPathAsset~~) operation to query the type of the cloud service asset.
       shared_ptr<int32_t> assetType_ {};
       // The node type. Valid values:
-      // - **start**: start node.
-      // - **end**: end node.
+      // - **start**: the start node
+      // - **end**: the end node
       shared_ptr<string> nodeType_ {};
       // The vendor of the cloud service asset.
-      // > Call [ListSupportAttackPathAsset](~~ListSupportAttackPathAsset~~) to query the vendors of cloud service assets.
+      // > You can call the [ListSupportAttackPathAsset](~~ListSupportAttackPathAsset~~) operation to query the vendor of the cloud service asset.
       shared_ptr<int32_t> vendor_ {};
     };
 
@@ -192,26 +192,26 @@ namespace Models
   protected:
     // The list of cloud service assets in the attack path.
     shared_ptr<vector<ListAttackPathEventRequest::AttackPathAssetList>> attackPathAssetList_ {};
-    // The page number of the results to return. Default value: 1, which indicates the first page.
+    // The number of the page to return. Default value: 1.
     shared_ptr<int32_t> currentPage_ {};
-    // The end time as a timestamp. Unit: milliseconds.
+    // The timestamp of the end time. Unit: milliseconds.
     shared_ptr<int64_t> endTime_ {};
     // The language of the request and response. Default value: **zh**. Valid values:
     // 
     // - **zh**: Chinese
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The maximum number of entries per page in a paged query. Default value: **20**.
+    // The maximum number of entries to return on each page in a paging query. Default value: **20**.
     shared_ptr<int32_t> pageSize_ {};
-    // The path name description.
-    // > Call [ListAvailableAttackPath](~~ListAvailableAttackPath~~) to query path name descriptions.
+    // The description of the path name.
+    // > You can call the [ListAvailableAttackPath](~~ListAvailableAttackPath~~) operation to query the description of the path name.
     shared_ptr<string> pathNameDesc_ {};
     // The path type.
-    // > Call [ListAvailableAttackPath](~~ListAvailableAttackPath~~) to query path types.
+    // > You can call the [ListAvailableAttackPath](~~ListAvailableAttackPath~~) operation to query the path type.
     shared_ptr<string> pathType_ {};
     // The list of risk levels.
     shared_ptr<vector<string>> riskLevelList_ {};
-    // The start time as a timestamp. Unit: milliseconds.
+    // The timestamp of the start time. Unit: milliseconds.
     shared_ptr<int64_t> startTime_ {};
   };
 

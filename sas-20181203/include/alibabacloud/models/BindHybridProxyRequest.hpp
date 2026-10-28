@@ -55,7 +55,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> clusterName_ {};
-    // The UUIDs of servers that you want to add to Security Center over the proxy server.
+    // The UUIDs of the servers connected to the proxy.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> yundunUuids_ {};

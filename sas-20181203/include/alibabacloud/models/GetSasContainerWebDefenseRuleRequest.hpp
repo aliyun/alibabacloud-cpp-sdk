@@ -40,6 +40,7 @@ namespace Models
   protected:
     // The rule ID.
     // > You can call the [ListSasContainerWebDefenseRule](~~ListSasContainerWebDefenseRule~~) operation to obtain this parameter.
+    // This parameter is required. If you do not specify this parameter, the API returns an HTTP 400 error with the error code -101.
     shared_ptr<int64_t> ruleId_ {};
   };
 

@@ -68,12 +68,12 @@ namespace Models
   protected:
     // The identifier of the request source. Set the value to **sas**.
     shared_ptr<string> from_ {};
-    // The language type for the request and response messages. Default value: **zh**. Valid values:
+    // Specifies the language of the request and response. Default value: **zh**. Valid values:
     // 
     // - **zh**: Chinese
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The name of the user LogStore.
+    // The name of the Logstore for user log storage.
     shared_ptr<string> userLogStore_ {};
     // The user project.
     shared_ptr<string> userProject_ {};

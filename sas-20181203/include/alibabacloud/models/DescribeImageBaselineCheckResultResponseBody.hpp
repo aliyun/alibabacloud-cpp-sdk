@@ -90,11 +90,11 @@ namespace Models
 
 
     protected:
-      // The number of entries on the current page when using paging.
+      // The number of entries returned on the current page when paging in a paged query.
       shared_ptr<int32_t> count_ {};
-      // The page number of the current page when using paging.
+      // The page number of the current page when paging in a paged query.
       shared_ptr<int32_t> currentPage_ {};
-      // The maximum number of entries per page when using paging.
+      // The maximum number of entries returned per page when paging in a paged query.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries returned.
       shared_ptr<int32_t> totalCount_ {};
@@ -220,32 +220,32 @@ namespace Models
 
 
     protected:
-      // The type key of the baseline item.
+      // The key of the baseline item type.
       shared_ptr<string> baselineClassAlias_ {};
       // The number of baseline check items.
       shared_ptr<int32_t> baselineItemCount_ {};
       // The alias of the baseline item.
       shared_ptr<string> baselineNameAlias_ {};
-      // The name key of the baseline item.
+      // The key of the baseline item name.
       shared_ptr<string> baselineNameKey_ {};
       // The risk level of the baseline. Valid values:
       // - **high**: high risk
       // - **medium**: medium risk
-      // - **low**: low risk.
+      // - **low**: low risk
       shared_ptr<string> baselineNameLevel_ {};
-      // The timestamp of the first scan, in milliseconds.
+      // The timestamp of the first scan. Unit: milliseconds.
       shared_ptr<int64_t> firstScanTime_ {};
       // The number of associated high-risk images.
       shared_ptr<int32_t> highRiskItemCount_ {};
-      // The timestamp of the most recent scan, in milliseconds.
+      // The timestamp of the latest scan. Unit: milliseconds.
       shared_ptr<int64_t> lastScanTime_ {};
       // The number of associated low-risk images.
       shared_ptr<int32_t> lowRiskItemCount_ {};
       // The number of associated medium-risk images.
       shared_ptr<int32_t> middleRiskItemCount_ {};
       // The fix status of the baseline risk. Valid values:
-      // - **0**: Unfixed.
-      // - **1**: Fixed.
+      // - **0**: unfixed
+      // - **1**: fixed
       shared_ptr<int32_t> status_ {};
     };
 
@@ -279,7 +279,7 @@ namespace Models
   protected:
     // The details of the image baseline check results.
     shared_ptr<vector<DescribeImageBaselineCheckResultResponseBody::BaselineResult>> baselineResult_ {};
-    // The paging information.
+    // The paging information for a paged query.
     shared_ptr<DescribeImageBaselineCheckResultResponseBody::PageInfo> pageInfo_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

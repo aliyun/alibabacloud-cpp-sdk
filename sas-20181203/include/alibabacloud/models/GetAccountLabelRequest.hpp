@@ -55,10 +55,10 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<vector<string>> labelList_ {};
-    // The language type for the request and response messages. Default value: **zh**. Valid values:
+    // Specifies the language type for requests and response messages. Default value: **zh**. Valid values:
     // 
-    // - **zh**: Chinese
-    // - **en**: English
+    // - **zh**: Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
   };
 

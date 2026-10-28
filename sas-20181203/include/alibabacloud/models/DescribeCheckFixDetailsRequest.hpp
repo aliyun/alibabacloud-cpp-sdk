@@ -57,17 +57,17 @@ namespace Models
 
 
   protected:
-    // The ID of the check item.
+    // The IDs of the check items.
     // 
-    // > You can call the [DescribeRiskType](~~DescribeRiskType~~) operation to obtain the check item ID.
+    // > You can call the [DescribeRiskType](~~DescribeRiskType~~) operation to retrieve the check item IDs.
     shared_ptr<string> checkIds_ {};
-    // The language type of the request and response. Default value: **zh**. Valid values:
-    // - **zh**: Chinese
+    // The language of the request and response. Default value: **zh**. Valid values:
+    // - **zh**: Chinese.
     // - **en**: English.
     shared_ptr<string> lang_ {};
     // The ID of the baseline.
     // 
-    // > You can call the [DescribeCheckWarningSummary](https://help.aliyun.com/document_detail/116179.html) operation to obtain the baseline ID.
+    // > You can call the [DescribeCheckWarningSummary](https://help.aliyun.com/document_detail/116179.html) operation to retrieve the baseline ID.
     shared_ptr<int64_t> riskId_ {};
   };
 

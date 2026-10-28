@@ -108,33 +108,33 @@ namespace Models
   protected:
     // The query condition for the baseline.
     shared_ptr<string> criteria_ {};
-    // The query type of the baseline to query. Valid values:
+    // The query type for the baseline to query. Valid values:
     // 
     // - **BaselineNameAlias**: baseline name
     // 
-    // - **BaselineClassAlias**: baseline category.
+    // - **BaselineClassAlias**: baseline category
     shared_ptr<string> criteriaType_ {};
-    // The page number of the current page when using paging. Default value: 20, which indicates the first page.
+    // The page number of the current page when paging in a paged query. Default value: 20, which indicates the first page.
     shared_ptr<int32_t> currentPage_ {};
     // The UUID of the image.
     // 
     // This parameter is required.
     shared_ptr<string> imageUuid_ {};
-    // The language type for the request and response. Default value: **zh**. Valid values:
+    // The language of the request and response. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The number of entries per page when using paging. Default value: **20**, which indicates that 20 logon configuration entries are displayed per page.
+    // The number of logon configuration entries to return on each page when paging in a paged query. Default value: **20**, which indicates that 20 logon configuration entries are displayed on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // The risk level of the baseline to query. Separate multiple levels with commas (,). By default, all levels are included. Valid values:
+    // The risk level of the baselines to query. Separate multiple risk levels with commas (,). By default, all risk levels are queried. Valid values:
     // 
     // - **high**: high risk
     // 
     // - **medium**: medium risk
     // 
-    // - **low**: low risk.
+    // - **low**: low risk
     shared_ptr<string> riskLevel_ {};
-    // The scan scope.
+    // The scan ranges.
     shared_ptr<vector<string>> scanRange_ {};
   };
 

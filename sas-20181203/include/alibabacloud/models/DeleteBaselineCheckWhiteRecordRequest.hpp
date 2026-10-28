@@ -71,19 +71,18 @@ namespace Models
 
 
   protected:
-    // The IDs of check items.
+    // The list of check item IDs.
     shared_ptr<vector<int64_t>> checkIds_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // The language of the request and response. Default value: **zh**. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The IDs of the whitelist records.
+    // The list of whitelist record IDs.
     shared_ptr<vector<int64_t>> recordIds_ {};
     // The data source. Valid values:
-    // 
-    // *   **default**: host baseline
-    // *   **agentless**: agentless detection
+    // - **default**: server baseline
+    // - **agentless**: agentless baseline
     shared_ptr<string> source_ {};
   };
 

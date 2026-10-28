@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the whitelist rule for agentless detection of sensitive file alerts. You can call [ListMaliciousFileWhitelistConfigs](~~ListMaliciousFileWhitelistConfigs~~) to obtain the ID.
+    // The ID of the whitelist rule for sensitive file alerts in agentless detection. You can call the [ListMaliciousFileWhitelistConfigs](~~ListMaliciousFileWhitelistConfigs~~) operation to obtain the ID of the whitelist rule for sensitive files.
     shared_ptr<int64_t> configId_ {};
   };
 
