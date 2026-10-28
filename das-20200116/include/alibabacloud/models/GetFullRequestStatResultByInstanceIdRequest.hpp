@@ -167,13 +167,13 @@ namespace Models
 
 
   protected:
-    // Specifies whether to sort the results in ascending order. By default, the results are not sorted in ascending order.
+    // Specifies whether to sort the results in ascending order. Default value: false.
     shared_ptr<bool> asc_ {};
     // The name of the database.
     shared_ptr<string> dbName_ {};
-    // The end of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The end time of the query. The time is a UNIX timestamp in milliseconds.
     // 
-    // > The end time must be later than the start time. The interval cannot exceed one day.
+    // > The end time must be later than the start time, and the interval between the start time and the end time cannot exceed one day.
     // 
     // This parameter is required.
     shared_ptr<int64_t> end_ {};
@@ -181,19 +181,19 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The keywords that are used for query.
+    // The query keyword.
     shared_ptr<string> keyword_ {};
     // The node ID.
     // 
-    // > You must specify the node ID if your database instance is a PolarDB for MySQL cluster.
+    // > For PolarDB for MySQL instances, the node ID is required.
     shared_ptr<string> nodeId_ {};
-    // The field by which to sort the returned entries. Default value: **count**. Valid values:
+    // The field by which to sort the results. Default value: **count**.
     // 
     // - **count**: the number of executions.
     // 
-    // - **avgRt**: the average execution duration.
+    // - **avgRt**: the average execution time.
     // 
-    // - **rtRate**: the execution duration percentage.
+    // - **rtRate**: the execution time proportion.
     // 
     // - **rowsExamined**: the total number of scanned rows.
     // 
@@ -201,19 +201,19 @@ namespace Models
     // 
     // - **avgRowsReturned**: the average number of returned rows.
     shared_ptr<string> orderBy_ {};
-    // The IP address of the client that executes the SQL statement.
+    // The IP address of the client that executed the SQL statement.
     // 
-    // > This parameter is optional. If this parameter is specified, the full request statistics of the specified IP address are collected. If this parameter is left empty, the full request statistics of the entire database instance are collected.
+    // > This parameter is optional. If you specify a client IP address, the full request data of the specified client IP address is aggregated. If you leave this parameter empty, the full request data of the entire database instance is aggregated.
     shared_ptr<string> originHost_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number for the paged query. The paging starts from 1. Default value: 1.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries per page. Default value: 20.
+    // The data volume per page for paging in a paged query. Default value: 20.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The role of the node in the PolarDB-X 2.0 instance. Valid values:
+    // The node information of the PolarDB-X 2.0 database instance. Valid values:
     // 
     // - **polarx_cn**: compute node.
     // 
@@ -221,21 +221,21 @@ namespace Models
     shared_ptr<string> role_ {};
     // The SQL ID.
     // 
-    // > If this parameter is specified, the full request statistics of the specified SQL query are collected. If this parameter is left empty, the full request statistics of the entire database instance are collected.
+    // > If you specify an SQL ID, the full request data of the specified SQL ID is aggregated. If you leave this parameter empty, the full request data of the entire database instance is aggregated.
     shared_ptr<string> sqlId_ {};
     // The type of the SQL statement. Valid values: **SELECT**, **INSERT**, **UPDATE**, **DELETE**, **LOGIN**, **LOGOUT**, **MERGE**, **ALTER**, **CREATEINDEX**, **DROPINDEX**, **CREATE**, **DROP**, **SET**, **DESC**, **REPLACE**, **CALL**, **BEGIN**, **DESCRIBE**, **ROLLBACK**, **FLUSH**, **USE**, **SHOW**, **START**, **COMMIT**, and **RENAME**.
     // 
-    // > If your database instance is an ApsaraDB RDS for MySQL instance, a PolarDB for MySQL cluster, or a PolarDB-X 2.0 instance, the statistics can be collected based on the SQL statement type.
+    // > If the database instance is an ApsaraDB RDS for MySQL, PolarDB for MySQL, or PolarDB-X 2.0 instance, you can aggregate data by SQL statement type.
     shared_ptr<string> sqlType_ {};
-    // The beginning of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The start time of the query. The format is a UNIX timestamp, in milliseconds.
     // 
-    // > The start time can be up to 90 days earlier than the current time.
+    // > The start time must be within the SQL Explorer storage duration for the database instance and cannot be more than 90 days earlier than the current time.
     // 
     // This parameter is required.
     shared_ptr<int64_t> start_ {};
-    // The ID of the Alibaba Cloud account that was used to create the database instance.
+    // The instance ID, which is the ID of the Alibaba Cloud account that created the database instance.
     // 
-    // > This parameter is optional. The system can automatically obtain the Alibaba Cloud account ID based on the value of InstanceId when you call the GetFullRequestOriginStatByInstanceId operation.
+    // > This parameter is optional. After you enter the ID of the target database instance, the system automatically obtains the instance ID when you call the API operation.
     shared_ptr<string> userId_ {};
   };
 

@@ -84,7 +84,7 @@ namespace Models
 
 
     protected:
-      // The LogStore name for real-time delivery to Simple Log Service.
+      // The name of the Simple Log Service Logstore for real-time log delivery.
       shared_ptr<string> logstore_ {};
       // The project.
       shared_ptr<string> project_ {};
@@ -136,15 +136,15 @@ namespace Models
     shared_ptr<string> code_ {};
     // ForwardSqlLogResult
     shared_ptr<ModifyForwardSqlLogConfigResponseBody::Data> data_ {};
-    // The returned message.
+    // The message returned for the request.
     // 
-    // > If the request is successful, **Successful** is returned. If the request fails, an error message that contains information such as an error code is returned.
+    // > If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. Valid values:
-    // * true: The request is successful.
-    // * false: The request fails.
+    // Indicates whether the request was successful. Valid values:
+    // - true: The request was successful.
+    // - false: The request failed.
     shared_ptr<string> success_ {};
   };
 

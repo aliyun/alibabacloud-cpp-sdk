@@ -352,83 +352,79 @@ namespace Models
 
 
     protected:
-      // The number of internal on-disk temporary tables that were created when the SQL statement was executed.
+      // The number of on-disk internal temporary tables created during statement execution.
       shared_ptr<int32_t> createTmpDiskTables_ {};
-      // The number of internal temporary tables that were created when the SQL statement was executed.
+      // The number of internal temporary tables created during statement execution.
       shared_ptr<int32_t> createTmpTables_ {};
-      // The name of the database.
+      // The database name.
       shared_ptr<string> db_ {};
-      // The end ID of the event. By default, the value of this parameter is NULL when the event starts and is changed to the event ID when the event ends.
+      // The end event ID. This parameter is NULL by default when the event starts and is updated to the current event ID of the thread when the event ends.
       shared_ptr<int32_t> endEventId_ {};
-      // The number of errors returned for the SQL statement.
+      // The number of errors in the SQL statement.
       shared_ptr<int32_t> errors_ {};
       // The event ID.
       shared_ptr<int32_t> eventId_ {};
-      // The name of the event.
+      // The event name.
       shared_ptr<string> eventName_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The execution duration. Unit: millisecond.
+      // The execution duration, in milliseconds.
       shared_ptr<double> latency_ {};
-      // The lock wait duration. Unit: millisecond.
+      // The lock wait time, in milliseconds.
       shared_ptr<double> lockLatency_ {};
-      // The ID of the logical database.
+      // The logical database ID.
       shared_ptr<string> logicId_ {};
-      // Indicates whether the server failed to find an index that can be used for the SQL statement. Valid values:
+      // Indicates whether the server could not find a good index to use for the statement. Valid values:
       // 
-      // - **1**: yes.
-      // 
-      // - **0**: no.
+      // - **1**: Yes.
+      // - **0**: No.
       shared_ptr<int32_t> noGoodIndexUsed_ {};
-      // Indicates whether table scans were performed when indexes were not used. Valid values:
+      // Indicates whether the statement performed a table scan without using an index. Valid values:
       // 
-      // - **1**: yes.
-      // 
-      // - **0**: no.
+      // - **1**: Yes.
+      // - **0**: No.
       shared_ptr<int32_t> noIndexUsed_ {};
       // The node ID.
       // 
       // > This parameter is returned only for ApsaraDB RDS for MySQL Cluster Edition instances or PolarDB for MySQL clusters.
       shared_ptr<string> nodeId_ {};
-      // The number of rows affected by the SQL statement.
+      // The number of affected rows.
       shared_ptr<int32_t> rowsAffected_ {};
-      // The number of rows scanned by the SQL statement.
+      // The number of scanned rows.
       shared_ptr<int32_t> rowsExamined_ {};
       // The number of rows returned by the SQL statement.
       shared_ptr<int32_t> rowsSent_ {};
-      // The number of joins that are used to perform table scans without using indexes.
-      // 
-      // > : This parameter is used for the scenario in which indexes are not used in a union query. If the returned value is not 0, check the indexes of tables.
+      // The number of joins that perform table scans without using indexes.
+      // >Notice: This parameter counts the joins that do not use indexes during a join query. If the value is not 0, check the table indexes.
       shared_ptr<int32_t> selectFullJoin_ {};
-      // The number of joins that used ranges on referenced tables.
+      // The number of joins that use a range search on a reference table.
       shared_ptr<int32_t> selectFullRangeJoin_ {};
-      // The number of joins that used ranges on the first table.
+      // The number of joins that use a range on the first table.
       shared_ptr<int32_t> selectRange_ {};
-      // The number of joins that did not have key values. The keys and values were checked for each row of data.
-      // 
-      // > : This parameter is used for the scenario in which indexes are not used in a union query. If the returned value is not 0, check the indexes of tables.
+      // The number of joins without keys that check for key usage after each row.
+      // >Notice: This parameter counts the joins that do not use indexes during a join query. If the value is not 0, check the table indexes.
       shared_ptr<int32_t> selectRangeCheck_ {};
       // The number of scans.
       shared_ptr<int32_t> selectScan_ {};
-      // The number of merges that the sorting algorithm must perform.
+      // The number of merge passes that the sort algorithm must perform.
       shared_ptr<int32_t> sortMergePasses_ {};
-      // The number of times the data was sorted by using ranges.
+      // The number of sorts that use a range.
       shared_ptr<int32_t> sortRange_ {};
       // The number of sorted rows.
       shared_ptr<int32_t> sortRows_ {};
-      // The number of sorts that were performed during table scans.
+      // The number of sort scans.
       shared_ptr<int32_t> sortScan_ {};
-      // The sample SQL statement.
+      // The SQL sample.
       shared_ptr<string> sql_ {};
-      // The SQL statement ID.
+      // The SQL ID.
       shared_ptr<string> sqlId_ {};
       // The thread ID.
       shared_ptr<int32_t> threadId_ {};
-      // The time when the SQL statement was executed. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The time when the SQL statement was executed. The time is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> timestamp_ {};
       // The user ID.
       shared_ptr<string> userId_ {};
-      // The number of warnings returned for the SQL statement.
+      // The number of warnings for the SQL statement.
       shared_ptr<int32_t> warnings_ {};
     };
 
@@ -472,20 +468,19 @@ namespace Models
 
 
   protected:
-    // The HTTP status code returned.
+    // The returned status code.
     shared_ptr<int64_t> code_ {};
-    // The SQL sample data.
+    // The returned SQL sample data.
     shared_ptr<vector<GetPfsSqlSampleResponseBody::Data>> data_ {};
-    // The returned message.
+    // The message returned for the request.
     // 
-    // > If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+    // > If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
     // - **true**: The request was successful.
-    // 
     // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };

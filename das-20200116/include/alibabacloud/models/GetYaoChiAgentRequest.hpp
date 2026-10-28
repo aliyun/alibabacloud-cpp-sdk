@@ -75,16 +75,16 @@ namespace Models
 
 
   protected:
-    // The additional information in JSON string format. This parameter is optional.
+    // Optional. The additional information, which is a JSON string.
     shared_ptr<string> extraInfo_ {};
     shared_ptr<string> imageKeys_ {};
-    // The natural language description of the question.
+    // The natural language description of the query.
     // 
     // This parameter is required.
     shared_ptr<string> query_ {};
-    // The session ID in UUID string format. This parameter is optional. If you do not specify this parameter, a new session is created. To maintain context across a conversation, use the same session ID.
+    // Optional. The session ID, which is a UUID string. If this parameter is not specified, a new session is created. To maintain context in a conversation, use the same session ID.
     shared_ptr<string> sessionId_ {};
-    // The cloud service source that specifies which cloud service the question belongs to. This parameter is optional. Default value: yaochi.
+    // Optional. The source cloud service. Specifies the cloud service to which the Q&A belongs. Default value: yaochi.
     shared_ptr<string> source_ {};
   };
 

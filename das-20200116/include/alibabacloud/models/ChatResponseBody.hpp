@@ -15,10 +15,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ChatResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(ActivityType, activityType_);
       DARABONBA_PTR_TO_JSON(AgentId, agentId_);
+      DARABONBA_PTR_TO_JSON(Code, code_);
       DARABONBA_PTR_TO_JSON(Content, content_);
       DARABONBA_PTR_TO_JSON(Delta, delta_);
       DARABONBA_PTR_TO_JSON(Kind, kind_);
       DARABONBA_PTR_TO_JSON(Label, label_);
+      DARABONBA_PTR_TO_JSON(Message, message_);
       DARABONBA_PTR_TO_JSON(MessageId, messageId_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(OriginatingToolCallId, originatingToolCallId_);
@@ -40,10 +42,12 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ChatResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(ActivityType, activityType_);
       DARABONBA_PTR_FROM_JSON(AgentId, agentId_);
+      DARABONBA_PTR_FROM_JSON(Code, code_);
       DARABONBA_PTR_FROM_JSON(Content, content_);
       DARABONBA_PTR_FROM_JSON(Delta, delta_);
       DARABONBA_PTR_FROM_JSON(Kind, kind_);
       DARABONBA_PTR_FROM_JSON(Label, label_);
+      DARABONBA_PTR_FROM_JSON(Message, message_);
       DARABONBA_PTR_FROM_JSON(MessageId, messageId_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(OriginatingToolCallId, originatingToolCallId_);
@@ -74,11 +78,11 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->activityType_ == nullptr
-        && this->agentId_ == nullptr && this->content_ == nullptr && this->delta_ == nullptr && this->kind_ == nullptr && this->label_ == nullptr
-        && this->messageId_ == nullptr && this->name_ == nullptr && this->originatingToolCallId_ == nullptr && this->parentAgentId_ == nullptr && this->parentMessageId_ == nullptr
-        && this->role_ == nullptr && this->runId_ == nullptr && this->stepName_ == nullptr && this->stepStatus_ == nullptr && this->taskTrackerId_ == nullptr
-        && this->threadId_ == nullptr && this->timestamp_ == nullptr && this->toolCallError_ == nullptr && this->toolCallId_ == nullptr && this->toolCallName_ == nullptr
-        && this->type_ == nullptr && this->value_ == nullptr; };
+        && this->agentId_ == nullptr && this->code_ == nullptr && this->content_ == nullptr && this->delta_ == nullptr && this->kind_ == nullptr
+        && this->label_ == nullptr && this->message_ == nullptr && this->messageId_ == nullptr && this->name_ == nullptr && this->originatingToolCallId_ == nullptr
+        && this->parentAgentId_ == nullptr && this->parentMessageId_ == nullptr && this->role_ == nullptr && this->runId_ == nullptr && this->stepName_ == nullptr
+        && this->stepStatus_ == nullptr && this->taskTrackerId_ == nullptr && this->threadId_ == nullptr && this->timestamp_ == nullptr && this->toolCallError_ == nullptr
+        && this->toolCallId_ == nullptr && this->toolCallName_ == nullptr && this->type_ == nullptr && this->value_ == nullptr; };
     // activityType Field Functions 
     bool hasActivityType() const { return this->activityType_ != nullptr;};
     void deleteActivityType() { this->activityType_ = nullptr;};
@@ -91,6 +95,13 @@ namespace Models
     void deleteAgentId() { this->agentId_ = nullptr;};
     inline string getAgentId() const { DARABONBA_PTR_GET_DEFAULT(agentId_, "") };
     inline ChatResponseBody& setAgentId(string agentId) { DARABONBA_PTR_SET_VALUE(agentId_, agentId) };
+
+
+    // code Field Functions 
+    bool hasCode() const { return this->code_ != nullptr;};
+    void deleteCode() { this->code_ = nullptr;};
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline ChatResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // content Field Functions 
@@ -119,6 +130,13 @@ namespace Models
     void deleteLabel() { this->label_ = nullptr;};
     inline string getLabel() const { DARABONBA_PTR_GET_DEFAULT(label_, "") };
     inline ChatResponseBody& setLabel(string label) { DARABONBA_PTR_SET_VALUE(label_, label) };
+
+
+    // message Field Functions 
+    bool hasMessage() const { return this->message_ != nullptr;};
+    void deleteMessage() { this->message_ = nullptr;};
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline ChatResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // messageId Field Functions 
@@ -247,6 +265,7 @@ namespace Models
     shared_ptr<string> activityType_ {};
     // The agent ID.
     shared_ptr<string> agentId_ {};
+    shared_ptr<string> code_ {};
     // The response content.
     shared_ptr<string> content_ {};
     // Specifies whether the content is incremental.
@@ -255,6 +274,7 @@ namespace Models
     shared_ptr<string> kind_ {};
     // The display name of the child agent for STEP_STARTED.
     shared_ptr<string> label_ {};
+    shared_ptr<string> message_ {};
     // The message ID.
     shared_ptr<string> messageId_ {};
     // The extension key.

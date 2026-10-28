@@ -68,8 +68,8 @@ namespace Models
   protected:
     // Specifies whether to enable the feature. Valid values:
     // 
-    // - **true**: Enable.
-    // - **false**: Disable.
+    // - **true**: yes.
+    // - **false**: no.
     // 
     // This parameter is required.
     shared_ptr<bool> enable_ {};
@@ -78,12 +78,12 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The service type. Valid values:
-    // DAS_OPS: enables TOP KEY delivery.
+    // - DAS_OPS: enables top key delivery.
     // 
     // This parameter is required.
     shared_ptr<string> service_ {};
-    // The task source. Valid values:
-    // - TOP_KEY: enables TOP KEY delivery.
+    // The source of the task. Valid values:
+    // - TOP_KEY: enables top key delivery.
     // 
     // This parameter is required.
     shared_ptr<string> source_ {};

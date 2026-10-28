@@ -289,97 +289,91 @@ namespace Models
   protected:
     // The database account.
     // 
-    // > You can specify multiple database accounts. Separate multiple accounts with a space. For example: `user1 user2 user3`.
+    // > You can use multiple database accounts for a combined query. Separate multiple database accounts with spaces. Example: `user1 user2 user3`.
     shared_ptr<string> accountName_ {};
     // The node ID.
     // 
-    // > This parameter is required if the database instance is a PolarDB for MySQL cluster.
+    // > For a PolarDB for MySQL instance, you must specify the node ID.
     shared_ptr<string> childDBInstanceIDs_ {};
     // The database name.
     // 
-    // > You can specify multiple database names. Separate multiple names with a space. For example: `DB1 DB2 DB3`.
+    // > You can use multiple database names for a combined query. Separate multiple database names with spaces. Example: `DB1 DB2 DB3`.
     shared_ptr<string> DBName_ {};
-    // The end of the time range to query. This value must be a Unix timestamp in milliseconds.
+    // The end time of the query. The time is in the UNIX timestamp format. Unit: milliseconds.
     // 
-    // > The end time must be later than the start time. The time range cannot exceed one day.
+    // > The end time must be later than the start time, and the interval between the start time and the end time cannot exceed 1 day.
     // 
     // This parameter is required.
     shared_ptr<int64_t> end_ {};
-    // The SQL execution error code. You can call the [GetAsyncErrorRequestStatByCode](https://help.aliyun.com/document_detail/409804.html) operation to obtain the error code.
+    // The error code returned when the SQL statement is executed. You can call the [GetAsyncErrorRequestStatByCode](https://help.aliyun.com/document_detail/409804.html) operation to obtain the error code.
     shared_ptr<string> fail_ {};
-    // The client IP address.
+    // The IP address of the client.
     // 
-    // > You can specify multiple client IP addresses. Separate multiple IP addresses with a space. For example: `IP1 IP2 IP3`.
+    // > You can use multiple client IP addresses for a combined query. Separate multiple client IP addresses with spaces. Example: `IP1 IP2 IP3`.
     shared_ptr<string> hostAddress_ {};
-    // The ID of the database instance.
+    // The database instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The logical operator to use with multiple keywords. Valid values:
-    // 
-    // - **or**
-    // 
-    // - **and**
+    // The logical relationship between multiple keywords. Valid values:
+    // - **or**: OR.
+    // - **and**: AND.
     shared_ptr<string> logicalOperator_ {};
-    // The maximum execution time in microseconds. Returns SQL statements that have an execution time less than this value.
+    // The maximum execution duration. Unit: microseconds. This parameter is used to query SQL statements whose execution duration is less than the specified value.
     shared_ptr<int64_t> maxLatancy_ {};
-    // The maximum number of entries per page. Valid values: 5 to 100.
+    // The maximum number of records per page for the paging query. Valid values: 5 to 100.
     shared_ptr<int64_t> maxRecordsPerPage_ {};
-    // A reserved parameter.
+    // The reserved parameter. This parameter is not supported.
     shared_ptr<int64_t> maxRows_ {};
-    // The maximum number of scanned rows. Returns SQL statements that scanned fewer than this number of rows.
+    // The maximum number of scanned rows. This parameter is used to query SQL statements whose number of scanned rows is less than the specified value.
     shared_ptr<int64_t> maxScanRows_ {};
-    // A reserved parameter.
+    // The reserved parameter. This parameter is not supported.
     shared_ptr<int64_t> maxSpillCnt_ {};
-    // The minimum execution time in microseconds. Returns SQL statements with an execution time greater than or equal to this value.
+    // The minimum execution duration. Unit: microseconds. This parameter is used to query SQL statements whose execution duration is greater than or equal to the specified value.
     shared_ptr<int64_t> minLatancy_ {};
-    // A reserved parameter.
+    // The reserved parameter. This parameter is not supported.
     shared_ptr<int64_t> minRows_ {};
-    // The minimum number of scanned rows. Returns SQL statements that scanned at least this number of rows.
+    // The minimum number of scanned rows. This parameter is used to query SQL statements whose number of scanned rows is greater than or equal to the specified value.
     shared_ptr<int64_t> minScanRows_ {};
-    // A reserved parameter.
+    // The reserved parameter. This parameter is not supported.
     shared_ptr<int64_t> minSpillCnt_ {};
-    // The page number to return. Pages start from 1. The default value is 1.
+    // The page number for the paging query. Pages start from 1. Default value: 1.
     shared_ptr<int64_t> pageNumbers_ {};
-    // The query keyword.
+    // The keyword.
     // 
-    // > Fuzzy search is supported. You can specify up to 10 keywords. Separate multiple keywords with a space. For example: a1 b2 c3.
+    // > Fuzzy match is supported. You can use a maximum of 10 keywords for a combined query. Separate multiple keywords with spaces. Example: a1 b2 c3.
     shared_ptr<string> queryKeyword_ {};
-    // A reserved parameter.
+    // The reserved parameter. This parameter is not supported.
     shared_ptr<string> role_ {};
     // The sort key. Valid values:
-    // 
-    // - **ScanRows**: scanned rows.
-    // 
-    // - **UpdateRows**: updated rows.
-    // 
-    // - **Consume**: execution time.
-    // 
-    // - **OriginTime**: The execution start time.
-    // 
-    // - **ReturnRows**: returned rows.
+    // - **ScanRows**: the number of scanned rows.
+    // - **UpdateRows**: the number of updated rows.
+    // - **Consume**: the execution duration.
+    // - **OriginTime**: the execution time.
+    // - **ReturnRows**: the number of returned rows.
     shared_ptr<string> sortKey_ {};
     // The sort order. Valid values:
-    // 
-    // - **ASC**: ascending
-    // 
-    // - **DESC**: descending
+    // - **ASC**: ascending order.
+    // - **DESC**: descending order.
     shared_ptr<string> sortMethod_ {};
-    // The SQL type.
+    // The type of the SQL statement. Valid values:
+    // - **select**
+    // - **update**
+    // - **delete**
     shared_ptr<string> sqlType_ {};
-    // The start of the time range to query. This value must be a Unix timestamp in milliseconds.
+    // The start time of the query. The time is in the UNIX timestamp format. Unit: milliseconds.
     // 
-    // > You can query only data that is generated after you enable DAS Enterprise Edition. The start time cannot be earlier than seven days before the current time.
+    // > You can only query data generated after DAS Enterprise Edition is enabled. The start time cannot be more than 7 days earlier than the current time.
     // 
     // This parameter is required.
     shared_ptr<int64_t> start_ {};
-    // The execution state. Set this parameter to **0** to query for successfully executed SQL statements. You can also specify an error code to query for the corresponding SQL statements.
+    // The execution result. If you enter **0**, the system queries SQL statements that are successfully executed. You can also enter a specific error code to query the corresponding SQL statements.
     shared_ptr<string> state_ {};
     // The thread ID.
     // 
-    // > You can specify multiple thread IDs. Separate multiple IDs with a space. For example: `657 658 659`.
+    // > You can use multiple thread IDs for a combined query. Separate multiple thread IDs with spaces. Example: `ThreadID1 ThreadID2 ThreadID3`.
     shared_ptr<string> threadID_ {};
-    // A reserved parameter.
+    // The reserved parameter. This parameter is not supported.
     shared_ptr<string> traceId_ {};
     // The transaction ID.
     shared_ptr<string> transactionId_ {};

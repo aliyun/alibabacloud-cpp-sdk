@@ -95,37 +95,29 @@ namespace Models
 
 
     protected:
-      // Specifies whether to apply the **Storage** configuration of the automatic storage expansion feature. Valid values:
+      // Specifies whether to apply the configurations under the **Storage** configuration item for the automatic storage expansion feature:
       // 
-      // - **true**
-      // 
-      // - **false**
+      // - **true**: Yes.
+      // - **false**: No.
       shared_ptr<bool> apply_ {};
-      // The average storage usage threshold that triggers automatic storage expansion. Unit: %. Valid values:
-      // 
+      // The threshold of average storage space utilization that triggers automatic storage expansion. Unit: %. Valid values:
       // - **50**
-      // 
       // - **60**
-      // 
       // - **70**
-      // 
       // - **80**
-      // 
       // - **90**
       shared_ptr<int32_t> diskUsageUpperThreshold_ {};
-      // The maximum storage size of the database instance. Unit: GB. The value must be greater than or equal to the total storage size of the instance.
+      // The upper limit of the storage space. The value must be greater than or equal to the current total storage space of the instance. Valid values:
       // 
-      // - If the instance uses ESSDs, the maximum value of this parameter can be 32000.
+      // - ESSD cloud disk upper limit: 32,000 GB.
+      // - Standard SSD upper limit: 6,000 GB.
       // 
-      // - If the instance uses standard SSDs, the maximum value of this parameter can be 6000.
-      // 
-      // > The standard SSD storage type is phased out. We recommend that you [upgrade the storage type of your instance from standard SSDs to ESSDs](https://help.aliyun.com/document_detail/314678.html).
+      // > Standard SSDs are retired. [Upgrade to ESSD cloud disks](https://help.aliyun.com/document_detail/314678.html).
       shared_ptr<int32_t> maxStorage_ {};
-      // Specifies whether to enable automatic storage expansion. Valid values:
+      // Specifies whether to enable automatic storage expansion:
       // 
-      // - **true**
-      // 
-      // - **false**
+      // - **true**: Yes.
+      // - **false**: No.
       shared_ptr<bool> upgrade_ {};
     };
 
@@ -231,77 +223,69 @@ namespace Models
 
 
     protected:
-      // Specifies whether to apply the **Spec** configuration of the specification auto scaling feature. Valid values:
+      // Specifies whether to apply the configurations under the **Spec** configuration item for the specification elastic scaling feature:
       // 
-      // - **true**
-      // 
-      // - **false**
+      // - **true**: Yes.
+      // - **false**: No.
       shared_ptr<bool> apply_ {};
-      // The quiescent period. The value of this parameter consists of a numeric value and a time unit suffix. The **m** time unit suffix specifies the minute, the **h** time unit suffix specifies the hour, and the **d** time unit suffix specifies the day.
+      // The cool-down period. The parameter value consists of a number and a time unit suffix. The supported database instances and valid values are as follows. The time suffix **m** indicates minutes, **h** indicates hours, and **d** indicates days:
       // 
-      // - Valid values for PolarDB for MySQL Cluster Edition instances: **5m**, **10m**, **30m**, **1h**, **2h**, **3h**, **1d**, and **7d**.
-      // 
-      // - Valid values for ApsaraDB RDS for MySQL High-availability Edition instances that use standard SSDs or Enterprise SSDs (ESSDs): **5m**, **10m**, **30m**, **1h**, **2h**, **3h**, **1d**, and **7d**.
+      // - PolarDB for MySQL Cluster Edition: **5m**, **10m**, **30m**, **1h**, **2h**, **3h**, **1d**, and **7d**.
+      // - ApsaraDB RDS for MySQL high availability series cloud disk edition: **5m**, **10m**, **30m**, **1h**, **2h**, **3h**, **1d**, and **7d**.
       shared_ptr<string> coolDownTime_ {};
-      // The average CPU utilization threshold that triggers automatic specification scale-up. Unit: %. Valid values:
+      // The threshold of average CPU utilization that triggers automatic specification scale-up. Unit: %. Valid values:
       // 
       // - **50**
-      // 
       // - **60**
-      // 
       // - **70**
-      // 
       // - **80**
-      // 
       // - **90**
       // 
-      // > This parameter must be specified if the database instance is a PolarDB for MySQL Cluster Edition instance or an ApsaraDB RDS for MySQL High-availability Edition instance that uses standard SSDs or ESSDs.
+      // >Notice: You must set this parameter when the target database instance is PolarDB for MySQL Cluster Edition or ApsaraDB RDS for MySQL high availability series cloud disk edition.
       shared_ptr<int32_t> cpuUsageUpperThreshold_ {};
-      // Specifies whether to enable automatic specification scale-down. Valid values:
+      // Specifies whether automatic specification scale-down is enabled:
+      // - **true**: Yes.
+      // - **false**: No.
       // 
-      // - **true**
-      // 
-      // - **false**
-      // 
-      // > This parameter must be specified if the database instance is a PolarDB for MySQL Cluster Edition instance or an ApsaraDB RDS for MySQL High-availability Edition instance that uses standard SSDs or ESSDs.
+      // >Notice: You must set this parameter when the target database instance is PolarDB for MySQL Cluster Edition or ApsaraDB RDS for MySQL high availability series cloud disk edition.
       shared_ptr<bool> downgrade_ {};
-      // The maximum number of read-only nodes of the instance.
+      // The maximum number of read-only nodes for the instance.
       // 
-      // > This parameter must be specified if the database instance is a PolarDB for MySQL Cluster Edition instance.
+      // >Notice: You must set this parameter when the target database instance is PolarDB for MySQL Cluster Edition.
       shared_ptr<int32_t> maxReadOnlyNodes_ {};
-      // The maximum specifications to which the database instance can be scaled up. The database instance can be upgraded only to a database instance of the same edition with higher specifications. For information about the specifications of different database instances, see the following topics:
+      // The upper limit of the specification for automatic scale-up. You can only scale up to a higher specification within the same series of the database instance. For more details, see the specification documentation for each database instance:
+      // <props="china">
       // 
-      // - PolarDB for MySQL Cluster Edition instances: [Specifications of compute nodes](https://help.aliyun.com/document_detail/102542.html)
+      // - For PolarDB for MySQL Cluster Edition, see [Compute node specifications](https://help.aliyun.com/document_detail/102542.html).
+      // - For ApsaraDB RDS for MySQL high availability series cloud disk edition, see [Product specifications](https://help.aliyun.com/document_detail/276974.html).
+      // - For Tair (Redis® OSS-Compatible) cloud-native (formerly cloud disk) open-source edition, see [Instance specifications](https://help.aliyun.com/document_detail/144986.html).
       // 
-      // - ApsaraDB RDS for MySQL High-availability Edition instances that use standard SSDs or ESSDs: [Specifications](https://help.aliyun.com/document_detail/276974.html)
+      // 
+      // 
+      // <props="intl">
+      // 
+      // - For PolarDB for MySQL Cluster Edition, see [Compute node specifications](https://help.aliyun.com/document_detail/102542.html).
+      // - For ApsaraDB RDS for MySQL high availability series cloud disk edition, see [Product specifications](https://help.aliyun.com/document_detail/276974.html).
       shared_ptr<string> maxSpec_ {};
-      // The average memory usage threshold that triggers automatic specification scale-up. Unit: %. Valid values:
-      // 
+      // The threshold of average memory utilization that triggers automatic specification scale-up. Unit: %. Valid values:
       // - **50**
-      // 
       // - **60**
-      // 
       // - **70**
-      // 
       // - **80**
-      // 
       // - **90**
       // 
-      // > This parameter must be specified if the database instance is a Tair (Redis OSS-compatible) Community Edition cloud-native instance on the China site (aliyun.com).
+      // >Notice: You must set this parameter when the target database instance is Tair (Redis® OSS-Compatible) cloud-native (formerly cloud disk) open-source edition on the China site.
       shared_ptr<int32_t> memUsageUpperThreshold_ {};
-      // The observation window. The value of this parameter consists of a numeric value and a time unit suffix. The **m** time unit suffix specifies the minute and the **h** time unit suffix specifies the hour.
+      // The observation window. The parameter value consists of a number and a time unit suffix. The supported database instances and valid values are as follows. The time suffix **m** indicates minutes, and **h** indicates hours:
       // 
-      // - Valid values for PolarDB for MySQL Cluster Edition instances: **5m**, **10m**, **15m**, and **30m**.
-      // 
-      // - Valid values for ApsaraDB RDS for MySQL High-availability Edition instances that use standard SSDs or ESSDs: **5m**, **20m**, **30m**, **40m**, and **1h**.
-      // 
-      // - Valid values for Tair (Redis OSS-compatible) Community Edition cloud-native instances: **5m**, **10m**, **15m**, and **30m**.
+      // - PolarDB for MySQL Cluster Edition: **5m**, **10m**, **15m**, and **30m**.
+      // - ApsaraDB RDS for MySQL high availability series cloud disk edition: **5m**, **20m**, **30m**, **40m**, and **1h**.
+      // - Tair (Redis® OSS-Compatible) cloud-native (formerly cloud disk) open-source edition: **5m**, **10m**, **15m**, and **30m**.
       shared_ptr<string> observationWindowSize_ {};
-      // Specifies whether to enable automatic specification scale-up. Valid values:
+      // Specifies whether to enable automatic specification scale-up:
       // 
-      // - **true**
-      // 
-      // - **false**
+      // - **true**: Yes.
+      // - **false**: No.
       shared_ptr<bool> upgrade_ {};
     };
 
@@ -407,72 +391,56 @@ namespace Models
 
 
     protected:
-      // Specifies whether to apply the **Shard** configuration of the shard auto scaling feature. Valid values:
+      // Specifies whether to apply the configurations under the **Shard** configuration item for the shard elastic scaling feature:
       // 
-      // - **true**
+      // - **true**: Yes.
+      // - **false**: No.
       // 
-      // - **false**
-      // 
-      // > The shard auto scaling feature is available only for Tair (Redis OSS-compatible) cloud-native cluster instances on the China site (aliyun.com).
+      // >Notice: The shard elastic scaling feature is supported only when the target database instance is Tair (Redis® OSS-Compatible) cloud-native (formerly cloud disk) edition in cluster architecture on the China site.
       shared_ptr<bool> apply_ {};
-      // Specifies whether to enable automatic shard removal. Valid values:
+      // Specifies whether to enable automatic shard reduction:
       // 
-      // - **true**
+      // - **true**: Yes.
+      // - **false**: No.
       // 
-      // - **false**
-      // 
-      // > The automatic shard removal feature is in a canary release.
+      // > The automatic shard reduction feature is currently in canary release.
       shared_ptr<bool> downgrade_ {};
-      // The observation window of the automatic shard removal feature. The value of this parameter consists of a numeric value and a time unit suffix. The **h** time unit suffix specifies the hour. The **d** time unit suffix specifies the day. Valid values:
+      // The observation window for automatic shard reduction. The parameter value consists of a number and a time unit suffix. The time suffix **h** indicates hours, and **d** indicates days. Valid values:
       // 
       // - **1h**
-      // 
       // - **2h**
-      // 
       // - **3h**
-      // 
       // - **1d**
-      // 
       // - **7d**
       shared_ptr<string> downgradeObservationWindowSize_ {};
-      // The maximum number of shards in the instance. The value must be a positive integer. Valid values: 4 to 32.
+      // The maximum total number of shards for the instance. The value must be a positive integer. Valid values: 4 to 32.
       shared_ptr<int32_t> maxShards_ {};
-      // The average memory usage threshold that triggers automatic shard removal. Unit: %. Valid values:
+      // The threshold of average memory utilization that triggers automatic shard reduction. Unit: %. Valid values:
       // 
       // - **10**
-      // 
       // - **20**
-      // 
       // - **30**
       shared_ptr<int32_t> memUsageLowerThreshold_ {};
-      // The average memory usage threshold that triggers automatic shard addition. Unit: %. Valid values:
+      // The threshold of average memory utilization that triggers automatic shard addition. Unit: %. Valid values:
       // 
       // - **50**
-      // 
       // - **60**
-      // 
       // - **70**
-      // 
       // - **80**
-      // 
       // - **90**
       shared_ptr<int32_t> memUsageUpperThreshold_ {};
-      // The minimum number of shards in the instance. The value must be a positive integer. Valid values: 4 to 32.
+      // The minimum total number of shards for the instance. The value must be a positive integer. Valid values: 4 to 32.
       shared_ptr<int32_t> minShards_ {};
-      // Specifies whether to enable automatic shard addition. Valid values:
+      // Specifies whether to enable automatic shard addition:
       // 
-      // - **true**
-      // 
-      // - **false**
+      // - **true**: Yes.
+      // - **false**: No.
       shared_ptr<bool> upgrade_ {};
-      // The observation window of the automatic shard addition feature. The value of this parameter consists of a numeric value and a time unit suffix. The **m** time unit suffix specifies the minute. Valid values:
+      // The observation window for automatic shard addition. The parameter value consists of a number and a time unit suffix. The time suffix **m** indicates minutes. Valid values:
       // 
       // - **5m**
-      // 
       // - **10m**
-      // 
       // - **15m**
-      // 
       // - **30m**
       shared_ptr<string> upgradeObservationWindowSize_ {};
     };
@@ -542,52 +510,38 @@ namespace Models
 
 
     protected:
-      // Specifies whether to apply the **Resource** configuration of the resource auto scaling feature. Valid values:
+      // Specifies whether to apply the configurations under the **Resource** configuration item for the resource elastic scaling feature:
       // 
-      // - **true**
-      // 
-      // - **false**
+      // - **true**: Yes.
+      // - **false**: No.
       shared_ptr<bool> apply_ {};
-      // The average CPU utilization threshold that triggers automatic resource scale-out. Unit: %. Valid values:
+      // The threshold of average CPU utilization that triggers automatic resource scale-up. Unit: %. Valid values:
       // 
       // - **70**
-      // 
       // - **80**
-      // 
       // - **90**
       shared_ptr<int32_t> cpuUsageUpperThreshold_ {};
-      // The observation window of the automatic resource scale-in feature. The value of this parameter consists of a numeric value and a time unit suffix. The **m** time unit suffix specifies the minute. Valid values:
+      // The observation window for scale-down. The parameter value consists of a number and a time unit suffix. The time suffix **m** indicates minutes. Valid values:
       // 
       // - **1m**
-      // 
       // - **3m**
-      // 
       // - **5m**
-      // 
       // - **10m**
-      // 
       // - **20m**
-      // 
       // - **30m**
       shared_ptr<string> downgradeObservationWindowSize_ {};
-      // Specifies whether to enable resource auto scaling. Valid values:
+      // Specifies whether to enable resource elastic scaling:
       // 
-      // - **true**
-      // 
-      // - **false**
+      // - **true**: Yes.
+      // - **false**: No.
       shared_ptr<bool> enable_ {};
-      // The observation window of the automatic resource scale-out feature. The value of this parameter consists of a numeric value and a time unit suffix. The **m** time unit suffix specifies the minute. Valid values:
+      // The observation window for scale-up. The parameter value consists of a number and a time unit suffix. The time suffix **m** indicates minutes. Valid values:
       // 
       // - **1m**
-      // 
       // - **3m**
-      // 
       // - **5m**
-      // 
       // - **10m**
-      // 
       // - **20m**
-      // 
       // - **30m**
       shared_ptr<string> upgradeObservationWindowSize_ {};
     };
@@ -666,57 +620,43 @@ namespace Models
 
 
     protected:
-      // Specifies whether to apply the **Bandwidth** configuration of the bandwidth auto scaling feature. Valid values:
+      // Specifies whether to apply the configurations under the **Bandwidth** configuration item for the bandwidth elastic scaling feature:
       // 
-      // - **true**
-      // 
-      // - **false**
+      // - **true**: Yes.
+      // - **false**: No.
       shared_ptr<bool> apply_ {};
-      // The average bandwidth usage threshold that triggers automatic bandwidth downgrade. Unit: %. Valid values:
+      // The threshold of average bandwidth usage that triggers automatic bandwidth downgrade. Unit: %. Valid values:
       // 
       // - **10**
-      // 
       // - **20**
-      // 
       // - **30**
       shared_ptr<int32_t> bandwidthUsageLowerThreshold_ {};
-      // The average bandwidth usage threshold that triggers automatic bandwidth upgrade. Unit: %. Valid values:
+      // The threshold of average bandwidth usage that triggers automatic bandwidth upgrade. Unit: %. Valid values:
       // 
       // - **50**
-      // 
       // - **60**
-      // 
       // - **70**
-      // 
       // - **80**
-      // 
       // - **90**
-      // 
       // - **95**
       shared_ptr<int32_t> bandwidthUsageUpperThreshold_ {};
-      // Specifies whether to enable automatic bandwidth downgrade. Valid values:
+      // Specifies whether to enable automatic bandwidth downgrade:
       // 
-      // - **true**
-      // 
-      // - **false**
+      // - **true**: Yes.
+      // - **false**: No.
       shared_ptr<bool> downgrade_ {};
-      // The observation window of the bandwidth auto scaling feature. The value of this parameter consists of a numeric value and a time unit suffix. The **m** time unit suffix specifies the minute. Valid values:
+      // The observation window for automatic bandwidth upgrade. The parameter value consists of a number and a time unit suffix. The time suffix **m** indicates minutes. Valid values:
       // 
       // - **1m**
-      // 
       // - **5m**
-      // 
       // - **10m**
-      // 
       // - **15m**
-      // 
       // - **30m**
       shared_ptr<string> observationWindowSize_ {};
-      // Specifies whether to enable automatic bandwidth upgrade. Valid values:
+      // Specifies whether to enable automatic bandwidth upgrade:
       // 
-      // - **true**
-      // 
-      // - **false**
+      // - **true**: Yes.
+      // - **false**: No.
       shared_ptr<bool> upgrade_ {};
     };
 
@@ -775,19 +715,19 @@ namespace Models
 
 
   protected:
-    // The configuration item of the bandwidth auto scaling feature.
+    // The configuration items for the bandwidth elastic scaling feature.
     shared_ptr<ModifyAutoScalingConfigRequest::Bandwidth> bandwidth_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The configuration item of the resource auto scaling feature.
+    // The configuration items for the resource elastic scaling feature.
     shared_ptr<ModifyAutoScalingConfigRequest::Resource> resource_ {};
-    // The configuration item of the shard auto scaling feature.
+    // The configuration items for the shard elastic scaling feature.
     shared_ptr<ModifyAutoScalingConfigRequest::Shard> shard_ {};
-    // The configuration item of the specification auto scaling feature.
+    // The configuration items for the specification elastic scaling feature.
     shared_ptr<ModifyAutoScalingConfigRequest::Spec> spec_ {};
-    // The configuration item of the automatic storage expansion feature.
+    // The configuration items for the automatic storage expansion feature.
     shared_ptr<ModifyAutoScalingConfigRequest::Storage> storage_ {};
   };
 

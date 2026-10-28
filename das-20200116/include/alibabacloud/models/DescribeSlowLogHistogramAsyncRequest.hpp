@@ -122,7 +122,7 @@ namespace Models
 
 
   protected:
-    // The end time of the query. Specify a UNIX timestamp in milliseconds.
+    // The end time of the query. Specify the time as a UNIX timestamp in milliseconds.
     // > The end time must be later than the start time.
     // 
     // This parameter is required.
@@ -133,10 +133,10 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The node ID.
-    // > For PolarDB for MySQL instances, specify the node ID.
+    // The ID of the node.
+    // > For a PolarDB for MySQL instance, you must specify the node ID.
     shared_ptr<string> nodeId_ {};
-    // The start time of the query. Specify a UNIX timestamp in milliseconds.
+    // The start time of the query task. Specify the time as a UNIX timestamp in milliseconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};

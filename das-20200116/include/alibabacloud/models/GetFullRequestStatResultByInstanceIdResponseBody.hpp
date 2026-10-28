@@ -406,11 +406,11 @@ namespace Models
         protected:
           // The average number of scanned rows.
           // 
-          // > This parameter is returned only for ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and PolarDB for MySQL databases.
+          // > This field is supported by the following databases: ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and PolarDB for MySQL.
           shared_ptr<double> avgExaminedRows_ {};
-          // The average number of rows that are fetched by compute nodes from data nodes on the PolarDB-X 2.0 instance.
+          // The average number of rows pulled by the compute node from the data node in the PolarDB-X 2.0 database instance.
           shared_ptr<int64_t> avgFetchRows_ {};
-          // The average lock wait latency. Unit: seconds.
+          // The average lock wait time, in seconds.
           shared_ptr<double> avgLockWaitTime_ {};
           // The average number of logical reads.
           shared_ptr<double> avgLogicalRead_ {};
@@ -420,31 +420,31 @@ namespace Models
           shared_ptr<int64_t> avgPhysicalSyncRead_ {};
           // The average number of returned rows.
           shared_ptr<double> avgReturnedRows_ {};
-          // The average execution duration.
+          // The average time to execute.
           shared_ptr<double> avgRt_ {};
-          // The average number of SQL statements.
+          // The average SQL count.
           shared_ptr<int64_t> avgSqlCount_ {};
           // The average number of updated rows.
           // 
-          // > This parameter is returned only for ApsaraDB RDS for MySQL and PolarDB-X 2.0 databases.
+          // > This field is supported by the following databases: ApsaraDB RDS for MySQL and PolarDB-X 2.0.
           shared_ptr<int64_t> avgUpdatedRows_ {};
           // The total number of executions.
           shared_ptr<int64_t> count_ {};
-          // The percentage of the total number of executions.
+          // The proportion of times the statements execute.
           shared_ptr<double> countRate_ {};
           // The name of the database.
           shared_ptr<string> database_ {};
-          // The number of failed executions.
+          // The number of execution errors.
           shared_ptr<int64_t> errorCount_ {};
           // The total number of scanned rows.
           // 
-          // > This parameter is returned only for ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and PolarDB for MySQL databases.
+          // > This field is supported by the following databases: ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and PolarDB for MySQL.
           shared_ptr<int64_t> examinedRows_ {};
-          // The number of rows that are fetched by compute nodes from data nodes on the PolarDB-X 2.0 instance.
+          // The number of rows pulled by the compute node from the data node in the PolarDB-X 2.0 database instance.
           shared_ptr<int64_t> fetchRows_ {};
-          // The IP address of the database instance.
+          // The network address of the instance.
           shared_ptr<string> ip_ {};
-          // The lock wait latency. Unit: seconds.
+          // The lock wait time, in seconds.
           shared_ptr<double> lockWaitTime_ {};
           // The number of logical reads.
           shared_ptr<int64_t> logicalRead_ {};
@@ -452,27 +452,27 @@ namespace Models
           shared_ptr<int64_t> physicalAsyncRead_ {};
           // The number of physical synchronous reads.
           shared_ptr<int64_t> physicalSyncRead_ {};
-          // The port number that is used to connect to the database instance.
+          // The port number.
           shared_ptr<int64_t> port_ {};
           // The SQL template.
           shared_ptr<string> psql_ {};
-          // The total number of rows updated or returned by the compute nodes of the PolarDB-X 2.0 instance.
+          // The total number of rows updated or returned by the compute node in the PolarDB-X 2.0 database instance.
           shared_ptr<int64_t> rows_ {};
-          // The number of SQL statements that take longer than 1 second to execute.
+          // The number of SQL statements whose execution time is greater than 1 second.
           shared_ptr<int64_t> rtGreaterThanOneSecondCount_ {};
-          // The execution duration percentage.
+          // The execution time proportion.
           shared_ptr<double> rtRate_ {};
           // The number of SQL statements.
           shared_ptr<int64_t> sqlCount_ {};
           // The SQL ID.
           shared_ptr<string> sqlId_ {};
-          // The total number of updated rows.
+          // The total number of changed rows.
           shared_ptr<int64_t> sumUpdatedRows_ {};
-          // The names of tables in the database.
+          // The name of the database table.
           shared_ptr<vector<string>> tables_ {};
-          // The version number.
+          // The version.
           shared_ptr<int64_t> version_ {};
-          // The virtual private cloud (VPC) ID.
+          // The VPC ID.
           shared_ptr<string> vpcId_ {};
         };
 
@@ -495,9 +495,9 @@ namespace Models
 
 
       protected:
-        // The full request data.
+        // The list of full request data.
         shared_ptr<vector<Result::List>> list_ {};
-        // The total number of entries returned.
+        // The total amount of data.
         shared_ptr<int64_t> total_ {};
       };
 
@@ -548,31 +548,31 @@ namespace Models
 
 
     protected:
-      // Indicates whether the asynchronous request failed. Valid values:
+      // Indicates whether the request failed. Valid values:
       // 
-      // - **true**
+      // - **true**: yes.
       // 
-      // - **false**
+      // - **false**: no.
       shared_ptr<bool> fail_ {};
-      // Indicates whether the asynchronous request was complete. Valid values:
+      // Indicates whether the asynchronous request is completed. Valid values:
       // 
-      // - **true**
+      // - **true**: yes.
       // 
-      // - **false**
+      // - **false**: no.
       shared_ptr<bool> isFinish_ {};
       // The returned full request data.
       shared_ptr<Data::Result> result_ {};
-      // The request ID.
+      // The ID of the request.
       shared_ptr<string> resultId_ {};
-      // The state of the asynchronous request. Valid values:
+      // The execution status of the asynchronous request. Valid values:
       // 
-      // - **RUNNING**
+      // - **RUNNING**: running.
       // 
-      // - **SUCCESS**
+      // - **SUCCESS**: successful.
       // 
-      // - **FAIL**
+      // - **FAIL**: failed.
       shared_ptr<string> state_ {};
-      // The time when the asynchronous request was sent. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The execution time. The time is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> timestamp_ {};
     };
 
@@ -616,21 +616,20 @@ namespace Models
 
 
   protected:
-    // The HTTP status code returned.
+    // The returned status code.
     shared_ptr<int64_t> code_ {};
     // The returned data.
     shared_ptr<GetFullRequestStatResultByInstanceIdResponseBody::Data> data_ {};
-    // The returned message.
+    // The message returned for the request.
     // 
-    // > If the request was successful, **Successful** is returned. If the request failed, an error message that contains information such as an error code is returned.
+    // > If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // - **true**
-    // 
-    // - **false**
+    // - **true**: The request was successful.
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

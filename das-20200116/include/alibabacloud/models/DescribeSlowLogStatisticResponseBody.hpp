@@ -367,9 +367,9 @@ namespace Models
 
 
           protected:
-            // The execution time, in UNIX timestamp format. Unit: milliseconds (ms).
+            // The execution time. The time is in the UNIX timestamp format. Unit: milliseconds.
             shared_ptr<int64_t> timestamp_ {};
-            // The value of the filter parameter.
+            // The value of the filter key.
             Darabonba::Json value_ {};
           };
 
@@ -421,12 +421,11 @@ namespace Models
 
           protected:
             // The remarks.
-            // 
-            // The value must be 1 to 300 characters in length.
+            // The remarks must be 1 to 300 characters in length.
             shared_ptr<string> comments_ {};
-            // SQL ID。
+            // The SQL ID.
             shared_ptr<string> sqlId_ {};
-            // Multiple tags separated by commas.
+            // The comma-separated tags.
             shared_ptr<string> tags_ {};
           };
 
@@ -521,7 +520,7 @@ namespace Models
 
 
             protected:
-              // The number of slow logs.
+              // The number of slow query logs.
               shared_ptr<vector<int64_t>> count_ {};
               // The node ID.
               shared_ptr<string> nodeId_ {};
@@ -686,30 +685,30 @@ namespace Models
           protected:
             // The average lock wait time. Unit: seconds.
             shared_ptr<vector<double>> avgLockTime_ {};
-            // The average number of rows examined.
+            // The average number of scanned rows.
             shared_ptr<vector<double>> avgRowsExamined_ {};
-            // The average number of rows returned.
+            // The average number of returned rows.
             shared_ptr<vector<double>> avgRowsSent_ {};
             // The average execution duration.
             shared_ptr<vector<double>> avgRt_ {};
-            // The number of slow logs.
+            // The number of slow query logs.
             shared_ptr<vector<int64_t>> count_ {};
-            // The task status.
+            // The task state.
             shared_ptr<vector<Histogram::Item>> item_ {};
             // The lock wait time. Unit: milliseconds.
             shared_ptr<vector<double>> lockTime_ {};
             // The maximum lock wait time. Unit: seconds.
             shared_ptr<vector<double>> maxLockTime_ {};
-            // The maximum number of rows examined.
+            // The maximum number of scanned rows.
             shared_ptr<vector<int64_t>> maxRowsExamined_ {};
-            // The maximum number of rows returned.
+            // The maximum number of returned rows.
             shared_ptr<vector<int64_t>> maxRowsSent_ {};
-            // The maximum response time. Unit: ms.
+            // The maximum RT. Unit: milliseconds.
             shared_ptr<vector<double>> maxRt_ {};
-            // The total number of rows examined.
-            // > Databases that currently support this field: ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and PolarDB for MySQL.
+            // The total number of scanned rows.
+            // > Databases that support this field: ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and PolarDB for MySQL.
             shared_ptr<vector<int64_t>> rowsExamined_ {};
-            // The number of rows returned.
+            // The number of returned rows.
             shared_ptr<vector<int64_t>> rowsSent_ {};
             // The execution duration. Unit: seconds.
             shared_ptr<vector<double>> rt_ {};
@@ -717,7 +716,7 @@ namespace Models
             shared_ptr<int64_t> total_ {};
             // The execution timestamp.
             shared_ptr<vector<int64_t>> ts_ {};
-            // Deprecated.
+            // **[Deprecated]**
             shared_ptr<vector<int64_t>> tsEnd_ {};
           };
 
@@ -1458,226 +1457,225 @@ namespace Models
         protected:
           // The database account.
           shared_ptr<string> accountName_ {};
-          // Deprecated.
+          // **[Deprecated]**
           shared_ptr<double> avgCPUTime_ {};
-          // The average CPU query time. Unit: seconds.
+          // The average CPU query time, in seconds.
           shared_ptr<double> avgCPUTimeSeconds_ {};
           // The average number of documents scanned.
-          // >This field is supported only for ApsaraDB for MongoDB instances.
+          // > This parameter is supported only by ApsaraDB for MongoDB instances.
           shared_ptr<double> avgDocExamined_ {};
-          // The average number of rows fetched.
+          // The average number of pulled rows.
           shared_ptr<double> avgFrows_ {};
           // The average number of I/O writes.
-          // >This field is supported only for ApsaraDB RDS for SQL Server instances.
+          // > This parameter is supported only by ApsaraDB RDS for SQL Server instances.
           shared_ptr<double> avgIOWrites_ {};
-          // The average number of rows scanned by the index.
-          // >This field is supported only for ApsaraDB for MongoDB instances.
+          // The average number of index entries scanned.
+          // > This parameter is supported only by ApsaraDB for MongoDB instances.
           shared_ptr<double> avgKeysExamined_ {};
           // The average number of rows affected by the last statement.
-          // >This field is supported only for ApsaraDB RDS for SQL Server instances.
+          // > This parameter is supported only by ApsaraDB RDS for SQL Server instances.
           shared_ptr<double> avgLastRowsCountAffected_ {};
-          // Deprecated.
+          // **[Deprecated]**
           shared_ptr<double> avgLockTime_ {};
           // The average lock wait time. Unit: seconds.
           shared_ptr<double> avgLockTimeSeconds_ {};
           // The average number of logical reads.
-          // >This field is supported only for ApsaraDB RDS for SQL Server instances.
+          // > This parameter is supported only by ApsaraDB RDS for SQL Server instances.
           shared_ptr<double> avgLogicalIOReads_ {};
           // The average number of physical reads.
-          // >This field is supported only for ApsaraDB RDS for SQL Server instances.
+          // > This parameter is supported only by ApsaraDB RDS for SQL Server instances.
           shared_ptr<double> avgPhysicalIOReads_ {};
-          // Deprecated.
+          // **[Deprecated]**
           shared_ptr<double> avgQueryTime_ {};
-          // The average query execution duration. Unit: seconds.
+          // The average query duration, in seconds.
           shared_ptr<double> avgQueryTimeSeconds_ {};
-          // The average size of the request, in bytes. This parameter is valid only for Redis.
+          // The average size of the request, in bytes (valid only for Redis).
           shared_ptr<double> avgRequestSize_ {};
-          // The average response size, in bytes. This parameter is valid only for Redis.
+          // The average response size, in bytes (valid only for Redis).
           shared_ptr<double> avgResponseSize_ {};
-          // The average number of rows returned.
-          // >This field is supported only for ApsaraDB for MongoDB instances.
+          // The average number of returned rows.
+          // > This parameter is supported only by ApsaraDB for MongoDB instances.
           shared_ptr<double> avgReturnNum_ {};
           // The average number of rows.
           shared_ptr<double> avgRows_ {};
-          // The average number of rows affected.
-          // >This field is supported only for ApsaraDB RDS for SQL Server instances.
+          // The average number of affected rows.
+          // > This parameter is supported only by ApsaraDB RDS for SQL Server instances.
           shared_ptr<double> avgRowsCountAffected_ {};
-          // The average number of rows examined.
+          // The average number of scanned rows.
           shared_ptr<double> avgRowsExamined_ {};
-          // The average number of rows returned.
+          // The average number of returned rows.
           shared_ptr<double> avgRowsSent_ {};
           // The average execution duration.
           shared_ptr<double> avgRt_ {};
           // The average number of requests.
           shared_ptr<double> avgScnt_ {};
-          // Deprecated.
+          // **[Deprecated]**
           shared_ptr<double> CPUTime_ {};
-          // The CPU query time. Unit: seconds.
-          // 
-          // > This field is supported only for ApsaraDB RDS for SQL Server instances.
+          // The CPU query time, in seconds.
+          // > This parameter is supported only by ApsaraDB RDS for SQL Server instances.
           shared_ptr<double> CPUTimeSeconds_ {};
           // The client IP address in the query.
           shared_ptr<string> clientIp_ {};
-          // The command that was executed. This parameter is valid only for Redis.
+          // The executed command (valid only for Redis).
           shared_ptr<string> cmd_ {};
           // The slow query statement.
-          // >This field is supported only for ApsaraDB for Tair (Redis® OSS-Compatible) database instances.
+          // > This parameter is supported only by ApsaraDB for Tair (Redis OSS-Compatible) database instances.
           shared_ptr<string> command_ {};
           // The number of elements in the key.
           shared_ptr<int64_t> count_ {};
           // The proportion of executions.
           shared_ptr<double> countRate_ {};
-          // The database name.
+          // The name of the database.
           shared_ptr<string> DBName_ {};
           // The database name.
           shared_ptr<string> database_ {};
-          // The database ID. This parameter is valid only for Redis.
+          // The database ID (valid only for Redis).
           shared_ptr<string> dbId_ {};
           // The instance ID.
           shared_ptr<string> dbInstanceName_ {};
           // The number of documents scanned.
-          // >This field is supported only for ApsaraDB for MongoDB instances.
+          // > This parameter is supported only by ApsaraDB for MongoDB instances.
           shared_ptr<int64_t> docExamined_ {};
-          // The number of documents scanned during the MongoDB operation.
+          // The number of documents scanned when the MongoDB operation is executed.
           shared_ptr<int64_t> docsExamined_ {};
-          // The number of rows fetched by the compute node (CN) of the ApsaraDB for PolarDB-X 2.0 database instance.
+          // The number of rows pulled by the compute node (CN) of the PolarDB-X 2.0 instance.
           // 
-          // > This field is supported only for ApsaraDB for PolarDB-X 2.0 instances.
+          // > This parameter is supported only by ApsaraDB for PolarDB-X 2.0 database instances.
           shared_ptr<int64_t> frows_ {};
           // The trend chart data.
           shared_ptr<Logs::Histogram> histogram_ {};
           // The IP address of the client.
           shared_ptr<string> hostAddress_ {};
-          // The host instance ID.
-          // >This field is supported only for ApsaraDB for MongoDB instances.
+          // The ID of the host instance.
+          // > This parameter is supported only by ApsaraDB for MongoDB instances.
           shared_ptr<string> hostInsId_ {};
           // The number of I/O writes.
-          // >This field is supported only for ApsaraDB RDS for SQL Server instances.
+          // > This parameter is supported only by ApsaraDB RDS for SQL Server instances.
           shared_ptr<int64_t> IOWrites_ {};
-          // The shard name.
+          // The name of the shard.
           shared_ptr<string> insName_ {};
-          // The instance role.
-          // >This field is supported only for ApsaraDB for MongoDB instances.
+          // The role of the instance.
+          // > This parameter is supported only by ApsaraDB for MongoDB instances.
           shared_ptr<string> insRole_ {};
-          // The number of rows scanned by the MongoDB index.
+          // The number of index entries scanned in MongoDB.
           shared_ptr<int64_t> keysExamined_ {};
           // The number of rows affected by the last statement.
-          // >This field is supported only for ApsaraDB RDS for SQL Server instances.
+          // > This parameter is supported only by ApsaraDB RDS for SQL Server instances.
           shared_ptr<int64_t> lastRowsCountAffected_ {};
-          // Deprecated.
+          // **[Deprecated]**
           shared_ptr<double> lockTime_ {};
-          // The lock wait time. Unit: seconds.
+          // The lock wait time, in seconds.
           shared_ptr<double> lockTimeSeconds_ {};
           // The number of logical reads.
-          // >This field is supported only for ApsaraDB RDS for SQL Server instances.
+          // > This parameter is supported only by ApsaraDB RDS for SQL Server instances.
           shared_ptr<int64_t> logicalIOReads_ {};
-          // Deprecated.
+          // **[Deprecated]**
           shared_ptr<double> maxCPUTime_ {};
-          // The maximum CPU query time. Unit: seconds.
+          // The maximum CPU query time, in seconds.
           shared_ptr<double> maxCPUTimeSeconds_ {};
           // The maximum number of documents scanned.
-          // >This field is supported only for ApsaraDB for MongoDB instances.
+          // > This parameter is supported only by ApsaraDB for MongoDB instances.
           shared_ptr<int64_t> maxDocExamined_ {};
-          // The maximum number of rows fetched.
+          // The maximum number of pulled rows.
           shared_ptr<int64_t> maxFrows_ {};
           // The maximum number of I/O writes.
-          // >This field is supported only for ApsaraDB RDS for SQL Server instances.
+          // > This parameter is supported only by ApsaraDB RDS for SQL Server instances.
           shared_ptr<int64_t> maxIOWrites_ {};
-          // The maximum number of rows scanned by the index.
-          // >This field is supported only for ApsaraDB for MongoDB instances.
+          // The maximum number of index entries scanned.
+          // > This parameter is supported only by ApsaraDB for MongoDB instances.
           shared_ptr<int64_t> maxKeysExamined_ {};
           // The maximum number of rows affected by the last statement.
-          // >This field is supported only for ApsaraDB RDS for SQL Server instances.
+          // > This parameter is supported only by ApsaraDB RDS for SQL Server instances.
           shared_ptr<int64_t> maxLastRowsCountAffected_ {};
-          // Deprecated.
+          // **[Deprecated]**
           shared_ptr<double> maxLockTime_ {};
           // The maximum lock wait time. Unit: seconds.
           shared_ptr<double> maxLockTimeSeconds_ {};
           // The maximum number of logical reads.
-          // >This field is supported only for ApsaraDB RDS for SQL Server instances.
+          // > This parameter is supported only by ApsaraDB RDS for SQL Server instances.
           shared_ptr<int64_t> maxLogicalIOReads_ {};
           // The maximum number of physical reads.
-          // >This field is supported only for ApsaraDB RDS for SQL Server instances.
+          // > This parameter is supported only by ApsaraDB RDS for SQL Server instances.
           shared_ptr<int64_t> maxPhysicalIOReads_ {};
-          // Deprecated.
+          // **[Deprecated]**
           shared_ptr<double> maxQueryTime_ {};
-          // The maximum query execution duration. Unit: seconds.
+          // The maximum query duration, in seconds.
           shared_ptr<double> maxQueryTimeSeconds_ {};
-          // The maximum size of the request, in bytes. This parameter is valid only for Redis.
+          // The maximum size of the request, in bytes (valid only for Redis).
           shared_ptr<double> maxRequestSize_ {};
-          // The maximum response size, in bytes. This parameter is valid only for Redis.
+          // The maximum response size, in bytes (valid only for Redis).
           shared_ptr<double> maxResponseSize_ {};
-          // The maximum number of rows returned.
-          // >This field is supported only for ApsaraDB for MongoDB instances.
+          // The maximum number of returned rows.
+          // > This parameter is supported only by ApsaraDB for MongoDB instances.
           shared_ptr<int64_t> maxReturnNum_ {};
           // The maximum number of rows.
           shared_ptr<int64_t> maxRows_ {};
-          // The maximum number of rows affected.
-          // >This field is supported only for ApsaraDB RDS for SQL Server instances.
+          // The maximum number of affected rows.
+          // > This parameter is supported only by ApsaraDB RDS for SQL Server instances.
           shared_ptr<int64_t> maxRowsCountAffected_ {};
-          // The maximum number of rows examined.
+          // The maximum number of scanned rows.
           shared_ptr<int64_t> maxRowsExamined_ {};
-          // The maximum number of rows returned.
+          // The maximum number of returned rows.
           shared_ptr<int64_t> maxRowsSent_ {};
           // The maximum execution duration, in seconds.
           shared_ptr<double> maxRt_ {};
           // The maximum number of requests.
           shared_ptr<int64_t> maxScnt_ {};
           // The namespace.
-          // >This field is supported only for ApsaraDB for MongoDB instances.
+          // > This parameter is supported only by ApsaraDB for MongoDB instances.
           shared_ptr<string> namespace_ {};
           // The node type.
-          // > Databases that support this field: ApsaraDB for MongoDB and Tair (Redis® OSS-Compatible).
+          // > This field is currently supported by ApsaraDB for MongoDB and Tair (Redis OSS-Compatible).
           shared_ptr<string> nodeType_ {};
           // The operation type.
-          // >This field is supported only for ApsaraDB for MongoDB instances.
+          // > This parameter is supported only by ApsaraDB for MongoDB instances.
           shared_ptr<string> opType_ {};
           // The source alias.
           shared_ptr<string> originAlias_ {};
           // The number of physical reads.
-          // >This field is supported only for ApsaraDB RDS for SQL Server instances.
+          // > This parameter is supported only by ApsaraDB RDS for SQL Server instances.
           shared_ptr<int64_t> physicalIOReads_ {};
           // The SQL template.
           shared_ptr<string> psql_ {};
           // The query ID.
-          // >This field is supported only for ApsaraDB for MongoDB instances.
+          // > This parameter is supported only by ApsaraDB for MongoDB instances.
           shared_ptr<string> queryId_ {};
-          // The time when the query started. Format: yyyy-MM-dd hh:mm:ss (UTC).
+          // The start time of the query. Format: yyyy-MM-dd hh:mm:ss (UTC).
           shared_ptr<string> queryStartTime_ {};
-          // The query execution time threshold. Unit: milliseconds (ms).
+          // The execution time threshold of the query, in milliseconds.
           shared_ptr<int64_t> queryTime_ {};
           // The proportion of query duration.
           shared_ptr<double> queryTimeRate_ {};
-          // The query execution duration. Unit: seconds.
+          // The query duration, in seconds.
           shared_ptr<double> queryTimeSeconds_ {};
-          // The return item numbers.
+          // The number of returned items.
           shared_ptr<string> returnItemNumbers_ {};
-          // The number of rows returned.
-          // >This field is supported only for ApsaraDB for MongoDB instances.
+          // The number of returned rows.
+          // > This parameter is supported only by ApsaraDB for MongoDB instances.
           shared_ptr<int64_t> returnNum_ {};
-          // The total number of rows updated or returned by the compute nodes of the ApsaraDB for PolarDB-X 2.0 database instance.
+          // The total number of rows updated or returned by the compute node of the PolarDB-X 2.0 database instance.
           // 
-          // > This field is supported only for ApsaraDB for PolarDB-X 2.0 instances.
+          // > This parameter is supported only by ApsaraDB for PolarDB-X 2.0 database instances.
           shared_ptr<int64_t> rows_ {};
-          // The number of rows affected.
-          // >This field is supported only for ApsaraDB RDS for SQL Server instances.
+          // The number of affected rows.
+          // > This parameter is supported only by ApsaraDB RDS for SQL Server instances.
           shared_ptr<int64_t> rowsCountAffected_ {};
-          // The total number of rows examined.
-          // > Databases that currently support this field: ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and PolarDB for MySQL.
+          // The total number of scanned rows.
+          // > Databases that support this field: ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and PolarDB for MySQL.
           shared_ptr<int64_t> rowsExamined_ {};
-          // The number of rows returned.
+          // The number of returned rows.
           shared_ptr<int64_t> rowsSent_ {};
           // The rule ID. For more information, see [Query Governance](https://help.aliyun.com/document_detail/290038.html).
           shared_ptr<string> ruleId_ {};
           // The details of the SQL statement.
           shared_ptr<string> SQLText_ {};
-          // HTTP or HTTPS.
+          // The scheme, such as HTTP or HTTPS.
           shared_ptr<string> scheme_ {};
-          // The number of DN requests from the compute node (CN) of the ApsaraDB for PolarDB-X 2.0 database instance.
+          // The number of data node (DN) requests made by the compute node (CN) of the PolarDB-X 2.0 instance.
           // 
-          // > This field is supported only for ApsaraDB for PolarDB-X 2.0 instances.
+          // > This parameter is supported only by ApsaraDB for PolarDB-X 2.0 database instances.
           shared_ptr<int64_t> scnt_ {};
-          // SQL ID。
+          // The SQL ID.
           shared_ptr<string> sqlId_ {};
           // The tag.
           shared_ptr<Logs::SqlTag> sqlTag_ {};
@@ -1685,13 +1683,13 @@ namespace Models
           shared_ptr<string> sqlType_ {};
           // The child instance ID.
           shared_ptr<string> subInstanceId_ {};
-          // The table name.
+          // The name of the table.
           shared_ptr<string> tableName_ {};
-          // The thread_id. This field is available only for PolarDB for MySQL.
+          // The thread ID. This parameter is available only for PolarDB for MySQL.
           shared_ptr<string> threadId_ {};
-          // The execution time, in UNIX timestamp format. Unit: milliseconds (ms).
+          // The execution time. The time is in the UNIX timestamp format. Unit: milliseconds.
           shared_ptr<int64_t> timestamp_ {};
-          // The total number of records. This parameter is valid only for the Redis engine.
+          // The total number of records (valid only for the Redis engine).
           shared_ptr<int64_t> totalCount_ {};
           // The slow log trends.
           shared_ptr<vector<Logs::Trend>> trend_ {};
@@ -1779,27 +1777,24 @@ namespace Models
         shared_ptr<int64_t> dbInstanceId_ {};
         // The instance ID.
         shared_ptr<string> dbInstanceName_ {};
-        // The end time of the query task, in UNIX timestamp format. Unit: milliseconds.
+        // The end time of the query task. The time is in the UNIX timestamp format. Unit: milliseconds.
         // > The end time of the query task must be later than the start time.
         shared_ptr<string> endTime_ {};
         // The number of items in the log list on the current page.
         shared_ptr<int64_t> itemsNumbers_ {};
         // The name of the operation object.
         shared_ptr<vector<DataItem::Logs>> logs_ {};
-        // The maximum number of records per page for the paged query. Valid values: 5 to 100.
+        // The maximum number of records per page for paging. Valid values: 5 to 100.
         shared_ptr<int32_t> maxRecordsPerPage_ {};
         // The node ID.
-        // 
-        // For MongoDB instances, specify a node for storage analysis by using this parameter. Call the [DescribeRoleZoneInfo](https://help.aliyun.com/document_detail/123802.html) operation to query the details of each node in a MongoDB instance.
-        // 
-        // - If you specify the **InsName** (node ID) of the target node, such as `d-bp1872fa24d5****`, this operation analyzes the corresponding Hidden node.
-        // - If you specify the `InsName#RoleId` of the target node, such as `d-bp1872fa24d5****#299****5`, this operation analyzes the specified node.
-        // 
-        // >Notice: For MongoDB replica set instances, if you do not specify this parameter, this operation analyzes the only Hidden node by default. For MongoDB sharded cluster instances, specify this parameter to designate the target node.</notice>
+        // For an ApsaraDB for MongoDB instance, you can specify a node for storage analysis by using this parameter. You can call the [DescribeRoleZoneInfo](https://help.aliyun.com/document_detail/123802.html) operation to query the details of each node in the ApsaraDB for MongoDB instance.
+        // - If you specify the **InsName** (node ID) of the target node, such as `d-bp1872fa24d5****`, the operation analyzes the corresponding hidden node.
+        // - If you specify the `InsName#RoleId` of the target node, such as `d-bp1872fa24d5****#299****5`, the operation analyzes the specified node.
+        // >Notice: If you do not specify this parameter for an ApsaraDB for MongoDB replica set instance, the operation analyzes the only hidden node by default. For an ApsaraDB for MongoDB sharded cluster instance, we recommend that you specify this parameter to identify the target node.</notice>
         shared_ptr<string> nodeId_ {};
-        // The page number for the paged query. The value starts from 1. Default value: 1.
+        // The page number for paging. Pages start from 1. Default value: 1.
         shared_ptr<int32_t> pageNumbers_ {};
-        // The start time, in UNIX timestamp format. Unit: milliseconds.
+        // The start time. The time is in the UNIX timestamp format. Unit: milliseconds.
         shared_ptr<string> startTime_ {};
         // The total number of records.
         shared_ptr<int64_t> totalRecords_ {};
@@ -1871,7 +1866,7 @@ namespace Models
       shared_ptr<Data::DataItem> data_ {};
       // The error code.
       shared_ptr<int32_t> errorCode_ {};
-      // Indicates whether the task is finished.
+      // Indicates whether the task is completed.
       shared_ptr<bool> isFinish_ {};
       // The error message.
       shared_ptr<string> message_ {};
@@ -1879,13 +1874,12 @@ namespace Models
       shared_ptr<string> requestKey_ {};
       // The result ID.
       shared_ptr<string> resultId_ {};
-      // The current status. Valid values:
-      // 
-      // - **RUNNING**: running.
-      // - **SUCCESS**: succeeded.
-      // - **FAIL**: failed.
+      // The current state. Valid values:
+      // - **RUNNING**: Running.
+      // - **SUCCESS**: Successful.
+      // - **FAIL**: Failed.
       shared_ptr<string> state_ {};
-      // The request time.
+      // The request time, in the format of a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> timestamp_ {};
     };
 
@@ -1929,20 +1923,18 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The status code.
     shared_ptr<string> code_ {};
     // AsyncResult<DBLogRecords<SlowLogStat>>
     shared_ptr<DescribeSlowLogStatisticResponseBody::Data> data_ {};
-    // The message returned for the request.
-    // 
-    // > If the request is successful, **Successful** is returned. If the request fails, exception information (such as an error code) is returned.
+    // The returned message.
+    // > If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. Valid values:
-    // 
-    // - **true**: The request is successful.
-    // - **false**: The request fails.
+    // Indicates whether the request was successful. Valid values:
+    // - **true**: The request was successful.
+    // - **false**: The request failed.
     shared_ptr<string> success_ {};
   };
 

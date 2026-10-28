@@ -82,11 +82,11 @@ namespace Models
 
 
     protected:
-      // The filter key.
+      // The filter parameter.
       // 
-      // > For details on supported filter keys and their values, see **Additional information about request parameters**.
+      // > For supported filter parameters and their valid values, refer to **Supplementary request parameter descriptions**.
       shared_ptr<string> key_ {};
-      // The filter value.
+      // The value of the filter parameter.
       shared_ptr<string> value_ {};
     };
 
@@ -152,11 +152,11 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. This is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The end time. The value is a UNIX timestamp in milliseconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
-    // A list of filter conditions.
+    // The list of filter conditions.
     shared_ptr<vector<DescribeSqlLogRecordsRequest::Filters>> filters_ {};
     // The ID of the database instance.
     // 
@@ -164,21 +164,19 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The node ID.
     // 
-    // - This parameter is applicable only to ApsaraDB RDS for MySQL and PolarDB for MySQL cluster instances. If this parameter is omitted, the log details of the primary node are returned by default.
-    // 
+    // - For ApsaraDB RDS for MySQL and PolarDB for MySQL, this parameter applies only to Cluster Edition instances. If you do not specify this parameter, the log details of the primary node are queried by default.
     // - For PolarDB-X 2.0, set this parameter to **polarx_cn** (compute node) or **polarx_dn** (data node).
     shared_ptr<string> nodeId_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number for paging. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries per page. Maximum value: 100. Default value: 10.
+    // The maximum number of entries per page. Maximum value: 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The role of the node in the PolarDB-X 2.0 database instance.
+    // The role of the node in the PolarDB-X 2.0 instance. Valid values:
     // 
     // - **polarx_cn**: compute node.
-    // 
     // - **polarx_dn**: data node.
     shared_ptr<string> role_ {};
-    // The beginning of the time range to query. This is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The start time. The value is a UNIX timestamp in milliseconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};

@@ -75,16 +75,17 @@ namespace Models
 
 
   protected:
-    // Optional. By default, the default agent is used. You can also specify the ID of an agent that is generated after DAS Agent is activated or manually created.
+    // Optional. The default agent is used by default. Alternatively, you can specify an agent that was generated after DAS Agent was activated or manually created.
     shared_ptr<string> agentId_ {};
-    // The end time of the query. The time is a UNIX timestamp in milliseconds.
+    // The end time of the query, which is a UNIX timestamp in milliseconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
     // The reserved parameter.
     shared_ptr<string> groupId_ {};
+    // The type of the inspection report.
     shared_ptr<string> reportType_ {};
-    // The start time of the query. The time is a UNIX timestamp in milliseconds.
+    // The start time of the query, which is a UNIX timestamp in milliseconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};

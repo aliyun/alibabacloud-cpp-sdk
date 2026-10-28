@@ -88,9 +88,9 @@ namespace Models
 
 
     protected:
-      // The filter parameter.
+      // The filter key.
       shared_ptr<string> key_ {};
-      // The value of the filter parameter.
+      // The value of the filter key.
       shared_ptr<string> value_ {};
     };
 
@@ -177,9 +177,9 @@ namespace Models
 
 
   protected:
-    // Specifies whether to sort results in ascending order. This feature is disabled by default.
+    // Specifies whether to sort the results in ascending order. Default value: false.
     shared_ptr<bool> asc_ {};
-    // The end time of the query. Specify a UNIX timestamp in UTC. Unit: milliseconds.
+    // The end time of the query. The time is a UNIX timestamp in UTC. Unit: milliseconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
@@ -191,8 +191,8 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The node ID.
     // 
-    // - For ApsaraDB RDS for MySQL and PolarDB for MySQL, this parameter is applicable only to cluster instances. If you do not specify this parameter, the log details of the primary node are queried by default.
-    // - For PolarDB-X 2.0, set this parameter to **polarx_cn** (compute node) or **polarx_dn** (data node).
+    // - For ApsaraDB RDS for MySQL and PolarDB for MySQL, this parameter applies only to Cluster Edition instances. If you do not specify this parameter, the slow query logs of the primary node are queried by default.
+    // - For PolarDB-X 2.0, set this parameter to **polarx_cn** for compute nodes or **polarx_dn** for data nodes.
     shared_ptr<string> nodeId_ {};
     // The sorting method. Valid values:
     // 
@@ -206,11 +206,11 @@ namespace Models
     // 
     // **RowsSent**
     shared_ptr<string> orderBy_ {};
-    // The page number. The value starts from 1. Default value: 1.
+    // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The maximum number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The start time of the query. Specify a UNIX timestamp in UTC. Unit: milliseconds.
+    // The start time of the query task. The time is a UNIX timestamp in UTC. Unit: milliseconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
@@ -218,7 +218,7 @@ namespace Models
     shared_ptr<string> templateId_ {};
     // The task type.
     // 
-    // SQL engine-specific:
+    // Specific to SQL engines:
     // 
     // **SlowLogRequestOrigin**: aggregates logs by source IP address.
     // 
@@ -226,24 +226,23 @@ namespace Models
     // 
     // **SQL**: aggregates logs by SQL ID.
     // 
-    // 
-    // MongoDB engine-specific:
+    // Specific to MongoDB engines:
     // 
     // **SlowLogRequestOrigin**: aggregates logs by source IP address.
     // 
     // **SlowLogRequestUser**: aggregates logs by source user.
     // 
-    // **SQL**: aggregates logs by Query ID.
+    // **SQL**: aggregates logs by query ID.
     // 
     // **SlowLogRequestOpType**: aggregates logs by operation type.
     // 
     // **SlowLogRequestNamespace**: aggregates logs by namespace.
     // 
-    // Redis engine-specific:
+    // Specific to Redis engines:
     // 
     // **SlowLogRequestNodeId**: aggregates logs by node ID.
     // 
-    // **SlowLogRequestHostInsId**: aggregates logs by HostInsId.
+    // **SlowLogRequestHostInsId**: aggregates logs by host instance ID.
     shared_ptr<string> type_ {};
   };
 

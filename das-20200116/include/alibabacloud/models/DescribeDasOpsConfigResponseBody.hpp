@@ -144,21 +144,21 @@ namespace Models
       // * **true**: Auto-renewal is enabled.
       // * **false** (default): Auto-renewal is disabled.
       shared_ptr<bool> autoRenew_ {};
-      // The payment method.
+      // The billing method.
       shared_ptr<string> chargeType_ {};
-      // The Alibaba Cloud Managed Services instance ID.
+      // The instance ID of Alibaba Cloud Managed Services.
       shared_ptr<string> commodityInstanceId_ {};
       // Indicates whether DAS Economy Edition is enabled.
       shared_ptr<bool> ecoEnable_ {};
-      // Indicates whether the Alibaba Cloud Managed Services is enabled.
+      // Indicates whether Alibaba Cloud Managed Services is enabled.
       shared_ptr<bool> enable_ {};
-      // The end time. The value is a UNIX timestamp. Unit: milliseconds.
+      // The end time. The time is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> endTime_ {};
-      // Indicates whether the Alibaba Cloud Managed Services is enabled.
+      // Indicates whether Alibaba Cloud Managed Services is enabled.
       shared_ptr<bool> opsEnable_ {};
       // The order ID.
       shared_ptr<int64_t> orderId_ {};
-      // The start time. The value is a UNIX timestamp. Unit: milliseconds.
+      // The start time. The time is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> startTime_ {};
     };
 
@@ -208,14 +208,14 @@ namespace Models
     shared_ptr<DescribeDasOpsConfigResponseBody::Data> data_ {};
     // The returned message.
     // 
-    // > If the request is successful, **Successful** is returned. If the request fails, an error message that contains information such as an error code is returned.
+    // > If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // - **true**: The request is successful.
-    // - **false**: The request fails.
+    // - **true**: The request was successful.
+    // - **false**: The request failed.
     shared_ptr<string> success_ {};
   };
 
