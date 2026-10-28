@@ -50,8 +50,10 @@ namespace Models
         DARABONBA_PTR_TO_JSON(loginCallbackUrl, loginCallbackUrl_);
         DARABONBA_PTR_TO_JSON(loginEnabled, loginEnabled_);
         DARABONBA_PTR_TO_JSON(metadata, metadata_);
+        DARABONBA_PTR_TO_JSON(operationStatus, operationStatus_);
         DARABONBA_PTR_TO_JSON(protocol, protocol_);
         DARABONBA_PTR_TO_JSON(saml, saml_);
+        DARABONBA_PTR_TO_JSON(scimStatus, scimStatus_);
         DARABONBA_PTR_TO_JSON(status, status_);
         DARABONBA_PTR_TO_JSON(syncEnabled, syncEnabled_);
         DARABONBA_PTR_TO_JSON(updatedAt, updatedAt_);
@@ -65,8 +67,10 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(loginCallbackUrl, loginCallbackUrl_);
         DARABONBA_PTR_FROM_JSON(loginEnabled, loginEnabled_);
         DARABONBA_PTR_FROM_JSON(metadata, metadata_);
+        DARABONBA_PTR_FROM_JSON(operationStatus, operationStatus_);
         DARABONBA_PTR_FROM_JSON(protocol, protocol_);
         DARABONBA_PTR_FROM_JSON(saml, saml_);
+        DARABONBA_PTR_FROM_JSON(scimStatus, scimStatus_);
         DARABONBA_PTR_FROM_JSON(status, status_);
         DARABONBA_PTR_FROM_JSON(syncEnabled, syncEnabled_);
         DARABONBA_PTR_FROM_JSON(updatedAt, updatedAt_);
@@ -285,8 +289,8 @@ namespace Models
 
       virtual bool empty() const override { return this->configuration_ == nullptr
         && this->createdAt_ == nullptr && this->eventSubscriptionCallbackUrl_ == nullptr && this->identityProviderType_ == nullptr && this->loginCallbackUrl_ == nullptr && this->loginEnabled_ == nullptr
-        && this->metadata_ == nullptr && this->protocol_ == nullptr && this->saml_ == nullptr && this->status_ == nullptr && this->syncEnabled_ == nullptr
-        && this->updatedAt_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->metadata_ == nullptr && this->operationStatus_ == nullptr && this->protocol_ == nullptr && this->saml_ == nullptr && this->scimStatus_ == nullptr
+        && this->status_ == nullptr && this->syncEnabled_ == nullptr && this->updatedAt_ == nullptr && this->workspaceId_ == nullptr; };
       // configuration Field Functions 
       bool hasConfiguration() const { return this->configuration_ != nullptr;};
       void deleteConfiguration() { this->configuration_ = nullptr;};
@@ -340,6 +344,13 @@ namespace Models
       inline Data& setMetadata(Data::Metadata && metadata) { DARABONBA_PTR_SET_RVALUE(metadata_, metadata) };
 
 
+      // operationStatus Field Functions 
+      bool hasOperationStatus() const { return this->operationStatus_ != nullptr;};
+      void deleteOperationStatus() { this->operationStatus_ = nullptr;};
+      inline string getOperationStatus() const { DARABONBA_PTR_GET_DEFAULT(operationStatus_, "") };
+      inline Data& setOperationStatus(string operationStatus) { DARABONBA_PTR_SET_VALUE(operationStatus_, operationStatus) };
+
+
       // protocol Field Functions 
       bool hasProtocol() const { return this->protocol_ != nullptr;};
       void deleteProtocol() { this->protocol_ = nullptr;};
@@ -354,6 +365,13 @@ namespace Models
       inline Data::Saml getSaml() { DARABONBA_PTR_GET(saml_, Data::Saml) };
       inline Data& setSaml(const Data::Saml & saml) { DARABONBA_PTR_SET_VALUE(saml_, saml) };
       inline Data& setSaml(Data::Saml && saml) { DARABONBA_PTR_SET_RVALUE(saml_, saml) };
+
+
+      // scimStatus Field Functions 
+      bool hasScimStatus() const { return this->scimStatus_ != nullptr;};
+      void deleteScimStatus() { this->scimStatus_ = nullptr;};
+      inline string getScimStatus() const { DARABONBA_PTR_GET_DEFAULT(scimStatus_, "") };
+      inline Data& setScimStatus(string scimStatus) { DARABONBA_PTR_SET_VALUE(scimStatus_, scimStatus) };
 
 
       // status Field Functions 
@@ -399,10 +417,14 @@ namespace Models
       shared_ptr<bool> loginEnabled_ {};
       // The standard IdP metadata. Vendor parameters are used for DingTalk and Feishu. CustomSSO updates use protocol and saml, and do not accept this field. The return value does not contain vendor keys.
       shared_ptr<Data::Metadata> metadata_ {};
+      // PENDING/RUNNING 时轮询 GetIdentityProviderSCIM；保留失败、暂停和取消事实，不表示 SAML 状态。
+      shared_ptr<string> operationStatus_ {};
       // The logon protocol. Currently, only SAML is supported. This field may not be returned if no valid configuration is saved. OIDC placeholder initialization is not supported.
       shared_ptr<string> protocol_ {};
       // The SAML logon configuration. The input supports either XML or complete manual entry. The query returns the standardized configuration and does not echo the original XML. This field can be omitted if it is not configured.
       shared_ptr<Data::Saml> saml_ {};
+      // 独立 SCIM 状态；不改变原 status 的共享资源及登录配置含义。与查询接口的 data.status 对应。
+      shared_ptr<string> scimStatus_ {};
       // The operation status of shared resources and logon configurations. It indicates the user pool lifecycle and logon configuration task status of CustomSSO, and does not represent the SCIM operation result. Query GetIdentityProviderSCIM.operationStatus for the SCIM switch result. You cannot use this field to determine whether all protocols are configured.
       shared_ptr<string> status_ {};
       // Do not set this parameter to true during CustomSSO initialization. You can only update it later by calling UpdateIdentityProviderSCIM. Determine the result based on operationStatus.

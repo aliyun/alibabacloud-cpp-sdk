@@ -44,11 +44,13 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(configuration, configuration_);
         DARABONBA_PTR_TO_JSON(operationStatus, operationStatus_);
+        DARABONBA_PTR_TO_JSON(status, status_);
         DARABONBA_PTR_TO_JSON(syncEnabled, syncEnabled_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(configuration, configuration_);
         DARABONBA_PTR_FROM_JSON(operationStatus, operationStatus_);
+        DARABONBA_PTR_FROM_JSON(status, status_);
         DARABONBA_PTR_FROM_JSON(syncEnabled, syncEnabled_);
       };
       Data() = default ;
@@ -110,7 +112,7 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->configuration_ == nullptr
-        && this->operationStatus_ == nullptr && this->syncEnabled_ == nullptr; };
+        && this->operationStatus_ == nullptr && this->status_ == nullptr && this->syncEnabled_ == nullptr; };
       // configuration Field Functions 
       bool hasConfiguration() const { return this->configuration_ != nullptr;};
       void deleteConfiguration() { this->configuration_ = nullptr;};
@@ -125,6 +127,13 @@ namespace Models
       void deleteOperationStatus() { this->operationStatus_ = nullptr;};
       inline string getOperationStatus() const { DARABONBA_PTR_GET_DEFAULT(operationStatus_, "") };
       inline Data& setOperationStatus(string operationStatus) { DARABONBA_PTR_SET_VALUE(operationStatus_, operationStatus) };
+
+
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline Data& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
       // syncEnabled Field Functions 
@@ -146,6 +155,8 @@ namespace Models
       // - CANCELED: Canceled.
       // If there are no tasks, null is returned or this parameter is not returned. This parameter only indicates the most recent SCIM switch and the first full import task when it is enabled. It does not indicate credential issuance, external provisioning connection tests, or the health of continuous incremental synchronization. The client polls this operation when the status is PENDING or RUNNING.
       shared_ptr<string> operationStatus_ {};
+      // UNCONFIGURED：尚未准备完成；WAITING_CONFIGURATION：接收 Enabled、有效 HTTPS URL 和至少一个有效 Token 均已具备，等待外部配置并确认启用；UPDATING：启用或停用任务 PENDING/RUNNING；READY：同步已启用且本次启用任务成功，接收、URL 和 Token 仍可用；DISABLED：停用任务成功，保留配置、凭据和用户；UPDATE_FAILED：操作失败、暂停、取消，或期望启用时配置／凭据不可用。与 SAML/OIDC 状态独立，READY 不证明 Matrix 执行或持续增量链路已验收。
+      shared_ptr<string> status_ {};
       // Specifies whether local synchronization is expected. Do not set this parameter to true during CustomSSO initialization. You can only update this parameter by calling UpdateIdentityProviderSCIM. Determine the result based on operationStatus.
       shared_ptr<bool> syncEnabled_ {};
     };
