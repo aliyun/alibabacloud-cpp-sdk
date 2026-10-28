@@ -133,7 +133,7 @@ namespace Models
 
 
       protected:
-        // The user quota.
+        // The number of user quotas.
         shared_ptr<int32_t> userQuota_ {};
       };
 
@@ -175,9 +175,9 @@ namespace Models
 
 
       protected:
-        // The session retention duration after disconnection, in minutes. A value of `-1` indicates that the session is not unbound due to this timeout, but is still subject to authorization and other session release policies.
+        // The session retention period in minutes after disconnection. A value of -1 indicates that the session is not unbound due to this timeout, but is still subject to authorization and other session release policies.
         shared_ptr<int32_t> interval_ {};
-        // The timer configuration type. `SESSION_TIMEOUT` indicates the session retention duration after disconnection.
+        // The timer configuration type. A value of SESSION_TIMEOUT indicates the session retention period after disconnection.
         shared_ptr<string> timerType_ {};
       };
 
@@ -192,6 +192,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(DisconnectKeepSessionTime, disconnectKeepSessionTime_);
           DARABONBA_PTR_TO_JSON(FileManager, fileManager_);
           DARABONBA_PTR_TO_JSON(Html5FileTransfer, html5FileTransfer_);
+          DARABONBA_PTR_TO_JSON(MultiScreen, multiScreen_);
           DARABONBA_PTR_TO_JSON(NoOperationDisconnect, noOperationDisconnect_);
           DARABONBA_PTR_TO_JSON(NoOperationDisconnectTime, noOperationDisconnectTime_);
           DARABONBA_PTR_TO_JSON(PolicyId, policyId_);
@@ -208,6 +209,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(DisconnectKeepSessionTime, disconnectKeepSessionTime_);
           DARABONBA_PTR_FROM_JSON(FileManager, fileManager_);
           DARABONBA_PTR_FROM_JSON(Html5FileTransfer, html5FileTransfer_);
+          DARABONBA_PTR_FROM_JSON(MultiScreen, multiScreen_);
           DARABONBA_PTR_FROM_JSON(NoOperationDisconnect, noOperationDisconnect_);
           DARABONBA_PTR_FROM_JSON(NoOperationDisconnectTime, noOperationDisconnectTime_);
           DARABONBA_PTR_FROM_JSON(PolicyId, policyId_);
@@ -266,20 +268,18 @@ namespace Models
 
 
         protected:
-          // The watermark switch. The value is case-insensitive.
-          // 
-          // - `ON`: Watermark enabled.
-          // - `OFF`: Watermark disabled.
+          // Specifies whether to enable watermarks. The value is case-insensitive. Valid values:
+          // - ON: Enabled.
+          // - OFF: Disabled.
           // 
           // When disabled, the watermark content type list is not used.
           shared_ptr<string> watermarkSwitch_ {};
-          // The list of watermark content types.
+          // The list of watermark content types. Valid values:
+          // - EndUserId: User ID.
+          // - InstanceGroupId: Delivery group ID.
+          // - ClientTime: Current client time.
           // 
-          // - `EndUserId`: User ID.
-          // - `InstanceGroupId`: Delivery group ID.
-          // - `ClientTime`: Current time on the client.
-          // 
-          // Use watermark types supported by the browser and client.
+          // Use watermark types that are supported by the browser and client.
           shared_ptr<vector<string>> watermarkTypes_ {};
         };
 
@@ -311,7 +311,7 @@ namespace Models
 
 
         protected:
-          // The frame rate of browser sessions.
+          // The frame rate for browser sessions.
           shared_ptr<int32_t> frameRate_ {};
         };
 
@@ -500,81 +500,81 @@ namespace Models
 
 
         protected:
-          // The clipboard transfer direction. The value is case-insensitive.
+          // The clipboard transfer direction. The value is case-insensitive. Valid values:
           // 
-          // - `off`: Bidirectional transfer is denied.
-          // - `read`: Copy and paste from the local PC to the cloud browser is allowed.
-          // - `write`: Copy and paste from the cloud browser to the local PC is allowed.
-          // - `readwrite`: Bidirectional transfer is allowed.
+          // - `off`: Disabled in both directions.
+          // - `read`: Allows copy and paste from the local PC to the cloud browser.
+          // - `write`: Allows copy and paste from the cloud browser to the local PC.
+          // - `readwrite`: Enabled in both directions.
           shared_ptr<string> clipboard_ {};
-          // The clipboard size limit for inbound transfer (from the local PC to the cloud browser).
+          // The clipboard size limit for inbound transfer from the local PC to the cloud browser.
           shared_ptr<int32_t> clipboardReadLimit_ {};
-          // The clipboard control granularity.
+          // The clipboard control granularity. Valid values:
           // 
           // - `global`: Unified control.
-          // - `grained`: Separate control by text, rich text, and file.
+          // - `grained`: Separate control for text, rich text, and files.
           shared_ptr<string> clipboardScope_ {};
-          // The unit of the clipboard size.
+          // The clipboard size unit. Valid values:
           // 
-          // - `B`: bytes.
+          // - `B`: Bytes.
           // - `KB`: 1024 bytes.
           shared_ptr<string> clipboardSizeUnit_ {};
-          // The clipboard size limit for outbound transfer (from the cloud browser to the local PC).
+          // The clipboard size limit for outbound transfer from the cloud browser to the local PC.
           shared_ptr<int32_t> clipboardWriteLimit_ {};
-          // The clipboard transfer direction. The value is case-insensitive.
+          // The clipboard transfer direction. The value is case-insensitive. Valid values:
           // 
-          // - `off`: Bidirectional transfer is denied.
-          // - `read`: Copy and paste from the local PC to the cloud browser is allowed.
-          // - `write`: Copy and paste from the cloud browser to the local PC is allowed.
-          // - `readwrite`: Bidirectional transfer is allowed.
+          // - `off`: Disabled in both directions.
+          // - `read`: Allows copy and paste from the local PC to the cloud browser.
+          // - `write`: Allows copy and paste from the cloud browser to the local PC.
+          // - `readwrite`: Enabled in both directions.
           shared_ptr<string> fileClipboard_ {};
-          // The clipboard transfer direction. The value is case-insensitive.
+          // The clipboard transfer direction. The value is case-insensitive. Valid values:
           // 
-          // - `off`: Bidirectional transfer is denied.
-          // - `read`: Copy and paste from the local PC to the cloud browser is allowed.
-          // - `write`: Copy and paste from the cloud browser to the local PC is allowed.
-          // - `readwrite`: Bidirectional transfer is allowed.
+          // - `off`: Disabled in both directions.
+          // - `read`: Allows copy and paste from the local PC to the cloud browser.
+          // - `write`: Allows copy and paste from the cloud browser to the local PC.
+          // - `readwrite`: Enabled in both directions.
           shared_ptr<string> richTextClipboard_ {};
-          // The rich text clipboard size limit.
+          // The clipboard size limit for rich text.
           shared_ptr<int32_t> richTextClipboardLimit_ {};
-          // The clipboard size limit for inbound transfer (from the local PC to the cloud browser).
+          // The clipboard size limit for inbound transfer from the local PC to the cloud browser.
           shared_ptr<int32_t> richTextClipboardReadLimit_ {};
-          // The unit of the clipboard size.
+          // The clipboard size unit. Valid values:
           // 
-          // - `B`: bytes.
+          // - `B`: Bytes.
           // - `KB`: 1024 bytes.
           shared_ptr<string> richTextClipboardReadSizeUnit_ {};
-          // The unit of the clipboard size.
+          // The clipboard size unit. Valid values:
           // 
-          // - `B`: bytes.
+          // - `B`: Bytes.
           // - `KB`: 1024 bytes.
           shared_ptr<string> richTextClipboardSizeUnit_ {};
-          // The clipboard size limit for outbound transfer (from the cloud browser to the local PC).
+          // The clipboard size limit for outbound transfer from the cloud browser to the local PC.
           shared_ptr<int32_t> richTextClipboardWriteLimit_ {};
-          // The unit of the clipboard size.
+          // The clipboard size unit. Valid values:
           // 
-          // - `B`: bytes.
+          // - `B`: Bytes.
           // - `KB`: 1024 bytes.
           shared_ptr<string> richTextClipboardWriteSizeUnit_ {};
-          // The clipboard transfer direction. The value is case-insensitive.
+          // The clipboard transfer direction. The value is case-insensitive. Valid values:
           // 
-          // - `off`: Bidirectional transfer is denied.
-          // - `read`: Copy and paste from the local PC to the cloud browser is allowed.
-          // - `write`: Copy and paste from the cloud browser to the local PC is allowed.
-          // - `readwrite`: Bidirectional transfer is allowed.
+          // - `off`: Disabled in both directions.
+          // - `read`: Allows copy and paste from the local PC to the cloud browser.
+          // - `write`: Allows copy and paste from the cloud browser to the local PC.
+          // - `readwrite`: Enabled in both directions.
           shared_ptr<string> textClipboard_ {};
-          // The clipboard size limit for inbound transfer (from the local PC to the cloud browser).
+          // The clipboard size limit for inbound transfer from the local PC to the cloud browser.
           shared_ptr<int32_t> textClipboardReadLimit_ {};
-          // The unit of the clipboard size.
+          // The clipboard size unit. Valid values:
           // 
-          // - `B`: bytes.
+          // - `B`: Bytes.
           // - `KB`: 1024 bytes.
           shared_ptr<string> textClipboardReadSizeUnit_ {};
-          // The clipboard size limit for outbound transfer (from the cloud browser to the local PC).
+          // The clipboard size limit for outbound transfer from the cloud browser to the local PC.
           shared_ptr<int32_t> textClipboardWriteLimit_ {};
-          // The unit of the clipboard size.
+          // The clipboard size unit. Valid values:
           // 
-          // - `B`: bytes.
+          // - `B`: Bytes.
           // - `KB`: 1024 bytes.
           shared_ptr<string> textClipboardWriteSizeUnit_ {};
         };
@@ -617,7 +617,7 @@ namespace Models
 
 
         protected:
-          // The client type.
+          // The client type. Valid values:
           // 
           // - `windows`: Windows client.
           // - `macos`: macOS client.
@@ -626,12 +626,12 @@ namespace Models
           // - `android`: Android client.
           // - `ios`: iOS client.
           // 
-          // This field reflects the existing access configuration and does not indicate that all client types are available for the current product.
+          // This field reflects the existing access configurations and does not indicate that all clients are currently available for the product.
           shared_ptr<string> clientType_ {};
-          // The access policy switch for the client type.
+          // The access policy switch for the client type. Valid values:
           // 
-          // - `on`: Access from this client type is allowed.
-          // - `off`: Access from this client type is denied.
+          // - `on`: Allows access from this type of client.
+          // - `off`: Denies access from this type of client.
           shared_ptr<string> status_ {};
         };
 
@@ -682,21 +682,21 @@ namespace Models
 
 
         protected:
-          // The client source CIDR block that is allowed to access the browser group.
+          // The source CIDR block of the client that is allowed to access.
           shared_ptr<string> cidrIp_ {};
           // The description of the client access rule.
           shared_ptr<string> description_ {};
           // The action of the client access rule.
           // 
-          // - `allow`: Access is allowed.
-          // - `deny`: Access is denied.
+          // - `allow`: allows access.
+          // - `deny`: denies access.
           shared_ptr<string> policy_ {};
         };
 
         virtual bool empty() const override { return this->appContentProtection_ == nullptr
         && this->authorizeAccessPolicyRules_ == nullptr && this->clientTypes_ == nullptr && this->clipboardPolicy_ == nullptr && this->disconnectKeepSession_ == nullptr && this->disconnectKeepSessionTime_ == nullptr
-        && this->fileManager_ == nullptr && this->html5FileTransfer_ == nullptr && this->noOperationDisconnect_ == nullptr && this->noOperationDisconnectTime_ == nullptr && this->policyId_ == nullptr
-        && this->policyVersion_ == nullptr && this->videoPolicy_ == nullptr && this->watermarkPolicy_ == nullptr; };
+        && this->fileManager_ == nullptr && this->html5FileTransfer_ == nullptr && this->multiScreen_ == nullptr && this->noOperationDisconnect_ == nullptr && this->noOperationDisconnectTime_ == nullptr
+        && this->policyId_ == nullptr && this->policyVersion_ == nullptr && this->videoPolicy_ == nullptr && this->watermarkPolicy_ == nullptr; };
         // appContentProtection Field Functions 
         bool hasAppContentProtection() const { return this->appContentProtection_ != nullptr;};
         void deleteAppContentProtection() { this->appContentProtection_ = nullptr;};
@@ -759,6 +759,13 @@ namespace Models
         inline Policy& setHtml5FileTransfer(string html5FileTransfer) { DARABONBA_PTR_SET_VALUE(html5FileTransfer_, html5FileTransfer) };
 
 
+        // multiScreen Field Functions 
+        bool hasMultiScreen() const { return this->multiScreen_ != nullptr;};
+        void deleteMultiScreen() { this->multiScreen_ = nullptr;};
+        inline string getMultiScreen() const { DARABONBA_PTR_GET_DEFAULT(multiScreen_, "") };
+        inline Policy& setMultiScreen(string multiScreen) { DARABONBA_PTR_SET_VALUE(multiScreen_, multiScreen) };
+
+
         // noOperationDisconnect Field Functions 
         bool hasNoOperationDisconnect() const { return this->noOperationDisconnect_ != nullptr;};
         void deleteNoOperationDisconnect() { this->noOperationDisconnect_ = nullptr;};
@@ -806,55 +813,55 @@ namespace Models
 
 
       protected:
-        // The screenshot protection switch.
+        // The screen capture prevention switch.
         // 
-        // - `on`: Screenshot protection is enabled.
-        // - `off`: Screenshot protection is disabled.
+        // - `on`: enables screen capture prevention.
+        // - `off`: disables screen capture prevention.
         shared_ptr<string> appContentProtection_ {};
-        // The client access IP address whitelist rules.
+        // The IP address whitelist rules for client access.
         shared_ptr<vector<Policy::AuthorizeAccessPolicyRules>> authorizeAccessPolicyRules_ {};
         // The list of client access control configurations.
         shared_ptr<vector<Policy::ClientTypes>> clientTypes_ {};
-        // The clipboard transfer direction, content type, and size limit settings. read indicates transfer from the local PC to the cloud browser. write indicates transfer from the cloud browser to the local PC.
+        // Sets the clipboard transfer direction, content type, and size limits. `read` indicates transfer from the local PC to the cloud browser, and `write` indicates transfer from the cloud browser to the local PC.
         shared_ptr<Policy::ClipboardPolicy> clipboardPolicy_ {};
-        // The data retention policy for sessions after disconnection.
+        // The data retention policy after disconnection. Valid values:
         // 
-        // - `customTime`: The session is retained for the duration specified by `DisconnectKeepSessionTime`.
-        // - `persistent`: The session is not subject to automatic release based on disconnection duration.
+        // - `customTime`: Retains the session for the duration specified by `DisconnectKeepSessionTime`.
+        // - `persistent`: No automatic release based on disconnection duration.
         // 
-        // **Note:** The `persistent` option is still subject to authorization and other release policies.
+        // **Note:** `persistent` is still subject to authorization and other release policies.
         shared_ptr<string> disconnectKeepSession_ {};
-        // The session retention duration after disconnection. Unit: seconds. This value is for viewing the configuration only and does not indicate that this parameter can be set through the create operation.
+        // The returned retention duration for disconnected sessions, in seconds. This parameter is for viewing configurations only and does not indicate that the create operation supports setting this parameter.
         shared_ptr<int32_t> disconnectKeepSessionTime_ {};
-        // The floating ball file manager switch.
+        // The floating ball file manager switch. Valid values:
         // 
         // - `on`: Enabled.
         // - `off`: Disabled.
         shared_ptr<string> fileManager_ {};
-        // The file transfer policy for the web client.
+        // The file transfer policy for the web client. Valid values:
         // 
-        // - `off`: Transfer is denied.
-        // - `upload`: Only upload is allowed.
-        // - `download`: Only download is allowed.
-        // - `full`: Both upload and download are allowed.
+        // - `off`: Transfer disabled.
+        // - `upload`: Upload only.
+        // - `download`: Download only.
+        // - `full`: Upload and download allowed.
         // 
-        // Configure this parameter together with the clipboard policy.
+        // Configure this parameter in conjunction with the clipboard policy.
         shared_ptr<string> html5FileTransfer_ {};
-        // The switch for automatic disconnection upon no operation. The value is case-insensitive.
+        // The dual-screen switch for cloud browsers.
+        shared_ptr<string> multiScreen_ {};
+        // Specifies whether to automatically disconnect sessions after a period of inactivity. The value is case-insensitive. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         // 
-        // - `on`: Enabled.
-        // - `off`: Disabled.
-        // 
-        // When enabled, use `NoOperationDisconnectTime` to set the wait duration.
+        // When enabled, use NoOperationDisconnectTime to set the idle timeout period.
         shared_ptr<string> noOperationDisconnect_ {};
-        // The wait duration before disconnection is triggered after no operation, in seconds. Whether this feature is enabled is indicated by `NoOperationDisconnect`.
+        // The idle timeout period in seconds before a session is automatically disconnected. This feature is enabled or disabled by the NoOperationDisconnect parameter.
         shared_ptr<int32_t> noOperationDisconnectTime_ {};
         // The ID of the policy associated with the browser instance group.
         shared_ptr<string> policyId_ {};
-        // The policy version.
-        // 
-        // - `DEFAULT`: Legacy policy.
-        // - `CENTER`: Centralized policy.
+        // The policy version. Valid values:
+        // - DEFAULT: Legacy policy.
+        // - CENTER: Centralized policy.
         shared_ptr<string> policyVersion_ {};
         // The video display policy for browser sessions.
         shared_ptr<Policy::VideoPolicy> videoPolicy_ {};
@@ -900,9 +907,9 @@ namespace Models
 
 
       protected:
-        // The total number of nodes. This field does not apply to MAU scenarios.
+        // The total number of nodes. This parameter is not applicable to the MAU scenario.
         shared_ptr<string> nodeAmount_ {};
-        // The number of used nodes. This field does not apply to MAU scenarios.
+        // The number of used nodes. This parameter is not applicable to the MAU scenario.
         shared_ptr<string> nodeUsed_ {};
       };
 
@@ -944,9 +951,9 @@ namespace Models
 
 
       protected:
-        // The CPU configuration of the node. This field does not apply to MAU scenarios.
+        // The CPU configuration of the node. This parameter is not applicable to the MAU scenario.
         shared_ptr<string> cpu_ {};
-        // The memory configuration of the node. This field does not apply to MAU scenarios.
+        // The memory configuration of the node. This parameter is not applicable to the MAU scenario.
         shared_ptr<int32_t> memory_ {};
       };
 
@@ -1056,16 +1063,16 @@ namespace Models
       protected:
         // The website access restriction mode.
         // 
-        // - `ALLOW_ALL`: All domain names are allowed.
-        // - `ALLOW_LIST`: Only websites in the allowlist are allowed.
+        // - `ALLOW_ALL`: allows all domain names.
+        // - `ALLOW_LIST`: allows only websites in the list.
         // 
-        // The returned value reflects the current configuration of the browser group.
+        // The returned value reflects the current configuration of the browser instance group.
         shared_ptr<string> accessRestriction_ {};
-        // The office network ID to which the browser group belongs.
+        // The ID of the office network to which the browser instance group belongs.
         shared_ptr<string> officeSiteId_ {};
-        // The website access restriction list. A maximum of 20 entries are returned. To query the complete list, call `ListBrowserRestrictedURLs`.
+        // The list of website access restrictions. A maximum of 20 restrictions are returned. To query the complete list, call the `ListBrowserRestrictedURLs` operation.
         shared_ptr<vector<Network::RestrictedURLs>> restrictedURLs_ {};
-        // The list of vSwitch IDs used by the browser group. This is available for scenarios with custom network configurations.
+        // The list of vSwitch IDs used by the browser instance group. This parameter is available for scenarios where custom networks are configured.
         shared_ptr<vector<string>> vSwitchIds_ {};
       };
 
@@ -1134,15 +1141,15 @@ namespace Models
 
 
       protected:
-        // The current payment stage of the plan. This field does not apply to MAU scenarios.
+        // The current payment stage of the package. This parameter is not applicable to the MAU scenario.
         shared_ptr<string> currentPayStage_ {};
-        // The end time of the plan period. This field does not apply to MAU scenarios and is not returned.
+        // The end time of the package cycle. This parameter is not applicable to the MAU scenario and is not returned.
         shared_ptr<string> periodEndTime_ {};
-        // The start time of the plan period. This field does not apply to MAU scenarios and is not returned.
+        // The start time of the package cycle. This parameter is not applicable to the MAU scenario and is not returned.
         shared_ptr<string> periodStartTime_ {};
-        // The total duration of the plan, in seconds. This field does not apply to MAU scenarios.
+        // The total duration of the package, in seconds. This parameter is not applicable to the MAU scenario.
         shared_ptr<int32_t> totalDuration_ {};
-        // The used duration of the plan, in seconds. This field does not apply to MAU scenarios.
+        // The used duration of the package, in seconds. This parameter is not applicable to the MAU scenario.
         shared_ptr<int32_t> usedDuration_ {};
       };
 
@@ -1227,7 +1234,7 @@ namespace Models
 
 
         protected:
-          // The folder in which the bookmark resides.
+          // The folder where the bookmark is located.
           shared_ptr<string> bookmarkFolder_ {};
           // The bookmark ID.
           shared_ptr<string> bookmarkId_ {};
@@ -1270,11 +1277,11 @@ namespace Models
 
 
       protected:
-        // The list of browser bookmarks. A maximum of 20 entries are returned. To query the complete bookmark list, call `ListBrowserBookmarks`.
+        // The list of browser bookmarks. A maximum of 20 bookmarks are returned. To query the complete list of bookmarks, call the `ListBrowserBookmarks` operation.
         shared_ptr<vector<BrowserConfig::Bookmarks>> bookmarks_ {};
-        // The browser startup parameters. For example, `--incognito` specifies the incognito window mode.
+        // The browser startup parameters. For example, `--incognito` specifies an incognito window.
         shared_ptr<string> browserParam_ {};
-        // The cookie synchronization configuration. The string `true` indicates that synchronization is enabled. The string `false` indicates that synchronization is disabled.
+        // The cookie synchronization configuration. A value of `true` indicates that synchronization is enabled, and a value of `false` indicates that synchronization is disabled.
         shared_ptr<string> cookiesSync_ {};
         // The homepage URL that opens when the browser starts.
         shared_ptr<string> homepage_ {};
@@ -1546,78 +1553,75 @@ namespace Models
 
 
     protected:
-      // Indicates whether authorization and deauthorization notification emails are enabled. `true` indicates that the feature is enabled. `false` indicates that the feature is disabled.
+      // Specifies whether authorization and revocation notification emails are enabled. A value of `true` indicates that the feature is enabled, and a value of `false` indicates that the feature is disabled.
       shared_ptr<bool> authNotificationEnabled_ {};
-      // The statistics of authorized users for the browser group.
+      // The statistics of authorized users for the browser instance group.
       shared_ptr<BrowserInstanceGroupModel::AuthorizedUserInfo> authorizedUserInfo_ {};
-      // The business region where the browser group resides.
+      // The business region where the browser instance group is located.
       shared_ptr<string> bizRegionId_ {};
-      // The current browser configuration.
+      // The current configuration of the browser.
       shared_ptr<BrowserInstanceGroupModel::BrowserConfig> browserConfig_ {};
-      // The cloud browser group ID.
+      // The ID of the cloud browser instance group.
       shared_ptr<string> browserInstanceGroupId_ {};
-      // The cloud browser group name.
+      // The name of the cloud browser instance group.
       shared_ptr<string> browserInstanceGroupName_ {};
-      // The ID of the browser group set to which the browser group belongs.
+      // The ID of the browser instance group set to which the browser instance group belongs.
       shared_ptr<string> browserInstanceGroupSetId_ {};
-      // The billing type. In MAU scenarios, `PostPaid` is returned, which indicates the pay-as-you-go billing method.
+      // The billing method. In the monthly active user (MAU) scenario, `PostPaid` is returned, which indicates pay-as-you-go.
       shared_ptr<string> chargeType_ {};
-      // The default access URL of the browser group. Use the URL returned by the API to access the browser group. Replace the resource ID in the example with your actual value.
+      // The default access URL of the browser instance group. Use the actual URL returned by the API operation. Replace the resource ID in the example.
       shared_ptr<string> defaultAccessUrl_ {};
-      // The plan duration information. In MAU scenarios, plan duration does not apply, and an empty object may be returned.
+      // The package duration information. This parameter is not applicable to the MAU scenario and may return an empty object.
       shared_ptr<BrowserInstanceGroupModel::Duration> duration_ {};
-      // The expiration time of the browser group. This field does not apply to MAU scenarios and is not returned.
+      // The expiration time of the browser instance group. This parameter is not applicable to the MAU scenario and is not returned.
       shared_ptr<string> expiredTime_ {};
-      // The creation time of the browser group. The value is an RFC 3339 time string in the `yyyy-MM-ddTHH:mm:ss.SSSXXX` format, which includes milliseconds and a time zone offset. The `+00:00` in the example indicates the UTC time zone.
+      // The creation time of the browser instance group. The time is displayed in the RFC 3339 format `yyyy-MM-ddTHH:mm:ss.SSSXXX`, which includes milliseconds and time zone offset. In the example, `+00:00` indicates the UTC time zone.
       shared_ptr<string> gmtCreate_ {};
-      // The homepage URL of the browser group.
+      // The homepage URL of the browser instance group.
       shared_ptr<string> homepage_ {};
-      // The image ID used by the browser group.
+      // The ID of the image used by the browser instance group.
       shared_ptr<string> imageId_ {};
-      // The instance type used by the browser group.
+      // The instance type used by the browser instance group.
       shared_ptr<string> instanceType_ {};
-      // The maximum number of instances configured for the MAU scenario.
+      // The maximum number of instances configured in the MAU scenario.
       shared_ptr<int32_t> maxAmount_ {};
-      // The office network and website access restriction configuration.
+      // The office network and website access restriction configurations.
       shared_ptr<BrowserInstanceGroupModel::Network> network_ {};
-      // The node specifications information. This field does not apply to MAU scenarios.
+      // The node specifications. This parameter is not applicable to the MAU scenario.
       shared_ptr<BrowserInstanceGroupModel::NodeInstanceType> nodeInstanceType_ {};
-      // The list of node pool information. In MAU scenarios, this field does not apply and an empty list may be returned.
+      // The list of node pool information. This parameter is not applicable to the MAU scenario and may return an empty list.
       shared_ptr<vector<BrowserInstanceGroupModel::NodePool>> nodePool_ {};
-      // The operating system type of the browser group. The current MAU product scenario uses Windows.
+      // The operating system type of the browser instance group. Currently, Windows is used in the MAU scenario.
       shared_ptr<string> osType_ {};
-      // The policy configuration returned for the browser group. The policy fields are used to view existing settings and do not indicate that all corresponding creation parameters are configurable.
+      // The policy configuration returned for the browser instance group. The policy fields are used to view existing settings and do not indicate that all corresponding creation parameters are configurable.
       shared_ptr<BrowserInstanceGroupModel::Policy> policy_ {};
-      // The status of the browser instance group.
-      // 
-      // - `DEPLOYING`: Being deployed.
-      // - `PUBLISHED`: Deployed.
-      // - `FAILED`: Deployment failed.
-      // - `EXPIRED`: Expired.
-      // - `CEASED`: Suspended due to overdue payment.
-      // - `MAINTAINING`: Being updated.
-      // - `MAINTAIN_FAILED`: Update failed.
-      // - `DELETING`: Being deleted.
-      // - `UNAVAILABLE`: Unavailable.
+      // The status of the browser instance group. Valid values:
+      // - DEPLOYING: Publishing.
+      // - PUBLISHED: Published.
+      // - FAILED: Publish failed.
+      // - EXPIRED: Expired.
+      // - CEASED: Suspended due to overdue payment.
+      // - MAINTAINING: Updating.
+      // - MAINTAIN_FAILED: Update failed.
+      // - DELETING: Deleting.
+      // - UNAVAILABLE: Unavailable.
       shared_ptr<string> status_ {};
-      // The sub-billing type. In MAU scenarios, the actual returned value is `mau`, which indicates billing by monthly active users.
+      // The sub-billing type. In the MAU scenario, mau is returned, which indicates billing by monthly active users.
       shared_ptr<string> subPayType_ {};
-      // Indicates whether mixed authorization of users and user groups is supported. `true` indicates supported, and `false` indicates not supported. Evaluate this value based on the current authorization mode.
+      // Specifies whether mixed authorization of users and user groups is supported. A value of true indicates that it is supported, and false indicates that it is not supported. Evaluate this parameter based on the current authorization mode.
       shared_ptr<bool> supportUserGroupMixedAuth_ {};
-      // The version of the browser.
+      // The version of the browser. Valid values:
+      // - Basic: Basic Edition.
+      // - Pro: Premium Edition.
       // 
-      // - `Basic`: Basic Edition.
-      // - `Pro`: Premium Edition.
-      // 
-      // In MAU scenarios, the value is `Pro`.
+      // In the MAU scenario, the value is Pro.
       shared_ptr<string> tier_ {};
-      // The session timer configurations currently returned. These are for viewing the effective settings and do not indicate that the creation API supports setting this parameter.
+      // The session timer configurations returned in the current response. This parameter is used to view the effective settings and does not indicate that the create operation supports configuring this parameter.
       shared_ptr<vector<BrowserInstanceGroupModel::Timers>> timers_ {};
-      // The current authorization mode.
-      // 
-      // - `Mixed`: Mixed authorization of users and user groups.
-      // - `User`: User authorization.
-      // - `UserGroup`: User group authorization.
+      // The current authorization mode. Valid values:
+      // - Mixed: Mixed authorization of users and user groups.
+      // - User: User authorization.
+      // - UserGroup: User group authorization.
       shared_ptr<string> userGroupAuthMode_ {};
       // The user quota information.
       shared_ptr<BrowserInstanceGroupModel::UserLimit> userLimit_ {};
@@ -1642,9 +1646,9 @@ namespace Models
 
 
   protected:
-    // The details of the browser group.
+    // The browser instance group details.
     shared_ptr<GetBrowserInstanceGroupResponseBody::BrowserInstanceGroupModel> browserInstanceGroupModel_ {};
-    // The request ID, which is used for troubleshooting.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

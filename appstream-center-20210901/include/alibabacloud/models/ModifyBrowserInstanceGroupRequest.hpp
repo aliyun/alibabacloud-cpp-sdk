@@ -152,7 +152,7 @@ namespace Models
 
 
     protected:
-      // The user roaming policy.
+      // The user roaming-related policy.
       shared_ptr<StoragePolicy::UserProfile> userProfile_ {};
     };
 
@@ -167,6 +167,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DisconnectKeepSessionTime, disconnectKeepSessionTime_);
         DARABONBA_PTR_TO_JSON(FileManager, fileManager_);
         DARABONBA_PTR_TO_JSON(Html5FileTransfer, html5FileTransfer_);
+        DARABONBA_PTR_TO_JSON(MultiScreen, multiScreen_);
         DARABONBA_PTR_TO_JSON(NoOperationDisconnect, noOperationDisconnect_);
         DARABONBA_PTR_TO_JSON(NoOperationDisconnectTime, noOperationDisconnectTime_);
         DARABONBA_PTR_TO_JSON(PolicyId, policyId_);
@@ -184,6 +185,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DisconnectKeepSessionTime, disconnectKeepSessionTime_);
         DARABONBA_PTR_FROM_JSON(FileManager, fileManager_);
         DARABONBA_PTR_FROM_JSON(Html5FileTransfer, html5FileTransfer_);
+        DARABONBA_PTR_FROM_JSON(MultiScreen, multiScreen_);
         DARABONBA_PTR_FROM_JSON(NoOperationDisconnect, noOperationDisconnect_);
         DARABONBA_PTR_FROM_JSON(NoOperationDisconnectTime, noOperationDisconnectTime_);
         DARABONBA_PTR_FROM_JSON(PolicyId, policyId_);
@@ -319,9 +321,9 @@ namespace Models
 
 
       protected:
-        // The IPv4 address or CIDR block to revoke.
+        // The IPv4 address or CIDR block to be revoked.
         shared_ptr<string> cidrIp_ {};
-        // The description of the access IP address whitelist rule to revoke.
+        // The description of the access IP address whitelist rule to be revoked.
         shared_ptr<string> description_ {};
       };
 
@@ -526,25 +528,25 @@ namespace Models
         shared_ptr<string> richTextClipboard_ {};
         // The rich text clipboard limit.
         shared_ptr<int32_t> richTextClipboardLimit_ {};
-        // The size limit for rich text clipboard data transferred from the cloud.
+        // The rich text clipboard read size.
         shared_ptr<int32_t> richTextClipboardReadLimit_ {};
-        // The size unit for rich text clipboard data transferred from the cloud.
+        // The rich text clipboard read size unit.
         shared_ptr<string> richTextClipboardReadSizeUnit_ {};
         // The rich text clipboard size unit.
         shared_ptr<string> richTextClipboardSizeUnit_ {};
-        // The size limit for rich text clipboard data transferred to the cloud.
+        // The rich text clipboard write size.
         shared_ptr<int32_t> richTextClipboardWriteLimit_ {};
-        // The size unit for rich text clipboard data transferred to the cloud.
+        // The rich text clipboard write size unit.
         shared_ptr<string> richTextClipboardWriteSizeUnit_ {};
         // The text clipboard policy.
         shared_ptr<string> textClipboard_ {};
-        // The size limit for text clipboard data transferred from the cloud.
+        // The text clipboard read size.
         shared_ptr<int32_t> textClipboardReadLimit_ {};
-        // The size unit for text clipboard data transferred from the cloud.
+        // The text clipboard read size unit.
         shared_ptr<string> textClipboardReadSizeUnit_ {};
-        // The size limit for text clipboard data transferred to the cloud.
+        // The text clipboard write size.
         shared_ptr<int32_t> textClipboardWriteLimit_ {};
-        // The size unit for text clipboard data transferred to the cloud.
+        // The text clipboard write size unit.
         shared_ptr<string> textClipboardWriteSizeUnit_ {};
       };
 
@@ -638,8 +640,8 @@ namespace Models
 
       virtual bool empty() const override { return this->appContentProtection_ == nullptr
         && this->authorizeAccessPolicyRules_ == nullptr && this->clientTypes_ == nullptr && this->clipboardPolicy_ == nullptr && this->disconnectKeepSession_ == nullptr && this->disconnectKeepSessionTime_ == nullptr
-        && this->fileManager_ == nullptr && this->html5FileTransfer_ == nullptr && this->noOperationDisconnect_ == nullptr && this->noOperationDisconnectTime_ == nullptr && this->policyId_ == nullptr
-        && this->policyVersion_ == nullptr && this->revokeAccessPolicyRules_ == nullptr && this->videoPolicy_ == nullptr && this->watermarkPolicy_ == nullptr; };
+        && this->fileManager_ == nullptr && this->html5FileTransfer_ == nullptr && this->multiScreen_ == nullptr && this->noOperationDisconnect_ == nullptr && this->noOperationDisconnectTime_ == nullptr
+        && this->policyId_ == nullptr && this->policyVersion_ == nullptr && this->revokeAccessPolicyRules_ == nullptr && this->videoPolicy_ == nullptr && this->watermarkPolicy_ == nullptr; };
       // appContentProtection Field Functions 
       bool hasAppContentProtection() const { return this->appContentProtection_ != nullptr;};
       void deleteAppContentProtection() { this->appContentProtection_ = nullptr;};
@@ -702,6 +704,13 @@ namespace Models
       inline Policy& setHtml5FileTransfer(string html5FileTransfer) { DARABONBA_PTR_SET_VALUE(html5FileTransfer_, html5FileTransfer) };
 
 
+      // multiScreen Field Functions 
+      bool hasMultiScreen() const { return this->multiScreen_ != nullptr;};
+      void deleteMultiScreen() { this->multiScreen_ = nullptr;};
+      inline string getMultiScreen() const { DARABONBA_PTR_GET_DEFAULT(multiScreen_, "") };
+      inline Policy& setMultiScreen(string multiScreen) { DARABONBA_PTR_SET_VALUE(multiScreen_, multiScreen) };
+
+
       // noOperationDisconnect Field Functions 
       bool hasNoOperationDisconnect() const { return this->noOperationDisconnect_ != nullptr;};
       void deleteNoOperationDisconnect() { this->noOperationDisconnect_ = nullptr;};
@@ -758,31 +767,33 @@ namespace Models
 
 
     protected:
-      // Specifies whether to enable screenshot protection.
+      // Specifies whether to enable screen capture prevention.
       shared_ptr<string> appContentProtection_ {};
       // The server-side access IP address whitelist.
       shared_ptr<vector<Policy::AuthorizeAccessPolicyRules>> authorizeAccessPolicyRules_ {};
-      // The client type access control settings.
+      // The logon client type control.
       shared_ptr<vector<Policy::ClientTypes>> clientTypes_ {};
-      // The clipboard-related policy.
+      // The clipboard policies.
       shared_ptr<Policy::ClipboardPolicy> clipboardPolicy_ {};
-      // The data retention policy after disconnection.
+      // The data retention policy upon disconnection.
       shared_ptr<string> disconnectKeepSession_ {};
-      // The session retention duration after disconnection.
+      // The session retention duration upon disconnection.
       shared_ptr<int32_t> disconnectKeepSessionTime_ {};
-      // Specifies whether to enable the floating ball file manager.
+      // The floating ball file manager switch.
       shared_ptr<string> fileManager_ {};
       // The file transfer policy for the web client.
       shared_ptr<string> html5FileTransfer_ {};
-      // Specifies whether to disconnect the session when no operation is performed.
+      // The cloud browser dual-screen switch.
+      shared_ptr<string> multiScreen_ {};
+      // The no-operation disconnect policy.
       shared_ptr<string> noOperationDisconnect_ {};
-      // The idle timeout period before the session is disconnected, in seconds.
+      // The no-operation disconnect time in seconds.
       shared_ptr<int32_t> noOperationDisconnectTime_ {};
       // The policy ID.
       shared_ptr<string> policyId_ {};
       // The policy version.
       shared_ptr<string> policyVersion_ {};
-      // The server access IP address whitelist rules to revoke.
+      // The server access IP address whitelist to be revoked.
       shared_ptr<vector<Policy::RevokeAccessPolicyRules>> revokeAccessPolicyRules_ {};
       // The video policy.
       shared_ptr<Policy::VideoPolicy> videoPolicy_ {};
@@ -853,7 +864,7 @@ namespace Models
 
 
       protected:
-        // The domain name configuration ID. This parameter is required only when you modify an existing configuration.
+        // The ID of the domain name configuration. This parameter is required only when you modify the configuration.
         shared_ptr<string> restrictedURLId_ {};
         // The domain name.
         shared_ptr<string> URL_ {};
@@ -894,13 +905,13 @@ namespace Models
 
 
     protected:
-      // The access restriction type.
+      // The type of access restriction.
       shared_ptr<string> accessRestriction_ {};
       // The list of domain names to remove.
       shared_ptr<vector<string>> removeRestrictedURLIds_ {};
       // The restricted domain name configurations.
       shared_ptr<vector<Network::RestrictedURLs>> restrictedURLs_ {};
-      // The file path of the restricted URLs.
+      // The file path for network-restricted URLs.
       shared_ptr<string> restrictedURLsFilePath_ {};
     };
 
@@ -991,7 +1002,7 @@ namespace Models
       protected:
         // The folder to which the bookmark belongs.
         shared_ptr<string> bookmarkFolder_ {};
-        // The bookmark ID. This parameter is required only for update operations.
+        // The bookmark ID. This parameter is required only for modification scenarios.
         shared_ptr<string> bookmarkId_ {};
         // The bookmark name.
         // 
@@ -1054,15 +1065,15 @@ namespace Models
     protected:
       // The bookmarks.
       shared_ptr<vector<BrowserConfig::Bookmarks>> bookmarks_ {};
-      // The bookmark list file path.
+      // The file path of the bookmark list.
       shared_ptr<string> bookmarksFilePath_ {};
       // The startup parameters.
       shared_ptr<string> browserParam_ {};
-      // Specifies whether to enable cookies synchronization.
+      // Specifies whether to enable cookie synchronization.
       shared_ptr<bool> cookiesSync_ {};
       // The homepage.
       shared_ptr<string> homepage_ {};
-      // The list of bookmarks to remove.
+      // The list of bookmarks to be removed.
       shared_ptr<vector<string>> removeBookmarks_ {};
     };
 
@@ -1147,21 +1158,21 @@ namespace Models
     shared_ptr<bool> authNotificationEnabled_ {};
     // The browser configuration.
     shared_ptr<ModifyBrowserInstanceGroupRequest::BrowserConfig> browserConfig_ {};
-    // The ID of the cloud browser to modify.
+    // The ID of the cloud browser.
     // 
     // This parameter is required.
     shared_ptr<string> browserInstanceGroupId_ {};
     // The name of the cloud browser.
     shared_ptr<string> cloudBrowserName_ {};
-    // The maximum resource count. This parameter takes effect for monthly active pay-as-you-go billing.
+    // The maximum resource count. This parameter takes effect only for the pay-as-you-go billing method based on monthly active users.
     shared_ptr<int32_t> maxAmount_ {};
-    // The network configuration.
+    // The network configurations.
     shared_ptr<ModifyBrowserInstanceGroupRequest::Network> network_ {};
     // The access policy.
     shared_ptr<ModifyBrowserInstanceGroupRequest::Policy> policy_ {};
     // The storage-related policy.
     shared_ptr<ModifyBrowserInstanceGroupRequest::StoragePolicy> storagePolicy_ {};
-    // The timers.
+    // The timer.
     shared_ptr<vector<ModifyBrowserInstanceGroupRequest::Timers>> timers_ {};
   };
 

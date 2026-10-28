@@ -161,9 +161,9 @@ namespace Models
 
 
           protected:
-            // The list of request modalities (such as Text, Image, and Audio).
+            // The list of request modalities, such as Text, Image, and Audio.
             shared_ptr<vector<string>> requestModality_ {};
-            // The list of response modalities (such as Text, Image, and Audio).
+            // The list of response modalities, such as Text, Image, and Audio.
             shared_ptr<vector<string>> responseModality_ {};
           };
 
@@ -205,9 +205,9 @@ namespace Models
 
 
           protected:
-            // The maximum multiplier. A null value indicates no upper limit. For example, Min=1 with a null Max is displayed as 1x and above.
+            // The upper limit of the multiplier. If this parameter is empty, it indicates that there is no upper limit. For example, if Min is 1 and Max is empty, it is displayed as 1x and above.
             shared_ptr<float> max_ {};
-            // The minimum multiplier. When equal to Max, the multiplier is fixed. For example, Min=Max=2 is displayed as 2x.
+            // The lower limit of the multiplier. When it is equal to Max, it is a fixed multiplier. For example, if Min and Max are both 2, it is displayed as 2x.
             shared_ptr<float> min_ {};
           };
 
@@ -277,21 +277,21 @@ namespace Models
 
 
         protected:
-          // The credit consumption multiplier. A null value indicates that the model does not participate in credit-based billing.
+          // The credit consumption multiplier. If this parameter is empty, it indicates that the model does not participate in credit billing.
           shared_ptr<LlmInfoList::CreditMultiplier> creditMultiplier_ {};
           // The model description.
           shared_ptr<string> description_ {};
-          // The list of model features (such as function-calling, web-search, and structured-outputs).
+          // The list of model features, such as function-calling, web-search, and structured-outputs.
           shared_ptr<vector<string>> features_ {};
-          // The inference metadata (request and response modalities).
+          // The inference metadata, including request and response modalities.
           shared_ptr<LlmInfoList::InferenceMetadata> inferenceMetadata_ {};
           // The model code.
           shared_ptr<string> llmCode_ {};
           // The model name.
           shared_ptr<string> name_ {};
-          // The publish time (ISO 8601 format).
+          // The published time in ISO 8601 format.
           shared_ptr<string> publishedTime_ {};
-          // The model risk type (returned only when the request parameter IncludeRiskInfo is set to true).
+          // The model risk type. This parameter is returned only when the IncludeRiskInfo request parameter is set to true.
           shared_ptr<string> riskType_ {};
         };
 
@@ -330,11 +330,11 @@ namespace Models
       protected:
         // The list of model information.
         shared_ptr<vector<ModelProviderList::LlmInfoList>> llmInfoList_ {};
-        // The model provider template ID.
+        // The ID of the model provider template.
         shared_ptr<string> modelProviderTemplateId_ {};
-        // The model provider template name.
+        // The name of the model provider template.
         shared_ptr<string> name_ {};
-        // The model provider name.
+        // The name of the model provider.
         shared_ptr<string> providerName_ {};
       };
 
@@ -385,17 +385,17 @@ namespace Models
 
 
     protected:
-      // The default model (format: providerName/llmCode).
+      // The default model, in the format of providerName/llmCode.
       shared_ptr<string> defaultModel_ {};
       // The list of model providers.
       shared_ptr<vector<Data::ModelProviderList>> modelProviderList_ {};
-      // The configured model group ID.
+      // The ID of the configured model group.
       shared_ptr<string> modelTemplateId_ {};
-      // The model group name.
+      // The name of the model group.
       shared_ptr<string> modelTemplateName_ {};
-      // The model template association type (only when present).
+      // The model template association type.
       shared_ptr<string> modelTemplateRefType_ {};
-      // The resource group ID to which the runtime belongs (null if not assigned to a resource group).
+      // The ID of the resource group to which the runtime belongs. If the runtime does not belong to any resource group, the value is null.
       shared_ptr<string> resourceGroupId_ {};
     };
 

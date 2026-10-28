@@ -223,6 +223,9 @@
 #include <alibabacloud/models/ModifyNodePoolAttributeShrinkRequest.hpp>
 #include <alibabacloud/models/ModifyNodePoolAttributeResponseBody.hpp>
 #include <alibabacloud/models/ModifyNodePoolAttributeResponse.hpp>
+#include <alibabacloud/models/ModifyShareImageRequest.hpp>
+#include <alibabacloud/models/ModifyShareImageResponseBody.hpp>
+#include <alibabacloud/models/ModifyShareImageResponse.hpp>
 #include <alibabacloud/models/ModifyTenantConfigRequest.hpp>
 #include <alibabacloud/models/ModifyTenantConfigResponseBody.hpp>
 #include <alibabacloud/models/ModifyTenantConfigResponse.hpp>

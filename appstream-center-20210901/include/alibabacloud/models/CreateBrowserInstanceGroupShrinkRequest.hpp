@@ -281,98 +281,90 @@ namespace Models
 
 
   protected:
-    // The plan identifier.
+    // The package identifier.
     // 
-    // Do not specify this parameter.
+    // You do not need to specify this parameter.
     shared_ptr<string> appPackageType_ {};
-    // Specifies whether to send authorization and deauthorization notification emails.
-    // 
-    // - `true`: Sends the notification.
-    // - `false`: Does not send the notification.
+    // Specifies whether to send notification emails for authorization and deauthorization.
+    // - `true`: Sends notification emails.
+    // - `false`: Does not send notification emails.
     shared_ptr<bool> authNotificationEnabled_ {};
     // The automatic payment parameter.
     // 
-    // Do not specify this parameter.
+    // You do not need to specify this parameter.
     shared_ptr<bool> autoPay_ {};
     // The auto-renewal parameter.
     // 
-    // Do not specify this parameter.
+    // You do not need to specify this parameter.
     shared_ptr<bool> autoRenew_ {};
-    // The business region ID. This parameter is required.
+    // The identifier of the business region. This parameter is required.
     // 
     // This parameter is required.
     shared_ptr<string> bizRegionId_ {};
     // The browser configuration.
     shared_ptr<string> browserConfigShrink_ {};
-    // The resource billing mode.
-    // 
-    // **For MAU scenarios:** Set this parameter to `AppInstance` to bill by instance resource.
+    // The resource billing method.
+    // **For MAU scenarios:** Set this parameter to `AppInstance`, which indicates billing by instance resources.
     shared_ptr<string> chargeResourceMode_ {};
-    // The billing type.
+    // The billing method.
     // 
-    // **For MAU scenarios:** Set this parameter to `PostPaid`, which indicates pay-as-you-go billing.
+    // **For MAU scenarios:** Set this parameter to PostPaid, which indicates pay-as-you-go.
     shared_ptr<string> chargeType_ {};
-    // The name of the cloud browser group. This parameter cannot be empty. The name is used to distinguish different browser groups in business management scenarios.
+    // The name of the cloud browser group. This parameter cannot be empty. It is used to distinguish different browser groups in business management scenarios.
     // 
     // This parameter is required.
     shared_ptr<string> cloudBrowserName_ {};
-    // The image identifier used by the cloud browser. The image must be compatible with the operating system.
-    // 
+    // The image ID used by the cloud browser. The image must be compatible with the operating system.
     // If this parameter is omitted, the default image available for the account is used. If no default image is available, the creation may fail.
-    // 
-    // **Usage condition:** When `CookiesSync` is enabled, explicitly specify an image that supports cookie synchronization.
+    // **Usage conditions:** When CookiesSync is enabled, explicitly specify an image that supports cookie synchronization.
     shared_ptr<string> imageId_ {};
     // The instance type identifier. Select an instance type that matches the target region, operating system, and inventory conditions.
-    // 
     // If this parameter is omitted, the default instance type is used.
     shared_ptr<string> instanceType_ {};
-    // The capacity configuration for the MAU billing scenario.
+    // The capacity configuration in MAU billing scenarios.
     shared_ptr<int32_t> maxAmount_ {};
-    // The office network and website access restriction configurations. The selected office network must belong to the current account and be located in the region specified by `BizRegionId`.
+    // The configurations for the office network and website access restrictions. The selected office network must belong to the current account and reside in the region specified by BizRegionId.
     shared_ptr<string> networkShrink_ {};
     // The node pool configuration.
-    // 
     // You do not need to specify this parameter.
     shared_ptr<string> nodePoolShrink_ {};
     // The operating system type. This parameter is required.
-    // 
     // Only `Windows` is supported. Other operating systems are not supported.
     shared_ptr<string> osType_ {};
-    // The number of subscription periods.
+    // The number of billing cycles for the purchase.
     // 
-    // Do not specify this parameter.
+    // You do not need to specify this parameter.
     shared_ptr<int32_t> period_ {};
-    // The unit of the subscription period.
+    // The unit of the billing cycle for the purchase.
     // 
-    // Do not specify this parameter.
+    // You do not need to specify this parameter.
     shared_ptr<string> periodUnit_ {};
-    // The clipboard, video, watermark, session, and client access policy configurations.
+    // Configures policies for the clipboard, video, watermark, session, and client access.
     shared_ptr<string> policyShrink_ {};
-    // The promotion ID. Specifies the promotional campaign to apply to the order.
+    // The promotion identifier, which is used to specify the promotional offer applied to the order.
     // 
-    // Whether the promotion is applicable depends on the campaign rules. Do not specify this parameter if no promotional campaign is used.
+    // Applicability and specific discounts are subject to the promotion rules. You do not need to specify this parameter if no promotional offer is applied.
     shared_ptr<string> promotionId_ {};
-    // The connection security policy for the browser group.
+    // The connection security policy of the browser group.
     shared_ptr<string> securityPolicyShrink_ {};
-    // The user data storage configuration for the browser group.
+    // The user data storage configuration of the browser group.
     shared_ptr<string> storagePolicyShrink_ {};
-    // The billing subtype.
+    // The billing sub-type.
     // 
-    // **Set this parameter to `mau` explicitly, which indicates billing by monthly active users.** Omitting this field does not enable MAU billing.
+    // **You must explicitly set this parameter to mau, which indicates billing by monthly active users (MAUs).** Omitting this parameter does not enable MAU billing.
     shared_ptr<string> subPayType_ {};
-    // Not supported. You do not need to specify this parameter.
+    // This parameter is not supported and does not need to be specified.
     shared_ptr<string> tagShrink_ {};
-    // Not supported. You do not need to specify this parameter.
+    // This parameter is not supported and does not need to be specified.
     shared_ptr<string> timersShrink_ {};
-    // The list of authorized user group identifiers. A maximum of 10 items are supported. The user groups must belong to the current account and match the workspace network account type.
-    // 
-    // **Limit:** Cannot be specified together with a non-empty `Users`.
+    // The list of authorized user group IDs. You can specify up to 10 IDs. The user groups must belong to the current account and match the account type of the office network.
+    // **Limits:** This parameter cannot be specified together with a non-empty Users parameter.
     shared_ptr<vector<string>> userGroupIds_ {};
-    // The authorized user account information. The value must match the user and workspace network type.
+    // The authorized user account information. The information must match the user and office network types.
     shared_ptr<string> userInfoShrink_ {};
-    // The list of authorized users. A maximum of 200 users can be specified. Users must be created in advance and must match the account type.
+    // The list of authorized users. You can specify up to 200 users. The users must be created in advance and match the account type.
     // 
-    // **Restriction:** This parameter cannot be specified together with a non-empty `UserGroupIds`.
+    // **Limit:** This parameter cannot be specified together with a non-empty UserGroupIds parameter.
     shared_ptr<string> usersShrink_ {};
   };
 

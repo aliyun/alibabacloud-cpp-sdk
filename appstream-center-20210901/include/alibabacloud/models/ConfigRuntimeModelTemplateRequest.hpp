@@ -64,11 +64,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> modelTemplateId_ {};
-    // The list of Agent runtime IDs.
+    // The list of agent runtime IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> runtimeIds_ {};
-    // The Agent runtime type.
+    // The agent runtime type.
     // 
     // This parameter is required.
     shared_ptr<string> runtimeType_ {};

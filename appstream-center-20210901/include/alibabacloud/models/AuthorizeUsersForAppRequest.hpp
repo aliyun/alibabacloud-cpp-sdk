@@ -78,7 +78,7 @@ namespace Models
 
 
     protected:
-      // The AD domain name. Specify this parameter when Type is set to ad. The value must match the AD domain bound to the workspace of the delivery group.
+      // The AD domain name. This parameter is required when Type is set to ad, and the value must be the same as the AD domain bound to the workspace to which the app instance group belongs.
       shared_ptr<string> adDomain_ {};
       // The account type. Default value: simple.
       // 
@@ -140,36 +140,36 @@ namespace Models
 
 
   protected:
-    // The application ID. The application must be deployed in the image used by the delivery group. You can obtain the ID from the Apps list returned by the [GetAppInstanceGroup](https://help.aliyun.com/document_detail/600836.html) operation.
+    // The ID of the application. The application must be deployed in the image used by the app instance group. You can obtain the application ID from the Apps list returned by the [GetAppInstanceGroup](https://help.aliyun.com/document_detail/600836.html) operation.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The delivery group ID. You can call the [ListAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) operation to obtain the ID.
+    // The ID of the app instance group. You can call the [ListAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) operation to query the ID.
     // 
-    // The application specified by AppId must be deployed in the image used by this delivery group.
+    // The application specified by AppId must be deployed in the image used by the app instance group.
     // 
     // This parameter is required.
     shared_ptr<string> appInstanceGroupId_ {};
-    // The list of usernames to add authorization for the application. A maximum of 100 usernames can be specified in a single request.
+    // The list of usernames of the users to be authorized for the application. You can specify up to 100 usernames in a single call.
     // 
-    // At least one of AuthorizeUserIds and UnAuthorizeUserIds must be specified. You can also specify both. Adding authorization is subject to the authorized user quota for the application.
+    // You must specify at least one of AuthorizeUserIds and UnAuthorizeUserIds, or specify both. Adding authorization is subject to the authorized user quota limit of the application.
     shared_ptr<vector<string>> authorizeUserIds_ {};
-    // The product type. Application-level authorization applies to WUYING Cloud Application delivery groups.
+    // The product type. Application-level authorization applies to WUYING Cloud App app instance groups.
     // 
     // Valid values:
     // 
-    // - CloudApp: WUYING Cloud Application.
+    // - CloudApp: WUYING Cloud App.
     // 
     // This parameter is required.
     shared_ptr<string> productType_ {};
-    // The list of usernames to be unauthorized for the application. A maximum of 100 usernames can be specified in a single request.
+    // The list of usernames of the users whose authorization for the application is to be removed. You can specify up to 100 usernames in a single call.
     // 
-    // At least one of AuthorizeUserIds and UnAuthorizeUserIds must be specified. You can also specify both. Removing authorizations is not subject to quota limits.
+    // You must specify at least one of AuthorizeUserIds and UnAuthorizeUserIds, or specify both. Removing authorization is not subject to quota limits.
     shared_ptr<vector<string>> unAuthorizeUserIds_ {};
-    // The account information of the authorized user, which specifies the account type corresponding to the username.
+    // The account information of the authorized user, which is used to specify the account type corresponding to the username.
     // 
-    // - If the workspace to which the delivery group belongs is an AD workspace, **this parameter is required**: set Type to ad and set AdDomain to the AD domain bound to the workspace.
-    // - If this parameter is not specified, the WUYING convenience account (simple) is used by default.
+    // - **Required** if the workspace to which the app instance group belongs is an AD workspace: Set Type to ad, and set AdDomain to the AD domain bound to the workspace.
+    // - If this parameter is not specified, the default account type is WUYING convenience account (simple).
     shared_ptr<AuthorizeUsersForAppRequest::UserMeta> userMeta_ {};
   };
 

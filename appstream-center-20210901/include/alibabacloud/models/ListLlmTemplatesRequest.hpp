@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListLlmTemplatesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BizType, bizType_);
+      DARABONBA_PTR_TO_JSON(Language, language_);
       DARABONBA_PTR_TO_JSON(LlmCode, llmCode_);
       DARABONBA_PTR_TO_JSON(LlmTemplateIds, llmTemplateIds_);
       DARABONBA_PTR_TO_JSON(ModelTemplateId, modelTemplateId_);
@@ -25,6 +26,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ListLlmTemplatesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BizType, bizType_);
+      DARABONBA_PTR_FROM_JSON(Language, language_);
       DARABONBA_PTR_FROM_JSON(LlmCode, llmCode_);
       DARABONBA_PTR_FROM_JSON(LlmTemplateIds, llmTemplateIds_);
       DARABONBA_PTR_FROM_JSON(ModelTemplateId, modelTemplateId_);
@@ -45,13 +47,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizType_ == nullptr
-        && this->llmCode_ == nullptr && this->llmTemplateIds_ == nullptr && this->modelTemplateId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
-        && this->providerTemplateId_ == nullptr && this->smartModel_ == nullptr; };
+        && this->language_ == nullptr && this->llmCode_ == nullptr && this->llmTemplateIds_ == nullptr && this->modelTemplateId_ == nullptr && this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr && this->providerTemplateId_ == nullptr && this->smartModel_ == nullptr; };
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};
     inline int32_t getBizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, 0) };
     inline ListLlmTemplatesRequest& setBizType(int32_t bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
+
+
+    // language Field Functions 
+    bool hasLanguage() const { return this->language_ != nullptr;};
+    void deleteLanguage() { this->language_ = nullptr;};
+    inline string getLanguage() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
+    inline ListLlmTemplatesRequest& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
 
 
     // llmCode Field Functions 
@@ -108,23 +117,28 @@ namespace Models
   protected:
     // The business type. This parameter is required when SmartModel is set to true.
     shared_ptr<int32_t> bizType_ {};
-    // The model code used for filtering. Fuzzy match is supported.
+    // The display language of the model. Valid values:
+    // - zh-CN: Simplified Chinese.
+    // - en-US: English.
+    // - ja-JP: Japanese.
+    // - zh-TW: Traditional Chinese.
+    // Default value: zh-CN. Currently, zh-TW returns Simplified Chinese, and ja-JP returns English. If the model is not included in Alibaba Cloud Model Studio or the English text is missing, the original source text is retained without automatic translation.
+    shared_ptr<string> language_ {};
+    // The model code for filtering. Fuzzy match is supported.
     shared_ptr<string> llmCode_ {};
-    // The model template IDs used for filtering.
+    // The model template IDs for filtering.
     shared_ptr<vector<string>> llmTemplateIds_ {};
-    // The ID of the associated model group.
+    // The associated model group ID.
     shared_ptr<string> modelTemplateId_ {};
-    // The page number. Pages start from page 1. Both 0 and 1 return the same result.
+    // The page number. Pages start from 1. A value of 0 returns the same result as 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the model provider template.
+    // The model provider template ID.
     shared_ptr<string> providerTemplateId_ {};
     // Specifies whether to query smart models. Valid values:
-    // 
-    // - true: Only LLMs under system preset smart models are returned. In this case, BizType is required.
-    // - false: Smart model filtering is not applied.
-    // 
+    // - true: Only LLMs under system-preset smart models are returned. In this case, BizType is required.
+    // - false: Smart models are not specifically filtered.
     // Default value: false.
     shared_ptr<bool> smartModel_ {};
   };

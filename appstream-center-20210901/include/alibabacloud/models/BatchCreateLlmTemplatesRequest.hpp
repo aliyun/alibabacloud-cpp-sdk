@@ -99,13 +99,13 @@ namespace Models
 
 
     protected:
-      // The model configuration JSON object.
+      // The JSON object for model configuration.
       shared_ptr<string> config_ {};
       // The model description.
       shared_ptr<string> description_ {};
-      // Specifies whether to set the model as the default model. A model group can have at most one default model.
+      // Specifies whether to set the model as the default model. Each model group can have at most one default model.
       shared_ptr<bool> isDefaultModel_ {};
-      // The model code, which must be unique within the same provider.
+      // The model code. It must be unique under the same provider.
       shared_ptr<string> llmCode_ {};
       // The model name.
       shared_ptr<string> name_ {};
@@ -137,11 +137,11 @@ namespace Models
 
 
   protected:
-    // The list of model configurations to create.
+    // The list of model configurations to be created.
     shared_ptr<vector<BatchCreateLlmTemplatesRequest::LlmTemplateItems>> llmTemplateItems_ {};
     // The ID of the associated model group.
     shared_ptr<string> modelTemplateId_ {};
-    // The ID of the model provider template to which the models belong.
+    // The ID of the model provider template to which the model templates belong.
     // 
     // This parameter is required.
     shared_ptr<string> providerTemplateId_ {};

@@ -106,13 +106,13 @@ namespace Models
 
 
   protected:
-    // The Agent platform.
+    // The agent platform.
     shared_ptr<string> agentPlatform_ {};
-    // The Agent provider.
+    // The agent provider.
     // 
-    // - JVS Computer: set to OpenClaw.
-    // - OpenClaw: set to OpenClaw.
-    // - Hermes Agent: set to HermesAgent.
+    // - JVS Computer: Set to OpenClaw.
+    // - OpenClaw: Set to OpenClaw.
+    // - Hermes Agent: Set to HermesAgent.
     // 
     // This parameter is required.
     shared_ptr<string> agentProvider_ {};
@@ -120,9 +120,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> code_ {};
-    // The channel configuration JSON string.
+    // The JSON string for channel configuration.
     // 
-    // - Simple configuration mode example:
+    // - Example of the simple configuration mode:
     // ```json
     // {
     //     "appKey": "abc",
@@ -130,7 +130,7 @@ namespace Models
     // }
     // ```
     // 
-    // - Custom configuration mode example:
+    // - Example of the custom configuration mode:
     // ```json
     // {
     //   "enabled": true,
@@ -145,13 +145,13 @@ namespace Models
     shared_ptr<string> configMode_ {};
     // The channel name.
     // 
-    // If you leave this parameter empty, the system automatically uses the value of Code as the name.
+    // If you do not specify this parameter, the system automatically uses the value of Code as the name.
     shared_ptr<string> name_ {};
     // The list of runtime IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> runtimeIds_ {};
-    // The Agent runtime type.
+    // The agent runtime type.
     // 
     // This parameter is required.
     shared_ptr<string> runtimeType_ {};

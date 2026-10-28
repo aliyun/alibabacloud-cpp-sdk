@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(IncludeRiskInfo, includeRiskInfo_);
       DARABONBA_PTR_TO_JSON(RuntimeId, runtimeId_);
       DARABONBA_PTR_TO_JSON(RuntimeType, runtimeType_);
+      DARABONBA_PTR_TO_JSON(SmartModel, smartModel_);
     };
     friend void from_json(const Darabonba::Json& j, GetRuntimeModelConfigRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AgentPlatform, agentPlatform_);
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(IncludeRiskInfo, includeRiskInfo_);
       DARABONBA_PTR_FROM_JSON(RuntimeId, runtimeId_);
       DARABONBA_PTR_FROM_JSON(RuntimeType, runtimeType_);
+      DARABONBA_PTR_FROM_JSON(SmartModel, smartModel_);
     };
     GetRuntimeModelConfigRequest() = default ;
     GetRuntimeModelConfigRequest(const GetRuntimeModelConfigRequest &) = default ;
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentPlatform_ == nullptr
-        && this->agentProvider_ == nullptr && this->includeRiskInfo_ == nullptr && this->runtimeId_ == nullptr && this->runtimeType_ == nullptr; };
+        && this->agentProvider_ == nullptr && this->includeRiskInfo_ == nullptr && this->runtimeId_ == nullptr && this->runtimeType_ == nullptr && this->smartModel_ == nullptr; };
     // agentPlatform Field Functions 
     bool hasAgentPlatform() const { return this->agentPlatform_ != nullptr;};
     void deleteAgentPlatform() { this->agentPlatform_ = nullptr;};
@@ -74,29 +76,42 @@ namespace Models
     inline GetRuntimeModelConfigRequest& setRuntimeType(string runtimeType) { DARABONBA_PTR_SET_VALUE(runtimeType_, runtimeType) };
 
 
+    // smartModel Field Functions 
+    bool hasSmartModel() const { return this->smartModel_ != nullptr;};
+    void deleteSmartModel() { this->smartModel_ = nullptr;};
+    inline bool getSmartModel() const { DARABONBA_PTR_GET_DEFAULT(smartModel_, false) };
+    inline GetRuntimeModelConfigRequest& setSmartModel(bool smartModel) { DARABONBA_PTR_SET_VALUE(smartModel_, smartModel) };
+
+
   protected:
-    // The Agent platform.
+    // The agent platform.
     shared_ptr<string> agentPlatform_ {};
-    // The Agent provider.
+    // The agent provider.
     // 
     // This parameter is required.
     shared_ptr<string> agentProvider_ {};
     // Specifies whether to include risk information.
     shared_ptr<bool> includeRiskInfo_ {};
-    // The Agent runtime ID. The ID mappings are as follows:
+    // The ID of the agent runtime. The ID mappings are as follows:
     // 
     // JVS Computer: JVS Computer ID, in the format of jvs-xxxx.
     // 
-    // OpenClaw: Cloud computer ID, in the format of ecd-xxxx.
+    // OpenClaw: Cloud desktop ID, in the format of ecd-xxxx.
     // 
     // Hermes Agent: Hermes Agent ID, in the format of jvs-xxxx.
     // 
     // This parameter is required.
     shared_ptr<string> runtimeId_ {};
-    // The Agent runtime type.
+    // The type of the agent runtime.
     // 
     // This parameter is required.
     shared_ptr<string> runtimeType_ {};
+    // The smart model filter. Valid values:
+    // - true: Queries the system wuying-preset provider models based on the business type of the runtime.
+    // - false: Excludes wuying-preset from the effective configuration.
+    // - Empty: Returns both smart and non-smart models in the effective configuration.
+    // The business type is read by the server from runtime.biz_type, and the BizType input parameter is not required. Risk information is still independently controlled by IncludeRiskInfo.
+    shared_ptr<bool> smartModel_ {};
   };
 
   } // namespace Models

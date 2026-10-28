@@ -116,21 +116,21 @@ namespace Models
     shared_ptr<bool> authNotificationEnabled_ {};
     // The browser configuration.
     shared_ptr<string> browserConfigShrink_ {};
-    // The ID of the cloud browser to modify.
+    // The ID of the cloud browser.
     // 
     // This parameter is required.
     shared_ptr<string> browserInstanceGroupId_ {};
     // The name of the cloud browser.
     shared_ptr<string> cloudBrowserName_ {};
-    // The maximum resource count. This parameter takes effect for monthly active pay-as-you-go billing.
+    // The maximum resource count. This parameter takes effect only for the pay-as-you-go billing method based on monthly active users.
     shared_ptr<int32_t> maxAmount_ {};
-    // The network configuration.
+    // The network configurations.
     shared_ptr<string> networkShrink_ {};
     // The access policy.
     shared_ptr<string> policyShrink_ {};
     // The storage-related policy.
     shared_ptr<string> storagePolicyShrink_ {};
-    // The timers.
+    // The timer.
     shared_ptr<string> timersShrink_ {};
   };
 
