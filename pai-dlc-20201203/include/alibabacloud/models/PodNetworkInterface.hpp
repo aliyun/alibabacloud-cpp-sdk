@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The name of the network interface.
     shared_ptr<string> interfaceName_ {};
+    // The IP address of the network interface.
     shared_ptr<string> ip_ {};
   };
 

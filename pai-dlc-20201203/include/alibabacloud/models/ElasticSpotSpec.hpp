@@ -66,17 +66,13 @@ namespace Models
 
 
   protected:
-    // The spot instance type.
+    // The instance type.
     shared_ptr<string> instanceType_ {};
-    // The maximum discount percentage for the spot instance. The system does not select an instance if its discount exceeds this limit. For example, if you set this parameter to `90`, the system considers only instances with a discount of 90% or less.
+    // The maximum discount.
     shared_ptr<double> spotDiscountLimit_ {};
-    // The maximum hourly price you are willing to pay for a spot instance. If omitted, the on-demand price is the default.
+    // The maximum bid price.
     shared_ptr<double> spotPriceLimit_ {};
-    // The strategy for allocating spot instances. Valid values:
-    // 
-    // - `LowestPrice`: Launches instances from the spot capacity pool offering the lowest price. This is the default strategy.
-    // 
-    // - `CapacityOptimized`: Launches instances from the spot capacity pool offering optimal capacity.
+    // The spot strategy.
     shared_ptr<string> spotStrategy_ {};
   };
 

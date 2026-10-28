@@ -82,10 +82,10 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Creates a job and runs it in a cluster. You can specify the datasource config, code source configuration, startup command, and compute resource configuration for each node of the job.
+ * @summary Creates a job to run in a cluster. You can specify configurations such as datasource config, code sources, startup commands, and compute resources for each node where the job runs.
  *
- * @description Before you call this operation, make sure that you fully understand the billing of PAI-DLC and its [pricing](https://help.aliyun.com/document_detail/171758.html).
- * >Notice: The total length of CreateJob request parameters, including system-generated parameters, cannot exceed 65,536 bytes.
+ * @description Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
+ * >Notice: The total length of the CreateJob operation parameters, including system-generated parameters, cannot exceed 65,536 bytes.
  *
  * @param request CreateJobRequest
  * @param headers map
@@ -125,6 +125,10 @@ CreateJobResponse Client::createJobWithOptions(const CreateJobRequest &request, 
 
   if (!!request.hasDisplayName()) {
     body["DisplayName"] = request.getDisplayName();
+  }
+
+  if (!!request.hasDryRun()) {
+    body["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasElasticSpec()) {
@@ -218,10 +222,10 @@ CreateJobResponse Client::createJobWithOptions(const CreateJobRequest &request, 
 }
 
 /**
- * @summary Creates a job and runs it in a cluster. You can specify the datasource config, code source configuration, startup command, and compute resource configuration for each node of the job.
+ * @summary Creates a job to run in a cluster. You can specify configurations such as datasource config, code sources, startup commands, and compute resources for each node where the job runs.
  *
- * @description Before you call this operation, make sure that you fully understand the billing of PAI-DLC and its [pricing](https://help.aliyun.com/document_detail/171758.html).
- * >Notice: The total length of CreateJob request parameters, including system-generated parameters, cannot exceed 65,536 bytes.
+ * @description Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
+ * >Notice: The total length of the CreateJob operation parameters, including system-generated parameters, cannot exceed 65,536 bytes.
  *
  * @param request CreateJobRequest
  * @return CreateJobResponse
@@ -432,7 +436,7 @@ CreateSignalResponse Client::createSignal(const string &JobId, const CreateSigna
 }
 
 /**
- * @summary Creates a TensorBoard instance. You can create a TensorBoard instance from a job or by specifying a datasource config.
+ * @summary Creates a TensorBoard instance by using a node or a specified datasource config.
  *
  * @param request CreateTensorboardRequest
  * @param headers map
@@ -541,7 +545,7 @@ CreateTensorboardResponse Client::createTensorboardWithOptions(const CreateTenso
 }
 
 /**
- * @summary Creates a TensorBoard instance. You can create a TensorBoard instance from a job or by specifying a datasource config.
+ * @summary Creates a TensorBoard instance by using a node or a specified datasource config.
  *
  * @param request CreateTensorboardRequest
  * @return CreateTensorboardResponse
@@ -671,7 +675,7 @@ DeleteRayHistoryServerResponse Client::deleteRayHistoryServer(const string &RayH
 }
 
 /**
- * @summary Deletes a stopped Tensorboard.
+ * @summary Deletes a stopped TensorBoard.
  *
  * @param request DeleteTensorboardRequest
  * @param headers map
@@ -704,7 +708,7 @@ DeleteTensorboardResponse Client::deleteTensorboardWithOptions(const string &Ten
 }
 
 /**
- * @summary Deletes a stopped Tensorboard.
+ * @summary Deletes a stopped TensorBoard.
  *
  * @param request DeleteTensorboardRequest
  * @return DeleteTensorboardResponse
@@ -769,7 +773,7 @@ GetDashboardResponse Client::getDashboard(const string &jobId, const GetDashboar
 }
 
 /**
- * @summary Retrieves the detailed configuration and runtime information of a node.
+ * @summary Retrieves the detailed configuration and runtime information of a job.
  *
  * @param request GetJobRequest
  * @param headers map
@@ -802,7 +806,7 @@ GetJobResponse Client::getJobWithOptions(const string &JobId, const GetJobReques
 }
 
 /**
- * @summary Retrieves the detailed configuration and runtime information of a node.
+ * @summary Retrieves the detailed configuration and runtime information of a job.
  *
  * @param request GetJobRequest
  * @return GetJobResponse
@@ -867,8 +871,8 @@ GetJobEventsResponse Client::getJobEvents(const string &JobId, const GetJobEvent
 }
 
 /**
- * @summary Retrieves monitoring data for a node, including CPU, GPU, and memory usage, as well as network and disk read/write rates.
- * ⚠️ Note: All node types except pay-as-you-go (postpaid) nodes based on general computing resources are integrated with CloudMonitor. Use CloudMonitor API operations for monitoring calls. Features already covered by the new API operations will no longer undergo maintenance in the original API operations. For more information, see [Training Monitoring and Alerts](https://www.alibabacloud.com/help/zh/pai/user-guide/training-monitoring-and-alerting).
+ * @summary Retrieves the monitoring data of a node, including the CPU, GPU, and memory usage, as well as the network and disk read and write rates.
+ * ⚠️ Note: Except for pay-as-you-go nodes based on general computing resources, all other node types are integrated with CloudMonitor. To invoke related monitoring, use CloudMonitor API operations. Any feature overwrite in the original API operations will no longer be maintained. For more information, see [Training monitoring and alerting](https://www.alibabacloud.com/help/zh/pai/user-guide/training-monitoring-and-alerting).
  *
  * @param request GetJobMetricsRequest
  * @param headers map
@@ -917,8 +921,8 @@ GetJobMetricsResponse Client::getJobMetricsWithOptions(const string &JobId, cons
 }
 
 /**
- * @summary Retrieves monitoring data for a node, including CPU, GPU, and memory usage, as well as network and disk read/write rates.
- * ⚠️ Note: All node types except pay-as-you-go (postpaid) nodes based on general computing resources are integrated with CloudMonitor. Use CloudMonitor API operations for monitoring calls. Features already covered by the new API operations will no longer undergo maintenance in the original API operations. For more information, see [Training Monitoring and Alerts](https://www.alibabacloud.com/help/zh/pai/user-guide/training-monitoring-and-alerting).
+ * @summary Retrieves the monitoring data of a node, including the CPU, GPU, and memory usage, as well as the network and disk read and write rates.
+ * ⚠️ Note: Except for pay-as-you-go nodes based on general computing resources, all other node types are integrated with CloudMonitor. To invoke related monitoring, use CloudMonitor API operations. Any feature overwrite in the original API operations will no longer be maintained. For more information, see [Training monitoring and alerting](https://www.alibabacloud.com/help/zh/pai/user-guide/training-monitoring-and-alerting).
  *
  * @param request GetJobMetricsRequest
  * @return GetJobMetricsResponse
@@ -930,7 +934,7 @@ GetJobMetricsResponse Client::getJobMetrics(const string &JobId, const GetJobMet
 }
 
 /**
- * @summary Retrieves the computing power health check result for a specific run of a DLC job.
+ * @summary Retrieves a specific computing power health check result for a DLC job.
  *
  * @param request GetJobSanityCheckResultRequest
  * @param headers map
@@ -971,7 +975,7 @@ GetJobSanityCheckResultResponse Client::getJobSanityCheckResultWithOptions(const
 }
 
 /**
- * @summary Retrieves the computing power health check result for a specific run of a DLC job.
+ * @summary Retrieves a specific computing power health check result for a DLC job.
  *
  * @param request GetJobSanityCheckResultRequest
  * @return GetJobSanityCheckResultResponse
@@ -1396,7 +1400,7 @@ GetSignalResponse Client::getSignal(const string &JobId, const string &SignalId,
 }
 
 /**
- * @summary Retrieves the details of a Tensorboard.
+ * @summary Retrieves the details of a TensorBoard.
  *
  * @param request GetTensorboardRequest
  * @param headers map
@@ -1437,7 +1441,7 @@ GetTensorboardResponse Client::getTensorboardWithOptions(const string &Tensorboa
 }
 
 /**
- * @summary Retrieves the details of a Tensorboard.
+ * @summary Retrieves the details of a TensorBoard.
  *
  * @param request GetTensorboardRequest
  * @return GetTensorboardResponse
@@ -1494,7 +1498,7 @@ GetTensorboardSharedUrlResponse Client::getTensorboardSharedUrl(const string &Te
 }
 
 /**
- * @summary Retrieves a sharing token for a DLC job, which is used to view information about the shared task.
+ * @summary Retrieves the sharing token for a DLC job to view information about the shared job.
  *
  * @param request GetTokenRequest
  * @param headers map
@@ -1539,7 +1543,7 @@ GetTokenResponse Client::getTokenWithOptions(const GetTokenRequest &request, con
 }
 
 /**
- * @summary Retrieves a sharing token for a DLC job, which is used to view information about the shared task.
+ * @summary Retrieves the sharing token for a DLC job to view information about the shared job.
  *
  * @param request GetTokenRequest
  * @return GetTokenResponse
@@ -1600,7 +1604,7 @@ GetWebTerminalResponse Client::getWebTerminal(const string &JobId, const string 
 }
 
 /**
- * @summary Queries the list of currently supported machine resource configurations.
+ * @summary Queries the list of supported machine resource configurations.
  *
  * @param request ListEcsSpecsRequest
  * @param headers map
@@ -1657,7 +1661,7 @@ ListEcsSpecsResponse Client::listEcsSpecsWithOptions(const ListEcsSpecsRequest &
 }
 
 /**
- * @summary Queries the list of currently supported machine resource configurations.
+ * @summary Queries the list of supported machine resource configurations.
  *
  * @param request ListEcsSpecsRequest
  * @return ListEcsSpecsResponse
@@ -1669,7 +1673,7 @@ ListEcsSpecsResponse Client::listEcsSpecs(const ListEcsSpecsRequest &request) {
 }
 
 /**
- * @summary Retrieves all computing power health check results for a specific DLC job.
+ * @summary Retrieves all computing power health check results for a DLC job.
  *
  * @param request ListJobSanityCheckResultsRequest
  * @param headers map
@@ -1702,7 +1706,7 @@ ListJobSanityCheckResultsResponse Client::listJobSanityCheckResultsWithOptions(c
 }
 
 /**
- * @summary Retrieves all computing power health check results for a specific DLC job.
+ * @summary Retrieves all computing power health check results for a DLC job.
  *
  * @param request ListJobSanityCheckResultsRequest
  * @return ListJobSanityCheckResultsResponse
@@ -1791,7 +1795,7 @@ ListJobTemplatesResponse Client::listJobTemplates(const ListJobTemplatesRequest 
 }
 
 /**
- * @summary Retrieves a list of jobs with support for pagination, sorting, and conditional filtering.
+ * @summary Queries a list of jobs with support for pagination, sorting, and conditional filtering.
  *
  * @param tmpReq ListJobsRequest
  * @param headers map
@@ -1974,7 +1978,7 @@ ListJobsResponse Client::listJobsWithOptions(const ListJobsRequest &tmpReq, cons
 }
 
 /**
- * @summary Retrieves a list of jobs with support for pagination, sorting, and conditional filtering.
+ * @summary Queries a list of jobs with support for pagination, sorting, and conditional filtering.
  *
  * @param request ListJobsRequest
  * @return ListJobsResponse
@@ -2172,7 +2176,7 @@ ListSignalsResponse Client::listSignals(const string &JobId, const ListSignalsRe
 }
 
 /**
- * @summary Queries a list of created Tensorboard instances.
+ * @summary Queries the list of created TensorBoard instances.
  *
  * @param request ListTensorboardsRequest
  * @param headers map
@@ -2281,7 +2285,7 @@ ListTensorboardsResponse Client::listTensorboardsWithOptions(const ListTensorboa
 }
 
 /**
- * @summary Queries a list of created Tensorboard instances.
+ * @summary Queries the list of created TensorBoard instances.
  *
  * @param request ListTensorboardsRequest
  * @return ListTensorboardsResponse
@@ -2383,7 +2387,7 @@ StartRayHistoryServerResponse Client::startRayHistoryServer(const string &RayHis
 }
 
 /**
- * @summary Starts a Tensorboard.
+ * @summary Starts a TensorBoard.
  *
  * @param request StartTensorboardRequest
  * @param headers map
@@ -2416,7 +2420,7 @@ StartTensorboardResponse Client::startTensorboardWithOptions(const string &Tenso
 }
 
 /**
- * @summary Starts a Tensorboard.
+ * @summary Starts a TensorBoard.
  *
  * @param request StartTensorboardRequest
  * @return StartTensorboardResponse
@@ -2680,7 +2684,7 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
- * @summary Updates the configuration of a node, such as modifying the priority of a queued node.
+ * @summary Updates the configuration of a job, such as modifying the priority of a queued job.
  *
  * @param request UpdateJobRequest
  * @param headers map
@@ -2729,7 +2733,7 @@ UpdateJobResponse Client::updateJobWithOptions(const string &JobId, const Update
 }
 
 /**
- * @summary Updates the configuration of a node, such as modifying the priority of a queued node.
+ * @summary Updates the configuration of a job, such as modifying the priority of a queued job.
  *
  * @param request UpdateJobRequest
  * @return UpdateJobResponse
@@ -2810,7 +2814,7 @@ UpdateJobTemplateResponse Client::updateJobTemplate(const string &TemplateId, co
 }
 
 /**
- * @summary Update a Tensorboard.
+ * @summary Updates a TensorBoard.
  *
  * @param request UpdateTensorboardRequest
  * @param headers map
@@ -2855,7 +2859,7 @@ UpdateTensorboardResponse Client::updateTensorboardWithOptions(const string &Ten
 }
 
 /**
- * @summary Update a Tensorboard.
+ * @summary Updates a TensorBoard.
  *
  * @param request UpdateTensorboardRequest
  * @return UpdateTensorboardResponse

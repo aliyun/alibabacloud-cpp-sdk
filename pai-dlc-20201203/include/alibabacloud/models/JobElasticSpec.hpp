@@ -167,20 +167,35 @@ namespace Models
 
 
   protected:
+    // The AIMaster Docker image.
     shared_ptr<string> AIMasterDockerImage_ {};
+    // The resource specifications for the AIMaster role.
     shared_ptr<string> AIMasterType_ {};
+    // The maximum EDP parallelism.
     shared_ptr<int32_t> EDPMaxParallelism_ {};
+    // The minimum EDP parallelism.
     shared_ptr<int32_t> EDPMinParallelism_ {};
+    // The elastic training strategy.
     shared_ptr<string> elasticStrategy_ {};
+    // Specifies whether to enable AIMaster.
     shared_ptr<bool> enableAIMaster_ {};
+    // Specifies whether to enable EDP.
     shared_ptr<bool> enableEDP_ {};
+    // Specifies whether to enable elastic training.
     shared_ptr<bool> enableElasticTraining_ {};
+    // Specifies whether to enable the elastic PS feature.
     shared_ptr<bool> enablePsJobElasticPS_ {};
+    // Specifies whether to enable elastic workers for PS jobs.
     shared_ptr<bool> enablePsJobElasticWorker_ {};
+    // Specifies whether to enable PS resource estimation.
     shared_ptr<bool> enablePsResourceEstimate_ {};
+    // The maximum parallelism.
     shared_ptr<int32_t> maxParallelism_ {};
+    // The minimum parallelism.
     shared_ptr<int32_t> minParallelism_ {};
+    // The maximum PS parallelism.
     shared_ptr<int32_t> PSMaxParallelism_ {};
+    // The minimum PS parallelism.
     shared_ptr<int32_t> PSMinParallelism_ {};
   };
 

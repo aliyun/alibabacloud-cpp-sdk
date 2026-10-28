@@ -103,13 +103,21 @@ namespace Models
 
 
   protected:
+    // The resource count.
     shared_ptr<int64_t> availableNumber_ {};
+    // The cluster ID.
     shared_ptr<string> clusterID_ {};
+    // The cluster name.
     shared_ptr<string> clusterName_ {};
+    // The idle resource ID.
     shared_ptr<string> freeResourceId_ {};
+    // The creation time.
     shared_ptr<string> gmtCreateTime_ {};
+    // The update time.
     shared_ptr<string> gmtModifyTime_ {};
+    // The region ID.
     shared_ptr<string> regionID_ {};
+    // The resource type.
     shared_ptr<string> resourceType_ {};
   };
 

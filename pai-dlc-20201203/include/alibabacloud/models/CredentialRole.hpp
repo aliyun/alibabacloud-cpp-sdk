@@ -78,10 +78,15 @@ namespace Models
 
 
   protected:
+    // The account on whose behalf the role is assumed.
     shared_ptr<string> assumeRoleFor_ {};
+    // The user identity information used for role assumption.
     shared_ptr<AssumeUserInfo> assumeUserInfo_ {};
+    // The access policy attached during role assumption.
     shared_ptr<string> policy_ {};
+    // The ARN of the RAM role.
     shared_ptr<string> roleArn_ {};
+    // The role type. Valid values: service and user.
     shared_ptr<string> roleType_ {};
   };
 

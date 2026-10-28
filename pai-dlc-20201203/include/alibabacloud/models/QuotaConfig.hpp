@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The maximum allowed priority.
     shared_ptr<int32_t> allowedMaxPriority_ {};
+    // Specifies whether DLC is enabled.
     shared_ptr<bool> enableDLC_ {};
+    // Specifies whether DSW is enabled.
     shared_ptr<bool> enableDSW_ {};
+    // Specifies whether to use tide resources.
     shared_ptr<bool> enableTideResource_ {};
+    // The resource level (L0, L1).
     shared_ptr<string> resourceLevel_ {};
   };
 

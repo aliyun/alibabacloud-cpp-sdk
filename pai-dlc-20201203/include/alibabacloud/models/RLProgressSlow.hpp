@@ -61,11 +61,11 @@ namespace Models
 
 
   protected:
-    // 慢推理明细，最多 20 条
+    // The slow inference details, up to 20 entries.
     shared_ptr<vector<RLProgressSlowDetail>> details_ {};
-    // 最慢一条的已耗时（秒）
+    // The elapsed time of the slowest entry in seconds.
     shared_ptr<double> elapsed_ {};
-    // 最慢一条的日志时间（unix 秒）
+    // The log timestamp of the slowest entry in UNIX seconds.
     shared_ptr<int64_t> time_ {};
   };
 

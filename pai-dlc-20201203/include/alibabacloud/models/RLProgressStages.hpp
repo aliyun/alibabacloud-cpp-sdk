@@ -70,13 +70,13 @@ namespace Models
 
 
   protected:
-    // 当前所处阶段的下标
+    // The index of the current stage.
     shared_ptr<int32_t> currentIndex_ {};
-    // disagg / colocate / 空串
+    // The disagg, colocate, or empty string.
     shared_ptr<string> mode_ {};
-    // 阶段列表，按流水线顺序
+    // The list of stages in pipeline order.
     shared_ptr<vector<RLProgressStage>> stages_ {};
-    // 本 step 的阶段流水线是否已走完
+    // Indicates whether the stage pipeline for this step is completed.
     shared_ptr<bool> stepDone_ {};
   };
 

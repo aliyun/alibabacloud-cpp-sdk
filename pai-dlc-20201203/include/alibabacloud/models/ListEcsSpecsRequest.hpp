@@ -94,25 +94,25 @@ namespace Models
 
 
   protected:
-    // Filters by accelerator type. Valid values:
+    // The accelerator type. Valid values:
     // - CPU
     // - GPU
     shared_ptr<string> acceleratorType_ {};
-    // The list of instance types to query. Separate multiple instance types with commas (,).
+    // The instance types to query. Separate multiple instance types with commas (,).
     shared_ptr<string> instanceTypes_ {};
     // The sort order. Valid values:
-    // - desc: descending order.
-    // - asc: ascending order.
+    // - desc: Descending order.
+    // - asc: Ascending order.
     shared_ptr<string> order_ {};
-    // The page number. The minimum value is 1.
+    // The page number. Minimum value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page in a paged query. This parameter is used for paging.
+    // The number of entries to return per page in a paging query.
     shared_ptr<int32_t> pageSize_ {};
     // The resource type. Valid values:
     // - ECS
     // - Lingjun
     shared_ptr<string> resourceType_ {};
-    // Sorts by return field. Valid values:
+    // The field by which to sort the returned results. Valid values:
     // - CPU
     // - GPU
     // - Memory

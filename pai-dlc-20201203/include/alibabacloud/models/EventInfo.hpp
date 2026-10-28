@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The text content of the event.
     shared_ptr<string> content_ {};
+    // The ID of the event, which is used to obtain the related context.
     shared_ptr<string> id_ {};
+    // The ID of the pod to which the event belongs.
     shared_ptr<string> podId_ {};
+    // The UID of the pod to which the event belongs.
     shared_ptr<string> podUid_ {};
+    // The timestamp of the event in UTC.
     shared_ptr<string> time_ {};
   };
 

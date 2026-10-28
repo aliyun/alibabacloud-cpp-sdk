@@ -61,11 +61,11 @@ namespace Models
 
 
   protected:
-    // The node ID.
+    // The job ID.
     shared_ptr<string> jobId_ {};
-    // The list of node monitoring data.
+    // The list of job monitoring data.
     shared_ptr<vector<PodMetric>> podMetrics_ {};
-    // The request ID of this call, used for diagnostics and troubleshooting.
+    // The request ID, which is used for diagnostics and troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

@@ -88,11 +88,17 @@ namespace Models
 
 
   protected:
+    // The number of CPU cores.
     shared_ptr<string> CPU_ {};
+    // The number of GPUs.
     shared_ptr<string> GPU_ {};
+    // The GPU details.
     shared_ptr<vector<GPUDetail>> GPUDetails_ {};
+    // The GPU type.
     shared_ptr<string> GPUType_ {};
+    // The full name of the GPU type.
     shared_ptr<string> GPUTypeFullName_ {};
+    // The memory capacity.
     shared_ptr<string> memory_ {};
   };
 

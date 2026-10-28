@@ -81,6 +81,7 @@ namespace Models
 
 
       protected:
+        // The command.
         shared_ptr<vector<string>> command_ {};
       };
 
@@ -95,6 +96,7 @@ namespace Models
 
 
     protected:
+      // The exec action.
       shared_ptr<PreStop::Exec> exec_ {};
     };
 
@@ -147,6 +149,7 @@ namespace Models
 
 
       protected:
+        // The command.
         shared_ptr<vector<string>> command_ {};
       };
 
@@ -161,6 +164,7 @@ namespace Models
 
 
     protected:
+      // The exec action.
       shared_ptr<PostStart::Exec> exec_ {};
     };
 
@@ -185,7 +189,9 @@ namespace Models
 
 
   protected:
+    // The post-start action.
     shared_ptr<Lifecycle::PostStart> postStart_ {};
+    // The pre-stop action.
     shared_ptr<Lifecycle::PreStop> preStop_ {};
   };
 

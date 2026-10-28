@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The name of the output model. The output model of a joint training job is registered in the Models section of AI Asset Management under this name.
     shared_ptr<string> modelName_ {};
+    // The model template configuration. This configuration is required if you want to deploy the output model to Elastic Algorithm Service (EAS) with one click.
     shared_ptr<ModelTemplate> modelTemplate_ {};
   };
 

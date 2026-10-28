@@ -296,32 +296,37 @@ namespace Models
 
 
   protected:
-    // The node scheduling configuration.
+    // The specified node scheduling configuration.
     shared_ptr<AssignNodeSpec> assignNodeSpec_ {};
     // The auto scaling configuration.
     shared_ptr<AutoScalingSpec> autoScalingSpec_ {};
     // Specifies whether to consider this role when determining job success. This parameter takes effect only when the success policy is set to Partial.
     shared_ptr<bool> considerInSuccessPolicy_ {};
+    // The GPU driver version used by the job.
     shared_ptr<string> driver_ {};
-    // The hardware specification of the worker. Visit [PAI-DLC billing](https://help.aliyun.com/document_detail/171758.html) for the detailed specification list.>Notice: Prices vary depending on the specification.
+    // The hardware specifications of the worker. For a detailed list of specifications, see [PAI-DLC billing overview](https://help.aliyun.com/document_detail/171758.html).>Notice: Prices vary by specification.
     shared_ptr<string> ecsSpec_ {};
+    // The list of candidate instance types for this role to participate in elastic spot bidding.
     shared_ptr<vector<ElasticSpotSpec>> elasticSpotSpecs_ {};
-    // The extra pod configuration.
+    // The additional pod configuration.
     shared_ptr<ExtraPodSpec> extraPodSpec_ {};
+    // The hypernode scheduling configuration for this role.
     shared_ptr<HyperNodeSchedulingConfig> hyperNodeSchedulingConfig_ {};
-    // The runtime image address for this type of worker. Call [ListImages](https://help.aliyun.com/document_detail/449118.html) to retrieve images provided by the PAI platform. You can also specify a third-party public image.
+    // The runtime image URL for this type of worker. You can call [ListImages](https://help.aliyun.com/document_detail/449118.html) to obtain images provided by the PAI platform. You can also specify a public third-party image.
     shared_ptr<string> image_ {};
     // The private image configuration.
     shared_ptr<ImageConfig> imageConfig_ {};
-    // **[Deprecated]** This field is deprecated due to a spelling error.
+    // **[Deprecated]** This field is misspelled and deprecated.
     shared_ptr<bool> isCheif_ {};
-    // Specifies whether the role is the Chief role. Only one Chief role is allowed.
+    // Specifies whether this role is the chief role. Only one chief role is allowed.
     shared_ptr<bool> isChief_ {};
     // The list of local mount configurations.
     shared_ptr<vector<LocalMountSpec>> localMountSpecs_ {};
+    // The usage type of idle resources.
     shared_ptr<string> oversoldType_ {};
     // The number of replicas.
     shared_ptr<int64_t> podCount_ {};
+    // The ID of the resource quota used by the job.
     shared_ptr<string> quotaId_ {};
     // The resource configuration.
     shared_ptr<ResourceConfig> resourceConfig_ {};
@@ -333,8 +338,9 @@ namespace Models
     shared_ptr<SpotSpec> spotSpec_ {};
     // The dependencies required before this role starts.
     shared_ptr<vector<StartupDependency>> startupDependencies_ {};
+    // The system cloud disk configuration for the job replicas.
     shared_ptr<SystemDisk> systemDisk_ {};
-    // The type, which is closely related to the job type. Different job types support different worker types.
+    // The type is closely related to the job type. Different job types support different worker types.
     // 
     // - **TFJob**: Supports Chief, PS, Worker, Evaluator, and GraphLearn.
     // 
@@ -345,7 +351,7 @@ namespace Models
     // - **ElasticBatch**: Supports Worker and Master.
     // - **RayJob**: Supports Head, Worker, and Worker[-xxx].
     // 
-    // Master is optional in PyTorchJob, XGBoostJob, OneFlowJob, and ElasticBatch. If not specified, the system automatically designates the first Worker node as Master.
+    // The Master role in PyTorchJob, XGBoostJob, OneFlowJob, and ElasticBatch is optional. If not specified, the system automatically assigns the first worker node as the master.
     shared_ptr<string> type_ {};
     // Specifies whether to use spot instances.
     shared_ptr<bool> useSpotInstance_ {};

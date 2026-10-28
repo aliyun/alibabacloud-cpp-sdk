@@ -279,32 +279,35 @@ namespace Models
 
 
   protected:
-    // The extra advanced parameter settings.
+    // The additional advanced parameter settings.
     Darabonba::Json advancedSettings_ {};
-    // Specifies whether to mount all RDMA network interfaces.
+    // Specifies whether to allocate all RDMA NICs.
     shared_ptr<bool> allocateAllRDMADevices_ {};
+    // Specifies whether to allow jobs to be scheduled to nodes that are marked as unschedulable or are in the workspace blacklist. If enabled, node status checks are skipped and the corresponding bypass configurations are applied.
     shared_ptr<bool> allowUnschedulableNodes_ {};
-    // The user ID associated with the job.
+    // The ID of the user associated with the job.
     shared_ptr<string> businessUserId_ {};
     // The caller.
     shared_ptr<string> caller_ {};
-    // The DataJuicer task configuration.
+    // The DataJuicer job configuration.
     shared_ptr<DataJuicerConfig> dataJuicerConfig_ {};
-    // Specifies whether to skip inventory check. Valid values:
+    // Specifies whether to skip the ECS inventory check. Valid values:
     // - true
     // - false
     shared_ptr<bool> disableEcsStockCheck_ {};
     // The NVIDIA driver configuration.
     shared_ptr<string> driver_ {};
+    // The maximum number of restarts for an elastic spot job.
     shared_ptr<int32_t> elasticSpotJobMaxRestartTimes_ {};
-    // The CPU affinity setting. This setting is effective only when using general computing subscription resources.
+    // The CPU affinity settings. These settings take effect only when general-purpose computing subscription resources are used.
     shared_ptr<bool> enableCPUAffinity_ {};
+    // Specifies whether to enable the DSW development mode for the job. If enabled, a sidecar container is injected into the pod.
     shared_ptr<bool> enableDSWDev_ {};
     // Specifies whether to enable fault tolerance monitoring for the job. Valid values:
     // - true
     // - false
     shared_ptr<bool> enableErrorMonitoringInAIMaster_ {};
-    // Specifies whether to allow OSS append write. Valid values:
+    // Specifies whether to allow OSS append writes. Valid values:
     // - true
     // - false
     shared_ptr<bool> enableOssAppend_ {};
@@ -312,31 +315,33 @@ namespace Models
     // - true
     // - false
     shared_ptr<bool> enableRDMA_ {};
-    // Specifies whether to enable computing power health check for the job. Valid values:
+    // Specifies whether to enable computing power health checks for the job. Valid values:
     // - true
     // - false
     shared_ptr<bool> enableSanityCheck_ {};
-    // Specifies whether to allow the job to use tidal resources. Valid values:
+    // Specifies whether to allow the job to use tide resources. Valid values:
     // - true
     // - false
     shared_ptr<bool> enableTideResource_ {};
-    // The configuration parameters for fault tolerance monitoring after it is enabled, such as whether to enable log hang-based detection.
+    // The configuration parameters for fault tolerance monitoring when it is enabled, such as specifying whether to enable log hang-based detection.
     shared_ptr<string> errorMonitoringArgs_ {};
-    // The retention duration after job completion, in minutes.
+    // The retention duration after the job ends, in minutes.
     shared_ptr<int32_t> jobReservedMinutes_ {};
-    // The retention policy after job completion.
+    // The retention policy after the job ends.
     shared_ptr<string> jobReservedPolicy_ {};
-    // The output model configuration. This parameter is currently effective only in joint training scenarios.
+    // The output model configuration. This parameter takes effect only in joint training scenarios.
     shared_ptr<ModelConfig> modelConfig_ {};
-    // The oversold resource usage mode for the job (reject/accept/only accept).
+    // The oversold resource usage mode for the job, which can be not accepted, accepted, or only accepted.
     shared_ptr<string> oversoldType_ {};
     // The workflow ID.
     shared_ptr<string> pipelineId_ {};
-    // The configuration parameters for computing power health check.
+    // The configuration parameters for computing power health checks.
     shared_ptr<string> sanityCheckArgs_ {};
+    // The shell used to execute job commands. Valid values: /bin/sh and /bin/bash.
     shared_ptr<string> shell_ {};
     // The custom tags.
     shared_ptr<map<string, string>> tags_ {};
+    // The grace period to wait for the pod to exit when the job is terminated, in seconds.
     shared_ptr<int64_t> terminationGracePeriodSeconds_ {};
   };
 

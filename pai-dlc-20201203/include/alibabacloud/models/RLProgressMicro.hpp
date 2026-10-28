@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // 当前 micro-batch 序号
+    // The current micro-batch ordinal number.
     shared_ptr<int32_t> current_ {};
-    // micro-batch 总数
+    // The micro-batch total count.
     shared_ptr<int32_t> total_ {};
   };
 

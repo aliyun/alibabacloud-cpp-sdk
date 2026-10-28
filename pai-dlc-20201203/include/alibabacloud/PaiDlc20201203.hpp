@@ -21,10 +21,10 @@ namespace PaiDlc20201203
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Creates a job and runs it in a cluster. You can specify the datasource config, code source configuration, startup command, and compute resource configuration for each node of the job.
+       * @summary Creates a job to run in a cluster. You can specify configurations such as datasource config, code sources, startup commands, and compute resources for each node where the job runs.
        *
-       * @description Before you call this operation, make sure that you fully understand the billing of PAI-DLC and its [pricing](https://help.aliyun.com/document_detail/171758.html).
-       * >Notice: The total length of CreateJob request parameters, including system-generated parameters, cannot exceed 65,536 bytes.
+       * @description Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
+       * >Notice: The total length of the CreateJob operation parameters, including system-generated parameters, cannot exceed 65,536 bytes.
        *
        * @param request CreateJobRequest
        * @param headers map
@@ -34,10 +34,10 @@ namespace PaiDlc20201203
       Models::CreateJobResponse createJobWithOptions(const Models::CreateJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a job and runs it in a cluster. You can specify the datasource config, code source configuration, startup command, and compute resource configuration for each node of the job.
+       * @summary Creates a job to run in a cluster. You can specify configurations such as datasource config, code sources, startup commands, and compute resources for each node where the job runs.
        *
-       * @description Before you call this operation, make sure that you fully understand the billing of PAI-DLC and its [pricing](https://help.aliyun.com/document_detail/171758.html).
-       * >Notice: The total length of CreateJob request parameters, including system-generated parameters, cannot exceed 65,536 bytes.
+       * @description Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
+       * >Notice: The total length of the CreateJob operation parameters, including system-generated parameters, cannot exceed 65,536 bytes.
        *
        * @param request CreateJobRequest
        * @return CreateJobResponse
@@ -115,7 +115,7 @@ namespace PaiDlc20201203
       Models::CreateSignalResponse createSignal(const string &JobId, const Models::CreateSignalRequest &request);
 
       /**
-       * @summary Creates a TensorBoard instance. You can create a TensorBoard instance from a job or by specifying a datasource config.
+       * @summary Creates a TensorBoard instance by using a node or a specified datasource config.
        *
        * @param request CreateTensorboardRequest
        * @param headers map
@@ -125,7 +125,7 @@ namespace PaiDlc20201203
       Models::CreateTensorboardResponse createTensorboardWithOptions(const Models::CreateTensorboardRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a TensorBoard instance. You can create a TensorBoard instance from a job or by specifying a datasource config.
+       * @summary Creates a TensorBoard instance by using a node or a specified datasource config.
        *
        * @param request CreateTensorboardRequest
        * @return CreateTensorboardResponse
@@ -189,7 +189,7 @@ namespace PaiDlc20201203
       Models::DeleteRayHistoryServerResponse deleteRayHistoryServer(const string &RayHistoryServerId, const Models::DeleteRayHistoryServerRequest &request);
 
       /**
-       * @summary Deletes a stopped Tensorboard.
+       * @summary Deletes a stopped TensorBoard.
        *
        * @param request DeleteTensorboardRequest
        * @param headers map
@@ -199,7 +199,7 @@ namespace PaiDlc20201203
       Models::DeleteTensorboardResponse deleteTensorboardWithOptions(const string &TensorboardId, const Models::DeleteTensorboardRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a stopped Tensorboard.
+       * @summary Deletes a stopped TensorBoard.
        *
        * @param request DeleteTensorboardRequest
        * @return DeleteTensorboardResponse
@@ -229,7 +229,7 @@ namespace PaiDlc20201203
       Models::GetDashboardResponse getDashboard(const string &jobId, const Models::GetDashboardRequest &request);
 
       /**
-       * @summary Retrieves the detailed configuration and runtime information of a node.
+       * @summary Retrieves the detailed configuration and runtime information of a job.
        *
        * @param request GetJobRequest
        * @param headers map
@@ -239,7 +239,7 @@ namespace PaiDlc20201203
       Models::GetJobResponse getJobWithOptions(const string &JobId, const Models::GetJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the detailed configuration and runtime information of a node.
+       * @summary Retrieves the detailed configuration and runtime information of a job.
        *
        * @param request GetJobRequest
        * @return GetJobResponse
@@ -265,8 +265,8 @@ namespace PaiDlc20201203
       Models::GetJobEventsResponse getJobEvents(const string &JobId, const Models::GetJobEventsRequest &request);
 
       /**
-       * @summary Retrieves monitoring data for a node, including CPU, GPU, and memory usage, as well as network and disk read/write rates.
-       * ⚠️ Note: All node types except pay-as-you-go (postpaid) nodes based on general computing resources are integrated with CloudMonitor. Use CloudMonitor API operations for monitoring calls. Features already covered by the new API operations will no longer undergo maintenance in the original API operations. For more information, see [Training Monitoring and Alerts](https://www.alibabacloud.com/help/zh/pai/user-guide/training-monitoring-and-alerting).
+       * @summary Retrieves the monitoring data of a node, including the CPU, GPU, and memory usage, as well as the network and disk read and write rates.
+       * ⚠️ Note: Except for pay-as-you-go nodes based on general computing resources, all other node types are integrated with CloudMonitor. To invoke related monitoring, use CloudMonitor API operations. Any feature overwrite in the original API operations will no longer be maintained. For more information, see [Training monitoring and alerting](https://www.alibabacloud.com/help/zh/pai/user-guide/training-monitoring-and-alerting).
        *
        * @param request GetJobMetricsRequest
        * @param headers map
@@ -276,8 +276,8 @@ namespace PaiDlc20201203
       Models::GetJobMetricsResponse getJobMetricsWithOptions(const string &JobId, const Models::GetJobMetricsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves monitoring data for a node, including CPU, GPU, and memory usage, as well as network and disk read/write rates.
-       * ⚠️ Note: All node types except pay-as-you-go (postpaid) nodes based on general computing resources are integrated with CloudMonitor. Use CloudMonitor API operations for monitoring calls. Features already covered by the new API operations will no longer undergo maintenance in the original API operations. For more information, see [Training Monitoring and Alerts](https://www.alibabacloud.com/help/zh/pai/user-guide/training-monitoring-and-alerting).
+       * @summary Retrieves the monitoring data of a node, including the CPU, GPU, and memory usage, as well as the network and disk read and write rates.
+       * ⚠️ Note: Except for pay-as-you-go nodes based on general computing resources, all other node types are integrated with CloudMonitor. To invoke related monitoring, use CloudMonitor API operations. Any feature overwrite in the original API operations will no longer be maintained. For more information, see [Training monitoring and alerting](https://www.alibabacloud.com/help/zh/pai/user-guide/training-monitoring-and-alerting).
        *
        * @param request GetJobMetricsRequest
        * @return GetJobMetricsResponse
@@ -285,7 +285,7 @@ namespace PaiDlc20201203
       Models::GetJobMetricsResponse getJobMetrics(const string &JobId, const Models::GetJobMetricsRequest &request);
 
       /**
-       * @summary Retrieves the computing power health check result for a specific run of a DLC job.
+       * @summary Retrieves a specific computing power health check result for a DLC job.
        *
        * @param request GetJobSanityCheckResultRequest
        * @param headers map
@@ -295,7 +295,7 @@ namespace PaiDlc20201203
       Models::GetJobSanityCheckResultResponse getJobSanityCheckResultWithOptions(const string &JobId, const Models::GetJobSanityCheckResultRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the computing power health check result for a specific run of a DLC job.
+       * @summary Retrieves a specific computing power health check result for a DLC job.
        *
        * @param request GetJobSanityCheckResultRequest
        * @return GetJobSanityCheckResultResponse
@@ -461,7 +461,7 @@ namespace PaiDlc20201203
       Models::GetSignalResponse getSignal(const string &JobId, const string &SignalId, const Models::GetSignalRequest &request);
 
       /**
-       * @summary Retrieves the details of a Tensorboard.
+       * @summary Retrieves the details of a TensorBoard.
        *
        * @param request GetTensorboardRequest
        * @param headers map
@@ -471,7 +471,7 @@ namespace PaiDlc20201203
       Models::GetTensorboardResponse getTensorboardWithOptions(const string &TensorboardId, const Models::GetTensorboardRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a Tensorboard.
+       * @summary Retrieves the details of a TensorBoard.
        *
        * @param request GetTensorboardRequest
        * @return GetTensorboardResponse
@@ -497,7 +497,7 @@ namespace PaiDlc20201203
       Models::GetTensorboardSharedUrlResponse getTensorboardSharedUrl(const string &TensorboardId, const Models::GetTensorboardSharedUrlRequest &request);
 
       /**
-       * @summary Retrieves a sharing token for a DLC job, which is used to view information about the shared task.
+       * @summary Retrieves the sharing token for a DLC job to view information about the shared job.
        *
        * @param request GetTokenRequest
        * @param headers map
@@ -507,7 +507,7 @@ namespace PaiDlc20201203
       Models::GetTokenResponse getTokenWithOptions(const Models::GetTokenRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a sharing token for a DLC job, which is used to view information about the shared task.
+       * @summary Retrieves the sharing token for a DLC job to view information about the shared job.
        *
        * @param request GetTokenRequest
        * @return GetTokenResponse
@@ -533,7 +533,7 @@ namespace PaiDlc20201203
       Models::GetWebTerminalResponse getWebTerminal(const string &JobId, const string &PodId, const Models::GetWebTerminalRequest &request);
 
       /**
-       * @summary Queries the list of currently supported machine resource configurations.
+       * @summary Queries the list of supported machine resource configurations.
        *
        * @param request ListEcsSpecsRequest
        * @param headers map
@@ -543,7 +543,7 @@ namespace PaiDlc20201203
       Models::ListEcsSpecsResponse listEcsSpecsWithOptions(const Models::ListEcsSpecsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of currently supported machine resource configurations.
+       * @summary Queries the list of supported machine resource configurations.
        *
        * @param request ListEcsSpecsRequest
        * @return ListEcsSpecsResponse
@@ -551,7 +551,7 @@ namespace PaiDlc20201203
       Models::ListEcsSpecsResponse listEcsSpecs(const Models::ListEcsSpecsRequest &request);
 
       /**
-       * @summary Retrieves all computing power health check results for a specific DLC job.
+       * @summary Retrieves all computing power health check results for a DLC job.
        *
        * @param request ListJobSanityCheckResultsRequest
        * @param headers map
@@ -561,7 +561,7 @@ namespace PaiDlc20201203
       Models::ListJobSanityCheckResultsResponse listJobSanityCheckResultsWithOptions(const string &JobId, const Models::ListJobSanityCheckResultsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves all computing power health check results for a specific DLC job.
+       * @summary Retrieves all computing power health check results for a DLC job.
        *
        * @param request ListJobSanityCheckResultsRequest
        * @return ListJobSanityCheckResultsResponse
@@ -587,7 +587,7 @@ namespace PaiDlc20201203
       Models::ListJobTemplatesResponse listJobTemplates(const Models::ListJobTemplatesRequest &request);
 
       /**
-       * @summary Retrieves a list of jobs with support for pagination, sorting, and conditional filtering.
+       * @summary Queries a list of jobs with support for pagination, sorting, and conditional filtering.
        *
        * @param tmpReq ListJobsRequest
        * @param headers map
@@ -597,7 +597,7 @@ namespace PaiDlc20201203
       Models::ListJobsResponse listJobsWithOptions(const Models::ListJobsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of jobs with support for pagination, sorting, and conditional filtering.
+       * @summary Queries a list of jobs with support for pagination, sorting, and conditional filtering.
        *
        * @param request ListJobsRequest
        * @return ListJobsResponse
@@ -653,7 +653,7 @@ namespace PaiDlc20201203
       Models::ListSignalsResponse listSignals(const string &JobId, const Models::ListSignalsRequest &request);
 
       /**
-       * @summary Queries a list of created Tensorboard instances.
+       * @summary Queries the list of created TensorBoard instances.
        *
        * @param request ListTensorboardsRequest
        * @param headers map
@@ -663,7 +663,7 @@ namespace PaiDlc20201203
       Models::ListTensorboardsResponse listTensorboardsWithOptions(const Models::ListTensorboardsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of created Tensorboard instances.
+       * @summary Queries the list of created TensorBoard instances.
        *
        * @param request ListTensorboardsRequest
        * @return ListTensorboardsResponse
@@ -713,7 +713,7 @@ namespace PaiDlc20201203
       Models::StartRayHistoryServerResponse startRayHistoryServer(const string &RayHistoryServerId, const Models::StartRayHistoryServerRequest &request);
 
       /**
-       * @summary Starts a Tensorboard.
+       * @summary Starts a TensorBoard.
        *
        * @param request StartTensorboardRequest
        * @param headers map
@@ -723,7 +723,7 @@ namespace PaiDlc20201203
       Models::StartTensorboardResponse startTensorboardWithOptions(const string &TensorboardId, const Models::StartTensorboardRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Starts a Tensorboard.
+       * @summary Starts a TensorBoard.
        *
        * @param request StartTensorboardRequest
        * @return StartTensorboardResponse
@@ -827,7 +827,7 @@ namespace PaiDlc20201203
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
-       * @summary Updates the configuration of a node, such as modifying the priority of a queued node.
+       * @summary Updates the configuration of a job, such as modifying the priority of a queued job.
        *
        * @param request UpdateJobRequest
        * @param headers map
@@ -837,7 +837,7 @@ namespace PaiDlc20201203
       Models::UpdateJobResponse updateJobWithOptions(const string &JobId, const Models::UpdateJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the configuration of a node, such as modifying the priority of a queued node.
+       * @summary Updates the configuration of a job, such as modifying the priority of a queued job.
        *
        * @param request UpdateJobRequest
        * @return UpdateJobResponse
@@ -863,7 +863,7 @@ namespace PaiDlc20201203
       Models::UpdateJobTemplateResponse updateJobTemplate(const string &TemplateId, const Models::UpdateJobTemplateRequest &request);
 
       /**
-       * @summary Update a Tensorboard.
+       * @summary Updates a TensorBoard.
        *
        * @param request UpdateTensorboardRequest
        * @param headers map
@@ -873,7 +873,7 @@ namespace PaiDlc20201203
       Models::UpdateTensorboardResponse updateTensorboardWithOptions(const string &TensorboardId, const Models::UpdateTensorboardRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update a Tensorboard.
+       * @summary Updates a TensorBoard.
        *
        * @param request UpdateTensorboardRequest
        * @return UpdateTensorboardResponse

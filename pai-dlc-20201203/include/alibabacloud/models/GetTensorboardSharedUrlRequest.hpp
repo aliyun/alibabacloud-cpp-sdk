@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The validity period of the sharing link. Unit: seconds. Maximum value: 604800.
+    // The validity period of the sharing link, in seconds. The maximum value is 604800.
     shared_ptr<string> expireTimeSeconds_ {};
   };
 

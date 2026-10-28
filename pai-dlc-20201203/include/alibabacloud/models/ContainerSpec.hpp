@@ -117,7 +117,7 @@ namespace Models
 
 
   protected:
-    // The command parameters.
+    // The command arguments.
     shared_ptr<vector<string>> args_ {};
     // The user command.
     shared_ptr<vector<string>> command_ {};
@@ -129,6 +129,7 @@ namespace Models
     shared_ptr<string> name_ {};
     // The container resources.
     shared_ptr<ResourceRequirements> resources_ {};
+    // The container security context configuration.
     shared_ptr<SecurityContext> securityContext_ {};
     // The working directory in the container.
     shared_ptr<string> workingDir_ {};

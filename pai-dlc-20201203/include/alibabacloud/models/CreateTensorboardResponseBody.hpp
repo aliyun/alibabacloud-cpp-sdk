@@ -72,7 +72,7 @@ namespace Models
     shared_ptr<string> jobId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Tensorboard ID。
+    // The TensorBoard ID.
     shared_ptr<string> tensorboardId_ {};
   };
 

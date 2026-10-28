@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The UID of the Alibaba Cloud account.
     shared_ptr<string> aliyunUid_ {};
+    // The employee ID of the internal user.
     shared_ptr<string> employeeId_ {};
+    // The creation time of the record.
     shared_ptr<string> gmtCreateTime_ {};
+    // The last modification time of the record.
     shared_ptr<string> gmtModifyTime_ {};
   };
 

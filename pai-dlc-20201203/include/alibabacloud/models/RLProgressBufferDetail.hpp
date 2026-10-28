@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // 已被 trainer 消费的样本数
+    // The number of samples consumed by the trainer.
     shared_ptr<int32_t> consumed_ {};
-    // 已完成样本数
+    // The number of finished samples.
     shared_ptr<int32_t> finished_ {};
-    // 已就绪样本数
+    // The number of ready samples.
     shared_ptr<int32_t> ready_ {};
-    // buffer 标签，即 global batch 序号
+    // The buffer tag, which is the global batch ordinal number.
     shared_ptr<int32_t> tag_ {};
-    // 目标样本数
+    // The target number of samples.
     shared_ptr<int32_t> total_ {};
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The minimum number of available instances required when the role participates in HyperNode scheduling. The value must be greater than 0.
     shared_ptr<int32_t> minAvailable_ {};
+    // The quality policy. Currently, only AlwaysRequire is supported.
     shared_ptr<string> qualityPolicy_ {};
   };
 

@@ -165,19 +165,33 @@ namespace Models
 
 
   protected:
+    // The time when the pod was created (UTC).
     shared_ptr<string> gmtCreateTime_ {};
+    // The time when the pod was completed (UTC).
     shared_ptr<string> gmtFinishTime_ {};
+    // The time when the pod was started (UTC).
     shared_ptr<string> gmtStartTime_ {};
+    // The historical pods.
     shared_ptr<vector<PodItem>> historyPods_ {};
+    // Pod Ip
     shared_ptr<string> ip_ {};
+    // The name of the compute node where the pod is located.
     shared_ptr<string> nodeName_ {};
+    // Pod Id
     shared_ptr<string> podId_ {};
+    // The IP address of the pod.
     shared_ptr<string> podIp_ {};
+    // The IP addresses of the pod. For Lingjun AI Computing Service: user VPC net0, management VPC net, and pod-to-pod communication ethx. For general-purpose computing: user VPC eth1 with dedicated gateway default route, management VPC eth0 with public gateway default route, and pod-to-pod communication net eRDMA.
     shared_ptr<vector<PodNetworkInterface>> podIps_ {};
+    // Pod Uid
     shared_ptr<string> podUid_ {};
+    // The status of the pod.
     shared_ptr<string> status_ {};
+    // The substatus of the pod.
     shared_ptr<string> subStatus_ {};
+    // The type of the pod.
     shared_ptr<string> type_ {};
+    // The list of supported profiling types, separated by commas, such as sysom. An empty string indicates that profiling is not supported.
     shared_ptr<string> supportedProfilingTypes_ {};
   };
 

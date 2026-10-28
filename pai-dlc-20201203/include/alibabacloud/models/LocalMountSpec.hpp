@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The local path on the host. This field is invalid when MountMode is set to Block.
     shared_ptr<string> localPath_ {};
+    // The mount mode. Valid values: Block and Filesystem.
     shared_ptr<string> mountMode_ {};
+    // The absolute mount path in the container. The path must start with a forward slash (/). When MountMode is set to Block, the path must start with /dev/.
     shared_ptr<string> mountPath_ {};
   };
 

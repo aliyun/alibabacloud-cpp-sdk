@@ -53,9 +53,9 @@ namespace Models
 
 
   protected:
-    // Resource limits
+    // The resource limits.
     shared_ptr<map<string, string>> limits_ {};
-    // Resource requests
+    // The resource requests.
     shared_ptr<map<string, string>> requests_ {};
   };
 

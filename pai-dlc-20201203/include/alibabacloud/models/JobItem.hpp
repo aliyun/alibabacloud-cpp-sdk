@@ -227,7 +227,9 @@ namespace Models
 
 
     protected:
-      // The default route. Valid values:
+      // The default routing. Valid values:
+      // - eth0: Uses the default network interface controller (NIC) to access external networks through the public gateway.
+      // - eth1: Uses the user elastic network interfaces (ENIs) to access external networks through the private gateway.
       shared_ptr<string> defaultRoute_ {};
       // The extended CIDR blocks to connect.
       shared_ptr<vector<string>> extendedCidrs_ {};
@@ -838,54 +840,66 @@ namespace Models
     shared_ptr<vector<JobItem::DataSources>> dataSources_ {};
     // The job name.
     shared_ptr<string> displayName_ {};
-    // The job running duration, in seconds.
+    // The job duration in seconds.
     shared_ptr<int64_t> duration_ {};
     // The elastic job parameters.
     shared_ptr<JobElasticSpec> elasticSpec_ {};
-    // Indicates whether PreemptibleJob is enabled.
+    // Specifies whether the preemptible job is enabled.
     shared_ptr<bool> enablePreemptibleJob_ {};
-    // Indicates whether debugger analysis is enabled.
+    // Specifies whether debugger analysis is enabled.
     shared_ptr<bool> enabledDebugger_ {};
-    // The environment variables injected into the job at runtime.
+    // The environment variables injected during job execution.
     shared_ptr<map<string, string>> envs_ {};
     // The job creation time in UTC format.
     shared_ptr<string> gmtCreateTime_ {};
-    // The time when the job failed (UTC).
+    // The job failure time in UTC.
     shared_ptr<string> gmtFailedTime_ {};
-    // The time when the job finished (UTC).
+    // The job end time in UTC.
     shared_ptr<string> gmtFinishTime_ {};
-    // The time when the job was modified (UTC).
+    // The job modification time in UTC.
     shared_ptr<string> gmtModifiedTime_ {};
-    // The time when the job started running in UTC format.
+    // The job start time in UTC.
     shared_ptr<string> gmtRunningTime_ {};
-    // The time when the job was stopped (UTC).
+    // The job stop time in UTC.
     shared_ptr<string> gmtStoppedTime_ {};
-    // The job submission time in UTC format.
+    // The job submission time in UTC.
     shared_ptr<string> gmtSubmittedTime_ {};
-    // The time when the job completed successfully in UTC format.
+    // The job success time in UTC.
     shared_ptr<string> gmtSuccessedTime_ {};
-    // Indicates whether the job is deleted.
+    // Specifies whether the job is deleted.
     shared_ptr<bool> isDeleted_ {};
     // The job ID.
     shared_ptr<string> jobId_ {};
-    // The maximum job running duration.
+    // The maximum job running time.
     shared_ptr<int64_t> jobMaxRunningTimeMinutes_ {};
+    // The list of replica running statuses for each task role.
     shared_ptr<vector<JobReplicaStatus>> jobReplicaStatuses_ {};
-    // The node configurations for the job at runtime.
+    // The node configuration during job execution.
     shared_ptr<vector<JobSpec>> jobSpecs_ {};
     // The job type. Valid values:
+    // - TFJob
+    // - PyTorchJob
+    // - MPIJob
+    // - XGBoostJob
+    // - OneFlowJob
+    // - ElasticBatchJob
+    // - RayJob
+    // - SlurmJob
     shared_ptr<string> jobType_ {};
     // The number of nodes.
     shared_ptr<string> nodeCount_ {};
     // The node names.
     shared_ptr<vector<string>> nodeNames_ {};
-    // Pods。
+    // The pods.
     shared_ptr<vector<PodItem>> pods_ {};
     // The job priority.
     shared_ptr<int32_t> priority_ {};
-    // The reason code for the job entering its current status. Valid values:
+    // The reason code for the current job status. Valid values:
+    // - InvalidParameter
+    // - JobSucceeded
+    // - JobStoppedByUser
     shared_ptr<string> reasonCode_ {};
-    // The detailed description of the reason for the job entering its current status.
+    // The detailed description of the reason for the current job status.
     shared_ptr<string> reasonMessage_ {};
     // The requested CPU resources.
     shared_ptr<int64_t> requestCPU_ {};
@@ -893,31 +907,37 @@ namespace Models
     shared_ptr<string> requestGPU_ {};
     // The requested memory resources.
     shared_ptr<string> requestMemory_ {};
-    // The ID of the resource group in which the job runs.
+    // The ID of the resource group where the job runs.
     shared_ptr<string> resourceId_ {};
-    // The resource level of the job at runtime.
+    // The resource level when the job runs.
     shared_ptr<string> resourceLevel_ {};
-    // The name of the resource on which the job runs.
+    // The name of the resource where the job runs.
     shared_ptr<string> resourceName_ {};
-    // The resource name.
+    // The name of the resource.
     shared_ptr<string> resourceQuotaName_ {};
-    // The resource type. Valid values: ECS, Lingjun, and ACS.
+    // The resource type, such as ECS, Lingjun, or ACS.
     shared_ptr<string> resourceType_ {};
-    // The number of times the job has been restarted.
+    // The number of times the job is restarted.
     shared_ptr<string> restartTimes_ {};
+    // The number of retries configured for the node.
     shared_ptr<int32_t> retryCount_ {};
+    // The scheduling strategy of the node.
     shared_ptr<string> schedulingStrategy_ {};
     // The additional parameters of the job.
     shared_ptr<JobSettings> settings_ {};
     // The job status. Valid values:
+    // - Succeeded
+    // - Failed
     shared_ptr<string> status_ {};
-    // The job status transition information.
+    // The status transition information of the job.
     shared_ptr<vector<StatusTransitionItem>> statusHistory_ {};
-    // The job sub-status, such as preemption retry status.
+    // The substatus of the job, such as the preemptible retry status.
     shared_ptr<string> subStatus_ {};
     // The system environment variable configuration.
     shared_ptr<map<string, string>> systemEnvs_ {};
+    // The ID of the node template used to create the node.
     shared_ptr<string> templateId_ {};
+    // The name of the node template used to create the node.
     shared_ptr<string> templateName_ {};
     // The tenant ID.
     shared_ptr<string> tenantId_ {};
@@ -925,11 +945,11 @@ namespace Models
     shared_ptr<string> thirdpartyLibDir_ {};
     // The list of third-party Python libraries installed before the job runs.
     shared_ptr<vector<string>> thirdpartyLibs_ {};
-    // Indicates whether the job uses idle resources.
+    // Specifies whether the job uses idle resources.
     shared_ptr<bool> useOversoldResource_ {};
-    // The startup command that runs on each node of the job.
+    // The startup command run by each node of the job.
     shared_ptr<string> userCommand_ {};
-    // The UID of the user who owns the job.
+    // The UID of the user to whom the job belongs.
     shared_ptr<string> userId_ {};
     // The user script.
     shared_ptr<string> userScript_ {};
@@ -943,6 +963,7 @@ namespace Models
     shared_ptr<string> workspaceId_ {};
     // The name of the workspace to which the job belongs.
     shared_ptr<string> workspaceName_ {};
+    // The list of supported profiling types, separated by commas, such as sysom. An empty string indicates that profiling is not supported.
     shared_ptr<string> supportedProfilingTypes_ {};
   };
 

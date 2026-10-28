@@ -69,12 +69,13 @@ namespace Models
 
 
   protected:
-    // The expiration time of the sharing link in seconds. Default value: 604800. Minimum value: 0.
+    // The expiration time of the sharing link. Default value: 604800 seconds. Minimum value: 0.
     shared_ptr<int64_t> expireTime_ {};
-    // The ID of the task to share.
+    // The ID of the job to be shared.
     shared_ptr<string> targetId_ {};
-    // The type of the task to share. Valid values: job and tensorboard.
+    // The type of the shared job. Valid values: job and tensorboard.
     shared_ptr<string> targetType_ {};
+    // The permission settings of the sharing token, which controls log download and cross-account access.
     shared_ptr<TokenSettings> tokenSettings_ {};
   };
 

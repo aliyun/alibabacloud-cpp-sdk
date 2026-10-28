@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The minimum number of dependent roles that must reach the expected phase to be considered satisfied.
     shared_ptr<string> minReplicas_ {};
+    // The phase that dependent roles must reach to be considered satisfied.
     shared_ptr<string> onPhase_ {};
+    // The type of the dependent role.
     shared_ptr<string> type_ {};
   };
 

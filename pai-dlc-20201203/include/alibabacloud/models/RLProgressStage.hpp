@@ -103,19 +103,19 @@ namespace Models
 
 
   protected:
-    // 阶段耗时（秒，保留 3 位小数）；一个 step 常整体落在同一秒内，故不取整
+    // The duration of the stage in seconds, with three decimal places. A step often falls entirely within the same second, so the value is not rounded to an integer.
     shared_ptr<double> duration_ {};
-    // 阶段结束时间（unix 秒）
+    // The end time of the stage in UNIX seconds.
     shared_ptr<int64_t> endTime_ {};
-    // 阶段标识
+    // The stage identifier.
     shared_ptr<string> key_ {};
-    // 阶段中文名
+    // The Chinese name of the stage.
     shared_ptr<string> label_ {};
-    // 匹配该阶段的日志标记文案
+    // The log marker text used to match the stage.
     shared_ptr<string> marker_ {};
-    // 是否为可选阶段；可选阶段未出现时状态记为 skipped
+    // Specifies whether the stage is optional. If an optional stage does not occur, its status is recorded as skipped.
     shared_ptr<bool> optional_ {};
-    // 阶段开始时间（unix 秒）
+    // The start time of the stage in UNIX seconds.
     shared_ptr<int64_t> startTime_ {};
     // done / running / waiting / pending / skipped
     shared_ptr<string> status_ {};

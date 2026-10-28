@@ -124,14 +124,23 @@ namespace Models
 
 
   protected:
+    // The creator.
     shared_ptr<string> creator_ {};
+    // The creation time.
     shared_ptr<string> gmtCreateTime_ {};
+    // The last modification time.
     shared_ptr<string> gmtModifyTime_ {};
+    // The member list.
     shared_ptr<vector<Member>> members_ {};
+    // The resource quota list.
     shared_ptr<vector<Quota>> quotas_ {};
+    // The total resources.
     shared_ptr<Resources> totalResources_ {};
+    // The administrator list.
     shared_ptr<vector<Member>> workspaceAdmins_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
+    // The workspace name.
     shared_ptr<string> workspaceName_ {};
   };
 

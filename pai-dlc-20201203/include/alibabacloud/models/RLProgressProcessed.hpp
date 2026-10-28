@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // 已处理条数
+    // The processed count.
     shared_ptr<int32_t> done_ {};
-    // 总条数
+    // The total count.
     shared_ptr<int32_t> total_ {};
   };
 

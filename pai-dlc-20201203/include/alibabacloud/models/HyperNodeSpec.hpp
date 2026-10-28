@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The name of the HyperNode.
     shared_ptr<string> hyperNodeName_ {};
+    // The comma-separated names of the specified nodes in the HyperNode. If you leave this parameter empty, all nodes in the HyperNode are specified.
     shared_ptr<string> nodeNames_ {};
   };
 

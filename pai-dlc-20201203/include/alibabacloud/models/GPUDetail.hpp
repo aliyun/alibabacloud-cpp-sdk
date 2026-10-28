@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The number of GPUs.
     shared_ptr<string> GPU_ {};
+    // The GPU type.
     shared_ptr<string> GPUType_ {};
+    // The full name of the GPU type.
     shared_ptr<string> GPUTypeFullName_ {};
   };
 

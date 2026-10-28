@@ -314,9 +314,11 @@ namespace Models
   protected:
     // The visibility.
     shared_ptr<string> accessibility_ {};
+    // The CPU resources.
     shared_ptr<int64_t> cpu_ {};
     // The data source ID.
     shared_ptr<string> dataSourceId_ {};
+    // The dataset type.
     shared_ptr<string> dataSourceType_ {};
     // The display name.
     shared_ptr<string> displayName_ {};
@@ -330,14 +332,17 @@ namespace Models
     shared_ptr<string> gmtModifyTime_ {};
     // The job ID.
     shared_ptr<string> jobId_ {};
+    // The maximum running duration in minutes.
     shared_ptr<int64_t> maxRunningTimeMinutes_ {};
+    // The memory size in GB.
     shared_ptr<int64_t> memory_ {};
+    // The extended fields of the dataset in JSON format. Currently, MountPath is supported, which specifies the mount path for a custom dataset.
     shared_ptr<string> options_ {};
-    // The priority of the TensorBoard job.
+    // The priority of the Tensorboard job.
     shared_ptr<string> priority_ {};
-    // The ID of the resource group used by TensorBoard.
+    // The ID of the resource group used by Tensorboard.
     shared_ptr<string> quotaId_ {};
-    // The name of the resource quota used by TensorBoard.
+    // The name of the resource quota used by Tensorboard.
     shared_ptr<string> quotaName_ {};
     // The status detail code.
     shared_ptr<string> reasonCode_ {};
@@ -349,20 +354,23 @@ namespace Models
     shared_ptr<string> status_ {};
     // The file path.
     shared_ptr<string> summaryPath_ {};
+    // The absolute path of the summary.
     shared_ptr<string> summaryRelativePath_ {};
-    // The datasets mounted to the TensorBoard job.
+    // The datasets mounted to the Tensorboard job.
     shared_ptr<vector<TensorboardDataSourceSpec>> tensorboardDataSources_ {};
-    // Tensorboard ID。
+    // The Tensorboard ID.
     shared_ptr<string> tensorboardId_ {};
-    // The pay-as-you-go configuration of the TensorBoard job.
+    // The pay-as-you-go configuration for the Tensorboard job.
     shared_ptr<TensorboardSpec> tensorboardSpec_ {};
-    // Tensorboard URL。
+    // The Tensorboard URL.
     shared_ptr<string> tensorboardUrl_ {};
+    // The token value.
     shared_ptr<string> token_ {};
     // The ID of the creator.
     shared_ptr<string> userId_ {};
     // The username of the creator.
     shared_ptr<string> username_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

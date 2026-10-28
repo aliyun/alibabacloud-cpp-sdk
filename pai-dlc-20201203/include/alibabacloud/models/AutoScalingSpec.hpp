@@ -81,10 +81,15 @@ namespace Models
 
 
   protected:
+    // The monitoring metrics configuration for autoscaling.
     shared_ptr<AutoscalingMetricSpec> autoscalingMetricSpec_ {};
+    // The maximum number of replicas.
     shared_ptr<int32_t> maxReplicas_ {};
+    // The minimum number of replicas.
     shared_ptr<int32_t> minReplicas_ {};
+    // The Pods to delete for scale-in. This can only be modified through UpdateJob, and the number of Pods to delete must match PodCount.
     shared_ptr<vector<string>> podsToDelete_ {};
+    // The autoscaling policy. Valid values: Default, ScaleByAPI, RayAutoscaler, and CloudMonitorMetric.
     shared_ptr<string> scalingStrategy_ {};
   };
 

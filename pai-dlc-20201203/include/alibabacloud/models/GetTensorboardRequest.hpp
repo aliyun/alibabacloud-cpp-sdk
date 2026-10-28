@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The job ID. See [ListJobs](https://help.aliyun.com/document_detail/459676.html) to obtain the job ID.
     shared_ptr<string> jodId_ {};
-    // The sharing token. Specify this parameter to use the sharing token to obtain the permission to view a specific Tensorboard job. You can extract the token from the URL returned by calling [GetTensorboardSharedUrl](https://help.aliyun.com/document_detail/2557813.html).
+    // The sharing token. Specify this parameter to use the sharing token to obtain the permissions to view a TensorBoard job. You can extract the token from the URL obtained by calling [GetTensorboardSharedUrl](https://help.aliyun.com/document_detail/2557813.html).
     shared_ptr<string> token_ {};
     // The workspace ID. <props="china">See [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
     shared_ptr<string> workspaceId_ {};

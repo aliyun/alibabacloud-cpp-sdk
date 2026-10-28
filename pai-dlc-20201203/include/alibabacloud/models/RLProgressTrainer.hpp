@@ -72,13 +72,13 @@ namespace Models
 
 
   protected:
-    // micro-batch 进度
+    // The micro-batch progress.
     shared_ptr<RLProgressMicro> micro_ {};
-    // 当前 mini batch 序号
+    // The current mini-batch ordinal number.
     shared_ptr<int32_t> miniIdx_ {};
-    // mini-batch 总数
+    // The total number of mini-batches.
     shared_ptr<int32_t> numMinibatches_ {};
-    // 参数同步状态
+    // The parameter synchronization status.
     shared_ptr<RLProgressSync> sync_ {};
   };
 

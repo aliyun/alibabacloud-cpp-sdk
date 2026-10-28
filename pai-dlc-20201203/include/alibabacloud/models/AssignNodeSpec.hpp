@@ -81,10 +81,15 @@ namespace Models
 
 
   protected:
+    // The list of hyper nodes to avoid during scheduling.
     shared_ptr<vector<HyperNodeSpec>> antiAffinityHyperNodes_ {};
+    // AntiAffinityNodeNames
     shared_ptr<string> antiAffinityNodeNames_ {};
+    // EnableAssignNode
     shared_ptr<bool> enableAssignNode_ {};
+    // The list of hyper nodes to schedule to.
     shared_ptr<vector<HyperNodeSpec>> hyperNodes_ {};
+    // NodeNames
     shared_ptr<string> nodeNames_ {};
   };
 

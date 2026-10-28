@@ -53,7 +53,9 @@ namespace Models
 
 
   protected:
+    // The list of Linux capabilities to add.
     shared_ptr<vector<string>> add_ {};
+    // The list of Linux capabilities to remove.
     shared_ptr<vector<string>> drop_ {};
   };
 

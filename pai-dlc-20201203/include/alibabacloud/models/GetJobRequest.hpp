@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Specifies whether to return job details. Default value: true.
+    // Specifies whether to return the detailed information of the job. Default value: true.
     shared_ptr<bool> needDetail_ {};
   };
 

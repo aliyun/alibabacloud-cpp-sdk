@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The request ID. Used for troubleshooting and support inquiries.
+    // The request ID. It is used for troubleshooting and technical support.
     shared_ptr<string> requestId_ {};
     // The sharing link for the TensorBoard task.
     shared_ptr<string> tensorboardSharedUrl_ {};

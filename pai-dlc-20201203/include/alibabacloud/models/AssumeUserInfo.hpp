@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The AccessKey ID used for role assumption.
     shared_ptr<string> accessKeyId_ {};
+    // The user ID.
     shared_ptr<string> id_ {};
+    // The security token used for role assumption.
     shared_ptr<string> securityToken_ {};
+    // The user identity type.
     shared_ptr<string> type_ {};
   };
 

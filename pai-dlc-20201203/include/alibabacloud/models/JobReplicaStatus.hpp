@@ -109,21 +109,21 @@ namespace Models
 
 
   protected:
-    // The number of active pods for this replica type.
+    // The number of replicas of this role that are currently running.
     shared_ptr<int32_t> active_ {};
-    // The type of spot instance in use, if any.
+    // The currently selected spot instance type (applies only to elastic spot tasks).
     shared_ptr<string> currentSpotInstanceType_ {};
-    // The number of dequeued pods.
+    // The number of replicas of this role that have been dequeued.
     shared_ptr<int32_t> dequeued_ {};
-    // The estimated auto scaling specification.
+    // The estimated auto-scaling configuration for this role.
     shared_ptr<AutoScalingSpec> estimatedAutoScalingSpec_ {};
-    // The estimated number of pods for this replica type, used for auto scaling.
+    // The estimated number of pods for this role.
     shared_ptr<int64_t> estimatedPodCount_ {};
-    // The estimated resource configuration.
+    // The estimated resource configuration for this role.
     shared_ptr<ResourceConfig> estimatedResourceConfig_ {};
-    // The number of queued pods.
+    // The number of replicas of this role that are still in the queue.
     shared_ptr<int32_t> queuing_ {};
-    // The type of the job replica.
+    // The role type to which the task replicas belong.
     shared_ptr<string> type_ {};
   };
 

@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The collection where the model template resides. Default value: QuickStartTemplate.
     shared_ptr<string> collections_ {};
+    // The name of the model template.
     shared_ptr<string> modelName_ {};
+    // The provider of the model template. Default value: pai, which indicates that the model template is officially provided by PAI.
     shared_ptr<string> provider_ {};
   };
 

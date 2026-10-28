@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // 平均生成轮数
+    // The average number of generation rounds.
     shared_ptr<double> avg_ {};
-    // 参与统计的轨迹数
+    // The number of traces included in the statistics.
     shared_ptr<int32_t> count_ {};
-    // 最大生成轮数
+    // The maximum number of generation rounds.
     shared_ptr<int32_t> max_ {};
-    // 生成轮数 P50
+    // The P50 of generation rounds.
     shared_ptr<int32_t> p50_ {};
-    // 生成轮数 P90
+    // The P90 of generation rounds.
     shared_ptr<int32_t> p90_ {};
   };
 

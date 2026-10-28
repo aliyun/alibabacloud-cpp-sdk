@@ -61,11 +61,11 @@ namespace Models
 
 
   protected:
-    // The list of ECS specifications.
+    // The list of ECS instance types.
     shared_ptr<vector<EcsSpec>> ecsSpecs_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries that match the filter conditions.
+    // The total number of entries that meet the filter conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The system cloud disk type, such as cloud_essd.
     shared_ptr<string> category_ {};
+    // The performance level of the ESSD cloud disk, such as PL0 and PL1.
     shared_ptr<string> performanceLevel_ {};
+    // The size of the system cloud disk, in GiB.
     shared_ptr<int64_t> size_ {};
   };
 

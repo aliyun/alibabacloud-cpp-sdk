@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Specifies whether cross-account access through sharing links is allowed.
     shared_ptr<bool> enableCrossAccountAccess_ {};
+    // Specifies whether task logs can be downloaded through sharing links.
     shared_ptr<bool> enableLogDownloadJob_ {};
   };
 

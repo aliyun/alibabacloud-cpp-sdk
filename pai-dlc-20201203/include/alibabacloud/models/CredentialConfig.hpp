@@ -65,7 +65,7 @@ namespace Models
     shared_ptr<string> aliyunEnvRoleKey_ {};
     // The list of credential configuration items.
     shared_ptr<vector<CredentialConfigItem>> credentialConfigItems_ {};
-    // Specifies whether to enable credential injection.
+    // Specifies whether credential injection is enabled.
     shared_ptr<bool> enableCredentialInject_ {};
   };
 

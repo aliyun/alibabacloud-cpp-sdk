@@ -65,7 +65,7 @@ namespace Models
     shared_ptr<string> requestID_ {};
     // All computing power health check results.
     shared_ptr<vector<vector<SanityCheckResultItem>>> sanityCheckResults_ {};
-    // The total number of check results that match the filter conditions.
+    // The total number of health check results that meet the filter conditions.
     shared_ptr<int32_t> totalCount_ {};
   };
 
