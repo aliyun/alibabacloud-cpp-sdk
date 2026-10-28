@@ -39,84 +39,87 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alarmId_ != nullptr
-        && this->alarmName_ != nullptr && this->threshold_ != nullptr && this->thresholdPercent_ != nullptr && this->thresholdType_ != nullptr && this->webHook_ != nullptr; };
+    virtual bool empty() const override { return this->alarmId_ == nullptr
+        && this->alarmName_ == nullptr && this->threshold_ == nullptr && this->thresholdPercent_ == nullptr && this->thresholdType_ == nullptr && this->webHook_ == nullptr; };
     // alarmId Field Functions 
     bool hasAlarmId() const { return this->alarmId_ != nullptr;};
     void deleteAlarmId() { this->alarmId_ = nullptr;};
-    inline string alarmId() const { DARABONBA_PTR_GET_DEFAULT(alarmId_, "") };
+    inline string getAlarmId() const { DARABONBA_PTR_GET_DEFAULT(alarmId_, "") };
     inline UpdateQuotaAlarmRequest& setAlarmId(string alarmId) { DARABONBA_PTR_SET_VALUE(alarmId_, alarmId) };
 
 
     // alarmName Field Functions 
     bool hasAlarmName() const { return this->alarmName_ != nullptr;};
     void deleteAlarmName() { this->alarmName_ = nullptr;};
-    inline string alarmName() const { DARABONBA_PTR_GET_DEFAULT(alarmName_, "") };
+    inline string getAlarmName() const { DARABONBA_PTR_GET_DEFAULT(alarmName_, "") };
     inline UpdateQuotaAlarmRequest& setAlarmName(string alarmName) { DARABONBA_PTR_SET_VALUE(alarmName_, alarmName) };
 
 
     // threshold Field Functions 
     bool hasThreshold() const { return this->threshold_ != nullptr;};
     void deleteThreshold() { this->threshold_ = nullptr;};
-    inline float threshold() const { DARABONBA_PTR_GET_DEFAULT(threshold_, 0.0) };
+    inline float getThreshold() const { DARABONBA_PTR_GET_DEFAULT(threshold_, 0.0) };
     inline UpdateQuotaAlarmRequest& setThreshold(float threshold) { DARABONBA_PTR_SET_VALUE(threshold_, threshold) };
 
 
     // thresholdPercent Field Functions 
     bool hasThresholdPercent() const { return this->thresholdPercent_ != nullptr;};
     void deleteThresholdPercent() { this->thresholdPercent_ = nullptr;};
-    inline float thresholdPercent() const { DARABONBA_PTR_GET_DEFAULT(thresholdPercent_, 0.0) };
+    inline float getThresholdPercent() const { DARABONBA_PTR_GET_DEFAULT(thresholdPercent_, 0.0) };
     inline UpdateQuotaAlarmRequest& setThresholdPercent(float thresholdPercent) { DARABONBA_PTR_SET_VALUE(thresholdPercent_, thresholdPercent) };
 
 
     // thresholdType Field Functions 
     bool hasThresholdType() const { return this->thresholdType_ != nullptr;};
     void deleteThresholdType() { this->thresholdType_ = nullptr;};
-    inline string thresholdType() const { DARABONBA_PTR_GET_DEFAULT(thresholdType_, "") };
+    inline string getThresholdType() const { DARABONBA_PTR_GET_DEFAULT(thresholdType_, "") };
     inline UpdateQuotaAlarmRequest& setThresholdType(string thresholdType) { DARABONBA_PTR_SET_VALUE(thresholdType_, thresholdType) };
 
 
     // webHook Field Functions 
     bool hasWebHook() const { return this->webHook_ != nullptr;};
     void deleteWebHook() { this->webHook_ = nullptr;};
-    inline string webHook() const { DARABONBA_PTR_GET_DEFAULT(webHook_, "") };
+    inline string getWebHook() const { DARABONBA_PTR_GET_DEFAULT(webHook_, "") };
     inline UpdateQuotaAlarmRequest& setWebHook(string webHook) { DARABONBA_PTR_SET_VALUE(webHook_, webHook) };
 
 
   protected:
     // The ID of the quota alert.
     // 
-    // >  You can call the [ListQuotaAlarms](https://help.aliyun.com/document_detail/440561.html) operation to obtain the ID of a quota alert.
+    // > For more information about how to obtain the ID of a quota alert, see [ListQuotaAlarms](https://help.aliyun.com/document_detail/440561.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> alarmId_ = nullptr;
+    shared_ptr<string> alarmId_ {};
     // The name of the quota alert.
     // 
-    // >  You can call the [ListQuotaAlarms](https://help.aliyun.com/document_detail/440561.html) operation to obtain the name of a quota alert.
+    // > For more information about how to obtain the name of a quota alert, see [ListQuotaAlarms](https://help.aliyun.com/document_detail/440561.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> alarmName_ = nullptr;
+    shared_ptr<string> alarmName_ {};
     // The numeric value of the alert threshold. Valid values:
     // 
-    // *   If you set the `ThresholdType` parameter to `used`, you will receive an alert notification when the used quota is greater than or equal to the preset alert threshold. The alert threshold must be greater than the current used quota.
-    // *   If you set the `ThresholdType` parameter to `usable`, you will receive an alert notification when the available quota is less than or equal to the preset alert threshold. The alert threshold must be less than the current available quota.
+    // - If you set `ThresholdType` to `used`, an alert is triggered when the used quota is greater than or equal to this value. The alert threshold must be greater than the current used quota.
     // 
-    // > You must set one of the Threshold and ThresholdPercent parameters.
-    std::shared_ptr<float> threshold_ = nullptr;
+    // - If you set `ThresholdType` to `usable`, an alert is triggered when the usable quota is less than or equal to this value. The alert threshold must be less than the current usable quota.
+    // 
+    // > You must set either Threshold or ThresholdPercent.
+    shared_ptr<float> threshold_ {};
     // The percentage of the alert threshold. Valid values:
     // 
-    // *   If you set `ThresholdType` to `used`, you receive an alert notification when the used quota is greater than or equal to the preset percentage of the alert threshold. Value range: (50%, 100%].
-    // *   If you set `ThresholdType` to `usable`, you receive an alert notification when the available quota is less than or equal to the preset percentage of the alert threshold. Value range: (0%, 50%].
+    // - If you set `ThresholdType` to `used`, an alert is triggered when the percentage of the used quota is greater than or equal to this value. The value must be in the range of (50%, 100%].
     // 
-    // >  You must set one of Threshold and ThresholdPercent.
-    std::shared_ptr<float> thresholdPercent_ = nullptr;
+    // - If you set `ThresholdType` to `usable`, an alert is triggered when the percentage of the usable quota is less than or equal to this value. The value must be in the range of (0%, 50%].
+    // 
+    // > You must set either Threshold or ThresholdPercent.
+    shared_ptr<float> thresholdPercent_ {};
     // The type of the quota alert. Valid values:
     // 
-    // *   used (default): The alert is created for the used quota.
-    // *   usable: The alert is created for the available quota.
-    std::shared_ptr<string> thresholdType_ = nullptr;
-    // The webhook URL. Quota Center sends alert notifications to the specified URL by using HTTP POST requests.
-    std::shared_ptr<string> webHook_ = nullptr;
+    // - used (default): The alert is triggered based on the used quota.
+    // 
+    // - usable: The alert is triggered based on the usable quota.
+    shared_ptr<string> thresholdType_ {};
+    // The webhook URL. Quota Center sends alert notifications to this URL using an HTTP POST request.
+    shared_ptr<string> webHook_ {};
   };
 
   } // namespace Models

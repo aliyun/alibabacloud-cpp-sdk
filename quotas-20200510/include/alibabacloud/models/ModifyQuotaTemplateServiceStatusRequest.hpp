@@ -29,22 +29,23 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->serviceStatus_ != nullptr; };
+    virtual bool empty() const override { return this->serviceStatus_ == nullptr; };
     // serviceStatus Field Functions 
     bool hasServiceStatus() const { return this->serviceStatus_ != nullptr;};
     void deleteServiceStatus() { this->serviceStatus_ = nullptr;};
-    inline int32_t serviceStatus() const { DARABONBA_PTR_GET_DEFAULT(serviceStatus_, 0) };
+    inline int32_t getServiceStatus() const { DARABONBA_PTR_GET_DEFAULT(serviceStatus_, 0) };
     inline ModifyQuotaTemplateServiceStatusRequest& setServiceStatus(int32_t serviceStatus) { DARABONBA_PTR_SET_VALUE(serviceStatus_, serviceStatus) };
 
 
   protected:
     // The status of the quota template. Valid values:
     // 
-    // *   \\-1: The quota template is disabled.
-    // *   1: The quota template is enabled.
+    // - -1: The quota template is disabled.
+    // 
+    // - 1: The quota template is enabled.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> serviceStatus_ = nullptr;
+    shared_ptr<int32_t> serviceStatus_ {};
   };
 
   } // namespace Models

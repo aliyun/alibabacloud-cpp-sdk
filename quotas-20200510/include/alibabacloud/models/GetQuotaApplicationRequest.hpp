@@ -29,17 +29,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->applicationId_ != nullptr; };
+    virtual bool empty() const override { return this->applicationId_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
-    inline string applicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
+    inline string getApplicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
     inline GetQuotaApplicationRequest& setApplicationId(string applicationId) { DARABONBA_PTR_SET_VALUE(applicationId_, applicationId) };
 
 
   protected:
-    // The ID of the application.
-    std::shared_ptr<string> applicationId_ = nullptr;
+    // The ID of the quota increase application.
+    shared_ptr<string> applicationId_ {};
   };
 
   } // namespace Models

@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTPRODUCTQUOTASREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListProductQuotasRequestDimensions.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -49,136 +48,166 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dimensions_ != nullptr
-        && this->groupCode_ != nullptr && this->keyWord_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->productCode_ != nullptr
-        && this->quotaActionCode_ != nullptr && this->quotaCategory_ != nullptr && this->sortField_ != nullptr && this->sortOrder_ != nullptr; };
+    class Dimensions : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Dimensions& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Dimensions& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Dimensions() = default ;
+      Dimensions(const Dimensions &) = default ;
+      Dimensions(Dimensions &&) = default ;
+      Dimensions(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Dimensions() = default ;
+      Dimensions& operator=(const Dimensions &) = default ;
+      Dimensions& operator=(Dimensions &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Dimensions& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Dimensions& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // The key of the quota dimension.
+      // 
+      // > The value range of N depends on the number of dimensions supported by the corresponding cloud service.
+      shared_ptr<string> key_ {};
+      // The value of the quota dimension.
+      // 
+      // > The value range of N depends on the number of dimensions supported by the corresponding cloud service.
+      shared_ptr<string> value_ {};
+    };
+
+    virtual bool empty() const override { return this->dimensions_ == nullptr
+        && this->groupCode_ == nullptr && this->keyWord_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->productCode_ == nullptr
+        && this->quotaActionCode_ == nullptr && this->quotaCategory_ == nullptr && this->sortField_ == nullptr && this->sortOrder_ == nullptr; };
     // dimensions Field Functions 
     bool hasDimensions() const { return this->dimensions_ != nullptr;};
     void deleteDimensions() { this->dimensions_ = nullptr;};
-    inline const vector<ListProductQuotasRequestDimensions> & dimensions() const { DARABONBA_PTR_GET_CONST(dimensions_, vector<ListProductQuotasRequestDimensions>) };
-    inline vector<ListProductQuotasRequestDimensions> dimensions() { DARABONBA_PTR_GET(dimensions_, vector<ListProductQuotasRequestDimensions>) };
-    inline ListProductQuotasRequest& setDimensions(const vector<ListProductQuotasRequestDimensions> & dimensions) { DARABONBA_PTR_SET_VALUE(dimensions_, dimensions) };
-    inline ListProductQuotasRequest& setDimensions(vector<ListProductQuotasRequestDimensions> && dimensions) { DARABONBA_PTR_SET_RVALUE(dimensions_, dimensions) };
+    inline const vector<ListProductQuotasRequest::Dimensions> & getDimensions() const { DARABONBA_PTR_GET_CONST(dimensions_, vector<ListProductQuotasRequest::Dimensions>) };
+    inline vector<ListProductQuotasRequest::Dimensions> getDimensions() { DARABONBA_PTR_GET(dimensions_, vector<ListProductQuotasRequest::Dimensions>) };
+    inline ListProductQuotasRequest& setDimensions(const vector<ListProductQuotasRequest::Dimensions> & dimensions) { DARABONBA_PTR_SET_VALUE(dimensions_, dimensions) };
+    inline ListProductQuotasRequest& setDimensions(vector<ListProductQuotasRequest::Dimensions> && dimensions) { DARABONBA_PTR_SET_RVALUE(dimensions_, dimensions) };
 
 
     // groupCode Field Functions 
     bool hasGroupCode() const { return this->groupCode_ != nullptr;};
     void deleteGroupCode() { this->groupCode_ = nullptr;};
-    inline string groupCode() const { DARABONBA_PTR_GET_DEFAULT(groupCode_, "") };
+    inline string getGroupCode() const { DARABONBA_PTR_GET_DEFAULT(groupCode_, "") };
     inline ListProductQuotasRequest& setGroupCode(string groupCode) { DARABONBA_PTR_SET_VALUE(groupCode_, groupCode) };
 
 
     // keyWord Field Functions 
     bool hasKeyWord() const { return this->keyWord_ != nullptr;};
     void deleteKeyWord() { this->keyWord_ = nullptr;};
-    inline string keyWord() const { DARABONBA_PTR_GET_DEFAULT(keyWord_, "") };
+    inline string getKeyWord() const { DARABONBA_PTR_GET_DEFAULT(keyWord_, "") };
     inline ListProductQuotasRequest& setKeyWord(string keyWord) { DARABONBA_PTR_SET_VALUE(keyWord_, keyWord) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListProductQuotasRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListProductQuotasRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // productCode Field Functions 
     bool hasProductCode() const { return this->productCode_ != nullptr;};
     void deleteProductCode() { this->productCode_ = nullptr;};
-    inline string productCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
+    inline string getProductCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
     inline ListProductQuotasRequest& setProductCode(string productCode) { DARABONBA_PTR_SET_VALUE(productCode_, productCode) };
 
 
     // quotaActionCode Field Functions 
     bool hasQuotaActionCode() const { return this->quotaActionCode_ != nullptr;};
     void deleteQuotaActionCode() { this->quotaActionCode_ = nullptr;};
-    inline string quotaActionCode() const { DARABONBA_PTR_GET_DEFAULT(quotaActionCode_, "") };
+    inline string getQuotaActionCode() const { DARABONBA_PTR_GET_DEFAULT(quotaActionCode_, "") };
     inline ListProductQuotasRequest& setQuotaActionCode(string quotaActionCode) { DARABONBA_PTR_SET_VALUE(quotaActionCode_, quotaActionCode) };
 
 
     // quotaCategory Field Functions 
     bool hasQuotaCategory() const { return this->quotaCategory_ != nullptr;};
     void deleteQuotaCategory() { this->quotaCategory_ = nullptr;};
-    inline string quotaCategory() const { DARABONBA_PTR_GET_DEFAULT(quotaCategory_, "") };
+    inline string getQuotaCategory() const { DARABONBA_PTR_GET_DEFAULT(quotaCategory_, "") };
     inline ListProductQuotasRequest& setQuotaCategory(string quotaCategory) { DARABONBA_PTR_SET_VALUE(quotaCategory_, quotaCategory) };
 
 
     // sortField Field Functions 
     bool hasSortField() const { return this->sortField_ != nullptr;};
     void deleteSortField() { this->sortField_ = nullptr;};
-    inline string sortField() const { DARABONBA_PTR_GET_DEFAULT(sortField_, "") };
+    inline string getSortField() const { DARABONBA_PTR_GET_DEFAULT(sortField_, "") };
     inline ListProductQuotasRequest& setSortField(string sortField) { DARABONBA_PTR_SET_VALUE(sortField_, sortField) };
 
 
     // sortOrder Field Functions 
     bool hasSortOrder() const { return this->sortOrder_ != nullptr;};
     void deleteSortOrder() { this->sortOrder_ = nullptr;};
-    inline string sortOrder() const { DARABONBA_PTR_GET_DEFAULT(sortOrder_, "") };
+    inline string getSortOrder() const { DARABONBA_PTR_GET_DEFAULT(sortOrder_, "") };
     inline ListProductQuotasRequest& setSortOrder(string sortOrder) { DARABONBA_PTR_SET_VALUE(sortOrder_, sortOrder) };
 
 
   protected:
     // The quota dimensions.
-    std::shared_ptr<vector<ListProductQuotasRequestDimensions>> dimensions_ = nullptr;
+    shared_ptr<vector<ListProductQuotasRequest::Dimensions>> dimensions_ {};
     // The code of the dimension group.
-    std::shared_ptr<string> groupCode_ = nullptr;
-    // The keyword that you want to use to search for the quotas.
-    // 
-    // >  This parameter is available only for quotas that belong to ECS Quotas by Instance Type. The keyword is used to match the values of `QuotaName` and `QuotaActionCode`.
-    std::shared_ptr<string> keyWord_ = nullptr;
-    // The maximum number of records that can be returned for the query.
+    shared_ptr<string> groupCode_ {};
+    // The search keyword for the quota.
+    // > This parameter applies only to Elastic Computing Service server instance type quotas (ecs-spec). The search scope includes `QuotaName` and `QuotaActionCode`.
+    shared_ptr<string> keyWord_ {};
+    // The maximum number of entries to return in a single request.
     // 
     // Valid values: 1 to 100. Default value: 30.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    // The pagination token that is used in the next request to retrieve a new page of results.
+    shared_ptr<int32_t> maxResults_ {};
+    // The token used to retrieve the next page of results.
     // 
-    // *   You do not need to specify this parameter for the first and last requests.
-    // *   You must specify the token that is obtained from the previous query as the value of NextToken.
-    std::shared_ptr<string> nextToken_ = nullptr;
-    // The abbreviation of the Alibaba Cloud service name.
+    // - Leave this parameter empty for the first request or when no more results are available.
+    // - If more results are available, set this parameter to the NextToken value returned when you invoke the previous API call.
+    shared_ptr<string> nextToken_ {};
+    // The abbreviation of the cloud service.
     // 
-    // >  To query the abbreviation of an Alibaba Cloud service name, call the [ListProducts](https://help.aliyun.com/document_detail/440555.html) operation and check the value of the `ProductCode` parameter.
+    // > For more information about how to obtain the abbreviation of a cloud service, see `ProductCode` in [ListProducts](https://help.aliyun.com/document_detail/440555.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> productCode_ = nullptr;
-    // The quota ID.
-    std::shared_ptr<string> quotaActionCode_ = nullptr;
-    // The type of the quota.
+    shared_ptr<string> productCode_ {};
+    // The ID of the quota.
+    shared_ptr<string> quotaActionCode_ {};
+    // The quota category.
     // 
     // Default value: CommonQuota.
+    shared_ptr<string> quotaCategory_ {};
+    // The sorting method supported by the quota.
     // 
-    // Valid values:
+    // > This parameter applies only to Elastic Computing Service server instance type quotas (ecs-spec). If no Settings are specified, it is left empty.
+    shared_ptr<string> sortField_ {};
+    // The sorting method supported by the quota.
     // 
-    // *   FlowControl: API rate limit
-    // *   WhiteListLabel: privilege
-    // *   CommonQuota: general quota
-    std::shared_ptr<string> quotaCategory_ = nullptr;
-    // The field based on which you want to sort the returned records.
-    // 
-    // >  This parameter is available only for quotas that belong to ECS Quotas by Instance Type. You can leave this parameter empty.
-    // 
-    // Valid values:
-    // 
-    // *   TOTAL: sorts the returned records based on the total quota.
-    // *   TIME: sorts the returned records based on the time when the quota was last modified.
-    // *   RESERVED: sorts the returned records based on the reserved quota.
-    std::shared_ptr<string> sortField_ = nullptr;
-    // The order in which you want to sort the returned records.
-    // 
-    // >  This parameter is available only for quotas that belong to ECS Quotas by Instance Type. You can leave this parameter empty.
-    // 
-    // Valid values:
-    // 
-    // *   Descending
-    // *   Ascending
-    std::shared_ptr<string> sortOrder_ = nullptr;
+    // > This parameter applies only to Elastic Computing Service server instance type quotas (ecs-spec). If no Settings are specified, it is left empty.
+    shared_ptr<string> sortOrder_ {};
   };
 
   } // namespace Models

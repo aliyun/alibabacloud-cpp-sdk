@@ -29,17 +29,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->resourceDirectoryId_ != nullptr; };
+    virtual bool empty() const override { return this->resourceDirectoryId_ == nullptr; };
     // resourceDirectoryId Field Functions 
     bool hasResourceDirectoryId() const { return this->resourceDirectoryId_ != nullptr;};
     void deleteResourceDirectoryId() { this->resourceDirectoryId_ = nullptr;};
-    inline string resourceDirectoryId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryId_, "") };
+    inline string getResourceDirectoryId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryId_, "") };
     inline GetQuotaTemplateServiceStatusRequest& setResourceDirectoryId(string resourceDirectoryId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryId_, resourceDirectoryId) };
 
 
   protected:
     // The ID of the resource directory.
-    std::shared_ptr<string> resourceDirectoryId_ = nullptr;
+    shared_ptr<string> resourceDirectoryId_ {};
   };
 
   } // namespace Models

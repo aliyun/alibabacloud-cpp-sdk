@@ -31,33 +31,35 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->productCode_ != nullptr
-        && this->quotaActionCode_ != nullptr; };
+    virtual bool empty() const override { return this->productCode_ == nullptr
+        && this->quotaActionCode_ == nullptr; };
     // productCode Field Functions 
     bool hasProductCode() const { return this->productCode_ != nullptr;};
     void deleteProductCode() { this->productCode_ = nullptr;};
-    inline string productCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
+    inline string getProductCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
     inline ListDependentQuotasRequest& setProductCode(string productCode) { DARABONBA_PTR_SET_VALUE(productCode_, productCode) };
 
 
     // quotaActionCode Field Functions 
     bool hasQuotaActionCode() const { return this->quotaActionCode_ != nullptr;};
     void deleteQuotaActionCode() { this->quotaActionCode_ = nullptr;};
-    inline string quotaActionCode() const { DARABONBA_PTR_GET_DEFAULT(quotaActionCode_, "") };
+    inline string getQuotaActionCode() const { DARABONBA_PTR_GET_DEFAULT(quotaActionCode_, "") };
     inline ListDependentQuotasRequest& setQuotaActionCode(string quotaActionCode) { DARABONBA_PTR_SET_VALUE(quotaActionCode_, quotaActionCode) };
 
 
   protected:
-    // The abbreviation of the Alibaba Cloud service name.
+    // The abbreviated name of the cloud service.
     // 
-    // > For more information, see [Alibaba Cloud services that support Quota Center](https://help.aliyun.com/document_detail/182368.html).
+    // > For more information about how to obtain the abbreviated name of a cloud service, see `ProductCode` in [ListProducts](https://help.aliyun.com/document_detail/440555.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> productCode_ = nullptr;
+    shared_ptr<string> productCode_ {};
     // The quota ID.
     // 
+    // > For more information about how to obtain the quota ID of a target cloud service, see `QuotaActionCode` in [ListProductQuotas](https://help.aliyun.com/document_detail/440554.html).
+    // 
     // This parameter is required.
-    std::shared_ptr<string> quotaActionCode_ = nullptr;
+    shared_ptr<string> quotaActionCode_ {};
   };
 
   } // namespace Models

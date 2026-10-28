@@ -29,19 +29,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alarmId_ != nullptr; };
+    virtual bool empty() const override { return this->alarmId_ == nullptr; };
     // alarmId Field Functions 
     bool hasAlarmId() const { return this->alarmId_ != nullptr;};
     void deleteAlarmId() { this->alarmId_ = nullptr;};
-    inline string alarmId() const { DARABONBA_PTR_GET_DEFAULT(alarmId_, "") };
+    inline string getAlarmId() const { DARABONBA_PTR_GET_DEFAULT(alarmId_, "") };
     inline GetQuotaAlarmRequest& setAlarmId(string alarmId) { DARABONBA_PTR_SET_VALUE(alarmId_, alarmId) };
 
 
   protected:
     // The ID of the quota alert.
     // 
-    // For more information about how to query the ID of a quota alert, see [ListQuotaAlarms](https://help.aliyun.com/document_detail/184348.html).
-    std::shared_ptr<string> alarmId_ = nullptr;
+    // For more information about how to obtain the ID of a quota alert, see [ListQuotaAlarms](https://help.aliyun.com/document_detail/184348.html).
+    shared_ptr<string> alarmId_ {};
   };
 
   } // namespace Models

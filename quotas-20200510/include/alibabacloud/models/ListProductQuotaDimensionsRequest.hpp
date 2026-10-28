@@ -35,54 +35,57 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->maxResults_ != nullptr
-        && this->nextToken_ != nullptr && this->productCode_ != nullptr && this->quotaCategory_ != nullptr; };
+    virtual bool empty() const override { return this->maxResults_ == nullptr
+        && this->nextToken_ == nullptr && this->productCode_ == nullptr && this->quotaCategory_ == nullptr; };
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListProductQuotaDimensionsRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListProductQuotaDimensionsRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // productCode Field Functions 
     bool hasProductCode() const { return this->productCode_ != nullptr;};
     void deleteProductCode() { this->productCode_ = nullptr;};
-    inline string productCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
+    inline string getProductCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
     inline ListProductQuotaDimensionsRequest& setProductCode(string productCode) { DARABONBA_PTR_SET_VALUE(productCode_, productCode) };
 
 
     // quotaCategory Field Functions 
     bool hasQuotaCategory() const { return this->quotaCategory_ != nullptr;};
     void deleteQuotaCategory() { this->quotaCategory_ = nullptr;};
-    inline string quotaCategory() const { DARABONBA_PTR_GET_DEFAULT(quotaCategory_, "") };
+    inline string getQuotaCategory() const { DARABONBA_PTR_GET_DEFAULT(quotaCategory_, "") };
     inline ListProductQuotaDimensionsRequest& setQuotaCategory(string quotaCategory) { DARABONBA_PTR_SET_VALUE(quotaCategory_, quotaCategory) };
 
 
   protected:
-    // The maximum number of records that can be returned for the query.
+    // The maximum number of entries to return for this query.
     // 
     // Valid values: 1 to 200. Default value: 30.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    // The token that marks the position from which you want to start the query. If you leave this parameter empty, the query starts from the beginning.
-    std::shared_ptr<string> nextToken_ = nullptr;
-    // The abbreviation of the Alibaba Cloud service name.
+    shared_ptr<int32_t> maxResults_ {};
+    // The pagination token that specifies the starting position of the query. If you leave this parameter empty, the query starts from the beginning.
+    shared_ptr<string> nextToken_ {};
+    // The abbreviated name of the cloud service.
     // 
-    // > For more information, see [Alibaba Cloud services that support Quota Center](https://help.aliyun.com/document_detail/182368.html).
+    // > For more information about how to obtain the abbreviated name of a cloud service, see `ProductCode` in [ListProducts](https://help.aliyun.com/document_detail/440555.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> productCode_ = nullptr;
-    // The type of the quota. Valid values:
+    shared_ptr<string> productCode_ {};
+    // The quota category. Valid values:
     // 
-    // *   FlowControl: API rate limit.
-    // *   CommonQuota: general quota. This is the default value.
-    std::shared_ptr<string> quotaCategory_ = nullptr;
+    // - FlowControl: API rate limits.
+    // 
+    // - CommonQuota: general quotas. This is the default value.
+    // 
+    // > Privileges (WhiteListLabel) do not have quota dimensions.
+    shared_ptr<string> quotaCategory_ {};
   };
 
   } // namespace Models

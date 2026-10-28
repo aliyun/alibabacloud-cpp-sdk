@@ -31,27 +31,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->id_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->id_ == nullptr
+        && this->requestId_ == nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline CreateTemplateQuotaItemResponseBody& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateTemplateQuotaItemResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the quota template.
-    std::shared_ptr<string> id_ = nullptr;
-    // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> id_ {};
+    // The request ID.
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

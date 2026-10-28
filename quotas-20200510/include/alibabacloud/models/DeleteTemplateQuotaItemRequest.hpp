@@ -29,21 +29,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->id_ != nullptr; };
+    virtual bool empty() const override { return this->id_ == nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline DeleteTemplateQuotaItemRequest& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
   protected:
-    // The ID of the quota template.
-    // 
-    // You can call the [ListQuotaApplicationTemplates](https://help.aliyun.com/document_detail/450403.html) operation to obtain the ID of a quota template.
+    // The ID of the quota template. For more information about how to obtain the quota template ID, see [ListQuotaApplicationTemplates](https://help.aliyun.com/document_detail/450403.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> id_ = nullptr;
+    shared_ptr<string> id_ {};
   };
 
   } // namespace Models
