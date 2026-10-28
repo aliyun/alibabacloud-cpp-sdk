@@ -46,6 +46,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DirectoryType, directoryType_);
         DARABONBA_PTR_TO_JSON(EndUserApplyCoordinateTime, endUserApplyCoordinateTime_);
         DARABONBA_PTR_TO_JSON(EndUserId, endUserId_);
+        DARABONBA_PTR_TO_JSON(LastClientIp, lastClientIp_);
         DARABONBA_PTR_TO_JSON(LatestConnectionTime, latestConnectionTime_);
         DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
         DARABONBA_PTR_TO_JSON(OfficeSiteName, officeSiteName_);
@@ -71,6 +72,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DirectoryType, directoryType_);
         DARABONBA_PTR_FROM_JSON(EndUserApplyCoordinateTime, endUserApplyCoordinateTime_);
         DARABONBA_PTR_FROM_JSON(EndUserId, endUserId_);
+        DARABONBA_PTR_FROM_JSON(LastClientIp, lastClientIp_);
         DARABONBA_PTR_FROM_JSON(LatestConnectionTime, latestConnectionTime_);
         DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
         DARABONBA_PTR_FROM_JSON(OfficeSiteName, officeSiteName_);
@@ -157,7 +159,7 @@ namespace Models
         shared_ptr<string> model_ {};
         // The terminal device type.
         shared_ptr<string> productName_ {};
-        // The terminal device serial number.
+        // The serial number of the terminal device.
         shared_ptr<string> serialNumber_ {};
         // The UUID of the logon device.
         shared_ptr<string> uuid_ {};
@@ -209,10 +211,10 @@ namespace Models
 
       virtual bool empty() const override { return this->accountType_ == nullptr
         && this->clientIp_ == nullptr && this->clientOS_ == nullptr && this->clientVersion_ == nullptr && this->desktopId_ == nullptr && this->desktopName_ == nullptr
-        && this->directoryType_ == nullptr && this->endUserApplyCoordinateTime_ == nullptr && this->endUserId_ == nullptr && this->latestConnectionTime_ == nullptr && this->officeSiteId_ == nullptr
-        && this->officeSiteName_ == nullptr && this->osSessionStatus_ == nullptr && this->osType_ == nullptr && this->protocolType_ == nullptr && this->resourceGroups_ == nullptr
-        && this->sessionEndTime_ == nullptr && this->sessionIdleTime_ == nullptr && this->sessionStartTime_ == nullptr && this->sessionStatus_ == nullptr && this->subPayType_ == nullptr
-        && this->terminalInfo_ == nullptr && this->totalConnectionTime_ == nullptr; };
+        && this->directoryType_ == nullptr && this->endUserApplyCoordinateTime_ == nullptr && this->endUserId_ == nullptr && this->lastClientIp_ == nullptr && this->latestConnectionTime_ == nullptr
+        && this->officeSiteId_ == nullptr && this->officeSiteName_ == nullptr && this->osSessionStatus_ == nullptr && this->osType_ == nullptr && this->protocolType_ == nullptr
+        && this->resourceGroups_ == nullptr && this->sessionEndTime_ == nullptr && this->sessionIdleTime_ == nullptr && this->sessionStartTime_ == nullptr && this->sessionStatus_ == nullptr
+        && this->subPayType_ == nullptr && this->terminalInfo_ == nullptr && this->totalConnectionTime_ == nullptr; };
       // accountType Field Functions 
       bool hasAccountType() const { return this->accountType_ != nullptr;};
       void deleteAccountType() { this->accountType_ = nullptr;};
@@ -274,6 +276,13 @@ namespace Models
       void deleteEndUserId() { this->endUserId_ = nullptr;};
       inline string getEndUserId() const { DARABONBA_PTR_GET_DEFAULT(endUserId_, "") };
       inline Sessions& setEndUserId(string endUserId) { DARABONBA_PTR_SET_VALUE(endUserId_, endUserId) };
+
+
+      // lastClientIp Field Functions 
+      bool hasLastClientIp() const { return this->lastClientIp_ != nullptr;};
+      void deleteLastClientIp() { this->lastClientIp_ = nullptr;};
+      inline string getLastClientIp() const { DARABONBA_PTR_GET_DEFAULT(lastClientIp_, "") };
+      inline Sessions& setLastClientIp(string lastClientIp) { DARABONBA_PTR_SET_VALUE(lastClientIp_, lastClientIp) };
 
 
       // latestConnectionTime Field Functions 
@@ -393,17 +402,19 @@ namespace Models
       shared_ptr<string> desktopName_ {};
       // The office network type.
       shared_ptr<string> directoryType_ {};
-      // The duration of remote assistance for the end user. Unit: seconds.
+      // The duration of remote assistance requested by the end user. Unit: seconds.
       shared_ptr<int64_t> endUserApplyCoordinateTime_ {};
       // The end user ID.
       shared_ptr<string> endUserId_ {};
+      // The IP address of the last connected client.
+      shared_ptr<string> lastClientIp_ {};
       // The duration of the most recent connection to the cloud computer. Unit: seconds.
       shared_ptr<int64_t> latestConnectionTime_ {};
       // The office network ID.
       shared_ptr<string> officeSiteId_ {};
-      // The name of the office network.
+      // The office network name.
       shared_ptr<string> officeSiteName_ {};
-      // Specifies whether to check the session status within the cloud computer.
+      // Specifies whether to check the session status in the cloud computer.
       shared_ptr<string> osSessionStatus_ {};
       // The operating system type.
       shared_ptr<string> osType_ {};
@@ -411,17 +422,15 @@ namespace Models
       shared_ptr<string> protocolType_ {};
       // The resource group information.
       shared_ptr<vector<Sessions::ResourceGroups>> resourceGroups_ {};
-      // The end time of the session.
-      // The time is displayed in UTC in the yyyy-MM-ddTHH:mm:ssZ format.
+      // The end time of the session. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> sessionEndTime_ {};
-      // The session idle duration. Unit: seconds.
+      // The idle duration of the session. Unit: seconds.
       shared_ptr<int64_t> sessionIdleTime_ {};
-      // The start time of the session.
-      // The time is displayed in UTC in the ISO 8601 standard format: yyyy-MM-ddTHH:mm:ssZ.
+      // The start time of the session. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> sessionStartTime_ {};
       // The session connection status.
       shared_ptr<string> sessionStatus_ {};
-      // The purchase method of the cloud computer.
+      // The billing method of the cloud computer.
       shared_ptr<string> subPayType_ {};
       // The terminal device information.
       shared_ptr<Sessions::TerminalInfo> terminalInfo_ {};
@@ -459,7 +468,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The session details.
     shared_ptr<vector<DescribeDesktopSessionsResponseBody::Sessions>> sessions_ {};
-    // The total number of query results.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

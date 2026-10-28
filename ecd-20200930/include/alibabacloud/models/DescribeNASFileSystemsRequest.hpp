@@ -87,20 +87,20 @@ namespace Models
 
 
   protected:
-    // The list of NAS file system IDs.
+    // The IDs of the NAS file systems.
     shared_ptr<vector<string>> fileSystemId_ {};
     // Specifies whether to include only NAS file systems that support UPM in the query results.
     shared_ptr<bool> matchCompatibleProfile_ {};
-    // The number of entries per page for a paged query.    
+    // The number of entries to return per page in a paging query.    
     // 
     // - Maximum value: 100.    
     // - Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. Set this parameter to the NextToken value returned in the previous API call.
+    // The pagination token. Set the value to the NextToken value returned from the last API call.
     shared_ptr<string> nextToken_ {};
-    // The office network ID.
+    // The ID of the office network.
     shared_ptr<string> officeSiteId_ {};
-    // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by WUYING Workspace.
+    // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions supported by WUYING Workspace.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

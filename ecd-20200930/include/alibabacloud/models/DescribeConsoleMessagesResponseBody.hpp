@@ -136,9 +136,9 @@ namespace Models
 
 
       protected:
-        // The color of the title text, which retains the color value saved when the message was created or modified.
+        // The color of the title text. The color value saved when the message is created or modified is used.
         shared_ptr<string> color_ {};
-        // The title language. Valid values: CN (Chinese), EN (English), and JP (Japanese). The query returns the language value saved when the message was created or modified, retaining the original case.
+        // The title language. Valid values: CN (Chinese), EN (English), and JP (Japanese). The query returns the language value saved when the message is created or modified, retaining the original case.
         shared_ptr<string> langType_ {};
         // The message title text in the specified language.
         shared_ptr<string> titleText_ {};
@@ -272,9 +272,9 @@ namespace Models
         shared_ptr<string> fileName_ {};
         // The storage path of the image file.
         shared_ptr<string> imageFilePath_ {};
-        // The image type. Configuration types defined by the backend include Operational (operational message image), WallpaperBasic (basic wallpaper image), and WallpaperAppend (appended wallpaper image). The query returns the image type value saved when the message was created or modified, retaining the original case.
+        // The image type. Configuration types defined by the backend include Operational (operational message image), WallpaperBasic (basic wallpaper image), and WallpaperAppend (appended wallpaper image). The query returns the image type value saved when the message is created or modified, retaining the original case.
         shared_ptr<string> imageType_ {};
-        // The temporary download URL of the image file. The link has a limited validity period. If it expires, you can query again to obtain a new one.
+        // The temporary download URL of the image file. The link has a limited validity period. If the link expires, you can query again to obtain a new one.
         shared_ptr<string> imageUrl_ {};
       };
 
@@ -318,7 +318,7 @@ namespace Models
       protected:
         // The text displayed on the hyperlink button.
         shared_ptr<string> title_ {};
-        // The URL accessed after clicking the hyperlink button.
+        // The URL accessed after the hyperlink button is clicked.
         shared_ptr<string> url_ {};
       };
 
@@ -369,11 +369,11 @@ namespace Models
 
 
       protected:
-        // The color of the body text, which retains the color value saved when the message was created or modified.
+        // The color of the body text. The color value saved when the message is created or modified is used.
         shared_ptr<string> color_ {};
         // The message body text in the specified language.
         shared_ptr<string> contentText_ {};
-        // The body language. Valid values: CN (Chinese), EN (English), and JP (Japanese). The query returns the language value saved when the message was created or modified, retaining the original case.
+        // The body language. Valid values: CN (Chinese), EN (English), and JP (Japanese). The query returns the language value saved when the message is created or modified, retaining the original case.
         shared_ptr<string> langType_ {};
       };
 
@@ -532,7 +532,7 @@ namespace Models
       shared_ptr<vector<string>> clientTypes_ {};
       // The list of message body configurations for each language.
       shared_ptr<vector<MessageList::ContentConfigs>> contentConfigs_ {};
-      // The time when the operational message stops taking effect.
+      // The time when the operational message stops taking effect. The time is in ISO 8601 format. A time zone offset of +00:00 indicates UTC time.
       shared_ptr<string> endTime_ {};
       // The time when the message was created.
       shared_ptr<string> gmtCreate_ {};
@@ -544,7 +544,7 @@ namespace Models
       shared_ptr<string> imageFilePath_ {};
       // The list of image configurations, which is mainly used for custom wallpaper messages. Each item includes the image name, image type, storage path, and temporary download URL.
       shared_ptr<vector<MessageList::ImageInfoList>> imageInfoList_ {};
-      // The temporary download URL of the operational message image. The link has a limited validity period. If it expires, you can query again to obtain a new one.
+      // The temporary download URL of the operational message image. The link has a limited validity period. If the link expires, you can query again to obtain a new one.
       shared_ptr<string> imageUrl_ {};
       // The message ID, which can be used to send, modify, or delete a specified message.
       shared_ptr<string> messageId_ {};
@@ -556,11 +556,11 @@ namespace Models
       shared_ptr<MessageList::MetaData> metaData_ {};
       // The display position of the message. For wallpaper text messages, valid values are CENTER (center), TOP_RIGHT (top right), BOTTOM_RIGHT (bottom right), and BOTTOM_LEFT (bottom left). For client operational messages, valid values are CLIENT_ENTERPRISE_RESOURCE_PAGE (Enterprise Edition client cloud resource page) and CLIENT_BUSINESS_RESOURCE_PAGE (Business Edition client cloud resource page).
       shared_ptr<string> position_ {};
-      // The time when the operational message starts taking effect.
+      // The time when the operational message starts taking effect. The time is in ISO 8601 format. A time zone offset of +00:00 indicates UTC time.
       shared_ptr<string> startTime_ {};
-      // The current status of the message. Valid values: Init (initializing), Pushing (pushing), Published (published), Expired (expired), Deleting (deleting), and Failed (failed). Published indicates that the message has been published or the server has finished pushing, but it does not indicate that all target terminals have successfully received the message.
+      // The current status of the message. Valid values: Init (initializing), Pushing (pushing), Published (published), Expired (expired), Deleting (deleting), and Failed (failed). Published indicates that the message has been published or the server-side push processing has finished, but it does not indicate that all target terminals have successfully received the message.
       shared_ptr<string> status_ {};
-      // The JSON string of the list of targets to which the message applies. For Organization and AdOrg, it is an array of objects containing orgId (organization ID) and orgName (organization name). The organization name may be empty, and records in the old format may not contain orgName. For Tag, it is an array of objects containing tagKey (tag key), tagValue (tag value), and regionId (region ID). For other target types, it is an array of strings. The target for all users is represented by ALL_USERS.
+      // The JSON string of the list of targets to which the message applies. For Organization and AdOrg, it is an array of objects containing orgId (organization ID) and orgName (organization name). The organization name may be empty, and records in the old format may not contain orgName. For Tag, it is an array of objects containing tagKey (tag key), tagValue (tag value), and regionId (region ID). For other target types, it is an array of strings. The all-users target is represented by ALL_USERS.
       shared_ptr<string> targetIds_ {};
       // The type of the target to which the message applies. Valid values: AllUsers (all convenience users), EndUser (specified convenience user), Organization (specified convenience user organization), Desktop (cloud computer), ResourceGroup (resource group), Region (region), Tag (tag), AdAllUsers (all AD users), AdUser (specified AD user), and AdOrg (specified AD organization).
       shared_ptr<string> targetType_ {};
@@ -594,9 +594,9 @@ namespace Models
 
 
   protected:
-    // The list of console messages queried on the current page. If no messages match, an empty list is returned.
+    // The list of console messages queried for the current page. If no messages match, an empty list is returned.
     shared_ptr<vector<DescribeConsoleMessagesResponseBody::MessageList>> messageList_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the current request, which is used to locate and troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // The total number of messages that match the query conditions, not the number of messages returned on the current page.
     shared_ptr<string> totalCount_ {};

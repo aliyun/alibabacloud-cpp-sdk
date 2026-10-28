@@ -283,54 +283,54 @@ namespace Models
 
 
     protected:
-      // The time when the snapshot was created. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time is displayed in UTC.
+      // The time when the snapshot was created. The time is displayed in UTC and follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format.
       shared_ptr<string> creationTime_ {};
       // The creator.
       shared_ptr<string> creator_ {};
-      // The time when the snapshot was created. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time is displayed in UTC.
+      // The time when the snapshot was created. The time is displayed in UTC+0 in the `yyyy-mm-ddthh:mm:ssz` format in accordance with the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard.
       shared_ptr<string> deletionTime_ {};
-      // The snapshot description.
+      // The description of the snapshot.
       shared_ptr<string> description_ {};
-      // The ID of the cloud computer to which the snapshot belongs.
+      // The ID of the cloud desktop to which the snapshot belongs.
       shared_ptr<string> desktopId_ {};
-      // The cloud computer name.
+      // The name of the cloud desktop.
       shared_ptr<string> desktopName_ {};
-      // The cloud computer status.
+      // The status of the cloud desktop.
       shared_ptr<string> desktopStatus_ {};
-      // The status of the cloud disk to which the snapshot belongs.
+      // The status of the disk to which the snapshot belongs.
       shared_ptr<string> diskStatus_ {};
       shared_ptr<string> envId_ {};
       shared_ptr<string> envType_ {};
       shared_ptr<string> jvsId_ {};
       // The operating system type.
       shared_ptr<string> osType_ {};
-      // The snapshot creation progress, in percentage.
+      // The creation progress of the snapshot. Unit: percentage.
       shared_ptr<string> progress_ {};
       // The protocol type.
       shared_ptr<string> protocolType_ {};
       // The remaining time required to create the snapshot. Unit: seconds.
       // 
-      // > When `Status` is `PROGRESSING`, a `RemainTime` value of `-1` indicates that the remaining time is being calculated.
+      // > If `Status` is `PROGRESSING`, the value of `RemainTime` is `-1`, which indicates that the remaining time is being calculated.
       shared_ptr<int32_t> remainTime_ {};
-      // The restore point ID.
+      // The ID of the restore point.
       shared_ptr<string> restorePointId_ {};
-      // The restore point name.
+      // The name of the restore point.
       shared_ptr<string> restorePointName_ {};
-      // The snapshot ID.
+      // The ID of the snapshot.
       shared_ptr<string> snapshotId_ {};
-      // The snapshot name.
+      // The name of the snapshot.
       shared_ptr<string> snapshotName_ {};
-      // The snapshot creation type.
+      // The snapshot type.
       shared_ptr<string> snapshotType_ {};
-      // The capacity of the source cloud disk. Unit: GiB.
+      // The capacity of the source disk. Unit: GiB.
       shared_ptr<string> sourceDiskSize_ {};
-      // The type of the source cloud disk.
+      // The type of the source disk.
       shared_ptr<string> sourceDiskType_ {};
       // The snapshot status.
       shared_ptr<string> status_ {};
-      // Indicates whether cloud disk encryption is enabled.
+      // Indicates whether disk encryption is enabled.
       shared_ptr<bool> volumeEncryptionEnabled_ {};
-      // The ID of the Key Management Service (KMS) key used for cloud disk encryption. You can call [ListKeys](https://help.aliyun.com/document_detail/28951.html) to obtain the key ID.
+      // The ID of the KMS key used when disk encryption is enabled. You can obtain the key ID by calling the [ListKeys](https://help.aliyun.com/document_detail/28951.html) operation.
       shared_ptr<string> volumeEncryptionKey_ {};
     };
 
@@ -360,11 +360,11 @@ namespace Models
 
 
   protected:
-    // The pagination token. If the NextToken parameter is empty, no next page exists.
+    // The pagination token for the next query. If the value is empty, no more results are available.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The snapshot information.
+    // The snapshots.
     shared_ptr<vector<DescribeSnapshotsResponseBody::Snapshots>> snapshots_ {};
   };
 

@@ -83,6 +83,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ResType, resType_);
         DARABONBA_PTR_TO_JSON(ResetType, resetType_);
         DARABONBA_PTR_TO_JSON(ScaleTimerInfos, scaleTimerInfos_);
+        DARABONBA_PTR_TO_JSON(SessionType, sessionType_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(StopDuration, stopDuration_);
         DARABONBA_PTR_TO_JSON(SystemDiskCategory, systemDiskCategory_);
@@ -140,6 +141,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ResType, resType_);
         DARABONBA_PTR_FROM_JSON(ResetType, resetType_);
         DARABONBA_PTR_FROM_JSON(ScaleTimerInfos, scaleTimerInfos_);
+        DARABONBA_PTR_FROM_JSON(SessionType, sessionType_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(StopDuration, stopDuration_);
         DARABONBA_PTR_FROM_JSON(SystemDiskCategory, systemDiskCategory_);
@@ -217,11 +219,11 @@ namespace Models
       protected:
         // The cron expression.
         shared_ptr<string> cronExpression_ {};
-        // Indicates whether the scheduled task is forcibly executed.
+        // Specifies whether to forcibly execute the scheduled task.
         shared_ptr<bool> forced_ {};
         // The status.
         shared_ptr<int32_t> status_ {};
-        // The type of the scheduled task.
+        // The scheduled task type.
         shared_ptr<int32_t> timerType_ {};
       };
 
@@ -318,27 +320,27 @@ namespace Models
 
 
       protected:
-        // The number of cloud computers to purchase, which is one of the scaling policy parameters. Valid values: 0 to 200.
+        // One of the scaling policy parameters: the number of cloud computers to purchase. Valid values: 0 to 200.
         shared_ptr<int32_t> buyResAmount_ {};
         // The cron expression of the scheduled task.
         shared_ptr<string> cron_ {};
-        // The duration for which a session is retained after disconnection. Unit: milliseconds. Valid values: 180000 (3 minutes) to 345600000 (4 days). A value of 0 indicates that the session is always retained.
+        // The retention period after a session is disconnected. Unit: milliseconds. Valid values: 180000 (3 minutes) to 345600000 (4 days). A value of 0 indicates that the session is always retained.
         // 
-        // When a session is disconnected because the user actively disconnects or because of other unexpected factors, the retention period starts from the moment of disconnection. If the user does not reconnect to the session within the retention period, the session is logged off and all unsaved data is destroyed. If the user successfully reconnects within the retention period, the user can still access the original session and the data that existed before the disconnection.
+        // When a session is disconnected intentionally by the user or unexpectedly due to other factors, the retention period starts from the time of disconnection. If the user does not reconnect to the session within this retention period, the session is logged off and unsaved data is destroyed. If the user successfully reconnects within this retention period, the user can enter the original session and access the data before the disconnection.
         shared_ptr<int64_t> keepDuration_ {};
-        // The load balancing policy for multi-session shared cloud computers with multiple instances.
+        // The load balancing policy for multi-session shared cloud desktops.
         shared_ptr<int32_t> loadPolicy_ {};
-        // The maximum number of cloud computers, which is one of the scaling policy parameters. Valid values: 0 to 200.
+        // One of the scaling policy parameters: the maximum number of cloud computers. Valid values: 0 to 200.
         shared_ptr<int32_t> maxResAmount_ {};
-        // The minimum number of cloud computers, which is one of the scaling policy parameters. Valid values: 0 to 200.
+        // One of the scaling policy parameters: the minimum number of cloud computers. Valid values: 0 to 200.
         shared_ptr<int32_t> minResAmount_ {};
-        // The session occupancy threshold used as the trigger condition for auto scaling of multi-session shared cloud computers. The session occupancy is calculated by using the following formula:
+        // The session usage threshold, which is used as the trigger for automatic scaling of multi-session shared cloud computers. The session usage is calculated by using the following formula:
         // 
-        // ```Session occupancy = Number of bound sessions / (Total number of cloud computer resources × Maximum number of sessions supported per cloud computer) × 100%```
+        // ```Session usage = Number of attached sessions / (Total number of cloud computers × Maximum number of sessions supported per cloud computer) × 100%```
         // 
-        // When the session occupancy reaches this threshold, new cloud computers are created. When the session occupancy is below this threshold, excess cloud computers are deleted.
+        // When the session usage reaches this threshold, new cloud computers are created. If the session usage does not reach this threshold, excess cloud computers are deleted.
         shared_ptr<float> ratioThreshold_ {};
-        // The type of the scheduled task.
+        // The scheduled task type.
         shared_ptr<string> type_ {};
       };
 
@@ -352,8 +354,8 @@ namespace Models
         && this->officeSiteName_ == nullptr && this->officeSiteType_ == nullptr && this->osType_ == nullptr && this->ownBundleId_ == nullptr && this->ownBundleName_ == nullptr
         && this->ownType_ == nullptr && this->payType_ == nullptr && this->policyGroupId_ == nullptr && this->policyGroupIds_ == nullptr && this->policyGroupName_ == nullptr
         && this->policyGroupNames_ == nullptr && this->profileFollowSwitch_ == nullptr && this->protocolType_ == nullptr && this->ratioThreshold_ == nullptr && this->resType_ == nullptr
-        && this->resetType_ == nullptr && this->scaleTimerInfos_ == nullptr && this->status_ == nullptr && this->stopDuration_ == nullptr && this->systemDiskCategory_ == nullptr
-        && this->systemDiskSize_ == nullptr && this->timerInfos_ == nullptr && this->timingStrategyInfo_ == nullptr && this->version_ == nullptr; };
+        && this->resetType_ == nullptr && this->scaleTimerInfos_ == nullptr && this->sessionType_ == nullptr && this->status_ == nullptr && this->stopDuration_ == nullptr
+        && this->systemDiskCategory_ == nullptr && this->systemDiskSize_ == nullptr && this->timerInfos_ == nullptr && this->timingStrategyInfo_ == nullptr && this->version_ == nullptr; };
       // allowAutoSetup Field Functions 
       bool hasAllowAutoSetup() const { return this->allowAutoSetup_ != nullptr;};
       void deleteAllowAutoSetup() { this->allowAutoSetup_ = nullptr;};
@@ -698,6 +700,13 @@ namespace Models
       inline Desktops& setScaleTimerInfos(vector<Desktops::ScaleTimerInfos> && scaleTimerInfos) { DARABONBA_PTR_SET_RVALUE(scaleTimerInfos_, scaleTimerInfos) };
 
 
+      // sessionType Field Functions 
+      bool hasSessionType() const { return this->sessionType_ != nullptr;};
+      void deleteSessionType() { this->sessionType_ = nullptr;};
+      inline int32_t getSessionType() const { DARABONBA_PTR_GET_DEFAULT(sessionType_, 0) };
+      inline Desktops& setSessionType(int32_t sessionType) { DARABONBA_PTR_SET_VALUE(sessionType_, sessionType) };
+
+
       // status Field Functions 
       bool hasStatus() const { return this->status_ != nullptr;};
       void deleteStatus() { this->status_ = nullptr;};
@@ -750,31 +759,33 @@ namespace Models
 
 
     protected:
-      // Indicates whether automatic creation of cloud computers is allowed for subscription shared cloud computers.
+      // Specifies whether automatic creation is allowed for subscription shared cloud desktops.
       shared_ptr<int32_t> allowAutoSetup_ {};
-      // This parameter applies only to pay-as-you-go shared cloud computers. It specifies the number of cloud computers that are always reserved in the powered-on and idle state, ready for connections. Valid values:
+      // This parameter applies only to pay-as-you-go shared cloud desktops and indicates the number of cloud desktops that are always reserved in the started and idle state for connection. Valid values:
+      // - 0: no reservation
+      // - N: reserve N cloud desktops (1 ≤ N ≤ 100)
       shared_ptr<int32_t> allowBufferCount_ {};
-      // The number of concurrent sessions allowed per cloud computer in multi-session shared cloud computers with multiple instances.
+      // The number of concurrent sessions allowed per cloud desktop in multi-session shared cloud desktops.
       shared_ptr<int32_t> bindAmount_ {};
-      // The initial number of cloud computers purchased. This parameter applies only to subscription shared cloud computers. Valid values: 0 to 200.
+      // This parameter applies only to subscription shared cloud computers and indicates the initial number of cloud computers purchased. Valid values: 0 to 200.
       shared_ptr<int32_t> buyDesktopsCount_ {};
       // The remarks.
       shared_ptr<string> comments_ {};
-      // The maximum duration that a session can remain in the connected state. The session is automatically disconnected when this duration is reached. Unit: milliseconds.
+      // The maximum duration for a session to remain connected. When the session connection duration reaches this value, the session is automatically disconnected. Unit: milliseconds.
       shared_ptr<int64_t> connectDuration_ {};
-      // The number of vCPUs.
+      // The number of vCPU cores.
       shared_ptr<int32_t> cpu_ {};
-      // The creation time. The time is in the ISO 8601 standard in UTC.
+      // The creation time. The time follows the ISO 8601 standard in UTC.
       shared_ptr<string> creationTime_ {};
       // The Alibaba Cloud account ID of the creator.
       shared_ptr<string> creator_ {};
       // The user disk type.
       shared_ptr<string> dataDiskCategory_ {};
-      // The user disk capacity. Unit: GiB.
+      // The user disk size. Unit: GiB.
       shared_ptr<string> dataDiskSize_ {};
-      // The ID of the shared cloud computer.
+      // The ID of the shared cloud desktop.
       shared_ptr<string> desktopGroupId_ {};
-      // The name of the shared cloud computer to query.
+      // The name of the shared cloud desktop to query.
       shared_ptr<string> desktopGroupName_ {};
       // The directory ID (office network ID).
       shared_ptr<string> directoryId_ {};
@@ -784,7 +795,7 @@ namespace Models
       shared_ptr<string> envId_ {};
       // The environment type. This parameter is not publicly available.
       shared_ptr<string> envType_ {};
-      // The expiration time of the subscription shared cloud computers. The time follows the ISO 8601 standard in UTC.
+      // The expiration time of the subscription shared cloud computer. The time is in the ISO 8601 standard (UTC time).
       shared_ptr<string> expiredTime_ {};
       // The list of expiration times.
       shared_ptr<vector<string>> expiredTimes_ {};
@@ -792,80 +803,82 @@ namespace Models
       shared_ptr<float> gpuCount_ {};
       // The GPU specifications.
       shared_ptr<string> gpuSpec_ {};
-      // The maximum idle duration after a user session is connected. If no keyboard or mouse operation is performed within this duration, the session is disconnected. Unit: milliseconds.
+      // The maximum idle time before a user session is disconnected. If no keyboard or mouse operations are performed within this maximum duration after a user session is connected, the session is disconnected. Unit: milliseconds.
       shared_ptr<int64_t> idleDisconnectDuration_ {};
       // The image ID.
       shared_ptr<string> imageId_ {};
-      // The duration for which a session is retained after disconnection. Unit: milliseconds. Valid values: 180000 (3 minutes) to 345600000 (4 days). A value of 0 indicates that the session is retained indefinitely.
+      // The retention period after a session is disconnected. Unit: milliseconds. Valid values: 180000 (3 minutes) to 345600000 (4 days). A value of 0 indicates that the session is always retained.
       // 
-      // When a session is disconnected because the user actively disconnects or because of unexpected factors, the retention period starts from the moment of disconnection. If the user does not reconnect to the session within the retention period, the session is logged off and all unsaved data is destroyed. If the user successfully reconnects within the retention period, the user can still access the original session and the data that existed before the disconnection.
+      // When a session is disconnected intentionally by the user or unexpectedly due to other factors, the retention period starts from the time of disconnection. If the user does not reconnect to the session within this retention period, the session is logged off and unsaved data is destroyed. If the user successfully reconnects within this retention period, the user can enter the original session and access the data before the disconnection.
       shared_ptr<int64_t> keepDuration_ {};
-      // The load balancing policy for multi-session shared cloud computers with multiple instances.
+      // The load balancing policy for multi-session shared cloud desktops.
       shared_ptr<int32_t> loadPolicy_ {};
-      // - For pay-as-you-go shared cloud computers, this parameter specifies the maximum number of cloud computers that can be created.
+      // - For pay-as-you-go shared cloud desktops, this parameter indicates the maximum number of cloud desktops that can be created.
+      // - For subscription shared cloud desktops, this parameter indicates the sum of the initially purchased cloud desktops (`BuyDesktopsCount`) and the number of cloud desktops allowed for automatic creation.
       shared_ptr<int32_t> maxDesktopsCount_ {};
       // The memory size. Unit: MiB.
       shared_ptr<int64_t> memory_ {};
-      // - For pay-as-you-go shared cloud computers, this parameter indicates the minimum number of cloud computers to create.
-      // - For subscription shared cloud computers, this parameter is equivalent to BuyDesktopsCount, indicating the number of cloud computers initially purchased.
+      // - For pay-as-you-go shared cloud desktops, this parameter indicates the minimum number of cloud desktops to create.
+      // - For subscription shared cloud desktops, this parameter is equivalent to `BuyDesktopsCount` and indicates the number of initially purchased cloud desktops.
       shared_ptr<int32_t> minDesktopsCount_ {};
-      // The ID of the NAS file system used for user data roaming.
+      // The ID of the NAS file system used for the user data roaming feature.
       shared_ptr<string> nasFileSystemID_ {};
-      // The name of the NAS file system used for user data roaming.
+      // The name of the NAS file system used for the user data roaming feature.
       shared_ptr<string> nasFileSystemName_ {};
       // The office network ID.
       shared_ptr<string> officeSiteId_ {};
-      // The name of the office network to which the shared cloud computer belongs.
+      // The name of the office network to which the shared cloud desktop belongs.
       shared_ptr<string> officeSiteName_ {};
       // The account system type of the office network.
       shared_ptr<string> officeSiteType_ {};
-      // The operating system type of the cloud computers.
+      // The operating system type of the cloud computer.
       shared_ptr<string> osType_ {};
-      // The cloud computer template ID.
+      // The ID of the cloud desktop template.
       shared_ptr<string> ownBundleId_ {};
-      // The cloud computer template name.
+      // The name of the cloud desktop template.
       shared_ptr<string> ownBundleName_ {};
-      // The type of the shared cloud computer.
+      // The shared cloud desktop type.
       shared_ptr<int32_t> ownType_ {};
       // The billing method.
       shared_ptr<string> payType_ {};
-      // The ID of the policy associated with the shared cloud computer.
+      // The ID of the policy associated with the shared cloud desktop.
       shared_ptr<string> policyGroupId_ {};
-      // The list of policy IDs associated with the shared cloud computers.
+      // The list of policy IDs associated with the shared cloud computer.
       shared_ptr<vector<string>> policyGroupIds_ {};
-      // The Policy Name associated with the shared cloud computer.
+      // The policy name associated with the shared cloud desktop.
       shared_ptr<string> policyGroupName_ {};
-      // The list of policy names associated with the shared cloud computers.
+      // The list of policy names associated with the shared cloud computer.
       shared_ptr<vector<string>> policyGroupNames_ {};
-      // Indicates whether user data roaming is enabled.
+      // Specifies whether to enable user data roaming.
       shared_ptr<bool> profileFollowSwitch_ {};
       // The protocol type.
       shared_ptr<string> protocolType_ {};
-      // The session occupancy threshold, used as the auto scaling trigger condition for multi-session shared cloud computers. The session occupancy is calculated by using the following formula:
+      // The session usage threshold, which is used as the trigger condition for auto scaling of multi-session shared cloud desktops. The session usage is calculated by using the following formula:
       // 
-      // ```Session occupancy = Number of bound sessions / (Total number of cloud computer resources × Maximum number of sessions supported per cloud computer) × 100%```
+      // ```Session usage = Number of attached sessions / (Total number of cloud desktop resources × Maximum number of sessions supported per cloud desktop) × 100%```
       // 
-      // When the session occupancy reaches this threshold, new cloud computers are created. When the session occupancy is below this threshold, excess cloud computers are deleted.
+      // When the session usage reaches this threshold, new cloud desktops are created. When the session usage does not reach this threshold, excess cloud desktops are deleted.
       shared_ptr<float> ratioThreshold_ {};
       // The resource type. Currently, only ECS is supported.
       shared_ptr<int32_t> resType_ {};
-      // The reset type of the cloud computer.
+      // The cloud desktop reset type.
       shared_ptr<int32_t> resetType_ {};
       // The scheduled task information.
       shared_ptr<vector<Desktops::ScaleTimerInfos>> scaleTimerInfos_ {};
-      // The status of the shared cloud computer.
+      shared_ptr<int32_t> sessionType_ {};
+      // The status of the shared cloud desktop.
       shared_ptr<int32_t> status_ {};
-      // The idle shutdown duration. When the cloud computer has been idle for this duration, it is automatically shut down. If a user connects after shutdown, the cloud computer is automatically started. Unit: milliseconds.
+      // The idle shutdown time. When the idle time of the cloud desktop reaches this value, the cloud desktop is automatically shut down. If a user connects after the shutdown, the cloud desktop is automatically started. Unit: milliseconds.
       shared_ptr<int64_t> stopDuration_ {};
       // The system cloud disk type.
       shared_ptr<string> systemDiskCategory_ {};
-      // The system cloud disk capacity. Unit: GiB.
+      // The size of the system cloud disk. Unit: GiB.
       shared_ptr<int32_t> systemDiskSize_ {};
       // The list of scheduled times.
       shared_ptr<vector<Desktops::TimerInfos>> timerInfos_ {};
       // The scheduled application information.
       shared_ptr<string> timingStrategyInfo_ {};
-      // The version number of the shared cloud computer.
+      // The version number of the shared cloud desktop.
       shared_ptr<int64_t> version_ {};
     };
 
@@ -888,7 +901,7 @@ namespace Models
 
 
   protected:
-    // The information about shared cloud computers.
+    // The shared cloud desktop information.
     shared_ptr<GetDesktopGroupDetailResponseBody::Desktops> desktops_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

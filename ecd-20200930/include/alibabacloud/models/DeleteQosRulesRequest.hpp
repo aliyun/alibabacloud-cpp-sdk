@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // A list of QoS rule IDs.
+    // The list of QoS rule IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> qosRuleId_ {};

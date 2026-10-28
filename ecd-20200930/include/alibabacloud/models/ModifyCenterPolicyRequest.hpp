@@ -63,6 +63,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(FileTransferSizeLimit, fileTransferSizeLimit_);
       DARABONBA_PTR_TO_JSON(FileTransferSpeed, fileTransferSpeed_);
       DARABONBA_PTR_TO_JSON(FileTransferSpeedLocation, fileTransferSpeedLocation_);
+      DARABONBA_PTR_TO_JSON(FolderSync, folderSync_);
       DARABONBA_PTR_TO_JSON(GpuAcceleration, gpuAcceleration_);
       DARABONBA_PTR_TO_JSON(HoverConfigMsg, hoverConfigMsg_);
       DARABONBA_PTR_TO_JSON(Html5FileTransfer, html5FileTransfer_);
@@ -209,6 +210,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(FileTransferSizeLimit, fileTransferSizeLimit_);
       DARABONBA_PTR_FROM_JSON(FileTransferSpeed, fileTransferSpeed_);
       DARABONBA_PTR_FROM_JSON(FileTransferSpeedLocation, fileTransferSpeedLocation_);
+      DARABONBA_PTR_FROM_JSON(FolderSync, folderSync_);
       DARABONBA_PTR_FROM_JSON(GpuAcceleration, gpuAcceleration_);
       DARABONBA_PTR_FROM_JSON(HoverConfigMsg, hoverConfigMsg_);
       DARABONBA_PTR_FROM_JSON(Html5FileTransfer, html5FileTransfer_);
@@ -1168,26 +1170,26 @@ namespace Models
         && this->disconnectKeepSessionTime_ == nullptr && this->diskOverload_ == nullptr && this->displayMode_ == nullptr && this->domainResolveRule_ == nullptr && this->domainResolveRuleType_ == nullptr
         && this->enableSessionRateLimiting_ == nullptr && this->endUserApplyAdminCoordinate_ == nullptr && this->endUserGroupCoordinate_ == nullptr && this->externalDrive_ == nullptr && this->fileMigrate_ == nullptr
         && this->fileTransferAddress_ == nullptr && this->fileTransferInSize_ == nullptr && this->fileTransferInUnit_ == nullptr && this->fileTransferOutSize_ == nullptr && this->fileTransferOutUnit_ == nullptr
-        && this->fileTransferSizeLimit_ == nullptr && this->fileTransferSpeed_ == nullptr && this->fileTransferSpeedLocation_ == nullptr && this->gpuAcceleration_ == nullptr && this->hoverConfigMsg_ == nullptr
-        && this->html5FileTransfer_ == nullptr && this->internetCommunicationProtocol_ == nullptr && this->internetPrinter_ == nullptr && this->localDrive_ == nullptr && this->maxReconnectTime_ == nullptr
-        && this->memoryDownGradeDuration_ == nullptr && this->memoryOverload_ == nullptr && this->memoryProcessors_ == nullptr && this->memoryProtectedMode_ == nullptr && this->memoryRateLimit_ == nullptr
-        && this->memorySampleDuration_ == nullptr && this->memorySingleRateLimit_ == nullptr && this->mobileRestart_ == nullptr && this->mobileSafeMenu_ == nullptr && this->mobileShutdown_ == nullptr
-        && this->mobileWuyingKeeper_ == nullptr && this->mobileWyAssistant_ == nullptr && this->modelLibrary_ == nullptr && this->multiScreen_ == nullptr && this->name_ == nullptr
-        && this->netRedirect_ == nullptr && this->netRedirectRule_ == nullptr && this->noOperationDisconnect_ == nullptr && this->noOperationDisconnectTime_ == nullptr && this->policyGroupId_ == nullptr
-        && this->portProxy_ == nullptr && this->printerAlert_ == nullptr && this->printerAlertContent_ == nullptr && this->printerAlertTitle_ == nullptr && this->printerRedirect_ == nullptr
-        && this->qualityEnhancement_ == nullptr && this->recordEventDuration_ == nullptr && this->recordEventFileExts_ == nullptr && this->recordEventFilePaths_ == nullptr && this->recordEventLevels_ == nullptr
-        && this->recordEventRegisters_ == nullptr && this->recordEvents_ == nullptr && this->recording_ == nullptr && this->recordingAudio_ == nullptr && this->recordingDuration_ == nullptr
-        && this->recordingEndTime_ == nullptr && this->recordingExpires_ == nullptr && this->recordingFps_ == nullptr && this->recordingStartTime_ == nullptr && this->recordingUserNotify_ == nullptr
-        && this->recordingUserNotifyMessage_ == nullptr && this->regionId_ == nullptr && this->remoteCoordinate_ == nullptr && this->resetDesktop_ == nullptr && this->resolutionDpi_ == nullptr
-        && this->resolutionHeight_ == nullptr && this->resolutionModel_ == nullptr && this->resolutionWidth_ == nullptr && this->resourceType_ == nullptr && this->revokeAccessPolicyRule_ == nullptr
-        && this->revokeSecurityPolicyRule_ == nullptr && this->safeMenu_ == nullptr && this->scope_ == nullptr && this->scopeValue_ == nullptr && this->screenDisplayMode_ == nullptr
-        && this->sessionMaxRateKbps_ == nullptr && this->smoothEnhancement_ == nullptr && this->statusMonitor_ == nullptr && this->streamingMode_ == nullptr && this->targetFps_ == nullptr
-        && this->taskbar_ == nullptr && this->threeScreen_ == nullptr && this->usbRedirect_ == nullptr && this->usbSupplyRedirectRule_ == nullptr && this->useTime_ == nullptr
-        && this->videoEncAvgKbps_ == nullptr && this->videoEncMaxQP_ == nullptr && this->videoEncMinQP_ == nullptr && this->videoEncPeakKbps_ == nullptr && this->videoEncPolicy_ == nullptr
-        && this->videoRedirect_ == nullptr && this->visualQuality_ == nullptr && this->watermark_ == nullptr && this->watermarkAntiCam_ == nullptr && this->watermarkColor_ == nullptr
-        && this->watermarkColumnAmount_ == nullptr && this->watermarkCustomText_ == nullptr && this->watermarkDegree_ == nullptr && this->watermarkFontSize_ == nullptr && this->watermarkFontStyle_ == nullptr
-        && this->watermarkPower_ == nullptr && this->watermarkRowAmount_ == nullptr && this->watermarkSecurity_ == nullptr && this->watermarkShadow_ == nullptr && this->watermarkTransparencyValue_ == nullptr
-        && this->watermarkType_ == nullptr && this->wuyingKeeper_ == nullptr && this->wyAssistant_ == nullptr; };
+        && this->fileTransferSizeLimit_ == nullptr && this->fileTransferSpeed_ == nullptr && this->fileTransferSpeedLocation_ == nullptr && this->folderSync_ == nullptr && this->gpuAcceleration_ == nullptr
+        && this->hoverConfigMsg_ == nullptr && this->html5FileTransfer_ == nullptr && this->internetCommunicationProtocol_ == nullptr && this->internetPrinter_ == nullptr && this->localDrive_ == nullptr
+        && this->maxReconnectTime_ == nullptr && this->memoryDownGradeDuration_ == nullptr && this->memoryOverload_ == nullptr && this->memoryProcessors_ == nullptr && this->memoryProtectedMode_ == nullptr
+        && this->memoryRateLimit_ == nullptr && this->memorySampleDuration_ == nullptr && this->memorySingleRateLimit_ == nullptr && this->mobileRestart_ == nullptr && this->mobileSafeMenu_ == nullptr
+        && this->mobileShutdown_ == nullptr && this->mobileWuyingKeeper_ == nullptr && this->mobileWyAssistant_ == nullptr && this->modelLibrary_ == nullptr && this->multiScreen_ == nullptr
+        && this->name_ == nullptr && this->netRedirect_ == nullptr && this->netRedirectRule_ == nullptr && this->noOperationDisconnect_ == nullptr && this->noOperationDisconnectTime_ == nullptr
+        && this->policyGroupId_ == nullptr && this->portProxy_ == nullptr && this->printerAlert_ == nullptr && this->printerAlertContent_ == nullptr && this->printerAlertTitle_ == nullptr
+        && this->printerRedirect_ == nullptr && this->qualityEnhancement_ == nullptr && this->recordEventDuration_ == nullptr && this->recordEventFileExts_ == nullptr && this->recordEventFilePaths_ == nullptr
+        && this->recordEventLevels_ == nullptr && this->recordEventRegisters_ == nullptr && this->recordEvents_ == nullptr && this->recording_ == nullptr && this->recordingAudio_ == nullptr
+        && this->recordingDuration_ == nullptr && this->recordingEndTime_ == nullptr && this->recordingExpires_ == nullptr && this->recordingFps_ == nullptr && this->recordingStartTime_ == nullptr
+        && this->recordingUserNotify_ == nullptr && this->recordingUserNotifyMessage_ == nullptr && this->regionId_ == nullptr && this->remoteCoordinate_ == nullptr && this->resetDesktop_ == nullptr
+        && this->resolutionDpi_ == nullptr && this->resolutionHeight_ == nullptr && this->resolutionModel_ == nullptr && this->resolutionWidth_ == nullptr && this->resourceType_ == nullptr
+        && this->revokeAccessPolicyRule_ == nullptr && this->revokeSecurityPolicyRule_ == nullptr && this->safeMenu_ == nullptr && this->scope_ == nullptr && this->scopeValue_ == nullptr
+        && this->screenDisplayMode_ == nullptr && this->sessionMaxRateKbps_ == nullptr && this->smoothEnhancement_ == nullptr && this->statusMonitor_ == nullptr && this->streamingMode_ == nullptr
+        && this->targetFps_ == nullptr && this->taskbar_ == nullptr && this->threeScreen_ == nullptr && this->usbRedirect_ == nullptr && this->usbSupplyRedirectRule_ == nullptr
+        && this->useTime_ == nullptr && this->videoEncAvgKbps_ == nullptr && this->videoEncMaxQP_ == nullptr && this->videoEncMinQP_ == nullptr && this->videoEncPeakKbps_ == nullptr
+        && this->videoEncPolicy_ == nullptr && this->videoRedirect_ == nullptr && this->visualQuality_ == nullptr && this->watermark_ == nullptr && this->watermarkAntiCam_ == nullptr
+        && this->watermarkColor_ == nullptr && this->watermarkColumnAmount_ == nullptr && this->watermarkCustomText_ == nullptr && this->watermarkDegree_ == nullptr && this->watermarkFontSize_ == nullptr
+        && this->watermarkFontStyle_ == nullptr && this->watermarkPower_ == nullptr && this->watermarkRowAmount_ == nullptr && this->watermarkSecurity_ == nullptr && this->watermarkShadow_ == nullptr
+        && this->watermarkTransparencyValue_ == nullptr && this->watermarkType_ == nullptr && this->wuyingKeeper_ == nullptr && this->wyAssistant_ == nullptr; };
     // academicProxy Field Functions 
     bool hasAcademicProxy() const { return this->academicProxy_ != nullptr;};
     void deleteAcademicProxy() { this->academicProxy_ = nullptr;};
@@ -1545,6 +1547,13 @@ namespace Models
     void deleteFileTransferSpeedLocation() { this->fileTransferSpeedLocation_ = nullptr;};
     inline string getFileTransferSpeedLocation() const { DARABONBA_PTR_GET_DEFAULT(fileTransferSpeedLocation_, "") };
     inline ModifyCenterPolicyRequest& setFileTransferSpeedLocation(string fileTransferSpeedLocation) { DARABONBA_PTR_SET_VALUE(fileTransferSpeedLocation_, fileTransferSpeedLocation) };
+
+
+    // folderSync Field Functions 
+    bool hasFolderSync() const { return this->folderSync_ != nullptr;};
+    void deleteFolderSync() { this->folderSync_ = nullptr;};
+    inline string getFolderSync() const { DARABONBA_PTR_GET_DEFAULT(folderSync_, "") };
+    inline ModifyCenterPolicyRequest& setFolderSync(string folderSync) { DARABONBA_PTR_SET_VALUE(folderSync_, folderSync) };
 
 
     // gpuAcceleration Field Functions 
@@ -2361,6 +2370,7 @@ namespace Models
     shared_ptr<string> fileTransferSpeed_ {};
     // The location where the file transfer speed configured on the client takes effect.
     shared_ptr<string> fileTransferSpeedLocation_ {};
+    shared_ptr<string> folderSync_ {};
     // Specifies whether to enable the image quality policy for GPU-accelerated cloud desktops. Enable this policy when high cloud desktop performance and user experience are required, such as in professional design scenarios.
     shared_ptr<string> gpuAcceleration_ {};
     // Specifies whether to enable the floating ball configuration message prompt. Valid values:

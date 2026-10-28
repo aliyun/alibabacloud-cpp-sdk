@@ -77,11 +77,11 @@ namespace Models
   protected:
     // The description of the image in the destination region. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> destinationDescription_ {};
-    // The name of the new image created by the copy operation. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), and hyphens (-). It must start with a letter or a Chinese character and cannot start with `http://` or `https://`.
+    // The name of the new image. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with `http://` or `https://`. It can contain digits, colons (:), underscores (_), and hyphens (-).
     // 
     // This parameter is required.
     shared_ptr<string> destinationImageName_ {};
-    // The ID of the destination region to which the image is copied. The destination region ID must be different from the current region ID of the image. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
+    // The ID of the destination region. The destination region must be different from the current region of the image. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> destinationRegionId_ {};
@@ -89,7 +89,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> imageId_ {};
-    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

@@ -160,37 +160,34 @@ namespace Models
   protected:
     // The creator.
     shared_ptr<string> creator_ {};
-    // The cloud computer ID.
+    // The ID of the cloud desktop.
     shared_ptr<string> desktopId_ {};
-    // The cloud computer name.
+    // The name of the cloud desktop.
     shared_ptr<string> desktopName_ {};
     shared_ptr<string> desktopScenario_ {};
-    // The end of the time range during which the snapshots were created. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time must be in UTC.
+    // The end time of the snapshot creation. The time is displayed in UTC and follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format.
     shared_ptr<string> endTime_ {};
-    // The number of entries per page for paging.    
-    // 
-    // - Maximum value: 100.    
-    // - Default value: 10.
+    // The number of entries to return per page in a paging query.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. Set this parameter to the NextToken value returned in the previous API call.
+    // The query token. Set the value to the NextToken parameter value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
     // The operating system type.
     shared_ptr<string> osType_ {};
-    // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
+    // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The snapshot ID.
+    // The ID of the snapshot.
     shared_ptr<string> snapshotId_ {};
-    // The display name of the snapshot. The name must be 2 to 127 characters in length and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter. The name cannot start with `auto` to avoid conflicts with automatic snapshot names.
+    // The display name of the snapshot. The name must be 2 to 127 characters in length. It must start with a letter or a Chinese character, and can contain digits, underscores (_), and hyphens (-). To prevent name conflicts with automatic snapshots, the name cannot start with `auto`.
     shared_ptr<string> snapshotName_ {};
     // The snapshot type.
     shared_ptr<string> snapshotType_ {};
-    // The type of the cloud disk from which the snapshot is created.
+    // The type of the disk for which you want to create a snapshot.
     // 
-    // > The value is case-insensitive.
+    // > The values are not case-sensitive.
     shared_ptr<string> sourceDiskType_ {};
-    // The beginning of the time range during which the snapshots were created. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time must be in UTC.
+    // The start time of the snapshot creation. The time is displayed in UTC and follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format.
     shared_ptr<string> startTime_ {};
   };
 

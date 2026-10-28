@@ -191,32 +191,31 @@ namespace Models
 
 
   protected:
-    // Specifies whether to check the session status within the cloud computer.
+    // Specifies whether to check the session status in the cloud computer.
     shared_ptr<bool> checkOsSession_ {};
-    // The cloud computer IDs. You can specify 1 to 100 IDs.
+    // The cloud computer ID. You can specify 1 to 100 IDs.
     shared_ptr<vector<string>> desktopId_ {};
     // The cloud computer name.
     shared_ptr<string> desktopName_ {};
-    // The end of the time range to query.
-    // Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The end time of the query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> endTime_ {};
     // The end user ID.
     shared_ptr<string> endUserId_ {};
-    // The end user ID. This parameter is the same as EndUserId. You only need to specify one of them.
+    // The end user ID. This parameter is the same as the EndUserId parameter. You only need to specify one of them.
     shared_ptr<string> endUserIdFilter_ {};
     // The list of end user IDs.
     shared_ptr<vector<string>> endUserIds_ {};
     // Specifies whether to include terminal information in the response.
     shared_ptr<bool> fillHardwareInfo_ {};
-    // The language type of the response.
+    // The language of the response.
     shared_ptr<string> language_ {};
     // The office network ID.
     shared_ptr<string> officeSiteId_ {};
-    // The page number of the current page in a paged query.
+    // The page number of the current page in a paging query.
     shared_ptr<int32_t> pageNumber_ {};
-    // The maximum number of rows per page in a paged query.
+    // The maximum number of entries per page in a paging query.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
+    // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions supported by Wuying Cloud Computer.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -224,10 +223,9 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     // The session connection status.
     shared_ptr<string> sessionStatus_ {};
-    // The beginning of the time range to query.
-    // Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The start time of the query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> startTime_ {};
-    // The purchase method of the cloud computer.
+    // The billing method of the cloud computer.
     shared_ptr<string> subPayType_ {};
   };
 

@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the shared cloud computer.
+    // The ID of the shared cloud desktop.
     // 
     // This parameter is required.
     shared_ptr<string> desktopGroupId_ {};
-    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the list of regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

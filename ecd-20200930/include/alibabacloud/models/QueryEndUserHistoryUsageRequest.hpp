@@ -75,15 +75,17 @@ namespace Models
 
 
   protected:
-    // The end date of the query. Format: yyyy-MM-dd. The date cannot be later than yesterday or earlier than StartDate. Default value: yesterday.
+    // The end date of the query, in yyyy-MM-dd format. The date cannot be later than yesterday or earlier than StartDate. Default value: yesterday.
     shared_ptr<string> endDate_ {};
-    // Specifies whether to query Active Directory (AD) domain users. If this parameter is set to true, AD domain users are queried. If this parameter is set to false or not specified, convenience account users are queried.
+    // Specifies whether to query Active Directory (AD) domain users. Valid values:
+    // - true: Queries AD domain users.
+    // - false or unspecified: Queries convenience users.
     shared_ptr<bool> isAdUser_ {};
     // The page number. Minimum value: 1. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
     // The number of entries per page. Valid values: 1 to 100. Default value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The start date of the query. Format: yyyy-MM-dd. The date cannot be earlier than 32 days ago. Default value: yesterday.
+    // The start date of the query, in yyyy-MM-dd format. The date cannot be earlier than 32 days ago. Default value: yesterday.
     shared_ptr<string> startDate_ {};
   };
 

@@ -149,42 +149,37 @@ namespace Models
 
 
   protected:
-    // The minimum value of the connection duration used as a filter condition.
+    // The minimum connection duration used as a filter condition.
     shared_ptr<int64_t> connectDurationFrom_ {};
-    // The maximum value of the connection duration used as a filter condition.
+    // The maximum connection duration used as a filter condition.
     shared_ptr<int64_t> connectDurationTo_ {};
-    // The minimum value of the connection end time used as a filter condition. The value is a UNIX timestamp. Unit: milliseconds.
+    // The minimum end time of the connection used as a filter condition. The time is formatted as a UNIX timestamp. Unit: milliseconds.
     shared_ptr<int64_t> connectEndTimeFrom_ {};
-    // The maximum value of the connection end time used as a filter condition. The value is a UNIX timestamp. Unit: milliseconds.
+    // The maximum end time of the connection used as a filter condition. The time is formatted as a UNIX timestamp. Unit: milliseconds.
     shared_ptr<int64_t> connectEndTimeTo_ {};
-    // The minimum value of the connection start time used as a filter condition. The value is a UNIX timestamp. Unit: milliseconds.
+    // The minimum start time of the connection used as a filter condition. The time is formatted as a UNIX timestamp. Unit: milliseconds.
     shared_ptr<int64_t> connectStartTimeFrom_ {};
-    // The maximum value of the connection start time used as a filter condition. The value is a UNIX timestamp. Unit: milliseconds.
+    // The maximum start time of the connection used as a filter condition. The time is formatted as a UNIX timestamp. Unit: milliseconds.
     shared_ptr<int64_t> connectStartTimeTo_ {};
-    // The cloud computer pool ID.
+    // The ID of the cloud computer pool.
     // 
     // This parameter is required.
     shared_ptr<string> desktopGroupId_ {};
-    // The cloud computer ID.
+    // The ID of the cloud computer.
     shared_ptr<string> desktopId_ {};
-    // The authorized user ID.
+    // The ID of the authorized user.
     // 
     // This parameter is required.
     shared_ptr<string> endUserId_ {};
-    // The type of user account system. Valid values:
-    // 
-    // - SIMPLE: convenience account
-    // - AD_CONNECTOR: enterprise AD account
+    // The type of the user account system.
     shared_ptr<string> endUserType_ {};
-    // The number of entries per page for a paged query.
-    // 
+    // The number of entries to return per page in a paging query.
     // Maximum value: 100.
-    // 
     // Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next query. An empty value indicates that there is no next page.
+    // The token used to start the next query. An empty NextToken indicates that no more results are available.
     shared_ptr<string> nextToken_ {};
-    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the list of regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

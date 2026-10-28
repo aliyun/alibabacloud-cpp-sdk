@@ -48,10 +48,9 @@ namespace Models
 
 
   protected:
-    // The order ID. You can obtain it from <props="china">[Expenses and Costs > My Orders](https://billing-cost.console.aliyun.com/order/list).
-    // <props="intl">[Expenses and Costs > Order Management](https://usercenter2-intl.aliyun.com/order/list).
+    // The order ID. You can obtain the order ID on the <props="china">[Expenses and Costs > My Orders](https://billing-cost.console.aliyun.com/order/list) page.<props="intl">[Expenses and Costs > Order Management](https://usercenter2-intl.aliyun.com/order/list) page.
     shared_ptr<string> orderId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

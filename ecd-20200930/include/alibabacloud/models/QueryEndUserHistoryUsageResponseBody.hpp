@@ -105,9 +105,9 @@ namespace Models
 
 
       protected:
-        // The user group ID.
+        // The ID of the user group.
         shared_ptr<string> userGroupId_ {};
-        // The user group name.
+        // The name of the user group.
         shared_ptr<string> userGroupName_ {};
       };
 
@@ -158,11 +158,11 @@ namespace Models
 
 
       protected:
-        // The desktop ID.
+        // The ID of the cloud desktop.
         shared_ptr<string> desktopId_ {};
-        // The desktop name.
+        // The name of the cloud desktop.
         shared_ptr<string> desktopName_ {};
-        // The usage duration of the user on the desktop, in seconds.
+        // The usage duration of the user on the cloud desktop, in seconds.
         shared_ptr<int64_t> duration_ {};
       };
 
@@ -232,21 +232,21 @@ namespace Models
 
 
     protected:
-      // The remarks of the user. This parameter has a value only for convenience account users.
+      // The description of the user. This parameter has a value only for convenience users.
       shared_ptr<string> description_ {};
-      // The list of usage duration details for each desktop.
+      // The list of usage duration details for each cloud desktop.
       shared_ptr<vector<UserUsageInfoList::DesktopUsageList>> desktopUsageList_ {};
-      // The display name of the user. For convenience account users, this is the actual nickname. For AD users, this is the display name.
+      // The display name of the user. For convenience users, this is the real nickname. For AD users, this is the display name.
       shared_ptr<string> displayName_ {};
       // The total usage duration, in seconds.
       shared_ptr<int64_t> duration_ {};
-      // The end user ID.
+      // The ID of the end user.
       shared_ptr<string> endUserId_ {};
-      // The username. For convenience account users, this is the nickname. For AD users, this is the UserPrincipalName.
+      // The username. For convenience users, this is the nickname. For AD users, this is the UserPrincipalName.
       shared_ptr<string> endUserName_ {};
-      // The list of organization paths. For convenience account users, this contains multiple organization paths. For AD users, this is the organizational unit (OU) path.
+      // The list of organization paths. For convenience users, this includes multiple organization paths. For AD users, this is the OU path.
       shared_ptr<vector<string>> orgPathList_ {};
-      // The list of user groups. This parameter has a value only for convenience account users.
+      // The list of user groups. This parameter has a value only for convenience users.
       shared_ptr<vector<UserUsageInfoList::UserGroupList>> userGroupList_ {};
     };
 
@@ -276,11 +276,11 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
     // The total number of users that meet the query conditions.
     shared_ptr<int64_t> totalCount_ {};
-    // The list of user usage duration entries on the current page.
+    // The list of user usage durations on the current page.
     shared_ptr<vector<QueryEndUserHistoryUsageResponseBody::UserUsageInfoList>> userUsageInfoList_ {};
   };
 

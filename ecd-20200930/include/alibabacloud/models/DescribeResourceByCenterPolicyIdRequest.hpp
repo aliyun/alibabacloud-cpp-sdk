@@ -75,25 +75,18 @@ namespace Models
 
 
   protected:
-    // The number of entries per page.
+    // The number of entries per page for a paged query.    
     // 
-    // *   Maximum value: 100.
-    // *   Default value: 10.
+    // - Maximum value: 100.    
+    // - Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token.
+    // The token for the next query.
     shared_ptr<string> nextToken_ {};
     // The policy ID.
     // 
     // This parameter is required.
     shared_ptr<string> policyGroupId_ {};
-    // The service type.
-    // 
-    // Valid values:
-    // 
-    // *   app: cloud applications.
-    // *   resourceGroup: resource groups.
-    // *   desktop: cloud computers.
-    // *   desktopGroup: cloud computer shares.
+    // The product type.
     shared_ptr<string> productType_ {};
     // The resource ID.
     shared_ptr<string> resourceId_ {};

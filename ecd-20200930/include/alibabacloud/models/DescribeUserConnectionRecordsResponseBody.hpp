@@ -110,11 +110,13 @@ namespace Models
     protected:
       // The connection duration. Unit: milliseconds.
       shared_ptr<string> connectDuration_ {};
-      // The connection end time.
+      // The time when the connection is disconnected.
+      // The time is in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> connectEndTime_ {};
-      // The connection start time.
+      // The start time of the connection.
+      // The time is in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> connectStartTime_ {};
-      // The connection record ID.
+      // The ID of the connection record.
       shared_ptr<string> connectionRecordId_ {};
       // The ID of the connected cloud computer.
       shared_ptr<string> desktopId_ {};
@@ -150,9 +152,9 @@ namespace Models
   protected:
     // The array of user connection records.
     shared_ptr<vector<DescribeUserConnectionRecordsResponseBody::ConnectionRecords>> connectionRecords_ {};
-    // The pagination token for the next query.
+    // The token used to start the next query.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

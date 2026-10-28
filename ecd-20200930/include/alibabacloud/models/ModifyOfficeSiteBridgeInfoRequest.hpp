@@ -94,9 +94,9 @@ namespace Models
 
 
   protected:
-    // The virtual bridge ID.
+    // The ID of the virtual bridge.
     shared_ptr<string> bridgeId_ {};
-    // The virtual bridge specifications.
+    // The specifications of the virtual bridge.
     shared_ptr<string> bridgeLevel_ {};
     // The third-party plugin type of the virtual bridge.
     shared_ptr<string> bridgeType_ {};
@@ -104,9 +104,9 @@ namespace Models
     shared_ptr<bool> enableBridge_ {};
     // The activation code object.
     shared_ptr<string> license_ {};
-    // The office network ID.
+    // The ID of the office network.
     shared_ptr<string> officeSiteId_ {};
-    // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
+    // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

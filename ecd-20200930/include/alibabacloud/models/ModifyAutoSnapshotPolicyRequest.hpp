@@ -86,15 +86,15 @@ namespace Models
   protected:
     // The cron expression.
     shared_ptr<string> cronExpression_ {};
-    // The type of cloud disk for which the automatic snapshot policy creates snapshots.
+    // The type of the cloud disk for which the automatic snapshot policy creates snapshots.
     shared_ptr<string> diskType_ {};
     // The ID of the automatic snapshot policy.
     // 
     // This parameter is required.
     shared_ptr<string> policyId_ {};
-    // The name of the automatic snapshot policy. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain digits, colons (:), underscores (_), or hyphens (-). Default value: empty.
+    // The name of the automatic snapshot policy. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with `http://` or `https://`. It can contain digits, colons (:), underscores (_), and hyphens (-). Default value: empty.
     shared_ptr<string> policyName_ {};
-    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the list of regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

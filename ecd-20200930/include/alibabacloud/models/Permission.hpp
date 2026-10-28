@@ -121,15 +121,25 @@ namespace Models
 
 
   protected:
+    // The creation time.
     shared_ptr<string> createTime_ {};
+    // The description.
     shared_ptr<string> description_ {};
+    // The destination CIDR block.
     shared_ptr<string> destCidrIp_ {};
+    // The protocol type.
     shared_ptr<string> ipProtocol_ {};
+    // The NIC type.
     shared_ptr<string> nicType_ {};
+    // The policy.
     shared_ptr<string> policy_ {};
+    // The port range.
     shared_ptr<string> portRange_ {};
+    // The priority.
     shared_ptr<string> priority_ {};
+    // The source CIDR block.
     shared_ptr<string> sourceCidrIp_ {};
+    // The source port range.
     shared_ptr<string> sourcePortRange_ {};
   };
 

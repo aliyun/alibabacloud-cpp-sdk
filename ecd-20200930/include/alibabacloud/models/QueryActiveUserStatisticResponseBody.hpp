@@ -83,7 +83,7 @@ namespace Models
     protected:
       // The number of deduplicated active users within the statistical period.
       shared_ptr<int32_t> activeUserCount_ {};
-      // The formatted date string in UTC+8, in the format of yyyy-MM-dd.
+      // The formatted date string in the UTC+8 time zone. The format is yyyy-MM-dd.
       shared_ptr<string> formatDate_ {};
       // The epoch timestamp in milliseconds corresponding to the data point.
       shared_ptr<int64_t> timeStamp_ {};

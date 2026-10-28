@@ -127,7 +127,7 @@ namespace Models
 
 
       protected:
-        // The application ID. This parameter is only applicable to cloud applications.
+        // The application ID. This parameter is specific to resources whose resource type is App.
         shared_ptr<string> appId_ {};
         // The application name.
         shared_ptr<string> appName_ {};
@@ -267,11 +267,11 @@ namespace Models
 
 
     protected:
-      // The cloud applications.
+      // The list of cloud applications.
       shared_ptr<vector<ResourceModelList::AppModelList>> appModelList_ {};
       // The number of vCPUs.
       shared_ptr<int32_t> cpu_ {};
-      // The cloud computer type. You can call the [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) operation to query the IDs of the cloud computer types supported by Alibaba Cloud Workspace.
+      // The target cloud desktop specification. You can call [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) to query the specification IDs supported by WUYING Workspace.
       shared_ptr<string> desktopType_ {};
       // The number of GPUs.
       shared_ptr<double> gpuCount_ {};
@@ -279,11 +279,11 @@ namespace Models
       shared_ptr<string> gpuSpec_ {};
       // The memory size. Unit: MiB.
       shared_ptr<int64_t> memory_ {};
-      // The OS type.
+      // The operating system type.
       shared_ptr<string> osType_ {};
       // The billing method.
       shared_ptr<string> payType_ {};
-      // The service type.
+      // The product type.
       shared_ptr<string> productType_ {};
       // The protocol type.
       shared_ptr<string> protocolType_ {};
@@ -291,17 +291,17 @@ namespace Models
       shared_ptr<string> resourceGroupId_ {};
       // The resource group name.
       shared_ptr<string> resourceGroupName_ {};
-      // The number of associated resource groups
+      // The number of associated resource groups.
       shared_ptr<int32_t> resourceGroupRelCount_ {};
       // The resource ID.
       shared_ptr<string> resourceId_ {};
       // The resource name.
       shared_ptr<string> resourceName_ {};
-      // The region ID of the resource.
+      // The region where the resource resides.
       shared_ptr<string> resourceRegionId_ {};
       // The resource type.
       shared_ptr<string> resourceType_ {};
-      // The resource status.
+      // The status of the resource.
       shared_ptr<string> status_ {};
     };
 
@@ -338,13 +338,13 @@ namespace Models
 
 
   protected:
-    // The total number of resources.
+    // The total count.
     shared_ptr<string> count_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+    // The token for the next query. If NextToken is empty, no more results are available.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The resources.
+    // The list of resources.
     shared_ptr<vector<DescribeResourceByCenterPolicyIdResponseBody::ResourceModelList>> resourceModelList_ {};
   };
 

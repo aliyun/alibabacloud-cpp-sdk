@@ -97,7 +97,7 @@ namespace Models
 
 
       protected:
-        // The ID of the end user that connects to the cloud computer.
+        // The ID of the connected user.
         shared_ptr<string> endUserId_ {};
       };
 
@@ -156,7 +156,7 @@ namespace Models
 
 
     protected:
-      // The current version of the image used by the cloud computer.
+      // The current image version of the cloud computer.
       shared_ptr<string> currentAppVersion_ {};
       // The ID of the cloud computer.
       shared_ptr<string> desktopId_ {};
@@ -166,20 +166,9 @@ namespace Models
       shared_ptr<string> fotaProject_ {};
       // The ID of the office network.
       shared_ptr<string> officeSiteId_ {};
-      // The connected sessions.
+      // The list of connected sessions.
       shared_ptr<vector<FotaPendingDesktops::Sessions>> sessions_ {};
       // The status of the cloud computer.
-      // 
-      // Valid values:
-      // 
-      // *   0: The cloud computer is being created.
-      // *   1: The cloud computer is being started.
-      // *   2: The cloud computer is running.
-      // *   3: The cloud computer is being stopped.
-      // *   5: The cloud computer is stopped.
-      // *   6: The cloud computer expires.
-      // *   7: The cloud computer is deleted.
-      // *   9: Failed to create the cloud computer.
       shared_ptr<int64_t> status_ {};
     };
 
@@ -223,13 +212,13 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The status code.
     shared_ptr<string> code_ {};
-    // The cloud computers whose images can be and are pending to be updated to the version specified in `TaskUid`.
+    // The list of cloud computers that can be upgraded to the image version corresponding to `TaskUid` but have not been upgraded.
     shared_ptr<vector<DescribeFotaPendingDesktopsResponseBody::FotaPendingDesktops>> fotaPendingDesktops_ {};
-    // The returned message.
+    // The message.
     shared_ptr<string> message_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+    // The pagination token for the next query. If NextToken is empty, no more results are available.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
