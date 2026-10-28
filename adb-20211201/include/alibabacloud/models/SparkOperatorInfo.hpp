@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The metric value.
     shared_ptr<int64_t> metricValue_ {};
+    // The operator name.
     Darabonba::Bytes operatorName_ {};
   };
 

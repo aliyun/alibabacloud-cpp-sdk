@@ -86,7 +86,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
-    // <props="china">The ID of the cluster. The cluster can be an Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+    // <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
     // <props="intl">The ID of the Data Lakehouse Edition cluster.
     // 
     // This parameter is required.
@@ -94,8 +94,9 @@ namespace Models
     // The database engine. Valid values:
     // 
     // - **AnalyticDB** (default): the AnalyticDB for MySQL engine.
-    // - **Clickhouse**: the wide table engine.
+    // - **Clickhouse**: the wide-table engine.
     shared_ptr<string> engine_ {};
+    // The name of the resource group.
     shared_ptr<string> resourceGroupName_ {};
   };
 

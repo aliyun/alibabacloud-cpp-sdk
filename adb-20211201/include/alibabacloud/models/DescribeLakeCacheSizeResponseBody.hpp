@@ -101,15 +101,15 @@ namespace Models
 
 
     protected:
-      // The size of the lake cache space. Unit: GB.
+      // The size of the lake storage acceleration cache space, in GB.
       shared_ptr<int64_t> capacity_ {};
       // The cluster ID.
       shared_ptr<string> DBClusterId_ {};
-      // The size of the data that occupies the lake cache space. Unit: GB.
+      // The used capacity of the lake storage cache space, in GB.
       shared_ptr<int64_t> dataSize_ {};
-      // Indicates whether the lake cache feature is enabled.
+      // Indicates whether lake storage acceleration is enabled.
       shared_ptr<bool> enableLakeCache_ {};
-      // The clusters that share the lake cache space.
+      // The list of instances that share the lake storage cache space.
       shared_ptr<vector<string>> instances_ {};
     };
 
@@ -139,7 +139,7 @@ namespace Models
 
 
   protected:
-    // The status code. The value 200 indicates that the request is successful.
+    // The status code. A value of 200 indicates success.
     shared_ptr<int32_t> code_ {};
     // The returned data.
     shared_ptr<DescribeLakeCacheSizeResponseBody::Data> data_ {};

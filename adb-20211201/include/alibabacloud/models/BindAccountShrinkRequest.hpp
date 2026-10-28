@@ -66,17 +66,18 @@ namespace Models
 
 
   protected:
-    // A standard database account.
+    // The standard database account.
     // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
-    // ID of the cluster. Applies to Enterprise Edition, Basic Edition, or Data Lakehouse Edition clusters.
+    // <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+    // <props="intl">The ID of the Data Lakehouse Edition cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // ID of the Alibaba Cloud RAM user to bind.
+    // The ID of the Alibaba Cloud RAM user to bind.
     shared_ptr<string> ramUser_ {};
-    // List of Alibaba Cloud RAM user IDs to bind. You can bind only one RAM user at a time. If you specify this parameter, the RamUser parameter is ignored.
+    // The list of IDs of the Alibaba Cloud RAM users to bind. Currently, only one RAM user can be bound. If you specify this parameter, the RamUser parameter does not take effect.
     shared_ptr<string> ramUserListShrink_ {};
   };
 

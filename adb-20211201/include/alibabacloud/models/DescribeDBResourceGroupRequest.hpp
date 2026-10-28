@@ -75,18 +75,18 @@ namespace Models
 
 
   protected:
-    // <props="china">The ID of the cluster. The cluster is of Enterprise Edition, Basic Edition, or Data Lakehouse Edition.
+    // <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
     // <props="intl">The ID of the Data Lakehouse Edition cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     // The name of the resource group.
-    // > If you do not specify this parameter, the information about all resource groups in the specified cluster is returned.
+    // > If you do not specify this parameter, information about all resource groups in the specified cluster is returned by default.
     shared_ptr<string> groupName_ {};
     // The type of the resource group. Valid values:
     // - **Interactive**
     // - **Job**
-    // > For more information about resource groups in Data Lakehouse Edition, see [Resource group introduction](https://help.aliyun.com/document_detail/428610.html).
+    // > For more information about resource groups in Data Lakehouse Edition, see [Resource group overview](https://help.aliyun.com/document_detail/428610.html).
     shared_ptr<string> groupType_ {};
     // The region ID.
     // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/612393.html) operation to query the region ID of the cluster.

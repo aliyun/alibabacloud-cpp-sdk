@@ -83,15 +83,15 @@ namespace Models
 
 
     protected:
-      // The information about the detection result.
+      // The detection result message.
       shared_ptr<string> message_ {};
       // The name of the detection item.
       shared_ptr<string> name_ {};
-      // The severity level of the detection result. Valid values:
+      // The status of the detection result. Valid values:
       // 
-      // *   NORMAL
-      // *   WARNING
-      // *   CRITICAL
+      // - NORMAL
+      // - WARNING
+      // - CRITICAL
       shared_ptr<string> status_ {};
     };
 
@@ -130,7 +130,7 @@ namespace Models
   protected:
     // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
-    // The queried detection items and detection results.
+    // The list of detection items and results.
     shared_ptr<vector<DescribeControllerDetectionResponseBody::DetectionItems>> detectionItems_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

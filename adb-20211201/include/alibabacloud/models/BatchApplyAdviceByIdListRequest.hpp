@@ -84,13 +84,13 @@ namespace Models
 
 
   protected:
-    // The date when the suggestions were generated. Format: yyyyMMdd.
+    // The date when the suggestion was generated. Format: yyyyMMdd.
     shared_ptr<int64_t> adviceDate_ {};
-    // The list of suggestion IDs to apply in batches. Separate multiple suggestion IDs with commas (,).
+    // The list of suggestion IDs to be applied in batches. Separate multiple suggestion IDs with commas (,).
     shared_ptr<string> adviceIdList_ {};
     // The adoption type.
     shared_ptr<string> applyType_ {};
-    // Specifies whether to immediately start a build task.
+    // Specifies whether to immediately start the build task.
     shared_ptr<bool> buildImmediately_ {};
     // The cluster ID.
     // 

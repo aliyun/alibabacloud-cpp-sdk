@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The same as the HTTP status code.
+    // The HTTP status code.
     shared_ptr<string> code_ {};
     // The ID of the created task.
     shared_ptr<string> data_ {};
@@ -94,8 +94,9 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
-    // True: The request was successful. False: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - true: The request is successful.
+    // - false: The request fails.
     shared_ptr<bool> success_ {};
   };
 

@@ -234,65 +234,65 @@ namespace Models
   protected:
     // The PromQL resource group configuration.
     shared_ptr<string> atmConfigShrink_ {};
-    // The auto-stop interval.
+    // The auto-stop time.
     shared_ptr<string> autoStopInterval_ {};
-    // Reserved parameter (not applicable).
+    // Reserved parameter.
     shared_ptr<string> clusterMode_ {};
-    // Reserved parameter (not applicable).
+    // Reserved parameter.
     shared_ptr<string> clusterSizeResource_ {};
-    // <props="china">The cluster ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
-    // <props="intl">The cluster ID of the Data Lakehouse Edition cluster.
+    // <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+    // <props="intl">The ID of the Data Lakehouse Edition cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // Specifies whether to enable the spot instance feature for the resource group. After spot instances are enabled, the unit price of resources is reduced, but the resources may be released. Only Job resource groups support this feature. Valid values:
+    // Specifies whether to enable the spot instance feature for the resource group. After you enable this feature, the unit price of resources decreases, but the resources may be released. This feature can be enabled only for Job resource groups. Valid values:
     // - **True**: Enables the spot instance feature.
     // - **False**: Disables the spot instance feature.
     shared_ptr<bool> enableSpot_ {};
-    // The engine configuration.
+    // The engine configurations.
     shared_ptr<string> engineParamsShrink_ {};
-    // The GPU time-sharing elastic plan.
+    // The GPU time-based elastic plan.
     shared_ptr<string> gpuElasticPlanShrink_ {};
-    // The resource group name.
-    // > You can call the [DescribeDBResourceGroup](https://help.aliyun.com/document_detail/459446.html) operation to query the resource group names of a specified cluster.
+    // The name of the resource group.
+    // > You can call the [DescribeDBResourceGroup](https://help.aliyun.com/document_detail/459446.html) operation to query the name of the resource group for a specified cluster.
     // 
     // This parameter is required.
     shared_ptr<string> groupName_ {};
-    // The resource group type. Valid values:
+    // The type of the resource group. Valid values:
     // - **Interactive**
     // - **Job**
-    // > For more information about Data Lakehouse Edition resource groups, refer to [Resource group introduction](https://help.aliyun.com/document_detail/428610.html).
+    // > For more information about Data Lakehouse Edition resource groups, see [Resource groups](https://help.aliyun.com/document_detail/428610.html).
     // 
     // This parameter is required.
     shared_ptr<string> groupType_ {};
-    // Reserved parameter (not applicable).
+    // Reserved parameter.
     shared_ptr<int32_t> maxClusterCount_ {};
     // The maximum reserved computing resources.
-    // - If the resource group type is Interactive, the maximum reserved computing resources are the current unallocated resources of the cluster, in increments of 16 ACUs.
-    // - If the resource group type is Job, the maximum reserved computing resources are the current unallocated resources of the cluster, in increments of 8 ACUs.
+    // - If the resource group type is Interactive, the maximum reserved computing resources is the currently unallocated resources of the cluster, and the step size is 16 ACUs.
+    // - If the resource group type is Job, the maximum reserved computing resources is the currently unallocated resources of the cluster, and the step size is 8 ACUs.
     shared_ptr<string> maxComputeResource_ {};
-    // Reserved parameter (not applicable).
+    // Reserved parameter.
     shared_ptr<int32_t> maxGpuQuantity_ {};
-    // Reserved parameter (not applicable).
+    // Reserved parameter.
     shared_ptr<int32_t> minClusterCount_ {};
     // The minimum reserved computing resources.
-    // - If the resource group type is Interactive, the minimum reserved computing resources are 16 ACUs.
-    // - If the resource group type is Job, the minimum reserved computing resources are 0 ACUs.
+    // - If the resource group type is Interactive, the minimum reserved computing resources is 16 ACUs.
+    // - If the resource group type is Job, the minimum reserved computing resources is 0 ACUs.
     shared_ptr<string> minComputeResource_ {};
-    // Reserved parameter (not applicable).
+    // Reserved parameter.
     shared_ptr<int32_t> minGpuQuantity_ {};
-    // The Ray configuration. This parameter is required when the resource group is an AI resource group and the corresponding engine is RayCluster.
+    // The Ray configuration information. This parameter is required when the resource group is an AI resource group and the corresponding engine is RayCluster.
     shared_ptr<string> rayConfigShrink_ {};
     // The region ID.
     // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/454314.html) operation to query the region ID of a specified cluster.
     shared_ptr<string> regionId_ {};
-    // The job routing rules.
+    // The job delivery rules.
     shared_ptr<string> rulesShrink_ {};
-    // Reserved parameter (not applicable).
+    // Reserved parameter.
     shared_ptr<string> specName_ {};
-    // The resource group status. **starting** indicates that the resource group is being started. **stopping** indicates that the resource group is being stopped.
+    // The status of the resource group. **starting** indicates that the resource group is being started. **stopping** indicates that the resource group is being stopped.
     shared_ptr<string> status_ {};
-    // Reserved parameter (not applicable).
+    // Reserved parameter.
     shared_ptr<string> targetResourceGroupName_ {};
   };
 

@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // The cluster ID.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The job ID.
+    // The ID of the data link task.
     // 
     // This parameter is required.
     shared_ptr<string> workloadId_ {};

@@ -91,7 +91,7 @@ namespace Models
     protected:
       // The column comment.
       shared_ptr<string> comment_ {};
-      // The column name.
+      // The name of the column.
       shared_ptr<string> name_ {};
       // The data type of the column.
       shared_ptr<string> type_ {};
@@ -157,18 +157,18 @@ namespace Models
     // The column information.
     shared_ptr<vector<DescribeAdbMySqlColumnsResponseBody::Columns>> columns_ {};
     // The additional information about the call result. Valid values:
-    // - If the request was successful, **Success** is returned. 
-    // - If the request failed, a specific error code is returned.
+    // - If the request is successful, **Success** is returned.
+    // - If the request fails, a specific error code is returned.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The database name.
+    // The name of the database.
     shared_ptr<string> schema_ {};
-    // Indicates whether the call was successful.
+    // Indicates whether the call was successful. Valid values:
     // - **true**: The call was successful.
     // - **false**: The call failed.
     shared_ptr<bool> success_ {};
-    // The table name.
+    // The name of the table.
     shared_ptr<string> tableName_ {};
   };
 

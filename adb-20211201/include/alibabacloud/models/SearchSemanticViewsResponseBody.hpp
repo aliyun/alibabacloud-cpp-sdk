@@ -52,9 +52,9 @@ namespace Models
 
 
   protected:
-    // A list of semantic view objects.
+    // The response data body.
     shared_ptr<vector<SemanticViewModel>> data_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

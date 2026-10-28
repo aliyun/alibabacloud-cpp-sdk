@@ -103,27 +103,25 @@ namespace Models
 
 
   protected:
-    // The job ID.
+    // The task ID.
     shared_ptr<string> apsJobId_ {};
-    // The status code. A value of 200 indicates that the request is successful.
+    // The status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
     // The error code.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the request failed.
+    // The error message returned when the call fails.
     shared_ptr<string> errMessage_ {};
-    // The status code. A value of 200 indicates that the request was successful.
+    // The HTTP status code returned. A value of 200 indicates that the request was successful.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The returned message. Valid values:
-    // 
-    // *   If the request was successful, a success message is returned.****
-    // *   If the request failed, an error message is returned.
+    // The message about the call result. Valid values:
+    // - **Success**: The request is normal. 
+    // - Specific error message: The request is abnormal.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: Successful.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

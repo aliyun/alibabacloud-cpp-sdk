@@ -157,26 +157,23 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> dbName_ {};
-    // Enable the refresh delay alert. Valid values:
-    // 
-    // *   true: Enables alert.
-    // *   false: Disables alert.
+    // Specifies whether to enable alerting for refresh latency. Valid values:
+    // - true: Yes.
+    // - false: No.
     shared_ptr<bool> enableDelayAlert_ {};
-    // Specifies whether to send alerts when the refresh task fails. Valid values:
-    // 
-    // *   true: Send alerts.
-    // *   false: Alerts disabled.
+    // Specifies whether to enable alerting for refresh task failures. Valid values:
+    // - true: Yes.
+    // - false: No.
     shared_ptr<bool> enableFailureAlert_ {};
-    // The name of the resource group to which the materialized view is bound.
+    // The name of the resource group bound to the materialized view.
     shared_ptr<string> groupName_ {};
-    // Refresh delay tolerance (in minutes).
+    // The refresh latency tolerance in minutes.
     shared_ptr<int32_t> latencyTolerance_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // Specifies whether to enable query rewrite. Valid values:
-    // 
-    // *   true: Enables query rewrite.
-    // *   false: Disables query rewrite.
+    // Specifies whether to enable the rewrite feature. Valid values:
+    // - true: Yes.
+    // - false: No.
     shared_ptr<bool> queryWrite_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

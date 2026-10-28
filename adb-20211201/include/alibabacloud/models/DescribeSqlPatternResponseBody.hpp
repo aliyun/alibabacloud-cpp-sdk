@@ -204,27 +204,26 @@ namespace Models
 
 
     protected:
-      // The IP address of the client.
-      // 
-      // >  This parameter is returned only when **Type** is set to **accessip**.
+      // The client IP address.
+      // > This parameter is returned only when the Type parameter is set to accessip.
       shared_ptr<string> accessIP_ {};
-      // The average execution duration of the SQL pattern within the query time range. Unit: milliseconds.
+      // The average execution time. Unit: milliseconds.
       shared_ptr<string> avgCpuTime_ {};
-      // The average peak memory usage of the SQL pattern within the query time range. Unit: KB.
+      // The average peak memory. Unit: KB.
       shared_ptr<string> avgPeakMemory_ {};
-      // The average amount of data scanned based on the SQL pattern within the query time range. Unit: KB.
+      // The average scan size. Unit: KB.
       shared_ptr<string> avgScanSize_ {};
       // The average number of scanned rows.
       shared_ptr<string> avgStageCount_ {};
       // The average number of tasks.
       shared_ptr<string> avgTaskCount_ {};
-      // The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+      // The cluster ID.
       shared_ptr<string> instanceName_ {};
-      // The maximum execution duration of the SQL pattern within the query time range. Unit: milliseconds.
+      // The maximum execution time of the SQL statement. Unit: milliseconds.
       shared_ptr<string> maxCpuTime_ {};
-      // The maximum peak memory usage of the SQL pattern within the query time range. Unit: KB.
+      // The Peak Volume memory. Unit: KB.
       shared_ptr<string> maxPeakMemory_ {};
-      // The maximum amount of data scanned based on the SQL pattern within the query time range. Unit: KB.
+      // The maximum scan size. Unit: KB.
       shared_ptr<string> maxScanSize_ {};
       // The maximum number of stages.
       shared_ptr<string> maxStageCount_ {};
@@ -232,13 +231,12 @@ namespace Models
       shared_ptr<string> maxTaskCount_ {};
       // The SQL pattern.
       shared_ptr<string> pattern_ {};
-      // The number of queries performed in association with the SQL pattern within the query time range.
+      // The total number of queries.
       shared_ptr<string> queryCount_ {};
-      // The start date of the query.
+      // The query date.
       shared_ptr<string> reportDate_ {};
       // The username.
-      // 
-      // >  This parameter is returned only when **Type** is left empty or set to **user**.
+      // > This parameter is returned only when the Type parameter is left empty or set to user.
       shared_ptr<string> user_ {};
     };
 
@@ -282,7 +280,7 @@ namespace Models
 
 
   protected:
-    // The queried SQL pattern.
+    // The list details.
     shared_ptr<vector<DescribeSqlPatternResponseBody::Items>> items_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
@@ -290,7 +288,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

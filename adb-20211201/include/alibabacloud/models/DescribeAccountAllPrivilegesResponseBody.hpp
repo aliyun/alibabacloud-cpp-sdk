@@ -134,13 +134,13 @@ namespace Models
 
 
         protected:
-          // The column name.
+          // The name of the column.
           shared_ptr<string> column_ {};
-          // The database name.
+          // The name of the database.
           shared_ptr<string> database_ {};
-          // Description of the permission object.
+          // The description of the permission object.
           shared_ptr<string> description_ {};
-          // The table name.
+          // The name of the table.
           shared_ptr<string> table_ {};
         };
 
@@ -172,11 +172,11 @@ namespace Models
 
 
       protected:
-        // The permission object, represented as a trituple of database, table, and column. All fields are empty for Global-level permissions.
+        // The permission object, which is a triplet of the database, table, and column. All fields are empty when the permission level is Global.
         shared_ptr<Result::PrivilegeObject> privilegeObject_ {};
-        // The permission level, returned by the `DescribeEnabledPrivileges` operation.
+        // The permission level, which is obtained from the `DescribeEnabledPrivileges` operation.
         shared_ptr<string> privilegeType_ {};
-        // List of permissions.
+        // The list of permissions.
         shared_ptr<vector<string>> privileges_ {};
       };
 
@@ -206,11 +206,11 @@ namespace Models
 
 
     protected:
-      // If the `Truncated` field in the response is `true`, pass this value in subsequent calls to retrieve the next set of results.
+      // If the `Truncated` field in the response is `true`, specify the value of this field in the next call to retrieve the subsequent entries.
       shared_ptr<string> marker_ {};
-      // List of permissions.
+      // The list of permissions.
       shared_ptr<vector<Data::Result>> result_ {};
-      // If the response is truncated, this field is `true`. Continue calling this operation until this field becomes `false`.
+      // Indicates whether the returned content is truncated. If the value is `true`, the returned content is truncated, and you must continue to call this operation to retrieve the remaining entries until the value is `false`.
       shared_ptr<bool> truncated_ {};
     };
 
@@ -233,7 +233,7 @@ namespace Models
 
 
   protected:
-    // Permission details.
+    // The permission details.
     shared_ptr<DescribeAccountAllPrivilegesResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

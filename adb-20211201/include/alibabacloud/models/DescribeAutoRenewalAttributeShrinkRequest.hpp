@@ -112,17 +112,16 @@ namespace Models
 
 
   protected:
-    // The cluster IDs.
+    // The list of cluster IDs.
     shared_ptr<string> DBClusterIdShrink_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. A positive integer greater than 0 and not exceeding the maximum value of the Integer data type. Default value: **1**.
+    // The page number. The value must be a positive integer that is greater than 0 and does not exceed the maximum value of the Integer data type. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned on each page. Valid values:
-    // 
-    // *   **30**(Default)
-    // *   **50**
-    // *   **100**
+    // The number of entries to return on each page. Valid values:
+    // - **30** (default)
+    // - **50**
+    // - **100**
     shared_ptr<int32_t> pageSize_ {};
     // The region ID.
     // 

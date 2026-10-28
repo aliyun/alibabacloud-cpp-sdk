@@ -136,14 +136,13 @@ namespace Models
     protected:
       // The location of the knowledge base file.
       shared_ptr<string> fileLocation_ {};
-      // The prompt message.
+      // The message.
       shared_ptr<string> message_ {};
-      // Indicates whether the request was successful. Valid values:
-      // 
-      // - **true**: The request was successful.
-      // - **false**: The request failed.
+      // Indicates whether the request is successful. Valid values:
+      // - **true**: Successful.
+      // - **false**: Failed.
       shared_ptr<bool> success_ {};
-      // The list details.
+      // The details of the list.
       shared_ptr<vector<Data::Tags>> tags_ {};
     };
 

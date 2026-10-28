@@ -114,11 +114,11 @@ namespace Models
 
 
       protected:
-        // The column to which permissions are granted. This parameter is required when the privilege level is column.
+        // The authorized column. This parameter is required when the permission level is column.
         shared_ptr<string> column_ {};
-        // The database to which permissions are granted. This parameter is required when the privilege level is database, table, or column.
+        // The authorized database. This parameter is required when the permission level is database, table, or column.
         shared_ptr<string> database_ {};
-        // The table to which permissions are granted. This parameter is required when the privilege level is table or column.
+        // The authorized table. This parameter is required when the permission level is table or column.
         shared_ptr<string> table_ {};
       };
 
@@ -150,9 +150,9 @@ namespace Models
 
 
     protected:
-      // The privilege object, which is a tuple of database, table, and column.
+      // The permission object, which is a triplet of database, table, and column.
       shared_ptr<AccountPrivileges::PrivilegeObject> privilegeObject_ {};
-      // The privilege level, obtained from the `DescribeEnabledPrivileges` operation.
+      // The permission level obtained from the `DescribeEnabledPrivileges` operation.
       shared_ptr<string> privilegeType_ {};
       // The list of granted permissions.
       shared_ptr<vector<string>> privileges_ {};
@@ -230,18 +230,22 @@ namespace Models
     shared_ptr<string> accountName_ {};
     // The list of granted permissions.
     shared_ptr<vector<ModifyAccountPrivilegesRequest::AccountPrivileges>> accountPrivileges_ {};
-    // <props="china">The cluster ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
-    // <props="intl">The cluster ID of the Data Lakehouse Edition cluster.
+    // <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+    // <props="intl">The ID of the Data Lakehouse Edition cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The list of PromQL write permissions.
     shared_ptr<vector<string>> promqlInsertPrivileges_ {};
+    // The percentage of PromQL query nodes.
     shared_ptr<double> promqlSelectNodePercentage_ {};
+    // The list of PromQL query permissions.
     shared_ptr<vector<string>> promqlSelectPrivileges_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The name of the resource group.
     shared_ptr<string> resourceGroupName_ {};
   };
 

@@ -90,14 +90,13 @@ namespace Models
 
 
     protected:
-      // The location of the knowledge base file.
+      // The address of the knowledge base file.
       shared_ptr<string> fileLocation_ {};
-      // The prompt message.
+      // The message.
       shared_ptr<string> message_ {};
-      // Indicates whether the request was successful. Valid values:
-      // 
-      // - **true**: The request was successful.
-      // - **false**: The request failed.
+      // Indicates whether the request is successful. Valid values:
+      // - **true**: Successful.
+      // - **false**: Failed.
       shared_ptr<bool> success_ {};
       // The list of authorized users.
       shared_ptr<vector<string>> users_ {};
@@ -122,7 +121,7 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // The response data.
     shared_ptr<ListKnowledgeUploadUserResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(EnableDefaultResourcePool, enableDefaultResourcePool_);
       DARABONBA_PTR_TO_JSON(ProductForm, productForm_);
+      DARABONBA_PTR_TO_JSON(ProductVersion, productVersion_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ReservedNodeCount, reservedNodeCount_);
       DARABONBA_PTR_TO_JSON(ReservedNodeSize, reservedNodeSize_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(EnableDefaultResourcePool, enableDefaultResourcePool_);
       DARABONBA_PTR_FROM_JSON(ProductForm, productForm_);
+      DARABONBA_PTR_FROM_JSON(ProductVersion, productVersion_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ReservedNodeCount, reservedNodeCount_);
       DARABONBA_PTR_FROM_JSON(ReservedNodeSize, reservedNodeSize_);
@@ -49,7 +51,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->AINodeNumber_ == nullptr
         && this->AINodeSpec_ == nullptr && this->computeResource_ == nullptr && this->DBClusterId_ == nullptr && this->enableDefaultResourcePool_ == nullptr && this->productForm_ == nullptr
-        && this->regionId_ == nullptr && this->reservedNodeCount_ == nullptr && this->reservedNodeSize_ == nullptr && this->storageResource_ == nullptr; };
+        && this->productVersion_ == nullptr && this->regionId_ == nullptr && this->reservedNodeCount_ == nullptr && this->reservedNodeSize_ == nullptr && this->storageResource_ == nullptr; };
     // AINodeNumber Field Functions 
     bool hasAINodeNumber() const { return this->AINodeNumber_ != nullptr;};
     void deleteAINodeNumber() { this->AINodeNumber_ = nullptr;};
@@ -92,6 +94,13 @@ namespace Models
     inline ModifyDBClusterRequest& setProductForm(string productForm) { DARABONBA_PTR_SET_VALUE(productForm_, productForm) };
 
 
+    // productVersion Field Functions 
+    bool hasProductVersion() const { return this->productVersion_ != nullptr;};
+    void deleteProductVersion() { this->productVersion_ = nullptr;};
+    inline string getProductVersion() const { DARABONBA_PTR_GET_DEFAULT(productVersion_, "") };
+    inline ModifyDBClusterRequest& setProductVersion(string productVersion) { DARABONBA_PTR_SET_VALUE(productVersion_, productVersion) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -121,36 +130,40 @@ namespace Models
 
 
   protected:
+    // The number of AI nodes.
     shared_ptr<int32_t> AINodeNumber_ {};
+    // The AI node specifications.
     shared_ptr<string> AINodeSpec_ {};
-    // The compute reserved resources. Valid values: 0 ACU to 4096 ACU, in increments of 16. 1 ACU is approximately equivalent to 1 core and 4 GB of memory.
+    // The reserved compute resources. Valid values: 0 ACU to 4096 ACU. Step: 16. 1 ACU is approximately equal to 1 core and 4 GB of memory.
     // > Include the unit when you specify this parameter.
     shared_ptr<string> computeResource_ {};
     // The ID of the Data Lakehouse Edition cluster.
-    // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the cluster ID of a Data Lakehouse Edition cluster.
+    // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the ID of the Data Lakehouse Edition cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // Specifies whether to allocate all compute reserved resources to the default resource group (user_default). Valid values:
-    // - true (default): All compute reserved resources are allocated to the default resource group.
-    // - false: Not all compute reserved resources are allocated to the default resource group.
+    // Specifies whether to allocate all reserved compute resources to the default resource group (user_default). Valid values:
+    // - true (default): Yes.
+    // - false: No.
     shared_ptr<bool> enableDefaultResourcePool_ {};
     // The product form. Valid values:
-    // - **IntegrationForm**: integrated form.
+    // - **IntegrationForm**: Integration form.
     // - **LegacyForm**: Data Lakehouse Edition.
     shared_ptr<string> productForm_ {};
+    // The target product version. When you switch from LegacyForm to IntegrationForm Enterprise Edition in-place, set this parameter to enterprise_version and specify ProductForm, ReservedNodeSize, and ReservedNodeCount at the same time.
+    shared_ptr<string> productVersion_ {};
     // The region ID.
-    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/454314.html) operation to query the region ID of a specified Data Lakehouse Edition cluster.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/454314.html) operation to query the region ID of the specified Data Lakehouse Edition cluster.
     shared_ptr<string> regionId_ {};
     // The number of reserved nodes. 
-    // - Enterprise Edition: The default value is 3. The value increases in increments of 3.
-    // - Basic Edition: The default value is 1.
-    // > This parameter is required only when ProductForm is set to IntegrationForm.
+    // - For Enterprise Edition, the default value is 3 and the step is 3.
+    // - For Basic Edition, the default value is 1.
+    // > Specify this parameter only when ProductForm is set to IntegrationForm.
     shared_ptr<int32_t> reservedNodeCount_ {};
-    // The node specifications of storage reserved resources. Valid values: 8ACU, 12ACU, and 16ACU.
-    // > Include the unit when you specify this parameter. This parameter is required only when ProductForm is set to IntegrationForm.
+    // The node specifications for reserved storage resources. Valid values: 8 ACU, 12 ACU, and 16 ACU.
+    // > Include the unit when you specify this parameter. Specify this parameter only when ProductForm is set to IntegrationForm.
     shared_ptr<string> reservedNodeSize_ {};
-    // The storage reserved resources. Valid values: 0 ACU to 2064 ACU, in increments of 24. 1 ACU is approximately equivalent to 1 core and 4 GB of memory.
+    // The reserved storage resources. Valid values: 0 ACU to 2064 ACU. Step: 24. 1 ACU is approximately equal to 1 core and 4 GB of memory.
     // > Include the unit when you specify this parameter.
     shared_ptr<string> storageResource_ {};
   };

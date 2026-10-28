@@ -61,7 +61,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) to query available region IDs.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query available region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

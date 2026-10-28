@@ -155,29 +155,17 @@ namespace Models
 
 
         protected:
-          // Indicates whether the multi-cluster feature is enabled. Valid values:
+          shared_ptr<bool> enableAutoMc_ {};
+          // The list of applicable cluster engines.
+          shared_ptr<vector<string>> engine_ {};
+          // The list of applicable resource group types.
+          shared_ptr<vector<string>> groupType_ {};
+          // The key of the metric.
+          shared_ptr<string> keyName_ {};
+          // Indicates whether the metric is selected. Valid values:
           // 
           // - true
-          // 
           // - false
-          shared_ptr<bool> enableAutoMc_ {};
-          // The database engine of the cluster. Valid values:
-          // 
-          // *  AnalyticDB
-          shared_ptr<vector<string>> engine_ {};
-          // The type of the resource group. Valid values:
-          // 
-          // *   **Interactive**
-          // *   **Job**
-          // 
-          // >  For more information about resource groups, see [Resource group overview](https://help.aliyun.com/document_detail/428610.html).
-          shared_ptr<vector<string>> groupType_ {};
-          // The name of the metric.
-          shared_ptr<string> keyName_ {};
-          // Specifies whether to select the metric. Valid values:
-          // 
-          // *   **true**
-          // *   **false**
           shared_ptr<bool> selected_ {};
         };
 
@@ -201,13 +189,12 @@ namespace Models
 
       protected:
         // The name of the metric category. Valid values:
-        // 
-        // *   **Node**
-        // *   **DiskData**
-        // *   **WorkLoad**
-        // *   **ResourceGroup**
+        // * **Node**: node resource metrics
+        // * **DiskData**: disk metrics
+        // * **WorkLoad**: workload metrics
+        // * **ResourceGroup**: resource group metrics
         shared_ptr<string> category_ {};
-        // The metrics.
+        // The list of metrics.
         shared_ptr<vector<Categories::Keys>> keys_ {};
       };
 
@@ -237,14 +224,14 @@ namespace Models
 
 
     protected:
-      // The metric category.
+      // The list of metric categories.
       shared_ptr<vector<ViewDetail::Categories>> categories_ {};
-      // Specifies whether to enable the filter interaction feature. Valid values:
+      // Indicates whether it is a linkage chart. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - true
+      // - false
       shared_ptr<bool> chartLinked_ {};
-      // The number of charts to display in each row.
+      // The number of charts displayed in each row.
       shared_ptr<int32_t> chartsPerLine_ {};
     };
 
@@ -303,26 +290,25 @@ namespace Models
 
 
   protected:
-    // The details about the access denial.
-    // 
-    // >  This parameter is returned only if Resource Access Management (RAM) permission verification failed.
+    // The details of the access denial. This field is returned only when RAM authentication fails.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The type of the view.
+    // The type of the source for the original chart. Valid values:
+    // 
+    // - **Basic**: basic view
+    // - **Advanced**: advanced view
     shared_ptr<string> createFromViewType_ {};
     // The cluster ID.
-    // 
-    // >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the information about all AnalyticDB for MySQL clusters within a region, including cluster IDs.
     shared_ptr<string> DBClusterId_ {};
-    // Specifies whether to populate the names of the metrics in the original monitoring view when you view the monitoring view. Valid values:
+    // Indicates whether the keys completed in the original monitoring view are populated when you view the monitoring view. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - true
+    // - false
     shared_ptr<bool> fillOriginViewKeys_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the monitoring view.
+    // The details of the monitoring view.
     shared_ptr<DescribePerformanceViewAttributeResponseBody::ViewDetail> viewDetail_ {};
-    // The name of the view.
+    // The name of the monitoring view.
     shared_ptr<string> viewName_ {};
   };
 

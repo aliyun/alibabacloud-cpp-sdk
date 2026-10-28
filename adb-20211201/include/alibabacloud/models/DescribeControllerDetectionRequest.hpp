@@ -113,33 +113,28 @@ namespace Models
 
   protected:
     // The cluster ID.
-    // 
-    // > 
-    // 
-    // *   You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the information about all AnalyticDB for MySQL clusters within a region, including cluster IDs.
+    // > * You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query all clusters in a region, including cluster IDs.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The end of the time range to query. Specify the time in the ISO 8601 standard in the **yyyy-MM-ddTHH:mmZ** format. The time must be in UTC.
+    // The end time of the logs. Format: **yyyy-MM-ddTHH:mmZ** (UTC).
     // 
-    // >  The end time must be later than the start time. The maximum time range that can be specified is 30 days.
+    // > When you query logs, the end time must be later than the start time, and the maximum interval between the start time and the end time is 30 days.
     shared_ptr<string> endTime_ {};
-    // The language. Valid values:
-    // 
-    // *   **zh**: simplified Chinese.
-    // *   **en**: English.
+    // The language configuration. Valid values:
+    // - **zh**: Simplified Chinese (default).
+    // - **en**: English.
     shared_ptr<string> lang_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID.
-    // 
-    // >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query supported regions and zones, including region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mmZ* format. The time must be in UTC.
+    // The start time of the query. Format: <i>yyyy-MM-ddTHH:mmZ</i> (UTC).
     shared_ptr<string> startTime_ {};
   };
 

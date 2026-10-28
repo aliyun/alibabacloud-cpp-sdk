@@ -97,7 +97,7 @@ namespace Models
 
 
       protected:
-        // The reason why the user was skipped.
+        // The reason for skipping.
         shared_ptr<string> reason_ {};
         // The username of the authorized user.
         shared_ptr<string> user_ {};
@@ -143,18 +143,17 @@ namespace Models
 
 
     protected:
-      // The location of the knowledge base file.
+      // The path of the knowledge base file.
       shared_ptr<string> fileLocation_ {};
-      // The prompt message.
+      // The message.
       shared_ptr<string> message_ {};
       // The list of skipped users.
       shared_ptr<vector<Data::Skipped>> skipped_ {};
-      // Indicates whether the request was successful. Valid values:
-      // 
-      // - **true**: The request was successful.
-      // - **false**: The request failed.
+      // Indicates whether the request is successful. Valid values:
+      // - **true**: The request is successful.
+      // - **false**: The request fails.
       shared_ptr<bool> success_ {};
-      // The number of users that were successfully added.
+      // The number of successfully added users.
       shared_ptr<int32_t> written_ {};
     };
 

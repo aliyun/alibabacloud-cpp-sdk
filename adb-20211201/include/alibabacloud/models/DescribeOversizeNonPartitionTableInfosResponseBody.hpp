@@ -144,13 +144,13 @@ namespace Models
 
 
     protected:
-      // The data size of the table. Unit: bytes.
+      // The size of table data. Unit: bytes.
       shared_ptr<int64_t> dataSize_ {};
-      // The data size of regular indexes. Unit: bytes.
+      // The size of normal index data. Unit: bytes.
       shared_ptr<int64_t> indexSize_ {};
       // The size of hot data. Unit: bytes.
       shared_ptr<int64_t> localDataSize_ {};
-      // The data size of the primary key index. Unit: bytes.
+      // The size of the primary key index. Unit: bytes.
       shared_ptr<int64_t> primaryKeySize_ {};
       // The size of cold data. Unit: bytes.
       shared_ptr<int64_t> remoteDataSize_ {};
@@ -158,9 +158,9 @@ namespace Models
       shared_ptr<int64_t> rowCount_ {};
       // The name of the database.
       shared_ptr<string> schemaName_ {};
-      // The percentage of the table size. Unit: %.
+      // The tablespace proportion. Unit: %.
       // 
-      // >  Formula: Table storage percentage = Total data size of a table/Total data size of the cluster × 100%.
+      // > Calculation formula: Tablespace proportion = (Total data size of the table / Total data size of the instance) × 100.
       shared_ptr<double> spaceRatio_ {};
       // The name of the table.
       shared_ptr<string> tableName_ {};
@@ -213,11 +213,11 @@ namespace Models
 
 
     protected:
-      // The information about the detection result.
+      // The check result message.
       shared_ptr<string> message_ {};
-      // The name of the detection item.
+      // The name of the check item.
       shared_ptr<string> name_ {};
-      // The severity level of the detection result.
+      // The status of the check result.
       shared_ptr<string> status_ {};
     };
 
@@ -280,21 +280,20 @@ namespace Models
   protected:
     // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
-    // The queried detection items and detection results.
+    // The list of check items and check results.
     shared_ptr<vector<DescribeOversizeNonPartitionTableInfosResponseBody::DetectionItems>> detectionItems_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Valid values:
-    // 
-    // *   **30** (default)
-    // *   **50**
-    // *   **100**
+    // - **30** (default)
+    // - **50**
+    // - **100**
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The queried oversized non-partitioned tables.
+    // The information about unreasonable non-partitioned tables.
     shared_ptr<vector<DescribeOversizeNonPartitionTableInfosResponseBody::Tables>> tables_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<string> totalCount_ {};
   };
 

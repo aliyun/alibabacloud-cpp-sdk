@@ -57,6 +57,7 @@ namespace Models
 
 
   protected:
+    // The name of the external data source.
     shared_ptr<string> catalog_ {};
     // <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
     // <props="intl">The ID of the Data Lakehouse Edition cluster.
@@ -64,7 +65,7 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     // The region ID.
-    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/454314.html) operation to query the region ID of a specified cluster.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/454314.html) operation to query the region ID of the specified cluster.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

@@ -344,73 +344,70 @@ namespace Models
 
 
     protected:
-      // The client IP address used to submit the queries.
+      // The IP address of the client that submitted the SQL statement related to the pattern.
       shared_ptr<string> accessIp_ {};
-      // The average execution time of queries matching this pattern. Unit: milliseconds.
+      // The average execution time of the pattern within the specified time range. Unit: milliseconds.
       shared_ptr<double> averageExecutionTime_ {};
-      // The average CPU cost for queries that match this pattern. Unit: milliseconds.
+      // The average CPU cost. Unit: milliseconds.
       shared_ptr<double> averageOperatorCost_ {};
-      // The average peak memory usage of queries matching this pattern. Unit: bytes.
+      // The average peak memory usage of the pattern within the specified time range. Unit: bytes.
       shared_ptr<double> averagePeakMemory_ {};
-      // The average duration of queries matching this pattern. Unit: milliseconds.
+      // The average total time consumed by the pattern within the specified time range. Unit: milliseconds.
       shared_ptr<double> averageQueryTime_ {};
-      // The average scan time for queries that match this pattern. Unit: milliseconds.
+      // The average scan time.
       shared_ptr<double> averageScanCost_ {};
-      // The average amount of data scanned by queries matching this pattern. Unit: bytes.
+      // The average amount of data read by the pattern within the specified time range. Unit: bytes.
       shared_ptr<double> averageScanSize_ {};
-      // Indicates whether queries that match this pattern can be blocked. Valid values:
-      // 
-      // - **true**: The queries can be blocked.
-      // 
-      // - **false**: The queries cannot be blocked.
-      // 
-      // > Currently, AnalyticDB for MySQL allows you to block only SELECT and INSERT statements.
+      // Specifies whether the execution of the current SQL pattern can be blocked. Valid values:
+      // * **true**: The execution can be blocked.
+      // * **false**: The execution cannot be blocked.
+      // > Currently, AnalyticDB for MySQL only supports blocking SELECT and INSERT statements.
       shared_ptr<bool> blockable_ {};
-      // The number of failed queries that match this pattern.
+      // The number of failed executions of the pattern within the specified time range.
       shared_ptr<int64_t> failedCount_ {};
-      // The maximum execution time of a query matching this pattern. Unit: milliseconds.
+      // The maximum execution time of the pattern within the specified time range. Unit: milliseconds.
       shared_ptr<int64_t> maxExecutionTime_ {};
-      // The maximum CPU cost for a query that matches this pattern. Unit: milliseconds.
+      // The maximum CPU cost. Unit: milliseconds.
       shared_ptr<double> maxOperatorCost_ {};
-      // The maximum peak memory usage of a query matching this pattern. Unit: bytes.
+      // The maximum peak memory usage for the SQL statement related to the pattern. Unit: bytes.
       shared_ptr<int64_t> maxPeakMemory_ {};
-      // The maximum duration of a query matching this pattern. Unit: milliseconds.
+      // The maximum total time consumed by the pattern within the specified time range. Unit: milliseconds.
       shared_ptr<int64_t> maxQueryTime_ {};
-      // The maximum scan time for a query that matches this pattern. Unit: milliseconds.
+      // The maximum scan time.
       shared_ptr<double> maxScanCost_ {};
-      // The maximum amount of data scanned by a query matching this pattern. Unit: bytes.
+      // The maximum amount of data read by the SQL statement related to the pattern. Unit: bytes.
       shared_ptr<int64_t> maxScanSize_ {};
-      // The total CPU cost of queries matching this pattern as a percentage of the total CPU cost for all queries. Unit: %.
+      // The percentage of the total CPU cost. Unit: %.
       shared_ptr<double> operatorCostPercentage_ {};
-      // The total CPU cost for all queries that match this pattern. Unit: milliseconds.
+      // The total CPU cost. Unit: milliseconds.
       shared_ptr<double> operatorCostSum_ {};
-      // The submission time of the first query that matches this pattern within the specified time range.
+      // The earliest submission time of the pattern within the specified time range.
       shared_ptr<string> patternCreationTime_ {};
       // The ID of the SQL pattern.
       shared_ptr<string> patternId_ {};
-      // The total peak memory usage of queries matching this pattern as a percentage of the total peak memory usage for all queries. Unit: %.
+      // The percentage of the total peak memory usage of a single pattern within the query time range out of the total peak memory usage of all patterns. Unit: %.
       shared_ptr<double> peakMemoryPercentage_ {};
-      // The sum of the peak memory usage for all queries that match this pattern. Unit: bytes.
+      // The total peak memory usage. Unit: bytes.
       shared_ptr<double> peakMemorySum_ {};
-      // The number of executed queries that match this pattern.
+      // The number of executions of the pattern within the specified time range.
       shared_ptr<int64_t> queryCount_ {};
-      // The total query time of queries matching this pattern as a percentage of the total query time for all queries. Unit: %.
+      // The percentage of the time consumed by a single pattern within the query time range out of the total time consumed by all patterns. Unit: %.
       shared_ptr<double> queryTimePercentage_ {};
-      // The total query duration for all queries that match this pattern. Unit: milliseconds.
+      // The total time consumed. Unit: milliseconds.
       shared_ptr<double> queryTimeSum_ {};
-      // The SQL pattern.
+      // The SQL statement of the pattern.
       shared_ptr<string> SQLPattern_ {};
-      // The total scan cost of queries matching this pattern as a percentage of the total scan cost for all queries. Unit: %.
+      // The percentage of the total data scan cost. Unit: %.
       shared_ptr<double> scanCostPercentage_ {};
-      // The total scan cost for all queries that match this pattern. Unit: milliseconds.
+      // The total data scan cost. Unit: milliseconds.
       shared_ptr<double> scanCostSum_ {};
-      // The total amount of data scanned by queries matching this pattern as a percentage of the total data scanned by all queries. Unit: %.
+      // The percentage of the total amount of data scanned by a single pattern within the query time range out of the total amount of data scanned by all patterns. Unit: %.
       shared_ptr<double> scanSizePercentage_ {};
-      // The total amount of data scanned by all queries that match this pattern. Unit: bytes.
+      // The total amount of scanned data. Unit: bytes.
       shared_ptr<double> scanSizeSum_ {};
-      // The tables scanned by the SQL pattern.
+      // The list of tables scanned by the SQL pattern.
       shared_ptr<string> tables_ {};
-      // The name of the database user who submitted the matching SQL statements.
+      // The name of the database user that submitted the SQL statement related to the pattern.
       shared_ptr<string> user_ {};
     };
 
@@ -461,13 +458,13 @@ namespace Models
 
 
   protected:
-    // Details about the access denial. This parameter is returned only if RAM authentication fails.
+    // The details of the access denial. This field is returned only when RAM authentication fails.
     shared_ptr<string> accessDeniedDetail_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // A list of SQL patterns.
+    // The list of patterns.
     shared_ptr<vector<DescribeSQLPatternsResponseBody::PatternDetails>> patternDetails_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

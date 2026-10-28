@@ -154,11 +154,11 @@ namespace Models
 
 
       protected:
-        // The resource group name.
+        // The name of the resource group.
         shared_ptr<string> groupName_ {};
-        // The query execution time threshold, in milliseconds (ms).
+        // The threshold for query execution time. Unit: milliseconds.
         shared_ptr<string> queryTime_ {};
-        // The name of the target resource group.
+        // The name of the destination resource group.
         shared_ptr<string> targetGroupName_ {};
       };
 
@@ -299,11 +299,11 @@ namespace Models
           shared_ptr<int32_t> maxWorkerQuantity_ {};
           // The minimum number of workers.
           shared_ptr<int32_t> minWorkerQuantity_ {};
-          // The disk capacity per worker.
+          // The disk size of each worker.
           shared_ptr<string> workerDiskCapacity_ {};
-          // The worker specification name.
+          // The specification of the worker.
           shared_ptr<string> workerSpecName_ {};
-          // The Ray worker resource type.
+          // The resource type of the Ray worker.
           shared_ptr<string> workerSpecType_ {};
         };
 
@@ -358,6 +358,7 @@ namespace Models
           shared_ptr<string> mountPath_ {};
           // The storage ID.
           shared_ptr<int64_t> storageId_ {};
+          // The name of the mounted storage.
           shared_ptr<string> storageName_ {};
         };
 
@@ -435,7 +436,7 @@ namespace Models
             shared_ptr<string> image_ {};
             // The inference engine.
             shared_ptr<string> inferenceEngine_ {};
-            // The LLM model.
+            // The large language model (LLM).
             shared_ptr<string> llmModel_ {};
           };
 
@@ -465,9 +466,9 @@ namespace Models
 
 
         protected:
-          // The Ray application name.
+          // The name of the Ray application.
           shared_ptr<string> appName_ {};
-          // The Ray application type.
+          // The type of the Ray application.
           shared_ptr<string> appType_ {};
           // The image configuration.
           shared_ptr<AppConfig::ImageSelector> imageSelector_ {};
@@ -586,30 +587,31 @@ namespace Models
         shared_ptr<RayConfig::AppConfig> appConfig_ {};
         // The Ray cluster type. Valid values:
         // 
-        // - BASIC: basic type, non-high-availability.
+        // - **BASIC**: the basic type, which is not highly available.
         // 
-        // - HIGH_AVAILABILITY: high-availability type.
+        // - **HIGH_AVAILABILITY**: the high-availability type.
         shared_ptr<string> category_ {};
-        // Indicates whether ENI is enabled.
+        // Specifies whether to enable the elastic network interface (ENI).
         shared_ptr<bool> enableUserEni_ {};
         // The allocation unit of the head node.
         shared_ptr<string> headAllocateUnit_ {};
-        // The disk capacity of the head node.
+        // The disk size of the head node.
         shared_ptr<string> headDiskCapacity_ {};
         // The node specifications of the head node.
         shared_ptr<string> headSpec_ {};
         // The resource type of the head node.
         shared_ptr<string> headSpecType_ {};
-        // The Ray cluster address.
+        // The address of the Ray cluster.
         shared_ptr<string> rayClusterAddress_ {};
-        // The Ray Dashboard address.
+        // The address of the Ray dashboard.
         shared_ptr<string> rayDashboardAddress_ {};
-        // The Ray Grafana address.
+        // The address of Ray Grafana.
         shared_ptr<string> rayGrafanaAddress_ {};
-        // The Ray Serve public address.
+        // The public endpoint of Ray Serve.
         shared_ptr<string> rayServePublicAddress_ {};
-        // The list of storage mounts.
+        // The list of mounted storage.
         shared_ptr<vector<RayConfig::StorageMounts>> storageMounts_ {};
+        // The custom Python dependencies for RayCluster. Specify the content in the requirements.txt format, with one pip dependency per line. A maximum of 200 lines are allowed, and each line cannot exceed 512 characters. Version constraints, extras, PEP 440 direct URLs, and # comments are supported, but shell metacharacters are not supported. This parameter applies only to AI resource groups of the RayCluster type.
         shared_ptr<string> userDefinedRequirements_ {};
         // The list of Ray worker groups.
         shared_ptr<vector<RayConfig::WorkerGroups>> workerGroups_ {};
@@ -674,9 +676,9 @@ namespace Models
 
 
         protected:
-          // The end time in cron expression format. The interval must be at least 1 hour.
+          // The end time in cron expression format. The interval must be no less than 1 hour.
           shared_ptr<string> endCronExpression_ {};
-          // The start time in cron expression format. The interval must be at least 1 hour.
+          // The start time in cron expression format. The interval must be no less than 1 hour.
           shared_ptr<string> startCronExpression_ {};
         };
 
@@ -699,7 +701,7 @@ namespace Models
 
 
       protected:
-        // Indicates whether the plan is enabled.
+        // Indicates whether the GPU time-based elastic plan is enabled.
         shared_ptr<bool> enabled_ {};
         // The list of rules.
         shared_ptr<vector<GpuElasticPlan::Rules>> rules_ {};
@@ -827,25 +829,25 @@ namespace Models
       protected:
         // The number of authentication nodes.
         shared_ptr<string> authNodeNum_ {};
-        // The node specifications of authentication nodes.
+        // The authentication node specifications.
         shared_ptr<string> authNodeSpec_ {};
-        // The number of write nodes.
+        // The number of insert nodes.
         shared_ptr<string> insertNodeNum_ {};
-        // The node specifications of write nodes.
+        // The insert node specifications.
         shared_ptr<string> insertNodeSpec_ {};
-        // The cache size of query nodes.
+        // The cache size of the query node.
         shared_ptr<string> selectNodeCacheSize_ {};
         // The number of query nodes.
         shared_ptr<string> selectNodeNum_ {};
-        // The node specifications of query nodes.
+        // The query node specifications.
         shared_ptr<string> selectNodeSpec_ {};
-        // The disk size of storage nodes.
+        // The disk size of the storage node.
         shared_ptr<string> storageNodeDiskSize_ {};
-        // The disk type of storage nodes.
+        // The disk type of the storage node.
         shared_ptr<string> storageNodeDiskType_ {};
         // The number of storage nodes.
         shared_ptr<string> storageNodeNum_ {};
-        // The node specifications of storage nodes.
+        // The storage node specifications.
         shared_ptr<string> storageNodeSpec_ {};
       };
 
@@ -1072,84 +1074,82 @@ namespace Models
     protected:
       // The PromQL resource group configuration.
       shared_ptr<GroupsInfo::AtmConfig> atmConfig_ {};
-      // The automatic stop interval, in the format of a number followed by m (minutes). The value ranges from 0m or 5m to 10080m. A value of 0m indicates that automatic stop is disabled.
+      // The auto-stop interval. The value is in the format of a number followed by "m", which indicates minutes. Valid values range from 0m or 5m to 10080m. A value of 0m indicates that the resource group does not automatically stop.
       shared_ptr<string> autoStopInterval_ {};
       // The classification of the resource group. Valid values:
-      // 
       // - SQL
       // - SparkSQL
       // - MultiCluster
       // - AI
       shared_ptr<string> classification_ {};
-      // A reserved parameter. Not applicable.
+      // The reserved parameter. This parameter is not applicable.
       shared_ptr<string> clusterMode_ {};
-      // A reserved parameter. Not applicable.
+      // The reserved parameter. This parameter is not applicable.
       shared_ptr<string> clusterSizeResource_ {};
-      // The time when the resource group was created, in UTC. Format: <i>yyyy-MM-ddTHH:mm:ssZ</i>.
+      // The time when the resource group was created. The time is displayed in UTC in the <i>yyyy-MM-ddTHH:mm:ssZ</i> format.
       shared_ptr<string> createTime_ {};
-      // The minimum elastic computing resources, in ACUs.
+      // The minimum elastic compute resources. Unit: ACU.
       shared_ptr<string> elasticMinComputeResource_ {};
-      // Indicates whether the spot instance feature is enabled for the resource group. After the spot instance feature is enabled, the unit price of resources is reduced, but the resources may be released. Valid values:
-      // - **True**: The spot instance feature is enabled.
-      // - **False**: The spot instance feature is disabled.
+      // Specifies whether to enable the spot instance feature for the resource group. After you enable this feature, the unit price of resources decreases, but the instances may be released. Valid values:
+      // - **True**: enables the spot instance feature.
+      // - **False**: disables the spot instance feature.
       // 
-      // Only Job-type resource groups can be set to True.
+      // This parameter can be set to True only for Job resource groups.
       shared_ptr<string> enableSpot_ {};
       // The engine type.
       shared_ptr<string> engine_ {};
       // The engine parameters.
       Darabonba::Json engineParams_ {};
-      // The GPU time-sharing elastic plan.
+      // The GPU time-based elastic plan.
       shared_ptr<GroupsInfo::GpuElasticPlan> gpuElasticPlan_ {};
-      // The resource group name.
+      // The name of the resource group.
       shared_ptr<string> groupName_ {};
       // The resource group type. Valid values:
       // - **Interactive**
       // - **Job**
-      // > For more information about resource groups of the Data Lakehouse Edition, see [Resource group introduction (Data Lakehouse Edition)](https://help.aliyun.com/document_detail/428610.html).
+      // > For more information about Data Lakehouse Edition resource groups, see [Resource group overview (Data Lakehouse Edition)](https://help.aliyun.com/document_detail/428610.html).
       shared_ptr<string> groupType_ {};
       // The Resource Access Management (RAM) users attached to the resource group.
       shared_ptr<string> groupUsers_ {};
-      // A reserved parameter. Not applicable.
+      // The reserved parameter. This parameter is not applicable.
       shared_ptr<int32_t> maxClusterCount_ {};
-      // The maximum reserved computing resources, in ACUs.
+      // The maximum reserved compute resources. Unit: ACU.
       shared_ptr<string> maxComputeResource_ {};
       // The maximum number of GPUs.
       shared_ptr<int32_t> maxGpuQuantity_ {};
-      // The job routing rule message.
+      // The message of the job delivery rule.
       // 
       // This parameter is required.
       shared_ptr<string> message_ {};
-      // A reserved parameter. Not applicable.
+      // The reserved parameter. This parameter is not applicable.
       shared_ptr<int32_t> minClusterCount_ {};
-      // The minimum reserved computing resources, in ACUs.
+      // The minimum reserved compute resources. Unit: ACU.
       shared_ptr<string> minComputeResource_ {};
       // The minimum number of GPUs.
       shared_ptr<int32_t> minGpuQuantity_ {};
       // The Ray configuration information.
       shared_ptr<GroupsInfo::RayConfig> rayConfig_ {};
-      // The job routing rules.
+      // The job delivery rules.
       shared_ptr<vector<GroupsInfo::Rules>> rules_ {};
-      // A reserved parameter. Not applicable.
+      // The reserved parameter. This parameter is not applicable.
       shared_ptr<int32_t> runningClusterCount_ {};
-      // The scaling policy of the resource group. Valid values:
-      // 
-      // - AutoScaling: enables the AutoScaling automatic scaling policy.
-      // - Disable: disables automatic scaling.
-      // - MultiCluster: enables the MultiCluster automatic scaling policy.
+      // The scale-out policy of the resource group. Valid values:
+      // - AutoScaling: enables the AutoScaling policy.
+      // - Disable: disables auto scaling.
+      // - MultiCluster: enables the MultiCluster policy.
       shared_ptr<string> scalePolicy_ {};
       // The specification name.
       shared_ptr<string> specName_ {};
-      // The resource group status. Valid values:
-      // - **Pending**: being created.
-      // - **Running**: running.
-      // - **Scaling**: being scaled.
-      // - **Deleting**: being deleted.
-      // - **Deleted**: deleted.
+      // The status of the resource group. Valid values:
+      // - **Pending**: The resource group is being created.
+      // - **Running**: The resource group is running.
+      // - **Scaling**: The resource group is being scaled.
+      // - **Deleting**: The resource group is being deleted.
+      // - **Deleted**: The resource group is deleted.
       shared_ptr<string> status_ {};
-      // The name of the target resource group.
+      // The name of the destination resource group.
       shared_ptr<string> targetResourceGroupName_ {};
-      // The time when the resource group was last updated, in UTC. Format: <i>yyyy-MM-ddTHH:mm:ssZ</i>.
+      // The time when the resource group was updated. The time is displayed in UTC in the <i>yyyy-MM-ddTHH:mm:ssZ</i> format.
       shared_ptr<string> updateTime_ {};
     };
 

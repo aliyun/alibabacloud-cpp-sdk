@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // The information about the Spark log analysis task.
+    // The details of the Spark log analysis task.
     shared_ptr<SparkAnalyzeLogTask> data_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -48,15 +48,14 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The status of the built-in dataset. Valid values:
+    // - **SUCCEED**: Loaded successfully.
     // 
-    // - **SUCCEED**: The dataset loaded successfully.
+    // - **INIT**: Loading.
     // 
-    // - **INIT**: Loading in progress.
-    // 
-    // - **FAILED**: Failed to load the dataset.
+    // - **FAILED**: Load failed.
     // 
     // - **UNINITIALIZED**: Not loaded.
     shared_ptr<string> status_ {};

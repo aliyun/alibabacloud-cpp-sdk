@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The access token.
     shared_ptr<string> accessToken_ {};
+    // The comment for the access token.
     shared_ptr<string> comment_ {};
+    // The creation time of the access token.
     shared_ptr<string> createdAt_ {};
+    // The expiration time of the access token.
     shared_ptr<string> expiredAt_ {};
+    // The status of the access token.
     shared_ptr<string> status_ {};
   };
 

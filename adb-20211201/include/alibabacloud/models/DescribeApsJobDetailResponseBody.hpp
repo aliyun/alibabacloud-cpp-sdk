@@ -124,21 +124,21 @@ namespace Models
 
 
     protected:
-      // The objects that are synchronized.
+      // The list of synchronization objects.
       shared_ptr<string> dbList_ {};
-      // The ID of the destination cluster.
+      // The target database instance ID.
       shared_ptr<string> destinationEndpointInstanceID_ {};
-      // The region of the destination cluster.
+      // The region of the target instance.
       shared_ptr<string> destinationEndpointRegion_ {};
-      // The partitions.
+      // The list of partitions.
       shared_ptr<string> partitionList_ {};
-      // The ID of the source instance.
+      // The source database instance ID.
       shared_ptr<string> sourceEndpointInstanceID_ {};
-      // The region of the source instance.
+      // The region of the source database.
       shared_ptr<string> sourceEndpointRegion_ {};
-      // The status of the job.
+      // The status.
       shared_ptr<string> status_ {};
-      // The mode of the destination table.
+      // The target table mode.
       shared_ptr<string> targetTableMode_ {};
     };
 
@@ -161,7 +161,7 @@ namespace Models
 
 
   protected:
-    // The queried job.
+    // The job details.
     shared_ptr<DescribeApsJobDetailResponseBody::APSJobDetail> APSJobDetail_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

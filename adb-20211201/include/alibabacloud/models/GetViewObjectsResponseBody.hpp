@@ -97,16 +97,16 @@ namespace Models
 
 
     protected:
-      // The page number. The value is a positive integer that is greater than 0 and does not exceed the maximum value of the Integer data type. Default value: **1**.
+      // The page number. The value must be a positive integer that is greater than 0 and does not exceed the maximum value of the Integer data type. Default value: **1**.
       shared_ptr<int64_t> pageNumber_ {};
       // The number of entries per page. Valid values:
-      // * **30** (default).
-      // * **50**.
-      // * **100**.
+      // * **30** (default)
+      // * **50**
+      // * **100**
       shared_ptr<int64_t> pageSize_ {};
       // The result array.
       shared_ptr<vector<TableSummaryModel>> tableSummaryModels_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -152,16 +152,16 @@ namespace Models
   protected:
     // The response struct.
     shared_ptr<GetViewObjectsResponseBody::Data> data_ {};
-    // The page number. The value is a positive integer that is greater than 0 and does not exceed the maximum value of the Integer data type. Default value: **1**.
+    // The page number. The value must be a positive integer that is greater than 0 and does not exceed the maximum value of the Integer data type. Default value: **1**.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page. Valid values:
-    // * **30** (default).
-    // * **50**.
-    // * **100**.
+    // * **30** (default)
+    // * **50**
+    // * **100**
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

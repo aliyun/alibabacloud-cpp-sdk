@@ -61,9 +61,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The path of Object Storage Service (OSS) logs.
+    // The OSS log path.
     shared_ptr<string> ossLogPath_ {};
-    // Specifies whether to use the default OSS log path.
+    // Specifies whether to use the default OSS path.
     shared_ptr<bool> useDefaultOss_ {};
   };
 

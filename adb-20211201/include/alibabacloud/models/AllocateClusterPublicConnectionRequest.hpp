@@ -66,23 +66,21 @@ namespace Models
 
 
   protected:
-    // The prefix of the public connection address.
-    // 
-    // - It must begin with a lowercase letter and can contain only lowercase letters, digits, and hyphens (-).
-    // 
-    // - It must be no more than 30 characters long.
+    // Specifies the prefix of the public endpoint. The prefix must meet the following requirements:
+    // - It must start with a lowercase letter and can contain lowercase letters, digits, and hyphens (-).
+    // - It can be up to 30 characters in length.
     shared_ptr<string> connectionStringPrefix_ {};
-    // <props="china">The cluster ID of an Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
-    // <props="intl">The cluster ID of a Data Lakehouse Edition cluster.
+    // <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+    // <props="intl">The ID of the Data Lakehouse Edition cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     // The database engine. Valid values:
     // 
-    // - **AnalyticDB** (default): the AnalyticDB for MySQL engine.
-    // 
-    // - **Clickhouse**: the wide table engine.
+    // - **AnalyticDB** (default): AnalyticDB for MySQL engine.
+    // - **Clickhouse**: wide table engine.
     shared_ptr<string> engine_ {};
+    // The name of the resource group.
     shared_ptr<string> resourceGroupName_ {};
   };
 

@@ -273,7 +273,7 @@ namespace Models
 
 
   protected:
-    // The network type of the cluster. The value is always **VPC**, as this is the only supported network type.
+    // The network type of the cluster. Only VPCs are supported. The value is fixed as **VPC**.
     shared_ptr<string> clusterNetworkType_ {};
     shared_ptr<DescribeClusterNetInfoResponseBody::Items> items_ {};
     // The request ID.

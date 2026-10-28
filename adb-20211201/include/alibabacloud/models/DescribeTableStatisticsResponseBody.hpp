@@ -279,13 +279,13 @@ namespace Models
     shared_ptr<DescribeTableStatisticsResponseBody::Items> items_ {};
     // The page number.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries on the current page.
     shared_ptr<string> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The names of databases.
+    // The list of database names.
     shared_ptr<string> schemaNames_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<string> totalCount_ {};
   };
 

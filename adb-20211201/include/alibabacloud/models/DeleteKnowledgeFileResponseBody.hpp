@@ -78,14 +78,13 @@ namespace Models
 
 
     protected:
-      // The file location. Currently, only OSS paths are supported.
+      // The file path. Currently, only OSS paths are supported.
       shared_ptr<string> fileLocation_ {};
-      // The prompt message.
+      // The message.
       shared_ptr<string> message_ {};
-      // Indicates whether the request was successful. Valid values:
-      // 
-      // - **true**: Successful.
-      // - **false**: Failed.
+      // Indicates whether the request is successful. Valid values:
+      // - **true**: The request is successful.
+      // - **false**: The request fails.
       shared_ptr<bool> success_ {};
     };
 

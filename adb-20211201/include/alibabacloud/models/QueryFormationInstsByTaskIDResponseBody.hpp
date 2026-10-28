@@ -178,7 +178,7 @@ namespace Models
 
 
     protected:
-      // The time when the task was created.
+      // The creation time of the task.
       shared_ptr<string> createTime_ {};
       // The execution duration of the most recent task.
       shared_ptr<string> lastTaskInstCostTime_ {};
@@ -193,8 +193,8 @@ namespace Models
       // The schema ID assigned to the instance by the system.
       shared_ptr<string> schema_ {};
       // The task source. Valid values:
-      // - **system**: system.
-      // - **custom**: custom.
+      // - **system**: System.
+      // - **custom**: Custom.
       shared_ptr<string> sourceType_ {};
       // The synchronization time, accurate to milliseconds. Format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> syncTime_ {};
@@ -292,7 +292,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The task list.
     shared_ptr<vector<Darabonba::Json>> items_ {};
-    // The response message. OK is returned if the request was successful.
+    // The message. The value is OK when the request is successful.
     shared_ptr<string> message_ {};
     // The page number.
     shared_ptr<string> pageNumber_ {};
@@ -300,7 +300,7 @@ namespace Models
     shared_ptr<string> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
     // The total number of records.
     shared_ptr<string> totalCount_ {};

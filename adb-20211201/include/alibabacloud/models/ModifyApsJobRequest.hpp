@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // The job ID.
+    // The task ID.
     // 
     // This parameter is required.
     shared_ptr<string> apsJobId_ {};
-    // The objects to be synchronized.
+    // The list of synchronization objects.
     // 
     // This parameter is required.
     shared_ptr<string> dbList_ {};
-    // The partitions.
+    // The list of partitions.
     shared_ptr<string> partitionList_ {};
     // The region ID.
     // 

@@ -94,13 +94,13 @@ namespace Models
 
 
     protected:
-      // The name of the database.
+      // The database name.
       shared_ptr<string> dbName_ {};
-      // The migration progress.
+      // The progress.
       shared_ptr<string> progress_ {};
       // The migration speed.
       shared_ptr<string> speed_ {};
-      // The name of the table.
+      // The table name.
       shared_ptr<string> tbName_ {};
     };
 
@@ -148,11 +148,11 @@ namespace Models
     shared_ptr<vector<DescribeApsProgressResponseBody::ApsHiveProgress>> apsHiveProgress_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The success rate.
+    // The success percentage.
     shared_ptr<int32_t> successPercentage_ {};
-    // The total number of migrated tables returned.
+    // The total number of successfully migrated tables.
     shared_ptr<int32_t> successTableCount_ {};
-    // The total number of tables to be migrated.
+    // The total number of tables.
     shared_ptr<int32_t> totalTableCount_ {};
   };
 

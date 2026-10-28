@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
-    // The lake storage ID.
+    // The instance ID.
     shared_ptr<string> lakeStorageId_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

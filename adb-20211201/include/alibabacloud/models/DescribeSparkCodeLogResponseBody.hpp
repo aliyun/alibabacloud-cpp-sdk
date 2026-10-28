@@ -66,19 +66,17 @@ namespace Models
 
 
   protected:
-    // The content of the log.
+    // The log content.
     shared_ptr<string> log_ {};
-    // The returned message.
-    // 
-    // *   If the request was successful, **Success** is returned.
-    // *   If the request failed, an error message is returned.
+    // The additional information about the call result. Valid values:
+    // - If the request succeeds, **Success** is returned. 
+    // - If an exception occurs, the specific error code is returned.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

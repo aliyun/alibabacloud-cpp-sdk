@@ -110,10 +110,15 @@ namespace Models
 
 
     protected:
+      // The data volume.
       shared_ptr<int64_t> bytes_ {};
+      // The number of output rows.
       shared_ptr<int64_t> outputRows_ {};
+      // The operator parameters.
       shared_ptr<string> parameters_ {};
+      // The maximum memory size consumed.
       shared_ptr<int64_t> peakMemory_ {};
+      // The execution time.
       shared_ptr<int64_t> timeCost_ {};
     };
 
@@ -181,13 +186,21 @@ namespace Models
 
 
   protected:
+    // The child operator queue.
     shared_ptr<vector<OperatorNode>> children_ {};
+    // The operator ID.
     shared_ptr<int32_t> id_ {};
+    // The total number of nodes at the tree level of the operator.
     shared_ptr<int32_t> levelWidth_ {};
+    // The level of the operator in the tree.
     shared_ptr<int32_t> nodeDepth_ {};
+    // The operator name.
     shared_ptr<string> nodeName_ {};
+    // The left-to-right position of the node at the corresponding level.
     shared_ptr<int32_t> nodeWidth_ {};
+    // The parent operator ID.
     shared_ptr<int32_t> parentId_ {};
+    // The operator statistics information.
     shared_ptr<OperatorNode::Stats> stats_ {};
   };
 

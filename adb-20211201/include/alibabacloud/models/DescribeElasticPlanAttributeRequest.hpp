@@ -48,15 +48,13 @@ namespace Models
 
 
   protected:
-    // The cluster ID.
-    // 
-    // >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the IDs of all AnalyticDB for MySQL clusters within a region.
+    // The ID of the cluster.
+    // > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The name of the scaling plan.
-    // 
-    // >  You can call the [DescribeElasticPlans](https://help.aliyun.com/document_detail/601334.html) operation to query the names of scaling plans.
+    // The name of the elastic plan.
+    // > Call the [DescribeElasticPlans](https://help.aliyun.com/document_detail/601334.html) operation to query the name of the elastic plan for the cluster.
     // 
     // This parameter is required.
     shared_ptr<string> elasticPlanName_ {};

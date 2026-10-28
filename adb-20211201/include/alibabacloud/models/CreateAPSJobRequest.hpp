@@ -140,41 +140,40 @@ namespace Models
 
 
   protected:
-    // The name of the synchronization job.
+    // The name of the task.
     // 
     // This parameter is required.
     shared_ptr<string> apsJobName_ {};
-    // The objects to be synchronized.
+    // The list of synchronization objects.
     // 
     // This parameter is required.
     shared_ptr<string> dbList_ {};
-    // The name of the database account of the destination cluster.
+    // The instance ID of the destination database.
     // 
     // This parameter is required.
     shared_ptr<string> destinationEndpointInstanceID_ {};
-    // The password of the database account of the destination cluster.
+    // The password of the destination instance.
     shared_ptr<string> destinationEndpointPassword_ {};
-    // The name of the database account of the destination cluster.
+    // The username of the destination instance.
     shared_ptr<string> destinationEndpointUserName_ {};
-    // The partitions.
+    // The list of partitions.
     shared_ptr<string> partitionList_ {};
     // The region ID.
-    // 
-    // >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the source instance or cluster.
+    // The instance ID of the source database.
     // 
     // This parameter is required.
     shared_ptr<string> sourceEndpointInstanceID_ {};
-    // The password of the database account of the source instance.
+    // The password of the source endpoint.
     shared_ptr<string> sourceEndpointPassword_ {};
-    // The region ID of the source instance.
+    // The region of the source database.
     shared_ptr<string> sourceEndpointRegion_ {};
-    // The name of the database account of the source instance.
+    // The username of the source endpoint.
     shared_ptr<string> sourceEndpointUserName_ {};
-    // The mode of the destination table.
+    // The destination table mode.
     shared_ptr<string> targetTableMode_ {};
   };
 

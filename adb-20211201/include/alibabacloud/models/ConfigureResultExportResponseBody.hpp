@@ -109,9 +109,9 @@ namespace Models
 
 
       protected:
-        // The expiration time of the Logstore temporarily generated during the result set export. Unit: days. The Logstore is automatically deleted after it expires. Minimum value: 1 day. Maximum value: 30 days.
+        // The expiration time of the temporary Logstore generated for result set export. Unit: days. The Logstore is automatically deleted after expiration. The minimum value is 1 day and the maximum value is 30 days.
         shared_ptr<int32_t> logstoreTtl_ {};
-        // The name of the resource group that runs the job.
+        // The name of the resource group in which the export SQL statement is executed.
         shared_ptr<string> resourceGroup_ {};
         // The name of the SLS project.
         shared_ptr<string> slsProject_ {};
@@ -164,11 +164,11 @@ namespace Models
 
 
       protected:
-        // The OSS path where the result sets are stored.
+        // The OSS path where the export results are stored.
         shared_ptr<string> exportBasePath_ {};
-        // The name of the resource group that runs the job.
+        // The name of the resource group in which the export SQL statement is executed.
         shared_ptr<string> resourceGroup_ {};
-        // The expiration time of the OSS file. Unit: days. Minimum: 1 day, maximum: 30 days.
+        // The expiration time of the OSS file. Unit: days. The minimum value is 1 day and the maximum value is 30 days.
         shared_ptr<int32_t> resultFileTtl_ {};
       };
 
@@ -202,12 +202,12 @@ namespace Models
     protected:
       // The export type. Valid values:
       // 
-      // *   SLS: Indicates that the export destination is SLS.
-      // *   OSS: Indicates that the export destination is OSS.
+      // - SLS: Exports data to SLS.
+      // - OSS: Exports data to OSS.
       shared_ptr<string> exportType_ {};
-      // The OSS configuration if the destination is of the OSS type.
+      // The OSS export information configured when the export destination is OSS.
       shared_ptr<Data::OssInfo> ossInfo_ {};
-      // The SLS configuration if the destination is of the SLS type.
+      // The SLS configuration information when the export destination is SLS.
       shared_ptr<Data::SlsInfo> slsInfo_ {};
     };
 
@@ -260,21 +260,20 @@ namespace Models
   protected:
     // The backend error code.
     shared_ptr<string> code_ {};
-    // The path where the result sets are stored.
+    // The configured result set export information.
     shared_ptr<ConfigureResultExportResponseBody::Data> data_ {};
-    // The HTTP status code. A value of 200 indicates that the request is successful.
+    // The HTTP status code. A status code of 200 indicates that the request was successful.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The returned message. Valid values:
+    // The additional information about the call result. Description:
     // 
-    // *   OK is returned if the request is normal.
-    // *   The specific error code is returned if the request is abnormal,
+    // - If the request is normal, OK is returned.
+    // - If the request is abnormal, a specific error code is returned.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. Valid values:
-    // 
-    // *   **true**: Succeeded.
-    // *   **false**: Failed.
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

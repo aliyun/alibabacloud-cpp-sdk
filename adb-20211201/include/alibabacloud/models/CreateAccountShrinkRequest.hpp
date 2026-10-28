@@ -130,20 +130,20 @@ namespace Models
 
 
   protected:
-    // The description of the account.
-    // - Cannot start with `http://` or `https://`.
-    // - Cannot exceed 256 characters in length.
+    // The description of the account. The description must meet the following requirements:
+    // - It cannot start with `http://` or `https://`.
+    // - It can be up to 256 characters in length.
     shared_ptr<string> accountDescription_ {};
     // The name of the database account. The name must meet the following requirements:
-    // - Starts with a lowercase letter and ends with a lowercase letter or digit.
-    // - Contains only lowercase letters, digits, or underscores (_).
+    // - It must start with a lowercase letter and end with a lowercase letter or a digit.
+    // - It can contain only lowercase letters, digits, and underscores (_).
     // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
-    // The password of the database account.
-    // - Must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+    // The password of the database account. The password must meet the following requirements:
+    // - It must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
     // - Special characters include: `!@#$%^&*()_+-=`
-    // - Must be 8 to 32 characters in length.
+    // - It must be 8 to 32 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> accountPassword_ {};
@@ -160,14 +160,18 @@ namespace Models
     shared_ptr<string> DBClusterId_ {};
     // The database engine. Valid values:
     // 
-    // - **AnalyticDB** (default): the AnalyticDB for MySQL engine.
-    // - **Clickhouse**: the wide table engine.
+    // - **AnalyticDB** (default): AnalyticDB for MySQL engine.
+    // - **Clickhouse**: wide table engine.
     shared_ptr<string> engine_ {};
+    // The list of PromQL write permissions.
     shared_ptr<string> promqlInsertPrivilegesShrink_ {};
+    // The percentage of PromQL query nodes.
     shared_ptr<double> promqlSelectNodePercentage_ {};
+    // The list of PromQL query permissions.
     shared_ptr<string> promqlSelectPrivilegesShrink_ {};
-    // The list of Alibaba Cloud RAM user IDs to bind. Currently, only one RAM user can be bound.
+    // The IDs of the Alibaba Cloud Resource Access Management (RAM) users to bind. Currently, only one RAM user can be bound.
     shared_ptr<string> ramUserListShrink_ {};
+    // The name of the resource group.
     shared_ptr<string> resourceGroupName_ {};
   };
 

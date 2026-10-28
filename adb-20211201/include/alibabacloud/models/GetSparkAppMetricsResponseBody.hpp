@@ -98,7 +98,7 @@ namespace Models
       protected:
         // The number of scanned rows.
         shared_ptr<int64_t> outputRowsCount_ {};
-        // The number of scanned bytes.
+        // The size of the scanned data in bytes.
         shared_ptr<int64_t> totalReadFileSizeInByte_ {};
       };
 
@@ -142,18 +142,17 @@ namespace Models
 
 
     protected:
-      // The ID of the Spark application.
+      // The application ID.
       shared_ptr<string> appId_ {};
-      // The attempt ID of the Spark application.
+      // The retry ID of the Spark application.
       shared_ptr<string> attemptId_ {};
       // The path of the event log.
       shared_ptr<string> eventLogPath_ {};
-      // Indicates whether parsing is complete. Valid values:
-      // 
-      // *   true
-      // *   false
+      // Indicates whether the parsing is completed. Valid values:
+      // - **true**: Completed.
+      // - **false**: Not completed.
       shared_ptr<bool> finished_ {};
-      // The metrics.
+      // The metric data.
       shared_ptr<Data::ScanMetrics> scanMetrics_ {};
     };
 
@@ -178,7 +177,7 @@ namespace Models
   protected:
     // The returned data.
     shared_ptr<GetSparkAppMetricsResponseBody::Data> data_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

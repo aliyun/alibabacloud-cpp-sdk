@@ -143,11 +143,11 @@ namespace Models
       protected:
         // The account ID.
         shared_ptr<string> account_ {};
-        // The read permissions.
+        // The read permission.
         shared_ptr<bool> read_ {};
         // The account type.
         shared_ptr<string> type_ {};
-        // The write permissions.
+        // The write permission.
         shared_ptr<bool> write_ {};
       };
 
@@ -256,11 +256,11 @@ namespace Models
 
 
     protected:
-      // The time when the lake storage was created.
+      // The creation time.
       shared_ptr<string> createTime_ {};
-      // The creator UID.
+      // The UID of the creator.
       shared_ptr<string> creatorUid_ {};
-      // The ID of the AnalyticDB for MySQL cluster.
+      // The ADB instance ID.
       shared_ptr<string> DBClusterId_ {};
       // The description of the lake storage.
       shared_ptr<string> description_ {};
@@ -268,21 +268,21 @@ namespace Models
       shared_ptr<string> fileSize_ {};
       // The unique identifier of the lake storage.
       shared_ptr<string> lakeStorageId_ {};
-      // The operator UID.
+      // The UID of the operator.
       shared_ptr<string> operatorUid_ {};
-      // The owner UID.
+      // The UID of the owner.
       shared_ptr<string> ownerUid_ {};
       // The number of partitions.
       shared_ptr<string> partitionCount_ {};
-      // The permissions on the lake storage.
+      // The permissions of the lake storage.
       shared_ptr<vector<Data::Permissions>> permissions_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The total number of entries returned.
+      // The total number of data rows.
       shared_ptr<int64_t> rowCount_ {};
-      // The number of the tables.
+      // The number of databases and tables.
       shared_ptr<int32_t> tableCount_ {};
-      // The time when the lake storage was last updated.
+      // The update time.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -333,23 +333,21 @@ namespace Models
 
 
   protected:
-    // The HTTP status code or the error code.
+    // The status code or POP error code.
     shared_ptr<string> code_ {};
-    // The queried lake storage.
+    // The returned data.
     shared_ptr<GetLakeStorageResponseBody::Data> data_ {};
-    // The response code. The status code 200 indicates that the request was successful.
+    // The HTTP status code returned for the request. A value of 200 indicates that the request was successful.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The returned message. Valid values:
-    // 
-    // *   If the request was successful, a success message is returned.****
-    // *   If the request failed, an error message is returned.
+    // The additional information about the call result. Valid values:
+    // - If the request is normal, **Ok** is returned.                                
+    // - If the request is abnormal, a specific error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

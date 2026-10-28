@@ -119,11 +119,11 @@ namespace Models
 
 
     protected:
-      // The resource group name.
+      // The name of the resource group.
       shared_ptr<string> groupName_ {};
-      // The query execution time threshold. Unit: milliseconds (ms).
+      // The threshold for query execution time, in milliseconds.
       shared_ptr<string> queryTime_ {};
-      // The target resource group name.
+      // The name of the destination resource group.
       shared_ptr<string> targetGroupName_ {};
     };
 
@@ -250,7 +250,7 @@ namespace Models
       protected:
         // The allocation unit.
         shared_ptr<string> allocateUnit_ {};
-        // The worker group name.
+        // The name of the worker group.
         shared_ptr<string> groupName_ {};
         // The maximum number of workers.
         shared_ptr<int32_t> maxWorkerQuantity_ {};
@@ -258,7 +258,7 @@ namespace Models
         shared_ptr<int32_t> minWorkerQuantity_ {};
         // The disk size of the worker node.
         shared_ptr<string> workerDiskCapacity_ {};
-        // The specification of the worker node.
+        // The node specifications of the worker node.
         shared_ptr<string> workerSpecName_ {};
         // The resource type of the worker node.
         shared_ptr<string> workerSpecType_ {};
@@ -313,8 +313,9 @@ namespace Models
       protected:
         // The mount path.
         shared_ptr<string> mountPath_ {};
-        // The storage ID.
+        // The ID of the storage.
         shared_ptr<int64_t> storageId_ {};
+        // The name of the storage to mount. You must specify either this parameter or StorageId.
         shared_ptr<string> storageName_ {};
       };
 
@@ -388,7 +389,7 @@ namespace Models
 
 
         protected:
-          // The image name.
+          // The name of the image.
           shared_ptr<string> image_ {};
           // The inference engine.
           shared_ptr<string> inferenceEngine_ {};
@@ -422,9 +423,9 @@ namespace Models
 
 
       protected:
-        // The application name.
+        // The name of the application.
         shared_ptr<string> appName_ {};
-        // The application type.
+        // The type of the application.
         shared_ptr<string> appType_ {};
         // The image configuration.
         shared_ptr<AppConfig::ImageSelector> imageSelector_ {};
@@ -512,11 +513,11 @@ namespace Models
     protected:
       // The Ray application configuration.
       shared_ptr<RayConfig::AppConfig> appConfig_ {};
-      // The Ray cluster type. Valid values:
+      // The type of the Ray cluster. Valid values:
       // 
-      // - BASIC: basic type, non-high availability
+      // - BASIC: Basic type, non-high-availability.
       // 
-      // - HIGH_AVAILABILITY: high availability type
+      // - HIGH_AVAILABILITY: High-availability type.
       shared_ptr<string> category_ {};
       // Specifies whether to enable ENI.
       shared_ptr<bool> enableUserEni_ {};
@@ -524,14 +525,15 @@ namespace Models
       shared_ptr<string> headAllocateUnit_ {};
       // The disk size of the head node.
       shared_ptr<string> headDiskCapacity_ {};
-      // The specification of the head node.
+      // The node specifications of the head node.
       shared_ptr<string> headSpec_ {};
       // The resource type of the head node.
       shared_ptr<string> headSpecType_ {};
-      // The storage mount list.
+      // The list of storage mounts.
       shared_ptr<vector<RayConfig::StorageMounts>> storageMounts_ {};
+      // The custom Python dependencies for RayCluster. The content must be in the requirements.txt format, with one pip dependency per line. A maximum of 200 lines are allowed, and each line cannot exceed 512 characters. Version constraints, extras, PEP 440 direct URLs, and # comments are supported, but shell metacharacters are not supported. This parameter applies only to AI resource groups of the RayCluster type.
       shared_ptr<string> userDefinedRequirements_ {};
-      // The list of Ray worker group configurations.
+      // The list of Ray worker group configuration information.
       shared_ptr<vector<RayConfig::WorkerGroups>> workerGroups_ {};
     };
 
@@ -594,9 +596,9 @@ namespace Models
 
 
       protected:
-        // The end time, specified as a cron expression. The interval must be at least 1 hour.
+        // The end time specified by a cron expression. The interval must be at least 1 hour.
         shared_ptr<string> endCronExpression_ {};
-        // The start time, specified as a cron expression. The interval must be at least 1 hour.
+        // The start time specified by a cron expression. The interval must be at least 1 hour.
         shared_ptr<string> startCronExpression_ {};
       };
 
@@ -620,8 +622,8 @@ namespace Models
 
     protected:
       // Specifies whether to enable the elastic plan immediately after creation. Valid values:
-      // - **true**: Enables the plan immediately.
-      // - **false**: Does not enable the plan.
+      // - **true**: Enables the elastic plan immediately.
+      // - **false**: Does not enable the elastic plan.
       shared_ptr<bool> enabled_ {};
       // The list of rules.
       shared_ptr<vector<GpuElasticPlan::Rules>> rules_ {};
@@ -749,25 +751,25 @@ namespace Models
     protected:
       // The number of authentication nodes.
       shared_ptr<int32_t> authNodeNum_ {};
-      // The authentication node specification in [0-9+]ACU.
+      // The authentication node specifications ([0-9+] ACU).
       shared_ptr<string> authNodeSpec_ {};
       // The number of insert nodes.
       shared_ptr<int32_t> insertNodeNum_ {};
-      // The insert node specification in [0-9+]ACU.
+      // The insert node specifications ([0-9+] ACU).
       shared_ptr<string> insertNodeSpec_ {};
-      // The query node cache size in GB.
+      // The query node cache size (GB).
       shared_ptr<int32_t> selectNodeCacheSize_ {};
       // The number of query nodes.
       shared_ptr<int32_t> selectNodeNum_ {};
-      // The query node specification ([0-9+]ACU).
+      // The query node specifications ([0-9+] ACU).
       shared_ptr<string> selectNodeSpec_ {};
-      // The storage node disk size.
+      // The disk size of the storage node.
       shared_ptr<int32_t> storageNodeDiskSize_ {};
       // The storage node disk type (essd_pl1, essd_pl2).
       shared_ptr<string> storageNodeDiskType_ {};
       // The number of storage nodes.
       shared_ptr<int32_t> storageNodeNum_ {};
-      // The storage node specification in [0-9+]ACU.
+      // The storage node specifications ([0-9+] ACU).
       shared_ptr<string> storageNodeSpec_ {};
     };
 
@@ -944,65 +946,65 @@ namespace Models
   protected:
     // The PromQL resource group configuration.
     shared_ptr<ModifyDBResourceGroupRequest::AtmConfig> atmConfig_ {};
-    // The auto-stop interval.
+    // The auto-stop time.
     shared_ptr<string> autoStopInterval_ {};
-    // Reserved parameter (not applicable).
+    // Reserved parameter.
     shared_ptr<string> clusterMode_ {};
-    // Reserved parameter (not applicable).
+    // Reserved parameter.
     shared_ptr<string> clusterSizeResource_ {};
-    // <props="china">The cluster ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
-    // <props="intl">The cluster ID of the Data Lakehouse Edition cluster.
+    // <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+    // <props="intl">The ID of the Data Lakehouse Edition cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // Specifies whether to enable the spot instance feature for the resource group. After spot instances are enabled, the unit price of resources is reduced, but the resources may be released. Only Job resource groups support this feature. Valid values:
+    // Specifies whether to enable the spot instance feature for the resource group. After you enable this feature, the unit price of resources decreases, but the resources may be released. This feature can be enabled only for Job resource groups. Valid values:
     // - **True**: Enables the spot instance feature.
     // - **False**: Disables the spot instance feature.
     shared_ptr<bool> enableSpot_ {};
-    // The engine configuration.
+    // The engine configurations.
     Darabonba::Json engineParams_ {};
-    // The GPU time-sharing elastic plan.
+    // The GPU time-based elastic plan.
     shared_ptr<ModifyDBResourceGroupRequest::GpuElasticPlan> gpuElasticPlan_ {};
-    // The resource group name.
-    // > You can call the [DescribeDBResourceGroup](https://help.aliyun.com/document_detail/459446.html) operation to query the resource group names of a specified cluster.
+    // The name of the resource group.
+    // > You can call the [DescribeDBResourceGroup](https://help.aliyun.com/document_detail/459446.html) operation to query the name of the resource group for a specified cluster.
     // 
     // This parameter is required.
     shared_ptr<string> groupName_ {};
-    // The resource group type. Valid values:
+    // The type of the resource group. Valid values:
     // - **Interactive**
     // - **Job**
-    // > For more information about Data Lakehouse Edition resource groups, refer to [Resource group introduction](https://help.aliyun.com/document_detail/428610.html).
+    // > For more information about Data Lakehouse Edition resource groups, see [Resource groups](https://help.aliyun.com/document_detail/428610.html).
     // 
     // This parameter is required.
     shared_ptr<string> groupType_ {};
-    // Reserved parameter (not applicable).
+    // Reserved parameter.
     shared_ptr<int32_t> maxClusterCount_ {};
     // The maximum reserved computing resources.
-    // - If the resource group type is Interactive, the maximum reserved computing resources are the current unallocated resources of the cluster, in increments of 16 ACUs.
-    // - If the resource group type is Job, the maximum reserved computing resources are the current unallocated resources of the cluster, in increments of 8 ACUs.
+    // - If the resource group type is Interactive, the maximum reserved computing resources is the currently unallocated resources of the cluster, and the step size is 16 ACUs.
+    // - If the resource group type is Job, the maximum reserved computing resources is the currently unallocated resources of the cluster, and the step size is 8 ACUs.
     shared_ptr<string> maxComputeResource_ {};
-    // Reserved parameter (not applicable).
+    // Reserved parameter.
     shared_ptr<int32_t> maxGpuQuantity_ {};
-    // Reserved parameter (not applicable).
+    // Reserved parameter.
     shared_ptr<int32_t> minClusterCount_ {};
     // The minimum reserved computing resources.
-    // - If the resource group type is Interactive, the minimum reserved computing resources are 16 ACUs.
-    // - If the resource group type is Job, the minimum reserved computing resources are 0 ACUs.
+    // - If the resource group type is Interactive, the minimum reserved computing resources is 16 ACUs.
+    // - If the resource group type is Job, the minimum reserved computing resources is 0 ACUs.
     shared_ptr<string> minComputeResource_ {};
-    // Reserved parameter (not applicable).
+    // Reserved parameter.
     shared_ptr<int32_t> minGpuQuantity_ {};
-    // The Ray configuration. This parameter is required when the resource group is an AI resource group and the corresponding engine is RayCluster.
+    // The Ray configuration information. This parameter is required when the resource group is an AI resource group and the corresponding engine is RayCluster.
     shared_ptr<ModifyDBResourceGroupRequest::RayConfig> rayConfig_ {};
     // The region ID.
     // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/454314.html) operation to query the region ID of a specified cluster.
     shared_ptr<string> regionId_ {};
-    // The job routing rules.
+    // The job delivery rules.
     shared_ptr<vector<ModifyDBResourceGroupRequest::Rules>> rules_ {};
-    // Reserved parameter (not applicable).
+    // Reserved parameter.
     shared_ptr<string> specName_ {};
-    // The resource group status. **starting** indicates that the resource group is being started. **stopping** indicates that the resource group is being stopped.
+    // The status of the resource group. **starting** indicates that the resource group is being started. **stopping** indicates that the resource group is being stopped.
     shared_ptr<string> status_ {};
-    // Reserved parameter (not applicable).
+    // Reserved parameter.
     shared_ptr<string> targetResourceGroupName_ {};
   };
 

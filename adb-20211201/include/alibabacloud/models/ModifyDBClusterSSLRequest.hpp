@@ -17,12 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(EnableSSL, enableSSL_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(SSLEnabled, SSLEnabled_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyDBClusterSSLRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ConnectionString, connectionString_);
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(EnableSSL, enableSSL_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(SSLEnabled, SSLEnabled_);
     };
     ModifyDBClusterSSLRequest() = default ;
     ModifyDBClusterSSLRequest(const ModifyDBClusterSSLRequest &) = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->connectionString_ == nullptr
-        && this->DBClusterId_ == nullptr && this->enableSSL_ == nullptr && this->regionId_ == nullptr; };
+        && this->DBClusterId_ == nullptr && this->enableSSL_ == nullptr && this->regionId_ == nullptr && this->SSLEnabled_ == nullptr; };
     // connectionString Field Functions 
     bool hasConnectionString() const { return this->connectionString_ != nullptr;};
     void deleteConnectionString() { this->connectionString_ = nullptr;};
@@ -65,22 +67,33 @@ namespace Models
     inline ModifyDBClusterSSLRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // SSLEnabled Field Functions 
+    bool hasSSLEnabled() const { return this->SSLEnabled_ != nullptr;};
+    void deleteSSLEnabled() { this->SSLEnabled_ = nullptr;};
+    inline string getSSLEnabled() const { DARABONBA_PTR_GET_DEFAULT(SSLEnabled_, "") };
+    inline ModifyDBClusterSSLRequest& setSSLEnabled(string SSLEnabled) { DARABONBA_PTR_SET_VALUE(SSLEnabled_, SSLEnabled) };
+
+
   protected:
-    // The private or public endpoint for which the server certificate needs to be created or updated.
+    // The internal or public endpoint for which to create or update a server certificate.
     shared_ptr<string> connectionString_ {};
     // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // Specifies whether to enable SSL encryption. Valid values:
+    // Specifies whether to enable SSL connection encryption. Valid values:
     // 
-    // *   **true**: enabled
-    // *   **false**: disabled
-    // 
-    // This parameter is required.
+    // - **true**: Enabled.
+    // - **false**: Disabled.
     shared_ptr<bool> enableSSL_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
+    // The SSL operation. This parameter and EnableSSL are mutually exclusive. Valid values:
+    // 
+    // - Enable: Enables SSL.
+    // - Disable: Disables SSL.
+    // - Update: Updates the validity period of an enabled SSL certificate and retains the current endpoint bound to the certificate. When you set this parameter to Update, do not specify ConnectionString, or specify an endpoint that is the same as the current endpoint bound to the certificate.
+    shared_ptr<string> SSLEnabled_ {};
   };
 
   } // namespace Models

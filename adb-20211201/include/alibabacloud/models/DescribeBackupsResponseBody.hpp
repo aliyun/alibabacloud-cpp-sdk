@@ -263,16 +263,16 @@ namespace Models
 
 
   protected:
-    // The free backup space. Unit: bytes.
+    // The free quota for backup sets. Unit: bytes.
     shared_ptr<int64_t> freeBackupSize_ {};
     shared_ptr<DescribeBackupsResponseBody::Items> items_ {};
     // The page number.
     shared_ptr<string> pageNumber_ {};
     // The number of backup sets on the current page.
     shared_ptr<string> pageSize_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total size of the backup sets. Unit: bytes.
+    // The total size of backup sets. Unit: bytes.
     shared_ptr<int64_t> totalBackupSize_ {};
     // The total number of entries.
     shared_ptr<string> totalCount_ {};

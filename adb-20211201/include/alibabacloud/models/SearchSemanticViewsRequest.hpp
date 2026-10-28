@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // The ID of the AnalyticDB for MySQL cluster.
+    // The ADB cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The search query.
+    // The text content to search.
     shared_ptr<string> queryText_ {};
-    // The number of the most relevant semantic views to return.
+    // The number of most relevant documents to return.
     shared_ptr<int32_t> topK_ {};
   };
 

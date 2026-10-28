@@ -63,7 +63,7 @@ namespace Models
     shared_ptr<string> DBClusterId_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The job ID.
+    // The data link task ID.
     // 
     // This parameter is required.
     shared_ptr<string> workloadId_ {};

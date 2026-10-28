@@ -78,9 +78,10 @@ namespace Models
     shared_ptr<string> DBClusterId_ {};
     // The database engine. Valid values:
     // 
-    // - **AnalyticDB** (default): the AnalyticDB for MySQL engine.
-    // - **Clickhouse**: the wide table engine.
+    // - **AnalyticDB** (default): AnalyticDB for MySQL.
+    // - **Clickhouse**: wide table engine.
     shared_ptr<string> engine_ {};
+    // The name of the resource group.
     shared_ptr<string> resourceGroupName_ {};
   };
 

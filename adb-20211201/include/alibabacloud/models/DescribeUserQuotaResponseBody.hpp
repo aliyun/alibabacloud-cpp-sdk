@@ -75,13 +75,13 @@ namespace Models
 
 
   protected:
-    // The available elastic AnalyticDB compute units (ACUs).
+    // The available elastic ACUs.
     shared_ptr<string> elasticACU_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The available reserved computing resources.
+    // The available reserved compute resources.
     shared_ptr<string> reserverdCompteACU_ {};
-    // The available reserved storage resources.
+    // The available storage compute resources.
     shared_ptr<string> reserverdStorageACU_ {};
     // The number of available resource groups.
     shared_ptr<string> resourceGroupCount_ {};

@@ -127,17 +127,17 @@ namespace Models
 
 
     protected:
-      // Specifies whether cross-account access is enabled.
+      // Specifies whether cross-account access is used.
       shared_ptr<bool> across_ {};
-      // The role name for cross-account access.
+      // The name of the cross-account role.
       shared_ptr<string> acrossRole_ {};
-      // The UID of the cross-account.
+      // The cross-account UID.
       shared_ptr<string> acrossUid_ {};
       // The Simple Log Service (SLS) project.
       shared_ptr<string> project_ {};
       // The region ID of the source cluster.
       shared_ptr<string> sourceRegionId_ {};
-      // sls logstore。
+      // The Simple Log Service Logstore.
       shared_ptr<string> store_ {};
     };
 
@@ -215,7 +215,7 @@ namespace Models
 
 
     protected:
-      // The read-only instance endpoint.
+      // The endpoint of the read-only instance.
       shared_ptr<string> connectUrl_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
@@ -363,16 +363,16 @@ namespace Models
 
 
     protected:
-      // Specifies whether cross-account access is enabled. Valid values:
+      // Specifies whether cross-account access is used. Valid values:
       // 
       // - **true**: The current network instance is a cross-account resource.
       // - **false**: The current network instance is a resource within the current account.
       shared_ptr<bool> across_ {};
       // The cross-account role.
       shared_ptr<string> acrossRole_ {};
-      // The UID of the cross-account.
+      // The cross-account UID.
       shared_ptr<string> acrossUid_ {};
-      // The custom RDS endpoint.
+      // The endpoint of the private custom RDS instance.
       shared_ptr<string> connectUrl_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
@@ -426,7 +426,7 @@ namespace Models
     protected:
       // The Kafka instance ID.
       shared_ptr<string> kafkaClusterId_ {};
-      // The assigned Kafka topic name.
+      // The name of the allocated Kafka topic.
       shared_ptr<string> kafkaTopic_ {};
     };
 
@@ -499,7 +499,7 @@ namespace Models
       shared_ptr<string> clusterId_ {};
       // The host configuration.
       shared_ptr<string> hostConfig_ {};
-      // The MetaStore endpoint.
+      // The metastore endpoint.
       shared_ptr<string> metaStoreUri_ {};
       // The security group.
       shared_ptr<string> securityGroup_ {};
@@ -693,7 +693,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The Simple Log Service (SLS) information for the data source to be created.
+    // The Simple Log Service (SLS) information.
     shared_ptr<CreateApsDatasoureRequest::SlsInfo> slsInfo_ {};
   };
 

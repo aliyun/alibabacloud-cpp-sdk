@@ -170,39 +170,34 @@ namespace Models
 
 
     protected:
-      // The date when the advice was generated. The date is displayed in the yyyyMMdd format.
+      // The time when the suggestion was generated, in the yyyyMMdd format.
       shared_ptr<string> adviceDate_ {};
-      // The advice ID.
+      // The suggestion ID.
       shared_ptr<string> adviceId_ {};
-      // The type of the advice. Valid values:
-      // 
-      // - **INDEX**: index optimization.
-      // 
-      // - **TIERING**: hot and cold data optimization.
+      // The type of the suggestion. Valid values:
+      // - **INDEX**: Index optimization.
+      // - **TIERING**: Hot and cold data optimization.
       shared_ptr<string> adviceType_ {};
-      // The benefits of the advice.
+      // The benefit of the suggestion.
       shared_ptr<string> benefit_ {};
       // The index fields.
       shared_ptr<string> indexFields_ {};
-      // The page number. The value is greater than 0 and less than or equal to the maximum value of the integer data type. Default value: 1.
+      // The page number. Valid values: greater than 0 and up to the maximum value of the Integer data type. Default value: 1.
       shared_ptr<int64_t> pageNumber_ {};
-      // The number of entries to return on each page. Valid values:
-      // 
+      // The number of entries per page. Valid values:
       // - **30** (default)
-      // 
       // - **50**
-      // 
       // - **100**
       shared_ptr<int64_t> pageSize_ {};
-      // The reason why the optimization advice is generated.
+      // The reason for generating optimization suggestions.
       shared_ptr<string> reason_ {};
-      // The SQL statement that is used to apply the advice.
+      // The SQL statement to apply the suggestion.
       shared_ptr<string> SQL_ {};
       // The database name.
       shared_ptr<string> schemaName_ {};
       // The table name.
       shared_ptr<string> tableName_ {};
-      // The total number of entries returned. The value is greater than or equal to 0 and less than or equal to the maximum value of the integer data type. Default value: 0.
+      // The total number of returned results. Valid values: greater than or equal to 0 and up to the maximum value of the Integer data type. Default value: 0.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -255,23 +250,20 @@ namespace Models
 
 
   protected:
-    // The optimization advice items.
+    // The details.
     shared_ptr<vector<DescribeAvailableAdvicesResponseBody::Items>> items_ {};
-    // The page number. The value is greater than 0 and less than or equal to the maximum value of the integer data type. Default value: 1.
+    // The page number. Valid values: greater than 0 and up to the maximum value of the Integer data type. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries to return on each page. Valid values:
-    // 
+    // The number of entries per page. Valid values:
     // - **30** (default)
-    // 
     // - **50**
-    // 
     // - **100**
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The names of databases and tables.
+    // The concatenated string of the database name and table name.
     shared_ptr<vector<string>> schemaTableNames_ {};
-    // The total number of entries returned. The value is greater than or equal to 0 and less than or equal to the maximum value of the integer data type. Default value: 0.
+    // The total number of returned results. Valid values: greater than or equal to 0 and up to the maximum value of the Integer data type. Default value: 0.
     shared_ptr<int64_t> totalCount_ {};
   };
 

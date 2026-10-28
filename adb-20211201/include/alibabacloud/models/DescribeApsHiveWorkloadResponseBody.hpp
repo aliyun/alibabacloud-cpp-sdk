@@ -245,45 +245,45 @@ namespace Models
     protected:
       // The advanced configurations.
       shared_ptr<string> advancedConfig_ {};
-      // The policy to handle tables with the same name in the destination cluster.
+      // The handling strategy when a database or table with the same name exists at the destination.
       shared_ptr<string> conflictStrategy_ {};
-      // The time when the workload was created.
+      // The creation time.
       shared_ptr<string> createTime_ {};
       // The cluster ID.
       shared_ptr<string> DBClusterId_ {};
       // The data source ID.
       shared_ptr<int64_t> datasourceId_ {};
-      // The name of the data source.
+      // The data source name.
       shared_ptr<string> datasourceName_ {};
-      // The ID of the E-MapReduce (EMR) cluster.
+      // The EMR cluster ID.
       shared_ptr<string> emrClusterId_ {};
-      // The number of AnalyticDB compute units (ACUs) required for migration.
+      // The number of ACUs required for migration.
       shared_ptr<string> fullComputeUnit_ {};
-      // The URL of the Hive Metastore.
+      // The Hive metastore URL.
       shared_ptr<string> metaStoreUri_ {};
-      // The Object Storage Service (OSS) URL of the AnalyticDB for MySQL cluster data.
+      // The OSS address.
       shared_ptr<string> ossLocation_ {};
-      // The number of tasks that are allowed in parallel.
+      // The degree of parallelism.
       shared_ptr<int64_t> parallelism_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The resource group to which the SQL statement belongs.
+      // The resource pool to which the SQL statement belongs.
       shared_ptr<string> resourceGroup_ {};
-      // The status of the workload.
+      // The status.
       shared_ptr<string> state_ {};
-      // The expression that manually matches the source database table whitelist.
+      // The whitelist expression for manually matching source databases and tables.
       shared_ptr<string> syncAllowExpression_ {};
-      // Manually match the blacklist expressions for source database tables.
+      // The blacklist expression for manually matching source databases and tables.
       shared_ptr<string> syncDenyExpression_ {};
       // The destination type.
       shared_ptr<string> targetType_ {};
-      // The name of the vSwitch.
+      // The vSwitch name.
       shared_ptr<string> vswitch_ {};
-      // The job ID.
+      // The data link task ID.
       shared_ptr<string> workloadId_ {};
-      // The name of the workload.
+      // The workload name.
       shared_ptr<string> workloadName_ {};
-      // The name of the workload.
+      // The workload name.
       shared_ptr<string> workloadTypeName_ {};
     };
 
@@ -306,7 +306,7 @@ namespace Models
 
 
   protected:
-    // The queried job.
+    // The workload information.
     shared_ptr<DescribeApsHiveWorkloadResponseBody::ApsWorkload> apsWorkload_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

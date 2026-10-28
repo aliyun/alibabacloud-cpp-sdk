@@ -133,29 +133,31 @@ namespace Models
 
 
     protected:
-      // Indicates whether **Default Proportional Scaling for EIUs** is enabled. Valid values: true: Default Proportional Scaling for EIUs is enabled. If you set this parameter to true, storage resources are scaled along with computing resources. false: Default Proportional Scaling for EIUs is not enabled.
-      // 
-      // >  You can enable Default Proportional Scaling for EIUs for only a single scaling plan of a cluster. After you enable a scaling plan of the Default Proportional Scaling for EIUs type, you cannot enable scaling plans of other types.
+      // Indicates whether **proportional default elastic scaling for the storage acceleration service (EIU)** is enabled.
+      // Valid values:
+      // - true: Enabled. After this feature is enabled, storage resources scale in or out along with the elastic scaling of compute resources.
+      // - false: Disabled.
+      // > Only one storage elastic plan with proportional default elastic scaling for the storage acceleration service (EIU) can be enabled for the entire cluster. After this type of elastic plan is enabled, no other storage elastic plans can be enabled.
       shared_ptr<bool> autoScale_ {};
-      // A CORN expression that indicates the scaling cycle and time for the scaling plan.
+      // The cron expression, which indicates the scaling cycle and scaling time of the elastic plan.
       shared_ptr<string> cronExpression_ {};
-      // The name of the scaling plan.
+      // The name of the elastic plan.
       shared_ptr<string> elasticPlanName_ {};
-      // Indicates whether the scaling plan is enabled.
+      // Indicates whether the elastic plan is enabled.
       shared_ptr<bool> enabled_ {};
-      // The end time of the scaling plan.
+      // The end time.
       // 
-      // >  The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
+      // > The time is in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> endTime_ {};
-      // The name of the resource group used by the scaling plan.
+      // The name of the resource group to which the elastic plan belongs.
       shared_ptr<string> resourceGroupName_ {};
-      // The start time of the scaling plan.
+      // The start time.
       // 
-      // >  The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
+      // > The time is in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> startTime_ {};
-      // The amount of elastic resources after scaling.
+      // The target specifications.
       shared_ptr<string> targetSize_ {};
-      // The type of the scaling plan.
+      // The type of the elastic plan.
       shared_ptr<string> type_ {};
     };
 
@@ -178,9 +180,9 @@ namespace Models
 
 
   protected:
-    // The queried scaling plan.
+    // The elastic plan.
     shared_ptr<DescribeElasticPlanAttributeResponseBody::ElasticPlan> elasticPlan_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -57,17 +57,15 @@ namespace Models
 
 
   protected:
-    // The returned message. Valid values:
-    // 
-    // *   If the request was successful, a **Success** message is returned.
-    // *   If the request failed, an error message is returned.
+    // The message about the call result. Valid values:
+    // - **Success**: The request is successful. 
+    // - Specific error message: Returned when an exception occurs.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the suggestion feature is enabled. Valid values:
-    // 
-    // *   **True**
-    // *   **False**
+    // Indicates whether the advisory service is enabled. Valid values:
+    // - **True**: The advisory service is enabled. 
+    // - **False**: The advisory service is disabled.
     shared_ptr<bool> result_ {};
   };
 

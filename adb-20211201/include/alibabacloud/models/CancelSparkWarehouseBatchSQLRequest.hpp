@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The client name for auxiliary recording. The value is a meaningful string of up to 16 characters.
+    // The client name used for logging purposes. The value is a meaningful string up to 16 characters in length.
     shared_ptr<string> agency_ {};
     // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
-    // The execution ID of the Spark SQL.
+    // The execution ID of the Spark SQL statement.
     // 
     // This parameter is required.
     shared_ptr<string> queryId_ {};

@@ -57,17 +57,17 @@ namespace Models
 
 
   protected:
-    // <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
-    // <props="intl">The ID of the Data Lakehouse Edition cluster.
+    // <props="china">The cluster ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition.
+    // <props="intl">The cluster ID of the Data Lakehouse Edition.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     // The database engine. Valid values:
     // 
-    // - **AnalyticDB** (Default): AnalyticDB for MySQL.
-    // 
-    // - **ClickHouse**: a wide table engine.
+    // - **AnalyticDB** (default): the AnalyticDB for MySQL engine.
+    // - **Clickhouse**: the wide-table engine.
     shared_ptr<string> engine_ {};
+    // The name of the resource group.
     shared_ptr<string> resourceGroupName_ {};
   };
 

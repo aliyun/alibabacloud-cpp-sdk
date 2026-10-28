@@ -96,13 +96,13 @@ namespace Models
 
 
     protected:
-      // The default log path.
+      // The recommended default path.
       shared_ptr<string> defaultLogPath_ {};
-      // Indicates whether a log path exists.
+      // Indicates whether the log path exists.
       shared_ptr<bool> isLogPathExists_ {};
       // The last modification time.
       shared_ptr<string> modifiedTimestamp_ {};
-      // The modifier ID.
+      // The ID of the modifier.
       shared_ptr<string> modifiedUid_ {};
       // The recorded log path.
       shared_ptr<string> recordedLogPath_ {};
@@ -127,9 +127,9 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // The response data.
     shared_ptr<SetSparkAppLogRootPathResponseBody::Data> data_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

@@ -67,21 +67,19 @@ namespace Models
 
   protected:
     // The application ID.
-    // 
-    // >  You can call the [ListSparkApps](https://help.aliyun.com/document_detail/455888.html) operation to query Spark application IDs.
+    // > You can call the [ListSparkApps](https://help.aliyun.com/document_detail/455888.html) operation to query the application ID of Spark.
     shared_ptr<string> appId_ {};
-    // The code that you want to execute.
+    // The code to execute.
     // 
     // This parameter is required.
     shared_ptr<string> code_ {};
     // The language type of the code. Valid values:
-    // 
-    // *   SCALA
-    // *   PYTHON
+    // - SCALA
+    // - PYTHON
     // 
     // This parameter is required.
     shared_ptr<string> codeType_ {};
-    // The ID of the session that you want to use to execute the code.
+    // The session ID for executing the code.
     // 
     // This parameter is required.
     shared_ptr<int64_t> sessionId_ {};

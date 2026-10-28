@@ -14,10 +14,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListKnowledgeTagsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
+      DARABONBA_PTR_TO_JSON(FileId, fileId_);
       DARABONBA_PTR_TO_JSON(FileLocation, fileLocation_);
     };
     friend void from_json(const Darabonba::Json& j, ListKnowledgeTagsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
+      DARABONBA_PTR_FROM_JSON(FileId, fileId_);
       DARABONBA_PTR_FROM_JSON(FileLocation, fileLocation_);
     };
     ListKnowledgeTagsRequest() = default ;
@@ -32,12 +34,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && this->fileLocation_ == nullptr; };
+        && this->fileId_ == nullptr && this->fileLocation_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
     inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline ListKnowledgeTagsRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
+
+
+    // fileId Field Functions 
+    bool hasFileId() const { return this->fileId_ != nullptr;};
+    void deleteFileId() { this->fileId_ = nullptr;};
+    inline string getFileId() const { DARABONBA_PTR_GET_DEFAULT(fileId_, "") };
+    inline ListKnowledgeTagsRequest& setFileId(string fileId) { DARABONBA_PTR_SET_VALUE(fileId_, fileId) };
 
 
     // fileLocation Field Functions 
@@ -48,13 +57,13 @@ namespace Models
 
 
   protected:
-    // The ID of the AnalyticDB for MySQL instance.
+    // The ADB instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The file ID.
+    shared_ptr<string> fileId_ {};
     // The location of the knowledge base document.
-    // 
-    // This parameter is required.
     shared_ptr<string> fileLocation_ {};
   };
 

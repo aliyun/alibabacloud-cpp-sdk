@@ -79,10 +79,14 @@ namespace Models
 
 
   protected:
+    // The list of access tokens for the user.
     shared_ptr<vector<AccessTokenModel>> accessTokens_ {};
     shared_ptr<string> host_ {};
+    // The ID of the associated Alibaba Cloud RAM user.
     shared_ptr<string> ramUser_ {};
+    // The user status.
     shared_ptr<string> status_ {};
+    // The username.
     shared_ptr<string> userName_ {};
   };
 

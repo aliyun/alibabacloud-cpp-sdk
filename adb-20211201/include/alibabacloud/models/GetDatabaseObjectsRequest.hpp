@@ -96,30 +96,33 @@ namespace Models
   protected:
     // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
-    // The owner of the database.
+    // The owner.
     shared_ptr<string> filterOwner_ {};
-    // The name of the database.
+    // The database name.
     shared_ptr<string> filterSchemaName_ {};
-    // The order in which you want to sort the query results. Valid values:
+    // The sort field.
+    // Valid values for Type:
+    // - Asc
+    // - Desc
     // 
-    // *   Asc
-    // *   Desc
-    // 
-    // Valid values for Field: DatabaseName, CreateTime, and UpdateTime. -CreateTime; -UpdateTime;
+    // Valid values for Field:
+    // - DatabseName
+    // - CreateTime
+    // - UpdateTime
     // 
     // Default value: {"Type": "Desc","Field": "DatabaseName"}.
     shared_ptr<string> orderBy_ {};
-    // The page number. Pages start from page 1. Default value: **1**.
+    // The page number. The value must be greater than 0 and no greater than the maximum value of the Integer data type. Default value: **1**.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page. Valid values:
     // 
-    // *   30
-    // *   50
-    // *   100
+    // - 30
+    // - 50
+    // - 100
     // 
     // Default value: 30.
     shared_ptr<int64_t> pageSize_ {};
-    // The region ID of the database.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

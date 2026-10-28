@@ -83,11 +83,11 @@ namespace Models
 
 
     protected:
-      // The maintenance expiration time of the version. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. After the time arrives, the system no longer maintains the version. If any issues occur, update the minor version of the cluster to a later version.
+      // The end-of-support date of the version. The time is in the yyyy-MM-DD HH:mm:ss format. After this date, the system no longer maintains this version. If any issues occur, upgrade to a later version.
       shared_ptr<string> expireDate_ {};
-      // The minor version. Example: **3.1.9**.
+      // The kernel version number of the cluster. Example: **3.1.9**.
       shared_ptr<string> kernelVersion_ {};
-      // The time when the minor version was released. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // The release time of the kernel version. The time format is yyyy-MM-DD HH:mm:ss.
       shared_ptr<string> releaseDate_ {};
     };
 
@@ -124,13 +124,13 @@ namespace Models
 
 
   protected:
-    // The minor versions to which you can update the current minor version of the cluster.
+    // The list of target versions to which the current version can be upgraded.
     shared_ptr<vector<DescribeKernelVersionResponseBody::AvailableKernelVersions>> availableKernelVersions_ {};
-    // The maintenance expiration time of the version. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. After the time arrives, the system no longer maintains the version. If any issues occur, update the minor version of the cluster to a later version.
+    // The end-of-support date of the version. The time is in the yyyy-MM-DD HH:mm:ss format. After this date, the system no longer maintains this version. If any issues occur, upgrade to a later version.
     shared_ptr<string> expireDate_ {};
-    // The minor version of the cluster. Example: **3.1.8**.
+    // The kernel version number of the cluster. Example: **3.1.8**.
     shared_ptr<string> kernelVersion_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

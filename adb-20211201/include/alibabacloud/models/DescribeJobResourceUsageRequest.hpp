@@ -89,7 +89,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The end time of the query. The end time must be later than the start time. Format: <i>yyyy-MM-ddTHH:mm:ssZ</i> (UTC).
+    // The end time of the query. The end time must be later than the start time. Format: <i>yyyy-MM-ddTHH:mm:ssZ</i> (UTC time).
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
@@ -102,8 +102,9 @@ namespace Models
     // 
     // Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
+    // The name of the Spark application, which is used to filter job resource usage.
     shared_ptr<string> sparkAppName_ {};
-    // The start time of the query. Format: <i>yyyy-MM-ddTHH:mm:ssZ</i> (UTC).
+    // The start time of the query. Format: <i>yyyy-MM-ddTHH:mm:ssZ</i> (UTC time).
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

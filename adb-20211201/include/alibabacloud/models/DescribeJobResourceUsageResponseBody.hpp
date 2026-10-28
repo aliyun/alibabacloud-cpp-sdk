@@ -161,15 +161,15 @@ namespace Models
 
 
         protected:
-          // The number of elastic ACU resources.
+          // The number of elastic ACUs.
           shared_ptr<float> elasticAcuNumber_ {};
-          // The number of reserved ACU resources.
+          // The number of reserved ACUs.
           shared_ptr<float> reservedAcuNumber_ {};
-          // The number of spot instance ACU resources.
+          // The number of spot instance ACUs.
           shared_ptr<float> spotAcuNumber_ {};
           // The percentage of spot instance resources in the total elastic resources.
           shared_ptr<float> spotAcuPercentage_ {};
-          // The total number of ACU resources.
+          // The total number of ACUs.
           shared_ptr<float> totalAcuNumber_ {};
         };
 
@@ -230,16 +230,17 @@ namespace Models
       protected:
         // The ACU resource usage details.
         shared_ptr<JobAcuUsage::AcuUsageDetail> acuUsageDetail_ {};
-        // The end time of the job. Format: yyyy-MM-ddTHH:mmZ (UTC).
+        // The end time of the job. Format: yyyy-MM-ddTHH:mmZ (UTC time).
         shared_ptr<string> jobEndTime_ {};
         // The job ID.
         shared_ptr<string> jobId_ {};
-        // The start time of the job. Format: yyyy-MM-ddTHH:mmZ (UTC).
+        // The start time of the job. Format: yyyy-MM-ddTHH:mmZ (UTC time).
         shared_ptr<string> jobStartTime_ {};
         // The name of the job resource group.
         shared_ptr<string> resourceGroupName_ {};
+        // The name of the Spark application.
         shared_ptr<string> sparkAppName_ {};
-        // Indicates whether the hot pool is used.
+        // Indicates whether the cache pool is used.
         shared_ptr<bool> useCachePool_ {};
       };
 
@@ -301,7 +302,7 @@ namespace Models
       // <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
       // <props="intl">The ID of the Data Lakehouse Edition cluster.
       shared_ptr<string> DBClusterId_ {};
-      // The end time. Format: yyyy-MM-ddTHH:mmZ (UTC).
+      // The end time. Format: yyyy-MM-ddTHH:mmZ (UTC time).
       shared_ptr<string> endTime_ {};
       // The ACU usage of the job resource group.
       shared_ptr<vector<Data::JobAcuUsage>> jobAcuUsage_ {};
@@ -309,7 +310,7 @@ namespace Models
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The start time. Format: yyyy-MM-ddTHH:mmZ (UTC).
+      // The start time. Format: yyyy-MM-ddTHH:mmZ (UTC time).
       shared_ptr<string> startTime_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
@@ -341,7 +342,7 @@ namespace Models
 
 
   protected:
-    // The API status or POP error code.
+    // The API status code or POP error code.
     shared_ptr<int32_t> code_ {};
     // The returned data.
     shared_ptr<DescribeJobResourceUsageResponseBody::Data> data_ {};

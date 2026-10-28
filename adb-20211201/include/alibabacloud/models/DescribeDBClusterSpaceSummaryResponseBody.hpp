@@ -121,17 +121,17 @@ namespace Models
 
 
       protected:
-        // The data size of table records. Unit: bytes.
+        // The data volume of table records. Unit: bytes.
         shared_ptr<int64_t> dataSize_ {};
-        // The data size of regular indexes. Unit: bytes.
+        // The data volume of regular indexes. Unit: bytes.
         shared_ptr<int64_t> indexSize_ {};
-        // The data size of other data. Unit: bytes.
+        // The volume of other data. Unit: bytes.
         shared_ptr<int64_t> otherSize_ {};
-        // The data size of primary key indexes. Unit: bytes.
+        // The data volume of primary key indexes. Unit: bytes.
         shared_ptr<int64_t> primaryKeyIndexSize_ {};
-        // The hot data size. Unit: bytes.
+        // The total hot data volume. Unit: bytes.
         // 
-        // >  Formula: Hot data size = Data size of table records + Data size of regular indexes + Data size of primary key indexes + Data size of other data.
+        // > Calculation formula: Total hot data volume = Table record data volume + Regular index data volume + Primary key index data volume + Others.
         shared_ptr<int64_t> totalSize_ {};
       };
 
@@ -173,13 +173,13 @@ namespace Models
 
 
       protected:
-        // The data growth within the last day. Unit: bytes.
+        // The data growth in the past day. Unit: bytes.
         // 
-        // >  Formula: Data growth within the last day = Current data size - Data size one day ago.
+        // > Calculation formula: Data growth in the past day = Current total data volume - Total data volume 1 day ago.
         shared_ptr<int64_t> dayGrowth_ {};
-        // The daily data growth within the last seven days. Unit: bytes.
+        // The average daily data growth over the past 7 days. Unit: bytes.
         // 
-        // >  Formula: Daily data growth within the last seven days = (Current data size - Data size seven days ago)/7.
+        // > Calculation formula: Average daily data growth over the past 7 days = (Current total data volume - Total data volume 7 days ago) / 7.
         shared_ptr<int64_t> weekGrowth_ {};
       };
 
@@ -248,17 +248,17 @@ namespace Models
 
 
       protected:
-        // The data size of table records. Unit: bytes.
+        // The data volume of table records. Unit: bytes.
         shared_ptr<int64_t> dataSize_ {};
-        // The data size of regular indexes. Unit: bytes.
+        // The data volume of regular indexes. Unit: bytes.
         shared_ptr<int64_t> indexSize_ {};
-        // The data size of other data. Unit: bytes.
+        // The volume of other data. Unit: bytes.
         shared_ptr<int64_t> otherSize_ {};
-        // The data size of primary key indexes. Unit: bytes.
+        // The data volume of primary key indexes. Unit: bytes.
         shared_ptr<int64_t> primaryKeyIndexSize_ {};
-        // The cold data size. Unit: bytes.
+        // The total cold data volume. Unit: bytes.
         // 
-        // >  Formula: Cold data size = Data size of table records + Data size of regular indexes + Data size of primary key indexes + Data size of other data.
+        // > Calculation formula: Total cold data volume = Table record data volume + Regular index data volume + Primary key index data volume + Others.
         shared_ptr<int64_t> totalSize_ {};
       };
 
@@ -305,9 +305,9 @@ namespace Models
       shared_ptr<Data::DataGrowth> dataGrowth_ {};
       // The hot data.
       shared_ptr<Data::HotData> hotData_ {};
-      // The total data size. Unit: bytes.
+      // The total data volume. Unit: bytes.
       // 
-      // >  Formula: Total data size = Hot data size+ Cold data size.
+      // > Calculation formula: Total data volume = Total hot data volume + Total cold data volume.
       shared_ptr<string> totalSize_ {};
     };
 
@@ -330,7 +330,7 @@ namespace Models
 
 
   protected:
-    // The queried storage overview information.
+    // The returned data.
     shared_ptr<DescribeDBClusterSpaceSummaryResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

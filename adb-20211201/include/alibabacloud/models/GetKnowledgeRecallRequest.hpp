@@ -107,7 +107,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The array of images to retrieve during image retrieval. Currently, only one image is supported.
+    // The array of images to search for image retrieval. Currently, only one image is supported. The image must be Base64-encoded and passed in JSON format. Set the base64 key to the encoded image and the mime_type key to the image format. For more information, see the examples.
     shared_ptr<string> images_ {};
     // The file path prefix. Only files that match the path prefix are retrieved.
     shared_ptr<string> path_ {};

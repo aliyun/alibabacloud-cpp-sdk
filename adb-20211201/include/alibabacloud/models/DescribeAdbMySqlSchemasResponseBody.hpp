@@ -70,8 +70,8 @@ namespace Models
 
   protected:
     // The additional information about the call result. Valid values:
-    // - If the request was successful, **Success** is returned. 
-    // - If the request failed, a specific error code is returned.
+    // - **Success**: The request is successful. 
+    // - Specific error code: An exception occurred.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

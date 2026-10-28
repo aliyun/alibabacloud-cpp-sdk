@@ -87,16 +87,15 @@ namespace Models
 
 
     protected:
-      // The location of the knowledge base file.
+      // The knowledge base file location.
       shared_ptr<string> fileLocation_ {};
-      // The message returned by the operation.
+      // The API message.
       shared_ptr<string> message_ {};
-      // The number of tags that were successfully deleted.
+      // The number of tags successfully deleted.
       shared_ptr<int32_t> removed_ {};
-      // Indicates whether the request was successful. Valid values:
-      // 
-      // - **true**: The request was successful.
-      // - **false**: The request failed.
+      // Indicates whether the request is successful. Valid values:
+      // - **true**: Successful.
+      // - **false**: Failed.
       shared_ptr<bool> success_ {};
     };
 

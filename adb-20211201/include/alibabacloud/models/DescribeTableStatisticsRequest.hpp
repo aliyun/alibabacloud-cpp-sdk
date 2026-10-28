@@ -95,42 +95,43 @@ namespace Models
 
   protected:
     // The cluster ID.
-    // 
-    // >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the IDs of all AnalyticDB for MySQL clusters within a region.
+    // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The keyword that is used to query information by table name.
+    // The search keyword. Fuzzy search by table name is supported.
     shared_ptr<string> keyword_ {};
-    // The order by which to sort query results. Specify the parameter value in the JSON format.
+    // The sorting rule for a specified field. The value is a JSON array. The array is ordered. Specify the fields to be sorted and the sorting order in sequence:
     // 
-    // Example:
+    // For example:
     // 
-    //     [
+    // ```
+    // [
     // 
-    //         {
+    //     {
     // 
-    //             "Field":"Name",
+    //         "Field":"Name",
     // 
-    //             "Type":"Asc"
+    //         "Type":"Asc"
     // 
-    //         }
+    //     }
     // 
-    //     ]
+    // ]
+    // ```
     // 
-    // Field specifies the field by which to sort the query results. Set the value to Name. Type specifies the sorting order. Valid values: Desc and Asc.
+    // Field specifies the name of the field to be sorted. Only the Name field is supported.
+    // Type specifies the sorting order. Desc indicates descending order, and Asc indicates ascending order.
     // 
-    // Field and Type are case-insensitive.
+    // Both parameters are case-insensitive.
     shared_ptr<string> order_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID
-    // 
-    // >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/612393.html) operation to query the most recent region list.
+    // The region ID.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/612393.html) operation to query the region ID.
     shared_ptr<string> regionId_ {};
-    // The name of the database.
+    // The database name.
     shared_ptr<string> schemaName_ {};
   };
 

@@ -87,13 +87,14 @@ namespace Models
 
 
     protected:
-      // The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
+      // <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+      // <props="intl">The ID of the Data Lakehouse Edition cluster.
       shared_ptr<string> DBClusterId_ {};
-      // The content of the log.
+      // The log content.
       shared_ptr<string> logContent_ {};
-      // The number of log entries. A value of 0 indicates that no valid logs are returned.
+      // The number of log lines. A value of 0 indicates that no valid logs exist.
       shared_ptr<int32_t> logSize_ {};
-      // The alert message returned for the request, such as task execution failure or insufficient resources. If no alert occurs, null is returned.
+      // The alert information, such as task execution failure or insufficient resources. If no alerts are triggered, an empty value is returned.
       shared_ptr<string> message_ {};
     };
 
@@ -116,7 +117,7 @@ namespace Models
 
 
   protected:
-    // The queried log.
+    // The log details.
     shared_ptr<GetSparkAppLogResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -121,65 +121,49 @@ namespace Models
 
 
   protected:
-    // The date when the advice was generated, in the `yyyyMMdd` format.
+    // The generation date of the suggestion, in the yyyyMMdd format.
     // 
-    // > Advice is generated daily. To query for advice, specify a date at least one day before the current date. For example, if you query on June 27, 2024, set this parameter to `20240626` or an earlier date.
+    // > Data is generated after daily analysis in the early morning. Therefore, you must specify a date of T-1 or earlier to query the data. For example, if today is 20240627, you must specify 20240626 or an earlier date.
     shared_ptr<int64_t> adviceDate_ {};
-    // The type of advice. Valid values:
-    // 
-    // - **INDEX**: index optimization.
-    // 
-    // - **TIERING**: hot and cold data tiering.
+    // The type of the suggestion. Valid values:
+    // - **INDEX**: Index optimization.
+    // - **TIERING**: Hot and cold data optimization.
     shared_ptr<string> adviceType_ {};
     // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The keyword for a fuzzy search on table names.
+    // The query keyword. Fuzzy search by table name is supported.
     shared_ptr<string> keyword_ {};
-    // The display language for the advice. Valid values:
-    // 
+    // The display language of the suggestions. Valid values:
     // - **zh**: Simplified Chinese (default).
-    // 
     // - **en**: English.
-    // 
     // - **ja**: Japanese.
-    // 
     // - **zh-tw**: Traditional Chinese.
     shared_ptr<string> lang_ {};
-    // Specifies the sort order for the results. The value is a JSON string. Example: `[{"Field":"SchemaName","Type":"Asc"}]`. The JSON string contains the following key-value pairs:
-    // 
-    // - `Field`: the field to sort by. Valid values:
-    // 
-    //   - `SchemaName`: the database name.
-    // 
-    //   - `TableName`: the table name.
-    // 
-    //   - `Benefit`: the expected benefit.
-    // 
+    // The field by which to sort the query results. The value is a JSON string. Example: `[{"Field":"SchemaName","Type":"Asc"}]`. Parameters:
+    // - `Field`: the sort field. Valid values:
+    //     - `SchemaName`: the database name.
+    //     - `TableName`: the table name.
+    //     - `Benefit`: the expected optimization benefit.
     // - `Type`: the sort order. Valid values:
+    //     - `Asc`: ascending order.
+    //     - `Desc`: descending order.
     // 
-    //   - `Asc`: ascending order.
-    // 
-    //   - `Desc`: descending order.
-    // 
-    // > By default, results are sorted by expected benefit in descending order.
+    // > If this parameter is not specified, the results are sorted in descending order of the expected optimization benefit by default.
     shared_ptr<string> order_ {};
-    // The page number. The value must be an integer that is greater than 0. Default value: 1.
+    // The page number. Valid values: greater than 0 and up to the maximum value of the Integer data type. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page. Valid values:
-    // 
     // - **30** (default)
-    // 
     // - **50**
-    // 
     // - **100**
     shared_ptr<int64_t> pageSize_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // A concatenation of the database name and the table name.
+    // The concatenated string of the database name and table name.
     shared_ptr<string> schemaTableName_ {};
   };
 

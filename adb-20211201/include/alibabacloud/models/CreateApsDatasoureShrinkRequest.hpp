@@ -181,7 +181,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The Simple Log Service (SLS) information for the data source to be created.
+    // The Simple Log Service (SLS) information.
     shared_ptr<string> slsInfoShrink_ {};
   };
 

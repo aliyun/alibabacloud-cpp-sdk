@@ -130,84 +130,60 @@ namespace Models
 
 
   protected:
-    // The ID of the AnalyticDB for MySQL (Data Lakehouse Edition) cluster.
-    // 
-    // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) API to find the cluster IDs of all AnalyticDB for MySQL (Data Lakehouse Edition) clusters in a specific region.
+    // The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
+    // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the details of all AnalyticDB for MySQL Data Lakehouse Edition clusters in a specified region, including the cluster IDs.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The end of the time range to query. The time must be in UTC and formatted as *yyyy-MM-ddTHH:mm:ssZ*.
-    // 
+    // The end time of the query. Specify the time in UTC in the <i>yyyy-MM-ddTHH:mm:ssZ</i> format.
     // > The end time must be later than the start time.
     shared_ptr<string> endTime_ {};
-    // The keyword for filtering the query results.
+    // The search keyword.
     shared_ptr<string> keyword_ {};
-    // The response language. Valid values:
-    // 
-    // - **zh**: Simplified Chinese (default)
-    // 
-    // - **en**: English
-    // 
-    // - **ja**: Japanese
-    // 
-    // - **zh-tw**: Traditional Chinese
+    // The language configuration. Valid values:
+    // - **zh**: Simplified Chinese (default language).
+    // - **en**: English.
+    // - **ja**: Japanese.
+    // - **zh-tw**: Traditional Chinese.
     shared_ptr<string> lang_ {};
-    // The sort order for the results. Specify this parameter as a JSON string, for example, `[{"Field":"AverageQueryTime","Type":"Asc"}]`. The string consists of the following fields:
+    // The sorting rule for the query results. The format is a JSON character string. Example: `[{"Field":"AverageQueryTime","Type":"Asc"}]`. The JSON character string contains the following parameters:
+    // - `Field`: the field by which to sort the results. Valid values:
+    //     - `PatternCreationTime`: the earliest commit time of the pattern within the query time range.
+    //     - `AverageQueryTime`: the average total time consumed by the pattern within the query time range.
+    //     - `MaxQueryTime`: the maximum total time consumed by the pattern within the query time range.
+    //     - `AverageExecutionTime`: the average execution duration of the pattern within the query time range.
+    //     - `MaxExecutionTime`: the maximum execution duration of the pattern within the query time range.
+    //     - `AveragePeakMemory`: the average peak memory usage of the pattern within the query time range.
+    //     - `MaxPeakMemory`: the maximum peak memory usage of the pattern within the query time range.
+    //     - `AverageScanSize`: the average amount of data read by the pattern within the query time range.
+    //     - `MaxScanSize`: the maximum amount of data read by the pattern within the query time range.
+    //     - `QueryCount`: the number of executions of the pattern within the query time range.
+    //     - `FailedCount`: the number of failed executions of the pattern within the query time range.
     // 
-    // - `Field`: the sort field. Valid values:
-    // 
-    //   - `PatternCreationTime`: The earliest submission time of the pattern.
-    // 
-    //   - `AverageQueryTime`: The average query time of the pattern.
-    // 
-    //   - `MaxQueryTime`: The maximum query time of the pattern.
-    // 
-    //   - `AverageExecutionTime`: The average execution time of the pattern.
-    // 
-    //   - `MaxExecutionTime`: The maximum execution time of the pattern.
-    // 
-    //   - `AveragePeakMemory`: The average peak memory of the pattern.
-    // 
-    //   - `MaxPeakMemory`: The maximum peak memory of the pattern.
-    // 
-    //   - `AverageScanSize`: The average scanned data size of the pattern.
-    // 
-    //   - `MaxScanSize`: The maximum scanned data size of the pattern.
-    // 
-    //   - `QueryCount`: The query count of the pattern.
-    // 
-    //   - `FailedCount`: The failure count of the pattern.
-    // 
-    // - `Type`: the sort order. Valid values (case-insensitive):
-    // 
-    //   - `Asc`: ascending order.
-    // 
-    //   - `Desc`: descending order.
+    // - `Type`: the sort order. The value is not case-sensitive. Valid values:
+    //     - `Asc`: ascending order.
+    //     - `Desc`: descending order.
     shared_ptr<string> order_ {};
-    // The page number. Must be an integer greater than 0. Default: 1.
+    // The page number. Valid values: integers greater than 0 and up to the maximum integer value.
+    // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Valid values:
-    // 
-    // - **10** (default)
-    // 
+    // - **10** (default value)
     // - **30**
-    // 
     // - **50**
-    // 
     // - **100**
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The hash value of the SQL pattern, which is used to filter a specific SQL pattern.
     shared_ptr<int64_t> sqlPatternHash_ {};
-    // The start of the time range to query. The time must be in UTC and formatted as *yyyy-MM-ddTHH:mm:ssZ*.
-    // 
-    // > - Data is available for the last 14 days only.
-    // 
-    // - The time range cannot exceed 24 hours.
+    // The start time of the query. Specify the time in UTC in the <i>yyyy-MM-ddTHH:mm:ssZ</i> format.
+    // >  - You can only query data from the last 14 days.
+    // - The interval between the start time and the end time cannot exceed 24 hours.
     shared_ptr<string> startTime_ {};
-    // The username of the database account used to execute the SQL statements.
+    // The name of the database account that executes the SQL statement.
     shared_ptr<string> userName_ {};
   };
 

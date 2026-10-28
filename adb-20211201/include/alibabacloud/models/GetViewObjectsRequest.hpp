@@ -129,22 +129,18 @@ namespace Models
     shared_ptr<string> filterOwner_ {};
     // The view name.
     shared_ptr<string> filterViewName_ {};
-    // The view type.
-    // 
-    // Valid values:
-    // 
+    // The view type. Valid values:
     // - VIRTUAL_VIEW
     // - MATERIALIZED_VIEW
     // 
-    // Default value: null.
+    // Default value: empty.
     shared_ptr<string> filterViewType_ {};
-    // The sorting field.
-    // 
-    // Valid values for Type:
+    // The sort field.
+    // Valid values for the sort type:
     // - Asc
     // - Desc
     // 
-    // Valid values for Field:
+    // Valid values for the sort field:
     // - ViewName
     // - CreateTime
     // - UpdateTime
@@ -154,9 +150,9 @@ namespace Models
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page. Valid values:
-    // * **30** (default).
-    // * **50**.
-    // * **100**.
+    // * **30** (default)
+    // * **50**
+    // * **100**
     shared_ptr<int64_t> pageSize_ {};
     // The region ID.
     // 

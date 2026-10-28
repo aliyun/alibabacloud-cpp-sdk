@@ -48,12 +48,11 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The returned result of the request. Valid values:
-    // 
-    // *   **true**: the database account is associated with a RAM user.
-    // *   **false**: the database account is not associated with a RAM user.
+    // The result returned by the node. Valid values:
+    // - **true**: The current Resource Access Management (RAM) user is attached to a database account.
+    // - **false**: The current Resource Access Management (RAM) user is not attached to a database account.
     shared_ptr<bool> result_ {};
   };
 

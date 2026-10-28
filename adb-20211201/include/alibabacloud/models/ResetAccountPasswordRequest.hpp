@@ -89,27 +89,28 @@ namespace Models
     // - The description must be 2 to 256 characters in length.
     shared_ptr<string> accountDescription_ {};
     // The database account.
-    // > You can call the [DescribeAccounts](https://help.aliyun.com/document_detail/612430.html) operation to query the database account information of a specified cluster, including the database account.
+    // > You can call the [DescribeAccounts](https://help.aliyun.com/document_detail/612430.html) operation to query the database account information of a specified cluster, including the database accounts.
     // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
     // The password of the database account.
     // - The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
-    // - The following special characters are supported: `!@#$%^&*()_+-=`
+    // - Special characters include: `!@#$%^&*()_+-=`
     // - The password must be 8 to 32 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> accountPassword_ {};
-    // <props="china">The ID of the cluster. The cluster can be an Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+    // <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
     // <props="intl">The ID of the Data Lakehouse Edition cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     // The database engine. Valid values:
     // 
-    // - **AnalyticDB** (default): the AnalyticDB for MySQL engine.
-    // - **Clickhouse**: the wide table engine.
+    // - **AnalyticDB** (default): AnalyticDB for MySQL engine.
+    // - **Clickhouse**: wide table engine.
     shared_ptr<string> engine_ {};
+    // The name of the resource group.
     shared_ptr<string> resourceGroupName_ {};
   };
 

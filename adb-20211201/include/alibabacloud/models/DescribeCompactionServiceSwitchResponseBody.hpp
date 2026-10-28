@@ -59,12 +59,7 @@ namespace Models
 
 
     protected:
-      // Indicates whether the remote build feature is enabled.
-      // 
-      // Valid values:
-      // 
-      // *   true
-      // *   false
+      // Indicates whether the remote build service is enabled.
       shared_ptr<bool> enableCompactionService_ {};
     };
 
