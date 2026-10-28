@@ -53,6 +53,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(MountDlfMetaToken, mountDlfMetaToken_);
         DARABONBA_PTR_TO_JSON(SupportAddConfigTypes, supportAddConfigTypes_);
         DARABONBA_PTR_TO_JSON(SupportBackup, supportBackup_);
+        DARABONBA_PTR_TO_JSON(SupportConvertComputeFreeToPostPaid, supportConvertComputeFreeToPostPaid_);
         DARABONBA_PTR_TO_JSON(SupportCreateAgent, supportCreateAgent_);
         DARABONBA_PTR_TO_JSON(SupportCreateNonStandardNodeGroup, supportCreateNonStandardNodeGroup_);
         DARABONBA_PTR_TO_JSON(SupportEed, supportEed_);
@@ -77,6 +78,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(MountDlfMetaToken, mountDlfMetaToken_);
         DARABONBA_PTR_FROM_JSON(SupportAddConfigTypes, supportAddConfigTypes_);
         DARABONBA_PTR_FROM_JSON(SupportBackup, supportBackup_);
+        DARABONBA_PTR_FROM_JSON(SupportConvertComputeFreeToPostPaid, supportConvertComputeFreeToPostPaid_);
         DARABONBA_PTR_FROM_JSON(SupportCreateAgent, supportCreateAgent_);
         DARABONBA_PTR_FROM_JSON(SupportCreateNonStandardNodeGroup, supportCreateNonStandardNodeGroup_);
         DARABONBA_PTR_FROM_JSON(SupportEed, supportEed_);
@@ -107,10 +109,10 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->consoleControlRestart_ == nullptr
         && this->enableManageMv_ == nullptr && this->fullManagedSecurityGroup_ == nullptr && this->mountDlfMetaToken_ == nullptr && this->supportAddConfigTypes_ == nullptr && this->supportBackup_ == nullptr
-        && this->supportCreateAgent_ == nullptr && this->supportCreateNonStandardNodeGroup_ == nullptr && this->supportEed_ == nullptr && this->supportEnableAi_ == nullptr && this->supportEnableSSL_ == nullptr
-        && this->supportFastModeModifyConfig_ == nullptr && this->supportFastModeModifyResource_ == nullptr && this->supportFastRestart_ == nullptr && this->supportFeGateway_ == nullptr && this->supportHostAlias_ == nullptr
-        && this->supportModifyTimezone_ == nullptr && this->supportMultiAZ_ == nullptr && this->useComputeNode_ == nullptr && this->supportCompactionService_ == nullptr && this->supportCompactionServiceWhiteList_ == nullptr
-        && this->supportLoadBasedAutoScaling_ == nullptr; };
+        && this->supportConvertComputeFreeToPostPaid_ == nullptr && this->supportCreateAgent_ == nullptr && this->supportCreateNonStandardNodeGroup_ == nullptr && this->supportEed_ == nullptr && this->supportEnableAi_ == nullptr
+        && this->supportEnableSSL_ == nullptr && this->supportFastModeModifyConfig_ == nullptr && this->supportFastModeModifyResource_ == nullptr && this->supportFastRestart_ == nullptr && this->supportFeGateway_ == nullptr
+        && this->supportHostAlias_ == nullptr && this->supportModifyTimezone_ == nullptr && this->supportMultiAZ_ == nullptr && this->useComputeNode_ == nullptr && this->supportCompactionService_ == nullptr
+        && this->supportCompactionServiceWhiteList_ == nullptr && this->supportLoadBasedAutoScaling_ == nullptr; };
       // consoleControlRestart Field Functions 
       bool hasConsoleControlRestart() const { return this->consoleControlRestart_ != nullptr;};
       void deleteConsoleControlRestart() { this->consoleControlRestart_ = nullptr;};
@@ -153,6 +155,13 @@ namespace Models
       void deleteSupportBackup() { this->supportBackup_ = nullptr;};
       inline bool getSupportBackup() const { DARABONBA_PTR_GET_DEFAULT(supportBackup_, false) };
       inline Data& setSupportBackup(bool supportBackup) { DARABONBA_PTR_SET_VALUE(supportBackup_, supportBackup) };
+
+
+      // supportConvertComputeFreeToPostPaid Field Functions 
+      bool hasSupportConvertComputeFreeToPostPaid() const { return this->supportConvertComputeFreeToPostPaid_ != nullptr;};
+      void deleteSupportConvertComputeFreeToPostPaid() { this->supportConvertComputeFreeToPostPaid_ = nullptr;};
+      inline bool getSupportConvertComputeFreeToPostPaid() const { DARABONBA_PTR_GET_DEFAULT(supportConvertComputeFreeToPostPaid_, false) };
+      inline Data& setSupportConvertComputeFreeToPostPaid(bool supportConvertComputeFreeToPostPaid) { DARABONBA_PTR_SET_VALUE(supportConvertComputeFreeToPostPaid_, supportConvertComputeFreeToPostPaid) };
 
 
       // supportCreateAgent Field Functions 
@@ -283,6 +292,7 @@ namespace Models
       // - **1**: Data backup is supported.
       // - **2**: Data backup is not supported.
       shared_ptr<bool> supportBackup_ {};
+      shared_ptr<bool> supportConvertComputeFreeToPostPaid_ {};
       // Indicates whether agent creation is supported.
       shared_ptr<bool> supportCreateAgent_ {};
       // Indicates whether compute groups of non-standard specifications can be created.

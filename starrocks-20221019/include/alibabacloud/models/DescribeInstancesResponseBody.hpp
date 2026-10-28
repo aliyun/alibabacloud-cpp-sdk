@@ -51,6 +51,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AiFunctionInstanceId, aiFunctionInstanceId_);
         DARABONBA_PTR_TO_JSON(Architecture, architecture_);
         DARABONBA_PTR_TO_JSON(BeginTime, beginTime_);
+        DARABONBA_PTR_TO_JSON(ComputeFree, computeFree_);
         DARABONBA_PTR_TO_JSON(EnableAiFunction, enableAiFunction_);
         DARABONBA_PTR_TO_JSON(EnableAutoMinorVersionUpgrade, enableAutoMinorVersionUpgrade_);
         DARABONBA_PTR_TO_JSON(EnableMultiAz, enableMultiAz_);
@@ -89,6 +90,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(AiFunctionInstanceId, aiFunctionInstanceId_);
         DARABONBA_PTR_FROM_JSON(Architecture, architecture_);
         DARABONBA_PTR_FROM_JSON(BeginTime, beginTime_);
+        DARABONBA_PTR_FROM_JSON(ComputeFree, computeFree_);
         DARABONBA_PTR_FROM_JSON(EnableAiFunction, enableAiFunction_);
         DARABONBA_PTR_FROM_JSON(EnableAutoMinorVersionUpgrade, enableAutoMinorVersionUpgrade_);
         DARABONBA_PTR_FROM_JSON(EnableMultiAz, enableMultiAz_);
@@ -178,7 +180,7 @@ namespace Models
 
 
       protected:
-        // Specifies whether the vSwitch is the primary vSwitch.
+        // Indicates whether the vSwitch is the primary vSwitch.
         shared_ptr<bool> primary_ {};
         // The vSwitch ID.
         shared_ptr<string> vswId_ {};
@@ -232,12 +234,13 @@ namespace Models
 
       virtual bool empty() const override { return this->aclId_ == nullptr
         && this->aiFunctionClusterId_ == nullptr && this->aiFunctionEndpoint_ == nullptr && this->aiFunctionInstanceId_ == nullptr && this->architecture_ == nullptr && this->beginTime_ == nullptr
-        && this->enableAiFunction_ == nullptr && this->enableAutoMinorVersionUpgrade_ == nullptr && this->enableMultiAz_ == nullptr && this->enableSSL_ == nullptr && this->enabledAuditLoader_ == nullptr
-        && this->encrypted_ == nullptr && this->eosDate_ == nullptr && this->expireTime_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr
-        && this->instanceStatus_ == nullptr && this->isolateLeader_ == nullptr && this->kmsKeyId_ == nullptr && this->maintainablePeriod_ == nullptr && this->minorVersion_ == nullptr
-        && this->monitorType_ == nullptr && this->ossLocation_ == nullptr && this->packageType_ == nullptr && this->payType_ == nullptr && this->regionId_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->runMode_ == nullptr && this->runningTime_ == nullptr && this->securityGroupManaged_ == nullptr && this->sgId_ == nullptr
-        && this->tags_ == nullptr && this->vSwitches_ == nullptr && this->version_ == nullptr && this->versionLifecycleStatus_ == nullptr && this->vpcId_ == nullptr; };
+        && this->computeFree_ == nullptr && this->enableAiFunction_ == nullptr && this->enableAutoMinorVersionUpgrade_ == nullptr && this->enableMultiAz_ == nullptr && this->enableSSL_ == nullptr
+        && this->enabledAuditLoader_ == nullptr && this->encrypted_ == nullptr && this->eosDate_ == nullptr && this->expireTime_ == nullptr && this->instanceId_ == nullptr
+        && this->instanceName_ == nullptr && this->instanceStatus_ == nullptr && this->isolateLeader_ == nullptr && this->kmsKeyId_ == nullptr && this->maintainablePeriod_ == nullptr
+        && this->minorVersion_ == nullptr && this->monitorType_ == nullptr && this->ossLocation_ == nullptr && this->packageType_ == nullptr && this->payType_ == nullptr
+        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->runMode_ == nullptr && this->runningTime_ == nullptr && this->securityGroupManaged_ == nullptr
+        && this->sgId_ == nullptr && this->tags_ == nullptr && this->vSwitches_ == nullptr && this->version_ == nullptr && this->versionLifecycleStatus_ == nullptr
+        && this->vpcId_ == nullptr; };
       // aclId Field Functions 
       bool hasAclId() const { return this->aclId_ != nullptr;};
       void deleteAclId() { this->aclId_ = nullptr;};
@@ -278,6 +281,13 @@ namespace Models
       void deleteBeginTime() { this->beginTime_ = nullptr;};
       inline int64_t getBeginTime() const { DARABONBA_PTR_GET_DEFAULT(beginTime_, 0L) };
       inline Data& setBeginTime(int64_t beginTime) { DARABONBA_PTR_SET_VALUE(beginTime_, beginTime) };
+
+
+      // computeFree Field Functions 
+      bool hasComputeFree() const { return this->computeFree_ != nullptr;};
+      void deleteComputeFree() { this->computeFree_ = nullptr;};
+      inline bool getComputeFree() const { DARABONBA_PTR_GET_DEFAULT(computeFree_, false) };
+      inline Data& setComputeFree(bool computeFree) { DARABONBA_PTR_SET_VALUE(computeFree_, computeFree) };
 
 
       // enableAiFunction Field Functions 
@@ -497,9 +507,9 @@ namespace Models
     protected:
       // The network access control list (ACL) ID.
       shared_ptr<string> aclId_ {};
-      // The AI dedicated cluster ID. The ID is prefixed with af-. This parameter is returned if an unreleased dedicated cluster exists, including those being created. If no dedicated cluster is created, this parameter is empty.
+      // The AI dedicated cluster ID. The ID has an af- prefix. This parameter is returned if an unreleased dedicated cluster exists, including those being created. If no dedicated cluster is created, this parameter is empty.
       shared_ptr<string> aiFunctionClusterId_ {};
-      // The internal network connection endpoint of the AI dedicated cluster. The format is fe-{AiFunctionClusterId}-internal.starrocks.aliyuncs.com. This parameter is returned only after the dedicated cluster is created. If no dedicated cluster is created, this parameter is empty.
+      // The internal network endpoint of the AI dedicated cluster. The format is fe-{AiFunctionClusterId}-internal.starrocks.aliyuncs.com. This parameter is returned only after the dedicated cluster is created. If no dedicated cluster is created, this parameter is empty.
       shared_ptr<string> aiFunctionEndpoint_ {};
       // The AI function billing instance ID.
       shared_ptr<string> aiFunctionInstanceId_ {};
@@ -511,18 +521,20 @@ namespace Models
       shared_ptr<string> architecture_ {};
       // The time when the cluster was created.
       shared_ptr<int64_t> beginTime_ {};
-      // Specifies whether the AI center is enabled. Default value: false.
+      shared_ptr<bool> computeFree_ {};
+      // Indicates whether the AI center is enabled. Default value: false.
       shared_ptr<bool> enableAiFunction_ {};
-      // Specifies whether automatic minor version upgrades are allowed.
+      // Indicates whether automatic minor version upgrades are allowed.
       shared_ptr<bool> enableAutoMinorVersionUpgrade_ {};
-      // Specifies whether disaster recovery is enabled.
+      // Indicates whether disaster recovery is enabled.
       shared_ptr<bool> enableMultiAz_ {};
-      // Specifies whether SSL is enabled.
+      // Indicates whether SSL is enabled.
       shared_ptr<bool> enableSSL_ {};
-      // Specifies whether the audit plug-in is enabled.
+      // Indicates whether the audit plug-in is enabled.
       shared_ptr<bool> enabledAuditLoader_ {};
-      // Specifies whether encryption is enabled.
+      // Indicates whether encryption is enabled.
       shared_ptr<bool> encrypted_ {};
+      // The end-of-support date for the cluster version.
       shared_ptr<string> eosDate_ {};
       // The expiration time of the cluster.
       shared_ptr<int64_t> expireTime_ {};
@@ -533,13 +545,13 @@ namespace Models
       // The instance status. Valid values:
       // 
       // - not_init: Not initialized.
-      // - unpaid: Pending payment.
+      // - unpaid: Unpaid.
       // - paid: Paid.
       // - creating: Creating.
       // - creating_failed: Creation failed.
       // - created: Created.
       // - running: Running.
-      // - updating: Updating.
+      // - updating: Upgrading.
       // - agent_creating: Creating the agent.
       // - agent_scaling_up: Scaling up the agent.
       // - modifying_config: Updating configurations.
@@ -548,14 +560,14 @@ namespace Models
       // - scaling_in: Scaling in.
       // - scaling_up: Scaling up.
       // - scaling_down: Scaling down.
-      // - upgrading: Upgrading.
-      // - enable_public_network: Enabling public network access.
-      // - disable_public_network: Disabling public network access.
+      // - upgrading: Upgrading the version.
+      // - enable_public_network: Enabling the public network.
+      // - disable_public_network: Disabling the public network.
       // - convert_from_trial_to_official: Converting the edition.
       // - migration_cluster_to_serverless: Migrating the cluster.
       // - modifying_timezone: Modifying the time zone.
       // - switch_az: Switching the primary and secondary zones.
-      // - enabling: Resuming.
+      // - enabling: Recovering.
       // - disable: Unavailable.
       // - actively_disabled: Unavailable.
       // - deleting: Deleting.
@@ -563,7 +575,7 @@ namespace Models
       // - deleted_with_error: Ended due to creation failure.
       // - deleted: Deleted.
       shared_ptr<string> instanceStatus_ {};
-      // Specifies whether read/write splitting is enabled. If enabled, the leader FE node processes write requests and other nodes process read requests.
+      // Indicates whether read/write splitting is enabled. If enabled, the leader FE node processes write requests and other nodes process read requests.
       shared_ptr<bool> isolateLeader_ {};
       // The KMS key ID.
       shared_ptr<string> kmsKeyId_ {};
@@ -608,22 +620,23 @@ namespace Models
       // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
       // The running mode of the cluster. Valid values:
-      // - shared_nothing: Shared-nothing architecture.
-      // - shared_data: Shared-data architecture.
+      // - shared_nothing: Shared-nothing.
+      // - shared_data: Shared-data.
       // - lakehouse: Lakehouse.
       shared_ptr<string> runMode_ {};
       // The running time of the cluster. Unit: seconds.
       shared_ptr<int64_t> runningTime_ {};
-      // Specifies whether the security group is a managed security group.
+      // Indicates whether the managed security group is used.
       shared_ptr<bool> securityGroupManaged_ {};
       // The security group ID.
       shared_ptr<string> sgId_ {};
       // The tags bound to the instance.
       shared_ptr<vector<Data::Tags>> tags_ {};
-      // The list of vSwitches.
+      // The vSwitches.
       shared_ptr<vector<Data::VSwitches>> vSwitches_ {};
       // The cluster version.
       shared_ptr<string> version_ {};
+      // The version lifecycle status.
       shared_ptr<string> versionLifecycleStatus_ {};
       // The VPC ID.
       shared_ptr<string> vpcId_ {};

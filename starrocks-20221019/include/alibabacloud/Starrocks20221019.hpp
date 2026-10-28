@@ -483,9 +483,9 @@ namespace Starrocks20221019
       Models::DescribeInstanceMetaTokenResponse describeInstanceMetaToken(const Models::DescribeInstanceMetaTokenRequest &request);
 
       /**
-       * @summary Queries Serverless StarRocks instances. You can filter the results by instance name or tags.
+       * @summary Queries Serverless StarRocks instances and supports filtering by instance name or tags.
        *
-       * @description >Danger: After an instance is released, the physical resources used by the instance are reclaimed. All related data is lost and cannot be recovered.
+       * @description >Danger: After an instance is released, all physical resources used by the instance are reclaimed. All related data is lost and cannot be recovered.
        *
        * @param tmpReq DescribeInstancesRequest
        * @param headers map
@@ -495,9 +495,9 @@ namespace Starrocks20221019
       Models::DescribeInstancesResponse describeInstancesWithOptions(const Models::DescribeInstancesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries Serverless StarRocks instances. You can filter the results by instance name or tags.
+       * @summary Queries Serverless StarRocks instances and supports filtering by instance name or tags.
        *
-       * @description >Danger: After an instance is released, the physical resources used by the instance are reclaimed. All related data is lost and cannot be recovered.
+       * @description >Danger: After an instance is released, all physical resources used by the instance are reclaimed. All related data is lost and cannot be recovered.
        *
        * @param request DescribeInstancesRequest
        * @return DescribeInstancesResponse
