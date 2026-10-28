@@ -44,6 +44,7 @@
 #include <alibabacloud/models/JuiceFsMountConfig.hpp>
 #include <alibabacloud/models/JuiceFsConfig.hpp>
 #include <alibabacloud/models/LogConfig.hpp>
+#include <alibabacloud/models/Step.hpp>
 #include <alibabacloud/models/MicroSandboxConfig.hpp>
 #include <alibabacloud/models/NASMountConfig.hpp>
 #include <alibabacloud/models/NASConfig.hpp>

@@ -3,6 +3,8 @@
 #define ALIBABACLOUD_MODELS_MICROSANDBOXCONFIG_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/RegistryConfig.hpp>
+#include <vector>
+#include <alibabacloud/models/Step.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -20,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(readyCommand, readyCommand_);
       DARABONBA_PTR_TO_JSON(registryConfig, registryConfig_);
       DARABONBA_PTR_TO_JSON(startCommand, startCommand_);
+      DARABONBA_PTR_TO_JSON(steps, steps_);
     };
     friend void from_json(const Darabonba::Json& j, MicroSandboxConfig& obj) { 
       DARABONBA_PTR_FROM_JSON(acrInstanceId, acrInstanceId_);
@@ -28,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(readyCommand, readyCommand_);
       DARABONBA_PTR_FROM_JSON(registryConfig, registryConfig_);
       DARABONBA_PTR_FROM_JSON(startCommand, startCommand_);
+      DARABONBA_PTR_FROM_JSON(steps, steps_);
     };
     MicroSandboxConfig() = default ;
     MicroSandboxConfig(const MicroSandboxConfig &) = default ;
@@ -41,7 +45,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acrInstanceId_ == nullptr
-        && this->image_ == nullptr && this->osType_ == nullptr && this->readyCommand_ == nullptr && this->registryConfig_ == nullptr && this->startCommand_ == nullptr; };
+        && this->image_ == nullptr && this->osType_ == nullptr && this->readyCommand_ == nullptr && this->registryConfig_ == nullptr && this->startCommand_ == nullptr
+        && this->steps_ == nullptr; };
     // acrInstanceId Field Functions 
     bool hasAcrInstanceId() const { return this->acrInstanceId_ != nullptr;};
     void deleteAcrInstanceId() { this->acrInstanceId_ = nullptr;};
@@ -86,8 +91,17 @@ namespace Models
     inline MicroSandboxConfig& setStartCommand(string startCommand) { DARABONBA_PTR_SET_VALUE(startCommand_, startCommand) };
 
 
+    // steps Field Functions 
+    bool hasSteps() const { return this->steps_ != nullptr;};
+    void deleteSteps() { this->steps_ = nullptr;};
+    inline const vector<Step> & getSteps() const { DARABONBA_PTR_GET_CONST(steps_, vector<Step>) };
+    inline vector<Step> getSteps() { DARABONBA_PTR_GET(steps_, vector<Step>) };
+    inline MicroSandboxConfig& setSteps(const vector<Step> & steps) { DARABONBA_PTR_SET_VALUE(steps_, steps) };
+    inline MicroSandboxConfig& setSteps(vector<Step> && steps) { DARABONBA_PTR_SET_RVALUE(steps_, steps) };
+
+
   protected:
-    // The instance ID of the Container Registry (ACR) Enterprise Edition image repository. This parameter is used together with MicroSandbox images. This parameter is optional. If not provided, the server resolves it as needed.
+    // The ID of the ACR Enterprise Edition image repository instance. It is used in combination with MicroSandbox images. This parameter is optional. If it is not provided, the server resolves it on demand.
     shared_ptr<string> acrInstanceId_ {};
     // The image address.
     shared_ptr<string> image_ {};
@@ -97,8 +111,10 @@ namespace Models
     shared_ptr<string> readyCommand_ {};
     // The image repository configuration.
     shared_ptr<RegistryConfig> registryConfig_ {};
-    // The start command.
+    // The startup command.
     shared_ptr<string> startCommand_ {};
+    // The build steps.
+    shared_ptr<vector<Step>> steps_ {};
   };
 
   } // namespace Models

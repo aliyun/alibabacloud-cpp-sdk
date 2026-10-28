@@ -75,14 +75,15 @@ namespace Models
 
 
   protected:
+    // The additional mount parameter settings.
     shared_ptr<string> extraOptions_ {};
-    // The ID of the PolarFS file system instance to mount.
+    // The PolarFS instance ID.
     shared_ptr<string> instanceId_ {};
-    // The local mount directory in the function\\"s runtime environment.
+    // The local mount directory.
     shared_ptr<string> mountDir_ {};
-    // Specifies whether the file system is mounted as read-only. If `true`, write operations are prohibited.
+    // The read-only mount.
     shared_ptr<bool> readOnly_ {};
-    // The directory within the PolarFS file system to mount.
+    // The PolarFS directory.
     shared_ptr<string> remoteDir_ {};
   };
 

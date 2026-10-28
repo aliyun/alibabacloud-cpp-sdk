@@ -93,11 +93,17 @@ namespace Models
 
 
   protected:
+    // Specifies whether to allow sending credentials.
     shared_ptr<bool> allowCredentials_ {};
+    // The list of allowed request headers.
     shared_ptr<vector<string>> allowHeaders_ {};
+    // The list of allowed HTTP methods.
     shared_ptr<vector<string>> allowMethods_ {};
+    // The list of allowed origins.
     shared_ptr<vector<string>> allowOrigins_ {};
+    // The list of exposed response headers.
     shared_ptr<vector<string>> exposeHeaders_ {};
+    // The cache time for preflight requests, in seconds.
     shared_ptr<int32_t> maxAge_ {};
   };
 

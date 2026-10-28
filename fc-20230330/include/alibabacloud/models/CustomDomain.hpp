@@ -176,32 +176,31 @@ namespace Models
 
 
   protected:
-    // The ID of the Alibaba Cloud account (primary account).
+    // The ID of your Alibaba Cloud account.
     shared_ptr<string> accountId_ {};
     // The API version of Function Compute.
     shared_ptr<string> apiVersion_ {};
     // The authentication configuration.
     shared_ptr<AuthConfig> authConfig_ {};
-    // The HTTPS certificate configuration.
+    // The HTTPS certificate information.
     shared_ptr<CertConfig> certConfig_ {};
-    // The cross-origin resource sharing (CORS) configuration.
     shared_ptr<CORSConfig> corsConfig_ {};
-    // The time when the custom domain was created.
+    // The time when the custom domain name was created.
     shared_ptr<string> createdTime_ {};
     // The domain name.
     shared_ptr<string> domainName_ {};
     shared_ptr<bool> isE2B_ {};
-    // The time when the custom domain was last modified.
+    // The time when the custom domain name was last updated.
     shared_ptr<string> lastModifiedTime_ {};
-    // The protocols that are supported by the domain name. Valid values: HTTP (HTTP only), HTTPS (HTTPS only), and HTTP,HTTPS (both HTTP and HTTPS).
+    // The protocol types supported by the domain name. HTTP: supports only the HTTP protocol. HTTPS: supports only the HTTPS protocol. HTTP,HTTPS: supports both the HTTP and HTTPS protocols.
     shared_ptr<string> protocol_ {};
-    // The route table that maps paths to functions.
+    // The route table that maps paths to functions when the custom domain name is accessed.
     shared_ptr<RouteConfig> routeConfig_ {};
     // The number of subdomains.
     shared_ptr<string> subdomainCount_ {};
     // The TLS configuration.
     shared_ptr<TLSConfig> tlsConfig_ {};
-    // The Web Application Firewall (WAF) aconfiguration.
+    // The Web Application Firewall (WAF) configuration.
     shared_ptr<WAFConfig> wafConfig_ {};
   };
 

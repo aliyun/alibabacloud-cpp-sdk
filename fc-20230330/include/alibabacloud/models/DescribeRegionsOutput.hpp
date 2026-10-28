@@ -104,7 +104,7 @@ namespace Models
 
 
     protected:
-      // The collection of region information.
+      // The region information collection.
       shared_ptr<vector<Regions::Region>> region_ {};
     };
 

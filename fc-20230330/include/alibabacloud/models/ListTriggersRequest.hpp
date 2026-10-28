@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The number of triggers to return.
+    // The number of returned triggers.
     shared_ptr<int32_t> limit_ {};
-    // The token that marks the start of the next page of results.
+    // The pagination start token.
     shared_ptr<string> nextToken_ {};
-    // The trigger name prefix.
+    // The prefix of the trigger name.
     shared_ptr<string> prefix_ {};
   };
 

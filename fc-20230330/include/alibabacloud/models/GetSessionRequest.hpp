@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The function alias or version associated with the session ID to query.
+    // The alias or version of the function associated with the session ID to query.
     shared_ptr<string> qualifier_ {};
   };
 

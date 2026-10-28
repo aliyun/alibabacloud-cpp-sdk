@@ -78,15 +78,14 @@ namespace Models
 
 
   protected:
-    // An array of strings containing additional command-line arguments for the mount command. For example, use these arguments to set cache sizes or other performance-tuning options.
     shared_ptr<vector<string>> args_ {};
-    // The path within the function\\"s local filesystem to mount the volume. For example, /mnt/data. This parameter is required.
+    // The directory mounted to the function.
     shared_ptr<string> mountDir_ {};
-    // The subdirectory within the JuiceFS volume to mount. If not specified, the root of the volume is mounted.
+    // The JuiceFS remote directory.
     shared_ptr<string> remoteDir_ {};
-    // The authentication token to access the JuiceFS volume.
+    // The token information.
     shared_ptr<string> token_ {};
-    // The name of the JuiceFS volume to mount. This parameter is required.
+    // The JuiceFS name.
     shared_ptr<string> volumeName_ {};
   };
 

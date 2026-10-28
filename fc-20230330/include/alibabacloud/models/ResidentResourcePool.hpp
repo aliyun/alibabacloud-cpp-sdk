@@ -141,22 +141,22 @@ namespace Models
 
 
   protected:
-    // The real-time allocation status of the resource pool, including the specific allocation details for each function.
+    // 资源池实时分配情况，包含每个函数的具体分配情况
     shared_ptr<ResidentResourceAllocationStatus> allocationStatus_ {};
     shared_ptr<string> associatedPoolId_ {};
-    // The resource property field that represents the creation time.
+    // 代表创建时间的资源属性字段
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> createdTime_ {};
-    // The expiration time of the resource pool.
+    // 资源池过期时间
     shared_ptr<string> expireTime_ {};
-    // The last modification time, including operations such as scaling, renewal, and renaming.
+    // 上次修改时间，包含扩容、续费、更名等操作
     shared_ptr<string> lastModifiedTime_ {};
     shared_ptr<string> poolType_ {};
     shared_ptr<string> residentResourcePoolId_ {};
-    // The resource property field that represents the resource name.
+    // 代表资源名称的资源属性字段
     shared_ptr<string> residentResourcePoolName_ {};
-    // The overall specifications of the resource pool.
+    // 资源池总体规格
     shared_ptr<ResidentResourceCapacity> resourcePoolCapacity_ {};
     shared_ptr<ResidentResourceCapacity> resourcePoolConfig_ {};
     shared_ptr<TimedPoolConfig> timedConfig_ {};

@@ -53,7 +53,7 @@ namespace Models
   protected:
     // The request body for creating a snapshot.
     shared_ptr<CreateSnapshotInput> body_ {};
-    // The function alias.
+    // The alias of the function.
     shared_ptr<string> qualifier_ {};
   };
 

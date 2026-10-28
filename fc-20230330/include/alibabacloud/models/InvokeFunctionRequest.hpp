@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Function invocation parameter
+    // The parameters for function invoke.
     shared_ptr<Darabonba::IStream> body_ {};
-    // Function version or alias
+    // The version or alias of the function.
     shared_ptr<string> qualifier_ {};
   };
 

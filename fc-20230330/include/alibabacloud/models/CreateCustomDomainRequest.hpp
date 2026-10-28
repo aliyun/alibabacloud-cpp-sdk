@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The information about the custom domain name.
+    // The custom domain name information.
     // 
     // This parameter is required.
     shared_ptr<CreateCustomDomainInput> body_ {};

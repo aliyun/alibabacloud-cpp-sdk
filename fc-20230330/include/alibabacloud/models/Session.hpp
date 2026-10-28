@@ -19,6 +19,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const Session& obj) { 
       DARABONBA_PTR_TO_JSON(allowInternetAccess, allowInternetAccess_);
+      DARABONBA_PTR_TO_JSON(autoPauseFileSystemOnly, autoPauseFileSystemOnly_);
       DARABONBA_PTR_TO_JSON(containerId, containerId_);
       DARABONBA_PTR_TO_JSON(createdTime, createdTime_);
       DARABONBA_PTR_TO_JSON(disableSessionIdReuse, disableSessionIdReuse_);
@@ -41,6 +42,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, Session& obj) { 
       DARABONBA_PTR_FROM_JSON(allowInternetAccess, allowInternetAccess_);
+      DARABONBA_PTR_FROM_JSON(autoPauseFileSystemOnly, autoPauseFileSystemOnly_);
       DARABONBA_PTR_FROM_JSON(containerId, containerId_);
       DARABONBA_PTR_FROM_JSON(createdTime, createdTime_);
       DARABONBA_PTR_FROM_JSON(disableSessionIdReuse, disableSessionIdReuse_);
@@ -73,15 +75,22 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->allowInternetAccess_ == nullptr
-        && this->containerId_ == nullptr && this->createdTime_ == nullptr && this->disableSessionIdReuse_ == nullptr && this->enableAutoPause_ == nullptr && this->enableAutoResume_ == nullptr
-        && this->functionName_ == nullptr && this->juiceFsConfig_ == nullptr && this->lastModifiedTime_ == nullptr && this->nasConfig_ == nullptr && this->network_ == nullptr
-        && this->ossMountConfig_ == nullptr && this->polarFsConfig_ == nullptr && this->qualifier_ == nullptr && this->sessionAffinityType_ == nullptr && this->sessionId_ == nullptr
-        && this->sessionIdleTimeoutInSeconds_ == nullptr && this->sessionStatus_ == nullptr && this->sessionTTLInSeconds_ == nullptr && this->trafficAccessToken_ == nullptr; };
+        && this->autoPauseFileSystemOnly_ == nullptr && this->containerId_ == nullptr && this->createdTime_ == nullptr && this->disableSessionIdReuse_ == nullptr && this->enableAutoPause_ == nullptr
+        && this->enableAutoResume_ == nullptr && this->functionName_ == nullptr && this->juiceFsConfig_ == nullptr && this->lastModifiedTime_ == nullptr && this->nasConfig_ == nullptr
+        && this->network_ == nullptr && this->ossMountConfig_ == nullptr && this->polarFsConfig_ == nullptr && this->qualifier_ == nullptr && this->sessionAffinityType_ == nullptr
+        && this->sessionId_ == nullptr && this->sessionIdleTimeoutInSeconds_ == nullptr && this->sessionStatus_ == nullptr && this->sessionTTLInSeconds_ == nullptr && this->trafficAccessToken_ == nullptr; };
     // allowInternetAccess Field Functions 
     bool hasAllowInternetAccess() const { return this->allowInternetAccess_ != nullptr;};
     void deleteAllowInternetAccess() { this->allowInternetAccess_ = nullptr;};
     inline bool getAllowInternetAccess() const { DARABONBA_PTR_GET_DEFAULT(allowInternetAccess_, false) };
     inline Session& setAllowInternetAccess(bool allowInternetAccess) { DARABONBA_PTR_SET_VALUE(allowInternetAccess_, allowInternetAccess) };
+
+
+    // autoPauseFileSystemOnly Field Functions 
+    bool hasAutoPauseFileSystemOnly() const { return this->autoPauseFileSystemOnly_ != nullptr;};
+    void deleteAutoPauseFileSystemOnly() { this->autoPauseFileSystemOnly_ = nullptr;};
+    inline bool getAutoPauseFileSystemOnly() const { DARABONBA_PTR_GET_DEFAULT(autoPauseFileSystemOnly_, false) };
+    inline Session& setAutoPauseFileSystemOnly(bool autoPauseFileSystemOnly) { DARABONBA_PTR_SET_VALUE(autoPauseFileSystemOnly_, autoPauseFileSystemOnly) };
 
 
     // containerId Field Functions 
@@ -229,6 +238,7 @@ namespace Models
 
   protected:
     shared_ptr<bool> allowInternetAccess_ {};
+    shared_ptr<bool> autoPauseFileSystemOnly_ {};
     // The instance ID of the function associated with the session.
     shared_ptr<string> containerId_ {};
     // The time when the session was created.

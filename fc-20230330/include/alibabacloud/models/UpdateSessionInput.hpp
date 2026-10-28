@@ -19,6 +19,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const UpdateSessionInput& obj) { 
       DARABONBA_PTR_TO_JSON(allowInternetAccess, allowInternetAccess_);
+      DARABONBA_PTR_TO_JSON(autoPauseFileSystemOnly, autoPauseFileSystemOnly_);
       DARABONBA_PTR_TO_JSON(disableSessionIdReuse, disableSessionIdReuse_);
       DARABONBA_PTR_TO_JSON(enableAutoPause, enableAutoPause_);
       DARABONBA_PTR_TO_JSON(enableAutoResume, enableAutoResume_);
@@ -32,6 +33,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, UpdateSessionInput& obj) { 
       DARABONBA_PTR_FROM_JSON(allowInternetAccess, allowInternetAccess_);
+      DARABONBA_PTR_FROM_JSON(autoPauseFileSystemOnly, autoPauseFileSystemOnly_);
       DARABONBA_PTR_FROM_JSON(disableSessionIdReuse, disableSessionIdReuse_);
       DARABONBA_PTR_FROM_JSON(enableAutoPause, enableAutoPause_);
       DARABONBA_PTR_FROM_JSON(enableAutoResume, enableAutoResume_);
@@ -55,13 +57,21 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->allowInternetAccess_ == nullptr
-        && this->disableSessionIdReuse_ == nullptr && this->enableAutoPause_ == nullptr && this->enableAutoResume_ == nullptr && this->juiceFsConfig_ == nullptr && this->nasConfig_ == nullptr
-        && this->network_ == nullptr && this->ossMountConfig_ == nullptr && this->polarFsConfig_ == nullptr && this->sessionIdleTimeoutInSeconds_ == nullptr && this->sessionTTLInSeconds_ == nullptr; };
+        && this->autoPauseFileSystemOnly_ == nullptr && this->disableSessionIdReuse_ == nullptr && this->enableAutoPause_ == nullptr && this->enableAutoResume_ == nullptr && this->juiceFsConfig_ == nullptr
+        && this->nasConfig_ == nullptr && this->network_ == nullptr && this->ossMountConfig_ == nullptr && this->polarFsConfig_ == nullptr && this->sessionIdleTimeoutInSeconds_ == nullptr
+        && this->sessionTTLInSeconds_ == nullptr; };
     // allowInternetAccess Field Functions 
     bool hasAllowInternetAccess() const { return this->allowInternetAccess_ != nullptr;};
     void deleteAllowInternetAccess() { this->allowInternetAccess_ = nullptr;};
     inline bool getAllowInternetAccess() const { DARABONBA_PTR_GET_DEFAULT(allowInternetAccess_, false) };
     inline UpdateSessionInput& setAllowInternetAccess(bool allowInternetAccess) { DARABONBA_PTR_SET_VALUE(allowInternetAccess_, allowInternetAccess) };
+
+
+    // autoPauseFileSystemOnly Field Functions 
+    bool hasAutoPauseFileSystemOnly() const { return this->autoPauseFileSystemOnly_ != nullptr;};
+    void deleteAutoPauseFileSystemOnly() { this->autoPauseFileSystemOnly_ = nullptr;};
+    inline bool getAutoPauseFileSystemOnly() const { DARABONBA_PTR_GET_DEFAULT(autoPauseFileSystemOnly_, false) };
+    inline UpdateSessionInput& setAutoPauseFileSystemOnly(bool autoPauseFileSystemOnly) { DARABONBA_PTR_SET_VALUE(autoPauseFileSystemOnly_, autoPauseFileSystemOnly) };
 
 
     // disableSessionIdReuse Field Functions 
@@ -146,6 +156,7 @@ namespace Models
 
   protected:
     shared_ptr<bool> allowInternetAccess_ {};
+    shared_ptr<bool> autoPauseFileSystemOnly_ {};
     // Specifies whether to disable session ID reuse after the session expires. Default value: False, which indicates that after a session expires, you can use the same session ID to initiate requests. The system treats the request as a new session and binds it to a new instance. If you set this parameter to True, the session ID cannot be reused after the session expires.
     shared_ptr<bool> disableSessionIdReuse_ {};
     shared_ptr<bool> enableAutoPause_ {};

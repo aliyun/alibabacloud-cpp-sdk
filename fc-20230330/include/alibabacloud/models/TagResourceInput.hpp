@@ -51,12 +51,8 @@ namespace Models
 
 
   protected:
-    // Resource descriptor.
-    // 
     // This parameter is required.
     shared_ptr<string> resourceArn_ {};
-    // Tag dictionary.
-    // 
     // This parameter is required.
     shared_ptr<map<string, string>> tags_ {};
   };

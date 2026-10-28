@@ -125,30 +125,29 @@ namespace Models
 
 
   protected:
-    // The function description to filter by.
+    // The description used to filter functions.
     shared_ptr<string> description_ {};
-    // The version to which the function belongs. Valid values:
+    // The version of the function. Valid values:
+    // - v3: Lists only Function Compute 3.0 functions.
+    // - v2: Lists only Function Compute 2.0 functions.
     // 
-    // - v3: lists only FC 3.0 functions.
-    // - v2: lists only FC 2.0 functions.
-    // 
-    // If not specified, both FC 3.0 and FC 2.0 functions are listed.
+    // Default value: empty. An empty value indicates that both Function Compute 3.0 and Function Compute 2.0 functions are listed.
     shared_ptr<string> fcVersion_ {};
-    // The function name.
+    // The name of the function.
     shared_ptr<string> functionName_ {};
-    // The function GPU type to filter by.
+    // The GPU type used to filter functions.
     shared_ptr<string> gpuType_ {};
-    // The number of functions to return. Minimum value: 1. Maximum value: 100.
+    // The number of functions to return. Valid values: 1 to 100.
     shared_ptr<int32_t> limit_ {};
     // The pagination token.
     shared_ptr<string> nextToken_ {};
-    // The function name prefix.
+    // The prefix of the function name.
     shared_ptr<string> prefix_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The function runtime to filter by.
+    // The runtime used to filter functions.
     shared_ptr<string> runtime_ {};
-    // The function tags to filter by.
+    // The tags used to filter functions.
     shared_ptr<vector<Tag>> tags_ {};
   };
 
