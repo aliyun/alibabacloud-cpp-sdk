@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // Success or not</br>
+    // The status code.
     shared_ptr<string> code_ {};
-    // Request ID</br>
+    // Indicates whether the operation is successful.
     shared_ptr<string> data_ {};
-    // Message</br>
+    // The prompt message.
     shared_ptr<string> message_ {};
-    // NO_STOP
+    // The prompt message.
     shared_ptr<string> msg_ {};
-    // success
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

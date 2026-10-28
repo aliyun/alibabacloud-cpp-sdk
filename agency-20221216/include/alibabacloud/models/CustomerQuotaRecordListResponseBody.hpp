@@ -135,24 +135,21 @@ namespace Models
 
 
     protected:
-      // The way to submit the quota adjustment operation. API/ACPN
+      // The method used to submit the operation, such as API or ACPN.
       shared_ptr<string> operationSubmitType_ {};
-      // The time of submit the quota adjustment operation.
+      // The time when the operation was performed. Format: YYYY-MM-DD HH:mm:ss UTC+8.
       shared_ptr<string> operationTime_ {};
-      // Operation Type Enum</br>
-      // all All types</br>
-      // quota_create Create quota</br>
-      // quota_amount_adjust Adjust the amount of quota</br>
+      // The code of the change type. Valid values: all: All, quota_create: Create, quota_amount_adjust: Quota adjustment.
       shared_ptr<string> operationTypeCode_ {};
-      // The description of submitted quota adjustment operation.
+      // The description of the change type.
       shared_ptr<string> operationTypeDesc_ {};
-      // The UID of operator(Partner\\"s UID).
+      // The UID of the operator.
       shared_ptr<string> operationUid_ {};
-      // Updated quota amount
+      // The amount after the update.
       shared_ptr<string> updateAfterAmount_ {};
-      // The difference amount between updated quota and original quota.
+      // The changed amount.
       shared_ptr<string> updateAmount_ {};
-      // Original quota amount
+      // The amount before the update.
       shared_ptr<string> updateBeforeAmount_ {};
     };
 
@@ -211,19 +208,19 @@ namespace Models
 
 
   protected:
-    // Status code of returning result, 200 means success.
+    // The status code of the returned result. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // Listed data of returning result
+    // The list of returned results.
     shared_ptr<vector<CustomerQuotaRecordListResponseBody::Data>> data_ {};
-    // Description of returning data
+    // The description of the returned result.
     shared_ptr<string> msg_ {};
-    // Current page number
+    // The current page number.
     shared_ptr<int32_t> pageNo_ {};
-    // Record number on each page
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // ID of request
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total volume
+    // The total number of entries.
     shared_ptr<int32_t> total_ {};
   };
 

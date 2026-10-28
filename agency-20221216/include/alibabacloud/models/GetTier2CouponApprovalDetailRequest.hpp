@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The ID of the application form.
     shared_ptr<string> applicationSheetId_ {};
   };
 

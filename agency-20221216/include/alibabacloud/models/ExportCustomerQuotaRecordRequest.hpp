@@ -75,27 +75,27 @@ namespace Models
 
 
   protected:
-    // End Date Format:  yyyy-MM-dd
+    // The end date. Format: yyyy-MM-dd.
     // 
     // This parameter is required.
     shared_ptr<string> endDate_ {};
-    // Customer UID
+    // The UID of the customer.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endUserPk_ {};
-    // Multilingual Parameters, the default language is English.</br>
-    // en: English</br>
-    // zh: Chinese</br>
-    // ja: Japanese </br>
+    // The language parameter. Default value: en. Valid values:
+    // - en: English.
+    // - zh: Chinese.
+    // - ja: Japanese.
     shared_ptr<string> language_ {};
-    // Operation Type Enum</br>
-    // all All types</br>
-    // quota_create Create quota</br>
-    // quota_amount_adjust Adjust the amount of quota</br>
+    // The operation type. Valid values:
+    // - all: All operations.
+    // - quota_create: Creation.
+    // - quota_amount_adjust: Quota amount adjustment.
     // 
     // This parameter is required.
     shared_ptr<string> operationType_ {};
-    // Start Date Format:  yyyy-MM-dd
+    // The start date. Format: yyyy-MM-dd.
     // 
     // This parameter is required.
     shared_ptr<string> startDate_ {};

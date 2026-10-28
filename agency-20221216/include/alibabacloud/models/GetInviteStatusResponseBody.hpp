@@ -268,16 +268,14 @@ namespace Models
 
 
   protected:
-    // Status Code. Error Code:
-    // 
-    // - 3057 InviteId is empty
+    // The status code. Error code: 3057: InviteId is empty.
     shared_ptr<string> code_ {};
     shared_ptr<GetInviteStatusResponseBody::Data> data_ {};
-    // The message returned.
+    // The message.
     shared_ptr<string> message_ {};
-    // Request ID, Alibaba Cloud will track errors with this.
+    // The request ID. Alibaba Cloud uses this ID for error tracking.
     shared_ptr<string> requestId_ {};
-    // Candidate Value: True/False, which indicates whether the current API call itself is successful. It does not guarantee the success of subsequent business operations.
+    // Indicates whether the API call is successful. Valid values: true and false. This parameter does not indicate whether subsequent business operations are successful.
     shared_ptr<bool> success_ {};
   };
 

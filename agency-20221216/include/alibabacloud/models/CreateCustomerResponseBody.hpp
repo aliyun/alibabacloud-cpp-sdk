@@ -75,15 +75,19 @@ namespace Models
 
 
   protected:
-    // Code indicating whether the call was successful.
+    // The code that indicates whether the call is successful.
     shared_ptr<string> code_ {};
-    // Data indicating whether a customer was successfully created. If it\\"s "true", the Message contains CID.
+    // Indicates whether the customer is created. If the value is true, the Message contains the CID.
     shared_ptr<bool> data_ {};
-    // Massage indicating whether the call was successful.
+    // The same as the Code parameter.
     shared_ptr<string> message_ {};
-    // Request ID, Alibaba Cloud will track errors with this.
+    // The request ID. Alibaba Cloud uses this ID for error tracking.
     shared_ptr<string> requestId_ {};
-    // Candidate Value: True/False, which indicates whether the current API call it self was successful. It does not guarantee the success of subsequent business operations.
+    // Indicates whether the current API call is successful. Valid values:
+    // - True
+    // - False
+    // 
+    // This does not indicate whether the subsequent business operation is successful.
     shared_ptr<bool> success_ {};
   };
 

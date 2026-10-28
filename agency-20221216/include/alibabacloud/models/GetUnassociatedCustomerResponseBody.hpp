@@ -87,11 +87,11 @@ namespace Models
 
 
     protected:
-      // Pagination, current page.
+      // The current page number for pagination.
       shared_ptr<int32_t> page_ {};
-      // Pagination, record number on each page.
+      // The number of records per page.
       shared_ptr<int32_t> pageSize_ {};
-      // Pagination, page volume in total.
+      // The total number of records.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -249,18 +249,18 @@ namespace Models
 
 
   protected:
-    // Error Code, Candidate Value：
-    // * 200: OK
-    // * 1109: System error
+    // The error code. Valid values:
+    // 200: OK.
+    // 1109: System error.
     shared_ptr<string> code_ {};
     shared_ptr<GetUnassociatedCustomerResponseBody::InviteInfoList> inviteInfoList_ {};
-    // Message information
+    // The message information.
     shared_ptr<string> message_ {};
-    // Pagination Information
+    // The pagination information.
     shared_ptr<GetUnassociatedCustomerResponseBody::PageInfo> pageInfo_ {};
-    // Request ID, Alibaba Cloud will track errors with this.
+    // The request ID. Alibaba Cloud uses this ID for error tracking.
     shared_ptr<string> requestId_ {};
-    // Candidate Value: True/False, which indicates whether the current API call itself is successful. It does not guarantee the success of subsequent business operations.
+    // Indicates whether the current API call itself is successful. Valid values: True and False. This does not indicate the success of subsequent business operations.
     shared_ptr<bool> success_ {};
   };
 

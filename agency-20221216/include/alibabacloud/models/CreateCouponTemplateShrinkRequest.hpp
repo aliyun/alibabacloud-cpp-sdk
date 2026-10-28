@@ -158,26 +158,73 @@ namespace Models
 
 
   protected:
+    // The accepted language.
+    // Default value: None.
+    // Valid values:
+    // - zh-CN: Chinese.
+    // - en-US: English.
+    // - ja: Japanese.
+    // 
     // This parameter is required.
     shared_ptr<string> acceptLanguage_ {};
+    // The applicable products.
+    // - All Products: All products.
+    // - Custom: Custom products.
+    // 
     // This parameter is required.
     shared_ptr<string> applicableProducts_ {};
+    // The party that bears the coupon cost.
+    // - Partner: Borne by the partner.
+    // - Alibaba Cloud: Borne by Alibaba Cloud.
+    // 
     // This parameter is required.
     shared_ptr<string> costBearer_ {};
+    // The remark for the coupon.
+    // The field length is limited to 100 characters.
     shared_ptr<string> couponDescription_ {};
+    // The end time of the effective period.
+    // Format: yyyy-MM-dd.
+    // Example: 2024-08-26.  
+    // This parameter is required when the validity period is set to Custom Timeframe.
     shared_ptr<string> expireddate_ {};
+    // The maximum number of coupons that each person can claim.
+    // - Limited to 1: Limited to one coupon.
+    // - Unlimited: Unlimited.
+    // 
     // This parameter is required.
     shared_ptr<string> limitPerPerson_ {};
+    // The list of product codes.
     shared_ptr<string> productTypeShrink_ {};
+    // The order type.
     shared_ptr<string> purchaseType_ {};
+    // The reason for the template application.
+    // The field length is limited to 100 characters.
+    // 
     // This parameter is required.
     shared_ptr<string> reasonForApplication_ {};
+    // The template name.
+    // The field length is limited to 30 characters.
+    // 
     // This parameter is required.
     shared_ptr<string> templateName_ {};
+    // The start time of the effective period.
+    // Format: yyyy-MM-dd.
+    // Example: 2024-08-26.  
+    // This parameter is required when the validity period is set to Custom Timeframe.
     shared_ptr<string> vailddate_ {};
+    // The duration of the relative time in days.
+    // The value must be a positive integer.
+    // This parameter is required when the validity period is set to Validity Duration.
     shared_ptr<string> vaildperioddays_ {};
+    // The validity period of the coupon.
+    // - Validity Duration: From the date of issuance.
+    // - Custom Timeframe: Custom time period.
+    // 
     // This parameter is required.
     shared_ptr<string> validUntil_ {};
+    // The denomination of the coupon.
+    // The value must be an integer.
+    // 
     // This parameter is required.
     shared_ptr<string> value_ {};
   };

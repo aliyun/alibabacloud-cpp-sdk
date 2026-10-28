@@ -73,7 +73,9 @@ namespace Models
 
 
     protected:
+      // The estimated duration, in minutes.
       shared_ptr<int32_t> cost_ {};
+      // The ID of the export task.
       shared_ptr<int64_t> id_ {};
     };
 
@@ -110,9 +112,13 @@ namespace Models
 
 
   protected:
+    // The status code of the response. A value of 200 indicates success.
     shared_ptr<string> code_ {};
+    // The response object.
     shared_ptr<ExportReversedDeductionHistoryResponseBody::Data> data_ {};
+    // The description of the response.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

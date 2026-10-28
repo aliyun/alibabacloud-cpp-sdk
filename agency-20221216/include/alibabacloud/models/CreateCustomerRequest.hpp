@@ -75,21 +75,24 @@ namespace Models
 
 
   protected:
-    // Customer\\"s name.
+    // The customer name.
     // 
     // This parameter is required.
     shared_ptr<string> customerName_ {};
-    // The source/channel that allow client to connected with us. Please enumerate with Customer Source.
+    // The customer source.
+    // Use the Customer Source enumeration.
     // 
     // This parameter is required.
     shared_ptr<string> customerSource_ {};
-    // The sub-industry that Customer\\"s business belongs to. Please enumerate with Customer Trade.
+    // The customer sub-industry.
+    // Use the Customer Sub Trade enumeration.
     shared_ptr<string> customerSubTrade_ {};
-    // The industry that Customer\\"s business belongs to. Please enumerate with Customer Trade.
+    // The customer industry name.
+    // Use the Customer Trade enumeration.
     // 
     // This parameter is required.
     shared_ptr<string> customerTrade_ {};
-    // The region that Customer choose to launch the Cloud Service. Please use ListCountries to confirm the valid region list for current UID.
+    // The region to which the customer belongs. Call ListCountries to obtain the list of available regions for the current UID.
     // 
     // This parameter is required.
     shared_ptr<string> nation_ {};

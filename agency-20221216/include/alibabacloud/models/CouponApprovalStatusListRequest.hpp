@@ -75,12 +75,26 @@ namespace Models
 
 
   protected:
+    // The page number.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of entries per page.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of the coupon template.
     shared_ptr<string> templateId_ {};
+    // The name of the template.
     shared_ptr<string> templateName_ {};
+    // The status of the coupon template. Valid values:
+    // - **1**: application revoked
+    // - **2**: under review
+    // - **3**: review rejected
+    // - **4**: review approved
+    // - **5**: review approved but issuance failed
+    // - **6**: automatically approved
+    // - **7**: automatically approved but issuance failed
     shared_ptr<string> templateStatus_ {};
   };
 

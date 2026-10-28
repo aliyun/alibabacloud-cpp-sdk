@@ -107,10 +107,30 @@ namespace Models
 
 
     protected:
+      // The current policy. Valid values:
+      // - immediatelyStop: immediate shutdown upon overdue payment.
+      // - delayStop: deferred shutdown quota applied.
+      // - noStop: no shutdown upon overdue payment.
+      // [_single.resp.200.props.Data.items.CurrentPolicy.enum.immediatelyStop ]Immediate shutdown upon overdue payment.
+      // [_single.resp.200.props.Data.items.CurrentPolicy.enum.noStop ]No shutdown upon overdue payment.
+      // [_single.resp.200.props.Data.items.CurrentPolicy.enum.delayStop ]Deferred shutdown quota applied.
       shared_ptr<string> currentPolicy_ {};
+      // The method by which the operation was initiated. Valid values:
+      // - API: API.
+      // - ACPN: ACPN.
+      // - ALIYUN_BIZ: Alibaba Cloud internal.
       shared_ptr<string> operationPath_ {};
+      // The operation time (UTC+8).
       shared_ptr<string> operationTime_ {};
+      // The operator.
       shared_ptr<string> operator_ {};
+      // The policy before the change. Valid values:
+      // - immediatelyStop: immediate shutdown upon overdue payment.
+      // - delayStop: deferred shutdown quota applied.
+      // - noStop: no shutdown upon overdue payment.
+      // [_single.resp.200.props.Data.items.PreviousPolicy.enum.immediatelyStop ]Immediate shutdown upon overdue payment.
+      // [_single.resp.200.props.Data.items.PreviousPolicy.enum.noStop ]No shutdown upon overdue payment.
+      // [_single.resp.200.props.Data.items.PreviousPolicy.enum.delayStop ]Deferred shutdown quota applied.
       shared_ptr<string> previousPolicy_ {};
     };
 
@@ -169,12 +189,19 @@ namespace Models
 
 
   protected:
+    // The result code.
     shared_ptr<string> code_ {};
+    // Indicates whether the customer was created. If the value is true, the Message contains the CID.
     shared_ptr<vector<GetShutdownPolicyRecordResponseBody::Data>> data_ {};
+    // The page number.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
+    // The total number of entries.
     shared_ptr<int32_t> total_ {};
   };
 

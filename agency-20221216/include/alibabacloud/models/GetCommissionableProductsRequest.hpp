@@ -106,13 +106,21 @@ namespace Models
 
 
   protected:
+    // The commodity codes. Separate multiple codes with commas.
     shared_ptr<string> commodityCodeList_ {};
+    // The fiscal year. If this parameter is left empty, the current fiscal year is used by default.
     shared_ptr<string> fiscalYear_ {};
+    // The list of display statuses for commission-eligible commodities.
     shared_ptr<vector<string>> listShowStatusList_ {};
+    // The current page number. Pages start from 1.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of entries per page. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
+    // The product codes. Separate multiple codes with commas.
     shared_ptr<string> pipCodeList_ {};
+    // The actual end month in the yyyymm format.
     shared_ptr<string> realEndMonth_ {};
+    // The actual start month in the yyyymm format.
     shared_ptr<string> realStartMonth_ {};
   };
 

@@ -176,18 +176,53 @@ namespace Models
 
 
     protected:
+      // The applicable products. Valid values:
+      // 
+      // - UNIVERSAL: all products
+      // 
+      // - a specific commodity code
       shared_ptr<string> applicableProducts_ {};
+      // The party that bears the coupon cost. Valid values:
+      // ● cost_by_self: The cost is borne by the caller.
+      // ● aliyun_poc: The cost is borne by Alibaba Cloud.
       shared_ptr<string> costBearer_ {};
+      // The remarks of the coupon.
       shared_ptr<string> couponDescription_ {};
+      // The creation time. The format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> createdTime_ {};
+      // The face value.
       shared_ptr<double> denomination_ {};
+      // The maximum number of coupons that each person can claim. Valid values:
+      // 
+      // - 1: Each person can claim one coupon.
+      // 
+      // - 0: No limit applies.
       shared_ptr<int32_t> limitPerPerson_ {};
+      // The order type. Valid values:
+      // - ALL: Alibaba Cloud upfront order
+      // - BILLING: Alibaba Cloud pay-as-you-go bill
       shared_ptr<string> purchaseType_ {};
+      // The reason for the template application.
       shared_ptr<string> reasonForApplication_ {};
+      // The status. Valid values:
+      // 
+      // - APPROVED: approved
+      // - ABANDONED: voided
       shared_ptr<string> status_ {};
+      // The template ID.
       shared_ptr<int64_t> templateId_ {};
+      // The name of the coupon template.
       shared_ptr<string> templateName_ {};
+      // The validity period. This parameter is used together with the validity period type.
+      // 
+      // - If the validity period type is relative time, the validity period is the number of valid days.
+      // 
+      // - If the validity period type is absolute time, the validity period is a time period.
       shared_ptr<string> validUntil_ {};
+      // The type of the validity period. Valid values:
+      // 
+      // - 0: relative time
+      // - 1: absolute time
       shared_ptr<string> validUntilType_ {};
     };
 
@@ -231,10 +266,15 @@ namespace Models
 
 
   protected:
+    // The result code.
     shared_ptr<string> code_ {};
+    // The operation result.
     shared_ptr<GetCouponTemplateDetailResponseBody::Data> data_ {};
+    // The prompt message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation was successful.
     shared_ptr<bool> success_ {};
   };
 

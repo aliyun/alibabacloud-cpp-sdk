@@ -66,11 +66,21 @@ namespace Models
 
 
   protected:
+    // The end date. Format: yyyy-MM-dd.
+    // 
     // This parameter is required.
     shared_ptr<string> endDate_ {};
+    // The UID for which the reversed deduction details are exported.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> exportUid_ {};
+    // The language of the exported content. Valid values:
+    // - en: English.
+    // - zh: Chinese.
+    // - ja: Japanese.
     shared_ptr<string> language_ {};
+    // The start date. Format: yyyy-MM-dd.
+    // 
     // This parameter is required.
     shared_ptr<string> startDate_ {};
   };

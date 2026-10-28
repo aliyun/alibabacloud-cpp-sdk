@@ -170,17 +170,44 @@ namespace Models
 
 
     protected:
+      // The applicable products.
+      // - All Products: All products.
+      // - Custom: Custom products.
       shared_ptr<string> applicableProducts_ {};
+      // The party that bears the coupon cost.
+      // - Partner: Borne by the partner.
+      // - Alibaba Cloud: Borne by Alibaba Cloud.
       shared_ptr<string> costBearer_ {};
+      // The ID of the coupon template.
       shared_ptr<int64_t> couponTemplateID_ {};
+      // The creation time. The format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> createTime_ {};
+      // The end time of the effective period.
+      // Format: yyyy-MM-dd.
       shared_ptr<string> expireddate_ {};
+      // The list of product codes.
       shared_ptr<vector<string>> productType_ {};
+      // The status of the coupon template. Valid values:
+      // - CREATED: Created.
+      // - APPROVING: Under review.
+      // - APPROVED: Approved.
+      // - UNAPPROVED: Unapproved.
+      // - ABANDONED: Abandoned.
+      // - EXPIRED: Expired.
+      // - EXHAUSTED: Exhausted.
       shared_ptr<string> status_ {};
+      // The name of the coupon template.
       shared_ptr<string> templateName_ {};
+      // The start time of the effective period.
+      // Format: yyyy-MM-dd.
       shared_ptr<string> vailddate_ {};
+      // The duration of the relative time in days.
       shared_ptr<string> vaildperioddays_ {};
+      // The validity period of the coupon.
+      // - Validity Duration: From the date of issuance.
+      // - Custom Timeframe: Custom time period.
       shared_ptr<string> validUntil_ {};
+      // The denomination.
       shared_ptr<string> value_ {};
     };
 
@@ -224,11 +251,15 @@ namespace Models
 
 
   protected:
+    // The status code. 200 indicates success.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<CreateCouponTemplateResponseBody::Data> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -78,17 +78,17 @@ namespace Models
 
 
   protected:
-    // Error Code
-    // * 200: OK
-    // * 1109: System error
+    // The error code. Valid values:
+    // - 200: OK.
+    // - 1109: System error.
     shared_ptr<string> code_ {};
-    // List of Region Code
+    // The list of region codes.
     shared_ptr<vector<string>> data_ {};
-    // Message information
+    // The message information.
     shared_ptr<string> message_ {};
-    // Request ID, Alibaba Cloud will track errors with this.
+    // The request ID. Alibaba Cloud uses this ID for error tracking.
     shared_ptr<string> requestId_ {};
-    // Candidate Value: True/False, which indicates whether the current API call itself is successful. It does not guarantee the success of subsequent business operations.
+    // Indicates whether the current API call itself is successful. Valid values: True and False. This does not indicate the success of subsequent business operations.
     shared_ptr<bool> success_ {};
   };
 

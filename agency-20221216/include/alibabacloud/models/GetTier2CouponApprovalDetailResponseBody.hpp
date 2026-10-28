@@ -105,7 +105,9 @@ namespace Models
 
 
       protected:
+        // The denomination.
         shared_ptr<string> nominalValue_ {};
+        // The UID of the customer.
         shared_ptr<int64_t> uid_ {};
       };
 
@@ -183,11 +185,22 @@ namespace Models
 
 
       protected:
+        // The applicable products. Valid values:
+        // - UNIVERSAL: All products.
+        // - A specific commodity code.
         shared_ptr<string> applicableProducts_ {};
+        // The timestamp when the application was submitted.
         shared_ptr<string> applicationTime_ {};
+        // The order type for which the coupon is used. Valid values:
+        // - ALL: Alibaba Cloud subscription.
+        // - BILLING: Alibaba Cloud pay-as-you-go bills.
+        // - ALL,BILLING: Alibaba Cloud subscription and pay-as-you-go bills.
         shared_ptr<string> orderType_ {};
+        // The name of the tier-2 distributor.
         shared_ptr<string> t2PartnerName_ {};
+        // The UID of the tier-2 distributor.
         shared_ptr<int64_t> t2PartnerUid_ {};
+        // The validity period, which can be a number of valid days or a valid time range.
         shared_ptr<string> validUntil_ {};
       };
 
@@ -248,12 +261,25 @@ namespace Models
 
 
     protected:
+      // The basic information of the application.
       shared_ptr<Data::ApplicantInfo> applicantInfo_ {};
+      // The reason for the application.
       shared_ptr<string> applicationReason_ {};
+      // The ID of the application form.
       shared_ptr<string> applicationSheetId_ {};
+      // The approval status. Valid values:
+      // - 1: Revoked.
+      // - 2: Under review.
+      // - 3: Rejected.
+      // - 4: Approved.
+      // - 5: Approved but issuance failed.
+      // - 8: Pending.
       shared_ptr<string> approvalStatus_ {};
+      // The list of customer UIDs that receive the coupons.
       shared_ptr<vector<Data::CouponReceiptUidList>> couponReceiptUidList_ {};
+      // The estimated remaining quota of PoC coupon benefits for new partner customers after the coupons are issued.
       shared_ptr<string> remainingQuota_ {};
+      // The requested amount.
       shared_ptr<string> totalAmount_ {};
     };
 
@@ -290,9 +316,13 @@ namespace Models
 
 
   protected:
+    // The return code. A value of 200 indicates success. Other values indicate error codes. For more information, see Error codes.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<GetTier2CouponApprovalDetailResponseBody::Data> data_ {};
+    // The message.
     shared_ptr<string> message_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

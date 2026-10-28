@@ -116,11 +116,23 @@ namespace Models
 
 
     protected:
+      // The ID of the application form.
       shared_ptr<string> applicationSheetId_ {};
+      // The application time. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> applicationTime_ {};
+      // The approval status. Valid values:
+      // - 1: Revoked.
+      // - 2: Under review.
+      // - 3: Rejected.
+      // - 4: Approved.
+      // - 5: Approved but issuance failed.
+      // - 8: Pending.
       shared_ptr<string> approvalStatus_ {};
+      // The name of the secondary distributor.
       shared_ptr<string> t2PartnerName_ {};
+      // The UID of the secondary distributor.
       shared_ptr<int64_t> t2PartnerUid_ {};
+      // The requested amount.
       shared_ptr<string> totalAmount_ {};
     };
 
@@ -179,12 +191,19 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The returned data object.
     shared_ptr<vector<ListTier2CouponApprovalResponseBody::Data>> data_ {};
+    // The message.
     shared_ptr<string> message_ {};
+    // The page number.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> total_ {};
   };
 

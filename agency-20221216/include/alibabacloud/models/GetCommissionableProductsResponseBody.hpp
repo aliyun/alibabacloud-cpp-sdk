@@ -50,6 +50,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CommodityName, commodityName_);
         DARABONBA_PTR_TO_JSON(EligibleForCommission, eligibleForCommission_);
         DARABONBA_PTR_TO_JSON(EligibleForDiscount, eligibleForDiscount_);
+        DARABONBA_PTR_TO_JSON(EligibleForPerformance, eligibleForPerformance_);
         DARABONBA_PTR_TO_JSON(EndMonth, endMonth_);
         DARABONBA_PTR_TO_JSON(ProductCampaign, productCampaign_);
         DARABONBA_PTR_TO_JSON(ProductCode, productCode_);
@@ -63,6 +64,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(CommodityName, commodityName_);
         DARABONBA_PTR_FROM_JSON(EligibleForCommission, eligibleForCommission_);
         DARABONBA_PTR_FROM_JSON(EligibleForDiscount, eligibleForDiscount_);
+        DARABONBA_PTR_FROM_JSON(EligibleForPerformance, eligibleForPerformance_);
         DARABONBA_PTR_FROM_JSON(EndMonth, endMonth_);
         DARABONBA_PTR_FROM_JSON(ProductCampaign, productCampaign_);
         DARABONBA_PTR_FROM_JSON(ProductCode, productCode_);
@@ -82,8 +84,9 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->actualStartMonth_ == nullptr
-        && this->commodityCode_ == nullptr && this->commodityName_ == nullptr && this->eligibleForCommission_ == nullptr && this->eligibleForDiscount_ == nullptr && this->endMonth_ == nullptr
-        && this->productCampaign_ == nullptr && this->productCode_ == nullptr && this->productName_ == nullptr && this->sevenCoreProducts_ == nullptr && this->status_ == nullptr; };
+        && this->commodityCode_ == nullptr && this->commodityName_ == nullptr && this->eligibleForCommission_ == nullptr && this->eligibleForDiscount_ == nullptr && this->eligibleForPerformance_ == nullptr
+        && this->endMonth_ == nullptr && this->productCampaign_ == nullptr && this->productCode_ == nullptr && this->productName_ == nullptr && this->sevenCoreProducts_ == nullptr
+        && this->status_ == nullptr; };
       // actualStartMonth Field Functions 
       bool hasActualStartMonth() const { return this->actualStartMonth_ != nullptr;};
       void deleteActualStartMonth() { this->actualStartMonth_ = nullptr;};
@@ -117,6 +120,13 @@ namespace Models
       void deleteEligibleForDiscount() { this->eligibleForDiscount_ = nullptr;};
       inline string getEligibleForDiscount() const { DARABONBA_PTR_GET_DEFAULT(eligibleForDiscount_, "") };
       inline Data& setEligibleForDiscount(string eligibleForDiscount) { DARABONBA_PTR_SET_VALUE(eligibleForDiscount_, eligibleForDiscount) };
+
+
+      // eligibleForPerformance Field Functions 
+      bool hasEligibleForPerformance() const { return this->eligibleForPerformance_ != nullptr;};
+      void deleteEligibleForPerformance() { this->eligibleForPerformance_ = nullptr;};
+      inline string getEligibleForPerformance() const { DARABONBA_PTR_GET_DEFAULT(eligibleForPerformance_, "") };
+      inline Data& setEligibleForPerformance(string eligibleForPerformance) { DARABONBA_PTR_SET_VALUE(eligibleForPerformance_, eligibleForPerformance) };
 
 
       // endMonth Field Functions 
@@ -162,16 +172,29 @@ namespace Models
 
 
     protected:
+      // The actual start month in the yyyymm format.
       shared_ptr<string> actualStartMonth_ {};
+      // The commodity code.
       shared_ptr<string> commodityCode_ {};
+      // The commodity name.
       shared_ptr<string> commodityName_ {};
+      // Specifies whether the commodity is eligible for commission.
       shared_ptr<string> eligibleForCommission_ {};
+      // Specifies whether the commodity is eligible for discounts.
       shared_ptr<string> eligibleForDiscount_ {};
+      // Specifies whether the commodity is counted towards performance.
+      shared_ptr<string> eligibleForPerformance_ {};
+      // The actual end month in the yyyymm format.
       shared_ptr<string> endMonth_ {};
+      // Specifies whether the commodity is a product line incentive commodity.
       shared_ptr<string> productCampaign_ {};
+      // The product code.
       shared_ptr<string> productCode_ {};
+      // The product name.
       shared_ptr<string> productName_ {};
+      // Specifies whether the product is a core product.
       shared_ptr<string> sevenCoreProducts_ {};
+      // The display status of the product.
       shared_ptr<string> status_ {};
     };
 
@@ -230,12 +253,19 @@ namespace Models
 
 
   protected:
+    // The status code of the response. A value of 200 indicates success.
     shared_ptr<string> code_ {};
+    // The list of returned data.
     shared_ptr<vector<GetCommissionableProductsResponseBody::Data>> data_ {};
+    // The current page number.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call is successful. Valid values: True and False. This parameter indicates only the success of the API call and does not indicate the success of subsequent business operations.
     shared_ptr<bool> success_ {};
+    // The total number of entries.
     shared_ptr<int32_t> total_ {};
   };
 

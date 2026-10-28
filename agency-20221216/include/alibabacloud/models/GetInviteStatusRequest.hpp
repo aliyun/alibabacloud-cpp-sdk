@@ -58,7 +58,7 @@ namespace Models
 
 
     protected:
-      // Invitation ID, From interface InviteSubAccount
+      // The invitation ID, which is obtained from the InviteSubAccount operation.
       shared_ptr<int64_t> inviteId_ {};
     };
 
@@ -73,8 +73,7 @@ namespace Models
 
 
   protected:
-    // inviteId list</br>
-    // `Sub-levels <= 5`
+    // inviteId list
     // 
     // This parameter is required.
     shared_ptr<vector<GetInviteStatusRequest::InviteStatusList>> inviteStatusList_ {};

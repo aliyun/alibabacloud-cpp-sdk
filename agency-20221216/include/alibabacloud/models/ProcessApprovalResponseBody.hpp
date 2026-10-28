@@ -66,8 +66,11 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The approval result.
     shared_ptr<bool> data_ {};
+    // The prompt message.
     shared_ptr<string> message_ {};
     // id of request
     shared_ptr<string> requestId_ {};

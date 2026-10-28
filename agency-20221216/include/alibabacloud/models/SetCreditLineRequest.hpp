@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // New Credit Line
+    // The new credit limit.
     // 
     // This parameter is required.
     shared_ptr<string> creditLine_ {};
-    // The UID of Sub Account.
+    // The UID of the sub-account.
     // 
     // This parameter is required.
     shared_ptr<int64_t> uid_ {};

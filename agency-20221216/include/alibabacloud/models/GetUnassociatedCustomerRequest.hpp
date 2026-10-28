@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // Pagination, current page.
+    // The current page number for pagination.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // Pagination, record number on each page.
+    // The number of records per page for pagination.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};

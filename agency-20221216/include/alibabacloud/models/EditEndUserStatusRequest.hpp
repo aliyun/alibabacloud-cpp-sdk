@@ -48,13 +48,12 @@ namespace Models
 
 
   protected:
-    // Shutdown Status</br>
+    // ### Shutdown status
     // 
-    // - postPayFreeze, the account have been blocked</br>
-    // 
-    // - postPayThaw, the account have been unlocked</br>
+    // - postPayFreeze: pay-as-you-go resource suspension
+    // - postPayThaw: pay-as-you-go resource resumption.
     shared_ptr<string> creditStatus_ {};
-    // UID
+    // The UID of the customer to be processed.
     shared_ptr<int64_t> uid_ {};
   };
 

@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The Deducted Credit to be offset.
+    // The amount of deducted credit to reduce.
     // 
     // This parameter is required.
     shared_ptr<string> deductAmount_ {};
-    // Account UID of Distribution Customer.
+    // The UID of the reseller\\"s customer account.
     // 
     // This parameter is required.
     shared_ptr<int64_t> uid_ {};

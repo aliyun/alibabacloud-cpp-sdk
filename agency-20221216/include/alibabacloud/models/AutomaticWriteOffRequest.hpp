@@ -66,11 +66,22 @@ namespace Models
 
 
   protected:
+    // The automatic write-off amount. This parameter is required if automatic write-off is enabled. Valid values: 100, 500, and 1000.
     shared_ptr<int64_t> automaticWriteOffAmount_ {};
+    // Specifies whether to enable automatic write-off and set the automatic write-off amount. Valid values:
+    // - true: Enables automatic write-off and sets the automatic write-off amount.
+    // - false: Disables automatic write-off.
+    // 
     // This parameter is required.
     shared_ptr<bool> automaticWriteOffEnabled_ {};
+    // The UID of the customer.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> customerUid_ {};
+    // The language. If this parameter is not specified, English is used by default. Valid values:
+    // - en: English.
+    // - zh: Chinese.
+    // - ja: Japanese.
     shared_ptr<string> language_ {};
   };
 

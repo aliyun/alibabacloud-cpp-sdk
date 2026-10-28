@@ -94,35 +94,37 @@ namespace Models
 
 
   protected:
-    // End Date Format: yyyy-MM-dd
+    // The end date.
+    // Format: yyyy-MM-dd.
     // 
     // This parameter is required.
     shared_ptr<string> endDate_ {};
-    // Customer UID
+    // The UID of the customer.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endUserPk_ {};
-    // Multilingual Parameters, the default language is English.</br>
-    // en: English</br>
-    // zh: Chinese</br>
-    // ja: Japanese </br>
+    // The language. Default value: en. Valid values:
+    // - en: English.
+    // - zh: Chinese.
+    // - ja: Japanese.
     shared_ptr<string> language_ {};
-    // Operation Type Enum</br>
-    // all All types</br>
-    // quota_create Create quota</br>
-    // quota_amount_adjust Adjust the amount of quota</br>
+    // The operation type. Valid values:
+    // - all: All.
+    // - quota_create: Create.
+    // - quota_amount_adjust: Quota adjustment.
     // 
     // This parameter is required.
     shared_ptr<string> operationType_ {};
-    // Pagination, current page number, starting from 1.
+    // The page number. Pages start from 1.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNo_ {};
-    // Pagination, record number on each page. Maximum 100.
+    // The number of entries per page. Maximum value: 100.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // Start Date Format: yyyy-MM-dd
+    // The start date.
+    // Format: yyyy-MM-dd.
     // 
     // This parameter is required.
     shared_ptr<string> startDate_ {};

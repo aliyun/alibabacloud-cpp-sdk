@@ -85,11 +85,11 @@ namespace Models
 
 
     protected:
-      // 分页，当前页
+      // The current page number.
       shared_ptr<int32_t> page_ {};
-      // 分页，每页数量
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // 分页，总量
+      // The total number of entries.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -204,29 +204,29 @@ namespace Models
 
 
     protected:
-      // 阿里云账号
+      // The Alibaba Cloud account.
       shared_ptr<string> account_ {};
-      // 优惠券面额
+      // The face value of the coupon.
       shared_ptr<double> amount_ {};
-      // 余额
+      // The remaining balance.
       shared_ptr<double> balance_ {};
-      // 优惠券id
+      // The ID of the coupon.
       shared_ptr<string> couponId_ {};
-      // 优惠券模版id
+      // The ID of the coupon template.
       shared_ptr<int64_t> couponTemplateId_ {};
-      // 优惠券有效期
+      // The validity period of the coupon.
       shared_ptr<string> effDate_ {};
-      // 优惠券发放时间
+      // The time when the coupon was issued. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> publishDate_ {};
-      // 优惠券状态 </br>
-      // AVAILABLE 正常 </br>
-      // EXHAUSTED 已用完 </br>
-      // EXPIRED 已过期 </br>
-      // ABANDONED 已作废 </br>
+      // The coupon status. Valid values:</br>
+      // AVAILABLE: Normal.</br>
+      // EXHAUSTED: Used up.</br>
+      // EXPIRED: Expired.</br>
+      // ABANDONED: Voided.</br>
       shared_ptr<string> status_ {};
-      // 二级分销商Uid
+      // The UID of the T2 partner.
       shared_ptr<string> t2PartnerUid_ {};
-      // 阿里云uid
+      // The UID of the Alibaba Cloud account.
       shared_ptr<int64_t> uid_ {};
     };
 
@@ -272,15 +272,15 @@ namespace Models
 
 
   protected:
-    // 接口状态码
+    // The status code of the API operation.
     shared_ptr<string> code_ {};
-    // 返回数据
+    // The returned data.
     shared_ptr<vector<ListCouponUsageResponseBody::Data>> data_ {};
-    // 接口返回提示信息
+    // The message returned by the API operation.
     shared_ptr<string> message_ {};
-    // 分页信息
+    // The pagination information.
     shared_ptr<ListCouponUsageResponseBody::PageInfo> pageInfo_ {};
-    // 接口请求id返回问题提供查询使用
+    // The request ID. You can provide this ID for troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

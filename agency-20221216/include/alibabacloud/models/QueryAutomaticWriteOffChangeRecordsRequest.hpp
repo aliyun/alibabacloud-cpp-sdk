@@ -84,14 +84,28 @@ namespace Models
 
 
   protected:
+    // The customer UID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> customerUid_ {};
+    // The end date.
+    // Format: yyyy-MM-dd.
     shared_ptr<string> endDate_ {};
+    // The language. If you do not specify this parameter, English is used by default. Valid values:
+    // - en: English.
+    // - zh: Chinese.
+    // - ja: Japanese.
     shared_ptr<string> language_ {};
+    // The page number. Pages start from 1.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of entries per page. Maximum value: 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // The start date.
+    // Format: yyyy-MM-dd.
     shared_ptr<string> startDate_ {};
   };
 

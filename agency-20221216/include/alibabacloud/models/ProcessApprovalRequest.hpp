@@ -57,10 +57,18 @@ namespace Models
 
 
   protected:
+    // The ID of the application form.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationSheetId_ {};
+    // The approval action. Valid values:
+    // - Approve: approved.
+    // - Reject: rejected.
+    // 
     // This parameter is required.
     shared_ptr<string> approvalAction_ {};
+    // The approval comments.
+    // 
     // This parameter is required.
     shared_ptr<string> approvalComments_ {};
   };

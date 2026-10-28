@@ -116,20 +116,20 @@ namespace Models
 
 
     protected:
-      // Create Time
+      // The creation time. The time is in the YYYY-MM-DD HH:mm:ss format in the UTC+8 time zone.
       shared_ptr<string> createTime_ {};
-      // File Name
+      // The name of the file.
       shared_ptr<string> fileName_ {};
-      // Notification Message
+      // The prompt message.
       shared_ptr<string> message_ {};
-      // Display of Task Status
+      // The display status of the task.
       shared_ptr<string> status_ {};
-      // Task Status Enum</br>
-      // 2: Exporting</br>
-      // 3: Export Success</br>
-      // -1: Export Fail</br>
+      // The status code of the task. Valid values:
+      // - 2: Exporting.
+      // - 3: Export succeeded.
+      // - -1: Export failed.
       shared_ptr<string> statusCode_ {};
-      // The link to download exported file.
+      // The download URL of the file.
       shared_ptr<string> url_ {};
     };
 
@@ -188,19 +188,19 @@ namespace Models
 
 
   protected:
-    // Status code of returning result, 200 means success.
+    // The status code of the returned result. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // Listed data of returning result
+    // The list of returned results.
     shared_ptr<vector<QuotaListExportPagedResponseBody::Data>> data_ {};
-    // Description of returning result
+    // The description of the returned result.
     shared_ptr<string> msg_ {};
-    // Current page number
+    // The current page number.
     shared_ptr<int32_t> pageNo_ {};
-    // Record number on each page
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // ID of the Request
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total volume
+    // The total number of entries.
     shared_ptr<int32_t> total_ {};
   };
 

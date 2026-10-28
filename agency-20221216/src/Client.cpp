@@ -94,7 +94,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 设置自动销账
+ * @summary Configures the automatic write-off feature before the end-of-month settlement. When the consumed but undeducted quota reaches the specified automatic write-off amount, the amount is transferred to the deducted quota for offset.
  *
  * @param request AutomaticWriteOffRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -137,7 +137,7 @@ AutomaticWriteOffResponse Client::automaticWriteOffWithOptions(const AutomaticWr
 }
 
 /**
- * @summary 设置自动销账
+ * @summary Configures the automatic write-off feature before the end-of-month settlement. When the consumed but undeducted quota reaches the specified automatic write-off amount, the amount is transferred to the deducted quota for offset.
  *
  * @param request AutomaticWriteOffRequest
  * @return AutomaticWriteOffResponse
@@ -148,7 +148,7 @@ AutomaticWriteOffResponse Client::automaticWriteOff(const AutomaticWriteOffReque
 }
 
 /**
- * @summary 作废优惠券
+ * @summary Invalidates a coupon.
  *
  * @param request CancelCouponRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -179,7 +179,7 @@ CancelCouponResponse Client::cancelCouponWithOptions(const CancelCouponRequest &
 }
 
 /**
- * @summary 作废优惠券
+ * @summary Invalidates a coupon.
  *
  * @param request CancelCouponRequest
  * @return CancelCouponResponse
@@ -190,12 +190,12 @@ CancelCouponResponse Client::cancelCoupon(const CancelCouponRequest &request) {
 }
 
 /**
- * @summary Cancels the subscription to multi-level bills as an Alibaba Cloud eco-partner.
+ * @summary Unsubscribe from multi-level bills for international channel ecosystem partners.
  *
- * @description Make sure that you are a distributor of the Alibaba Cloud international ecosystem.
- * You can call this operation to cancel the subscription to only one type of bill at a time.
- * After the subscription to a type of bill is canceled, bills of this type are no longer pushed to the specified Object Storage Service (OSS) bucket.
- * **This topic is published only on the international site (alibabacloud.com).
+ * @description Make sure that the caller is an international Alibaba Cloud master reseller partner.
+ * You can unsubscribe from one type of bill file at a time.
+ * After the corresponding bill type is unsubscribed, files are no longer pushed to the specified OSS space.
+ * **This content is published only on the international site.**
  *
  * @param request CancelSubscriptionBillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -226,12 +226,12 @@ CancelSubscriptionBillResponse Client::cancelSubscriptionBillWithOptions(const C
 }
 
 /**
- * @summary Cancels the subscription to multi-level bills as an Alibaba Cloud eco-partner.
+ * @summary Unsubscribe from multi-level bills for international channel ecosystem partners.
  *
- * @description Make sure that you are a distributor of the Alibaba Cloud international ecosystem.
- * You can call this operation to cancel the subscription to only one type of bill at a time.
- * After the subscription to a type of bill is canceled, bills of this type are no longer pushed to the specified Object Storage Service (OSS) bucket.
- * **This topic is published only on the international site (alibabacloud.com).
+ * @description Make sure that the caller is an international Alibaba Cloud master reseller partner.
+ * You can unsubscribe from one type of bill file at a time.
+ * After the corresponding bill type is unsubscribed, files are no longer pushed to the specified OSS space.
+ * **This content is published only on the international site.**
  *
  * @param request CancelSubscriptionBillRequest
  * @return CancelSubscriptionBillResponse
@@ -242,7 +242,10 @@ CancelSubscriptionBillResponse Client::cancelSubscriptionBill(const CancelSubscr
 }
 
 /**
- * @summary 优惠券审批状态列表
+ * @summary Queries the list of coupon approval statuses.
+ *
+ * @description Ensure that the current calling account is a distribution partner. 
+ * <notice>Available only on the international site.</notice>
  *
  * @param request CouponApprovalStatusListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -289,7 +292,10 @@ CouponApprovalStatusListResponse Client::couponApprovalStatusListWithOptions(con
 }
 
 /**
- * @summary 优惠券审批状态列表
+ * @summary Queries the list of coupon approval statuses.
+ *
+ * @description Ensure that the current calling account is a distribution partner. 
+ * <notice>Available only on the international site.</notice>
  *
  * @param request CouponApprovalStatusListRequest
  * @return CouponApprovalStatusListResponse
@@ -300,7 +306,7 @@ CouponApprovalStatusListResponse Client::couponApprovalStatusList(const CouponAp
 }
 
 /**
- * @summary 创建优惠券模板
+ * @summary Creates a coupon template.
  *
  * @param tmpReq CreateCouponTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -389,7 +395,7 @@ CreateCouponTemplateResponse Client::createCouponTemplateWithOptions(const Creat
 }
 
 /**
- * @summary 创建优惠券模板
+ * @summary Creates a coupon template.
  *
  * @param request CreateCouponTemplateRequest
  * @return CreateCouponTemplateResponse
@@ -400,7 +406,7 @@ CreateCouponTemplateResponse Client::createCouponTemplate(const CreateCouponTemp
 }
 
 /**
- * @summary This function is designed for create a customer who is to be invited.
+ * @summary Registers a customer to be invited.
  *
  * @param request CreateCustomerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -447,7 +453,7 @@ CreateCustomerResponse Client::createCustomerWithOptions(const CreateCustomerReq
 }
 
 /**
- * @summary This function is designed for create a customer who is to be invited.
+ * @summary Registers a customer to be invited.
  *
  * @param request CreateCustomerRequest
  * @return CreateCustomerResponse
@@ -458,7 +464,9 @@ CreateCustomerResponse Client::createCustomer(const CreateCustomerRequest &reque
 }
 
 /**
- * @summary Query quota adjustment list of Distribution Customer from International Site. Not available on Domestic Site.
+ * @summary Queries the quota adjustment records for distribution customers on the Alibaba Cloud International Website. This operation applies only to international users and cannot be called on the Alibaba Cloud China Website.
+ *
+ * @description The caller must be a channel master distributor partner or a channel distributor partner on the Alibaba Cloud International Website.
  *
  * @param request CustomerQuotaRecordListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -485,7 +493,9 @@ CustomerQuotaRecordListResponse Client::customerQuotaRecordListWithOptions(const
 }
 
 /**
- * @summary Query quota adjustment list of Distribution Customer from International Site. Not available on Domestic Site.
+ * @summary Queries the quota adjustment records for distribution customers on the Alibaba Cloud International Website. This operation applies only to international users and cannot be called on the Alibaba Cloud China Website.
+ *
+ * @description The caller must be a channel master distributor partner or a channel distributor partner on the Alibaba Cloud International Website.
  *
  * @param request CustomerQuotaRecordListRequest
  * @return CustomerQuotaRecordListResponse
@@ -496,10 +506,9 @@ CustomerQuotaRecordListResponse Client::customerQuotaRecordList(const CustomerQu
 }
 
 /**
- * @summary This API is used to offset the Deducted Credit of a Distribution Customer. For example, if the current Deducted Credit is 500 and the Available Credit is 1000, by offsetting 300, the Deducted Credit will then become 200, and the Available Credit becomes 1300.
- *
- * @description Note that sometimes you may find that the customer\\"s Used Credit is negative. This indicates that there is no need to restore the Used Credit, and its ready for customer\\"s usage. This phenomenon occurs because a refund is generated while the customer\\"s credit is full, thereby triggered additional increasing on the customer\\"s credit.
- * For example, if the customer\\"s maximum Available Credit is 1000 with no usage, and a refund of 300 occurs, the Used Credit will become -300.
+ * @summary Reduces the deducted credit of a reseller\\"s customer. For example, if the current deducted credit is 500 and the available credit is 1000, a reduction of 300 changes the deducted credit to 200 and the available credit to 1300.
+ * Note: Sometimes the used credit of a customer may be negative. This indicates that no recovery of the used credit is needed. Wait for the customer to consume the credit. This occurs when a refund is issued while the customer\\"s credit is fully used. As a result, the customer\\"s credit increases beyond the original limit.
+ * For example, if the current maximum available credit of a customer is 1000 with no usage, and a refund of 300 occurs, the used credit becomes -300.
  *
  * @param request DeductOutstandingBalanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -534,10 +543,9 @@ DeductOutstandingBalanceResponse Client::deductOutstandingBalanceWithOptions(con
 }
 
 /**
- * @summary This API is used to offset the Deducted Credit of a Distribution Customer. For example, if the current Deducted Credit is 500 and the Available Credit is 1000, by offsetting 300, the Deducted Credit will then become 200, and the Available Credit becomes 1300.
- *
- * @description Note that sometimes you may find that the customer\\"s Used Credit is negative. This indicates that there is no need to restore the Used Credit, and its ready for customer\\"s usage. This phenomenon occurs because a refund is generated while the customer\\"s credit is full, thereby triggered additional increasing on the customer\\"s credit.
- * For example, if the customer\\"s maximum Available Credit is 1000 with no usage, and a refund of 300 occurs, the Used Credit will become -300.
+ * @summary Reduces the deducted credit of a reseller\\"s customer. For example, if the current deducted credit is 500 and the available credit is 1000, a reduction of 300 changes the deducted credit to 200 and the available credit to 1300.
+ * Note: Sometimes the used credit of a customer may be negative. This indicates that no recovery of the used credit is needed. Wait for the customer to consume the credit. This occurs when a refund is issued while the customer\\"s credit is fully used. As a result, the customer\\"s credit increases beyond the original limit.
+ * For example, if the current maximum available credit of a customer is 1000 with no usage, and a refund of 300 occurs, the used credit becomes -300.
  *
  * @param request DeductOutstandingBalanceRequest
  * @return DeductOutstandingBalanceResponse
@@ -548,7 +556,10 @@ DeductOutstandingBalanceResponse Client::deductOutstandingBalance(const DeductOu
 }
 
 /**
- * @summary 作废优惠券模板
+ * @summary Invalidates a coupon template.
+ *
+ * @description Make sure that the current caller is a distribution partner. 
+ * <notice>Available only on the China site.</notice>.
  *
  * @param request DeleteCouponTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -579,7 +590,10 @@ DeleteCouponTemplateResponse Client::deleteCouponTemplateWithOptions(const Delet
 }
 
 /**
- * @summary 作废优惠券模板
+ * @summary Invalidates a coupon template.
+ *
+ * @description Make sure that the current caller is a distribution partner. 
+ * <notice>Available only on the China site.</notice>.
  *
  * @param request DeleteCouponTemplateRequest
  * @return DeleteCouponTemplateResponse
@@ -590,10 +604,10 @@ DeleteCouponTemplateResponse Client::deleteCouponTemplate(const DeleteCouponTemp
 }
 
 /**
- * @summary Set the after-shutdown instance status for post-pay End Users as a Reseller.
+ * @summary Manages the shutdown status of pay-as-you-go instances for resold subordinate customers by Alibaba Cloud international channel master distributor partners and Alibaba Cloud international channel distributor partners.
  *
- * @description The caller should be the Partner as identified in the Alibaba Cloud distribution model. </br>
- * **This content is only published on the international site. **
+ * @description The caller must be an Alibaba Cloud international channel master distributor partner or an Alibaba Cloud international channel distributor partner.
+ * **This content is published only on the China site (Chinese).**.
  *
  * @param request EditEndUserStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -620,10 +634,10 @@ EditEndUserStatusResponse Client::editEndUserStatusWithOptions(const EditEndUser
 }
 
 /**
- * @summary Set the after-shutdown instance status for post-pay End Users as a Reseller.
+ * @summary Manages the shutdown status of pay-as-you-go instances for resold subordinate customers by Alibaba Cloud international channel master distributor partners and Alibaba Cloud international channel distributor partners.
  *
- * @description The caller should be the Partner as identified in the Alibaba Cloud distribution model. </br>
- * **This content is only published on the international site. **
+ * @description The caller must be an Alibaba Cloud international channel master distributor partner or an Alibaba Cloud international channel distributor partner.
+ * **This content is published only on the China site (Chinese).**.
  *
  * @param request EditEndUserStatusRequest
  * @return EditEndUserStatusResponse
@@ -634,10 +648,10 @@ EditEndUserStatusResponse Client::editEndUserStatus(const EditEndUserStatusReque
 }
 
 /**
- * @summary Set the New Buy status for Sub-Customer as a Partner.
+ * @summary Sets the new purchase status of a subordinate reseller customer for an Alibaba Cloud reseller partner.
  *
- * @description The caller should be the Partner as identified in the Alibaba Cloud distribution model. </br>
- * **This content is only published on the international site. **
+ * @description The caller must be an Alibaba Cloud reseller partner.
+ * **This content is published only on the China site.**.
  *
  * @param request EditNewBuyStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -672,10 +686,10 @@ EditNewBuyStatusResponse Client::editNewBuyStatusWithOptions(const EditNewBuySta
 }
 
 /**
- * @summary Set the New Buy status for Sub-Customer as a Partner.
+ * @summary Sets the new purchase status of a subordinate reseller customer for an Alibaba Cloud reseller partner.
  *
- * @description The caller should be the Partner as identified in the Alibaba Cloud distribution model. </br>
- * **This content is only published on the international site. **
+ * @description The caller must be an Alibaba Cloud reseller partner.
+ * **This content is published only on the China site.**.
  *
  * @param request EditNewBuyStatusRequest
  * @return EditNewBuyStatusResponse
@@ -686,10 +700,10 @@ EditNewBuyStatusResponse Client::editNewBuyStatus(const EditNewBuyStatusRequest 
 }
 
 /**
- * @summary Modify the End User\\"s Shutdown Policy as a Reseller.
+ * @summary Modifies the shutdown policy of a subordinate customer by an Alibaba Cloud distributor partner or reseller partner.
  *
- * @description The caller should be the Partner as identified in the Alibaba Cloud distribution model. </br>
- * **This content is only published on the international site. **
+ * @description The caller must be an Alibaba Cloud international channel distributor partner or an Alibaba Cloud international channel reseller partner.
+ * **This content is published only on the Chinese site.**.
  *
  * @param request EditZeroCreditShutdownRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -724,10 +738,10 @@ EditZeroCreditShutdownResponse Client::editZeroCreditShutdownWithOptions(const E
 }
 
 /**
- * @summary Modify the End User\\"s Shutdown Policy as a Reseller.
+ * @summary Modifies the shutdown policy of a subordinate customer by an Alibaba Cloud distributor partner or reseller partner.
  *
- * @description The caller should be the Partner as identified in the Alibaba Cloud distribution model. </br>
- * **This content is only published on the international site. **
+ * @description The caller must be an Alibaba Cloud international channel distributor partner or an Alibaba Cloud international channel reseller partner.
+ * **This content is published only on the Chinese site.**.
  *
  * @param request EditZeroCreditShutdownRequest
  * @return EditZeroCreditShutdownResponse
@@ -738,9 +752,9 @@ EditZeroCreditShutdownResponse Client::editZeroCreditShutdown(const EditZeroCred
 }
 
 /**
- * @summary The ExportCustomerQuotaRecord interface corresponds to the export function of "Quota Adjust Details" on ACPN.
+ * @summary Exports the quota adjustment records of a distributor\\"s customer, corresponding to the total budget adjustment details export feature on ACPN.
  *
- * @description Caller must be a Partner from International Site, either Distribution or Reseller will do.
+ * @description The caller must be an Alibaba Cloud international site channel master distributor partner or an Alibaba Cloud international site channel distributor partner.
  *
  * @param request ExportCustomerQuotaRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -787,9 +801,9 @@ ExportCustomerQuotaRecordResponse Client::exportCustomerQuotaRecordWithOptions(c
 }
 
 /**
- * @summary The ExportCustomerQuotaRecord interface corresponds to the export function of "Quota Adjust Details" on ACPN.
+ * @summary Exports the quota adjustment records of a distributor\\"s customer, corresponding to the total budget adjustment details export feature on ACPN.
  *
- * @description Caller must be a Partner from International Site, either Distribution or Reseller will do.
+ * @description The caller must be an Alibaba Cloud international site channel master distributor partner or an Alibaba Cloud international site channel distributor partner.
  *
  * @param request ExportCustomerQuotaRecordRequest
  * @return ExportCustomerQuotaRecordResponse
@@ -800,7 +814,7 @@ ExportCustomerQuotaRecordResponse Client::exportCustomerQuotaRecord(const Export
 }
 
 /**
- * @summary The ExportReversedDeductionHistory interface corresponds to the export function of "Quota Offsetting Details" on ACPN.
+ * @summary Exports the reversed deduction details from ACPN.
  *
  * @param request ExportReversedDeductionHistoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -843,7 +857,7 @@ ExportReversedDeductionHistoryResponse Client::exportReversedDeductionHistoryWit
 }
 
 /**
- * @summary The ExportReversedDeductionHistory interface corresponds to the export function of "Quota Offsetting Details" on ACPN.
+ * @summary Exports the reversed deduction details from ACPN.
  *
  * @param request ExportReversedDeductionHistoryRequest
  * @return ExportReversedDeductionHistoryResponse
@@ -854,7 +868,7 @@ ExportReversedDeductionHistoryResponse Client::exportReversedDeductionHistory(co
 }
 
 /**
- * @summary Return Distribution Customer\\"s account information.
+ * @summary Returns the account information of distribution customers.
  *
  * @param request GetAccountInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -881,7 +895,7 @@ GetAccountInfoResponse Client::getAccountInfoWithOptions(const GetAccountInfoReq
 }
 
 /**
- * @summary Return Distribution Customer\\"s account information.
+ * @summary Returns the account information of distribution customers.
  *
  * @param request GetAccountInfoRequest
  * @return GetAccountInfoResponse
@@ -892,7 +906,10 @@ GetAccountInfoResponse Client::getAccountInfo(const GetAccountInfoRequest &reque
 }
 
 /**
- * @summary 提供返佣商品API
+ * @summary Queries a list of all active and delisted commission-eligible commodities for T1-level international distribution partners. This operation is available only for international users and cannot be called on the China site.
+ *
+ * @description Ensure that the current calling account is a distribution partner. 
+ * <notice>Available only on the international site.</notice>
  *
  * @param tmpReq GetCommissionableProductsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -957,7 +974,10 @@ GetCommissionableProductsResponse Client::getCommissionableProductsWithOptions(c
 }
 
 /**
- * @summary 提供返佣商品API
+ * @summary Queries a list of all active and delisted commission-eligible commodities for T1-level international distribution partners. This operation is available only for international users and cannot be called on the China site.
+ *
+ * @description Ensure that the current calling account is a distribution partner. 
+ * <notice>Available only on the international site.</notice>
  *
  * @param request GetCommissionableProductsRequest
  * @return GetCommissionableProductsResponse
@@ -968,7 +988,10 @@ GetCommissionableProductsResponse Client::getCommissionableProducts(const GetCom
 }
 
 /**
- * @summary 查询优惠券模板详情
+ * @summary Queries the details of a coupon template.
+ *
+ * @description Ensure that the current calling account is a distribution partner. 
+ * <notice>Available only on the International site
  *
  * @param request GetCouponTemplateDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -999,7 +1022,10 @@ GetCouponTemplateDetailResponse Client::getCouponTemplateDetailWithOptions(const
 }
 
 /**
- * @summary 查询优惠券模板详情
+ * @summary Queries the details of a coupon template.
+ *
+ * @description Ensure that the current calling account is a distribution partner. 
+ * <notice>Available only on the International site
  *
  * @param request GetCouponTemplateDetailRequest
  * @return GetCouponTemplateDetailResponse
@@ -1010,7 +1036,7 @@ GetCouponTemplateDetailResponse Client::getCouponTemplateDetail(const GetCouponT
 }
 
 /**
- * @summary 国际渠道分销优惠券可抵扣产品
+ * @summary Queries the products that can be offset by international channel distribution coupons.
  *
  * @param request GetCoupondeductProductCodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1037,7 +1063,7 @@ GetCoupondeductProductCodeResponse Client::getCoupondeductProductCodeWithOptions
 }
 
 /**
- * @summary 国际渠道分销优惠券可抵扣产品
+ * @summary Queries the products that can be offset by international channel distribution coupons.
  *
  * @param request GetCoupondeductProductCodeRequest
  * @return GetCoupondeductProductCodeResponse
@@ -1048,7 +1074,7 @@ GetCoupondeductProductCodeResponse Client::getCoupondeductProductCode(const GetC
 }
 
 /**
- * @summary Query Credit Control information of Distribution Customers. The PopCreditInfoJson in the Return Parameter will be empty if the Distribution Customer is an Agency. This function is only available for Resellers and Distributors.
+ * @summary Queries the credit control information of a distributor customer. If the distributor customer is of the Agency type, the PopCreditInfoJson parameter in the response is empty. This feature is available only for Reseller and Distributor.
  *
  * @param request GetCreditInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1075,7 +1101,7 @@ GetCreditInfoResponse Client::getCreditInfoWithOptions(const GetCreditInfoReques
 }
 
 /**
- * @summary Query Credit Control information of Distribution Customers. The PopCreditInfoJson in the Return Parameter will be empty if the Distribution Customer is an Agency. This function is only available for Resellers and Distributors.
+ * @summary Queries the credit control information of a distributor customer. If the distributor customer is of the Agency type, the PopCreditInfoJson parameter in the response is empty. This feature is available only for Reseller and Distributor.
  *
  * @param request GetCreditInfoRequest
  * @return GetCreditInfoResponse
@@ -1086,7 +1112,9 @@ GetCreditInfoResponse Client::getCreditInfo(const GetCreditInfoRequest &request)
 }
 
 /**
- * @summary 客户订单查询
+ * @summary Queries customer orders on the Alibaba Cloud International site. This operation is only allowed for the international site.
+ *
+ * @description The caller must be an Alibaba Cloud International site channel master distributor partner or an Alibaba Cloud International site channel distributor partner.
  *
  * @param request GetCustomerOrdersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1113,7 +1141,9 @@ GetCustomerOrdersResponse Client::getCustomerOrdersWithOptions(const GetCustomer
 }
 
 /**
- * @summary 客户订单查询
+ * @summary Queries customer orders on the Alibaba Cloud International site. This operation is only allowed for the international site.
+ *
+ * @description The caller must be an Alibaba Cloud International site channel master distributor partner or an Alibaba Cloud International site channel distributor partner.
  *
  * @param request GetCustomerOrdersRequest
  * @return GetCustomerOrdersResponse
@@ -1124,7 +1154,7 @@ GetCustomerOrdersResponse Client::getCustomerOrders(const GetCustomerOrdersReque
 }
 
 /**
- * @summary Issue Distributor\\"s daily Bill. This function is only available for Resellers and Distributors.
+ * @summary Retrieves the daily bills for resellers and distributors. This feature is only available for resellers and distributors.
  *
  * @param request GetDailyBillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1163,7 +1193,7 @@ GetDailyBillResponse Client::getDailyBillWithOptions(const GetDailyBillRequest &
 }
 
 /**
- * @summary Issue Distributor\\"s daily Bill. This function is only available for Resellers and Distributors.
+ * @summary Retrieves the daily bills for resellers and distributors. This feature is only available for resellers and distributors.
  *
  * @param request GetDailyBillRequest
  * @return GetDailyBillResponse
@@ -1174,7 +1204,7 @@ GetDailyBillResponse Client::getDailyBill(const GetDailyBillRequest &request) {
 }
 
 /**
- * @summary Query invitation status of customer who have been created and invited.
+ * @summary Queries the invitation status of registered customers who have been sent invitations.
  *
  * @param request GetInviteStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1205,7 +1235,7 @@ GetInviteStatusResponse Client::getInviteStatusWithOptions(const GetInviteStatus
 }
 
 /**
- * @summary Query invitation status of customer who have been created and invited.
+ * @summary Queries the invitation status of registered customers who have been sent invitations.
  *
  * @param request GetInviteStatusRequest
  * @return GetInviteStatusResponse
@@ -1216,7 +1246,7 @@ GetInviteStatusResponse Client::getInviteStatus(const GetInviteStatusRequest &re
 }
 
 /**
- * @summary Issue Distributor\\"s Monthly Bill. This function is only available for Resellers and Distributors.
+ * @summary Retrieves the monthly bill for distributors. This feature is available only to resellers and distributors.
  *
  * @param request GetMonthlyBillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1255,7 +1285,7 @@ GetMonthlyBillResponse Client::getMonthlyBillWithOptions(const GetMonthlyBillReq
 }
 
 /**
- * @summary Issue Distributor\\"s Monthly Bill. This function is only available for Resellers and Distributors.
+ * @summary Retrieves the monthly bill for distributors. This feature is available only to resellers and distributors.
  *
  * @param request GetMonthlyBillRequest
  * @return GetMonthlyBillResponse
@@ -1266,7 +1296,9 @@ GetMonthlyBillResponse Client::getMonthlyBill(const GetMonthlyBillRequest &reque
 }
 
 /**
- * @summary 下单控制记录查询
+ * @summary Queries order control change records.
+ *
+ * @description The caller must be an Alibaba Cloud international site channel master distributor partner or an Alibaba Cloud international site channel distributor partner.
  *
  * @param request GetPurchaseControlRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1309,7 +1341,9 @@ GetPurchaseControlRecordResponse Client::getPurchaseControlRecordWithOptions(con
 }
 
 /**
- * @summary 下单控制记录查询
+ * @summary Queries order control change records.
+ *
+ * @description The caller must be an Alibaba Cloud international site channel master distributor partner or an Alibaba Cloud international site channel distributor partner.
  *
  * @param request GetPurchaseControlRecordRequest
  * @return GetPurchaseControlRecordResponse
@@ -1320,7 +1354,10 @@ GetPurchaseControlRecordResponse Client::getPurchaseControlRecord(const GetPurch
 }
 
 /**
- * @summary 查询延停策略修改记录
+ * @summary Queries the modification records of the deferred shutdown policy.
+ *
+ * @description The caller must be an Alibaba Cloud international site channel master distributor partner or an Alibaba Cloud international site channel distributor partner.
+ * **This content is published only on the international site.**.
  *
  * @param request GetShutdownPolicyRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1363,7 +1400,10 @@ GetShutdownPolicyRecordResponse Client::getShutdownPolicyRecordWithOptions(const
 }
 
 /**
- * @summary 查询延停策略修改记录
+ * @summary Queries the modification records of the deferred shutdown policy.
+ *
+ * @description The caller must be an Alibaba Cloud international site channel master distributor partner or an Alibaba Cloud international site channel distributor partner.
+ * **This content is published only on the international site.**.
  *
  * @param request GetShutdownPolicyRecordRequest
  * @return GetShutdownPolicyRecordResponse
@@ -1374,7 +1414,7 @@ GetShutdownPolicyRecordResponse Client::getShutdownPolicyRecord(const GetShutdow
 }
 
 /**
- * @summary View Tier 2 coupon approval details
+ * @summary Queries the details of a coupon application initiated by a tier-2 distributor. This operation applies only to distributors.
  *
  * @param request GetTier2CouponApprovalDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1405,7 +1445,7 @@ GetTier2CouponApprovalDetailResponse Client::getTier2CouponApprovalDetailWithOpt
 }
 
 /**
- * @summary View Tier 2 coupon approval details
+ * @summary Queries the details of a coupon application initiated by a tier-2 distributor. This operation applies only to distributors.
  *
  * @param request GetTier2CouponApprovalDetailRequest
  * @return GetTier2CouponApprovalDetailResponse
@@ -1416,7 +1456,7 @@ GetTier2CouponApprovalDetailResponse Client::getTier2CouponApprovalDetail(const 
 }
 
 /**
- * @summary Query all the Unassociated Customer.
+ * @summary Retrieves all unassociated customers.
  *
  * @param request GetUnassociatedCustomerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1443,7 +1483,7 @@ GetUnassociatedCustomerResponse Client::getUnassociatedCustomerWithOptions(const
 }
 
 /**
- * @summary Query all the Unassociated Customer.
+ * @summary Retrieves all unassociated customers.
  *
  * @param request GetUnassociatedCustomerRequest
  * @return GetUnassociatedCustomerResponse
@@ -1454,9 +1494,7 @@ GetUnassociatedCustomerResponse Client::getUnassociatedCustomer(const GetUnassoc
 }
 
 /**
- * @summary Initiate the Partner registration invitation.
- *
- * @description The current API request rate for the Cloud Product has not been disclosed.
+ * @summary Invites a customer to register as a partner customer.
  *
  * @param request InviteSubAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1487,9 +1525,7 @@ InviteSubAccountResponse Client::inviteSubAccountWithOptions(const InviteSubAcco
 }
 
 /**
- * @summary Initiate the Partner registration invitation.
- *
- * @description The current API request rate for the Cloud Product has not been disclosed.
+ * @summary Invites a customer to register as a partner customer.
  *
  * @param request InviteSubAccountRequest
  * @return InviteSubAccountResponse
@@ -1500,12 +1536,12 @@ InviteSubAccountResponse Client::inviteSubAccount(const InviteSubAccountRequest 
 }
 
 /**
- * @summary T2 Sub-distributor Invitation (Supports Cross-Regional Validation)
+ * @summary Invites T2 Reseller sub-accounts in batch as a T1 partner.
  *
- * @description 1. The API caller must be a channel general distributor partner of Alibaba Cloud International.
- * 2. The system automatically determines if the invitation is cross-regional based on whether the `registerNation` parameter is within the T1 contract coverage area (the contract coverage area can be queried using the ListCountries API).
- * - If it\\"s a cross-regional invitation, a cross-regional approval process will be initiated. After approval by Alibaba Cloud, an invitation registration email will be sent to the invited email address.
- * - If it\\"s not a cross-regional invitation, an invitation registration email will be sent directly.
+ * @description 1. The caller of this operation must be a channel master reseller partner on Alibaba Cloud International Website.
+ * 2. The system automatically determines whether the invitation is cross-region based on whether the RegisterNation parameter falls within the T1 contract coverage area. You can call the ListCountries operation to query the contract coverage area.
+ * - If the invitation is cross-region, a cross-region invitation approval process is initiated. After Alibaba Cloud approves the request, an invitation registration email is sent to the specified email address.
+ * - If the invitation is not cross-region, an invitation registration email is sent directly.
  *
  * @param request InviteSubResellerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1536,12 +1572,12 @@ InviteSubResellerResponse Client::inviteSubResellerWithOptions(const InviteSubRe
 }
 
 /**
- * @summary T2 Sub-distributor Invitation (Supports Cross-Regional Validation)
+ * @summary Invites T2 Reseller sub-accounts in batch as a T1 partner.
  *
- * @description 1. The API caller must be a channel general distributor partner of Alibaba Cloud International.
- * 2. The system automatically determines if the invitation is cross-regional based on whether the `registerNation` parameter is within the T1 contract coverage area (the contract coverage area can be queried using the ListCountries API).
- * - If it\\"s a cross-regional invitation, a cross-regional approval process will be initiated. After approval by Alibaba Cloud, an invitation registration email will be sent to the invited email address.
- * - If it\\"s not a cross-regional invitation, an invitation registration email will be sent directly.
+ * @description 1. The caller of this operation must be a channel master reseller partner on Alibaba Cloud International Website.
+ * 2. The system automatically determines whether the invitation is cross-region based on whether the RegisterNation parameter falls within the T1 contract coverage area. You can call the ListCountries operation to query the contract coverage area.
+ * - If the invitation is cross-region, a cross-region invitation approval process is initiated. After Alibaba Cloud approves the request, an invitation registration email is sent to the specified email address.
+ * - If the invitation is not cross-region, an invitation registration email is sent directly.
  *
  * @param request InviteSubResellerRequest
  * @return InviteSubResellerResponse
@@ -1552,7 +1588,7 @@ InviteSubResellerResponse Client::inviteSubReseller(const InviteSubResellerReque
 }
 
 /**
- * @summary 发放优惠券
+ * @summary Issues coupons.
  *
  * @param request IssueCouponForCustomerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1599,7 +1635,7 @@ IssueCouponForCustomerResponse Client::issueCouponForCustomerWithOptions(const I
 }
 
 /**
- * @summary 发放优惠券
+ * @summary Issues coupons.
  *
  * @param request IssueCouponForCustomerRequest
  * @return IssueCouponForCustomerResponse
@@ -1610,9 +1646,7 @@ IssueCouponForCustomerResponse Client::issueCouponForCustomer(const IssueCouponF
 }
 
 /**
- * @summary This function is available for all Distributors. It displays the corresponding region code information based on the operable countries as agreed in the Distributor\\"s contract.
- *
- * @description The current API request rate for cloud products has not been disclosed.
+ * @summary Queries the list of serviceable regions. This feature is available to all distributors. The response returns region codes based on the serviceable countries specified in the distributor contract.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListCountriesResponse
@@ -1634,9 +1668,7 @@ ListCountriesResponse Client::listCountriesWithOptions(const Darabonba::RuntimeO
 }
 
 /**
- * @summary This function is available for all Distributors. It displays the corresponding region code information based on the operable countries as agreed in the Distributor\\"s contract.
- *
- * @description The current API request rate for cloud products has not been disclosed.
+ * @summary Queries the list of serviceable regions. This feature is available to all distributors. The response returns region codes based on the serviceable countries specified in the distributor contract.
  *
  * @return ListCountriesResponse
  */
@@ -1646,10 +1678,10 @@ ListCountriesResponse Client::listCountries() {
 }
 
 /**
- * @summary 优惠券使用量列表查询
+ * @summary Queries the usage of coupons issued by a distribution partner.
  *
- * @description 确保当前调用账号身份为分销伙伴 
- * <notice>仅国际提供
+ * @description Ensure that the current calling account is a distribution partner. 
+ * <notice>Available only on the international site.</notice>
  *
  * @param request ListCouponUsageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1704,10 +1736,10 @@ ListCouponUsageResponse Client::listCouponUsageWithOptions(const ListCouponUsage
 }
 
 /**
- * @summary 优惠券使用量列表查询
+ * @summary Queries the usage of coupons issued by a distribution partner.
  *
- * @description 确保当前调用账号身份为分销伙伴 
- * <notice>仅国际提供
+ * @description Ensure that the current calling account is a distribution partner. 
+ * <notice>Available only on the international site.</notice>
  *
  * @param request ListCouponUsageRequest
  * @return ListCouponUsageResponse
@@ -1718,7 +1750,7 @@ ListCouponUsageResponse Client::listCouponUsage(const ListCouponUsageRequest &re
 }
 
 /**
- * @summary Query the list of exported files.
+ * @summary Queries the list of exported files.
  *
  * @param request ListExportTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1765,7 +1797,7 @@ ListExportTasksResponse Client::listExportTasksWithOptions(const ListExportTasks
 }
 
 /**
- * @summary Query the list of exported files.
+ * @summary Queries the list of exported files.
  *
  * @param request ListExportTasksRequest
  * @return ListExportTasksResponse
@@ -1776,7 +1808,7 @@ ListExportTasksResponse Client::listExportTasks(const ListExportTasksRequest &re
 }
 
 /**
- * @summary T1查询T2优惠券申请列表
+ * @summary Queries the coupon applications submitted by secondary distributors for their end users. This operation applies only to tier-1 distributors.
  *
  * @param request ListTier2CouponApprovalRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1827,7 +1859,7 @@ ListTier2CouponApprovalResponse Client::listTier2CouponApprovalWithOptions(const
 }
 
 /**
- * @summary T1查询T2优惠券申请列表
+ * @summary Queries the coupon applications submitted by secondary distributors for their end users. This operation applies only to tier-1 distributors.
  *
  * @param request ListTier2CouponApprovalRequest
  * @return ListTier2CouponApprovalResponse
@@ -1838,7 +1870,7 @@ ListTier2CouponApprovalResponse Client::listTier2CouponApproval(const ListTier2C
 }
 
 /**
- * @summary 审批流审批通用接口
+ * @summary Approves a process that requires partner approval. This operation is applicable only to distributors.
  *
  * @param request ProcessApprovalRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1877,7 +1909,7 @@ ProcessApprovalResponse Client::processApprovalWithOptions(const ProcessApproval
 }
 
 /**
- * @summary 审批流审批通用接口
+ * @summary Approves a process that requires partner approval. This operation is applicable only to distributors.
  *
  * @param request ProcessApprovalRequest
  * @return ProcessApprovalResponse
@@ -1888,7 +1920,7 @@ ProcessApprovalResponse Client::processApproval(const ProcessApprovalRequest &re
 }
 
 /**
- * @summary 查询自动销账变更记录
+ * @summary Queries the change records of the automatic write-off quota by using paging.
  *
  * @param request QueryAutomaticWriteOffChangeRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1939,7 +1971,7 @@ QueryAutomaticWriteOffChangeRecordsResponse Client::queryAutomaticWriteOffChange
 }
 
 /**
- * @summary 查询自动销账变更记录
+ * @summary Queries the change records of the automatic write-off quota by using paging.
  *
  * @param request QueryAutomaticWriteOffChangeRecordsRequest
  * @return QueryAutomaticWriteOffChangeRecordsResponse
@@ -1950,7 +1982,7 @@ QueryAutomaticWriteOffChangeRecordsResponse Client::queryAutomaticWriteOffChange
 }
 
 /**
- * @summary 额度冲减明细列表
+ * @summary Queries the quota offset details of a specified customer.
  *
  * @param request QueryReversedDeductionHistoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2001,7 +2033,7 @@ QueryReversedDeductionHistoryResponse Client::queryReversedDeductionHistoryWithO
 }
 
 /**
- * @summary 额度冲减明细列表
+ * @summary Queries the quota offset details of a specified customer.
  *
  * @param request QueryReversedDeductionHistoryRequest
  * @return QueryReversedDeductionHistoryResponse
@@ -2012,9 +2044,9 @@ QueryReversedDeductionHistoryResponse Client::queryReversedDeductionHistory(cons
 }
 
 /**
- * @summary Check the result of export quota list as a Distribution Customer from International Site. Only available on International Site.
+ * @summary Queries the quota transaction export results for international distribution users. This API operation is available only on the international site.
  *
- * @description Caller must be a Partner from International Site, either Distribution or Reseller will do.
+ * @description The caller must be an Alibaba Cloud International site channel master distributor partner or an Alibaba Cloud International site channel distributor partner.
  *
  * @param request QuotaListExportPagedRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2041,9 +2073,9 @@ QuotaListExportPagedResponse Client::quotaListExportPagedWithOptions(const Quota
 }
 
 /**
- * @summary Check the result of export quota list as a Distribution Customer from International Site. Only available on International Site.
+ * @summary Queries the quota transaction export results for international distribution users. This API operation is available only on the international site.
  *
- * @description Caller must be a Partner from International Site, either Distribution or Reseller will do.
+ * @description The caller must be an Alibaba Cloud International site channel master distributor partner or an Alibaba Cloud International site channel distributor partner.
  *
  * @param request QuotaListExportPagedRequest
  * @return QuotaListExportPagedResponse
@@ -2054,7 +2086,7 @@ QuotaListExportPagedResponse Client::quotaListExportPaged(const QuotaListExportP
 }
 
 /**
- * @summary Resend invitation email.
+ * @summary Resends an invitation email.
  *
  * @param request ResendEmailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2085,7 +2117,7 @@ ResendEmailResponse Client::resendEmailWithOptions(const ResendEmailRequest &req
 }
 
 /**
- * @summary Resend invitation email.
+ * @summary Resends an invitation email.
  *
  * @param request ResendEmailRequest
  * @return ResendEmailResponse
@@ -2096,7 +2128,7 @@ ResendEmailResponse Client::resendEmail(const ResendEmailRequest &request) {
 }
 
 /**
- * @summary This function is designed for Sub Account information maintenance, including Nickname and Remark.
+ * @summary Updates sub-account information, including the nickname and remarks.
  *
  * @param request SetAccountInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2139,7 +2171,7 @@ SetAccountInfoResponse Client::setAccountInfoWithOptions(const SetAccountInfoReq
 }
 
 /**
- * @summary This function is designed for Sub Account information maintenance, including Nickname and Remark.
+ * @summary Updates sub-account information, including the nickname and remarks.
  *
  * @param request SetAccountInfoRequest
  * @return SetAccountInfoResponse
@@ -2150,7 +2182,7 @@ SetAccountInfoResponse Client::setAccountInfo(const SetAccountInfoRequest &reque
 }
 
 /**
- * @summary Set Credit Line for Distribution Customers. This function is only available for Resellers and Distributors.
+ * @summary Sets the credit limit for a reseller customer. This feature is available only for Resellers and Distributors.
  *
  * @param request SetCreditLineRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2185,7 +2217,7 @@ SetCreditLineResponse Client::setCreditLineWithOptions(const SetCreditLineReques
 }
 
 /**
- * @summary Set Credit Line for Distribution Customers. This function is only available for Resellers and Distributors.
+ * @summary Sets the credit limit for a reseller customer. This feature is available only for Resellers and Distributors.
  *
  * @param request SetCreditLineRequest
  * @return SetCreditLineResponse
@@ -2196,7 +2228,7 @@ SetCreditLineResponse Client::setCreditLine(const SetCreditLineRequest &request)
 }
 
 /**
- * @summary You can use this API to set the threshold for the use of credit control. When the customer credit control reaches below the threshold, it will pass through the notification email distributor. This feature is for Reseller and Distributor only.
+ * @summary Sets the credit usage threshold. When a customer\\"s available credit falls below the threshold, the reseller is notified by email. This feature is available only for Resellers and Distributors.
  *
  * @param request SetWarningThresholdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2231,7 +2263,7 @@ SetWarningThresholdResponse Client::setWarningThresholdWithOptions(const SetWarn
 }
 
 /**
- * @summary You can use this API to set the threshold for the use of credit control. When the customer credit control reaches below the threshold, it will pass through the notification email distributor. This feature is for Reseller and Distributor only.
+ * @summary Sets the credit usage threshold. When a customer\\"s available credit falls below the threshold, the reseller is notified by email. This feature is available only for Resellers and Distributors.
  *
  * @param request SetWarningThresholdRequest
  * @return SetWarningThresholdResponse
@@ -2242,34 +2274,34 @@ SetWarningThresholdResponse Client::setWarningThreshold(const SetWarningThreshol
 }
 
 /**
- * @summary Generates the subscription to multi-level bills as an Alibaba Cloud eco-partner.
+ * @summary Subscribes to multi-level ecosystem partner bills on Alibaba Cloud International and generates bill files to OSS.
  *
- * @description *   Make sure that you are a distributor of the Alibaba Cloud international ecosystem.
- * *   You can call this operation to subscribe to only one type of bill at a time.
- * *   After the subscription to a type of bill is generated, the bill for the previous day is pushed on a daily basis from the next day. On the fifth day of each month, the full-data bill for the previous month is pushed.
- * *   A daily bill may be delayed. The delayed bill is pushed the next day after it is generated. The delayed bill may contain the bill data that is delayed until the previous day. We recommend that you query the full-data bill for the previous month at the beginning of each month.
- * *   Your account must be granted the [AliyunConsumeDump2OSSRole](https://ram.console.aliyun.com/?spm=api-workbench.API%20Document.0.0.68c71e0fhmTSJp#/role/authorize?request=%7B%22Requests%22:%20%7B%22request1%22:%20%7B%22RoleName%22:%20%22AliyunConsumeDump2OSSRole%22,%20%22TemplateId%22:%20%22Dump2OSSRole%22%7D%7D,%20%22ReturnUrl%22:%20%22https:%2F%2Fusercenter2.aliyun.com%22,%20%22Service%22:%20%22Consume%22%7D) permission.
- * *   The following file name formats are supported for bills:
- * ```
- * BillingItemDetailForBillingPeriod
+ * @description - Ensure that the caller is an Alibaba Cloud international master reseller partner.
+ * - A user can subscribe to one type of bill file at a time.
+ * - After subscription, bill files generated on the previous day are pushed daily starting from the next day. On the 5th of each month, full bill files for the previous billing cycle are pushed.
+ * - Bill files generated on a daily basis may be delayed. Delayed bill files are pushed the day after they are generated and may include bills that were delayed from earlier days. Pull the full files for the previous month at the beginning of each month.
+ * - Grant the [AliyunConsumeDump2OSSRole](https://ram.console.aliyun.com/?spm=api-workbench.API%20Document.0.0.68c71e0fhmTSJp#/role/authorize?request=%7B%22Requests%22:%20%7B%22request1%22:%20%7B%22RoleName%22:%20%22AliyunConsumeDump2OSSRole%22,%20%22TemplateId%22:%20%22Dump2OSSRole%22%7D%7D,%20%22ReturnUrl%22:%20%22https:%2F%2Fusercenter2.aliyun.com%22,%20%22Service%22:%20%22Consume%22%7D) permission to the subscribing user.
+ * - File names.
+ * ```.
+ * BillingItemDetailForBillingPeriod   (Billing item detail)
  *   
- * File name format of a daily bill: UID_PartnerBillingItemDetail_YYYYMMDD_SquenceNo_fileNo. Example: 169**_BillingItemDetail_20190310_0001_01. 
+ * Daily push file name format: UID_PartnerBillingItemDetail_YYYYMMDD_SquenceNo_fileNo. Example: 169**_BillingItemDetail_20190310_0001_01.
  *   
- * File name format of a monthly full-data bill: UID_PartnerBillingItemDetail_YYYYMM_SquenceNo_fileNo. Example: 169**_BillingItemDetail_201903_0001_01. 
- * InstanceDetailForBillingPeriod
+ * Full file name format at the beginning of the next month: UID_PartnerBillingItemDetail_YYYYMM_SquenceNo_fileNo. Example: 169**_BillingItemDetail_201903_0001_01.
+ * InstanceDetailForBillingPeriod  (Instance bill detail)
  *  
- *  File name format of a daily bill: UID_PartnerInstanceDetail_YYYYMMDD_SquenceNo_fileNo. Example: 169**_InstanceDetail_20190310_0001_01. 
+ *  Daily push file name format: UID_PartnerInstanceDetail_YYYYMMDD_SquenceNo_fileNo. Example: 169**_InstanceDetail_20190310_0001_01.
  *   
- * File name format of a monthly full-data bill: UID_PartnerInstanceDetail_YYYYMM_SquenceNo_fileNo. Example: 169**_InstanceDetail_201903_1999-0001_01. 
- * BillingItemDetailMonthly
+ * Full file name format at the beginning of the next month: UID_PartnerInstanceDetail_YYYYMM_SquenceNo_fileNo. Example: 169**_InstanceDetail_201903_1999-0001_01.
+ * BillingItemDetailMonthly   (Billing item monthly bill)
  *   
- * File name format of a daily bill: UID_PartnerBillingItemDetailMonthly_YYYYMM_SquenceNo_fileNo. Example: 169**_BillingItemDetailMonthly_201903_0001_01. This bill contains the bill data that is generated from the beginning of the current month to the fifth day of the next month. 
- * InstanceDetailMonthly
+ * Daily push file name format: UID_PartnerBillingItemDetailMonthly_YYYYMM_SquenceNo_fileNo. Example: 169**_BillingItemDetailMonthly_201903_0001_01. This file is updated daily with full data from the beginning of the month to the current day, until the 5th of the next month.
+ * InstanceDetailMonthly  (Instance monthly bill)
  *   
- * File name format of a daily bill: UID_PartnerInstanceDetailMonthly_YYYYMM_SquenceNo_fileNo. Example: 169**_InstanceDetailMonthly_201903_0001_01. This bill contains the bill data that is generated from the beginning of the current month to the fifth day of the next month. 
- * The fileNo field exists only when the number of bill rows reaches the maximum rows in a single bill file and the bill is split into multiple files.
+ * Daily push file name format: UID_PartnerInstanceDetailMonthly_YYYYMM_SquenceNo_fileNo. Example: 169**_InstanceDetailMonthly_201903_0001_01. This file is updated daily with full data from the beginning of the month to the current day, until the 5th of the next month.
+ * fileNo exists only when the number of bill rows reaches the split threshold and the file is split.
  * ```
- * **This topic is published only on the international site (alibabacloud.com).
+ * **This content is published only on the Chinese site.**.
  *
  * @param request SubscriptionBillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2320,34 +2352,34 @@ SubscriptionBillResponse Client::subscriptionBillWithOptions(const SubscriptionB
 }
 
 /**
- * @summary Generates the subscription to multi-level bills as an Alibaba Cloud eco-partner.
+ * @summary Subscribes to multi-level ecosystem partner bills on Alibaba Cloud International and generates bill files to OSS.
  *
- * @description *   Make sure that you are a distributor of the Alibaba Cloud international ecosystem.
- * *   You can call this operation to subscribe to only one type of bill at a time.
- * *   After the subscription to a type of bill is generated, the bill for the previous day is pushed on a daily basis from the next day. On the fifth day of each month, the full-data bill for the previous month is pushed.
- * *   A daily bill may be delayed. The delayed bill is pushed the next day after it is generated. The delayed bill may contain the bill data that is delayed until the previous day. We recommend that you query the full-data bill for the previous month at the beginning of each month.
- * *   Your account must be granted the [AliyunConsumeDump2OSSRole](https://ram.console.aliyun.com/?spm=api-workbench.API%20Document.0.0.68c71e0fhmTSJp#/role/authorize?request=%7B%22Requests%22:%20%7B%22request1%22:%20%7B%22RoleName%22:%20%22AliyunConsumeDump2OSSRole%22,%20%22TemplateId%22:%20%22Dump2OSSRole%22%7D%7D,%20%22ReturnUrl%22:%20%22https:%2F%2Fusercenter2.aliyun.com%22,%20%22Service%22:%20%22Consume%22%7D) permission.
- * *   The following file name formats are supported for bills:
- * ```
- * BillingItemDetailForBillingPeriod
+ * @description - Ensure that the caller is an Alibaba Cloud international master reseller partner.
+ * - A user can subscribe to one type of bill file at a time.
+ * - After subscription, bill files generated on the previous day are pushed daily starting from the next day. On the 5th of each month, full bill files for the previous billing cycle are pushed.
+ * - Bill files generated on a daily basis may be delayed. Delayed bill files are pushed the day after they are generated and may include bills that were delayed from earlier days. Pull the full files for the previous month at the beginning of each month.
+ * - Grant the [AliyunConsumeDump2OSSRole](https://ram.console.aliyun.com/?spm=api-workbench.API%20Document.0.0.68c71e0fhmTSJp#/role/authorize?request=%7B%22Requests%22:%20%7B%22request1%22:%20%7B%22RoleName%22:%20%22AliyunConsumeDump2OSSRole%22,%20%22TemplateId%22:%20%22Dump2OSSRole%22%7D%7D,%20%22ReturnUrl%22:%20%22https:%2F%2Fusercenter2.aliyun.com%22,%20%22Service%22:%20%22Consume%22%7D) permission to the subscribing user.
+ * - File names.
+ * ```.
+ * BillingItemDetailForBillingPeriod   (Billing item detail)
  *   
- * File name format of a daily bill: UID_PartnerBillingItemDetail_YYYYMMDD_SquenceNo_fileNo. Example: 169**_BillingItemDetail_20190310_0001_01. 
+ * Daily push file name format: UID_PartnerBillingItemDetail_YYYYMMDD_SquenceNo_fileNo. Example: 169**_BillingItemDetail_20190310_0001_01.
  *   
- * File name format of a monthly full-data bill: UID_PartnerBillingItemDetail_YYYYMM_SquenceNo_fileNo. Example: 169**_BillingItemDetail_201903_0001_01. 
- * InstanceDetailForBillingPeriod
+ * Full file name format at the beginning of the next month: UID_PartnerBillingItemDetail_YYYYMM_SquenceNo_fileNo. Example: 169**_BillingItemDetail_201903_0001_01.
+ * InstanceDetailForBillingPeriod  (Instance bill detail)
  *  
- *  File name format of a daily bill: UID_PartnerInstanceDetail_YYYYMMDD_SquenceNo_fileNo. Example: 169**_InstanceDetail_20190310_0001_01. 
+ *  Daily push file name format: UID_PartnerInstanceDetail_YYYYMMDD_SquenceNo_fileNo. Example: 169**_InstanceDetail_20190310_0001_01.
  *   
- * File name format of a monthly full-data bill: UID_PartnerInstanceDetail_YYYYMM_SquenceNo_fileNo. Example: 169**_InstanceDetail_201903_1999-0001_01. 
- * BillingItemDetailMonthly
+ * Full file name format at the beginning of the next month: UID_PartnerInstanceDetail_YYYYMM_SquenceNo_fileNo. Example: 169**_InstanceDetail_201903_1999-0001_01.
+ * BillingItemDetailMonthly   (Billing item monthly bill)
  *   
- * File name format of a daily bill: UID_PartnerBillingItemDetailMonthly_YYYYMM_SquenceNo_fileNo. Example: 169**_BillingItemDetailMonthly_201903_0001_01. This bill contains the bill data that is generated from the beginning of the current month to the fifth day of the next month. 
- * InstanceDetailMonthly
+ * Daily push file name format: UID_PartnerBillingItemDetailMonthly_YYYYMM_SquenceNo_fileNo. Example: 169**_BillingItemDetailMonthly_201903_0001_01. This file is updated daily with full data from the beginning of the month to the current day, until the 5th of the next month.
+ * InstanceDetailMonthly  (Instance monthly bill)
  *   
- * File name format of a daily bill: UID_PartnerInstanceDetailMonthly_YYYYMM_SquenceNo_fileNo. Example: 169**_InstanceDetailMonthly_201903_0001_01. This bill contains the bill data that is generated from the beginning of the current month to the fifth day of the next month. 
- * The fileNo field exists only when the number of bill rows reaches the maximum rows in a single bill file and the bill is split into multiple files.
+ * Daily push file name format: UID_PartnerInstanceDetailMonthly_YYYYMM_SquenceNo_fileNo. Example: 169**_InstanceDetailMonthly_201903_0001_01. This file is updated daily with full data from the beginning of the month to the current day, until the 5th of the next month.
+ * fileNo exists only when the number of bill rows reaches the split threshold and the file is split.
  * ```
- * **This topic is published only on the international site (alibabacloud.com).
+ * **This content is published only on the Chinese site.**.
  *
  * @param request SubscriptionBillRequest
  * @return SubscriptionBillResponse

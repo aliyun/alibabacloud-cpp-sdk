@@ -66,17 +66,13 @@ namespace Models
 
 
   protected:
-    // Result Code:
-    // *   200 OK
-    // *   1109 System error
-    // *   3030 Sub Account Nickname exceeds maximum length,  maximum length 150 bytes.
-    // *   3031 Remark exceeds maximum length,  maximum length 3000 bytes.
+    // The nickname of the sub-account. For enterprise customers, this is the company name. For T2 partners, this is the partner name.
     shared_ptr<string> accountNickname_ {};
-    // Customer manager（limited 50 character）
+    // The customer business manager. Maximum length: 50 characters.
     shared_ptr<string> customerBd_ {};
-    // success
+    // The description of the sub-account.
     shared_ptr<string> remark_ {};
-    // Request ID, Alibaba Cloud will track errors with this.
+    // The UID of the sub-account.
     // 
     // This parameter is required.
     shared_ptr<int64_t> uid_ {};

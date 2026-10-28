@@ -68,6 +68,7 @@ namespace Models
 
 
     protected:
+      // The product code.
       Darabonba::Json productType_ {};
     };
 
@@ -111,11 +112,16 @@ namespace Models
 
 
   protected:
+    // The result code. Valid values:
+    // 200: OK.
     shared_ptr<string> code_ {};
+    // The data.
     shared_ptr<vector<GetCoupondeductProductCodeResponseBody::Data>> data_ {};
+    // The message information.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call is successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -38,6 +38,11 @@ namespace Models
 
 
   protected:
+    // Multi-language parameter. 
+    // Default value: none.
+    //     Chinese: zh-CN
+    //     English: en-US.
+    // 
     // This parameter is required.
     shared_ptr<string> acceptLanguage_ {};
   };

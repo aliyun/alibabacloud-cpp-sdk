@@ -110,11 +110,11 @@ namespace Models
 
 
       protected:
-        // Validity period of the registration URL, in days
+        // The validity period of the registration URL, in days.
         shared_ptr<int32_t> days_ {};
-        // Invitation ID, used for querying the invitation status
+        // The invitation ID, which is used to query the invitation status.
         shared_ptr<int64_t> inviteId_ {};
-        // T2 Reseller registration URL
+        // The registration URL of the T2 Reseller.
         shared_ptr<string> regUrl_ {};
       };
 
@@ -151,13 +151,13 @@ namespace Models
 
 
     protected:
-      // Error code, 200 OK
+      // The error code. A value of 200 indicates success.
       shared_ptr<string> code_ {};
-      // Prompt message, explanation of the code
+      // The prompt message that describes the code.
       shared_ptr<string> message_ {};
-      // Returned invitation result information
+      // The invitation result details.
       shared_ptr<Results::Result> result_ {};
-      // Always true
+      // Always true.
       shared_ptr<bool> success_ {};
     };
 
@@ -201,15 +201,15 @@ namespace Models
 
 
   protected:
-    // Result code.
+    // The result code.
     shared_ptr<string> code_ {};
-    // Message.
+    // message
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 邀请结果信息
+    // The invitation result information.
     shared_ptr<vector<InviteSubResellerResponseBody::Results>> results_ {};
-    // Indicates whether the call was successful.
+    // Indicates whether the call is successful.
     shared_ptr<bool> success_ {};
   };
 

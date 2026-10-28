@@ -98,9 +98,15 @@ namespace Models
 
 
     protected:
+      // The change type. Valid values:
+      // - ban: new purchases are prohibited.
+      // - cancelBan: the purchase prohibition is canceled.
       shared_ptr<string> changedType_ {};
+      // The method by which the operation was initiated.
       shared_ptr<string> operationPath_ {};
+      // The operation time (UTC+8).
       shared_ptr<string> operationTime_ {};
+      // The operator.
       shared_ptr<string> operator_ {};
     };
 
@@ -159,13 +165,20 @@ namespace Models
 
 
   protected:
+    // The result code. Value range:
+    // - 200: OK.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<vector<GetPurchaseControlRecordResponseBody::Data>> data_ {};
+    // The page number.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // RequestId
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation was successful.
     shared_ptr<bool> success_ {};
+    // The total number of entries.
     shared_ptr<int32_t> total_ {};
   };
 

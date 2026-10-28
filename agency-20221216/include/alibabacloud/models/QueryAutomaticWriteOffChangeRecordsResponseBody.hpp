@@ -92,9 +92,13 @@ namespace Models
 
 
     protected:
+      // The content of the operation.
       shared_ptr<string> changeContent_ {};
+      // The operator.
       shared_ptr<string> operateId_ {};
+      // The description of the operation source.
       shared_ptr<string> operateSource_ {};
+      // The time of the operation. Format: YYYY-MM-DD HH:mm:ss UTC+8.
       shared_ptr<string> operationTime_ {};
     };
 
@@ -131,9 +135,13 @@ namespace Models
 
 
   protected:
+    // The status code of the response. A value of 200 indicates success.
     shared_ptr<string> code_ {};
+    // The list of query results.
     shared_ptr<vector<QueryAutomaticWriteOffChangeRecordsResponseBody::Data>> data_ {};
+    // The message of the response.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

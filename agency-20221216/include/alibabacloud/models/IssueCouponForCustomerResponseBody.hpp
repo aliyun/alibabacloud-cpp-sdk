@@ -84,8 +84,11 @@ namespace Models
 
 
     protected:
+      // The ID of the coupon template.
       shared_ptr<int64_t> couponTemplateId_ {};
+      // The creation time. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
+      // The UIDs to which the coupons are issued.
       shared_ptr<string> uidlist_ {};
     };
 
@@ -129,11 +132,15 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> code_ {};
+    // The error message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
+    // The returned data.
     shared_ptr<IssueCouponForCustomerResponseBody::Data> data_ {};
   };
 

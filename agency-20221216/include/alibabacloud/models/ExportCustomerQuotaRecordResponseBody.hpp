@@ -73,9 +73,9 @@ namespace Models
 
 
     protected:
-      // Estimated duration, in minutes.
+      // The estimated time required, in minutes.
       shared_ptr<int32_t> cost_ {};
-      // ID of Export task
+      // The ID of the export task.
       shared_ptr<int64_t> id_ {};
     };
 
@@ -112,13 +112,13 @@ namespace Models
 
 
   protected:
-    // Code
+    // code
     shared_ptr<string> code_ {};
-    // Data
+    // The data.
     shared_ptr<ExportCustomerQuotaRecordResponseBody::Data> data_ {};
-    // Description
+    // The description.
     shared_ptr<string> msg_ {};
-    // ID of the Request
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

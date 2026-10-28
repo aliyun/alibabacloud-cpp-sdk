@@ -66,11 +66,18 @@ namespace Models
 
 
   protected:
+    // The customer UID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> customerUID_ {};
+    // The start time. If left empty, data from the last six months is returned. The time format is yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> operationTime_ {};
+    // The page number.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of entries per page.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
   };

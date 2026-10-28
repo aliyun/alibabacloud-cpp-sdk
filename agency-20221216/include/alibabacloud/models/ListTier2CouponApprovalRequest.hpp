@@ -84,13 +84,27 @@ namespace Models
 
 
   protected:
+    // The ID of the application form.
     shared_ptr<string> applicationSheetId_ {};
+    // The approval status. Valid values:
+    // - 1: Revoked.
+    // - 2: Under review.
+    // - 3: Rejected.
+    // - 4: Approved.
+    // - 5: Approved but issuance failed.
+    // - 8: Pending.
     shared_ptr<string> approvalStatus_ {};
+    // The page number. Pages start from 1.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
+    // The number of entries per page.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // The name of the secondary distributor.
     shared_ptr<string> t2PartnerName_ {};
+    // The UID of the secondary distributor.
     shared_ptr<int64_t> t2PartnerUid_ {};
   };
 

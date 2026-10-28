@@ -126,12 +126,26 @@ namespace Models
 
 
     protected:
+      // The issuing account.
       shared_ptr<string> issuerAccount_ {};
+      // The UID of the issuing account.
       shared_ptr<string> issuerUid_ {};
+      // The approval comment.
       shared_ptr<string> note_ {};
+      // The ID of the template.
       shared_ptr<string> templateId_ {};
+      // The name of the coupon template.
       shared_ptr<string> templateName_ {};
+      // The status of the coupon template. Valid values:
+      // - **1**: application revoked
+      // - **2**: under review
+      // - **3**: review rejected
+      // - **4**: review approved
+      // - **5**: review approved but issuance failed
+      // - **6**: automatically approved
+      // - **7**: automatically approved but issuance failed
       shared_ptr<int64_t> templateStatus_ {};
+      // The application time. The format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> timeOfRequest_ {};
     };
 
@@ -190,12 +204,19 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<vector<CouponApprovalStatusListResponseBody::Data>> data_ {};
+    // The message.
     shared_ptr<string> message_ {};
+    // The current page number.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> total_ {};
   };
 

@@ -66,9 +66,17 @@ namespace Models
 
 
   protected:
+    // The result code. Valid values:
+    // - 200: OK.
+    // - 1109: A system error occurred.
+    // - 3030: The account nickname exceeds the maximum length of 150 bytes.
+    // - 3031: The remark exceeds the maximum length of 3000 bytes.
     shared_ptr<string> code_ {};
+    // The message returned.
     shared_ptr<string> message_ {};
+    // The request ID. Alibaba Cloud uses this ID for error tracking.
     shared_ptr<string> requestId_ {};
+    // Valid values: True and False. Indicates whether the current API call itself is successful. This does not indicate the success of subsequent business operations.
     shared_ptr<bool> success_ {};
   };
 

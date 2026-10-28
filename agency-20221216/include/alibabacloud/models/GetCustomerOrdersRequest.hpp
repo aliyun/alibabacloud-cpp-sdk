@@ -149,22 +149,54 @@ namespace Models
 
 
   protected:
+    // The customer account.
     shared_ptr<string> customerAccount_ {};
+    // The account manager.
     shared_ptr<string> customerManager_ {};
+    // The customer UID.
     shared_ptr<int64_t> customerUid_ {};
+    // The end time. This parameter is used in combination with TimeType. Format: yyyy-MM-dd HH:mm:ss.
+    // 
     // This parameter is required.
     shared_ptr<string> endDate_ {};
+    // The order ID.
     shared_ptr<int64_t> orderId_ {};
+    // The order source. Valid values:
+    // - 0: Regular customer.
+    // - 1: Enterprise customer.
+    // - 2: Tier-2 distributor.
     shared_ptr<int32_t> orderSource_ {};
+    // The order status. Valid values:
+    // - 1: Unpaid.
+    // - 2: Canceled.
+    // - 3: Paid.
     shared_ptr<int32_t> orderStatus_ {};
+    // The order type. Valid values:
+    // - BUY: New purchase.
+    // - UPGRADE: Upgrade.
+    // - DOWNGRADE: Downgrade.
+    // - RENEW: Renewal.
+    // - REFUND: Refund.
+    // - OTHERS: Others.
     shared_ptr<string> orderType_ {};
+    // The current page number.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of entries per page.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // The product detail code.
     shared_ptr<string> productType_ {};
+    // The start time. This parameter is used in combination with TimeType. Format: yyyy-MM-dd HH:mm:ss.
+    // 
     // This parameter is required.
     shared_ptr<string> startDate_ {};
+    // The time type used as the basis for the query. This is not a date or time value. Valid values:
+    // - 1: Payment time.
+    // - 2: Order placement time.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> timeType_ {};
   };

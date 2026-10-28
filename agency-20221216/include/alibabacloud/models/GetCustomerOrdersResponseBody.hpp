@@ -194,19 +194,45 @@ namespace Models
 
 
     protected:
+      // The customer account.
       shared_ptr<string> customerAccount_ {};
+      // The account manager.
       shared_ptr<string> customerManager_ {};
+      // The customer UID.
       shared_ptr<int64_t> customerNo_ {};
+      // The order ID.
       shared_ptr<int64_t> orderId_ {};
+      // The order source. Valid values:
+      // - 0: Regular customer.
+      // - 1: Enterprise customer.
+      // - 2: Tier-2 distributor.
       shared_ptr<string> orderSource_ {};
+      // The order status. Valid values:
+      // - 1: Unpaid.
+      // - 2: Canceled.
+      // - 3: Paid.
       shared_ptr<int32_t> orderStatus_ {};
+      // The order type. Valid values:
+      // - BUY: New purchase.
+      // - UPGRADE: Upgrade.
+      // - DOWNGRADE: Downgrade.
+      // - RENEW: Renewal.
+      // - REFUND: Refund.
+      // - OTHERS: Others.
       shared_ptr<string> orderType_ {};
+      // The original order price.
       shared_ptr<double> originalCost_ {};
+      // The payment method.
       shared_ptr<string> paymentMethod_ {};
+      // The payment time. Format: YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> paymentTime_ {};
+      // The payable amount.
       shared_ptr<double> pretaxCost_ {};
+      // The product details.
       shared_ptr<string> productDetail_ {};
+      // The product detail code.
       shared_ptr<string> productType_ {};
+      // The order placement time. Format: YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> timeToOrder_ {};
     };
 
@@ -279,15 +305,25 @@ namespace Models
 
 
   protected:
+    // The result code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<vector<GetCustomerOrdersResponseBody::Data>> data_ {};
+    // The message. The value is the same as the Code parameter.
     shared_ptr<string> message_ {};
+    // The message. The value is the same as the Code parameter.
     shared_ptr<string> msg_ {};
+    // The current page number.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful. Valid values:
+    // - 200: OK.
+    // - 201: Parameter error.
     shared_ptr<bool> success_ {};
+    // The total number of records.
     shared_ptr<int32_t> total_ {};
   };
 

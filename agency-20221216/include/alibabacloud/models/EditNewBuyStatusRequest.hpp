@@ -48,13 +48,12 @@ namespace Models
 
 
   protected:
-    // New Purchase Status</br>
+    // The new purchase status. Valid values:
     // 
-    // - cancelBan: Cancel the restriction for New Purchase request</br>
-    // 
-    // - ban: ban the New Purchase request</br>
+    // - cancelBan: allows new purchases
+    // - ban: prohibits new purchases.
     shared_ptr<string> newBuyStatus_ {};
-    // Customer UID
+    // The UID of the customer.
     shared_ptr<int64_t> uid_ {};
   };
 

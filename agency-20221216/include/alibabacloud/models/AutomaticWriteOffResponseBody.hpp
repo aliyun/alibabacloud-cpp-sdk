@@ -68,8 +68,11 @@ namespace Models
   protected:
     // code
     shared_ptr<string> code_ {};
+    // Indicates whether the configuration is successful.
     shared_ptr<bool> data_ {};
+    // The message.
     shared_ptr<string> message_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

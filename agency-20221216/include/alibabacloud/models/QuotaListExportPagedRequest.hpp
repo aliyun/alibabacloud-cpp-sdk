@@ -57,16 +57,16 @@ namespace Models
 
 
   protected:
-    // Pagination, current page number, starting from 1.
+    // The page number. Pages start from page 1.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // Multilingual Parameters, the default language is English.</br>
-    // en: English</br>
-    // zh: Chinese</br>
-    // ja: Japanese </br>
+    // The language. Default value: en. Valid values:
+    // - en: English.
+    // - zh: Chinese.
+    // - ja: Japanese.
     shared_ptr<string> language_ {};
-    // Pagination, record number on each page, maximum 100.
+    // The number of entries per page. Maximum value: 100.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};

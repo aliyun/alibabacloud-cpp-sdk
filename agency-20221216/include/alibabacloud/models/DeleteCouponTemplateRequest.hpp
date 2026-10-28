@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The coupon template ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> templateId_ {};
   };

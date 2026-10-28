@@ -75,12 +75,25 @@ namespace Models
 
 
   protected:
+    // The ID of the export task.
     shared_ptr<int64_t> id_ {};
+    // The language. Valid values:
+    // - en: English.
+    // - zh: Chinese.
+    // - ja: Japanese.
     shared_ptr<string> language_ {};
+    // The current page number. Pages start from 1.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of entries per page. Maximum value: 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // The export scenario code. Valid values:
+    // - intlCustomerQuotaRecord: Customer management, quota transaction export.
+    // - intlExportUsageDeductHistory: Customer management, deduction detail export.
+    // 
     // This parameter is required.
     shared_ptr<string> sceneCode_ {};
   };

@@ -126,12 +126,22 @@ namespace Models
 
 
     protected:
+      // The creation time. The format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> createTime_ {};
+      // The name of the file.
       shared_ptr<string> fileName_ {};
+      // The unique ID of the export task.
       shared_ptr<int64_t> id_ {};
+      // The prompt message.
       shared_ptr<string> message_ {};
+      // The display status of the task.
       shared_ptr<string> status_ {};
+      // The status code of the task. Valid values:
+      // - 2: Exporting.
+      // - 3: Export successful.
+      // - -1: Export failed.
       shared_ptr<string> statusCode_ {};
+      // The download URL of the file.
       shared_ptr<string> url_ {};
     };
 
@@ -190,12 +200,19 @@ namespace Models
 
 
   protected:
+    // The status code of the returned result. A value of 200 indicates success.
     shared_ptr<string> code_ {};
+    // The returned list.
     shared_ptr<vector<ListExportTasksResponseBody::Data>> data_ {};
+    // The description of the returned result.
     shared_ptr<string> message_ {};
+    // The current page number.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> total_ {};
   };
 

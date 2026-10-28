@@ -98,9 +98,13 @@ namespace Models
 
 
     protected:
+      // The offset amount.
       shared_ptr<string> offsetAmount_ {};
+      // The method used to initiate the operation, such as API or ACPN.
       shared_ptr<string> operationSubmitType_ {};
+      // The operation time. Format: YYYY-MM-DD HH:mm:ss UTC+8.
       shared_ptr<string> operationTime_ {};
+      // The UID of the operator.
       shared_ptr<string> operationUid_ {};
     };
 
@@ -159,12 +163,19 @@ namespace Models
 
 
   protected:
+    // The status code of the returned result. A value of 200 indicates success.
     shared_ptr<string> code_ {};
+    // The list data.
     shared_ptr<vector<QueryReversedDeductionHistoryResponseBody::Data>> data_ {};
+    // The description of the returned result.
     shared_ptr<string> message_ {};
+    // The current page number.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> total_ {};
   };
 
