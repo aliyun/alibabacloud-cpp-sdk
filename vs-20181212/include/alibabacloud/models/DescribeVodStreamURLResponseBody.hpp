@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // 流播放协议
+    // The stream playback protocol.
     shared_ptr<string> outProtocol_ {};
-    // 流播放端口
+    // The stream playback port.
     shared_ptr<int64_t> port_ {};
-    // 该条任务请求ID。
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // 流播放URL
+    // The stream playback URL.
     shared_ptr<string> url_ {};
   };
 

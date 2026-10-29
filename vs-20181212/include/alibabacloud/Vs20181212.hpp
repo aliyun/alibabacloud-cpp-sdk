@@ -50,7 +50,7 @@ namespace Vs20181212
       Models::AddHiveEdgeWorkersResponse addHiveEdgeWorkers(const Models::AddHiveEdgeWorkersRequest &request);
 
       /**
-       * @summary Adds a stream pulling configuration.
+       * @summary Adds pull stream configurations.
        *
        * @param request AddVsPullStreamInfoConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -59,7 +59,7 @@ namespace Vs20181212
       Models::AddVsPullStreamInfoConfigResponse addVsPullStreamInfoConfigWithOptions(const Models::AddVsPullStreamInfoConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds a stream pulling configuration.
+       * @summary Adds pull stream configurations.
        *
        * @param request AddVsPullStreamInfoConfigRequest
        * @return AddVsPullStreamInfoConfigResponse
@@ -178,10 +178,10 @@ namespace Vs20181212
        * @summary Retrieves screenshots of cloud application service instances.
        *
        * @description ## Request description
-       * - **Authentication**: Requests must include the `AliUid` parameter for identity verification.
-       * - **Instance specification**: Use `RenderingInstanceIds` to specify the instances to capture screenshots from.
-       * - **Screenshot quality**: Use the `Quality` parameter to set the image quality of screenshots. The default value is 75 (if not configured). Valid values: 1 to 100.
-       * - **Response handling**: The response contains lists of successful and failed instances with related information, including download URLs and screenshot completion times.
+       * - **Authentication**: The request must include the `AliUid` parameter to authenticate and perform identity verification.
+       * - **Instance specification**: You can specify the instances to capture screenshots of by using `RenderingInstanceIds`.
+       * - **Screenshot quality**: You can configure the Settings for the screenshot image quality by using the `Quality` parameter. The default value is 75 if not configured, and the valid values range from 1 to 100.
+       * - **Response processing**: The response includes lists of successful and failed instances along with their related information, such as download URLs and screenshot completion times.
        *
        * @param tmpReq BatchCaptureRenderingInstanceScreenshotRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -193,10 +193,10 @@ namespace Vs20181212
        * @summary Retrieves screenshots of cloud application service instances.
        *
        * @description ## Request description
-       * - **Authentication**: Requests must include the `AliUid` parameter for identity verification.
-       * - **Instance specification**: Use `RenderingInstanceIds` to specify the instances to capture screenshots from.
-       * - **Screenshot quality**: Use the `Quality` parameter to set the image quality of screenshots. The default value is 75 (if not configured). Valid values: 1 to 100.
-       * - **Response handling**: The response contains lists of successful and failed instances with related information, including download URLs and screenshot completion times.
+       * - **Authentication**: The request must include the `AliUid` parameter to authenticate and perform identity verification.
+       * - **Instance specification**: You can specify the instances to capture screenshots of by using `RenderingInstanceIds`.
+       * - **Screenshot quality**: You can configure the Settings for the screenshot image quality by using the `Quality` parameter. The default value is 75 if not configured, and the valid values range from 1 to 100.
+       * - **Response processing**: The response includes lists of successful and failed instances along with their related information, such as download URLs and screenshot completion times.
        *
        * @param request BatchCaptureRenderingInstanceScreenshotRequest
        * @return BatchCaptureRenderingInstanceScreenshotResponse
@@ -238,7 +238,7 @@ namespace Vs20181212
       Models::BatchDeleteVsDomainConfigsResponse batchDeleteVsDomainConfigs(const Models::BatchDeleteVsDomainConfigsRequest &request);
 
       /**
-       * @summary Stop stream ingest for one or more streams. You can schedule when to resume ingest.
+       * @summary Forbids the push of a specific stream and allows you to schedule a time to resume the stream.
        *
        * @param request BatchForbidVsStreamRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -247,7 +247,7 @@ namespace Vs20181212
       Models::BatchForbidVsStreamResponse batchForbidVsStreamWithOptions(const Models::BatchForbidVsStreamRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stop stream ingest for one or more streams. You can schedule when to resume ingest.
+       * @summary Forbids the push of a specific stream and allows you to schedule a time to resume the stream.
        *
        * @param request BatchForbidVsStreamRequest
        * @return BatchForbidVsStreamResponse
@@ -255,7 +255,7 @@ namespace Vs20181212
       Models::BatchForbidVsStreamResponse batchForbidVsStream(const Models::BatchForbidVsStreamRequest &request);
 
       /**
-       * @summary Resumes stream ingest for one or more streams.
+       * @summary Resumes the push of a specific stream.
        *
        * @param request BatchResumeVsStreamRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -264,7 +264,7 @@ namespace Vs20181212
       Models::BatchResumeVsStreamResponse batchResumeVsStreamWithOptions(const Models::BatchResumeVsStreamRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Resumes stream ingest for one or more streams.
+       * @summary Resumes the push of a specific stream.
        *
        * @param request BatchResumeVsStreamRequest
        * @return BatchResumeVsStreamResponse
@@ -516,7 +516,7 @@ namespace Vs20181212
       /**
        * @summary Cancels a Comfy task.
        *
-       * @description > Stop the parent platform before canceling the task.
+       * @description > Stop the parent platform before deletion.
        *
        * @param request CancelComfyTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -527,7 +527,7 @@ namespace Vs20181212
       /**
        * @summary Cancels a Comfy task.
        *
-       * @description > Stop the parent platform before canceling the task.
+       * @description > Stop the parent platform before deletion.
        *
        * @param request CancelComfyTaskRequest
        * @return CancelComfyTaskResponse
@@ -571,7 +571,7 @@ namespace Vs20181212
       /**
        * @summary Starts a Comfy task.
        *
-       * @description > You must enable on-demand snapshot in the associated snapshot template in advance.
+       * @description > Enable the on-demand screenshot feature in the associated screenshot template.
        *
        * @param request CreateComfyTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -582,7 +582,7 @@ namespace Vs20181212
       /**
        * @summary Starts a Comfy task.
        *
-       * @description > You must enable on-demand snapshot in the associated snapshot template in advance.
+       * @description > Enable the on-demand screenshot feature in the associated screenshot template.
        *
        * @param request CreateComfyTaskRequest
        * @return CreateComfyTaskResponse
@@ -592,7 +592,7 @@ namespace Vs20181212
       /**
        * @summary Creates a directory for user data.
        *
-       * @description > You must specify either a template ID or a template type.
+       * @description > Specify at least one of the template ID and the templatetype.
        *
        * @param request CreateComfyUserDataDirRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -603,7 +603,7 @@ namespace Vs20181212
       /**
        * @summary Creates a directory for user data.
        *
-       * @description > You must specify either a template ID or a template type.
+       * @description > Specify at least one of the template ID and the templatetype.
        *
        * @param request CreateComfyUserDataDirRequest
        * @return CreateComfyUserDataDirResponse
@@ -611,9 +611,9 @@ namespace Vs20181212
       Models::CreateComfyUserDataDirResponse createComfyUserDataDir(const Models::CreateComfyUserDataDirRequest &request);
 
       /**
-       * @summary Creates a Comfy workflow.
+       * @summary Uploads a Comfy workflow.
        *
-       * @description > You must enable the on-demand screenshot feature in the associated screenshot template before calling this operation.
+       * @description > You must first enable the on-demand snapshot feature in the associated snapshot template.
        *
        * @param request CreateComfyWorkflowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -622,9 +622,9 @@ namespace Vs20181212
       Models::CreateComfyWorkflowResponse createComfyWorkflowWithOptions(const Models::CreateComfyWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a Comfy workflow.
+       * @summary Uploads a Comfy workflow.
        *
-       * @description > You must enable the on-demand screenshot feature in the associated screenshot template before calling this operation.
+       * @description > You must first enable the on-demand snapshot feature in the associated snapshot template.
        *
        * @param request CreateComfyWorkflowRequest
        * @return CreateComfyWorkflowResponse
@@ -740,7 +740,7 @@ namespace Vs20181212
       Models::CreateParentPlatformResponse createParentPlatform(const Models::CreateParentPlatformRequest &request);
 
       /**
-       * @summary Creates a data pack for a cloud application service.
+       * @summary Creates a Cloud Application Service data package.
        *
        * @param request CreateRenderingDataPackageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -749,7 +749,7 @@ namespace Vs20181212
       Models::CreateRenderingDataPackageResponse createRenderingDataPackageWithOptions(const Models::CreateRenderingDataPackageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a data pack for a cloud application service.
+       * @summary Creates a Cloud Application Service data package.
        *
        * @param request CreateRenderingDataPackageRequest
        * @return CreateRenderingDataPackageResponse
@@ -757,7 +757,7 @@ namespace Vs20181212
       Models::CreateRenderingDataPackageResponse createRenderingDataPackage(const Models::CreateRenderingDataPackageRequest &request);
 
       /**
-       * @summary Call CreateRenderingInstance to create a cloud application service instance.
+       * @summary Applies for a cloud rendering resource instance.
        *
        * @param tmpReq CreateRenderingInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -766,7 +766,7 @@ namespace Vs20181212
       Models::CreateRenderingInstanceResponse createRenderingInstanceWithOptions(const Models::CreateRenderingInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call CreateRenderingInstance to create a cloud application service instance.
+       * @summary Applies for a cloud rendering resource instance.
        *
        * @param request CreateRenderingInstanceRequest
        * @return CreateRenderingInstanceResponse
@@ -776,7 +776,7 @@ namespace Vs20181212
       /**
        * @summary Creates a custom gateway.
        *
-       * @description > You can specify a template ID or a template type.
+       * @description > Specify at least one of the template ID and templatetype.
        *
        * @param request CreateRenderingInstanceGatewayRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -787,7 +787,7 @@ namespace Vs20181212
       /**
        * @summary Creates a custom gateway.
        *
-       * @description > You can specify a template ID or a template type.
+       * @description > Specify at least one of the template ID and templatetype.
        *
        * @param request CreateRenderingInstanceGatewayRequest
        * @return CreateRenderingInstanceGatewayResponse
@@ -795,7 +795,7 @@ namespace Vs20181212
       Models::CreateRenderingInstanceGatewayResponse createRenderingInstanceGateway(const Models::CreateRenderingInstanceGatewayRequest &request);
 
       /**
-       * @summary Creates a cloud application service project and configures its properties, such as session attributes.
+       * @summary Creates a cloud application service project and configures session-related properties.
        *
        * @param tmpReq CreateRenderingProjectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -804,7 +804,7 @@ namespace Vs20181212
       Models::CreateRenderingProjectResponse createRenderingProjectWithOptions(const Models::CreateRenderingProjectRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a cloud application service project and configures its properties, such as session attributes.
+       * @summary Creates a cloud application service project and configures session-related properties.
        *
        * @param request CreateRenderingProjectRequest
        * @return CreateRenderingProjectResponse
@@ -877,7 +877,7 @@ namespace Vs20181212
       Models::DelHiveEdgeWorkersResponse delHiveEdgeWorkers(const Models::DelHiveEdgeWorkersRequest &request);
 
       /**
-       * @summary Deletes a cloud application. You cannot delete a cloud application that is in use.
+       * @summary Deletes a cloud application. Cloud applications in use cannot be deleted.
        *
        * @param request DeleteCloudAppRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -886,7 +886,7 @@ namespace Vs20181212
       Models::DeleteCloudAppResponse deleteCloudAppWithOptions(const Models::DeleteCloudAppRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a cloud application. You cannot delete a cloud application that is in use.
+       * @summary Deletes a cloud application. Cloud applications in use cannot be deleted.
        *
        * @param request DeleteCloudAppRequest
        * @return DeleteCloudAppResponse
@@ -894,9 +894,9 @@ namespace Vs20181212
       Models::DeleteCloudAppResponse deleteCloudApp(const Models::DeleteCloudAppRequest &request);
 
       /**
-       * @summary Deleting artifacts
+       * @summary Deletes an artifact.
        *
-       * @description > Stop the parent platform before you delete a production.
+       * @description > Stop the parent platform before deletion.
        *
        * @param request DeleteComfyProductionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -905,9 +905,9 @@ namespace Vs20181212
       Models::DeleteComfyProductionResponse deleteComfyProductionWithOptions(const Models::DeleteComfyProductionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deleting artifacts
+       * @summary Deletes an artifact.
        *
-       * @description > Stop the parent platform before you delete a production.
+       * @description > Stop the parent platform before deletion.
        *
        * @param request DeleteComfyProductionRequest
        * @return DeleteComfyProductionResponse
@@ -915,9 +915,9 @@ namespace Vs20181212
       Models::DeleteComfyProductionResponse deleteComfyProduction(const Models::DeleteComfyProductionRequest &request);
 
       /**
-       * @summary Deletes a file or directory from user data.
+       * @summary Deletes a file or directory in user data.
        *
-       * @description > You must stop the upper-level platform before performing this operation.
+       * @description > Stop the parent platform before deletion.
        *
        * @param request DeleteComfyUserDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -926,9 +926,9 @@ namespace Vs20181212
       Models::DeleteComfyUserDataResponse deleteComfyUserDataWithOptions(const Models::DeleteComfyUserDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a file or directory from user data.
+       * @summary Deletes a file or directory in user data.
        *
-       * @description > You must stop the upper-level platform before performing this operation.
+       * @description > Stop the parent platform before deletion.
        *
        * @param request DeleteComfyUserDataRequest
        * @return DeleteComfyUserDataResponse
@@ -938,7 +938,7 @@ namespace Vs20181212
       /**
        * @summary Deletes a Comfy workflow.
        *
-       * @description > You must stop the parent platform before you can delete the workflow.
+       * @description > Stop the parent platform before deletion.
        *
        * @param request DeleteComfyWorkflowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -949,7 +949,7 @@ namespace Vs20181212
       /**
        * @summary Deletes a Comfy workflow.
        *
-       * @description > You must stop the parent platform before you can delete the workflow.
+       * @description > Stop the parent platform before deletion.
        *
        * @param request DeleteComfyWorkflowRequest
        * @return DeleteComfyWorkflowResponse
@@ -991,7 +991,7 @@ namespace Vs20181212
       Models::DeleteDirectoryResponse deleteDirectory(const Models::DeleteDirectoryRequest &request);
 
       /**
-       * @summary You cannot delete a file while it is uploading or pre-pushing. After deletion, all related push records become invalid. You can push a file with the same name again.
+       * @summary Deletes a file object. You cannot delete a file that is being uploaded or pre-pushed. After a file is deleted, all associated push records become invalid, and you can push a file with the same name again.
        *
        * @param request DeleteFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1000,7 +1000,7 @@ namespace Vs20181212
       Models::DeleteFileResponse deleteFileWithOptions(const Models::DeleteFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You cannot delete a file while it is uploading or pre-pushing. After deletion, all related push records become invalid. You can push a file with the same name again.
+       * @summary Deletes a file object. You cannot delete a file that is being uploaded or pre-pushed. After a file is deleted, all associated push records become invalid, and you can push a file with the same name again.
        *
        * @param request DeleteFileRequest
        * @return DeleteFileResponse
@@ -1105,7 +1105,7 @@ namespace Vs20181212
       Models::DeletePublicKeyResponse deletePublicKey(const Models::DeletePublicKeyRequest &request);
 
       /**
-       * @summary Deletes the configuration of a cloud application service instance. This operation deletes only module properties that are configured using the UpdateRenderingInstanceConfiguration operation.
+       * @summary Clears the configuration settings of a cloud application service instance. Only module properties configured through the UpdateRenderingInstanceConfiguration operation can be removed.
        *
        * @param tmpReq DeleteRenderingInstanceConfigurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1114,7 +1114,7 @@ namespace Vs20181212
       Models::DeleteRenderingInstanceConfigurationResponse deleteRenderingInstanceConfigurationWithOptions(const Models::DeleteRenderingInstanceConfigurationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes the configuration of a cloud application service instance. This operation deletes only module properties that are configured using the UpdateRenderingInstanceConfiguration operation.
+       * @summary Clears the configuration settings of a cloud application service instance. Only module properties configured through the UpdateRenderingInstanceConfiguration operation can be removed.
        *
        * @param request DeleteRenderingInstanceConfigurationRequest
        * @return DeleteRenderingInstanceConfigurationResponse
@@ -1124,7 +1124,7 @@ namespace Vs20181212
       /**
        * @summary Deletes a custom gateway.
        *
-       * @description > Stop the parent platform before you delete the gateway.
+       * @description > Stop the upper-level platform before deletion.
        *
        * @param request DeleteRenderingInstanceGatewayRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1135,7 +1135,7 @@ namespace Vs20181212
       /**
        * @summary Deletes a custom gateway.
        *
-       * @description > Stop the parent platform before you delete the gateway.
+       * @description > Stop the upper-level platform before deletion.
        *
        * @param request DeleteRenderingInstanceGatewayRequest
        * @return DeleteRenderingInstanceGatewayResponse
@@ -1143,7 +1143,7 @@ namespace Vs20181212
       Models::DeleteRenderingInstanceGatewayResponse deleteRenderingInstanceGateway(const Models::DeleteRenderingInstanceGatewayRequest &request);
 
       /**
-       * @summary You can call DeleteRenderingInstanceSettings to delete the settings of a cloud application service instance.
+       * @summary Deletes the settings of a cloud application service instance.
        *
        * @param tmpReq DeleteRenderingInstanceSettingsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1152,7 +1152,7 @@ namespace Vs20181212
       Models::DeleteRenderingInstanceSettingsResponse deleteRenderingInstanceSettingsWithOptions(const Models::DeleteRenderingInstanceSettingsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call DeleteRenderingInstanceSettings to delete the settings of a cloud application service instance.
+       * @summary Deletes the settings of a cloud application service instance.
        *
        * @param request DeleteRenderingInstanceSettingsRequest
        * @return DeleteRenderingInstanceSettingsResponse
@@ -1160,7 +1160,7 @@ namespace Vs20181212
       Models::DeleteRenderingInstanceSettingsResponse deleteRenderingInstanceSettings(const Models::DeleteRenderingInstanceSettingsRequest &request);
 
       /**
-       * @summary Delete a Data Service Project. Projects that have business scheduling data, such as active sessions, cannot be deleted.
+       * @summary Deletes a cloud application service project. Projects that contain business scheduling data such as online sessions cannot be deleted.
        *
        * @param request DeleteRenderingProjectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1169,7 +1169,7 @@ namespace Vs20181212
       Models::DeleteRenderingProjectResponse deleteRenderingProjectWithOptions(const Models::DeleteRenderingProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete a Data Service Project. Projects that have business scheduling data, such as active sessions, cannot be deleted.
+       * @summary Deletes a cloud application service project. Projects that contain business scheduling data such as online sessions cannot be deleted.
        *
        * @param request DeleteRenderingProjectRequest
        * @return DeleteRenderingProjectResponse
@@ -1245,9 +1245,9 @@ namespace Vs20181212
       Models::DescribeAccountStatResponse describeAccountStat(const Models::DescribeAccountStatRequest &request);
 
       /**
-       * @summary Retrieves a download link for a production.
+       * @summary Retrieves the download URL for user-generated results.
        *
-       * @description > Screenshot queries do not support pagination and must be performed iteratively. To fetch the next page, use the extStartTime value from the response as the StartTime for your subsequent request.
+       * @description > Screenshot queries do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in the new request.
        *
        * @param request DescribeComfyProductionDownloadUrlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1256,9 +1256,9 @@ namespace Vs20181212
       Models::DescribeComfyProductionDownloadUrlResponse describeComfyProductionDownloadUrlWithOptions(const Models::DescribeComfyProductionDownloadUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a download link for a production.
+       * @summary Retrieves the download URL for user-generated results.
        *
-       * @description > Screenshot queries do not support pagination and must be performed iteratively. To fetch the next page, use the extStartTime value from the response as the StartTime for your subsequent request.
+       * @description > Screenshot queries do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in the new request.
        *
        * @param request DescribeComfyProductionDownloadUrlRequest
        * @return DescribeComfyProductionDownloadUrlResponse
@@ -1266,9 +1266,9 @@ namespace Vs20181212
       Models::DescribeComfyProductionDownloadUrlResponse describeComfyProductionDownloadUrl(const Models::DescribeComfyProductionDownloadUrlRequest &request);
 
       /**
-       * @summary Lists a user\\"s productions.
+       * @summary Lists the generation results of a user.
        *
-       * @description > This API uses pagination. Use the PageNumber and PageSize parameters to navigate through the results.
+       * @description > Screenshot queries currently do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in the new request.
        *
        * @param request DescribeComfyProductionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1277,9 +1277,9 @@ namespace Vs20181212
       Models::DescribeComfyProductionsResponse describeComfyProductionsWithOptions(const Models::DescribeComfyProductionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists a user\\"s productions.
+       * @summary Lists the generation results of a user.
        *
-       * @description > This API uses pagination. Use the PageNumber and PageSize parameters to navigate through the results.
+       * @description > Screenshot queries currently do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in the new request.
        *
        * @param request DescribeComfyProductionsRequest
        * @return DescribeComfyProductionsResponse
@@ -1287,7 +1287,7 @@ namespace Vs20181212
       Models::DescribeComfyProductionsResponse describeComfyProductions(const Models::DescribeComfyProductionsRequest &request);
 
       /**
-       * @summary Queries the waiting queue information of Comfy tasks. The maximum length of a single Hive waiting queue is 100 by default.
+       * @summary Queries the waiting queue information of Comfy tasks. The default maximum length of a single Hive waiting queue is 100.
        *
        * @param request DescribeComfyTaskWaitingQueueRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1296,7 +1296,7 @@ namespace Vs20181212
       Models::DescribeComfyTaskWaitingQueueResponse describeComfyTaskWaitingQueueWithOptions(const Models::DescribeComfyTaskWaitingQueueRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the waiting queue information of Comfy tasks. The maximum length of a single Hive waiting queue is 100 by default.
+       * @summary Queries the waiting queue information of Comfy tasks. The default maximum length of a single Hive waiting queue is 100.
        *
        * @param request DescribeComfyTaskWaitingQueueRequest
        * @return DescribeComfyTaskWaitingQueueResponse
@@ -1306,7 +1306,7 @@ namespace Vs20181212
       /**
        * @summary Queries the list of Comfy tasks.
        *
-       * @description > Screenshot queries do not support pagination. Only iteration-based queries are supported. Use the extStartTime parameter value from the response as the StartTime for a new request to retrieve the next page.
+       * @description > Screenshot queries currently do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in a new request.
        *
        * @param request DescribeComfyTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1317,7 +1317,7 @@ namespace Vs20181212
       /**
        * @summary Queries the list of Comfy tasks.
        *
-       * @description > Screenshot queries do not support pagination. Only iteration-based queries are supported. Use the extStartTime parameter value from the response as the StartTime for a new request to retrieve the next page.
+       * @description > Screenshot queries currently do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in a new request.
        *
        * @param request DescribeComfyTasksRequest
        * @return DescribeComfyTasksResponse
@@ -1325,7 +1325,7 @@ namespace Vs20181212
       Models::DescribeComfyTasksResponse describeComfyTasks(const Models::DescribeComfyTasksRequest &request);
 
       /**
-       * @summary Gets a download URL for user data.
+       * @summary Retrieves the download URL for user data.
        *
        * @param request DescribeComfyUserDataDownloadUrlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1334,7 +1334,7 @@ namespace Vs20181212
       Models::DescribeComfyUserDataDownloadUrlResponse describeComfyUserDataDownloadUrlWithOptions(const Models::DescribeComfyUserDataDownloadUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Gets a download URL for user data.
+       * @summary Retrieves the download URL for user data.
        *
        * @param request DescribeComfyUserDataDownloadUrlRequest
        * @return DescribeComfyUserDataDownloadUrlResponse
@@ -1342,9 +1342,9 @@ namespace Vs20181212
       Models::DescribeComfyUserDataDownloadUrlResponse describeComfyUserDataDownloadUrl(const Models::DescribeComfyUserDataDownloadUrlRequest &request);
 
       /**
-       * @summary Retrieves a URL to upload a user file.
+       * @summary Retrieves the URL for uploading user files.
        *
-       * @description You can upload files using the retrieved URL and the Alibaba Cloud OSS software development kit (SDK).
+       * @description The retrieved URL must be used with the Alibaba Cloud OSS SDK to upload files.
        *
        * @param request DescribeComfyUserDataUploadUrlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1353,9 +1353,9 @@ namespace Vs20181212
       Models::DescribeComfyUserDataUploadUrlResponse describeComfyUserDataUploadUrlWithOptions(const Models::DescribeComfyUserDataUploadUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a URL to upload a user file.
+       * @summary Retrieves the URL for uploading user files.
        *
-       * @description You can upload files using the retrieved URL and the Alibaba Cloud OSS software development kit (SDK).
+       * @description The retrieved URL must be used with the Alibaba Cloud OSS SDK to upload files.
        *
        * @param request DescribeComfyUserDataUploadUrlRequest
        * @return DescribeComfyUserDataUploadUrlResponse
@@ -1363,12 +1363,13 @@ namespace Vs20181212
       Models::DescribeComfyUserDataUploadUrlResponse describeComfyUserDataUploadUrl(const Models::DescribeComfyUserDataUploadUrlRequest &request);
 
       /**
-       * @summary Lists all files and folders in the user data.
+       * @summary Lists all files and directories in the user data.
        *
-       * @description If StartTime and EndTime are not specified, data from the last 24 hours is read by default. To query a specific time range, you must specify both StartTime and EndTime. The maximum time range for a query is 31 days.
-       * - You can query multiple domain names in a batch. Separate the domain names with a comma (,).
-       * - You can retrieve data from the last 90 days.
-       * - The time granularity is one hour.
+       * @description If StartTime and EndTime are not specified, data from the past 24 hours is queried by default. You can also query data within a specified start and end time range. Both parameters must be specified at the same time.
+       * The maximum query range is 31 days.
+       * * Batch domain name queries are supported. Separate multiple domain names with commas (,).
+       * * You can retrieve data from up to the last 90 days.
+       * * The time granularity is one hour.
        *
        * @param request DescribeComfyUserDatasRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1377,12 +1378,13 @@ namespace Vs20181212
       Models::DescribeComfyUserDatasResponse describeComfyUserDatasWithOptions(const Models::DescribeComfyUserDatasRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists all files and folders in the user data.
+       * @summary Lists all files and directories in the user data.
        *
-       * @description If StartTime and EndTime are not specified, data from the last 24 hours is read by default. To query a specific time range, you must specify both StartTime and EndTime. The maximum time range for a query is 31 days.
-       * - You can query multiple domain names in a batch. Separate the domain names with a comma (,).
-       * - You can retrieve data from the last 90 days.
-       * - The time granularity is one hour.
+       * @description If StartTime and EndTime are not specified, data from the past 24 hours is queried by default. You can also query data within a specified start and end time range. Both parameters must be specified at the same time.
+       * The maximum query range is 31 days.
+       * * Batch domain name queries are supported. Separate multiple domain names with commas (,).
+       * * You can retrieve data from up to the last 90 days.
+       * * The time granularity is one hour.
        *
        * @param request DescribeComfyUserDatasRequest
        * @return DescribeComfyUserDatasResponse
@@ -1390,9 +1392,9 @@ namespace Vs20181212
       Models::DescribeComfyUserDatasResponse describeComfyUserDatas(const Models::DescribeComfyUserDatasRequest &request);
 
       /**
-       * @summary This operation retrieves a paginated list of your Comfy workflows.
+       * @summary Queries the information of all Comfy workflows. Paging is supported.
        *
-       * @description \\> 截图查询目前不支持分页，仅支持按迭代方式。使用返回结果里的extStartTime参数值，作为新请求的StartTime可请求下一页。
+       * @description > Pagination is currently not supported for queries. Only iteration is supported. To request the next page, use the value of the extStartTime parameter from the response as the StartTime parameter in a new request.
        *
        * @param request DescribeComfyWorkflowsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1401,9 +1403,9 @@ namespace Vs20181212
       Models::DescribeComfyWorkflowsResponse describeComfyWorkflowsWithOptions(const Models::DescribeComfyWorkflowsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This operation retrieves a paginated list of your Comfy workflows.
+       * @summary Queries the information of all Comfy workflows. Paging is supported.
        *
-       * @description \\> 截图查询目前不支持分页，仅支持按迭代方式。使用返回结果里的extStartTime参数值，作为新请求的StartTime可请求下一页。
+       * @description > Pagination is currently not supported for queries. Only iteration is supported. To request the next page, use the value of the extStartTime parameter from the response as the StartTime parameter in a new request.
        *
        * @param request DescribeComfyWorkflowsRequest
        * @return DescribeComfyWorkflowsResponse
@@ -1411,7 +1413,7 @@ namespace Vs20181212
       Models::DescribeComfyWorkflowsResponse describeComfyWorkflows(const Models::DescribeComfyWorkflowsRequest &request);
 
       /**
-       * @summary Query information about a device.
+       * @summary Queries the details of a device.
        *
        * @param request DescribeDeviceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1420,7 +1422,7 @@ namespace Vs20181212
       Models::DescribeDeviceResponse describeDeviceWithOptions(const Models::DescribeDeviceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query information about a device.
+       * @summary Queries the details of a device.
        *
        * @param request DescribeDeviceRequest
        * @return DescribeDeviceResponse
@@ -1479,7 +1481,7 @@ namespace Vs20181212
       Models::DescribeDeviceURLResponse describeDeviceURL(const Models::DescribeDeviceURLRequest &request);
 
       /**
-       * @summary Queries a list of devices.
+       * @summary Queries the list of devices.
        *
        * @param request DescribeDevicesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1488,7 +1490,7 @@ namespace Vs20181212
       Models::DescribeDevicesResponse describeDevicesWithOptions(const Models::DescribeDevicesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of devices.
+       * @summary Queries the list of devices.
        *
        * @param request DescribeDevicesRequest
        * @return DescribeDevicesResponse
@@ -1530,7 +1532,7 @@ namespace Vs20181212
       Models::DescribeDirectoryResponse describeDirectory(const Models::DescribeDirectoryRequest &request);
 
       /**
-       * @summary Retrieves information about a space.
+       * @summary Retrieves workspace information.
        *
        * @param request DescribeGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1539,7 +1541,7 @@ namespace Vs20181212
       Models::DescribeGroupResponse describeGroupWithOptions(const Models::DescribeGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves information about a space.
+       * @summary Retrieves workspace information.
        *
        * @param request DescribeGroupRequest
        * @return DescribeGroupResponse
@@ -1645,7 +1647,7 @@ namespace Vs20181212
       Models::DescribePublishStreamStatusResponse describePublishStreamStatus(const Models::DescribePublishStreamStatusRequest &request);
 
       /**
-       * @summary Queries information about purchased devices.
+       * @summary Queries the details of purchased devices.
        *
        * @param request DescribePurchasedDeviceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1654,7 +1656,7 @@ namespace Vs20181212
       Models::DescribePurchasedDeviceResponse describePurchasedDeviceWithOptions(const Models::DescribePurchasedDeviceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about purchased devices.
+       * @summary Queries the details of purchased devices.
        *
        * @param request DescribePurchasedDeviceRequest
        * @return DescribePurchasedDeviceResponse
@@ -1679,9 +1681,9 @@ namespace Vs20181212
       Models::DescribePurchasedDevicesResponse describePurchasedDevices(const Models::DescribePurchasedDevicesRequest &request);
 
       /**
-       * @summary Queries a list of recordings.
+       * @summary Queries a list of recording records.
        *
-       * @description > Paging is not supported for snapshot queries. Only iteration is supported. To request the next page, use the NextStartTime value from the response as the StartTime for the new request.
+       * @description > Snapshot queries do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in the new request.
        *
        * @param request DescribeRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1690,9 +1692,9 @@ namespace Vs20181212
       Models::DescribeRecordsResponse describeRecordsWithOptions(const Models::DescribeRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of recordings.
+       * @summary Queries a list of recording records.
        *
-       * @description > Paging is not supported for snapshot queries. Only iteration is supported. To request the next page, use the NextStartTime value from the response as the StartTime for the new request.
+       * @description > Snapshot queries do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in the new request.
        *
        * @param request DescribeRecordsRequest
        * @return DescribeRecordsResponse
@@ -1717,7 +1719,7 @@ namespace Vs20181212
       Models::DescribeRenderingInstanceResponse describeRenderingInstance(const Models::DescribeRenderingInstanceRequest &request);
 
       /**
-       * @summary Queries the real-time configuration of a cloud application service instance.
+       * @summary Queries the real-time system configuration information of a cloud application service instance.
        *
        * @param tmpReq DescribeRenderingInstanceConfigurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1726,7 +1728,7 @@ namespace Vs20181212
       Models::DescribeRenderingInstanceConfigurationResponse describeRenderingInstanceConfigurationWithOptions(const Models::DescribeRenderingInstanceConfigurationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the real-time configuration of a cloud application service instance.
+       * @summary Queries the real-time system configuration information of a cloud application service instance.
        *
        * @param request DescribeRenderingInstanceConfigurationRequest
        * @return DescribeRenderingInstanceConfigurationResponse
@@ -1734,7 +1736,7 @@ namespace Vs20181212
       Models::DescribeRenderingInstanceConfigurationResponse describeRenderingInstanceConfiguration(const Models::DescribeRenderingInstanceConfigurationRequest &request);
 
       /**
-       * @summary DescribeRenderingInstanceSettings queries the configuration of a Cloud Application service instance.
+       * @summary Queries the configurations of a cloud application service instance.
        *
        * @param tmpReq DescribeRenderingInstanceSettingsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1743,7 +1745,7 @@ namespace Vs20181212
       Models::DescribeRenderingInstanceSettingsResponse describeRenderingInstanceSettingsWithOptions(const Models::DescribeRenderingInstanceSettingsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary DescribeRenderingInstanceSettings queries the configuration of a Cloud Application service instance.
+       * @summary Queries the configurations of a cloud application service instance.
        *
        * @param request DescribeRenderingInstanceSettingsRequest
        * @return DescribeRenderingInstanceSettingsResponse
@@ -1751,7 +1753,7 @@ namespace Vs20181212
       Models::DescribeRenderingInstanceSettingsResponse describeRenderingInstanceSettings(const Models::DescribeRenderingInstanceSettingsRequest &request);
 
       /**
-       * @summary Retrieve details about a rendering session, including the current session state, network access IP address and port, and the location of the cloud application service instance.
+       * @summary Queries the details of a session, including the current session status, network access IP address and port, and location of the cloud application service instance.
        *
        * @param request DescribeRenderingSessionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1760,7 +1762,7 @@ namespace Vs20181212
       Models::DescribeRenderingSessionResponse describeRenderingSessionWithOptions(const Models::DescribeRenderingSessionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieve details about a rendering session, including the current session state, network access IP address and port, and the location of the cloud application service instance.
+       * @summary Queries the details of a session, including the current session status, network access IP address and port, and location of the cloud application service instance.
        *
        * @param request DescribeRenderingSessionRequest
        * @return DescribeRenderingSessionResponse
@@ -1802,7 +1804,7 @@ namespace Vs20181212
       Models::DescribeStreamURLResponse describeStreamURL(const Models::DescribeStreamURLRequest &request);
 
       /**
-       * @summary Get the stream VOD record list, such as historical stream list from NVR.
+       * @summary Retrieves a list of video-on-demand records for a stream, such as historical stream lists from an NVR.
        *
        * @param request DescribeStreamVodListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1811,7 +1813,7 @@ namespace Vs20181212
       Models::DescribeStreamVodListResponse describeStreamVodListWithOptions(const Models::DescribeStreamVodListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get the stream VOD record list, such as historical stream list from NVR.
+       * @summary Retrieves a list of video-on-demand records for a stream, such as historical stream lists from an NVR.
        *
        * @param request DescribeStreamVodListRequest
        * @return DescribeStreamVodListResponse
@@ -1819,7 +1821,7 @@ namespace Vs20181212
       Models::DescribeStreamVodListResponse describeStreamVodList(const Models::DescribeStreamVodListRequest &request);
 
       /**
-       * @summary Lists video streams. You can filter the results by stream ID, name, group ID, device ID, or other criteria.
+       * @summary Queries a list of streams. You can filter streams by stream ID, name, space ID, and device ID.
        *
        * @param request DescribeStreamsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1828,7 +1830,7 @@ namespace Vs20181212
       Models::DescribeStreamsResponse describeStreamsWithOptions(const Models::DescribeStreamsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists video streams. You can filter the results by stream ID, name, group ID, device ID, or other criteria.
+       * @summary Queries a list of streams. You can filter streams by stream ID, name, space ID, and device ID.
        *
        * @param request DescribeStreamsRequest
        * @return DescribeStreamsResponse
@@ -1921,12 +1923,13 @@ namespace Vs20181212
       Models::DescribeVsCertificateListResponse describeVsCertificateList(const Models::DescribeVsCertificateListRequest &request);
 
       /**
-       * @summary Retrieves usage data for connected devices.
+       * @summary Retrieves the usage data of connected devices.
        *
-       * @description If you do not specify \\`StartTime\\` and \\`EndTime\\`, the API retrieves data from the last 24 hours by default. To query data for a specific time range, you must specify both \\`StartTime\\` and \\`EndTime\\`. The maximum time range for a single query is 31 days.
-       * - You can query multiple domain names at once. Separate the domain names with commas.
-       * - You can retrieve data from the last 90 days.
-       * - The time granularity is one hour.
+       * @description If StartTime and EndTime are not specified, the data of the last 24 hours is retrieved by default. You can also query data within a specified time range. Both StartTime and EndTime must be specified at the same time.
+       * The maximum query range is 31 days.
+       * * Batch domain name queries are supported. Separate multiple domain names with commas (,).
+       * * You can retrieve data for the last 90 days at most.
+       * * The time granularity is 1 hour.
        *
        * @param request DescribeVsDevicesDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1935,12 +1938,13 @@ namespace Vs20181212
       Models::DescribeVsDevicesDataResponse describeVsDevicesDataWithOptions(const Models::DescribeVsDevicesDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves usage data for connected devices.
+       * @summary Retrieves the usage data of connected devices.
        *
-       * @description If you do not specify \\`StartTime\\` and \\`EndTime\\`, the API retrieves data from the last 24 hours by default. To query data for a specific time range, you must specify both \\`StartTime\\` and \\`EndTime\\`. The maximum time range for a single query is 31 days.
-       * - You can query multiple domain names at once. Separate the domain names with commas.
-       * - You can retrieve data from the last 90 days.
-       * - The time granularity is one hour.
+       * @description If StartTime and EndTime are not specified, the data of the last 24 hours is retrieved by default. You can also query data within a specified time range. Both StartTime and EndTime must be specified at the same time.
+       * The maximum query range is 31 days.
+       * * Batch domain name queries are supported. Separate multiple domain names with commas (,).
+       * * You can retrieve data for the last 90 days at most.
+       * * The time granularity is 1 hour.
        *
        * @param request DescribeVsDevicesDataRequest
        * @return DescribeVsDevicesDataResponse
@@ -2067,7 +2071,7 @@ namespace Vs20181212
       Models::DescribeVsDomainRecordDataResponse describeVsDomainRecordData(const Models::DescribeVsDomainRecordDataRequest &request);
 
       /**
-       * @summary Retrieves domain region data.
+       * @summary Queries the regional data for a domain name.
        *
        * @param request DescribeVsDomainRegionDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2076,7 +2080,7 @@ namespace Vs20181212
       Models::DescribeVsDomainRegionDataResponse describeVsDomainRegionDataWithOptions(const Models::DescribeVsDomainRegionDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves domain region data.
+       * @summary Queries the regional data for a domain name.
        *
        * @param request DescribeVsDomainRegionDataRequest
        * @return DescribeVsDomainRegionDataResponse
@@ -2169,7 +2173,7 @@ namespace Vs20181212
       Models::DescribeVsDomainUvDataResponse describeVsDomainUvData(const Models::DescribeVsDomainUvDataRequest &request);
 
       /**
-       * @summary Queries the pull stream configurations for a domain name.
+       * @summary Queries the pull stream configuration for a domain name.
        *
        * @param request DescribeVsPullStreamInfoConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2178,7 +2182,7 @@ namespace Vs20181212
       Models::DescribeVsPullStreamInfoConfigResponse describeVsPullStreamInfoConfigWithOptions(const Models::DescribeVsPullStreamInfoConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the pull stream configurations for a domain name.
+       * @summary Queries the pull stream configuration for a domain name.
        *
        * @param request DescribeVsPullStreamInfoConfigRequest
        * @return DescribeVsPullStreamInfoConfigResponse
@@ -2203,7 +2207,7 @@ namespace Vs20181212
       Models::DescribeVsStreamsNotifyUrlConfigResponse describeVsStreamsNotifyUrlConfig(const Models::DescribeVsStreamsNotifyUrlConfigRequest &request);
 
       /**
-       * @summary Retrieves information about all active streams for a specified domain name or application.
+       * @summary Queries the information about all active streams under a specified domain name or a specific application under the domain name.
        *
        * @param request DescribeVsStreamsOnlineListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2212,7 +2216,7 @@ namespace Vs20181212
       Models::DescribeVsStreamsOnlineListResponse describeVsStreamsOnlineListWithOptions(const Models::DescribeVsStreamsOnlineListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves information about all active streams for a specified domain name or application.
+       * @summary Queries the information about all active streams under a specified domain name or a specific application under the domain name.
        *
        * @param request DescribeVsStreamsOnlineListRequest
        * @return DescribeVsStreamsOnlineListResponse
@@ -2237,9 +2241,9 @@ namespace Vs20181212
       Models::DescribeVsStreamsPublishListResponse describeVsStreamsPublishList(const Models::DescribeVsStreamsPublishListRequest &request);
 
       /**
-       * @summary Retrieves a user\\"s domain names ranked by traffic.
-       * If you do not specify StartTime and EndTime, data for the current month is retrieved by default. To query data over a specific time range, you must specify both StartTime and EndTime.
-       * \\* You can retrieve data for a maximum of 90 days.
+       * @summary Queries the domains of a user ranked by traffic.
+       * If you do not specify StartTime and EndTime, data of the current month is queried by default. You can also query data within a specified time range. Both StartTime and EndTime must be specified.
+       * * You can query data of up to 90 days.
        *
        * @param request DescribeVsTopDomainsByFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2248,9 +2252,9 @@ namespace Vs20181212
       Models::DescribeVsTopDomainsByFlowResponse describeVsTopDomainsByFlowWithOptions(const Models::DescribeVsTopDomainsByFlowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a user\\"s domain names ranked by traffic.
-       * If you do not specify StartTime and EndTime, data for the current month is retrieved by default. To query data over a specific time range, you must specify both StartTime and EndTime.
-       * \\* You can retrieve data for a maximum of 90 days.
+       * @summary Queries the domains of a user ranked by traffic.
+       * If you do not specify StartTime and EndTime, data of the current month is queried by default. You can also query data within a specified time range. Both StartTime and EndTime must be specified.
+       * * You can query data of up to 90 days.
        *
        * @param request DescribeVsTopDomainsByFlowRequest
        * @return DescribeVsTopDomainsByFlowResponse
@@ -2275,6 +2279,8 @@ namespace Vs20181212
       Models::DescribeVsUpPeakPublishStreamDataResponse describeVsUpPeakPublishStreamData(const Models::DescribeVsUpPeakPublishStreamDataRequest &request);
 
       /**
+       * @summary Queries the Visual Edge Computing Service resource plan information for the current user.
+       *
        * @param request DescribeVsUserResourcePackageRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeVsUserResourcePackageResponse
@@ -2282,13 +2288,15 @@ namespace Vs20181212
       Models::DescribeVsUserResourcePackageResponse describeVsUserResourcePackageWithOptions(const Models::DescribeVsUserResourcePackageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the Visual Edge Computing Service resource plan information for the current user.
+       *
        * @param request DescribeVsUserResourcePackageRequest
        * @return DescribeVsUserResourcePackageResponse
        */
       Models::DescribeVsUserResourcePackageResponse describeVsUserResourcePackage(const Models::DescribeVsUserResourcePackageRequest &request);
 
       /**
-       * @summary DescribeVsVerifyContent
+       * @summary Queries the verification content.
        *
        * @param request DescribeVsVerifyContentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2297,7 +2305,7 @@ namespace Vs20181212
       Models::DescribeVsVerifyContentResponse describeVsVerifyContentWithOptions(const Models::DescribeVsVerifyContentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary DescribeVsVerifyContent
+       * @summary Queries the verification content.
        *
        * @param request DescribeVsVerifyContentRequest
        * @return DescribeVsVerifyContentResponse
@@ -2305,7 +2313,7 @@ namespace Vs20181212
       Models::DescribeVsVerifyContentResponse describeVsVerifyContent(const Models::DescribeVsVerifyContentRequest &request);
 
       /**
-       * @summary Disassociate cloud application service instances from a project.
+       * @summary Dissociates cloud application service instances from a project.
        *
        * @param tmpReq DisassociateRenderingProjectInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2314,7 +2322,7 @@ namespace Vs20181212
       Models::DisassociateRenderingProjectInstancesResponse disassociateRenderingProjectInstancesWithOptions(const Models::DisassociateRenderingProjectInstancesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disassociate cloud application service instances from a project.
+       * @summary Dissociates cloud application service instances from a project.
        *
        * @param request DisassociateRenderingProjectInstancesRequest
        * @return DisassociateRenderingProjectInstancesResponse
@@ -2339,7 +2347,7 @@ namespace Vs20181212
       Models::ForbidVsStreamResponse forbidVsStream(const Models::ForbidVsStreamRequest &request);
 
       /**
-       * @summary Queries the execution status of a control command to determine whether the command was successful and to retrieve the result string.
+       * @summary Queries the execution status of a control command, including whether the command was executed successfully and the result string.
        *
        * @param request GetRenderingInstanceCommandsStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2348,7 +2356,7 @@ namespace Vs20181212
       Models::GetRenderingInstanceCommandsStatusResponse getRenderingInstanceCommandsStatusWithOptions(const Models::GetRenderingInstanceCommandsStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the execution status of a control command to determine whether the command was successful and to retrieve the result string.
+       * @summary Queries the execution status of a control command, including whether the command was executed successfully and the result string.
        *
        * @param request GetRenderingInstanceCommandsStatusRequest
        * @return GetRenderingInstanceCommandsStatusResponse
@@ -2356,7 +2364,7 @@ namespace Vs20181212
       Models::GetRenderingInstanceCommandsStatusResponse getRenderingInstanceCommandsStatus(const Models::GetRenderingInstanceCommandsStatusRequest &request);
 
       /**
-       * @summary Retrieves the streaming connection information for a cloud application service instance. Call this operation before establishing each streaming connection to obtain the latest connection details.
+       * @summary Retrieves the streaming connection information for a cloud application service instance. Call this operation to obtain the latest connection information before establishing each streaming connection.
        *
        * @param request GetRenderingInstanceStreamingInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2365,7 +2373,7 @@ namespace Vs20181212
       Models::GetRenderingInstanceStreamingInfoResponse getRenderingInstanceStreamingInfoWithOptions(const Models::GetRenderingInstanceStreamingInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the streaming connection information for a cloud application service instance. Call this operation before establishing each streaming connection to obtain the latest connection details.
+       * @summary Retrieves the streaming connection information for a cloud application service instance. Call this operation to obtain the latest connection information before establishing each streaming connection.
        *
        * @param request GetRenderingInstanceStreamingInfoRequest
        * @return GetRenderingInstanceStreamingInfoResponse
@@ -2373,7 +2381,7 @@ namespace Vs20181212
       Models::GetRenderingInstanceStreamingInfoResponse getRenderingInstanceStreamingInfo(const Models::GetRenderingInstanceStreamingInfoRequest &request);
 
       /**
-       * @summary Queries the data volume statistics for the states of project instances that meet specified conditions.
+       * @summary Queries the statistics on the number of project instances in each state that meet specific conditions for a project.
        *
        * @param request GetRenderingProjectInstanceStateMetricsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2382,7 +2390,7 @@ namespace Vs20181212
       Models::GetRenderingProjectInstanceStateMetricsResponse getRenderingProjectInstanceStateMetricsWithOptions(const Models::GetRenderingProjectInstanceStateMetricsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the data volume statistics for the states of project instances that meet specified conditions.
+       * @summary Queries the statistics on the number of project instances in each state that meet specific conditions for a project.
        *
        * @param request GetRenderingProjectInstanceStateMetricsRequest
        * @return GetRenderingProjectInstanceStateMetricsResponse
@@ -2407,7 +2415,8 @@ namespace Vs20181212
       Models::GotoPresetResponse gotoPreset(const Models::GotoPresetRequest &request);
 
       /**
-       * @summary Installs a cloud application to a specified cloud application instance. This is an asynchronous interface. To monitor the installation progress, use the ListCloudAppInstallations interface.
+       * @summary Installs a cloud application on a specified cloud application instance.
+       * This operation is asynchronous. You can call the ListCloudAppInstallations operation to query the installation progress.
        *
        * @param tmpReq InstallCloudAppRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2416,7 +2425,8 @@ namespace Vs20181212
       Models::InstallCloudAppResponse installCloudAppWithOptions(const Models::InstallCloudAppRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Installs a cloud application to a specified cloud application instance. This is an asynchronous interface. To monitor the installation progress, use the ListCloudAppInstallations interface.
+       * @summary Installs a cloud application on a specified cloud application instance.
+       * This operation is asynchronous. You can call the ListCloudAppInstallations operation to query the installation progress.
        *
        * @param request InstallCloudAppRequest
        * @return InstallCloudAppResponse
@@ -2424,7 +2434,7 @@ namespace Vs20181212
       Models::InstallCloudAppResponse installCloudApp(const Models::InstallCloudAppRequest &request);
 
       /**
-       * @summary Lists cloud application installations. The response includes the installation status of cloud application service instances and supports paged queries.
+       * @summary Queries the installation information list of cloud applications. The returned information includes the installation status of cloud application service instances. Paging is supported for paged query.
        *
        * @param request ListCloudAppInstallationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2433,7 +2443,7 @@ namespace Vs20181212
       Models::ListCloudAppInstallationsResponse listCloudAppInstallationsWithOptions(const Models::ListCloudAppInstallationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists cloud application installations. The response includes the installation status of cloud application service instances and supports paged queries.
+       * @summary Queries the installation information list of cloud applications. The returned information includes the installation status of cloud application service instances. Paging is supported for paged query.
        *
        * @param request ListCloudAppInstallationsRequest
        * @return ListCloudAppInstallationsResponse
@@ -2443,7 +2453,7 @@ namespace Vs20181212
       /**
        * @summary Queries the patch list of a cloud application.
        *
-       * @description >You must specify at least one of the template ID and templatetype.
+       * @description >Specify at least one of the template ID and the templatetype.
        *
        * @param request ListCloudAppPatchesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2454,7 +2464,7 @@ namespace Vs20181212
       /**
        * @summary Queries the patch list of a cloud application.
        *
-       * @description >You must specify at least one of the template ID and templatetype.
+       * @description >Specify at least one of the template ID and the templatetype.
        *
        * @param request ListCloudAppPatchesRequest
        * @return ListCloudAppPatchesResponse
@@ -2462,7 +2472,7 @@ namespace Vs20181212
       Models::ListCloudAppPatchesResponse listCloudAppPatches(const Models::ListCloudAppPatchesRequest &request);
 
       /**
-       * @summary Queries a list of cloud applications. Paging is supported.
+       * @summary Queries the list of cloud applications and supports paging and paged query.
        *
        * @param request ListCloudAppsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2471,7 +2481,7 @@ namespace Vs20181212
       Models::ListCloudAppsResponse listCloudAppsWithOptions(const Models::ListCloudAppsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of cloud applications. Paging is supported.
+       * @summary Queries the list of cloud applications and supports paging and paged query.
        *
        * @param request ListCloudAppsRequest
        * @return ListCloudAppsResponse
@@ -2479,13 +2489,13 @@ namespace Vs20181212
       Models::ListCloudAppsResponse listCloudApps(const Models::ListCloudAppsRequest &request);
 
       /**
-       * @summary Queries load information with paged query and paging support.
+       * @summary Queries workload information and supports paging and paged query.
        *
-       * @description ## Operation description
-       * - This API operation queries load information. You can filter results by using various parameters and perform paged query operations.
-       * - Optional parameters include Spec (specification), Statuses (status list), InstanceIds (instance ID list), PlanIds (plan ID list), and HiveIds (cluster ID list).
-       * - For paged query operations, use the PageNumber and PageSize parameters to control the data volume of returned results. The default page size is 10 records, and the maximum is 100 records. Paging is supported.
-       * - To query by time range, specify the StartTime and EndTime parameters.
+       * @description ## Request description
+       * - This API queries workload information and supports filtering, paging, and paged query by using various parameters.
+       * - Optional parameters include `Spec` (specifications), `Statuses` (status list), `InstanceIds` (instance ID list), `PlanIds` (plan ID list), and `HiveIds` (cluster ID list).
+       * - During a paged query, you can use the `PageNumber` and `PageSize` parameters to control the returned data volume. The default is 10 records per page, and the maximum is 100 records.
+       * - You can specify a time range for the query by using the `StartTime` and `EndTime` parameters.
        *
        * @param tmpReq ListEdgeWorkersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2494,13 +2504,13 @@ namespace Vs20181212
       Models::ListEdgeWorkersResponse listEdgeWorkersWithOptions(const Models::ListEdgeWorkersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries load information with paged query and paging support.
+       * @summary Queries workload information and supports paging and paged query.
        *
-       * @description ## Operation description
-       * - This API operation queries load information. You can filter results by using various parameters and perform paged query operations.
-       * - Optional parameters include Spec (specification), Statuses (status list), InstanceIds (instance ID list), PlanIds (plan ID list), and HiveIds (cluster ID list).
-       * - For paged query operations, use the PageNumber and PageSize parameters to control the data volume of returned results. The default page size is 10 records, and the maximum is 100 records. Paging is supported.
-       * - To query by time range, specify the StartTime and EndTime parameters.
+       * @description ## Request description
+       * - This API queries workload information and supports filtering, paging, and paged query by using various parameters.
+       * - Optional parameters include `Spec` (specifications), `Statuses` (status list), `InstanceIds` (instance ID list), `PlanIds` (plan ID list), and `HiveIds` (cluster ID list).
+       * - During a paged query, you can use the `PageNumber` and `PageSize` parameters to control the returned data volume. The default is 10 records per page, and the maximum is 100 records.
+       * - You can specify a time range for the query by using the `StartTime` and `EndTime` parameters.
        *
        * @param request ListEdgeWorkersRequest
        * @return ListEdgeWorkersResponse
@@ -2508,7 +2518,7 @@ namespace Vs20181212
       Models::ListEdgeWorkersResponse listEdgeWorkers(const Models::ListEdgeWorkersRequest &request);
 
       /**
-       * @summary Lists the push status records for a file pushed to cloud application service instances. It supports paged query.
+       * @summary Queries the push status list of cloud application service instances for a file. Paging is supported for paged query.
        *
        * @param request ListFilePushStatusesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2517,7 +2527,7 @@ namespace Vs20181212
       Models::ListFilePushStatusesResponse listFilePushStatusesWithOptions(const Models::ListFilePushStatusesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the push status records for a file pushed to cloud application service instances. It supports paged query.
+       * @summary Queries the push status list of cloud application service instances for a file. Paging is supported for paged query.
        *
        * @param request ListFilePushStatusesRequest
        * @return ListFilePushStatusesResponse
@@ -2525,7 +2535,7 @@ namespace Vs20181212
       Models::ListFilePushStatusesResponse listFilePushStatuses(const Models::ListFilePushStatusesRequest &request);
 
       /**
-       * @summary Lists uploaded files. The response includes the upload status for each file and supports paged queries.
+       * @summary Queries a list of uploaded files. The response includes the upload status of the files and supports paging for a paged query.
        *
        * @param request ListFilesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2534,7 +2544,7 @@ namespace Vs20181212
       Models::ListFilesResponse listFilesWithOptions(const Models::ListFilesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists uploaded files. The response includes the upload status for each file and supports paged queries.
+       * @summary Queries a list of uploaded files. The response includes the upload status of the files and supports paging for a paged query.
        *
        * @param request ListFilesRequest
        * @return ListFilesResponse
@@ -2542,13 +2552,13 @@ namespace Vs20181212
       Models::ListFilesResponse listFiles(const Models::ListFilesRequest &request);
 
       /**
-       * @summary Queries all cluster information by paging and supports filtering by conditions.
+       * @summary Performs a paged query to retrieve all cluster information with paging and supports filtering by conditions.
        *
-       * @description ## Operation description
-       * - This API operation queries information about all clusters created by the user.
-       * - You can use the `HiveId` and `Name` parameters to filter query results.
-       * - The `PageNumber` and `PageSize` pagination parameters control the number of results and page number. By default, 10 records are displayed per page, with a maximum of 100.
-       * - The `StartTime` and `EndTime` parameters specify a time range for querying cluster information. These parameters are optional.
+       * @description ## Request description
+       * - This operation queries the information of all clusters created by the user.
+       * - You can filter the query results by using the `HiveId` and `Name` parameters.
+       * - The pagination parameters `PageNumber` and `PageSize` control the number of returned results and the page number. By default, 10 entries are displayed on each page, and a maximum of 100 entries are supported.
+       * - The `StartTime` and `EndTime` parameters can be used to query clusters within a specified time range. These parameters are optional.
        *
        * @param request ListHivesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2557,13 +2567,13 @@ namespace Vs20181212
       Models::ListHivesResponse listHivesWithOptions(const Models::ListHivesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all cluster information by paging and supports filtering by conditions.
+       * @summary Performs a paged query to retrieve all cluster information with paging and supports filtering by conditions.
        *
-       * @description ## Operation description
-       * - This API operation queries information about all clusters created by the user.
-       * - You can use the `HiveId` and `Name` parameters to filter query results.
-       * - The `PageNumber` and `PageSize` pagination parameters control the number of results and page number. By default, 10 records are displayed per page, with a maximum of 100.
-       * - The `StartTime` and `EndTime` parameters specify a time range for querying cluster information. These parameters are optional.
+       * @description ## Request description
+       * - This operation queries the information of all clusters created by the user.
+       * - You can filter the query results by using the `HiveId` and `Name` parameters.
+       * - The pagination parameters `PageNumber` and `PageSize` control the number of returned results and the page number. By default, 10 entries are displayed on each page, and a maximum of 100 entries are supported.
+       * - The `StartTime` and `EndTime` parameters can be used to query clusters within a specified time range. These parameters are optional.
        *
        * @param request ListHivesRequest
        * @return ListHivesResponse
@@ -2571,7 +2581,7 @@ namespace Vs20181212
       Models::ListHivesResponse listHives(const Models::ListHivesRequest &request);
 
       /**
-       * @summary Retrieves a list of public keys that match the specified criteria. This operation supports pagination.
+       * @summary Queries a list of public keys that meet specified conditions and supports paging.
        *
        * @param request ListPublicKeysRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2580,7 +2590,7 @@ namespace Vs20181212
       Models::ListPublicKeysResponse listPublicKeysWithOptions(const Models::ListPublicKeysRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of public keys that match the specified criteria. This operation supports pagination.
+       * @summary Queries a list of public keys that meet specified conditions and supports paging.
        *
        * @param request ListPublicKeysRequest
        * @return ListPublicKeysResponse
@@ -2588,7 +2598,7 @@ namespace Vs20181212
       Models::ListPublicKeysResponse listPublicKeys(const Models::ListPublicKeysRequest &request);
 
       /**
-       * @summary Queries information about the data packets of cloud applications. Paged queries are supported.
+       * @summary Queries information about all cloud application data packages and supports paging.
        *
        * @param request ListRenderingDataPackagesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2597,7 +2607,7 @@ namespace Vs20181212
       Models::ListRenderingDataPackagesResponse listRenderingDataPackagesWithOptions(const Models::ListRenderingDataPackagesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about the data packets of cloud applications. Paged queries are supported.
+       * @summary Queries information about all cloud application data packages and supports paging.
        *
        * @param request ListRenderingDataPackagesRequest
        * @return ListRenderingDataPackagesResponse
@@ -2605,11 +2615,11 @@ namespace Vs20181212
       Models::ListRenderingDataPackagesResponse listRenderingDataPackages(const Models::ListRenderingDataPackagesRequest &request);
 
       /**
-       * @summary Queries a list of images.
+       * @summary Queries the list of images.
        *
        * @description ## Operation description
-       * - This operation supports filtering and paged query of rendering session lists by using various parameter combinations.
-       * - You must specify at least one of the `SessionId` and `ClientId` parameters, but neither is required. If both parameters are specified, more precise matching is performed based on the two parameters.
+       * - This operation supports filtering and paginating the list of user rendering sessions by using various parameter combinations.
+       * - You must specify at least one of the `SessionId` and `ClientId` parameters, but neither is required. If both parameters are specified, a more precise match is performed based on these two parameters.
        *
        * @param request ListRenderingImagesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2618,11 +2628,11 @@ namespace Vs20181212
       Models::ListRenderingImagesResponse listRenderingImagesWithOptions(const Models::ListRenderingImagesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of images.
+       * @summary Queries the list of images.
        *
        * @description ## Operation description
-       * - This operation supports filtering and paged query of rendering session lists by using various parameter combinations.
-       * - You must specify at least one of the `SessionId` and `ClientId` parameters, but neither is required. If both parameters are specified, more precise matching is performed based on the two parameters.
+       * - This operation supports filtering and paginating the list of user rendering sessions by using various parameter combinations.
+       * - You must specify at least one of the `SessionId` and `ClientId` parameters, but neither is required. If both parameters are specified, a more precise match is performed based on these two parameters.
        *
        * @param request ListRenderingImagesRequest
        * @return ListRenderingImagesResponse
@@ -2632,7 +2642,7 @@ namespace Vs20181212
       /**
        * @summary Queries custom gateways.
        *
-       * @description > Specify at least the template ID or the template type.
+       * @description >Specify at least one of the template ID and templatetype.
        *
        * @param request ListRenderingInstanceGatewayRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2643,7 +2653,7 @@ namespace Vs20181212
       /**
        * @summary Queries custom gateways.
        *
-       * @description > Specify at least the template ID or the template type.
+       * @description >Specify at least one of the template ID and templatetype.
        *
        * @param request ListRenderingInstanceGatewayRequest
        * @return ListRenderingInstanceGatewayResponse
@@ -2651,7 +2661,7 @@ namespace Vs20181212
       Models::ListRenderingInstanceGatewayResponse listRenderingInstanceGateway(const Models::ListRenderingInstanceGatewayRequest &request);
 
       /**
-       * @summary Lists basic information about cloud application service instances and supports paged queries.
+       * @summary Queries a list of basic information about cloud application service instances. Paging is supported for paged query.
        *
        * @param request ListRenderingInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2660,7 +2670,7 @@ namespace Vs20181212
       Models::ListRenderingInstancesResponse listRenderingInstancesWithOptions(const Models::ListRenderingInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists basic information about cloud application service instances and supports paged queries.
+       * @summary Queries a list of basic information about cloud application service instances. Paging is supported for paged query.
        *
        * @param request ListRenderingInstancesRequest
        * @return ListRenderingInstancesResponse
@@ -2668,10 +2678,10 @@ namespace Vs20181212
       Models::ListRenderingInstancesResponse listRenderingInstances(const Models::ListRenderingInstancesRequest &request);
 
       /**
-       * @summary Retrieve a paginated list of cloud application service instances associated with a project.
+       * @summary Queries the list of cloud application service instances associated with a project by using paging in a paged query.
        *
-       * @description ## Request description
-       * - This operation enables you to query cloud application service instances in a project using multiple filter conditions, such as status and instance ID.
+       * @description ## Operation description
+       * - This operation allows you to query cloud application service instances in a specified project by using various filter conditions, such as status and instance ID.
        *
        * @param request ListRenderingProjectInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2680,10 +2690,10 @@ namespace Vs20181212
       Models::ListRenderingProjectInstancesResponse listRenderingProjectInstancesWithOptions(const Models::ListRenderingProjectInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieve a paginated list of cloud application service instances associated with a project.
+       * @summary Queries the list of cloud application service instances associated with a project by using paging in a paged query.
        *
-       * @description ## Request description
-       * - This operation enables you to query cloud application service instances in a project using multiple filter conditions, such as status and instance ID.
+       * @description ## Operation description
+       * - This operation allows you to query cloud application service instances in a specified project by using various filter conditions, such as status and instance ID.
        *
        * @param request ListRenderingProjectInstancesRequest
        * @return ListRenderingProjectInstancesResponse
@@ -2691,11 +2701,11 @@ namespace Vs20181212
       Models::ListRenderingProjectInstancesResponse listRenderingProjectInstances(const Models::ListRenderingProjectInstancesRequest &request);
 
       /**
-       * @summary Obtain a paged list of basic information about cloud application projects for the current user.
+       * @summary Performs a paged query with paging to retrieve the list of basic information about cloud application service projects for a user.
        *
-       * @description ## Request details
-       * - This operation returns a paged list of basic information about rendering projects for a specified user.
-       * - Filter results by `ProjectId` or `ProjectName`.
+       * @description ## Request description
+       * - This operation performs a paged query with paging to retrieve the list of basic information about rendering projects for a specified user.
+       * - You can filter the query by `ProjectId` and `ProjectName`.
        *
        * @param request ListRenderingProjectsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2704,11 +2714,11 @@ namespace Vs20181212
       Models::ListRenderingProjectsResponse listRenderingProjectsWithOptions(const Models::ListRenderingProjectsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtain a paged list of basic information about cloud application projects for the current user.
+       * @summary Performs a paged query with paging to retrieve the list of basic information about cloud application service projects for a user.
        *
-       * @description ## Request details
-       * - This operation returns a paged list of basic information about rendering projects for a specified user.
-       * - Filter results by `ProjectId` or `ProjectName`.
+       * @description ## Request description
+       * - This operation performs a paged query with paging to retrieve the list of basic information about rendering projects for a specified user.
+       * - You can filter the query by `ProjectId` and `ProjectName`.
        *
        * @param request ListRenderingProjectsRequest
        * @return ListRenderingProjectsResponse
@@ -2716,11 +2726,11 @@ namespace Vs20181212
       Models::ListRenderingProjectsResponse listRenderingProjects(const Models::ListRenderingProjectsRequest &request);
 
       /**
-       * @summary Performs a paged query for the list of cloud application service sessions based on specified conditions.
+       * @summary Queries the list of cloud application service sessions under specified conditions by using paging.
        *
-       * @description ## Request Description
-       * - This API supports filtering and paged query of user rendering session lists with various parameter combinations.
-       * - You must provide at least one of the `SessionId` or `ClientId` parameters. Neither parameter is mandatory independently. If both parameters are provided, a more precise match is performed based on these two parameters.
+       * @description ## Operation description
+       * - This operation supports filtering and performing a paging query on the array of user rendering sessions by using various parameter combinations.
+       * - You must specify at least one of the SessionId and ClientId parameters, but neither is required. If both parameters are specified, a more precise match is performed based on these two parameters.
        *
        * @param request ListRenderingSessionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2729,11 +2739,11 @@ namespace Vs20181212
       Models::ListRenderingSessionsResponse listRenderingSessionsWithOptions(const Models::ListRenderingSessionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a paged query for the list of cloud application service sessions based on specified conditions.
+       * @summary Queries the list of cloud application service sessions under specified conditions by using paging.
        *
-       * @description ## Request Description
-       * - This API supports filtering and paged query of user rendering session lists with various parameter combinations.
-       * - You must provide at least one of the `SessionId` or `ClientId` parameters. Neither parameter is mandatory independently. If both parameters are provided, a more precise match is performed based on these two parameters.
+       * @description ## Operation description
+       * - This operation supports filtering and performing a paging query on the array of user rendering sessions by using various parameter combinations.
+       * - You must specify at least one of the SessionId and ClientId parameters, but neither is required. If both parameters are specified, a more precise match is performed based on these two parameters.
        *
        * @param request ListRenderingSessionsRequest
        * @return ListRenderingSessionsResponse
@@ -2785,9 +2795,9 @@ namespace Vs20181212
       Models::ManageLoginResponse manageLogin(const Models::ManageLoginRequest &request);
 
       /**
-       * @summary Modifies the metadata of a specified workflow.
+       * @summary Modifies the metadata of a ComfyWorkflow.
        *
-       * @description \\> 截图查询目前不支持分页，仅支持按迭代方式。使用返回结果里的extStartTime参数值，作为新请求的StartTime可请求下一页。
+       * @description > Screenshot queries do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in the new request.
        *
        * @param request ModifyComfyWorkflowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2796,9 +2806,9 @@ namespace Vs20181212
       Models::ModifyComfyWorkflowResponse modifyComfyWorkflowWithOptions(const Models::ModifyComfyWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the metadata of a specified workflow.
+       * @summary Modifies the metadata of a ComfyWorkflow.
        *
-       * @description \\> 截图查询目前不支持分页，仅支持按迭代方式。使用返回结果里的extStartTime参数值，作为新请求的StartTime可请求下一页。
+       * @description > Screenshot queries do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in the new request.
        *
        * @param request ModifyComfyWorkflowRequest
        * @return ModifyComfyWorkflowResponse
@@ -2969,7 +2979,7 @@ namespace Vs20181212
       Models::ModifyRenderingChargeTypeResponse modifyRenderingChargeType(const Models::ModifyRenderingChargeTypeRequest &request);
 
       /**
-       * @summary Upgrades or downgrades a cloud application service instance.
+       * @summary Changes the specifications of a cloud application service instance.
        *
        * @param request ModifyRenderingInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2978,7 +2988,7 @@ namespace Vs20181212
       Models::ModifyRenderingInstanceResponse modifyRenderingInstanceWithOptions(const Models::ModifyRenderingInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Upgrades or downgrades a cloud application service instance.
+       * @summary Changes the specifications of a cloud application service instance.
        *
        * @param request ModifyRenderingInstanceRequest
        * @return ModifyRenderingInstanceResponse
@@ -3003,7 +3013,7 @@ namespace Vs20181212
       Models::ModifyRenderingInstanceAttributeResponse modifyRenderingInstanceAttribute(const Models::ModifyRenderingInstanceAttributeRequest &request);
 
       /**
-       * @summary Updates the rate limiting bandwidth for a cloud application service instance. You can call the DescribeRenderingInstance operation to retrieve the current rate limiting value and check the status of the rate limiting update.
+       * @summary Updates the bandwidth limit of a cloud application service instance. You can call the DescribeRenderingInstance operation to query the bandwidth limit and the update status.
        *
        * @param request ModifyRenderingInstanceBandwidthRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3012,7 +3022,7 @@ namespace Vs20181212
       Models::ModifyRenderingInstanceBandwidthResponse modifyRenderingInstanceBandwidthWithOptions(const Models::ModifyRenderingInstanceBandwidthRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the rate limiting bandwidth for a cloud application service instance. You can call the DescribeRenderingInstance operation to retrieve the current rate limiting value and check the status of the rate limiting update.
+       * @summary Updates the bandwidth limit of a cloud application service instance. You can call the DescribeRenderingInstance operation to query the bandwidth limit and the update status.
        *
        * @param request ModifyRenderingInstanceBandwidthRequest
        * @return ModifyRenderingInstanceBandwidthResponse
@@ -3081,7 +3091,8 @@ namespace Vs20181212
       Models::OpenVsServiceResponse openVsService();
 
       /**
-       * @summary Push a file to a specified cloud application service instance. This is an asynchronous operation. You can query the push progress using the ListFilePushStatuses operation.
+       * @summary Pushes a file to a specified cloud application service instance.
+       * This operation is asynchronous. You can call the ListFilePushStatuses operation to query the push progress.
        *
        * @param request PushFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3090,7 +3101,8 @@ namespace Vs20181212
       Models::PushFileResponse pushFileWithOptions(const Models::PushFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Push a file to a specified cloud application service instance. This is an asynchronous operation. You can query the push progress using the ListFilePushStatuses operation.
+       * @summary Pushes a file to a specified cloud application service instance.
+       * This operation is asynchronous. You can call the ListFilePushStatuses operation to query the push progress.
        *
        * @param request PushFileRequest
        * @return PushFileResponse
@@ -3098,7 +3110,7 @@ namespace Vs20181212
       Models::PushFileResponse pushFile(const Models::PushFileRequest &request);
 
       /**
-       * @summary Restarts a cloud application service instance. You can call the DescribeRenderingInstance API to monitor the restart progress.
+       * @summary Restarts a cloud application service instance. You can call the DescribeRenderingInstance operation to query the restart progress.
        *
        * @param request RebootRenderingInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3107,7 +3119,7 @@ namespace Vs20181212
       Models::RebootRenderingInstanceResponse rebootRenderingInstanceWithOptions(const Models::RebootRenderingInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Restarts a cloud application service instance. You can call the DescribeRenderingInstance API to monitor the restart progress.
+       * @summary Restarts a cloud application service instance. You can call the DescribeRenderingInstance operation to query the restart progress.
        *
        * @param request RebootRenderingInstanceRequest
        * @return RebootRenderingInstanceResponse
@@ -3132,7 +3144,7 @@ namespace Vs20181212
       Models::RebootRenderingServerResponse rebootRenderingServer(const Models::RebootRenderingServerRequest &request);
 
       /**
-       * @summary Recover data to a Graphic Computing Service instance
+       * @summary Restores data to a cloud rendering instance.
        *
        * @param request RecoverRenderingDataPackageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3141,7 +3153,7 @@ namespace Vs20181212
       Models::RecoverRenderingDataPackageResponse recoverRenderingDataPackageWithOptions(const Models::RecoverRenderingDataPackageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Recover data to a Graphic Computing Service instance
+       * @summary Restores data to a cloud rendering instance.
        *
        * @param request RecoverRenderingDataPackageRequest
        * @return RecoverRenderingDataPackageResponse
@@ -3149,9 +3161,9 @@ namespace Vs20181212
       Models::RecoverRenderingDataPackageResponse recoverRenderingDataPackage(const Models::RecoverRenderingDataPackageRequest &request);
 
       /**
-       * @summary Call RefreshRenderingInstanceStreaming to refresh the stream connection for a cloud application service instance.
+       * @summary Refreshes the streaming connection of a cloud application service instance.
        *
-       * @description > Specify at least one of the template ID or template type.
+       * @description > Specify at least one of the template ID and templatetype.
        *
        * @param tmpReq RefreshRenderingInstanceStreamingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3160,9 +3172,9 @@ namespace Vs20181212
       Models::RefreshRenderingInstanceStreamingResponse refreshRenderingInstanceStreamingWithOptions(const Models::RefreshRenderingInstanceStreamingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call RefreshRenderingInstanceStreaming to refresh the stream connection for a cloud application service instance.
+       * @summary Refreshes the streaming connection of a cloud application service instance.
        *
-       * @description > Specify at least one of the template ID or template type.
+       * @description > Specify at least one of the template ID and templatetype.
        *
        * @param request RefreshRenderingInstanceStreamingRequest
        * @return RefreshRenderingInstanceStreamingResponse
@@ -3170,7 +3182,7 @@ namespace Vs20181212
       Models::RefreshRenderingInstanceStreamingResponse refreshRenderingInstanceStreaming(const Models::RefreshRenderingInstanceStreamingRequest &request);
 
       /**
-       * @summary Release a cloud application service data pack
+       * @summary Releases a cloud application service data package.
        *
        * @param request ReleaseRenderingDataPackageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3179,7 +3191,7 @@ namespace Vs20181212
       Models::ReleaseRenderingDataPackageResponse releaseRenderingDataPackageWithOptions(const Models::ReleaseRenderingDataPackageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Release a cloud application service data pack
+       * @summary Releases a cloud application service data package.
        *
        * @param request ReleaseRenderingDataPackageRequest
        * @return ReleaseRenderingDataPackageResponse
@@ -3187,7 +3199,7 @@ namespace Vs20181212
       Models::ReleaseRenderingDataPackageResponse releaseRenderingDataPackage(const Models::ReleaseRenderingDataPackageRequest &request);
 
       /**
-       * @summary Invoke ReleaseRenderingInstance to release a Graphic Computing Service application instance.
+       * @summary Releases a cloud application service instance.
        *
        * @param request ReleaseRenderingInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3196,7 +3208,7 @@ namespace Vs20181212
       Models::ReleaseRenderingInstanceResponse releaseRenderingInstanceWithOptions(const Models::ReleaseRenderingInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Invoke ReleaseRenderingInstance to release a Graphic Computing Service application instance.
+       * @summary Releases a cloud application service instance.
        *
        * @param request ReleaseRenderingInstanceRequest
        * @return ReleaseRenderingInstanceResponse
@@ -3204,7 +3216,7 @@ namespace Vs20181212
       Models::ReleaseRenderingInstanceResponse releaseRenderingInstance(const Models::ReleaseRenderingInstanceRequest &request);
 
       /**
-       * @summary Invoke RenewRenderingInstance to renew a cloud application service instance.
+       * @summary Renews a cloud application service instance.
        *
        * @param request RenewRenderingInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3213,7 +3225,7 @@ namespace Vs20181212
       Models::RenewRenderingInstanceResponse renewRenderingInstanceWithOptions(const Models::RenewRenderingInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Invoke RenewRenderingInstance to renew a cloud application service instance.
+       * @summary Renews a cloud application service instance.
        *
        * @param request RenewRenderingInstanceRequest
        * @return RenewRenderingInstanceResponse
@@ -3221,7 +3233,7 @@ namespace Vs20181212
       Models::RenewRenderingInstanceResponse renewRenderingInstance(const Models::RenewRenderingInstanceRequest &request);
 
       /**
-       * @summary Resets a cloud application service instance. You can query the DescribeRenderingInstance interface to obtain the reset progress.
+       * @summary Resets a cloud application service instance. You can call the DescribeRenderingInstance operation to check the reset progress.
        *
        * @param request ResetRenderingInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3230,7 +3242,7 @@ namespace Vs20181212
       Models::ResetRenderingInstanceResponse resetRenderingInstanceWithOptions(const Models::ResetRenderingInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Resets a cloud application service instance. You can query the DescribeRenderingInstance interface to obtain the reset progress.
+       * @summary Resets a cloud application service instance. You can call the DescribeRenderingInstance operation to check the reset progress.
        *
        * @param request ResetRenderingInstanceRequest
        * @return ResetRenderingInstanceResponse
@@ -3289,7 +3301,7 @@ namespace Vs20181212
       Models::SetPresetResponse setPreset(const Models::SetPresetRequest &request);
 
       /**
-       * @summary Enable or disable the certificate feature for a domain name.
+       * @summary Sets whether the certificate feature is enabled for a domain name.
        *
        * @param request SetVsDomainCertificateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3298,7 +3310,7 @@ namespace Vs20181212
       Models::SetVsDomainCertificateResponse setVsDomainCertificateWithOptions(const Models::SetVsDomainCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enable or disable the certificate feature for a domain name.
+       * @summary Sets whether the certificate feature is enabled for a domain name.
        *
        * @param request SetVsDomainCertificateRequest
        * @return SetVsDomainCertificateResponse
@@ -3361,6 +3373,8 @@ namespace Vs20181212
       Models::StartParentPlatformResponse startParentPlatform(const Models::StartParentPlatformRequest &request);
 
       /**
+       * @summary Starts desktop capture and streaming for a specified cloud application service instance.
+       *
        * @param request StartPublishStreamRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return StartPublishStreamResponse
@@ -3368,6 +3382,8 @@ namespace Vs20181212
       Models::StartPublishStreamResponse startPublishStreamWithOptions(const Models::StartPublishStreamRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Starts desktop capture and streaming for a specified cloud application service instance.
+       *
        * @param request StartPublishStreamRequest
        * @return StartPublishStreamResponse
        */
@@ -3399,7 +3415,8 @@ namespace Vs20181212
       Models::StartRecordStreamResponse startRecordStream(const Models::StartRecordStreamRequest &request);
 
       /**
-       * @summary Schedules an idle cloud application service instance for the requesting client (ClientId) and starts the service. If the requesting client (ClientId) sends another start request after a successful start and the associated session is in the SessionStartSuspended state, the session is restarted. If the session is in any other state, the session information is returned directly.
+       * @summary Schedules an idle cloud application service instance for the client (ClientId) and completes service startup.
+       * If the client (ClientId) sends another start request after the first start request succeeds, the operation restarts the session if the associated session is in the SessionStartSuspended state. If the session is in another state, the operation directly returns the session information.
        *
        * @param tmpReq StartRenderingSessionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3408,7 +3425,8 @@ namespace Vs20181212
       Models::StartRenderingSessionResponse startRenderingSessionWithOptions(const Models::StartRenderingSessionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Schedules an idle cloud application service instance for the requesting client (ClientId) and starts the service. If the requesting client (ClientId) sends another start request after a successful start and the associated session is in the SessionStartSuspended state, the session is restarted. If the session is in any other state, the session information is returned directly.
+       * @summary Schedules an idle cloud application service instance for the client (ClientId) and completes service startup.
+       * If the client (ClientId) sends another start request after the first start request succeeds, the operation restarts the session if the associated session is in the SessionStartSuspended state. If the session is in another state, the operation directly returns the session information.
        *
        * @param request StartRenderingSessionRequest
        * @return StartRenderingSessionResponse
@@ -3505,6 +3523,8 @@ namespace Vs20181212
       Models::StopMoveResponse stopMove(const Models::StopMoveRequest &request);
 
       /**
+       * @summary Stops desktop capture and streaming for a specified cloud application service instance.
+       *
        * @param request StopPublishStreamRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return StopPublishStreamResponse
@@ -3512,6 +3532,8 @@ namespace Vs20181212
       Models::StopPublishStreamResponse stopPublishStreamWithOptions(const Models::StopPublishStreamRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Stops desktop capture and streaming for a specified cloud application service instance.
+       *
        * @param request StopPublishStreamRequest
        * @return StopPublishStreamResponse
        */
@@ -3539,9 +3561,9 @@ namespace Vs20181212
       Models::StopRecordStreamResponse stopRecordStream(const Models::StopRecordStreamRequest &request);
 
       /**
-       * @summary Shut down the specified cloud application service session and revoke the associated instance resources.
+       * @summary Closes the specified cloud application service session and reclaims the related instance resources.
        *
-       * @description ## Request information
+       * @description ## Request description.
        *
        * @param request StopRenderingSessionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3550,9 +3572,9 @@ namespace Vs20181212
       Models::StopRenderingSessionResponse stopRenderingSessionWithOptions(const Models::StopRenderingSessionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Shut down the specified cloud application service session and revoke the associated instance resources.
+       * @summary Closes the specified cloud application service session and reclaims the related instance resources.
        *
-       * @description ## Request information
+       * @description ## Request description.
        *
        * @param request StopRenderingSessionRequest
        * @return StopRenderingSessionResponse
@@ -3683,7 +3705,7 @@ namespace Vs20181212
       Models::UnbindTemplateResponse unbindTemplate(const Models::UnbindTemplateRequest &request);
 
       /**
-       * @summary You can uninstall a specified cloud application from a specified cloud application instance. This operation is asynchronous. You can use the ListCloudAppInstallations operation to check the uninstallation progress. After successful uninstallation, the query operation no longer returns related information.
+       * @summary Uninstalls a specified cloud application from a specified cloud application service instance. This is an asynchronous operation. You can call the ListCloudAppInstallations operation to query the uninstallation progress. After the cloud application is uninstalled, the query operation no longer returns related information.
        *
        * @param tmpReq UninstallCloudAppRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3692,7 +3714,7 @@ namespace Vs20181212
       Models::UninstallCloudAppResponse uninstallCloudAppWithOptions(const Models::UninstallCloudAppRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can uninstall a specified cloud application from a specified cloud application instance. This operation is asynchronous. You can use the ListCloudAppInstallations operation to check the uninstallation progress. After successful uninstallation, the query operation no longer returns related information.
+       * @summary Uninstalls a specified cloud application from a specified cloud application service instance. This is an asynchronous operation. You can call the ListCloudAppInstallations operation to query the uninstallation progress. After the cloud application is uninstalled, the query operation no longer returns related information.
        *
        * @param request UninstallCloudAppRequest
        * @return UninstallCloudAppResponse
@@ -3717,8 +3739,7 @@ namespace Vs20181212
       Models::UnlockDeviceResponse unlockDevice(const Models::UnlockDeviceRequest &request);
 
       /**
-       * @summary Updates the information of a cloud application, such as the description, application labels, and patches.
-       * You can upload patches or hot update packages, and create hot update packages for Android cloud application marketplace applications. Each cloud application supports up to 20 patches, and only one patch can be in the uploading state at a time for a single cloud application.
+       * @summary Updates the information of a cloud application, such as the description, application tags, and patch uploads. You can upload patch packages or hot update packages, and create hot update packages for Android cloud application markets. A cloud application supports up to 20 patch packages, and only one patch package can be in the uploading state at a time.
        *
        * @param tmpReq UpdateCloudAppInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3727,8 +3748,7 @@ namespace Vs20181212
       Models::UpdateCloudAppInfoResponse updateCloudAppInfoWithOptions(const Models::UpdateCloudAppInfoRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the information of a cloud application, such as the description, application labels, and patches.
-       * You can upload patches or hot update packages, and create hot update packages for Android cloud application marketplace applications. Each cloud application supports up to 20 patches, and only one patch can be in the uploading state at a time for a single cloud application.
+       * @summary Updates the information of a cloud application, such as the description, application tags, and patch uploads. You can upload patch packages or hot update packages, and create hot update packages for Android cloud application markets. A cloud application supports up to 20 patch packages, and only one patch package can be in the uploading state at a time.
        *
        * @param request UpdateCloudAppInfoRequest
        * @return UpdateCloudAppInfoResponse
@@ -3736,7 +3756,7 @@ namespace Vs20181212
       Models::UpdateCloudAppInfoResponse updateCloudAppInfo(const Models::UpdateCloudAppInfoRequest &request);
 
       /**
-       * @summary Update basic information for a file, such as its description.
+       * @summary Updates the basic information of a file, such as the description.
        *
        * @param request UpdateFileInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3745,7 +3765,7 @@ namespace Vs20181212
       Models::UpdateFileInfoResponse updateFileInfoWithOptions(const Models::UpdateFileInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update basic information for a file, such as its description.
+       * @summary Updates the basic information of a file, such as the description.
        *
        * @param request UpdateFileInfoRequest
        * @return UpdateFileInfoResponse
@@ -3753,9 +3773,7 @@ namespace Vs20181212
       Models::UpdateFileInfoResponse updateFileInfo(const Models::UpdateFileInfoRequest &request);
 
       /**
-       * @summary This operation updates the configuration parameters of a cloud application service instance. It lets you modify various configurations of the Cloud Android system, such as prop, location, and network, to create a real device simulation.
-       * You can retrieve the configured values for the real device simulation by calling the DescribeRenderingInstance API.
-       * To query the configuration parameters of the real-time environment, see the DescribeRenderingInstanceConfiguration API.
+       * @summary Updates the configuration parameters of a cloud application service instance. This operation supports modifying various configurations of the cloud Android system, such as prop, location, and network, to build a real-device simulation. You can call the DescribeRenderingInstance operation to obtain the configured real-device simulation values. To query the configuration parameters of the real-time environment, refer to the DescribeRenderingInstanceConfiguration operation.
        *
        * @param tmpReq UpdateRenderingInstanceConfigurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3764,9 +3782,7 @@ namespace Vs20181212
       Models::UpdateRenderingInstanceConfigurationResponse updateRenderingInstanceConfigurationWithOptions(const Models::UpdateRenderingInstanceConfigurationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This operation updates the configuration parameters of a cloud application service instance. It lets you modify various configurations of the Cloud Android system, such as prop, location, and network, to create a real device simulation.
-       * You can retrieve the configured values for the real device simulation by calling the DescribeRenderingInstance API.
-       * To query the configuration parameters of the real-time environment, see the DescribeRenderingInstanceConfiguration API.
+       * @summary Updates the configuration parameters of a cloud application service instance. This operation supports modifying various configurations of the cloud Android system, such as prop, location, and network, to build a real-device simulation. You can call the DescribeRenderingInstance operation to obtain the configured real-device simulation values. To query the configuration parameters of the real-time environment, refer to the DescribeRenderingInstanceConfiguration operation.
        *
        * @param request UpdateRenderingInstanceConfigurationRequest
        * @return UpdateRenderingInstanceConfigurationResponse
@@ -3791,7 +3807,7 @@ namespace Vs20181212
       Models::UpdateRenderingInstanceSettingsResponse updateRenderingInstanceSettings(const Models::UpdateRenderingInstanceSettingsRequest &request);
 
       /**
-       * @summary Updates a project’s properties.
+       * @summary Updates the attributes of a project.
        *
        * @param tmpReq UpdateRenderingProjectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3800,7 +3816,7 @@ namespace Vs20181212
       Models::UpdateRenderingProjectResponse updateRenderingProjectWithOptions(const Models::UpdateRenderingProjectRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a project’s properties.
+       * @summary Updates the attributes of a project.
        *
        * @param request UpdateRenderingProjectRequest
        * @return UpdateRenderingProjectResponse
@@ -3808,7 +3824,7 @@ namespace Vs20181212
       Models::UpdateRenderingProjectResponse updateRenderingProject(const Models::UpdateRenderingProjectRequest &request);
 
       /**
-       * @summary Updates the configuration for stream pulling. You can modify the start and end times of origin server addresses in an existing stream pulling task.
+       * @summary Updates stream pulling information by modifying the start time and end time of the addresses of the origin server for an existing stream pulling node.
        *
        * @param request UpdateVsPullStreamInfoConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3817,7 +3833,7 @@ namespace Vs20181212
       Models::UpdateVsPullStreamInfoConfigResponse updateVsPullStreamInfoConfigWithOptions(const Models::UpdateVsPullStreamInfoConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the configuration for stream pulling. You can modify the start and end times of origin server addresses in an existing stream pulling task.
+       * @summary Updates stream pulling information by modifying the start time and end time of the addresses of the origin server for an existing stream pulling node.
        *
        * @param request UpdateVsPullStreamInfoConfigRequest
        * @return UpdateVsPullStreamInfoConfigResponse
@@ -3825,7 +3841,7 @@ namespace Vs20181212
       Models::UpdateVsPullStreamInfoConfigResponse updateVsPullStreamInfoConfig(const Models::UpdateVsPullStreamInfoConfigRequest &request);
 
       /**
-       * @summary Upgrades instance images in batch.
+       * @summary Upgrades the images of cloud application service instances.
        *
        * @param tmpReq UpgradeRenderingInstanceImageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3834,7 +3850,7 @@ namespace Vs20181212
       Models::UpgradeRenderingInstanceImageResponse upgradeRenderingInstanceImageWithOptions(const Models::UpgradeRenderingInstanceImageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Upgrades instance images in batch.
+       * @summary Upgrades the images of cloud application service instances.
        *
        * @param request UpgradeRenderingInstanceImageRequest
        * @return UpgradeRenderingInstanceImageResponse
@@ -3842,7 +3858,7 @@ namespace Vs20181212
       Models::UpgradeRenderingInstanceImageResponse upgradeRenderingInstanceImage(const Models::UpgradeRenderingInstanceImageRequest &request);
 
       /**
-       * @summary Uploads a cloud application package for listing. This is an asynchronous operation. You can call the ListCloudApps operation to query the upload progress.
+       * @summary Uploads or publishes a cloud application package. This is an asynchronous operation. You can call the ListCloudApps operation to query the upload progress.
        *
        * @param tmpReq UploadCloudAppRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3851,7 +3867,7 @@ namespace Vs20181212
       Models::UploadCloudAppResponse uploadCloudAppWithOptions(const Models::UploadCloudAppRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Uploads a cloud application package for listing. This is an asynchronous operation. You can call the ListCloudApps operation to query the upload progress.
+       * @summary Uploads or publishes a cloud application package. This is an asynchronous operation. You can call the ListCloudApps operation to query the upload progress.
        *
        * @param request UploadCloudAppRequest
        * @return UploadCloudAppResponse
@@ -3876,7 +3892,7 @@ namespace Vs20181212
       Models::UploadFileResponse uploadFile(const Models::UploadFileRequest &request);
 
       /**
-       * @summary Upload a new public key.
+       * @summary Uploads a new public key.
        *
        * @param request UploadPublicKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3885,7 +3901,7 @@ namespace Vs20181212
       Models::UploadPublicKeyResponse uploadPublicKeyWithOptions(const Models::UploadPublicKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Upload a new public key.
+       * @summary Uploads a new public key.
        *
        * @param request UploadPublicKeyRequest
        * @return UploadPublicKeyResponse
@@ -3893,7 +3909,7 @@ namespace Vs20181212
       Models::UploadPublicKeyResponse uploadPublicKey(const Models::UploadPublicKeyRequest &request);
 
       /**
-       * @summary VerifyVsDomainOwner
+       * @summary Verifies the ownership of a specified Visual Edge Computing Service domain name.
        *
        * @param request VerifyVsDomainOwnerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3902,7 +3918,7 @@ namespace Vs20181212
       Models::VerifyVsDomainOwnerResponse verifyVsDomainOwnerWithOptions(const Models::VerifyVsDomainOwnerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary VerifyVsDomainOwner
+       * @summary Verifies the ownership of a specified Visual Edge Computing Service domain name.
        *
        * @param request VerifyVsDomainOwnerRequest
        * @return VerifyVsDomainOwnerResponse

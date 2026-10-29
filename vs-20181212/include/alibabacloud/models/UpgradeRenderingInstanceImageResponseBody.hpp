@@ -117,9 +117,9 @@ namespace Models
 
 
     protected:
-      // The error code of the failure.
+      // The error code for the failure.
       shared_ptr<string> errCode_ {};
-      // The error message of the failure.
+      // The error message for the failure.
       shared_ptr<string> errMessage_ {};
       // The cloud application service instance ID.
       shared_ptr<string> renderingInstanceId_ {};
@@ -169,13 +169,13 @@ namespace Models
   protected:
     // The number of failed instances.
     shared_ptr<int64_t> failedCount_ {};
-    // The information about failed instances.
+    // The information about the failed instances.
     shared_ptr<vector<UpgradeRenderingInstanceImageResponseBody::FailedItems>> failedItems_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The number of successful instances.
+    // The number of successfully upgraded instances.
     shared_ptr<int64_t> successCount_ {};
-    // The information about successful instances.
+    // The information about the successfully upgraded instances.
     shared_ptr<vector<UpgradeRenderingInstanceImageResponseBody::SuccessItems>> successItems_ {};
   };
 

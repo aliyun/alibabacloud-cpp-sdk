@@ -76,9 +76,9 @@ namespace Models
 
 
     protected:
-      // Description
+      // The description.
       shared_ptr<string> message_ {};
-      // Cloud application service instance ID
+      // The instance ID of the cloud application service.
       shared_ptr<string> renderingInstanceId_ {};
     };
 
@@ -120,9 +120,9 @@ namespace Models
 
 
     protected:
-      // Failure reason
+      // The cause of the failure.
       shared_ptr<string> message_ {};
-      // Cloud application service instance ID
+      // The instance ID of the cloud application service.
       shared_ptr<string> renderingInstanceId_ {};
     };
 
@@ -168,15 +168,15 @@ namespace Models
 
 
   protected:
-    // Number of failed cloud application service instances
+    // The number of cloud application service instances that failed to be associated.
     shared_ptr<string> failedInstanceCount_ {};
-    // List of instances that failed to associate
+    // The list of instances that failed to be associated.
     shared_ptr<vector<AssociateRenderingProjectInstancesResponseBody::FailedInstances>> failedInstances_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Number of successful cloud application service instances
+    // The number of successfully associated cloud application service instances.
     shared_ptr<string> successInstanceCount_ {};
-    // List of successfully associated instances
+    // The list of successfully associated instances.
     shared_ptr<vector<AssociateRenderingProjectInstancesResponseBody::SuccessInstances>> successInstances_ {};
   };
 

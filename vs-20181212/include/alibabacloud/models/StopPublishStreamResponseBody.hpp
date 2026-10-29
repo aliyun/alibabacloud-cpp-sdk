@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The return code.
     shared_ptr<int64_t> code_ {};
+    // The return message.
     shared_ptr<int64_t> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

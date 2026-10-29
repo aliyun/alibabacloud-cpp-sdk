@@ -93,9 +93,9 @@ namespace Models
 
 
       protected:
-        // The name of the attribute.
+        // The attribute name.
         shared_ptr<string> name_ {};
-        // The value of the attribute.
+        // The attribute value.
         Darabonba::Json value_ {};
       };
 
@@ -118,27 +118,18 @@ namespace Models
 
 
     protected:
-      // The list of properties for the module.
+      // The list of attributes for the module.
       shared_ptr<vector<Configuration::Attributes>> attributes_ {};
-      // The name of the device simulation feature module. Valid values:
-      // 
-      // 1. ctl: The control module.
-      // 
-      // 2. prop: The property module.
-      // 
-      // 3. location: The location module.
-      // 
-      // 4. battery: The battery module.
-      // 
-      // 5. network: The network module.
-      // 
-      // 6. bluetooth: The Bluetooth module.
-      // 
-      // 7. sim: The SIM card module.
-      // 
-      // 8. display: The device module.
-      // 
-      // 9. system: The basic module.
+      // The name of the real-device simulation feature module. Valid values:
+      // - ctl: Control module.
+      // - prop: Attribute module.
+      // - location: Location module.
+      // - battery: Battery module.
+      // - network: Network module.
+      // - bluetooth: Bluetooth module.
+      // - sim: SIM card module.
+      // - display: Device module.
+      // - system: Basic module.
       shared_ptr<string> moduleName_ {};
     };
 
@@ -161,7 +152,7 @@ namespace Models
 
 
   protected:
-    // The configuration.
+    // The configuration content.
     shared_ptr<vector<DescribeRenderingInstanceConfigurationResponseBody::Configuration>> configuration_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

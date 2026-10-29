@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The name of the file to query, or the folder to query. For a folder, provide the path ending with a forward slash (/).
+    // The name of the file to query, or the directory to query. To query a directory, pass the path ending with a forward slash (/).
     shared_ptr<string> fileName_ {};
-    // The page number of the list to query.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};

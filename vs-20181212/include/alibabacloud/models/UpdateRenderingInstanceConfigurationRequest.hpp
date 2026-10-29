@@ -93,11 +93,11 @@ namespace Models
 
 
       protected:
-        // The name of the property.
+        // The name of the attribute.
         // 
         // This parameter is required.
         shared_ptr<string> name_ {};
-        // The value of the property.
+        // The value of the attribute.
         // 
         // This parameter is required.
         Darabonba::Json value_ {};
@@ -122,29 +122,20 @@ namespace Models
 
 
     protected:
-      // The list of properties for the module.
+      // The list of attributes corresponding to the module.
       // 
       // This parameter is required.
       shared_ptr<vector<Configuration::Attributes>> attributes_ {};
-      // The name of the real device simulation module. Valid values include the following:
-      // 
-      // 1. ctl: control module
-      // 
-      // 2. prop: property module
-      // 
-      // 3. location: location module
-      // 
-      // 4. battery: battery module
-      // 
-      // 5. network: network module
-      // 
-      // 6. bluetooth: bluetooth module
-      // 
-      // 7. sim: SIM card module
-      // 
-      // 8. display: device module
-      // 
-      // 9. system: basic module
+      // The name of the real-device simulation feature module. Valid values:
+      // - ctl: Control module.
+      // - prop: Property module.
+      // - location: Location module.
+      // - battery: Battery module.
+      // - network: Network module.
+      // - bluetooth: Bluetooth module.
+      // - sim: SIM card module.
+      // - display: Device module.
+      // - system: Basic module.
       // 
       // This parameter is required.
       shared_ptr<string> moduleName_ {};
@@ -173,7 +164,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<vector<UpdateRenderingInstanceConfigurationRequest::Configuration>> configuration_ {};
-    // The ID of the cloud application service instance.
+    // The instance ID of the cloud application service.
     // 
     // This parameter is required.
     shared_ptr<string> renderingInstanceId_ {};

@@ -59,9 +59,9 @@ namespace Models
   protected:
     // The status code. A value of 0 indicates success.
     shared_ptr<int64_t> code_ {};
-    // The returned message. If the request fails, this parameter contains the failure reason.
+    // The description. If Status is Failed, this field contains the cause of the failure.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

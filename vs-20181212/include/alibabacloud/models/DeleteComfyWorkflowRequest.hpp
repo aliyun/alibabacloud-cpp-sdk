@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the workflow.
+    // The workflow ID.
     // 
     // This parameter is required.
     shared_ptr<string> workflowId_ {};

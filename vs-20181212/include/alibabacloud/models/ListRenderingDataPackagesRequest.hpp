@@ -104,32 +104,26 @@ namespace Models
 
   protected:
     // The category. Valid values:
-    // 
-    // - Package
-    // 
-    // - Baseline
+    // - Package: package
+    // - Baseline: baseline
     shared_ptr<string> category_ {};
-    // The ID of the data pack.
+    // The ID of the data package.
     shared_ptr<string> dataPackageId_ {};
-    // The parameter for filtering by time range. Use UTC time in ISO8601 format: yyyy-MM-ddTHH:mm:ssZ.
+    // The start time of the time range filter. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
     shared_ptr<string> endTime_ {};
-    // The page number for the query list.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries displayed per page.
+    // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // The size of the data pack.
+    // The size of the data package.
     shared_ptr<int32_t> size_ {};
-    // The parameter for filtering by time range. Use UTC time in ISO8601 format: yyyy-MM-ddTHH:mm:ssZ.
+    // The start time of the time range filter. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
     shared_ptr<string> startTime_ {};
-    // The status of the data pack. Valid values:
-    // 
-    // - available
-    // 
-    // - packing
-    // 
-    // - failed
-    // 
-    // - bonded
+    // The status of the data package. Valid values:
+    // - available: available for binding
+    // - packing: in progress
+    // - failed: failed
+    // - bonded: bound
     shared_ptr<string> status_ {};
   };
 

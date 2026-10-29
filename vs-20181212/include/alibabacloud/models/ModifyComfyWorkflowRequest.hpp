@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // The new workflow description.
+    // The description of the workflow template.
     shared_ptr<string> description_ {};
-    // The ID of the workflow to modify.
+    // The workflow ID.
     // 
     // This parameter is required.
     shared_ptr<string> workflowId_ {};
-    // The new workflow name.
+    // The name of the workflow template.
     shared_ptr<string> workflowName_ {};
   };
 

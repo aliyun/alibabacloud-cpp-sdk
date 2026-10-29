@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Project ID
+    // The project ID.
     // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};

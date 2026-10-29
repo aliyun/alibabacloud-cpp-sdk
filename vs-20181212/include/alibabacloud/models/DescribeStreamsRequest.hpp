@@ -140,48 +140,36 @@ namespace Models
 
 
   protected:
-    // Filter by application.
+    // The application.
     shared_ptr<string> app_ {};
-    // Filter by device ID.
+    // The device ID.
     shared_ptr<string> deviceId_ {};
-    // Filter by domain name.
+    // The domain name.
     shared_ptr<string> domain_ {};
-    // The ID of the space to query.
+    // The space ID.
     shared_ptr<string> groupId_ {};
-    // Stream ID.
-    // 
-    // > Enter multiple IDs separated by commas (,).
+    // The stream ID. You can specify multiple IDs separated by commas (,).
     shared_ptr<string> id_ {};
-    // Filter by stream name.
-    // 
-    // > Enter multiple names separated by commas (,).
+    // The stream name. You can specify multiple names separated by commas (,).
     shared_ptr<string> name_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // Page number. Default value: 1.
+    // The page number. Default value: 1.
     shared_ptr<int64_t> pageNum_ {};
-    // Number of items per page. Default value: 20.
+    // The number of entries per page. Default value: 20.
     shared_ptr<int64_t> pageSize_ {};
-    // Parent device ID of the device that hosts this stream.
+    // The parent device ID of the device to which the stream belongs.
     shared_ptr<string> parentId_ {};
-    // Sort results by a field. Valid values:
-    // 
+    // The field by which to sort the results. Valid values:
     // - Id (default)
-    // 
     // - GroupId
-    // 
     // - Name
-    // 
     // - DeviceId
-    // 
     // - Protocol
-    // 
-    // > You can specify only one field.
+    // You can specify only one field.
     shared_ptr<string> sortBy_ {};
-    // Sort order. Valid values:
-    // 
-    // - asc (ascending, default)
-    // 
-    // - desc (descending)
+    // The sort order. Valid values:
+    // - asc: ascending order (default)
+    // - desc: descending order
     shared_ptr<string> sortDirection_ {};
   };
 

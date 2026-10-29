@@ -77,13 +77,13 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<int64_t> code_ {};
-    // The download link for the production. Use an Alibaba Cloud Object Storage Service (OSS) SDK to download the file.
+    // The download URL of the production. Use the Alibaba Cloud OSS SDK to download the production.
     shared_ptr<string> downloadUrl_ {};
-    // The download link\\"s expiration time.
+    // The expiration time of the download URL. The time is in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mmZ format.
     shared_ptr<string> expiredTime_ {};
-    // The response message.
+    // The description.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

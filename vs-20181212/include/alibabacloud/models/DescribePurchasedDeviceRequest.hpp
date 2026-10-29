@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // Device ID.
+    // The device ID.
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};

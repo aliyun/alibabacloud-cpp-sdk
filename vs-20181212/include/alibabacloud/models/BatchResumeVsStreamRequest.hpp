@@ -75,16 +75,17 @@ namespace Models
 
 
   protected:
-    // The name of the stream in the AppName/StreamName format. To specify multiple streams, separate the stream names with commas.
+    // The stream name in the format of AppName/StreamName. Separate multiple stream names with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> channel_ {};
+    // The stream control operation. Set the value to resume to resume the stream push.
     shared_ptr<string> controlStreamAction_ {};
     // The accelerated domain name.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The type of live stream. Only publisher is supported, which indicates that the stream is ingested by a streamer.
+    // Specifies whether the stream is pushed by the broadcaster or pulled by the client. Valid value: publisher (broadcaster push).
     // 
     // This parameter is required.
     shared_ptr<string> liveStreamType_ {};

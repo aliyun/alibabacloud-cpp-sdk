@@ -112,21 +112,21 @@ namespace Models
 
 
   protected:
-    // The expiration time.
+    // The end time. The time is expressed in the ISO 8601 standard and includes a time zone offset. Format: YYYY-MM-DDTHH:mm:ss+HH:mm.
     shared_ptr<string> endTime_ {};
     // The list of cluster IDs.
     shared_ptr<string> hiveIdsShrink_ {};
-    // The list of load IDs.
+    // The list of workload IDs.
     shared_ptr<string> instanceIdsShrink_ {};
-    // The page number of the query list. The value starts from 1. Default value: 1.
+    // The page number of the list to query. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page in a paged query. Settings for paging. Maximum value: 100. Default value: 10.
+    // The Settings for the number of lines per page during paging and paged query. Maximum value: 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
     // The list of plan IDs.
     shared_ptr<string> planIdsShrink_ {};
-    // The specification.
+    // The specifications.
     shared_ptr<string> spec_ {};
-    // The time range filter parameter. The value is in the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+    // The start time of the time range filter. The time is expressed in the ISO 8601 standard and must be in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
     shared_ptr<string> startTime_ {};
     // The list of statuses.
     shared_ptr<string> statusesShrink_ {};

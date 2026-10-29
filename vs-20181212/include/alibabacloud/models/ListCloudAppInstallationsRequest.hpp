@@ -121,27 +121,25 @@ namespace Models
 
 
   protected:
-    // Cloud application ID. Each ID maps to a unique application package.
+    // The ID of the cloud application, which corresponds to a unique application package.
     shared_ptr<string> appId_ {};
-    // Application name.
+    // The name of the application.
     shared_ptr<string> appName_ {};
-    // Application version.
+    // The version of the application.
     shared_ptr<string> appVersion_ {};
-    // Time range filter. Use ISO 8601 format and UTC time, such as yyyy-MM-ddTHH:mm:ssZ.
+    // The start time of the time range filter. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> endTime_ {};
-    // Page number of the returned list. Minimum value: 1. Default value: 1.
+    // The page number of the list to query. Pages start from 1. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // Number of entries per page for paged queries. Valid values: 1 to 100. Default value: 10.
+    // The number of entries to return on each page for a paged query. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
-    // Patch package ID. Supported only in Windows scenarios.
-    // 
-    // 1. Set to origin to return only original versions.
+    // The ID of the patch package. This parameter is supported only in Windows scenarios. If you enter origin, only the original version is filtered.
     shared_ptr<string> patchId_ {};
-    // Project ID.
+    // The ID of the project.
     shared_ptr<string> projectId_ {};
-    // Cloud application service instance ID. Use this to list installations on a specific instance.
+    // The cloud application service instance ID, which is used to query the cloud applications installed on the specified instance.
     shared_ptr<string> renderingInstanceId_ {};
-    // Start time of the time range filter. Specify in ISO 8601 format using UTC time. Format: yyyy-MM-ddTHH:mm:ssZ.
+    // The start time of the time range filter. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> startTime_ {};
   };
 

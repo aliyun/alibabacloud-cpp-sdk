@@ -48,12 +48,12 @@ namespace Models
 
 
   protected:
-    // 校验内容。
+    // The verification content.
     // 
     // > 
-    // 调用成功不返回该参数，调用失败返回校验内容。
+    // This parameter is not returned if the call is successful. If the call fails, the verification content is returned.
     shared_ptr<string> content_ {};
-    // 请求ID。
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -118,7 +118,7 @@ namespace Models
     // - 1: motion detection alerting
     // - 2: intelligent alerting
     // - 3: switch alerting
-    // - 4: video loss alerting.
+    // - 4: video loss alerting
     // 
     // This parameter is required.
     shared_ptr<int32_t> alarm_ {};
@@ -140,7 +140,7 @@ namespace Models
     // - 0: none
     // - 1: JPEG image
     // - 2: video
-    // - 3: GIF image.
+    // - 3: GIF image
     // 
     // This parameter is required.
     shared_ptr<int32_t> objectType_ {};

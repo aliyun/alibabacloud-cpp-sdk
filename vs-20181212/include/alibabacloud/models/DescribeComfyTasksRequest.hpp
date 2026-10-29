@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The HiveId used as a filter condition to query tasks executed under the specified HiveId.
+    // The Hive ID, used as a filter to query tasks executed under the specified Hive.
     shared_ptr<string> hiveId_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of records per page.
+    // The number of records to display on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // The Comfy workflow ID used as a filter condition.
+    // The ID of the Comfy task, used as a filter.
     shared_ptr<string> taskId_ {};
-    // The task status used as a filter condition.
+    // The task state, used as a filter.
     shared_ptr<string> taskState_ {};
-    // The Comfy workflow ID used as a filter condition.
+    // The ID of the Comfy workflow, used as a filter.
     shared_ptr<string> workflowId_ {};
   };
 

@@ -128,28 +128,26 @@ namespace Models
 
     protected:
       // The category. Valid values:
-      // 
-      // - Package
-      // 
-      // - Baseline
+      // - Package: package
+      // - Baseline: baseline
       shared_ptr<string> category_ {};
-      // The creation time of the Graphic Computing Service instance.
+      // The creation time of the cloud rendering instance. The time is displayed in the YYYY-MM-DDTHH:mm:ss+HH:mm format and follows the ISO 8601 standard with a time zone offset.
       shared_ptr<string> creationTime_ {};
-      // The ID of the data pack.
+      // The ID of the data package.
       shared_ptr<string> dataPackageId_ {};
-      // Remarks.
+      // The description.
       shared_ptr<string> description_ {};
-      // The ID of the Graphic Computing Service instance.
+      // The ID of the cloud application service instance.
       shared_ptr<string> renderingInstanceId_ {};
-      // The size of the data pack.
+      // The size of the data package.
       shared_ptr<int32_t> size_ {};
-      // The status of the data pack. Valid values:
-      // available
-      // packing
-      // failed
-      // bonded
+      // The status of the data package. Valid values:
+      // available: available for binding
+      // packing: in progress
+      // failed: failed
+      // bonded: bound
       shared_ptr<string> status_ {};
-      // The update time.
+      // The update time. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -179,11 +177,11 @@ namespace Models
 
 
   protected:
-    // A list of data packages for the cloud application service.
+    // The list of cloud application service data packages.
     shared_ptr<vector<ListRenderingDataPackagesResponseBody::DataPackages>> dataPackages_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The total number of Graphic Computing Service instances.
+    // The total number of cloud rendering instances.
     shared_ptr<int64_t> totalCount_ {};
   };
 

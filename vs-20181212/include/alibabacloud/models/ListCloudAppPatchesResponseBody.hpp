@@ -131,27 +131,27 @@ namespace Models
 
 
     protected:
-      // The ID of the patch package.
+      // The ID of the patch.
       shared_ptr<string> patchId_ {};
-      // The name of the patch package.
+      // The name of the patch.
       shared_ptr<string> patchName_ {};
-      // The relative path of the post-command within the application package. Only Windows-type applications are supported.
+      // The relative path of the post-command in the application package. This parameter is supported only for Windows applications.
       shared_ptr<string> postCommandPath_ {};
-      // The timeout period for the post-command execution, in seconds. Only Windows-type applications are supported.
+      // The timeout period for executing the post-command, in seconds. This parameter is supported only for Windows applications.
       shared_ptr<int32_t> postCommandTimeoutSec_ {};
-      // The application upload status. Valid values:
-      // 1. Created
-      // 2. Doing
-      // 3. Success: desired state.
-      // 4. Failed: desired state.
-      // 5. Deleting
-      // 6. DeleteFailed: desired state.
+      // The upload status of the application. Valid values:
+      // - Created
+      // - Doing
+      // - Success: desired state
+      // - Failed: desired state
+      // - Deleting
+      // - DeleteFailed: desired state
       shared_ptr<string> status_ {};
-      // The status description.
+      // The description of the status.
       shared_ptr<string> statusDescription_ {};
-      // The most recent time when the status was updated.
+      // The latest time when the status was updated. The time is in the YYYY-MM-DDTHH:mm:ss format.
       shared_ptr<string> updateTime_ {};
-      // The time when the patch was uploaded.
+      // The time when the application was uploaded. The time is in the ISO 8601 standard and includes the time zone offset, in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
       shared_ptr<string> uploadTime_ {};
     };
 
@@ -195,11 +195,11 @@ namespace Models
 
 
   protected:
-    // The page number of the query list.
+    // The page number of the returned list.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page for the paged query.
+    // Settings for the number of entries per page when paging in a paged query.
     shared_ptr<int64_t> pageSize_ {};
-    // The list of patches for the cloud application.
+    // The patch list of the cloud application.
     shared_ptr<vector<ListCloudAppPatchesResponseBody::Patches>> patches_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

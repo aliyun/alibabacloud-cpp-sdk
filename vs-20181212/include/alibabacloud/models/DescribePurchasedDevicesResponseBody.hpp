@@ -170,13 +170,13 @@ namespace Models
 
 
     protected:
-      // The time the device was created.
+      // The time when the device was created. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> createdTime_ {};
       // The device description.
       shared_ptr<string> description_ {};
-      // The ID of the group to which the device belongs.
+      // The ID of the workspace to which the device belongs.
       shared_ptr<string> groupId_ {};
-      // Group name.
+      // The workspace name.
       shared_ptr<string> groupName_ {};
       // The device ID.
       shared_ptr<string> id_ {};
@@ -184,25 +184,19 @@ namespace Models
       shared_ptr<string> name_ {};
       // The order ID.
       shared_ptr<string> orderId_ {};
-      // The region to which the space belongs. This is the service center.
+      // The region of the workspace, which is the service center.
       shared_ptr<string> region_ {};
       // The device registration code.
       shared_ptr<string> registerCode_ {};
       // The device subtype. Valid values:
-      // 
-      // - bullet (bullet camera)
-      // 
-      // - dome (dome camera)
-      // 
-      // - ptz (PTZ camera)
+      // - bullet: Bullet camera.
+      // - dome: Dome camera.
+      // - ptz: PTZ camera.
       shared_ptr<string> subType_ {};
       // The device type. Valid values:
-      // 
-      // - ipc (camera)
-      // 
-      // - platform (platform)
-      // 
-      // - ied (intelligent edge device)
+      // - ipc: Camera.
+      // - platform: Platform.
+      // - ied: Intelligent device.
       shared_ptr<string> type_ {};
       // The device vendor.
       shared_ptr<string> vendor_ {};

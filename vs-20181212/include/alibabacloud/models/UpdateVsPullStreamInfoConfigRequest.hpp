@@ -108,24 +108,21 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
-    // Your stream pulling domain.
+    // The stream pulling domain name.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
     // The end time of stream pulling.
-    // 
-    // > UTC time format. The interval between StartTime and EndTime must be within 7 days, and EndTime must be later than the current time.
+    // > Specify the time in UTC. The interval between StartTime and EndTime must be within 7 days, and EndTime must be later than the current time.
     shared_ptr<string> endTime_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The origin server of your live stream.
-    // 
-    // > Supports multiple values, separated by English semicolons (;).
+    // The origin server of the live stream.
+    // > Multiple origin servers are supported. Separate them with semicolons (;).
     // 
     // This parameter is required.
     shared_ptr<string> sourceUrl_ {};
     // The start time of stream pulling.
-    // 
-    // > UTC time format. The interval between StartTime and EndTime must be within 7 days.
+    // > Specify the time in UTC. The interval between StartTime and EndTime must be within 7 days.
     shared_ptr<string> startTime_ {};
     // The name of the live stream.
     // 

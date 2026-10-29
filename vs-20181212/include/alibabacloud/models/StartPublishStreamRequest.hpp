@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // The ID of the cloud application service instance for which to start desktop capture and streaming.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The streaming URL for the desktop capture content.
+    // 
     // This parameter is required.
     shared_ptr<string> publishUrl_ {};
   };

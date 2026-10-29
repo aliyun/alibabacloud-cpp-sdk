@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The path of the directory to create. Use /dir1/ for a single-level directory, or /dir1/dir2/ for a multi-level directory.
+    // The path of the directory to create. The format is /dir1/ for a single-level directory and /dir1/dir2/ for a multi-level directory.
     shared_ptr<string> path_ {};
   };
 

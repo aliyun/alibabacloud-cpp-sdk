@@ -94,27 +94,24 @@ namespace Models
 
 
   protected:
-    // End time of the time range. Use ISO 8601 format in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+    // The start time of the time range filter. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> endTime_ {};
-    // Page number. Start from 1.
+    // The page number. Pages start from 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // Number of entries per page.
+    // The Settings for the number of entries per page during paging in a paged query.
     shared_ptr<int32_t> pageSize_ {};
-    // Project ID
+    // The project ID.
     // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};
-    // Cloud application service instance ID
+    // The cloud application service instance ID.
     shared_ptr<string> renderingInstanceId_ {};
-    // A parameter for filtering by a time range. The time must be in UTC and formatted according to the ISO 8601 standard as \\`yyyy-MM-ddTHH:mm:ssZ\\`.
+    // The start time of the time range filter. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> startTime_ {};
-    // Instance status. Valid values:
-    // 
-    // 1. Idle
-    // 
-    // 2. Locked
-    // 
-    // 3. InUse
+    // The project instance status. Valid values:
+    // - Idle: idle
+    // - Locked: locked
+    // - InUse: in use
     shared_ptr<string> state_ {};
   };
 

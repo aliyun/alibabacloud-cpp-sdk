@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Cloud application service data pack ID
+    // The ID of the cloud application service data package.
     // 
     // This parameter is required.
     shared_ptr<string> dataPackageId_ {};

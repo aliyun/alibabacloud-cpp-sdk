@@ -179,35 +179,33 @@ namespace Models
 
 
     protected:
-      // Application that owns this stream.
+      // The application to which the stream belongs.
       shared_ptr<string> app_ {};
-      // Time when the stream was created.
+      // The time when the stream was created. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> createdTime_ {};
-      // Device ID of this stream.
+      // The ID of the device to which the stream belongs.
       shared_ptr<string> deviceId_ {};
       // Indicates whether the stream is enabled.
       shared_ptr<bool> enabled_ {};
-      // The ID of the group to which the stream belongs.
+      // The ID of the space to which the stream belongs.
       shared_ptr<string> groupId_ {};
-      // Video stream height in pixels.
+      // The height of the video stream resolution.
       shared_ptr<int32_t> height_ {};
-      // Stream ID.
+      // The stream ID.
       shared_ptr<string> id_ {};
-      // Stream name.
+      // The stream name.
       shared_ptr<string> name_ {};
-      // Streaming domain for this stream.
+      // The playback domain name to which the stream belongs.
       shared_ptr<string> playDomain_ {};
-      // Stream protocol.
+      // The stream protocol.
       shared_ptr<string> protocol_ {};
-      // Ingest domain for this stream.
+      // The ingest domain name to which the stream belongs.
       shared_ptr<string> pushDomain_ {};
-      // Stream status. Valid values:
-      // 
-      // - on (online)
-      // 
-      // - off (offline)
+      // The stream status. Valid values:
+      // - on: online
+      // - off: offline
       shared_ptr<string> status_ {};
-      // Video stream width in pixels.
+      // The width of the video stream resolution.
       shared_ptr<int32_t> width_ {};
     };
 
@@ -258,17 +256,17 @@ namespace Models
 
 
   protected:
-    // Total number of pages.
+    // The total number of pages.
     shared_ptr<int64_t> pageCount_ {};
-    // Page number.
+    // The page number.
     shared_ptr<int64_t> pageNum_ {};
-    // Number of items per page.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // List of streams.
+    // The list of streams.
     shared_ptr<vector<DescribeStreamsResponseBody::Streams>> streams_ {};
-    // Total number of streams.
+    // The total number of streams.
     shared_ptr<int64_t> totalCount_ {};
   };
 

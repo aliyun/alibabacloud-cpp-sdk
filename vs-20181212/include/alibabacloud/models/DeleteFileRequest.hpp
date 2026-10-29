@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // File ID. Each file has a unique ID.
+    // The ID of the file, which uniquely identifies the file.
     // 
     // This parameter is required.
     shared_ptr<string> fileId_ {};

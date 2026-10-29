@@ -104,11 +104,11 @@ namespace Models
 
 
       protected:
-        // Description of the current status
+        // The status description.
         shared_ptr<string> comment_ {};
-        // Instance status
+        // The project instance status.
         shared_ptr<string> state_ {};
-        // Time when the status was last updated
+        // The latest update time of the status. The time is in the ISO 8601 standard and includes a time zone offset. The format is YYYY-MM-DDTHH:mm:ss+HH:mm.
         shared_ptr<string> updateTime_ {};
       };
 
@@ -138,11 +138,11 @@ namespace Models
 
 
     protected:
-      // Time when the instance was associated with the project
+      // The association time. The time is in the ISO 8601 standard and includes a time zone offset. The format is YYYY-MM-DDTHH:mm:ss+HH:mm.
       shared_ptr<string> associationTime_ {};
-      // Cloud application service instance
+      // The ID of the cloud application service instance.
       shared_ptr<string> renderingInstanceId_ {};
-      // Status information for the project instance
+      // The project instance status information.
       shared_ptr<RenderingInstances::StateInfo> stateInfo_ {};
     };
 
@@ -172,11 +172,11 @@ namespace Models
 
 
   protected:
-    // List of cloud application service instances
+    // The list of cloud application service instances.
     shared_ptr<vector<ListRenderingProjectInstancesResponseBody::RenderingInstances>> renderingInstances_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total number of cloud application service instances
+    // The total number of cloud application service instances.
     shared_ptr<int64_t> totalCount_ {};
   };
 

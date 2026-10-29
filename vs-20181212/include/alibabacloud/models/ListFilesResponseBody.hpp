@@ -131,29 +131,25 @@ namespace Models
 
 
     protected:
-      // File description.
+      // The description of the file.
       shared_ptr<string> description_ {};
-      // File ID.
+      // The ID of the file.
       shared_ptr<string> fileId_ {};
-      // File name.
+      // The name of the file.
       shared_ptr<string> fileName_ {};
-      // Upload status. Valid values:
-      // 
-      // 1. Created
-      // 
-      // 2. Doing
-      // 
-      // 3. Success (desired state)
-      // 
-      // 4. Failed (desired state)
+      // The upload status of the file. Valid values:
+      // - Created
+      // - Doing
+      // - Success: final state
+      // - Failed: final state
       shared_ptr<string> status_ {};
-      // Status description.
+      // The description of the status.
       shared_ptr<string> statusDescription_ {};
-      // Destination path for pushing the file to the service instance.
+      // The target path for pushing the file to the cloud application service instance.
       shared_ptr<string> targetPath_ {};
-      // Most recent status update time.
+      // The time when the status was last updated. The time follows the ISO 8601 standard and includes the time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
       shared_ptr<string> updateTime_ {};
-      // Upload start time.
+      // The time when the upload started. The time follows the ISO 8601 standard and includes the time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
       shared_ptr<string> uploadTime_ {};
     };
 
@@ -197,15 +193,15 @@ namespace Models
 
 
   protected:
-    // List of file information.
+    // The list of file information.
     shared_ptr<vector<ListFilesResponseBody::Files>> files_ {};
-    // Page number of the list.
+    // The page number of the returned list.
     shared_ptr<int64_t> pageNumber_ {};
-    // Number of entries per page for paged queries.
+    // The Settings for the number of entries per page during paging in a paged query.
     shared_ptr<int64_t> pageSize_ {};
-    // Request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Total number of matching file records.
+    // The total number of matched file records.
     shared_ptr<int64_t> totalCount_ {};
   };
 

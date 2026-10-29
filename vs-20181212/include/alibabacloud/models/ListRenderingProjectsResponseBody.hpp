@@ -91,7 +91,7 @@ namespace Models
 
 
       protected:
-        // Startup mode
+        // The startup mode.
         shared_ptr<string> startMode_ {};
       };
 
@@ -142,17 +142,17 @@ namespace Models
 
 
     protected:
-      // Project creation time
+      // The time when the project was created. The time follows the ISO 8601 standard and includes a time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
       shared_ptr<string> creationTime_ {};
-      // Project description
+      // The project description.
       shared_ptr<string> description_ {};
-      // Project ID
+      // The project ID.
       shared_ptr<string> projectId_ {};
-      // Project name
+      // The project name.
       shared_ptr<string> projectName_ {};
-      // Project session attributes
+      // The session attributes of the project.
       shared_ptr<Projects::SessionAttribs> sessionAttribs_ {};
-      // Last update time
+      // The time when the project was updated. The time follows the ISO 8601 standard and includes a time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -182,11 +182,11 @@ namespace Models
 
 
   protected:
-    // Project list
+    // The list of projects.
     shared_ptr<vector<ListRenderingProjectsResponseBody::Projects>> projects_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total number of matching projects
+    // The total number of matched projects.
     shared_ptr<int64_t> totalCount_ {};
   };
 

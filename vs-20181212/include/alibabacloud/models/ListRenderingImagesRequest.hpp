@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The cloud application service instance ID.
+    // The ID of the cloud application service instance.
     shared_ptr<string> imageId_ {};
-    // The page number. The value starts from 1.
+    // The page number. Pages start from 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page for a paged query.
+    // The number of entries to return on each page in a paged query.
     shared_ptr<int32_t> pageSize_ {};
   };
 

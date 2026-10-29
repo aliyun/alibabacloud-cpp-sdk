@@ -75,21 +75,19 @@ namespace Models
 
 
   protected:
-    // Cloud application ID
+    // The cloud application ID.
     shared_ptr<string> appId_ {};
-    // Unique ID of the client
+    // The unique ID of the end user.
     // 
     // This parameter is required.
     shared_ptr<string> clientId_ {};
-    // Client parameter information
+    // The parameter information of the end user.
     shared_ptr<string> clientParamsShrink_ {};
-    // Cloud application patch ID.
-    // 
-    // 1. By default, start the stable version of the AppId (if no stable patch version is set, the original version is used).
-    // 
-    // 2. If you enter "origin", start the original version.
+    // The cloud application patch package ID.
+    // 1. By default, the stable version of the application specified by AppId is started. If no stable patch version is set, the original version is started.
+    // 2. If you specify origin, the original version is started.
     shared_ptr<string> patchId_ {};
-    // Project ID
+    // The project ID.
     // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};

@@ -69,9 +69,9 @@ namespace Models
 
 
     protected:
-      // Client IP address.
+      // The IP address of the client.
       shared_ptr<string> clientIp_ {};
-      // Indicates if the client is new.
+      // Specifies whether the client is a new client.
       shared_ptr<bool> newClient_ {};
     };
 
@@ -94,9 +94,9 @@ namespace Models
 
 
   protected:
-    // Client information.
+    // The client information.
     shared_ptr<RefreshRenderingInstanceStreamingRequest::ClientInfo> clientInfo_ {};
-    // Cloud application service instance ID.
+    // The instance ID of the cloud application service.
     // 
     // This parameter is required.
     shared_ptr<string> renderingInstanceId_ {};

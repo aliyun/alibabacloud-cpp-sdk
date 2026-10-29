@@ -57,10 +57,11 @@ namespace Models
 
 
   protected:
+    // The name of the operation. Set the value to Reset.
     shared_ptr<string> actionName_ {};
-    // Data baseline ID
+    // The ID of the data baseline.
     shared_ptr<string> dataPackageId_ {};
-    // Service instance ID
+    // The cloud application service instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> renderingInstanceId_ {};

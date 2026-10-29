@@ -128,13 +128,13 @@ namespace Models
 
 
     protected:
-      // The total number of devices in the group.
+      // The total number of devices in the workspace.
       shared_ptr<int64_t> deviceNum_ {};
-      // The number of intelligent electronic devices (IEDs) in the group.
+      // The number of intelligent devices in the workspace.
       shared_ptr<int64_t> iedNum_ {};
-      // The number of cameras in the group.
+      // The number of cameras in the workspace.
       shared_ptr<int64_t> ipcNum_ {};
-      // The number of platforms in the group.
+      // The number of platforms in the workspace.
       shared_ptr<int64_t> platformNum_ {};
     };
 
@@ -305,71 +305,60 @@ namespace Models
 
 
   protected:
-    // Alias for the space ID.
+    // The alias of the workspace ID.
     shared_ptr<string> aliasId_ {};
-    // The name of the application used by the group.
+    // The name of the application used by the workspace.
     shared_ptr<string> app_ {};
-    // The callback URL that is used to receive device status updates in the group.
+    // The callback triggered when the device status in the workspace is updated.
     shared_ptr<string> callback_ {};
-    // The time when the group was created.
+    // The time when the workspace was created. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
     shared_ptr<string> createdTime_ {};
-    // A description of the group.
+    // The workspace description.
     shared_ptr<string> description_ {};
-    // Indicates whether the group is enabled.
+    // Indicates whether the workspace is enabled.
     shared_ptr<bool> enabled_ {};
-    // The GB/T 28181 ID that is associated with the group.
-    // 
-    // > This parameter is returned only for groups that use the GB/T 28181 protocol for stream ingest.
+    // The GB/T 28181 ID associated with the workspace.
+    // > This parameter is applicable only to workspaces that are accessed by using the GB/T 28181 protocol.
     shared_ptr<string> gbId_ {};
-    // The IP address of the GB/T 28181 signaling server that is associated with the group.
-    // 
-    // > This parameter is returned only for groups that use the GB/T 28181 protocol for stream ingest.
+    // The IP address of the GB/T 28181 signaling server associated with the workspace.
+    // > This parameter is applicable only to workspaces that are accessed by using the GB/T 28181 protocol.
     shared_ptr<string> gbIp_ {};
-    // The port of the GB/T 28181 signaling server that is associated with the group.
-    // 
-    // > This parameter is returned only for groups that use the GB/T 28181 protocol for stream ingest.
+    // The server port of the GB/T 28181 signaling server associated with the workspace.
+    // > This parameter is applicable only to workspaces that are accessed by using the GB/T 28181 protocol.
     shared_ptr<int64_t> gbPort_ {};
-    // The TCP ports of the GB/T 28181 signaling server that are provided by the group.
-    // 
-    // > This parameter is returned only for groups that use the GB/T 28181 protocol for stream ingest.
+    // The TCP port of the GB/T 28181 signaling server provided by the workspace.
+    // > This parameter is applicable only to workspaces that are accessed by using the GB/T 28181 protocol.
     shared_ptr<vector<string>> gbTcpPorts_ {};
-    // The UDP ports of the GB/T 28181 signaling server that are provided by the group.
-    // 
-    // > This parameter is returned only for groups that use the GB/T 28181 protocol for stream ingest.
+    // The UDP port of the GB/T 28181 signaling server provided by the workspace.
+    // > This parameter is applicable only to workspaces that are accessed by using the GB/T 28181 protocol.
     shared_ptr<vector<string>> gbUdpPorts_ {};
-    // The ID of the space.
+    // The workspace ID.
     shared_ptr<string> id_ {};
-    // The ingest protocol used by the group. Valid values:
-    // 
+    // The access protocol used by the workspace. Valid values:
     // - gb28181
-    // 
     // - rtmp
     shared_ptr<string> inProtocol_ {};
     // Indicates whether on-demand stream pulling is enabled.
     shared_ptr<bool> lazyPull_ {};
-    // The name of the space.
+    // The workspace name.
     shared_ptr<string> name_ {};
-    // The streaming protocol used by the group. Valid values:
-    // 
+    // The playback protocol used by the workspace. Valid values:
     // - flv
-    // 
     // - hls
-    // 
     // - rtmp
-    // 
-    // > You can specify multiple protocols. Separate them with commas (,).
+    // > You can specify multiple values. Separate multiple values with commas (,).
     shared_ptr<string> outProtocol_ {};
-    // The streaming domain used by the group.
+    // The streaming domain name used by the workspace.
     shared_ptr<string> playDomain_ {};
-    // The ingest domain used by the group.
+    // The ingest domain name used by the workspace.
     shared_ptr<string> pushDomain_ {};
-    // The region where the space is located, which is the service center.
+    // The region to which the workspace belongs, which is the service center.
     shared_ptr<string> region_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The statistics of devices in the group.
+    // The statistics information of the devices in the workspace.
     shared_ptr<DescribeGroupResponseBody::Stats> stats_ {};
-    // The status of the group.
+    // The workspace status.
     shared_ptr<string> status_ {};
   };
 

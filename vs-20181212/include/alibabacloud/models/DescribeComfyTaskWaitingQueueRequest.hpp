@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The waiting queue information of a specified Hive.
+    // The ID of the specified Hive.
     shared_ptr<string> hiveId_ {};
   };
 

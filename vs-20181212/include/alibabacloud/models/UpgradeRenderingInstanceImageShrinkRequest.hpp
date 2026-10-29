@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The image ID.
+    // The ID of the image.
     // 
     // This parameter is required.
     shared_ptr<string> imageId_ {};
-    // The list of cloud application service instance IDs. A maximum of 100 IDs can be specified.
+    // The IDs of the cloud application service instances. A maximum of 100 instance IDs can be specified.
     // 
     // This parameter is required.
     shared_ptr<string> renderingInstanceIdsShrink_ {};

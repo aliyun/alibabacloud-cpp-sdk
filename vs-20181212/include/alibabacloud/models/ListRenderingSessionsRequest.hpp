@@ -130,45 +130,36 @@ namespace Models
 
 
   protected:
-    // Cloud application ID
+    // The cloud application ID.
     shared_ptr<string> appId_ {};
-    // Unique ID of the client.
+    // The unique ID of the end client.
     shared_ptr<string> clientId_ {};
-    // Time range filter parameter. Represented in ISO8601 standard and must use UTC time, in the format yyyy-MM-ddTHH:mm:ssZ.
+    // The start time of the time range filter. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> endTime_ {};
-    // Page number, starting from 1
+    // The page number. Pages start from 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of rows per page set for paged queries.
+    // The number of entries to return on each page during a paging query.
     shared_ptr<int32_t> pageSize_ {};
-    // Cloud application patch ID.
-    // 
-    // 1. When you enter origin, only sessions that started the original version of the app are filtered.
+    // The ID of the cloud application patch package. If you set this parameter to origin, only sessions that use the original version of the application are returned.
     shared_ptr<string> patchId_ {};
-    // Project ID
+    // The project ID.
     // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};
-    // Cloud application service instance ID
+    // The instance ID of the cloud application service.
     shared_ptr<string> renderingInstanceId_ {};
-    // Session ID
+    // The session ID.
     shared_ptr<string> sessionId_ {};
-    // Time range filter parameter. Represented in ISO8601 standard and must use UTC time, in the format yyyy-MM-ddTHH:mm:ssZ.
+    // The start time of the time range filter. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> startTime_ {};
-    // Session state. Valid values:
-    // 
-    // 1. SessionStarting: The session is starting.
-    // 
-    // 2. SessionStartSuspended: Session startup is paused. Retry by initiating start again.
-    // 
-    // 3. SessionStarted: The session has started/is in use.
-    // 
-    // 4. SessionStartFailed: Session startup failed.
-    // 
-    // 5. SessionAbnormal: The session is abnormal after successful startup.
-    // 
-    // 6. SessionStopping: The session is stopping.
-    // 
-    // 7. SessionStopFailed: Session stop failed.
+    // The session state. Valid values:
+    // - SessionStarting: The session is starting.
+    // - SessionStartSuspended: The session startup is suspended. You can retry by initiating a start request again.
+    // - SessionStarted: The session is started or in use.
+    // - SessionStartFailed: The session failed to start.
+    // - SessionAbnormal: An exception occurred after the session was successfully started.
+    // - SessionStopping: The session is stopping.
+    // - SessionStopFailed: The session failed to stop.
     shared_ptr<string> state_ {};
   };
 

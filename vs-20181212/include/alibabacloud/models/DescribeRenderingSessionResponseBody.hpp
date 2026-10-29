@@ -101,25 +101,18 @@ namespace Models
 
 
     protected:
-      // State description
+      // The status description.
       shared_ptr<string> comment_ {};
-      // Session state. Valid values:
-      // 
-      // 1. SessionStarting: Starting the session
-      // 
-      // 2. SessionStartSuspended: Session start is suspended. Retry by calling Start again.
-      // 
-      // 3. SessionStarted: Session started or in use
-      // 
-      // 4. SessionStartFailed: Session failed to start
-      // 
-      // 5. SessionAbnormal: Session became abnormal after starting successfully
-      // 
-      // 6. SessionStopping: Stopping the session
-      // 
-      // 7. SessionStopFailed: Session failed to stop
+      // The session status. Valid values:
+      // 1. SessionStarting: The session is starting.
+      // 2. SessionStartSuspended: The session start is suspended. You can initiate start again to retry.
+      // 3. SessionStarted: The session is started or in use.
+      // 4. SessionStartFailed: The session failed to start.
+      // 5. SessionAbnormal: The session is abnormal after a successful start.
+      // 6. SessionStopping: The session is stopping.
+      // 7. SessionStopFailed: The session failed to stop.
       shared_ptr<string> state_ {};
-      // Time when the state was last updated
+      // The time when the status was last updated. The time follows the ISO 8601 standard and includes the time zone offset. The format is YYYY-MM-DDTHH:mm:ss+HH:mm.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -161,9 +154,9 @@ namespace Models
 
 
     protected:
-      // Public port or port range, such as 22. For a port range, use a forward slash (/) to separate the start and end ports. Example: 10/20.
+      // The external port or port range, such as 22. For a port range, separate the start and end ports with a forward slash (/), for example, 10/20.
       shared_ptr<string> externalPort_ {};
-      // Private port or port range. Each private port maps one-to-one with a public port. For a port range, use a forward slash (/) to separate the start and end ports. Example: 10/20.
+      // The internal port or port range. The internal ports correspond one-to-one to the external ports. For a port range, separate the start and end ports with a forward slash (/), for example, 10/20.
       shared_ptr<string> internalPort_ {};
     };
 
@@ -195,7 +188,7 @@ namespace Models
 
 
     protected:
-      // Province code of the cloud application service instance
+      // The province code of the cloud application service instance.
       shared_ptr<string> provinceCode_ {};
     };
 
@@ -260,9 +253,9 @@ namespace Models
 
 
       protected:
-        // Public port or port range, such as 22. For a port range, use a forward slash (/) to separate the start and end ports. Example: 10/20.
+        // The external port or port range, such as 22. For a port range, separate the start and end ports with a forward slash (/), for example, 10/20.
         shared_ptr<string> externalPort_ {};
-        // Private port or port range. Each private port maps one-to-one with a public port. For a port range, use a forward slash (/) to separate the start and end ports. Example: 10/20.
+        // The internal port or port range. The internal ports correspond one-to-one to the external ports. For a port range, separate the start and end ports with a forward slash (/), for example, 10/20.
         shared_ptr<string> internalPort_ {};
       };
 
@@ -292,17 +285,14 @@ namespace Models
 
 
     protected:
-      // Domain name or IP address of the cloud application service instance
+      // The domain name or IP address of the cloud application service instance.
       shared_ptr<string> hostname_ {};
-      // Carrier code. Valid values:
-      // 
+      // The ISP code. Valid values:
       // 1. cmcc
-      // 
       // 2. unicom
-      // 
       // 3. telecom
       shared_ptr<string> isp_ {};
-      // List of port mappings
+      // The port mapping list.
       shared_ptr<vector<AdditionalIngresses::PortMappings>> portMappings_ {};
     };
 
@@ -410,37 +400,34 @@ namespace Models
 
 
   protected:
-    // Additional optional ingress network information
+    // The additional optional ingress network information.
     shared_ptr<vector<DescribeRenderingSessionResponseBody::AdditionalIngresses>> additionalIngresses_ {};
-    // Cloud application ID
+    // The cloud application ID.
     shared_ptr<string> appId_ {};
-    // End client ID
+    // The client ID.
     shared_ptr<string> clientId_ {};
-    // Instance hostname. Defaults to the EIP address.
+    // The instance hostname. By default, the value is the elastic IP address (EIP) used for access.
     shared_ptr<string> hostname_ {};
-    // Carrier code. Valid values:
-    // 
+    // The ISP code. Valid values:
     // 1. cmcc
-    // 
     // 2. unicom
-    // 
     // 3. telecom
     shared_ptr<string> isp_ {};
-    // Cloud application service instance location
+    // The location information of the cloud application service instance.
     shared_ptr<DescribeRenderingSessionResponseBody::Location> location_ {};
-    // Cloud application patch package ID. An empty value means the original version.
+    // The cloud application patch package ID. An empty value indicates the original version.
     shared_ptr<string> patchId_ {};
-    // Port mapping information
+    // The port mapping information.
     shared_ptr<vector<DescribeRenderingSessionResponseBody::PortMappings>> portMappings_ {};
-    // Cloud application service instance ID
+    // The cloud application service instance ID.
     shared_ptr<string> renderingInstanceId_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Session ID
+    // The session ID.
     shared_ptr<string> sessionId_ {};
-    // Start time
+    // The start time. The time is in UTC and follows the ISO 8601 standard. The format is YYYY-MM-DDTHH:mm:ssZ.
     shared_ptr<string> startTime_ {};
-    // Session state information
+    // The session status information.
     shared_ptr<DescribeRenderingSessionResponseBody::StateInfo> stateInfo_ {};
   };
 

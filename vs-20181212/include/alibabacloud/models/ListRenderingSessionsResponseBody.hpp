@@ -108,17 +108,17 @@ namespace Models
 
 
     protected:
-      // Cloud application ID
+      // The cloud application ID.
       shared_ptr<string> appId_ {};
-      // Client ID
+      // The ID of the end client.
       shared_ptr<string> clientId_ {};
-      // Cloud application patch ID. An empty value indicates the original version.
+      // The ID of the cloud application patch package. A null value indicates the original version.
       shared_ptr<string> patchId_ {};
-      // Cloud application service instance ID
+      // The instance ID of the cloud application service.
       shared_ptr<string> renderingInstanceId_ {};
-      // Session ID
+      // The session ID.
       shared_ptr<string> sessionId_ {};
-      // Start time
+      // The start time. The time is in the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format and is in UTC.
       shared_ptr<string> startTime_ {};
     };
 
@@ -148,11 +148,11 @@ namespace Models
 
 
   protected:
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Session list
+    // The session list.
     shared_ptr<vector<ListRenderingSessionsResponseBody::Sessions>> sessions_ {};
-    // Total number of matching sessions
+    // The total number of matched sessions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

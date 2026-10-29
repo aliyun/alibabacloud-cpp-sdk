@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The stream pulling domain.
+    // The pull stream domain name.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};

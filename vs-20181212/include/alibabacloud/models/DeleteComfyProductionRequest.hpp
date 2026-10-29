@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the production.
+    // The ID of the artifact.
     shared_ptr<string> productionId_ {};
   };
 

@@ -103,19 +103,19 @@ namespace Models
 
 
   protected:
-    // The error code. This parameter is returned only if the request fails.
+    // The error code. If the activity status is Fail, a specific error code is returned. If the activity status is Success, this parameter is not returned.
     shared_ptr<string> code_ {};
-    // The creation time.
+    // The creation time. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
     shared_ptr<string> creationTime_ {};
     // The workflow description.
     shared_ptr<string> description_ {};
-    // The returned message. This parameter provides error details if the request fails.
+    // The message. If the status is Failed, this parameter contains the cause of the failure.
     shared_ptr<string> message_ {};
     // The workflow name.
     shared_ptr<string> name_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The update time.
+    // The update time of the task. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
     shared_ptr<string> updatedTime_ {};
     // The workflow ID.
     shared_ptr<string> workflowId_ {};

@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // Token for this connection
+    // The token for the current connection.
     shared_ptr<string> flowId_ {};
-    // Domain name of the cloud application service instance streaming gateway
+    // The domain name of the streaming gateway for the cloud application service instance.
     shared_ptr<string> gateway_ {};
-    // Hostname or IP address of the cloud application service instance stream
+    // The streaming domain name or IP address of the cloud application service instance.
     shared_ptr<string> hostname_ {};
-    // Streaming connection port
+    // The streaming connection port.
     shared_ptr<string> port_ {};
-    // Cloud application service instance ID
+    // The cloud application service instance ID.
     shared_ptr<string> renderingInstanceId_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

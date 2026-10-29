@@ -94,13 +94,13 @@ namespace Models
 
 
     protected:
-      // The image description.
+      // The description of the image.
       shared_ptr<string> description_ {};
-      // The image ID.
+      // The ID of the image.
       shared_ptr<string> imageId_ {};
-      // The image name.
+      // The name of the image.
       shared_ptr<string> name_ {};
-      // The publish time.
+      // The time when the image was published. The time follows the ISO 8601 standard and includes a time zone offset. The format is YYYY-MM-DDTHH:mm:ss+HH:mm.
       shared_ptr<string> publishTime_ {};
     };
 
@@ -144,13 +144,13 @@ namespace Models
 
 
   protected:
-    // The session list.
+    // The list of sessions.
     shared_ptr<vector<ListRenderingImagesResponseBody::Images>> images_ {};
     // The page number.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries returned per page.
     shared_ptr<string> pageSize_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The total number of matched sessions.
     shared_ptr<int64_t> totalCount_ {};

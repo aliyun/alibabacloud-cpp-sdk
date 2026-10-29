@@ -90,7 +90,7 @@ namespace Models
 
 
     protected:
-      // The creation time.
+      // The creation time. The time follows the ISO 8601 standard and includes the time zone offset. Format: YYYY-MM-DDTHH:mm:ss+HH:mm.
       shared_ptr<string> creationTime_ {};
       // The description.
       shared_ptr<string> description_ {};
@@ -130,7 +130,7 @@ namespace Models
     shared_ptr<vector<ListHivesResponseBody::Hives>> hives_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total count.
     shared_ptr<int64_t> totalCount_ {};
   };
 

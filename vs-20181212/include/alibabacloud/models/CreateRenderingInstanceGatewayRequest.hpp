@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the custom gateway instance.
+    // The custom gateway instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> gatewayInstanceId_ {};
-    // The ID of the cloud application service instance.
+    // The cloud application service instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> renderingInstanceId_ {};

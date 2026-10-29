@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The workflow name.
+    // The name of the workflow.
     shared_ptr<string> name_ {};
-    // The page number.
+    // The page number of the list to query.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of Comfy workflows per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

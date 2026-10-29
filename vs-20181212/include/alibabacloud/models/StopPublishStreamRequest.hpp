@@ -48,6 +48,8 @@ namespace Models
 
 
   protected:
+    // The ID of the cloud application service instance for which to stop desktop capture and streaming.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<int64_t> ownerId_ {};

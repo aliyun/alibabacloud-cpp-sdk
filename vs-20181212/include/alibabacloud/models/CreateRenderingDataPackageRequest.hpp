@@ -66,19 +66,17 @@ namespace Models
 
 
   protected:
-    // Data type. Valid values:
-    // 
-    // - Package (default value).
-    // 
-    // - Baseline.
+    // The data type. Valid values:
+    // - Package (default)
+    // - Baseline
     shared_ptr<string> category_ {};
-    // Description.
+    // The description.
     shared_ptr<string> description_ {};
-    // Billing type. Valid values:
+    // The billing type. Valid values:
     // 
-    // - Hour: Hour.
+    // - Hour: hourly.
     shared_ptr<string> instanceBillingCycle_ {};
-    // Cloud application service instance ID (Note: This operation is only for crs.cp.\\* series instance types.)
+    // The instance ID of the Cloud Application Service. Note: This operation applies only to crs.cp.* series instance types.
     // 
     // This parameter is required.
     shared_ptr<string> renderingInstanceId_ {};

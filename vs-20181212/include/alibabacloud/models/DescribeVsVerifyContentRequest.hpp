@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The Visual Edge Computing Service domain name.
+    // The domain name of Visual Edge Computing Service.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};

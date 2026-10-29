@@ -116,17 +116,17 @@ namespace Models
 
 
     protected:
-      // The ID of the Comfy task.
+      // The ComfyTask ID.
       shared_ptr<string> comfyTaskId_ {};
-      // The creation time of the production, in ISO 8601 format.
+      // The creation time. The time follows the ISO 8601 standard and includes a time zone offset. The format is YYYY-MM-DDTHH:mm:ss+HH:mm.
       shared_ptr<string> creationTime_ {};
       // The file name of the production.
       shared_ptr<string> fileName_ {};
-      // The ID of the production.
+      // The production ID.
       shared_ptr<string> productionId_ {};
-      // The state of the production.
+      // The production status.
       shared_ptr<string> state_ {};
-      // The last modification time of the production, as a Unix timestamp.
+      // The last modified time. The time is a UNIX timestamp in seconds.
       shared_ptr<string> updatedTime_ {};
     };
 
@@ -187,17 +187,17 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<int64_t> code_ {};
-    // The response message.
+    // The description.
     shared_ptr<string> message_ {};
-    // The current page number.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries on the current page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // A list of productions.
+    // The list of productions.
     shared_ptr<vector<DescribeComfyProductionsResponseBody::Productions>> productions_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The total count of productions.
+    // The total number of alert rules.
     shared_ptr<int32_t> total_ {};
   };
 

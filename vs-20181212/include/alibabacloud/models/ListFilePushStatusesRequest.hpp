@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // A time range filter parameter. Specify the value in ISO8601 format using UTC time: yyyy-MM-ddTHH:mm:ssZ.
+    // The start time for the time range filter. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> endTime_ {};
-    // The file ID, which uniquely identifies a file.
+    // The ID of the file, which uniquely identifies the file.
     shared_ptr<string> fileId_ {};
-    // The file name.
+    // The name of the file.
     shared_ptr<string> fileName_ {};
-    // The page number of the results to return. Pages start from 1.Default value: 1.
+    // The page number of the list to query. Pages start from 1. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page in a paged query. Valid values: 1 to 100.Default value: 10.
+    // The Settings for the number of entries per page during paging in a paged query. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
-    // The cloud application service instance ID. Use this parameter to query files installed on a specific instance.
+    // The instance ID of the cloud application service, which is used to query the files installed on the specified instance.
     shared_ptr<string> renderingInstanceId_ {};
-    // A time range filter parameter. Specify the value in ISO8601 format using UTC time: yyyy-MM-ddTHH:mm:ssZ.
+    // The start time for the time range filter. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> startTime_ {};
   };
 

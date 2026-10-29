@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The time range for filtering. The time must be in ISO 8601 format and in UTC, such as \\`yyyy-MM-ddTHH:mm:ssZ\\`.
+    // The time range filter parameter. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> endTime_ {};
-    // The ID of the gateway instance.
+    // The instance ID of the gateway.
     shared_ptr<string> gatewayInstanceId_ {};
-    // The page number of the list to query.
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries to return on each page for a paged query.
+    // The number of entries per page in the paging Settings for a paged query.
     shared_ptr<int64_t> pageSize_ {};
-    // The ID of the cloud application service instance.
+    // The instance ID of the cloud application service.
     shared_ptr<string> renderingInstanceId_ {};
-    // This parameter specifies the time range filter. The time must be in ISO 8601 format and UTC time, such as yyyy-MM-ddTHH:mm:ssZ.
+    // The time range filter parameter. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> startTime_ {};
   };
 

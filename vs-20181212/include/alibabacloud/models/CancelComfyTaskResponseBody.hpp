@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The error code. A value of 0 indicates success.
+    // The error code.
     shared_ptr<int64_t> code_ {};
-    // The returned message. A `success` value indicates a successful request.
+    // The description.
     shared_ptr<string> message_ {};
-    // The unique ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

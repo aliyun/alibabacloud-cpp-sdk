@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // Unique ID of the end client. Specify either SessionId or ClientId.
+    // The unique ID of the client. You must specify at least one of SessionId and ClientId.
     shared_ptr<string> clientId_ {};
-    // Project ID
+    // The project ID.
     // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};
-    // Session ID. Specify either SessionId or ClientId.
+    // The session ID. You must specify at least one of SessionId and ClientId.
     shared_ptr<string> sessionId_ {};
   };
 

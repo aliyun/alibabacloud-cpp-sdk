@@ -213,15 +213,15 @@ namespace Models
 
 
   protected:
-    // The total number of domain names under your account.
+    // The total number of domains under the account.
     shared_ptr<int64_t> domainCount_ {};
-    // The total number of **running** domain names under your account.
+    // The total number of domains that are **running** under the account.
     shared_ptr<int64_t> domainOnlineCount_ {};
-    // The end time of the query time range.
+    // The end time of the query. The time is displayed in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC.
     shared_ptr<string> endTime_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The start time of the query.
+    // The start time of the query. The time is displayed in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC.
     shared_ptr<string> startTime_ {};
     shared_ptr<DescribeVsTopDomainsByFlowResponseBody::TopDomains> topDomains_ {};
   };

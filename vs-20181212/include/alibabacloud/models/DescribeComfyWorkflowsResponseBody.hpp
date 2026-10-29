@@ -107,13 +107,13 @@ namespace Models
 
 
     protected:
-      // The time when the workflow was created.
+      // The creation time. The time follows the ISO 8601 standard and includes a time zone offset. The format is YYYY-MM-DDTHH:mm:ss+HH:mm.
       shared_ptr<string> creationTime_ {};
       // The workflow description.
       shared_ptr<string> description_ {};
-      // The workflow name.
+      // The name of the workflow.
       shared_ptr<string> name_ {};
-      // The time when the workflow was last updated.
+      // The update time. The time is a UNIX timestamp in seconds.
       shared_ptr<string> updatedTime_ {};
       // The workflow ID.
       shared_ptr<string> workflowId_ {};
@@ -176,17 +176,17 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<int64_t> code_ {};
-    // The response message.
+    // The message.
     shared_ptr<string> message_ {};
-    // The current page number.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of workflows on the current page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of workflows that match the query.
+    // The total number of workflows.
     shared_ptr<int32_t> totalCount_ {};
-    // A list of Comfy workflows.
+    // The list of workflows.
     shared_ptr<vector<DescribeComfyWorkflowsResponseBody::Workflows>> workflows_ {};
   };
 

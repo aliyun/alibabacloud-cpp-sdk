@@ -72,9 +72,9 @@ namespace Models
 
 
     protected:
-      // List attribute names to purge. Purge all configured attributes for this module by default.
+      // The list of attribute names whose configurations are to be cleared. By default, all configured attributes of the module are cleared.
       shared_ptr<vector<string>> attributeNames_ {};
-      // Module name.
+      // The name of the module.
       // 
       // This parameter is required.
       shared_ptr<string> moduleName_ {};
@@ -99,9 +99,9 @@ namespace Models
 
 
   protected:
-    // Configuration content. Purge all configured modules by default.
+    // The configuration content. By default, all configured modules are cleared.
     shared_ptr<vector<DeleteRenderingInstanceConfigurationRequest::Configuration>> configuration_ {};
-    // Cloud application service instance ID.
+    // The cloud application service instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> renderingInstanceId_ {};

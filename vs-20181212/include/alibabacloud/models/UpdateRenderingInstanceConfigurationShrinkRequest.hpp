@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> configurationShrink_ {};
-    // The ID of the cloud application service instance.
+    // The instance ID of the cloud application service.
     // 
     // This parameter is required.
     shared_ptr<string> renderingInstanceId_ {};

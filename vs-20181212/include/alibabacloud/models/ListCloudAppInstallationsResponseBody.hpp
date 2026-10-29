@@ -140,27 +140,23 @@ namespace Models
 
 
     protected:
-      // Application ID.
+      // The ID of the application.
       shared_ptr<string> appId_ {};
-      // Application name.
+      // The name of the application.
       shared_ptr<string> appName_ {};
-      // Application version.
+      // The version of the application.
       shared_ptr<string> appVersion_ {};
-      // Installation time.
+      // The installation time. The time is displayed in the ISO 8601 standard with a time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
       shared_ptr<string> installationTime_ {};
-      // Patch package ID.
+      // The ID of the patch package.
       shared_ptr<string> patchId_ {};
-      // Cloud application service instance ID.
+      // The cloud application service instance ID.
       shared_ptr<string> renderingInstanceId_ {};
-      // Cloud application installation status. Valid values:
-      // 
-      // 1. Intermediate states: install-init, installing
-      // 
-      // 2. Final states: installed, install-failed
+      // The installation status of the cloud application. Valid values: install-init and installing (intermediate states), and installed and install-failed (final states).
       shared_ptr<string> status_ {};
-      // Status description.
+      // The description of the status.
       shared_ptr<string> statusDescription_ {};
-      // Time when the status was last updated.
+      // The time when the status was last updated. The time is displayed in the ISO 8601 standard with a time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -204,15 +200,15 @@ namespace Models
 
 
   protected:
-    // List of installation records.
+    // The list of installation information.
     shared_ptr<vector<ListCloudAppInstallationsResponseBody::InstallationInfos>> installationInfos_ {};
-    // Page number of the returned list.
+    // The page number of the returned list.
     shared_ptr<int64_t> pageNumber_ {};
-    // Number of entries per page for paged queries.
+    // The number of entries returned per page for a paged query.
     shared_ptr<int64_t> pageSize_ {};
-    // Request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Total number of installation records.
+    // The total number of installation records.
     shared_ptr<int64_t> totalCount_ {};
   };
 

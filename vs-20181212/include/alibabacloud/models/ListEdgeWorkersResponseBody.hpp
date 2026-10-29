@@ -122,17 +122,17 @@ namespace Models
 
 
     protected:
-      // The creation time.
+      // The creation time. The time is expressed in the ISO 8601 standard and includes a time zone offset. Format: YYYY-MM-DDTHH:mm:ss+HH:mm.
       shared_ptr<string> creationTime_ {};
-      // The expiration time.
+      // The end time. The time is expressed in the ISO 8601 standard and includes a time zone offset. Format: YYYY-MM-DDTHH:mm:ss+HH:mm.
       shared_ptr<string> expireTime_ {};
       // The cluster ID.
       shared_ptr<string> hiveId_ {};
-      // The load ID.
+      // The workload ID.
       shared_ptr<string> instanceId_ {};
       // The plan ID.
       shared_ptr<string> planId_ {};
-      // The specification.
+      // The specifications.
       shared_ptr<string> spec_ {};
       // The status.
       shared_ptr<string> status_ {};
@@ -178,11 +178,11 @@ namespace Models
 
 
   protected:
-    // The list of loads.
+    // The list of workloads.
     shared_ptr<vector<ListEdgeWorkersResponseBody::Instances>> instances_ {};
-    // The page number of the query list. The value starts from 1. Default value: 1.
+    // The page number of the list to query. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page in a paged query. Settings for paging. Maximum value: 100. Default value: 100.
+    // The Settings for the number of lines per page during paging and paged query. Maximum value: 100. Default value: 100.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

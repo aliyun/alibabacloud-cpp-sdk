@@ -177,37 +177,35 @@ namespace Models
 
 
     protected:
-      // The application ID.
+      // The ID of the application.
       shared_ptr<string> appId_ {};
-      // The application name.
+      // The name of the application.
       shared_ptr<string> appName_ {};
-      // The application version.
+      // The version of the application.
       shared_ptr<string> appVersion_ {};
-      // The application description.
+      // The description of the application.
       shared_ptr<string> description_ {};
-      // The installation package format.
+      // The format of the installation package.
       shared_ptr<string> pkgFormat_ {};
-      // The installation package type. Valid values: android and win.
+      // The type of the installation package, such as android or win.
       shared_ptr<string> pkgType_ {};
-      // The relative path of the post-command within the application package. Only win type applications are supported.
+      // The relative path of the post-command in the application package. This parameter is supported only for Windows applications.
       shared_ptr<string> postCommandPath_ {};
-      // The timeout period for post-command execution, in seconds. Only win type applications are supported.
+      // The timeout period for executing the post-command, in seconds. This parameter is supported only for Windows applications.
       shared_ptr<int32_t> postCommandTimeoutSec_ {};
-      // The ID of the stable version patch package.
+      // The ID of the stable patch package.
       shared_ptr<string> stablePatchId_ {};
-      // The application upload status. Valid values:
-      // 1. Created
-      // 2. Doing
-      // 3. Success: desired state.
-      // 4. Failed: desired state.
-      // 5. Deleting
-      // 6. DeleteFailed: desired state.
+      // The upload status of the application. Valid values:
+      // - Created
+      // - Doing
+      // - Success: This is a final state.
+      // - Failed: This is a final state.
       shared_ptr<string> status_ {};
-      // The status description.
+      // The description of the status.
       shared_ptr<string> statusDescription_ {};
-      // The latest status update time.
+      // The time when the status was last updated. The time is displayed in the ISO 8601 standard with a time zone offset, in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
       shared_ptr<string> updateTime_ {};
-      // The application upload time.
+      // The time when the application was uploaded. The time is displayed in the ISO 8601 standard with a time zone offset, in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
       shared_ptr<string> uploadTime_ {};
     };
 
@@ -251,15 +249,15 @@ namespace Models
 
 
   protected:
-    // The list of cloud application information.
+    // The list of cloud applications.
     shared_ptr<vector<ListCloudAppsResponseBody::CloudApps>> cloudApps_ {};
-    // The page number of the query list.
+    // The page number of the returned list.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page for the paged query.
+    // The Settings for the number of entries returned on each page during paging for a paged query.
     shared_ptr<int64_t> pageSize_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of matched cloud applications.
+    // The total number of cloud applications that match the query conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

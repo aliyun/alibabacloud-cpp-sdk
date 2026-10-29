@@ -264,15 +264,15 @@ namespace Models
 
 
   protected:
-    // Time interval, in seconds.
+    // The time interval.
     shared_ptr<string> dataInterval_ {};
-    // The domain name that is accelerated by Visual Edge Computing Service.
+    // The domain name of Visual Edge Computing Service.
     shared_ptr<string> domainName_ {};
-    // End time.
+    // The end time. The time is in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
     shared_ptr<string> endTime_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Start time.
+    // The start time in UTC. The time follows the ISO 8601 standard and is formatted as YYYY-MM-DDTHH:mm:ssZ.
     shared_ptr<string> startTime_ {};
     shared_ptr<DescribeVsDomainRegionDataResponseBody::Value> value_ {};
   };

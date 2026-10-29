@@ -57,23 +57,17 @@ namespace Models
 
 
   protected:
-    // The maximum outbound bandwidth for rate limiting. Unit: Mbit/s. You must specify at least one of MaxIngressBandwidth and MaxEgressBandwidth.
-    // 
-    // - By default, no rate limit is configured for the instance.
-    // 
-    // - If you do not specify this parameter or set it to 0, the last configuration is retained.
-    // 
-    // - If you set this parameter to a value less than 0, the rate limit is reset to unlimited.
+    // The maximum outbound bandwidth limit, in Mbit/s. You must specify at least one of MaxIngressBandwidth and MaxEgressBandwidth.
+    // - The original configuration of the instance does not limit the bandwidth.
+    // - If you do not specify this parameter or specify 0, the last configuration is retained by default.
+    // - If you specify a value less than 0, the bandwidth limit is reset to unlimited.
     shared_ptr<int32_t> maxEgressBandwidth_ {};
-    // The maximum inbound bandwidth for rate limiting. Unit: Mbit/s. You must specify at least one of MaxIngressBandwidth and MaxEgressBandwidth.
-    // 
-    // - By default, no rate limit is configured for the instance.
-    // 
-    // - If you do not specify this parameter or set it to 0, the last configuration is retained.
-    // 
-    // - If you set this parameter to a value less than 0, the rate limit is reset to unlimited.
+    // The maximum inbound bandwidth limit, in Mbit/s. You must specify at least one of MaxIngressBandwidth and MaxEgressBandwidth.
+    // - The original configuration of the instance does not limit the bandwidth.
+    // - If you do not specify this parameter or specify 0, the last configuration is retained by default.
+    // - If you specify a value less than 0, the bandwidth limit is reset to unlimited.
     shared_ptr<int32_t> maxIngressBandwidth_ {};
-    // The ID of the cloud application service instance.
+    // The instance ID of the cloud application service.
     // 
     // This parameter is required.
     shared_ptr<string> renderingInstanceId_ {};

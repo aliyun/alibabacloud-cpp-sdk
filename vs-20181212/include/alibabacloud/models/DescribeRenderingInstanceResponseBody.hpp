@@ -18,8 +18,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ConfigInfo, configInfo_);
       DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
       DARABONBA_PTR_TO_JSON(EgressIp, egressIp_);
+      DARABONBA_PTR_TO_JSON(ExpiredTime, expiredTime_);
       DARABONBA_PTR_TO_JSON(Hostname, hostname_);
       DARABONBA_PTR_TO_JSON(InstanceChargeType, instanceChargeType_);
+      DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(InternalIp, internalIp_);
       DARABONBA_PTR_TO_JSON(Isp, isp_);
       DARABONBA_PTR_TO_JSON(PortMappings, portMappings_);
@@ -37,8 +39,10 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ConfigInfo, configInfo_);
       DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
       DARABONBA_PTR_FROM_JSON(EgressIp, egressIp_);
+      DARABONBA_PTR_FROM_JSON(ExpiredTime, expiredTime_);
       DARABONBA_PTR_FROM_JSON(Hostname, hostname_);
       DARABONBA_PTR_FROM_JSON(InstanceChargeType, instanceChargeType_);
+      DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(InternalIp, internalIp_);
       DARABONBA_PTR_FROM_JSON(Isp, isp_);
       DARABONBA_PTR_FROM_JSON(PortMappings, portMappings_);
@@ -104,21 +108,21 @@ namespace Models
       shared_ptr<int32_t> frequency_ {};
       // The resolution. Valid values:
       // 
-      // - `1920*864`
+      // - 1920*864
       // 
-      // - `1080*1920`
+      // - 1080*1920
       // 
-      // - `1920*1080`
+      // - 1920*1080
       // 
-      // - `720*1280`
+      // - 720*1280
       // 
-      // - `2400*1080`
+      // - 2400*1080
       // 
-      // - `1080*2400`
+      // - 1080*2400
       // 
-      // - `1280*720`
+      // - 1280*720
       // 
-      // - `864*1920`
+      // - 864*1920
       shared_ptr<string> resolution_ {};
     };
 
@@ -150,13 +154,10 @@ namespace Models
 
 
     protected:
-      // The running status of the computing resource. Valid values:
-      // 
-      // 1. `running`: The edge instance is running normally.
-      // 
-      // 2. `operating`: The edge instance is under maintenance.
-      // 
-      // 3. `error`: An exception is detected on the edge instance.
+      // The running state of the compute resource. Valid values:
+      // 1. running: The edge instance status is normal.
+      // 2. operating: The edge instance is under maintenance.
+      // 3. error: An edge anomaly is detected.
       shared_ptr<string> status_ {};
     };
 
@@ -216,25 +217,21 @@ namespace Models
 
 
     protected:
-      // The configuration of the edge media service. Valid values:
-      // 
-      // 1. `ON`: Enabled.
-      // 
-      // 2. `OFF`: Disabled.
+      // The streaming service. Valid values:
+      // - ON: enabled
+      // - OFF: disabled
       shared_ptr<string> edgeMediaService_ {};
-      // The ingress network access configuration. Valid values:
-      // 
-      // 1. `ON`: Enabled. The rendering instance can be accessed from the public internet.
-      // 
-      // 2. `OFF`: Disabled.
+      // The inbound access configuration. Valid values:
+      // - ON: enabled. The resource can be accessed from external networks.
+      // - OFF: disabled.
       shared_ptr<string> inAccess_ {};
-      // The egress network access configuration. Valid values:
-      // 
-      // 1. `ON`: Enabled. The rendering instance can access the public internet.
-      // 
-      // 2. `OFF`: Disabled.
+      // The outbound access configuration. Valid values:
+      // - ON: enabled. The resource can access the Internet.
+      // - OFF: disabled.
       shared_ptr<string> outAccess_ {};
-      // The resource zone. Valid values: `Private` and `Public`.
+      // The resource zone. Valid values:
+      // - Private
+      // - Public
       shared_ptr<string> zone_ {};
     };
 
@@ -285,21 +282,16 @@ namespace Models
 
 
     protected:
-      // Additional details about the current status.
+      // The status description.
       shared_ptr<string> description_ {};
-      // The name of the last action performed on the instance.
+      // The name of the latest instance operation.
       shared_ptr<string> latestAction_ {};
-      // The operational status of the instance. Valid values:
-      // 
-      // 1. `Preparing`: The instance is being initialized.
-      // 
-      // 2. `Rebooting`: The instance is rebooting.
-      // 
-      // 3. `Resetting`: The instance is being reset.
-      // 
-      // 4. `Working`: The instance is running normally. This is a terminal state.
-      // 
-      // 5. `Failure`: The instance has failed to start or operate. This is a terminal state.
+      // The instance operation status. Valid values:
+      // - Preparing: initializing
+      // - Rebooting: restarting
+      // - Resetting: resetting
+      // - Working: working. This is a final state.
+      // - Failure: operation failed. This is a final state.
       shared_ptr<string> status_ {};
     };
 
@@ -341,9 +333,9 @@ namespace Models
 
 
     protected:
-      // The external port or port range, such as `22`. For a port range, use a forward slash (`/`) to separate the start and end ports, for example, `10/20`.
+      // The external port or port range, such as 22. If a port range is specified, separate the start and end ports with a forward slash (/), such as 10/20.
       shared_ptr<string> externalPort_ {};
-      // The internal port or port range. The ports correspond one-to-one with the external ports. For a port range, use a forward slash (`/`) to separate the start and end ports, for example, `10/20`.
+      // The internal port or port range. The internal ports correspond to the external ports one by one. If a port range is specified, separate the start and end ports with a forward slash (/), such as 10/20.
       shared_ptr<string> internalPort_ {};
     };
 
@@ -424,19 +416,16 @@ namespace Models
 
 
       protected:
-        // The status of the bandwidth configuration. Valid values:
-        // 
-        // 1. `waiting`: The configuration is being applied.
-        // 
-        // 2. `success`: The configuration change is complete.
-        // 
-        // 3. `failed`: The configuration change failed.
+        // The bandwidth application status. Valid values:
+        // - waiting: taking effect
+        // - success: taken effect
+        // - failed: failed to take effect
         shared_ptr<string> bandwidthStatus_ {};
-        // The maximum egress bandwidth, in Mbps. A value of 0 indicates no limit.
+        // The maximum outbound bandwidth limit. Unit: Mbit/s. A value of 0 indicates that no bandwidth limit is configured.
         shared_ptr<int32_t> maxEgressBandwidth_ {};
-        // The maximum ingress bandwidth, in Mbps. A value of 0 indicates no limit.
+        // The maximum inbound bandwidth limit. Unit: Mbit/s. A value of 0 indicates that no bandwidth limit is configured.
         shared_ptr<int32_t> maxIngressBandwidth_ {};
-        // The time the configuration was last updated.
+        // The update time. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
         shared_ptr<string> updateTime_ {};
       };
 
@@ -501,9 +490,9 @@ namespace Models
 
 
         protected:
-          // The name of the attribute.
+          // The attribute name.
           shared_ptr<string> name_ {};
-          // The value of the attribute.
+          // The attribute value.
           Darabonba::Json value_ {};
         };
 
@@ -526,27 +515,18 @@ namespace Models
 
 
       protected:
-        // A list of attributes.
+        // The attributes.
         shared_ptr<vector<Configuration::Attributes>> attributes_ {};
         // The name of the physical device simulation module. Valid values:
-        // 
-        // 1. `ctl`: Control module
-        // 
-        // 2. `prop`: Property module
-        // 
-        // 3. `location`: Location module
-        // 
-        // 4. `battery`: Battery module
-        // 
-        // 5. `network`: Network module
-        // 
-        // 6. `bluetooth`: Bluetooth module
-        // 
-        // 7. `sim`: SIM card module
-        // 
-        // 8. `display`: Display module
-        // 
-        // 9. `system`: System module
+        // - ctl: control module
+        // - prop: property module
+        // - location: location module
+        // - battery: battery module
+        // - network: network module
+        // - bluetooth: Bluetooth module
+        // - sim: SIM card module
+        // - display: display module
+        // - system: basic module
         shared_ptr<string> moduleName_ {};
       };
 
@@ -571,9 +551,9 @@ namespace Models
 
 
     protected:
-      // A list of configured physical device simulation modules.
+      // The list of configured physical device simulation modules.
       shared_ptr<vector<ConfigInfo::Configuration>> configuration_ {};
-      // Ingress and egress bandwidth limits, in Mbps.
+      // The outbound and inbound bandwidth throttling. Unit: Mbit/s.
       shared_ptr<ConfigInfo::NetworkConfig> networkConfig_ {};
     };
 
@@ -638,9 +618,9 @@ namespace Models
 
 
       protected:
-        // The external port or port range, such as `22`. For a port range, use a forward slash (`/`) to separate the start and end ports, for example, `10/20`.
+        // The external port or port range, such as 22. If a port range is specified, separate the start and end ports with a forward slash (/), such as 10/20.
         shared_ptr<string> externalPort_ {};
-        // The internal port or port range. The ports correspond one-to-one with the external ports. For a port range, use a forward slash (`/`) to separate the start and end ports, for example, `10/20`.
+        // The internal port or port range. The internal ports correspond to the external ports one by one. If a port range is specified, separate the start and end ports with a forward slash (/), such as 10/20.
         shared_ptr<string> internalPort_ {};
       };
 
@@ -670,25 +650,22 @@ namespace Models
 
 
     protected:
-      // The domain name or IP address of the rendering instance.
+      // The domain name or IP address of the cloud application service instance.
       shared_ptr<string> hostname_ {};
       // The ISP code. Valid values:
-      // 
-      // 1. `cmcc`
-      // 
-      // 2. `unicom`
-      // 
-      // 3. `telecom`
+      // - cmcc
+      // - unicom
+      // - telecom
       shared_ptr<string> isp_ {};
-      // A list of port mappings.
+      // The port mappings.
       shared_ptr<vector<AdditionalIngresses::PortMappings>> portMappings_ {};
     };
 
     virtual bool empty() const override { return this->additionalIngresses_ == nullptr
-        && this->configInfo_ == nullptr && this->creationTime_ == nullptr && this->egressIp_ == nullptr && this->hostname_ == nullptr && this->instanceChargeType_ == nullptr
-        && this->internalIp_ == nullptr && this->isp_ == nullptr && this->portMappings_ == nullptr && this->renderingInstanceId_ == nullptr && this->renderingSpec_ == nullptr
-        && this->renderingStatus_ == nullptr && this->requestId_ == nullptr && this->resourceAttributes_ == nullptr && this->resourceStatus_ == nullptr && this->storageSize_ == nullptr
-        && this->systemInfo_ == nullptr; };
+        && this->configInfo_ == nullptr && this->creationTime_ == nullptr && this->egressIp_ == nullptr && this->expiredTime_ == nullptr && this->hostname_ == nullptr
+        && this->instanceChargeType_ == nullptr && this->instanceName_ == nullptr && this->internalIp_ == nullptr && this->isp_ == nullptr && this->portMappings_ == nullptr
+        && this->renderingInstanceId_ == nullptr && this->renderingSpec_ == nullptr && this->renderingStatus_ == nullptr && this->requestId_ == nullptr && this->resourceAttributes_ == nullptr
+        && this->resourceStatus_ == nullptr && this->storageSize_ == nullptr && this->systemInfo_ == nullptr; };
     // additionalIngresses Field Functions 
     bool hasAdditionalIngresses() const { return this->additionalIngresses_ != nullptr;};
     void deleteAdditionalIngresses() { this->additionalIngresses_ = nullptr;};
@@ -721,6 +698,13 @@ namespace Models
     inline DescribeRenderingInstanceResponseBody& setEgressIp(string egressIp) { DARABONBA_PTR_SET_VALUE(egressIp_, egressIp) };
 
 
+    // expiredTime Field Functions 
+    bool hasExpiredTime() const { return this->expiredTime_ != nullptr;};
+    void deleteExpiredTime() { this->expiredTime_ = nullptr;};
+    inline string getExpiredTime() const { DARABONBA_PTR_GET_DEFAULT(expiredTime_, "") };
+    inline DescribeRenderingInstanceResponseBody& setExpiredTime(string expiredTime) { DARABONBA_PTR_SET_VALUE(expiredTime_, expiredTime) };
+
+
     // hostname Field Functions 
     bool hasHostname() const { return this->hostname_ != nullptr;};
     void deleteHostname() { this->hostname_ = nullptr;};
@@ -733,6 +717,13 @@ namespace Models
     void deleteInstanceChargeType() { this->instanceChargeType_ = nullptr;};
     inline string getInstanceChargeType() const { DARABONBA_PTR_GET_DEFAULT(instanceChargeType_, "") };
     inline DescribeRenderingInstanceResponseBody& setInstanceChargeType(string instanceChargeType) { DARABONBA_PTR_SET_VALUE(instanceChargeType_, instanceChargeType) };
+
+
+    // instanceName Field Functions 
+    bool hasInstanceName() const { return this->instanceName_ != nullptr;};
+    void deleteInstanceName() { this->instanceName_ = nullptr;};
+    inline string getInstanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
+    inline DescribeRenderingInstanceResponseBody& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
 
 
     // internalIp Field Functions 
@@ -823,45 +814,46 @@ namespace Models
 
 
   protected:
-    // A list of optional ingress network information.
+    // The additional optional ingress network information.
     shared_ptr<vector<DescribeRenderingInstanceResponseBody::AdditionalIngresses>> additionalIngresses_ {};
-    // The configuration information of the rendering instance.
+    // The instance configuration.
     shared_ptr<DescribeRenderingInstanceResponseBody::ConfigInfo> configInfo_ {};
-    // The instance creation time, in UTC (ISO 8601).
+    // The instance creation time. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
     shared_ptr<string> creationTime_ {};
     // The egress IP address.
     shared_ptr<string> egressIp_ {};
-    // The domain name or access IP address of the rendering instance.
+    // The expiration time.
+    shared_ptr<string> expiredTime_ {};
+    // The domain name or access IP address of the cloud application service instance.
     shared_ptr<string> hostname_ {};
-    // The billing method of the instance.
+    // The instance billing method.
     shared_ptr<string> instanceChargeType_ {};
+    // The instance name.
+    shared_ptr<string> instanceName_ {};
     // The internal IP address.
     shared_ptr<string> internalIp_ {};
     // The ISP code. Valid values:
-    // 
-    // 1. `cmcc`
-    // 
-    // 2. `unicom`
-    // 
-    // 3. `telecom`
+    // - cmcc
+    // - unicom
+    // - telecom
     shared_ptr<string> isp_ {};
-    // A list of port mappings.
+    // The port mappings.
     shared_ptr<vector<DescribeRenderingInstanceResponseBody::PortMappings>> portMappings_ {};
-    // The ID of the rendering instance.
+    // The cloud application service instance ID.
     shared_ptr<string> renderingInstanceId_ {};
-    // The specification of the rendering instance.
+    // The instance type of the cloud application service instance.
     shared_ptr<string> renderingSpec_ {};
-    // The operational status of the rendering instance.
+    // The instance operation status.
     shared_ptr<DescribeRenderingInstanceResponseBody::RenderingStatus> renderingStatus_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The attributes of the rendering instance.
+    // The resource attributes of the cloud application service instance.
     shared_ptr<DescribeRenderingInstanceResponseBody::ResourceAttributes> resourceAttributes_ {};
-    // The status of the underlying computing resource.
+    // The compute resource status information.
     shared_ptr<DescribeRenderingInstanceResponseBody::ResourceStatus> resourceStatus_ {};
-    // The storage capacity of the rendering instance.
+    // The storage capacity of the cloud application service instance.
     shared_ptr<int32_t> storageSize_ {};
-    // The system information of the rendering instance, such as its resolution.
+    // The system information, including the resolution.
     shared_ptr<DescribeRenderingInstanceResponseBody::SystemInfo> systemInfo_ {};
   };
 

@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // This parameter filters data by time range. It must conform to the ISO 8601 standard and use UTC time in the format yyyy-MM-ddTHH:mm:ssZ.
+    // The start time of the time range filter. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> endTime_ {};
-    // File ID. Each ID corresponds to a unique active file.
+    // The ID of the file, which corresponds to a unique available file.
     shared_ptr<string> fileId_ {};
-    // File name.
+    // The name of the file.
     shared_ptr<string> fileName_ {};
-    // The page number to retrieve. Page numbering starts at 1.Default value: 1.
+    // The page number of the list to query. Pages start from 1. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of rows per page for a paged query. The value must be in the range of 1 to 100. The default is 10.
+    // The Settings for the number of entries per page during paging in a paged query. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
-    // Start time of the time range filter. Specify in ISO 8601 format using UTC time. Format: yyyy-MM-ddTHH:mm:ssZ.
+    // The start time of the time range filter. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> startTime_ {};
   };
 

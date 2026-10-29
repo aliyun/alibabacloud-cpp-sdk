@@ -103,19 +103,17 @@ namespace Models
 
 
     protected:
-      // The time when the cloud application service instance was created.
+      // The creation time of the cloud application service instance. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> creationTime_ {};
-      // The ID of the custom gateway instance.
+      // The instance ID of the custom gateway.
       shared_ptr<string> gatewayInstanceId_ {};
-      // The ID of the cloud application service instance.
+      // The instance ID of the cloud application service.
       shared_ptr<string> renderingInstanceId_ {};
       // The status of the custom gateway. Valid values:
-      // 
-      // 1. Transitional states: creating, deleting
-      // 
-      // 2. Desired states: available, failed
+      // - Intermediate states: creating and deleting. 
+      // - Final states: available and failed.
       shared_ptr<string> status_ {};
-      // The time when the information was last updated.
+      // The update time. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -159,15 +157,15 @@ namespace Models
 
 
   protected:
-    // A list of custom gateway information.
+    // The list of custom gateway information.
     shared_ptr<vector<ListRenderingInstanceGatewayResponseBody::GatewayConfigurationInfos>> gatewayConfigurationInfos_ {};
-    // The page number of the query results list
+    // The page number.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries on the current page.
+    // The number of entries per page in the paging Settings for a paged query.
     shared_ptr<string> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of records.
+    // The total number of installation records.
     shared_ptr<string> totalCount_ {};
   };
 

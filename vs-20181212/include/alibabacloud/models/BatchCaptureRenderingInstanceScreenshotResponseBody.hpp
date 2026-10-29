@@ -87,11 +87,11 @@ namespace Models
 
 
     protected:
-      // The time when the screenshot was created.
+      // The time when the screenshot was created. The time is displayed in the ISO 8601 standard with a time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
       shared_ptr<string> creationTime_ {};
       // The download URL of the screenshot.
       shared_ptr<string> downloadUrl_ {};
-      // The instance ID of the cloud application service instance.
+      // The cloud application service instance ID.
       shared_ptr<string> renderingInstanceId_ {};
     };
 
@@ -142,11 +142,11 @@ namespace Models
 
 
     protected:
-      // The error code of the failure.
+      // The error code for the failure.
       shared_ptr<string> errCode_ {};
-      // The error message of the failure.
+      // The reason for the failure.
       shared_ptr<string> errMessage_ {};
-      // The instance ID of the cloud application service instance.
+      // The cloud application service instance ID.
       shared_ptr<string> renderingInstanceId_ {};
     };
 
@@ -212,7 +212,7 @@ namespace Models
 
 
     protected:
-      // The dry run result.
+      // The pre-check result.
       shared_ptr<Datatest::Result> result_ {};
     };
 
@@ -267,11 +267,11 @@ namespace Models
 
 
   protected:
-    // The dry run result.
+    // The data pre-check result.
     shared_ptr<BatchCaptureRenderingInstanceScreenshotResponseBody::Datatest> datatest_ {};
     // The number of failed instances.
     shared_ptr<int64_t> failedCount_ {};
-    // The list of instances for which screenshots failed.
+    // The list of instances for which screenshot capture failed.
     shared_ptr<vector<BatchCaptureRenderingInstanceScreenshotResponseBody::FailedItems>> failedItems_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

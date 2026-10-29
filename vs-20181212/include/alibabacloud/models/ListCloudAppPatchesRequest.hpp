@@ -94,23 +94,21 @@ namespace Models
 
 
   protected:
-    // The cloud application ID, which corresponds to a unique application package.
+    // The ID of the cloud application, which corresponds to a unique application package.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The start time for time range filtering. Specify the time in the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+    // The start time of the time range filter. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> endTime_ {};
-    // The page number of the list to query. Minimum value: 1.
-    // Default value: 1.
+    // The page number of the list to query. Pages start from 1. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page for a paged query. Maximum value: 100.
-    // Default value: 10.
+    // The number of entries per page for a paged query. Maximum value: 100. Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
-    // The ID of the patch package.
+    // The ID of the patch.
     shared_ptr<string> patchId_ {};
-    // The name of the patch package.
+    // The name of the patch.
     shared_ptr<string> patchName_ {};
-    // The start time for time range filtering. Specify the time in the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+    // The start time of the time range filter. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> startTime_ {};
   };
 

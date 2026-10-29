@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // Device ID.
+    // The device ID.
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};
-    // Return directory information. Default value: false.
+    // Specifies whether to return directory information. Default value: false.
     shared_ptr<bool> includeDirectory_ {};
-    // Return stream statistics. Default value: false.
+    // Specifies whether to return stream statistics information. Default value: false.
     shared_ptr<bool> includeStats_ {};
     shared_ptr<int64_t> ownerId_ {};
   };

@@ -102,11 +102,11 @@ namespace Models
   protected:
     // The status code. A value of 0 indicates success.
     shared_ptr<int64_t> code_ {};
-    // The description.
+    // The message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The waiting queue information.
+    // The task waiting queue information.
     shared_ptr<DescribeComfyTaskWaitingQueueResponseBody::TaskWaitingQueue> taskWaitingQueue_ {};
   };
 

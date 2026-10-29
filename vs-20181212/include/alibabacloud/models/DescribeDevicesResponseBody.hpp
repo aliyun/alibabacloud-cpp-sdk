@@ -270,15 +270,15 @@ namespace Models
 
 
       protected:
-        // The time when the directory was created.
+        // The time when the directory was created. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
         shared_ptr<string> createdTime_ {};
-        // The description of the directory.
+        // The directory description.
         shared_ptr<string> description_ {};
-        // The ID of the group to which the directory belongs.
+        // The ID of the workspace to which the directory belongs.
         shared_ptr<string> groupId_ {};
         // The directory ID.
         shared_ptr<string> id_ {};
-        // The name of the directory.
+        // The directory name.
         shared_ptr<string> name_ {};
         // The ID of the parent directory.
         shared_ptr<string> parentId_ {};
@@ -513,45 +513,35 @@ namespace Models
 
 
     protected:
-      // The GB/T 28181 alarm subscription method. Valid values:
-      // 
-      // - 0 (all)
-      // 
-      // - 5 (video alarm)
-      // 
-      // - 7 (other alarm)
-      // 
-      // > * An empty value indicates that no alarm is subscribed.
-      // >
-      // > * Specify multiple values. Separate them with commas (,).
+      // The subscribed national standard alarm methods. Valid values:
+      // - 0: All.
+      // - 5: Video alarm.
+      // - 7: Other alarms.
+      // An empty value indicates no subscription. You can specify multiple values separated by commas (,).
       shared_ptr<string> alarmMethod_ {};
-      // Indicates whether directory reporting is enabled for the platform device.
+      // Specifies whether to enable directory reporting for platform devices.
       shared_ptr<bool> autoDirectory_ {};
-      // Indicates whether to enable position subscription for the device.
+      // Specifies whether to enable device position subscription.
       shared_ptr<bool> autoPos_ {};
-      // Indicates whether to automatically start the stream.
+      // Specifies whether to automatically start the stream.
       shared_ptr<bool> autoStart_ {};
-      // The time when the channels were synchronized.
+      // The channel synchronization time. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> channelSyncTime_ {};
-      // The time when the device was created.
+      // The time when the device was created. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> createdTime_ {};
-      // The description of the device.
+      // The device description.
       shared_ptr<string> description_ {};
       // The directory information.
       shared_ptr<Devices::Directory> directory_ {};
       // The directory ID.
       shared_ptr<string> directoryId_ {};
-      // The serial number of the device.
-      // 
-      // > This parameter applies only to the AUVSP and ODCAP protocols.
+      // The device serial number. This parameter is applicable only to the AUVSP and ODCAP protocols.
       shared_ptr<string> dsn_ {};
-      // Indicates whether the device is enabled.
+      // Specifies whether the device is enabled.
       shared_ptr<bool> enabled_ {};
-      // The GB/T 28181 ID of the device.
-      // 
-      // > This parameter applies only to the GB/T 28181 protocol.
+      // The national standard ID of the device. This parameter is applicable only to the national standard protocol.
       shared_ptr<string> gbId_ {};
-      // The ID of the group to which the device belongs.
+      // The ID of the workspace to which the device belongs.
       shared_ptr<string> groupId_ {};
       // The device ID.
       shared_ptr<string> id_ {};
@@ -575,33 +565,26 @@ namespace Models
       shared_ptr<int64_t> posInterval_ {};
       // The device protocol.
       shared_ptr<string> protocol_ {};
-      // The time when the device was registered.
+      // The time when the device was registered. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> registeredTime_ {};
-      // The stream statistics of the device.
+      // The stream statistics information of the device.
       shared_ptr<Devices::Stats> stats_ {};
       // The device status. Valid values:
-      // 
-      // - on (online)
-      // 
-      // - off (offline)
-      // 
-      // - failed
-      // 
-      // - new (unregistered)
+      // - on: Online.
+      // - off: Offline.
+      // - failed: Locked.
+      // - new: Unregistered.
       shared_ptr<string> status_ {};
       // The device type. Valid values:
-      // 
-      // - ipc (camera)
-      // 
-      // - platform
-      // 
-      // - ied (intelligent edge device)
+      // - ipc: Camera.
+      // - platform: Platform.
+      // - ied: Intelligent device.
       shared_ptr<string> type_ {};
       // The stream URL on the device.
       shared_ptr<string> url_ {};
-      // The username for the device.
+      // The device username.
       shared_ptr<string> username_ {};
-      // The manufacturer of the device.
+      // The device vendor.
       shared_ptr<string> vendor_ {};
     };
 

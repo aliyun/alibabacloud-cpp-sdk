@@ -188,52 +188,42 @@ namespace Models
   protected:
     // The ID of the directory to which the device belongs.
     shared_ptr<string> directoryId_ {};
-    // The serial number of the device. The value must be unique.
+    // The device serial number, which uniquely identifies the device.
     shared_ptr<string> dsn_ {};
-    // You can query by device national standard ID.
+    // The national standard ID of the device.
     shared_ptr<string> gbId_ {};
-    // Query by device Space ID.
+    // The ID of the workspace to which the device belongs.
     shared_ptr<string> groupId_ {};
-    // The device ID.
-    // 
-    // > Specify multiple IDs. Separate them with commas (,).
+    // The device ID. You can specify multiple IDs separated by commas (,).
     shared_ptr<string> id_ {};
     // Specifies whether to return directory information. Default value: false.
     shared_ptr<bool> includeDirectory_ {};
-    // Specifies whether to return stream statistics. Default value: false.
+    // Specifies whether to return stream statistics information. Default value: false.
     shared_ptr<bool> includeStats_ {};
-    // The device name.
-    // 
-    // > Specify multiple names. Separate them with commas (,).
+    // The device name. You can specify multiple names separated by commas (,).
     shared_ptr<string> name_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The page number. Default value: 1.
     shared_ptr<int64_t> pageNum_ {};
     // The number of entries per page. Default value: 20.
     shared_ptr<int64_t> pageSize_ {};
-    // The ID of the parent device.
+    // The ID of the parent device to which the device belongs.
     shared_ptr<string> parentId_ {};
-    // The field by which to sort the results. Valid value:
-    // 
-    // > id (default)
+    // The field used for sorting. Valid value:
+    // - id: Sort by ID. This is the default value.
     shared_ptr<string> sortBy_ {};
     // The sort order. Valid values:
-    // 
-    // - asc (ascending) (default)
-    // 
-    // - desc (descending)
+    // - asc: Ascending order. This is the default value.
+    // - desc: Descending order.
     shared_ptr<string> sortDirection_ {};
-    // Query devices by status.
+    // The device status.
     shared_ptr<string> status_ {};
     // The device type. Valid values:
-    // 
-    // - ipc (camera)
-    // 
-    // - platform
-    // 
-    // - ied (intelligent edge device)
+    // - ipc: Camera.
+    // - platform: Platform.
+    // - ied: Intelligent device.
     shared_ptr<string> type_ {};
-    // Query by device manufacturer.
+    // The device vendor.
     shared_ptr<string> vendor_ {};
   };
 

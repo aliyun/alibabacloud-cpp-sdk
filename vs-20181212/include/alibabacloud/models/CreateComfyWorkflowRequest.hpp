@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // The workflow description.
+    // The description of the workflow.
     shared_ptr<string> description_ {};
-    // The workflow name.
+    // The name of the workflow.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The JSON definition of the workflow.
+    // The workflow JSON.
     // 
     // This parameter is required.
     shared_ptr<string> workflow_ {};

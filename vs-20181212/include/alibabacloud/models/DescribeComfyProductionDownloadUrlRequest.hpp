@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the production.
+    // The production ID.
     // 
     // This parameter is required.
     shared_ptr<string> productionId_ {};

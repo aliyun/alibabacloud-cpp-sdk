@@ -91,11 +91,11 @@ namespace Models
 
 
     protected:
-      // State description
+      // The state description.
       shared_ptr<string> comment_ {};
-      // Session state
+      // The session state.
       shared_ptr<string> state_ {};
-      // Last update time of the state
+      // The time when the state was last updated. The value is a UTC time in the YYYY-MM-DDTHH:mmZ format based on the ISO 8601 standard.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -137,9 +137,9 @@ namespace Models
 
 
     protected:
-      // External port or port range, such as 22. For a port range, separate the start and end ports with a forward slash (/), for example, 10/20.
+      // The public port or port range, such as 22. For a port range, separate the start port and end port with a forward slash (/), for example, 10/20.
       shared_ptr<string> externalPort_ {};
-      // Internal port or port range. Ports correspond one-to-one with external ports. For a port range, separate the start and end ports with a forward slash (/), for example, 10/20.
+      // The internal port or port range. The internal port corresponds to the public port on a one-to-one basis. For a port range, separate the start port and end port with a forward slash (/), for example, 10/20.
       shared_ptr<string> internalPort_ {};
     };
 
@@ -171,7 +171,7 @@ namespace Models
 
 
     protected:
-      // Province code of the cloud application service instance
+      // The province code of the cloud application service instance.
       shared_ptr<string> provinceCode_ {};
     };
 
@@ -241,21 +241,21 @@ namespace Models
 
 
   protected:
-    // Instance hostname. By default, this is the EIP used for access.
+    // The instance hostname. The default value is the access elastic IP address (EIP).
     shared_ptr<string> hostname_ {};
-    // Is this a repeated request
+    // Indicates whether the request is a repeated request.
     shared_ptr<bool> isRepeatedRequest_ {};
-    // Cloud application service instance location information
+    // The location information of the cloud application service instance.
     shared_ptr<StartRenderingSessionResponseBody::Location> location_ {};
-    // Port mapping information
+    // The port mapping information.
     shared_ptr<vector<StartRenderingSessionResponseBody::PortMappings>> portMappings_ {};
-    // Cloud application service instance ID
+    // The cloud application service instance ID.
     shared_ptr<string> renderingInstanceId_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Session ID
+    // The session ID.
     shared_ptr<string> sessionId_ {};
-    // Session state information
+    // The session state information.
     shared_ptr<StartRenderingSessionResponseBody::StateInfo> stateInfo_ {};
   };
 

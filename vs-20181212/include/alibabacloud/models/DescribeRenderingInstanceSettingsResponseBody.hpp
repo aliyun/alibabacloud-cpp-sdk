@@ -70,9 +70,9 @@ namespace Models
 
 
     protected:
-      // The name of an instance configuration.
+      // The instance configuration name.
       shared_ptr<string> attributeName_ {};
-      // The value of an instance configuration.
+      // The content of the instance configuration.
       shared_ptr<string> attributeValue_ {};
     };
 
@@ -95,7 +95,7 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The list of instance configurations.
     shared_ptr<vector<DescribeRenderingInstanceSettingsResponseBody::Settings>> settings_ {};

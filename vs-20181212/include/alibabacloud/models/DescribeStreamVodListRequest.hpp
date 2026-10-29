@@ -66,16 +66,16 @@ namespace Models
 
 
   protected:
-    // VOD record end time (unix timestamp, unit: seconds)
+    // The end time of the video-on-demand records. The value is a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
-    // Stream ID.
+    // The stream ID.
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // VOD record start time (unix timestamp, unit: seconds)
+    // The start time of the video-on-demand records. The value is a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};

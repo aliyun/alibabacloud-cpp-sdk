@@ -77,13 +77,13 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<int64_t> code_ {};
-    // The download URL for the application package.
+    // The download URL of the application package.
     shared_ptr<string> downloadUrl_ {};
-    // The expiration time for the download link.
+    // The expiration time of the download URL. The value is a UNIX timestamp in milliseconds.
     shared_ptr<string> expiredTime_ {};
-    // The result message.
+    // The message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

@@ -49,7 +49,7 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> ownerId_ {};
-    // The file URL of the VOD video.
+    // The file URL of the video-on-demand video.
     // 
     // This parameter is required.
     shared_ptr<string> url_ {};

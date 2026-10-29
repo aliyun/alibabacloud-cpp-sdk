@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // Unique ID of the command delivery request
+    // The unique ID of the command delivery request.
     // 
     // This parameter is required.
     shared_ptr<string> cmdId_ {};
-    // Cloud application service instance ID
+    // The cloud application service instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> renderingInstanceId_ {};

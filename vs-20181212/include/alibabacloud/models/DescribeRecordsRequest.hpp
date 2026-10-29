@@ -121,40 +121,35 @@ namespace Models
 
 
   protected:
-    // Specify the end time for the query.
+    // The end time. Specify the time in the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The page number. Default value: 1.
     shared_ptr<int64_t> pageNum_ {};
-    // Page size. Default value: 20.
+    // The number of entries per page. Default value: 20.
     shared_ptr<int64_t> pageSize_ {};
     // Specifies whether to use a private bucket.
     shared_ptr<bool> privateBucket_ {};
-    // The field to sort the records by. Valid value:
-    // 
-    // - Id (default)
+    // The field by which to sort. Valid values:
+    // - Id: default
     shared_ptr<string> sortBy_ {};
-    // The sorting method. Valid values:
-    // 
-    // - asc (ascending, default)
-    // 
-    // - desc (descending)
+    // The sort order. Valid values:
+    // - asc: ascending order (default)
+    // - desc: descending order
     shared_ptr<string> sortDirection_ {};
-    // Query records by start time.
+    // The start time. Specify the time in the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    // Query by stream ID.
+    // The ID of the stream.
     // 
     // This parameter is required.
     shared_ptr<string> streamId_ {};
-    // The type of the recording record to query. Valid values:
-    // 
-    // - record (Recording)
-    // 
-    // - snapshot
+    // The type of the storage record. Valid values:
+    // - record: recording
+    // - snapshot: snapshot
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

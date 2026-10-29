@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The file description.
+    // The description of the file.
     // 
     // This parameter is required.
     shared_ptr<string> description_ {};
-    // The ID of the file. Each file has a unique ID.
+    // The ID of the file, which uniquely identifies a file.
     // 
     // This parameter is required.
     shared_ptr<string> fileId_ {};
