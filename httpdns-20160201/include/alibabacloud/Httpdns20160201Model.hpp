@@ -5,6 +5,10 @@
 #include <alibabacloud/models/AddDomainRequest.hpp>
 #include <alibabacloud/models/AddDomainResponseBody.hpp>
 #include <alibabacloud/models/AddDomainResponse.hpp>
+#include <alibabacloud/models/CreateSdnsRuleCategoryRequest.hpp>
+#include <alibabacloud/models/CreateSdnsRuleCategoryShrinkRequest.hpp>
+#include <alibabacloud/models/CreateSdnsRuleCategoryResponseBody.hpp>
+#include <alibabacloud/models/CreateSdnsRuleCategoryResponse.hpp>
 #include <alibabacloud/models/DeleteDomainRequest.hpp>
 #include <alibabacloud/models/DeleteDomainResponseBody.hpp>
 #include <alibabacloud/models/DeleteDomainResponse.hpp>
@@ -26,5 +30,25 @@
 #include <alibabacloud/models/RefreshResolveCacheShrinkRequest.hpp>
 #include <alibabacloud/models/RefreshResolveCacheResponseBody.hpp>
 #include <alibabacloud/models/RefreshResolveCacheResponse.hpp>
+#include <alibabacloud/models/SdnsDeleteRuleCategoryRequest.hpp>
+#include <alibabacloud/models/SdnsDeleteRuleCategoryResponseBody.hpp>
+#include <alibabacloud/models/SdnsDeleteRuleCategoryResponse.hpp>
+#include <alibabacloud/models/SdnsGetRuleCategoryRequest.hpp>
+#include <alibabacloud/models/SdnsGetRuleCategoryResponseBody.hpp>
+#include <alibabacloud/models/SdnsGetRuleCategoryResponse.hpp>
+#include <alibabacloud/models/SdnsListRuleCategoriesRequest.hpp>
+#include <alibabacloud/models/SdnsListRuleCategoriesResponseBody.hpp>
+#include <alibabacloud/models/SdnsListRuleCategoriesResponse.hpp>
+#include <alibabacloud/models/SdnsSwitchRuleCategoryRequest.hpp>
+#include <alibabacloud/models/SdnsSwitchRuleCategoryResponseBody.hpp>
+#include <alibabacloud/models/SdnsSwitchRuleCategoryResponse.hpp>
+#include <alibabacloud/models/SdnsVerifyRuleCategoryRequest.hpp>
+#include <alibabacloud/models/SdnsVerifyRuleCategoryShrinkRequest.hpp>
+#include <alibabacloud/models/SdnsVerifyRuleCategoryResponseBody.hpp>
+#include <alibabacloud/models/SdnsVerifyRuleCategoryResponse.hpp>
+#include <alibabacloud/models/UpdateSdnsRuleCategoryRequest.hpp>
+#include <alibabacloud/models/UpdateSdnsRuleCategoryShrinkRequest.hpp>
+#include <alibabacloud/models/UpdateSdnsRuleCategoryResponseBody.hpp>
+#include <alibabacloud/models/UpdateSdnsRuleCategoryResponse.hpp>
 
 #endif

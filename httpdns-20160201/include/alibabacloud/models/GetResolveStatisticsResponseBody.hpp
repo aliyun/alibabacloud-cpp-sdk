@@ -127,6 +127,7 @@ namespace Models
 
   protected:
     shared_ptr<GetResolveStatisticsResponseBody::DataPoints> dataPoints_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

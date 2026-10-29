@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The list of domain names to refresh.
     shared_ptr<vector<string>> domains_ {};
   };
 

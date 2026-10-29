@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The HTTPDNS account ID.
     shared_ptr<string> accountId_ {};
+    // The current page number. Minimum value: 1. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
+    // The number of entries per page for a paged query. Maximum value: 100. Default value: 20.
     shared_ptr<int64_t> pageSize_ {};
   };
 

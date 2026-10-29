@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // The HTTPDNS account ID.
     shared_ptr<string> accountId_ {};
+    // The domain name.
+    // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
   };

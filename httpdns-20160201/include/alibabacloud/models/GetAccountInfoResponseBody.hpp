@@ -188,20 +188,38 @@ namespace Models
 
 
     protected:
+      // The account ID.
       shared_ptr<string> accountId_ {};
+      // Indicates whether the DNS over HTTPS (DoH) feature is enabled.
       shared_ptr<bool> dohEnabled_ {};
+      // Indicates whether DoH is used to resolve all domain names.
       shared_ptr<bool> dohResolveAllEnabled_ {};
+      // The number of DoH resolutions for the current month.
       shared_ptr<int64_t> monthDohResolveCount_ {};
+      // The monthly free resolution quota. This is the number of times you can call the HTTPDNS service for domain name resolution free of charge each calendar month.
       shared_ptr<int32_t> monthFreeCount_ {};
+      // The number of HTTP AES-encrypted resolutions for the current month.
       shared_ptr<int64_t> monthHttpAesResolveCount_ {};
+      // The number of HTTPS AES-encrypted resolutions for the current month.
       shared_ptr<int64_t> monthHttpsAesResolveCount_ {};
+      // The total number of HTTPS resolutions for the current month.
       shared_ptr<int32_t> monthHttpsResolveCount_ {};
+      // The total number of HTTP resolutions for the current month.
       shared_ptr<int32_t> monthResolveCount_ {};
+      // The number of resource plans. This is a legacy field and is always set to 0.
       shared_ptr<int32_t> packageCount_ {};
+      // The signing secret.
       shared_ptr<string> signSecret_ {};
+      // The number of requests to authenticated API operations.
       shared_ptr<int64_t> signedCount_ {};
+      // The number of requests to unauthenticated API operations.
       shared_ptr<int64_t> unsignedCount_ {};
+      // Indicates whether unauthenticated API operations are enabled.
       shared_ptr<bool> unsignedEnabled_ {};
+      // The HTTPDNS account status code. Valid values:
+      // - 1: The account is normal.
+      // - 2: The account has an overdue payment.
+      // - 3: The account is suspended.
       shared_ptr<int32_t> userStatus_ {};
     };
 
@@ -224,7 +242,9 @@ namespace Models
 
 
   protected:
+    // The current account information.
     shared_ptr<GetAccountInfoResponseBody::AccountInfo> accountInfo_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

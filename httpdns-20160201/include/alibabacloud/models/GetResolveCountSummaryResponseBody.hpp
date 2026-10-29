@@ -116,10 +116,14 @@ namespace Models
 
     protected:
       shared_ptr<int64_t> doh_ {};
+      // The number of IPv4 HTTP resolution requests.
       shared_ptr<int64_t> http_ {};
+      // The number of IPv6 HTTP resolution requests.
       shared_ptr<int64_t> http6_ {};
       shared_ptr<string> httpAes_ {};
+      // The number of IPv4 HTTPS resolution requests.
       shared_ptr<int64_t> https_ {};
+      // The number of IPv6 HTTPS resolution requests.
       shared_ptr<int64_t> https6_ {};
       shared_ptr<string> httpsAes_ {};
     };
@@ -143,7 +147,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The statistics result.
     shared_ptr<GetResolveCountSummaryResponseBody::ResolveSummary> resolveSummary_ {};
   };
 

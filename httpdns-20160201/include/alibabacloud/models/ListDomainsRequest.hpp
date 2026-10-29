@@ -66,7 +66,9 @@ namespace Models
 
 
   protected:
+    // The number of the current page. Starting value: 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page for paging in a paged query. Settings: Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> search_ {};
     shared_ptr<bool> withoutMeteringData_ {};

@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The data granularity of the statistics. Valid values: **day** and **month**.
+    // 
     // This parameter is required.
     shared_ptr<string> granularity_ {};
+    // The time span for the statistics.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> timeSpan_ {};
   };

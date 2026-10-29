@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The list of domain names to refresh.
     shared_ptr<string> domainsShrink_ {};
   };
 

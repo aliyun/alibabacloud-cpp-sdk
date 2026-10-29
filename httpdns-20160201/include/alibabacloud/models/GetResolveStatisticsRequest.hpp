@@ -66,11 +66,18 @@ namespace Models
 
 
   protected:
+    // The domain name for which to retrieve statistics information.
+    // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
+    // The data granularity. Valid values: **day** and **month**.
+    // 
     // This parameter is required.
     shared_ptr<string> granularity_ {};
+    // The protocol type for resolution. Valid values: http (default) and https.
     shared_ptr<string> protocolName_ {};
+    // The length of the time span.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> timeSpan_ {};
   };
