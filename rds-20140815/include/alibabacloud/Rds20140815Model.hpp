@@ -570,6 +570,9 @@
 #include <alibabacloud/models/DescribeModifyParameterLogRequest.hpp>
 #include <alibabacloud/models/DescribeModifyParameterLogResponseBody.hpp>
 #include <alibabacloud/models/DescribeModifyParameterLogResponse.hpp>
+#include <alibabacloud/models/DescribeOperatorPermissionRequest.hpp>
+#include <alibabacloud/models/DescribeOperatorPermissionResponseBody.hpp>
+#include <alibabacloud/models/DescribeOperatorPermissionResponse.hpp>
 #include <alibabacloud/models/DescribeOssDownloadsRequest.hpp>
 #include <alibabacloud/models/DescribeOssDownloadsResponseBody.hpp>
 #include <alibabacloud/models/DescribeOssDownloadsResponse.hpp>

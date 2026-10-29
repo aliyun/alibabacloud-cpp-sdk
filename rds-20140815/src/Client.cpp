@@ -3703,15 +3703,15 @@ CreateDBProxyEndpointAddressResponse Client::createDBProxyEndpointAddress(const 
 }
 
 /**
- * @summary Creates a database in an ApsaraDB RDS instance.
+ * @summary Creates a database on an ApsaraDB RDS instance.
  *
- * @description ### Supported engines
+ * @description ### Supported database engines
  * - ApsaraDB RDS for MySQL
  * - ApsaraDB RDS for PostgreSQL
  * - ApsaraDB RDS for SQL Server
  * - ApsaraDB RDS for MariaDB
  * ### Related documentation
- * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+ * >Notice: Before you call this operation, read the documentation carefully to fully understand the prerequisites and impacts.
  * - [Create a database on an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96105.html)
  * - [Create a database on an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96758.html)
  * - [Create a database on an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95698.html)
@@ -3786,15 +3786,15 @@ CreateDatabaseResponse Client::createDatabaseWithOptions(const CreateDatabaseReq
 }
 
 /**
- * @summary Creates a database in an ApsaraDB RDS instance.
+ * @summary Creates a database on an ApsaraDB RDS instance.
  *
- * @description ### Supported engines
+ * @description ### Supported database engines
  * - ApsaraDB RDS for MySQL
  * - ApsaraDB RDS for PostgreSQL
  * - ApsaraDB RDS for SQL Server
  * - ApsaraDB RDS for MariaDB
  * ### Related documentation
- * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+ * >Notice: Before you call this operation, read the documentation carefully to fully understand the prerequisites and impacts.
  * - [Create a database on an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96105.html)
  * - [Create a database on an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96758.html)
  * - [Create a database on an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95698.html)
@@ -15683,6 +15683,64 @@ DescribeModifyParameterLogResponse Client::describeModifyParameterLog(const Desc
 }
 
 /**
+ * @summary 查询操作权限
+ *
+ * @param request DescribeOperatorPermissionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeOperatorPermissionResponse
+ */
+DescribeOperatorPermissionResponse Client::describeOperatorPermissionWithOptions(const DescribeOperatorPermissionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeOperatorPermission"},
+    {"version" , "2014-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeOperatorPermissionResponse>();
+}
+
+/**
+ * @summary 查询操作权限
+ *
+ * @param request DescribeOperatorPermissionRequest
+ * @return DescribeOperatorPermissionResponse
+ */
+DescribeOperatorPermissionResponse Client::describeOperatorPermission(const DescribeOperatorPermissionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeOperatorPermissionWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the file details of a backup data migration task for an ApsaraDB RDS for SQL Server instance.
  *
  * @description ### Supported engines
@@ -23421,15 +23479,15 @@ ModifyDBInstanceResponse Client::modifyDBInstance(const ModifyDBInstanceRequest 
 }
 
 /**
- * @summary Modifies the minor version update policy for an ApsaraDB RDS for MySQL or ApsaraDB RDS for PostgreSQL instance.
+ * @summary Modifies the minor version upgrade method for ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and ApsaraDB RDS for SQL Server instances.
  *
  * @description ### Applicable engines
- * - RDS MySQL
- * - RDS PostgreSQL
- * ### Related documentation
- * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
- * - [Modify the automatic upgrade settings for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96059.html)
- * - [Modify the automatic upgrade settings for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146895.html)
+ * - ApsaraDB RDS for MySQL
+ * - ApsaraDB RDS for PostgreSQL
+ * ### Related feature documentation
+ * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.
+ * - [Modify the automatic upgrade settings for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/96059.html)
+ * - [Modify the automatic upgrade settings for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/146895.html)
  *
  * @param request ModifyDBInstanceAutoUpgradeMinorVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23480,15 +23538,15 @@ ModifyDBInstanceAutoUpgradeMinorVersionResponse Client::modifyDBInstanceAutoUpgr
 }
 
 /**
- * @summary Modifies the minor version update policy for an ApsaraDB RDS for MySQL or ApsaraDB RDS for PostgreSQL instance.
+ * @summary Modifies the minor version upgrade method for ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and ApsaraDB RDS for SQL Server instances.
  *
  * @description ### Applicable engines
- * - RDS MySQL
- * - RDS PostgreSQL
- * ### Related documentation
- * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
- * - [Modify the automatic upgrade settings for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96059.html)
- * - [Modify the automatic upgrade settings for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146895.html)
+ * - ApsaraDB RDS for MySQL
+ * - ApsaraDB RDS for PostgreSQL
+ * ### Related feature documentation
+ * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.
+ * - [Modify the automatic upgrade settings for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/96059.html)
+ * - [Modify the automatic upgrade settings for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/146895.html)
  *
  * @param request ModifyDBInstanceAutoUpgradeMinorVersionRequest
  * @return ModifyDBInstanceAutoUpgradeMinorVersionResponse
@@ -24805,14 +24863,14 @@ ModifyDBInstancePayTypeResponse Client::modifyDBInstancePayType(const ModifyDBIn
 }
 
 /**
- * @summary Enables or disables native replication mode for an ApsaraDB RDS instance by calling the ModifyDBInstanceReplicationSwitch operation.
+ * @summary Enables or disables the native replication mode for an ApsaraDB RDS instance.
  *
- * @description ApsaraDB RDS for MySQL instances with native replication enabled must meet the following requirements:
- * - Database engine version: MySQL 5.7
- * - Instance edition: Basic Edition
+ * @description To enable the native replication feature for an ApsaraDB RDS for MySQL instance, the following requirements must be met:
+ * - DPI engine version: MySQL 5.7
+ * - Edition: Basic Edition
  * - Billing method: pay-as-you-go or subscription
- * - Minor engine version: 20240930 or later
- * For more information about native replication, see [RDS native replication](https://help.aliyun.com/document_detail/2856530.html).
+ * - Milvus version: 20240930 or later
+ * For more information about native replication, see [Native replication for ApsaraDB RDS](https://help.aliyun.com/document_detail/2856530.html).
  *
  * @param request ModifyDBInstanceReplicationSwitchRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -24859,14 +24917,14 @@ ModifyDBInstanceReplicationSwitchResponse Client::modifyDBInstanceReplicationSwi
 }
 
 /**
- * @summary Enables or disables native replication mode for an ApsaraDB RDS instance by calling the ModifyDBInstanceReplicationSwitch operation.
+ * @summary Enables or disables the native replication mode for an ApsaraDB RDS instance.
  *
- * @description ApsaraDB RDS for MySQL instances with native replication enabled must meet the following requirements:
- * - Database engine version: MySQL 5.7
- * - Instance edition: Basic Edition
+ * @description To enable the native replication feature for an ApsaraDB RDS for MySQL instance, the following requirements must be met:
+ * - DPI engine version: MySQL 5.7
+ * - Edition: Basic Edition
  * - Billing method: pay-as-you-go or subscription
- * - Minor engine version: 20240930 or later
- * For more information about native replication, see [RDS native replication](https://help.aliyun.com/document_detail/2856530.html).
+ * - Milvus version: 20240930 or later
+ * For more information about native replication, see [Native replication for ApsaraDB RDS](https://help.aliyun.com/document_detail/2856530.html).
  *
  * @param request ModifyDBInstanceReplicationSwitchRequest
  * @return ModifyDBInstanceReplicationSwitchResponse

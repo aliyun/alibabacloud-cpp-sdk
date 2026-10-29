@@ -75,13 +75,13 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+    // Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // Specifies whether to enable or disable native replication mode. Valid values:
-    // - **ON**: Enable native replication.
-    // - **OFF**: Disable native replication.
+    // Specifies whether to enable or disable the native replication mode. Valid values:
+    // - **ON**: enables the native replication mode.
+    // - **OFF**: disables the native replication mode.
     // 
     // This parameter is required.
     shared_ptr<string> externalReplication_ {};
@@ -89,7 +89,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID. This parameter can be left empty.
+    // The ID of the resource group. This parameter can be left empty.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
   };

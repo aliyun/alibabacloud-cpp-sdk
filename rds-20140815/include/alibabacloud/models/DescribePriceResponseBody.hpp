@@ -576,11 +576,11 @@ namespace Models
       // The original price.
       shared_ptr<float> originalPrice_ {};
       shared_ptr<PriceInfo::RuleIds> ruleIds_ {};
-      // The estimated hourly fee calculated based on the maximum number of RCUs selected by the user.
+      // The estimated hourly fee calculated based on the maximum number of RCUs selected.
       shared_ptr<float> tradeMaxRCUAmount_ {};
-      // The estimated hourly fee calculated based on the minimum number of RCUs selected by the user.
+      // The estimated hourly fee calculated based on the minimum number of RCUs selected.
       shared_ptr<float> tradeMinRCUAmount_ {};
-      // The final price, which is the original price minus the discount amount.
+      // The final price, which is the original price minus the discount.
       shared_ptr<float> tradePrice_ {};
     };
 
@@ -662,9 +662,9 @@ namespace Models
     shared_ptr<DescribePriceResponseBody::ServerlessPrice> serverlessPrice_ {};
     // Indicates whether discounts are allowed.
     shared_ptr<bool> showDiscount_ {};
-    // The estimated hourly fee calculated based on the maximum number of RCUs selected by the user.
+    // The estimated hourly fee calculated based on the maximum number of RCUs selected.
     shared_ptr<float> tradeMaxRCUAmount_ {};
-    // The estimated hourly fee calculated based on the minimum number of RCUs selected by the user.
+    // The estimated hourly fee calculated based on the minimum number of RCUs selected.
     shared_ptr<float> tradeMinRCUAmount_ {};
   };
 

@@ -236,14 +236,14 @@ namespace Models
     shared_ptr<string> clientToken_ {};
     // The commodity code of the instance. Valid values:
     // 
-    // * **bards**: pay-as-you-go primary instance (Chinese site)
-    // * **rds** (default): subscription primary instance (Chinese site)
-    // * **rords**: pay-as-you-go read-only instance (Chinese site)
-    // * **rds_rordspre_public_cn**: subscription read-only instance (Chinese site)
-    // * **bards_intl**: pay-as-you-go primary instance (International site)
-    // * **rds_intl**: subscription primary instance (International site)
-    // * **rords_intl**: pay-as-you-go read-only instance (International site)
-    // * **rds_rordspre_public_intl**: subscription read-only instance (International site)
+    // * **bards**: pay-as-you-go primary instance (Alibaba Cloud China site)
+    // * **rds** (default): subscription primary instance (Alibaba Cloud China site)
+    // * **rords**: pay-as-you-go read-only instance (Alibaba Cloud China site)
+    // * **rds_rordspre_public_cn**: subscription read-only instance (Alibaba Cloud China site)
+    // * **bards_intl**: pay-as-you-go primary instance (Alibaba Cloud International site)
+    // * **rds_intl**: subscription primary instance (Alibaba Cloud International site)
+    // * **rords_intl**: pay-as-you-go read-only instance (Alibaba Cloud International site)
+    // * **rds_rordspre_public_intl**: subscription read-only instance (Alibaba Cloud International site)
     // 
     // > This parameter is required when you query the pricing of a read-only instance.
     shared_ptr<string> commodityCode_ {};
@@ -251,8 +251,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceClass_ {};
-    // Instance ID of the instance for which you want to change the specifications or renew the subscription.
-    // > - This parameter is required when you query the price for changing the specifications or renewing the subscription of an instance.
+    // Instance ID of the instance whose specifications you want to change or that you want to renew.
+    // > - This parameter is required when you query the price for changing the specifications or renewing an instance.
     // > - If the instance is a read-only instance, you must specify instance ID of its primary instance.
     shared_ptr<string> DBInstanceId_ {};
     // Instance storage capacity of the instance. Unit: GB. Instance storage capacity increases in increments of 5 GB. For more information about the valid values, see [Instance types](https://help.aliyun.com/document_detail/26312.html).
@@ -280,7 +280,7 @@ namespace Models
     shared_ptr<string> engine_ {};
     // <props="china">The database engine version. Valid values:
     // - **MySQL**: **5.5**, **5.6**, **5.7**, and **8.0**
-    // - **SQL Server**: **08r2_ent_ha** (cloud disk edition, discontinued), **2008r2** (high-performance local disk, discontinued), **2012** (Enterprise Edition Basic), **2012_ent_ha**, **2012_std_ha**, **2012_web**, **2014_ent_ha**, **2014_std_ha**, **2016_ent_ha**, **2016_std_ha**, **2016_web**, **2017_ent**, **2017_std_ha**, **2017_web**, **2019_ent**, **2019_std_ha**, **2019_web**, **2022_ent**, **2022_std_ha**, and **2022_web**
+    // - **SQL Server**: **08r2_ent_ha** (cloud disk edition, discontinued), **2008r2** (Premium Local SSD, discontinued), **2012** (Enterprise Edition Standalone), **2012_ent_ha**, **2012_std_ha**, **2012_web**, **2014_ent_ha**, **2014_std_ha**, **2016_ent_ha**, **2016_std_ha**, **2016_web**, **2017_ent**, **2017_std_ha**, **2017_web**, **2019_ent**, **2019_std_ha**, **2019_web**, **2022_ent**, **2022_std_ha**, and **2022_web**
     // - **PostgreSQL**: **10.0**, **11.0**, **12.0**, **13.0**, **14.0**, and **15.0**
     // - **MariaDB**: **10.3**
     // 
@@ -288,11 +288,11 @@ namespace Models
     // 
     // <props="intl">The database engine version. Valid values:
     // - **MySQL**: **5.5**, **5.6**, **5.7**, and **8.0**
-    // - **SQL Server**: **08r2_ent_ha** (cloud disk edition, discontinued), **2008r2** (high-performance local disk, discontinued), **2012** (Enterprise Edition Basic), **2012_ent_ha**, **2012_std_ha**, **2012_web**, **2016_ent_ha**, **2016_std_ha**, **2016_web**, **2017_ent**, **2017_std_ha**, **2017_web**, **2019_ent**, **2019_std_ha**, **2019_web**, **2022_ent**, **2022_std_ha**, and **2022_web**
+    // - **SQL Server**: **08r2_ent_ha** (cloud disk edition, discontinued), **2008r2** (Premium Local SSD, discontinued), **2012** (Enterprise Edition Standalone), **2012_ent_ha**, **2012_std_ha**, **2012_web**, **2016_ent_ha**, **2016_std_ha**, **2016_web**, **2017_ent**, **2017_std_ha**, **2017_web**, **2019_ent**, **2019_std_ha**, **2019_web**, **2022_ent**, **2022_std_ha**, and **2022_web**
     // - **PostgreSQL**: **10.0**, **11.0**, **12.0**, **13.0**, **14.0**, and **15.0**
     // - **MariaDB**: **10.3**
     // 
-    // > For an ApsaraDB RDS for SQL Server instance, `_ent` indicates the Enterprise Cluster Edition, `_ent_ha` indicates the Enterprise Edition, `_std_ha` indicates the Standard Edition, and `_web` indicates the Web Edition.
+    // > For SQL Server instances, `_ent` indicates the Enterprise Cluster Edition, `_ent_ha` indicates the Enterprise Edition, `_std_ha` indicates the Standard Edition, and `_web` indicates the Web Edition.
     // 
     // This parameter is required.
     shared_ptr<string> engineVersion_ {};
@@ -316,7 +316,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> quantity_ {};
-    // The region ID. You can call the DescribeRegions operation to obtain the region ID.
+    // The region ID. You can call the DescribeRegions operation to query the region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
@@ -328,8 +328,8 @@ namespace Models
     // * **Month**: month
     shared_ptr<string> timeType_ {};
     // The subscription duration. Valid values:
-    // * If the **TimeType** parameter is set to **Year**, the value of the UsedTime parameter ranges from **1** to **100**.
-    // * If the **TimeType** parameter is set to **Month**, the value of the UsedTime parameter ranges from **1** to **999**.
+    // * If the **TimeType** parameter is set to **Year**, the value ranges from **1** to **100**.
+    // * If the **TimeType** parameter is set to **Month**, the value ranges from **1** to **999**.
     // 
     // Default value: **1**.
     shared_ptr<int32_t> usedTime_ {};
