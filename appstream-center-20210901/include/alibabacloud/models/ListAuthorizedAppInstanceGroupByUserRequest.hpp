@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AppInstanceGroupName, appInstanceGroupName_);
       DARABONBA_PTR_TO_JSON(AppName, appName_);
       DARABONBA_PTR_TO_JSON(EndUserId, endUserId_);
+      DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(ProductType, productType_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AppInstanceGroupName, appInstanceGroupName_);
       DARABONBA_PTR_FROM_JSON(AppName, appName_);
       DARABONBA_PTR_FROM_JSON(EndUserId, endUserId_);
+      DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(ProductType, productType_);
@@ -44,8 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && this->appInstanceGroupId_ == nullptr && this->appInstanceGroupName_ == nullptr && this->appName_ == nullptr && this->endUserId_ == nullptr && this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr && this->productType_ == nullptr; };
+        && this->appInstanceGroupId_ == nullptr && this->appInstanceGroupName_ == nullptr && this->appName_ == nullptr && this->endUserId_ == nullptr && this->officeSiteId_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->productType_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
@@ -81,6 +83,13 @@ namespace Models
     inline ListAuthorizedAppInstanceGroupByUserRequest& setEndUserId(string endUserId) { DARABONBA_PTR_SET_VALUE(endUserId_, endUserId) };
 
 
+    // officeSiteId Field Functions 
+    bool hasOfficeSiteId() const { return this->officeSiteId_ != nullptr;};
+    void deleteOfficeSiteId() { this->officeSiteId_ = nullptr;};
+    inline string getOfficeSiteId() const { DARABONBA_PTR_GET_DEFAULT(officeSiteId_, "") };
+    inline ListAuthorizedAppInstanceGroupByUserRequest& setOfficeSiteId(string officeSiteId) { DARABONBA_PTR_SET_VALUE(officeSiteId_, officeSiteId) };
+
+
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
@@ -103,29 +112,31 @@ namespace Models
 
 
   protected:
-    // The application ID. Fuzzy matching is supported: delivery groups that contain a deployed application whose ID includes the specified string are returned. You can obtain the application ID from the Apps list returned by this operation.
+    // The application ID. Fuzzy match is supported. Delivery groups in which the IDs of deployed applications contain this string are returned. You can obtain the application ID from the Apps list returned by this operation.
     // 
-    // If this parameter is not specified, no filtering by application ID is applied.
+    // If this parameter is not specified, delivery groups are not filtered by application ID.
     shared_ptr<string> appId_ {};
-    // The delivery group ID. Fuzzy matching is supported: delivery groups whose IDs contain the specified string are returned. You can call the [ListAppInstanceGroup](~~ListAppInstanceGroup~~) operation to obtain the delivery group ID.
+    // The delivery group ID. Fuzzy match is supported. Delivery groups whose IDs contain this string are returned. You can call the [ListAppInstanceGroup](~~ListAppInstanceGroup~~) operation to obtain the ID.
     // 
-    // If this parameter is not specified, no filtering by delivery group ID is applied.
+    // If this parameter is not specified, delivery groups are not filtered by delivery group ID.
     shared_ptr<string> appInstanceGroupId_ {};
-    // The delivery group name. Fuzzy matching is supported. For example, if you set this parameter to `Office App`, delivery groups whose names contain `Office App` (such as `My Office App` or `Office App A`) are returned.
+    // The delivery group name. Fuzzy match is supported. For example, if you specify Office applications, delivery groups whose names contain Office applications (such as My office applications and Office applications A) are returned.
     // 
-    // If this parameter is not specified, no filtering by delivery group name is applied.
+    // If this parameter is not specified, delivery groups are not filtered by delivery group name.
     shared_ptr<string> appInstanceGroupName_ {};
-    // The application name. Fuzzy matching is supported: delivery groups that contain a deployed application whose name includes the specified string are returned.
+    // The application name. Fuzzy match is supported. Delivery groups in which the names of deployed applications contain this string are returned.
     // 
-    // If this parameter is not specified, no filtering by application name is applied.
+    // If this parameter is not specified, delivery groups are not filtered by application name.
     shared_ptr<string> appName_ {};
-    // The username. An **exact match** is performed on the username to query the delivery groups for which the user has been granted delivery group-level authorization.
+    // The username. Exact match is used to query the delivery groups for which the user has been granted delivery group-level authorization.
     // 
-    // > This parameter is required. If this parameter is not specified, the error code `InvalidParameter.UserId` is returned.
+    // > This parameter is required. If this parameter is not specified, the InvalidParameter.UserId error code is returned.
     // 
     // This parameter is required.
     shared_ptr<string> endUserId_ {};
-    // The page number. Pages start from page 1.
+    // The office network ID.
+    shared_ptr<string> officeSiteId_ {};
+    // The page number. Pages start from 1.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
@@ -133,17 +144,17 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The product type. The value must match the product type of the delivery groups to query. Only delivery groups of the specified product type are returned.
+    // The product type. The value must be the same as the product type of the delivery groups to be queried. Only delivery groups of this product type are returned.
     // 
     // Valid values:
     // 
-    // - CloudApp: WUYING Cloud Application.
-    // - CloudBrowser: cloud browser.
+    // - CloudApp: Wuying Cloud App.
+    // - CloudBrowser: Cloud Browser.
     // - WuyingServer: Enterprise Edition workstation.
-    // - WuyingWorkstation: Personal Edition Lingjun container workstation.
-    // - WuyingWorkstationTeam: Team Edition Lingjun container workstation.
-    // - WuyingWorkstationBusiness: Dedicated Edition Lingjun container workstation.
-    // - AndroidCloud: cloud phone.
+    // - WuyingWorkstation: Personal Edition Linggou container workstation.
+    // - WuyingWorkstationTeam: Team Edition Linggou container workstation.
+    // - WuyingWorkstationBusiness: Exclusive Edition Linggou container workstation.
+    // - AndroidCloud: Cloud Phone.
     // - AIAgent: AgentBay (AI agent).
     // 
     // This parameter is required.

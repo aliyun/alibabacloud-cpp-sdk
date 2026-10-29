@@ -50,6 +50,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(GmtCreate, gmtCreate_);
         DARABONBA_PTR_TO_JSON(RegionId, regionId_);
         DARABONBA_PTR_TO_JSON(Status, status_);
+        DARABONBA_PTR_TO_JSON(SupportUserGroupMixedAuth, supportUserGroupMixedAuth_);
+        DARABONBA_PTR_TO_JSON(UserGroupAuthMode, userGroupAuthMode_);
       };
       friend void from_json(const Darabonba::Json& j, AppInstanceGroupModels& obj) { 
         DARABONBA_PTR_FROM_JSON(AppCenterImageId, appCenterImageId_);
@@ -61,6 +63,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(GmtCreate, gmtCreate_);
         DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
+        DARABONBA_PTR_FROM_JSON(SupportUserGroupMixedAuth, supportUserGroupMixedAuth_);
+        DARABONBA_PTR_FROM_JSON(UserGroupAuthMode, userGroupAuthMode_);
       };
       AppInstanceGroupModels() = default ;
       AppInstanceGroupModels(const AppInstanceGroupModels &) = default ;
@@ -138,21 +142,21 @@ namespace Models
 
 
       protected:
-        // The application icon.
+        // The icon of the application.
         shared_ptr<string> appIcon_ {};
-        // The application ID.
+        // The ID of the application.
         shared_ptr<string> appId_ {};
-        // The application name.
+        // The name of the application.
         shared_ptr<string> appName_ {};
-        // The application version.
+        // The version of the application.
         shared_ptr<string> appVersion_ {};
-        // The application version name.
+        // The version name of the application.
         shared_ptr<string> appVersionName_ {};
       };
 
       virtual bool empty() const override { return this->appCenterImageId_ == nullptr
         && this->appInstanceGroupId_ == nullptr && this->appInstanceGroupName_ == nullptr && this->appInstanceType_ == nullptr && this->apps_ == nullptr && this->expiredTime_ == nullptr
-        && this->gmtCreate_ == nullptr && this->regionId_ == nullptr && this->status_ == nullptr; };
+        && this->gmtCreate_ == nullptr && this->regionId_ == nullptr && this->status_ == nullptr && this->supportUserGroupMixedAuth_ == nullptr && this->userGroupAuthMode_ == nullptr; };
       // appCenterImageId Field Functions 
       bool hasAppCenterImageId() const { return this->appCenterImageId_ != nullptr;};
       void deleteAppCenterImageId() { this->appCenterImageId_ = nullptr;};
@@ -218,27 +222,45 @@ namespace Models
       inline AppInstanceGroupModels& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+      // supportUserGroupMixedAuth Field Functions 
+      bool hasSupportUserGroupMixedAuth() const { return this->supportUserGroupMixedAuth_ != nullptr;};
+      void deleteSupportUserGroupMixedAuth() { this->supportUserGroupMixedAuth_ = nullptr;};
+      inline bool getSupportUserGroupMixedAuth() const { DARABONBA_PTR_GET_DEFAULT(supportUserGroupMixedAuth_, false) };
+      inline AppInstanceGroupModels& setSupportUserGroupMixedAuth(bool supportUserGroupMixedAuth) { DARABONBA_PTR_SET_VALUE(supportUserGroupMixedAuth_, supportUserGroupMixedAuth) };
+
+
+      // userGroupAuthMode Field Functions 
+      bool hasUserGroupAuthMode() const { return this->userGroupAuthMode_ != nullptr;};
+      void deleteUserGroupAuthMode() { this->userGroupAuthMode_ = nullptr;};
+      inline string getUserGroupAuthMode() const { DARABONBA_PTR_GET_DEFAULT(userGroupAuthMode_, "") };
+      inline AppInstanceGroupModels& setUserGroupAuthMode(string userGroupAuthMode) { DARABONBA_PTR_SET_VALUE(userGroupAuthMode_, userGroupAuthMode) };
+
+
     protected:
-      // The application image ID.
+      // The ID of the application image.
       shared_ptr<string> appCenterImageId_ {};
-      // The delivery group ID.
+      // The ID of the delivery group.
       shared_ptr<string> appInstanceGroupId_ {};
-      // The delivery group name.
+      // The name of the delivery group.
       shared_ptr<string> appInstanceGroupName_ {};
-      // The delivery group specification type.
+      // The specification type of the delivery group.
       shared_ptr<string> appInstanceType_ {};
-      // The list of deployed applications in the delivery group image. The `AppId` and `AppName` parameters in the request only determine whether a delivery group is included in the results. They do not trim this list to only the matched applications.
+      // The list of deployed applications in the image of the delivery group. The `AppId` and `AppName` parameters in the request only determine whether the delivery group is selected, and do not restrict this list to the matched applications.
       shared_ptr<vector<AppInstanceGroupModels::Apps>> apps_ {};
-      // The expiration time of the delivery group. For delivery groups sold as resources, this is the resource expiration time. For other delivery groups, this is the delivery group expiration time. The value is in ISO 8601 format with milliseconds and a time zone offset. The returned time zone offset is +00:00. Format: yyyy-MM-ddTHH:mm:ss.SSS+HH:mm.
+      // The expiration time of the delivery group. For delivery groups purchased as resources, the expiration time of their resources is returned. For other delivery groups, the expiration time of the delivery group itself is returned. The time is in ISO 8601 date and time format, including milliseconds and time zone offset. The returned time zone offset is +00:00. Format: yyyy-MM-ddTHH:mm:ss.SSS+HH:mm.
       shared_ptr<string> expiredTime_ {};
-      // The creation time of the delivery group. The value is in ISO 8601 format with milliseconds and a time zone offset. The returned time zone offset is +00:00. Format: yyyy-MM-ddTHH:mm:ss.SSS+HH:mm.
+      // The creation time of the delivery group. The time is in ISO 8601 date and time format, including milliseconds and time zone offset. The returned time zone offset is +00:00. Format: yyyy-MM-ddTHH:mm:ss.SSS+HH:mm.
       shared_ptr<string> gmtCreate_ {};
-      // The region ID of the delivery group.
+      // The ID of the region to which the delivery group belongs.
       shared_ptr<string> regionId_ {};
-      // The delivery group status. This operation returns delivery groups only in the following status:
+      // The status of the delivery group. This operation only returns delivery groups in the following states:
       // 
-      // - `PUBLISHED`: Published and listed. The delivery group can appear in the query results of this operation. This status does not indicate that a specified user has been granted access permissions.
+      // - `PUBLISHED`: The delivery group is published and listed, and can be included in the query results of this operation. This status does not indicate that a specified user has obtained access permissions.
       shared_ptr<string> status_ {};
+      // Indicates whether mixed authorization for users and user groups is supported.
+      shared_ptr<bool> supportUserGroupMixedAuth_ {};
+      // The authorization mode for users and user groups.
+      shared_ptr<string> userGroupAuthMode_ {};
     };
 
     virtual bool empty() const override { return this->appInstanceGroupModels_ == nullptr
@@ -281,15 +303,15 @@ namespace Models
 
 
   protected:
-    // The list of published delivery groups on the current page, sorted by creation time from newest to oldest. An empty list is returned if no results match or if the requested page exceeds the result range.
+    // The list of published delivery groups on the current page, sorted in descending order of creation time. An empty list is returned if no results match or if the requested page exceeds the result range.
     shared_ptr<vector<ListPublishedAppInstanceGroupResponseBody::AppInstanceGroupModels>> appInstanceGroupModels_ {};
-    // The page number specified in this request.
+    // The page number specified in the current request.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of delivery groups per page specified in the request. Unit: delivery groups. This value does not represent the actual number of delivery groups returned on the current page. The actual number on the current page may be less than this value.
+    // The number of delivery groups per page specified in the request. This value does not represent the actual number of entries returned on the current page. The actual number on the current page may be less than this value.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID. You can use this ID to locate and troubleshoot issues.
+    // The unique identifier of the request, which can be used to troubleshoot request issues.
     shared_ptr<string> requestId_ {};
-    // The total number of delivery groups that match all filter conditions. Unit: delivery groups. This value is not the number of delivery groups returned on the current page. Each delivery group is counted only once. The value is `0` if no results match.
+    // The total number of delivery groups that meet all filter conditions. This value is not the number of entries returned on the current page. Each delivery group is counted only once. If no results match, the value is `0`.
     shared_ptr<int32_t> totalCount_ {};
   };
 
