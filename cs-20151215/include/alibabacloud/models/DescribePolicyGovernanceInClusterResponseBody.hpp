@@ -276,8 +276,8 @@ namespace Models
         // The ID of the cluster.
         shared_ptr<string> clusterId_ {};
         // The action taken by the policy. Valid values:
-        // - warn: Alerts on policy violations but does not intercept the requests.
-        // - deny: Intercepts requests that violate the policy.
+        // - warn: Generates an alert for the policy violation but does not intercept the request.
+        // - deny: Intercepts the request that violates the policy.
         shared_ptr<string> constraintAction_ {};
         // The API version of the policy.
         shared_ptr<string> constraintApiVersion_ {};
@@ -285,7 +285,7 @@ namespace Models
         shared_ptr<string> constraintCategory_ {};
         // The API group of the policy.
         shared_ptr<string> constraintGroup_ {};
-        // The policy kind that corresponds to the policy name in policy management.
+        // The corresponding Policy Name in policy management.
         shared_ptr<string> constraintKind_ {};
         // The name of the policy instance.
         shared_ptr<string> constraintName_ {};
@@ -303,7 +303,7 @@ namespace Models
         shared_ptr<string> resourceKind_ {};
         // The name of the resource that violated the policy.
         shared_ptr<string> resourceName_ {};
-        // The time when the policy violation occurred. The time is in ISO 8601 format and includes time zone information.
+        // The time when the policy was violated. The time is in ISO 8601 format and includes time zone information.
         shared_ptr<string> time_ {};
       };
 
@@ -349,11 +349,11 @@ namespace Models
     protected:
       // The total number of logs queried.
       shared_ptr<int64_t> count_ {};
-      // The Log Service project that stores the policy action information.
+      // The log project that stores the policy action information.
       shared_ptr<string> logProject_ {};
-      // The Log Service Logstore that stores the policy action information.
+      // The Logstore that stores the policy action information.
       shared_ptr<string> logStore_ {};
-      // The log entries for policy violations.
+      // The log information about policy violations.
       shared_ptr<vector<AdmitLog::Logs>> logs_ {};
       // The status of the query result. Valid values:
       // * `Complete`: The query is complete and the returned result is complete.
@@ -461,7 +461,7 @@ namespace Models
         protected:
           // The description of the policy.
           shared_ptr<string> policyDescription_ {};
-          // The policy name.
+          // The Policy Name.
           shared_ptr<string> policyName_ {};
           // The severity level.
           shared_ptr<string> severity_ {};
@@ -527,7 +527,7 @@ namespace Models
         protected:
           // The description of the policy.
           shared_ptr<string> policyDescription_ {};
-          // The policy name.
+          // The Policy Name.
           shared_ptr<string> policyName_ {};
           // The severity level.
           shared_ptr<string> severity_ {};
@@ -556,9 +556,9 @@ namespace Models
 
 
       protected:
-        // The aggregated interception records.
+        // The summary of interception records.
         shared_ptr<vector<Violations::Deny>> deny_ {};
-        // The aggregated alert information.
+        // The summary of alert information.
         shared_ptr<vector<Violations::Warn>> warn_ {};
       };
 
@@ -692,9 +692,9 @@ namespace Models
 
 
       protected:
-        // The aggregated interception records.
+        // The summary of interception records.
         shared_ptr<vector<TotalViolations::Deny>> deny_ {};
-        // The aggregated alert records.
+        // The summary of alert records.
         shared_ptr<vector<TotalViolations::Warn>> warn_ {};
       };
 
@@ -719,9 +719,9 @@ namespace Models
 
 
     protected:
-      // The aggregated information.
+      // The summary information.
       shared_ptr<Violation::TotalViolations> totalViolations_ {};
-      // The violation records aggregated by policy name.
+      // The violation records summarized by policy name.
       shared_ptr<Violation::Violations> violations_ {};
     };
 
@@ -755,11 +755,11 @@ namespace Models
 
 
   protected:
-    // The policy violation information aggregated by severity level.
+    // The policy violation information summarized by severity level.
     shared_ptr<DescribePolicyGovernanceInClusterResponseBody::Violation> violation_ {};
-    // The policy governance audit logs of the cluster.
+    // The current policy governance audit logs of the cluster.
     shared_ptr<DescribePolicyGovernanceInClusterResponseBody::AdmitLog> admitLog_ {};
-    // The counts of enabled policies at different severity levels in the current cluster.
+    // The counts of enabled policies at different severity levels in the cluster.
     shared_ptr<vector<DescribePolicyGovernanceInClusterResponseBody::OnState>> onState_ {};
   };
 

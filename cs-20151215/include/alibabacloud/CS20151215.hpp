@@ -329,7 +329,7 @@ namespace CS20151215
       Models::CreateClusterInspectConfigResponse createClusterInspectConfig(const string &clusterId, const Models::CreateClusterInspectConfigRequest &request);
 
       /**
-       * @summary Creates a node pool for a cluster. A node pool is a logical collection of nodes that share the same attributes. It allows unified management and O&M of nodes, such as node upgrades and elastic scaling. You can use the automated O&M capabilities of node pools to reduce O&M costs. These capabilities include automatic repair of OS CVE vulnerabilities, automatic recovery of faulty nodes, and automatic upgrades of kubelet and containerd versions.
+       * @summary Creates a node pool. A node pool is a logical collection of nodes with the same property, which allows unified management and O&M of nodes, such as node upgrades and elastic scaling. You can further use the automated O&M features of node pools, such as automatic repair of OS CVE vulnerabilities, automatic recovery of faulty nodes, and automatic upgrades of kubelet and containerd versions, to reduce O&M costs. You can invoke CreateClusterNodePool to create a node pool for a cluster.
        *
        * @param request CreateClusterNodePoolRequest
        * @param headers map
@@ -339,7 +339,7 @@ namespace CS20151215
       Models::CreateClusterNodePoolResponse createClusterNodePoolWithOptions(const string &ClusterId, const Models::CreateClusterNodePoolRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a node pool for a cluster. A node pool is a logical collection of nodes that share the same attributes. It allows unified management and O&M of nodes, such as node upgrades and elastic scaling. You can use the automated O&M capabilities of node pools to reduce O&M costs. These capabilities include automatic repair of OS CVE vulnerabilities, automatic recovery of faulty nodes, and automatic upgrades of kubelet and containerd versions.
+       * @summary Creates a node pool. A node pool is a logical collection of nodes with the same property, which allows unified management and O&M of nodes, such as node upgrades and elastic scaling. You can further use the automated O&M features of node pools, such as automatic repair of OS CVE vulnerabilities, automatic recovery of faulty nodes, and automatic upgrades of kubelet and containerd versions, to reduce O&M costs. You can invoke CreateClusterNodePool to create a node pool for a cluster.
        *
        * @param request CreateClusterNodePoolRequest
        * @return CreateClusterNodePoolResponse
@@ -1021,10 +1021,10 @@ namespace CS20151215
       Models::DescribeClusterTasksResponse describeClusterTasks(const string &clusterId, const Models::DescribeClusterTasksRequest &request);
 
       /**
-       * @summary Retrieves the kubeconfig file of a cluster.
+       * @summary Retrieves the kubeconfig of a cluster.
        *
-       * @description - The default validity period of the certificate issued for a kubeconfig file is three years. Within 180 days before expiration, you can obtain a refreshed kubeconfig file with rotated credentials through the Container Service for Kubernetes console or by calling the API operation to retrieve the cluster kubeconfig. The new kubeconfig certificate remains valid for three years. The old kubeconfig credentials remain valid until the certificate expires. Obtain the rotated credentials promptly based on the kubeconfig expiration time displayed in the console or returned by the API operation.
-       * - Properly manage the kubeconfig credentials used for cluster management, and revoke them promptly when they are no longer needed. This prevents security risks such as data leaks caused by kubeconfig exposure.
+       * @description - The default validity period of a certificate issued for a kubeconfig file is three years. Within 180 days before expiration, you can obtain a refreshed kubeconfig file with rotated certificates through the Container Service for Kubernetes console or by calling the API operation to retrieve the cluster kubeconfig. The new kubeconfig certificate remains valid for three years. The old kubeconfig credentials remain valid until the certificate expires. Obtain the rotated credentials promptly based on the kubeconfig expiration time displayed in the console or returned by the API operation.
+       * - Properly manage the kubeconfig credentials for cluster management and revoke them promptly when they are no longer needed to prevent security risks such as data leaks caused by kubeconfig exposure.
        *
        * @param request DescribeClusterUserKubeconfigRequest
        * @param headers map
@@ -1034,10 +1034,10 @@ namespace CS20151215
       Models::DescribeClusterUserKubeconfigResponse describeClusterUserKubeconfigWithOptions(const string &ClusterId, const Models::DescribeClusterUserKubeconfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the kubeconfig file of a cluster.
+       * @summary Retrieves the kubeconfig of a cluster.
        *
-       * @description - The default validity period of the certificate issued for a kubeconfig file is three years. Within 180 days before expiration, you can obtain a refreshed kubeconfig file with rotated credentials through the Container Service for Kubernetes console or by calling the API operation to retrieve the cluster kubeconfig. The new kubeconfig certificate remains valid for three years. The old kubeconfig credentials remain valid until the certificate expires. Obtain the rotated credentials promptly based on the kubeconfig expiration time displayed in the console or returned by the API operation.
-       * - Properly manage the kubeconfig credentials used for cluster management, and revoke them promptly when they are no longer needed. This prevents security risks such as data leaks caused by kubeconfig exposure.
+       * @description - The default validity period of a certificate issued for a kubeconfig file is three years. Within 180 days before expiration, you can obtain a refreshed kubeconfig file with rotated certificates through the Container Service for Kubernetes console or by calling the API operation to retrieve the cluster kubeconfig. The new kubeconfig certificate remains valid for three years. The old kubeconfig credentials remain valid until the certificate expires. Obtain the rotated credentials promptly based on the kubeconfig expiration time displayed in the console or returned by the API operation.
+       * - Properly manage the kubeconfig credentials for cluster management and revoke them promptly when they are no longer needed to prevent security risks such as data leaks caused by kubeconfig exposure.
        *
        * @param request DescribeClusterUserKubeconfigRequest
        * @return DescribeClusterUserKubeconfigResponse
@@ -1271,7 +1271,7 @@ namespace CS20151215
       Models::DescribePolicyDetailsResponse describePolicyDetails(const string &policyName);
 
       /**
-       * @summary Queries the details of policy governance in a specified ACK cluster. Container security policies for ACK clusters provide a comprehensive built-in rule library that includes Compliance, Infra, K8s-general, and PSP to ensure the secure operation of containers in production environments. This operation retrieves details such as the counts of enabled policies at different severity levels, policy governance audit logs, and interception and alerting statistics.
+       * @summary Queries the details of policy governance for a specified ACK cluster. Container security policies for ACK clusters provide a comprehensive set of built-in rule libraries, including Compliance, Infra, K8s-general, and PSP, to ensure the secure operation of containers in production environments. You can use this operation to retrieve information such as the counts of enabled policies at different severity levels, policy governance audit logs, and interception and alerting statistics.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1280,7 +1280,7 @@ namespace CS20151215
       Models::DescribePolicyGovernanceInClusterResponse describePolicyGovernanceInClusterWithOptions(const string &clusterId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of policy governance in a specified ACK cluster. Container security policies for ACK clusters provide a comprehensive built-in rule library that includes Compliance, Infra, K8s-general, and PSP to ensure the secure operation of containers in production environments. This operation retrieves details such as the counts of enabled policies at different severity levels, policy governance audit logs, and interception and alerting statistics.
+       * @summary Queries the details of policy governance for a specified ACK cluster. Container security policies for ACK clusters provide a comprehensive set of built-in rule libraries, including Compliance, Infra, K8s-general, and PSP, to ensure the secure operation of containers in production environments. You can use this operation to retrieve information such as the counts of enabled policies at different severity levels, policy governance audit logs, and interception and alerting statistics.
        *
        * @return DescribePolicyGovernanceInClusterResponse
        */
@@ -1767,9 +1767,9 @@ namespace CS20151215
       Models::ListAddonsResponse listAddons(const Models::ListAddonsRequest &request);
 
       /**
-       * @summary Retrieves the list of self-healing rules.
+       * @summary Retrieves a list of self-healing rules.
        *
-       * @description >Notice: This API is not yet available. Stay tuned.</notice>
+       * @description >Notice: This API is not yet available. Stay tuned.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1778,9 +1778,9 @@ namespace CS20151215
       Models::ListAutoRepairPoliciesResponse listAutoRepairPoliciesWithOptions(const string &clusterId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of self-healing rules.
+       * @summary Retrieves a list of self-healing rules.
        *
-       * @description >Notice: This API is not yet available. Stay tuned.</notice>
+       * @description >Notice: This API is not yet available. Stay tuned.
        *
        * @return ListAutoRepairPoliciesResponse
        */

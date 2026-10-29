@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(resource_sub_type, resourceSubType_);
       DARABONBA_PTR_TO_JSON(resource_type, resourceType_);
       DARABONBA_PTR_TO_JSON(rules, rules_);
+      DARABONBA_PTR_TO_JSON(type, type_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeAutoRepairPolicyResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(id, id_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(resource_sub_type, resourceSubType_);
       DARABONBA_PTR_FROM_JSON(resource_type, resourceType_);
       DARABONBA_PTR_FROM_JSON(rules, rules_);
+      DARABONBA_PTR_FROM_JSON(type, type_);
     };
     DescribeAutoRepairPolicyResponseBody() = default ;
     DescribeAutoRepairPolicyResponseBody(const DescribeAutoRepairPolicyResponseBody &) = default ;
@@ -191,7 +193,7 @@ namespace Models
 
 
           protected:
-            // The `key` of the label.
+            // The key of the label.
             shared_ptr<string> key_ {};
             // The value of the label.
             shared_ptr<string> value_ {};
@@ -232,11 +234,11 @@ namespace Models
 
 
         protected:
-          // The label configuration for authorization confirmation. Adding the following labels to the node indicates that you authorize ACK to execute the operations in this stage. After completing the operations in this stage, ACK automatically removes the authorization inquiry and confirmation labels for this stage. If you do not add the following labels promptly, ACK will not execute the actions in this stage and subsequent stages, and the node may remain in a damaged state.
+          // The label configuration for authorization confirmation. When you add the following label to a node, you authorize ACK to perform the operations in this phase. After completing the operations in this phase, ACK automatically removes the inquiry and confirmation labels for this phase. If you do not add the following label in time, ACK will not perform the operations in this phase and subsequent phases, and the node may remain in a damaged state.
           shared_ptr<Intervention::ApprovedLabel> approvedLabel_ {};
-          // Indicates whether manual approval is enabled.
+          // Specifies whether manual approval is enabled.
           shared_ptr<bool> enable_ {};
-          // The label configuration for authorization inquiry. When this stage is reached, ACK adds the following labels to your node and waits for your authorization to execute the actions in this stage.
+          // The label configuration for authorization inquiry. When this phase is entered, ACK adds the following label to your node and waits for your authorization to perform the operations in this phase.
           shared_ptr<Intervention::InquiringLabel> inquiringLabel_ {};
           // The type of manual approval.
           shared_ptr<string> type_ {};
@@ -272,7 +274,7 @@ namespace Models
       protected:
         // The configuration parameters of the procedure.
         Darabonba::Json config_ {};
-        // The configuration of the manual intervention procedure.
+        // The manual intervention procedure.
         shared_ptr<RepairProcedure::Intervention> intervention_ {};
         // The name of the procedure.
         shared_ptr<string> name_ {};
@@ -316,9 +318,9 @@ namespace Models
 
 
       protected:
-        // The name of the incident.
+        // The fault name.
         shared_ptr<string> name_ {};
-        // The type of the incident.
+        // The fault type.
         shared_ptr<string> type_ {};
       };
 
@@ -343,14 +345,15 @@ namespace Models
 
 
     protected:
-      // The list of identified incidents.
+      // The list of identified faults.
       shared_ptr<vector<Rules::Incidents>> incidents_ {};
       // The repair procedure.
       shared_ptr<vector<Rules::RepairProcedure>> repairProcedure_ {};
     };
 
     virtual bool empty() const override { return this->id_ == nullptr
-        && this->name_ == nullptr && this->resourceIds_ == nullptr && this->resourceSubType_ == nullptr && this->resourceType_ == nullptr && this->rules_ == nullptr; };
+        && this->name_ == nullptr && this->resourceIds_ == nullptr && this->resourceSubType_ == nullptr && this->resourceType_ == nullptr && this->rules_ == nullptr
+        && this->type_ == nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
@@ -397,19 +400,30 @@ namespace Models
     inline DescribeAutoRepairPolicyResponseBody& setRules(vector<DescribeAutoRepairPolicyResponseBody::Rules> && rules) { DARABONBA_PTR_SET_RVALUE(rules_, rules) };
 
 
+    // type Field Functions 
+    bool hasType() const { return this->type_ != nullptr;};
+    void deleteType() { this->type_ = nullptr;};
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline DescribeAutoRepairPolicyResponseBody& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
   protected:
-    // The self-healing rule ID.
+    // The ID of the self-healing rule.
     shared_ptr<string> id_ {};
     // The name of the self-healing rule.
     shared_ptr<string> name_ {};
     // The list of resources bound to the self-healing rule.
     shared_ptr<vector<string>> resourceIds_ {};
-    // The subtype of the resource bound to the self-healing rule.
+    // The resource subtype bound to the self-healing rule.
     shared_ptr<string> resourceSubType_ {};
-    // The type of resource bound to the self-healing rule.
+    // The resource type bound to the self-healing rule.
     shared_ptr<string> resourceType_ {};
     // The list of self-healing sub-rules.
     shared_ptr<vector<DescribeAutoRepairPolicyResponseBody::Rules>> rules_ {};
+    // The rule type. The value is case-sensitive. Valid values:
+    // - custom: user-defined rules that support modification and deletion
+    // - builtin: built-in system rules that are read-only and do not support creation, modification, or deletion
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models
