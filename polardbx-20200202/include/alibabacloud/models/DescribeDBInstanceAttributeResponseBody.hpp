@@ -82,6 +82,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
         DARABONBA_PTR_TO_JSON(RightsSeparationEnabled, rightsSeparationEnabled_);
         DARABONBA_PTR_TO_JSON(RightsSeparationStatus, rightsSeparationStatus_);
+        DARABONBA_PTR_TO_JSON(SearchEnabled, searchEnabled_);
+        DARABONBA_PTR_TO_JSON(SearchInstance, searchInstance_);
         DARABONBA_PTR_TO_JSON(SecondaryZone, secondaryZone_);
         DARABONBA_PTR_TO_JSON(Series, series_);
         DARABONBA_PTR_TO_JSON(SpecCategory, specCategory_);
@@ -144,6 +146,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
         DARABONBA_PTR_FROM_JSON(RightsSeparationEnabled, rightsSeparationEnabled_);
         DARABONBA_PTR_FROM_JSON(RightsSeparationStatus, rightsSeparationStatus_);
+        DARABONBA_PTR_FROM_JSON(SearchEnabled, searchEnabled_);
+        DARABONBA_PTR_FROM_JSON(SearchInstance, searchInstance_);
         DARABONBA_PTR_FROM_JSON(SecondaryZone, secondaryZone_);
         DARABONBA_PTR_FROM_JSON(Series, series_);
         DARABONBA_PTR_FROM_JSON(SpecCategory, specCategory_);
@@ -213,6 +217,50 @@ namespace Models
         shared_ptr<string> value_ {};
       };
 
+      class SearchInstance : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const SearchInstance& obj) { 
+          DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+          DARABONBA_PTR_TO_JSON(Status, status_);
+        };
+        friend void from_json(const Darabonba::Json& j, SearchInstance& obj) { 
+          DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+          DARABONBA_PTR_FROM_JSON(Status, status_);
+        };
+        SearchInstance() = default ;
+        SearchInstance(const SearchInstance &) = default ;
+        SearchInstance(SearchInstance &&) = default ;
+        SearchInstance(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~SearchInstance() = default ;
+        SearchInstance& operator=(const SearchInstance &) = default ;
+        SearchInstance& operator=(SearchInstance &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->instanceId_ == nullptr
+        && this->status_ == nullptr; };
+        // instanceId Field Functions 
+        bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+        void deleteInstanceId() { this->instanceId_ = nullptr;};
+        inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+        inline SearchInstance& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+        // status Field Functions 
+        bool hasStatus() const { return this->status_ != nullptr;};
+        void deleteStatus() { this->status_ = nullptr;};
+        inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+        inline SearchInstance& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+      protected:
+        // The name of the Search engine instance.
+        shared_ptr<string> instanceId_ {};
+        // The status of the Search engine.
+        shared_ptr<string> status_ {};
+      };
+
       class GdnMemberList : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const GdnMemberList& obj) { 
@@ -260,12 +308,11 @@ namespace Models
 
 
       protected:
-        // The name of the member, which is the name of the PolarDB-X instance.
+        // The member name, which is the PolarDB-X instance name.
         shared_ptr<string> memberName_ {};
-        // The role of the node. Valid values:
-        // 
-        // - **master**: The primary node.
-        // - **standby**: The secondary node.
+        // The node role. Valid values:
+        // - **master**: primary node
+        // - **standby**: secondary node
         shared_ptr<string> role_ {};
         // The status.
         shared_ptr<string> status_ {};
@@ -355,7 +402,7 @@ namespace Models
         shared_ptr<string> nodeClass_ {};
         // The region ID of the node.
         shared_ptr<string> regionId_ {};
-        // The name of the zone where the node is deployed.
+        // The zone name of the node.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -437,7 +484,9 @@ namespace Models
         shared_ptr<string> connectionString_ {};
         // The connection port number.
         shared_ptr<int64_t> port_ {};
-        // The connection type. **VPC** indicates an internal network connection, and **PUBLIC** indicates a public network connection.
+        // The connection type. Valid values:
+        // - **VPC**: internal network connection
+        // - **PUBLIC**: public network connection
         shared_ptr<string> type_ {};
         // The VPC ID.
         shared_ptr<string> VPCId_ {};
@@ -457,9 +506,10 @@ namespace Models
         && this->LTSVersions_ == nullptr && this->latestMinorVersion_ == nullptr && this->lockMode_ == nullptr && this->maintainEndTime_ == nullptr && this->maintainStartTime_ == nullptr
         && this->minorVersion_ == nullptr && this->network_ == nullptr && this->payType_ == nullptr && this->port_ == nullptr && this->primaryInstanceId_ == nullptr
         && this->primaryZone_ == nullptr && this->readDBInstances_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->rightsSeparationEnabled_ == nullptr
-        && this->rightsSeparationStatus_ == nullptr && this->secondaryZone_ == nullptr && this->series_ == nullptr && this->specCategory_ == nullptr && this->status_ == nullptr
-        && this->storageType_ == nullptr && this->storageUsed_ == nullptr && this->tagSet_ == nullptr && this->tertiaryZone_ == nullptr && this->topologyType_ == nullptr
-        && this->type_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->rightsSeparationStatus_ == nullptr && this->searchEnabled_ == nullptr && this->searchInstance_ == nullptr && this->secondaryZone_ == nullptr && this->series_ == nullptr
+        && this->specCategory_ == nullptr && this->status_ == nullptr && this->storageType_ == nullptr && this->storageUsed_ == nullptr && this->tagSet_ == nullptr
+        && this->tertiaryZone_ == nullptr && this->topologyType_ == nullptr && this->type_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr
+        && this->zoneId_ == nullptr; };
       // aiGatewayEnabled Field Functions 
       bool hasAiGatewayEnabled() const { return this->aiGatewayEnabled_ != nullptr;};
       void deleteAiGatewayEnabled() { this->aiGatewayEnabled_ = nullptr;};
@@ -801,6 +851,22 @@ namespace Models
       inline DBInstance& setRightsSeparationStatus(string rightsSeparationStatus) { DARABONBA_PTR_SET_VALUE(rightsSeparationStatus_, rightsSeparationStatus) };
 
 
+      // searchEnabled Field Functions 
+      bool hasSearchEnabled() const { return this->searchEnabled_ != nullptr;};
+      void deleteSearchEnabled() { this->searchEnabled_ = nullptr;};
+      inline bool getSearchEnabled() const { DARABONBA_PTR_GET_DEFAULT(searchEnabled_, false) };
+      inline DBInstance& setSearchEnabled(bool searchEnabled) { DARABONBA_PTR_SET_VALUE(searchEnabled_, searchEnabled) };
+
+
+      // searchInstance Field Functions 
+      bool hasSearchInstance() const { return this->searchInstance_ != nullptr;};
+      void deleteSearchInstance() { this->searchInstance_ = nullptr;};
+      inline const DBInstance::SearchInstance & getSearchInstance() const { DARABONBA_PTR_GET_CONST(searchInstance_, DBInstance::SearchInstance) };
+      inline DBInstance::SearchInstance getSearchInstance() { DARABONBA_PTR_GET(searchInstance_, DBInstance::SearchInstance) };
+      inline DBInstance& setSearchInstance(const DBInstance::SearchInstance & searchInstance) { DARABONBA_PTR_SET_VALUE(searchInstance_, searchInstance) };
+      inline DBInstance& setSearchInstance(DBInstance::SearchInstance && searchInstance) { DARABONBA_PTR_SET_RVALUE(searchInstance_, searchInstance) };
+
+
       // secondaryZone Field Functions 
       bool hasSecondaryZone() const { return this->secondaryZone_ != nullptr;};
       void deleteSecondaryZone() { this->secondaryZone_ = nullptr;};
@@ -895,42 +961,42 @@ namespace Models
 
 
     protected:
-      // Specifies whether the AI gateway is enabled.
+      // Indicates whether the AI gateway is enabled.
       shared_ptr<string> aiGatewayEnabled_ {};
-      // Indicates whether the In-Memory Column Index (IMCI) feature is supported.
+      // Indicates whether the column store index feature is supported.
       shared_ptr<bool> canNotCreateColumnar_ {};
       // The CN node specifications. Valid values:
-      // - **polarx.x4.medium.2e**: 2 cores, 8 GB
-      // - **polarx.x4.large.2e**: 4 cores, 16 GB
-      // - **polarx.x8.large.2e**: 4 cores, 32 GB
-      // - **polarx.x4.xlarge.2e**: 8 cores, 32 GB
-      // - **polarx.x8.xlarge.2e**: 8 cores, 64 GB
-      // - **polarx.x4.2xlarge.2e**: 16 cores, 64 GB
-      // - **polarx.x8.2xlarge.2e**: 16 cores, 128 GB
-      // - **polarx.x4.4xlarge.2e**: 32 cores, 128 GB
-      // - **polarx.x8.4xlarge.2e**: 32 cores, 256 GB
-      // - **polarx.st.8xlarge.2e**: 60 cores, 470 GB
-      // - **polarx.st.12xlarge.2e**: 90 cores, 720 GB
+      // - **polarx.x4.medium.2e**: 2 cores and 8 GB of memory
+      // - **polarx.x4.large.2e**: 4 cores and 16 GB of memory
+      // - **polarx.x8.large.2e**: 4 cores and 32 GB of memory
+      // - **polarx.x4.xlarge.2e**: 8 cores and 32 GB of memory
+      // - **polarx.x8.xlarge.2e**: 8 cores and 64 GB of memory
+      // - **polarx.x4.2xlarge.2e**: 16 cores and 64 GB of memory
+      // - **polarx.x8.2xlarge.2e**: 16 cores and 128 GB of memory
+      // - **polarx.x4.4xlarge.2e**: 32 cores and 128 GB of memory
+      // - **polarx.x8.4xlarge.2e**: 32 cores and 256 GB of memory
+      // - **polarx.st.8xlarge.2e**: 60 cores and 470 GB of memory
+      // - **polarx.st.12xlarge.2e**: 90 cores and 720 GB of memory
       shared_ptr<string> cnNodeClassCode_ {};
       // The number of CN nodes.
       shared_ptr<int32_t> cnNodeCount_ {};
       // The name of the column store engine instance.
       shared_ptr<string> columnarInstanceName_ {};
-      // The column store read-only instance information.
+      // The information about the column store read-only instances.
       shared_ptr<vector<string>> columnarReadDBInstances_ {};
-      // The commodity type of the instance. The value is fixed as drds_polarxpost_public_cn.
+      // The commodity type of the instance. The value is fixed to drds_polarxpost_public_cn.
       shared_ptr<string> commodityCode_ {};
       // The endpoint information.
       shared_ptr<vector<DBInstance::ConnAddrs>> connAddrs_ {};
-      // The internal network connection string.
+      // The internal network connection information.
       shared_ptr<string> connectionString_ {};
-      // The processor type. Default value: intel.
+      // The chip type. Default value: intel.
       shared_ptr<string> cpuType_ {};
       // The creation time.
       shared_ptr<string> createTime_ {};
       // The instance type. Valid values:
-      // - **ReadWrite**: Primary instance.
-      // - **ReadOnly**: Read-only instance.
+      // - **ReadWrite**: primary instance
+      // - **ReadOnly**: read-only instance
       shared_ptr<string> DBInstanceType_ {};
       // The node specifications of the instance.
       shared_ptr<string> DBNodeClass_ {};
@@ -938,82 +1004,82 @@ namespace Models
       shared_ptr<int32_t> DBNodeCount_ {};
       // The database node information.
       shared_ptr<vector<DBInstance::DBNodes>> DBNodes_ {};
-      // The database type. The value is fixed as polarx.
+      // The database type. The value is fixed to polarx.
       shared_ptr<string> DBType_ {};
       // The database version.
       shared_ptr<string> DBVersion_ {};
-      // The description of the instance.
+      // The instance description.
       shared_ptr<string> description_ {};
       // Indicates whether the specifications of the DN nodes in the instance are different. Valid values:
       // - true: The specifications are different.
       // - false: The specifications are the same.
       shared_ptr<bool> differentDNSpec_ {};
       // The DN node specifications. Valid values:
-      // - **mysql.n2.medium.25**: 2 cores, 4 GB
-      // - **mysql.n4.medium.25**: 2 cores, 8 GB
-      // - **mysql.x8.medium.25**: 2 cores, 16 GB
-      // - **mysql.n2.large.25**: 4 cores, 8 GB
-      // - **mysql.n4.large.25**: 4 cores, 16 GB
-      // - **mysql.x8.large.25**: 4 cores, 32 GB
-      // - **mysql.n2.xlarge.25**: 8 cores, 16 GB
-      // - **mysql.n4.xlarge.25**: 8 cores, 32 GB
-      // - **mysql.x8.xlarge.25**: 8 cores, 64 GB
-      // - **mysql.n4.2xlarge.25**: 16 cores, 64 GB
-      // - **mysql.x8.2xlarge.25**: 16 cores, 128 GB
-      // - **mysql.x4.4xlarge.25**: 32 cores, 128 GB
-      // - **mysql.x8.4xlarge.25**: 32 cores, 256 GB
-      // - **mysql.st.8xlarge.25**: 60 cores, 470 GB
-      // - **mysql.st.12xlarge.25**: 90 cores, 720 GB
+      // - **mysql.n2.medium.25**: 2 cores and 4 GB of memory
+      // - **mysql.n4.medium.25**: 2 cores and 8 GB of memory
+      // - **mysql.x8.medium.25**: 2 cores and 16 GB of memory
+      // - **mysql.n2.large.25**: 4 cores and 8 GB of memory
+      // - **mysql.n4.large.25**: 4 cores and 16 GB of memory
+      // - **mysql.x8.large.25**: 4 cores and 32 GB of memory
+      // - **mysql.n2.xlarge.25**: 8 cores and 16 GB of memory
+      // - **mysql.n4.xlarge.25**: 8 cores and 32 GB of memory
+      // - **mysql.x8.xlarge.25**: 8 cores and 64 GB of memory
+      // - **mysql.n4.2xlarge.25**: 16 cores and 64 GB of memory
+      // - **mysql.x8.2xlarge.25**: 16 cores and 128 GB of memory
+      // - **mysql.x4.4xlarge.25**: 32 cores and 128 GB of memory
+      // - **mysql.x8.4xlarge.25**: 32 cores and 256 GB of memory
+      // - **mysql.st.8xlarge.25**: 60 cores and 470 GB of memory
+      // - **mysql.st.12xlarge.25**: 90 cores and 720 GB of memory
       shared_ptr<string> dnNodeClassCode_ {};
       // The number of DN nodes.
       shared_ptr<int32_t> dnNodeCount_ {};
-      // The disk space of the storage node. Unit: GB.
+      // The disk space size of the storage node, in GB.
       shared_ptr<string> dnStorageSpace_ {};
-      // The database type. The value is fixed as polarx.
+      // The database type. The value is fixed to polarx.
       shared_ptr<string> engine_ {};
-      // The database engine version. Default value: 2.0.
+      // The DPI engine version. Default value: 2.0.
       shared_ptr<string> engineVersion_ {};
       // The expiration time. The format is yyyy-MM-ddTHH:mm:ss.sss+0000 (UTC).
       shared_ptr<string> expireDate_ {};
       // Indicates whether the instance has expired. Valid values:
-      // - **true**: Expired.
-      // - **false**: Normal.
+      // - **true**: expired
+      // - **false**: normal
       shared_ptr<string> expired_ {};
-      // The GDN instance name.
+      // The name of the GDN instance.
       shared_ptr<string> gdnInstanceName_ {};
       // The GDN member list.
       shared_ptr<vector<DBInstance::GdnMemberList>> gdnMemberList_ {};
-      // The role in the global database network (GDN).
+      // The GDN role.
       shared_ptr<string> gdnRole_ {};
       // The ID of the primary instance. If this parameter is not returned, the instance is a primary instance.
       shared_ptr<string> id_ {};
-      // The database engine version of the instance DPI engine. This is an internal parameter.
+      // The instance DPI engine version. This is an internal parameter.
       shared_ptr<int32_t> kindCode_ {};
-      // The instance version.
+      // The instance versions.
       // 
       // This parameter is required.
       shared_ptr<vector<string>> LTSVersions_ {};
-      // The latest kernel Milvus version supported by the instance.
+      // The latest Milvus version supported by the current instance.
       shared_ptr<string> latestMinorVersion_ {};
       // The lock mode of the instance. Valid values:
-      // - **Unlock**: Normal.
-      // - **ManualLock**: Manually locked.
-      // - **LockByExpiration**: Automatically locked due to expiration.
-      // - **LockByRestoration**: Automatically locked before a rollback.
-      // - **LockByDiskQuota**: Automatically locked due to full storage space.
-      // - **LockReadInstanceByDiskQuota**: Automatically locked due to full storage space of the read-only instance.
+      // - **Unlock**: normal
+      // - **ManualLock**: manually locked
+      // - **LockByExpiration**: automatically locked due to expiration
+      // - **LockByRestoration**: automatically locked before rollback
+      // - **LockByDiskQuota**: automatically locked due to full disk space
+      // - **LockReadInstanceByDiskQuota**: automatically locked due to full disk space of the read-only instance
       shared_ptr<string> lockMode_ {};
-      // The end time of the maintenance window for the instance. The time is in UTC. Add 8 hours to obtain the maintenance window displayed in the console.
+      // The end time of the maintenance window. The time is in UTC. Add 8 hours to obtain the maintenance window displayed in the console.
       shared_ptr<string> maintainEndTime_ {};
-      // The start time of the maintenance window for the instance. The time is in UTC. Add 8 hours to obtain the maintenance window displayed in the console.
+      // The start time of the maintenance window. The time is in UTC. Add 8 hours to obtain the maintenance window displayed in the console.
       shared_ptr<string> maintainStartTime_ {};
-      // The current kernel Milvus version.
+      // The current Milvus version.
       shared_ptr<string> minorVersion_ {};
       // The network type of the instance. Only VPC is supported, which indicates a virtual private cloud.
       shared_ptr<string> network_ {};
       // The billing method of the instance. Valid values:
-      // - **Postpaid**: Pay-as-you-go.
-      // - **Prepaid**: Subscription.
+      // - **Postpaid**: pay-as-you-go
+      // - **Prepaid**: subscription
       shared_ptr<string> payType_ {};
       // The internal network connection port.
       shared_ptr<string> port_ {};
@@ -1025,39 +1091,42 @@ namespace Models
       shared_ptr<string> primaryZone_ {};
       // The list of read-only instance names.
       shared_ptr<vector<string>> readDBInstances_ {};
-      // The region ID.
+      // The region of the instance.
       shared_ptr<string> regionId_ {};
       // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // Indicates whether the three-role mode is enabled. Valid values:
-      // - **false**: Disabled.
-      // - **true**: Enabled.
+      // The status of the three-role mode. Valid values:
+      // - **false**: disabled
+      // - **true**: enabled
       shared_ptr<bool> rightsSeparationEnabled_ {};
-      // The three-role mode status. Valid values:
-      // - **disabled**: Disabled.
-      // - **enabled**: Enabled.
-      // - **processing**: Processing.
-      // - **unknown**: Unknown. This may be caused by a connection failure to the instance.
+      // The status of the three-role mode. Valid values:
+      // - **disabled**: disabled
+      // - **enabled**: enabled
+      // - **processing**: processing
+      // - **unknown**: unknown, which may be caused by the inability to connect to the instance
       shared_ptr<string> rightsSeparationStatus_ {};
+      // Indicates whether an associated Search instance that is not deleted exists, including instances that are being created or deleted.
+      shared_ptr<bool> searchEnabled_ {};
+      // The unique Search instance associated with the current primary instance. This parameter is empty if the feature is not enabled.
+      shared_ptr<DBInstance::SearchInstance> searchInstance_ {};
       // The secondary zone.
       shared_ptr<string> secondaryZone_ {};
       // The instance edition. Valid values:
-      // - **enterprise**: Enterprise Edition.
-      // - **standard**: Standard Edition.
+      // - **enterprise**: Enterprise Edition
+      // - **standard**: Standard Edition
       shared_ptr<string> series_ {};
-      // The specification category. Valid values:
-      // - exclusive: Dedicated.
-      // - general: General-purpose.
+      // exclusive: Exclusive.
+      // general: General.
       shared_ptr<string> specCategory_ {};
-      // The instance status.
+      // The instance status. For more information, see the following description.
       shared_ptr<string> status_ {};
       // The storage type.
       shared_ptr<string> storageType_ {};
-      // The used storage space, in bytes.
+      // The used storage capacity, in bytes.
       shared_ptr<int64_t> storageUsed_ {};
       // The tag set.
       shared_ptr<vector<DBInstance::TagSet>> tagSet_ {};
-      // The third zone in a Three-zone deployment.
+      // The third zone.
       shared_ptr<string> tertiaryZone_ {};
       // The topology type. Valid values:
       // - **3azones**: Three-zone deployment.
@@ -1066,14 +1135,14 @@ namespace Models
       // This parameter is required.
       shared_ptr<string> topologyType_ {};
       // The instance type. Valid values:
-      // - **ReadWrite**: Primary instance.
-      // - **ReadOnly**: Read-only instance.
+      // - **ReadWrite**: primary instance
+      // - **ReadOnly**: read-only instance
       shared_ptr<string> type_ {};
       // The VPC ID.
       shared_ptr<string> VPCId_ {};
       // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
-      // The zone where the instance is deployed.
+      // The zone where the instance is located.
       shared_ptr<string> zoneId_ {};
     };
 

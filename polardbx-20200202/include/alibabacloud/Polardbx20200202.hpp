@@ -1667,9 +1667,9 @@ namespace Polardbx20200202
       Models::DescribeContext0ConfigResponse describeContext0Config(const Models::DescribeContext0ConfigRequest &request);
 
       /**
-       * @summary Queries the information about a context service instance.
+       * @summary Queries the information about context service instances.
        *
-       * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+       * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge, but Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
        *
        * @param request DescribeContext0InfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1678,9 +1678,9 @@ namespace Polardbx20200202
       Models::DescribeContext0InfoResponse describeContext0InfoWithOptions(const Models::DescribeContext0InfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a context service instance.
+       * @summary Queries the information about context service instances.
        *
-       * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+       * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge, but Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
        *
        * @param request DescribeContext0InfoRequest
        * @return DescribeContext0InfoResponse
@@ -1793,7 +1793,7 @@ namespace Polardbx20200202
       Models::DescribeCustomEndpointListResponse describeCustomEndpointList(const Models::DescribeCustomEndpointListRequest &request);
 
       /**
-       * @summary Queries the attributes of an instance.
+       * @summary Retrieves the attributes of an instance.
        *
        * @description This operation retrieves the list of custom endpoints configured by the user to facilitate the management and viewing of private connections or VPC endpoint service settings.
        *
@@ -1804,7 +1804,7 @@ namespace Polardbx20200202
       Models::DescribeDBInstanceAttributeResponse describeDBInstanceAttributeWithOptions(const Models::DescribeDBInstanceAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the attributes of an instance.
+       * @summary Retrieves the attributes of an instance.
        *
        * @description This operation retrieves the list of custom endpoints configured by the user to facilitate the management and viewing of private connections or VPC endpoint service settings.
        *

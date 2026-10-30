@@ -107,17 +107,17 @@ namespace Models
 
 
     protected:
-      // The identity name.
+      // The name of the identity.
       shared_ptr<string> identityName_ {};
       // POSIX GID
       shared_ptr<int64_t> posixGid_ {};
       // POSIX UID
       shared_ptr<int64_t> posixUid_ {};
-      // The identity role.
+      // The role of the identity.
       shared_ptr<string> role_ {};
       // The status.
       shared_ptr<string> status_ {};
-      // The tenant ID.
+      // The ID of the tenant.
       shared_ptr<string> tenantId_ {};
     };
 
@@ -207,13 +207,13 @@ namespace Models
     protected:
       // The authentication action.
       shared_ptr<string> authAction_ {};
-      // The display name of the authentication principal.
+      // The name of the authentication principal.
       shared_ptr<string> authPrincipalDisplayName_ {};
       // The owner ID of the authentication principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // The authentication principal type.
+      // The description is as above.
       shared_ptr<string> authPrincipalType_ {};
-      // The encoded diagnostic message.
+      // The diagnostic information.
       shared_ptr<string> encodedDiagnosticMessage_ {};
       // NoPermissionType
       shared_ptr<string> noPermissionType_ {};
@@ -253,7 +253,7 @@ namespace Models
     shared_ptr<CreatePxfsUserResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The response data.
     shared_ptr<CreatePxfsUserResponseBody::Data> data_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

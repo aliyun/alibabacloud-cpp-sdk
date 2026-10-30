@@ -221,20 +221,20 @@ namespace Models
           protected:
             // The endpoint.
             shared_ptr<string> connectionString_ {};
-            // The target node type: service or dashboard.
+            // The target node type. Valid values: service, dashboard.
             shared_ptr<string> nodeType_ {};
             // The port.
             shared_ptr<int32_t> port_ {};
             // The instance type. Valid values:
             // 
-            // - **ReadWrite**: Primary instance.
-            // - **ReadOnly**: Read-only instance.
+            // - **ReadWrite**: primary instance
+            // - **ReadOnly**: read-only instance
             shared_ptr<string> type_ {};
             // VPC ID
             shared_ptr<string> VPCId_ {};
             // The vSwitch ID.
             shared_ptr<string> vSwitchId_ {};
-            // The VPC-connected instance ID.
+            // The VPC instance ID.
             shared_ptr<string> vpcInstanceId_ {};
           };
 
@@ -307,7 +307,7 @@ namespace Models
 
 
         protected:
-          // The instance specifications.
+          // The instance class.
           shared_ptr<string> classCode_ {};
           // The vSwitch ID.
           shared_ptr<vector<ReplicaSets::ConnAddrs>> connAddrs_ {};
@@ -317,17 +317,17 @@ namespace Models
           shared_ptr<string> instanceId_ {};
           // The number of nodes.
           shared_ptr<int32_t> nodeCount_ {};
-          // The target node type: service or dashboard.
+          // The target node type. Valid values: service, dashboard.
           shared_ptr<string> nodeType_ {};
           // The node status. Valid values:
           // 
-          // - **0**: Running.
-          // - **1**: Creating.
-          // - **2**: Abnormal.
-          // - **3**: Expired.
-          // - **4**: Releasing.
-          // - **5**: Released.
-          // - **6**: Locked.
+          // - **0**: running
+          // - **1**: creating
+          // - **2**: abnormal
+          // - **3**: expired
+          // - **4**: releasing
+          // - **5**: released
+          // - **6**: locked
           shared_ptr<string> status_ {};
           // The storage type.
           shared_ptr<string> storageType_ {};
@@ -421,7 +421,7 @@ namespace Models
         protected:
           // The endpoint.
           shared_ptr<string> connectionString_ {};
-          // The target node type: service or dashboard.
+          // The target node type. Valid values: service, dashboard.
           shared_ptr<string> nodeType_ {};
           // The port.
           shared_ptr<int32_t> port_ {};
@@ -431,7 +431,7 @@ namespace Models
           shared_ptr<string> VPCId_ {};
           // The vSwitch ID.
           shared_ptr<string> vSwitchId_ {};
-          // The VPC-connected instance ID.
+          // The VPC instance ID.
           shared_ptr<string> vpcInstanceId_ {};
         };
 
@@ -549,21 +549,21 @@ namespace Models
 
 
       protected:
-        // The instance specifications.
+        // The instance class.
         shared_ptr<string> classCode_ {};
         // The list of endpoints.
         shared_ptr<vector<Instance::ConnAddrs>> connAddrs_ {};
         // The creation time.
         shared_ptr<string> createTime_ {};
-        // The database instance name.
+        // The name of the database instance.
         shared_ptr<string> DBInstanceName_ {};
         // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // Service 当前已确认的小版本完整 tag，未知时为空。
+        // The full tag of the minor version currently confirmed for the service. This parameter is empty when the version is unknown.
         shared_ptr<string> minorVersion_ {};
         // The number of nodes.
         shared_ptr<int32_t> nodeCount_ {};
-        // The PolarDB-X Search instance name.
+        // The name of the PolarDB-X Search instance.
         shared_ptr<string> openSearchInstanceName_ {};
         // The region ID.
         shared_ptr<string> regionId_ {};
@@ -686,11 +686,11 @@ namespace Models
       shared_ptr<string> authPrincipalDisplayName_ {};
       // The owner ID of the authentication principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // The authentication principal type.
+      // The type of the authentication principal.
       shared_ptr<string> authPrincipalType_ {};
       // The encoded diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The type of missing permission.
+      // The no-permission type.
       shared_ptr<string> noPermissionType_ {};
       // The policy type.
       shared_ptr<string> policyType_ {};
@@ -724,9 +724,9 @@ namespace Models
 
 
   protected:
-    // The details about the access denial.
+    // The details of the access denial.
     shared_ptr<DescribeContext0InfoResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
-    // The parameter details.
+    // The data details.
     shared_ptr<DescribeContext0InfoResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
