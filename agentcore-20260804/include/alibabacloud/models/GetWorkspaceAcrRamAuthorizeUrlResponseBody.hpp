@@ -108,7 +108,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> acrInstanceId_ {};
-      // The RAM authorization URL used to create or append target ACR permissions for the shared role.
+      // The RAM authorization URL for creating or appending target ACR permissions for the shared role.
       // 
       // This parameter is required.
       shared_ptr<string> authorizeUrl_ {};

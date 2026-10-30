@@ -127,13 +127,13 @@ namespace Models
 
 
       protected:
-        // HTTP-Redirect or HTTP-POST. This parameter is required when manually filled in. Queries return the short name.
+        // HTTP-Redirect or HTTP-POST. This parameter is required when you manually enter the configuration. Queries return the short name.
         shared_ptr<string> bindingType_ {};
-        // This parameter is required when manually filled in. It must be non-empty and cannot exceed 2,048 characters. Existing configurations do not support replacement. This is different from the Entity ID of the SP queried on our side.
+        // This parameter is required when you manually enter the configuration. It must be non-empty and cannot exceed 2,048 characters. Existing configurations cannot be replaced. This is different from the entity ID of the service provider (SP) queried on our side.
         shared_ptr<string> entityId_ {};
-        // This parameter is required when manually filled in. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
+        // This parameter is required when you manually enter the configuration. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
         shared_ptr<string> loginUrl_ {};
-        // This parameter is required when manually filled in. It must be a non-empty array and use PEM X.509 certificate text. The current validity period is verified. A maximum of two certificates are allowed after deduplication.
+        // This parameter is required when you manually enter the configuration. It must be a non-empty array and use PEM X.509 certificate text. The system verifies the current validity period. A maximum of two certificates are allowed after deduplication.
         shared_ptr<vector<string>> x509Certificates_ {};
       };
 
@@ -193,11 +193,11 @@ namespace Models
 
 
       protected:
-        // HTTP-Redirect or HTTP-POST. This parameter is required when manually filled in. Queries return the short name.
+        // HTTP-Redirect or HTTP-POST. This parameter is required when you manually enter the configuration. Queries return the short name.
         shared_ptr<string> bindingType_ {};
-        // This parameter is required when manually filled in. It must be non-empty and cannot exceed 2,048 characters. Existing configurations do not support replacement. This is different from the Entity ID of the SP queried on our side.
+        // This parameter is required when you manually enter the configuration. It must be non-empty and cannot exceed 2,048 characters. Existing configurations cannot be replaced. This is different from the entity ID of the service provider (SP) queried on our side.
         shared_ptr<string> entityId_ {};
-        // This parameter is required when manually filled in. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
+        // This parameter is required when you manually enter the configuration. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
         shared_ptr<string> loginUrl_ {};
         // The actual switch value, which is Enabled or Disabled. This is not equivalent to the expected value of loginEnabled saved in AC.
         shared_ptr<string> ssoStatus_ {};
@@ -256,11 +256,11 @@ namespace Models
       shared_ptr<Data::Configuration> configuration_ {};
       // The type of the external identity provider. Valid values: DingTalk and Feishu.
       shared_ptr<string> identityProviderType_ {};
-      // Currently, only SAML is supported. This parameter may not be returned if no valid configuration is saved. OIDC placeholders are not supported for initialization.
+      // Only SAML is currently supported. This parameter may not be returned if no valid configuration is saved. OIDC placeholder initialization is not supported.
       shared_ptr<string> protocol_ {};
-      // The input supports either XML or complete manual configuration. Queries return the standardized configuration and do not echo the original XML. This parameter can be omitted when not configured.
+      // The input supports either XML or complete manual entry. Queries return the standardized configuration and do not echo the original XML. This parameter can be omitted if it is not configured.
       shared_ptr<Data::Saml> saml_ {};
-      // The status. Valid values: CONFIGURED (the configuration is accepted and the system is waiting to activate the user pool), SYNCING (synchronizing organization members), SYNCED (organization member synchronization is complete), READY (the binding is effective), SYNC_FAILED (organization member synchronization failed), UPDATING (updating the configuration), UPDATE_FAILED (configuration update failed), DISCONNECTING (disconnecting), and DISCONNECT_FAILED (disconnection failed).
+      // The status. Valid values: CONFIGURED (the configuration is accepted and the system is waiting to activate the user pool), SYNCING (synchronizing organization members), SYNCED (organization member synchronization is complete), READY (the binding has taken effect), SYNC_FAILED (organization member synchronization failed), UPDATING (updating the configuration), UPDATE_FAILED (configuration update failed), DISCONNECTING (disconnecting), and DISCONNECT_FAILED (disconnection failed).
       shared_ptr<string> status_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};

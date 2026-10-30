@@ -99,9 +99,9 @@ namespace Models
 
 
       protected:
-        // The list of department IDs in the synchronization scope, obtained from ListIdentityProviderDepartments. In SelectedDepartments mode, at least one non-empty department ID must be provided. In AllAuthorized mode, this parameter should be omitted or an empty array should be passed.
+        // The list of department IDs in the synchronization scope, which are obtained from ListIdentityProviderDepartments. In SelectedDepartments mode, you must provide at least one non-empty department ID. In AllAuthorized mode, this field should be omitted or an empty array should be passed.
         shared_ptr<vector<string>> departmentIds_ {};
-        // The synchronization scope mode. AllAuthorized: all members within the authorization scope of the application address book. SelectedDepartments: the selected departments and all their sub-departments. A valid mode must be provided when syncScope is explicitly submitted.
+        // The synchronization scope mode. Valid values: AllAuthorized and SelectedDepartments. AllAuthorized indicates all members within the authorization scope of the application address book. SelectedDepartments indicates the selected departments and all their sub-departments. When explicitly submitting syncScope, you must provide a valid mode.
         shared_ptr<string> mode_ {};
       };
 
@@ -172,15 +172,15 @@ namespace Models
 
 
       protected:
-        // The binding type for manual SAML configuration. HTTP-Redirect and HTTP-POST are supported. This parameter must be submitted together with entityId, loginUrl, and x509Certificates, and cannot be mixed with metadataXml.
+        // The binding type when manually entering the SAML configuration. Valid values: HTTP-Redirect and HTTP-POST. This field must be submitted together with entityId, loginUrl, and x509Certificates, and cannot be mixed with metadataXml.
         shared_ptr<string> bindingType_ {};
-        // The entity ID of the enterprise IdP. This parameter is required for manual configuration. It must be non-empty and up to 2,048 characters, and cannot be changed after saving. It must be submitted together with loginUrl, bindingType, and x509Certificates, and cannot be mixed with metadataXml.
+        // The entity identifier of the enterprise IdP. This field is required when manually entering the configuration. The value must be non-empty and contain up to 2,048 characters, and cannot be changed after saving. This field must be submitted together with loginUrl, bindingType, and x509Certificates, and cannot be mixed with metadataXml.
         shared_ptr<string> entityId_ {};
-        // The SSO logon URL of the enterprise IdP. This parameter is required for manual configuration. It must be an absolute HTTPS URL without user credentials and fragments. It must be submitted together with entityId, bindingType, and x509Certificates, and cannot be mixed with metadataXml.
+        // The SSO logon URL of the enterprise IdP. This field is required when manually entering the configuration. The value must be an absolute HTTPS URL without user credentials and fragments. This field must be submitted together with entityId, bindingType, and x509Certificates, and cannot be mixed with metadataXml.
         shared_ptr<string> loginUrl_ {};
-        // The original SAML metadata XML text of the enterprise IdP, not a URL or file path. The maximum size is 1 MiB. It must contain a single EntityDescriptor. DTDs and external entities are prohibited. It cannot be mixed with the four manual configuration fields. After saving, queries return the standardized configuration and do not echo the original XML text.
+        // The original SAML metadata XML text of the enterprise IdP, not a URL or file path. The maximum size is 1 MiB. The text must contain a single EntityDescriptor. DTD and external entities are prohibited. This field cannot be mixed with the four manually entered configuration fields. After saving, queries return the standardized configuration and do not echo the original XML text.
         shared_ptr<string> metadataXml_ {};
-        // The list of X.509 signing certificates for the enterprise IdP. For manual configuration, a non-empty list must be provided, with a maximum of 10 certificates. The certificates must be valid. This parameter must be submitted together with entityId, loginUrl, and bindingType, and cannot be mixed with metadataXml.
+        // The list of X.509 signing certificates of the enterprise IdP. When manually entering the configuration, you must provide a non-empty list of up to 10 certificates, and the certificates must be valid. This field must be submitted together with entityId, loginUrl, and bindingType, and cannot be mixed with metadataXml.
         shared_ptr<vector<string>> x509Certificates_ {};
       };
 
@@ -258,17 +258,17 @@ namespace Models
 
 
       protected:
-        // The App ID of the Lark application. If this parameter is omitted during an update, the existing value is retained. If explicitly submitted, it must be a non-empty value. The merged configuration for Lark must include this field.
+        // The App ID of the Feishu application. If this field is omitted during an update, the existing value is retained. If explicitly submitted, the value must be non-empty. The merged configuration for Feishu must include this field.
         shared_ptr<string> appId_ {};
-        // The AppKey of the DingTalk application. If this parameter is omitted during an update, the existing value is retained. If explicitly submitted, it must be a non-empty value. The merged configuration for DingTalk must include this field.
+        // The AppKey of the DingTalk application. If this field is omitted during an update, the existing value is retained. If explicitly submitted, the value must be non-empty. The merged configuration for DingTalk must include this field.
         shared_ptr<string> appKey_ {};
-        // The AppSecret of the DingTalk or Lark application. If this parameter is omitted during an update, the existing secret is retained and does not need to be retransmitted each time. If explicitly submitted, it must be a non-empty value, and the merged configuration must include this field. This is sensitive input and is not echoed in queries. The example is a fictitious value.
+        // The AppSecret of the DingTalk or Feishu application. If this field is omitted during an update, the existing secret is retained and does not need to be retransmitted each time. If explicitly submitted, the value must be non-empty, and the merged configuration must include this field. This is a sensitive input and is not echoed in queries. The example is a fictitious value.
         shared_ptr<string> appSecret_ {};
-        // The CorpId of the organization to which the DingTalk application belongs. If this parameter is omitted during an update, the existing value is retained. If explicitly submitted, it must be a non-empty value and must match the organization to which the application belongs. The merged configuration for DingTalk must include this field.
+        // The CorpId of the organization to which the DingTalk application belongs. If this field is omitted during an update, the existing value is retained. If explicitly submitted, the value must be non-empty and consistent with the organization to which the application belongs. The merged configuration for DingTalk must include this field.
         shared_ptr<string> corpId_ {};
-        // The encryption key for vendor event callbacks, which must be consistent with the vendor application configuration. If this parameter is omitted during an update, the existing value is retained. When incremental synchronization is enabled, the merged configuration must include this field. This is sensitive input and is not echoed in queries.
+        // The encryption key for vendor event callbacks, which must be consistent with the vendor application configuration. If this field is omitted during an update, the existing value is retained. When incremental synchronization is enabled, the merged configuration must include this field. This is a sensitive input and is not echoed in queries.
         shared_ptr<string> encryptKey_ {};
-        // The verification token for vendor event callbacks, which must be consistent with the vendor application configuration. If this parameter is omitted during an update, the existing value is retained. When incremental synchronization is enabled, the merged configuration must include this field. This is sensitive input and is not echoed in queries.
+        // The verification token for vendor event callbacks, which must be consistent with the vendor application configuration. If this field is omitted during an update, the existing value is retained. When incremental synchronization is enabled, the merged configuration must include this field. This is a sensitive input and is not echoed in queries.
         shared_ptr<string> verificationToken_ {};
       };
 
@@ -323,17 +323,17 @@ namespace Models
 
 
     protected:
-      // Specifies whether to allow logon by using this identity provider. If this parameter is omitted or set to null during an update, the original value is retained. For CustomSSO, a valid SAML configuration must exist before logon is enabled. Disabling logon does not delete the saved SAML or SCIM configurations.
+      // Specifies whether to allow logon by using this identity provider. If this field is omitted or set to null during an update, the original value is retained. For CustomSSO, a valid SAML configuration must exist before enabling logon. Disabling logon does not delete the saved SAML or SCIM configuration.
       shared_ptr<bool> loginEnabled_ {};
-      // Applies only to DingTalk and Lark. The application configuration is merged by field. Omitted fields and existing keys retain their original values. Explicitly submitted fields must not be null, empty strings, or blank strings. The merged configuration must meet the complete configuration requirements of the vendor. CustomSSO does not accept this field.
+      // Applies only to DingTalk and Feishu. The application configuration is merged by field. Omitted fields and existing keys retain their original values. Explicitly submitted fields must not be null, empty strings, or blank strings. The merged configuration must meet the complete configuration requirements of the vendor. This field is not accepted for CustomSSO.
       shared_ptr<Body::Metadata> metadata_ {};
-      // The logon protocol, which applies only to CustomSSO. Currently, only SAML is supported. DingTalk and Lark do not accept this field. If submitted with a non-empty saml configuration, this field can be omitted and the server processes it as SAML.
+      // The logon protocol, which applies only to CustomSSO. Currently, only SAML is supported. This field is not accepted for DingTalk and Feishu. When submitted with a non-empty saml configuration, this field can be omitted and is processed as SAML by the server.
       shared_ptr<string> protocol_ {};
-      // Applies only to CustomSSO. You can either provide metadataXml or provide the four complete manual configuration fields. The two methods cannot be mixed. If a valid configuration already exists, you can also modify only the JIT switches. Saving the configuration does not automatically enable logon.
+      // Applies only to CustomSSO. You must choose between providing metadataXml and providing the four complete manually entered configuration fields. The two methods cannot be mixed. If a valid configuration already exists, you can also modify only the JIT switches. Saving the configuration does not automatically enable logon.
       shared_ptr<Body::Saml> saml_ {};
-      // Applies only to DingTalk and Lark. Controls the incremental synchronization of subsequent address book change events. If this parameter is omitted or set to null during an update, the original value is retained. It does not control the initial synchronization or manual synchronization. When enabled, the merged metadata must include encryptKey and verificationToken. For CustomSSO, use UpdateIdentityProviderSCIM to manage the synchronization switch.
+      // Applies only to DingTalk and Feishu. This field controls the incremental synchronization of subsequent address book change events. If this field is omitted or set to null during an update, the original value is retained. This field does not control the initial synchronization or manual synchronization. When enabled, the merged metadata must include the encryptKey and verificationToken fields. For CustomSSO, use UpdateIdentityProviderSCIM to manage the synchronization switch.
       shared_ptr<bool> syncEnabled_ {};
-      // The address book synchronization scope, which applies only to DingTalk and Lark. If this parameter is omitted or set to null, the current scope is retained. Saving the scope does not automatically trigger a full synchronization. CustomSSO does not accept this field.
+      // The address book synchronization scope, which applies only to DingTalk and Feishu. If this field is omitted or set to null, the current scope is retained. Saving the scope does not automatically trigger a full synchronization. This field is not accepted for CustomSSO.
       shared_ptr<Body::SyncScope> syncScope_ {};
     };
 
@@ -348,7 +348,7 @@ namespace Models
 
 
   protected:
-    // The configuration fields to be modified. For DingTalk and Lark, you must submit at least one of loginEnabled, syncEnabled, metadata, and syncScope. For CustomSSO, use protocol, saml, and loginEnabled. You cannot submit vendor metadata, syncEnabled, or syncScope.
+    // The configuration fields to be modified. For DingTalk and Feishu, you must submit at least one of the following fields: loginEnabled, syncEnabled, metadata, and syncScope. For CustomSSO, use the protocol, saml, and loginEnabled fields. You cannot submit the vendor metadata, syncEnabled, or syncScope fields.
     shared_ptr<UpdateIdentityProviderRequest::Body> body_ {};
   };
 

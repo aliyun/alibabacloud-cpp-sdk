@@ -125,10 +125,10 @@ namespace Models
 
 
       protected:
-        // When the mode is SelectedDepartments, this parameter must contain at least one non-empty department ID, which should be obtained from ListIdentityProviderDepartments. When the mode is AllAuthorized, pass an empty array or omit this parameter.
+        // The list of department IDs. When the mode is SelectedDepartments, at least one non-empty department ID must be included, which should be obtained from ListIdentityProviderDepartments. When the mode is AllAuthorized, pass an empty array or omit this field.
         shared_ptr<vector<string>> departmentIds_ {};
-        // Valid values:
-        // - AllAuthorized: The full authorization scope, which is limited by the application address book authorization.
+        // The scope mode. Valid values:
+        // - AllAuthorized: All authorized scopes, subject to the application address book authorization limits.
         // - SelectedDepartments: The selected departments and all their sub-departments.
         // When explicitly submitting syncScope, you must provide a valid mode, which is verified by the backend.
         shared_ptr<string> mode_ {};
@@ -192,13 +192,13 @@ namespace Models
 
 
       protected:
-        // HTTP-Redirect or HTTP-POST. This parameter is required for manual entry. Queries return the short name.
+        // The SAML binding type, which is HTTP-Redirect or HTTP-POST. Required for manual entry. Queries return the short name.
         shared_ptr<string> bindingType_ {};
-        // This parameter is required for manual entry. It must be non-empty and cannot exceed 2,048 characters. Existing configurations do not support replacement. This is different from the local entity ID queried by the SP.
+        // The IdP entity ID. Required for manual entry. Must be non-empty and no more than 2,048 characters in length. Existing configurations cannot be changed. This is different from the entity ID of the service provider (SP) returned in queries.
         shared_ptr<string> entityId_ {};
-        // This parameter is required for manual entry. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
+        // The IdP logon URL. Required for manual entry. Must be an absolute HTTPS URL without user credentials or fragments.
         shared_ptr<string> loginUrl_ {};
-        // A non-empty array is required for manual entry. Use PEM X.509 certificate text. The current validity period is verified. A maximum of two certificates are allowed after deduplication.
+        // The list of IdP signing certificates. Required for manual entry. Must be a non-empty array using PEM X.509 certificate text. The current validity period is verified. A maximum of two certificates are allowed after deduplication.
         shared_ptr<vector<string>> x509Certificates_ {};
       };
 
@@ -286,19 +286,19 @@ namespace Models
 
 
       protected:
-        // The App ID of the Lark application. This parameter is required when the binding type is Feishu.
+        // The App ID of the Lark application. Required when the binding type is Feishu.
         shared_ptr<string> appId_ {};
-        // The AppKey of the DingTalk application. This parameter is required when the binding type is DingTalk.
+        // The AppKey of the DingTalk application. Required when the binding type is DingTalk.
         shared_ptr<string> appKey_ {};
-        // The SAML Binding URI in the historical metadata snapshot. To update CustomSSO, use saml.bindingType.
+        // The SAML binding URI in the historical metadata snapshot. To update CustomSSO, use saml.bindingType.
         shared_ptr<string> binding_ {};
         // The certificate string in the historical metadata snapshot. To edit the configuration, use saml.x509Certificates and do not submit the old metadata.
         shared_ptr<string> certificates_ {};
-        // The CorpId of the DingTalk enterprise. This parameter is required when the binding type is DingTalk.
+        // The CorpId of the DingTalk enterprise. Required when the binding type is DingTalk.
         shared_ptr<string> corpId_ {};
-        // This parameter is required for manual entry. It must be non-empty and cannot exceed 2,048 characters. Existing configurations do not support replacement. This is different from the local entity ID queried by the SP.
+        // The IdP entity ID. Required for manual entry. Must be non-empty and no more than 2,048 characters in length. Existing configurations cannot be changed. This is different from the entity ID of the service provider (SP) returned in queries.
         shared_ptr<string> entityId_ {};
-        // This parameter is required for manual entry. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
+        // The IdP logon URL. Required for manual entry. Must be an absolute HTTPS URL without user credentials or fragments.
         shared_ptr<string> loginUrl_ {};
       };
 
@@ -358,13 +358,13 @@ namespace Models
 
 
       protected:
-        // HTTP-Redirect or HTTP-POST. This parameter is required for manual entry. Queries return the short name.
+        // The SAML binding type, which is HTTP-Redirect or HTTP-POST. Required for manual entry. Queries return the short name.
         shared_ptr<string> bindingType_ {};
-        // This parameter is required for manual entry. It must be non-empty and cannot exceed 2,048 characters. Existing configurations do not support replacement. This is different from the local entity ID queried by the SP.
+        // The IdP entity ID. Required for manual entry. Must be non-empty and no more than 2,048 characters in length. Existing configurations cannot be changed. This is different from the entity ID of the service provider (SP) returned in queries.
         shared_ptr<string> entityId_ {};
-        // This parameter is required for manual entry. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
+        // The IdP logon URL. Required for manual entry. Must be an absolute HTTPS URL without user credentials or fragments.
         shared_ptr<string> loginUrl_ {};
-        // The actual switch value is Enabled or Disabled. This is not equivalent to the expected loginEnabled value saved by AC.
+        // The actual switch value, which is Enabled or Disabled. This is not equivalent to the expected loginEnabled value saved in AC.
         shared_ptr<string> ssoStatus_ {};
       };
 
@@ -479,38 +479,38 @@ namespace Models
 
 
     protected:
-      // The actual SAML configuration is read back on demand only by GetIdentityProvider. SCIM queries and preparations return the actual received status and URLs.
+      // The actual SAML configuration is read back on demand only in GetIdentityProvider. SCIM queries and preparations return the actual receiving status and URL.
       shared_ptr<Data::Configuration> configuration_ {};
       // The creation time in UTC format based on RFC 3339.
       shared_ptr<string> createdAt_ {};
       // The event subscription callback URL. You must configure this URL in the application of the external identity provider to receive organization change events. An empty string is returned if the user pool is not activated.
       shared_ptr<string> eventSubscriptionCallbackUrl_ {};
-      // The type of the external identity provider. Valid values: DingTalk and Feishu.
+      // The external identity provider type. Valid values: DingTalk and Feishu.
       shared_ptr<string> identityProviderType_ {};
       // The logon callback URL. You must configure this URL in the application of the external identity provider. An empty string is returned if the user pool is not activated.
       shared_ptr<string> loginCallbackUrl_ {};
-      // Specifies whether workspace users are allowed to log on through this external identity provider.
+      // Specifies whether workspace users are allowed to log on through the external identity provider.
       shared_ptr<bool> loginEnabled_ {};
       // The application configuration of the external identity provider. Application secret configurations are not returned.
       shared_ptr<Data::Metadata> metadata_ {};
-      // Only SAML is currently supported. This parameter may not be returned if no valid configuration is saved. Placeholder initialization with OIDC is not supported.
+      // The logon protocol. Only SAML is currently supported. This field may not be returned if no valid configuration is saved. OIDC placeholder initialization is not supported.
       shared_ptr<string> protocol_ {};
-      // The input supports either XML or complete manual entry. Queries return the standardized configuration and do not echo the original XML. This parameter can be omitted if it is not configured.
+      // The SAML logon configuration. The input supports either XML or complete manual entry. Queries return the standardized configuration and do not echo the original XML. This field can be omitted if it is not configured.
       shared_ptr<Data::Saml> saml_ {};
       // The status. Valid values:
-      // - CONFIGURED: The configuration is accepted and waiting for the user pool to be activated.
+      // - CONFIGURED: The configuration is accepted and the system is waiting for the user pool to be activated.
       // - SYNCING: Organization members are being synchronized.
-      // - SYNCED: The synchronization of organization members is complete.
+      // - SYNCED: Organization members are synchronized.
       // - READY: The binding is in effect.
-      // - SYNC_FAILED: The synchronization of organization members failed.
+      // - SYNC_FAILED: Organization member synchronization failed.
       // - UPDATING: The configuration is being updated.
-      // - UPDATE_FAILED: The configuration update failed.
-      // - DISCONNECTING: The unbinding is in progress.
-      // - DISCONNECT_FAILED: The unbinding failed.
+      // - UPDATE_FAILED: Configuration update failed.
+      // - DISCONNECTING: The binding is being removed.
+      // - DISCONNECT_FAILED: Binding removal failed.
       shared_ptr<string> status_ {};
-      // Specifies whether to enable the synchronization of organization members. After this feature is enabled, the external identity provider synchronizes organization members as workspace users.
+      // Specifies whether organization member synchronization is enabled. After it is enabled, organization members are synchronized as workspace users by the external identity provider.
       shared_ptr<bool> syncEnabled_ {};
-      // The synchronization scope definition by department is retained. If this parameter is omitted during creation, the default value AllAuthorized is used. The first vendor synchronization is determined by syncOnBind. If this parameter is omitted or set to null during an update, the original value is retained. Updating and saving the scope does not automatically trigger full synchronization.
+      // The configured synchronization scope, which follows the synchronization scope definition by department. If omitted during creation, the default value is AllAuthorized, and the first vendor synchronization is determined by syncOnBind. If omitted or set to null during an update, the original value is retained. Updating and saving the scope does not automatically trigger full synchronization.
       shared_ptr<Data::SyncScope> syncScope_ {};
       // The time of the last modification in UTC format based on RFC 3339.
       shared_ptr<string> updatedAt_ {};

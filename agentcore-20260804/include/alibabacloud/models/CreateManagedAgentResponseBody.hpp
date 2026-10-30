@@ -60,6 +60,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(name, name_);
         DARABONBA_PTR_TO_JSON(network, network_);
         DARABONBA_PTR_TO_JSON(ossMounts, ossMounts_);
+        DARABONBA_PTR_TO_JSON(promptVariables, promptVariables_);
         DARABONBA_PTR_TO_JSON(regionId, regionId_);
         DARABONBA_PTR_TO_JSON(runtime, runtime_);
         DARABONBA_PTR_TO_JSON(sandboxPhaseCounts, sandboxPhaseCounts_);
@@ -88,6 +89,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(name, name_);
         DARABONBA_PTR_FROM_JSON(network, network_);
         DARABONBA_PTR_FROM_JSON(ossMounts, ossMounts_);
+        DARABONBA_PTR_FROM_JSON(promptVariables, promptVariables_);
         DARABONBA_PTR_FROM_JSON(regionId, regionId_);
         DARABONBA_PTR_FROM_JSON(runtime, runtime_);
         DARABONBA_PTR_FROM_JSON(sandboxPhaseCounts, sandboxPhaseCounts_);
@@ -215,11 +217,11 @@ namespace Models
 
 
         protected:
-          // The name of the template in AI Registry.
+          // The name of the template in the AI registry.
           // 
           // This parameter is required.
           shared_ptr<string> name_ {};
-          // The version of the template in AI Registry.
+          // The version of the template in the AI registry.
           shared_ptr<string> version_ {};
         };
 
@@ -234,7 +236,7 @@ namespace Models
 
 
       protected:
-        // The AI Registry template configuration.
+        // The AI registry template configuration.
         shared_ptr<Template::AiRegistry> aiRegistry_ {};
       };
 
@@ -299,9 +301,9 @@ namespace Models
 
 
         protected:
-          // The skill name used by the sub-agent. Declared as optional for compatibility, but the backend validates that each entry is required.
+          // The skill name.
           shared_ptr<string> name_ {};
-          // The optional version number. If omitted, set to null, or left blank, the latest version is resolved.
+          // The skill version.
           shared_ptr<string> version_ {};
         };
 
@@ -339,7 +341,7 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<string> name_ {};
-        // The skills used by the child agent and their actual versions. The version field is not returned if the template package does not contain version information.
+        // The list of sub-agent skills.
         shared_ptr<vector<SubAgents::Skills>> skills_ {};
       };
 
@@ -412,11 +414,9 @@ namespace Models
 
 
         protected:
-          // The version selector type. Valid values:
-          // - LABEL: select by label.
-          // - VERSION: select by specific version.
+          // The version selector type. Valid values: LABEL: selects by label. VERSION: selects by specific version.
           shared_ptr<string> type_ {};
-          // The selector value. When the type is LABEL, specify a label name such as latest. When the type is VERSION, specify a specific version number.
+          // The selector value. When the type is LABEL, this is the label name, such as latest. When the type is VERSION, this is the specific version number.
           shared_ptr<string> value_ {};
         };
 
@@ -475,21 +475,19 @@ namespace Models
 
 
       protected:
-        // The version that has taken effect at runtime. This field is read-only.
+        // The applied runtime version. This field is read-only.
         shared_ptr<string> appliedVersion_ {};
-        // Indicates whether the skill originates from a fixed template. This field is read-only. Template items cannot be removed.
+        // Indicates whether the skill is from a fixed template. This field is read-only. Template items cannot be removed.
         shared_ptr<bool> fromTemplate_ {};
         // The skill name.
         shared_ptr<string> name_ {};
         // The current target version. This field is read-only.
         shared_ptr<string> resolvedVersion_ {};
-        // The skill source type. Valid values:
-        // - REFERENCE: referenced from AI Registry.
-        // - STATIC: statically bundled with the package.
+        // The skill source type. Valid values: REFERENCE: references the AI registry. STATIC: statically provided with the package.
         shared_ptr<string> sourceType_ {};
         // The skill version.
         shared_ptr<string> version_ {};
-        // The referenced version selector. Defaults to LABEL/latest if omitted.
+        // The referenced version selector. If omitted, the default value is LABEL/latest.
         shared_ptr<Skills::VersionSelector> versionSelector_ {};
       };
 
@@ -554,7 +552,7 @@ namespace Models
 
 
         protected:
-          // The name of the HTTP header used for session affinity. This parameter takes effect only when sessionPolicy.type is set to ISOLATED_HEADER_FIELD.
+          // The name of the HTTP header used for session affinity. This parameter takes effect when sessionPolicy.type is set to ISOLATED_HEADER_FIELD.
           shared_ptr<string> headerName_ {};
           // The session policy type.
           // 
@@ -627,15 +625,15 @@ namespace Models
 
 
         protected:
-          // Specifies whether to enable auto scaling. Required when hpa is present, as validated by the backend.
+          // Specifies whether auto-scaling is enabled. This parameter is required and validated by the backend when HPA is present.
           shared_ptr<bool> enabled_ {};
-          // The maximum number of active sessions per sandbox. Required when hpa is present, as validated by the backend.
+          // The maximum number of active sessions per sandbox. This parameter is required and validated by the backend when HPA is present.
           shared_ptr<int32_t> maxConcurrentSessionsPerSandbox_ {};
-          // The maximum number of sandboxes. Required when HPA is enabled and must be greater than or equal to the minimum value.
+          // The maximum number of sandboxes. This parameter is required and must not be less than the minimum value when HPA is enabled.
           shared_ptr<int32_t> maxSandboxCount_ {};
-          // The minimum number of sandboxes. Required when HPA is enabled.
+          // The minimum number of sandboxes. This parameter is required when HPA is enabled.
           shared_ptr<int32_t> minSandboxCount_ {};
-          // The time-to-live for an inactive session, in seconds. Required when hpa is present, as validated by the backend.
+          // The timeout period in seconds for reclaiming an inactive session. This parameter is required and validated by the backend when HPA is present.
           shared_ptr<int32_t> sessionTtlSeconds_ {};
         };
 
@@ -707,12 +705,67 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<Runtime::Compute> compute_ {};
-        // The sandbox auto scaling and session configuration.
+        // The sandbox auto-scaling and session configuration.
         shared_ptr<Runtime::Hpa> hpa_ {};
         // The session policy configuration.
         // 
         // This parameter is required.
         shared_ptr<Runtime::SessionPolicy> sessionPolicy_ {};
+      };
+
+      class PromptVariables : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const PromptVariables& obj) { 
+          DARABONBA_PTR_TO_JSON(defaultValue, defaultValue_);
+          DARABONBA_PTR_TO_JSON(description, description_);
+          DARABONBA_PTR_TO_JSON(name, name_);
+        };
+        friend void from_json(const Darabonba::Json& j, PromptVariables& obj) { 
+          DARABONBA_PTR_FROM_JSON(defaultValue, defaultValue_);
+          DARABONBA_PTR_FROM_JSON(description, description_);
+          DARABONBA_PTR_FROM_JSON(name, name_);
+        };
+        PromptVariables() = default ;
+        PromptVariables(const PromptVariables &) = default ;
+        PromptVariables(PromptVariables &&) = default ;
+        PromptVariables(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~PromptVariables() = default ;
+        PromptVariables& operator=(const PromptVariables &) = default ;
+        PromptVariables& operator=(PromptVariables &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->defaultValue_ == nullptr
+        && this->description_ == nullptr && this->name_ == nullptr; };
+        // defaultValue Field Functions 
+        bool hasDefaultValue() const { return this->defaultValue_ != nullptr;};
+        void deleteDefaultValue() { this->defaultValue_ = nullptr;};
+        inline string getDefaultValue() const { DARABONBA_PTR_GET_DEFAULT(defaultValue_, "") };
+        inline PromptVariables& setDefaultValue(string defaultValue) { DARABONBA_PTR_SET_VALUE(defaultValue_, defaultValue) };
+
+
+        // description Field Functions 
+        bool hasDescription() const { return this->description_ != nullptr;};
+        void deleteDescription() { this->description_ = nullptr;};
+        inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+        inline PromptVariables& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+        // name Field Functions 
+        bool hasName() const { return this->name_ != nullptr;};
+        void deleteName() { this->name_ = nullptr;};
+        inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+        inline PromptVariables& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      protected:
+        // The default value.
+        shared_ptr<string> defaultValue_ {};
+        // The description of the variable.
+        shared_ptr<string> description_ {};
+        // The name of the variable.
+        shared_ptr<string> name_ {};
       };
 
       class OssMounts : public Darabonba::Model {
@@ -771,13 +824,13 @@ namespace Models
 
 
       protected:
-        // The OSS bucket name. Required for each mount item as validated by the backend.
+        // The name of the OSS bucket. This parameter is required and validated by the backend for each mount item.
         shared_ptr<string> bucketName_ {};
-        // The absolute mount path in the container. Required for each mount item as validated by the backend.
+        // The absolute mount path in the container. This parameter is required and validated by the backend for each mount item.
         shared_ptr<string> mountPath_ {};
-        // The relative object prefix within the bucket. If not specified, the entire bucket is mounted.
+        // The relative object prefix in the bucket. If this parameter is not specified, the entire bucket is mounted.
         shared_ptr<string> path_ {};
-        // Specifies whether to mount in read-only mode. Default value: false.
+        // Specifies whether the mount is read-only. Default value: false.
         shared_ptr<bool> readOnly_ {};
       };
 
@@ -862,7 +915,7 @@ namespace Models
 
 
         protected:
-          // Specifies whether to allow public network access.
+          // Specifies whether to allow Internet access.
           shared_ptr<bool> enabled_ {};
         };
 
@@ -1004,15 +1057,15 @@ namespace Models
           shared_ptr<bool> enabled_ {};
           // The quota limit type. Currently, only token is supported.
           shared_ptr<string> limitType_ {};
-          // Indicates whether the quota has been exceeded in the current period. This field is read-only and returned by the backend.
+          // Indicates whether the quota is exceeded in the current period. This is a read-only field returned by the backend.
           shared_ptr<bool> overLimit_ {};
-          // The statistical period of the quota. A value of day indicates daily, and a value of month indicates monthly.
+          // The quota statistical period. A value of day indicates a daily period, and a value of month indicates a monthly period.
           shared_ptr<string> periodType_ {};
-          // The gateway quota rule status. This field is read-only and returned by the backend.
+          // The gateway quota rule status. This is a read-only field returned by the backend.
           shared_ptr<string> ruleStatus_ {};
           // The maximum number of tokens that can be consumed in a single period.
           shared_ptr<int64_t> usageLimit_ {};
-          // The number of tokens consumed in the current period. This field is read-only and returned by the backend.
+          // The number of tokens consumed in the current period. This is a read-only field returned by the backend.
           shared_ptr<int64_t> usedAmount_ {};
         };
 
@@ -1046,7 +1099,7 @@ namespace Models
         shared_ptr<string> modelConnectionId_ {};
         // The upstream model name.
         shared_ptr<string> modelName_ {};
-        // The model token quota configuration and the quota usage status in the current period. This field is empty if no quota is configured.
+        // The model token quota configuration and the quota usage status for the current period. This field is empty if no quota is configured.
         shared_ptr<Model::Quota> quota_ {};
       };
 
@@ -1134,9 +1187,9 @@ namespace Models
 
 
       protected:
-        // The runtime harness configuration.
+        // The runtime framework configuration.
         shared_ptr<Harness::Configuration> configuration_ {};
-        // The runtime harness type.
+        // The type of the runtime framework.
         shared_ptr<string> type_ {};
       };
 
@@ -1333,11 +1386,9 @@ namespace Models
 
 
         protected:
-          // The version selector type. Valid values:
-          // - LABEL: select by label.
-          // - VERSION: select by specific version.
+          // The version selector type. Valid values: LABEL: selects by label. VERSION: selects by specific version.
           shared_ptr<string> type_ {};
-          // The selector value. When the type is LABEL, specify a label name such as latest. When the type is VERSION, specify a specific version number.
+          // The selector value. When the type is LABEL, this is the label name, such as latest. When the type is VERSION, this is the specific version number.
           shared_ptr<string> value_ {};
         };
 
@@ -1374,17 +1425,15 @@ namespace Models
 
 
       protected:
-        // The skill name in the Workspace AI Registry.
+        // The name of the skill in the Workspace AI Registry.
         // 
         // This parameter is required.
         shared_ptr<string> name_ {};
-        // The skill source type. Valid values:
-        // - REFERENCE: referenced from AI Registry.
-        // - STATIC: statically bundled with the package.
+        // The skill source type. Valid values: REFERENCE: references the AI registry. STATIC: statically provided with the package.
         shared_ptr<string> sourceType_ {};
-        // A legacy compatibility field. Use sourceType and versionSelector for new requests.
+        // The legacy compatibility field. Use sourceType and versionSelector for new requests.
         shared_ptr<string> version_ {};
-        // The version selector for the reference. Defaults to LABEL/latest if omitted. Currently supports LABEL/latest.
+        // The referenced version selector. If omitted, the default value is LABEL/latest. Currently, only LABEL/latest is supported.
         shared_ptr<ConfiguredSkills::VersionSelector> versionSelector_ {};
       };
 
@@ -1444,13 +1493,13 @@ namespace Models
 
 
       protected:
-        // The subdirectory under /mnt/agenticfs/ in the container. Required for each mount item as validated by the backend. Mount targets must not be duplicated or have parent-child overlaps.
+        // The subdirectory under /mnt/agenticfs/ in the container. This parameter is required and validated by the backend for each mount item. Mount targets must not be duplicated or overlap in parent-child relationships.
         shared_ptr<string> mountPath_ {};
-        // The non-empty relative directory that exists under the AccessPoint. Required for each mount item as validated by the backend. Root directories, absolute paths, and parent directory segments are not allowed.
+        // The existing non-empty relative directory under the access point. This parameter is required and validated by the backend for each mount item. Root directories, absolute paths, and parent directory segments are not allowed.
         shared_ptr<string> path_ {};
-        // Specifies whether to mount in read-only mode. Default value: false. This is not a RAM role read-only policy.
+        // Specifies whether the mount is read-only. Default value: false. This parameter does not represent a read-only policy for a RAM role.
         shared_ptr<bool> readOnly_ {};
-        // The AccessPoint domain name. Required for each mount item as validated by the backend. Do not include the protocol, port, or path. Use the DomainName from the NAS ListAccessPoints response.
+        // The domain name of the access point. This parameter is required and validated by the backend for each mount item. Do not include the protocol, port, or path. Use the DomainName value from the NAS ListAccessPoints response.
         shared_ptr<string> server_ {};
       };
 
@@ -1458,8 +1507,9 @@ namespace Models
         && this->agenticFsMounts_ == nullptr && this->configuredSkills_ == nullptr && this->createMode_ == nullptr && this->createdAt_ == nullptr && this->deployType_ == nullptr
         && this->description_ == nullptr && this->environment_ == nullptr && this->harness_ == nullptr && this->instruction_ == nullptr && this->latestSpecVersion_ == nullptr
         && this->latestVersionStatus_ == nullptr && this->model_ == nullptr && this->name_ == nullptr && this->network_ == nullptr && this->ossMounts_ == nullptr
-        && this->regionId_ == nullptr && this->runtime_ == nullptr && this->sandboxPhaseCounts_ == nullptr && this->skills_ == nullptr && this->status_ == nullptr
-        && this->subAgents_ == nullptr && this->template_ == nullptr && this->tools_ == nullptr && this->updatedAt_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->promptVariables_ == nullptr && this->regionId_ == nullptr && this->runtime_ == nullptr && this->sandboxPhaseCounts_ == nullptr && this->skills_ == nullptr
+        && this->status_ == nullptr && this->subAgents_ == nullptr && this->template_ == nullptr && this->tools_ == nullptr && this->updatedAt_ == nullptr
+        && this->workspaceId_ == nullptr; };
       // agentId Field Functions 
       bool hasAgentId() const { return this->agentId_ != nullptr;};
       void deleteAgentId() { this->agentId_ = nullptr;};
@@ -1586,6 +1636,15 @@ namespace Models
       inline Data& setOssMounts(vector<Data::OssMounts> && ossMounts) { DARABONBA_PTR_SET_RVALUE(ossMounts_, ossMounts) };
 
 
+      // promptVariables Field Functions 
+      bool hasPromptVariables() const { return this->promptVariables_ != nullptr;};
+      void deletePromptVariables() { this->promptVariables_ = nullptr;};
+      inline const vector<Data::PromptVariables> & getPromptVariables() const { DARABONBA_PTR_GET_CONST(promptVariables_, vector<Data::PromptVariables>) };
+      inline vector<Data::PromptVariables> getPromptVariables() { DARABONBA_PTR_GET(promptVariables_, vector<Data::PromptVariables>) };
+      inline Data& setPromptVariables(const vector<Data::PromptVariables> & promptVariables) { DARABONBA_PTR_SET_VALUE(promptVariables_, promptVariables) };
+      inline Data& setPromptVariables(vector<Data::PromptVariables> && promptVariables) { DARABONBA_PTR_SET_RVALUE(promptVariables_, promptVariables) };
+
+
       // regionId Field Functions 
       bool hasRegionId() const { return this->regionId_ != nullptr;};
       void deleteRegionId() { this->regionId_ = nullptr;};
@@ -1669,11 +1728,11 @@ namespace Models
 
 
     protected:
-      // The managed agent ID.
+      // The ID of the managed agent.
       shared_ptr<string> agentId_ {};
-      // The AgenticFS additional mount list. The total number of items in this list and ossMounts cannot exceed 10.
+      // The list of additional AgenticFS mounts. The total number of AgenticFS mounts and ossMounts cannot exceed 10.
       shared_ptr<vector<Data::AgenticFsMounts>> agenticFsMounts_ {};
-      // Contains only the skills that are added or overridden by the user, excluding skills inherited from the template. The resource model reads this field to preserve update semantics. The skills field in the request is still used for creation and update operations.
+      // The explicitly configured skills.
       shared_ptr<vector<Data::ConfiguredSkills>> configuredSkills_ {};
       // The creation mode.
       shared_ptr<string> createMode_ {};
@@ -1683,29 +1742,31 @@ namespace Models
       shared_ptr<string> deployType_ {};
       // The description of the managed agent.
       shared_ptr<string> description_ {};
-      // The environment configuration.
+      // The environment configuration information.
       shared_ptr<Data::Environment> environment_ {};
-      // The agent runtime harness.
+      // The agent runtime framework.
       shared_ptr<Data::Harness> harness_ {};
-      // The agent instruction that guides the behavior of the agent.
+      // The agent instruction used to guide the behavior of the agent.
       shared_ptr<string> instruction_ {};
       // The latest specification version number.
       shared_ptr<int64_t> latestSpecVersion_ {};
       // The latest version status.
       shared_ptr<string> latestVersionStatus_ {};
-      // The model configuration.
+      // The model configuration information.
       shared_ptr<Data::Model> model_ {};
       // The name of the managed agent.
       shared_ptr<string> name_ {};
-      // The network configuration.
+      // The network configuration information.
       shared_ptr<Data::Network> network_ {};
-      // The OSS mount list. A maximum of 10 items are allowed.
+      // The list of OSS mounts. A maximum of 10 items are allowed.
       shared_ptr<vector<Data::OssMounts>> ossMounts_ {};
+      // The prompt variable declarations.
+      shared_ptr<vector<Data::PromptVariables>> promptVariables_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
       // The runtime configuration information.
       shared_ptr<Data::Runtime> runtime_ {};
-      // The instance counts of the managed agent grouped by sandbox phase. Current keys: PENDING (being created or initialized), RUNNING (running), HIBERNATING (entering hibernation), HIBERNATED (hibernated), RESUMING (resuming), TERMINATING (being terminated), and FAILED (runtime failure). Only phases that actually occur are returned. Missing keys are treated as 0. This field is a dynamic map and new keys may be added in the future. The frontend can use FAILED > 0 to determine whether abnormal instances exist.
+      // The number of managed agent instances by sandbox phase. Valid keys: PENDING (creating or initializing), RUNNING (running), HIBERNATING (hibernating), HIBERNATED (hibernated), RESUMING (resuming), TERMINATING (terminating), and FAILED (runtime failure). Only phases that actually occur are returned. Missing keys are treated as 0. This field is a dynamic mapping and new keys may be added in the future. You can use FAILED > 0 to determine whether abnormal instances exist.
       shared_ptr<map<string, int64_t>> sandboxPhaseCounts_ {};
       // The list of skill configurations.
       shared_ptr<vector<Data::Skills>> skills_ {};
@@ -1717,7 +1778,7 @@ namespace Models
       shared_ptr<Data::Template> template_ {};
       // The list of tool configurations.
       shared_ptr<vector<Data::Tools>> tools_ {};
-      // The time when the managed agent was last updated, in RFC 3339 format.
+      // The update time in RFC 3339 format.
       shared_ptr<string> updatedAt_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -1770,17 +1831,17 @@ namespace Models
 
 
   protected:
-    // The business status code. The value is SUCCESS when the operation succeeds.
+    // The business status code. The value is SUCCESS if the operation is successful.
     shared_ptr<string> code_ {};
     // The information about the managed agent after creation.
     shared_ptr<CreateManagedAgentResponseBody::Data> data_ {};
-    // The HTTP status code. The value 200 indicates success.
+    // The HTTP status code. A value of 200 indicates success.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message returned for the request.
+    // The message about the request processing result.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

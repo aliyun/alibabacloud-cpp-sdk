@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // 查询参数必填，仅支持精确值 SAML；响应返回 SAML。
+    // The query parameter is required and only supports the exact value SAML. The response returns SAML.
     // 
     // This parameter is required.
     shared_ptr<string> protocol_ {};

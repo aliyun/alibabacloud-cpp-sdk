@@ -189,11 +189,14 @@ namespace Models
 
 
       protected:
-        // The request header configuration for the current protocol. The key is the header name and the value is a string.
+        // The request header configuration of the current protocol. The key is the header name and the value is a string.
         shared_ptr<map<string, string>> headers_ {};
         // The list of API paths corresponding to the current protocol.
         shared_ptr<vector<Protocol::Paths>> paths_ {};
-        // The invoke Protocol Type. Valid values: agui (AG-UI protocol), openai-chat-completion (OpenAI Chat Completions compatible protocol), and custom (custom protocol).
+        // The invoke Protocol Type. Valid values:
+        // - agui: AG-UI protocol.
+        // - openai-chat-completion: OpenAI Chat Completions compatible protocol.
+        // - custom: Custom protocol.
         // 
         // This parameter is required.
         shared_ptr<string> type_ {};
@@ -375,21 +378,13 @@ namespace Models
         protected:
           // The custom container startup command and parameters. If this parameter is not configured, the default startup method of the image is used.
           shared_ptr<string> entrypoint_ {};
-          // The ID of the Container Registry Enterprise instance.
-          // 
-          // This parameter is required.
+          // The ID of the ACR Enterprise instance.
           shared_ptr<string> instanceId_ {};
-          // The namespace of the Container Registry instance.
-          // 
-          // This parameter is required.
+          // The ACR namespace.
           shared_ptr<string> namespace_ {};
-          // The name of the Container Registry image repository.
-          // 
-          // This parameter is required.
+          // The name of the ACR image repository.
           shared_ptr<string> repo_ {};
-          // The tag of the image.
-          // 
-          // This parameter is required.
+          // The image tag.
           shared_ptr<string> tag_ {};
           // The source type of the container image.
           // 
@@ -448,7 +443,7 @@ namespace Models
           // 
           // This parameter is required.
           shared_ptr<string> entrypoint_ {};
-          // The identifier of the code runtime environment in the currently saved configuration. The runtime image uses a saved snapshot. Adding a new version to the directory does not automatically change the existing configuration.
+          // The identifier of the code runtime environment in the currently saved configuration. The runtime image uses the saved snapshot. Adding a new version to the directory does not automatically change the existing configuration.
           // 
           // This parameter is required.
           shared_ptr<string> languageRuntime_ {};
@@ -627,7 +622,14 @@ namespace Models
       shared_ptr<vector<Items::Protocol>> protocol_ {};
       // The compute specifications of the agent. Valid values: INTERACTIVE, STANDARD, and HEAVY.
       shared_ptr<string> runtime_ {};
-      // The overall status of the agent. Valid values: Creating, Running, Failed, Updating, Deleting, and Deleted. To query the execution progress of the latest configuration, call the GetCustomAgent operation.
+      // The overall status of the agent. Valid values:
+      // - Creating: The agent is being created.
+      // - Running: The agent is running.
+      // - Failed: The agent failed.
+      // - Updating: The agent is being updated.
+      // - Deleting: The agent is being deleted.
+      // - Deleted: The agent is deleted.
+      // To query the execution progress of the latest configuration, call the GetCustomAgent operation.
       shared_ptr<string> status_ {};
       // The time when the agent was last updated. The time is in ISO 8601 format. The trailing Z indicates the UTC time zone. Fractional seconds may be included.
       shared_ptr<string> updatedAt_ {};
@@ -704,21 +706,21 @@ namespace Models
 
 
   protected:
-    // The request result code. The value is SUCCESS when the request is successful.
+    // The request result code. The value is SUCCESS if the request is successful.
     shared_ptr<string> code_ {};
-    // The HTTP status code of the current request. The value is 200 when the request is successful.
+    // The HTTP status code of the request. The value is 200 if the request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The list of custom agent summaries on the current page. To query the complete configuration and the execution result of the latest version, call the GetCustomAgent operation.
     shared_ptr<vector<ListCustomAgentsResponseBody::Items>> items_ {};
     // The maximum number of results returned per page for the current query.
     shared_ptr<int32_t> maxResults_ {};
-    // The message that describes the processing result of the request. The value is success if the request succeeds.
+    // The message that describes the result of the request. The value is success if the request is successful.
     shared_ptr<string> message_ {};
-    // The opaque token used to query the next page. An empty value indicates that no more pages exist. Pass this token as is in subsequent requests.
+    // The opaque token used to query the next page. An empty value indicates that no more pages are available. Pass this token as-is in subsequent requests.
     shared_ptr<string> nextToken_ {};
-    // The unique identifier of the request, used to locate and troubleshoot issues.
+    // The unique identifier of the request. You can use this ID to locate and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was processed successfully. A value of true indicates success. A successful creation, update, or deletion does not mean that the background operation is complete.
+    // Indicates whether the request was processed successfully. A value of true indicates that the request was successful. A successful creation, update, or deletion response does not mean that the background operation is complete.
     shared_ptr<bool> success_ {};
     // The total number of custom agents that meet the query conditions in the specified workspace.
     shared_ptr<int64_t> totalCount_ {};

@@ -174,6 +174,9 @@
 #include <alibabacloud/models/EnableConnectorShrinkRequest.hpp>
 #include <alibabacloud/models/EnableConnectorResponseBody.hpp>
 #include <alibabacloud/models/EnableConnectorResponse.hpp>
+#include <alibabacloud/models/FindCustomAgentImagePreparationRequest.hpp>
+#include <alibabacloud/models/FindCustomAgentImagePreparationResponseBody.hpp>
+#include <alibabacloud/models/FindCustomAgentImagePreparationResponse.hpp>
 #include <alibabacloud/models/ForcePublishSkillVersionRequest.hpp>
 #include <alibabacloud/models/ForcePublishSkillVersionShrinkRequest.hpp>
 #include <alibabacloud/models/ForcePublishSkillVersionResponseBody.hpp>
@@ -209,6 +212,9 @@
 #include <alibabacloud/models/GetCustomAgentRequest.hpp>
 #include <alibabacloud/models/GetCustomAgentResponseBody.hpp>
 #include <alibabacloud/models/GetCustomAgentResponse.hpp>
+#include <alibabacloud/models/GetCustomAgentImagePreparationRequest.hpp>
+#include <alibabacloud/models/GetCustomAgentImagePreparationResponseBody.hpp>
+#include <alibabacloud/models/GetCustomAgentImagePreparationResponse.hpp>
 #include <alibabacloud/models/GetExternalAgentRequest.hpp>
 #include <alibabacloud/models/GetExternalAgentResponseBody.hpp>
 #include <alibabacloud/models/GetExternalAgentResponse.hpp>

@@ -50,12 +50,15 @@ namespace Models
         DARABONBA_PTR_TO_JSON(codePackageInfo, codePackageInfo_);
         DARABONBA_PTR_TO_JSON(createMode, createMode_);
         DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
+        DARABONBA_PTR_TO_JSON(currentImage, currentImage_);
+        DARABONBA_PTR_TO_JSON(customImage, customImage_);
         DARABONBA_PTR_TO_JSON(deployType, deployType_);
         DARABONBA_PTR_TO_JSON(description, description_);
         DARABONBA_PTR_TO_JSON(effectiveSpecVersion, effectiveSpecVersion_);
         DARABONBA_PTR_TO_JSON(environment, environment_);
         DARABONBA_PTR_TO_JSON(healthCheck, healthCheck_);
         DARABONBA_PTR_TO_JSON(imageCacheId, imageCacheId_);
+        DARABONBA_PTR_TO_JSON(imagePreparation, imagePreparation_);
         DARABONBA_PTR_TO_JSON(latestExecutionError, latestExecutionError_);
         DARABONBA_PTR_TO_JSON(latestSpecVersion, latestSpecVersion_);
         DARABONBA_PTR_TO_JSON(latestVersionStatus, latestVersionStatus_);
@@ -81,12 +84,15 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(codePackageInfo, codePackageInfo_);
         DARABONBA_PTR_FROM_JSON(createMode, createMode_);
         DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
+        DARABONBA_PTR_FROM_JSON(currentImage, currentImage_);
+        DARABONBA_PTR_FROM_JSON(customImage, customImage_);
         DARABONBA_PTR_FROM_JSON(deployType, deployType_);
         DARABONBA_PTR_FROM_JSON(description, description_);
         DARABONBA_PTR_FROM_JSON(effectiveSpecVersion, effectiveSpecVersion_);
         DARABONBA_PTR_FROM_JSON(environment, environment_);
         DARABONBA_PTR_FROM_JSON(healthCheck, healthCheck_);
         DARABONBA_PTR_FROM_JSON(imageCacheId, imageCacheId_);
+        DARABONBA_PTR_FROM_JSON(imagePreparation, imagePreparation_);
         DARABONBA_PTR_FROM_JSON(latestExecutionError, latestExecutionError_);
         DARABONBA_PTR_FROM_JSON(latestSpecVersion, latestSpecVersion_);
         DARABONBA_PTR_FROM_JSON(latestVersionStatus, latestVersionStatus_);
@@ -177,9 +183,9 @@ namespace Models
 
 
         protected:
-          // The name of the HTTP request header used by the session policy. This parameter is applicable when the type is ISOLATED_HEADER_FIELD.
+          // The name of the HTTP request header used by the session policy, applicable to ISOLATED_HEADER_FIELD.
           shared_ptr<string> headerName_ {};
-          // The session policy type. Valid values: AFFINITY (session affinity), ISOLATED_HEADER_FIELD (uses the request header specified by headerName to associate sessions), and ISOLATED_COOKIE (not recommended). The compatible value DISABLED in requests is returned as AFFINITY.
+          // The session policy type. Valid values: AFFINITY: Session affinity. ISOLATED_HEADER_FIELD: Associates sessions by using the request header specified by headerName. ISOLATED_COOKIE is not recommended. The compatible value DISABLED in requests is returned as AFFINITY.
           // 
           // This parameter is required.
           shared_ptr<string> type_ {};
@@ -250,17 +256,17 @@ namespace Models
 
 
         protected:
-          // Specifies whether to enable elastic scaling. A value of true indicates that elastic scaling is enabled. A value of false indicates that elastic scaling is disabled.
+          // Specifies whether to enable elastic scaling. Valid values: true: Enabled. false: Disabled.
           // 
           // This parameter is required.
           shared_ptr<bool> enabled_ {};
-          // The configured maximum number of concurrent sessions per runtime instance.
+          // The configured maximum number of concurrent sessions for a single runtime instance.
           shared_ptr<int32_t> maxConcurrentSessionsPerSandbox_ {};
           // The configured maximum number of runtime instances.
           shared_ptr<int32_t> maxSandboxCount_ {};
           // The configured minimum number of runtime instances.
           shared_ptr<int32_t> minSandboxCount_ {};
-          // The configured session idle timeout limit in seconds.
+          // The configured session idle timeout limit, in seconds.
           shared_ptr<int32_t> sessionTtlSeconds_ {};
         };
 
@@ -437,7 +443,7 @@ namespace Models
 
 
       protected:
-        // The request header configuration for the current protocol. The key is the header name and the value is a string.
+        // The request header configuration for the current protocol, where the key is the name and the value is a string.
         shared_ptr<map<string, string>> headers_ {};
         // The list of API paths corresponding to the current protocol.
         shared_ptr<vector<Protocol::Paths>> paths_ {};
@@ -509,7 +515,7 @@ namespace Models
         shared_ptr<string> mountPath_ {};
         // The object directory prefix in the mounted bucket.
         shared_ptr<string> path_ {};
-        // Specifies whether the mount is read-only. A value of true indicates read-only, and false indicates read and write.
+        // Specifies whether the mount is read-only. A value of true indicates a read-only mount. A value of false indicates a read-write mount.
         shared_ptr<bool> readOnly_ {};
       };
 
@@ -541,7 +547,7 @@ namespace Models
 
 
       protected:
-        // Specifies whether to enable agent observability.
+        // Specifies whether agent observability is enabled.
         shared_ptr<bool> enabled_ {};
       };
 
@@ -594,7 +600,7 @@ namespace Models
 
 
         protected:
-          // Specifies whether access to the user VPC configured for the workspace is allowed on the agent side. The actual access is still limited by the workspace configuration.
+          // Specifies whether access to the user VPC configured for the workspace is allowed on the agent side. The actual access remains restricted by the workspace.
           shared_ptr<bool> enabled_ {};
         };
 
@@ -626,7 +632,7 @@ namespace Models
 
 
         protected:
-          // Specifies whether Internet access is allowed on the agent side. The actual access is still limited by the workspace configuration.
+          // Specifies whether Internet access is allowed on the agent side. The actual access remains restricted by the workspace.
           shared_ptr<bool> enabled_ {};
         };
 
@@ -651,9 +657,9 @@ namespace Models
 
 
       protected:
-        // The Internet access configuration of the agent. If this parameter is not configured, Internet access is allowed on the agent side but is still limited by the workspace configuration.
+        // The Internet access configuration of the agent. If not configured, Internet access is allowed on the agent side but remains restricted by the workspace.
         shared_ptr<Network::AccessInternet> accessInternet_ {};
-        // The user VPC access configuration of the agent. If this parameter is not configured, user VPC access is allowed on the agent side but is still limited by the workspace configuration.
+        // The user VPC access configuration of the agent. If not configured, user VPC access is allowed on the agent side but remains restricted by the workspace.
         shared_ptr<Network::AccessVpc> accessVpc_ {};
       };
 
@@ -782,18 +788,62 @@ namespace Models
 
 
       protected:
-        // The reason code for the wait or execution failure of the latest configuration. This code is used to determine the subsequent processing method.
+        // The reason code for the waiting or execution failure of the latest configuration. Used to determine subsequent handling methods.
         // 
         // This parameter is required.
         shared_ptr<string> code_ {};
-        // The description of the reason why the latest configuration is waiting or failed to execute. Refer to the code and retryable parameters to determine what to do next.
+        // The reason why the latest configuration is pending or failed to execute. Determine what to do next based on the code and retryable fields.
         // 
         // This parameter is required.
         shared_ptr<string> message_ {};
-        // Indicates whether the system automatically retries the operation. If the value is true, you can query the status later. If the value is false, check and fix the configuration based on the error cause, and then resubmit the request.
+        // Indicates whether the task is automatically retried. If true, you can query again later. If false, check and fix the configuration based on the reason, and then resubmit.
         // 
         // This parameter is required.
         shared_ptr<bool> retryable_ {};
+      };
+
+      class ImagePreparation : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ImagePreparation& obj) { 
+          DARABONBA_PTR_TO_JSON(phase, phase_);
+          DARABONBA_PTR_TO_JSON(preparationId, preparationId_);
+        };
+        friend void from_json(const Darabonba::Json& j, ImagePreparation& obj) { 
+          DARABONBA_PTR_FROM_JSON(phase, phase_);
+          DARABONBA_PTR_FROM_JSON(preparationId, preparationId_);
+        };
+        ImagePreparation() = default ;
+        ImagePreparation(const ImagePreparation &) = default ;
+        ImagePreparation(ImagePreparation &&) = default ;
+        ImagePreparation(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ImagePreparation() = default ;
+        ImagePreparation& operator=(const ImagePreparation &) = default ;
+        ImagePreparation& operator=(ImagePreparation &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->phase_ == nullptr
+        && this->preparationId_ == nullptr; };
+        // phase Field Functions 
+        bool hasPhase() const { return this->phase_ != nullptr;};
+        void deletePhase() { this->phase_ = nullptr;};
+        inline string getPhase() const { DARABONBA_PTR_GET_DEFAULT(phase_, "") };
+        inline ImagePreparation& setPhase(string phase) { DARABONBA_PTR_SET_VALUE(phase_, phase) };
+
+
+        // preparationId Field Functions 
+        bool hasPreparationId() const { return this->preparationId_ != nullptr;};
+        void deletePreparationId() { this->preparationId_ = nullptr;};
+        inline string getPreparationId() const { DARABONBA_PTR_GET_DEFAULT(preparationId_, "") };
+        inline ImagePreparation& setPreparationId(string preparationId) { DARABONBA_PTR_SET_VALUE(preparationId_, preparationId) };
+
+
+      protected:
+        // The current image preparation phase. Configuration acceptance does not mean successful deployment.
+        shared_ptr<string> phase_ {};
+        // The task ID submitted from the console. This is not the Resource Management (RM) operation ID.
+        shared_ptr<string> preparationId_ {};
       };
 
       class HealthCheck : public Darabonba::Model {
@@ -880,7 +930,7 @@ namespace Models
         shared_ptr<int32_t> port_ {};
         // The timeout period for a single health check, in seconds.
         shared_ptr<int32_t> timeoutSeconds_ {};
-        // The number of consecutive health check failures after which the instance is considered unhealthy.
+        // The number of consecutive health check failures required to mark the agent as unhealthy.
         shared_ptr<int32_t> unhealthyThreshold_ {};
       };
 
@@ -962,8 +1012,332 @@ namespace Models
 
 
       protected:
-        // The latest submitted list of environment variables.
+        // The list of recently submitted environment variables.
         shared_ptr<vector<Environment::Variables>> variables_ {};
+      };
+
+      class CustomImage : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const CustomImage& obj) { 
+          DARABONBA_PTR_TO_JSON(image, image_);
+          DARABONBA_PTR_TO_JSON(pullNetwork, pullNetwork_);
+          DARABONBA_PTR_TO_JSON(skipTlsVerify, skipTlsVerify_);
+          DARABONBA_PTR_TO_JSON(username, username_);
+        };
+        friend void from_json(const Darabonba::Json& j, CustomImage& obj) { 
+          DARABONBA_PTR_FROM_JSON(image, image_);
+          DARABONBA_PTR_FROM_JSON(pullNetwork, pullNetwork_);
+          DARABONBA_PTR_FROM_JSON(skipTlsVerify, skipTlsVerify_);
+          DARABONBA_PTR_FROM_JSON(username, username_);
+        };
+        CustomImage() = default ;
+        CustomImage(const CustomImage &) = default ;
+        CustomImage(CustomImage &&) = default ;
+        CustomImage(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~CustomImage() = default ;
+        CustomImage& operator=(const CustomImage &) = default ;
+        CustomImage& operator=(CustomImage &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class PullNetwork : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const PullNetwork& obj) { 
+            DARABONBA_PTR_TO_JSON(securityGroupId, securityGroupId_);
+            DARABONBA_PTR_TO_JSON(type, type_);
+            DARABONBA_PTR_TO_JSON(vSwitchId, vSwitchId_);
+            DARABONBA_PTR_TO_JSON(vpcId, vpcId_);
+          };
+          friend void from_json(const Darabonba::Json& j, PullNetwork& obj) { 
+            DARABONBA_PTR_FROM_JSON(securityGroupId, securityGroupId_);
+            DARABONBA_PTR_FROM_JSON(type, type_);
+            DARABONBA_PTR_FROM_JSON(vSwitchId, vSwitchId_);
+            DARABONBA_PTR_FROM_JSON(vpcId, vpcId_);
+          };
+          PullNetwork() = default ;
+          PullNetwork(const PullNetwork &) = default ;
+          PullNetwork(PullNetwork &&) = default ;
+          PullNetwork(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~PullNetwork() = default ;
+          PullNetwork& operator=(const PullNetwork &) = default ;
+          PullNetwork& operator=(PullNetwork &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->securityGroupId_ == nullptr
+        && this->type_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr; };
+          // securityGroupId Field Functions 
+          bool hasSecurityGroupId() const { return this->securityGroupId_ != nullptr;};
+          void deleteSecurityGroupId() { this->securityGroupId_ = nullptr;};
+          inline string getSecurityGroupId() const { DARABONBA_PTR_GET_DEFAULT(securityGroupId_, "") };
+          inline PullNetwork& setSecurityGroupId(string securityGroupId) { DARABONBA_PTR_SET_VALUE(securityGroupId_, securityGroupId) };
+
+
+          // type Field Functions 
+          bool hasType() const { return this->type_ != nullptr;};
+          void deleteType() { this->type_ = nullptr;};
+          inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+          inline PullNetwork& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+          // vSwitchId Field Functions 
+          bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
+          void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
+          inline string getVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
+          inline PullNetwork& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
+
+
+          // vpcId Field Functions 
+          bool hasVpcId() const { return this->vpcId_ != nullptr;};
+          void deleteVpcId() { this->vpcId_ = nullptr;};
+          inline string getVpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
+          inline PullNetwork& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
+
+
+        protected:
+          // The security group ID. This parameter is required when type is set to vpc and must belong to the selected VPC.
+          shared_ptr<string> securityGroupId_ {};
+          // The pull network type. This parameter is required when pullNetwork is submitted and is verified by the backend. The default value for a new creation is public network, which is independent of the agent runtime network.
+          shared_ptr<string> type_ {};
+          // The security group ID. This parameter is required when type is set to vpc and must belong to the selected VPC.
+          shared_ptr<string> vSwitchId_ {};
+          // The VPC ID. This parameter is required when type is set to vpc. The associated account and region are verified by the backend.
+          shared_ptr<string> vpcId_ {};
+        };
+
+        virtual bool empty() const override { return this->image_ == nullptr
+        && this->pullNetwork_ == nullptr && this->skipTlsVerify_ == nullptr && this->username_ == nullptr; };
+        // image Field Functions 
+        bool hasImage() const { return this->image_ != nullptr;};
+        void deleteImage() { this->image_ = nullptr;};
+        inline string getImage() const { DARABONBA_PTR_GET_DEFAULT(image_, "") };
+        inline CustomImage& setImage(string image) { DARABONBA_PTR_SET_VALUE(image_, image) };
+
+
+        // pullNetwork Field Functions 
+        bool hasPullNetwork() const { return this->pullNetwork_ != nullptr;};
+        void deletePullNetwork() { this->pullNetwork_ = nullptr;};
+        inline const CustomImage::PullNetwork & getPullNetwork() const { DARABONBA_PTR_GET_CONST(pullNetwork_, CustomImage::PullNetwork) };
+        inline CustomImage::PullNetwork getPullNetwork() { DARABONBA_PTR_GET(pullNetwork_, CustomImage::PullNetwork) };
+        inline CustomImage& setPullNetwork(const CustomImage::PullNetwork & pullNetwork) { DARABONBA_PTR_SET_VALUE(pullNetwork_, pullNetwork) };
+        inline CustomImage& setPullNetwork(CustomImage::PullNetwork && pullNetwork) { DARABONBA_PTR_SET_RVALUE(pullNetwork_, pullNetwork) };
+
+
+        // skipTlsVerify Field Functions 
+        bool hasSkipTlsVerify() const { return this->skipTlsVerify_ != nullptr;};
+        void deleteSkipTlsVerify() { this->skipTlsVerify_ = nullptr;};
+        inline bool getSkipTlsVerify() const { DARABONBA_PTR_GET_DEFAULT(skipTlsVerify_, false) };
+        inline CustomImage& setSkipTlsVerify(bool skipTlsVerify) { DARABONBA_PTR_SET_VALUE(skipTlsVerify_, skipTlsVerify) };
+
+
+        // username Field Functions 
+        bool hasUsername() const { return this->username_ != nullptr;};
+        void deleteUsername() { this->username_ = nullptr;};
+        inline string getUsername() const { DARABONBA_PTR_GET_DEFAULT(username_, "") };
+        inline CustomImage& setUsername(string username) { DARABONBA_PTR_SET_VALUE(username_, username) };
+
+
+      protected:
+        // The latest saved source address, which may still be in preparation.
+        shared_ptr<string> image_ {};
+        // The saved dedicated pull network.
+        shared_ptr<CustomImage::PullNetwork> pullNetwork_ {};
+        // The saved HTTPS certificate exception option.
+        shared_ptr<bool> skipTlsVerify_ {};
+        // Returns the saved username only after the source is successfully prepared. Omitted for anonymous or unverified sources. This does not indicate the presence of a reusable password.
+        shared_ptr<string> username_ {};
+      };
+
+      class CurrentImage : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const CurrentImage& obj) { 
+          DARABONBA_PTR_TO_JSON(image, image_);
+          DARABONBA_PTR_TO_JSON(instanceId, instanceId_);
+          DARABONBA_PTR_TO_JSON(namespace, namespace_);
+          DARABONBA_PTR_TO_JSON(pullNetwork, pullNetwork_);
+          DARABONBA_PTR_TO_JSON(repo, repo_);
+          DARABONBA_PTR_TO_JSON(skipTlsVerify, skipTlsVerify_);
+          DARABONBA_PTR_TO_JSON(sourceType, sourceType_);
+          DARABONBA_PTR_TO_JSON(tag, tag_);
+          DARABONBA_PTR_TO_JSON(username, username_);
+        };
+        friend void from_json(const Darabonba::Json& j, CurrentImage& obj) { 
+          DARABONBA_PTR_FROM_JSON(image, image_);
+          DARABONBA_PTR_FROM_JSON(instanceId, instanceId_);
+          DARABONBA_PTR_FROM_JSON(namespace, namespace_);
+          DARABONBA_PTR_FROM_JSON(pullNetwork, pullNetwork_);
+          DARABONBA_PTR_FROM_JSON(repo, repo_);
+          DARABONBA_PTR_FROM_JSON(skipTlsVerify, skipTlsVerify_);
+          DARABONBA_PTR_FROM_JSON(sourceType, sourceType_);
+          DARABONBA_PTR_FROM_JSON(tag, tag_);
+          DARABONBA_PTR_FROM_JSON(username, username_);
+        };
+        CurrentImage() = default ;
+        CurrentImage(const CurrentImage &) = default ;
+        CurrentImage(CurrentImage &&) = default ;
+        CurrentImage(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~CurrentImage() = default ;
+        CurrentImage& operator=(const CurrentImage &) = default ;
+        CurrentImage& operator=(CurrentImage &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class PullNetwork : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const PullNetwork& obj) { 
+            DARABONBA_PTR_TO_JSON(securityGroupId, securityGroupId_);
+            DARABONBA_PTR_TO_JSON(type, type_);
+            DARABONBA_PTR_TO_JSON(vSwitchId, vSwitchId_);
+            DARABONBA_PTR_TO_JSON(vpcId, vpcId_);
+          };
+          friend void from_json(const Darabonba::Json& j, PullNetwork& obj) { 
+            DARABONBA_PTR_FROM_JSON(securityGroupId, securityGroupId_);
+            DARABONBA_PTR_FROM_JSON(type, type_);
+            DARABONBA_PTR_FROM_JSON(vSwitchId, vSwitchId_);
+            DARABONBA_PTR_FROM_JSON(vpcId, vpcId_);
+          };
+          PullNetwork() = default ;
+          PullNetwork(const PullNetwork &) = default ;
+          PullNetwork(PullNetwork &&) = default ;
+          PullNetwork(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~PullNetwork() = default ;
+          PullNetwork& operator=(const PullNetwork &) = default ;
+          PullNetwork& operator=(PullNetwork &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->securityGroupId_ == nullptr
+        && this->type_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr; };
+          // securityGroupId Field Functions 
+          bool hasSecurityGroupId() const { return this->securityGroupId_ != nullptr;};
+          void deleteSecurityGroupId() { this->securityGroupId_ = nullptr;};
+          inline string getSecurityGroupId() const { DARABONBA_PTR_GET_DEFAULT(securityGroupId_, "") };
+          inline PullNetwork& setSecurityGroupId(string securityGroupId) { DARABONBA_PTR_SET_VALUE(securityGroupId_, securityGroupId) };
+
+
+          // type Field Functions 
+          bool hasType() const { return this->type_ != nullptr;};
+          void deleteType() { this->type_ = nullptr;};
+          inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+          inline PullNetwork& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+          // vSwitchId Field Functions 
+          bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
+          void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
+          inline string getVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
+          inline PullNetwork& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
+
+
+          // vpcId Field Functions 
+          bool hasVpcId() const { return this->vpcId_ != nullptr;};
+          void deleteVpcId() { this->vpcId_ = nullptr;};
+          inline string getVpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
+          inline PullNetwork& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
+
+
+        protected:
+          // The security group ID. This parameter is required when type is set to vpc and must belong to the selected VPC.
+          shared_ptr<string> securityGroupId_ {};
+          // The pull network type. This parameter is required when pullNetwork is submitted and is verified by the backend. The default value for a new creation is public network, which is independent of the agent runtime network.
+          shared_ptr<string> type_ {};
+          // The security group ID. This parameter is required when type is set to vpc and must belong to the selected VPC.
+          shared_ptr<string> vSwitchId_ {};
+          // The VPC ID. This parameter is required when type is set to vpc. The associated account and region are verified by the backend.
+          shared_ptr<string> vpcId_ {};
+        };
+
+        virtual bool empty() const override { return this->image_ == nullptr
+        && this->instanceId_ == nullptr && this->namespace_ == nullptr && this->pullNetwork_ == nullptr && this->repo_ == nullptr && this->skipTlsVerify_ == nullptr
+        && this->sourceType_ == nullptr && this->tag_ == nullptr && this->username_ == nullptr; };
+        // image Field Functions 
+        bool hasImage() const { return this->image_ != nullptr;};
+        void deleteImage() { this->image_ = nullptr;};
+        inline string getImage() const { DARABONBA_PTR_GET_DEFAULT(image_, "") };
+        inline CurrentImage& setImage(string image) { DARABONBA_PTR_SET_VALUE(image_, image) };
+
+
+        // instanceId Field Functions 
+        bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+        void deleteInstanceId() { this->instanceId_ = nullptr;};
+        inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+        inline CurrentImage& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+        // namespace Field Functions 
+        bool hasNamespace() const { return this->namespace_ != nullptr;};
+        void deleteNamespace() { this->namespace_ = nullptr;};
+        inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+        inline CurrentImage& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
+
+
+        // pullNetwork Field Functions 
+        bool hasPullNetwork() const { return this->pullNetwork_ != nullptr;};
+        void deletePullNetwork() { this->pullNetwork_ = nullptr;};
+        inline const CurrentImage::PullNetwork & getPullNetwork() const { DARABONBA_PTR_GET_CONST(pullNetwork_, CurrentImage::PullNetwork) };
+        inline CurrentImage::PullNetwork getPullNetwork() { DARABONBA_PTR_GET(pullNetwork_, CurrentImage::PullNetwork) };
+        inline CurrentImage& setPullNetwork(const CurrentImage::PullNetwork & pullNetwork) { DARABONBA_PTR_SET_VALUE(pullNetwork_, pullNetwork) };
+        inline CurrentImage& setPullNetwork(CurrentImage::PullNetwork && pullNetwork) { DARABONBA_PTR_SET_RVALUE(pullNetwork_, pullNetwork) };
+
+
+        // repo Field Functions 
+        bool hasRepo() const { return this->repo_ != nullptr;};
+        void deleteRepo() { this->repo_ = nullptr;};
+        inline string getRepo() const { DARABONBA_PTR_GET_DEFAULT(repo_, "") };
+        inline CurrentImage& setRepo(string repo) { DARABONBA_PTR_SET_VALUE(repo_, repo) };
+
+
+        // skipTlsVerify Field Functions 
+        bool hasSkipTlsVerify() const { return this->skipTlsVerify_ != nullptr;};
+        void deleteSkipTlsVerify() { this->skipTlsVerify_ = nullptr;};
+        inline bool getSkipTlsVerify() const { DARABONBA_PTR_GET_DEFAULT(skipTlsVerify_, false) };
+        inline CurrentImage& setSkipTlsVerify(bool skipTlsVerify) { DARABONBA_PTR_SET_VALUE(skipTlsVerify_, skipTlsVerify) };
+
+
+        // sourceType Field Functions 
+        bool hasSourceType() const { return this->sourceType_ != nullptr;};
+        void deleteSourceType() { this->sourceType_ = nullptr;};
+        inline string getSourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
+        inline CurrentImage& setSourceType(string sourceType) { DARABONBA_PTR_SET_VALUE(sourceType_, sourceType) };
+
+
+        // tag Field Functions 
+        bool hasTag() const { return this->tag_ != nullptr;};
+        void deleteTag() { this->tag_ = nullptr;};
+        inline string getTag() const { DARABONBA_PTR_GET_DEFAULT(tag_, "") };
+        inline CurrentImage& setTag(string tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
+
+
+        // username Field Functions 
+        bool hasUsername() const { return this->username_ != nullptr;};
+        void deleteUsername() { this->username_ = nullptr;};
+        inline string getUsername() const { DARABONBA_PTR_GET_DEFAULT(username_, "") };
+        inline CurrentImage& setUsername(string username) { DARABONBA_PTR_SET_VALUE(username_, username) };
+
+
+      protected:
+        // The original image address for the custom source.
+        shared_ptr<string> image_ {};
+        // The instance ID for the ACR source.
+        shared_ptr<string> instanceId_ {};
+        // The namespace for the ACR source.
+        shared_ptr<string> namespace_ {};
+        // The independent pull network for the custom source.
+        shared_ptr<CurrentImage::PullNetwork> pullNetwork_ {};
+        // The repository name for the ACR source.
+        shared_ptr<string> repo_ {};
+        // The certificate exception option for the custom source.
+        shared_ptr<bool> skipTlsVerify_ {};
+        // The image source type of the current active version.
+        shared_ptr<string> sourceType_ {};
+        // The tag of the ACR source.
+        shared_ptr<string> tag_ {};
+        // The source snapshot from the current active configuration version. Omitted for anonymous sources. A new source failure does not overwrite this username, and no password is returned.
+        shared_ptr<string> username_ {};
       };
 
       class CodePackageInfo : public Darabonba::Model {
@@ -1140,25 +1514,17 @@ namespace Models
 
 
         protected:
-          // The custom executable program and startup parameters. If not configured, the default startup method of the image is used.
+          // The custom executable program and startup parameters. If this parameter is not configured, the default startup method of the image is used.
           shared_ptr<string> entrypoint_ {};
           // The ID of the ACR instance to which the image repository belongs.
-          // 
-          // This parameter is required.
           shared_ptr<string> instanceId_ {};
           // The namespace to which the ACR image repository belongs.
-          // 
-          // This parameter is required.
           shared_ptr<string> namespace_ {};
           // The name of the image repository in the ACR namespace.
-          // 
-          // This parameter is required.
           shared_ptr<string> repo_ {};
           // The latest submitted image tag.
-          // 
-          // This parameter is required.
           shared_ptr<string> tag_ {};
-          // The image source type. acr indicates Alibaba Cloud Container Registry.
+          // The image source type. A value of acr indicates Alibaba Cloud Container Registry (ACR).
           // 
           // This parameter is required.
           shared_ptr<string> type_ {};
@@ -1219,7 +1585,7 @@ namespace Models
           // 
           // This parameter is required.
           shared_ptr<string> languageRuntime_ {};
-          // The fixed oss:// address of the platform code package referenced by the currently saved configuration. This address does not include the signature parameters of the source HTTPS link. You can use this address to reuse an existing code package. To download the content, call GetAgentCodePackageDownloadUrl.
+          // The fixed oss:// address of the platform code package referenced by the currently saved configuration. This address does not include the signature parameters of the source HTTPS link. You can use this address to reuse an existing code package. To download the content, call the GetAgentCodePackageDownloadUrl operation.
           // 
           // This parameter is required.
           shared_ptr<string> sourceUri_ {};
@@ -1253,11 +1619,11 @@ namespace Models
 
 
       protected:
-        // The code package deployment configuration. This parameter is mutually exclusive with container. The code package must be in ZIP or TAR.GZ format. Dependencies must be packaged by the user. The platform does not install dependencies or perform online builds.
+        // The code package deployment configuration. This parameter is mutually exclusive with the container parameter. The code package uses the ZIP or TAR.GZ format. Dependencies must be packaged by the user. The platform does not install dependencies or perform online builds.
         shared_ptr<Artifact::Code> code_ {};
         // The latest submitted ACR container image configuration.
         shared_ptr<Artifact::Container> container_ {};
-        // The TCP port on which the agent service listens.
+        // The TCP port listened on by the agent service.
         // 
         // This parameter is required.
         shared_ptr<int32_t> port_ {};
@@ -1323,7 +1689,7 @@ namespace Models
         shared_ptr<string> mountPath_ {};
         // The relative directory within the mounted access point.
         shared_ptr<string> path_ {};
-        // Specifies whether the mount is read-only. A value of true indicates read-only, and false indicates read and write.
+        // Specifies whether the mount is read-only. A value of true indicates a read-only mount. A value of false indicates a read-write mount.
         shared_ptr<bool> readOnly_ {};
         // The AgenticFS access point domain name used for the mount.
         shared_ptr<string> server_ {};
@@ -1331,11 +1697,12 @@ namespace Models
 
       virtual bool empty() const override { return this->agentId_ == nullptr
         && this->agenticFsMounts_ == nullptr && this->artifact_ == nullptr && this->codePackageInfo_ == nullptr && this->createMode_ == nullptr && this->createdAt_ == nullptr
-        && this->deployType_ == nullptr && this->description_ == nullptr && this->effectiveSpecVersion_ == nullptr && this->environment_ == nullptr && this->healthCheck_ == nullptr
-        && this->imageCacheId_ == nullptr && this->latestExecutionError_ == nullptr && this->latestSpecVersion_ == nullptr && this->latestVersionStatus_ == nullptr && this->logging_ == nullptr
-        && this->name_ == nullptr && this->network_ == nullptr && this->observability_ == nullptr && this->ossMounts_ == nullptr && this->protocol_ == nullptr
-        && this->regionId_ == nullptr && this->roleArn_ == nullptr && this->runtime_ == nullptr && this->sandboxPhaseCounts_ == nullptr && this->status_ == nullptr
-        && this->updatedAt_ == nullptr && this->useImageCache_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->currentImage_ == nullptr && this->customImage_ == nullptr && this->deployType_ == nullptr && this->description_ == nullptr && this->effectiveSpecVersion_ == nullptr
+        && this->environment_ == nullptr && this->healthCheck_ == nullptr && this->imageCacheId_ == nullptr && this->imagePreparation_ == nullptr && this->latestExecutionError_ == nullptr
+        && this->latestSpecVersion_ == nullptr && this->latestVersionStatus_ == nullptr && this->logging_ == nullptr && this->name_ == nullptr && this->network_ == nullptr
+        && this->observability_ == nullptr && this->ossMounts_ == nullptr && this->protocol_ == nullptr && this->regionId_ == nullptr && this->roleArn_ == nullptr
+        && this->runtime_ == nullptr && this->sandboxPhaseCounts_ == nullptr && this->status_ == nullptr && this->updatedAt_ == nullptr && this->useImageCache_ == nullptr
+        && this->workspaceId_ == nullptr; };
       // agentId Field Functions 
       bool hasAgentId() const { return this->agentId_ != nullptr;};
       void deleteAgentId() { this->agentId_ = nullptr;};
@@ -1384,6 +1751,24 @@ namespace Models
       inline Data& setCreatedAt(string createdAt) { DARABONBA_PTR_SET_VALUE(createdAt_, createdAt) };
 
 
+      // currentImage Field Functions 
+      bool hasCurrentImage() const { return this->currentImage_ != nullptr;};
+      void deleteCurrentImage() { this->currentImage_ = nullptr;};
+      inline const Data::CurrentImage & getCurrentImage() const { DARABONBA_PTR_GET_CONST(currentImage_, Data::CurrentImage) };
+      inline Data::CurrentImage getCurrentImage() { DARABONBA_PTR_GET(currentImage_, Data::CurrentImage) };
+      inline Data& setCurrentImage(const Data::CurrentImage & currentImage) { DARABONBA_PTR_SET_VALUE(currentImage_, currentImage) };
+      inline Data& setCurrentImage(Data::CurrentImage && currentImage) { DARABONBA_PTR_SET_RVALUE(currentImage_, currentImage) };
+
+
+      // customImage Field Functions 
+      bool hasCustomImage() const { return this->customImage_ != nullptr;};
+      void deleteCustomImage() { this->customImage_ = nullptr;};
+      inline const Data::CustomImage & getCustomImage() const { DARABONBA_PTR_GET_CONST(customImage_, Data::CustomImage) };
+      inline Data::CustomImage getCustomImage() { DARABONBA_PTR_GET(customImage_, Data::CustomImage) };
+      inline Data& setCustomImage(const Data::CustomImage & customImage) { DARABONBA_PTR_SET_VALUE(customImage_, customImage) };
+      inline Data& setCustomImage(Data::CustomImage && customImage) { DARABONBA_PTR_SET_RVALUE(customImage_, customImage) };
+
+
       // deployType Field Functions 
       bool hasDeployType() const { return this->deployType_ != nullptr;};
       void deleteDeployType() { this->deployType_ = nullptr;};
@@ -1428,6 +1813,15 @@ namespace Models
       void deleteImageCacheId() { this->imageCacheId_ = nullptr;};
       inline string getImageCacheId() const { DARABONBA_PTR_GET_DEFAULT(imageCacheId_, "") };
       inline Data& setImageCacheId(string imageCacheId) { DARABONBA_PTR_SET_VALUE(imageCacheId_, imageCacheId) };
+
+
+      // imagePreparation Field Functions 
+      bool hasImagePreparation() const { return this->imagePreparation_ != nullptr;};
+      void deleteImagePreparation() { this->imagePreparation_ = nullptr;};
+      inline const Data::ImagePreparation & getImagePreparation() const { DARABONBA_PTR_GET_CONST(imagePreparation_, Data::ImagePreparation) };
+      inline Data::ImagePreparation getImagePreparation() { DARABONBA_PTR_GET(imagePreparation_, Data::ImagePreparation) };
+      inline Data& setImagePreparation(const Data::ImagePreparation & imagePreparation) { DARABONBA_PTR_SET_VALUE(imagePreparation_, imagePreparation) };
+      inline Data& setImagePreparation(Data::ImagePreparation && imagePreparation) { DARABONBA_PTR_SET_RVALUE(imagePreparation_, imagePreparation) };
 
 
       // latestExecutionError Field Functions 
@@ -1566,55 +1960,67 @@ namespace Models
 
 
     protected:
-      // The unique identifier of the custom agent, which can be obtained from the response of CreateCustomAgent or ListCustomAgents.
+      // The unique identifier of the custom agent. You can obtain this ID from the response of CreateCustomAgent or ListCustomAgents.
       // 
       // This parameter is required.
       shared_ptr<string> agentId_ {};
       // The latest submitted list of additional AgenticFS mounts.
       shared_ptr<vector<Data::AgenticFsMounts>> agenticFsMounts_ {};
-      // The latest submitted deployment artifact configuration, including the service listening port and ACR container image. To determine whether the configuration has taken effect, check the latestVersionStatus parameter.
+      // The latest submitted deployment artifact configuration, including the service listening port and the ACR container image. To determine whether the configuration has taken effect, check the latestVersionStatus parameter.
       shared_ptr<Data::Artifact> artifact_ {};
       // The currently saved code package information.
       shared_ptr<Data::CodePackageInfo> codePackageInfo_ {};
-      // The creation method of the agent. CUSTOM is returned for custom agents.
+      // The creation method of the agent. A value of CUSTOM is returned for custom agents.
       shared_ptr<string> createMode_ {};
       // The time when the agent was created. The time is in ISO 8601 format. The trailing Z indicates the UTC time zone. Fractional seconds may be included.
       shared_ptr<string> createdAt_ {};
-      // The deployment method of the agent. MANAGED is returned for custom agents because they are deployed and managed by the platform.
+      // The image source snapshot of the current active configuration version. This value is null before the initial configuration takes effect and does not represent the health status.
+      shared_ptr<Data::CurrentImage> currentImage_ {};
+      // The recently saved source and its verified username. The source may be in preparation or failed. No password is returned.
+      shared_ptr<Data::CustomImage> customImage_ {};
+      // The deployment method of the agent. Custom agents are deployed and managed by the platform, and MANAGED is returned.
       shared_ptr<string> deployType_ {};
       // The description of the agent\\"s purpose.
       shared_ptr<string> description_ {};
-      // The effective configuration version.
+      // The active configuration version.
       // 
       // This parameter is required.
       shared_ptr<int64_t> effectiveSpecVersion_ {};
       // The environment variable configuration for the agent process.
       shared_ptr<Data::Environment> environment_ {};
-      // The HTTP health check configuration for the agent. This parameter is empty if not configured.
+      // The HTTP health check configuration for the agent. Empty if not configured.
       shared_ptr<Data::HealthCheck> healthCheck_ {};
       // The ID of the currently associated image cache.
       // 
       // This parameter is required.
       shared_ptr<string> imageCacheId_ {};
-      // The wait or execution error of the latest configuration version. This parameter is returned only when the version is waiting for a retry or fails to execute.
+      // The currently associated image preparation task. The phase indicates acceptance. Query the preparation API for real-time progress. A standard save operation does not create an image preparation task.
+      shared_ptr<Data::ImagePreparation> imagePreparation_ {};
+      // The waiting or execution error of the latest configuration version. Returned only when this version is waiting for a retry or has failed.
       shared_ptr<Data::LatestExecutionError> latestExecutionError_ {};
       // The latest configuration version number. Updates with the same configuration may retain the original version number. This field does not indicate that the configuration has taken effect.
       // 
       // This parameter is required.
       shared_ptr<int64_t> latestSpecVersion_ {};
-      // The execution status corresponding to the latestSpecVersion. Valid values: pending (waiting for execution), processing (executing), waiting_retry (waiting for retry), succeeded (execution succeeded), failed (execution failed), and superseded (superseded by a later version).
+      // The execution status corresponding to latestSpecVersion. Valid values:
+      // - pending: Waiting for execution.
+      // - processing: Executing.
+      // - waiting_retry: Waiting for a retry.
+      // - succeeded: Executed successfully.
+      // - failed: Execution failed.
+      // - superseded: Superseded by a subsequent version.
       shared_ptr<string> latestVersionStatus_ {};
       // The latest submitted log delivery configuration.
       shared_ptr<Data::Logging> logging_ {};
-      // The custom agent name.
+      // The name of the custom agent.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The network access configuration of the agent. The actual access scope is also limited by the workspace network configuration.
+      // The network access configuration of the agent. The actual access scope is also restricted by the workspace network configuration.
       shared_ptr<Data::Network> network_ {};
-      // The observability configuration for high-code agents.
+      // The observability configuration for the high-code agent.
       shared_ptr<Data::Observability> observability_ {};
-      // The latest submitted list of OSS directory mounts.
+      // The list of recently submitted OSS directory mounts.
       shared_ptr<vector<Data::OssMounts>> ossMounts_ {};
       // The list of invocation protocol configurations for the agent.
       shared_ptr<vector<Data::Protocol>> protocol_ {};
@@ -1624,15 +2030,15 @@ namespace Models
       shared_ptr<string> roleArn_ {};
       // The latest committed runtime configuration, including compute specifications, session policy, and elastic policy.
       shared_ptr<Data::Runtime> runtime_ {};
-      // The instance count statistics by runtime instance phase. Keys include PENDING (creating or initializing), RUNNING (running), HIBERNATING (hibernating), HIBERNATED (hibernated), RESUMING (resuming), TERMINATING (terminating), and FAILED (failed). Only phases that actually occur are returned. Missing keys are treated as 0.
+      // Counts the number of instances by runtime instance phase. Keys include PENDING (creating or initializing), RUNNING (running), HIBERNATING (hibernating), HIBERNATED (hibernated), RESUMING (resuming), TERMINATING (terminating), and FAILED (failed). Only phases that actually occur are returned, and missing keys are treated as 0.
       shared_ptr<map<string, int64_t>> sandboxPhaseCounts_ {};
-      // The overall status of the agent. Valid values: Creating: The agent is being created. Running: The agent is running. Failed: The agent failed. Updating: The agent is being updated. Deleting: The agent is being deleted. Deleted: The agent is deleted. To view the execution progress of the latest configuration, query latestVersionStatus.
+      // The overall status of the agent. Valid values: Creating: Creating. Running: Running. Failed: Failed. Updating: Updating. Deleting: Deleting. Deleted: Deleted. To check the execution progress of the latest configuration, query latestVersionStatus.
       // 
       // This parameter is required.
       shared_ptr<string> status_ {};
-      // The time when the agent was last updated. The time follows the ISO 8601 standard. A trailing Z indicates the UTC time zone. Fractional seconds are supported.
+      // The most recent update time of the agent, in ISO 8601 format. The trailing Z indicates the UTC time zone, and fractional seconds may be included.
       shared_ptr<string> updatedAt_ {};
-      // Specifies whether the image cache is enabled.
+      // The image cache switch.
       // 
       // This parameter is required.
       shared_ptr<bool> useImageCache_ {};
@@ -1697,11 +2103,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<GetCustomAgentResponseBody::Data> data_ {};
-    // The HTTP status code of the request. A value of 200 indicates success.
+    // The HTTP status code of the request. The value is 200 if the request is successful.
     // 
     // This parameter is required.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The result message of the request. The value is success if the request is successful.
+    // The description of the processing result for the request. The value is success if the request is successful.
     // 
     // This parameter is required.
     shared_ptr<string> message_ {};
@@ -1709,7 +2115,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> requestId_ {};
-    // Specifies whether the request was successful. A value of true indicates success. A successful creation, update, or deletion does not mean that the background operation is complete.
+    // Indicates whether the request was processed successfully. A value of true indicates that the request was processed successfully. A successful creation, update, or deletion does not mean that the background operation is complete.
     // 
     // This parameter is required.
     shared_ptr<bool> success_ {};

@@ -102,12 +102,9 @@ namespace Models
 
 
       protected:
-        // The URL configured for the external provisioning system. The presence of a URL does not mean that the external configuration is complete or that AC synchronization is enabled.
+        // The URL configured for the external provisioning system. The presence of a URL does not indicate that external configuration is complete or that AC synchronization is enabled.
         shared_ptr<string> baseUrl_ {};
-        // The receiving status of AgentIdentity. Valid values:
-        // - Enabled: SCIM receiving is enabled.
-        // - Disabled: SCIM receiving is disabled.
-        // This is not equivalent to the expected value of syncEnabled for AC.
+        // The AgentIdentity receiving status. Enabled indicates that SCIM receiving is enabled. Disabled indicates that it is disabled. This is not equivalent to the expected value of syncEnabled for AC.
         shared_ptr<string> status_ {};
       };
 
@@ -144,20 +141,27 @@ namespace Models
 
 
     protected:
-      // The actual SAML configuration is read back on demand only in GetIdentityProvider. SCIM queries and preparations return the actual receiving status and URL.
+      // The actual receiving status and URL. The actual SAML configuration is read back on demand only in GetIdentityProvider. SCIM queries and preparations return the actual receiving status and URL.
       shared_ptr<Data::Configuration> configuration_ {};
-      // Independent of the SAML logon binding status. Valid values:
-      // - PENDING: Waiting to be executed.
-      // - RUNNING: Being executed.
+      // The status of the most recent SCIM operation task. This status is independent of the SAML logon binding status. Valid values:
+      // - PENDING: Waiting for execution.
+      // - RUNNING: Executing.
       // - PAUSED: Paused.
       // - SUCCESS: Succeeded.
       // - FAILED: Failed.
       // - CANCELED: Canceled.
-      // If there are no tasks, null is returned or this parameter is not returned. This parameter only indicates the most recent SCIM switch and the first full import task when it is enabled. It does not indicate credential issuance, external provisioning connection tests, or the health of continuous incremental synchronization. The client polls this operation when the status is PENDING or RUNNING.
+      // If there are no tasks, it returns null or is not returned. This status only represents the most recent SCIM switch and the initial full import task when enabled. It does not indicate credential issuance, external provisioning connection tests, or continuous incremental synchronization health. Clients poll this operation when the status is PENDING or RUNNING.
       shared_ptr<string> operationStatus_ {};
-      // UNCONFIGURED：尚未准备完成；WAITING_CONFIGURATION：接收 Enabled、有效 HTTPS URL 和至少一个有效 Token 均已具备，等待外部配置并确认启用；UPDATING：启用或停用任务 PENDING/RUNNING；READY：同步已启用且本次启用任务成功，接收、URL 和 Token 仍可用；DISABLED：停用任务成功，保留配置、凭据和用户；UPDATE_FAILED：操作失败、暂停、取消，或期望启用时配置／凭据不可用。与 SAML/OIDC 状态独立，READY 不证明 Matrix 执行或持续增量链路已验收。
+      // The independent SCIM configuration status. Valid values:
+      // - UNCONFIGURED: Preparation is not complete.
+      // - WAITING_CONFIGURATION: Receiving is enabled, a valid HTTPS URL and at least one valid token are available, waiting for external configuration and enablement confirmation.
+      // - UPDATING: The enablement or disablement task is PENDING or RUNNING.
+      // - READY: Synchronization is enabled and the current enablement task succeeded, and the receiving end, URL, and token are still available.
+      // - DISABLED: The disablement task succeeded, and the configuration, credentials, and users are retained.
+      // - UPDATE_FAILED: The operation failed, was paused, was canceled, or the configuration and credentials are unavailable when enablement is expected.
+      // This status is independent of the SAML or OIDC status. READY does not prove that Matrix execution or the continuous incremental link has been accepted.
       shared_ptr<string> status_ {};
-      // Specifies whether local synchronization is expected. Do not set this parameter to true during CustomSSO initialization. You can only update this parameter by calling UpdateIdentityProviderSCIM. Determine the result based on operationStatus.
+      // Specifies whether local synchronization is expected. You must determine whether it takes effect based on the actual configuration and task records. Do not set this parameter to true during CustomSSO initialization. You can only update it later by calling UpdateIdentityProviderSCIM, and determine the result based on operationStatus.
       shared_ptr<bool> syncEnabled_ {};
     };
 
@@ -208,17 +212,17 @@ namespace Models
 
 
   protected:
-    // If the request fails, handle the error based on the HTTP status code and the message.
+    // The business result code. Use this code along with the HTTP status code and message for error handling.
     shared_ptr<string> code_ {};
-    // The result structure. For details, see the response fields of this operation. The response of an asynchronous write operation indicates that the request is accepted, but does not guarantee that the background task is completed.
+    // The SCIM actual configuration, expected synchronization switch, and independent operation status. For the result structure, see the response fields of this operation. The response of an asynchronous write operation indicates that the request is accepted, but does not guarantee that the background task is complete.
     shared_ptr<GetIdentityProviderSCIMResponseBody::Data> data_ {};
-    // The processing status of the current request. This is not equivalent to the final result of the background task.
+    // The HTTP status code of the current request. This code indicates the processing status of the request and is not equivalent to the final result of the background task.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request acceptance or error message. For the results of an asynchronous task, check the corresponding query operation.
+    // Task result message. It indicates that the request is accepted or provides an error message. For asynchronous tasks, you must check task results by calling the corresponding query operation.
     shared_ptr<string> message_ {};
-    // Used to associate the current call with troubleshooting. Retain this parameter when a failure occurs.
+    // The request ID. It is used to associate the current call with troubleshooting. Retain this ID when a failure occurs.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the current request is successful. A value of true indicates that the current request is processed successfully. For asynchronous writes, you still need to continue querying the task results.
+    // Indicates whether the current request is successful. A value of true indicates that the request is processed successfully. For asynchronous write operations, you must continue to query the task results.
     shared_ptr<bool> success_ {};
   };
 
