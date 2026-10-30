@@ -223,7 +223,7 @@ namespace Models
 
 
   protected:
-    // > Unless you have special requirements, keep the default value. If you have special requirements, consult and confirm before specifying this parameter.
+    // > Keep the default value unless you have special requirements. If you have special requirements, contact technical support to confirm and then specify the relevant parameters.
     // 
     // The attribute information.
     shared_ptr<CreateRenderingInstanceRequest::Attributes> attributes_ {};
@@ -255,7 +255,7 @@ namespace Models
     shared_ptr<int64_t> internetMaxBandwidth_ {};
     // > This parameter takes effect only when `InstanceChargeType` is set to `PrePaid` (subscription).
     // 
-    // The subscription duration. Valid values (note: if you select 12, it is calculated as one year, and other values are calculated in months):
+    // The subscription duration. Valid values (Note: If you select 12, the duration is calculated as one year. For other values, the unit is months):
     // 
     // - 1 (default)
     // - 2
@@ -268,10 +268,10 @@ namespace Models
     // - 9
     // - 12
     shared_ptr<string> period_ {};
-    // The specifications of the cloud application service instance.
+    // The specification of the cloud application service instance.
     // 
-    // - For the crs.cp.* series, the billing method can be subscription or pay-as-you-go.
-    // - For the crs.vm.* series, the billing method can be subscription or pay-as-you-go.
+    // - If the specification belongs to the crs.cp.* series, the billing method can be subscription or pay-as-you-go.
+    // - If the specification belongs to the crs.vm.* series, the billing method can be subscription or pay-as-you-go.
     // - For other series, only the subscription billing method is supported.
     // 
     // This parameter is required.

@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CREATERENDERINGINSTANCERESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_CREATERENDERINGINSTANCERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -14,10 +15,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateRenderingInstanceResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(RenderingInstanceId, renderingInstanceId_);
+      DARABONBA_PTR_TO_JSON(RenderingInstanceIds, renderingInstanceIds_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateRenderingInstanceResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(RenderingInstanceId, renderingInstanceId_);
+      DARABONBA_PTR_FROM_JSON(RenderingInstanceIds, renderingInstanceIds_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
     };
     CreateRenderingInstanceResponseBody() = default ;
@@ -32,12 +35,21 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->renderingInstanceId_ == nullptr
-        && this->requestId_ == nullptr; };
+        && this->renderingInstanceIds_ == nullptr && this->requestId_ == nullptr; };
     // renderingInstanceId Field Functions 
     bool hasRenderingInstanceId() const { return this->renderingInstanceId_ != nullptr;};
     void deleteRenderingInstanceId() { this->renderingInstanceId_ = nullptr;};
     inline string getRenderingInstanceId() const { DARABONBA_PTR_GET_DEFAULT(renderingInstanceId_, "") };
     inline CreateRenderingInstanceResponseBody& setRenderingInstanceId(string renderingInstanceId) { DARABONBA_PTR_SET_VALUE(renderingInstanceId_, renderingInstanceId) };
+
+
+    // renderingInstanceIds Field Functions 
+    bool hasRenderingInstanceIds() const { return this->renderingInstanceIds_ != nullptr;};
+    void deleteRenderingInstanceIds() { this->renderingInstanceIds_ = nullptr;};
+    inline const vector<string> & getRenderingInstanceIds() const { DARABONBA_PTR_GET_CONST(renderingInstanceIds_, vector<string>) };
+    inline vector<string> getRenderingInstanceIds() { DARABONBA_PTR_GET(renderingInstanceIds_, vector<string>) };
+    inline CreateRenderingInstanceResponseBody& setRenderingInstanceIds(const vector<string> & renderingInstanceIds) { DARABONBA_PTR_SET_VALUE(renderingInstanceIds_, renderingInstanceIds) };
+    inline CreateRenderingInstanceResponseBody& setRenderingInstanceIds(vector<string> && renderingInstanceIds) { DARABONBA_PTR_SET_RVALUE(renderingInstanceIds_, renderingInstanceIds) };
 
 
     // requestId Field Functions 
@@ -50,6 +62,8 @@ namespace Models
   protected:
     // The instance ID of the cloud application service.
     shared_ptr<string> renderingInstanceId_ {};
+    // The instance ID list of the cloud application service.
+    shared_ptr<vector<string>> renderingInstanceIds_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
   };
