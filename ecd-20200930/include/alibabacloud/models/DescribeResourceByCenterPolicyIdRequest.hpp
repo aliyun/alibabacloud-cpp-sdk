@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PolicyGroupId, policyGroupId_);
       DARABONBA_PTR_TO_JSON(ProductType, productType_);
       DARABONBA_PTR_TO_JSON(ResourceId, resourceId_);
+      DARABONBA_PTR_TO_JSON(ResourceName, resourceName_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeResourceByCenterPolicyIdRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PolicyGroupId, policyGroupId_);
       DARABONBA_PTR_FROM_JSON(ProductType, productType_);
       DARABONBA_PTR_FROM_JSON(ResourceId, resourceId_);
+      DARABONBA_PTR_FROM_JSON(ResourceName, resourceName_);
     };
     DescribeResourceByCenterPolicyIdRequest() = default ;
     DescribeResourceByCenterPolicyIdRequest(const DescribeResourceByCenterPolicyIdRequest &) = default ;
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->maxResults_ == nullptr
-        && this->nextToken_ == nullptr && this->policyGroupId_ == nullptr && this->productType_ == nullptr && this->resourceId_ == nullptr; };
+        && this->nextToken_ == nullptr && this->policyGroupId_ == nullptr && this->productType_ == nullptr && this->resourceId_ == nullptr && this->resourceName_ == nullptr; };
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
@@ -74,13 +76,20 @@ namespace Models
     inline DescribeResourceByCenterPolicyIdRequest& setResourceId(string resourceId) { DARABONBA_PTR_SET_VALUE(resourceId_, resourceId) };
 
 
+    // resourceName Field Functions 
+    bool hasResourceName() const { return this->resourceName_ != nullptr;};
+    void deleteResourceName() { this->resourceName_ = nullptr;};
+    inline string getResourceName() const { DARABONBA_PTR_GET_DEFAULT(resourceName_, "") };
+    inline DescribeResourceByCenterPolicyIdRequest& setResourceName(string resourceName) { DARABONBA_PTR_SET_VALUE(resourceName_, resourceName) };
+
+
   protected:
     // The number of entries per page for a paged query.    
     // 
     // - Maximum value: 100.    
     // - Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query.
+    // The token that is used to start the next query.
     shared_ptr<string> nextToken_ {};
     // The policy ID.
     // 
@@ -90,6 +99,8 @@ namespace Models
     shared_ptr<string> productType_ {};
     // The resource ID.
     shared_ptr<string> resourceId_ {};
+    // The resource name.
+    shared_ptr<string> resourceName_ {};
   };
 
   } // namespace Models

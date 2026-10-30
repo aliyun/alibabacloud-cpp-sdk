@@ -121,27 +121,27 @@ namespace Models
     // - Enterprise: Enterprise Edition.
     // - Business: Business Edition.
     shared_ptr<string> businessChannel_ {};
-    // The list of cloud computer policy IDs to exclude from the query results.
+    // The IDs of the cloud desktop policies to exclude from the query results.
     shared_ptr<vector<string>> externalPolicyGroupIds_ {};
-    // The number of entries per page for a paged query.
+    // The number of entries to return per page when paging in a paged query.
     // 
     // - Maximum value: 100.
     // - Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. Set this parameter to the value of NextToken that was returned from the last call to this operation. You do not need to set this parameter for the first request.
+    // The query token. Set the value to the NextToken value returned from the last call to this operation. You do not need to specify this parameter for the first call.
     shared_ptr<string> nextToken_ {};
-    // The page number of the current page for a paged query.
+    // The current page number when paging in a paged query.
     shared_ptr<int32_t> pageNumber_ {};
-    // The maximum number of entries per page for a paged query.    
+    // The maximum number of entries to return per page when paging in a paged query.    
     // Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // The list of cloud computer policy IDs.
+    // The IDs of the cloud desktop policies.
     shared_ptr<vector<string>> policyGroupId_ {};
-    // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by WUYING Workspace.
+    // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions supported by Wuying Workspace.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The effective scope of the cloud computer policy.
+    // The effective scope of the cloud desktop policies.
     shared_ptr<string> scope_ {};
   };
 

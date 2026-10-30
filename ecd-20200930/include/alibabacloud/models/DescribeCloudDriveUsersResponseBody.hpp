@@ -124,9 +124,9 @@ namespace Models
       shared_ptr<string> endUserId_ {};
       // The status of the user personal drive.
       shared_ptr<string> status_ {};
-      // Maximum storage capacity for the user’s personal drive, in bytes.
+      // The maximum storage capacity of the user personal drive. Unit: bytes.
       shared_ptr<int64_t> totalSize_ {};
-      // The used storage space, in bytes.
+      // The size of the used storage space. Unit: bytes.
       shared_ptr<int64_t> usedSize_ {};
       // The internal ID of the user.
       shared_ptr<string> userId_ {};
@@ -160,9 +160,9 @@ namespace Models
 
 
   protected:
-    // A list of user personal drives.
+    // The list of user personal drives.
     shared_ptr<vector<DescribeCloudDriveUsersResponseBody::CloudDriveUsers>> cloudDriveUsers_ {};
-    // The token for the next page of results. An empty value indicates that all results have been returned.
+    // The pagination token for the next query. If `NextToken` is empty, no more results are available.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

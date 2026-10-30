@@ -2408,7 +2408,7 @@ CreateCdsFileShareLinkResponse Client::createCdsFileShareLink(const CreateCdsFil
 }
 
 /**
- * @summary Creates a region-independent Cloud Desktop policy.
+ * @summary Creates a region-independent cloud desktop policy.
  *
  * @param request CreateCenterPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2437,6 +2437,10 @@ CreateCenterPolicyResponse Client::createCenterPolicyWithOptions(const CreateCen
     query["AppContentProtection"] = request.getAppContentProtection();
   }
 
+  if (!!request.hasAppScreenshotBuckets()) {
+    query["AppScreenshotBuckets"] = request.getAppScreenshotBuckets();
+  }
+
   if (!!request.hasAuthorizeAccessPolicyRule()) {
     query["AuthorizeAccessPolicyRule"] = request.getAuthorizeAccessPolicyRule();
   }
@@ -2447,6 +2451,10 @@ CreateCenterPolicyResponse Client::createCenterPolicyWithOptions(const CreateCen
 
   if (!!request.hasAutoReconnect()) {
     query["AutoReconnect"] = request.getAutoReconnect();
+  }
+
+  if (!!request.hasAutoSaveAppScreenshot()) {
+    query["AutoSaveAppScreenshot"] = request.getAutoSaveAppScreenshot();
   }
 
   if (!!request.hasBusinessChannel()) {
@@ -2647,6 +2655,10 @@ CreateCenterPolicyResponse Client::createCenterPolicyWithOptions(const CreateCen
 
   if (!!request.hasMaxReconnectTime()) {
     query["MaxReconnectTime"] = request.getMaxReconnectTime();
+  }
+
+  if (!!request.hasMcpService()) {
+    query["McpService"] = request.getMcpService();
   }
 
   if (!!request.hasMemoryDownGradeDuration()) {
@@ -3007,7 +3019,7 @@ CreateCenterPolicyResponse Client::createCenterPolicyWithOptions(const CreateCen
 }
 
 /**
- * @summary Creates a region-independent Cloud Desktop policy.
+ * @summary Creates a region-independent cloud desktop policy.
  *
  * @param request CreateCenterPolicyRequest
  * @return CreateCenterPolicyResponse
@@ -7648,7 +7660,7 @@ DescribeCensResponse Client::describeCens(const DescribeCensRequest &request) {
 }
 
 /**
- * @summary Queries the details of regionless policies.
+ * @summary 查詢無地域策略的詳細資訊。
  *
  * @param request DescribeCenterPolicyListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7711,7 +7723,7 @@ DescribeCenterPolicyListResponse Client::describeCenterPolicyListWithOptions(con
 }
 
 /**
- * @summary Queries the details of regionless policies.
+ * @summary 查詢無地域策略的詳細資訊。
  *
  * @param request DescribeCenterPolicyListRequest
  * @return DescribeCenterPolicyListResponse
@@ -8084,7 +8096,7 @@ DescribeCloudDrivePermissionsResponse Client::describeCloudDrivePermissions(cons
 }
 
 /**
- * @summary Retrieves a list of personal drives and their basic information for all users in an enterprise network drive.
+ * @summary Queries the list and basic information of all personal drives in an enterprise drive.
  *
  * @param request DescribeCloudDriveUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8131,7 +8143,7 @@ DescribeCloudDriveUsersResponse Client::describeCloudDriveUsersWithOptions(const
 }
 
 /**
- * @summary Retrieves a list of personal drives and their basic information for all users in an enterprise network drive.
+ * @summary Queries the list and basic information of all personal drives in an enterprise drive.
  *
  * @param request DescribeCloudDriveUsersRequest
  * @return DescribeCloudDriveUsersResponse
@@ -11332,7 +11344,7 @@ DescribePeripheralDriversResponse Client::describePeripheralDrivers(const Descri
 }
 
 /**
- * @summary Queries the details of cloud computer policies.
+ * @summary Queries the details of cloud desktop policies.
  *
  * @param request DescribePolicyGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11395,7 +11407,7 @@ DescribePolicyGroupsResponse Client::describePolicyGroupsWithOptions(const Descr
 }
 
 /**
- * @summary Queries the details of cloud computer policies.
+ * @summary Queries the details of cloud desktop policies.
  *
  * @param request DescribePolicyGroupsRequest
  * @return DescribePolicyGroupsResponse
@@ -12195,6 +12207,10 @@ DescribeResourceByCenterPolicyIdResponse Client::describeResourceByCenterPolicyI
 
   if (!!request.hasResourceId()) {
     query["ResourceId"] = request.getResourceId();
+  }
+
+  if (!!request.hasResourceName()) {
+    query["ResourceName"] = request.getResourceName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -15908,7 +15924,7 @@ ModifyCdsFileShareLinkResponse Client::modifyCdsFileShareLink(const ModifyCdsFil
 }
 
 /**
- * @summary Modifies the configuration of a region-free policy.
+ * @summary Modifies the configuration of a regionless policy.
  *
  * @param request ModifyCenterPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15937,6 +15953,10 @@ ModifyCenterPolicyResponse Client::modifyCenterPolicyWithOptions(const ModifyCen
     query["AppContentProtection"] = request.getAppContentProtection();
   }
 
+  if (!!request.hasAppScreenshotBuckets()) {
+    query["AppScreenshotBuckets"] = request.getAppScreenshotBuckets();
+  }
+
   if (!!request.hasAuthorizeAccessPolicyRule()) {
     query["AuthorizeAccessPolicyRule"] = request.getAuthorizeAccessPolicyRule();
   }
@@ -15947,6 +15967,10 @@ ModifyCenterPolicyResponse Client::modifyCenterPolicyWithOptions(const ModifyCen
 
   if (!!request.hasAutoReconnect()) {
     query["AutoReconnect"] = request.getAutoReconnect();
+  }
+
+  if (!!request.hasAutoSaveAppScreenshot()) {
+    query["AutoSaveAppScreenshot"] = request.getAutoSaveAppScreenshot();
   }
 
   if (!!request.hasBusinessChannel()) {
@@ -16143,6 +16167,10 @@ ModifyCenterPolicyResponse Client::modifyCenterPolicyWithOptions(const ModifyCen
 
   if (!!request.hasMaxReconnectTime()) {
     query["MaxReconnectTime"] = request.getMaxReconnectTime();
+  }
+
+  if (!!request.hasMcpService()) {
+    query["McpService"] = request.getMcpService();
   }
 
   if (!!request.hasMemoryDownGradeDuration()) {
@@ -16515,7 +16543,7 @@ ModifyCenterPolicyResponse Client::modifyCenterPolicyWithOptions(const ModifyCen
 }
 
 /**
- * @summary Modifies the configuration of a region-free policy.
+ * @summary Modifies the configuration of a regionless policy.
  *
  * @param request ModifyCenterPolicyRequest
  * @return ModifyCenterPolicyResponse
@@ -19082,7 +19110,7 @@ ModifyTemplateBaseInfoResponse Client::modifyTemplateBaseInfo(const ModifyTempla
 }
 
 /**
- * @summary Modifies the settings of a configuration group, such as scheduled task configurations.
+ * @summary Modifies the specific settings of a configuration group, such as the configuration of scheduled tasks.
  *
  * @param request ModifyTimerGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19129,7 +19157,7 @@ ModifyTimerGroupResponse Client::modifyTimerGroupWithOptions(const ModifyTimerGr
 }
 
 /**
- * @summary Modifies the settings of a configuration group, such as scheduled task configurations.
+ * @summary Modifies the specific settings of a configuration group, such as the configuration of scheduled tasks.
  *
  * @param request ModifyTimerGroupRequest
  * @return ModifyTimerGroupResponse

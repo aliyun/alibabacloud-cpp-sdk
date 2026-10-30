@@ -43,9 +43,11 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AdminKeyboardOnWindows, adminKeyboardOnWindows_);
         DARABONBA_PTR_TO_JSON(AdminMonitor, adminMonitor_);
         DARABONBA_PTR_TO_JSON(AppContentProtection, appContentProtection_);
+        DARABONBA_PTR_TO_JSON(AppScreenshotBuckets, appScreenshotBuckets_);
         DARABONBA_PTR_TO_JSON(AuthorizeAccessPolicyRules, authorizeAccessPolicyRules_);
         DARABONBA_PTR_TO_JSON(AuthorizeSecurityPolicyRules, authorizeSecurityPolicyRules_);
         DARABONBA_PTR_TO_JSON(AutoReconnect, autoReconnect_);
+        DARABONBA_PTR_TO_JSON(AutoSaveAppScreenshot, autoSaveAppScreenshot_);
         DARABONBA_PTR_TO_JSON(CameraRedirect, cameraRedirect_);
         DARABONBA_PTR_TO_JSON(ClientControlMenu, clientControlMenu_);
         DARABONBA_PTR_TO_JSON(ClientCreateSnapshot, clientCreateSnapshot_);
@@ -103,6 +105,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(KmsServerConfig, kmsServerConfig_);
         DARABONBA_PTR_TO_JSON(LocalDrive, localDrive_);
         DARABONBA_PTR_TO_JSON(MaxReconnectTime, maxReconnectTime_);
+        DARABONBA_PTR_TO_JSON(McpService, mcpService_);
         DARABONBA_PTR_TO_JSON(MemoryDownGradeDuration, memoryDownGradeDuration_);
         DARABONBA_PTR_TO_JSON(MemoryOverload, memoryOverload_);
         DARABONBA_PTR_TO_JSON(MemoryProcessors, memoryProcessors_);
@@ -197,9 +200,11 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(AdminKeyboardOnWindows, adminKeyboardOnWindows_);
         DARABONBA_PTR_FROM_JSON(AdminMonitor, adminMonitor_);
         DARABONBA_PTR_FROM_JSON(AppContentProtection, appContentProtection_);
+        DARABONBA_PTR_FROM_JSON(AppScreenshotBuckets, appScreenshotBuckets_);
         DARABONBA_PTR_FROM_JSON(AuthorizeAccessPolicyRules, authorizeAccessPolicyRules_);
         DARABONBA_PTR_FROM_JSON(AuthorizeSecurityPolicyRules, authorizeSecurityPolicyRules_);
         DARABONBA_PTR_FROM_JSON(AutoReconnect, autoReconnect_);
+        DARABONBA_PTR_FROM_JSON(AutoSaveAppScreenshot, autoSaveAppScreenshot_);
         DARABONBA_PTR_FROM_JSON(CameraRedirect, cameraRedirect_);
         DARABONBA_PTR_FROM_JSON(ClientControlMenu, clientControlMenu_);
         DARABONBA_PTR_FROM_JSON(ClientCreateSnapshot, clientCreateSnapshot_);
@@ -257,6 +262,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(KmsServerConfig, kmsServerConfig_);
         DARABONBA_PTR_FROM_JSON(LocalDrive, localDrive_);
         DARABONBA_PTR_FROM_JSON(MaxReconnectTime, maxReconnectTime_);
+        DARABONBA_PTR_FROM_JSON(McpService, mcpService_);
         DARABONBA_PTR_FROM_JSON(MemoryDownGradeDuration, memoryDownGradeDuration_);
         DARABONBA_PTR_FROM_JSON(MemoryOverload, memoryOverload_);
         DARABONBA_PTR_FROM_JSON(MemoryProcessors, memoryProcessors_);
@@ -420,15 +426,15 @@ namespace Models
 
 
       protected:
-        // The rule description.
+        // 規則描述。
         shared_ptr<string> description_ {};
-        // The product ID.
+        // 產品 ID。
         shared_ptr<string> productId_ {};
-        // The USB redirection type.
+        // USB 重新導向類型。
         shared_ptr<int64_t> usbRedirectType_ {};
-        // The USB redirection rule type.
+        // USB 重新導向規則類型。
         shared_ptr<int64_t> usbRuleType_ {};
-        // The vendor ID. See [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
+        // 生產廠商 ID。參見 [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf)。
         shared_ptr<string> vendorId_ {};
       };
 
@@ -479,11 +485,11 @@ namespace Models
 
 
       protected:
-        // The domain name.
+        // 網域。
         shared_ptr<string> domain_ {};
-        // The redirection policy.
+        // 重新導向策略。
         shared_ptr<string> policy_ {};
-        // The rule type.
+        // 規則類型。
         shared_ptr<string> ruleType_ {};
       };
 
@@ -534,11 +540,11 @@ namespace Models
 
 
       protected:
-        // The policy description.
+        // 原則描述。
         shared_ptr<string> description_ {};
-        // The domain name.
+        // 網域。
         shared_ptr<string> domain_ {};
-        // The resolution policy.
+        // 解析原則。
         shared_ptr<string> policy_ {};
       };
 
@@ -626,19 +632,19 @@ namespace Models
 
 
       protected:
-        // The device name.
+        // 裝置名稱。
         shared_ptr<string> deviceName_ {};
-        // The product ID.
+        // 產品 ID。
         shared_ptr<string> devicePid_ {};
-        // The peripheral device type.
+        // 周邊裝置類型。
         shared_ptr<string> deviceType_ {};
-        // The vendor ID. See [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
+        // 生產廠商 ID。參見 [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf)。
         shared_ptr<string> deviceVid_ {};
-        // The link optimization command.
+        // 連結最佳化指令。
         shared_ptr<string> optCommand_ {};
-        // The platform types to which the device rule applies.
+        // 裝置規則適用的平台類型。
         shared_ptr<string> platforms_ {};
-        // The redirection type.
+        // 重新導向類型。
         shared_ptr<string> redirectType_ {};
       };
 
@@ -680,9 +686,9 @@ namespace Models
 
 
       protected:
-        // The peripheral device type.
+        // 周邊裝置類型。
         shared_ptr<string> deviceType_ {};
-        // The redirection type.
+        // 重新導向類型。
         shared_ptr<string> redirectType_ {};
       };
 
@@ -724,9 +730,9 @@ namespace Models
 
 
       protected:
-        // The client type.
+        // 用戶端類型。
         shared_ptr<string> clientType_ {};
-        // Indicates whether a specific type of client is allowed to log on to the cloud desktop.
+        // 是否允許某一類型的用戶端登入雲端桌面。
         shared_ptr<string> status_ {};
       };
 
@@ -814,19 +820,19 @@ namespace Models
 
 
       protected:
-        // The object of the security group rule, which is an IPv4 CIDR block.
+        // 安全性群組管控規則的對象，CIDR 格式的 IPv4 位址區段。
         shared_ptr<string> cidrIp_ {};
-        // The description of the security group rule.
+        // 安全性群組管控規則的描述資訊。
         shared_ptr<string> description_ {};
-        // The protocol type of the security group rule.
+        // 安全性群組管控規則的通訊協定類型。
         shared_ptr<string> ipProtocol_ {};
-        // The authorization policy of the security group rule.
+        // 安全性群組管控規則的授權原則。
         shared_ptr<string> policy_ {};
-        // The port range of the security group rule.
+        // 安全性群組管控規則的連接埠範圍。
         shared_ptr<string> portRange_ {};
-        // The priority of the security group rule. A smaller value indicates a higher priority.
+        // 安全性群組管控規則的優先順序，數字越小，代表優先順序越高。
         shared_ptr<string> priority_ {};
-        // The direction of the security group rule.
+        // 安全性群組管控規則的規則方向。
         shared_ptr<string> type_ {};
       };
 
@@ -868,44 +874,88 @@ namespace Models
 
 
       protected:
-        // The client access IP CIDR block, in IPv4 CIDR notation.
+        // 用戶端存取 IP 位址區段。格式為 CIDR 格式的 IPv4 位址區段。
         shared_ptr<string> cidrIp_ {};
-        // The description of the client access IP CIDR block.
+        // 用戶端存取 IP 位址區段備註資訊。
         shared_ptr<string> description_ {};
+      };
+
+      class AppScreenshotBuckets : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const AppScreenshotBuckets& obj) { 
+          DARABONBA_PTR_TO_JSON(BucketName, bucketName_);
+          DARABONBA_PTR_TO_JSON(BucketRegionId, bucketRegionId_);
+        };
+        friend void from_json(const Darabonba::Json& j, AppScreenshotBuckets& obj) { 
+          DARABONBA_PTR_FROM_JSON(BucketName, bucketName_);
+          DARABONBA_PTR_FROM_JSON(BucketRegionId, bucketRegionId_);
+        };
+        AppScreenshotBuckets() = default ;
+        AppScreenshotBuckets(const AppScreenshotBuckets &) = default ;
+        AppScreenshotBuckets(AppScreenshotBuckets &&) = default ;
+        AppScreenshotBuckets(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~AppScreenshotBuckets() = default ;
+        AppScreenshotBuckets& operator=(const AppScreenshotBuckets &) = default ;
+        AppScreenshotBuckets& operator=(AppScreenshotBuckets &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->bucketName_ == nullptr
+        && this->bucketRegionId_ == nullptr; };
+        // bucketName Field Functions 
+        bool hasBucketName() const { return this->bucketName_ != nullptr;};
+        void deleteBucketName() { this->bucketName_ = nullptr;};
+        inline string getBucketName() const { DARABONBA_PTR_GET_DEFAULT(bucketName_, "") };
+        inline AppScreenshotBuckets& setBucketName(string bucketName) { DARABONBA_PTR_SET_VALUE(bucketName_, bucketName) };
+
+
+        // bucketRegionId Field Functions 
+        bool hasBucketRegionId() const { return this->bucketRegionId_ != nullptr;};
+        void deleteBucketRegionId() { this->bucketRegionId_ = nullptr;};
+        inline string getBucketRegionId() const { DARABONBA_PTR_GET_DEFAULT(bucketRegionId_, "") };
+        inline AppScreenshotBuckets& setBucketRegionId(string bucketRegionId) { DARABONBA_PTR_SET_VALUE(bucketRegionId_, bucketRegionId) };
+
+
+      protected:
+        // Bucket 名稱。
+        shared_ptr<string> bucketName_ {};
+        // 使用者 OSS Bucket 所在地域，必須與 Bucket 的實際地域一致。
+        shared_ptr<string> bucketRegionId_ {};
       };
 
       virtual bool empty() const override { return this->academicProxy_ == nullptr
         && this->adminAccess_ == nullptr && this->adminKeyboardOnFullScreen_ == nullptr && this->adminKeyboardOnWindows_ == nullptr && this->adminMonitor_ == nullptr && this->appContentProtection_ == nullptr
-        && this->authorizeAccessPolicyRules_ == nullptr && this->authorizeSecurityPolicyRules_ == nullptr && this->autoReconnect_ == nullptr && this->cameraRedirect_ == nullptr && this->clientControlMenu_ == nullptr
-        && this->clientCreateSnapshot_ == nullptr && this->clientHibernate_ == nullptr && this->clientRestart_ == nullptr && this->clientShutdown_ == nullptr && this->clientTypes_ == nullptr
-        && this->clipboard_ == nullptr && this->colorEnhancement_ == nullptr && this->cpdDriveClipboard_ == nullptr && this->cpuDownGradeDuration_ == nullptr && this->cpuOverload_ == nullptr
-        && this->cpuProcessors_ == nullptr && this->cpuProtectedMode_ == nullptr && this->cpuRateLimit_ == nullptr && this->cpuSampleDuration_ == nullptr && this->cpuSingleRateLimit_ == nullptr
-        && this->desktopCount_ == nullptr && this->desktopGroupCount_ == nullptr && this->deviceConnectHint_ == nullptr && this->deviceRedirects_ == nullptr && this->deviceRules_ == nullptr
-        && this->disconnectKeepSession_ == nullptr && this->disconnectKeepSessionTime_ == nullptr && this->diskOverload_ == nullptr && this->displayMode_ == nullptr && this->domainRegisterValue_ == nullptr
-        && this->domainResolveRule_ == nullptr && this->domainResolveRuleType_ == nullptr && this->endUserApplyAdminCoordinate_ == nullptr && this->endUserCount_ == nullptr && this->endUserGroupCoordinate_ == nullptr
-        && this->externalDrive_ == nullptr && this->fileMigrate_ == nullptr && this->fileTransferAddress_ == nullptr && this->fileTransferInSize_ == nullptr && this->fileTransferInUnit_ == nullptr
-        && this->fileTransferOutSize_ == nullptr && this->fileTransferOutUnit_ == nullptr && this->fileTransferSizeLimit_ == nullptr && this->fileTransferSpeed_ == nullptr && this->fileTransferSpeedLocation_ == nullptr
-        && this->folderSync_ == nullptr && this->gpuAcceleration_ == nullptr && this->hoverConfigMsg_ == nullptr && this->hoverHibernate_ == nullptr && this->hoverRestart_ == nullptr
-        && this->hoverShutdown_ == nullptr && this->html5Access_ == nullptr && this->html5FileTransfer_ == nullptr && this->internetCommunicationProtocol_ == nullptr && this->internetPrinter_ == nullptr
-        && this->keyboardControl_ == nullptr && this->kmsServer_ == nullptr && this->kmsServerConfig_ == nullptr && this->localDrive_ == nullptr && this->maxReconnectTime_ == nullptr
-        && this->memoryDownGradeDuration_ == nullptr && this->memoryOverload_ == nullptr && this->memoryProcessors_ == nullptr && this->memoryProtectedMode_ == nullptr && this->memoryRateLimit_ == nullptr
-        && this->memorySampleDuration_ == nullptr && this->memorySingleRateLimit_ == nullptr && this->mobileRestart_ == nullptr && this->mobileSafeMenu_ == nullptr && this->mobileShutdown_ == nullptr
-        && this->mobileWuyingKeeper_ == nullptr && this->mobileWyAssistant_ == nullptr && this->modelLibrary_ == nullptr && this->multiScreen_ == nullptr && this->name_ == nullptr
-        && this->netRedirect_ == nullptr && this->netRedirectRule_ == nullptr && this->networkPrinter_ == nullptr && this->noOperationDisconnect_ == nullptr && this->noOperationDisconnectTime_ == nullptr
-        && this->organizationCount_ == nullptr && this->policyGroupId_ == nullptr && this->policyGroupType_ == nullptr && this->policyStatus_ == nullptr && this->portProxy_ == nullptr
-        && this->printerAlert_ == nullptr && this->printerAlertContent_ == nullptr && this->printerAlertTitle_ == nullptr && this->printerRedirection_ == nullptr && this->qualityEnhancement_ == nullptr
-        && this->recordContent_ == nullptr && this->recordContentExpires_ == nullptr && this->recordEventDuration_ == nullptr && this->recordEventFilePaths_ == nullptr && this->recordEventRegisters_ == nullptr
-        && this->recording_ == nullptr && this->recordingAudio_ == nullptr && this->recordingDuration_ == nullptr && this->recordingEndTime_ == nullptr && this->recordingExpires_ == nullptr
-        && this->recordingFps_ == nullptr && this->recordingStartTime_ == nullptr && this->recordingUserNotify_ == nullptr && this->recordingUserNotifyMessage_ == nullptr && this->remoteCoordinate_ == nullptr
-        && this->resetDesktop_ == nullptr && this->resolutionDpi_ == nullptr && this->resolutionHeight_ == nullptr && this->resolutionModel_ == nullptr && this->resolutionWidth_ == nullptr
-        && this->resourceGroupCount_ == nullptr && this->safeMenu_ == nullptr && this->scope_ == nullptr && this->scopeValue_ == nullptr && this->screenDisplayMode_ == nullptr
-        && this->smoothEnhancement_ == nullptr && this->statusMonitor_ == nullptr && this->streamingMode_ == nullptr && this->targetFps_ == nullptr && this->taskbar_ == nullptr
-        && this->threeScreen_ == nullptr && this->usbRedirect_ == nullptr && this->usbSupplyRedirectRule_ == nullptr && this->useTime_ == nullptr && this->videoEncAvgKbps_ == nullptr
-        && this->videoEncMaxQP_ == nullptr && this->videoEncMinQP_ == nullptr && this->videoEncPeakKbps_ == nullptr && this->videoEncPolicy_ == nullptr && this->videoRedirect_ == nullptr
-        && this->visualQuality_ == nullptr && this->watermark_ == nullptr && this->watermarkAntiCam_ == nullptr && this->watermarkColor_ == nullptr && this->watermarkCustomText_ == nullptr
-        && this->watermarkDegree_ == nullptr && this->watermarkFontSize_ == nullptr && this->watermarkFontStyle_ == nullptr && this->watermarkPower_ == nullptr && this->watermarkRowAmount_ == nullptr
-        && this->watermarkSecurity_ == nullptr && this->watermarkShadow_ == nullptr && this->watermarkTransparencyValue_ == nullptr && this->watermarkType_ == nullptr && this->wuyingKeeper_ == nullptr
-        && this->wyAssistant_ == nullptr; };
+        && this->appScreenshotBuckets_ == nullptr && this->authorizeAccessPolicyRules_ == nullptr && this->authorizeSecurityPolicyRules_ == nullptr && this->autoReconnect_ == nullptr && this->autoSaveAppScreenshot_ == nullptr
+        && this->cameraRedirect_ == nullptr && this->clientControlMenu_ == nullptr && this->clientCreateSnapshot_ == nullptr && this->clientHibernate_ == nullptr && this->clientRestart_ == nullptr
+        && this->clientShutdown_ == nullptr && this->clientTypes_ == nullptr && this->clipboard_ == nullptr && this->colorEnhancement_ == nullptr && this->cpdDriveClipboard_ == nullptr
+        && this->cpuDownGradeDuration_ == nullptr && this->cpuOverload_ == nullptr && this->cpuProcessors_ == nullptr && this->cpuProtectedMode_ == nullptr && this->cpuRateLimit_ == nullptr
+        && this->cpuSampleDuration_ == nullptr && this->cpuSingleRateLimit_ == nullptr && this->desktopCount_ == nullptr && this->desktopGroupCount_ == nullptr && this->deviceConnectHint_ == nullptr
+        && this->deviceRedirects_ == nullptr && this->deviceRules_ == nullptr && this->disconnectKeepSession_ == nullptr && this->disconnectKeepSessionTime_ == nullptr && this->diskOverload_ == nullptr
+        && this->displayMode_ == nullptr && this->domainRegisterValue_ == nullptr && this->domainResolveRule_ == nullptr && this->domainResolveRuleType_ == nullptr && this->endUserApplyAdminCoordinate_ == nullptr
+        && this->endUserCount_ == nullptr && this->endUserGroupCoordinate_ == nullptr && this->externalDrive_ == nullptr && this->fileMigrate_ == nullptr && this->fileTransferAddress_ == nullptr
+        && this->fileTransferInSize_ == nullptr && this->fileTransferInUnit_ == nullptr && this->fileTransferOutSize_ == nullptr && this->fileTransferOutUnit_ == nullptr && this->fileTransferSizeLimit_ == nullptr
+        && this->fileTransferSpeed_ == nullptr && this->fileTransferSpeedLocation_ == nullptr && this->folderSync_ == nullptr && this->gpuAcceleration_ == nullptr && this->hoverConfigMsg_ == nullptr
+        && this->hoverHibernate_ == nullptr && this->hoverRestart_ == nullptr && this->hoverShutdown_ == nullptr && this->html5Access_ == nullptr && this->html5FileTransfer_ == nullptr
+        && this->internetCommunicationProtocol_ == nullptr && this->internetPrinter_ == nullptr && this->keyboardControl_ == nullptr && this->kmsServer_ == nullptr && this->kmsServerConfig_ == nullptr
+        && this->localDrive_ == nullptr && this->maxReconnectTime_ == nullptr && this->mcpService_ == nullptr && this->memoryDownGradeDuration_ == nullptr && this->memoryOverload_ == nullptr
+        && this->memoryProcessors_ == nullptr && this->memoryProtectedMode_ == nullptr && this->memoryRateLimit_ == nullptr && this->memorySampleDuration_ == nullptr && this->memorySingleRateLimit_ == nullptr
+        && this->mobileRestart_ == nullptr && this->mobileSafeMenu_ == nullptr && this->mobileShutdown_ == nullptr && this->mobileWuyingKeeper_ == nullptr && this->mobileWyAssistant_ == nullptr
+        && this->modelLibrary_ == nullptr && this->multiScreen_ == nullptr && this->name_ == nullptr && this->netRedirect_ == nullptr && this->netRedirectRule_ == nullptr
+        && this->networkPrinter_ == nullptr && this->noOperationDisconnect_ == nullptr && this->noOperationDisconnectTime_ == nullptr && this->organizationCount_ == nullptr && this->policyGroupId_ == nullptr
+        && this->policyGroupType_ == nullptr && this->policyStatus_ == nullptr && this->portProxy_ == nullptr && this->printerAlert_ == nullptr && this->printerAlertContent_ == nullptr
+        && this->printerAlertTitle_ == nullptr && this->printerRedirection_ == nullptr && this->qualityEnhancement_ == nullptr && this->recordContent_ == nullptr && this->recordContentExpires_ == nullptr
+        && this->recordEventDuration_ == nullptr && this->recordEventFilePaths_ == nullptr && this->recordEventRegisters_ == nullptr && this->recording_ == nullptr && this->recordingAudio_ == nullptr
+        && this->recordingDuration_ == nullptr && this->recordingEndTime_ == nullptr && this->recordingExpires_ == nullptr && this->recordingFps_ == nullptr && this->recordingStartTime_ == nullptr
+        && this->recordingUserNotify_ == nullptr && this->recordingUserNotifyMessage_ == nullptr && this->remoteCoordinate_ == nullptr && this->resetDesktop_ == nullptr && this->resolutionDpi_ == nullptr
+        && this->resolutionHeight_ == nullptr && this->resolutionModel_ == nullptr && this->resolutionWidth_ == nullptr && this->resourceGroupCount_ == nullptr && this->safeMenu_ == nullptr
+        && this->scope_ == nullptr && this->scopeValue_ == nullptr && this->screenDisplayMode_ == nullptr && this->smoothEnhancement_ == nullptr && this->statusMonitor_ == nullptr
+        && this->streamingMode_ == nullptr && this->targetFps_ == nullptr && this->taskbar_ == nullptr && this->threeScreen_ == nullptr && this->usbRedirect_ == nullptr
+        && this->usbSupplyRedirectRule_ == nullptr && this->useTime_ == nullptr && this->videoEncAvgKbps_ == nullptr && this->videoEncMaxQP_ == nullptr && this->videoEncMinQP_ == nullptr
+        && this->videoEncPeakKbps_ == nullptr && this->videoEncPolicy_ == nullptr && this->videoRedirect_ == nullptr && this->visualQuality_ == nullptr && this->watermark_ == nullptr
+        && this->watermarkAntiCam_ == nullptr && this->watermarkColor_ == nullptr && this->watermarkCustomText_ == nullptr && this->watermarkDegree_ == nullptr && this->watermarkFontSize_ == nullptr
+        && this->watermarkFontStyle_ == nullptr && this->watermarkPower_ == nullptr && this->watermarkRowAmount_ == nullptr && this->watermarkSecurity_ == nullptr && this->watermarkShadow_ == nullptr
+        && this->watermarkTransparencyValue_ == nullptr && this->watermarkType_ == nullptr && this->wuyingKeeper_ == nullptr && this->wyAssistant_ == nullptr; };
       // academicProxy Field Functions 
       bool hasAcademicProxy() const { return this->academicProxy_ != nullptr;};
       void deleteAcademicProxy() { this->academicProxy_ = nullptr;};
@@ -948,6 +998,15 @@ namespace Models
       inline DescribePolicyGroups& setAppContentProtection(string appContentProtection) { DARABONBA_PTR_SET_VALUE(appContentProtection_, appContentProtection) };
 
 
+      // appScreenshotBuckets Field Functions 
+      bool hasAppScreenshotBuckets() const { return this->appScreenshotBuckets_ != nullptr;};
+      void deleteAppScreenshotBuckets() { this->appScreenshotBuckets_ = nullptr;};
+      inline const vector<DescribePolicyGroups::AppScreenshotBuckets> & getAppScreenshotBuckets() const { DARABONBA_PTR_GET_CONST(appScreenshotBuckets_, vector<DescribePolicyGroups::AppScreenshotBuckets>) };
+      inline vector<DescribePolicyGroups::AppScreenshotBuckets> getAppScreenshotBuckets() { DARABONBA_PTR_GET(appScreenshotBuckets_, vector<DescribePolicyGroups::AppScreenshotBuckets>) };
+      inline DescribePolicyGroups& setAppScreenshotBuckets(const vector<DescribePolicyGroups::AppScreenshotBuckets> & appScreenshotBuckets) { DARABONBA_PTR_SET_VALUE(appScreenshotBuckets_, appScreenshotBuckets) };
+      inline DescribePolicyGroups& setAppScreenshotBuckets(vector<DescribePolicyGroups::AppScreenshotBuckets> && appScreenshotBuckets) { DARABONBA_PTR_SET_RVALUE(appScreenshotBuckets_, appScreenshotBuckets) };
+
+
       // authorizeAccessPolicyRules Field Functions 
       bool hasAuthorizeAccessPolicyRules() const { return this->authorizeAccessPolicyRules_ != nullptr;};
       void deleteAuthorizeAccessPolicyRules() { this->authorizeAccessPolicyRules_ = nullptr;};
@@ -971,6 +1030,13 @@ namespace Models
       void deleteAutoReconnect() { this->autoReconnect_ = nullptr;};
       inline string getAutoReconnect() const { DARABONBA_PTR_GET_DEFAULT(autoReconnect_, "") };
       inline DescribePolicyGroups& setAutoReconnect(string autoReconnect) { DARABONBA_PTR_SET_VALUE(autoReconnect_, autoReconnect) };
+
+
+      // autoSaveAppScreenshot Field Functions 
+      bool hasAutoSaveAppScreenshot() const { return this->autoSaveAppScreenshot_ != nullptr;};
+      void deleteAutoSaveAppScreenshot() { this->autoSaveAppScreenshot_ = nullptr;};
+      inline string getAutoSaveAppScreenshot() const { DARABONBA_PTR_GET_DEFAULT(autoSaveAppScreenshot_, "") };
+      inline DescribePolicyGroups& setAutoSaveAppScreenshot(string autoSaveAppScreenshot) { DARABONBA_PTR_SET_VALUE(autoSaveAppScreenshot_, autoSaveAppScreenshot) };
 
 
       // cameraRedirect Field Functions 
@@ -1380,6 +1446,13 @@ namespace Models
       void deleteMaxReconnectTime() { this->maxReconnectTime_ = nullptr;};
       inline int32_t getMaxReconnectTime() const { DARABONBA_PTR_GET_DEFAULT(maxReconnectTime_, 0) };
       inline DescribePolicyGroups& setMaxReconnectTime(int32_t maxReconnectTime) { DARABONBA_PTR_SET_VALUE(maxReconnectTime_, maxReconnectTime) };
+
+
+      // mcpService Field Functions 
+      bool hasMcpService() const { return this->mcpService_ != nullptr;};
+      void deleteMcpService() { this->mcpService_ = nullptr;};
+      inline string getMcpService() const { DARABONBA_PTR_GET_DEFAULT(mcpService_, "") };
+      inline DescribePolicyGroups& setMcpService(string mcpService) { DARABONBA_PTR_SET_VALUE(mcpService_, mcpService) };
 
 
       // memoryDownGradeDuration Field Functions 
@@ -1997,387 +2070,400 @@ namespace Models
 
 
     protected:
-      // Specifies whether to enable the academic proxy feature. Valid values:
-      // - on: Enabled.
-      // - off: Disabled.
+      // 學術代理功能開關。取值範圍：
+      // - on：開啟。
+      // - off：關閉。
       shared_ptr<string> academicProxy_ {};
-      // Indicates whether the user has administrator permissions after connecting to the cloud desktop.
+      // 使用者連線雲端電腦後是否具有管理員權限。
       // 
-      // > This feature is in invitational preview and is not publicly available.
+      // > 該功能處於定向邀測中，暫不對外開放。
       shared_ptr<string> adminAccess_ {};
-      // Specifies whether to enable administrator keyboard control in full-screen mode. Valid values:
-      // - on: Enabled.
-      // - off: Disabled.
+      // 全螢幕模式下管理員鍵盤控制開關。取值範圍：
+      // - on：開啟。
+      // - off：關閉。
       shared_ptr<string> adminKeyboardOnFullScreen_ {};
-      // Specifies whether to enable administrator keyboard control within the Windows system. Valid values:
-      // - on: Enabled.
-      // - off: Disabled.
+      // Windows 系統內管理員鍵盤控制開關。取值範圍：
+      // - on：開啟。
+      // - off：關閉。
       shared_ptr<string> adminKeyboardOnWindows_ {};
-      // Specifies whether to enable administrator monitoring. Valid values:
-      // - 1: Enabled.
-      // - 0: Disabled.
+      // 管理員監控開關。取值範圍：
+      // - 1：開啟。
+      // - 0：關閉。
       shared_ptr<int32_t> adminMonitor_ {};
-      // Indicates whether the screenshot prevention feature is enabled.
+      // 是否開啟防截圖功能。
       shared_ptr<string> appContentProtection_ {};
-      // The client access IP whitelist.
+      // 防截圖行動裝置截圖自訂 OSS Bucket 清單。
+      shared_ptr<vector<DescribePolicyGroups::AppScreenshotBuckets>> appScreenshotBuckets_ {};
+      // 用戶端存取 IP 白名單。
       shared_ptr<vector<DescribePolicyGroups::AuthorizeAccessPolicyRules>> authorizeAccessPolicyRules_ {};
-      // The list of security group rules.
+      // 安全性群組管控規則清單。
       shared_ptr<vector<DescribePolicyGroups::AuthorizeSecurityPolicyRules>> authorizeSecurityPolicyRules_ {};
-      // Specifies whether to enable automatic reconnection on the client.
+      // 用戶端自動重新連線開關。
       shared_ptr<string> autoReconnect_ {};
-      // Indicates whether local camera redirection is enabled.
+      // 自動儲存行動裝置截圖。取值範圍：
+      // - on：開啟。
+      // - off：關閉。
+      shared_ptr<string> autoSaveAppScreenshot_ {};
+      // 是否開啟本機攝影機重新導向。
       shared_ptr<string> cameraRedirect_ {};
-      // The client control menu display switch. Valid values:
-      // - on: Enabled.
-      // - off: Disabled.
+      // 用戶端控制選單顯示開關。取值範圍：
+      // - on：開啟。
+      // - off：關閉。
       shared_ptr<string> clientControlMenu_ {};
-      // Specifies whether to enable the custom snapshot creation feature on the client. Valid values:
-      // - on: Enabled.
-      // - off: Disabled.
+      // 用戶端建立自訂快照功能開關。取值範圍：
+      // - on：開啟。
+      // - off：關閉。
       shared_ptr<string> clientCreateSnapshot_ {};
-      // Specifies whether to enable the hibernate option in the client menu. Valid values:
-      // - on: Enabled.
-      // - off: Disabled.
+      // 用戶端休眠選單開關。取值範圍：
+      // - on：開啟。
+      // - off：關閉。
       shared_ptr<string> clientHibernate_ {};
-      // Specifies whether to enable the restart option in the client menu. Valid values:
-      // - on: Enabled.
-      // - off: Disabled.
+      // 用戶端重新啟動選單開關。取值範圍：
+      // - on：開啟。
+      // - off：關閉。
       shared_ptr<string> clientRestart_ {};
-      // Specifies whether to enable the shutdown option in the client menu. Valid values:
-      // - on: Enabled.
-      // - off: Disabled.
+      // 用戶端關機選單開關。取值範圍：
+      // - on：開啟。
+      // - off：關閉。
       shared_ptr<string> clientShutdown_ {};
-      // The logon method control rules.
+      // 登入方式管控規則。
       shared_ptr<vector<DescribePolicyGroups::ClientTypes>> clientTypes_ {};
-      // The clipboard permission.
+      // 剪貼簿權限。
       shared_ptr<string> clipboard_ {};
-      // Specifies whether color enhancement is enabled for design and 3D common scenarios.
+      // 設計及 3D 應用場景選擇是否開啟色彩增強。
       shared_ptr<string> colorEnhancement_ {};
-      // The local drive clipboard feature switch. Valid values:
-      // - on: Enabled.
-      // - off: Disabled.
+      // 本機驅動程式剪貼簿功能開關。取值範圍：
+      // - on：開啟。
+      // - off：關閉。
       shared_ptr<string> cpdDriveClipboard_ {};
-      // The CPU downgrade duration. Valid values: 30 to 120. Unit: seconds.
+      // CPU 降頻時長，取值範圍： 30\\~120。單位：秒。
       shared_ptr<int32_t> cpuDownGradeDuration_ {};
-      // Specifies whether to enable CPU overload protection. Valid values:
-      // - on: Enabled.
-      // - off: Disabled.
+      // CPU 負載保護開關。取值範圍：
+      // - on：開啟。
+      // - off：關閉。
       shared_ptr<string> cpuOverload_ {};
-      // The process name.
+      // 處理程序名稱。
       shared_ptr<vector<string>> cpuProcessors_ {};
-      // The CPU spike protection mode switch.
+      // CPU 保護模式開關。
       shared_ptr<string> cpuProtectedMode_ {};
-      // The overall CPU usage percentage. Valid values: 70 to 90.
+      // CPU 整體使用率百分比，取值範圍： 70\\~90。
       shared_ptr<int32_t> cpuRateLimit_ {};
-      // The overall CPU sampling duration. Valid values: 10 to 60. Unit: seconds.
+      // CPU 整體取樣時長，取值範圍： 10\\~60。單位：秒。
       shared_ptr<int32_t> cpuSampleDuration_ {};
-      // The single-core CPU usage percentage. Valid values: 70 to 100.
+      // CPU 單核心使用率百分比，取值範圍： 70\\~100。
       shared_ptr<int32_t> cpuSingleRateLimit_ {};
-      // The number of cloud desktops associated with the policy.
+      // 已關聯該原則的雲端電腦數量。
       shared_ptr<int32_t> desktopCount_ {};
-      // The number of cloud desktop pools associated with the policy.
+      // 已關聯該原則的雲端電腦集區數量。
       shared_ptr<int32_t> desktopGroupCount_ {};
-      // The peripheral connection notification control.
+      // 周邊裝置連線提示控制。
       shared_ptr<string> deviceConnectHint_ {};
-      // The device redirection rules.
+      // 裝置重新導向規則。
       shared_ptr<vector<DescribePolicyGroups::DeviceRedirects>> deviceRedirects_ {};
-      // The custom peripheral device rules.
+      // 自訂周邊裝置規則。
       shared_ptr<vector<DescribePolicyGroups::DeviceRules>> deviceRules_ {};
-      // Specifies whether to retain the session after disconnection.
-      // > This applies only to cloud application policies.
+      // 工作階段斷線保留。
+      // > 僅適用於雲端應用程式原則。
       shared_ptr<string> disconnectKeepSession_ {};
-      // The session retention duration after disconnection. Unit: seconds.
-      // > This applies only to cloud application policies.
+      // 工作階段斷線保留時長。單位：秒。
+      // > 僅適用於雲端應用程式原則。
       shared_ptr<int32_t> disconnectKeepSessionTime_ {};
-      // Specifies whether to enable disk overload protection. Valid values:
-      // - on: Enabled.
-      // - off: Disabled.
+      // 磁碟負載保護開關。取值範圍：
+      // - on：開啟。
+      // - off：關閉。
       shared_ptr<string> diskOverload_ {};
-      // The display mode.
+      // 顯示模式。
       shared_ptr<string> displayMode_ {};
-      // The domain name resolution effective field.
+      // 網域解析生效欄位。
       shared_ptr<string> domainRegisterValue_ {};
-      // The details of the domain name resolution policy.
+      // 網域解析原則詳情。
       shared_ptr<vector<DescribePolicyGroups::DomainResolveRule>> domainResolveRule_ {};
-      // The domain name resolution policy switch.
+      // 網域解析原則開關。
       shared_ptr<string> domainResolveRuleType_ {};
-      // Indicates whether end users can request administrator assistance.
+      // 使用者請求管理員協助。
       shared_ptr<string> endUserApplyAdminCoordinate_ {};
-      // The number of associated end users.
+      // 關聯的終端使用者數量。
       shared_ptr<string> endUserCount_ {};
-      // Indicates whether users within the same office network can share cloud desktops.
+      // 同一個辦公網路下使用者共享雲端電腦。
       shared_ptr<string> endUserGroupCoordinate_ {};
-      // Specifies whether to enable the use of external storage devices. Valid values:
-      // - on: Enabled.
-      // - off: Disabled.
+      // 外接儲存裝置使用開關。取值範圍：
+      // - on：開啟。
+      // - off：關閉。
       shared_ptr<string> externalDrive_ {};
-      // The file migration setting.
+      // 檔案遷移。
       shared_ptr<string> fileMigrate_ {};
-      // The service address for the file transfer feature.
+      // 檔案傳輸功能的服務位址。
       shared_ptr<string> fileTransferAddress_ {};
-      // The file size limit for a single transfer to the cloud desktop. This parameter must be used together with the inbound unit parameter.
+      // 單次傳入雲端電腦的檔案大小限制，需與傳入單位參數配合使用。
       shared_ptr<string> fileTransferInSize_ {};
-      // The unit for the file size limit of a single transfer to the cloud desktop.
+      // 單次傳入雲端電腦的檔案大小限制單位。
       shared_ptr<string> fileTransferInUnit_ {};
-      // The file size limit for a single transfer from the cloud desktop. This parameter must be used together with the outbound unit parameter.
+      // 單次從雲端電腦傳出的檔案大小限制，需與傳出單位參數配合使用。
       shared_ptr<string> fileTransferOutSize_ {};
-      // The unit for the file size limit of a single transfer from the cloud desktop.
+      // 單次從雲端電腦傳出的檔案大小限制單位。
       shared_ptr<string> fileTransferOutUnit_ {};
-      // Specifies whether to enable the file transfer size limit. Valid values:
-      // - on: Enabled.
-      // - off: Disabled.
+      // 檔案傳輸大小限制開關。取值範圍：
+      // - on：開啟。
+      // - off：關閉。
       shared_ptr<string> fileTransferSizeLimit_ {};
-      // The file transfer speed level.
+      // 檔案傳輸速度檔位。
       shared_ptr<string> fileTransferSpeed_ {};
-      // The location where the file transfer speed configured on the client takes effect.
+      // 用戶端設定的檔案傳輸速度生效位置。
       shared_ptr<string> fileTransferSpeedLocation_ {};
+      // 檔案同步開關。取值範圍：
+      // - on：開啟。
+      // - off：關閉。
       shared_ptr<string> folderSync_ {};
-      // Indicates whether the image quality policy is enabled for GPU-accelerated cloud desktops. Enable this policy when high performance and user experience are required, such as in professional design scenarios.
+      // 是否為圖形型規格雲端電腦開啟畫質策略。對雲端電腦效能和使用體驗要求較高時，例如專業設計場景下，建議開啟該策略。
       shared_ptr<string> gpuAcceleration_ {};
-      // Specifies whether to enable the configuration message notification on the floating ball. Valid values:
-      // - on: Enabled.
-      // - off: Disabled.
+      // 懸浮球設定訊息提示開關。取值範圍：
+      // - on：開啟。
+      // - off：關閉。
       shared_ptr<string> hoverConfigMsg_ {};
-      // Specifies whether to enable the hibernate button on the floating ball. Valid values:
-      // - on: Enabled.
-      // - off: Disabled.
+      // 懸浮球休眠按鈕開關。取值範圍：
+      // - on：開啟。
+      // - off：關閉。
       shared_ptr<string> hoverHibernate_ {};
-      // Specifies whether to enable the restart button on the floating ball. Valid values:
-      // - on: Enabled.
-      // - off: Disabled.
+      // 懸浮球重新啟動按鈕開關。取值範圍：
+      // - on：開啟。
+      // - off：關閉。
       shared_ptr<string> hoverRestart_ {};
-      // Specifies whether to enable the shutdown button on the floating ball. Valid values:
-      // - on: Enabled.
-      // - off: Disabled.
+      // 懸浮球關機按鈕開關。取值範圍：
+      // - on：開啟。
+      // - off：關閉。
       shared_ptr<string> hoverShutdown_ {};
-      // The web client access policy.
+      // Web用戶端存取策略。
       shared_ptr<string> html5Access_ {};
-      // The web client file transfer policy.
+      // Web用戶端檔案傳輸策略。
       shared_ptr<string> html5FileTransfer_ {};
-      // The network communication protocol.
+      // 網路通訊協定。
       shared_ptr<string> internetCommunicationProtocol_ {};
-      // The network printer feature switch. Valid values:
-      // - on: Enabled.
-      // - off: Disabled.
+      // 網路印表機功能開關。取值範圍：
+      // - on：開啟。
+      // - off：關閉。
       shared_ptr<string> internetPrinter_ {};
-      // Specifies whether to enable keyboard control on the floating ball. Valid values:
-      // - on: Enabled.
-      // - off: Disabled.
+      // 懸浮球鍵盤控制開關。取值範圍：
+      // - on：開啟。
+      // - off：關閉。
       shared_ptr<string> keyboardControl_ {};
-      // Specifies whether to enable the KMS server. Valid values:
-      // - on: Enabled.
-      // - off: Disabled.
+      // KMS 伺服器開關。取值範圍：
+      // - on：開啟。
+      // - off：關閉。
       shared_ptr<string> kmsServer_ {};
-      // The KMS server configuration in the format of address:port.
+      // KMS 伺服器設定，格式為位址:連接埠。
       shared_ptr<string> kmsServerConfig_ {};
-      // The local disk mapping permission.
+      // 本機磁碟映射權限。
       shared_ptr<string> localDrive_ {};
-      // The maximum reconnection retry time when the cloud desktop is disconnected due to external reasons. Valid values: 30 to 7200. Unit: seconds.
+      // 雲端電腦由於客觀原因造成中斷連線的最大連線重試時間。取值範圍：30\\~7200，單位：秒。
       shared_ptr<int32_t> maxReconnectTime_ {};
-      // The memory downgrade duration of a single process. Valid values: 30 to 120. Unit: seconds.
+      // 開啟 MCP 服務。取值範圍：
+      // - on：開啟。
+      // - off：關閉。
+      shared_ptr<string> mcpService_ {};
+      // 單個處理程序記憶體降頻時長，取值範圍： 30\\~120。單位：秒。
       shared_ptr<int32_t> memoryDownGradeDuration_ {};
-      // Specifies whether to enable memory overload protection. Valid values:
-      // - on: Enabled.
-      // - off: Disabled.
+      // 記憶體負載保護開關。取值範圍：
+      // - on：開啟。
+      // - off：關閉。
       shared_ptr<string> memoryOverload_ {};
-      // The process name.
+      // 處理程序名稱。
       shared_ptr<vector<string>> memoryProcessors_ {};
-      // The memory protection mode switch.
+      // 記憶體保護模式開關。
       shared_ptr<string> memoryProtectedMode_ {};
-      // The overall memory usage percentage. Valid values: 70 to 90.
+      // 記憶體整體使用率百分比，取值範圍： 70\\~90。
       shared_ptr<int32_t> memoryRateLimit_ {};
-      // The overall memory sampling duration. Valid values: 30 to 60. Unit: seconds.
+      // 記憶體整體取樣時長，取值範圍： 30\\~60。單位：秒。
       shared_ptr<int32_t> memorySampleDuration_ {};
-      // The memory usage percentage of a single process. Valid values: 30 to 60.
+      // 單個處理程序記憶體使用率百分比，取值範圍： 30\\~60。
       shared_ptr<int32_t> memorySingleRateLimit_ {};
-      // Specifies whether the restart button is provided in the cloud desktop floating ball when connecting to the cloud desktop from a mobile client (Android client<props="china"> and iOS client).
+      // 透過行動端（Android用戶端<props="china">和iOS用戶端）連線雲端電腦時，是否在雲端電腦懸浮球內提供重新啟動按鈕。
       // 
-      // > This applies only to mobile clients of V7.4 or later.
+      // > 僅適用於V7.4或更高版本的行動端。
       shared_ptr<string> mobileRestart_ {};
-      // Specifies whether to enable the Windows security control on mobile clients.
+      // 行動端Windows 安全性控制開關。
       shared_ptr<string> mobileSafeMenu_ {};
-      // Specifies whether the shutdown button is provided in the cloud desktop floating ball when connecting to the cloud desktop from a mobile client (Android client<props="china"> and iOS client).
+      // 透過行動端（Android用戶端<props="china">和iOS用戶端）連線雲端電腦時，是否在雲端電腦懸浮球內提供關機按鈕。
       // 
-      // > This applies only to mobile clients of V7.4 or later.
+      // > 僅適用於V7.4或更高版本的行動端。
       shared_ptr<string> mobileShutdown_ {};
-      // Specifies whether to enable WUYING Keeper on mobile clients.
+      // 行動端無影管家開關。
       shared_ptr<string> mobileWuyingKeeper_ {};
-      // Specifies whether to enable the WUYING Assistant on mobile clients.
+      // 行動端小穎的開關。
       shared_ptr<string> mobileWyAssistant_ {};
-      // Specifies whether to enable the model library feature. Valid values:
-      // - on: Enabled.
-      // - off: Disabled.
+      // 模型庫功能開關。取值範圍：
+      // - on：開啟。
+      // - off：關閉。
       shared_ptr<string> modelLibrary_ {};
-      // Specifies whether to enable the multi-screen display feature. Valid values:
-      // - on: Enabled.
-      // - off: Disabled.
+      // 多螢幕顯示功能開關。取值範圍：
+      // - on：開啟。
+      // - off：關閉。
       shared_ptr<string> multiScreen_ {};
-      // The policy name.
+      // 策略名稱。
       shared_ptr<string> name_ {};
-      // The network redirection setting.
+      // 網路重新導向。
       // 
-      // > This feature is in invitational preview and is not publicly available.
+      // > 該功能處於定向邀測中，暫不對外開放。
       shared_ptr<string> netRedirect_ {};
-      // The details of the network redirection policy.
+      // 網路重新導向策略詳細資訊。
       // 
-      // > This feature is in invitational preview and is not publicly available.
+      // > 該功能處於定向邀測中，暫不對外開放。
       // >
       shared_ptr<vector<DescribePolicyGroups::NetRedirectRule>> netRedirectRule_ {};
-      // The network printer feature switch. Valid values:
-      // - on: Enabled.
-      // - off: Disabled.
+      // 網路印表機功能開關。取值範圍：
+      // - on：開啟。
+      // - off：關閉。
       shared_ptr<string> networkPrinter_ {};
-      // Specifies whether to disconnect the session when no operation is performed.
-      // > This applies only to cloud application policies.
+      // 無操作中斷連線。
+      // > 僅適用於雲端應用策略。
       shared_ptr<string> noOperationDisconnect_ {};
-      // The idle disconnection duration. Unit: seconds.
-      // > This applies only to cloud application policies.
+      // 無操作中斷連線時長。單位：秒。
+      // > 僅適用於雲端應用策略。
       shared_ptr<int32_t> noOperationDisconnectTime_ {};
-      // The number of associated organizations.
+      // 關聯的組織數量。
       shared_ptr<string> organizationCount_ {};
-      // The policy ID.
+      // 策略ID。
       shared_ptr<string> policyGroupId_ {};
-      // The policy type.
+      // 策略類型。
       shared_ptr<string> policyGroupType_ {};
-      // The status of the cloud desktop policy.
+      // 雲端電腦策略狀態。
       shared_ptr<string> policyStatus_ {};
-      // Specifies whether to enable the port proxy feature. Valid values:
-      // - on: Enabled.
-      // - off: Disabled.
+      // 連接埠代理功能開關。取值範圍：
+      // - on：開啟。
+      // - off：關閉。
       shared_ptr<string> portProxy_ {};
-      // The printer alert dialog setting. Valid values:
-      // - default: Default.
-      // - off: Disabled.
-      // - custom: Custom.
+      // 印表機彈出視窗提示。取值範圍：
+      // - default：預設值。
+      // - off：關閉。
+      // - custom：自訂。
       shared_ptr<string> printerAlert_ {};
-      // The content of the printer alert dialog.
+      // 印表機彈出視窗提示內容。
       shared_ptr<string> printerAlertContent_ {};
-      // The title of the printer alert dialog.
+      // 印表機彈出視窗提示標題。
       shared_ptr<string> printerAlertTitle_ {};
-      // The printer redirection policy.
+      // 印表機重新導向策略。
       shared_ptr<string> printerRedirection_ {};
-      // Specifies whether image quality enhancement is enabled for design and 3D common scenarios.
+      // 設計及3D應用場景選擇是否開啟畫質增強。
       shared_ptr<string> qualityEnhancement_ {};
-      // Indicates whether custom screen recording is enabled.
+      // 是否開啟自訂螢幕錄影。
       shared_ptr<string> recordContent_ {};
-      // The expiration period of custom screen recording files. Default value: 30. Unit: days.
+      // 自訂螢幕錄影的檔案過期時間，預設30天。
       shared_ptr<int64_t> recordContentExpires_ {};
-      // The screen recording duration after an event is detected in screen recording audit. Unit: minutes. Valid values: 10 to 60.
+      // 螢幕錄影稽核中偵測到事件發生後螢幕錄影的時長。單位：分鐘。取值範圍：10\\~60。
       shared_ptr<int32_t> recordEventDuration_ {};
-      // The absolute paths for file monitoring in screen recording audit.
+      // 螢幕錄影稽核中的檔案監控絕對路徑。
       shared_ptr<vector<string>> recordEventFilePaths_ {};
-      // The absolute paths for registry monitoring in screen recording audit.
+      // 螢幕錄影稽核中的登錄檔監控絕對路徑。
       shared_ptr<vector<string>> recordEventRegisters_ {};
-      // Indicates whether screen recording is enabled.
+      // 是否開啟螢幕錄影。
       shared_ptr<string> recording_ {};
-      // The option for recording cloud desktop audio.
+      // 錄製雲端電腦聲音選項。
       shared_ptr<string> recordingAudio_ {};
-      // The duration of screen recording files, in minutes. Recording files are automatically split and uploaded to the storage space based on the specified duration. Files are rolled over when they reach 300 MB.
+      // 螢幕錄影檔案閱覽時長，單位為分鐘。錄製檔案會根據您設定的時長自動分割並上傳至儲存空間，檔案達到300MB時優先滾動更新。
       shared_ptr<int32_t> recordingDuration_ {};
-      // The end time of screen recording, in the format of HH:MM:SS. This response value is meaningful only when Recording is set to period.
+      // 螢幕錄影結束時間，取值：HH:MM:SS。只有Recording取值是period時，該傳回值有實際意義。
       shared_ptr<string> recordingEndTime_ {};
-      // The retention period of screen recording files. Valid values: 1 to 180. Unit: days.
+      // 螢幕錄影檔案的保留時間。取值範圍為1\\~180天。
       shared_ptr<int64_t> recordingExpires_ {};
-      // The frame rate of screen recording. Unit: FPS (frames per second).
+      // 螢幕錄影幀率。單位：FPS（幀/秒）。
       shared_ptr<int64_t> recordingFps_ {};
-      // The start time of screen recording, in the format of HH:MM:SS. This response value is meaningful only when Recording is set to period.
+      // 螢幕錄影開始時間，取值：HH:MM:SS。只有Recording取值是period時，該傳回值有實際意義。
       shared_ptr<string> recordingStartTime_ {};
-      // Indicates whether end users are notified that screen recording is enabled.
+      // 提示終端客戶已開啟螢幕錄影。
       shared_ptr<string> recordingUserNotify_ {};
-      // The notification message displayed to end users when screen recording is enabled.
+      // 提示終端客戶開啟螢幕錄影的資訊。
       shared_ptr<string> recordingUserNotifyMessage_ {};
-      // The keyboard and mouse control permission for remote assistance.
+      // 遠端協助鍵盤與滑鼠控制權限。
       shared_ptr<string> remoteCoordinate_ {};
-      // The setting for resetting the cloud desktop.
+      // 重置雲端電腦。
       shared_ptr<string> resetDesktop_ {};
-      // The DPI value of the screen resolution.
+      // 螢幕解析度的 DPI 值。
       shared_ptr<int32_t> resolutionDpi_ {};
-      // The resolution height. Unit: pixels.
+      // 解析度的高度。單位：畫素。
       shared_ptr<int32_t> resolutionHeight_ {};
-      // The resolution type.
+      // 解析度類型。
       shared_ptr<string> resolutionModel_ {};
-      // The resolution width. Unit: pixels.
+      // 解析度的寬度。單位：畫素。
       shared_ptr<int32_t> resolutionWidth_ {};
-      // The number of resource groups associated with the policy.
+      // 已關聯該策略的資源群組數量。
       shared_ptr<int32_t> resourceGroupCount_ {};
-      // The security center shortcut key switch. Valid values:
-      // - on: Enabled.
-      // - off: Disabled.
+      // 安全中心快速鍵開關。取值範圍：
+      // - on：開啟。
+      // - off：關閉。
       shared_ptr<string> safeMenu_ {};
-      // The scope of the policy.
+      // 策略的生效範圍。
       shared_ptr<string> scope_ {};
-      // The CIDR block that the policy applies to.
+      // 生效的 CIDR Block。
       shared_ptr<vector<string>> scopeValue_ {};
-      // The screen display mode.
+      // 螢幕顯示模式。
       shared_ptr<string> screenDisplayMode_ {};
-      // Specifies whether smoothness enhancement is enabled for daily office scenarios.
+      // 日常辦公場景選擇，是否開啟平滑度增強。
       shared_ptr<string> smoothEnhancement_ {};
-      // Specifies whether the status monitoring entry is provided in the cloud desktop floating ball.
+      // 是否在雲端電腦懸浮球內提供狀態監控功能入口。
       shared_ptr<string> statusMonitor_ {};
-      // The streaming mode adaptation scenario.
+      // 串流模式適配場景。
       shared_ptr<string> streamingMode_ {};
-      // The target frame rate. Valid values: 10 to 60.
+      // 目標幀率，取值範圍：10\\~60。
       shared_ptr<int32_t> targetFps_ {};
-      // The application taskbar.
-      // > This applies only to cloud application policies.
+      // 應用程式工作列。
+      // > 僅適用於雲端應用程式策略。
       shared_ptr<string> taskbar_ {};
-      // Specifies whether to enable the three-screen feature. Valid values:
-      // - on: Enabled.
-      // - off: Disabled.
+      // 三螢幕開關。取值範圍：
+      // - on：開啟。
+      // - off：關閉。
       shared_ptr<string> threeScreen_ {};
-      // The USB redirection setting.
+      // USB 重新導向。
       shared_ptr<string> usbRedirect_ {};
-      // The USB redirection rules.
+      // USB 重新導向規則。
       shared_ptr<vector<DescribePolicyGroups::UsbSupplyRedirectRule>> usbSupplyRedirectRule_ {};
-      // Specifies whether to display the usage duration on the floating ball. Valid values:
-      // - on: Enabled.
-      // - off: Disabled.
+      // 懸浮球使用時長顯示開關。取值範圍：
+      // - on：開啟。
+      // - off：關閉。
       shared_ptr<string> useTime_ {};
-      // The average bitrate for video encoding. Unit: Kbps. Valid values: 1000 to 50000.
+      // 影片編碼平均位元率。單位：Kbps。取值範圍：1000\\~50000。
       shared_ptr<int32_t> videoEncAvgKbps_ {};
-      // The maximum QP for video encoding, which represents the lowest quality. Valid values: 0 to 51.
+      // 影片編碼最大 QP，畫面最低品質，取值範圍：0\\~51。
       shared_ptr<int32_t> videoEncMaxQP_ {};
-      // The minimum QP for video encoding, which represents the highest quality. Valid values: 0 to 51.
+      // 影片編碼最小 QP，最高品質。取值範圍：0\\~51。
       shared_ptr<int32_t> videoEncMinQP_ {};
-      // The peak bitrate for video encoding. Unit: Kbps. Valid values: 1000 to 50000.
+      // 影片編碼峰值位元率。單位：Kbps。取值範圍：1000~50000。
       shared_ptr<int32_t> videoEncPeakKbps_ {};
-      // The video encoding policy.
+      // 影片編碼策略。
       shared_ptr<string> videoEncPolicy_ {};
-      // The multimedia redirection setting.
+      // 多媒體重新導向。
       shared_ptr<string> videoRedirect_ {};
-      // The image display quality policy.
+      // 影像顯示品質策略。
       shared_ptr<string> visualQuality_ {};
-      // The watermark setting.
+      // 浮水印。
       shared_ptr<string> watermark_ {};
-      // The invisible watermark anti-camera capture feature.
+      // 隱藏式浮水印防拍照功能。
       shared_ptr<string> watermarkAntiCam_ {};
-      // The watermark font color. Valid values: 0 to 16777215.
+      // 浮水印字型顏色。取值範圍：0\\~16777215。
       shared_ptr<int32_t> watermarkColor_ {};
-      // If the `WatermarkType` parameter is set to `custom`, you must also specify the custom text content by using the `WatermarkCustomText` parameter.
+      // 若參數 `WatermarkType` 傳入 `custom`，則必須同時透過參數 `WatermarkCustomText` 傳入自訂文字的內容。
       shared_ptr<string> watermarkCustomText_ {};
-      // The watermark tilt angle. Valid values: -10 to -30.
+      // 浮水印傾斜度。取值範圍：-10\\~-30。
       shared_ptr<double> watermarkDegree_ {};
-      // The watermark font size. Valid values: 10 to 20.
+      // 浮水印字型大小。取值範圍：10\\~20。
       shared_ptr<int32_t> watermarkFontSize_ {};
-      // The watermark font style.
+      // 浮水印字型樣式。
       shared_ptr<string> watermarkFontStyle_ {};
-      // The invisible watermark enhancement feature.
+      // 隱藏式浮水印增強功能。
       shared_ptr<string> watermarkPower_ {};
-      // The number of watermark rows.
+      // 浮水印行數。
       shared_ptr<int32_t> watermarkRowAmount_ {};
-      // The invisible watermark security-first rule.
+      // 隱藏式浮水印安全優先規則。
       shared_ptr<string> watermarkSecurity_ {};
-      // Specifies whether to enable the watermark shadow effect. Valid values:
-      // - on: Enabled.
-      // - off: Disabled.
+      // 浮水印陰影效果開關。取值範圍：
+      // - on：開啟。
+      // - off：關閉。
       shared_ptr<string> watermarkShadow_ {};
-      // The watermark transparency. A larger value indicates lower transparency. Valid values: 10 to 100.
+      // 浮水印透明度，值越大，透明度越小。取值範圍：10\\~100。
       shared_ptr<int32_t> watermarkTransparencyValue_ {};
-      // The watermark type.
+      // 浮水印類型。
       shared_ptr<string> watermarkType_ {};
-      // Specifies whether to enable WUYING Keeper.
+      // 無影管家開關。
       shared_ptr<string> wuyingKeeper_ {};
-      // Specifies whether the WUYING AI Assistant entry is provided in the cloud desktop floating ball.
+      // 是否在雲端電腦懸浮球內提供無影 AI 助手功能入口。
       shared_ptr<string> wyAssistant_ {};
     };
 
@@ -2407,11 +2493,11 @@ namespace Models
 
 
   protected:
-    // The details of the cloud desktop policies.
+    // 雲端電腦原則的詳細資訊。
     shared_ptr<vector<DescribeCenterPolicyListResponseBody::DescribePolicyGroups>> describePolicyGroups_ {};
-    // The request ID.
+    // 請求 ID。
     shared_ptr<string> requestId_ {};
-    // The total number of query results.
+    // 查詢結果總數。
     shared_ptr<int32_t> totalCount_ {};
   };
 

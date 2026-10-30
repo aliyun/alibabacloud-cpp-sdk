@@ -271,7 +271,7 @@ namespace Models
       shared_ptr<vector<ResourceModelList::AppModelList>> appModelList_ {};
       // The number of vCPUs.
       shared_ptr<int32_t> cpu_ {};
-      // The target cloud desktop specification. You can call [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) to query the specification IDs supported by WUYING Workspace.
+      // The target cloud desktop type. You can call [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) to query the IDs of cloud desktop types supported by WUYING Workspace.
       shared_ptr<string> desktopType_ {};
       // The number of GPUs.
       shared_ptr<double> gpuCount_ {};
@@ -301,7 +301,7 @@ namespace Models
       shared_ptr<string> resourceRegionId_ {};
       // The resource type.
       shared_ptr<string> resourceType_ {};
-      // The status of the resource.
+      // The resource status.
       shared_ptr<string> status_ {};
     };
 
@@ -338,9 +338,9 @@ namespace Models
 
 
   protected:
-    // The total count.
+    // The total number of entries.
     shared_ptr<string> count_ {};
-    // The token for the next query. If NextToken is empty, no more results are available.
+    // The token that is used to start the next query. If NextToken is empty, no more results are available.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

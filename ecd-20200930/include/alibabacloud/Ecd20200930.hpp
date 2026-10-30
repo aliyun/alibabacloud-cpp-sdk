@@ -714,7 +714,7 @@ namespace Ecd20200930
       Models::CreateCdsFileShareLinkResponse createCdsFileShareLink(const Models::CreateCdsFileShareLinkRequest &request);
 
       /**
-       * @summary Creates a region-independent Cloud Desktop policy.
+       * @summary Creates a region-independent cloud desktop policy.
        *
        * @param request CreateCenterPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -723,7 +723,7 @@ namespace Ecd20200930
       Models::CreateCenterPolicyResponse createCenterPolicyWithOptions(const Models::CreateCenterPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a region-independent Cloud Desktop policy.
+       * @summary Creates a region-independent cloud desktop policy.
        *
        * @param request CreateCenterPolicyRequest
        * @return CreateCenterPolicyResponse
@@ -2077,7 +2077,7 @@ namespace Ecd20200930
       Models::DescribeCensResponse describeCens(const Models::DescribeCensRequest &request);
 
       /**
-       * @summary Queries the details of regionless policies.
+       * @summary 查詢無地域策略的詳細資訊。
        *
        * @param request DescribeCenterPolicyListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2086,7 +2086,7 @@ namespace Ecd20200930
       Models::DescribeCenterPolicyListResponse describeCenterPolicyListWithOptions(const Models::DescribeCenterPolicyListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of regionless policies.
+       * @summary 查詢無地域策略的詳細資訊。
        *
        * @param request DescribeCenterPolicyListRequest
        * @return DescribeCenterPolicyListResponse
@@ -2187,7 +2187,7 @@ namespace Ecd20200930
       Models::DescribeCloudDrivePermissionsResponse describeCloudDrivePermissions(const Models::DescribeCloudDrivePermissionsRequest &request);
 
       /**
-       * @summary Retrieves a list of personal drives and their basic information for all users in an enterprise network drive.
+       * @summary Queries the list and basic information of all personal drives in an enterprise drive.
        *
        * @param request DescribeCloudDriveUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2196,7 +2196,7 @@ namespace Ecd20200930
       Models::DescribeCloudDriveUsersResponse describeCloudDriveUsersWithOptions(const Models::DescribeCloudDriveUsersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of personal drives and their basic information for all users in an enterprise network drive.
+       * @summary Queries the list and basic information of all personal drives in an enterprise drive.
        *
        * @param request DescribeCloudDriveUsersRequest
        * @return DescribeCloudDriveUsersResponse
@@ -3078,7 +3078,7 @@ namespace Ecd20200930
       Models::DescribePeripheralDriversResponse describePeripheralDrivers(const Models::DescribePeripheralDriversRequest &request);
 
       /**
-       * @summary Queries the details of cloud computer policies.
+       * @summary Queries the details of cloud desktop policies.
        *
        * @param request DescribePolicyGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3087,7 +3087,7 @@ namespace Ecd20200930
       Models::DescribePolicyGroupsResponse describePolicyGroupsWithOptions(const Models::DescribePolicyGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of cloud computer policies.
+       * @summary Queries the details of cloud desktop policies.
        *
        * @param request DescribePolicyGroupsRequest
        * @return DescribePolicyGroupsResponse
@@ -4346,7 +4346,7 @@ namespace Ecd20200930
       Models::ModifyCdsFileShareLinkResponse modifyCdsFileShareLink(const Models::ModifyCdsFileShareLinkRequest &request);
 
       /**
-       * @summary Modifies the configuration of a region-free policy.
+       * @summary Modifies the configuration of a regionless policy.
        *
        * @param request ModifyCenterPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4355,7 +4355,7 @@ namespace Ecd20200930
       Models::ModifyCenterPolicyResponse modifyCenterPolicyWithOptions(const Models::ModifyCenterPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the configuration of a region-free policy.
+       * @summary Modifies the configuration of a regionless policy.
        *
        * @param request ModifyCenterPolicyRequest
        * @return ModifyCenterPolicyResponse
@@ -5076,7 +5076,7 @@ namespace Ecd20200930
       Models::ModifyTemplateBaseInfoResponse modifyTemplateBaseInfo(const Models::ModifyTemplateBaseInfoRequest &request);
 
       /**
-       * @summary Modifies the settings of a configuration group, such as scheduled task configurations.
+       * @summary Modifies the specific settings of a configuration group, such as the configuration of scheduled tasks.
        *
        * @param request ModifyTimerGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5085,7 +5085,7 @@ namespace Ecd20200930
       Models::ModifyTimerGroupResponse modifyTimerGroupWithOptions(const Models::ModifyTimerGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the settings of a configuration group, such as scheduled task configurations.
+       * @summary Modifies the specific settings of a configuration group, such as the configuration of scheduled tasks.
        *
        * @param request ModifyTimerGroupRequest
        * @return ModifyTimerGroupResponse
