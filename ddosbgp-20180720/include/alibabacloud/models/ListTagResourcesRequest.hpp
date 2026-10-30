@@ -78,13 +78,13 @@ namespace Models
 
 
     protected:
-      // The key of the tag to query.
+      // The tag key to query.
       // 
-      // >  The **ResourceId** parameter and the **key-value pair for the Tag parameter** cannot be left empty at the same time.
+      // > **ResourceId** and **Tag Key-Value pairs** cannot be left empty at the same time.
       shared_ptr<string> key_ {};
-      // The value of the tag to query.
+      // The tag value to query.
       // 
-      // >  The **ResourceId** parameter and the **key-value pair for the Tag parameter** cannot be left empty at the same time.
+      // > **ResourceId** and **Tag Key-Value pairs** cannot be left empty at the same time.
       shared_ptr<string> value_ {};
     };
 
@@ -137,27 +137,27 @@ namespace Models
 
 
   protected:
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of **NextToken**.
+    // The query token. The value is the **NextToken** parameter value returned from the previous call to this operation. You do not need to specify this parameter when you call this operation for the first time.
     shared_ptr<string> nextToken_ {};
-    // The ID of the region where the Anti-DDoS Origin instance resides.
+    // The region ID of the Anti-DDoS Origin instance.
     // 
-    // >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the most recent region list.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query all region IDs supported by Anti-DDoS Origin.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management.
     // 
-    // If you do not specify this parameter, the instance belongs to the default resource group.
+    // If you do not specify this parameter, the default resource group is used.
     shared_ptr<string> resourceGroupId_ {};
     // The IDs of the Anti-DDoS Origin instances to query.
     // 
-    // >  The **ResourceId** parameter and the **key-value pair for the Tag parameter** cannot be left empty at the same time.
+    // > **ResourceId** and **Tag Key-Value pairs** cannot be left empty at the same time.
     shared_ptr<vector<string>> resourceId_ {};
-    // The type of the resource to query. Set the value to **INSTANCE**.
+    // The type of the resource to query. Set the value to **INSTANCE**, which indicates an instance.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The key-value pair of the tag to query.
+    // The tag key-value pairs to query.
     shared_ptr<vector<ListTagResourcesRequest::Tag>> tag_ {};
   };
 

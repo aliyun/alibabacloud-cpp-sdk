@@ -48,13 +48,13 @@ namespace Models
 
 
   protected:
-    // The ID of the region where the Anti-DDoS Origin instance resides.
+    // The region ID of the Anti-DDoS Origin instance.
     // 
-    // >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the most recent region list.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query all region IDs supported by Anti-DDoS Origin.
     shared_ptr<string> regionId_ {};
     // The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management.
     // 
-    // If you do not specify this parameter, the instance belongs to the default resource group.
+    // If you do not specify this parameter, the default resource group is used.
     shared_ptr<string> resourceGroupId_ {};
   };
 

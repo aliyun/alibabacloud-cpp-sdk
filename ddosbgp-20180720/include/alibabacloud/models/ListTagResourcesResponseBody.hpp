@@ -155,9 +155,9 @@ namespace Models
 
 
   protected:
-    // A pagination token.
+    // The query token returned for this call.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     shared_ptr<ListTagResourcesResponseBody::TagResources> tagResources_ {};
   };

@@ -105,7 +105,7 @@ namespace Models
   protected:
     // The ID of the Anti-DDoS Origin instance to query.
     // 
-    // > Call [DescribeInstanceList](https://help.aliyun.com/document_detail/118698.html) to query the IDs of all Anti-DDoS Origin instances.
+    // > You can call the [DescribeInstanceList](https://help.aliyun.com/document_detail/118698.html) operation to query the IDs of all Anti-DDoS Origin instances.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -117,27 +117,24 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of protected IP addresses to return on each page. The maximum value is 50.
+    // The number of protected IP addresses to return on each page. Maximum value: 50.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The type of the cloud asset to which the protected IP address belongs. Valid values:
+    // The cloud asset type of the protected IP address to query. Valid values:
     // 
-    // - **ECS**: an Elastic Compute Service (ECS) instance.
-    // 
-    // - **SLB**: a Classic Load Balancer (CLB) instance.
-    // 
-    // - **EIP**: an Elastic IP Address (EIP) instance. Because Application Load Balancer (ALB) instances use EIPs, query the public IP address of an ALB instance using the EIP.
-    // 
-    // - **WAF**: a Web Application Firewall (WAF) instance.
+    // - **ECS**: ECS instance.
+    // - **SLB**: Classic Load Balancer (CLB) instance.
+    // - **EIP**: elastic IP address (EIP). Because Internet-facing Application Load Balancer (ALB) instances use EIPs, you must query the public IP addresses of ALB instances by using EIPs.
+    // - **WAF**: Web Application Firewall (WAF) instance.
     shared_ptr<string> productName_ {};
     // The region ID of the Anti-DDoS Origin instance.
     // 
-    // > Call [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) to query the IDs of all regions that Anti-DDoS Origin supports.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query all region IDs supported by Anti-DDoS Origin.
     shared_ptr<string> regionId_ {};
     // The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management.
     // 
-    // If you do not set this parameter, the instance belongs to the default resource group.
+    // If you do not specify this parameter, the default resource group is used.
     shared_ptr<string> resourceGroupId_ {};
   };
 

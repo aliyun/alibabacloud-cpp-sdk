@@ -93,7 +93,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Adds IP addresses to an Anti-DDoS Origin instance.
+ * @summary Adds protected IP addresses to an Anti-DDoS Origin instance.
  *
  * @param request AddIpRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -136,7 +136,7 @@ AddIpResponse Client::addIpWithOptions(const AddIpRequest &request, const Darabo
 }
 
 /**
- * @summary Adds IP addresses to an Anti-DDoS Origin instance.
+ * @summary Adds protected IP addresses to an Anti-DDoS Origin instance.
  *
  * @param request AddIpRequest
  * @return AddIpResponse
@@ -461,12 +461,12 @@ CreatePolicyResponse Client::createPolicy(const CreatePolicyRequest &request) {
 }
 
 /**
- * @summary Deactivates blackhole filtering for a protected IP address.
+ * @summary Deactivates blackhole filtering status for a single protected IP address.
  *
- * @description You can call the DeleteBlackhole operation to deactivate blackhole filtering for a protected IP address.
- * Before you call this operation, you can call the [DescribePackIpList](https://help.aliyun.com/document_detail/118701.html) operation to query the protection status of the IP addresses that are protected by your Anti-DDoS Origin instance. For example, you can query whether blackhole filtering is triggered for an IP address.
- * ### [](#qps-)Limits
- * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation deactivates blackhole filtering status for a single IP address protected by an Anti-DDoS Origin instance.
+ * Before you invoke this operation, you can invoke [DescribePackIpList](https://help.aliyun.com/document_detail/118701.html) to query the protection status of all IP assets protected by Anti-DDoS Origin instances, including whether the IP addresses are in blackhole filtering status.
+ * ### QPS limit
+ * The QPS limit on this operation is 10 requests per second per account. If the number of requests per second exceeds the limit, throttling is triggered, which may affect your business. Invoke the API as appropriate.
  *
  * @param request DeleteBlackholeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -509,12 +509,12 @@ DeleteBlackholeResponse Client::deleteBlackholeWithOptions(const DeleteBlackhole
 }
 
 /**
- * @summary Deactivates blackhole filtering for a protected IP address.
+ * @summary Deactivates blackhole filtering status for a single protected IP address.
  *
- * @description You can call the DeleteBlackhole operation to deactivate blackhole filtering for a protected IP address.
- * Before you call this operation, you can call the [DescribePackIpList](https://help.aliyun.com/document_detail/118701.html) operation to query the protection status of the IP addresses that are protected by your Anti-DDoS Origin instance. For example, you can query whether blackhole filtering is triggered for an IP address.
- * ### [](#qps-)Limits
- * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation deactivates blackhole filtering status for a single IP address protected by an Anti-DDoS Origin instance.
+ * Before you invoke this operation, you can invoke [DescribePackIpList](https://help.aliyun.com/document_detail/118701.html) to query the protection status of all IP assets protected by Anti-DDoS Origin instances, including whether the IP addresses are in blackhole filtering status.
+ * ### QPS limit
+ * The QPS limit on this operation is 10 requests per second per account. If the number of requests per second exceeds the limit, throttling is triggered, which may affect your business. Invoke the API as appropriate.
  *
  * @param request DeleteBlackholeRequest
  * @return DeleteBlackholeResponse
@@ -525,7 +525,7 @@ DeleteBlackholeResponse Client::deleteBlackhole(const DeleteBlackholeRequest &re
 }
 
 /**
- * @summary Deletes an IP address from Anti-DDoS Origin and disables protection for that IP address.
+ * @summary Removes protected IP addresses from Anti-DDoS Origin and cancels protection.
  *
  * @param request DeleteIpRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -568,7 +568,7 @@ DeleteIpResponse Client::deleteIpWithOptions(const DeleteIpRequest &request, con
 }
 
 /**
- * @summary Deletes an IP address from Anti-DDoS Origin and disables protection for that IP address.
+ * @summary Removes protected IP addresses from Anti-DDoS Origin and cancels protection.
  *
  * @param request DeleteIpRequest
  * @return DeleteIpResponse
@@ -581,7 +581,7 @@ DeleteIpResponse Client::deleteIp(const DeleteIpRequest &request) {
 /**
  * @summary Deletes a mitigation policy.
  *
- * @description You cannot delete a mitigation policy to which a protected object is added.
+ * @description You cannot delete a mitigation policy that is associated with a protected object.
  *
  * @param request DeletePolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -614,7 +614,7 @@ DeletePolicyResponse Client::deletePolicyWithOptions(const DeletePolicyRequest &
 /**
  * @summary Deletes a mitigation policy.
  *
- * @description You cannot delete a mitigation policy to which a protected object is added.
+ * @description You cannot delete a mitigation policy that is associated with a protected object.
  *
  * @param request DeletePolicyRequest
  * @return DeletePolicyResponse
@@ -793,11 +793,11 @@ DescribeAssetGroupToInstanceResponse Client::describeAssetGroupToInstance(const 
 }
 
 /**
- * @summary Queries the details about the DDoS attack events that occurred on an Anti-DDoS Origin instance.
+ * @summary Queries the details of DDoS attack events that occurred on a single Anti-DDoS Origin instance.
  *
- * @description You can call the DescribeDdosEvent operation to query the details about the DDoS attack events that occurred on an Anti-DDoS Origin instance by page. The details include the start time, end time, attacked IP address, and status of each event.
- * ### [](#qps-)Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description You can invoke this operation to perform a paged query for the details of DDoS attack events that occurred on a single Anti-DDoS Origin instance. The paging result includes the start and end time of the attack, the attacked IP address, and the event status.
+ * ### QPS limits
+ * The QPS limit per user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
  *
  * @param request DescribeDdosEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -856,11 +856,11 @@ DescribeDdosEventResponse Client::describeDdosEventWithOptions(const DescribeDdo
 }
 
 /**
- * @summary Queries the details about the DDoS attack events that occurred on an Anti-DDoS Origin instance.
+ * @summary Queries the details of DDoS attack events that occurred on a single Anti-DDoS Origin instance.
  *
- * @description You can call the DescribeDdosEvent operation to query the details about the DDoS attack events that occurred on an Anti-DDoS Origin instance by page. The details include the start time, end time, attacked IP address, and status of each event.
- * ### [](#qps-)Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description You can invoke this operation to perform a paged query for the details of DDoS attack events that occurred on a single Anti-DDoS Origin instance. The paging result includes the start and end time of the attack, the attacked IP address, and the event status.
+ * ### QPS limits
+ * The QPS limit per user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
  *
  * @param request DescribeDdosEventRequest
  * @return DescribeDdosEventResponse
@@ -929,10 +929,11 @@ DescribeDdosOriginInstanceBillResponse Client::describeDdosOriginInstanceBill(co
 }
 
 /**
- * @summary Queries the number of assets that are in an abnormal state and the number of Anti-DDoS Origin instances that are about to expire. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
+ * @summary Queries the number of assets that are assigned public IP addresses in abnormal states and the number of Anti-DDoS Origin instances that are about to expire in a specified region.
  *
- * @description ## Usage notes
- * You can call the DescribeExcpetionCount operation to query the number of assets that are in an abnormal state and the number of Anti-DDoS Origin instances that are about to expire in a specific region. For example, if blackhole filtering is triggered for an IP address, the IP address is in an abnormal state. An instance whose remaining validity period is less than seven days is considered as an instance that is about to expire.
+ * @description This operation queries the number of abnormal IP addresses (such as those in the Black Hole Activated state) among protected assets that are assigned public IP addresses (such as a cloud server ECS instance, a Server Load Balancer (SLB) instance, and an elastic IP address (EIP)) and the number of Anti-DDoS Origin instances that are about to expire (with a remaining validity period of less than 7 calendar days) in a specified region.
+ * ### QPS limit
+ * The queries per second (QPS) limit for a single user is 10 calls per second. If you invoke the API and exceed the limit, your requests are throttled, which may affect your services. Invoke the API at a reasonable rate.
  *
  * @param request DescribeExcpetionCountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -967,10 +968,11 @@ DescribeExcpetionCountResponse Client::describeExcpetionCountWithOptions(const D
 }
 
 /**
- * @summary Queries the number of assets that are in an abnormal state and the number of Anti-DDoS Origin instances that are about to expire. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
+ * @summary Queries the number of assets that are assigned public IP addresses in abnormal states and the number of Anti-DDoS Origin instances that are about to expire in a specified region.
  *
- * @description ## Usage notes
- * You can call the DescribeExcpetionCount operation to query the number of assets that are in an abnormal state and the number of Anti-DDoS Origin instances that are about to expire in a specific region. For example, if blackhole filtering is triggered for an IP address, the IP address is in an abnormal state. An instance whose remaining validity period is less than seven days is considered as an instance that is about to expire.
+ * @description This operation queries the number of abnormal IP addresses (such as those in the Black Hole Activated state) among protected assets that are assigned public IP addresses (such as a cloud server ECS instance, a Server Load Balancer (SLB) instance, and an elastic IP address (EIP)) and the number of Anti-DDoS Origin instances that are about to expire (with a remaining validity period of less than 7 calendar days) in a specified region.
+ * ### QPS limit
+ * The queries per second (QPS) limit for a single user is 10 calls per second. If you invoke the API and exceed the limit, your requests are throttled, which may affect your services. Invoke the API at a reasonable rate.
  *
  * @param request DescribeExcpetionCountRequest
  * @return DescribeExcpetionCountResponse
@@ -1079,7 +1081,7 @@ DescribeInstanceListResponse Client::describeInstanceList(const DescribeInstance
 }
 
 /**
- * @summary Queries the specifications of a specific Anti-DDoS Origin instance.
+ * @summary Queries the specifications of a specified Anti-DDoS Origin instance.
  *
  * @param request DescribeInstanceSpecsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1118,7 +1120,7 @@ DescribeInstanceSpecsResponse Client::describeInstanceSpecsWithOptions(const Des
 }
 
 /**
- * @summary Queries the specifications of a specific Anti-DDoS Origin instance.
+ * @summary Queries the specifications of a specified Anti-DDoS Origin instance.
  *
  * @param request DescribeInstanceSpecsRequest
  * @return DescribeInstanceSpecsResponse
@@ -1223,11 +1225,11 @@ DescribeNetworkLayerInterceptsResponse Client::describeNetworkLayerIntercepts(co
 }
 
 /**
- * @summary Queries the operation logs of an Anti-DDoS Origin instance.
+ * @summary Queries the operation logs of Anti-DDoS Origin.
  *
- * @description You can call the DescribeOpEntities operation to query the operation logs of an instance by page.
- * ### Limit
- * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This API operation is used to invoke a paged query with paging for the Operation logs of Anti-DDoS Origin.
+ * ### QPS limits
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Invoke this API operation at a reasonable frequency.
  *
  * @param request DescribeOpEntitiesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1294,11 +1296,11 @@ DescribeOpEntitiesResponse Client::describeOpEntitiesWithOptions(const DescribeO
 }
 
 /**
- * @summary Queries the operation logs of an Anti-DDoS Origin instance.
+ * @summary Queries the operation logs of Anti-DDoS Origin.
  *
- * @description You can call the DescribeOpEntities operation to query the operation logs of an instance by page.
- * ### Limit
- * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This API operation is used to invoke a paged query with paging for the Operation logs of Anti-DDoS Origin.
+ * ### QPS limits
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Invoke this API operation at a reasonable frequency.
  *
  * @param request DescribeOpEntitiesRequest
  * @return DescribeOpEntitiesResponse
@@ -1311,9 +1313,9 @@ DescribeOpEntitiesResponse Client::describeOpEntities(const DescribeOpEntitiesRe
 /**
  * @summary Queries the list of protected IP addresses for a single Anti-DDoS Origin instance.
  *
- * @description You can call this operation to query a paginated list of protected IP addresses for an Anti-DDoS Origin instance. The query returns details such as the IP addresses, the types of cloud assets to which the IP addresses belong, and their current status, such as whether they are under blackhole filtering.
+ * @description This operation performs a paged query to retrieve the list of protected IP addresses for a single Anti-DDoS Origin instance. The information includes the IP address, the cloud asset type to which the IP address belongs, and the current status of the IP address, such as the blackhole filtering status.
  * ### QPS limit
- * This operation has a queries per second (QPS) limit of 10 for each user. Calls that exceed this limit are throttled, which may affect your business. We recommend that you call this operation within this limit.
+ * The queries per second (QPS) limit per user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call the operation at a reasonable frequency.
  *
  * @param request DescribePackIpListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1374,9 +1376,9 @@ DescribePackIpListResponse Client::describePackIpListWithOptions(const DescribeP
 /**
  * @summary Queries the list of protected IP addresses for a single Anti-DDoS Origin instance.
  *
- * @description You can call this operation to query a paginated list of protected IP addresses for an Anti-DDoS Origin instance. The query returns details such as the IP addresses, the types of cloud assets to which the IP addresses belong, and their current status, such as whether they are under blackhole filtering.
+ * @description This operation performs a paged query to retrieve the list of protected IP addresses for a single Anti-DDoS Origin instance. The information includes the IP address, the cloud asset type to which the IP address belongs, and the current status of the IP address, such as the blackhole filtering status.
  * ### QPS limit
- * This operation has a queries per second (QPS) limit of 10 for each user. Calls that exceed this limit are throttled, which may affect your business. We recommend that you call this operation within this limit.
+ * The queries per second (QPS) limit per user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call the operation at a reasonable frequency.
  *
  * @param request DescribePackIpListRequest
  * @return DescribePackIpListResponse
@@ -1991,11 +1993,11 @@ ListTagKeysResponse Client::listTagKeys(const ListTagKeysRequest &request) {
 }
 
 /**
- * @summary Queries the relationship between Anti-DDoS Origin instances and tags.
+ * @summary Queries the mapping between resources (Anti-DDoS Origin instances) and tags.
  *
- * @description You can call the ListTagResources operation to query the tags that are added to Anti-DDoS Origin instances at a time.
- * ### [](#qps-)Limits
- * You can call this API operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation queries the tags bound to Anti-DDoS Origin instances in batches.
+ * ### QPS limit
+ * The QPS limit per user for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable rate.
  *
  * @param request ListTagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2046,11 +2048,11 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary Queries the relationship between Anti-DDoS Origin instances and tags.
+ * @summary Queries the mapping between resources (Anti-DDoS Origin instances) and tags.
  *
- * @description You can call the ListTagResources operation to query the tags that are added to Anti-DDoS Origin instances at a time.
- * ### [](#qps-)Limits
- * You can call this API operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation queries the tags bound to Anti-DDoS Origin instances in batches.
+ * ### QPS limit
+ * The QPS limit per user for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable rate.
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -2255,7 +2257,61 @@ ModifyRemarkResponse Client::modifyRemark(const ModifyRemarkRequest &request) {
 }
 
 /**
- * @summary Changes the resource group to which a cloud resource belongs.
+ * @summary Migrates protected IP addresses from an Anti-DDoS Origin instance.
+ *
+ * @param request MoveIpRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return MoveIpResponse
+ */
+MoveIpResponse Client::moveIpWithOptions(const MoveIpRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasIpList()) {
+    query["IpList"] = request.getIpList();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSourceInstanceId()) {
+    query["SourceInstanceId"] = request.getSourceInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "MoveIp"},
+    {"version" , "2018-07-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<MoveIpResponse>();
+}
+
+/**
+ * @summary Migrates protected IP addresses from an Anti-DDoS Origin instance.
+ *
+ * @param request MoveIpRequest
+ * @return MoveIpResponse
+ */
+MoveIpResponse Client::moveIp(const MoveIpRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return moveIpWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies the resource group to which a cloud resource belongs.
  *
  * @param request MoveResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2298,7 +2354,7 @@ MoveResourceGroupResponse Client::moveResourceGroupWithOptions(const MoveResourc
 }
 
 /**
- * @summary Changes the resource group to which a cloud resource belongs.
+ * @summary Modifies the resource group to which a cloud resource belongs.
  *
  * @param request MoveResourceGroupRequest
  * @return MoveResourceGroupResponse

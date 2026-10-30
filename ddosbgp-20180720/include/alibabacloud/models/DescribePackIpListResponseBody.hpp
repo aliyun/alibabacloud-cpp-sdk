@@ -144,39 +144,32 @@ namespace Models
       shared_ptr<string> ip_ {};
       // The UID of the member account.
       shared_ptr<string> memberUid_ {};
-      // The end time of cross-border traffic blocking.
+      // The end time of near-origin traffic diversion.
       shared_ptr<int64_t> nsmExpireAt_ {};
-      // The start time of cross-border traffic blocking.
+      // The start time of near-origin traffic diversion.
       shared_ptr<int64_t> nsmStartAt_ {};
-      // The status of cross-border traffic blocking. Valid values:
-      // 
-      // - **1**: Cross-border traffic is being blocked.
-      // 
-      // - **0**: Cross-border traffic is not blocked.
+      // The status of near-origin traffic diversion. Valid values:
+      // - **1**: Near-origin traffic diversion is in progress.
+      // - **0**: Near-origin traffic diversion is not in progress.
       shared_ptr<int32_t> nsmStatus_ {};
-      // The type of the cloud asset to which the IP address belongs. Valid values:
+      // The cloud asset type to which the IP address belongs. Valid values:
       // 
-      // - **ECS**: an ECS instance.
-      // 
-      // - **SLB**: a CLB instance.
-      // 
-      // - **EIP**: an EIP instance. This includes the EIP used by an ALB instance.
-      // 
-      // - **WAF**: a WAF instance.
+      // - **ECS**: ECS instance.
+      // - **SLB**: Classic Load Balancer (CLB) instance.
+      // - **EIP**: EIP, including the EIPs used by Application Load Balancer (ALB) instances.
+      // - **WAF**: Web Application Firewall (WAF) instance.
       shared_ptr<string> product_ {};
-      // The region where the protected IP address is deployed.
-      // 
-      // > This parameter is not returned if the protected IP address is deployed in the same region as the instance.
+      // The region of the protected IP address.
+      // > If the region of the protected IP address is the same as the region of the instance, this parameter is not returned.
       shared_ptr<string> region_ {};
-      // The remarks on the cloud asset to which the IP address belongs, such as an ECS instance or an SLB instance.
+      // The description of the cloud asset to which the IP address belongs, such as an ECS instance or a CLB instance.
       // 
-      // > This parameter is not returned if no remarks are specified for the cloud asset.
+      // > If the cloud asset has no description, this parameter is not returned.
       shared_ptr<string> remark_ {};
       // The current status of the IP address. Valid values:
       // 
-      // - **normal**: The IP address is not under attack.
-      // 
-      // - **hole_begin**: The IP address is in blackhole filtering status.
+      // - **normal**: The IP address is normal and not under attack.
+      // - **hole_begin**: The IP address is under blackhole filtering.
       shared_ptr<string> status_ {};
     };
 
@@ -224,17 +217,16 @@ namespace Models
     // 
     // For more information about status codes, see [Common parameters](https://help.aliyun.com/document_detail/118841.html).
     shared_ptr<string> code_ {};
-    // The list of IP addresses that are protected by the Anti-DDoS Origin instance.
+    // The list of IP addresses protected by the Anti-DDoS Origin instance.
     shared_ptr<vector<DescribePackIpListResponseBody::IpList>> ipList_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // - **true**: The request was successful.
-    // 
-    // - **false**: The request failed.
+    // - **true**: The request is successful.
+    // - **false**: The request fails.
     shared_ptr<bool> success_ {};
-    // The number of protected IP addresses that are returned.
+    // The number of protected IP addresses queried.
     shared_ptr<int32_t> total_ {};
   };
 

@@ -68,23 +68,23 @@ namespace Models
   protected:
     // The ID of the Anti-DDoS Origin instance.
     // 
-    // >  You can call the [DescribeInstanceList](https://help.aliyun.com/document_detail/118698.html) operation to query the IDs of all Anti-DDoS Origin instances.
+    // > You can call [DescribeInstanceList](https://help.aliyun.com/document_detail/118698.html) to query the IDs of all Anti-DDoS Origin instances.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The IP address for which you want to deactivate blackhole filtering.
+    // The protected IP address for which you want to deactivate blackhole filtering status.
     // 
-    // >  You can call the [DescribePackIpList](https://help.aliyun.com/document_detail/118701.html) operation to query all the IP addresses that are protected by the Anti-DDoS Origin instance and the protection status of the IP addresses. For example, you can query whether blackhole filtering is triggered for an IP address.
+    // > You can invoke [DescribePackIpList](https://help.aliyun.com/document_detail/118701.html) to query all IP assets protected by Anti-DDoS Origin instances and their protection status, including whether the IP addresses are in blackhole filtering status.
     // 
     // This parameter is required.
     shared_ptr<string> ip_ {};
-    // The ID of the region where the Anti-DDoS Origin instance resides.
+    // The region ID of the Anti-DDoS Origin instance.
     // 
-    // >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the most recent region list.
+    // > You can call [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) to query all region IDs supported by Anti-DDoS Origin.
     shared_ptr<string> regionId_ {};
     // The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management.
     // 
-    // If you do not specify this parameter, the instance belongs to the default resource group.
+    // If you do not specify this parameter, the default resource group is used.
     shared_ptr<string> resourceGroupId_ {};
   };
 

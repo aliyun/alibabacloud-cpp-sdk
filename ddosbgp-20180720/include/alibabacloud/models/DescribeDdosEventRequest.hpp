@@ -103,35 +103,35 @@ namespace Models
 
 
   protected:
-    // The end time of the DDoS attack events to query. This value is a UNIX timestamp. Unit: seconds.
+    // The end time of the DDoS attack events to query. The time is a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<int32_t> endTime_ {};
     // The ID of the Anti-DDoS Origin instance to query.
     // 
-    // >  You can call the [DescribeInstanceList](https://help.aliyun.com/document_detail/118698.html) operation to query the IDs of all Anti-DDoS Origin instances.
+    // > You can call the [DescribeInstanceList](https://help.aliyun.com/document_detail/118698.html) operation to query the IDs of all Anti-DDoS Origin instances.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The attacked IP address to query.
     shared_ptr<string> ip_ {};
-    // The page number.
+    // The Settings for the page number of the current page during paging in a paged query.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries per page.
+    // The Settings for the number of DDoS attack events to return on each page during paging in a paged query.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region where the Anti-DDoS Origin instance resides.
+    // The region ID of the Anti-DDoS Origin instance.
     // 
-    // >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the most recent region list.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query all region IDs supported by Anti-DDoS Origin.
     shared_ptr<string> regionId_ {};
     // The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management.
     // 
-    // If you do not specify this parameter, the instance belongs to the default resource group.
+    // If you do not specify this parameter, the default resource group is used.
     shared_ptr<string> resourceGroupId_ {};
-    // The start time of the DDoS attack events to query. This value is a UNIX timestamp. Unit: seconds.
+    // The start time of the DDoS attack events to query. The time is a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<int32_t> startTime_ {};

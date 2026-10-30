@@ -66,19 +66,19 @@ namespace Models
 
 
   protected:
-    // The ID of the resource group to which you want to move the resource.
+    // The ID of the resource group to which you want to move the cloud resource instance.
     // 
     // This parameter is required.
     shared_ptr<string> resourceGroupId_ {};
-    // The resource ID.
+    // The ID of the cloud resource instance whose resource group you want to modify.
     // 
     // This parameter is required.
     shared_ptr<string> resourceId_ {};
-    // The region ID of the resource.
+    // The region to which the resource belongs.
     // 
     // This parameter is required.
     shared_ptr<string> resourceRegionId_ {};
-    // The resource type. Set the value to **instance**.
+    // The type of the cloud resource whose resource group you want to modify. Valid values: **instance**.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};

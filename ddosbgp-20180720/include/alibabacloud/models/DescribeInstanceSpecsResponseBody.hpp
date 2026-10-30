@@ -180,22 +180,22 @@ namespace Models
       protected:
         // The bandwidth. Unit: Gbit/s.
         shared_ptr<int64_t> bandwidth_ {};
-        // The number of IP addresses that are protected by the Anti-DDoS Origin Enterprise instance.
+        // The number of protected IP addresses.
         shared_ptr<int32_t> bindIpCount_ {};
         // The burstable clean bandwidth. Unit: Mbit/s.
         shared_ptr<int32_t> elasticBwMbps_ {};
-        // The metering method of burstable clean bandwidth. Valid values:
+        // The burstable clean bandwidth mode. Valid values:
         // 
-        // *   **month**: the monthly 95th percentile metering method.
-        // *   **day**: the daily 95th percentile metering method.
+        // - **month**: Monthly 95th percentile metering method.
+        // - **day**: Daily 95th percentile metering method.
         shared_ptr<string> elasticBwMode_ {};
-        // The burstable protection bandwidth of each protected IP address. Unit: Gbit/s.
+        // The burstable protection threshold for the protected IP address. Unit: Gbit/s.
         shared_ptr<int32_t> ipAdvanceThre_ {};
-        // The basic protection bandwidth of each protected IP address. Unit: Gbit/s.
+        // The basic protection threshold for the protected IP address. Unit: Gbit/s.
         shared_ptr<int32_t> ipBasicThre_ {};
-        // The number of IP addresses that can be protected by the Anti-DDoS Origin Enterprise instance.
+        // The number of IP addresses that can be added for protection.
         shared_ptr<int32_t> ipSpec_ {};
-        // The clean bandwidth. Unit: Mbit/s.
+        // The normal clean bandwidth. Unit: Mbit/s.
         shared_ptr<int32_t> normalBandwidth_ {};
         // The burstable protection bandwidth of the Anti-DDoS Origin instance. Unit: Gbit/s.
         shared_ptr<int32_t> packAdvThre_ {};
@@ -272,30 +272,30 @@ namespace Models
 
 
     protected:
-      // The available best-effort protection sessions.
+      // The available best-effort protection times.
       shared_ptr<int32_t> availableDefenseTimes_ {};
-      // The number of times that blackhole filtering can be deactivated.
+      // The available quota for deactivating blackhole filtering.
       shared_ptr<string> availableDeleteBlackholeCount_ {};
-      // The percentage of the used best-effort protection sessions. Unit: %.
+      // The usage percentage of best-effort protection times. Unit: %.
       shared_ptr<int32_t> defenseTimesPercent_ {};
-      // Indicates whether the instance is downgraded. Valid value:
+      // The downgrade status of the instance. Valid values:
       // 
-      // *   **8**: The instance is downgraded due to excessive bandwidth usage.
+      // - **8**: The instance is downgraded because the clean bandwidth exceeds the limit.
       shared_ptr<int32_t> downgradeStatus_ {};
       // The ID of the Anti-DDoS Origin instance.
       shared_ptr<string> instanceId_ {};
-      // Indicates whether best-effort protection is enabled. Valid values:
+      // Indicates whether best-effort protection mode is enabled for the instance. Valid values:
       // 
-      // *   **0**: Best-effort protection is disabled.
-      // *   **1**: Best-effort protection is enabled.
+      // - **0**: Best-effort protection mode is disabled.
+      // - **1**: Best-effort protection mode is enabled.
       shared_ptr<int32_t> isFullDefenseMode_ {};
-      // The configurations of the Anti-DDoS Origin instance, including the number of protected IP addresses and protection bandwidth.
+      // The configuration information of the Anti-DDoS Origin instance, including the number of protected IP addresses and protection bandwidth information.
       shared_ptr<InstanceSpecs::PackConfig> packConfig_ {};
       // The region ID of the Anti-DDoS Origin instance.
       // 
-      // >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the name of the region.
+      // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the details of region IDs.
       shared_ptr<string> region_ {};
-      // The total best-effort protection sessions.
+      // The total available best-effort protection times.
       shared_ptr<int32_t> totalDefenseTimes_ {};
     };
 
@@ -318,7 +318,7 @@ namespace Models
 
 
   protected:
-    // The specifications of the Anti-DDoS Origin instance, including whether best-effort protection is enabled, the number of available best-effort protection sessions, and the number of used best-effort protection sessions.
+    // The specification information of the Anti-DDoS Origin instance, including the enabling status of best-effort protection, and the available and used best-effort protection times.
     shared_ptr<vector<DescribeInstanceSpecsResponseBody::InstanceSpecs>> instanceSpecs_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

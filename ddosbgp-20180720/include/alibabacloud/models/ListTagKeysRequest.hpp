@@ -75,17 +75,17 @@ namespace Models
 
 
   protected:
-    // The page number. Pages start from page **1**. Default value: **1**.
+    // The page number. Pages start from **1**. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
-    // The number of entries per page. Valid values: 1 to **50**. Default value: **10**.
+    // The paging Settings for the number of entries per page in a paged query. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region that you want to query.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The resource type. Set the value to **INSTANCE**.
+    // The resource type. Valid values: **INSTANCE**.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};

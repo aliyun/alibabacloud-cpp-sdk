@@ -118,6 +118,9 @@
 #include <alibabacloud/models/ModifyRemarkRequest.hpp>
 #include <alibabacloud/models/ModifyRemarkResponseBody.hpp>
 #include <alibabacloud/models/ModifyRemarkResponse.hpp>
+#include <alibabacloud/models/MoveIpRequest.hpp>
+#include <alibabacloud/models/MoveIpResponseBody.hpp>
+#include <alibabacloud/models/MoveIpResponse.hpp>
 #include <alibabacloud/models/MoveResourceGroupRequest.hpp>
 #include <alibabacloud/models/MoveResourceGroupResponseBody.hpp>
 #include <alibabacloud/models/MoveResourceGroupResponse.hpp>
