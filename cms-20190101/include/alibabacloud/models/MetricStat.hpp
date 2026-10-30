@@ -112,23 +112,23 @@ namespace Models
 
 
   protected:
-    // The additional information about the monitored object (instance).
+    // The additional information of the monitored object (instance).
     shared_ptr<map<string, string>> associated_ {};
-    // The dimension information that is used to identify the monitored object (instance).
+    // The dimension information used to identify the monitored object (instance).
     shared_ptr<vector<Dimension>> dimensions_ {};
-    // The recorded time of the monitoring data. Unit: milliseconds. For non-raw data (aggregated data), the value of LogTime is NULL.
+    // The recording time of the monitoring data, in milliseconds. For non-raw data (aggregated data), LogTime is null.
     shared_ptr<int64_t> logTime_ {};
-    // The measured value of the metric. The parameter contains multiple values by default.
+    // The measurement values of the metric (multi-value mode by default).
     Darabonba::Json measurements_ {};
-    // The metric that is used to monitor the cloud service.
+    // The name of the metric for the cloud service.
     shared_ptr<string> metric_ {};
-    // The namespace of the cloud service.
+    // The data namespace of the cloud service.
     shared_ptr<string> namespace_ {};
-    // The time interval based on which the metric value is measured.
+    // The time interval of the metric.
     // 
     // Unit: seconds.
     shared_ptr<int32_t> period_ {};
-    // The timestamp of the monitoring data. Unit: milliseconds.
+    // The timestamp of the monitoring data, in milliseconds.
     shared_ptr<int64_t> timestamp_ {};
   };
 

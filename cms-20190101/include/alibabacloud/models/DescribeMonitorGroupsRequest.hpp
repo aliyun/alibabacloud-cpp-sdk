@@ -96,9 +96,9 @@ namespace Models
 
 
     protected:
-      // The key of tag N. Valid values of N: 1 to 5.
+      // The tag key of the application group. Valid values of N: 1 to 5.
       shared_ptr<string> key_ {};
-      // The value of tag N. Valid values of N: 1 to 5.
+      // The tag value of the application group. Valid values of N: 1 to 5.
       shared_ptr<string> value_ {};
     };
 
@@ -214,64 +214,57 @@ namespace Models
 
 
   protected:
-    // The ID of the dynamic tag rule.
+    // The ID of the dynamic rule matching.
     shared_ptr<string> dynamicTagRuleId_ {};
-    // The tag key of the application group that is created using a dynamic tag rule.
+    // The tag key used to create the application group by using dynamic rule matching.
     shared_ptr<string> groupFounderTagKey_ {};
-    // The tag value of the application group that is created using a dynamic tag rule.
+    // The tag value used to create the application group by using dynamic rule matching.
     shared_ptr<string> groupFounderTagValue_ {};
-    // The IDs of the application groups. Separate multiple IDs with commas (,).
+    // The application group ID. Separate multiple application group IDs with commas (,).
     shared_ptr<string> groupId_ {};
-    // The name of the application group.
+    // The application group name.
     shared_ptr<string> groupName_ {};
-    // Specifies whether to include the history of alert templates that are applied to the application group in the response. Valid values:
-    // 
-    // - true
-    // 
-    // - false
+    // Specifies whether to include the history of alert templates that have been applied to the application group in the response. Valid values:
+    // - true: Include the history.
+    // - false: Do not include the history.
     shared_ptr<bool> includeTemplateHistory_ {};
-    // The ID of the instance. This parameter is used to query the application group to which the specified instance belongs.
+    // The resource instance ID. This parameter is used to query the application group to which the specified instance belongs.
     shared_ptr<string> instanceId_ {};
-    // The keyword for the search.
+    // The search keyword.
     shared_ptr<string> keyword_ {};
     // The page number.
     // 
-    // Pages start from page 1. Default value: 1.
+    // Minimum value: 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page.
     // 
-    // Pages start from page 1. Default value: 30.
+    // Minimum value: 1. Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> regionId_ {};
     // Specifies whether to include alert contact groups in the response. Valid values:
-    // 
-    // - true
-    // 
-    // - false
+    // - true: Include alert contact groups.
+    // - false: Do not include alert contact groups.
     shared_ptr<bool> selectContactGroups_ {};
     // The tags of the application group.
     shared_ptr<vector<DescribeMonitorGroupsRequest::Tag>> tag_ {};
     // The type of the application group. Valid values:
-    // 
     // - custom: a custom application group.
-    // 
-    // - ehpc_cluster: an application group that is synchronized from an E-HPC cluster.
-    // 
-    // - kubernetes: an application group that is synchronized from a Container Service for Kubernetes (ACK) cluster.
+    // - ehpc_cluster: an application group synchronized from an EHPC cluster.
+    // - kubernetes: an application group synchronized from Container Service for Kubernetes.
+    // - tag: an application group automatically created by using tags.
+    // - resMgr: an application group created from a resource group.
+    // - ess: an application group synchronized from Auto Scaling (ESS).
+    // - aone_group: an application group synchronized from or associated with an Aone application.
     shared_ptr<string> type_ {};
     // The type of the application group. Valid values:
     // 
     // - custom: a custom application group.
-    // 
-    // - ehpc_cluster: an application group that is synchronized from an E-HPC cluster.
-    // 
-    // - kubernetes: an application group that is synchronized from a Container Service for Kubernetes (ACK) cluster.
-    // 
-    // - tag: an application group that is automatically created based on tags.
-    // 
-    // - resMgr: an application group that is created based on a resource group.
-    // 
-    // - ess: an application group that is synchronized from Auto Scaling (ESS).
+    // - ehpc_cluster: an application group synchronized from an EHPC cluster.
+    // - kubernetes: an application group synchronized from Container Service for Kubernetes.
+    // - tag: an application group automatically created by using tags.
+    // - resMgr: an application group created from a resource group.
+    // - ess: an application group synchronized from Auto Scaling (ESS).
+    // - aone_group: an application group synchronized from or associated with an Aone application.
     shared_ptr<string> types_ {};
   };
 

@@ -525,22 +525,20 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
-    // 
-    // > The status code 200 indicates that the request was successful.
+    // The status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
     shared_ptr<DescribeEventRuleListResponseBody::EventRules> eventRules_ {};
-    // The error message returned.
+    // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the operation was successful. Valid values:
     // 
-    // - true
+    // - true: The operation was successful.
     // 
-    // - false
+    // - false: The operation failed.
     shared_ptr<bool> success_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> total_ {};
   };
 

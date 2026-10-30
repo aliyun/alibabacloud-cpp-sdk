@@ -98,15 +98,15 @@ namespace Models
     shared_ptr<int64_t> groupId_ {};
     // The ID of the availability monitoring task.
     shared_ptr<int64_t> id_ {};
-    // The IDs of the availability monitoring tasks. Separate multiple IDs with commas (,).
+    // The IDs of multiple availability monitoring tasks. Separate multiple IDs with commas (,).
     shared_ptr<string> ids_ {};
     // The page number.
     // 
-    // Pages start from page 1. Default value: 1.
+    // Minimum value: 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     // 
-    // Minimum value: 1. Default value: 10
+    // Minimum value: 1. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> regionId_ {};
     // The name of the availability monitoring task.

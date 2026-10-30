@@ -79,7 +79,7 @@ namespace Models
     // 
     // >A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // The number of rows affected when the Event-triggered Alert Rule is created or modified.
+    // The number of rows affected when the event-triggered alert rule is created or modified.
     shared_ptr<string> data_ {};
     // The error message.
     shared_ptr<string> message_ {};

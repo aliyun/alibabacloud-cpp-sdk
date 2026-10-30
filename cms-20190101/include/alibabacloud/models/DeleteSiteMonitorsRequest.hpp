@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // Specifies whether to delete the alert rules associated with the tasks. Valid values:
+    // Specifies whether to delete alert rules when you delete the tasks. Valid values:
     // 
     // - true (default): Deletes the alert rules.
     // 

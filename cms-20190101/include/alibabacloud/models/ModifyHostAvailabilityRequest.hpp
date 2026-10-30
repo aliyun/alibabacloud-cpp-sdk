@@ -104,39 +104,35 @@ namespace Models
 
 
     protected:
-      // The Alibaba Cloud Resource Name (ARN) of the resource.
+      // The resource ARN.
       // 
-      // Format: `acs:{Service name abbreviation}:{regionId}:{userId}:/{Resource type}/{Resource name}/message`. Example: `acs:mns:cn-hangzhou:120886317861****:/queues/test123/message`. Fields:
+      // Format: `acs:{AbbreviatedCloudServiceName}:{regionId}:{userId}:/{ResourceType}/{ResourceName}/message`. Example: `acs:mns:cn-hangzhou:120886317861****:/queues/test123/message`. The parameters are described as follows:
       // 
-      // - {Service name abbreviation}: the abbreviation of the service name. Set the value to Simple Message Queue (formerly MNS) (SMQ).
+      // - {AbbreviatedCloudServiceName}: Only Simple Message Queue (formerly MNS) is supported.
       // 
-      // - {userId}: the ID of the Alibaba Cloud account.
+      // - {userId}: The Alibaba Cloud account ID.
       // 
-      // - {regionId}: the region ID of the SMQ queue or topic.
+      // - {regionId}: The region where Simple Message Queue (formerly MNS) or the topic resides.
       // 
-      // - {Resource type}: the type of the resource for which alerts are triggered. Valid values:
+      // - {ResourceType}: The type of the resource that accepts alerts. Valid values:
       // 
-      //   - **queues**
+      //   - **queues**: queue.
+      //   - **topics**: topic.
       // 
-      //   - **topics**
-      // 
-      // - {Resource name}: the resource name.
+      // - {ResourceName}: The resource name.
       // 
       //   - If the resource type is **queues**, the resource name is the queue name.
-      // 
       //   - If the resource type is **topics**, the resource name is the topic name.
       shared_ptr<string> arn_ {};
-      // The ID of the resource for which alerts are triggered.
+      // The ID of the alert trigger target.
       shared_ptr<string> id_ {};
-      // The parameters of the alert callback. The parameters are in the JSON format.
+      // The JSON-formatted parameters for the alert callback.
       shared_ptr<string> jsonParams_ {};
       // The alert level. Valid values:
       // 
-      // - INFO
-      // 
-      // - WARN
-      // 
-      // - CRITICAL
+      // - INFO: information.
+      // - WARN: warning.
+      // - CRITICAL: critical.
       shared_ptr<string> level_ {};
     };
 
@@ -205,47 +201,35 @@ namespace Models
 
 
     protected:
-      // The method used to calculate the metric values that trigger alerts. Valid values of N: 1 to 21. The value of this parameter varies based on the metric. The following items show the correspondence between metrics and calculation methods:
+      // The statistical method for the alert. Valid values of N: 1 to 21. The statistical method varies by metric:
       // 
-      // - HttpStatus: Value
+      // - HttpStatus: Value.
+      // - HttpLatency: Average.
+      // - TelnetStatus: Value.
+      // - TelnetLatency: Average.
+      // - PingLostRate: Average.
       // 
-      // - HttpLatency: Average
-      // 
-      // - TelnetStatus: Value
-      // 
-      // - TelnetLatency: Average
-      // 
-      // - PingLostRate: Average
-      // 
-      // > The value Value indicates the original value and is used for metrics such as status codes. The value Average indicates the average value and is used for metrics such as the latency and packet loss rate.
+      // > The statistical method for status codes is the original value (Value). The statistical method for latency or packet loss rate is the average value (Average).
       shared_ptr<string> aggregate_ {};
-      // The metric for which the alert feature is enabled. Valid values of N: 1 to 21. Valid values:
+      // The metric for the alert. Valid values of N: 1 to 21. Valid values:
       // 
-      // - HttpStatus: HTTP status code
-      // 
-      // - HttpLatency: HTTP response time
-      // 
-      // - TelnetStatus: Telnet status code
-      // 
-      // - TelnetLatency: Telnet response time
-      // 
-      // - PingLostRate: Ping packet loss rate
+      // - HttpStatus: HTTP status code.
+      // - HttpLatency: HTTP latency.
+      // - TelnetStatus: TELNET status code.
+      // - TelnetLatency: TELNET latency.
+      // - PingLostRate: PING packet loss rate.
       // 
       // This parameter is required.
       shared_ptr<string> metricName_ {};
-      // The comparison operator that is used in the alert rule. Valid values of N: 1 to 21. Valid values:
+      // The comparison operator for the alert rule. Valid values of N: 1 to 21. Valid values:
       // 
       // - `>`
-      // 
       // - `>=`
-      // 
       // - `<`
-      // 
       // - `<=`
-      // 
       // - `=`
       shared_ptr<string> operator_ {};
-      // The consecutive number of times for which the metric value meets the alert condition before an alert is triggered. Valid values of N: 1 to 21.
+      // The number of alert retries. Valid values of N: 1 to 21.
       shared_ptr<int32_t> times_ {};
       // The alert threshold. Valid values of N: 1 to 21.
       shared_ptr<string> value_ {};
@@ -353,48 +337,43 @@ namespace Models
 
 
     protected:
-      // The header of the HTTP request. Format: `Parameter name:Parameter value`. Separate multiple parameters with carriage return characters. Example:
-      // 
+      // The header of the HTTP request. Format: `Parameter:Value`. Separate multiple parameters with carriage returns. Example:
       // ```
       // params1:value1
       // params2:value2
       // ```
       shared_ptr<string> httpHeader_ {};
-      // The HTTP request method. Valid values:
+      // The method of the detection type. Valid values:
       // 
       // - GET
-      // 
       // - POST
-      // 
       // - HEAD
       // 
-      // > This parameter must be specified when TaskType is set to HTTP. For more information about how to configure the TaskType parameter, see [CreateHostAvailability](https://help.aliyun.com/document_detail/115317.html).
+      // > If the detection task type is HTTP, you must set this parameter. For information about how to set the detection task type, see [CreateHostAvailability](https://help.aliyun.com/document_detail/115317.html).
       shared_ptr<string> httpMethod_ {};
-      // The method to trigger an alert. The alert can be triggered based on whether the specified alert rule is included in the response body. Valid values:
+      // The alert rule for matching HTTP response content. Valid values:
+      // - true: An alert is triggered if the HTTP response content contains the specified alert rule.
+      // - false: An alert is triggered if the HTTP response content does not contain the specified alert rule.
       // 
-      // - true: If the HTTP response body includes the alert rule, an alert is triggered.
-      // 
-      // - false: If the HTTP response does not include the alert rule, an alert is triggered.
-      // 
-      // > This parameter must be specified when TaskType is set to HTTP. For more information about how to configure the TaskType parameter, see [CreateHostAvailability](https://help.aliyun.com/document_detail/115317.html).
+      // > If the detection task type is HTTP, you must set this parameter. For information about how to set the detection task type, see [CreateHostAvailability](https://help.aliyun.com/document_detail/115317.html).
       shared_ptr<bool> httpNegative_ {};
-      // The content of the HTTP POST request.
+      // The POST content of the HTTP detection request.
       shared_ptr<string> httpPostContent_ {};
-      // The character set that is used in the HTTP response.
+      // The response character set for the HTTP detection type.
       // 
       // > Only UTF-8 is supported.
       shared_ptr<string> httpResponseCharset_ {};
-      // The response to the HTTP request.
+      // The POST content of the HTTP detection response.
       shared_ptr<string> httpResponseMatchContent_ {};
-      // The URI that you want to monitor. This parameter is required if the TaskType parameter is set to HTTP or Telnet.
+      // The URI for HTTP or Telnet detection types.
       shared_ptr<string> httpURI_ {};
-      // The interval at which detection requests are sent. Unit: seconds. Valid values: 15, 30, 60, 120, 300, 900, 1800, and 3600.
+      // The detection frequency. Unit: seconds. Valid values: 15, 30, 60, 120, 300, 900, 1800, and 3600.
       // 
-      // > This parameter is available only for the CloudMonitor agent V3.5.1 or later.
+      // > Only CloudMonitor agent 3.5.1 or later supports this parameter.
       shared_ptr<int32_t> interval_ {};
-      // The domain name or IP address that you want to monitor.
+      // The domain name or address to detect.
       // 
-      // > This parameter is required if the TaskType parameter is set to PING. For more information about how to set the TaskType parameter, see [CreateHostAvailability](https://help.aliyun.com/document_detail/115317.html).
+      // > If the detection task type is PING, you must set this parameter. For information about how to set the detection task type, see [CreateHostAvailability](https://help.aliyun.com/document_detail/115317.html).
       shared_ptr<string> telnetOrPingHost_ {};
     };
 
@@ -463,27 +442,36 @@ namespace Models
 
 
     protected:
-      // The end of the time range during which the alert rule is effective. Valid values: 0 to 23.
+      // The end time when the alert takes effect.
       // 
-      // For example, if the `AlertConfig.StartTime` parameter is set to 0 and the `AlertConfig.EndTime` parameter is set to 22, the alert rule is effective from 00:00:00 to 22:00:00.
+      // Unit: hours (h). Valid values: 0 to 23. For example, a value of 22 indicates 22:00:00.
       // 
-      // > Alert notifications are sent based on the specified threshold only if the alert rule is effective.
+      // > If the alert is not within the effective period, alert notifications are not sent even if the threshold is exceeded.
       shared_ptr<int32_t> endTime_ {};
-      // The alert notification methods. Valid values:
+      // The alert notification type. Valid values:
       // 
-      // 0: Alert notifications are sent by using emails and DingTalk chatbots.
+      // <props="china">- 2: phone call + text message + email + DingTalk chatbot.
+      // 
+      // <props="china">- 1: text message + email + DingTalk chatbot.
+      // 
+      // <props="china">- 0: email + DingTalk chatbot.
+      // 
+      // 
+      // <props="intl">0: email + DingTalk chatbot.
+      // 
+      // <props="partner">0: email + DingTalk chatbot.
       // 
       // This parameter is required.
       shared_ptr<int32_t> notifyType_ {};
-      // The mute period during which new alerts are not sent even if the trigger conditions are met. Unit: seconds. Default value: 86400. The default value indicates one day.
+      // The mute period. Unit: seconds. Default value: 86400 (1 day).
       shared_ptr<int32_t> silenceTime_ {};
-      // The beginning of the time range during which the alert rule is effective. Valid values: 0 to 23.
+      // The start time when the alert takes effect.
       // 
-      // For example, if the `AlertConfig.StartTime` parameter is set to 0 and the `AlertConfig.EndTime` parameter is set to 22, the alert rule is effective from 00:00:00 to 22:00:00.
+      // Unit: hours (h). Valid values: 0 to 23. For example, a value of 0 indicates 00:00:00.
       // 
-      // > Alert notifications are sent based on the specified threshold only if the alert rule is effective.
+      // > If the alert is not within the effective period, alert notifications are not sent even if the threshold is exceeded.
       shared_ptr<int32_t> startTime_ {};
-      // The callback URL.
+      // The webhook address.
       shared_ptr<string> webHook_ {};
     };
 
@@ -573,34 +561,33 @@ namespace Models
   protected:
     shared_ptr<ModifyHostAvailabilityRequest::AlertConfig> alertConfig_ {};
     shared_ptr<ModifyHostAvailabilityRequest::TaskOption> taskOption_ {};
-    // The alert configurations.
+    // The alert configuration list.
     // 
     // This parameter is required.
     shared_ptr<vector<ModifyHostAvailabilityRequest::AlertConfigEscalationList>> alertConfigEscalationList_ {};
-    // The information about the resources for which alerts are triggered.
+    // The alert trigger targets.
     shared_ptr<vector<ModifyHostAvailabilityRequest::AlertConfigTargetList>> alertConfigTargetList_ {};
-    // The ID of the application group.
+    // The application group ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> groupId_ {};
-    // The ID of the availability monitoring task.
+    // The availability monitoring task ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // The ECS instances that are monitored. Valid values of N: 1 to 21.
+    // The list of ECS instances that initiate detection. Valid values of N: 1 to 21.
     // 
-    // > This parameter must be specified when `TaskScope` is set to `GROUP_SPEC_INSTANCE`.
+    // > If `TaskScope` is set to `GROUP_SPEC_INSTANCE`, you must set this parameter.
     shared_ptr<vector<string>> instanceList_ {};
     shared_ptr<string> regionId_ {};
     // The name of the availability monitoring task.
     // 
     // This parameter is required.
     shared_ptr<string> taskName_ {};
-    // The range of instances that are monitored by the availability monitoring task. Valid values:
+    // The detection scope of the availability monitoring task. Valid values:
     // 
-    // - GROUP: All ECS instances in the application group are monitored.
-    // 
-    // - GROUP_SPEC_INSTANCE: Specified ECS instances in the application group are monitored. The TaskScope parameter must be used in combination with the InstanceList parameter. The InstanceList parameter specifies the ECS instances to be monitored.
+    // - GROUP: uses all ECS instances in the current application group as detection probes.
+    // - GROUP_SPEC_INSTANCE: uses specified ECS instances in the current application group as detection probes. If you set this parameter to GROUP_SPEC_INSTANCE, you must also set InstanceList to specify the ECS instances that initiate detection.
     shared_ptr<string> taskScope_ {};
   };
 

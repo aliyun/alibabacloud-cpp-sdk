@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // Page number.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // Number of records per page.
+    // The number of records per page.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> regionId_ {};
   };

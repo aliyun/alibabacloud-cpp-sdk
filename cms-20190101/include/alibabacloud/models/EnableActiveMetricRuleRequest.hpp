@@ -13,10 +13,14 @@ namespace Models
   class EnableActiveMetricRuleRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const EnableActiveMetricRuleRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(Product, product_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, EnableActiveMetricRuleRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(Product, product_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
@@ -31,8 +35,22 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->product_ == nullptr
-        && this->regionId_ == nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && this->dryRun_ == nullptr && this->product_ == nullptr && this->regionId_ == nullptr; };
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline EnableActiveMetricRuleRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline EnableActiveMetricRuleRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
+
+
     // product Field Functions 
     bool hasProduct() const { return this->product_ != nullptr;};
     void deleteProduct() { this->product_ = nullptr;};
@@ -48,29 +66,25 @@ namespace Models
 
 
   protected:
-    // The cloud service for which you want to enable initiative alert. Valid values:
+    // The client token that is used to ensure the idempotence of the request.
     // 
-    // - ECS: Elastic Compute Service (ECS)
+    // You can generate the value of this parameter on the client side. Make sure that the value is unique across different requests. The value can be up to 64 ASCII characters in length.
+    shared_ptr<string> clientToken_ {};
+    // Specifies whether to check the availability of the webhook.
+    shared_ptr<bool> dryRun_ {};
+    // The name of the Alibaba Cloud service that supports one-click alert rules. Valid values:
     // 
-    // - rds: ApsaraDB RDS
-    // 
-    // - slb: Server Load Balancer (SLB)
-    // 
-    // - redis_standard: Redis Open-Source Edition (standard architecture)
-    // 
-    // - redis_sharding: Redis Open-Source Edition (cluster architecture)
-    // 
-    // - redis_splitrw: Redis Open-Source Edition (read/write splitting architecture)
-    // 
-    // - mongodb: ApsaraDB for MongoDB of the replica set architecture
-    // 
-    // - mongodb_sharding: ApsaraDB for MongoDB of the sharded cluster architecture
-    // 
-    // - hbase: ApsaraDB for HBase
-    // 
-    // - elasticsearch: Elasticsearch
-    // 
-    // - opensearch: OpenSearch
+    // * ecs: Elastic Compute Service (ECS).
+    // * rds: ApsaraDB RDS.
+    // * slb: Server Load Balancer (SLB).
+    // * redis_standard: Standard architecture of open-source Redis.
+    // * redis_sharding: Cluster architecture of open-source Redis.
+    // * redis_splitrw: Read/write splitting architecture of open-source Redis.
+    // * mongodb: ApsaraDB for MongoDB (replica set).
+    // * mongodb_sharding: ApsaraDB for MongoDB (sharded cluster).
+    // * hbase: ApsaraDB for HBase.
+    // * elasticsearch: Elasticsearch.
+    // * opensearch: OpenSearch.
     // 
     // This parameter is required.
     shared_ptr<string> product_ {};

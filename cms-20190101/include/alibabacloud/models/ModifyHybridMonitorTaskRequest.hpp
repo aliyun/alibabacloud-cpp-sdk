@@ -135,17 +135,17 @@ namespace Models
         // The alias of the SLS log statistics result.
         shared_ptr<string> alias_ {};
         // The statistical method used to aggregate log data within a statistical period. Valid values:
-        // - count: counts the number of occurrences.
+        // - count: counts the number of entries.
         // - sum: calculates the sum.
         // - avg: calculates the average.
         // - max: returns the maximum value.
         // - min: returns the minimum value.
         // - value: samples within the period.
-        // - countps: calculates the per-second average of the count for the specified field within the statistical period.
-        // - sumps: calculates the per-second average of the sum for the specified field within the statistical period.
+        // - countps: calculates the average count per second for the specified field within the statistical period.
+        // - sumps: calculates the average sum per second for the specified field within the statistical period.
         // - distinct: calculates the number of occurrences of the specified field after deduplication within the statistical period.
         // - distribution: calculates the number of occurrences of field values within a specified range.
-        // - percentile: calculates the distribution value of field values, such as P50.
+        // - percentile: calculates the distribution value of field values, for example, P50.
         shared_ptr<string> function_ {};
         // The statistical value of the SLS log.
         // 
@@ -155,7 +155,7 @@ namespace Models
         shared_ptr<string> parameter1_ {};
         // The statistical value of the SLS log.
         // 
-        // > This parameter is required only when `Function` is set to `distribution`. It specifies the upper limit of the statistical range. For example, to count the number of 2XX HTTP status codes, set this parameter to 299.
+        // > This parameter is required only when `Function` is set to `distribution`. This parameter specifies the upper limit of the statistical range. For example, to count the number of 2XX HTTP status codes, set this parameter to 299.
         shared_ptr<string> parameter2_ {};
         // The name of the parameter for SLS log statistics.
         shared_ptr<string> SLSKeyName_ {};
@@ -312,8 +312,8 @@ namespace Models
         shared_ptr<vector<Filter::Filters>> filters_ {};
         // The relationship between multiple filter conditions. Valid values:
         // 
-        // - and (default): Logs are processed only when all filter conditions are met.
-        // - or: Logs are processed when any filter condition is met.
+        // - and (default): The log is processed only when all filter conditions are met.
+        // - or: The log is processed when any filter condition is met.
         shared_ptr<string> relation_ {};
       };
 
@@ -355,9 +355,9 @@ namespace Models
 
 
       protected:
-        // The alias of the arithmetic operation result of the extended field in the SLS log statistics result.
+        // The alias of the arithmetic result of the extended fields for the SLS log statistics result.
         shared_ptr<string> alias_ {};
-        // The arithmetic operation result of the extended field in the SLS log statistics result.
+        // The arithmetic result of the extended fields for the SLS log statistics result.
         shared_ptr<string> express_ {};
       };
 
@@ -400,11 +400,11 @@ namespace Models
 
 
     protected:
-      // The arithmetic operation result of the extended field in the SLS log statistics result.
+      // The arithmetic result of the extended fields for the SLS log statistics result.
       shared_ptr<vector<SLSProcessConfig::Express>> express_ {};
       // The filter conditions for parameters in the SLS log.
       shared_ptr<SLSProcessConfig::Filter> filter_ {};
-      // Aggregates data by spatial dimension, which is equivalent to GROUP BY in SQL.
+      // The spatial dimension used to aggregate data, which is equivalent to the GROUP BY clause in SQL.
       shared_ptr<vector<SLSProcessConfig::GroupBy>> groupBy_ {};
       // None.
       shared_ptr<vector<SLSProcessConfig::Statistics>> statistics_ {};
@@ -448,9 +448,9 @@ namespace Models
 
 
     protected:
-      // The tag key of the metric.
+      // The label key of the metric.
       shared_ptr<string> name_ {};
-      // The tag value of the metric.
+      // The label value of the metric.
       shared_ptr<string> value_ {};
     };
 
@@ -511,7 +511,7 @@ namespace Models
 
 
   protected:
-    // The tags of the metric.
+    // The labels of the metric.
     shared_ptr<vector<ModifyHybridMonitorTaskRequest::AttachLabels>> attachLabels_ {};
     // The collection interval of the metric. Valid values:
     // 

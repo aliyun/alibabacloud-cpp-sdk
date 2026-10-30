@@ -111,14 +111,14 @@ namespace Models
 
 
   protected:
-    // 状态码。
-    // >200表示成功。
+    // The status code.
+    // >A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // 错误信息。
+    // The error message.
     shared_ptr<string> message_ {};
-    // 请求ID。
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 用于标识本次调用是否成功
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
     shared_ptr<DescribeTagKeyListResponseBody::TagKeys> tagKeys_ {};
   };

@@ -13,10 +13,12 @@ namespace Models
   class DeleteMonitorGroupRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DeleteMonitorGroupRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(GroupId, groupId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, DeleteMonitorGroupRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(GroupId, groupId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
@@ -31,8 +33,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->groupId_ == nullptr
-        && this->regionId_ == nullptr; };
+    virtual bool empty() const override { return this->dryRun_ == nullptr
+        && this->groupId_ == nullptr && this->regionId_ == nullptr; };
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline DeleteMonitorGroupRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
+
+
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
@@ -48,6 +57,11 @@ namespace Models
 
 
   protected:
+    // Specifies whether to perform a dry run on the request. A dry run includes checks on permissions and instance status. Valid values:
+    // 
+    // - **false** (default): Sends a normal request. If the request passes the check, the name and description of the route table are modified.
+    // - **true**: Sends a dry run request. Only the check is performed, and the name and description of the route table are not modified. Check items include whether required parameters are specified and the request format. If the check fails, the corresponding error is returned. If the check passes, the `DryRunOperation` error code is returned.
+    shared_ptr<bool> dryRun_ {};
     // The ID of the application group.
     // 
     // This parameter is required.

@@ -289,11 +289,11 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful. Valid values:  
+    // Indicates whether the request was successful. Valid values:  
     // - `true`: Successful.
     // - `false`: Failed.
     shared_ptr<bool> success_ {};
-    // The total number of records.
+    // The total number of entries.
     shared_ptr<int32_t> total_ {};
   };
 

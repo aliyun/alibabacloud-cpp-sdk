@@ -14,11 +14,13 @@ namespace Models
   class CreateMonitorGroupInstancesRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateMonitorGroupInstancesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(GroupId, groupId_);
       DARABONBA_PTR_TO_JSON(Instances, instances_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateMonitorGroupInstancesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(GroupId, groupId_);
       DARABONBA_PTR_FROM_JSON(Instances, instances_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -110,8 +112,15 @@ namespace Models
       shared_ptr<string> regionId_ {};
     };
 
-    virtual bool empty() const override { return this->groupId_ == nullptr
-        && this->instances_ == nullptr && this->regionId_ == nullptr; };
+    virtual bool empty() const override { return this->dryRun_ == nullptr
+        && this->groupId_ == nullptr && this->instances_ == nullptr && this->regionId_ == nullptr; };
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline string getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, "") };
+    inline CreateMonitorGroupInstancesRequest& setDryRun(string dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
+
+
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
@@ -136,6 +145,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> dryRun_ {};
     // The ID of the application group.
     // 
     // This parameter is required.

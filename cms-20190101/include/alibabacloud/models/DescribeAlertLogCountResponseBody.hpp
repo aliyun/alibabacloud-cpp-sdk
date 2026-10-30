@@ -97,9 +97,9 @@ namespace Models
 
 
       protected:
-        // The name of the dimension field based on which alert logs are aggregated.
+        // The field name of the alert history statistics.
         shared_ptr<string> name_ {};
-        // The value of the dimension field based on which alert logs are aggregated.
+        // The field value of the alert history statistics.
         shared_ptr<string> value_ {};
       };
 
@@ -122,9 +122,9 @@ namespace Models
 
 
     protected:
-      // The number of alert logs.
+      // The number of alert history statistics.
       shared_ptr<int32_t> count_ {};
-      // The details about alert logs.
+      // The details of the alert history statistics.
       shared_ptr<vector<AlertLogCount::Logs>> logs_ {};
     };
 
@@ -168,21 +168,21 @@ namespace Models
 
 
   protected:
-    // The statistics of alert logs.
+    // The alert history statistics.
     shared_ptr<vector<DescribeAlertLogCountResponseBody::AlertLogCount>> alertLogCount_ {};
-    // The HTTP status code.
+    // The status code.
     // 
-    // > The status code 200 indicates that the request was successful.
+    // > The value 200 indicates success.
     shared_ptr<string> code_ {};
     // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the operation was successful. Valid values:
     // 
-    // - true
+    // - true: Successful.
     // 
-    // - false
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

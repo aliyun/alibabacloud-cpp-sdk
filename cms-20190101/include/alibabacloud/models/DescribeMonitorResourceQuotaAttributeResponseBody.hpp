@@ -129,11 +129,11 @@ namespace Models
 
 
       protected:
-        // The total quota of site monitoring tasks.
+        // The total quota of site monitoring tasks. Unit: tasks.
         shared_ptr<int32_t> quotaLimit_ {};
-        // The quota of site monitoring tasks in your resource plan.
+        // The quota of site monitoring tasks included in the plan. Unit: tasks.
         shared_ptr<int32_t> quotaPackage_ {};
-        // The used quota of site monitoring tasks in your resource plan.
+        // The used quota of site monitoring tasks in the plan. Unit: tasks.
         shared_ptr<int32_t> quotaUsed_ {};
       };
 
@@ -186,9 +186,9 @@ namespace Models
       protected:
         // The total quota of carrier detection points for site monitoring.
         shared_ptr<int32_t> quotaLimit_ {};
-        // The quota of carrier detection points for site monitoring in your resource plan.
+        // The quota of carrier detection points for site monitoring included in the plan.
         shared_ptr<int32_t> quotaPackage_ {};
-        // The used quota of carrier detection points for site monitoring in your resource plan.
+        // The used quota of carrier detection points for site monitoring in the plan.
         shared_ptr<int32_t> quotaUsed_ {};
       };
 
@@ -239,11 +239,11 @@ namespace Models
 
 
       protected:
-        // The total quota of mobile detection tasks.
+        // The total quota of mobile monitoring tasks. Unit: tasks.
         shared_ptr<int32_t> quotaLimit_ {};
-        // The quota of mobile detection tasks in your resource plan.
+        // The quota of mobile monitoring tasks included in the plan. Unit: tasks.
         shared_ptr<int32_t> quotaPackage_ {};
-        // The used quota of mobile detection tasks in your resource plan.
+        // The used quota of mobile monitoring tasks in the plan. Unit: tasks.
         shared_ptr<int32_t> quotaUsed_ {};
       };
 
@@ -296,13 +296,13 @@ namespace Models
       protected:
         // The total quota of ECS detection points for site monitoring.
         // 
-        // > The value indicates the maximum number of ECS detection points that you can select for a site monitoring task.
+        // > The maximum number of ECS detection points that can be selected for a single site monitoring task.
         shared_ptr<int32_t> quotaLimit_ {};
-        // The quota of ECS detection points for site monitoring in your resource plan.
+        // The quota of ECS detection points for site monitoring included in the plan.
         shared_ptr<int32_t> quotaPackage_ {};
-        // The used quota of ECS detection points for site monitoring in your resource plan.
+        // The used quota of ECS detection points for site monitoring in the plan.
         // 
-        // > The value indicates the total number of ECS detection points that are used by existing site monitoring tasks.
+        // > The total number of ECS detection points across all site monitoring tasks that have been created.
         shared_ptr<int32_t> quotaUsed_ {};
       };
 
@@ -353,11 +353,11 @@ namespace Models
 
 
       protected:
-        // The total quota of browser detection tasks.
+        // The total quota of browser-based monitoring tasks. Unit: tasks.
         shared_ptr<int32_t> quotaLimit_ {};
-        // The quota of browser detection tasks in your resource plan.
+        // The quota of browser-based monitoring tasks included in the plan. Unit: tasks.
         shared_ptr<int32_t> quotaPackage_ {};
-        // The used quota of browser detection tasks in your resource plan.
+        // The used quota of browser-based monitoring tasks in the plan. Unit: tasks.
         shared_ptr<int32_t> quotaUsed_ {};
       };
 
@@ -410,9 +410,9 @@ namespace Models
       protected:
         // The total quota of alert text messages. Unit: messages.
         shared_ptr<int32_t> quotaLimit_ {};
-        // The quota of alert text messages in your resource plan. Unit: messages.
+        // The quota of alert text message packages. Unit: messages.
         shared_ptr<int32_t> quotaPackage_ {};
-        // The used quota of alert text messages in your resource plan. Unit: messages.
+        // The used quota of alert text message packages. Unit: messages.
         shared_ptr<int32_t> quotaUsed_ {};
       };
 
@@ -465,9 +465,9 @@ namespace Models
       protected:
         // The total quota of alert phone calls. Unit: calls.
         shared_ptr<int32_t> quotaLimit_ {};
-        // The quota of alert phone calls in your resource plan. Unit: calls.
+        // The quota of alert phone call packages. Unit: calls.
         shared_ptr<int32_t> quotaPackage_ {};
-        // The used quota of alert phone calls in your resource plan. Unit: calls.
+        // The used quota of alert phone call packages. Unit: calls.
         shared_ptr<int32_t> quotaUsed_ {};
       };
 
@@ -518,11 +518,11 @@ namespace Models
 
 
       protected:
-        // The total quota of processed log data in log monitoring. Unit: MB/min.
+        // The total quota of Log Monitoring. Unit: MByte/Min.
         shared_ptr<int32_t> quotaLimit_ {};
-        // The quota of processed log data in log monitoring in your resource plan. Unit: MB/min.
+        // The quota of Log Monitoring included in the plan. Unit: MByte/Min.
         shared_ptr<int32_t> quotaPackage_ {};
-        // The used quota of processed log data in log monitoring in your resource plan. Unit: MB/min.
+        // The used quota of Log Monitoring in the plan. Unit: MByte/Min.
         shared_ptr<int32_t> quotaUsed_ {};
       };
 
@@ -573,11 +573,11 @@ namespace Models
 
 
       protected:
-        // The total quota of events that can be reported in event monitoring. The total quota is the value that is multiplied by 10,000.
+        // The total quota of event monitoring. Unit: 10,000 events.
         shared_ptr<int32_t> quotaLimit_ {};
-        // The quota of events that can be reported in event monitoring in your resource plan. The total quota is the value that is multiplied by 10,000.
+        // The quota of event monitoring included in the plan. Unit: 10,000 events.
         shared_ptr<int32_t> quotaPackage_ {};
-        // The used quota of events that can be reported in event monitoring in your resource plan. The total quota is the value that is multiplied by 10,000.
+        // The used quota of event monitoring in the plan. Unit: 10,000 events.
         shared_ptr<int32_t> quotaUsed_ {};
       };
 
@@ -619,7 +619,7 @@ namespace Models
 
 
       protected:
-        // The ID of the instance monitored by Hybrid Cloud Monitoring.
+        // The instance ID of Hybrid Cloud Monitoring.
         shared_ptr<string> instanceId_ {};
         // The description of Hybrid Cloud Monitoring.
         shared_ptr<string> suitInfo_ {};
@@ -672,11 +672,11 @@ namespace Models
 
 
       protected:
-        // The total quota of the time series for custom monitoring.
+        // The total quota of custom monitoring time series. Unit: time series.
         shared_ptr<int32_t> quotaLimit_ {};
-        // The quota of the time series for custom monitoring in your resource plan.
+        // The quota of custom monitoring time series included in the plan. Unit: time series.
         shared_ptr<int32_t> quotaPackage_ {};
-        // The used quota of the time series for custom monitoring in your resource plan.
+        // The used quota of custom monitoring time series in the plan. Unit: time series.
         shared_ptr<int32_t> quotaUsed_ {};
       };
 
@@ -727,11 +727,11 @@ namespace Models
 
 
       protected:
-        // The total quota of API calls. Unit: 10,000 calls.
+        // The total API quota. Unit: 10,000 calls.
         shared_ptr<int32_t> quotaLimit_ {};
-        // The quota of API calls in your resource plan. Unit: 10,000 calls.
+        // The API quota included in the plan. Unit: 10,000 calls.
         shared_ptr<int32_t> quotaPackage_ {};
-        // The used quota of API calls in your resource plan. Unit: calls.
+        // The used API quota in the plan. Unit: calls.
         shared_ptr<int32_t> quotaUsed_ {};
       };
 
@@ -869,41 +869,38 @@ namespace Models
 
 
     protected:
-      // The details about the quota of API calls.
+      // The API quota.
       shared_ptr<ResourceQuota::Api> api_ {};
-      // The details about the quota for custom monitoring.
+      // The quota of custom monitoring.
       shared_ptr<ResourceQuota::CustomMonitor> customMonitor_ {};
-      // The details about the quota of Hybrid Cloud Monitoring.
+      // The quota details of Hybrid Cloud Monitoring.
       shared_ptr<ResourceQuota::EnterpriseQuota> enterpriseQuota_ {};
-      // The details about the quota for event monitoring.
+      // The quota of event monitoring.
       shared_ptr<ResourceQuota::EventMonitor> eventMonitor_ {};
-      // The time when the resource plan expires.
+      // The expiration time of the plan. The time follows the ISO 8601 standard in the YYYY-MM-DD format. The default time zone is UTC+8.
       shared_ptr<string> expireTime_ {};
-      // The ID of the resource plan.
+      // The subscription plan ID.
       shared_ptr<string> instanceId_ {};
-      // The details about the quota for log monitoring.
+      // The quota of Log Monitoring.
       shared_ptr<ResourceQuota::LogMonitor> logMonitor_ {};
-      // The details about the quota of alert phone calls.
+      // The quota of alert phone call packages.
       shared_ptr<ResourceQuota::Phone> phone_ {};
-      // The details about the quota of alert text messages.
+      // The quota of alert text message packages.
       shared_ptr<ResourceQuota::SMS> SMS_ {};
-      // The quota of browser detection tasks.
+      // The quota of browser-based monitoring tasks.
       shared_ptr<ResourceQuota::SiteMonitorBrowser> siteMonitorBrowser_ {};
-      // The details about the quota of ECS detection points for site monitoring.
+      // The quota of ECS detection points for site monitoring.
       shared_ptr<ResourceQuota::SiteMonitorEcsProbe> siteMonitorEcsProbe_ {};
-      // The quota of mobile detection tasks.
+      // The quota of mobile monitoring tasks.
       shared_ptr<ResourceQuota::SiteMonitorMobile> siteMonitorMobile_ {};
-      // The details about the quota of carrier detection points for site monitoring.
+      // The quota of carrier detection points for site monitoring.
       shared_ptr<ResourceQuota::SiteMonitorOperatorProbe> siteMonitorOperatorProbe_ {};
       // The quota of site monitoring tasks.
       shared_ptr<ResourceQuota::SiteMonitorTask> siteMonitorTask_ {};
       // The current edition of CloudMonitor. Valid values:
-      // 
-      // - free: Free Edition
-      // 
-      // - pro: Pro Edition
-      // 
-      // - cms_post: pay-as-you-go
+      // - free: Free Edition.
+      // - pro: Pro Edition.
+      // - cms_post: Pay-as-you-go.
       shared_ptr<string> suitInfo_ {};
     };
 
@@ -942,13 +939,13 @@ namespace Models
   protected:
     // The status code.
     // 
-    // > The status code 200 indicates that the request was successful.
+    // > 200 indicates success.
     shared_ptr<string> code_ {};
     // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The details about the resource quotas of CloudMonitor.
+    // The quota details of CloudMonitor.
     shared_ptr<DescribeMonitorResourceQuotaAttributeResponseBody::ResourceQuota> resourceQuota_ {};
   };
 

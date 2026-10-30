@@ -75,21 +75,21 @@ namespace Models
 
 
   protected:
-    // The error code.
+    // The status code.
     // 
-    // > The status code 200 indicates that the request was successful.
+    // > 200 indicates success.
     shared_ptr<string> code_ {};
-    // The number of blacklist policies that are modified.
+    // The number of alert blacklist policies that were successfully modified.
     shared_ptr<string> count_ {};
     // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the operation was successful. Valid values:
     // 
-    // - true
+    // - true: The operation was successful.
     // 
-    // - false
+    // - false: The operation failed.
     shared_ptr<bool> success_ {};
   };
 

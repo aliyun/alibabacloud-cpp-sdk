@@ -130,18 +130,18 @@ namespace Models
 
 
   protected:
-    // The state of the alert rule. Valid values:
+    // The status of the alert rule. Valid values:
     // - OK: Normal.
     // - ALARM: Alert.
     // - INSUFFICIENT_DATA: No data.
     shared_ptr<string> alertState_ {};
     // The monitoring dimensions of the specified resource.
     // 
-    // Format: a collection of `key:value` pairs. Example: `{"userId":"120886317861****"}` and `{"instanceId":"i-2ze2d6j5uhg20x47****"}`.
+    // Format: A collection of `key:value` pairs, for example, `{"userId":"120886317861****"}` and `{"instanceId":"i-2ze2d6j5uhg20x47****"}`.
     shared_ptr<string> dimensions_ {};
     // The enabled state of the alert rule. Valid values:
-    // - true: enabled.
-    // - false: disabled.
+    // - true: Enabled.
+    // - false: Disabled.
     shared_ptr<bool> enableState_ {};
     // The ID of the application group.
     // 
@@ -149,13 +149,13 @@ namespace Models
     shared_ptr<string> groupId_ {};
     // The metric name.
     // 
-    // For information about how to obtain metric names, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html) or [cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
+    // For information about how to obtain metric names, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html) or [Cloud service metrics](https://help.aliyun.com/document_detail/163515.html).
     // 
-    // Note: For composite metrics, you can retrieve results only by the first metric.
+    // Note: For composite metrics, you can only search by the first metric.
     shared_ptr<string> metricName_ {};
-    // The namespace of the Alibaba Cloud service.
+    // The namespace of the cloud service.
     // 
-    // For information about how to obtain the namespace of an Alibaba Cloud service, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html) or [cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
+    // For information about how to obtain the namespace of a cloud service, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html) or [Cloud service metrics](https://help.aliyun.com/document_detail/163515.html).
     shared_ptr<string> namespace_ {};
     // The page number.
     // 
@@ -166,11 +166,11 @@ namespace Models
     // Minimum value: 1. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> regionId_ {};
-    // The IDs of the alert rules. Separate multiple IDs with commas (,). You can query up to 20 alert rules at a time.
+    // The IDs of alert rules. Separate multiple IDs with commas (,). You can query up to 20 alert rules at a time.
     shared_ptr<string> ruleIds_ {};
     // The name of the alert rule.
     // 
-    // This parameter supports fuzzy match.
+    // This parameter supports fuzzy search.
     shared_ptr<string> ruleName_ {};
   };
 

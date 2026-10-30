@@ -14,10 +14,12 @@ namespace Models
   class EnableMetricRulesRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const EnableMetricRulesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(RuleId, ruleId_);
     };
     friend void from_json(const Darabonba::Json& j, EnableMetricRulesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(RuleId, ruleId_);
     };
@@ -32,8 +34,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->regionId_ == nullptr
-        && this->ruleId_ == nullptr; };
+    virtual bool empty() const override { return this->dryRun_ == nullptr
+        && this->regionId_ == nullptr && this->ruleId_ == nullptr; };
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline EnableMetricRulesRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -51,12 +60,16 @@ namespace Models
 
 
   protected:
+    // Specifies whether to perform a dry run only. Valid values:
+    // - **true**: performs a dry run only and does not bind a security group to the instance. The system checks whether all required parameters are specified, the request format is valid, and the service limits are met. If the request fails the check, the corresponding error is returned. If the request passes the check, the `DryRunOperation` error code is returned.
+    // - **false** (default): sends a normal request. If the request passes the check, an HTTP 2xx status code is returned and the operation is performed.
+    shared_ptr<bool> dryRun_ {};
     shared_ptr<string> regionId_ {};
-    // The IDs of the alert rules.
+    // The ID of the alert rule.
     // 
     // Valid values of N: 1 to 100.
     // 
-    // For information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
+    // For more information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
     // 
     // This parameter is required.
     shared_ptr<vector<string>> ruleId_ {};

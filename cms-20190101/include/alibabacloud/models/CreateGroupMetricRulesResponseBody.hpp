@@ -191,11 +191,11 @@ namespace Models
     // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<CreateGroupMetricRulesResponseBody::Resources> resources_ {};
-    // Indicates whether the operation was successful. Valid values:
+    // Indicates whether the operation is successful. Valid values:
     // 
-    // - true: Successful.
+    // - true: The operation is successful.
     // 
-    // - false: Failed.
+    // - false: The operation failed.
     shared_ptr<bool> success_ {};
   };
 

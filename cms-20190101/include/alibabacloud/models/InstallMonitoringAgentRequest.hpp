@@ -14,12 +14,14 @@ namespace Models
   class InstallMonitoringAgentRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const InstallMonitoringAgentRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(Force, force_);
       DARABONBA_PTR_TO_JSON(InstallCommand, installCommand_);
       DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, InstallMonitoringAgentRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(Force, force_);
       DARABONBA_PTR_FROM_JSON(InstallCommand, installCommand_);
       DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
@@ -36,8 +38,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->force_ == nullptr
-        && this->installCommand_ == nullptr && this->instanceIds_ == nullptr && this->regionId_ == nullptr; };
+    virtual bool empty() const override { return this->dryRun_ == nullptr
+        && this->force_ == nullptr && this->installCommand_ == nullptr && this->instanceIds_ == nullptr && this->regionId_ == nullptr; };
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline InstallMonitoringAgentRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
+
+
     // force Field Functions 
     bool hasForce() const { return this->force_ != nullptr;};
     void deleteForce() { this->force_ = nullptr;};
@@ -69,27 +78,30 @@ namespace Models
 
 
   protected:
+    // Specifies whether to perform a dry run on the request. The dry run includes checks on permissions and instance status. Valid values:
+    // 
+    // - **false** (default): Sends a normal request. After the request passes the check, the name and description of the route table are directly modified.
+    // - **true**: Sends a dry run request. Only checks are performed, and the name and description of the route table are not modified. Check items include whether required parameters are specified and the request format. If the check fails, an error is returned. If the check succeeds, the DryRunOperation error code is returned.
+    shared_ptr<bool> dryRun_ {};
     // Specifies whether to forcibly install the CloudMonitor agent. Valid values:
-    // 
     // - true (default): Forcibly installs the agent.
-    // 
     // - false: Does not forcibly install the agent.
     shared_ptr<bool> force_ {};
-    // The installation command. This command installs the CloudMonitor agent on all Alibaba Cloud hosts that belong to your Alibaba Cloud account. Valid values:
+    // Installs the CloudMonitor agent on all Alibaba Cloud hosts within the current Alibaba Cloud account. Valid values:
     // 
-    // - `onlyInstallNotHasAgent`: Installs the latest version of the CloudMonitor agent only on Alibaba Cloud hosts where the agent is not installed.
+    // - onlyInstallNotHasAgent: Installs the latest version of the agent only on Alibaba Cloud hosts on which the CloudMonitor agent is not installed.
     // 
-    // - `onlyUpgradeAgent`: Upgrades the CloudMonitor agent only on Alibaba Cloud hosts where an earlier version of the agent is installed.
+    // - onlyUpgradeAgent: Upgrades the agent only on Alibaba Cloud hosts on which a non-latest version of the CloudMonitor agent is installed.
     // 
-    // - `installAndUpgrade`: Installs the latest version of the CloudMonitor agent on Alibaba Cloud hosts where the agent is not installed, and upgrades the agent on Alibaba Cloud hosts where an earlier version of the agent is installed.
+    // - installAndUpgrade: Installs the latest version of the agent on Alibaba Cloud hosts on which the CloudMonitor agent is not installed, and upgrades the agent on Alibaba Cloud hosts on which a non-latest version of the CloudMonitor agent is installed.
     // 
-    // > If you set this parameter, the `InstanceIds` parameter is invalid.
+    // > If you specify this parameter, the InstanceIds parameter becomes invalid.
     shared_ptr<string> installCommand_ {};
-    // The IDs of the Alibaba Cloud hosts.
+    // The ID of the Alibaba Cloud host.
     // 
-    // You can specify from 1 to 10 instance IDs.
+    // Valid values of N: 1 to 10.
     // 
-    // > You must specify either `InstallCommand` or `InstanceIds`.
+    // > You must specify either InstallCommand or InstanceIds.
     shared_ptr<vector<string>> instanceIds_ {};
     shared_ptr<string> regionId_ {};
   };

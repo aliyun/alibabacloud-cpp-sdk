@@ -112,33 +112,33 @@ namespace Models
 
 
   protected:
-    // Specifies whether to display the history of applying the alert templates to application groups. Valid values:
+    // Specifies whether to display the history of applying the alert template to application groups. Valid values:
     // 
-    // - true
+    // - true: Displays the history.
     // 
-    // - false (default)
+    // - false: Does not display the history. This is the default value.
     shared_ptr<bool> history_ {};
-    // The keyword of the alert template name.
+    // The keyword in the alert template name.
     shared_ptr<string> keyword_ {};
     // The name of the alert template.
     shared_ptr<string> name_ {};
-    // The sorting order. Valid values:
+    // The sort order. Valid values:
     // 
-    // - true (default): ascending order
+    // - true: Ascending order. This is the default value.   
     // 
-    // - false: descending order
+    // - false: Descending order.
     shared_ptr<bool> order_ {};
-    // The sorting basis. Valid values:
+    // The sort field. Valid values:
     // 
-    // - gmtMotified: sorts alert templates by modification time
+    // - gmtMotified: Modification date.  
     // 
-    // - gmtCreate (default): sorts alert templates by creation time
+    // - gmtCreate: Creation date. This is the default value.
     shared_ptr<string> orderBy_ {};
     // The page number.
     // 
     // Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries to return on each page.
     shared_ptr<int64_t> pageSize_ {};
     shared_ptr<string> regionId_ {};
     // The ID of the alert template.

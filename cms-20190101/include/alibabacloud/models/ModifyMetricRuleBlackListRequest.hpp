@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The name of the metric.
+      // The name of the monitoring metrics.
       // 
       // Valid values of N: 1 to 10.
       // 
       // This parameter is required.
       shared_ptr<string> metricName_ {};
-      // The extended dimension of the instance. For example, `{"device":"C:"}` specifies that the blacklist policy is applied to all C disks of the specified Elastic Compute Service (ECS) instance.
+      // The extended dimension information of the instance. For example, `{"device":"C:"}` indicates that the blacklist policy applies to all C drives of the ECS instance of the Alibaba Cloud service.
       // 
       // Valid values of N: 1 to 10.
       shared_ptr<string> resource_ {};
@@ -195,62 +195,61 @@ namespace Models
 
 
   protected:
-    // The category of the cloud service. For example, ApsaraDB for Redis supports the standard architecture, the cluster architecture, and the read/write splitting architecture. In this case, the valid values of this parameter for ApsaraDB for Redis include `kvstore_standard`, `kvstore_sharding`, and `kvstore_splitrw`.
+    // The category of the Alibaba Cloud service. For example, Redis has categories such as `kvstore_standard` (Standard Edition), `kvstore_sharding` (Cluster Edition), and `kvstore_splitrw` (Read/Write Splitting Edition).
     // 
     // This parameter is required.
     shared_ptr<string> category_ {};
-    // The time range within which the blacklist policy is effective. Take note of the following information:
+    // The effective period of the alert blacklist policy. The implications of the settings for this parameter are as follows:
     // 
-    // - If you do not configure this parameter, the blacklist policy is permanently effective.
+    // - If you do not configure the settings for this parameter, the alert blacklist policy is permanently valid.
     // 
-    // - If you configure this parameter, the blacklist policy is effective only within the specified time range. Examples:
-    // 
-    //   - `03:00-04:59`: The blacklist policy is effective from 03:00 to 05:00 local time. 05:00 local time is excluded.
-    // 
-    //   - `03:00-04:59 UTC+0700`: The blacklist policy is effective from 03:00 to 05:00 (UTC+7). 05:00 (UTC+7) is excluded.
+    // - If you configure the settings for this parameter, the blacklist policy is valid only within the specified time range. The following examples show two formats for this parameter:
+    //     - `03:00-04:59`: The alert blacklist policy is valid from 03:00 to 05:00 (excluding 05:00) local time.
+    //     - `03:00-04:59 UTC+0700`: The alert blacklist policy is valid from 03:00 to 05:00 (excluding 05:00) UTC+7.
     shared_ptr<string> effectiveTime_ {};
-    // The timestamp when the blacklist policy expires.
+    // The end timestamp of the effective period for the alert blacklist policy.
     // 
     // Unit: milliseconds.
     shared_ptr<string> enableEndTime_ {};
-    // The timestamp when the blacklist policy starts to take effect.
+    // The start timestamp of the effective period for the alert blacklist policy.
     // 
     // Unit: milliseconds.
     shared_ptr<string> enableStartTime_ {};
-    // The ID of the blacklist policy.
+    // The ID of the alert blacklist policy.
     // 
-    // For information about how to obtain the ID of a blacklist policy, see [DescribeMetricRuleBlackList](https://help.aliyun.com/document_detail/457257.html).
+    // For more information about how to obtain the ID of an alert blacklist policy, see [DescribeMetricRuleBlackList](https://help.aliyun.com/document_detail/457257.html).
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};
-    // The IDs of the instances that belong to the specified cloud service.
+    // The list of instances of the specified Alibaba Cloud service in the alert blacklist policy.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> instances_ {};
-    // The metrics of the instance.
+    // The monitoring metrics of the instances.
     // 
-    // - If you do not configure this parameter, the blacklist policy applies to all metrics of the specified cloud service.
+    // - If you do not configure the settings for this parameter, the alert blacklist policy applies to all monitoring metrics of the specified Alibaba Cloud service.
     // 
-    // - If you configure this parameter, the blacklist policy applies only to the current metric.
+    // - If you configure the settings for this parameter, the blacklist policy applies only to the current monitoring metrics.
     shared_ptr<vector<ModifyMetricRuleBlackListRequest::Metrics>> metrics_ {};
-    // The name of the blacklist policy.
+    // The name of the alert blacklist policy.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The namespace of the cloud service.
+    // The data namespace of the cloud service.
     // 
-    // For more information about the namespaces of cloud services, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+    // For more information about the namespaces of cloud services, see [Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
     // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};
     shared_ptr<string> regionId_ {};
-    // The effective scope of the blacklist policy. Valid values:
+    // The effective scope of the alert blacklist policy. Valid values:
     // 
-    // - USER: The blacklist policy takes effect only within the current Alibaba Cloud account.
+    // - USER: The alert blacklist policy takes effect only within the current Alibaba Cloud account.
     // 
-    // - GROUP (default): The blacklist policy takes effect only within the specified application group. For information about how to obtain the ID of an application group, see [DescribeMonitorGroups](https://help.aliyun.com/document_detail/115032.html).
+    // - GROUP (default): The alert blacklist policy takes effect within the specified application group. You must specify an application group.
+    //   For more information about how to obtain the ID of an application group, see [DescribeMonitorGroups](https://help.aliyun.com/document_detail/115032.html).
     shared_ptr<string> scopeType_ {};
-    // The IDs of the application groups.
+    // The list of application group IDs.
     // 
     // > This parameter is required only when `ScopeType` is set to `GROUP`.
     shared_ptr<string> scopeValue_ {};

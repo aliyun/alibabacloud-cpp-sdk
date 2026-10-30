@@ -124,9 +124,8 @@ namespace Models
 
 
       protected:
-        // The responses code.
-        // 
-        // > The status code 200 indicates that the request was successful.
+        // The status code.
+        // >A status code of 200 indicates success.
         shared_ptr<string> code_ {};
         // The returned message.
         shared_ptr<string> message_ {};
@@ -134,11 +133,11 @@ namespace Models
         shared_ptr<string> ruleId_ {};
         // The name of the alert rule.
         shared_ptr<string> ruleName_ {};
-        // Indicates whether the request was successful. Valid values:
+        // Indicates whether the operation is successful. Valid values:
         // 
-        // - true
+        // - true: The operation is successful.
         // 
-        // - false
+        // - false: The operation fails.
         shared_ptr<bool> success_ {};
       };
 
@@ -161,7 +160,7 @@ namespace Models
 
 
     protected:
-      // The details of the generated alert rule.
+      // The detailed results of the generated alert rules.
       shared_ptr<vector<Resource::AlertResults>> alertResults_ {};
       // The ID of the application group.
       shared_ptr<int64_t> groupId_ {};
@@ -207,21 +206,20 @@ namespace Models
 
 
   protected:
-    // The responses code.
-    // 
-    // > The status code 200 indicates that the request was successful.
+    // The status code.
+    // >A status code of 200 indicates success.
     shared_ptr<int32_t> code_ {};
-    // The returned message.
+    // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The resources that are affected by the alert rule.
+    // The resources affected by the alert rule.
     shared_ptr<ApplyMetricRuleTemplateResponseBody::Resource> resource_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the operation is successful. Valid values:
     // 
-    // - true
+    // - true: The operation is successful.
     // 
-    // - false
+    // - false: The operation fails.
     shared_ptr<bool> success_ {};
   };
 

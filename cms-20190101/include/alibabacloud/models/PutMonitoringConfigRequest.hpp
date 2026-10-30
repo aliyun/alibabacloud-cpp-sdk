@@ -14,11 +14,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const PutMonitoringConfigRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AutoInstall, autoInstall_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(EnableInstallAgentNewECS, enableInstallAgentNewECS_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, PutMonitoringConfigRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AutoInstall, autoInstall_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(EnableInstallAgentNewECS, enableInstallAgentNewECS_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
@@ -34,12 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoInstall_ == nullptr
-        && this->enableInstallAgentNewECS_ == nullptr && this->regionId_ == nullptr; };
+        && this->dryRun_ == nullptr && this->enableInstallAgentNewECS_ == nullptr && this->regionId_ == nullptr; };
     // autoInstall Field Functions 
     bool hasAutoInstall() const { return this->autoInstall_ != nullptr;};
     void deleteAutoInstall() { this->autoInstall_ = nullptr;};
     inline bool getAutoInstall() const { DARABONBA_PTR_GET_DEFAULT(autoInstall_, false) };
     inline PutMonitoringConfigRequest& setAutoInstall(bool autoInstall) { DARABONBA_PTR_SET_VALUE(autoInstall_, autoInstall) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline PutMonitoringConfigRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // enableInstallAgentNewECS Field Functions 
@@ -57,13 +66,13 @@ namespace Models
 
 
   protected:
-    // This parameter is deprecated.
+    // This parameter is not required.
     shared_ptr<bool> autoInstall_ {};
-    // Specifies whether to automatically install the CloudMonitor agent on new ECS instances. Valid values:
+    shared_ptr<bool> dryRun_ {};
+    // Specifies whether to automatically install the CloudMonitor agent on newly purchased ECS instances. Valid values:
+    // - true (default): The CloudMonitor agent is automatically installed on newly purchased ECS instances.
     // 
-    // - true (default): The CloudMonitor agent is automatically installed on new ECS instances.
-    // 
-    // - false: The CloudMonitor agent is not automatically installed on new ECS instances.
+    // - false: The CloudMonitor agent is not automatically installed on newly purchased ECS instances.
     shared_ptr<bool> enableInstallAgentNewECS_ {};
     shared_ptr<string> regionId_ {};
   };

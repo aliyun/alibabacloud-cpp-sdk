@@ -196,11 +196,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> contactGroups_ {};
-    // The effective time range of the alert rule. Valid values: 00:00-23:59.
+    // The time range during which the alert rule is effective. Valid values: 00:00-23:59.
     shared_ptr<string> effectiveInterval_ {};
     // The subject of the alert email.
     shared_ptr<string> emailSubject_ {};
-    // The number of alert retries.
+    // The number of retries for the alert.
     // 
     // This parameter is required.
     shared_ptr<int32_t> evaluationCount_ {};
@@ -208,20 +208,20 @@ namespace Models
     // 
     // > A value of 0 indicates that the reported custom monitoring data does not belong to any application group.
     shared_ptr<string> groupId_ {};
-    // The alert level. Valid values:
+    // The severity level of the alert. Valid values:
     // - CRITICAL: critical.
     // - WARN: warning.
     // - INFO: information.
     // 
     // This parameter is required.
     shared_ptr<string> level_ {};
-    // The metric name.
+    // The name of the metric.
     // 
-    // > For more information about how to obtain the metric name, see [DescribeCustomMetricList](https://help.aliyun.com/document_detail/115005.html).
+    // > For information about how to obtain the metric name, see [DescribeCustomMetricList](https://help.aliyun.com/document_detail/115005.html).
     // 
     // This parameter is required.
     shared_ptr<string> metricName_ {};
-    // The aggregation period of the custom monitoring data. Unit: seconds. Set the value to 60 or a multiple of 60. Default value: the original reporting period of the custom monitoring data.
+    // The aggregation period of the custom monitoring data. Unit: seconds. The value must be 60 or a multiple of 60. Default value: the original reporting period of the custom monitoring data.
     shared_ptr<string> period_ {};
     // The custom monitoring data to which the alert rule applies. The value consists of the application group ID to which the custom monitoring data belongs and the dimensions of the metric.
     // 
@@ -237,9 +237,9 @@ namespace Models
     shared_ptr<string> ruleName_ {};
     // The mute for period. Unit: seconds. Default value: 86400 (1 day).
     // 
-    // > If the monitoring data continuously exceeds the alert threshold, only one alert notification is sent within each mute for period.
+    // > If monitoring data continuously exceeds the alert rule threshold, only one alert notification is sent within each mute for period.
     shared_ptr<int32_t> silenceTime_ {};
-    // The statistical method for alerts.
+    // The statistical method for the alert.
     // 
     // This parameter is required.
     shared_ptr<string> statistics_ {};
@@ -247,7 +247,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> threshold_ {};
-    // The alert callback URL. An HTTP POST request is sent to the specified URL when an alert is triggered.
+    // The webhook URL that is called when an alert is triggered. A POST request is sent to this URL.
     shared_ptr<string> webhook_ {};
   };
 

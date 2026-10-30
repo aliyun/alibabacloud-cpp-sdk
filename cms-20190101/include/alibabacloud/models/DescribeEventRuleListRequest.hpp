@@ -88,19 +88,15 @@ namespace Models
     shared_ptr<string> groupId_ {};
     // Specifies whether to enable the event-triggered alert rule. Valid values:
     // 
-    // - true (default)
+    // - true: enabled. This is the default value.
     // 
-    // - false
+    // - false: disabled.
     shared_ptr<bool> isEnable_ {};
-    // The prefix in the name of the event-triggered alert rule.
+    // The prefix of the event-triggered alert rule.
     shared_ptr<string> namePrefix_ {};
-    // The page number.
-    // 
-    // Pages start from page 1. Default value: 1.
+    // The page number. Minimum value: 1. Default value: 1.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page.
-    // 
-    // Pages start from page 1. Default value: 10.
+    // The number of entries to return on each page. Minimum value: 1. Default value: 10.
     shared_ptr<string> pageSize_ {};
     shared_ptr<string> regionId_ {};
   };

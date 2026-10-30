@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Escalations, escalations_);
       DARABONBA_PTR_TO_JSON(CompositeExpression, compositeExpressionShrink_);
       DARABONBA_PTR_TO_JSON(ContactGroups, contactGroups_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(EffectiveInterval, effectiveInterval_);
       DARABONBA_PTR_TO_JSON(EmailSubject, emailSubject_);
       DARABONBA_PTR_TO_JSON(Interval, interval_);
@@ -38,6 +39,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Escalations, escalations_);
       DARABONBA_PTR_FROM_JSON(CompositeExpression, compositeExpressionShrink_);
       DARABONBA_PTR_FROM_JSON(ContactGroups, contactGroups_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(EffectiveInterval, effectiveInterval_);
       DARABONBA_PTR_FROM_JSON(EmailSubject, emailSubject_);
       DARABONBA_PTR_FROM_JSON(Interval, interval_);
@@ -108,7 +110,7 @@ namespace Models
       shared_ptr<string> key_ {};
       // The label value.
       // 
-      // > The label value supports template parameters. Template parameters are replaced with actual label values.
+      // > The label value supports template parameters. The template parameters are replaced with the actual label values.
       shared_ptr<string> value_ {};
     };
 
@@ -191,35 +193,35 @@ namespace Models
 
 
       protected:
-        // Warn级别阈值比较符。取值：
+        // The comparison operator for the Warn-level threshold. Valid values:
         // 
-        // - GreaterThanOrEqualToThreshold：大于等于。
-        // - GreaterThanThreshold：大于。
-        // - LessThanOrEqualToThreshold：小于等于。
-        // - LessThanThreshold：小于。
-        // - NotEqualToThreshold：不等于。
-        // - EqualToThreshold：等于。
-        // - GreaterThanYesterday：同比昨天时间上涨。
-        // - LessThanYesterday：同比昨天时间下降。
-        // - GreaterThanLastWeek：同比上周同一时间上涨。
-        // - LessThanLastWeek：同比上周同一时间下降。
-        // - GreaterThanLastPeriod：环比上周期上涨。
-        // - LessThanLastPeriod：环比上周期下降。
+        // - GreaterThanOrEqualToThreshold: greater than or equal to the threshold.
+        // - GreaterThanThreshold: greater than the threshold.
+        // - LessThanOrEqualToThreshold: less than or equal to the threshold.
+        // - LessThanThreshold: less than the threshold.
+        // - NotEqualToThreshold: not equal to the threshold.
+        // - EqualToThreshold: equal to the threshold.
+        // - GreaterThanYesterday: greater than the value at the same time yesterday.
+        // - LessThanYesterday: less than the value at the same time yesterday.
+        // - GreaterThanLastWeek: greater than the value at the same time last week.
+        // - LessThanLastWeek: less than the value at the same time last week.
+        // - GreaterThanLastPeriod: greater than the value in the previous period.
+        // - LessThanLastPeriod: less than the value in the previous period.
         // 
-        // > 报警级别Critical（严重）、Warn（警告）或Info（信息）至少设置一个，且该报警级别中的参数Statistics、ComparisonOperator、Threshold和Times必须同时设置。
+        // > You must configure at least one of the following alert levels: Critical, Warn, and Info. For the configured alert level, you must specify the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
         shared_ptr<string> comparisonOperator_ {};
-        // Warn级别报警统计方法。
+        // The statistical method for the Warn-level alert.
         // 
-        // 该参数的取值由指定云产品的`MetricName`对应的`Statistics`列决定，例如：Maximum、Minimum和Average。关于如何获取该参数的取值，请参见[云产品监控项](https://help.aliyun.com/document_detail/163515.html)。
+        // The valid values of this parameter are determined by the `Statistics` column corresponding to the `MetricName` of the specified Alibaba Cloud service. Examples: Maximum, Minimum, and Average. For more information about how to obtain the valid values for this parameter, see [Alibaba Cloud service metrics](https://help.aliyun.com/document_detail/163515.html).
         // 
-        // > 报警级别Critical（严重）、Warn（警告）或Info（信息）至少设置一个，且该报警级别中的参数Statistics、ComparisonOperator、Threshold和Times必须同时设置。
+        // > You must configure at least one of the following alert levels: Critical, Warn, and Info. For the configured alert level, you must specify the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
         shared_ptr<string> statistics_ {};
-        // Warn级别报警阈值。
-        // > 报警级别Critical（严重）、Warn（警告）或Info（信息）至少设置一个，且该报警级别中的参数Statistics、ComparisonOperator、Threshold和Times必须同时设置。
+        // The threshold for the Warn-level alert.
+        // > You must configure at least one of the following alert levels: Critical, Warn, and Info. For the configured alert level, you must specify the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
         shared_ptr<string> threshold_ {};
-        // Warn级别报警重试次数。
+        // The number of retries for the Warn-level alert.
         // 
-        // > 报警级别Critical（严重）、Warn（警告）或Info（信息）至少设置一个，且该报警级别中的参数Statistics、ComparisonOperator、Threshold和Times必须同时设置。
+        // > You must configure at least one of the following alert levels: Critical, Warn, and Info. For the configured alert level, you must specify the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
         shared_ptr<int32_t> times_ {};
       };
 
@@ -279,36 +281,36 @@ namespace Models
 
 
       protected:
-        // Info级别阈值比较符。取值：
+        // The comparison operator for the Info-level threshold. Valid values:
         // 
-        // - GreaterThanOrEqualToThreshold：大于等于。
-        // - GreaterThanThreshold：大于。
-        // - LessThanOrEqualToThreshold：小于等于。
-        // - LessThanThreshold：小于。
-        // - NotEqualToThreshold：不等于。
-        // - EqualToThreshold：等于。
-        // - GreaterThanYesterday：同比昨天时间上涨。
-        // - LessThanYesterday：同比昨天时间下降。
-        // - GreaterThanLastWeek：同比上周同一时间上涨。
-        // - LessThanLastWeek：同比上周同一时间下降。
-        // - GreaterThanLastPeriod：环比上周期上涨。
-        // - LessThanLastPeriod：环比上周期下降。
+        // - GreaterThanOrEqualToThreshold: greater than or equal to the threshold.
+        // - GreaterThanThreshold: greater than the threshold.
+        // - LessThanOrEqualToThreshold: less than or equal to the threshold.
+        // - LessThanThreshold: less than the threshold.
+        // - NotEqualToThreshold: not equal to the threshold.
+        // - EqualToThreshold: equal to the threshold.
+        // - GreaterThanYesterday: greater than the value at the same time yesterday.
+        // - LessThanYesterday: less than the value at the same time yesterday.
+        // - GreaterThanLastWeek: greater than the value at the same time last week.
+        // - LessThanLastWeek: less than the value at the same time last week.
+        // - GreaterThanLastPeriod: greater than the value in the previous period.
+        // - LessThanLastPeriod: less than the value in the previous period.
         // 
-        // > 报警级别Critical（严重）、Warn（警告）或Info（信息）至少设置一个，且该报警级别中的参数Statistics、ComparisonOperator、Threshold和Times必须同时设置。
+        // > You must configure at least one of the following alert levels: Critical, Warn, and Info. For the configured alert level, you must specify the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
         shared_ptr<string> comparisonOperator_ {};
-        // Info级别报警统计方法。
+        // The statistical method for the Info-level alert.
         // 
-        // 该参数的取值由指定云产品的`MetricName`对应的`Statistics`列决定，例如：Maximum、Minimum和Average。关于如何获取该参数的取值，请参见[云产品监控项](https://help.aliyun.com/document_detail/163515.html)。
+        // The valid values of this parameter are determined by the `Statistics` column corresponding to the `MetricName` of the specified Alibaba Cloud service. Examples: Maximum, Minimum, and Average. For more information about how to obtain the valid values for this parameter, see [Alibaba Cloud service metrics](https://help.aliyun.com/document_detail/163515.html).
         // 
-        // > 报警级别Critical（严重）、Warn（警告）或Info（信息）至少设置一个，且该报警级别中的参数Statistics、ComparisonOperator、Threshold和Times必须同时设置。
+        // > You must configure at least one of the following alert levels: Critical, Warn, and Info. For the configured alert level, you must specify the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
         shared_ptr<string> statistics_ {};
-        // Info级别报警阈值。
+        // The threshold for the Info-level alert.
         // 
-        // > 报警级别Critical（严重）、Warn（警告）或Info（信息）至少设置一个，且该报警级别中的参数Statistics、ComparisonOperator、Threshold和Times必须同时设置。
+        // > You must configure at least one of the following alert levels: Critical, Warn, and Info. For the configured alert level, you must specify the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
         shared_ptr<string> threshold_ {};
-        // Info级别报警重试次数。
+        // The number of retries for the Info-level alert.
         // 
-        // > 报警级别Critical（严重）、Warn（警告）或Info（信息）至少设置一个，且该报警级别中的参数Statistics、ComparisonOperator、Threshold和Times必须同时设置。
+        // > You must configure at least one of the following alert levels: Critical, Warn, and Info. For the configured alert level, you must specify the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
         shared_ptr<int32_t> times_ {};
       };
 
@@ -368,37 +370,37 @@ namespace Models
 
 
       protected:
-        // Critical级别阈值比较符。取值：
+        // The comparison operator for the Critical-level threshold. Valid values:
         // 
-        // - GreaterThanOrEqualToThreshold：大于等于。
-        // - GreaterThanThreshold：大于。
-        // - LessThanOrEqualToThreshold：小于等于。
-        // - LessThanThreshold：小于。
-        // - NotEqualToThreshold：不等于。
-        // - EqualToThreshold：等于。
-        // - GreaterThanYesterday：同比昨天时间上涨。
-        // - LessThanYesterday：同比昨天时间下降。
-        // - GreaterThanLastWeek：同比上周同一时间上涨。
-        // - LessThanLastWeek：同比上周同一时间下降。
-        // - GreaterThanLastPeriod：环比上周期上涨。
-        // - LessThanLastPeriod：环比上周期下降。
+        // - GreaterThanOrEqualToThreshold: greater than or equal to the threshold.
+        // - GreaterThanThreshold: greater than the threshold.
+        // - LessThanOrEqualToThreshold: less than or equal to the threshold.
+        // - LessThanThreshold: less than the threshold.
+        // - NotEqualToThreshold: not equal to the threshold.
+        // - EqualToThreshold: equal to the threshold.
+        // - GreaterThanYesterday: greater than the value at the same time yesterday.
+        // - LessThanYesterday: less than the value at the same time yesterday.
+        // - GreaterThanLastWeek: greater than the value at the same time last week.
+        // - LessThanLastWeek: less than the value at the same time last week.
+        // - GreaterThanLastPeriod: greater than the value in the previous period.
+        // - LessThanLastPeriod: less than the value in the previous period.
         // 
-        // > 报警级别Critical（严重）、Warn（警告）或Info（信息）至少设置一个，且该报警级别中的参数Statistics、ComparisonOperator、Threshold和Times必须同时设置。
+        // > You must configure at least one of the following alert levels: Critical, Warn, and Info. For the configured alert level, you must specify the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
         shared_ptr<string> comparisonOperator_ {};
-        // Critical级别报警统计方法。
+        // The statistical method for the Critical-level alert.
         // 
-        // 该参数的取值由指定云产品的`MetricName`对应的`Statistics`列决定，例如：Maximum、Minimum和Average。关于如何获取该参数的取值，请参见[云产品监控项](https://help.aliyun.com/document_detail/163515.html)。
+        // The valid values of this parameter are determined by the `Statistics` column corresponding to the `MetricName` of the specified Alibaba Cloud service. Examples: Maximum, Minimum, and Average. For more information about how to obtain the valid values for this parameter, see [Alibaba Cloud service metrics](https://help.aliyun.com/document_detail/163515.html).
         // 
-        // > 报警级别Critical（严重）、Warn（警告）或Info（信息）至少设置一个，且该报警级别中的参数Statistics、ComparisonOperator、Threshold和Times必须同时设置。
+        // > You must configure at least one of the following alert levels: Critical, Warn, and Info. For the configured alert level, you must specify the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
         shared_ptr<string> statistics_ {};
-        // Critical级别报警阈值。
+        // The threshold for the Critical-level alert.
         // 
         // 
-        // > 报警级别Critical（严重）、Warn（警告）或Info（信息）至少设置一个，且该报警级别中的参数Statistics、ComparisonOperator、Threshold和Times必须同时设置。
+        // > You must configure at least one of the following alert levels: Critical, Warn, and Info. For the configured alert level, you must specify the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
         shared_ptr<string> threshold_ {};
-        // Critical级别报警重试次数。
+        // The number of retries for the Critical-level alert.
         // 
-        // > 报警级别Critical（严重）、Warn（警告）或Info（信息）至少设置一个，且该报警级别中的参数Statistics、ComparisonOperator、Threshold和Times必须同时设置。
+        // > You must configure at least one of the following alert levels: Critical, Warn, and Info. For the configured alert level, you must specify the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
         shared_ptr<int32_t> times_ {};
       };
 
@@ -438,10 +440,10 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->escalations_ == nullptr
-        && this->compositeExpressionShrink_ == nullptr && this->contactGroups_ == nullptr && this->effectiveInterval_ == nullptr && this->emailSubject_ == nullptr && this->interval_ == nullptr
-        && this->labels_ == nullptr && this->metricName_ == nullptr && this->namespace_ == nullptr && this->noDataPolicy_ == nullptr && this->noEffectiveInterval_ == nullptr
-        && this->period_ == nullptr && this->prometheusShrink_ == nullptr && this->resources_ == nullptr && this->ruleId_ == nullptr && this->ruleName_ == nullptr
-        && this->sendOK_ == nullptr && this->silenceTime_ == nullptr && this->webhook_ == nullptr; };
+        && this->compositeExpressionShrink_ == nullptr && this->contactGroups_ == nullptr && this->dryRun_ == nullptr && this->effectiveInterval_ == nullptr && this->emailSubject_ == nullptr
+        && this->interval_ == nullptr && this->labels_ == nullptr && this->metricName_ == nullptr && this->namespace_ == nullptr && this->noDataPolicy_ == nullptr
+        && this->noEffectiveInterval_ == nullptr && this->period_ == nullptr && this->prometheusShrink_ == nullptr && this->resources_ == nullptr && this->ruleId_ == nullptr
+        && this->ruleName_ == nullptr && this->sendOK_ == nullptr && this->silenceTime_ == nullptr && this->webhook_ == nullptr; };
     // escalations Field Functions 
     bool hasEscalations() const { return this->escalations_ != nullptr;};
     void deleteEscalations() { this->escalations_ = nullptr;};
@@ -463,6 +465,13 @@ namespace Models
     void deleteContactGroups() { this->contactGroups_ = nullptr;};
     inline string getContactGroups() const { DARABONBA_PTR_GET_DEFAULT(contactGroups_, "") };
     inline PutResourceMetricRuleShrinkRequest& setContactGroups(string contactGroups) { DARABONBA_PTR_SET_VALUE(contactGroups_, contactGroups) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline PutResourceMetricRuleShrinkRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // effectiveInterval Field Functions 
@@ -583,81 +592,85 @@ namespace Models
     shared_ptr<PutResourceMetricRuleShrinkRequest::Escalations> escalations_ {};
     // The alert conditions for multiple metrics.
     // 
-    // > Single-metric and multi-metric alert conditions are mutually exclusive and cannot be set at the same time.
+    // > Single-metric and multi-metric alert conditions are mutually exclusive and cannot be configured at the same time.
     shared_ptr<string> compositeExpressionShrink_ {};
     // The alert contact group. Alert notifications are sent to the alert contacts in this alert contact group.
     // 
-    // > An alert contact group contains one or more alert contacts. For information about how to create alert contacts and alert contact groups, see [PutContact](https://help.aliyun.com/document_detail/114923.html) and [PutContactGroup](https://help.aliyun.com/document_detail/114929.html).
+    // > An alert contact group contains one or more alert contacts. For more information about how to create alert contacts and alert contact groups, see [PutContact](https://help.aliyun.com/document_detail/114923.html) and [PutContactGroup](https://help.aliyun.com/document_detail/114929.html).
     // 
     // This parameter is required.
     shared_ptr<string> contactGroups_ {};
+    // Specifies whether to only precheck the request. Valid values:
+    // - **true**: The request is prechecked but not executed. The system checks whether the required parameters are specified, the request format is valid, and the service limits are met. If the request fails the precheck, the corresponding error is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
+    // - **false** (default): The request is sent and executed. If the request passes the precheck, an HTTP 2xx status code is returned and the operation is performed.
+    shared_ptr<bool> dryRun_ {};
     // The effective period of the alert rule.
     shared_ptr<string> effectiveInterval_ {};
     // The subject of the alert email.
     shared_ptr<string> emailSubject_ {};
-    // The trigger period of the alert rule. Unit: seconds.
+    // The trigger epoch of the alert rule. Unit: seconds.
     // 
-    // > For information about how to query the statistical period of a metric, see [Alibaba Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
+    // > For more information about how to query the statistical epoch of a metric, see [Alibaba Cloud service metrics](https://help.aliyun.com/document_detail/163515.html).
     shared_ptr<string> interval_ {};
-    // The labels that are written to the metric and displayed in alert notifications when the metric meets the alert condition.
+    // The labels that are added to the metric and displayed in the alert notification when the metric meets the alert condition and an alert is triggered.
     // 
-    // > This feature is the same as the Label feature in Prometheus alerting.
+    // > This feature is the same as the Label feature in Prometheus alerts.
     shared_ptr<vector<PutResourceMetricRuleShrinkRequest::Labels>> labels_ {};
-    // The name of the metric. For information about how to query metric names, see [Alibaba Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
+    // The name of the metric. For more information about how to query the name of a metric, see [Alibaba Cloud service metrics](https://help.aliyun.com/document_detail/163515.html).
     // 
-    // > If you create a Prometheus alert rule for Hybrid Cloud Monitoring, this parameter specifies the name of the metric repository. For information about how to obtain the metric repository name, see [DescribeHybridMonitorNamespaceList](https://help.aliyun.com/document_detail/428880.html).
+    // > When you create a Prometheus alert rule for CloudMonitor, this parameter specifies the name of the metric repository. For more information about how to obtain the name of a metric repository, see [DescribeHybridMonitorNamespaceList](https://help.aliyun.com/document_detail/428880.html).
     // 
     // This parameter is required.
     shared_ptr<string> metricName_ {};
-    // The namespace of the Alibaba Cloud service. For information about how to query the namespace of an Alibaba Cloud service, see [Alibaba Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
+    // The data namespace of the Alibaba Cloud service. For more information about how to query the data namespace of an Alibaba Cloud service, see [Alibaba Cloud service metrics](https://help.aliyun.com/document_detail/163515.html).
     // 
-    // > If you create a Prometheus alert rule for Hybrid Cloud Monitoring, set this parameter to `acs_prometheus`.
+    // > When you create a Prometheus alert rule for CloudMonitor, you must configure this parameter to `acs_prometheus`.
     // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};
-    // The processing method when no monitoring data is found. Valid values:
+    // The action to take when no monitoring data is found. Valid values:
     // 
     // - KEEP_LAST_STATE (default): No action is taken.
-    // - INSUFFICIENT_DATA: An alert whose content is "Insufficient data" is triggered.
-    // - OK: The status is considered normal.
+    // - INSUFFICIENT_DATA: The alert content indicates that no data is found.
+    // - OK: The status is normal.
     shared_ptr<string> noDataPolicy_ {};
-    // The time range during which the alert rule is ineffective.
+    // The time range during which the alert rule is inactive.
     shared_ptr<string> noEffectiveInterval_ {};
-    // The statistical period of the metric. Unit: seconds. The default value is the original reporting period of the metric.
+    // The statistical epoch of the metric. Unit: seconds. The default value is the original reporting epoch of the metric.
     // 
-    // > For information about how to query the statistical period of a metric, see [Alibaba Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
+    // > For more information about how to query the statistical epoch of a metric, see [Alibaba Cloud service metrics](https://help.aliyun.com/document_detail/163515.html).
     shared_ptr<string> period_ {};
-    // The Prometheus alert configuration.
+    // The Prometheus alert.
     // 
-    // > Set this parameter only when you create a Prometheus alert rule for Hybrid Cloud Monitoring.
+    // > You need to configure this parameter only when you create a Prometheus alert rule for Hybrid Cloud Monitoring.
     shared_ptr<string> prometheusShrink_ {};
-    // The resource information, such as `[{"instanceId":"i-uf6j91r34rnwawoo****"}]` or `[{"userId":"100931896542****"}]`.
+    // The resource information. Examples: `[{"instanceId":"i-uf6j91r34rnwawoo****"}]` and `[{"userId":"100931896542****"}]`.
     // 
-    // For information about the supported monitoring dimensions, see [Alibaba Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
+    // For more information about the dimensions supported by resource information, see [Alibaba Cloud service metrics](https://help.aliyun.com/document_detail/163515.html).
     shared_ptr<string> resources_ {};
     // The ID of the alert rule.
     // 
-    // You can enter a new alert rule ID or use the ID of an existing alert rule in CloudMonitor. For information about how to query alert rule IDs, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
+    // You can enter a new alert rule ID or use an existing alert rule ID in CloudMonitor. For more information about how to query the ID of an alert rule, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
     // 
-    // > If you enter a new alert rule ID, a threshold alert rule is created.
+    // > Entering a new alert rule ID indicates that a threshold-based alert rule is created.
     // 
     // This parameter is required.
     shared_ptr<string> ruleId_ {};
     // The name of the alert rule.
     // 
-    // You can enter a new alert rule name or use the name of an existing alert rule in CloudMonitor. For information about how to query alert rule names, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
+    // You can enter a new alert rule name or use an existing alert rule name in CloudMonitor. For more information about how to query the name of an alert rule, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
     // 
-    // > If you enter a new alert rule name, a threshold alert rule is created.
+    // > Entering a new alert rule name indicates that a threshold-based alert rule is created.
     // 
     // This parameter is required.
     shared_ptr<string> ruleName_ {};
     // Specifies whether to send a recovery notification.
     shared_ptr<bool> sendOK_ {};
-    // The mute period. Unit: seconds. Default value: 86400.
+    // The mute epoch. Unit: seconds. Default value: 86400.
     // 
-    // > The mute period specifies the interval at which an alert notification is re-sent if the alert does not recover to Normal.
+    // > The mute epoch refers to the interval at which to send an alert notification again if the alert does not recover to Normal after it is triggered.
     shared_ptr<int32_t> silenceTime_ {};
-    // The callback URL to which a POST request is sent when an alert is triggered.
+    // The webhook URL to which a POST request is sent when an alert is triggered.
     shared_ptr<string> webhook_ {};
   };
 

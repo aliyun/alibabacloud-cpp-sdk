@@ -234,43 +234,43 @@ namespace Models
 
 
     protected:
-      // The name of the area in Chinese.
+      // The Chinese name of the region.
       shared_ptr<string> areaCn_ {};
-      // The name of the area in English.
+      // The English name of the region.
       shared_ptr<string> areaEn_ {};
       // The city ID.
       shared_ptr<string> city_ {};
-      // The name of the city in Chinese.
+      // The Chinese name of the city.
       shared_ptr<string> cityCn_ {};
-      // The name of the city in English.
+      // The English name of the city.
       shared_ptr<string> cityEn_ {};
       // The country code.
       shared_ptr<string> country_ {};
-      // The name of the country in Chinese.
+      // The Chinese name of the country.
       shared_ptr<string> countryCn_ {};
-      // The name of the country or region in English.
+      // The English name of the country or region.
       shared_ptr<string> countryEn_ {};
-      // The number of IPv4 detection points in data centers.
+      // The number of IPv4 nodes in the IDC.
       shared_ptr<int32_t> idcV4ProbeCount_ {};
-      // The number of IDC IPv6 nodes.
+      // The number of IPv6 nodes in the IDC.
       shared_ptr<int32_t> idcV6ProbeCount_ {};
       // The list of node IP addresses.
       shared_ptr<vector<string>> ipPool_ {};
       // The carrier ID.
       shared_ptr<string> isp_ {};
-      // The name of the carrier in Chinese.
+      // The Chinese name of the carrier.
       shared_ptr<string> ispCn_ {};
-      // The name of the carrier in English.
+      // The English name of the carrier.
       shared_ptr<string> ispEn_ {};
-      // The number of last-mile detection points.
+      // The number of Lastmile detection points.
       shared_ptr<int32_t> lmProbeCount_ {};
       // The number of mobile detection points.
       shared_ptr<int32_t> mbProbeCount_ {};
       // The province code.
       shared_ptr<string> region_ {};
-      // The name of the province in Chinese.
+      // The Chinese name of the province.
       shared_ptr<string> regionCn_ {};
-      // The name of the province in English.
+      // The English name of the province.
       shared_ptr<string> regionEn_ {};
     };
 
@@ -322,7 +322,10 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation was successful. Valid values: true: The operation was successful. false: The operation failed.
+    // Indicates whether the operation is successful. Valid values:
+    // 
+    // - true: The operation is successful.
+    // - false: The operation fails.
     shared_ptr<string> success_ {};
   };
 

@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // The alert rule ID.
+      // The ID of the alert rule.
       shared_ptr<string> ruleId_ {};
     };
 
@@ -109,9 +109,9 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The HTTP status code.
     // 
-    // >A value of 200 indicates success.
+    // > A status code of 200 indicates success.
     shared_ptr<string> code_ {};
     // The error message.
     shared_ptr<string> message_ {};
@@ -119,11 +119,11 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The result of creating or modifying the alert rule.
     shared_ptr<PutGroupMetricRuleResponseBody::Result> result_ {};
-    // Indicates whether the operation was successful. Valid values:
+    // Indicates whether the operation is successful. Valid values:
     // 
-    // - true: The operation was successful.
+    // - true: The operation is successful.
     // 
-    // - false: The operation failed.
+    // - false: The operation fails.
     shared_ptr<bool> success_ {};
   };
 

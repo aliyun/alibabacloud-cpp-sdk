@@ -247,20 +247,20 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The status code.
     // 
-    // > The status code 200 indicates that the request was successful.
+    // > 200 indicates success.
     shared_ptr<string> code_ {};
     shared_ptr<DescribeContactListByContactGroupResponseBody::Contacts> contacts_ {};
-    // The returned message.
+    // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the operation is successful. Valid values:
     // 
-    // - true
+    // - true: Success.
     // 
-    // - false
+    // - false: Failure.
     shared_ptr<bool> success_ {};
   };
 

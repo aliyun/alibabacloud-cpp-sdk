@@ -103,13 +103,13 @@ namespace Models
 
 
   protected:
-    // The type of detection points used by the task. Valid values:
+    // The type of monitoring nodes used by the task. Valid values:
     // 
     // - PC: PC-based detection points.
     // 
-    // - MOBILE: mobile-based detection points.
+    // - MOBILE: Mobile-based detection points.
     // 
-    // - FC: internal detection points.
+    // - FC: Internal detection points.
     shared_ptr<string> agentGroup_ {};
     // The keyword used to search for site monitoring tasks.
     // 

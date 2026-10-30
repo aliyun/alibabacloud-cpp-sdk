@@ -19,49 +19,46 @@ namespace Cms20190101
 AlibabaCloud::Cms20190101::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
   this->_endpointMap = json({
-    {"us-west-1" , "metrics.us-west-1.aliyuncs.com"},
+    {"cn-beijing" , "metrics.cn-beijing.aliyuncs.com"},
+    {"cn-zhengzhou-jva" , "metrics.cn-zhengzhou-jva.aliyuncs.com"},
+    {"cn-heyuan" , "metrics.cn-heyuan.aliyuncs.com"},
+    {"cn-zhangjiakou" , "metrics.cn-zhangjiakou.aliyuncs.com"},
+    {"ap-northeast-2" , "metrics.ap-northeast-2.aliyuncs.com"},
+    {"ap-northeast-1" , "metrics.ap-northeast-1.aliyuncs.com"},
+    {"ap-southeast-1" , "metrics.ap-southeast-1.aliyuncs.com"},
+    {"ap-southeast-3" , "metrics.ap-southeast-3.aliyuncs.com"},
+    {"ap-southeast-5" , "metrics.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-6" , "metrics.ap-southeast-6.aliyuncs.com"},
+    {"ap-southeast-7" , "metrics.ap-southeast-7.aliyuncs.com"},
+    {"ap-southeast-8" , "metrics.ap-southeast-8.aliyuncs.com"},
+    {"cn-zhongwei" , "metrics.cn-zhongwei.aliyuncs.com"},
+    {"cn-wulanchabu" , "metrics.cn-wulanchabu.aliyuncs.com"},
+    {"cn-qingdao" , "metrics.cn-qingdao.aliyuncs.com"},
+    {"cn-wuhan-lr" , "metrics.cn-wuhan-lr.aliyuncs.com"},
+    {"cn-shanghai" , "metrics.cn-shanghai.aliyuncs.com"},
+    {"cn-hongkong" , "metrics.cn-hongkong.aliyuncs.com"},
+    {"cn-shenzhen" , "metrics.cn-shenzhen.aliyuncs.com"},
+    {"cn-chengdu" , "metrics.cn-chengdu.aliyuncs.com"},
+    {"cn-guangzhou" , "metrics.cn-guangzhou.aliyuncs.com"},
+    {"cn-huhehaote" , "metrics.cn-huhehaote.aliyuncs.com"},
+    {"cn-hangzhou" , "metrics.cn-hangzhou.aliyuncs.com"},
     {"us-southeast-1" , "metrics.us-southeast-1.aliyuncs.com"},
+    {"eu-west-1" , "metrics.eu-west-1.aliyuncs.com"},
+    {"eu-west-2" , "metrics.eu-west-2.aliyuncs.com"},
+    {"eu-central-1" , "metrics.eu-central-1.aliyuncs.com"},
     {"us-east-1" , "metrics.us-east-1.aliyuncs.com"},
+    {"us-west-1" , "metrics.us-west-1.aliyuncs.com"},
     {"na-south-1" , "metrics.na-south-1.aliyuncs.com"},
     {"me-east-1" , "metrics.me-east-1.aliyuncs.com"},
-    {"me-central-1" , "metrics.me-central-1.aliyuncs.com"},
-    {"eu-west-2" , "metrics.eu-west-2.aliyuncs.com"},
-    {"eu-west-1" , "metrics.eu-west-1.aliyuncs.com"},
-    {"eu-central-1" , "metrics.eu-central-1.aliyuncs.com"},
-    {"cn-zhongwei" , "metrics.cn-zhongwei.aliyuncs.com"},
-    {"cn-zhengzhou-jva" , "metrics.cn-zhengzhou-jva.aliyuncs.com"},
-    {"cn-zhangjiakou" , "metrics.cn-zhangjiakou.aliyuncs.com"},
-    {"cn-wulanchabu-gic-1" , "metrics.cn-wulanchabu-gic-1.aliyuncs.com"},
-    {"cn-wulanchabu" , "metrics.cn-wulanchabu.aliyuncs.com"},
-    {"cn-wuhan-lr" , "metrics.cn-wuhan-lr.aliyuncs.com"},
-    {"cn-shenzhen-finance-1" , "metrics.cn-shenzhen-finance-1.aliyuncs.com"},
-    {"cn-shenzhen" , "metrics.cn-shenzhen.aliyuncs.com"},
-    {"cn-shanghai-finance-1" , "metrics.cn-shanghai-finance-1.aliyuncs.com"},
-    {"cn-shanghai" , "metrics.cn-shanghai.aliyuncs.com"},
-    {"cn-qingdao" , "metrics.cn-qingdao.aliyuncs.com"},
-    {"cn-north-2-gov-1" , "metrics.cn-north-2-gov-1.aliyuncs.com"},
-    {"cn-nanjing" , "metrics.cn-nanjing.aliyuncs.com"},
-    {"cn-huhehaote" , "metrics.cn-huhehaote.aliyuncs.com"},
-    {"cn-hongkong" , "metrics.cn-hongkong.aliyuncs.com"},
-    {"cn-heyuan-acdr-1" , "metrics.cn-heyuan-acdr-1.aliyuncs.com"},
-    {"cn-heyuan" , "metrics.cn-heyuan.aliyuncs.com"},
-    {"cn-hangzhou-finance" , "metrics.cn-hangzhou-finance.aliyuncs.com"},
-    {"cn-hangzhou" , "metrics.cn-hangzhou.aliyuncs.com"},
-    {"cn-guangzhou" , "metrics.cn-guangzhou.aliyuncs.com"},
-    {"cn-fuzhou" , "metrics.cn-fuzhou.aliyuncs.com"},
-    {"cn-chengdu" , "metrics.cn-chengdu.aliyuncs.com"},
-    {"cn-beijing-finance-1" , "metrics.cn-beijing-finance-1.aliyuncs.com"},
-    {"cn-beijing" , "metrics.cn-beijing.aliyuncs.com"},
-    {"ap-southeast-8" , "metrics.ap-southeast-8.aliyuncs.com"},
-    {"ap-southeast-7" , "metrics.ap-southeast-7.aliyuncs.com"},
-    {"ap-southeast-6" , "metrics.ap-southeast-6.aliyuncs.com"},
-    {"ap-southeast-5" , "metrics.ap-southeast-5.aliyuncs.com"},
-    {"ap-southeast-3" , "metrics.ap-southeast-3.aliyuncs.com"},
-    {"ap-southeast-2" , "metrics.ap-southeast-2.aliyuncs.com"},
-    {"ap-southeast-1" , "metrics.ap-southeast-1.aliyuncs.com"},
     {"ap-south-1" , "metrics.ap-south-1.aliyuncs.com"},
-    {"ap-northeast-2" , "metrics.ap-northeast-2.aliyuncs.com"},
-    {"ap-northeast-1" , "metrics.ap-northeast-1.aliyuncs.com"}
+    {"me-central-1" , "metrics.me-central-1.aliyuncs.com"},
+    {"cn-hangzhou-finance" , "metrics.cn-hangzhou-finance.aliyuncs.com"},
+    {"cn-shenzhen-finance-1" , "metrics.cn-shenzhen-finance-1.aliyuncs.com"},
+    {"cn-beijing-finance-1" , "metrics.cn-beijing-finance-1.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "metrics.cn-shanghai-finance-1.aliyuncs.com"},
+    {"cn-wulanchabu-gic-1" , "metrics.cn-wulanchabu-gic-1.aliyuncs.com"},
+    {"cn-heyuan-acdr-1" , "metrics.cn-heyuan-acdr-1.aliyuncs.com"},
+    {"cn-north-2-gov-1" , "metrics.cn-north-2-gov-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("cms", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -131,9 +128,9 @@ AddTagsResponse Client::addTags(const AddTagsRequest &request) {
 }
 
 /**
- * @summary Applies an alert template to an application group to generate an alert rule.
+ * @summary Applies an alert template to an application group to generate alert rules.
  *
- * @description In this example, the `700****` alert template is applied to the `123456` application group. For the generated alert rule, the ID is `applyTemplate8ab74c6b-9f27-47ab-8841-de01dc08****`, and the name is `test123`.
+ * @description This topic provides an example of applying the alert template `700****` to the application group `123456`. The generated alert rule has the ID `applyTemplate8ab74c6b-9f27-47ab-8841-de01dc08****` and the name `test123`.
  *
  * @param request ApplyMetricRuleTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -148,6 +145,10 @@ ApplyMetricRuleTemplateResponse Client::applyMetricRuleTemplateWithOptions(const
 
   if (!!request.hasApplyMode()) {
     query["ApplyMode"] = request.getApplyMode();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasEnableEndTime()) {
@@ -196,9 +197,9 @@ ApplyMetricRuleTemplateResponse Client::applyMetricRuleTemplateWithOptions(const
 }
 
 /**
- * @summary Applies an alert template to an application group to generate an alert rule.
+ * @summary Applies an alert template to an application group to generate alert rules.
  *
- * @description In this example, the `700****` alert template is applied to the `123456` application group. For the generated alert rule, the ID is `applyTemplate8ab74c6b-9f27-47ab-8841-de01dc08****`, and the name is `test123`.
+ * @description This topic provides an example of applying the alert template `700****` to the application group `123456`. The generated alert rule has the ID `applyTemplate8ab74c6b-9f27-47ab-8841-de01dc08****` and the name `test123`.
  *
  * @param request ApplyMetricRuleTemplateRequest
  * @return ApplyMetricRuleTemplateResponse
@@ -209,9 +210,9 @@ ApplyMetricRuleTemplateResponse Client::applyMetricRuleTemplate(const ApplyMetri
 }
 
 /**
- * @summary You can call the BatchCreateInstantSiteMonitor operation to create a batch of site monitoring tasks.
+ * @summary Creates multiple site monitoring tasks.
  *
- * @description This topic provides an example of how to create a site monitoring task named `HangZhou_ECS1`. The task uses the `HTTP` protocol to monitor `https://www.aliyun.com`. The response shows that the task is successfully created with the name `HangZhou_ECS1` and the ID `679fbe4f-b80b-4706-91b2-5427b43e****`.
+ * @description This topic provides an example of creating a site monitoring task named `HangZhou_ECS1`. The monitored address of the task is `https://www.aliyun.com`, and the monitoring type is `HTTP`. The response shows that the site monitoring task is created. The name of the task is `HangZhou_ECS1`, and the ID is `679fbe4f-b80b-4706-91b2-5427b43e****`.
  *
  * @param request BatchCreateInstantSiteMonitorRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -242,9 +243,9 @@ BatchCreateInstantSiteMonitorResponse Client::batchCreateInstantSiteMonitorWithO
 }
 
 /**
- * @summary You can call the BatchCreateInstantSiteMonitor operation to create a batch of site monitoring tasks.
+ * @summary Creates multiple site monitoring tasks.
  *
- * @description This topic provides an example of how to create a site monitoring task named `HangZhou_ECS1`. The task uses the `HTTP` protocol to monitor `https://www.aliyun.com`. The response shows that the task is successfully created with the name `HangZhou_ECS1` and the ID `679fbe4f-b80b-4706-91b2-5427b43e****`.
+ * @description This topic provides an example of creating a site monitoring task named `HangZhou_ECS1`. The monitored address of the task is `https://www.aliyun.com`, and the monitoring type is `HTTP`. The response shows that the site monitoring task is created. The name of the task is `HangZhou_ECS1`, and the ID is `679fbe4f-b80b-4706-91b2-5427b43e****`.
  *
  * @param request BatchCreateInstantSiteMonitorRequest
  * @return BatchCreateInstantSiteMonitorResponse
@@ -255,12 +256,12 @@ BatchCreateInstantSiteMonitorResponse Client::batchCreateInstantSiteMonitor(cons
 }
 
 /**
- * @summary Calls the BatchExport operation to export monitoring data defined in the Cursor operation.
+ * @summary Exports the monitoring data defined in the Cursor operation.
  *
- * @description ### Prerequisites
- * Make sure that you have called the [Cursor](https://help.aliyun.com/document_detail/2330730.html) operation to obtain the initial `Cursor`.
+ * @description ### Before you begin
+ * Make sure that you have called the [Cursor](https://help.aliyun.com/document_detail/2330730.html) operation to obtain the initial Cursor.
  * ### Usage notes
- * This topic provides an example to show how to export the monitoring data of an initial `Cursor` of the metric `cpu_idle` of the cloud service `acs_ecs_dashboard`. A maximum of 1,000 data entries are returned per call.
+ * This topic provides an example to export the monitoring data of the `cpu_idle` metric for the `acs_ecs_dashboard` cloud service by using an initial Cursor. A maximum of 1,000 data records are returned each time.
  *
  * @param tmpReq BatchExportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -313,12 +314,12 @@ BatchExportResponse Client::batchExportWithOptions(const BatchExportRequest &tmp
 }
 
 /**
- * @summary Calls the BatchExport operation to export monitoring data defined in the Cursor operation.
+ * @summary Exports the monitoring data defined in the Cursor operation.
  *
- * @description ### Prerequisites
- * Make sure that you have called the [Cursor](https://help.aliyun.com/document_detail/2330730.html) operation to obtain the initial `Cursor`.
+ * @description ### Before you begin
+ * Make sure that you have called the [Cursor](https://help.aliyun.com/document_detail/2330730.html) operation to obtain the initial Cursor.
  * ### Usage notes
- * This topic provides an example to show how to export the monitoring data of an initial `Cursor` of the metric `cpu_idle` of the cloud service `acs_ecs_dashboard`. A maximum of 1,000 data entries are returned per call.
+ * This topic provides an example to export the monitoring data of the `cpu_idle` metric for the `acs_ecs_dashboard` cloud service by using an initial Cursor. A maximum of 1,000 data records are returned each time.
  *
  * @param request BatchExportRequest
  * @return BatchExportResponse
@@ -329,10 +330,10 @@ BatchExportResponse Client::batchExport(const BatchExportRequest &request) {
 }
 
 /**
- * @summary You can call the CreateDynamicTagGroup operation to automatically create application groups using tags.
+ * @summary Automatically creates an application group based on tags.
  *
- * @description This operation supports the following Alibaba Cloud services: Elastic Compute Service (ECS), ApsaraDB RDS, and Server Load Balancer (SLB).
- * This topic provides an example of how to automatically create an application group for resources that have the `ecs_instance` tag key. The alert contact group for the application group is `ECS_Group`.
+ * @description The Alibaba Cloud services supported by this operation include cloud servers (ECS), ApsaraDB RDS, and Server Load Balancer (SLB).
+ * This topic provides an example on how to automatically create an application group for resources that are attached with the tag key `ecs_instance`. The alert contact group of the application group is `ECS_Group`.
  *
  * @param request CreateDynamicTagGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -343,6 +344,10 @@ CreateDynamicTagGroupResponse Client::createDynamicTagGroupWithOptions(const Cre
   json query = {};
   if (!!request.hasContactGroupList()) {
     query["ContactGroupList"] = request.getContactGroupList();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasEnableInstallAgent()) {
@@ -391,10 +396,10 @@ CreateDynamicTagGroupResponse Client::createDynamicTagGroupWithOptions(const Cre
 }
 
 /**
- * @summary You can call the CreateDynamicTagGroup operation to automatically create application groups using tags.
+ * @summary Automatically creates an application group based on tags.
  *
- * @description This operation supports the following Alibaba Cloud services: Elastic Compute Service (ECS), ApsaraDB RDS, and Server Load Balancer (SLB).
- * This topic provides an example of how to automatically create an application group for resources that have the `ecs_instance` tag key. The alert contact group for the application group is `ECS_Group`.
+ * @description The Alibaba Cloud services supported by this operation include cloud servers (ECS), ApsaraDB RDS, and Server Load Balancer (SLB).
+ * This topic provides an example on how to automatically create an application group for resources that are attached with the tag key `ecs_instance`. The alert contact group of the application group is `ECS_Group`.
  *
  * @param request CreateDynamicTagGroupRequest
  * @return CreateDynamicTagGroupResponse
@@ -407,7 +412,7 @@ CreateDynamicTagGroupResponse Client::createDynamicTagGroup(const CreateDynamicT
 /**
  * @summary Creates alert rules in batches for a specified application group by calling the CreateGroupMetricRules operation.
  *
- * @description This topic provides an example on how to create an alert rule for the `cpu_total` metric of Elastic Compute Service (ECS) in the application group `123456`. The alert rule ID is `456789`, the alert rule name is `ECS_Rule1`, the alert severity is `Critical`, the statistical method is `Average`, the comparison operator is `GreaterThanOrEqualToThreshold`, the threshold is `90`, and the retry count is `3`. The response shows that the alert rule `ECS_Rule1` is created.
+ * @description This topic provides an example on how to create an alert rule for the monitoring metric `cpu_total` of Elastic Computing Service (ECS) in the application group `123456`. The alert rule ID is `456789`, the alert rule name is `ECS_Rule1`, the alert severity is `Critical`, the statistical method is `Average`, the comparison operator is `GreaterThanOrEqualToThreshold`, the threshold is `90`, and the retry count is `3`. The response shows that the alert rule `ECS_Rule1` is created.
  *
  * @param request CreateGroupMetricRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -444,7 +449,7 @@ CreateGroupMetricRulesResponse Client::createGroupMetricRulesWithOptions(const C
 /**
  * @summary Creates alert rules in batches for a specified application group by calling the CreateGroupMetricRules operation.
  *
- * @description This topic provides an example on how to create an alert rule for the `cpu_total` metric of Elastic Compute Service (ECS) in the application group `123456`. The alert rule ID is `456789`, the alert rule name is `ECS_Rule1`, the alert severity is `Critical`, the statistical method is `Average`, the comparison operator is `GreaterThanOrEqualToThreshold`, the threshold is `90`, and the retry count is `3`. The response shows that the alert rule `ECS_Rule1` is created.
+ * @description This topic provides an example on how to create an alert rule for the monitoring metric `cpu_total` of Elastic Computing Service (ECS) in the application group `123456`. The alert rule ID is `456789`, the alert rule name is `ECS_Rule1`, the alert severity is `Critical`, the statistical method is `Average`, the comparison operator is `GreaterThanOrEqualToThreshold`, the threshold is `90`, and the retry count is `3`. The response shows that the alert rule `ECS_Rule1` is created.
  *
  * @param request CreateGroupMetricRulesRequest
  * @return CreateGroupMetricRulesResponse
@@ -513,9 +518,9 @@ CreateGroupMonitoringAgentProcessResponse Client::createGroupMonitoringAgentProc
 }
 
 /**
- * @summary Creates an availability monitoring task by calling the CreateHostAvailability operation.
+ * @summary Creates an availability monitoring task.
  *
- * @description This topic provides an example of how to create an availability monitoring task named `task1` with the detection type set to `HTTP` in application group `123456`. Alert notifications are sent by email and DingTalk chatbot.
+ * @description This topic provides an example on how to create an availability monitoring task named `task1` with the detection type set to `HTTP` in application group `123456`. Alert notifications are sent by email and DingTalk chatbot.
  *
  * @param request CreateHostAvailabilityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -578,9 +583,9 @@ CreateHostAvailabilityResponse Client::createHostAvailabilityWithOptions(const C
 }
 
 /**
- * @summary Creates an availability monitoring task by calling the CreateHostAvailability operation.
+ * @summary Creates an availability monitoring task.
  *
- * @description This topic provides an example of how to create an availability monitoring task named `task1` with the detection type set to `HTTP` in application group `123456`. Alert notifications are sent by email and DingTalk chatbot.
+ * @description This topic provides an example on how to create an availability monitoring task named `task1` with the detection type set to `HTTP` in application group `123456`. Alert notifications are sent by email and DingTalk chatbot.
  *
  * @param request CreateHostAvailabilityRequest
  * @return CreateHostAvailabilityResponse
@@ -719,13 +724,13 @@ CreateHybridMonitorSLSGroupResponse Client::createHybridMonitorSLSGroup(const Cr
 }
 
 /**
- * @summary Calls the CreateHybridMonitorTask operation to create a data import task for an Alibaba Cloud service or a metric for Simple Log Service (SLS) logs.
+ * @summary Creates a monitoring task for Alibaba Cloud services or Simple Log Service (SLS) logs in Hybrid Cloud Monitoring.
  *
- * @description ## Before you begin
- * - Make sure that you have activated Hybrid Cloud Monitoring. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
- * - If you want to create a metric for SLS logs, make sure that you have activated SLS and created a project and a Logstore. For more information, see [Quick Start](https://help.aliyun.com/document_detail/54604.html).
- * ## Operation description
- * This topic provides an example of how to create a data import task named `aliyun_task` for an Alibaba Cloud service to import the `cpu_total` metric of Elastic Compute Service (ECS) into the `aliyun` metric repository. The response shows that the data import task is created.
+ * @description ## Operation description
+ * - Before calling this operation, make sure that Hybrid Cloud Monitoring is activated.
+ * - To create a metric for SLS logs, make sure that SLS is activated and that you have created a project and a Logstore.
+ * - Depending on the value of `TaskType`, some parameters are required. For example, when `TaskType` is set to `aliyun_fc`, you must set `YARMConfig`. When `TaskType` is set to `aliyun_sls`, you must configure parameters such as `CollectInterval`.
+ * - For cross-account operations, specify `TargetUserId` or `TargetUserIdList` to import resources of other members into Hybrid Cloud Monitoring.
  *
  * @param request CreateHybridMonitorTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -804,13 +809,13 @@ CreateHybridMonitorTaskResponse Client::createHybridMonitorTaskWithOptions(const
 }
 
 /**
- * @summary Calls the CreateHybridMonitorTask operation to create a data import task for an Alibaba Cloud service or a metric for Simple Log Service (SLS) logs.
+ * @summary Creates a monitoring task for Alibaba Cloud services or Simple Log Service (SLS) logs in Hybrid Cloud Monitoring.
  *
- * @description ## Before you begin
- * - Make sure that you have activated Hybrid Cloud Monitoring. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
- * - If you want to create a metric for SLS logs, make sure that you have activated SLS and created a project and a Logstore. For more information, see [Quick Start](https://help.aliyun.com/document_detail/54604.html).
- * ## Operation description
- * This topic provides an example of how to create a data import task named `aliyun_task` for an Alibaba Cloud service to import the `cpu_total` metric of Elastic Compute Service (ECS) into the `aliyun` metric repository. The response shows that the data import task is created.
+ * @description ## Operation description
+ * - Before calling this operation, make sure that Hybrid Cloud Monitoring is activated.
+ * - To create a metric for SLS logs, make sure that SLS is activated and that you have created a project and a Logstore.
+ * - Depending on the value of `TaskType`, some parameters are required. For example, when `TaskType` is set to `aliyun_fc`, you must set `YARMConfig`. When `TaskType` is set to `aliyun_sls`, you must configure parameters such as `CollectInterval`.
+ * - For cross-account operations, specify `TargetUserId` or `TargetUserIdList` to import resources of other members into Hybrid Cloud Monitoring.
  *
  * @param request CreateHybridMonitorTaskRequest
  * @return CreateHybridMonitorTaskResponse
@@ -821,10 +826,10 @@ CreateHybridMonitorTaskResponse Client::createHybridMonitorTask(const CreateHybr
 }
 
 /**
- * @summary Call the CreateInstantSiteMonitor operation to create a one-time detection task.
+ * @summary Creates a one-time synthetic monitoring task.
  *
- * @description Only Alibaba Cloud accounts that have Network Analysis and Monitoring activated can create one-time detection tasks.
- * This topic provides an example of how to create a one-time detection task. The example creates a task named `task1` that detects the address `http://www.aliyun.com`. The detection type is `HTTP`, and the number of detection points is `1`.
+ * @description Only Alibaba Cloud accounts that have activated Network Analysis and Monitoring can create one-time synthetic monitoring tasks.
+ * This topic provides an example of how to create a one-time synthetic monitoring task. The task name is `task1`, the monitored address is `http://www.aliyun.com`, the task type is `HTTP`, and the number of detection points is `1`.
  *
  * @param request CreateInstantSiteMonitorRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -879,10 +884,10 @@ CreateInstantSiteMonitorResponse Client::createInstantSiteMonitorWithOptions(con
 }
 
 /**
- * @summary Call the CreateInstantSiteMonitor operation to create a one-time detection task.
+ * @summary Creates a one-time synthetic monitoring task.
  *
- * @description Only Alibaba Cloud accounts that have Network Analysis and Monitoring activated can create one-time detection tasks.
- * This topic provides an example of how to create a one-time detection task. The example creates a task named `task1` that detects the address `http://www.aliyun.com`. The detection type is `HTTP`, and the number of detection points is `1`.
+ * @description Only Alibaba Cloud accounts that have activated Network Analysis and Monitoring can create one-time synthetic monitoring tasks.
+ * This topic provides an example of how to create a one-time synthetic monitoring task. The task name is `task1`, the monitored address is `http://www.aliyun.com`, the task type is `HTTP`, and the number of detection points is `1`.
  *
  * @param request CreateInstantSiteMonitorRequest
  * @return CreateInstantSiteMonitorResponse
@@ -1131,7 +1136,7 @@ CreateMonitorAgentProcessResponse Client::createMonitorAgentProcess(const Create
 /**
  * @summary Creates an application group.
  *
- * @description In this example, an application group named `ECS_Group` is created.
+ * @description This topic provides an example of creating an application group named `ECS_Group`.
  *
  * @param request CreateMonitorGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1142,6 +1147,10 @@ CreateMonitorGroupResponse Client::createMonitorGroupWithOptions(const CreateMon
   json query = {};
   if (!!request.hasContactGroups()) {
     query["ContactGroups"] = request.getContactGroups();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasGroupName()) {
@@ -1168,7 +1177,7 @@ CreateMonitorGroupResponse Client::createMonitorGroupWithOptions(const CreateMon
 /**
  * @summary Creates an application group.
  *
- * @description In this example, an application group named `ECS_Group` is created.
+ * @description This topic provides an example of creating an application group named `ECS_Group`.
  *
  * @param request CreateMonitorGroupRequest
  * @return CreateMonitorGroupResponse
@@ -1257,6 +1266,10 @@ CreateMonitorGroupByResourceGroupIdResponse Client::createMonitorGroupByResource
 CreateMonitorGroupInstancesResponse Client::createMonitorGroupInstancesWithOptions(const CreateMonitorGroupInstancesRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
   if (!!request.hasGroupId()) {
     query["GroupId"] = request.getGroupId();
   }
@@ -1299,9 +1312,7 @@ CreateMonitorGroupInstancesResponse Client::createMonitorGroupInstances(const Cr
 /**
  * @summary Calls the CreateMonitorGroupNotifyPolicy operation to create a pause alert notification policy for an application group.
  *
- * @description During the effective period of the policy, no alert notifications are sent for any alerts triggered within the application group.
- *  
- * This topic provides an example on how to create a pause alert notification policy named `PauseNotify` for the application group `7301****`. The application group pauses alert notifications during the period from `1622949300000` to `1623208500000` (UTC+8 `2021-06-06 11:15:00` to `2021-06-09 11:15:00`).
+ * @description Creates a pause alert notification policy for a specified application group. After the policy is created, alert notifications for the application group are paused during the time period specified by StartTime and EndTime (unit: milliseconds). Currently, PolicyType supports only PauseNotify (pause notification).
  *
  * @param request CreateMonitorGroupNotifyPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1346,9 +1357,7 @@ CreateMonitorGroupNotifyPolicyResponse Client::createMonitorGroupNotifyPolicyWit
 /**
  * @summary Calls the CreateMonitorGroupNotifyPolicy operation to create a pause alert notification policy for an application group.
  *
- * @description During the effective period of the policy, no alert notifications are sent for any alerts triggered within the application group.
- *  
- * This topic provides an example on how to create a pause alert notification policy named `PauseNotify` for the application group `7301****`. The application group pauses alert notifications during the period from `1622949300000` to `1623208500000` (UTC+8 `2021-06-06 11:15:00` to `2021-06-09 11:15:00`).
+ * @description Creates a pause alert notification policy for a specified application group. After the policy is created, alert notifications for the application group are paused during the time period specified by StartTime and EndTime (unit: milliseconds). Currently, PolicyType supports only PauseNotify (pause notification).
  *
  * @param request CreateMonitorGroupNotifyPolicyRequest
  * @return CreateMonitorGroupNotifyPolicyResponse
@@ -1491,14 +1500,14 @@ CreateSiteMonitorResponse Client::createSiteMonitor(const CreateSiteMonitorReque
 }
 
 /**
- * @summary Calls the Cursor operation to define the scope of monitoring data to be exported, and returns the Cursor value used for the initial call to the BatchExport operation.
+ * @summary Defines the scope of monitoring data to be exported and returns a cursor value for the initial call to the BatchExport operation.
  *
- * @description ### Prerequisites
- * Make sure that Enterprise CloudMonitor is activated. For more information, see [Activate Enterprise CloudMonitor](https://help.aliyun.com/document_detail/250773.html).
+ * @description ### Before you begin
+ * Make sure that Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
  * ### Background information
- * First, call this operation to obtain the initial Cursor. Then, call the [BatchExport](https://help.aliyun.com/document_detail/2329847.html) operation to export monitoring data.
+ * Call this operation to obtain an initial cursor, and then call the [BatchExport](https://help.aliyun.com/document_detail/2329847.html) operation to export monitoring data.
  * ### Usage notes
- * This topic provides an example to describe how to define the scope to export data of the `cpu_idle` metric of the `acs_ecs_dashboard` cloud service every 60 seconds in the time range from `1641627000000` (2022-01-08 15:30:00) to `1641645000000` (2022-01-08 20:30:00). The returned result shows the `Cursor` information.
+ * This topic provides an example to define the data export scope for the `cpu_idle` metric of the `acs_ecs_dashboard` cloud service at a 60-second interval from `1641627000000` (2022-01-08 15:30:00) to `1641645000000` (2022-01-08 20:30:00). The response displays the Cursor information.
  *
  * @param tmpReq CursorRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1555,14 +1564,14 @@ CursorResponse Client::cursorWithOptions(const CursorRequest &tmpReq, const Dara
 }
 
 /**
- * @summary Calls the Cursor operation to define the scope of monitoring data to be exported, and returns the Cursor value used for the initial call to the BatchExport operation.
+ * @summary Defines the scope of monitoring data to be exported and returns a cursor value for the initial call to the BatchExport operation.
  *
- * @description ### Prerequisites
- * Make sure that Enterprise CloudMonitor is activated. For more information, see [Activate Enterprise CloudMonitor](https://help.aliyun.com/document_detail/250773.html).
+ * @description ### Before you begin
+ * Make sure that Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
  * ### Background information
- * First, call this operation to obtain the initial Cursor. Then, call the [BatchExport](https://help.aliyun.com/document_detail/2329847.html) operation to export monitoring data.
+ * Call this operation to obtain an initial cursor, and then call the [BatchExport](https://help.aliyun.com/document_detail/2329847.html) operation to export monitoring data.
  * ### Usage notes
- * This topic provides an example to describe how to define the scope to export data of the `cpu_idle` metric of the `acs_ecs_dashboard` cloud service every 60 seconds in the time range from `1641627000000` (2022-01-08 15:30:00) to `1641645000000` (2022-01-08 20:30:00). The returned result shows the `Cursor` information.
+ * This topic provides an example to define the data export scope for the `cpu_idle` metric of the `acs_ecs_dashboard` cloud service at a 60-second interval from `1641627000000` (2022-01-08 15:30:00) to `1641645000000` (2022-01-08 20:30:00). The response displays the Cursor information.
  *
  * @param request CursorRequest
  * @return CursorResponse
@@ -1615,7 +1624,7 @@ DeleteContactResponse Client::deleteContact(const DeleteContactRequest &request)
 }
 
 /**
- * @summary Calls the DeleteContactGroup operation to delete an alert contact group.
+ * @summary Deletes an alert contact group.
  *
  * @param request DeleteContactGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1646,7 +1655,7 @@ DeleteContactGroupResponse Client::deleteContactGroupWithOptions(const DeleteCon
 }
 
 /**
- * @summary Calls the DeleteContactGroup operation to delete an alert contact group.
+ * @summary Deletes an alert contact group.
  *
  * @param request DeleteContactGroupRequest
  * @return DeleteContactGroupResponse
@@ -1799,7 +1808,7 @@ DeleteEventRuleTargetsResponse Client::deleteEventRuleTargets(const DeleteEventR
 }
 
 /**
- * @summary Deletes one or more event-triggered alert rules.
+ * @summary Deletes event-triggered alert rules.
  *
  * @param request DeleteEventRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1830,7 +1839,7 @@ DeleteEventRulesResponse Client::deleteEventRulesWithOptions(const DeleteEventRu
 }
 
 /**
- * @summary Deletes one or more event-triggered alert rules.
+ * @summary Deletes event-triggered alert rules.
  *
  * @param request DeleteEventRulesRequest
  * @return DeleteEventRulesResponse
@@ -2379,7 +2388,7 @@ DeleteMetricRuleTemplateResponse Client::deleteMetricRuleTemplate(const DeleteMe
 }
 
 /**
- * @summary The DeleteMetricRules operation deletes one or more alert rules.
+ * @summary Deletes one or more alert rules.
  *
  * @param request DeleteMetricRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2388,6 +2397,10 @@ DeleteMetricRuleTemplateResponse Client::deleteMetricRuleTemplate(const DeleteMe
 DeleteMetricRulesResponse Client::deleteMetricRulesWithOptions(const DeleteMetricRulesRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
   if (!!request.hasId()) {
     query["Id"] = request.getId();
   }
@@ -2410,7 +2423,7 @@ DeleteMetricRulesResponse Client::deleteMetricRulesWithOptions(const DeleteMetri
 }
 
 /**
- * @summary The DeleteMetricRules operation deletes one or more alert rules.
+ * @summary Deletes one or more alert rules.
  *
  * @param request DeleteMetricRulesRequest
  * @return DeleteMetricRulesResponse
@@ -2421,7 +2434,7 @@ DeleteMetricRulesResponse Client::deleteMetricRules(const DeleteMetricRulesReque
 }
 
 /**
- * @summary Deletes an application group.
+ * @summary Deletes a specified application group.
  *
  * @param request DeleteMonitorGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2430,6 +2443,10 @@ DeleteMetricRulesResponse Client::deleteMetricRules(const DeleteMetricRulesReque
 DeleteMonitorGroupResponse Client::deleteMonitorGroupWithOptions(const DeleteMonitorGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
   if (!!request.hasGroupId()) {
     query["GroupId"] = request.getGroupId();
   }
@@ -2452,7 +2469,7 @@ DeleteMonitorGroupResponse Client::deleteMonitorGroupWithOptions(const DeleteMon
 }
 
 /**
- * @summary Deletes an application group.
+ * @summary Deletes a specified application group.
  *
  * @param request DeleteMonitorGroupRequest
  * @return DeleteMonitorGroupResponse
@@ -2509,7 +2526,7 @@ DeleteMonitorGroupDynamicRuleResponse Client::deleteMonitorGroupDynamicRule(cons
 }
 
 /**
- * @summary Removes instances from an application group.
+ * @summary Deletes resource instances from an application group.
  *
  * @param request DeleteMonitorGroupInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2520,6 +2537,10 @@ DeleteMonitorGroupInstancesResponse Client::deleteMonitorGroupInstancesWithOptio
   json query = {};
   if (!!request.hasCategory()) {
     query["Category"] = request.getCategory();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasGroupId()) {
@@ -2548,7 +2569,7 @@ DeleteMonitorGroupInstancesResponse Client::deleteMonitorGroupInstancesWithOptio
 }
 
 /**
- * @summary Removes instances from an application group.
+ * @summary Deletes resource instances from an application group.
  *
  * @param request DeleteMonitorGroupInstancesRequest
  * @return DeleteMonitorGroupInstancesResponse
@@ -2559,7 +2580,7 @@ DeleteMonitorGroupInstancesResponse Client::deleteMonitorGroupInstances(const De
 }
 
 /**
- * @summary Deletes a policy that is used to pause alert notifications for an application group.
+ * @summary Calls the DeleteMonitorGroupNotifyPolicy operation to delete the pause alert notification policy for a specified application group.
  *
  * @param request DeleteMonitorGroupNotifyPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2594,7 +2615,7 @@ DeleteMonitorGroupNotifyPolicyResponse Client::deleteMonitorGroupNotifyPolicyWit
 }
 
 /**
- * @summary Deletes a policy that is used to pause alert notifications for an application group.
+ * @summary Calls the DeleteMonitorGroupNotifyPolicy operation to delete the pause alert notification policy for a specified application group.
  *
  * @param request DeleteMonitorGroupNotifyPolicyRequest
  * @return DeleteMonitorGroupNotifyPolicyResponse
@@ -2655,7 +2676,7 @@ DeleteMonitoringAgentProcessResponse Client::deleteMonitoringAgentProcess(const 
 }
 
 /**
- * @summary Deletes site monitoring tasks by calling the DeleteSiteMonitors operation.
+ * @summary Deletes site monitoring tasks.
  *
  * @param request DeleteSiteMonitorsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2690,7 +2711,7 @@ DeleteSiteMonitorsResponse Client::deleteSiteMonitorsWithOptions(const DeleteSit
 }
 
 /**
- * @summary Deletes site monitoring tasks by calling the DeleteSiteMonitors operation.
+ * @summary Deletes site monitoring tasks.
  *
  * @param request DeleteSiteMonitorsRequest
  * @return DeleteSiteMonitorsResponse
@@ -2837,10 +2858,10 @@ DescribeAlertHistoryListResponse Client::describeAlertHistoryList(const Describe
 }
 
 /**
- * @summary Queries the statistics of alert logs.
+ * @summary Calls the DescribeAlertLogCount operation to query alert history statistics.
  *
- * @description Queries the statistics of alert logs.
- * This topic provides an example on how to query the statistics of alert logs for Elastic Compute Service (ECS) based on the `product` dimension.
+ * @description This operation can query only the alert history within the last year.
+ * This topic provides an example on how to query the alert history statistics of Elastic Compute Service (ECS) from the `product` dimension of Alibaba Cloud services.
  *
  * @param request DescribeAlertLogCountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2939,10 +2960,10 @@ DescribeAlertLogCountResponse Client::describeAlertLogCountWithOptions(const Des
 }
 
 /**
- * @summary Queries the statistics of alert logs.
+ * @summary Calls the DescribeAlertLogCount operation to query alert history statistics.
  *
- * @description Queries the statistics of alert logs.
- * This topic provides an example on how to query the statistics of alert logs for Elastic Compute Service (ECS) based on the `product` dimension.
+ * @description This operation can query only the alert history within the last year.
+ * This topic provides an example on how to query the alert history statistics of Elastic Compute Service (ECS) from the `product` dimension of Alibaba Cloud services.
  *
  * @param request DescribeAlertLogCountRequest
  * @return DescribeAlertLogCountResponse
@@ -2953,9 +2974,9 @@ DescribeAlertLogCountResponse Client::describeAlertLogCount(const DescribeAlertL
 }
 
 /**
- * @summary Queries the number of alert logs that are generated during each interval within a period of time.
+ * @summary Queries the histogram list of alert history by calling the DescribeAlertLogHistogram operation.
  *
- * @description This topic provides an example on how to query the number of alert logs for Elastic Compute Service (ECS) based on the `product` dimension.
+ * @description This topic provides an example of how to query the histogram list of ECS alert history from the Alibaba Cloud service `product` dimension.
  *
  * @param request DescribeAlertLogHistogramRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3054,9 +3075,9 @@ DescribeAlertLogHistogramResponse Client::describeAlertLogHistogramWithOptions(c
 }
 
 /**
- * @summary Queries the number of alert logs that are generated during each interval within a period of time.
+ * @summary Queries the histogram list of alert history by calling the DescribeAlertLogHistogram operation.
  *
- * @description This topic provides an example on how to query the number of alert logs for Elastic Compute Service (ECS) based on the `product` dimension.
+ * @description This topic provides an example of how to query the histogram list of ECS alert history from the Alibaba Cloud service `product` dimension.
  *
  * @param request DescribeAlertLogHistogramRequest
  * @return DescribeAlertLogHistogramResponse
@@ -3183,7 +3204,10 @@ DescribeAlertLogListResponse Client::describeAlertLogList(const DescribeAlertLog
 }
 
 /**
- * @summary Queries the resources for which active alerts are triggered based on an alert rule.
+ * @summary Queries the list of resources that are triggering alerts for a specified alert rule.
+ *
+ * @description This topic provides an example to show how to set a threshold-based alert rule for the metric `cpu_total` of the Elastic Compute Service (ECS) instance `i-uf6j91r34rnwawoo****` in the `acs_ecs_dashboard` namespace. The alert contact group is `ECS_Group`, the alert rule name is `test123`, the alert rule ID is `a151cd6023eacee2f0978e03863cc1697c89508****`, the statistical method for the Critical level is `Average`, the comparison operator for the Critical level is `GreaterThanOrEqualToThreshold`, the threshold for the Critical level is `90`, and the retry count for the Critical level is `3`.
+ * > On August 15, 2024, Statistics validation was increased. The statistical value must correspond to the Statistics of the metric. For more information about how to obtain the value of this parameter, see [Alibaba Cloud service monitoring metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
  *
  * @param request DescribeAlertingMetricRuleResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3210,7 +3234,10 @@ DescribeAlertingMetricRuleResourcesResponse Client::describeAlertingMetricRuleRe
 }
 
 /**
- * @summary Queries the resources for which active alerts are triggered based on an alert rule.
+ * @summary Queries the list of resources that are triggering alerts for a specified alert rule.
+ *
+ * @description This topic provides an example to show how to set a threshold-based alert rule for the metric `cpu_total` of the Elastic Compute Service (ECS) instance `i-uf6j91r34rnwawoo****` in the `acs_ecs_dashboard` namespace. The alert contact group is `ECS_Group`, the alert rule name is `test123`, the alert rule ID is `a151cd6023eacee2f0978e03863cc1697c89508****`, the statistical method for the Critical level is `Average`, the comparison operator for the Critical level is `GreaterThanOrEqualToThreshold`, the threshold for the Critical level is `90`, and the retry count for the Critical level is `3`.
+ * > On August 15, 2024, Statistics validation was increased. The statistical value must correspond to the Statistics of the metric. For more information about how to obtain the value of this parameter, see [Alibaba Cloud service monitoring metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
  *
  * @param request DescribeAlertingMetricRuleResourcesRequest
  * @return DescribeAlertingMetricRuleResourcesResponse
@@ -3221,7 +3248,7 @@ DescribeAlertingMetricRuleResourcesResponse Client::describeAlertingMetricRuleRe
 }
 
 /**
- * @summary Call the DescribeContactGroupList interface to query the list of alarm contact groups.
+ * @summary Queries the list of alert contact groups by calling the DescribeContactGroupList operation.
  *
  * @param request DescribeContactGroupListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3256,7 +3283,7 @@ DescribeContactGroupListResponse Client::describeContactGroupListWithOptions(con
 }
 
 /**
- * @summary Call the DescribeContactGroupList interface to query the list of alarm contact groups.
+ * @summary Queries the list of alert contact groups by calling the DescribeContactGroupList operation.
  *
  * @param request DescribeContactGroupListRequest
  * @return DescribeContactGroupListResponse
@@ -3901,7 +3928,9 @@ DescribeExporterOutputListResponse Client::describeExporterOutputList(const Desc
 }
 
 /**
- * @summary Queries the list of data export rules by calling the DescribeExporterRuleList operation.
+ * @summary Queries the list of data export rules.
+ *
+ * @description This topic provides an example on how to query all alert rules in the alert rule list of the current Alibaba Cloud account. The response shows that the alert rule list contains only one alert rule. The alert rule is named `Rule_01` and has an ID of `applyTemplate344cfd42-0f32-4fd6-805a-88d7908a****`.
  *
  * @param request DescribeExporterRuleListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3936,7 +3965,9 @@ DescribeExporterRuleListResponse Client::describeExporterRuleListWithOptions(con
 }
 
 /**
- * @summary Queries the list of data export rules by calling the DescribeExporterRuleList operation.
+ * @summary Queries the list of data export rules.
+ *
+ * @description This topic provides an example on how to query all alert rules in the alert rule list of the current Alibaba Cloud account. The response shows that the alert rule list contains only one alert rule. The alert rule is named `Rule_01` and has an ID of `applyTemplate344cfd42-0f32-4fd6-805a-88d7908a****`.
  *
  * @param request DescribeExporterRuleListRequest
  * @return DescribeExporterRuleListResponse
@@ -4005,9 +4036,9 @@ DescribeGroupMonitoringAgentProcessResponse Client::describeGroupMonitoringAgent
 }
 
 /**
- * @summary Queries availability monitoring tasks.
+ * @summary Queries the list of availability monitoring tasks.
  *
- * @description This topic provides an example to show how to query all the availability monitoring tasks of your Alibaba Cloud account. The sample responses indicate that the account has one availability monitoring task named `ecs_instance`.
+ * @description This topic provides an example on how to query the list of availability monitoring tasks for the current account. The response shows that the current account has one availability monitoring task record `ecs_instance`.
  *
  * @param request DescribeHostAvailabilityListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4058,9 +4089,9 @@ DescribeHostAvailabilityListResponse Client::describeHostAvailabilityListWithOpt
 }
 
 /**
- * @summary Queries availability monitoring tasks.
+ * @summary Queries the list of availability monitoring tasks.
  *
- * @description This topic provides an example to show how to query all the availability monitoring tasks of your Alibaba Cloud account. The sample responses indicate that the account has one availability monitoring task named `ecs_instance`.
+ * @description This topic provides an example on how to query the list of availability monitoring tasks for the current account. The response shows that the current account has one availability monitoring task record `ecs_instance`.
  *
  * @param request DescribeHostAvailabilityListRequest
  * @return DescribeHostAvailabilityListResponse
@@ -4517,19 +4548,19 @@ DescribeMetricDataResponse Client::describeMetricData(const DescribeMetricDataRe
 }
 
 /**
- * @summary Queries the latest monitoring data of a metric.
+ * @summary Queries the latest monitoring data of a specified metric.
  *
- * @description ### [](#)Limits
- * - The total free quota is 1 million calls per month for the DescribeMetricLast, DescribeMetricList, DescribeMetricData, and DescribeMetricTop operations. If the free quota is used up and CloudMonitor Basic (pay-as-you-go) is not activated, these API operations can no longer be called as expected. If you have activated CloudMonitor Basic (pay-as-you-go), these API operations can still be called even if the free quota is used up. After the free quota is used up, you are charged for the excess usage based on the pay-as-you-go billing method. For more information about how to activate CloudMonitor Basic (pay-as-you-go), see [Enable the pay-as-you-go billing method](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.6c8f3481IbSHgG\\&commodityCode=cms_basic_public_cn\\&from_biz_channel=help_bill).
- * - Each API operation can be called up to 50 times per second. An Alibaba Cloud account and the Resource Access Management (RAM) users within the account share the quota.
- * > If `Throttling.User` or `Request was denied due to user flow control` is returned when you call an API operation, the API operation is throttled. For more information about how to handle the issue, see [How do I handle the throttling of a query API?](https://help.aliyun.com/document_detail/2615031.html)
- * ### [](#)Precautions
- * The storage duration of the monitoring data of each cloud service is related to the `Period` parameter (statistical period). A larger value of the `Period` parameter indicates that the monitoring data is distributed in a larger time range and the storage duration of the monitoring data is longer. The following list describes the specific relationships:
- * - The storage duration is 7 days if the value of the `Period` parameter is less than 60 seconds.
- * - The storage duration is 31 days if the value of the `Period` parameter is 60 seconds.
- * - The storage duration is 91 days if the value of the `Period` parameter is greater than or equal to 300 seconds.
- * ### [](#)Operation description
- * This topic provides an example on how to query the latest monitoring data of the `CPUUtilization` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The returned result indicates that the monitoring data for the instance `i-abcdefgh12****` of the account `123456789876****` is queried at an interval of 60 seconds. The maximum, minimum, and average values of the metric are 100, 93.1, and 99.52.
+ * @description ### Before you begin
+ * - Invocations of DescribeMetricLast, DescribeMetricList, DescribeMetricData, and DescribeMetricTop share a combined free quota of 1,000,000 calls per month. After the free quota is exhausted, if you have not activated CloudMonitor Basic pay-as-you-go billing method, you cannot use this API normally. If you have activated CloudMonitor Basic pay-as-you-go billing method, the API continues to work after the free quota is exhausted, and usage beyond the free quota is automatically billed. For the method to activate pay-as-you-go billing, see [Activate pay-as-you-go billing](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.6c8f3481IbSHgG&commodityCode=cms_basic_public_cn&from_biz_channel=help_bill).
+ * - The rate limit for a single API operation is 50 calls per second. This limit is shared by an Alibaba Cloud account and all Resource Access Management (RAM) users under the account.
+ * > When you invoke an API operation, if the response contains `Throttling.User` or `Request was denied due to user flow control`, the API is being throttled. For the handling method, see [How do I handle query API throttling](https://help.aliyun.com/document_detail/2615031.html).
+ * ### Notes
+ * The storage duration of cloud service monitoring data depends on the `Period` (statistical period). A larger `Period` value results in sparser monitoring data and a longer storage duration. The relationships are as follows:
+ * - If `Period` is less than 60 seconds, the storage duration is 7 days.
+ * - If `Period` is equal to 60 seconds, the storage duration is 31 days.
+ * - If `Period` is greater than or equal to 300 seconds, the storage duration is 91 days.
+ * ### Operation description
+ * This topic provides an example of how to query the latest monitoring data of the `CPUUtilization` metric for the cloud service `acs_ecs_dashboard`. The response shows that for instance `i-abcdefgh12****` under account `123456789876****`, the maximum value is 100, the minimum value is 93.1, and the average value is 99.52 at a 60-second interval.
  *
  * @param request DescribeMetricLastRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4592,19 +4623,19 @@ DescribeMetricLastResponse Client::describeMetricLastWithOptions(const DescribeM
 }
 
 /**
- * @summary Queries the latest monitoring data of a metric.
+ * @summary Queries the latest monitoring data of a specified metric.
  *
- * @description ### [](#)Limits
- * - The total free quota is 1 million calls per month for the DescribeMetricLast, DescribeMetricList, DescribeMetricData, and DescribeMetricTop operations. If the free quota is used up and CloudMonitor Basic (pay-as-you-go) is not activated, these API operations can no longer be called as expected. If you have activated CloudMonitor Basic (pay-as-you-go), these API operations can still be called even if the free quota is used up. After the free quota is used up, you are charged for the excess usage based on the pay-as-you-go billing method. For more information about how to activate CloudMonitor Basic (pay-as-you-go), see [Enable the pay-as-you-go billing method](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.6c8f3481IbSHgG\\&commodityCode=cms_basic_public_cn\\&from_biz_channel=help_bill).
- * - Each API operation can be called up to 50 times per second. An Alibaba Cloud account and the Resource Access Management (RAM) users within the account share the quota.
- * > If `Throttling.User` or `Request was denied due to user flow control` is returned when you call an API operation, the API operation is throttled. For more information about how to handle the issue, see [How do I handle the throttling of a query API?](https://help.aliyun.com/document_detail/2615031.html)
- * ### [](#)Precautions
- * The storage duration of the monitoring data of each cloud service is related to the `Period` parameter (statistical period). A larger value of the `Period` parameter indicates that the monitoring data is distributed in a larger time range and the storage duration of the monitoring data is longer. The following list describes the specific relationships:
- * - The storage duration is 7 days if the value of the `Period` parameter is less than 60 seconds.
- * - The storage duration is 31 days if the value of the `Period` parameter is 60 seconds.
- * - The storage duration is 91 days if the value of the `Period` parameter is greater than or equal to 300 seconds.
- * ### [](#)Operation description
- * This topic provides an example on how to query the latest monitoring data of the `CPUUtilization` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The returned result indicates that the monitoring data for the instance `i-abcdefgh12****` of the account `123456789876****` is queried at an interval of 60 seconds. The maximum, minimum, and average values of the metric are 100, 93.1, and 99.52.
+ * @description ### Before you begin
+ * - Invocations of DescribeMetricLast, DescribeMetricList, DescribeMetricData, and DescribeMetricTop share a combined free quota of 1,000,000 calls per month. After the free quota is exhausted, if you have not activated CloudMonitor Basic pay-as-you-go billing method, you cannot use this API normally. If you have activated CloudMonitor Basic pay-as-you-go billing method, the API continues to work after the free quota is exhausted, and usage beyond the free quota is automatically billed. For the method to activate pay-as-you-go billing, see [Activate pay-as-you-go billing](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.6c8f3481IbSHgG&commodityCode=cms_basic_public_cn&from_biz_channel=help_bill).
+ * - The rate limit for a single API operation is 50 calls per second. This limit is shared by an Alibaba Cloud account and all Resource Access Management (RAM) users under the account.
+ * > When you invoke an API operation, if the response contains `Throttling.User` or `Request was denied due to user flow control`, the API is being throttled. For the handling method, see [How do I handle query API throttling](https://help.aliyun.com/document_detail/2615031.html).
+ * ### Notes
+ * The storage duration of cloud service monitoring data depends on the `Period` (statistical period). A larger `Period` value results in sparser monitoring data and a longer storage duration. The relationships are as follows:
+ * - If `Period` is less than 60 seconds, the storage duration is 7 days.
+ * - If `Period` is equal to 60 seconds, the storage duration is 31 days.
+ * - If `Period` is greater than or equal to 300 seconds, the storage duration is 91 days.
+ * ### Operation description
+ * This topic provides an example of how to query the latest monitoring data of the `CPUUtilization` metric for the cloud service `acs_ecs_dashboard`. The response shows that for instance `i-abcdefgh12****` under account `123456789876****`, the maximum value is 100, the minimum value is 93.1, and the average value is 99.52 at a 60-second interval.
  *
  * @param request DescribeMetricLastRequest
  * @return DescribeMetricLastResponse
@@ -4775,7 +4806,7 @@ DescribeMetricMetaListResponse Client::describeMetricMetaList(const DescribeMetr
 }
 
 /**
- * @summary You can call the DescribeMetricRuleBlackList operation to query blacklist policies.
+ * @summary Queries the list of alert blacklist policies.
  *
  * @param request DescribeMetricRuleBlackListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4842,7 +4873,7 @@ DescribeMetricRuleBlackListResponse Client::describeMetricRuleBlackListWithOptio
 }
 
 /**
- * @summary You can call the DescribeMetricRuleBlackList operation to query blacklist policies.
+ * @summary Queries the list of alert blacklist policies.
  *
  * @param request DescribeMetricRuleBlackListRequest
  * @return DescribeMetricRuleBlackListResponse
@@ -4891,9 +4922,9 @@ DescribeMetricRuleCountResponse Client::describeMetricRuleCount(const DescribeMe
 }
 
 /**
- * @summary Queries all alert rules in the alert rule list.
+ * @summary Query all rules in the alert rule list.
  *
- * @description This topic provides an example of how to query all alert rules in the alert rule list of the current Alibaba Cloud account. The response shows that the alert rule list contains only one alert rule. The alert rule is named `Rule_01` and has an ID of `applyTemplate344cfd42-0f32-4fd6-805a-88d7908a****`.
+ * @description This topic provides an example on how to query all alert rules in the alert rule list under the current Alibaba Cloud account. The response shows that the alert rule list contains only one alert rule. The name of the alert rule is `Rule_01` and the ID is `applyTemplate344cfd42-0f32-4fd6-805a-88d7908a****`.
  *
  * @param request DescribeMetricRuleListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4960,9 +4991,9 @@ DescribeMetricRuleListResponse Client::describeMetricRuleListWithOptions(const D
 }
 
 /**
- * @summary Queries all alert rules in the alert rule list.
+ * @summary Query all rules in the alert rule list.
  *
- * @description This topic provides an example of how to query all alert rules in the alert rule list of the current Alibaba Cloud account. The response shows that the alert rule list contains only one alert rule. The alert rule is named `Rule_01` and has an ID of `applyTemplate344cfd42-0f32-4fd6-805a-88d7908a****`.
+ * @description This topic provides an example on how to query all alert rules in the alert rule list under the current Alibaba Cloud account. The response shows that the alert rule list contains only one alert rule. The name of the alert rule is `Rule_01` and the ID is `applyTemplate344cfd42-0f32-4fd6-805a-88d7908a****`.
  *
  * @param request DescribeMetricRuleListRequest
  * @return DescribeMetricRuleListResponse
@@ -5071,9 +5102,9 @@ DescribeMetricRuleTemplateAttributeResponse Client::describeMetricRuleTemplateAt
 }
 
 /**
- * @summary Queries alert templates.
+ * @summary Queries the list of alert templates.
  *
- * @description This topic provides an example on how to query alert templates. In this example, the following alert templates are returned in the response: `ECS_Template1` and `ECS_Template2`.
+ * @description This topic provides an example of querying alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
  *
  * @param request DescribeMetricRuleTemplateListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5132,9 +5163,9 @@ DescribeMetricRuleTemplateListResponse Client::describeMetricRuleTemplateListWit
 }
 
 /**
- * @summary Queries alert templates.
+ * @summary Queries the list of alert templates.
  *
- * @description This topic provides an example on how to query alert templates. In this example, the following alert templates are returned in the response: `ECS_Template1` and `ECS_Template2`.
+ * @description This topic provides an example of querying alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
  *
  * @param request DescribeMetricRuleTemplateListRequest
  * @return DescribeMetricRuleTemplateListResponse
@@ -5457,7 +5488,7 @@ DescribeMonitorGroupInstancesResponse Client::describeMonitorGroupInstances(cons
 }
 
 /**
- * @summary Queries the list of alert notification pause policies for an application group by calling the DescribeMonitorGroupNotifyPolicyList operation.
+ * @summary Queries the list of alert notification pause policies for an application group.
  *
  * @param request DescribeMonitorGroupNotifyPolicyListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5500,7 +5531,7 @@ DescribeMonitorGroupNotifyPolicyListResponse Client::describeMonitorGroupNotifyP
 }
 
 /**
- * @summary Queries the list of alert notification pause policies for an application group by calling the DescribeMonitorGroupNotifyPolicyList operation.
+ * @summary Queries the list of alert notification pause policies for an application group.
  *
  * @param request DescribeMonitorGroupNotifyPolicyListRequest
  * @return DescribeMonitorGroupNotifyPolicyListResponse
@@ -5511,9 +5542,9 @@ DescribeMonitorGroupNotifyPolicyListResponse Client::describeMonitorGroupNotifyP
 }
 
 /**
- * @summary You can call the DescribeMonitorGroups operation to query a list of application groups.
+ * @summary Queries the list of application groups by calling the DescribeMonitorGroups operation.
  *
- * @description This topic provides an example of how to query a list of application groups. The response shows that two application groups are returned: `testGroup124` and `test123`.
+ * @description This topic provides an example of how to query the list of application groups for the current account. The response shows that the current account has two application groups: `testGroup124` and `test123`.
  *
  * @param request DescribeMonitorGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5596,9 +5627,9 @@ DescribeMonitorGroupsResponse Client::describeMonitorGroupsWithOptions(const Des
 }
 
 /**
- * @summary You can call the DescribeMonitorGroups operation to query a list of application groups.
+ * @summary Queries the list of application groups by calling the DescribeMonitorGroups operation.
  *
- * @description This topic provides an example of how to query a list of application groups. The response shows that two application groups are returned: `testGroup124` and `test123`.
+ * @description This topic provides an example of how to query the list of application groups for the current account. The response shows that the current account has two application groups: `testGroup124` and `test123`.
  *
  * @param request DescribeMonitorGroupsRequest
  * @return DescribeMonitorGroupsResponse
@@ -5609,7 +5640,7 @@ DescribeMonitorGroupsResponse Client::describeMonitorGroups(const DescribeMonito
 }
 
 /**
- * @summary Queries the resource quotas of CloudMonitor.
+ * @summary Queries the quotas of various CloudMonitor resources.
  *
  * @param request DescribeMonitorResourceQuotaAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5640,7 +5671,7 @@ DescribeMonitorResourceQuotaAttributeResponse Client::describeMonitorResourceQuo
 }
 
 /**
- * @summary Queries the resource quotas of CloudMonitor.
+ * @summary Queries the quotas of various CloudMonitor resources.
  *
  * @param request DescribeMonitorResourceQuotaAttributeRequest
  * @return DescribeMonitorResourceQuotaAttributeResponse
@@ -6063,9 +6094,9 @@ DescribeProjectMetaResponse Client::describeProjectMeta(const DescribeProjectMet
 }
 
 /**
- * @summary Queries the details of a site monitoring task by calling the DescribeSiteMonitorAttribute operation.
+ * @summary Queries the details of a site monitoring task.
  *
- * @description This topic provides an example on how to query the details of the site monitoring task `cc641dff-c19d-45f3-ad0a-818a0c4f****`. The response shows that the task name is `test123`, the monitored address is `https://aliyun.com`, and the carrier is `Alibaba`.
+ * @description This topic provides an example of querying the details of the site monitoring task `cc641dff-c19d-45f3-ad0a-818a0c4f****`. The response shows that the task name is `test123`, the monitored address is `https://aliyun.com`, and the carrier is `Alibaba`.
  *
  * @param request DescribeSiteMonitorAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6100,9 +6131,9 @@ DescribeSiteMonitorAttributeResponse Client::describeSiteMonitorAttributeWithOpt
 }
 
 /**
- * @summary Queries the details of a site monitoring task by calling the DescribeSiteMonitorAttribute operation.
+ * @summary Queries the details of a site monitoring task.
  *
- * @description This topic provides an example on how to query the details of the site monitoring task `cc641dff-c19d-45f3-ad0a-818a0c4f****`. The response shows that the task name is `test123`, the monitored address is `https://aliyun.com`, and the carrier is `Alibaba`.
+ * @description This topic provides an example of querying the details of the site monitoring task `cc641dff-c19d-45f3-ad0a-818a0c4f****`. The response shows that the task name is `test123`, the monitored address is `https://aliyun.com`, and the carrier is `Alibaba`.
  *
  * @param request DescribeSiteMonitorAttributeRequest
  * @return DescribeSiteMonitorAttributeResponse
@@ -6247,7 +6278,7 @@ DescribeSiteMonitorISPCityListResponse Client::describeSiteMonitorISPCityList(co
 /**
  * @summary Queries the list of site monitoring tasks by calling the DescribeSiteMonitorList operation.
  *
- * @description This topic provides an example of how to query the list of site monitoring tasks for the current account. The response shows that the current account has one site monitoring task named `HanZhou_ECS2`.
+ * @description This topic provides an example of how to query the list of site monitoring tasks for the current account. The response shows that the current account has one site monitoring record named `HanZhou_ECS2`.
  *
  * @param request DescribeSiteMonitorListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6304,7 +6335,7 @@ DescribeSiteMonitorListResponse Client::describeSiteMonitorListWithOptions(const
 /**
  * @summary Queries the list of site monitoring tasks by calling the DescribeSiteMonitorList operation.
  *
- * @description This topic provides an example of how to query the list of site monitoring tasks for the current account. The response shows that the current account has one site monitoring task named `HanZhou_ECS2`.
+ * @description This topic provides an example of how to query the list of site monitoring tasks for the current account. The response shows that the current account has one site monitoring record named `HanZhou_ECS2`.
  *
  * @param request DescribeSiteMonitorListRequest
  * @return DescribeSiteMonitorListResponse
@@ -6500,9 +6531,9 @@ DescribeSiteMonitorStatisticsResponse Client::describeSiteMonitorStatistics(cons
 }
 
 /**
- * @summary Queries a list of detection points.
+ * @summary Queries the list of detection points.
  *
- * @description This topic provides an example of how to call the DescribeSyntheticProbeList operation to query detection point details for the China Unicom carrier in Beijing.
+ * @description This topic provides an example to query the details of detection points for the carrier China Unicom in Beijing.
  *
  * @param request DescribeSyntheticProbeListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6561,9 +6592,9 @@ DescribeSyntheticProbeListResponse Client::describeSyntheticProbeListWithOptions
 }
 
 /**
- * @summary Queries a list of detection points.
+ * @summary Queries the list of detection points.
  *
- * @description This topic provides an example of how to call the DescribeSyntheticProbeList operation to query detection point details for the China Unicom carrier in Beijing.
+ * @description This topic provides an example to query the details of detection points for the carrier China Unicom in Beijing.
  *
  * @param request DescribeSyntheticProbeListRequest
  * @return DescribeSyntheticProbeListResponse
@@ -6574,7 +6605,7 @@ DescribeSyntheticProbeListResponse Client::describeSyntheticProbeList(const Desc
 }
 
 /**
- * @summary Queries a system event.
+ * @summary Queries the details of system events.
  *
  * @param request DescribeSystemEventAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6645,7 +6676,7 @@ DescribeSystemEventAttributeResponse Client::describeSystemEventAttributeWithOpt
 }
 
 /**
- * @summary Queries a system event.
+ * @summary Queries the details of system events.
  *
  * @param request DescribeSystemEventAttributeRequest
  * @return DescribeSystemEventAttributeResponse
@@ -6849,7 +6880,7 @@ DescribeSystemEventMetaListResponse Client::describeSystemEventMetaList(const De
 }
 
 /**
- * @summary Queries a list of tag keys by calling the DescribeTagKeyList operation.
+ * @summary Calls the DescribeTagKeyList operation to query a list of tag keys.
  *
  * @param request DescribeTagKeyListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6884,7 +6915,7 @@ DescribeTagKeyListResponse Client::describeTagKeyListWithOptions(const DescribeT
 }
 
 /**
- * @summary Queries a list of tag keys by calling the DescribeTagKeyList operation.
+ * @summary Calls the DescribeTagKeyList operation to query a list of tag keys.
  *
  * @param request DescribeTagKeyListRequest
  * @return DescribeTagKeyListResponse
@@ -7113,7 +7144,7 @@ DisableHostAvailabilityResponse Client::disableHostAvailability(const DisableHos
 }
 
 /**
- * @summary You can call the DisableMetricRules operation to disable alert rules.
+ * @summary Disables alert rules.
  *
  * @param request DisableMetricRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7122,6 +7153,10 @@ DisableHostAvailabilityResponse Client::disableHostAvailability(const DisableHos
 DisableMetricRulesResponse Client::disableMetricRulesWithOptions(const DisableMetricRulesRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
   if (!!request.hasRuleId()) {
     query["RuleId"] = request.getRuleId();
   }
@@ -7144,7 +7179,7 @@ DisableMetricRulesResponse Client::disableMetricRulesWithOptions(const DisableMe
 }
 
 /**
- * @summary You can call the DisableMetricRules operation to disable alert rules.
+ * @summary Disables alert rules.
  *
  * @param request DisableMetricRulesRequest
  * @return DisableMetricRulesResponse
@@ -7197,7 +7232,10 @@ DisableSiteMonitorsResponse Client::disableSiteMonitors(const DisableSiteMonitor
 }
 
 /**
- * @summary Enables the initiative alert feature for a cloud service.
+ * @summary Enables one-click alert rules.
+ *
+ * @description This topic provides an example of setting a threshold alert rule for the `cpu_total` metric of the instance `i-uf6j91r34rnwawoo****` in the `acs_ecs_dashboard` namespace of Elastic Compute Service (ECS). The alert contact group for the alert rule is `ECS_Group`, the alert rule name is `test123`, the alert rule ID is `a151cd6023eacee2f0978e03863cc1697c89508****`, the statistical method for the Critical level is `Average`, the comparison operator for the Critical level is `GreaterThanOrEqualToThreshold`, the threshold for the Critical level is `90`, and the alert retry count for the Critical level is `3`.
+ * > On August 15, 2024, Statistics validation was added. The statistical value must be the Statistics value corresponding to the metric. For more information about how to obtain the value of this parameter, see [Alibaba Cloud service monitoring metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
  *
  * @param request EnableActiveMetricRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7206,6 +7244,14 @@ DisableSiteMonitorsResponse Client::disableSiteMonitors(const DisableSiteMonitor
 EnableActiveMetricRuleResponse Client::enableActiveMetricRuleWithOptions(const EnableActiveMetricRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
   if (!!request.hasProduct()) {
     query["Product"] = request.getProduct();
   }
@@ -7228,7 +7274,10 @@ EnableActiveMetricRuleResponse Client::enableActiveMetricRuleWithOptions(const E
 }
 
 /**
- * @summary Enables the initiative alert feature for a cloud service.
+ * @summary Enables one-click alert rules.
+ *
+ * @description This topic provides an example of setting a threshold alert rule for the `cpu_total` metric of the instance `i-uf6j91r34rnwawoo****` in the `acs_ecs_dashboard` namespace of Elastic Compute Service (ECS). The alert contact group for the alert rule is `ECS_Group`, the alert rule name is `test123`, the alert rule ID is `a151cd6023eacee2f0978e03863cc1697c89508****`, the statistical method for the Critical level is `Average`, the comparison operator for the Critical level is `GreaterThanOrEqualToThreshold`, the threshold for the Critical level is `90`, and the alert retry count for the Critical level is `3`.
+ * > On August 15, 2024, Statistics validation was added. The statistical value must be the Statistics value corresponding to the metric. For more information about how to obtain the value of this parameter, see [Alibaba Cloud service monitoring metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
  *
  * @param request EnableActiveMetricRuleRequest
  * @return EnableActiveMetricRuleResponse
@@ -7239,7 +7288,7 @@ EnableActiveMetricRuleResponse Client::enableActiveMetricRule(const EnableActive
 }
 
 /**
- * @summary The EnableEventRules operation enables one or more event rules.
+ * @summary Enables one or more event monitoring alert rules.
  *
  * @param request EnableEventRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7270,7 +7319,7 @@ EnableEventRulesResponse Client::enableEventRulesWithOptions(const EnableEventRu
 }
 
 /**
- * @summary The EnableEventRules operation enables one or more event rules.
+ * @summary Enables one or more event monitoring alert rules.
  *
  * @param request EnableEventRulesRequest
  * @return EnableEventRulesResponse
@@ -7369,7 +7418,7 @@ EnableMetricRuleBlackListResponse Client::enableMetricRuleBlackList(const Enable
 }
 
 /**
- * @summary Enables alert rules.
+ * @summary Enables one or more alert rules.
  *
  * @param request EnableMetricRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7378,6 +7427,10 @@ EnableMetricRuleBlackListResponse Client::enableMetricRuleBlackList(const Enable
 EnableMetricRulesResponse Client::enableMetricRulesWithOptions(const EnableMetricRulesRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
   if (!!request.hasRuleId()) {
     query["RuleId"] = request.getRuleId();
   }
@@ -7400,7 +7453,7 @@ EnableMetricRulesResponse Client::enableMetricRulesWithOptions(const EnableMetri
 }
 
 /**
- * @summary Enables alert rules.
+ * @summary Enables one or more alert rules.
  *
  * @param request EnableMetricRulesRequest
  * @return EnableMetricRulesResponse
@@ -7453,14 +7506,15 @@ EnableSiteMonitorsResponse Client::enableSiteMonitors(const EnableSiteMonitorsRe
 }
 
 /**
- * @summary Call the InstallMonitoringAgent operation to install the CloudMonitor agent on specified Alibaba Cloud hosts.
+ * @summary Installs the CloudMonitor agent on a specified Alibaba Cloud host.
  *
- * @description ## Prerequisites
- * Ensure that Cloud Assistant is installed on the Alibaba Cloud host. For more information, see [Cloud Assistant overview](https://help.aliyun.com/document_detail/64601.html).
+ * @description ## Before you begin
+ * Make sure that the Cloud Assistant agent is installed on the Alibaba Cloud host. For more information about how to install the Cloud Assistant agent, see [Cloud Assistant overview](https://help.aliyun.com/document_detail/64601.html).
  * ## Background information
- * This API applies only to Alibaba Cloud hosts, which are Elastic Compute Service (ECS) instances. The success rate for installing the CloudMonitor agent using this API is approximately 95%. If the installation fails, you must manually install the agent. For more information about how to install the CloudMonitor agent, see [Install and uninstall the C++ agent](https://help.aliyun.com/document_detail/183482.html).
- * ## Example
- * This example shows how to forcibly install the latest version of the CloudMonitor agent on the ECS instance `i-m5e0k0bexac8tykr****`.
+ * This operation applies only to Alibaba Cloud hosts, namely ECS instances.
+ * The success rate of installing the CloudMonitor agent by calling this API operation is approximately 95%. If the installation fails, install the agent manually. For more information about how to install the CloudMonitor agent, see [Install and uninstall the CloudMonitor agent for C++](https://help.aliyun.com/document_detail/183482.html).
+ * ## Usage notes
+ * This topic provides an example on how to forcibly install the latest version of the CloudMonitor agent on the Alibaba Cloud host i-m5e0k0bexac8tykr****.
  *
  * @param request InstallMonitoringAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7469,6 +7523,10 @@ EnableSiteMonitorsResponse Client::enableSiteMonitors(const EnableSiteMonitorsRe
 InstallMonitoringAgentResponse Client::installMonitoringAgentWithOptions(const InstallMonitoringAgentRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
   if (!!request.hasForce()) {
     query["Force"] = request.getForce();
   }
@@ -7499,14 +7557,15 @@ InstallMonitoringAgentResponse Client::installMonitoringAgentWithOptions(const I
 }
 
 /**
- * @summary Call the InstallMonitoringAgent operation to install the CloudMonitor agent on specified Alibaba Cloud hosts.
+ * @summary Installs the CloudMonitor agent on a specified Alibaba Cloud host.
  *
- * @description ## Prerequisites
- * Ensure that Cloud Assistant is installed on the Alibaba Cloud host. For more information, see [Cloud Assistant overview](https://help.aliyun.com/document_detail/64601.html).
+ * @description ## Before you begin
+ * Make sure that the Cloud Assistant agent is installed on the Alibaba Cloud host. For more information about how to install the Cloud Assistant agent, see [Cloud Assistant overview](https://help.aliyun.com/document_detail/64601.html).
  * ## Background information
- * This API applies only to Alibaba Cloud hosts, which are Elastic Compute Service (ECS) instances. The success rate for installing the CloudMonitor agent using this API is approximately 95%. If the installation fails, you must manually install the agent. For more information about how to install the CloudMonitor agent, see [Install and uninstall the C++ agent](https://help.aliyun.com/document_detail/183482.html).
- * ## Example
- * This example shows how to forcibly install the latest version of the CloudMonitor agent on the ECS instance `i-m5e0k0bexac8tykr****`.
+ * This operation applies only to Alibaba Cloud hosts, namely ECS instances.
+ * The success rate of installing the CloudMonitor agent by calling this API operation is approximately 95%. If the installation fails, install the agent manually. For more information about how to install the CloudMonitor agent, see [Install and uninstall the CloudMonitor agent for C++](https://help.aliyun.com/document_detail/183482.html).
+ * ## Usage notes
+ * This topic provides an example on how to forcibly install the latest version of the CloudMonitor agent on the Alibaba Cloud host i-m5e0k0bexac8tykr****.
  *
  * @param request InstallMonitoringAgentRequest
  * @return InstallMonitoringAgentResponse
@@ -7517,7 +7576,7 @@ InstallMonitoringAgentResponse Client::installMonitoringAgent(const InstallMonit
 }
 
 /**
- * @summary You can call the ModifyGroupMonitoringAgentProcess operation to modify the process monitoring settings for an application group.
+ * @summary Modifies process monitoring in an application group.
  *
  * @param request ModifyGroupMonitoringAgentProcessRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7560,7 +7619,7 @@ ModifyGroupMonitoringAgentProcessResponse Client::modifyGroupMonitoringAgentProc
 }
 
 /**
- * @summary You can call the ModifyGroupMonitoringAgentProcess operation to modify the process monitoring settings for an application group.
+ * @summary Modifies process monitoring in an application group.
  *
  * @param request ModifyGroupMonitoringAgentProcessRequest
  * @return ModifyGroupMonitoringAgentProcessResponse
@@ -7573,7 +7632,7 @@ ModifyGroupMonitoringAgentProcessResponse Client::modifyGroupMonitoringAgentProc
 /**
  * @summary Modifies an availability monitoring task.
  *
- * @description This topic provides an example on how to change the name of an availability monitoring task named `12345` in an application group named `123456` to `task2`.
+ * @description This topic provides an example on how to change the name of availability monitoring task `12345` in application group `123456` to `task2`.
  *
  * @param request ModifyHostAvailabilityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7638,7 +7697,7 @@ ModifyHostAvailabilityResponse Client::modifyHostAvailabilityWithOptions(const M
 /**
  * @summary Modifies an availability monitoring task.
  *
- * @description This topic provides an example on how to change the name of an availability monitoring task named `12345` in an application group named `123456` to `task2`.
+ * @description This topic provides an example on how to change the name of availability monitoring task `12345` in application group `123456` to `task2`.
  *
  * @param request ModifyHostAvailabilityRequest
  * @return ModifyHostAvailabilityResponse
@@ -7807,7 +7866,7 @@ ModifyHybridMonitorSLSGroupResponse Client::modifyHybridMonitorSLSGroup(const Mo
 }
 
 /**
- * @summary Modifies the metrics of a Simple Log Service (SLS) log monitoring task by calling the ModifyHybridMonitorTask operation.
+ * @summary Modifies the metrics of a Simple Log Service (SLS) log monitoring task.
  *
  * @description This topic provides an example on how to change the collection interval of the SLS log monitoring task `36****` to `15` seconds. The response shows that the metric is modified.
  *
@@ -7860,7 +7919,7 @@ ModifyHybridMonitorTaskResponse Client::modifyHybridMonitorTaskWithOptions(const
 }
 
 /**
- * @summary Modifies the metrics of a Simple Log Service (SLS) log monitoring task by calling the ModifyHybridMonitorTask operation.
+ * @summary Modifies the metrics of a Simple Log Service (SLS) log monitoring task.
  *
  * @description This topic provides an example on how to change the collection interval of the SLS log monitoring task `36****` to `15` seconds. The response shows that the metric is modified.
  *
@@ -7873,7 +7932,7 @@ ModifyHybridMonitorTaskResponse Client::modifyHybridMonitorTask(const ModifyHybr
 }
 
 /**
- * @summary Modifies a blacklist policy.
+ * @summary Modifies an alert blacklist policy.
  *
  * @param request ModifyMetricRuleBlackListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7944,7 +8003,7 @@ ModifyMetricRuleBlackListResponse Client::modifyMetricRuleBlackListWithOptions(c
 }
 
 /**
- * @summary Modifies a blacklist policy.
+ * @summary Modifies an alert blacklist policy.
  *
  * @param request ModifyMetricRuleBlackListRequest
  * @return ModifyMetricRuleBlackListResponse
@@ -8187,7 +8246,7 @@ ModifySiteMonitorResponse Client::modifySiteMonitor(const ModifySiteMonitorReque
 }
 
 /**
- * @summary Creates or modifies an alert contact by calling the PutContact operation.
+ * @summary Calls the PutContact operation to create or modify alert contact information.
  *
  * @param request PutContactRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8230,7 +8289,7 @@ PutContactResponse Client::putContactWithOptions(const PutContactRequest &reques
 }
 
 /**
- * @summary Creates or modifies an alert contact by calling the PutContact operation.
+ * @summary Calls the PutContact operation to create or modify alert contact information.
  *
  * @param request PutContactRequest
  * @return PutContactResponse
@@ -8469,9 +8528,9 @@ PutCustomMetricResponse Client::putCustomMetric(const PutCustomMetricRequest &re
 }
 
 /**
- * @summary Creates a custom monitoring alert rule by calling the PutCustomMetricRule operation.
+ * @summary Creates an alert rule for custom monitoring.
  *
- * @description 调用本接口前，请先调用PutCustomMetric接口上报自定义监控数据，详情请参见 [PutCustomMetric](https://help.aliyun.com/document_detail/115004.html)。
+ * @description Before calling this operation, call the PutCustomMetric operation to report custom monitoring data. For more information, see [PutCustomMetric](https://help.aliyun.com/document_detail/115004.html).
  *
  * @param request PutCustomMetricRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8562,9 +8621,9 @@ PutCustomMetricRuleResponse Client::putCustomMetricRuleWithOptions(const PutCust
 }
 
 /**
- * @summary Creates a custom monitoring alert rule by calling the PutCustomMetricRule operation.
+ * @summary Creates an alert rule for custom monitoring.
  *
- * @description 调用本接口前，请先调用PutCustomMetric接口上报自定义监控数据，详情请参见 [PutCustomMetric](https://help.aliyun.com/document_detail/115004.html)。
+ * @description Before calling this operation, call the PutCustomMetric operation to report custom monitoring data. For more information, see [PutCustomMetric](https://help.aliyun.com/document_detail/115004.html).
  *
  * @param request PutCustomMetricRuleRequest
  * @return PutCustomMetricRuleResponse
@@ -8575,10 +8634,10 @@ PutCustomMetricRuleResponse Client::putCustomMetricRule(const PutCustomMetricRul
 }
 
 /**
- * @summary Creates or modifies an event-based alert rule by calling the PutEventRule operation.
+ * @summary Creates or modifies an event-triggered alert rule by calling the PutEventRule operation.
  *
- * @description If the Event-triggered Alert Rule name does not exist, a new alert rule is created. If the Event-triggered Alert Rule name already exists, the existing alert rule is modified.
- * This topic provides an example of how to create an event-based alert rule named `myRuleName` for the Alibaba Cloud service `ecs`.
+ * @description If the specified alert rule name does not exist, a new alert rule is created. If the specified alert rule name already exists, the existing alert rule is modified.
+ * This topic provides an example on how to create an event-triggered alert rule named `myRuleName` for the Alibaba Cloud service `ecs`.
  *
  * @param request PutEventRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8633,10 +8692,10 @@ PutEventRuleResponse Client::putEventRuleWithOptions(const PutEventRuleRequest &
 }
 
 /**
- * @summary Creates or modifies an event-based alert rule by calling the PutEventRule operation.
+ * @summary Creates or modifies an event-triggered alert rule by calling the PutEventRule operation.
  *
- * @description If the Event-triggered Alert Rule name does not exist, a new alert rule is created. If the Event-triggered Alert Rule name already exists, the existing alert rule is modified.
- * This topic provides an example of how to create an event-based alert rule named `myRuleName` for the Alibaba Cloud service `ecs`.
+ * @description If the specified alert rule name does not exist, a new alert rule is created. If the specified alert rule name already exists, the existing alert rule is modified.
+ * This topic provides an example on how to create an event-triggered alert rule named `myRuleName` for the Alibaba Cloud service `ecs`.
  *
  * @param request PutEventRuleRequest
  * @return PutEventRuleResponse
@@ -8835,7 +8894,7 @@ PutExporterRuleResponse Client::putExporterRule(const PutExporterRuleRequest &re
 /**
  * @summary Creates or modifies an alert rule in a specified application group.
  *
- * @description This topic provides an example on how to create an alert rule for the `cpu_total` metric of Elastic Compute Service (ECS) in the application group `17285****`. The alert rule ID is `123456`, the alert rule name is `Rule_test`, the alert severity is `Critical`, the statistical method is `Average`, the comparison operator is `GreaterThanOrEqualToThreshold`, the threshold is `90`, and the retry count is `3`. The response shows that the alert rule is created. The alert rule ID is `123456`.
+ * @description This topic provides an example of creating an alert rule for the `cpu_total` monitoring metric of the Elastic Computing Service server (an Alibaba Cloud service) in the application group `17285****`. The alert rule ID is `123456`, the alert rule name is `Rule_test`, the alert level is `Critical`, the statistical method is `Average`, the threshold comparison operator is `GreaterThanOrEqualToThreshold`, the threshold is `90`, and the retry count is `3`. The response shows that the alert rule is created and the alert rule ID is `123456`.
  *
  * @param request PutGroupMetricRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8854,6 +8913,10 @@ PutGroupMetricRuleResponse Client::putGroupMetricRuleWithOptions(const PutGroupM
 
   if (!!request.hasDimensions()) {
     query["Dimensions"] = request.getDimensions();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasEffectiveInterval()) {
@@ -8944,7 +9007,7 @@ PutGroupMetricRuleResponse Client::putGroupMetricRuleWithOptions(const PutGroupM
 /**
  * @summary Creates or modifies an alert rule in a specified application group.
  *
- * @description This topic provides an example on how to create an alert rule for the `cpu_total` metric of Elastic Compute Service (ECS) in the application group `17285****`. The alert rule ID is `123456`, the alert rule name is `Rule_test`, the alert severity is `Critical`, the statistical method is `Average`, the comparison operator is `GreaterThanOrEqualToThreshold`, the threshold is `90`, and the retry count is `3`. The response shows that the alert rule is created. The alert rule ID is `123456`.
+ * @description This topic provides an example of creating an alert rule for the `cpu_total` monitoring metric of the Elastic Computing Service server (an Alibaba Cloud service) in the application group `17285****`. The alert rule ID is `123456`, the alert rule name is `Rule_test`, the alert level is `Critical`, the statistical method is `Average`, the threshold comparison operator is `GreaterThanOrEqualToThreshold`, the threshold is `90`, and the retry count is `3`. The response shows that the alert rule is created and the alert rule ID is `123456`.
  *
  * @param request PutGroupMetricRuleRequest
  * @return PutGroupMetricRuleResponse
@@ -9170,6 +9233,10 @@ PutMetricRuleTargetsResponse Client::putMetricRuleTargets(const PutMetricRuleTar
 PutMonitorGroupDynamicRuleResponse Client::putMonitorGroupDynamicRuleWithOptions(const PutMonitorGroupDynamicRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
   if (!!request.hasGroupId()) {
     query["GroupId"] = request.getGroupId();
   }
@@ -9211,7 +9278,7 @@ PutMonitorGroupDynamicRuleResponse Client::putMonitorGroupDynamicRule(const PutM
 }
 
 /**
- * @summary Configures global settings for the CloudMonitor agent.
+ * @summary Calls the PutMonitoringConfig operation to set the global configuration of the CloudMonitor agent.
  *
  * @param request PutMonitoringConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9222,6 +9289,10 @@ PutMonitoringConfigResponse Client::putMonitoringConfigWithOptions(const PutMoni
   json query = {};
   if (!!request.hasAutoInstall()) {
     query["AutoInstall"] = request.getAutoInstall();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasEnableInstallAgentNewECS()) {
@@ -9246,7 +9317,7 @@ PutMonitoringConfigResponse Client::putMonitoringConfigWithOptions(const PutMoni
 }
 
 /**
- * @summary Configures global settings for the CloudMonitor agent.
+ * @summary Calls the PutMonitoringConfig operation to set the global configuration of the CloudMonitor agent.
  *
  * @param request PutMonitoringConfigRequest
  * @return PutMonitoringConfigResponse
@@ -9257,10 +9328,10 @@ PutMonitoringConfigResponse Client::putMonitoringConfig(const PutMonitoringConfi
 }
 
 /**
- * @summary Configures a threshold alert rule.
+ * @summary Creates or modifies an alert rule.
  *
- * @description This topic provides an example on how to configure a threshold alert rule for the `cpu_total` metric of the Elastic Computing Service (ECS) instance `i-uf6j91r34rnwawoo****` in the `acs_ecs_dashboard` namespace. The alert contact group is `ECS_Group`, the alert rule name is `test123`, the alert rule ID is `a151cd6023eacee2f0978e03863cc1697c89508****`, the statistical method for the Critical level is `Average`, the comparison operator for the Critical level is `GreaterThanOrEqualToThreshold`, the threshold for the Critical level is `90`, and the retry count for the Critical level is `3`.
- * > As of August 15, 2024, Statistics validation is increased. The statistical value must match the Statistics of the corresponding metric. For information about how to obtain the value of this parameter, see [Alibaba Cloud service monitoring metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
+ * @description This topic provides an example on how to configure a threshold-based alert rule for the `cpu_total` metric of a cloud server (ECS) instance `i-uf6j91r34rnwawoo****` in the `acs_ecs_dashboard` namespace. The alert contact group for the alert rule is `ECS_Group`, the alert rule name is `test123`, the alert rule ID is `a151cd6023eacee2f0978e03863cc1697c89508****`, the statistical method for the Critical level is `Average`, the comparison operator for the Critical level is `GreaterThanOrEqualToThreshold`, the threshold for the Critical level is `90`, and the alert retry count for the Critical level is `3`.
+ * > On August 15, 2024, Statistics validation is increased. The statistical value must match the Statistics of the corresponding metric. For more information about how to obtain the valid values for this parameter, see [Alibaba Cloud service metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
  *
  * @param tmpReq PutResourceMetricRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9285,6 +9356,10 @@ PutResourceMetricRuleResponse Client::putResourceMetricRuleWithOptions(const Put
 
   if (!!request.hasContactGroups()) {
     query["ContactGroups"] = request.getContactGroups();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasEffectiveInterval()) {
@@ -9373,10 +9448,10 @@ PutResourceMetricRuleResponse Client::putResourceMetricRuleWithOptions(const Put
 }
 
 /**
- * @summary Configures a threshold alert rule.
+ * @summary Creates or modifies an alert rule.
  *
- * @description This topic provides an example on how to configure a threshold alert rule for the `cpu_total` metric of the Elastic Computing Service (ECS) instance `i-uf6j91r34rnwawoo****` in the `acs_ecs_dashboard` namespace. The alert contact group is `ECS_Group`, the alert rule name is `test123`, the alert rule ID is `a151cd6023eacee2f0978e03863cc1697c89508****`, the statistical method for the Critical level is `Average`, the comparison operator for the Critical level is `GreaterThanOrEqualToThreshold`, the threshold for the Critical level is `90`, and the retry count for the Critical level is `3`.
- * > As of August 15, 2024, Statistics validation is increased. The statistical value must match the Statistics of the corresponding metric. For information about how to obtain the value of this parameter, see [Alibaba Cloud service monitoring metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
+ * @description This topic provides an example on how to configure a threshold-based alert rule for the `cpu_total` metric of a cloud server (ECS) instance `i-uf6j91r34rnwawoo****` in the `acs_ecs_dashboard` namespace. The alert contact group for the alert rule is `ECS_Group`, the alert rule name is `test123`, the alert rule ID is `a151cd6023eacee2f0978e03863cc1697c89508****`, the statistical method for the Critical level is `Average`, the comparison operator for the Critical level is `GreaterThanOrEqualToThreshold`, the threshold for the Critical level is `90`, and the alert retry count for the Critical level is `3`.
+ * > On August 15, 2024, Statistics validation is increased. The statistical value must match the Statistics of the corresponding metric. For more information about how to obtain the valid values for this parameter, see [Alibaba Cloud service metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
  *
  * @param request PutResourceMetricRuleRequest
  * @return PutResourceMetricRuleResponse
@@ -9387,10 +9462,10 @@ PutResourceMetricRuleResponse Client::putResourceMetricRule(const PutResourceMet
 }
 
 /**
- * @summary Creates multiple threshold alert rules for a specified metric of a specified resource by calling the PutResourceMetricRules operation.
+ * @summary Sets multiple threshold alert rules for a specified metric of a specified resource.
  *
- * @description 本文将提供一个示例，为云服务器ECS `acs_ecs_dashboard`的实例`i-uf6j91r34rnwawoo****`中的监控项`cpu_total`设置阈值报警规则。该报警规则的报警联系组为`ECS_Group`、报警规则名称为`test123`、报警规则ID为`a151cd6023eacee2f0978e03863cc1697c89508****`、Critical级别的统计方法为`Average`、Critical级别的比较符为`GreaterThanOrEqualToThreshold`、Critical级别的阈值为`90`和Critical级别的报警重试次数为`3`。
- * > 2024-08-15 增加Statistics校验，统计值只能填对应指标的Statistics。关于如何获取该参数的取值，请参见[云产品监控项](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics)。
+ * @description This topic provides an example of the Settings for a threshold alert rule for the `cpu_total` monitoring metric of the ECS server `i-uf6j91r34rnwawoo****` in the `acs_ecs_dashboard` namespace. The alert contact group for the alert rule is `ECS_Group`, the alert rule name is `test123`, the alert rule ID is `a151cd6023eacee2f0978e03863cc1697c89508****`, the statistical method for the Critical level is `Average`, the comparison operator for the Critical level is `GreaterThanOrEqualToThreshold`, the threshold for the Critical level is `90`, and the alert retry count for the Critical level is `3`.
+ * > On August 15, 2024, Statistics validation was increased. The statistical value must match the Statistics value of the corresponding metric. For more information about how to obtain the value of this parameter, see [Alibaba Cloud service monitoring metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
  *
  * @param request PutResourceMetricRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9399,6 +9474,10 @@ PutResourceMetricRuleResponse Client::putResourceMetricRule(const PutResourceMet
 PutResourceMetricRulesResponse Client::putResourceMetricRulesWithOptions(const PutResourceMetricRulesRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
   if (!!request.hasRules()) {
     query["Rules"] = request.getRules();
   }
@@ -9421,10 +9500,10 @@ PutResourceMetricRulesResponse Client::putResourceMetricRulesWithOptions(const P
 }
 
 /**
- * @summary Creates multiple threshold alert rules for a specified metric of a specified resource by calling the PutResourceMetricRules operation.
+ * @summary Sets multiple threshold alert rules for a specified metric of a specified resource.
  *
- * @description 本文将提供一个示例，为云服务器ECS `acs_ecs_dashboard`的实例`i-uf6j91r34rnwawoo****`中的监控项`cpu_total`设置阈值报警规则。该报警规则的报警联系组为`ECS_Group`、报警规则名称为`test123`、报警规则ID为`a151cd6023eacee2f0978e03863cc1697c89508****`、Critical级别的统计方法为`Average`、Critical级别的比较符为`GreaterThanOrEqualToThreshold`、Critical级别的阈值为`90`和Critical级别的报警重试次数为`3`。
- * > 2024-08-15 增加Statistics校验，统计值只能填对应指标的Statistics。关于如何获取该参数的取值，请参见[云产品监控项](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics)。
+ * @description This topic provides an example of the Settings for a threshold alert rule for the `cpu_total` monitoring metric of the ECS server `i-uf6j91r34rnwawoo****` in the `acs_ecs_dashboard` namespace. The alert contact group for the alert rule is `ECS_Group`, the alert rule name is `test123`, the alert rule ID is `a151cd6023eacee2f0978e03863cc1697c89508****`, the statistical method for the Critical level is `Average`, the comparison operator for the Critical level is `GreaterThanOrEqualToThreshold`, the threshold for the Critical level is `90`, and the alert retry count for the Critical level is `3`.
+ * > On August 15, 2024, Statistics validation was increased. The statistical value must match the Statistics value of the corresponding metric. For more information about how to obtain the value of this parameter, see [Alibaba Cloud service monitoring metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
  *
  * @param request PutResourceMetricRulesRequest
  * @return PutResourceMetricRulesResponse

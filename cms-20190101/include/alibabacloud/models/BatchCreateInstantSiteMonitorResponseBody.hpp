@@ -122,9 +122,9 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The HTTP status code.
     // 
-    // > A value of 200 indicates that the request was successful.
+    // > A value of 200 indicates that the operation is successful.
     shared_ptr<string> code_ {};
     // The information about the site monitoring tasks.
     shared_ptr<vector<BatchCreateInstantSiteMonitorResponseBody::Data>> data_ {};
@@ -132,11 +132,9 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation was successful. Valid values:
-    // 
-    // - true: The operation was successful.
-    // 
-    // - false: The operation failed.
+    // Indicates whether the operation is successful. Valid values:
+    // * true: The operation is successful.
+    // * false: The operation fails.
     shared_ptr<bool> success_ {};
   };
 

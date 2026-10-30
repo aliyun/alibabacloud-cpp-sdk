@@ -75,9 +75,9 @@ namespace Models
 
 
   protected:
-    // The end timestamp for pausing notifications.
+    // The end timestamp.
     // 
-    // The value is a UNIX timestamp, which represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // Unit: milliseconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
@@ -85,14 +85,16 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // The type of the pause notification. Currently, only PauseNotify is supported.
+    // The type of the pause notification.
+    // 
+    // Currently, only PauseNotify is supported.
     // 
     // This parameter is required.
     shared_ptr<string> policyType_ {};
     shared_ptr<string> regionId_ {};
-    // The start timestamp for pausing notifications.
+    // The start timestamp.
     // 
-    // The value is a UNIX timestamp, which represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // Unit: milliseconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};

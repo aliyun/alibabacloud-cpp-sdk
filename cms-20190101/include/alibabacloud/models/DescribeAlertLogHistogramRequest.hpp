@@ -206,51 +206,54 @@ namespace Models
   protected:
     // The alert contact group.
     shared_ptr<string> contactGroup_ {};
-    // The end timestamp of the alert logs to be queried.
+    // The end timestamp for querying alert history.
     // 
     // Unit: milliseconds.
     // 
-    // >
-    // 
-    // - You can query only the alert logs within the last year.
-    // 
-    // - The interval between the start time (`StartTime`) and end time (`EndTime`) must be less than or equal to 15 days.
+    // > - You can query only the alert history within the last year.
+    // > - The interval between the start time (StartTime) and end time (EndTime) must be less than or equal to 15 days.
     shared_ptr<int64_t> endTime_ {};
-    // The type of the alert event. Valid values:
+    // The alert type. Valid values:
     // 
     // - TRIGGERED: The alert is triggered.
-    // 
-    // - RESOLVED: The alert is resolved.
+    // - RESOLVED: The alert recovers.
     shared_ptr<string> eventType_ {};
-    // The dimensions based on which data is aggregated. This parameter is equivalent to the GROUP BY clause in SQL. Valid values:
-    // 
-    // - `product`: aggregates data by cloud service.
-    // 
-    // - `level`: aggregates data by alert level.
-    // 
-    // - `groupId`: aggregates data by application group.
-    // 
-    // - `contactGroup`: aggregates data by alert contact group.
-    // 
-    // - `product,metricName`: aggregates data both by cloud service and by metric.
+    // Aggregates data by spatial dimension, equivalent to Group By in SQL. Valid values:
+    // - `product`: aggregates by Alibaba Cloud service.
+    // - `level`: aggregates by alert level.
+    // - `groupId`: aggregates by application group.
+    // - `contactGroup`: aggregates by alert contact group.
+    // - `product,metricName`: aggregates by Alibaba Cloud service and metric.
     shared_ptr<string> groupBy_ {};
-    // The ID of the application group.
+    // The application group ID.
     shared_ptr<string> groupId_ {};
-    // The statistical period of alert logs. Unit: minutes.
+    // The period for obtaining logs. Unit: minutes.
     shared_ptr<string> lastMin_ {};
-    // The severity level and notification methods of the alert. Valid values:
+    // The alert level and notification method. Valid values:
     // 
-    // - P4: Alert notifications are sent by using emails and DingTalk chatbots.
+    // <props="china">- P2: phone call + text message + email + DingTalk chatbot.
     // 
-    // - OK: No alert is generated.
+    // <props="china">- P3: text message + email + DingTalk chatbot.
+    // 
+    // <props="china">- P4: email + DingTalk chatbot.
+    // 
+    // <props="china">- OK: no alert.
+    // 
+    // <props="intl">- P4: email + DingTalk chatbot.
+    // 
+    // <props="intl">- OK: no alert.
+    // 
+    // <props="partner">- P4: email + DingTalk chatbot.
+    // 
+    // <props="partner">- OK: no alert.
     shared_ptr<string> level_ {};
     // The metric name.
     // 
-    // > For more information about the metrics of different cloud services, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+    // > For information about the metrics of Alibaba Cloud services, see [Metrics](https://help.aliyun.com/document_detail/163515.html).
     shared_ptr<string> metricName_ {};
     // The namespace of the Alibaba Cloud service.
     // 
-    // > For more information about the namespaces of different cloud services, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+    // > For information about the namespaces of Alibaba Cloud services, see [Metrics](https://help.aliyun.com/document_detail/163515.html).
     shared_ptr<string> namespace_ {};
     // The page number.
     // 
@@ -263,39 +266,34 @@ namespace Models
     // The abbreviation of the Alibaba Cloud service name.
     shared_ptr<string> product_ {};
     shared_ptr<string> regionId_ {};
-    // The ID of the alert rule.
+    // The alert rule ID.
     // 
-    // For more information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
+    // 
+    // For information about how to obtain the alert rule ID, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
     shared_ptr<string> ruleId_ {};
-    // The name of the alert rule.
+    // The alert rule name.
     shared_ptr<string> ruleName_ {};
-    // The keyword that is used to query alert logs.
+    // The keyword for searching alert history.
     shared_ptr<string> searchKey_ {};
     // The alert status. Valid values:
-    // 
-    // - 0: The alert is triggered or cleared.
-    // 
-    // - 1: The alert is ineffective.
-    // 
-    // - 2: The alert is muted and not triggered in a specified period.
-    // 
+    // - 0: An alert is triggered or the alert recovers to Normal.
+    // - 1: The alert is not in the effective period.
+    // - 2: The mute for epoch.
     // - 3: The host is restarting.
+    // - 4: Alerts are not send.
     // 
-    // - 4: No alert notification is sent.
-    // 
-    // If the value of the SendStatus parameter is 0, the value P4 of the Level parameter indicates a triggered alert and the value OK indicates a cleared alert.
+    // <props="china">When the alert status is 0, if the value of Level is P2, P3, or P4, an alert is triggered. If the value of Level is OK, the alert recovers to Normal.
+    // <props="intl">When the alert status is 0, if the value of Level is P4, an alert is triggered. If the value of Level is OK, the alert recovers to Normal.
+    // <props="partner">When the alert status is 0, if the value of Level is P4, an alert is triggered. If the value of Level is OK, the alert recovers to Normal.
     shared_ptr<string> sendStatus_ {};
-    // This parameter is deprecated.
+    // **[Deprecated]** This parameter is deprecated and does not need to be specified.
     shared_ptr<string> sourceType_ {};
-    // The start timestamp of the alert logs to be queried.
+    // The start timestamp for querying alert history.
     // 
     // Unit: milliseconds.
     // 
-    // >
-    // 
-    // - You can query only the alert logs within the last year.
-    // 
-    // - The interval between the start time (`StartTime`) and end time (`EndTime`) must be less than or equal to 15 days.
+    // > - You can query only the alert history within the last year.
+    // > - The interval between the start time (StartTime) and end time (EndTime) must be less than or equal to 15 days.
     shared_ptr<int64_t> startTime_ {};
   };
 

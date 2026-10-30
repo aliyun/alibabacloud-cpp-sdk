@@ -138,7 +138,7 @@ namespace Models
     protected:
       // The keyword for event filtering. When the event content contains this keyword, an alert is automatically triggered.
       shared_ptr<string> customFilters_ {};
-      // The type of the Event-triggered Alert Rule. Valid values of N: 1 to 50. Valid values:
+      // The type of the event-triggered alert rule. Valid values of N: 1 to 50. Valid values:
       // 
       // - StatusNotification: fault notification.
       // 
@@ -148,7 +148,7 @@ namespace Models
       // 
       // - \\*: unlimited.
       shared_ptr<vector<string>> eventTypeList_ {};
-      // The level of the Event-triggered Alert Rule. Valid values of N: 1 to 50. Valid values:
+      // The level of the event-triggered alert rule. Valid values of N: 1 to 50. Valid values:
       // 
       // - CRITICAL: critical.
       // 
@@ -158,18 +158,18 @@ namespace Models
       // 
       // - \\*: all levels.
       shared_ptr<vector<string>> levelList_ {};
-      // The name of the Event-triggered Alert Rule. Valid values of N: 1 to 50.
+      // The name of the event-triggered alert rule. Valid values of N: 1 to 50.
       shared_ptr<vector<string>> nameList_ {};
       // The Alibaba Cloud service type. Valid values of N: 1 to 50.
       // 
-      // >For information about the Alibaba Cloud services supported by Event-triggered Alert Rules, see [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html).
+      // >For information about the Alibaba Cloud services supported by event-triggered alert rules, see [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html).
       // 
       // This parameter is required.
       shared_ptr<string> product_ {};
       // The SQL filter for events. When the event content meets the SQL condition, an alert is automatically triggered.
       // > The syntax of the SQL event filter is consistent with the query syntax of Simple Log Service (SLS).
       shared_ptr<string> SQLFilter_ {};
-      // The status of the Event-triggered Alert Rule. Valid values of N: 1 to 50.
+      // The status of the event-triggered alert rule. Valid values of N: 1 to 50.
       shared_ptr<vector<string>> statusList_ {};
     };
 
@@ -235,30 +235,30 @@ namespace Models
 
 
   protected:
-    // The description of the Event-triggered Alert Rule.
+    // The description of the event-triggered alert rule.
     shared_ptr<string> description_ {};
-    // The pattern of the Event-triggered Alert Rule.
+    // The pattern of the event-triggered alert rule.
     // 
     // This parameter is required.
     shared_ptr<vector<PutEventRuleRequest::EventPattern>> eventPattern_ {};
-    // The type of the Event-triggered Alert Rule. Valid values:
+    // The type of the event-triggered alert rule. Valid values:
     // 
     // - SYSTEM: system event.
     // - CUSTOM: custom event.
     shared_ptr<string> eventType_ {};
-    // The ID of the application group to which the Event-triggered Alert Rule belongs.
+    // The ID of the application group to which the event-triggered alert rule belongs.
     shared_ptr<string> groupId_ {};
     shared_ptr<string> regionId_ {};
-    // The name of the Event-triggered Alert Rule.
+    // The name of the event-triggered alert rule.
     // 
     // This parameter is required.
     shared_ptr<string> ruleName_ {};
     // The mute period. Unit: seconds.
     shared_ptr<int64_t> silenceTime_ {};
-    // The status of the Event-triggered Alert Rule. Valid values:
+    // The status of the event-triggered alert rule. Valid values:
     // 
-    // - ENABLED: enabled.
-    // - DISABLED: disabled.
+    // - ENABLED: Enabled.
+    // - DISABLED: Disabled.
     shared_ptr<string> state_ {};
   };
 

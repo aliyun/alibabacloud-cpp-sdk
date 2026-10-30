@@ -104,9 +104,9 @@ namespace Models
 
 
     protected:
-      // The Alibaba Cloud Resource Name (ARN) of the resource. Format: `acs:{AbbreviatedServiceName}:{regionId}:{userId}:/{ResourceType}/{ResourceName}/message`. Example: `acs:mns:ap-southeast-1:120886317861****:/queues/test123/message`. The following list describes the parameters:
+      // The resource ARN. Format: `acs:{AbbreviatedCloudServiceName}:{regionId}:{userId}:/{ResourceType}/{ResourceName}/message`. Example: `acs:mns:cn-hangzhou:120886317861****:/queues/test123/message`. The following list describes the parameters:
       // 
-      // - {AbbreviatedServiceName}: Only Simple Message Queue (formerly MNS) is supported.
+      // - {AbbreviatedCloudServiceName}: Only Simple Message Queue (formerly MNS) is supported.
       // 
       // - {userId}: The Alibaba Cloud account ID.
       // 
@@ -117,14 +117,14 @@ namespace Models
       //   - **queues**: queue.
       //   - **topics**: topic.
       // 
-      // - {ResourceName}: The name of the resource.
+      // - {ResourceName}: The resource name.
       // 
       //   - If the resource type is **queues**, the resource name is the queue name.
       //   - If the resource type is **topics**, the resource name is the topic name.
       shared_ptr<string> arn_ {};
       // The ID of the alert trigger target.
       shared_ptr<string> id_ {};
-      // The JSON-formatted parameters for the alert callback.
+      // The JSON-formatted parameters of the alert callback.
       shared_ptr<string> jsonParams_ {};
       // The alert level. Valid values:
       // 
@@ -207,7 +207,7 @@ namespace Models
       // - TelnetLatency: Average.
       // - PingLostRate: Average.
       // 
-      // > The statistical method for status code metrics is the raw value (Value). The statistical method for latency or packet loss rate metrics is the average value (Average).
+      // > The statistical method for status code metrics is the original value (Value). The statistical method for latency or packet loss rate metrics is the average value (Average).
       shared_ptr<string> aggregate_ {};
       // The metric for the alert. Valid values of N: 1 to 21. Valid values:
       // 
@@ -225,7 +225,7 @@ namespace Models
       // - `>=`
       // - `<`
       // - `<=`
-      // - `=`.
+      // - `=`
       shared_ptr<string> operator_ {};
       // The number of alert retries. Valid values of N: 1 to 21.
       shared_ptr<int32_t> times_ {};
@@ -335,42 +335,42 @@ namespace Models
 
 
     protected:
-      // HTTP请求的Header。格式为`参数名:参数`，多个参数之间用回车符分隔，例如：
+      // The header of the HTTP request. The format is `Parameter name:Parameter value`. Separate multiple parameters with line breaks. Example:
       // ```
       // params1:value1
       // params2:value2
       // ```
       shared_ptr<string> httpHeader_ {};
-      // 探测类型的方法。取值：
+      // The method for the detection type. Valid values:
       // 
       // - GET
       // - POST
       // - HEAD
       // 
-      // >如果任务的探测类型为HTTP，则需要设置该参数。
+      // > If the detection type is HTTP, set this parameter.
       shared_ptr<string> httpMethod_ {};
-      // 匹配HTTP响应内容的报警规则。取值：
-      // - true：如果HTTP响应内容包含设置的报警规则，则报警。
-      // - false：如果HTTP响应内容不包含设置的报警规则，则报警。
+      // The alert rule for matching HTTP response content. Valid values:
+      // - true: An alert is triggered if the HTTP response content contains the specified alert rule content.
+      // - false: An alert is triggered if the HTTP response content does not contain the specified alert rule content.
       // 
-      // >如果任务的探测类型为HTTP，则该参数生效。
+      // > This parameter takes effect only when the detection type is HTTP.
       shared_ptr<bool> httpNegative_ {};
-      // HTTP探测类型探测请求的Post内容。
+      // The POST content of the HTTP detection request.
       shared_ptr<string> httpPostContent_ {};
-      // HTTP探测类型的响应字符集。
+      // The response character set for HTTP detection.
       // 
-      // > 仅支持UTF-8。
+      // > Only UTF-8 is supported.
       shared_ptr<string> httpResponseCharset_ {};
-      // 匹配响应的内容。
+      // The content to match in the response.
       shared_ptr<string> httpResponseMatchContent_ {};
-      // HTTP、Telnet探测类型的探测URI地址。
+      // The URI for HTTP or Telnet detection.
       shared_ptr<string> httpURI_ {};
-      // 探测频率。单位：秒。取值：15、30、60、120、300、900、1800和3600。
+      // The detection frequency. Unit: seconds. Valid values: 15, 30, 60, 120, 300, 900, 1800, and 3600.
       // 
-      // > 仅3.5.1及以上版本的云监控插件支持该参数。
+      // > Only CloudMonitor agent 3.5.1 or later supports this parameter.
       shared_ptr<int32_t> interval_ {};
-      // 探测的域名或地址。
-      // >如果探测任务类型为PING，则需要设置该参数。
+      // The domain name or address to detect.
+      // > If the detection type is PING, set this parameter.
       shared_ptr<string> telnetOrPingHost_ {};
     };
 
@@ -439,36 +439,36 @@ namespace Models
 
 
     protected:
-      // 报警生效的结束时间。取值范围：0~23。
+      // The end time when the alert takes effect.
       // 
-      // 例如：`AlertConfig.StartTime`为0，`AlertConfig.EndTime`为22，表示报警生效时间为00:00:00至22:00:00。
+      // The value is an integer in the range of 0 to 23. Unit: hours. The value indicates the hour at which the effective period ends. The actual end point is 00:00:00 of the specified hour. For example, a value of 22 indicates that the effective period ends at 22:00:00. The time zone is UTC+8.
       // 
-      // >如果报警不在生效时间内，则超过阈值也不会发送报警通知。
+      // > If the current time is not within the effective time window, alert notifications are not sent even if the threshold is exceeded.
       shared_ptr<int32_t> endTime_ {};
-      // 报警通知类型。取值：
+      // The alert notification type. Valid values:
       // 
-      // <props="china">- 2：电话+短信+邮件+钉钉机器人。
+      // <props="china">- 2: phone call + text message + email + DingTalk chatbot.
       // 
-      // <props="china">- 1：短信+邮件+钉钉机器人。
+      // <props="china">- 1: text message + email + DingTalk chatbot.
       // 
-      // <props="china">- 0：邮件+钉钉机器人。
+      // <props="china">- 0: email + DingTalk chatbot.
       // 
       // 
-      // <props="intl">0：邮件+钉钉机器人。
+      // <props="intl">0: email + DingTalk chatbot.
       // 
-      // <props="partner">0：邮件+钉钉机器人。
+      // <props="partner">0: email + DingTalk chatbot.
       // 
       // This parameter is required.
       shared_ptr<int32_t> notifyType_ {};
-      // 通道沉默时间。单位：秒，默认值：86400（1天）。
+      // The mute period. Unit: seconds. Default value: 86400 (1 day).
       shared_ptr<int32_t> silenceTime_ {};
-      // 报警生效的开始时间。取值范围：0~23。
+      // The start time when the alert takes effect.
       // 
-      // 例如：`AlertConfig.StartTime`为0，`AlertConfig.EndTime`为22，表示报警生效时间为00:00:00至22:00:00。
+      // The value is an integer in the range of 0 to 23. Unit: hours. The value indicates the hour at which the effective period starts. The actual start point is 00:00:00 of the specified hour. For example, a value of 0 indicates that the effective period starts at 00:00:00. The time zone is UTC+8.
       // 
-      // >如果报警不在生效时间内，则超过阈值也不会发送报警通知。
+      // > If the current time is not within the effective time window, alert notifications are not sent even if the threshold is exceeded.
       shared_ptr<int32_t> startTime_ {};
-      // URL回调地址。
+      // The webhook address.
       shared_ptr<string> webHook_ {};
     };
 
@@ -564,7 +564,7 @@ namespace Models
     shared_ptr<vector<CreateHostAvailabilityRequest::AlertConfigEscalationList>> alertConfigEscalationList_ {};
     // The alert trigger targets.
     shared_ptr<vector<CreateHostAvailabilityRequest::AlertConfigTargetList>> alertConfigTargetList_ {};
-    // The ID of the application group.
+    // The application group ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> groupId_ {};
@@ -586,7 +586,7 @@ namespace Models
     // 
     // - PING
     // - TELNET
-    // - HTTP.
+    // - HTTP
     // 
     // This parameter is required.
     shared_ptr<string> taskType_ {};

@@ -131,43 +131,39 @@ namespace Models
 
 
       protected:
-        // The Alibaba Cloud Resource Name (ARN) of the resource.
+        // The resource ARN.
         // 
-        // For more information, see [DescribeMetricRuleTargets](https://help.aliyun.com/document_detail/121592.html).
+        // For information about how to obtain the resource ARN, see [DescribeMetricRuleTargets](https://help.aliyun.com/document_detail/121592.html).
         // 
-        // The ARN of a resource is in the following format: `acs:{product-abbreviation}:{regionId}:{userId}:/{resource-type}/{resource-name}/message`. For example: `acs:mns:cn-hangzhou:120886317861****:/queues/test123/message`. The parameters are described as follows:
+        // The resource ARN is in the format of `acs:{cloud_service_abbreviation}:{regionId}:{userId}:/{resource_type}/{resource_name}/message`. Example: `acs:mns:cn-hangzhou:120886317861****:/queues/test123/message`. The parameters are described as follows:
         // 
-        // - {product-abbreviation}: Currently, only Simple Message Queue (formerly MNS) is supported.
+        // - {cloud_service_abbreviation}: Currently, only Simple Message Queue (formerly MNS) is supported.
         // 
-        // - {userId}: The ID of your Alibaba Cloud account.
+        // - {userId}: The Alibaba Cloud account ID.
         // 
-        // - {regionId}: The region where the Simple Message Queue (formerly MNS) queue or subject is located.
+        // - {regionId}: The region where Simple Message Queue (formerly MNS) or the topic resides.
         // 
-        // - {resource-type}: The type of the resource that receives alerts. Valid values:
+        // - {resource_type}: The type of the resource that accepts alerts. Valid values:
         // 
-        //   - **queues**: a queue.
+        //   - **queues**: queue.
+        //   - **topics**: topic.
         // 
-        //   - **topics**: a subject.
-        // 
-        // - {resource-name}: The name of the resource.
+        // - {resource_name}: The resource name.
         // 
         //   - If the resource type is **queues**, the resource name is the queue name.
-        // 
-        //   - If the resource type is **topics**, the resource name is the subject name.
+        //   - If the resource type is **topics**, the resource name is the topic name.
         shared_ptr<string> arn_ {};
-        // The ID of the alert-triggered target.
+        // The ID of the alert trigger target.
         // 
-        // For more information, see [DescribeMetricRuleTargets](https://help.aliyun.com/document_detail/121592.html).
+        // For information about how to obtain the alert trigger target ID, see [DescribeMetricRuleTargets](https://help.aliyun.com/document_detail/121592.html).
         shared_ptr<string> id_ {};
         // The JSON-formatted parameters for the alert callback.
         shared_ptr<string> jsonParams_ {};
         // The alert level. Valid values:
         // 
-        // - INFO: information
-        // 
-        // - WARN: warning
-        // 
-        // - CRITICAL: critical
+        // - INFO: information.
+        // - WARN: warning.
+        // - CRITICAL: critical.
         shared_ptr<string> level_ {};
       };
 
@@ -247,69 +243,55 @@ namespace Models
 
 
     protected:
-      // The comparison operator for the threshold of the Critical alert level. The value of N can be 1 to 200. Valid values:
+      // The comparison operator for the Critical level threshold. Valid values of N: 1 to 200. Valid values:
       // 
-      // - GreaterThanOrEqualToThreshold: greater than or equal to
-      // 
-      // - GreaterThanThreshold: greater than
-      // 
-      // - LessThanOrEqualToThreshold: less than or equal to
-      // 
-      // - LessThanThreshold: less than
-      // 
-      // - NotEqualToThreshold: not equal to
-      // 
-      // - GreaterThanYesterday: greater than the value at the same time yesterday
-      // 
-      // - LessThanYesterday: less than the value at the same time yesterday
-      // 
-      // - GreaterThanLastWeek: greater than the value at the same time last week
-      // 
-      // - LessThanLastWeek: less than the value at the same time last week
-      // 
-      // - GreaterThanLastPeriod: greater than the value in the last monitoring cycle
-      // 
-      // - LessThanLastPeriod: less than the value in the last monitoring cycle
+      // - GreaterThanOrEqualToThreshold: greater than or equal to.
+      // - GreaterThanThreshold: greater than.
+      // - LessThanOrEqualToThreshold: less than or equal to.
+      // - LessThanThreshold: less than.
+      // - NotEqualToThreshold: not equal to.
+      // - GreaterThanYesterday: greater than the value at the same time yesterday.
+      // - LessThanYesterday: less than the value at the same time yesterday.
+      // - GreaterThanLastWeek: greater than the value at the same time last week.
+      // - LessThanLastWeek: less than the value at the same time last week.
+      // - GreaterThanLastPeriod: greater than the value in the last period.
+      // - LessThanLastPeriod: less than the value in the last period.
       // 
       // This parameter is required.
       shared_ptr<string> comparisonOperator_ {};
-      // The time period when the alert rule is effective. The value of N can be 1 to 200.
+      // The effective period of the alert rule. Valid values of N: 1 to 200.
       shared_ptr<string> effectiveInterval_ {};
-      // The alert level. The value of N can be 1 to 200. Valid values:
-      // 
-      // - critical (default): critical
-      // 
-      // - warn: warning
-      // 
-      // - info: information
+      // The alert level. Valid values of N: 1 to 200. Valid values:
+      // - critical (default): critical.
+      // - warn: warning.
+      // - info: information.
       // 
       // This parameter is required.
       shared_ptr<string> escalationsLevel_ {};
-      // This parameter is deprecated. You can ignore it.
+      // Not required.
       shared_ptr<string> noEffectiveInterval_ {};
-      // The mute period. The value of N can be 1 to 200.
+      // The mute period. Valid values of N: 1 to 200.
       // 
-      // Unit: seconds. Minimum value: 3600. Default value: 86400.
-      // 
-      // > If monitoring data continuously exceeds the alert threshold, an alert notification is sent only once during each mute period.
+      // Unit: seconds. Minimum value: 3600 seconds (1 hour). Default value: 86400 seconds (1 day).
+      // >If the monitoring data continuously exceeds the alert rule threshold, only one alert notification is sent within each mute period.
       shared_ptr<string> silenceTime_ {};
-      // The statistical method for alerts. The value of N can be 1 to 200.
+      // The statistical method for alerts. Valid values of N: 1 to 200.
       // 
-      // > Only Average is supported.
+      // >Currently, only Average is supported.
       shared_ptr<string> statistics_ {};
       // None.
       shared_ptr<vector<AlertConfig::TargetList>> targetList_ {};
-      // The alert threshold. The value of N can be 1 to 200.
+      // The alert threshold. Valid values of N: 1 to 200.
       // 
       // This parameter is required.
       shared_ptr<string> threshold_ {};
-      // The number of consecutive times that the alert level is reached. The value of N can be 1 to 200. Default value: 3.
+      // The number of consecutive occurrences of the alert level. Valid values of N: 1 to 200. Default value: 3.
       // 
-      // > An alert is triggered only when the alert level is reached the specified number of consecutive times and the threshold is met.
+      // >An alert is triggered only when the alert level consecutively occurs the specified number of times and the alert threshold is reached.
       // 
       // This parameter is required.
       shared_ptr<string> times_ {};
-      // The callback URL. A POST request is sent to this URL when an alert is triggered. The value of N can be 1 to 200.
+      // The callback URL to which a POST request is sent when an alert is triggered. Valid values of N: 1 to 200.
       shared_ptr<string> webhook_ {};
     };
 
@@ -353,19 +335,19 @@ namespace Models
 
 
   protected:
-    // The configurations of the alert rule.
+    // The alert rule configurations.
     // 
     // This parameter is required.
     shared_ptr<vector<ModifyGroupMonitoringAgentProcessRequest::AlertConfig>> alertConfig_ {};
-    // The ID of the application group.
+    // The application group ID.
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // The ID of the process monitoring job for the application group.
+    // The ID of the process monitoring task in the application group.
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};
-    // This parameter is deprecated. You can ignore it.
+    // Not required.
     shared_ptr<string> matchExpressFilterRelation_ {};
     shared_ptr<string> regionId_ {};
   };

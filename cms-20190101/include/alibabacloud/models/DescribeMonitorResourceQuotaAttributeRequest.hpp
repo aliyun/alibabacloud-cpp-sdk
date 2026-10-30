@@ -49,11 +49,9 @@ namespace Models
 
   protected:
     shared_ptr<string> regionId_ {};
-    // Specifies whether to return information about used quotas. Valid values:
-    // 
-    // - true (default): yes
-    // 
-    // - false: no
+    // Specifies whether the response includes used quotas. Valid values:
+    // - true (default): Included.
+    // - false: Not included.
     shared_ptr<bool> showUsed_ {};
   };
 

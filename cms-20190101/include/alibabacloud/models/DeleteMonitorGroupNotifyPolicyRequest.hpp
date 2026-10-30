@@ -59,9 +59,9 @@ namespace Models
   protected:
     // The ID of the application group.
     shared_ptr<string> groupId_ {};
-    // The type of the policy.
+    // The type of the pause notification.
     // 
-    // Valid value: PauseNotify.
+    // Currently, only PauseNotify is supported.
     // 
     // This parameter is required.
     shared_ptr<string> policyType_ {};
