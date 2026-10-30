@@ -106,28 +106,13 @@ namespace Models
 
 
   protected:
-    // The type of the catalog to which the table belongs. Valid values:
-    // - **JDBC**: relational database catalog
-    // - **DataLake**: data lake catalog
-    // - **Dataset**: knowledge base catalog
     shared_ptr<string> catalogType_ {};
-    // The fully qualified name of the database to which the table belongs.
     shared_ptr<string> databaseQualifiedName_ {};
-    // The UUID of the database to which the table belongs.
     shared_ptr<string> databaseUuid_ {};
-    // The description of the table.
     shared_ptr<string> description_ {};
-    // The engine metadata of the table.
     shared_ptr<AgenticTableEngineMeta> engineMeta_ {};
-    // The table name.
     shared_ptr<string> name_ {};
-    // The fully qualified name of the table. You can use this name as the TableQualifiedName parameter for GetAgenticTableColumn and GetAgenticTableIndex. For SQL Server, the format is schema name.table name.
     shared_ptr<string> qualifiedName_ {};
-    // The table type. Valid values:
-    // - **NORMAL**: regular table
-    // - **VIEW**: view
-    // - **FOREIGN**: foreign table
-    // - **SYNONYM**: synonym, supported only for Oracle data sources
     shared_ptr<string> tableType_ {};
   };
 

@@ -99,25 +99,12 @@ namespace Models
 
 
   protected:
-    // The list of fields included in the index. Fields with a specified prefix length include a length expression, such as name(10).
     shared_ptr<vector<string>> columnNames_ {};
-    // The index description.
     shared_ptr<string> description_ {};
-    // The index name.
     shared_ptr<string> indexName_ {};
-    // The index type. Valid values:
-    // 
-    // - **Primary**: primary key index
-    // - **Unique**: unique index
-    // - **Normal**: normal index
-    // - **FullText**: full-text index
-    // - **Spatial**: spatial index
     shared_ptr<string> indexType_ {};
-    // Specifies whether the index is a primary key index.
     shared_ptr<bool> primary_ {};
-    // The list of actual field names referenced by the index, with prefix length expressions removed from ColumnNames.
     shared_ptr<vector<string>> realColumnNames_ {};
-    // Specifies whether the index is a unique index.
     shared_ptr<bool> unique_ {};
   };
 

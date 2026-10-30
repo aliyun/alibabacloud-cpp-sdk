@@ -4390,6 +4390,72 @@ ListAgenticGlobalSqlExecutionHistoriesResponse Client::listAgenticGlobalSqlExecu
 }
 
 /**
+ * @summary Queries the user security policy of the current Alibaba Cloud account by page and returns the enabled system default security policy.
+ *
+ * @description This operation returns the enabled system default policies and the user policies of the current Alibaba Cloud account.
+ * - System default policies are placed at the beginning of the list. Only policies in the ON (enabled) state are returned. They are not filtered by PolicyStatus or IncludeArchived.
+ * - Page and Size are used to paginate user policies. Each call also returns up to Size enabled system default policies. Therefore, the number of items in Data may be greater than Size, and the same system default policies may be repeatedly returned during pagination.
+ * - TotalCount is the sum of the number of all enabled system default policies and the number of user policies that meet the filter conditions.
+ * - You can use Readonly to distinguish between the two types of policies: true indicates a system default policy, and false indicates a user policy.
+ *
+ * @param request ListAgenticSecurityPoliciesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAgenticSecurityPoliciesResponse
+ */
+ListAgenticSecurityPoliciesResponse Client::listAgenticSecurityPoliciesWithOptions(const ListAgenticSecurityPoliciesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasIncludeArchived()) {
+    query["IncludeArchived"] = request.getIncludeArchived();
+  }
+
+  if (!!request.hasPage()) {
+    query["Page"] = request.getPage();
+  }
+
+  if (!!request.hasPolicyStatus()) {
+    query["PolicyStatus"] = request.getPolicyStatus();
+  }
+
+  if (!!request.hasSize()) {
+    query["Size"] = request.getSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAgenticSecurityPolicies"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAgenticSecurityPoliciesResponse>();
+}
+
+/**
+ * @summary Queries the user security policy of the current Alibaba Cloud account by page and returns the enabled system default security policy.
+ *
+ * @description This operation returns the enabled system default policies and the user policies of the current Alibaba Cloud account.
+ * - System default policies are placed at the beginning of the list. Only policies in the ON (enabled) state are returned. They are not filtered by PolicyStatus or IncludeArchived.
+ * - Page and Size are used to paginate user policies. Each call also returns up to Size enabled system default policies. Therefore, the number of items in Data may be greater than Size, and the same system default policies may be repeatedly returned during pagination.
+ * - TotalCount is the sum of the number of all enabled system default policies and the number of user policies that meet the filter conditions.
+ * - You can use Readonly to distinguish between the two types of policies: true indicates a system default policy, and false indicates a user policy.
+ *
+ * @param request ListAgenticSecurityPoliciesRequest
+ * @return ListAgenticSecurityPoliciesResponse
+ */
+ListAgenticSecurityPoliciesResponse Client::listAgenticSecurityPolicies(const ListAgenticSecurityPoliciesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAgenticSecurityPoliciesWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the SQL execution history visible to the current caller, sorted in descending order by execution start time. Only AGENT_QUERY and WORKFLOW_QUERY are included.
  *
  * @param request ListAgenticSqlExecutionHistoriesRequest
