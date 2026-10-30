@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the traffic scheduling policy.
+    // The ID of the traffic QoS policy.
     shared_ptr<string> trafficQosPolicyId_ {};
   };
 

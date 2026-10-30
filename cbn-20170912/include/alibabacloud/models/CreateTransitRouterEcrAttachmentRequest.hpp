@@ -96,15 +96,15 @@ namespace Models
     protected:
       // The tag key of the resource.
       // 
-      // The tag key cannot be an empty string. It can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // The tag key cannot be an empty string. It can be up to 64 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       // 
       // You can specify up to 20 tag keys at a time.
       shared_ptr<string> key_ {};
       // The tag value of the resource.
       // 
-      // The tag value cannot be empty. It can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
+      // The tag value cannot be an empty string. It can be up to 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       // 
-      // Each tag key corresponds to one tag value. You can specify up to 20 tag values at a time.
+      // Each tag key must be paired with a tag value. You can specify up to 20 tag values at a time.
       shared_ptr<string> value_ {};
     };
 
@@ -217,41 +217,41 @@ namespace Models
     shared_ptr<string> cenId_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+    // You can use the client to generate the value, but you must ensure that it is unique among different requests. The client token can contain only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
     shared_ptr<string> clientToken_ {};
     // Specifies whether to perform a dry run. Valid values:
-    // - **true**: performs a dry run. The system checks the required parameters, request syntax, and business restrictions. If the check fails, the corresponding error is returned. If the check succeeds, the `DryRunOperation` error code is returned.
-    // - **false** (default): performs a dry run and sends the request. If the check succeeds, the operation is performed.
+    // - **true**: performs a dry run without modifying the configurations of the VPN connection. The system checks whether required parameters are specified, the request format is valid, and the service limits are met. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+    // - **false** (default): sends a normal request. After the request passes the dry run, the configurations of the VPN connection are modified.
     shared_ptr<bool> dryRun_ {};
-    // The ID of the Express Connect Router (ECR) instance to associate.
+    // The associated Express Connect Router (ECR) instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> ecrId_ {};
-    // The Alibaba Cloud account ID of the account that owns the ECR instance. The default value is the Alibaba Cloud account ID of the current logon account.
+    // The Alibaba Cloud account ID to which the ECR instance belongs. The default value is the current logon Alibaba Cloud account ID.
     // 
-    // > This parameter is required if you want to load a cross-account network instance.
+    // > If you want to load a cross-account network instance, this parameter is required.
     shared_ptr<int64_t> ecrOwnerId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the transit router instance.
+    // The region ID of the transit router.
     // 
     // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query region IDs.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The tag information list.
+    // The list of tags.
     // 
     // You can specify up to 20 tags at a time.
     shared_ptr<vector<CreateTransitRouterEcrAttachmentRequest::Tag>> tag_ {};
     // The description of the ECR connection.
     // 
-    // The description can be empty or 1 to 256 characters in length and cannot start with http:// or https://.
+    // The description can be empty or 1 to 256 characters in length. It cannot start with http:// or https://.
     shared_ptr<string> transitRouterAttachmentDescription_ {};
     // The name of the ECR connection.
     // 
-    // The name can be empty or 1 to 128 characters in length and cannot start with http:// or https://.
+    // The name can be empty or 1 to 128 characters in length. It cannot start with http:// or https://.
     shared_ptr<string> transitRouterAttachmentName_ {};
     // The transit router instance ID.
     shared_ptr<string> transitRouterId_ {};

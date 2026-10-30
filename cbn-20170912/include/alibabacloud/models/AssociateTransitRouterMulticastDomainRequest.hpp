@@ -115,14 +115,12 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request.
-    // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
     shared_ptr<string> clientToken_ {};
     // Specifies whether to perform a dry run. Valid values:
     // 
-    // - **true**: performs a dry run without associating the vSwitch with the multicast domain. The system checks the required parameters, request syntax, and business restrictions. If the request fails the dry run, an error message is returned. If the request passes the dry run, the error code `DryRunOperation` is returned.
-    // - **false** (default): performs a dry run and sends the request. If the request passes the dry run, the vSwitch is associated with the multicast domain.
+    // - **true**: performs a dry run and does not associate the vSwitches with the multicast domain. The system checks whether the required parameters are specified, the request format is valid, and the service limits are met. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+    // - **false** (default): sends a normal request and associates the vSwitches with the multicast domain if the request passes the check.
     shared_ptr<bool> dryRun_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -136,7 +134,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> transitRouterMulticastDomainId_ {};
-    // The list of vSwitch IDs.
+    // The IDs of the vSwitches.
     shared_ptr<vector<string>> vSwitchIds_ {};
   };
 

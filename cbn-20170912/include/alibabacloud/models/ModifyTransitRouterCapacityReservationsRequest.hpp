@@ -68,6 +68,7 @@ namespace Models
 
 
     protected:
+      // The ID of the zone for which to cancel the capacity reservation.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -120,6 +121,7 @@ namespace Models
 
 
       protected:
+        // The target reserved capacity for the specified zone.
         shared_ptr<int64_t> target_ {};
       };
 
@@ -142,7 +144,9 @@ namespace Models
 
 
     protected:
+      // The reserved capacity for the specified zone.
       shared_ptr<MinimumTransitRouterCapacities::DataProcessGbps> dataProcessGbps_ {};
+      // The ID of the zone.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -184,7 +188,11 @@ namespace Models
 
 
     protected:
+      // The ID of the deployment set instance used.
       shared_ptr<string> deploymentSetID_ {};
+      // The zone for which to modify the deployment set of the capacity reservation.
+      // 
+      // - To cancel the deployment set, specify the zone and leave the deployment set ID empty.
       shared_ptr<string> zoneID_ {};
     };
 
@@ -239,10 +247,20 @@ namespace Models
 
 
   protected:
+    // The client token that is used to ensure the idempotence of the request.
+    // 
+    // You can generate the token on your client to ensure that the token is unique across different requests. The client token only supports ASCII characters.
+    // 
+    // > If you do not specify this parameter, the system automatically uses the request ID of the API request as the client token. The request ID may be different for each API request.
     shared_ptr<string> clientToken_ {};
+    // The deployment set information for the capacity reservation.
     shared_ptr<vector<ModifyTransitRouterCapacityReservationsRequest::DeploymentSets>> deploymentSets_ {};
+    // The reserved capacity for each zone in the capacity reservation.
     shared_ptr<vector<ModifyTransitRouterCapacityReservationsRequest::MinimumTransitRouterCapacities>> minimumTransitRouterCapacities_ {};
+    // Cancels capacity reservations.
     shared_ptr<vector<ModifyTransitRouterCapacityReservationsRequest::ResetCapacityReservations>> resetCapacityReservations_ {};
+    // The ID of the transit router instance for forward routing.
+    // 
     // This parameter is required.
     shared_ptr<string> transitRouterId_ {};
     shared_ptr<string> version_ {};

@@ -136,7 +136,7 @@ namespace Models
     shared_ptr<string> childInstanceId_ {};
     // The region ID of the network instance.
     // 
-    // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to obtain region IDs.
+    // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> childInstanceRegionId_ {};
@@ -146,9 +146,9 @@ namespace Models
     shared_ptr<string> childInstanceRouteTableId_ {};
     // The type of the network instance. Valid values:
     // 
-    // - **VPC**: virtual private cloud.
+    // - **VPC**: VPC.
     // 
-    // - **VBR**: virtual border router.
+    // - **VBR**: VBR.
     // 
     // - **CCN**: Cloud Connect Network.
     // 
@@ -160,7 +160,7 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page during paging. Default value: **10**. Valid values: **1** to **50**.
+    // The number of entries to return per page in a paged query. This parameter is used for paging. Default value: **10**. Valid values: **1** to **50**.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

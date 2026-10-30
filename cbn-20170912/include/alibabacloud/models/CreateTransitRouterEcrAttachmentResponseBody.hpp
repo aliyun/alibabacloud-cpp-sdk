@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The ID of the ECR connection.
     shared_ptr<string> transitRouterAttachmentId_ {};

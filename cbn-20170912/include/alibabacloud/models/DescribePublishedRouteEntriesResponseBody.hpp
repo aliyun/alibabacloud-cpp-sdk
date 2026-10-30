@@ -323,7 +323,7 @@ namespace Models
   protected:
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page in a paged query.
+    // The number of entries returned per page in a paging query.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<DescribePublishedRouteEntriesResponseBody::PublishedRouteEntries> publishedRouteEntries_ {};
     // The request ID.

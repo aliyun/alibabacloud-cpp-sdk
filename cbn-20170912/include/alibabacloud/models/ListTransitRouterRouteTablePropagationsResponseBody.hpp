@@ -105,22 +105,20 @@ namespace Models
     protected:
       // The network instance ID.
       shared_ptr<string> resourceId_ {};
-      // The network instance type. Valid values:
-      // 
-      // - **VPC**: virtual private cloud (VPC) instance.
-      // - **VBR**: virtual border router (VBR) instance.
-      // - **TR**: transit router instance.
+      // The type of the network instance. Valid values:
+      // - **VPC**: VPC.
+      // - **VBR**: VBR.
+      // - **TR**: transit router.
       // - **VPN**: VPN connection.
       shared_ptr<string> resourceType_ {};
-      // The status of the route learning relationship. Valid values:
-      // 
-      // - **Enabling**: being enabled.
-      // - **Disabling**: being disabled.
-      // - **Active**: active.
+      // The status of the route propagation. Valid values:
+      // - **Enabling**: Enabling.
+      // - **Disabling**: Disabling.
+      // - **Active**: Active.
       shared_ptr<string> status_ {};
-      // The network instance connection ID.
+      // The ID of the network instance connection.
       shared_ptr<string> transitRouterAttachmentId_ {};
-      // The ID of the Enterprise Edition transit router route table.
+      // The ID of the route table in the Enterprise Edition transit router.
       shared_ptr<string> transitRouterRouteTableId_ {};
     };
 
@@ -164,15 +162,15 @@ namespace Models
 
 
   protected:
-    // The number of entries per page for a paged query.
+    // The maximum number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query in a paged query.
+    // The token used to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
-    // The list of route learning relationships.
+    // The route propagations.
     shared_ptr<vector<ListTransitRouterRouteTablePropagationsResponseBody::TransitRouterPropagations>> transitRouterPropagations_ {};
   };
 

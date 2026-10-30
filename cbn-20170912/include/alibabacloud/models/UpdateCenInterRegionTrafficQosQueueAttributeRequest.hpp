@@ -143,37 +143,27 @@ namespace Models
 
 
   protected:
-    // The absolute value of cross-region bandwidth that the current queue can use when bandwidth is allocated by absolute value. Unit: Mbit/s.
-    // 
-    // Enter a number only. Do not include the unit.
+    // The absolute value of the cross-region bandwidth that can be used by the current queue when bandwidth is allocated by absolute value. Unit: Mbit/s. Enter a number without the unit.
     shared_ptr<int64_t> bandwidth_ {};
-    // The client token that is used to ensure the idempotence of the request.
-    // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. You can generate the token value on the client side. Ensure that the token is unique across different requests and does not exceed 64 ASCII characters in length.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to perform a dry run. Valid values:
-    // - **true**: performs a dry run without modifying the queue configurations. The system checks the required parameters, request format, and business restrictions. If the check fails, the corresponding error is returned. If the check succeeds, the error code `DryRunOperation` is returned.
-    // - **false** (default): performs a dry run and then modifies the queue configurations after the check succeeds.
+    // Specifies whether to perform a dry run on the request. Valid values:
+    // - **true**: performs a dry run. The system checks the request for required parameters, request format, and service limits, but does not modify the queue configuration. If the request fails the check, an error is returned. If the request passes the check, the `DryRunOperation` error code is returned.
+    // - **false** (default): performs a standard request. If the request passes the check, the queue configuration is modified.
     shared_ptr<bool> dryRun_ {};
-    // The DSCP values of traffic packets to be matched by the current queue.
+    // The DSCP values of the traffic packets to be matched by the current queue.
     shared_ptr<vector<int32_t>> dscps_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The new description of the queue.
-    // 
-    // The description can be empty or 1 to 256 characters in length and cannot start with http:// or https://.
+    // The new description of the queue. The description can be empty or 1 to 256 characters in length. It cannot start with http:// or https://.
     shared_ptr<string> qosQueueDescription_ {};
-    // The QoS queue ID.
+    // The ID of the queue.
     // 
     // This parameter is required.
     shared_ptr<string> qosQueueId_ {};
-    // The new name of the queue.
-    // 
-    // The name can be empty or 1 to 128 characters in length and cannot start with http:// or https://.
+    // The new name of the queue. The name can be empty or 1 to 128 characters in length. It cannot start with http:// or https://.
     shared_ptr<string> qosQueueName_ {};
-    // The percentage of cross-region bandwidth that the current queue can use when bandwidth is allocated by percentage.
-    // 
-    // Enter a number only. Do not include the percent sign (%).
+    // The percentage of the cross-region bandwidth that can be used by the current queue when bandwidth is allocated by percentage. Enter a number without the percent sign (%).
     shared_ptr<string> remainBandwidthPercent_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

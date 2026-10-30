@@ -83,20 +83,16 @@ namespace Models
 
 
     protected:
-      // The message returned if the configuration of the aggregate route fails.
+      // The message returned when the aggregate route configuration fails.
       shared_ptr<string> description_ {};
-      // The ID of the VPC instance for which the aggregate route is configured.
+      // The instance ID of the VPC-connected instance to which the aggregation routing is configured.
       shared_ptr<string> instanceId_ {};
       // The configuration status of the aggregate route.
       // 
-      // - **Configured**: The aggregate route is advertised to the VPC instance.
-      // 
-      // - **Configuring**: The aggregate route is being advertised.
-      // 
-      // - **ConfigFailed**: The aggregate route failed to be advertised.
-      // 
-      // - **PartialConfigured**: The aggregate route was partially advertised.
-      // 
+      // - **Configured**: The aggregate route is delivered to the VPC-connected instance.
+      // - **Configuring**: The aggregate route is being delivered.
+      // - **ConfigFailed**: The aggregate route fails to be delivered.
+      // - **PartialConfigured**: The aggregate route is partially delivered.
       // - **Deleting**: The aggregate route is being deleted.
       shared_ptr<string> status_ {};
     };
@@ -134,7 +130,7 @@ namespace Models
 
 
   protected:
-    // The number of entries returned on each page.
+    // The number of entries returned per page.
     shared_ptr<int32_t> count_ {};
     // The configuration details of the aggregate route.
     shared_ptr<vector<DescribeTransitRouteTableAggregationDetailResponseBody::Data>> data_ {};

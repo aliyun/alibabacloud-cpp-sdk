@@ -114,16 +114,16 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+    // You can generate the parameter value on your client to ensure that it is unique across different requests. The client token can contain only ASCII characters.
     // 
-    // >If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+    // >If you do not specify this parameter, the system automatically uses the RequestId of the API request as the client token. The RequestId of each API request is different.
     shared_ptr<string> clientToken_ {};
-    // The number of entries per page for a paged query. Default value: **20**.
+    // The number of entries to return on each page. Default value: **20**.
     shared_ptr<int64_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+    // The token that is used for the next query. Valid values:
     // 
-    // - You do not need to specify this parameter for the first request or if no next query exists.
-    // - If a next query exists, set the value to the **NextToken** value returned in the previous API call.
+    // - If this is your first query or no next query is to be sent, ignore this parameter.
+    // - If a next query is to be sent, set the value to the **NextToken** value returned from the last API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -131,7 +131,7 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The destination CIDR block of the aggregate route.
     shared_ptr<string> transitRouteTableAggregationCidr_ {};
-    // The ID of the Enterprise Edition transit router route table.
+    // The ID of the route table of the Enterprise Edition transit router.
     // 
     // This parameter is required.
     shared_ptr<string> transitRouteTableId_ {};

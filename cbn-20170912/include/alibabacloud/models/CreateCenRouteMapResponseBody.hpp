@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the routing policy.
+    // The ID of the route map.
     shared_ptr<string> routeMapId_ {};
   };
 

@@ -86,15 +86,15 @@ namespace Models
     protected:
       // The tag key of the resource.
       // 
-      // The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // The tag key cannot be an empty string. It can be up to 64 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       // 
       // You can specify up to 20 tag keys at a time.
       shared_ptr<string> key_ {};
       // The tag value of the resource.
       // 
-      // The tag value cannot be empty. The tag value can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
+      // The tag value cannot be empty. It can be up to 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       // 
-      // Each tag key has a corresponding tag value. You can specify up to 20 tag values at a time.
+      // Each tag key corresponds to a tag value. You can specify up to 20 tag values at a time.
       shared_ptr<string> value_ {};
     };
 
@@ -169,23 +169,24 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // You can generate a parameter value on your client to ensure that the value is unique across different requests. The ClientToken parameter supports only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
     shared_ptr<string> clientToken_ {};
     // The description of the CEN instance.
     // 
-    // The description can be empty or 1 to 256 characters in length and cannot start with http:// or https://.
+    // The description can be left empty or must be 1 to 256 characters in length. It cannot start with http:// or https://.
     shared_ptr<string> description_ {};
     // The name of the CEN instance.
     // 
-    // The name can be empty or 1 to 128 characters in length and cannot start with http:// or https://.
+    // The name can be left empty or must be 1 to 128 characters in length. It cannot start with http:// or https://.
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The level of CIDR block overlapping.
+    // Specifies the level of CIDR block overlap.
     // 
-    // Valid values: **REDUCED** (default): CIDR blocks can overlap but cannot be identical.
+    // Valid values:
+    // - **REDUCED** (default): CIDR blocks can overlap but cannot be identical.
     shared_ptr<string> protectionLevel_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

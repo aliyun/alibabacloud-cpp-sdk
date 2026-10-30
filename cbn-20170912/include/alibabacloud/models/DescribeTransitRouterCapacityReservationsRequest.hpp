@@ -48,6 +48,8 @@ namespace Models
 
 
   protected:
+    // The ID of the Enterprise Edition transit router instance.
+    // 
     // This parameter is required.
     shared_ptr<string> transitRouterId_ {};
     shared_ptr<string> version_ {};

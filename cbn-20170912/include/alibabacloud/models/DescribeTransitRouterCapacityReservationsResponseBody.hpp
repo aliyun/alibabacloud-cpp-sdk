@@ -97,7 +97,16 @@ namespace Models
 
 
       protected:
+        // The reason for failure when the reservation status is ProvisionFailed.
+        // 
+        // - For example, Reservation.InsufficientCapacity indicates that resources are insufficient to meet the target reserved value.
         shared_ptr<string> reason_ {};
+        // The resource reservation status. Valid values:
+        // - Pending: The initial reservation is initiated and is pending processing by Alibaba Cloud.
+        // - Provisioning: Alibaba Cloud is processing the reservation request.
+        // - Provisioned: The reservation is successful.
+        // - ProvisionFailed: The reservation failed. You can refer to the failure reason.
+        // - Updating: The reservation is being updated. Operations such as modifying the deployment set or increasing the reserved value require spooling by Alibaba Cloud.
         shared_ptr<string> status_ {};
       };
 
@@ -139,7 +148,14 @@ namespace Models
 
 
       protected:
+        // The effective reserved value for the specified zone in the resource reservation.
+        // 
+        // - The effective reserved value refers to the current billed value for the resource reservation.
         shared_ptr<int64_t> effective_ {};
+        // The target reserved value for the specified active zone in the resource reservation.
+        // 
+        // - In scenarios where you decrease the quota, the change takes effect in the next month, and the effective reserved value is updated in synchronization.
+        // - Upgrade and initial reservation scenarios require spooling by Alibaba Cloud and take effect immediately after the spooling is complete.
         shared_ptr<int64_t> target_ {};
       };
 
@@ -171,8 +187,11 @@ namespace Models
 
 
     protected:
+      // The reserved capacity information for the specified zone in the resource reservation.
       shared_ptr<MinimumTransitRouterCapacities::DataProcessGbps> dataProcessGbps_ {};
+      // The status information of the specified zone in the resource reservation.
       shared_ptr<MinimumTransitRouterCapacities::State> state_ {};
+      // The ID of the specified zone for the resource reservation.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -214,7 +233,11 @@ namespace Models
 
 
     protected:
+      // The instance ID of the deployment set configured in the specified active zone of the transit router, which handles forward and routing tasks.
       shared_ptr<string> deploymentSetID_ {};
+      // The zone for which you want to modify the deployment set of the resource reservation.
+      // 
+      // - To cancel the deployment set, specify the zone and leave the deployment set instance ID empty.
       shared_ptr<string> zoneID_ {};
     };
 
@@ -253,10 +276,15 @@ namespace Models
 
 
   protected:
+    // The deployment set information specified for the resource reservation.
     shared_ptr<vector<DescribeTransitRouterCapacityReservationsResponseBody::DeploymentSets>> deploymentSets_ {};
+    // The time when the resource reservation was last modified.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> lastModifiedTime_ {};
+    // The list of reserved capacity information for each zone in the resource reservation.
     shared_ptr<vector<DescribeTransitRouterCapacityReservationsResponseBody::MinimumTransitRouterCapacities>> minimumTransitRouterCapacities_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

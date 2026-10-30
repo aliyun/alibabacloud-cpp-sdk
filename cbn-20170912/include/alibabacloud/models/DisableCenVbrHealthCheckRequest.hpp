@@ -103,7 +103,7 @@ namespace Models
 
 
   protected:
-    // The CEN instance ID.
+    // The Cloud Enterprise Network (CEN) instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> cenId_ {};
@@ -115,13 +115,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> vbrInstanceId_ {};
-    // The ID of the Alibaba Cloud account that owns the VBR instance.
+    // The ID of the Alibaba Cloud account to which the VBR belongs.
     // 
-    // > This parameter is required if the VBR instance and the CEN instance belong to different accounts.
+    // > This parameter is required if the VBR and the CEN instance belong to different accounts.
     shared_ptr<int64_t> vbrInstanceOwnerId_ {};
-    // The region ID of the VBR instance.
+    // The region ID of the VBR.
     // 
-    // You can call [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) to query region IDs.
+    // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> vbrInstanceRegionId_ {};
