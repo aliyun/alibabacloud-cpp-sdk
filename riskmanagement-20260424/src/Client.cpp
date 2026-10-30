@@ -625,7 +625,7 @@ DownloadResourceControlEventsResponse Client::downloadResourceControlEvents(cons
 }
 
 /**
- * @summary Immediately terminates a penetration test.
+ * @summary Immediately ends a penetration test.
  *
  * @param request EndPenetrationTestRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -656,7 +656,7 @@ EndPenetrationTestResponse Client::endPenetrationTestWithOptions(const EndPenetr
 }
 
 /**
- * @summary Immediately terminates a penetration test.
+ * @summary Immediately ends a penetration test.
  *
  * @param request EndPenetrationTestRequest
  * @return EndPenetrationTestResponse
@@ -1562,6 +1562,10 @@ QueryAccountSafetyIncidentResponse Client::queryAccountSafetyIncidentWithOptions
     request.setActionCodesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getActionCodes(), "ActionCodes", "json"));
   }
 
+  if (!!tmpReq.hasBusinessCodes()) {
+    request.setBusinessCodesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBusinessCodes(), "BusinessCodes", "json"));
+  }
+
   if (!!tmpReq.hasCaseCodes()) {
     request.setCaseCodesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCaseCodes(), "CaseCodes", "json"));
   }
@@ -1581,6 +1585,10 @@ QueryAccountSafetyIncidentResponse Client::queryAccountSafetyIncidentWithOptions
 
   if (!!request.hasAliyunLang()) {
     query["AliyunLang"] = request.getAliyunLang();
+  }
+
+  if (!!request.hasBusinessCodesShrink()) {
+    query["BusinessCodes"] = request.getBusinessCodesShrink();
   }
 
   if (!!request.hasCaseCode()) {
@@ -2291,7 +2299,7 @@ SubmitAutoAuditUnblockResponse Client::submitAutoAuditUnblock(const SubmitAutoAu
 }
 
 /**
- * @summary Submits a penetration test application.
+ * @summary Submits a penetration test request.
  *
  * @param request SubmitPenetrationTestRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2358,7 +2366,7 @@ SubmitPenetrationTestResponse Client::submitPenetrationTestWithOptions(const Sub
 }
 
 /**
- * @summary Submits a penetration test application.
+ * @summary Submits a penetration test request.
  *
  * @param request SubmitPenetrationTestRequest
  * @return SubmitPenetrationTestResponse

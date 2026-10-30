@@ -187,46 +187,47 @@ namespace Models
     protected:
       // The application time.
       shared_ptr<int64_t> applyTime_ {};
-      // The asset type. Valid values:
+      // The type of the asset. Valid values:
       // 
-      // - **EIP**: public IP address of a VPC
-      // - **SLB**: load balancing
-      // - **ECS**: public IP address of an ECS instance in the classic network
+      // - **EIP**: public IP address in a VPC.
+      // - **SLB**: load balancing.
+      // - **ECS**: public IP address in the classic network.
       shared_ptr<string> assetType_ {};
-      // The unique ID of the application record.
+      // The unique identity of the application record.
       // 
-      // > This field is of the Long type. Precision loss may occur when you serialize or deserialize the value. Make sure that the value does not exceed 9007199254740991.
+      // > This field is of the Long type. Precision loss may occur during the procedure to serialize or deserialize the numeric sequence. Ensure that the value does not exceed 9007199254740991.
       shared_ptr<int64_t> id_ {};
       // IP
       shared_ptr<string> ip_ {};
-      // Indicates whether the test is performed by a third-party service provider.
+      // Indicates whether the test is performed by a third-party service provider. Valid values:
       // 
       // - true: Yes.
+      // 
       // - false: No.
       shared_ptr<bool> isThirdpartyTest_ {};
       // The task status. Valid values:
       // 
-      // - **early_end**: The user applies for early termination.
+      // - **early_end**: The user applied for early termination.
       // - **expired**: The authorization has expired.
-      // - **auditing**: The application is being reviewed.
-      // - **approved**: The application is approved.
-      // - **rejected**: The application is rejected.
+      // - **auditing**: Under review.
+      // - **approved**: Approved.
+      // - **rejected**: Rejected.
       shared_ptr<string> status_ {};
       // The test content.
       // 
-      // > - The content must be within 500 characters. Carefully fill in the content to increase the chance of passing the review.
+      // > - Maximum 500 characters. Provide detailed information to increase the chance of passing the review.
       shared_ptr<string> testContent_ {};
       // The test end time.
       shared_ptr<int64_t> testEndDate_ {};
       // The source IP addresses used for the test.
       // 
-      // > You can specify up to 50 IP addresses. Separate multiple IP addresses with line breaks or commas (,). Specify 0.0.0.0 to allow all IP addresses. CIDR blocks are not supported, such as 140.168.0.0/16.
+      // > A maximum of 50 IP addresses are supported. Separate multiple IP addresses with line breaks or commas (,). Specify 0.0.0.0 to allow all IP addresses. CIDR blocks are not supported, such as 140.168.0.0/16.
       shared_ptr<string> testSourceIps_ {};
       // The test start date.
       shared_ptr<int64_t> testStartDate_ {};
       // The test steps.
       // 
-      // > The content must be within 500 characters. Carefully fill in the content to increase the chance of passing the review.
+      // > Maximum 500 characters. Provide detailed information to increase the chance of passing the review.
       shared_ptr<string> testSteps_ {};
       // The email address of the third-party tester.
       shared_ptr<string> thirdpartyEmail_ {};
@@ -278,19 +279,19 @@ namespace Models
   protected:
     // The status code.
     // 
-    // - **200**: success
-    // - **Other values (400, 500)**: failure
+    // - **200**: Success.
+    // - **Other values (400 and 500)**: Failure.
     shared_ptr<string> code_ {};
     // The response content.
     shared_ptr<QueryPenetrationTestDetailResponseBody::Data> data_ {};
-    // The description.
+    // The message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful.
+    // Indicates whether the call is successful. Valid values:
     // 
     // - **true**: The call is successful.                               
-    // - **false**: The call failed.
+    // - **false**: The call fails.
     shared_ptr<bool> success_ {};
   };
 

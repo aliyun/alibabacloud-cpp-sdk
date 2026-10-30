@@ -174,7 +174,7 @@ namespace RiskManagement20260424
       Models::DownloadResourceControlEventsResponse downloadResourceControlEvents(const Models::DownloadResourceControlEventsRequest &request);
 
       /**
-       * @summary Immediately terminates a penetration test.
+       * @summary Immediately ends a penetration test.
        *
        * @param request EndPenetrationTestRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -183,7 +183,7 @@ namespace RiskManagement20260424
       Models::EndPenetrationTestResponse endPenetrationTestWithOptions(const Models::EndPenetrationTestRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Immediately terminates a penetration test.
+       * @summary Immediately ends a penetration test.
        *
        * @param request EndPenetrationTestRequest
        * @return EndPenetrationTestResponse
@@ -684,7 +684,7 @@ namespace RiskManagement20260424
       Models::SubmitAutoAuditUnblockResponse submitAutoAuditUnblock(const Models::SubmitAutoAuditUnblockRequest &request);
 
       /**
-       * @summary Submits a penetration test application.
+       * @summary Submits a penetration test request.
        *
        * @param request SubmitPenetrationTestRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -693,7 +693,7 @@ namespace RiskManagement20260424
       Models::SubmitPenetrationTestResponse submitPenetrationTestWithOptions(const Models::SubmitPenetrationTestRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a penetration test application.
+       * @summary Submits a penetration test request.
        *
        * @param request SubmitPenetrationTestRequest
        * @return SubmitPenetrationTestResponse

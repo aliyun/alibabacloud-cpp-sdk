@@ -54,7 +54,7 @@ namespace Models
     shared_ptr<int32_t> currentPage_ {};
     // The number of entries to return on each page.
     // 
-    // > Valid values: 1 to 100. Default value: 10.
+    // > Valid values: 1 to 100. Starting value: 1. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
   };
 

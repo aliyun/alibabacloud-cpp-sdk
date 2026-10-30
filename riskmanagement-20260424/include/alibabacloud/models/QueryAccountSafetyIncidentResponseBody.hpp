@@ -108,7 +108,7 @@ namespace Models
       protected:
         // The current page number.
         shared_ptr<string> current_ {};
-        // The number of assets displayed on each page in a paged query.
+        // The number of assets displayed per page when you configure Settings for paging in a paged query.
         shared_ptr<string> pageSize_ {};
         // The total number of events.
         shared_ptr<string> total_ {};
@@ -120,6 +120,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(ActionCode, actionCode_);
           DARABONBA_PTR_TO_JSON(ActionName, actionName_);
           DARABONBA_PTR_TO_JSON(AntiPunishTime, antiPunishTime_);
+          DARABONBA_PTR_TO_JSON(BusinessCode, businessCode_);
           DARABONBA_PTR_TO_JSON(CallApi, callApi_);
           DARABONBA_PTR_TO_JSON(DateExtras, dateExtras_);
           DARABONBA_PTR_TO_JSON(EventId, eventId_);
@@ -142,6 +143,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(ActionCode, actionCode_);
           DARABONBA_PTR_FROM_JSON(ActionName, actionName_);
           DARABONBA_PTR_FROM_JSON(AntiPunishTime, antiPunishTime_);
+          DARABONBA_PTR_FROM_JSON(BusinessCode, businessCode_);
           DARABONBA_PTR_FROM_JSON(CallApi, callApi_);
           DARABONBA_PTR_FROM_JSON(DateExtras, dateExtras_);
           DARABONBA_PTR_FROM_JSON(EventId, eventId_);
@@ -218,22 +220,22 @@ namespace Models
 
 
         protected:
-          // The time when the alert ended.
+          // The end time of the alert.
           // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> alertEndTime_ {};
-          // The time when the first alert was triggered.
+          // The time of the first alert.
           // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> alertStartTime_ {};
-          // The time of the latest detection.
+          // The time of the latest check.
           // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> lastCheckTime_ {};
         };
 
         virtual bool empty() const override { return this->actionCode_ == nullptr
-        && this->actionName_ == nullptr && this->antiPunishTime_ == nullptr && this->callApi_ == nullptr && this->dateExtras_ == nullptr && this->eventId_ == nullptr
-        && this->eventImpact_ == nullptr && this->eventName_ == nullptr && this->eventReason_ == nullptr && this->eventType_ == nullptr && this->exceptionCallTime_ == nullptr
-        && this->exceptionIp_ == nullptr && this->punishTime_ == nullptr && this->reinforcement_ == nullptr && this->resourceId_ == nullptr && this->resourceType_ == nullptr
-        && this->status_ == nullptr && this->tip_ == nullptr && this->userGuideName_ == nullptr && this->userGuideUrl_ == nullptr; };
+        && this->actionName_ == nullptr && this->antiPunishTime_ == nullptr && this->businessCode_ == nullptr && this->callApi_ == nullptr && this->dateExtras_ == nullptr
+        && this->eventId_ == nullptr && this->eventImpact_ == nullptr && this->eventName_ == nullptr && this->eventReason_ == nullptr && this->eventType_ == nullptr
+        && this->exceptionCallTime_ == nullptr && this->exceptionIp_ == nullptr && this->punishTime_ == nullptr && this->reinforcement_ == nullptr && this->resourceId_ == nullptr
+        && this->resourceType_ == nullptr && this->status_ == nullptr && this->tip_ == nullptr && this->userGuideName_ == nullptr && this->userGuideUrl_ == nullptr; };
         // actionCode Field Functions 
         bool hasActionCode() const { return this->actionCode_ != nullptr;};
         void deleteActionCode() { this->actionCode_ = nullptr;};
@@ -253,6 +255,13 @@ namespace Models
         void deleteAntiPunishTime() { this->antiPunishTime_ = nullptr;};
         inline string getAntiPunishTime() const { DARABONBA_PTR_GET_DEFAULT(antiPunishTime_, "") };
         inline List& setAntiPunishTime(string antiPunishTime) { DARABONBA_PTR_SET_VALUE(antiPunishTime_, antiPunishTime) };
+
+
+        // businessCode Field Functions 
+        bool hasBusinessCode() const { return this->businessCode_ != nullptr;};
+        void deleteBusinessCode() { this->businessCode_ = nullptr;};
+        inline string getBusinessCode() const { DARABONBA_PTR_GET_DEFAULT(businessCode_, "") };
+        inline List& setBusinessCode(string businessCode) { DARABONBA_PTR_SET_VALUE(businessCode_, businessCode) };
 
 
         // callApi Field Functions 
@@ -377,14 +386,16 @@ namespace Models
 
 
       protected:
-        // The control action code.
+        // The code of the control action name.
         shared_ptr<string> actionCode_ {};
-        // The control action name.
+        // The name of the control action.
         shared_ptr<string> actionName_ {};
-        // The time when the control action was removed.
+        // The time when the control is revoked.
         // 
         // > Format: yyyy-MM-dd HH:mm:ss
         shared_ptr<string> antiPunishTime_ {};
+        // The cloud service code.
+        shared_ptr<string> businessCode_ {};
         // The called API operation.
         shared_ptr<string> callApi_ {};
         // The control time information.
@@ -393,11 +404,11 @@ namespace Models
         shared_ptr<string> eventId_ {};
         // The event impact.
         shared_ptr<string> eventImpact_ {};
-        // The control event name.
+        // The name of the control event.
         shared_ptr<string> eventName_ {};
-        // The event reason.
+        // The cause of the event.
         shared_ptr<string> eventReason_ {};
-        // The event subtype name.
+        // The name of the event subtype.
         shared_ptr<string> eventType_ {};
         // The time of the abnormal call.
         // > Format: yyyy-MM-dd HH:mm:ss
@@ -408,24 +419,23 @@ namespace Models
         // 
         // > Format: yyyy-MM-dd HH:mm:ss
         shared_ptr<string> punishTime_ {};
-        // The hardening suggestion.
+        // The hardening suggestions.
         shared_ptr<string> reinforcement_ {};
-        // The cloud resource ID.
+        // The ID of the cloud resource.
         shared_ptr<string> resourceId_ {};
-        // The controlled object type.
+        // The control object type.
         shared_ptr<string> resourceType_ {};
         // The event status. Valid values:
-        // 
-        // - **Executing**: In progress.
-        // - **Removed**: Removed.
-        // - **Alerting**: Alerting.
-        // - **Ended**: Ended.
+        // - **Executing**: The event is being executed.
+        // - **Removed**: The event is removed.
+        // - **Alerting**: The event is in the alerting state.
+        // - **Ended**: The event has ended.
         shared_ptr<string> status_ {};
-        // The handling suggestion.
+        // The remediation suggestions.
         shared_ptr<string> tip_ {};
-        // The help topic name.
+        // The name of the help document.
         shared_ptr<string> userGuideName_ {};
-        // The help topic URL.
+        // The URL of the help document.
         shared_ptr<string> userGuideUrl_ {};
       };
 
@@ -452,7 +462,7 @@ namespace Models
     protected:
       // The event data.
       shared_ptr<vector<Data::List>> list_ {};
-      // The total number of records.
+      // The pagination information.
       shared_ptr<Data::PageInfo> pageInfo_ {};
     };
 
@@ -498,15 +508,15 @@ namespace Models
   protected:
     // The status code.
     // 
-    // >  200: The request was successful. Other codes (500, 400, etc.): An error occurred.
+    // > 200: Success. Other values (such as 500 or 400): Error codes.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<QueryAccountSafetyIncidentResponseBody::Data> data_ {};
-    // The prompt message.
+    // The message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful. Valid values:
     // 
     // - **true**
     // - **false**

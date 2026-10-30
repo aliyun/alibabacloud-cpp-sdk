@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const QueryAccountSafetyIncidentShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ActionCodes, actionCodesShrink_);
       DARABONBA_PTR_TO_JSON(AliyunLang, aliyunLang_);
+      DARABONBA_PTR_TO_JSON(BusinessCodes, businessCodesShrink_);
       DARABONBA_PTR_TO_JSON(CaseCode, caseCode_);
       DARABONBA_PTR_TO_JSON(CaseCodes, caseCodesShrink_);
       DARABONBA_PTR_TO_JSON(Current, current_);
@@ -30,6 +31,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, QueryAccountSafetyIncidentShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ActionCodes, actionCodesShrink_);
       DARABONBA_PTR_FROM_JSON(AliyunLang, aliyunLang_);
+      DARABONBA_PTR_FROM_JSON(BusinessCodes, businessCodesShrink_);
       DARABONBA_PTR_FROM_JSON(CaseCode, caseCode_);
       DARABONBA_PTR_FROM_JSON(CaseCodes, caseCodesShrink_);
       DARABONBA_PTR_FROM_JSON(Current, current_);
@@ -54,9 +56,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->actionCodesShrink_ == nullptr
-        && this->aliyunLang_ == nullptr && this->caseCode_ == nullptr && this->caseCodesShrink_ == nullptr && this->current_ == nullptr && this->eventId_ == nullptr
-        && this->eventIdsShrink_ == nullptr && this->pageSize_ == nullptr && this->punishEndTime_ == nullptr && this->punishStartTime_ == nullptr && this->resourceId_ == nullptr
-        && this->status_ == nullptr && this->statusesShrink_ == nullptr; };
+        && this->aliyunLang_ == nullptr && this->businessCodesShrink_ == nullptr && this->caseCode_ == nullptr && this->caseCodesShrink_ == nullptr && this->current_ == nullptr
+        && this->eventId_ == nullptr && this->eventIdsShrink_ == nullptr && this->pageSize_ == nullptr && this->punishEndTime_ == nullptr && this->punishStartTime_ == nullptr
+        && this->resourceId_ == nullptr && this->status_ == nullptr && this->statusesShrink_ == nullptr; };
     // actionCodesShrink Field Functions 
     bool hasActionCodesShrink() const { return this->actionCodesShrink_ != nullptr;};
     void deleteActionCodesShrink() { this->actionCodesShrink_ = nullptr;};
@@ -69,6 +71,13 @@ namespace Models
     void deleteAliyunLang() { this->aliyunLang_ = nullptr;};
     inline string getAliyunLang() const { DARABONBA_PTR_GET_DEFAULT(aliyunLang_, "") };
     inline QueryAccountSafetyIncidentShrinkRequest& setAliyunLang(string aliyunLang) { DARABONBA_PTR_SET_VALUE(aliyunLang_, aliyunLang) };
+
+
+    // businessCodesShrink Field Functions 
+    bool hasBusinessCodesShrink() const { return this->businessCodesShrink_ != nullptr;};
+    void deleteBusinessCodesShrink() { this->businessCodesShrink_ = nullptr;};
+    inline string getBusinessCodesShrink() const { DARABONBA_PTR_GET_DEFAULT(businessCodesShrink_, "") };
+    inline QueryAccountSafetyIncidentShrinkRequest& setBusinessCodesShrink(string businessCodesShrink) { DARABONBA_PTR_SET_VALUE(businessCodesShrink_, businessCodesShrink) };
 
 
     // caseCode Field Functions 
@@ -151,24 +160,25 @@ namespace Models
   protected:
     // The list of control action codes.
     shared_ptr<string> actionCodesShrink_ {};
-    // The internationalization language. Default value: zh. Valid values:
-    // 
+    // The language. Default value: zh. Valid values:
     // - **zh**: Chinese.
     // - **en**: English.
     shared_ptr<string> aliyunLang_ {};
+    // The set of cloud service codes.
+    shared_ptr<string> businessCodesShrink_ {};
     // The event name code.
-    // > This parameter does not take effect when the CaseCodes parameter is not empty.
+    // > This parameter does not take effect if the CaseCodes parameter is not empty.
     shared_ptr<string> caseCode_ {};
     // The list of event name codes.
     shared_ptr<string> caseCodesShrink_ {};
     // The current page number. The value must be greater than 0.
     shared_ptr<string> current_ {};
     // The event ID.
-    // > This parameter does not take effect when the EventIds parameter is not empty.
+    // > This parameter does not take effect if the EventIds parameter is not empty.
     shared_ptr<string> eventId_ {};
     // The list of event IDs.
     shared_ptr<string> eventIdsShrink_ {};
-    // The number of records per page. Valid values: 1 to 100.
+    // The number of entries to return on each page. Valid values: 1 to 100.
     shared_ptr<string> pageSize_ {};
     // The end time of the control action.
     // 
@@ -181,13 +191,12 @@ namespace Models
     // The resource ID.
     shared_ptr<string> resourceId_ {};
     // The event status. Valid values:
+    // - **Executing**: The event is being executed.
+    // - **Removed**: The event is removed.
+    // - **Alerting**: The event is in the alerting state.
+    // - **Ended**: The event has ended.
     // 
-    // - **Executing**: In progress.
-    // - **Removed**: Removed.
-    // - **Alerting**: Alerting.
-    // - **Ended**: Ended.
-    // 
-    // > This parameter does not take effect when the Statuses parameter is not empty.
+    // > This parameter does not take effect if the Statuses parameter is not empty.
     shared_ptr<string> status_ {};
     // The list of event statuses.
     shared_ptr<string> statusesShrink_ {};
