@@ -168,49 +168,42 @@ namespace Models
 
 
     protected:
-      // The EIP in the DNAT entry. The public IP address is used to access the Internet.
+      // The elastic IP address that provides public network access in the DNAT entry.
       shared_ptr<string> externalIp_ {};
-      // The external port or port range that is used in port forwarding.
+      // The external port or port range used for port forwarding.
       shared_ptr<string> externalPort_ {};
       // The ID of the DNAT entry.
       shared_ptr<string> forwardEntryId_ {};
       // The name of the DNAT entry.
       shared_ptr<string> forwardEntryName_ {};
-      // The probe port of DNAT.
+      // The health check port of the DNAT entry.
       shared_ptr<string> healthCheckPort_ {};
-      // The private IP address of the instance that uses the DNAT entry for Internet communication.
+      // The private IP address of the instance that communicates with the Internet through the DNAT entry.
       shared_ptr<string> internalIp_ {};
-      // The internal port or port range that is used for port forwarding.
+      // The internal port or port range used for port forwarding.
       shared_ptr<string> internalPort_ {};
-      // The protocol. Valid values:
+      // The protocol type. Valid values:
       // 
-      // - **TCP**: forwards TCP packets.
+      // - **TCP**: Forwards TCP packets.
       // 
-      // - **UDP**: forwards UDP packets.
+      // - **UDP**: Forwards UDP packets.
       // 
-      // - **Any**: forwards all packets.
+      // - **Any**: Forwards packets of all protocols.
       shared_ptr<string> ipProtocol_ {};
       // The ID of the NAT gateway.
       shared_ptr<string> natGatewayId_ {};
-      // The secondary EIP that is used to access the Internet.
+      // The standby elastic IP address that provides public network access.
       shared_ptr<string> standbyExternalIp_ {};
-      // The status of the secondary EIP. Valid values:
-      // 
-      // - Running
-      // 
-      // - Stopping
-      // 
-      // - Stopped
-      // 
-      // - Starting
+      // The status of the standby elastic IP address. Valid values:
+      // - Running: Enabled.
+      // - Stopping: Disabling.
+      // - Stopped: Disabled.
+      // - Starting: Enabling.
       shared_ptr<string> standbyStatus_ {};
       // The status of the DNAT entry. Valid values:
-      // 
-      // - Pending: The DNAT entry is being created or modified.
-      // 
-      // - Available: The DNAT entry is available.
-      // 
-      // - Deleting: The DNAT entry is being deleted.
+      // - Pending: The entry is being configured, created, or modified.
+      // - Available: The entry is available.
+      // - Deleting: The entry is being deleted.
       shared_ptr<string> status_ {};
     };
 
@@ -254,15 +247,15 @@ namespace Models
 
 
   protected:
-    // Details of DNAT entries.
+    // The details of the queried DNAT entries.
     shared_ptr<vector<DescribeForwardTableEntriesResponseBody::ForwardTableEntries>> forwardTableEntries_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page for paging in a paged query.
     shared_ptr<string> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<string> totalCount_ {};
   };
 

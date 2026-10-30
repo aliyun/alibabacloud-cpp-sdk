@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The ID of the ECK cluster.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The ID of the node pool to which the node will be added.
+    // The node pool ID.
     // 
     // This parameter is required.
     shared_ptr<string> nodepoolId_ {};
-    // Optional parameters for the script, provided as a JSON string.
+    // The optional parameters.
     shared_ptr<string> options_ {};
   };
 

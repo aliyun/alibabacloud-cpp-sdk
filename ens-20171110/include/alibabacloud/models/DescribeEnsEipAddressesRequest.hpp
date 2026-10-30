@@ -152,43 +152,48 @@ namespace Models
 
 
   protected:
-    // The ID of the EIP instance to query. You can specify up to 50 EIP instance IDs separated by commas (,).
+    // The ID of the EIP instance. You can specify up to 50 EIP instance IDs. Separate multiple instance IDs with commas (,).
     shared_ptr<string> allocationId_ {};
     // The instance ID of the cloud service.
     shared_ptr<string> associatedInstanceId_ {};
-    // The type of the cloud service instance to associate. Valid values: 
+    // The type of the cloud service instance to attach. Valid values: 
     // 
-    // - **EnsInstance**: a VPC-type ENS instance.
+    // - **EnsInstance**: ENS instance in a VPC.
     // 
-    // - **SlbInstance**: a load balancing instance.
+    // - **SlbInstance**: load balancing instance.
     shared_ptr<string> associatedInstanceType_ {};
-    // The IP address of the EIP to query. You can specify up to 50 EIP addresses separated by commas (,).
+    // The IP address of the EIP. You can specify up to 50 IP addresses. Separate multiple IP addresses with commas (,).
     shared_ptr<string> eipAddress_ {};
     // The name of the EIP.
     shared_ptr<string> eipName_ {};
-    // The ENS edge zone ID.
+    // The ID of the ENS edge zone.
     shared_ptr<string> ensRegionId_ {};
-    // The array of ENS edge zone IDs. Array length: 1 to 100.
+    // The array of ENS edge zone IDs. The array must contain 1 to 100 IDs.
     shared_ptr<vector<string>> ensRegionIds_ {};
-    // Specifies whether ICMP echo reply is enabled. Valid values:
+    // Specifies whether to enable ICMP echo reply. Valid values:
     // 
-    // - **true** (default): enabled.
-    // - **false**: disabled.
+    // - **true**: ICMP echo reply is enabled. This is the default value.
+    // - **false**: ICMP echo reply is disabled.
     shared_ptr<bool> icmpReplyEnabled_ {};
-    // The lock type.
-    // - financial: locked due to overdue payment.
+    // The lock reason. Valid values:
+    // - **financial**: The EIP is locked due to an overdue payment.
     shared_ptr<string> lockReason_ {};
-    // The page number of the list. Default value: 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page for a paged query. Maximum value: 100. Default value: 10.
+    // The number of entries per page in a paging query. Maximum value: 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
     // Specifies whether the EIP is a standby EIP. Valid values:
     // 
-    // - **true**: standby.
+    // - **true**: The EIP is a standby EIP.
     // 
-    // - **false**: not standby.
+    // - **false**: The EIP is not a standby EIP.
     shared_ptr<string> standby_ {};
-    // The status of the EIP. Valid values: Associating: being associated. Unassociating: being disassociated. InUse: allocated. Available: available.
+    // The status of the EIP. Valid values:
+    // 
+    // - **Associating**: The EIP is being associated.
+    // - **Unassociating**: The EIP is being disassociated.
+    // - **InUse**: The EIP is allocated.
+    // - **Available**: The EIP is available.
     shared_ptr<string> status_ {};
   };
 

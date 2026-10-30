@@ -75,21 +75,21 @@ namespace Models
 
 
   protected:
-    // The ID of the image.
+    // The image ID.
     // 
     // This parameter is required.
     shared_ptr<string> imageId_ {};
-    // The OSS bucket to which you want to export the image.
+    // The OSS bucket used to store the exported image.
     // 
     // This parameter is required.
     shared_ptr<string> OSSBucket_ {};
-    // The prefix of the object as which you want to store the image in the OSS bucket. The prefix must be 1 to 30 characters in length and can contain digits and letters.
+    // The prefix of the OSS object. The prefix must be 1 to 30 characters in length and can contain letters and digits.
     shared_ptr<string> OSSPrefix_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> OSSRegionId_ {};
-    // The name of the Resource Access Management (RAM) role.
+    // The name of the authorized role.
     shared_ptr<string> roleName_ {};
   };
 

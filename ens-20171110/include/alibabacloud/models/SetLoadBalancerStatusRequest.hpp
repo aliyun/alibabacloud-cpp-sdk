@@ -48,15 +48,13 @@ namespace Models
 
 
   protected:
-    // The ID of the ELB instance.
+    // The instance ID of the load balancing instance.
     // 
     // This parameter is required.
     shared_ptr<string> loadBalancerId_ {};
-    // The new instance status. Valid values:
-    // 
-    // - **Active**
-    // 
-    // - **InActive**
+    // The updated instance status. Valid values:
+    // - **Active**: Runs the load balancing instance. Listeners in the instance can forward accepted traffic based on rules.
+    // - **InActive**: Stops the load balancing instance. Listeners in the instance no longer forward accepted traffic.
     // 
     // This parameter is required.
     shared_ptr<string> loadBalancerStatus_ {};

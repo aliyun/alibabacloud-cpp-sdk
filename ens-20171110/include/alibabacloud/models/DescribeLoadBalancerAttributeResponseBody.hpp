@@ -146,7 +146,7 @@ namespace Models
       shared_ptr<string> description_ {};
       // The destination listener port to which traffic is forwarded.
       shared_ptr<int32_t> forwardPort_ {};
-      // Indicates whether listener forwarding is enabled.
+      // Specifies whether listener forwarding is enabled.
       shared_ptr<string> listenerForward_ {};
       // The listener port.
       shared_ptr<int32_t> listenerPort_ {};
@@ -378,19 +378,19 @@ namespace Models
   protected:
     // The service address of the load balancing instance.
     shared_ptr<string> address_ {};
-    // The IP version of the load balancing instance. Valid values: ipv4 or ipv6.
+    // The IP version of the load balancing instance. Valid values: ipv4 and ipv6.
     shared_ptr<string> addressIPVersion_ {};
     // The address type of the load balancing instance.
     shared_ptr<string> addressType_ {};
     // The list of backend servers.
     shared_ptr<vector<DescribeLoadBalancerAttributeResponseBody::BackendServers>> backendServers_ {};
-    // The peak bandwidth of the load balancing instance. The default value is -1, which indicates that bandwidth is not throttled.
+    // The peak bandwidth of the load balancing instance. Default value: -1, which indicates that bandwidth is not throttled.
     shared_ptr<int32_t> bandwidth_ {};
-    // The creation time of the load balancing instance (UTC).
+    // The time when the load balancing instance was created. The time is displayed in UTC.
     shared_ptr<string> createTime_ {};
-    // The end time of the load balancing instance in ISO 8601 UTC format (YYYY-MM-DDTHH:mm:ssZ).
+    // The expiration time of the load balancing instance. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
     shared_ptr<string> endTime_ {};
-    // The ENS node ID.
+    // The ID of the ENS edge zone.
     shared_ptr<string> ensRegionId_ {};
     // The frontend ports used by the load balancing instance.
     shared_ptr<vector<string>> listenerPorts_ {};
@@ -400,11 +400,11 @@ namespace Models
     shared_ptr<string> loadBalancerId_ {};
     // The name of the load balancing instance.
     shared_ptr<string> loadBalancerName_ {};
-    // The specification of the load balancing instance.
+    // The specifications of the load balancing instance.
     shared_ptr<string> loadBalancerSpec_ {};
     // The listener status of the load balancing instance. Valid values:
-    // - **Active**: The listeners of the instance can forward received traffic based on rules.
-    // - **InActive**: The listeners of the instance no longer forward received traffic.
+    // - **Active**: The listeners in the instance can forward accepted traffic based on rules.
+    // - **InActive**: The listeners in the instance no longer forward accepted traffic.
     shared_ptr<string> loadBalancerStatus_ {};
     // The type of the load balancing instance.
     shared_ptr<string> loadBalancerType_ {};

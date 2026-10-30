@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of an instance. Separate multiple IDs with semicolons (;).
+    // The instance IDs. Separate multiple IDs with semicolons (;).
     // 
     // This parameter is required.
     shared_ptr<string> instanceIds_ {};

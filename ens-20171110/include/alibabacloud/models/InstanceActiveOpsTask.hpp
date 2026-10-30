@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // instance active ops task id
     shared_ptr<string> instanceActiveOpsTaskId_ {};
+    // the status of instance active ops task
     shared_ptr<string> instanceActiveOpsTaskStatus_ {};
   };
 

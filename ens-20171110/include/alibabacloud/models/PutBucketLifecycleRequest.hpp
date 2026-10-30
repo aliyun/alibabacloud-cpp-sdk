@@ -94,43 +94,43 @@ namespace Models
 
 
   protected:
-    // Whether to allow overlapping prefixes. Valid values:
+    // Specifies whether to allow overlapping prefixes. Valid values:
     // 
     // - **true**: Overlapping prefixes are allowed.
     // 
     // - **false** (default): Overlapping prefixes are not allowed.
     shared_ptr<bool> allowSameActionOverlap_ {};
-    // The name of the bucket.
+    // The bucket name.
     // 
     // This parameter is required.
     shared_ptr<string> bucketName_ {};
-    // The date before which objects expire. The system applies the lifecycle rule to objects last modified before this date.
+    // The expiration date. The system performs lifecycle operations on objects that were last modified before this date.
     // 
-    // Use ISO 8601 format and UTC time. Format: yyyy-MM-ddTHH:mm:ssZ.
+    // The date must be specified in the ISO 8601 standard and in UTC. The format is yyyy-MM-ddTHH:mm:ssZ.
     // 
-    // > ExpirationDays and CreatedBeforeDate are mutually exclusive. Specify one.
+    // >ExpirationDays and CreatedBeforeDate are mutually exclusive. You must specify one of them.
     shared_ptr<string> createdBeforeDate_ {};
-    // The number of days after an object\\"s last modification when the lifecycle rule takes effect. Must be a positive integer greater than zero.
+    // The number of days after the last modification time of an object before the lifecycle rule takes effect. The value must be a positive integer greater than 0.
     // 
-    // > ExpirationDays and CreatedBeforeDate are mutually exclusive. Specify one.
+    // >ExpirationDays and CreatedBeforeDate are mutually exclusive. You must specify one of them.
     shared_ptr<int64_t> expirationDays_ {};
-    // The prefix that the rule applies to. You cannot set duplicate prefixes.
+    // The prefix to which the rule applies. You cannot specify the same prefix for multiple rules.
     // 
-    // - If you specify a prefix, the rule applies only to objects in the bucket whose names start with that prefix.
+    // - If you specify a prefix, the rule applies only to objects whose names match the prefix in the bucket.
     // 
-    // - If you leave Prefix empty, the rule applies to all objects in the bucket.
+    // - If you leave the prefix empty, the rule applies to all objects in the bucket.
     shared_ptr<string> prefix_ {};
-    // A unique ID that identifies the rule. Maximum length is 255 bytes.
+    // The unique ID that identifies the rule. The ID can be up to 255 bytes in length.
     // 
-    // - Omit this parameter when creating a new rule. The system generates a unique ID automatically.
+    // - You do not need to specify this parameter when you create a rule. The system automatically generates a unique ID.
     // 
-    // - Specify RuleId when updating an existing rule. The rule must exist. Otherwise, the call fails.
+    // - You must specify the RuleId when you update an existing rule. The rule corresponding to the RuleId must exist. Otherwise, an error is returned.
     shared_ptr<string> ruleId_ {};
     // The status of the rule. Valid values:
     // 
-    // - **Enabled**: The system runs the rule on schedule.
+    // - **Enabled**: The rule is executed periodically.
     // 
-    // - **Disabled**: The system ignores the rule.
+    // - **Disabled**: The rule is ignored.
     // 
     // This parameter is required.
     shared_ptr<string> status_ {};

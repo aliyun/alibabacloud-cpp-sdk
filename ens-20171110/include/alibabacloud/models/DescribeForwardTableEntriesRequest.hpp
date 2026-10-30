@@ -103,31 +103,31 @@ namespace Models
 
 
   protected:
-    // The EIP in the DNAT entry. The public IP address is used to access the Internet.
+    // The elastic IP address that provides public network access in the DNAT entry.
     shared_ptr<string> externalIp_ {};
     // The ID of the DNAT entry.
     shared_ptr<string> forwardEntryId_ {};
     // The name of the DNAT entry.
     shared_ptr<string> forwardEntryName_ {};
-    // The private IP address of the instance that uses the DNAT entry for Internet communication.
+    // The private IP address of the instance that communicates with the Internet through the DNAT entry.
     shared_ptr<string> internalIp_ {};
-    // The protocol. Valid values:
+    // The protocol type. Valid values:
     // 
-    // - **TCP**: forwards TCP packets.
+    // - **TCP**: Forwards TCP packets.
     // 
-    // - **UDP**: forwards UDP packets.
+    // - **UDP**: Forwards UDP packets.
     // 
-    // - **Any**: forwards all packets.
+    // - **Any**: Forwards packets of all protocols.
     shared_ptr<string> ipProtocol_ {};
     // The ID of the NAT gateway.
     // 
     // This parameter is required.
     shared_ptr<string> natGatewayId_ {};
-    // The page number. Pages start from page **1**.
+    // The page number of the list to query. Pages start from **1**.
     // 
     // Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Maximum value: **100**.
+    // The paging Settings for the number of entries per page in a paged query. Maximum value: **100**.
     // 
     // Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};

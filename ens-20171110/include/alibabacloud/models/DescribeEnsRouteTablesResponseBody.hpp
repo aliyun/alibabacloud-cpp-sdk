@@ -160,39 +160,34 @@ namespace Models
 
 
     protected:
-      // The type of the resource with which the route table is associated. Valid values:
+      // The type of resource associated with the route table. Valid values:
       // 
-      // - **VSwitch**
-      // 
-      // - **Gateway**
+      // - **VSwitch**: vSwitch
+      // - **Gateway**: gateway
       shared_ptr<string> associateType_ {};
-      // The time when the route table was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // The creation time. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> creationTime_ {};
       // The description.
       shared_ptr<string> description_ {};
-      // The ID of the edge node.
+      // The ENS edge zone ID.
       shared_ptr<string> ensRegionId_ {};
-      // Specifies whether it is the default gateway route table.
+      // Indicates whether the route table is the default gateway route table.
       shared_ptr<bool> isDefaultGatewayRouteTable_ {};
-      // The ID of the network.
+      // The network ID.
       shared_ptr<string> networkId_ {};
-      // The ID of the route table.
+      // The route table ID.
       shared_ptr<string> routeTableId_ {};
-      // The name of the route table that you want to query.
-      // 
-      // The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-).
+      // The name of the route table.
       shared_ptr<string> routeTableName_ {};
       // The status. Valid values:
       // 
-      // - Available: The route table is available.
+      // - Available: available
       shared_ptr<string> status_ {};
-      // The type of the route table. Examples:
-      // 
-      // - Custom: custom route table.
-      // 
-      // - System: system route table.
+      // The type of the route table. Valid values:
+      // - Custom: custom route table
+      // - System: system route table
       shared_ptr<string> type_ {};
-      // The vSwitches that are associated with the route table.
+      // The list of vSwitches associated with the route table.
       shared_ptr<vector<string>> vSwitchIds_ {};
     };
 
@@ -236,15 +231,15 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page in a paging query.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the route tables.
+    // The route table information.
     shared_ptr<vector<DescribeEnsRouteTablesResponseBody::RouteTables>> routeTables_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

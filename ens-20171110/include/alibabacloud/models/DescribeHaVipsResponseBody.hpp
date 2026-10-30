@@ -142,20 +142,20 @@ namespace Models
 
 
       protected:
-        // The time when the association was created. The time is in the ISO 8601 UTC format of YYYY-MM-DDTHH:mm:ssZ.
+        // The time when the instance was associated. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
         shared_ptr<string> creationTime_ {};
         // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // The type of the instance to attach to the HaVip. Valid values:
+        // The type of the instance to attach the HaVip to. Valid values:
         // 
-        // - EnsInstance: An ENS cloud server instance.
-        // - NetworkInterface: An elastic network interfaces (ENIs) instance, which is a network interface controller (NIC).
+        // - EnsInstance: ENS cloud server instance.
+        // - NetworkInterface: network interface controller (NIC).
         shared_ptr<string> instanceType_ {};
         // The private IP address of the associated instance.
         shared_ptr<string> ipAddress_ {};
-        // The association status of the HaVip instance. Valid values:
+        // The association status of the HaVip. Valid values:
         // - Associating: The HaVip is being associated.
-        // - InUse: The HaVip is available.
+        // - InUse: The HaVip is in use.
         // - Unassociating: The HaVip is being disassociated.
         shared_ptr<string> status_ {};
       };
@@ -289,15 +289,15 @@ namespace Models
 
 
     protected:
-      // The elastic IP addresses (EIPs) associated with the HaVip.
+      // The EIPs associated with the HaVip.
       shared_ptr<vector<HaVips::AssociatedEipAddresses>> associatedEipAddresses_ {};
-      // The instances associated with the HaVip.
+      // The information about the instances associated with the HaVip.
       shared_ptr<vector<HaVips::AssociatedInstances>> associatedInstances_ {};
-      // The time when the HaVip was created. The time is in the ISO 8601 UTC format of YYYY-MM-DDTHH:mm:ssZ.
+      // The time when the HaVip was created. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> creationTime_ {};
       // The description of the HaVip instance.
       shared_ptr<string> description_ {};
-      // The ID of the ENS node.
+      // The ENS edge zone ID.
       shared_ptr<string> ensRegionId_ {};
       // The HaVip instance ID.
       shared_ptr<string> haVipId_ {};
@@ -307,7 +307,7 @@ namespace Models
       shared_ptr<string> name_ {};
       // The network ID.
       shared_ptr<string> networkId_ {};
-      // The HaVip status. Valid values:
+      // The status of the HaVip. Valid values:
       // - Creating: The HaVip is being created.
       // - Available: The HaVip is available.
       // - InUse: The HaVip is in use.
@@ -361,7 +361,7 @@ namespace Models
     shared_ptr<vector<DescribeHaVipsResponseBody::HaVips>> haVips_ {};
     // The current page number.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries returned per page.
     shared_ptr<string> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

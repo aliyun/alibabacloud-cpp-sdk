@@ -122,11 +122,11 @@ namespace Models
 
 
       protected:
-        // The ID of the next hop.
-        shared_ptr<string> nextHopId_ {};
         // The instance ID of the next hop.
+        shared_ptr<string> nextHopId_ {};
+        // The name of the next hop instance.
         shared_ptr<string> nextHopName_ {};
-        // The type of the next hop. Valid values:
+        // The next hop type.
         shared_ptr<string> nextHopType_ {};
       };
 
@@ -206,25 +206,25 @@ namespace Models
 
 
     protected:
-      // The time when the IP address was created. The time is displayed in UTC.
+      // The creation time in UTC.
       shared_ptr<string> creationTime_ {};
-      // Enter a description for the route.
+      // The description of the route entry.
       shared_ptr<string> description_ {};
-      // The destination CIDR block of the route.
+      // The destination CIDR block of the route entry.
       shared_ptr<string> destinationCidrBlock_ {};
-      // The information about the next hop.
+      // The next hop information.
       shared_ptr<vector<RouteEntrys::NextHops>> nextHops_ {};
-      // The ID of the route.
+      // The ID of the route entry.
       shared_ptr<string> routeEntryId_ {};
-      // The name of the route.
+      // The name of the route entry.
       shared_ptr<string> routeEntryName_ {};
       // The ID of the route table.
       shared_ptr<string> routeTableId_ {};
-      // The source CIDR block. This field is used when you configure a route entry in the gateway route table. This field is not supported in the vSwitch route table.
+      // The source CIDR block. This parameter is used when you configure a routing entry in a gateway route table and is not supported in a vSwitch route table.
       shared_ptr<string> sourceCidrBlock_ {};
-      // The status of the route entry. Valid values:
+      // The status of the route entry.
       shared_ptr<string> status_ {};
-      // The type of the route entry.
+      // The type of the routing entry.
       shared_ptr<string> type_ {};
     };
 
@@ -268,15 +268,15 @@ namespace Models
 
 
   protected:
-    // The page number of the returned page.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page in a paging query.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the routes.
+    // The route entry information.
     shared_ptr<vector<DescribeEnsRouteEntryListResponseBody::RouteEntrys>> routeEntrys_ {};
-    // The number of returned entries.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

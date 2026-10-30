@@ -154,16 +154,16 @@ namespace Models
     // The name of the load balancing instance.
     shared_ptr<string> loadBalancerName_ {};
     // The listener status of the load balancing instance. Valid values:
-    // - **Active**: The listeners in the instance can forward accepted traffic based on rules.
-    // - **InActive**: The listeners in the instance no longer forward accepted traffic.
+    // - **Active**: The listeners in the instance can accept and forward traffic based on rules.
+    // - **InActive**: The listeners in the instance no longer accept and forward traffic.
     shared_ptr<string> loadBalancerStatus_ {};
     // The type of the load balancing instance.
     shared_ptr<string> loadBalancerType_ {};
     // The network ID.
     shared_ptr<string> networkId_ {};
-    // The page number of the list. Default value: 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The Settings for the number of entries per page during paging in a paged query. Default value: 10. Valid values: **10** to **100**.
+    // The Settings for the number of entries per page for paging in a paged query. Default value: 10. Valid values: **10** to **100**.
     shared_ptr<int32_t> pageSize_ {};
     // The backend server instance ID.
     shared_ptr<string> serverId_ {};

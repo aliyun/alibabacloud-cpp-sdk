@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The specifications of the ELB instance.
+    // The specification of the load balancing instance.
     shared_ptr<string> loadBalancerSpec_ {};
   };
 

@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the EPN instance.
+    // The edge-to-edge communication instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> EPNInstanceId_ {};
-    // The information about the public IP addresses that you want to delete.
+    // The information about the public IP addresses to be removed.
     // 
     // This parameter is required.
     shared_ptr<string> instanceInfos_ {};

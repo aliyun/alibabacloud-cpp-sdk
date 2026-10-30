@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The URL that points to the exported image.
+    // The URL of the exported image.
     shared_ptr<string> exportedImageURL_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

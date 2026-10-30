@@ -127,19 +127,17 @@ namespace Models
 
 
       protected:
-        // The ID of the edge node.
+        // The ENS edge zone ID.
         shared_ptr<string> ensRegionId_ {};
         // The ID of the associated resource.
         shared_ptr<string> resourceId_ {};
         // The type of the associated resource.
         shared_ptr<string> resourceType_ {};
-        // The association status of the resource. Valid values:
+        // The status of the associated resource. Valid values:
         // 
-        // - **BINDED**: The resource is associated with the network ACL.
-        // 
-        // - **BINDING**: The resource is being associated with the network ACL.
-        // 
-        // - **UNBINDING**: The resource is being disassociated from the network ACL.
+        // - **BINDED**: Bound.
+        // - **BINDING**: Binding.
+        // - **UNBINDING**: Unbinding.
         shared_ptr<string> status_ {};
       };
 
@@ -258,41 +256,34 @@ namespace Models
         shared_ptr<string> cidrBlock_ {};
         // The description of the inbound rule.
         shared_ptr<string> description_ {};
-        // The destination network.
+        // The destination CIDR block.
         shared_ptr<string> destinationCidrBlock_ {};
-        // The ID of the inbound rule.
+        // The ID of the inbound rule entry.
         shared_ptr<string> networkAclEntryId_ {};
-        // The name of the inbound rule.
+        // The name of the inbound rule entry.
         shared_ptr<string> networkAclEntryName_ {};
-        // The action that is performed on network traffic that matches the rule. Valid values:
+        // The authorization policy. Valid values:
         // 
-        // - **accept**: allows the network traffic.
-        // 
-        // - **drop**: blocks the network traffic.
+        // - **accept**: Allow.
+        // - **drop**: Deny.
         shared_ptr<string> policy_ {};
         // The destination port range of the inbound rule.
         // 
-        // - If **Protocol** of the inbound rule is set to **all** or **icmp**, the port range is **-1/-1**, which indicates all ports.
-        // 
-        // - If **Protocol** of the inbound rule is set to **tcp** or **udp**, the port range is in the following format: **1/200** or **80/80**. 1/200 indicates port 1 to port 200. 80/80 indicates port 80. Valid values for a port: **1 to 65535**.
+        // - If the **Protocol** (Protocol Type) of the inbound rule is **all** or **icmp**, the port range is **-1/-1**, which indicates that all ports are allowed.
+        // - If the **Protocol** (Protocol Type) of the inbound rule is **tcp** or **udp**, the port range is **1~65535**. The format is **1/200** or **80/80**, which indicates ports 1 to 200 or port 80.
         shared_ptr<string> portRange_ {};
-        // The priority of the rule. Valid values: **1 to 100**. Default value: **1**.
+        // The priority of the rule. Valid values: **1** to **100**. Default value: **1**.
         shared_ptr<int32_t> priority_ {};
         // The protocol type. Valid values:
         // 
-        // - **icmp**: ICMP.
-        // 
-        // - **tcp**: TCP.
-        // 
-        // - **udp**: UDP.
-        // 
-        // - **all**: all protocols.
+        // - **icmp**: Internet Control Message Protocol.
+        // - **tcp**: Transmission Control Protocol.
+        // - **udp**: User Datagram Protocol.
+        // - **all**: All protocols.
         shared_ptr<string> protocol_ {};
-        // The type of the rule. Valid values:
-        // 
-        // - **system**: The rule is created by the system.
-        // 
-        // - **custom**: The rule is created by a user.
+        // The rule type. Valid values:
+        // - **system**: System-created.
+        // - **custom**: User-created.
         shared_ptr<string> type_ {};
       };
 
@@ -402,39 +393,32 @@ namespace Models
         shared_ptr<string> cidrBlock_ {};
         // The description of the outbound rule.
         shared_ptr<string> description_ {};
-        // The ID of the outbound rule.
+        // The ID of the outbound rule entry.
         shared_ptr<string> networkAclEntryId_ {};
-        // The name of the outbound rule.
+        // The name of the outbound rule entry.
         shared_ptr<string> networkAclEntryName_ {};
-        // The action that is performed on network traffic that matches the rule. Valid values:
+        // The authorization policy. Valid values:
         // 
-        // - **accept**: allows the network traffic.
-        // 
-        // - **drop**: blocks the network traffic.
+        // - **accept**: Allow.
+        // - **drop**: Deny.
         shared_ptr<string> policy_ {};
         // The destination port range of the outbound rule.
         // 
-        // - If **Protocol** of the outbound rule is set to **all** or **icmp** the port range is **-1/-1**, which indicates all ports.
-        // 
-        // - If **Protocol** of the outbound rule is set to **tcp** or **udp**, the port range is in the following format: **1/200** or **80/80**. 1/200 indicates port 1 to port 200. 80/80 indicates port 80. Valid values for a port: **1 to 65535**.
+        // - If the **Protocol** (Protocol Type) of the outbound rule is **all** or **icmp**, the port range is **-1/-1**, which indicates that all ports are allowed.
+        // - If the **Protocol** (Protocol Type) of the outbound rule is **tcp** or **udp**, the port range is **1~65535**. The format is **1/200** or **80/80**, which indicates ports 1 to 200 or port 80.
         shared_ptr<string> portRange_ {};
-        // The priority of the rule. Valid values: **1 to 100**. Default value: **1**.
+        // The priority of the rule. Valid values: **1** to **100**. Default value: **1**.
         shared_ptr<int32_t> priority_ {};
         // The protocol type. Valid values:
         // 
-        // - **icmp**: ICMP.
-        // 
-        // - **tcp**: TCP.
-        // 
-        // - **udp**: UDP.
-        // 
-        // - **all**: all protocols.
+        // - **icmp**: Internet Control Message Protocol.
+        // - **tcp**: Transmission Control Protocol.
+        // - **udp**: User Datagram Protocol.
+        // - **all**: All protocols.
         shared_ptr<string> protocol_ {};
-        // The type of the rule. Valid values:
-        // 
-        // - **system**: The rule is created by the system.
-        // 
-        // - **custom**: The rule is created by a user.
+        // The rule type. Valid values:
+        // - **system**: System-created.
+        // - **custom**: User-created.
         shared_ptr<string> type_ {};
       };
 
@@ -504,25 +488,24 @@ namespace Models
 
 
     protected:
-      // The time when the network ACL was created. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+      // The time when the network ACL was created. The time is displayed in UTC in the `yyyy-MM-ddTHH:mm:ssZ` format.
       shared_ptr<string> creationTime_ {};
       // The description of the network ACL.
       shared_ptr<string> description_ {};
-      // Details of the outbound rules.
+      // The outbound rules.
       shared_ptr<vector<NetworkAcls::EgressAclEntries>> egressAclEntries_ {};
-      // Details of the inbound rules.
+      // The inbound rules.
       shared_ptr<vector<NetworkAcls::IngressAclEntries>> ingressAclEntries_ {};
       // The ID of the network ACL.
       shared_ptr<string> networkAclId_ {};
       // The name of the network ACL.
       shared_ptr<string> networkAclName_ {};
-      // Details of the associated resources.
+      // The associated resources.
       shared_ptr<vector<NetworkAcls::Resources>> resources_ {};
       // The status of the network ACL. Valid values:
       // 
-      // - **Available**: The network ACL is available.
-      // 
-      // - **Modifying**: The network ACL is being configured.
+      // - **Available**: Active.
+      // - **Modifying**: Configuring.
       shared_ptr<string> status_ {};
     };
 
@@ -566,15 +549,15 @@ namespace Models
 
 
   protected:
-    // Details of the network ACLs.
+    // The details of the network ACLs.
     shared_ptr<vector<DescribeNetworkAclsResponseBody::NetworkAcls>> networkAcls_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<string> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<string> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<string> totalCount_ {};
   };
 

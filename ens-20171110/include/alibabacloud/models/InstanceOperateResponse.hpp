@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // code
     shared_ptr<int64_t> code_ {};
+    // instance id
     shared_ptr<string> instanceId_ {};
+    // message
     shared_ptr<string> message_ {};
   };
 

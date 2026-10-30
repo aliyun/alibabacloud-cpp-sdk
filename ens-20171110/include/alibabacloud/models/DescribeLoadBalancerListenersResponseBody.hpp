@@ -225,11 +225,11 @@ namespace Models
 
   protected:
     shared_ptr<DescribeLoadBalancerListenersResponseBody::Listeners> listeners_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries to return on each page during paging in a paged query.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};

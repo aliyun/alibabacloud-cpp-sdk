@@ -192,19 +192,19 @@ namespace Models
 
   protected:
     shared_ptr<RunServiceScheduleResponseBody::CommandResults> commandResults_ {};
-    // The index number of the scheduled virtual device (pod).
+    // The index of the scheduled target virtual device (container pod).
     shared_ptr<int32_t> index_ {};
-    // The ID of the scheduled instance.
+    // The ID of the target instance.
     shared_ptr<string> instanceId_ {};
-    // The IP address of the scheduled instance.
+    // The IP address of the scheduled target instance.
     shared_ptr<string> instanceIp_ {};
-    // The start port of the scheduled instance.
+    // The start port of the scheduled target instance.
     shared_ptr<int32_t> instancePort_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is repeated. This parameter is not returned if ServcieAction is set to Console.
+    // Specifies whether the operation is repeated for ServiceAction values other than Console.
     shared_ptr<string> requestRepeated_ {};
-    // The TCP port range of the scheduled instance or container. The value is in the ${from}-$-{to} format. Example: 80-88.
+    // The TCP service port range of the scheduled target virtual machine instance or container. Format: ${from}-${to}. Example: 80-88.
     shared_ptr<bool> tcpPorts_ {};
   };
 

@@ -75,17 +75,17 @@ namespace Models
 
 
   protected:
-    // The description of the image.
+    // The description of the listener.
     shared_ptr<string> description_ {};
-    // The listener port.
+    // The frontend port used by the load balancing instance. Valid values: **1** to **65535**.
     shared_ptr<int32_t> listenerPort_ {};
-    // The ID of the ELB instance.
+    // The ID of the load balancing instance.
     // 
     // This parameter is required.
     shared_ptr<string> loadBalancerId_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries to return on each page during paging in a paged query.
     shared_ptr<int32_t> pageSize_ {};
   };
 

@@ -79,9 +79,9 @@ namespace Models
     shared_ptr<string> networkAclId_ {};
     // The name of the network ACL.
     shared_ptr<string> networkAclName_ {};
-    // The page number. Pages start from page **1**. Default value: **1**.
+    // The page number. Starting value: **1**. Default value: **1**.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page. Maximum value: **50**. Default value: **10**.
+    // The number of entries per page for a paging query. Maximum value: **50**. Default value: **10**.
     shared_ptr<string> pageSize_ {};
     // The ID of the associated instance.
     shared_ptr<string> resourceId_ {};

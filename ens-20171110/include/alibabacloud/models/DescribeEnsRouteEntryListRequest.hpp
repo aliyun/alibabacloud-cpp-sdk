@@ -112,33 +112,28 @@ namespace Models
 
 
   protected:
-    // The destination Classless Inter-Domain Routing (CIDR) block of the route entry.
+    // The destination CIDR block of the route entry.
     shared_ptr<string> destinationCidrBlock_ {};
-    // The ID of the next hop.
+    // The instance ID of the next hop.
     shared_ptr<string> nextHopId_ {};
-    // The type of next hop of the custom route entry. Valid values:
-    // 
-    // - Instance (default): an ENS instance.
-    // 
-    // - HaVip: a high-availability virtual IP address (HAVIP).
-    // 
-    // - NetworkPeer: VPC peering connection.
+    // The type of the next hop for a custom route entry. Valid values:
+    // - Instance (default): ENS instance.
+    // - HaVip: high-availability virtual IP address.
+    // - NetworkPeer: network peering connection.
     shared_ptr<string> nextHopType_ {};
-    // The page number of the returned page. Valid values: integers that are greater than 0. Default value: 1.
+    // The page number of the list to query. Valid values: greater than 0. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 10. Valid values: 10 to 100.
+    // The number of entries per page in a paging query. Valid values: 10 to 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the route that you want to query.
+    // The ID of the route entry.
     shared_ptr<string> routeEntryId_ {};
-    // The name of the route.
+    // The name of the route entry.
     shared_ptr<string> routeEntryName_ {};
-    // The route type. Valid values:
-    // 
-    // - Custom: custom route
-    // 
-    // - System: system route
+    // The type of the routing entry. Valid values:
+    // - Custom: custom route.
+    // - System: system route.
     shared_ptr<string> routeEntryType_ {};
-    // The ID of the route table that you want to query.
+    // The ID of the route table.
     shared_ptr<string> routeTableId_ {};
   };
 

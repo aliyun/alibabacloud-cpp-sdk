@@ -75,13 +75,13 @@ namespace Models
 
 
   protected:
-    // The ID of the region.
+    // The edge zone ID.
     shared_ptr<string> ensRegionId_ {};
-    // The ID of the file system.
+    // The NAS file system ID.
     shared_ptr<string> fileSystemId_ {};
-    // The name of the file system.
+    // The NAS file system name.
     shared_ptr<string> fileSystemName_ {};
-    // The page number. Pages start from page **1**. Default value: **1**.
+    // The page number. Starting value: **1**. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Maximum value: **100**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};

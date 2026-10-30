@@ -76,9 +76,9 @@ namespace Models
 
 
     protected:
-      // The display name of the instance type.
+      // The display name of the instance specification.
       shared_ptr<string> displayName_ {};
-      // The specifications of the ELB instance.
+      // The specification of the load balancing instance.
       shared_ptr<string> loadBalancerSpec_ {};
     };
 
@@ -122,15 +122,15 @@ namespace Models
 
 
   protected:
-    // The specifications. Valid values:
+    // The specifications.
     shared_ptr<vector<DescribeLoadBalancerSpecResponseBody::LoadBalancerSpecs>> loadBalancerSpecs_ {};
-    // The page number.
+    // The page number of the instance list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Maximum value: 100. Default value: 10.
+    // The number of entries per page for a paged query. Maximum value: 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

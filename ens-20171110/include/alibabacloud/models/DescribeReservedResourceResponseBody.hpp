@@ -321,7 +321,7 @@ namespace Models
 
 
   protected:
-    // The returned service code. 0 indicates that the request was successful.
+    // The business return code. A value of 0 indicates success.
     shared_ptr<int32_t> code_ {};
     shared_ptr<DescribeReservedResourceResponseBody::Images> images_ {};
     // The request ID.

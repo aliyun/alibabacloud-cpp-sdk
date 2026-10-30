@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the disk that you want to resize.
+    // The instance ID of the cloud disk to resize.
     // 
     // This parameter is required.
     shared_ptr<string> diskId_ {};
-    // The size of the disk that you want to resize. Unit: GiB.
+    // The target size of the cloud disk, in GiB.
     // 
     // This parameter is required.
     shared_ptr<string> newSize_ {};

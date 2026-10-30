@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> snatEntryId_ {};
-    // The EIP that you want to delete from the SNAT entry.
+    // The EIP in the SNAT entry.
     // 
     // This parameter is required.
     shared_ptr<string> snatIp_ {};

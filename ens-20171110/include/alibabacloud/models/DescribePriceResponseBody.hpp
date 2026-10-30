@@ -106,17 +106,17 @@ namespace Models
 
 
       protected:
-        // The type of currency.
+        // The currency. Valid values:
         // 
-        // - USD: US dollar
-        // 
-        // - JPY: Japanese Yen
+        // <props="china">- CNY: Chinese yuan.
+        // - USD: US dollar.
+        // - JPY: Japanese yen.
         shared_ptr<string> currency_ {};
         // The discount.
         shared_ptr<float> discountPrice_ {};
         // The original price.
         shared_ptr<float> originalPrice_ {};
-        // The final price.
+        // The transaction price.
         shared_ptr<float> tradePrice_ {};
       };
 
@@ -131,7 +131,7 @@ namespace Models
 
 
     protected:
-      // The price.
+      // The price information.
       shared_ptr<PriceInfo::Price> price_ {};
     };
 
@@ -154,9 +154,9 @@ namespace Models
 
 
   protected:
-    // The price information.
+    // The price information list.
     shared_ptr<DescribePriceResponseBody::PriceInfo> priceInfo_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

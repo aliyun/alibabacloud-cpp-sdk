@@ -115,29 +115,27 @@ namespace Models
 
 
   protected:
-    // The type of the resource with which the route table is associated. Valid values:
+    // The type of resource associated with the route table. Valid values:
     // 
-    // - **VSwitch**
-    // 
-    // - **Gateway**
+    // - **VSwitch**: vSwitch
+    // - **Gateway**: gateway
     shared_ptr<string> associateType_ {};
-    // The ID of the ENS node.
+    // The ENS edge zone ID.
     shared_ptr<string> ensRegionId_ {};
-    // The IDs of edge nodes. You can specify 1 to 100 IDs.
+    // The array of ENS edge zone IDs. Array length: 1 to 100.
     shared_ptr<vector<string>> ensRegionIds_ {};
-    // The ID of the network.
+    // The network ID.
     shared_ptr<string> networkId_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page in a paging query.
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the route table.
     shared_ptr<string> routeTableId_ {};
     // The name of the route table.
     shared_ptr<string> routeTableName_ {};
-    // The SNAT type.
-    // 
-    // - FullCone: full cone NAT.
+    // The SNAT type. Valid values:
+    // - FullCone: full-cone NAT
     shared_ptr<string> type_ {};
   };
 

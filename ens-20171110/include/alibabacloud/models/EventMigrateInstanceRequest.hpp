@@ -95,33 +95,31 @@ namespace Models
 
   protected:
     // The data migration policy. Valid values:
-    // 
-    // - `abandon`: Does not migrate data. This is the default value.
-    // 
-    // - `force_transfer`: Forces data migration.
-    // 
-    // - `try_transfer`: Attempts to migrate data.
+    // - abandon: Does not migrate data. This is the default value.
+    // - force_transfer: forcible migration of EPS resource.
+    // - try_transfer: Attempts to migrate data.
     shared_ptr<string> dataPolicy_ {};
     // The ID of the system event.
     // 
     // This parameter is required.
     shared_ptr<string> eventId_ {};
-    // The type of the O\\&M task. Valid values:
+    // The type of the O&M task. Valid values:
     // 
-    // - `immediate`: Executes the task immediately.
-    // 
-    // - `scheduled`: Executes the task at the specified time.
+    // - immediate: Executes the task immediately.
+    // - scheduled: Executes the task at a scheduled time.
     // 
     // This parameter is required.
     shared_ptr<string> opsType_ {};
-    // The instance password. This parameter is optional. If you do not specify a password, the system generates a random one.
+    // The instance password. This parameter is optional. If you do not specify this parameter, a random password is used.
     // 
-    // The password must be 8 to 30 characters long and contain uppercase letters, lowercase letters, and digits.
+    // The password must be 8 to 30 characters in length and must contain uppercase letters, lowercase letters, and digits.
     // 
-    // Note: This parameter is not supported for scheduled execution.
+    // Note: You cannot specify a password when you schedule the execution time.
     shared_ptr<string> password_ {};
-    // The scheduled execution time. This must be a Unix timestamp in milliseconds. This parameter is required when `OpsType` is set to `scheduled`.
+    // The scheduled execution time. The value is a timestamp in milliseconds.
+    // This parameter is required when OpsType is set to scheduled.
     shared_ptr<int64_t> planTime_ {};
+    // The scheduled UTC time.
     shared_ptr<string> planUtcTime_ {};
     // The ID of the resource.
     // 

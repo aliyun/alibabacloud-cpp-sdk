@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // A list of instance IDs.
+    // The list of instance IDs.
     // 
     // This parameter is required.
     shared_ptr<string> instanceIdsShrink_ {};
     // The unique ID of the key pair.
     shared_ptr<string> keyPairId_ {};
-    // The key pair name.
+    // The name of the key pair.
     shared_ptr<string> keyPairName_ {};
   };
 

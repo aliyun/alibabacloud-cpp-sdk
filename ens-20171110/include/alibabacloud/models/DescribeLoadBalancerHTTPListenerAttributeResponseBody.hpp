@@ -241,135 +241,91 @@ namespace Models
 
 
   protected:
-    // The port used by the backend server of the ELB instance. Valid values: **1** to **65535**.
+    // The port used by the backend server of the load balancing instance. Valid values: **1** to **65535**.
     shared_ptr<int32_t> backendServerPort_ {};
-    // The peak bandwidth of the Edge Load Balancer (ELB) instance. The default value is -1, which indicates that the bandwidth is not limited.
+    // The peak bandwidth of load balancing. Default value: -1, which indicates that bandwidth is not limited.
     shared_ptr<int32_t> bandwidth_ {};
     // The description of the listener. The description must be **1** to **80** characters in length.
-    // 
-    // > The value cannot start with `http://` or `https://`.
+    // > It cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
-    // The listener port that is used to redirect HTTP requests to HTTPS.
+    // The forwarding port for HTTP-to-HTTPS listeners.
     shared_ptr<int32_t> forwardPort_ {};
-    // Indicates whether the health check feature is enabled. Valid values:
-    // 
-    // - **on**
-    // 
-    // - **off**
+    // Indicates whether health checks are enabled. Valid values:
+    // - **on**: enabled.
+    // - **off**: disabled.
     shared_ptr<string> healthCheck_ {};
-    // The port that is used for health checks. Valid values: **1** to **65535**. If you leave this parameter empty, the port specified by BackendServerPort is used for health checks.
-    // 
-    // > This parameter is returned only if you set HealthCheck to on.
+    // The port used for health checks. Valid values: **1** to **65535**. If this parameter is not specified, the backend server port (BackendServerPort) is used.
+    // > This parameter takes effect only when HealthCheck is set to on.
     shared_ptr<int32_t> healthCheckConnectPort_ {};
-    // The domain name that is used for health checks.
-    // 
-    // > This parameter is returned only if you set HealthCheck to on.
+    // The domain name used for health checks.
+    // > This parameter takes effect only when HealthCheck is set to on.
     shared_ptr<string> healthCheckDomain_ {};
-    // The HTTP status codes for a successful health check. Valid values:
-    // 
+    // The HTTP status code that indicates a successful health check. Valid values:
     // - **http_2xx** (default)
-    // 
-    // - **http_3xx**.
-    // 
+    // - **http_3xx**
     // - **http_4xx**
-    // 
     // - **http_5xx**
-    // 
-    // > This parameter is returned only if you set HealthCheck to on.
+    // > This parameter takes effect only when HealthCheck is set to on.
     shared_ptr<string> healthCheckHttpCode_ {};
-    // The interval at which health checks are performed. Valid values: **1** to **50**. Unit: seconds.
-    // 
-    // > This parameter is returned only if you set HealthCheck to on.
+    // The interval between two consecutive health checks. Valid values: **1** to **50**. Unit: seconds.
+    // > This parameter takes effect only when HealthCheck is set to on.
     shared_ptr<int32_t> healthCheckInterval_ {};
-    // The health check method used in HTTP health checks. Valid values:
-    // 
-    // - **head**: requests the head of the page.
-    // 
-    // - **get**: requests the specified part of the page and returns the entity body.
-    // 
-    // > This parameter is returned only if you set HealthCheck to on.
+    // The HTTP method used for health checks. Valid values:
+    // - **head**: Requests only the header of the page.
+    // - **get**: Requests the specified page information and returns the entity body.
+    // > This parameter takes effect only when HealthCheck is set to on.
     shared_ptr<string> healthCheckMethod_ {};
-    // The timeout period of a health check response. If a backend server does not respond within the specified timeout period, the server fails the health check.
-    // 
+    // The timeout period for a health check response. If a backend ENS instance does not respond within the specified timeout period, the health check fails.
     // - Default value: 5.
-    // 
     // - Valid values: **1** to **300**.
-    // 
     // - Unit: seconds.
-    // 
-    // >
-    // 
-    // - This parameter takes effect only if the HealthCheck parameter is set to on.
-    // 
-    // - If the value of HealthCheckTimeout is smaller than the value of HealthCheckInterval, the timeout period specified by HealthCheckTimeout becomes invalid, and the value of HealthCheckInterval is used as the timeout period.
+    // > - This parameter takes effect only when HealthCheck is set to on.
+    // > - If the value of HealthCheckTimeout is less than the value of HealthCheckInterval, HealthCheckTimeout becomes invalid and the timeout period equals the value of HealthCheckInterval.
     shared_ptr<int32_t> healthCheckTimeout_ {};
     // The URI used for health checks. The URI must be **1** to **80** characters in length.
-    // 
-    // >
-    // 
-    // - A URL must start with a forward slash (`/`) but cannot contain only forward slashes (`/`).
-    // 
-    // - This parameter takes effect only if the HealthCheck parameter is set to on.
+    // > - The URI cannot be only a forward slash (`/`), but it must start with a forward slash (`/`).
+    // > - This parameter takes effect only when HealthCheck is set to on.
     shared_ptr<string> healthCheckURI_ {};
-    // The number of consecutive successful health checks that must occur before an unhealthy and inaccessible backend server is declared healthy and accessible. Valid values: **2** to **10**.
-    // 
-    // > This parameter is returned only if you set HealthCheck to on.
+    // The number of consecutive successful health checks that must occur before the health check status of a backend server is changed from fail (unreachable) to success (reachable). Valid values: **2** to **10**.
+    // > This parameter takes effect only when HealthCheck is set to on.
     shared_ptr<int32_t> healthyThreshold_ {};
-    // The timeout period for idle connections. Default value: 15. Valid values: **1** to **60**. Unit: seconds.
-    // 
-    // > If no request is received within the specified timeout period, ELB closes the connection. When another request is received, ELB establishes a new connection.
+    // The idle connection timeout period. Default value: 15. Valid values: **1** to **60**. Unit: seconds.
+    // > If no request is received within the specified timeout period, load balancing temporarily interrupts the current connection and establishes a new connection when the next request arrives.
     shared_ptr<int32_t> idleTimeout_ {};
-    // Indicates whether HTTP-to-HTTPS redirection is enabled. Valid values:
-    // 
-    // - **on**: HTTP-to-HTTPS redirection is enabled.
-    // 
-    // - **off** (default)
+    // Indicates whether HTTP-to-HTTPS forwarding is enabled. Valid values:
+    // - **on**: enabled.
+    // - **off** (default): disabled.
     shared_ptr<string> listenerForward_ {};
     // The listener port.
     shared_ptr<int32_t> listenerPort_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The timeout period of requests. Default value: 60. Valid values: **1** to **180**. Unit: seconds.
-    // 
-    // > If no response is received from the backend server within the specified timeout period, ELB returns an HTTP 504 error code to the client.
+    // The request timeout period. Default value: 60. Valid values: **1** to **180**. Unit: seconds.
+    // > If a backend server does not return a response within the specified timeout period, load balancing stops waiting and returns an HTTP 504 error code to the client.
     shared_ptr<int32_t> requestTimeout_ {};
-    // The routing algorithm. Valid values:
-    // 
-    // - **wrr**: Backend servers with higher weights receive more requests than those with lower weights.
-    // 
-    // - **wlc**: Requests are distributed based on the weight and load of each backend server. The load refers to the number of connections to a backend server. If two backend servers have the same weight, the backend server that has fewer connections receives more requests.
-    // 
-    // - **rr**: Requests are distributed to backend servers in sequence.
-    // 
-    // - **sch**: consistent hashing that is based on source IP addresses. Requests from the same source IP address are distributed to the same backend server.
-    // 
-    // - **qch**: consistent hashing that is based on QUIC connection IDs. Requests that contain the same QUIC connection ID are distributed to the same backend server.
-    // 
-    // - **iqch**: consistent hashing that is based on specific three bytes of the iQUIC CIDs. Requests whose second to fourth bytes are the same are distributed to the same backend server.
+    // The scheduling algorithm. Valid values:
+    // - **wrr**: Backend servers with higher weights receive more requests.
+    // - **wlc**: Requests are distributed based on the weights and actual loads (connections) of backend servers. If two backend servers have the same weight, the backend server with fewer connections receives more requests.
+    // - **rr**: Requests are evenly and sequentially distributed to backend servers.
+    // - **sch**: Consistent hashing based on source IP addresses. Requests from the same source IP address are distributed to the same backend server.
+    // - **qch**: Consistent hashing based on QUIC Connection IDs. Requests with the same QUIC Connection ID are distributed to the same backend server.
+    // - **iqch**: Consistent hashing based on specific three bytes of the iQUIC CID. Requests with the same second to fourth bytes are distributed to the same backend server.
     shared_ptr<string> scheduler_ {};
     // The ID of the server certificate.
     shared_ptr<string> serverCertificateId_ {};
     // The status of the listener. Valid values:
-    // 
-    // - **Running**
-    // 
-    // - **Stopped**
-    // 
-    // - **Starting**
-    // 
-    // - **Configuring**
-    // 
-    // - **Stopping**
+    // - **Running**: The listener is running.
+    // - **Stopped**: The listener is stopped.
+    // - **Starting**: The listener is starting.
+    // - **Configuring**: The listener is being configured.
+    // - **Stopping**: The listener is being stopped.
     shared_ptr<string> status_ {};
-    // The number of consecutive failed health checks that must occur before a healthy and accessible backend server is declared unhealthy and inaccessible. Valid values: **2** to **10**.
-    // 
-    // > This parameter is returned only if you set HealthCheck to on.
+    // The number of consecutive failed health checks that must occur before the health check status of a backend server is changed from success (reachable) to fail (unreachable). Valid values: **2** to **10**.
+    // > This parameter takes effect only when HealthCheck is set to on.
     shared_ptr<int32_t> unhealthyThreshold_ {};
-    // Indicates whether the X-Forwarded-For header is used to obtain the real IP address of the client. Valid values:
-    // 
-    // - **on** (default)
-    // 
-    // - **off**
+    // Indicates whether the X-Forwarded-For header is used to retrieve the originating IP addresses of clients. Valid values:
+    // - **on** (default): enabled.
+    // - **off**: disabled.
     shared_ptr<string> XForwardedFor_ {};
   };
 

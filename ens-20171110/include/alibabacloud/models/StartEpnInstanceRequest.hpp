@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the EPN instance.
+    // The edge-to-edge network instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> EPNInstanceId_ {};

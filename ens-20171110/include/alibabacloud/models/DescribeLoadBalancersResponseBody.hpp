@@ -256,13 +256,13 @@ namespace Models
 
   protected:
     shared_ptr<DescribeLoadBalancersResponseBody::LoadBalancers> loadBalancers_ {};
-    // The page number of the list.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The Settings for the number of entries per page during paging in a paged query. Default value: 10. Valid values: **10** to **100**.
+    // The Settings for the number of entries per page for paging in a paged query. Default value: 10. Valid values: **10** to **100**.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries in the list.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

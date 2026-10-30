@@ -48,15 +48,15 @@ namespace Models
 
 
   protected:
-    // The ID of the resource that you want to obtain. You can specify only one ID in a request.
+    // The required resource ID. Only a single ID is supported.
     // 
     // This parameter is required.
     shared_ptr<string> ensServiceId_ {};
-    // The operation to perform after you preview the created edge service. Valid values:
+    // The operation to perform after previewing the creation of the edge service. Valid values:
     // 
-    // - **Buy**: create
+    // - **Buy**: Create.
     // 
-    // - **Upgrade**: change
+    // - **Upgrade**: Update.
     // 
     // This parameter is required.
     shared_ptr<string> orderType_ {};

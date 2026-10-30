@@ -87,13 +87,13 @@ namespace Models
 
 
     protected:
-      // The startup method.
+      // The boot method.
       shared_ptr<string> bootSet_ {};
-      // The startup type.
+      // The boot type.
       shared_ptr<string> bootType_ {};
-      // Specifies whether the startup depends on the disk.
+      // Specifies whether the boot process depends on disks.
       shared_ptr<string> diskSet_ {};
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
     };
 

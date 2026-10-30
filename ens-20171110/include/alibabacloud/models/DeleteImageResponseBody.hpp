@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The business code. The value 0 is returned for success.
+    // The business code. A value of 0 indicates success.
     shared_ptr<int32_t> code_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

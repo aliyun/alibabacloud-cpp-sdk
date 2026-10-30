@@ -112,7 +112,7 @@ namespace Models
 
 
   protected:
-    // The ID of the application.
+    // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
@@ -120,37 +120,32 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> clientIp_ {};
-    // The directory to which the data file is mounted. The value must be a full path and cannot be \\"/../\\". Example: ["/data/app01", "/data/user"]. Specify the relative path of the virtual device for this parameter. For example, specify /data for this parameter when the actual path of the virtual device is /data/{input path}.
+    // The list of directories of user data files to be mounted. The directories must be absolute paths, and the \\"/../\\" format is not supported. Example: ["/data/app01", "/data/user"]. Note: The input directory path is relative to the /data directory of the virtual device. The actual path on the virtual device is /data/{input path}.
     shared_ptr<string> directorys_ {};
-    // The parameter does not take effect.
+    // Invalid parameter.
     shared_ptr<string> podConfigName_ {};
-    // The maximum duration for locking an idle device. Unit: seconds. This parameter takes effect only if you set ServiceAction to PreSchedule. Default value: 300.
+    // The maximum time to lock an idle device, in seconds. This parameter takes effect only when ServiceAction is set to PreSchedule. Default value: 300.
     shared_ptr<int32_t> preLockedTimeout_ {};
-    // The scheduling policy of the device. The value must be a JSON string.
+    // The device scheduling policy. The value is a string in JSON format.
     shared_ptr<string> scheduleStrategy_ {};
-    // The scheduling operation. The value must be of the enumeration type. Valid values:
+    // The scheduling service operation. Valid values:
     // 
-    // Container scenario:
+    // Container scenarios:
     // 
-    // - Start: selects and activates an idle cloud device.
+    // - Start: Selects and activates a schedulable cloud device and starts the service.
+    // - Stop: Stops and releases the cloud device.
+    // - Console: Interacts with the device by using commands when the UUID is in the scheduling state.
     // 
-    // - Stop: stops and releases the cloud device.
-    // 
-    // - Console: performs the scheduling operation when the device is in the scheduling state.
-    // 
-    // Bare metal instance or virtual machine scenario:
-    // 
-    // - PreSchedule: locks a virtual machine instance for scheduling.
-    // 
-    // - Confirm: confirms the scheduling operation.
-    // 
-    // - Cancel: cancels the scheduling operation.
-    // 
-    // - Console: performs the scheduling operation when the device is in the scheduling state.
+    // Bare metal or virtual machine scenarios:
+    //   
+    // - PreSchedule: Pre-schedules and locks a virtual machine instance.
+    // - Confirm: Confirms the scheduling.
+    // - Cancel: Cancels the scheduling.
+    // - Console: Interacts with the device by using commands when the UUID is in the scheduling state.
     // 
     // This parameter is required.
     shared_ptr<string> serviceAction_ {};
-    // The service commands. The value must be a JSON string.
+    // The list of container service commands. The value is a string in JSON array format.
     shared_ptr<string> serviceCommands_ {};
     // The UUID of the device.
     // 

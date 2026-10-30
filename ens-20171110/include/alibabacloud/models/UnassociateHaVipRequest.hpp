@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the HAVIP that you want to disassociate.
+    // The ID of the HaVip to disassociate.
     // 
     // This parameter is required.
     shared_ptr<string> haVipId_ {};
-    // The ID of the ENS instance or ENI that you want to disassociate from the HAVIP.
+    // The ID of the ENS instance or network interface controller (NIC) to disassociate from the HaVip.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

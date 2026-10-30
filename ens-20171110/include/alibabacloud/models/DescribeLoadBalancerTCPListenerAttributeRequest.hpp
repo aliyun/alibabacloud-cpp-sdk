@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The listener port. Valid values: **1** to **65535**.
+    // The listener port to be queried. Valid values: **1** to **65535**.
     // 
     // This parameter is required.
     shared_ptr<int32_t> listenerPort_ {};
-    // The ID of the load balancer instance.
+    // The ID of the load balancing instance.
     // 
     // This parameter is required.
     shared_ptr<string> loadBalancerId_ {};

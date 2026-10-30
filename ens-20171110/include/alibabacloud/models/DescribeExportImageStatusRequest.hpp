@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the image.
+    // The image ID.
     // 
     // This parameter is required.
     shared_ptr<string> imageId_ {};

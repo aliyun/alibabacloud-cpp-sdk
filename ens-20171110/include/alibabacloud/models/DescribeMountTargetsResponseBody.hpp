@@ -116,18 +116,18 @@ namespace Models
       shared_ptr<string> ensRegionId_ {};
       // The file system ID.
       shared_ptr<string> fileSystemId_ {};
-      // The mount target path.
+      // The path of the mount target.
       shared_ptr<string> mountTargetDomain_ {};
-      // The mount target name.
+      // The name of the mount target.
       shared_ptr<string> mountTargetName_ {};
       // The network ID.
       shared_ptr<string> netWorkId_ {};
-      // The mount target status. Valid values:
+      // The status of the mount target. Valid values:
       // 
-      // - active: Active.
-      // - inactive: Inactive.
-      // - pending: Queued.
-      // - deleting: Being deleted.
+      // - active: The mount target is available.
+      // - inactive: The mount target is unavailable.
+      // - pending: The task is queued.
+      // - deleting: The mount target is being deleted.
       shared_ptr<string> status_ {};
     };
 
@@ -171,11 +171,10 @@ namespace Models
 
 
   protected:
-    // The collection of mount target information.
+    // The information about the mount targets.
     shared_ptr<vector<DescribeMountTargetsResponseBody::MountTargets>> mountTargets_ {};
-    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of rows per page.
+    // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

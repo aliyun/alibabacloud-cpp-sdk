@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the application. This is the unique identifier of the edge application.
+    // The application ID generated upon successful creation. It is the unique identifier of the edge application service.
     shared_ptr<string> appId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the ENI.
+    // The ID of the elastic network interface controller (NIC).
     // 
     // This parameter is required.
     shared_ptr<string> networkInterfaceId_ {};

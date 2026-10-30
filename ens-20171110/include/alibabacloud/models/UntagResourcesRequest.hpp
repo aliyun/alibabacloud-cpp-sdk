@@ -71,13 +71,13 @@ namespace Models
 
 
   protected:
-    // Specifies whether to unbind all tags from the resource. This parameter takes effect only when TagKey.N is not specified in the request. Valid values:
+    // Specifies whether to remove all tags from the resources. This parameter takes effect only when TagKey.N is not specified in the request. Valid values:
     // 
-    // - **true**: Unbinds all tags.
+    // - **true**: Removes all tags.
     // 
-    // - **false** (default): Does not unbind all tags.
+    // - **false** (default): Does not remove all tags.
     shared_ptr<bool> all_ {};
-    // The list of resource IDs. A maximum of 50 items can be specified.
+    // The list of resource IDs. You can specify up to 50 items.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
@@ -85,7 +85,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tag key. Valid values of n: 1 to 20.
+    // The tag keys. The value of N ranges from 1 to 20.
     shared_ptr<vector<string>> tagKey_ {};
   };
 

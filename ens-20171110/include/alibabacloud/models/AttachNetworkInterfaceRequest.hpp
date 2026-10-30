@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the instance
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the ENI.
+    // The ID of the elastic network interfaces (ENIs).
     // 
     // This parameter is required.
     shared_ptr<string> networkInterfaceId_ {};

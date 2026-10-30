@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // the instance list of instance active group
     shared_ptr<vector<string>> instanceIds_ {};
   };
 

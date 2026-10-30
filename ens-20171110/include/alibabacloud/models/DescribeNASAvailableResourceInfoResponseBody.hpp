@@ -131,21 +131,21 @@ namespace Models
 
 
     protected:
-      // Edge zone product capabilities.
+      // The product capabilities of the edge zone.
       shared_ptr<vector<string>> ability_ {};
-      // Area to which the ENS edge zone belongs.
+      // The area to which the ENS edge zone belongs.
       shared_ptr<string> area_ {};
-      // English name.
+      // The English name.
       shared_ptr<string> enName_ {};
-      // ENS edge zone ID.
+      // The ENS edge zone ID.
       shared_ptr<string> ensRegionId_ {};
-      // ENS edge zone name.
+      // The name of the ENS edge zone.
       shared_ptr<string> ensRegionName_ {};
-      // Available NAS resource count.
+      // The resource count of active NAS resources.
       shared_ptr<int32_t> nasAvailableAmount_ {};
-      // Available NAS resource type.
+      // The type of available NAS resources.
       shared_ptr<string> nasAvailableStorgeType_ {};
-      // Province to which the ENS edge zone belongs.
+      // The province to which the ENS edge zone belongs.
       shared_ptr<string> province_ {};
     };
 
@@ -182,13 +182,13 @@ namespace Models
 
 
   protected:
-    // Business status code. Returns 0 on success.
+    // The business status code. A value of 0 indicates success.
     shared_ptr<string> code_ {};
-    // Error message.
+    // The error message.
     shared_ptr<string> message_ {};
-    // Available NAS resource information.
+    // The available NAS resource information.
     shared_ptr<vector<DescribeNASAvailableResourceInfoResponseBody::NasAvailableResourceInfo>> nasAvailableResourceInfo_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -135,21 +135,18 @@ namespace Models
 
 
       protected:
-        // The path of the mount target.
+        // The mount target path.
         shared_ptr<string> mountTargetDomain_ {};
-        // The name of the mount target.
+        // The mount target name.
         shared_ptr<string> mountTargetName_ {};
-        // The ID of the network.
+        // The network ID.
         shared_ptr<string> netWorkId_ {};
-        // The status of the mount target. Valid values:
+        // The mount target status. Valid values:
         // 
-        // - active: The mount target is available.
-        // 
-        // - inactive: The mount target is unavailable.
-        // 
-        // - pending: The task is running.
-        // 
-        // - deleting: The mount target is being deleted.
+        // - active: Available.
+        // - inactive: Unavailable.
+        // - pending: Processing a task.
+        // - deleting: Being deleted.
         shared_ptr<string> status_ {};
       };
 
@@ -244,49 +241,43 @@ namespace Models
 
 
     protected:
-      // The capacity of the file system. Unit: MiB.
+      // The capacity. Unit: MiB.
       shared_ptr<int64_t> capacity_ {};
       // The time when the file system was created.
       shared_ptr<string> creationTime_ {};
-      // Description.
+      // The description.
       shared_ptr<string> description_ {};
-      // The ID of the region.
+      // The region ID.
       shared_ptr<string> ensRegionId_ {};
-      // The ID of the file system.
+      // The file system ID.
       shared_ptr<string> fileSystemId_ {};
-      // The name of the file system.
+      // The file system name.
       shared_ptr<string> fileSystemName_ {};
-      // The storage usage of the file system. The value of this parameter is the maximum storage usage of the file system over the last hour. Unit: bytes.
+      // The file system usage.
+      // Non-real-time usage. It indicates the maximum usage in the previous hour. Unit: bytes.
       shared_ptr<int64_t> meteredSize_ {};
-      // The information about mount targets.
+      // The collection of mount target information.
       shared_ptr<vector<FileSystems::MountTargets>> mountTargets_ {};
-      // The billing method. PostPaid is returned. PostPaid indicates the pay-as-you-go billing method.
+      // The billing method. Valid values: PostPaid (pay-as-you-go).
       shared_ptr<string> payType_ {};
-      // The protocol type of the file system. Valid values:
+      // The file system protocol type. Valid values:
       // 
-      // - NFS: Network File System (NFS)
-      // 
-      // - SMB: Server Message Block (SMB)
+      // - NFS: NFS protocol.
+      // - SMB: SMB protocol.
       shared_ptr<string> protocolType_ {};
-      // The status of the file system. Valid values:
+      // The file system status. Valid values:
       // 
-      // - pending: The file system is being created or modified.
-      // 
-      // - running: The file system is available. Before you create a mount target for the file system, make sure that the file system is in the running state.
-      // 
+      // - pending: The file system is processing a node.
+      // - running: The file system is active. You can perform What to do next, such as creating a mount target, only when the status is running.
       // - stopped: The file system is unavailable.
-      // 
-      // - extending: The file system is being scaled out.
-      // 
-      // - stopping: The file system is being disabled.
-      // 
+      // - extending: The file system is being expanded.
+      // - stopping: The file system is being stopped.
       // - deleting: The file system is being deleted.
       shared_ptr<string> status_ {};
       // The storage type. Valid values:
       // 
-      // - capacity: Capacity NAS file systems
-      // 
-      // - performance: Performance NAS file systems
+      // - capacity: Storage-optimized.
+      // - performance: Extreme.
       shared_ptr<string> storageType_ {};
     };
 
@@ -330,15 +321,15 @@ namespace Models
 
 
   protected:
-    // The information about the file systems.
+    // The collection of file system information.
     shared_ptr<vector<DescribeFileSystemsResponseBody::FileSystems>> fileSystems_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total count.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -500,9 +500,9 @@ namespace Models
 
   protected:
     shared_ptr<DescribeEnsEipAddressesResponseBody::EipAddresses> eipAddresses_ {};
-    // The page number of the query list. Valid values: > 0. Default value: 1.
+    // The page number. Valid values: greater than 0. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page for paging queries. Default value: 10. Valid values: **10** to **100**.
+    // The number of entries per page in a paging query. Default value: 10. Valid values: **10** to **100**.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -72,7 +72,7 @@ namespace Models
 
 
     protected:
-      // The ID of the ENI.
+      // The ID of the elastic network interface controller (NIC).
       shared_ptr<string> networkInterfaceId_ {};
       // The assigned private IP addresses.
       shared_ptr<vector<string>> privateIpSet_ {};
@@ -97,7 +97,7 @@ namespace Models
 
 
   protected:
-    // Details about the ENI and the secondary private IP addresses that are assigned to the ENI.
+    // The set of information about the elastic network interface controller (NIC) to which secondary private IP addresses are assigned.
     shared_ptr<AssignPrivateIpAddressesResponseBody::AssignedPrivateIpAddressesSet> assignedPrivateIpAddressesSet_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

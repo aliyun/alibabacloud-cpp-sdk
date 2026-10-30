@@ -152,17 +152,17 @@ namespace Models
 
 
     protected:
-      // The number of edge services. This parameter is available only when you set the ServiceType parameter to 2.
+      // The number of edge services. This field returns data only when ServiceType is set to 2.
       shared_ptr<int32_t> computeResourceCount_ {};
       // The CPU usage. Unit: cores.
       shared_ptr<int64_t> cpuSum_ {};
-      // The number of data disks.
+      // The number of data cloud disks.
       shared_ptr<int32_t> diskCount_ {};
-      // The number of stopped VMs.
+      // The number of stopped virtual machine instances.
       shared_ptr<int32_t> downCount_ {};
-      // The number of expired VM instances.
+      // The number of expired virtual machine instances.
       shared_ptr<int32_t> expiredCount_ {};
-      // The number of VM instances that are about to expire.
+      // The number of virtual machine instances that are about to expire.
       shared_ptr<int32_t> expiringCount_ {};
       // The number of GPUs.
       shared_ptr<int64_t> gpuSum_ {};
@@ -170,15 +170,12 @@ namespace Models
       shared_ptr<int32_t> instanceCount_ {};
       // The number of running instances.
       shared_ptr<int32_t> runningCount_ {};
-      // The type of the service. Valid values:
-      // 
-      // - 1: subscription instance.
-      // 
-      // - 2: edge service instance.
-      // 
-      // - 3: pay-as-you-go instance.
+      // The service type. Valid values:
+      // - 1: Subscription instance.
+      // - 2: Edge service instance.
+      // - 3: Pay-as-you-go instance.
       shared_ptr<string> serviceType_ {};
-      // The total disk size.
+      // The total disk storage capacity.
       shared_ptr<int64_t> storageSum_ {};
     };
 

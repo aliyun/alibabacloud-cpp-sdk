@@ -59,9 +59,9 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The ID of the ENI.
+    // The elastic network interface (ENI) ID.
     shared_ptr<string> networkInterfaceId_ {};
-    // The ID of the security group.
+    // The security group ID.
     // 
     // This parameter is required.
     shared_ptr<string> securityGroupId_ {};
