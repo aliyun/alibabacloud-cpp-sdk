@@ -265,6 +265,7 @@ namespace Models
     shared_ptr<string> activityType_ {};
     // The agent ID.
     shared_ptr<string> agentId_ {};
+    // direct_skill_rejected
     shared_ptr<string> code_ {};
     // The response content.
     shared_ptr<string> content_ {};
@@ -272,8 +273,9 @@ namespace Models
     shared_ptr<string> delta_ {};
     // The step type for STEP_STARTED, such as task.
     shared_ptr<string> kind_ {};
-    // The display name of the child agent for STEP_STARTED.
+    // The display name of the sub-agent for STEP_STARTED.
     shared_ptr<string> label_ {};
+    // [HdmApiClient] instance is not managed by the agent
     shared_ptr<string> message_ {};
     // The message ID.
     shared_ptr<string> messageId_ {};
@@ -289,7 +291,7 @@ namespace Models
     shared_ptr<string> role_ {};
     // The run ID.
     shared_ptr<string> runId_ {};
-    // The execution step name.
+    // The name of the execution step.
     shared_ptr<string> stepName_ {};
     // The step status for STEP_FINISHED, such as completed.
     shared_ptr<string> stepStatus_ {};
@@ -299,9 +301,9 @@ namespace Models
     shared_ptr<string> threadId_ {};
     // The event timestamp.
     shared_ptr<int64_t> timestamp_ {};
-    // The error that occurred when invoking the tool.
+    // The fault that occurs when you invoke tool calling.
     shared_ptr<string> toolCallError_ {};
-    // The tool call ID.
+    // The ID of the tool calling to invoke.
     shared_ptr<string> toolCallId_ {};
     // The tool name.
     shared_ptr<string> toolCallName_ {};

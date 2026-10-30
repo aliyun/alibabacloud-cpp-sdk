@@ -45,6 +45,9 @@
 #include <alibabacloud/models/CreateStorageAnalysisTaskRequest.hpp>
 #include <alibabacloud/models/CreateStorageAnalysisTaskResponseBody.hpp>
 #include <alibabacloud/models/CreateStorageAnalysisTaskResponse.hpp>
+#include <alibabacloud/models/CreateYaoChiAgentConfirmRequest.hpp>
+#include <alibabacloud/models/CreateYaoChiAgentConfirmResponseBody.hpp>
+#include <alibabacloud/models/CreateYaoChiAgentConfirmResponse.hpp>
 #include <alibabacloud/models/DeleteCloudBenchTaskRequest.hpp>
 #include <alibabacloud/models/DeleteCloudBenchTaskResponseBody.hpp>
 #include <alibabacloud/models/DeleteCloudBenchTaskResponse.hpp>
