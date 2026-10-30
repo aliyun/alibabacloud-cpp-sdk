@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // The IDs of the cloud phone instances. You can specify a maximum of 50 cloud phone instances.
+    // The list of cloud phone instance IDs. Up to 50 instances are supported.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The status of the ADB authentication feature.
+    // The ADB authentication status.
     // 
     // This parameter is required.
     shared_ptr<int32_t> status_ {};

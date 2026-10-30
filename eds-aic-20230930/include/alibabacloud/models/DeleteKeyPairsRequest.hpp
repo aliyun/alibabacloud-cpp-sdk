@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The IDs of the ADB key pairs.
+    // The list of key pair IDs.
     shared_ptr<vector<string>> keyPairIds_ {};
   };
 

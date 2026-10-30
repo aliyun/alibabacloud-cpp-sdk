@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The IDs of the applications.
+    // The list of application IDs.
     shared_ptr<vector<string>> appIdList_ {};
   };
 

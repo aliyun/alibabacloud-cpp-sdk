@@ -81,11 +81,11 @@ namespace Models
 
 
     protected:
-      // The number of the cloud phone instances for which the ADB authentication feature failed to be enabled.
+      // The number of instances that failed to be configured.
       shared_ptr<int32_t> failCount_ {};
-      // The IDs of the cloud phone instances for which the ADB authentication feature is enabled.
+      // The list of cloud phone instance IDs that were successfully configured.
       shared_ptr<vector<string>> instanceIds_ {};
-      // The total number of the cloud phone instances.
+      // The total number of instances for which the configuration was attempted.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -108,9 +108,9 @@ namespace Models
 
 
   protected:
-    // The returned object.
+    // The returned result object.
     shared_ptr<SetAdbSecureResponseBody::Data> data_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

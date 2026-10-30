@@ -128,11 +128,11 @@ namespace Models
     protected:
       // The font color of the watermark. Valid values: 0 to 16777215.
       shared_ptr<int32_t> watermarkColor_ {};
-      // The custom text for the watermark. The text can be up to 10 characters long and cannot contain emojis.
+      // The custom text for the watermark. The text must be up to 10 characters in length and cannot contain emoji.
       shared_ptr<string> watermarkCustomText_ {};
       // The font size of the watermark. Valid values: 10 to 20.
       shared_ptr<int32_t> watermarkFontSize_ {};
-      // Specifies whether to enable the screen watermark.
+      // The screen watermark switch.
       shared_ptr<string> watermarkSwitch_ {};
       // The opacity of the watermark. A larger value indicates lower transparency. Valid values: 10 to 100.
       shared_ptr<int32_t> watermarkTransparencyValue_ {};
@@ -281,19 +281,19 @@ namespace Models
     protected:
       // Specifies whether to manually configure a transparent proxy.
       shared_ptr<string> customProxy_ {};
-      // The IP address of the transparent proxy. The IP address must be in IPv4 format.
+      // The transparent proxy IP address. The format is an IPv4 address.
       shared_ptr<string> hostAddr_ {};
       // Specifies whether to enable network redirection.
       shared_ptr<string> netRedirect_ {};
       // The port of the transparent proxy. Valid values: 1 to 65535.
       shared_ptr<string> port_ {};
-      // The proxy password. The password must be 1 to 256 characters in length. It cannot contain Chinese characters or whitespace characters.
+      // The proxy password. The password must be 1 to 256 characters in length and cannot contain Chinese characters or whitespace characters.
       shared_ptr<string> proxyPassword_ {};
       // The proxy protocol type.
       shared_ptr<string> proxyType_ {};
-      // The proxy username. The username must be 1 to 256 characters in length. It cannot contain Chinese characters or whitespace characters.
+      // The proxy username. The username must be 1 to 256 characters in length and cannot contain Chinese characters or whitespace characters.
       shared_ptr<string> proxyUserName_ {};
-      // The list of proxy rules. You can specify up to 100 rules.
+      // The list of proxy rules. A maximum of 100 rules can be configured.
       shared_ptr<vector<NetRedirectPolicy::Rules>> rules_ {};
     };
 
@@ -384,25 +384,25 @@ namespace Models
   protected:
     // Specifies whether to enable local camera redirection.
     shared_ptr<string> cameraRedirect_ {};
-    // The clipboard permission.
+    // The clipboard permissions.
     shared_ptr<string> clipboard_ {};
-    // The file transfer policy for the web client.
+    // The file transfer policy for the Wuying web client.
     shared_ptr<string> html5FileTransfer_ {};
-    // The local disk mapping permission.
+    // The local disk mapping permissions.
     shared_ptr<string> localDrive_ {};
     // Specifies whether to lock the resolution.
     shared_ptr<string> lockResolution_ {};
-    // Network redirection.
+    // The network redirection settings.
     shared_ptr<CreatePolicyGroupRequest::NetRedirectPolicy> netRedirectPolicy_ {};
     // The policy name.
     shared_ptr<string> policyGroupName_ {};
     // The policy type.
     shared_ptr<string> policyType_ {};
-    // The resolution height, in pixels.
+    // The height of the resolution. Unit: pixels.
     shared_ptr<int32_t> resolutionHeight_ {};
-    // The resolution width, in pixels.
+    // The width of the resolution. Unit: pixels.
     shared_ptr<int32_t> resolutionWidth_ {};
-    // Screen watermark.
+    // The screen watermark settings.
     shared_ptr<CreatePolicyGroupRequest::Watermark> watermark_ {};
   };
 

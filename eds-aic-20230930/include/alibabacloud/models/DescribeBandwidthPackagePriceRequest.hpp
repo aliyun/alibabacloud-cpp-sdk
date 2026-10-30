@@ -94,14 +94,35 @@ namespace Models
 
 
   protected:
+    // The peak bandwidth of the network. Unit: Mbit/s.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> bandwidth_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> bizRegionId_ {};
+    // The billing method of the bandwidth plan. Valid values:
+    // 
+    // <props="china">
+    // 
+    // - **PayByBandwidth** (default): billing by bandwidth.
+    // - **PayBy95**: billing by traditional 95th percentile. IPv6 Internet bandwidth does not support billing by traditional 95th percentile by default. To use this billing method, contact your account manager.
+    // 
+    // 
+    // <props="intl">
+    // 
+    // - **PayByBandwidth** (default): billing by bandwidth.
     shared_ptr<string> internetChargeType_ {};
+    // The subscription duration of the resource. The unit is specified by `PeriodUnit`. Valid values: 1 month, 2 months, 3 months, 6 months, 1 year, 2 years, and 3 years.
     shared_ptr<int32_t> period_ {};
+    // The unit of the subscription duration of the resource. Valid values:
+    // - **Month**: Month.
+    // - **Year**: Year.
     shared_ptr<string> periodUnit_ {};
+    // The ID of the promotion.
     shared_ptr<string> promotionId_ {};
+    // The payment channel.
     shared_ptr<string> purchaseChannelType_ {};
   };
 

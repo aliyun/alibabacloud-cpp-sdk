@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AndroidInstanceIdList, androidInstanceIdList_);
       DARABONBA_PTR_TO_JSON(BackupFileId, backupFileId_);
       DARABONBA_PTR_TO_JSON(BackupFilePath, backupFilePath_);
+      DARABONBA_PTR_TO_JSON(ExcludeAppList, excludeAppList_);
       DARABONBA_PTR_TO_JSON(UploadEndpoint, uploadEndpoint_);
       DARABONBA_PTR_TO_JSON(UploadType, uploadType_);
     };
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AndroidInstanceIdList, androidInstanceIdList_);
       DARABONBA_PTR_FROM_JSON(BackupFileId, backupFileId_);
       DARABONBA_PTR_FROM_JSON(BackupFilePath, backupFilePath_);
+      DARABONBA_PTR_FROM_JSON(ExcludeAppList, excludeAppList_);
       DARABONBA_PTR_FROM_JSON(UploadEndpoint, uploadEndpoint_);
       DARABONBA_PTR_FROM_JSON(UploadType, uploadType_);
     };
@@ -39,7 +41,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->androidInstanceIdList_ == nullptr
-        && this->backupFileId_ == nullptr && this->backupFilePath_ == nullptr && this->uploadEndpoint_ == nullptr && this->uploadType_ == nullptr; };
+        && this->backupFileId_ == nullptr && this->backupFilePath_ == nullptr && this->excludeAppList_ == nullptr && this->uploadEndpoint_ == nullptr && this->uploadType_ == nullptr; };
     // androidInstanceIdList Field Functions 
     bool hasAndroidInstanceIdList() const { return this->androidInstanceIdList_ != nullptr;};
     void deleteAndroidInstanceIdList() { this->androidInstanceIdList_ = nullptr;};
@@ -63,6 +65,15 @@ namespace Models
     inline RecoverAndroidInstanceRequest& setBackupFilePath(string backupFilePath) { DARABONBA_PTR_SET_VALUE(backupFilePath_, backupFilePath) };
 
 
+    // excludeAppList Field Functions 
+    bool hasExcludeAppList() const { return this->excludeAppList_ != nullptr;};
+    void deleteExcludeAppList() { this->excludeAppList_ = nullptr;};
+    inline const vector<string> & getExcludeAppList() const { DARABONBA_PTR_GET_CONST(excludeAppList_, vector<string>) };
+    inline vector<string> getExcludeAppList() { DARABONBA_PTR_GET(excludeAppList_, vector<string>) };
+    inline RecoverAndroidInstanceRequest& setExcludeAppList(const vector<string> & excludeAppList) { DARABONBA_PTR_SET_VALUE(excludeAppList_, excludeAppList) };
+    inline RecoverAndroidInstanceRequest& setExcludeAppList(vector<string> && excludeAppList) { DARABONBA_PTR_SET_RVALUE(excludeAppList_, excludeAppList) };
+
+
     // uploadEndpoint Field Functions 
     bool hasUploadEndpoint() const { return this->uploadEndpoint_ != nullptr;};
     void deleteUploadEndpoint() { this->uploadEndpoint_ = nullptr;};
@@ -78,17 +89,19 @@ namespace Models
 
 
   protected:
-    // A list of instance IDs.
+    // The list of instance IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> androidInstanceIdList_ {};
     // The ID of the backup file.
     shared_ptr<string> backupFileId_ {};
-    // The OSS URL where the backup file is uploaded.
+    // The OSS address to which the backup file is uploaded.
     // 
     // This parameter is required.
     shared_ptr<string> backupFilePath_ {};
-    // The region where the backup is located.
+    // The list of app package names excluded from the full-device restore. Excluded apps are not uninstalled and their APKs are not installed, which is compatible with legacy backups that contain APKs. Only user data is replaced. Empty shells must be installed by the customer by using the pm install command. If this parameter is not specified, no apps are excluded.
+    shared_ptr<vector<string>> excludeAppList_ {};
+    // The backup region.
     shared_ptr<string> uploadEndpoint_ {};
     // The upload type.
     // 

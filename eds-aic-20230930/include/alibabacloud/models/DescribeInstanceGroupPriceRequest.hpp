@@ -140,19 +140,33 @@ namespace Models
 
 
   protected:
+    // The number of instance groups.
     shared_ptr<int32_t> amount_ {};
+    // The ID of the bandwidth plan.
     shared_ptr<int32_t> bandwidth_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> bizRegionId_ {};
+    // The image ID.
     shared_ptr<string> imageId_ {};
+    // The instance group specifications.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceGroupSpec_ {};
+    // The instance version. You do not need to specify this parameter. The system automatically matches the value.
     shared_ptr<string> instanceVersion_ {};
+    // The number of instances in the instance group.
     shared_ptr<int32_t> numberOfInstances_ {};
+    // The order type.
     shared_ptr<string> orderType_ {};
+    // The subscription period. The unit is specified by PeriodUnit. Default value: 1.
     shared_ptr<int32_t> period_ {};
+    // The unit of the subscription period. Default value: Month.
     shared_ptr<string> periodUnit_ {};
+    // The ID of the promotion.
     shared_ptr<string> promotionId_ {};
+    // The sales mode. You do not need to specify this parameter. The system automatically matches the value.
     shared_ptr<string> saleMode_ {};
   };
 

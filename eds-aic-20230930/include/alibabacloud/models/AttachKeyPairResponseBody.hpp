@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The IDs of the cloud phone instances to which the ADB key pair is successfully attached.
+      // The cloud phone instance ID list to which the key pair was successfully attached.
       shared_ptr<vector<string>> attachedInstanceIds_ {};
-      // The number of the cloud phone instances to which the ADB key pair failed to be attached.
+      // The number of instances to which the attachment failed.
       shared_ptr<int32_t> failCount_ {};
       // The ID of the ADB key pair.
       shared_ptr<string> keyPairId_ {};
-      // The total number of the cloud phone instances.
+      // The total number of instances for which the attachment was attempted.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -119,9 +119,9 @@ namespace Models
 
 
   protected:
-    // The object that is returned.
+    // The result object.
     shared_ptr<AttachKeyPairResponseBody::Data> data_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

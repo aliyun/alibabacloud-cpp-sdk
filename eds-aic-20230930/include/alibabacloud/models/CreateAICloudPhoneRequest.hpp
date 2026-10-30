@@ -130,46 +130,45 @@ namespace Models
 
 
   protected:
-    // The quantity to purchase.
+    // The quantity.
     // 
     // This parameter is required.
     shared_ptr<int32_t> amount_ {};
     // Specifies whether to enable automatic payment.
     shared_ptr<bool> autoPay_ {};
-    // The bandwidth package ID.
+    // The ID of the bandwidth plan.
     // 
     // This parameter is required.
     shared_ptr<string> bandwidthPackageId_ {};
-    // The region ID for the purchase.
+    // The ID of the region for the purchase.
     // 
     // This parameter is required.
     shared_ptr<string> bizRegionId_ {};
-    // The image ID.
+    // The ID of the image.
     // 
     // This parameter is required.
     shared_ptr<string> imageId_ {};
-    // The instance group name.
+    // The name of the instance group.
     // 
     // This parameter is required.
     shared_ptr<string> instanceGroupName_ {};
-    // The instance group specification. Valid values:
-    // 
-    // - STANDARD: standard.
-    // - MEDIUM: advanced.
+    // The specification of the instance group. Valid values:
+    // - STANDARD: Standard.
+    // - MEDIUM: Advanced.
     // 
     // This parameter is required.
     shared_ptr<string> instanceGroupSpec_ {};
-    // The purchase duration.
+    // The subscription duration.
     // 
     // This parameter is required.
     shared_ptr<int32_t> period_ {};
-    // The unit of the purchase duration.
+    // The unit of the subscription duration.
     // 
     // This parameter is required.
     shared_ptr<string> periodUnit_ {};
-    // The policy group ID.
+    // The ID of the policy group.
     shared_ptr<string> policyGroupId_ {};
-    // The coupon ID.
+    // The ID of the coupon.
     shared_ptr<string> promotionId_ {};
   };
 

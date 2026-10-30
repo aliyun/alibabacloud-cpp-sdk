@@ -115,7 +115,7 @@ namespace Models
   protected:
     // The number of restored instances.
     shared_ptr<int64_t> count_ {};
-    // The returned result objects.
+    // The returned result object.
     shared_ptr<vector<RecoverAndroidInstanceResponseBody::Data>> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

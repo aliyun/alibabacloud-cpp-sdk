@@ -38,10 +38,10 @@ namespace EdsAic20230930
       Models::ActivateEdgeMobileAgentResponse activateEdgeMobileAgent(const Models::ActivateEdgeMobileAgentRequest &request);
 
       /**
-       * @summary Attaches an Android Debug Bridge (ADB) key pair to one or more cloud phone instances.
+       * @summary Attaches an ADB key pair to one or more cloud phone instances.
        *
-       * @description - You can attach to an ADB key pair only to cloud phone instances in the Running state.
-       * - After you attach an ADB key pair, make sure the private key of the ADB key pair is copied to the \\~/.android directory (macOS or Linux operating systems) or the C:\\Users\\Username.android directory (Windows operating systems). In addition, you must run the adb kill-server command to restart the ADB process to ensure correct ADB connection. Otherwise, ADB connection may fail due to authentication exceptions.
+       * @description - The ADB key pair takes effect only when the instance is in the Running state.
+       * - After you attach the key pair, copy the private key of the key pair to the local folder where the key pair is stored (for macOS or Linux operating systems, the folder is ~/.android. For the Windows operating system, the folder is C:\\Users\\Username\\.android.), and invoke the adb kill-server command to restart the ADB process. This ensures normal ADB connections. Otherwise, the ADB connection authentication may be failed.
        *
        * @param request AttachKeyPairRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -50,10 +50,10 @@ namespace EdsAic20230930
       Models::AttachKeyPairResponse attachKeyPairWithOptions(const Models::AttachKeyPairRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Attaches an Android Debug Bridge (ADB) key pair to one or more cloud phone instances.
+       * @summary Attaches an ADB key pair to one or more cloud phone instances.
        *
-       * @description - You can attach to an ADB key pair only to cloud phone instances in the Running state.
-       * - After you attach an ADB key pair, make sure the private key of the ADB key pair is copied to the \\~/.android directory (macOS or Linux operating systems) or the C:\\Users\\Username.android directory (Windows operating systems). In addition, you must run the adb kill-server command to restart the ADB process to ensure correct ADB connection. Otherwise, ADB connection may fail due to authentication exceptions.
+       * @description - The ADB key pair takes effect only when the instance is in the Running state.
+       * - After you attach the key pair, copy the private key of the key pair to the local folder where the key pair is stored (for macOS or Linux operating systems, the folder is ~/.android. For the Windows operating system, the folder is C:\\Users\\Username\\.android.), and invoke the adb kill-server command to restart the ADB process. This ensures normal ADB connections. Otherwise, the ADB connection authentication may be failed.
        *
        * @param request AttachKeyPairRequest
        * @return AttachKeyPairResponse
@@ -61,10 +61,10 @@ namespace EdsAic20230930
       Models::AttachKeyPairResponse attachKeyPair(const Models::AttachKeyPairRequest &request);
 
       /**
-       * @summary Authorize/unauthorize Android instances for users.
+       * @summary Assigns a user to or unassigns a user from a cloud phone instance. Currently, each cloud phone instance supports only one assigned user.
        *
-       * @description Instance states that support user assignment: Available, Shutting Down, Stopped, Starting, Backing Up, Restoring, Backup Failed, Restore Failed.
-       * Instance states that support unassignment: Available, Shutting Down, Stopped, Starting, Backing Up, Restoring, Backup Failed, Restore Failed, Expired, Overdue, Deleted.
+       * @description Instance statuses that support user assignment: Available, Shutting down, Stopped, Starting, Backing up, Restoring, Backup failed, and Restoration failed.
+       * Instance statuses that support user unassignment: Available, Shutting down, Stopped, Starting, Backing up, Restoring, Backup failed, Restoration failed, Expired, Overdue payment, and Deleted.
        *
        * @param request AuthorizeAndroidInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -73,10 +73,10 @@ namespace EdsAic20230930
       Models::AuthorizeAndroidInstanceResponse authorizeAndroidInstanceWithOptions(const Models::AuthorizeAndroidInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Authorize/unauthorize Android instances for users.
+       * @summary Assigns a user to or unassigns a user from a cloud phone instance. Currently, each cloud phone instance supports only one assigned user.
        *
-       * @description Instance states that support user assignment: Available, Shutting Down, Stopped, Starting, Backing Up, Restoring, Backup Failed, Restore Failed.
-       * Instance states that support unassignment: Available, Shutting Down, Stopped, Starting, Backing Up, Restoring, Backup Failed, Restore Failed, Expired, Overdue, Deleted.
+       * @description Instance statuses that support user assignment: Available, Shutting down, Stopped, Starting, Backing up, Restoring, Backup failed, and Restoration failed.
+       * Instance statuses that support user unassignment: Available, Shutting down, Stopped, Starting, Backing up, Restoring, Backup failed, Restoration failed, Expired, Overdue payment, and Deleted.
        *
        * @param request AuthorizeAndroidInstanceRequest
        * @return AuthorizeAndroidInstanceResponse
@@ -84,11 +84,11 @@ namespace EdsAic20230930
       Models::AuthorizeAndroidInstanceResponse authorizeAndroidInstance(const Models::AuthorizeAndroidInstanceRequest &request);
 
       /**
-       * @summary Creates a full backup of a Cloud Phone instance. The backup includes installed applications and properties.
+       * @summary Creates a full backup of a cloud phone instance, including installed applications and properties.
        *
-       * @description 1. To ensure that the backup is successful, shut down the instance before you start the data backup. The operation may fail if the cloud phone instance is used during the backup process.
-       * 2. You should test the backup file to ensure that you can restore the instance from it. After the restoration is complete, verify that your data is complete and that all features function correctly. Do not delete the original backup file or reset the source instance until this verification is complete. Otherwise, you may lose your data.
-       * 3. You cannot back up and restore data between different image versions, between custom images and public images, or across different architectures, such as cpm.gx7.10xlarge and cpm.gx8.16xlarge.
+       * @description 1. To ensure a high success rate, back up data after the instance is shut down. Operating the cloud phone during the backup process may cause the backup to fail.
+       * 2. Ensure that the backup file can be restored properly. After the restoration is complete, check and verify that all data is intact and functions are working properly before deleting the original backup file and resetting the source instance. Otherwise, data loss may occur.
+       * 3. Backup and restoration across different image versions are not supported. Backup and restoration between custom images and public images are not supported. Backup and restoration across different architectures (cpm.gx7.10xlarge and cpm.gx8.16xlarge) are not supported.
        *
        * @param request BackupAndroidInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -97,11 +97,11 @@ namespace EdsAic20230930
       Models::BackupAndroidInstanceResponse backupAndroidInstanceWithOptions(const Models::BackupAndroidInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a full backup of a Cloud Phone instance. The backup includes installed applications and properties.
+       * @summary Creates a full backup of a cloud phone instance, including installed applications and properties.
        *
-       * @description 1. To ensure that the backup is successful, shut down the instance before you start the data backup. The operation may fail if the cloud phone instance is used during the backup process.
-       * 2. You should test the backup file to ensure that you can restore the instance from it. After the restoration is complete, verify that your data is complete and that all features function correctly. Do not delete the original backup file or reset the source instance until this verification is complete. Otherwise, you may lose your data.
-       * 3. You cannot back up and restore data between different image versions, between custom images and public images, or across different architectures, such as cpm.gx7.10xlarge and cpm.gx8.16xlarge.
+       * @description 1. To ensure a high success rate, back up data after the instance is shut down. Operating the cloud phone during the backup process may cause the backup to fail.
+       * 2. Ensure that the backup file can be restored properly. After the restoration is complete, check and verify that all data is intact and functions are working properly before deleting the original backup file and resetting the source instance. Otherwise, data loss may occur.
+       * 3. Backup and restoration across different image versions are not supported. Backup and restoration between custom images and public images are not supported. Backup and restoration across different architectures (cpm.gx7.10xlarge and cpm.gx8.16xlarge) are not supported.
        *
        * @param request BackupAndroidInstanceRequest
        * @return BackupAndroidInstanceResponse
@@ -109,11 +109,11 @@ namespace EdsAic20230930
       Models::BackupAndroidInstanceResponse backupAndroidInstance(const Models::BackupAndroidInstanceRequest &request);
 
       /**
-       * @summary Backs up specified applications on a cloud phone instance. The backup includes the application and its cache.
+       * @summary Backs up specified applications on cloud phone instances, including the applications and application caches.
        *
-       * @description 1. Shut down the cloud phone instance before you back up data to ensure that the operation succeeds. Using the cloud phone during a backup may cause the operation to fail.
-       * 2. Ensure that the backup file can be used to restore the instance successfully. After you restore from a backup, verify that your data is complete and that all features are working correctly. Do not delete the original backup file or reset the source instance until you complete this verification. Failure to do so may result in data loss.
-       * 3. Backup and restore operations are not suppported across different image versions, between custom images and public images, or across different architectures, such as cpm.gx7.10xlarge and cpm.gx8.16xlarge.
+       * @description 1. To ensure a high success rate, back up data after the cloud phone is shut down. Operating the cloud phone during the backup process may cause the backup to fail.
+       * 2. Make sure that your backup files can be restored properly. After the restoration is complete, check and verify that all your data is intact and all features work as expected before you delete the original backup files or reset the source instance. Otherwise, your data may be lost.
+       * 3. Backup and restoration are not supported across different image versions, between custom images and public images, or across different architectures (such as cpm.gx7.10xlarge and cpm.gx8.16xlarge).
        *
        * @param request BackupAppRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -122,11 +122,11 @@ namespace EdsAic20230930
       Models::BackupAppResponse backupAppWithOptions(const Models::BackupAppRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Backs up specified applications on a cloud phone instance. The backup includes the application and its cache.
+       * @summary Backs up specified applications on cloud phone instances, including the applications and application caches.
        *
-       * @description 1. Shut down the cloud phone instance before you back up data to ensure that the operation succeeds. Using the cloud phone during a backup may cause the operation to fail.
-       * 2. Ensure that the backup file can be used to restore the instance successfully. After you restore from a backup, verify that your data is complete and that all features are working correctly. Do not delete the original backup file or reset the source instance until you complete this verification. Failure to do so may result in data loss.
-       * 3. Backup and restore operations are not suppported across different image versions, between custom images and public images, or across different architectures, such as cpm.gx7.10xlarge and cpm.gx8.16xlarge.
+       * @description 1. To ensure a high success rate, back up data after the cloud phone is shut down. Operating the cloud phone during the backup process may cause the backup to fail.
+       * 2. Make sure that your backup files can be restored properly. After the restoration is complete, check and verify that all your data is intact and all features work as expected before you delete the original backup files or reset the source instance. Otherwise, your data may be lost.
+       * 3. Backup and restoration are not supported across different image versions, between custom images and public images, or across different architectures (such as cpm.gx7.10xlarge and cpm.gx8.16xlarge).
        *
        * @param request BackupAppRequest
        * @return BackupAppResponse
@@ -134,9 +134,9 @@ namespace EdsAic20230930
       Models::BackupAppResponse backupApp(const Models::BackupAppRequest &request);
 
       /**
-       * @summary Generates a backup file and uploads it to remote storage. Scenarios: You can perform regular backups for data security, or back up files from one instance and recover them to multiple instances to achieve replication and migration.
+       * @summary Generates a backup file and uploads it to remote storage. Scenarios: You can perform regular backups for data security, or back up files from a single instance and recover them to multiple instances to achieve an effect similar to replication and migration.
        *
-       * @description Currently, backup files generated by cloud phones can only be stored in Object Storage Service (OSS).
+       * @description Currently, backup files generated by Cloud Phone can only be saved to Object Storage Service (OSS).
        *
        * @param request BackupFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -145,9 +145,9 @@ namespace EdsAic20230930
       Models::BackupFileResponse backupFileWithOptions(const Models::BackupFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Generates a backup file and uploads it to remote storage. Scenarios: You can perform regular backups for data security, or back up files from one instance and recover them to multiple instances to achieve replication and migration.
+       * @summary Generates a backup file and uploads it to remote storage. Scenarios: You can perform regular backups for data security, or back up files from a single instance and recover them to multiple instances to achieve an effect similar to replication and migration.
        *
-       * @description Currently, backup files generated by cloud phones can only be stored in Object Storage Service (OSS).
+       * @description Currently, backup files generated by Cloud Phone can only be saved to Object Storage Service (OSS).
        *
        * @param request BackupFileRequest
        * @return BackupFileResponse
@@ -184,7 +184,7 @@ namespace EdsAic20230930
       Models::BatchGetAcpConnectionTicketResponse batchGetAcpConnectionTicket(const Models::BatchGetAcpConnectionTicketRequest &request);
 
       /**
-       * @summary Cancels running agent tasks on a mobile node.
+       * @summary Cancels running agent tasks on Mobile nodes.
        *
        * @param request CancelAgentTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -193,7 +193,7 @@ namespace EdsAic20230930
       Models::CancelAgentTaskResponse cancelAgentTaskWithOptions(const Models::CancelAgentTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Cancels running agent tasks on a mobile node.
+       * @summary Cancels running agent tasks on Mobile nodes.
        *
        * @param request CancelAgentTaskRequest
        * @return CancelAgentTaskResponse
@@ -218,7 +218,7 @@ namespace EdsAic20230930
       Models::ChangeCloudPhoneNodeResponse changeCloudPhoneNode(const Models::ChangeCloudPhoneNodeRequest &request);
 
       /**
-       * @summary Checks the inventory status of cloud phone resources. Before creating an instance, you can use this operation to check whether the inventory in the target region is sufficient, and then proceed with creation after confirmation.
+       * @summary Checks the inventory status of cloud phone resources. Before creating an instance, you can call this operation to check whether the inventory in the target region is sufficient.
        *
        * @param request CheckResourceStockRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -227,7 +227,7 @@ namespace EdsAic20230930
       Models::CheckResourceStockResponse checkResourceStockWithOptions(const Models::CheckResourceStockRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Checks the inventory status of cloud phone resources. Before creating an instance, you can use this operation to check whether the inventory in the target region is sufficient, and then proceed with creation after confirmation.
+       * @summary Checks the inventory status of cloud phone resources. Before creating an instance, you can call this operation to check whether the inventory in the target region is sufficient.
        *
        * @param request CheckResourceStockRequest
        * @return CheckResourceStockResponse
@@ -377,7 +377,7 @@ namespace EdsAic20230930
       Models::CreateCreditPackageResponse createCreditPackage(const Models::CreateCreditPackageRequest &request);
 
       /**
-       * @summary Creates a custom image from a cloud phone instance. Then, you can use the image to create more cloud phones with the same configuration.
+       * @summary Creates a custom image from a cloud phone instance. You can use the custom image to create more cloud phones with the same configuration.
        *
        * @param request CreateCustomImageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -386,7 +386,7 @@ namespace EdsAic20230930
       Models::CreateCustomImageResponse createCustomImageWithOptions(const Models::CreateCustomImageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a custom image from a cloud phone instance. Then, you can use the image to create more cloud phones with the same configuration.
+       * @summary Creates a custom image from a cloud phone instance. You can use the custom image to create more cloud phones with the same configuration.
        *
        * @param request CreateCustomImageRequest
        * @return CreateCustomImageResponse
@@ -394,9 +394,9 @@ namespace EdsAic20230930
       Models::CreateCustomImageResponse createCustomImage(const Models::CreateCustomImageRequest &request);
 
       /**
-       * @summary Places an order to purchase an edge agent package.
+       * @summary Purchases an edge agent package.
        *
-       * @description This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of WUYING Cloud Phone.
+       * @description This operation involves billing. Make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of WUYING Cloud Phone before you call this operation.
        *
        * @param request CreateEdgeMobileAgentPackageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -405,9 +405,9 @@ namespace EdsAic20230930
       Models::CreateEdgeMobileAgentPackageResponse createEdgeMobileAgentPackageWithOptions(const Models::CreateEdgeMobileAgentPackageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Places an order to purchase an edge agent package.
+       * @summary Purchases an edge agent package.
        *
-       * @description This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of WUYING Cloud Phone.
+       * @description This operation involves billing. Make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of WUYING Cloud Phone before you call this operation.
        *
        * @param request CreateEdgeMobileAgentPackageRequest
        * @return CreateEdgeMobileAgentPackageResponse
@@ -415,10 +415,9 @@ namespace EdsAic20230930
       Models::CreateEdgeMobileAgentPackageResponse createEdgeMobileAgentPackage(const Models::CreateEdgeMobileAgentPackageRequest &request);
 
       /**
-       * @summary You can connect to Cloud Phones using the Android Debug Bridge (ADB). ADB lets you manage devices and applications, and transfer files. These operations require high permissions. Because Cloud Phones do not have physical interfaces, you cannot use a USB connection to trigger an authorization dialog box on the device. Therefore, you must configure a key pair before you connect to a Cloud Phone with ADB over a network. This key pair ensures that the device trusts the client and that all operations are secure. You can call the CreateKeyPair operation to create an ADB key pair. The system stores the public key and returns the private key. The private key is in PEM-encoded PKCS#8 format and complies with ADB connection standards. You must securely store the private key.
+       * @summary Creates an ADB key pair. You can use ADB to connect to a cloud phone for device management, application management, and file transfers. ADB operations require elevated permissions. Cloud phones lack physical interfaces, so you cannot trigger a device-side authorization dialog box over USB. Therefore, when ADB connects to a cloud phone over a network, you must configure a key pair in advance to establish trust between the device and the client and ensure secure operations. You can invoke the CreateKeyPair operation to create an ADB key pair. The system stores the public key and returns the private key in the PKCS#8 format with PEM encoding that complies with ADB connection specifications. You must securely store the private key.
        *
-       * @description You can also use the Android Debug Bridge (ADB) tool to create a key pair and then upload it to the Cloud Phone console by calling the [](t2729840.xdita#)operation. This key pair can be used in the same way as a key pair created by the system.
-       * Each tenant can have a maximum of 500 key pairs.
+       * @description In addition to calling CreateKeyPair, you can use the ADB tool to create a key pair and upload it to the Wuying Cloud Phone console by calling [ImportKeyPair](https://help.aliyun.com/document_detail/2807340.html). The uploaded key pair works the same way as a system-generated key pair. Each tenant can create a maximum of 500 key pairs.
        *
        * @param request CreateKeyPairRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -427,10 +426,9 @@ namespace EdsAic20230930
       Models::CreateKeyPairResponse createKeyPairWithOptions(const Models::CreateKeyPairRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can connect to Cloud Phones using the Android Debug Bridge (ADB). ADB lets you manage devices and applications, and transfer files. These operations require high permissions. Because Cloud Phones do not have physical interfaces, you cannot use a USB connection to trigger an authorization dialog box on the device. Therefore, you must configure a key pair before you connect to a Cloud Phone with ADB over a network. This key pair ensures that the device trusts the client and that all operations are secure. You can call the CreateKeyPair operation to create an ADB key pair. The system stores the public key and returns the private key. The private key is in PEM-encoded PKCS#8 format and complies with ADB connection standards. You must securely store the private key.
+       * @summary Creates an ADB key pair. You can use ADB to connect to a cloud phone for device management, application management, and file transfers. ADB operations require elevated permissions. Cloud phones lack physical interfaces, so you cannot trigger a device-side authorization dialog box over USB. Therefore, when ADB connects to a cloud phone over a network, you must configure a key pair in advance to establish trust between the device and the client and ensure secure operations. You can invoke the CreateKeyPair operation to create an ADB key pair. The system stores the public key and returns the private key in the PKCS#8 format with PEM encoding that complies with ADB connection specifications. You must securely store the private key.
        *
-       * @description You can also use the Android Debug Bridge (ADB) tool to create a key pair and then upload it to the Cloud Phone console by calling the [](t2729840.xdita#)operation. This key pair can be used in the same way as a key pair created by the system.
-       * Each tenant can have a maximum of 500 key pairs.
+       * @description In addition to calling CreateKeyPair, you can use the ADB tool to create a key pair and upload it to the Wuying Cloud Phone console by calling [ImportKeyPair](https://help.aliyun.com/document_detail/2807340.html). The uploaded key pair works the same way as a system-generated key pair. Each tenant can create a maximum of 500 key pairs.
        *
        * @param request CreateKeyPairRequest
        * @return CreateKeyPairResponse
@@ -476,7 +474,7 @@ namespace EdsAic20230930
       Models::CreateMobileAgentTaskResponse createMobileAgentTask(const Models::CreateMobileAgentTaskRequest &request);
 
       /**
-       * @summary Creates a policy that applies unified settings to cloud phones. These settings include features such as network redirection, watermarks, resolution, and the clipboard.
+       * @summary Creates a policy. Policies are used to configure unified settings for cloud phones, such as network redirection policies, watermarks, resolution, and clipboard settings.
        *
        * @param tmpReq CreatePolicyGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -485,7 +483,7 @@ namespace EdsAic20230930
       Models::CreatePolicyGroupResponse createPolicyGroupWithOptions(const Models::CreatePolicyGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a policy that applies unified settings to cloud phones. These settings include features such as network redirection, watermarks, resolution, and the clipboard.
+       * @summary Creates a policy. Policies are used to configure unified settings for cloud phones, such as network redirection policies, watermarks, resolution, and clipboard settings.
        *
        * @param request CreatePolicyGroupRequest
        * @return CreatePolicyGroupResponse
@@ -565,10 +563,10 @@ namespace EdsAic20230930
       Models::DeleteAgentSkillResponse deleteAgentSkill(const Models::DeleteAgentSkillRequest &request);
 
       /**
-       * @summary Deletes an Android instance group. All instances in the group are also deleted. This operation cannot be undone. Proceed with caution.
+       * @summary Deletes a cloud phone instance group. All instances in the instance group are also deleted and cannot be recovered. Proceed with caution.
        *
-       * @description Pay-as-you-go instance groups can be deleted at any time.
-       * Subscription instance groups can be deleted only after they expire.
+       * @description Pay-as-you-go instance groups can be deleted directly.
+       * Subscription instance groups can be deleted only after they expire. Only subscription instance groups in the Expired state can be deleted.
        *
        * @param request DeleteAndroidInstanceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -577,10 +575,10 @@ namespace EdsAic20230930
       Models::DeleteAndroidInstanceGroupResponse deleteAndroidInstanceGroupWithOptions(const Models::DeleteAndroidInstanceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an Android instance group. All instances in the group are also deleted. This operation cannot be undone. Proceed with caution.
+       * @summary Deletes a cloud phone instance group. All instances in the instance group are also deleted and cannot be recovered. Proceed with caution.
        *
-       * @description Pay-as-you-go instance groups can be deleted at any time.
-       * Subscription instance groups can be deleted only after they expire.
+       * @description Pay-as-you-go instance groups can be deleted directly.
+       * Subscription instance groups can be deleted only after they expire. Only subscription instance groups in the Expired state can be deleted.
        *
        * @param request DeleteAndroidInstanceGroupRequest
        * @return DeleteAndroidInstanceGroupResponse
@@ -588,7 +586,7 @@ namespace EdsAic20230930
       Models::DeleteAndroidInstanceGroupResponse deleteAndroidInstanceGroup(const Models::DeleteAndroidInstanceGroupRequest &request);
 
       /**
-       * @summary Deletes an application. Before you delete an application, make sure that the application is not installed on any instances.
+       * @summary Deletes an application. Ensure that the application is not installed on any instance group before deletion.
        *
        * @param request DeleteAppsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -597,7 +595,7 @@ namespace EdsAic20230930
       Models::DeleteAppsResponse deleteAppsWithOptions(const Models::DeleteAppsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an application. Before you delete an application, make sure that the application is not installed on any instances.
+       * @summary Deletes an application. Ensure that the application is not installed on any instance group before deletion.
        *
        * @param request DeleteAppsRequest
        * @return DeleteAppsResponse
@@ -664,10 +662,10 @@ namespace EdsAic20230930
       Models::DeleteImagesResponse deleteImages(const Models::DeleteImagesRequest &request);
 
       /**
-       * @summary Deletes Android Debug Bridge (ADB) key pairs.
+       * @summary Deletes a cloud phone key pair.
        *
-       * @description *   If a cloud phone instance is currently associated with the ADB key pair you intend to delete, the ADB key pair cannot be deleted.
-       * *   Once an ADB key pair is deleted, it cannot be retrieved or queried by using the DescribeKeyPairs operation.
+       * @description - If an ADB key pair is already attached to a cloud phone instance, the key pair cannot be deleted.
+       * - After an ADB key pair is deleted, it can no longer be queried by calling DescribeKeyPairs.
        *
        * @param request DeleteKeyPairsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -676,10 +674,10 @@ namespace EdsAic20230930
       Models::DeleteKeyPairsResponse deleteKeyPairsWithOptions(const Models::DeleteKeyPairsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes Android Debug Bridge (ADB) key pairs.
+       * @summary Deletes a cloud phone key pair.
        *
-       * @description *   If a cloud phone instance is currently associated with the ADB key pair you intend to delete, the ADB key pair cannot be deleted.
-       * *   Once an ADB key pair is deleted, it cannot be retrieved or queried by using the DescribeKeyPairs operation.
+       * @description - If an ADB key pair is already attached to a cloud phone instance, the key pair cannot be deleted.
+       * - After an ADB key pair is deleted, it can no longer be queried by calling DescribeKeyPairs.
        *
        * @param request DeleteKeyPairsRequest
        * @return DeleteKeyPairsResponse
@@ -704,9 +702,9 @@ namespace EdsAic20230930
       Models::DeleteMobileAgentPackageResponse deleteMobileAgentPackage(const Models::DeleteMobileAgentPackageRequest &request);
 
       /**
-       * @summary Deletes one or more policy groups.
+       * @summary Deletes one or more policies.
        *
-       * @description A policy group cannot be deleted if it is associated with an instance group.
+       * @description You cannot delete a policy if it is associated with an undeleted instance group.
        *
        * @param request DeletePolicyGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -715,9 +713,9 @@ namespace EdsAic20230930
       Models::DeletePolicyGroupResponse deletePolicyGroupWithOptions(const Models::DeletePolicyGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes one or more policy groups.
+       * @summary Deletes one or more policies.
        *
-       * @description A policy group cannot be deleted if it is associated with an instance group.
+       * @description You cannot delete a policy if it is associated with an undeleted instance group.
        *
        * @param request DeletePolicyGroupRequest
        * @return DeletePolicyGroupResponse
@@ -852,7 +850,7 @@ namespace EdsAic20230930
       Models::DescribeBackupFilesResponse describeBackupFiles(const Models::DescribeBackupFilesRequest &request);
 
       /**
-       * @summary 带宽包询价
+       * @summary Queries the price of a cloud phone bandwidth plan.
        *
        * @param request DescribeBandwidthPackagePriceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -861,7 +859,7 @@ namespace EdsAic20230930
       Models::DescribeBandwidthPackagePriceResponse describeBandwidthPackagePriceWithOptions(const Models::DescribeBandwidthPackagePriceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 带宽包询价
+       * @summary Queries the price of a cloud phone bandwidth plan.
        *
        * @param request DescribeBandwidthPackagePriceRequest
        * @return DescribeBandwidthPackagePriceResponse
@@ -890,7 +888,7 @@ namespace EdsAic20230930
       Models::DescribeBucketsResponse describeBuckets(const Models::DescribeBucketsRequest &request);
 
       /**
-       * @summary 云手机节点询价
+       * @summary Queries the purchase price of a cloud phone matrix.
        *
        * @param request DescribeCloudPhoneNodePriceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -899,7 +897,7 @@ namespace EdsAic20230930
       Models::DescribeCloudPhoneNodePriceResponse describeCloudPhoneNodePriceWithOptions(const Models::DescribeCloudPhoneNodePriceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 云手机节点询价
+       * @summary Queries the purchase price of a cloud phone matrix.
        *
        * @param request DescribeCloudPhoneNodePriceRequest
        * @return DescribeCloudPhoneNodePriceResponse
@@ -907,7 +905,7 @@ namespace EdsAic20230930
       Models::DescribeCloudPhoneNodePriceResponse describeCloudPhoneNodePrice(const Models::DescribeCloudPhoneNodePriceRequest &request);
 
       /**
-       * @summary 云手机节点续费询价
+       * @summary Queries the renewal price of a cloud phone matrix.
        *
        * @param request DescribeCloudPhoneNodeRenewPriceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -916,7 +914,7 @@ namespace EdsAic20230930
       Models::DescribeCloudPhoneNodeRenewPriceResponse describeCloudPhoneNodeRenewPriceWithOptions(const Models::DescribeCloudPhoneNodeRenewPriceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 云手机节点续费询价
+       * @summary Queries the renewal price of a cloud phone matrix.
        *
        * @param request DescribeCloudPhoneNodeRenewPriceRequest
        * @return DescribeCloudPhoneNodeRenewPriceResponse
@@ -975,7 +973,7 @@ namespace EdsAic20230930
       Models::DescribeCreditPackageResponse describeCreditPackage(const Models::DescribeCreditPackageRequest &request);
 
       /**
-       * @summary 积分包询价
+       * @summary Queries the prices of AI credit boost packages for Cloud Phone.
        *
        * @param request DescribeCreditPackagePriceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -984,7 +982,7 @@ namespace EdsAic20230930
       Models::DescribeCreditPackagePriceResponse describeCreditPackagePriceWithOptions(const Models::DescribeCreditPackagePriceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 积分包询价
+       * @summary Queries the prices of AI credit boost packages for Cloud Phone.
        *
        * @param request DescribeCreditPackagePriceRequest
        * @return DescribeCreditPackagePriceResponse
@@ -1043,7 +1041,7 @@ namespace EdsAic20230930
       Models::DescribeImageListResponse describeImageList(const Models::DescribeImageListRequest &request);
 
       /**
-       * @summary 查询安卓实例组价格
+       * @summary Queries the price of an instance group.
        *
        * @param request DescribeInstanceGroupPriceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1052,7 +1050,7 @@ namespace EdsAic20230930
       Models::DescribeInstanceGroupPriceResponse describeInstanceGroupPriceWithOptions(const Models::DescribeInstanceGroupPriceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询安卓实例组价格
+       * @summary Queries the price of an instance group.
        *
        * @param request DescribeInstanceGroupPriceRequest
        * @return DescribeInstanceGroupPriceResponse
@@ -1098,7 +1096,7 @@ namespace EdsAic20230930
       Models::DescribeInvocationsResponse describeInvocations(const Models::DescribeInvocationsRequest &request);
 
       /**
-       * @summary Queries JVS instance information.
+       * @summary Queries the details of JVS instances.
        *
        * @param request DescribeJVSInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1107,7 +1105,7 @@ namespace EdsAic20230930
       Models::DescribeJVSInstanceResponse describeJVSInstanceWithOptions(const Models::DescribeJVSInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries JVS instance information.
+       * @summary Queries the details of JVS instances.
        *
        * @param request DescribeJVSInstanceRequest
        * @return DescribeJVSInstanceResponse
@@ -1200,7 +1198,7 @@ namespace EdsAic20230930
       Models::DescribeMobileAgentPackageResponse describeMobileAgentPackage(const Models::DescribeMobileAgentPackageRequest &request);
 
       /**
-       * @summary mobileAgent套餐包询价
+       * @summary Queries the pricing of MobileAgent packages.
        *
        * @param request DescribeMobileAgentPackagePriceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1209,7 +1207,7 @@ namespace EdsAic20230930
       Models::DescribeMobileAgentPackagePriceResponse describeMobileAgentPackagePriceWithOptions(const Models::DescribeMobileAgentPackagePriceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary mobileAgent套餐包询价
+       * @summary Queries the pricing of MobileAgent packages.
        *
        * @param request DescribeMobileAgentPackagePriceRequest
        * @return DescribeMobileAgentPackagePriceResponse
@@ -1217,7 +1215,7 @@ namespace EdsAic20230930
       Models::DescribeMobileAgentPackagePriceResponse describeMobileAgentPackagePrice(const Models::DescribeMobileAgentPackagePriceRequest &request);
 
       /**
-       * @summary MobileAgent套餐包续费询价
+       * @summary Queries the renewal price of MobileAgent resource plans.
        *
        * @param request DescribeMobileAgentPackagePriceForRenewRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1226,7 +1224,7 @@ namespace EdsAic20230930
       Models::DescribeMobileAgentPackagePriceForRenewResponse describeMobileAgentPackagePriceForRenewWithOptions(const Models::DescribeMobileAgentPackagePriceForRenewRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary MobileAgent套餐包续费询价
+       * @summary Queries the renewal price of MobileAgent resource plans.
        *
        * @param request DescribeMobileAgentPackagePriceForRenewRequest
        * @return DescribeMobileAgentPackagePriceForRenewResponse
@@ -1992,9 +1990,9 @@ namespace EdsAic20230930
       Models::ModifySystemPropertyTemplateResponse modifySystemPropertyTemplate(const Models::ModifySystemPropertyTemplateRequest &request);
 
       /**
-       * @summary Operates apps in a cloud phone, such as opening, closing, and reopening apps.
+       * @summary Starts, stops, or restarts applications in a cloud phone.
        *
-       * @description This operation runs asynchronously. To check the operation result, visit the Task Center. To retrieve task details, call the [](t2740507.xdita#)operation.
+       * @description This API operation is asynchronous. You can view the operation results in the task center. To query tasks, call the [DescribeTasks](~~DescribeTasks~~) operation.
        *
        * @param request OperateAppRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2003,9 +2001,9 @@ namespace EdsAic20230930
       Models::OperateAppResponse operateAppWithOptions(const Models::OperateAppRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Operates apps in a cloud phone, such as opening, closing, and reopening apps.
+       * @summary Starts, stops, or restarts applications in a cloud phone.
        *
-       * @description This operation runs asynchronously. To check the operation result, visit the Task Center. To retrieve task details, call the [](t2740507.xdita#)operation.
+       * @description This API operation is asynchronous. You can view the operation results in the task center. To query tasks, call the [DescribeTasks](~~DescribeTasks~~) operation.
        *
        * @param request OperateAppRequest
        * @return OperateAppResponse
@@ -2051,7 +2049,7 @@ namespace EdsAic20230930
       Models::RebootAndroidInstancesInGroupResponse rebootAndroidInstancesInGroup(const Models::RebootAndroidInstancesInGroupRequest &request);
 
       /**
-       * @summary 重启矩阵
+       * @summary Restarts cloud phone matrices.
        *
        * @param request RebootCloudPhoneNodesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2060,7 +2058,7 @@ namespace EdsAic20230930
       Models::RebootCloudPhoneNodesResponse rebootCloudPhoneNodesWithOptions(const Models::RebootCloudPhoneNodesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 重启矩阵
+       * @summary Restarts cloud phone matrices.
        *
        * @param request RebootCloudPhoneNodesRequest
        * @return RebootCloudPhoneNodesResponse
@@ -2068,10 +2066,10 @@ namespace EdsAic20230930
       Models::RebootCloudPhoneNodesResponse rebootCloudPhoneNodes(const Models::RebootCloudPhoneNodesRequest &request);
 
       /**
-       * @summary Restores a full instance backup to another cloud phone instance.
+       * @summary Restores a backup file of a cloud phone instance generated from a full-device backup to another cloud phone instance.
        *
-       * @description 1. When you restore a full instance, the system restarts the instance to ensure a successful restoration. A restart is not required if you restore only applications and data. Make sure the instance is in an active state. Do not perform any operations on the instance during the restoration process. Otherwise, the restoration may fail.
-       * 2. Ensure that the backup file can be used to restore the instance properly. After a restoration is complete, check that all your data is complete and all features are working properly. Do not delete the original backup file or reset the source instance until you have verified the restored data. Otherwise, you may lose your data.
+       * @description 1. To ensure a high success rate, the cloud phone is restarted during a full-device restore. App and data restoration does not require a restart. Make sure your cloud phone is available and do not operate it during the restoration process. Otherwise, the restoration may fail.
+       * 2. Make sure your backup file can be restored properly. After the restoration is complete, check and verify that all your data is intact and functions are working properly before you delete the original backup file or reset the source instance. Otherwise, your data may be lost.
        *
        * @param request RecoverAndroidInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2080,10 +2078,10 @@ namespace EdsAic20230930
       Models::RecoverAndroidInstanceResponse recoverAndroidInstanceWithOptions(const Models::RecoverAndroidInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Restores a full instance backup to another cloud phone instance.
+       * @summary Restores a backup file of a cloud phone instance generated from a full-device backup to another cloud phone instance.
        *
-       * @description 1. When you restore a full instance, the system restarts the instance to ensure a successful restoration. A restart is not required if you restore only applications and data. Make sure the instance is in an active state. Do not perform any operations on the instance during the restoration process. Otherwise, the restoration may fail.
-       * 2. Ensure that the backup file can be used to restore the instance properly. After a restoration is complete, check that all your data is complete and all features are working properly. Do not delete the original backup file or reset the source instance until you have verified the restored data. Otherwise, you may lose your data.
+       * @description 1. To ensure a high success rate, the cloud phone is restarted during a full-device restore. App and data restoration does not require a restart. Make sure your cloud phone is available and do not operate it during the restoration process. Otherwise, the restoration may fail.
+       * 2. Make sure your backup file can be restored properly. After the restoration is complete, check and verify that all your data is intact and functions are working properly before you delete the original backup file or reset the source instance. Otherwise, your data may be lost.
        *
        * @param request RecoverAndroidInstanceRequest
        * @return RecoverAndroidInstanceResponse
@@ -2116,9 +2114,9 @@ namespace EdsAic20230930
       Models::RecoverAppResponse recoverApp(const Models::RecoverAppRequest &request);
 
       /**
-       * @summary Restores backup files.
+       * @summary Restores a backup file.
        *
-       * @description Currently, this operation allows you to restore only backup files generated by cloud phones that are stored in Object Storage Service (OSS) buckets.
+       * @description Currently, only backup files generated by cloud phones and saved in Object Storage Service (OSS) are supported.
        *
        * @param request RecoveryFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2127,9 +2125,9 @@ namespace EdsAic20230930
       Models::RecoveryFileResponse recoveryFileWithOptions(const Models::RecoveryFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Restores backup files.
+       * @summary Restores a backup file.
        *
-       * @description Currently, this operation allows you to restore only backup files generated by cloud phones that are stored in Object Storage Service (OSS) buckets.
+       * @description Currently, only backup files generated by cloud phones and saved in Object Storage Service (OSS) are supported.
        *
        * @param request RecoveryFileRequest
        * @return RecoveryFileResponse
@@ -2137,7 +2135,7 @@ namespace EdsAic20230930
       Models::RecoveryFileResponse recoveryFile(const Models::RecoveryFileRequest &request);
 
       /**
-       * @summary Refreshes model authentication tokens.
+       * @summary Refreshes the model authentication tokens.
        *
        * @param request RefreshAuthTokensRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2146,7 +2144,7 @@ namespace EdsAic20230930
       Models::RefreshAuthTokensResponse refreshAuthTokensWithOptions(const Models::RefreshAuthTokensRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Refreshes model authentication tokens.
+       * @summary Refreshes the model authentication tokens.
        *
        * @param request RefreshAuthTokensRequest
        * @return RefreshAuthTokensResponse
@@ -2298,9 +2296,9 @@ namespace EdsAic20230930
       Models::RunSyncCommandResponse runSyncCommand(const Models::RunSyncCommandRequest &request);
 
       /**
-       * @summary Pushes files from Object Storage Service (OSS) or a public download link to one or more cloud phones.
+       * @summary Pushes files from OSS or public download URLs to cloud phones.
        *
-       * @description Use this operation to send files or folders from Object Storage Service (OSS) to cloud phones.
+       * @description Currently, only files or folders from Object Storage Service (OSS) can be sent to cloud phones.
        *
        * @param request SendFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2309,9 +2307,9 @@ namespace EdsAic20230930
       Models::SendFileResponse sendFileWithOptions(const Models::SendFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Pushes files from Object Storage Service (OSS) or a public download link to one or more cloud phones.
+       * @summary Pushes files from OSS or public download URLs to cloud phones.
        *
-       * @description Use this operation to send files or folders from Object Storage Service (OSS) to cloud phones.
+       * @description Currently, only files or folders from Object Storage Service (OSS) can be sent to cloud phones.
        *
        * @param request SendFileRequest
        * @return SendFileResponse
@@ -2319,7 +2317,7 @@ namespace EdsAic20230930
       Models::SendFileResponse sendFile(const Models::SendFileRequest &request);
 
       /**
-       * @summary Sends a property template to cloud phone instances and, based on the template, sets properties in the Android system using the setprop command. An APK or a related program can read these property values. If you specify multiple template IDs, the property templates are randomly sent to the cloud phone instances.
+       * @summary Sends property templates. The templates are delivered to cloud phones and configured in the Android system of the cloud phones by using the setprop command. APKs or related applications can read these property values. If multiple template IDs are specified, the property templates and cloud phone instances are randomly matched.
        *
        * @param request SendSystemPropertyTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2328,7 +2326,7 @@ namespace EdsAic20230930
       Models::SendSystemPropertyTemplateResponse sendSystemPropertyTemplateWithOptions(const Models::SendSystemPropertyTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sends a property template to cloud phone instances and, based on the template, sets properties in the Android system using the setprop command. An APK or a related program can read these property values. If you specify multiple template IDs, the property templates are randomly sent to the cloud phone instances.
+       * @summary Sends property templates. The templates are delivered to cloud phones and configured in the Android system of the cloud phones by using the setprop command. APKs or related applications can read these property values. If multiple template IDs are specified, the property templates and cloud phone instances are randomly matched.
        *
        * @param request SendSystemPropertyTemplateRequest
        * @return SendSystemPropertyTemplateResponse
@@ -2336,9 +2334,9 @@ namespace EdsAic20230930
       Models::SendSystemPropertyTemplateResponse sendSystemPropertyTemplate(const Models::SendSystemPropertyTemplateRequest &request);
 
       /**
-       * @summary Sets the authentication status for cloud phone instances. If you enable Android Debug Bridge (ADB) authentication for cloud phone instances, the system will verify the validity of the ADB key pairs provided by end users when they connect to the instances over ADB. To ensure successful authentication and a proper connection, we recommend that you attach ADB key pairs to cloud phone instances. If you disable ADB authentication for cloud phone instances, the system will no longer verify the validity of any ADB key pairs. As a result, end users can connect to the cloud phone instances over ADB without authentication, provided the network connection is functioning properly.
+       * @summary Sets the ADB authentication status of an instance. If ADB authentication is enabled, the cloud phone instance verifies the validity of the ADB key pair when you connect to the instance over ADB. In this case, bind an ADB key pair before connecting to the cloud phone instance over ADB. If ADB authentication is disabled, the cloud phone instance does not verify the validity of the ADB key pair. You can connect to the cloud phone instance over ADB as long as network connectivity is available.
        *
-       * @description Before you call this operation, make sure that the desired cloud phone instance is in the Running state.
+       * @description The ADB authentication settings take effect only when the instance is in the Running state.
        *
        * @param request SetAdbSecureRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2347,9 +2345,9 @@ namespace EdsAic20230930
       Models::SetAdbSecureResponse setAdbSecureWithOptions(const Models::SetAdbSecureRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sets the authentication status for cloud phone instances. If you enable Android Debug Bridge (ADB) authentication for cloud phone instances, the system will verify the validity of the ADB key pairs provided by end users when they connect to the instances over ADB. To ensure successful authentication and a proper connection, we recommend that you attach ADB key pairs to cloud phone instances. If you disable ADB authentication for cloud phone instances, the system will no longer verify the validity of any ADB key pairs. As a result, end users can connect to the cloud phone instances over ADB without authentication, provided the network connection is functioning properly.
+       * @summary Sets the ADB authentication status of an instance. If ADB authentication is enabled, the cloud phone instance verifies the validity of the ADB key pair when you connect to the instance over ADB. In this case, bind an ADB key pair before connecting to the cloud phone instance over ADB. If ADB authentication is disabled, the cloud phone instance does not verify the validity of the ADB key pair. You can connect to the cloud phone instance over ADB as long as network connectivity is available.
        *
-       * @description Before you call this operation, make sure that the desired cloud phone instance is in the Running state.
+       * @description The ADB authentication settings take effect only when the instance is in the Running state.
        *
        * @param request SetAdbSecureRequest
        * @return SetAdbSecureResponse
@@ -2357,13 +2355,13 @@ namespace EdsAic20230930
       Models::SetAdbSecureResponse setAdbSecure(const Models::SetAdbSecureRequest &request);
 
       /**
-       * @summary Adds or purges IP addresses and domain names from the network access blacklist.
+       * @summary Updates the network access blacklist by adding or clearing IP addresses and domain names.
        *
-       * @description - This operation requires image version 26.01 or later.
-       * - This API call synchronously updates the IP address blacklist and the domain name blacklist.
-       * - The IP address blacklist supports individual IP addresses and IP address segments. The update overwrites the existing configuration. If you pass an empty string (""), all configured IP blacklist entries are purged.
-       * - The domain name blacklist supports only exact matches and does not support regular expressions. If you pass an empty string (""), all configured domain name blacklist entries are purged.
-       * - After you change the configuration, restart the cloud phone to apply the new blacklist rules. Note that these rules may not take effect if you use an agent.
+       * @description - The image version must be 26.01 or later.
+       * - This operation supports synchronous updates of the IP address blacklist and the domain name blacklist.
+       * - The IP address blacklist supports single IP addresses and CIDR blocks and uses an overwrite update method. If an empty string "" is specified, all configured IP blacklist entries are cleared.
+       * - The domain name blacklist supports only exact match and does not support regular expressions. If an empty string "" is specified, all configured domain name blacklist entries are cleared.
+       * - After the configuration is changed, you must restart the cloud phone for the new blacklist rules to take effect. Note that these rules may not take effect when a proxy is used.
        *
        * @param request SetNetworkBlacklistRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2372,13 +2370,13 @@ namespace EdsAic20230930
       Models::SetNetworkBlacklistResponse setNetworkBlacklistWithOptions(const Models::SetNetworkBlacklistRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds or purges IP addresses and domain names from the network access blacklist.
+       * @summary Updates the network access blacklist by adding or clearing IP addresses and domain names.
        *
-       * @description - This operation requires image version 26.01 or later.
-       * - This API call synchronously updates the IP address blacklist and the domain name blacklist.
-       * - The IP address blacklist supports individual IP addresses and IP address segments. The update overwrites the existing configuration. If you pass an empty string (""), all configured IP blacklist entries are purged.
-       * - The domain name blacklist supports only exact matches and does not support regular expressions. If you pass an empty string (""), all configured domain name blacklist entries are purged.
-       * - After you change the configuration, restart the cloud phone to apply the new blacklist rules. Note that these rules may not take effect if you use an agent.
+       * @description - The image version must be 26.01 or later.
+       * - This operation supports synchronous updates of the IP address blacklist and the domain name blacklist.
+       * - The IP address blacklist supports single IP addresses and CIDR blocks and uses an overwrite update method. If an empty string "" is specified, all configured IP blacklist entries are cleared.
+       * - The domain name blacklist supports only exact match and does not support regular expressions. If an empty string "" is specified, all configured domain name blacklist entries are cleared.
+       * - After the configuration is changed, you must restart the cloud phone for the new blacklist rules to take effect. Note that these rules may not take effect when a proxy is used.
        *
        * @param request SetNetworkBlacklistRequest
        * @return SetNetworkBlacklistResponse
@@ -2386,9 +2384,9 @@ namespace EdsAic20230930
       Models::SetNetworkBlacklistResponse setNetworkBlacklist(const Models::SetNetworkBlacklistRequest &request);
 
       /**
-       * @summary Start cloud phone instances.
+       * @summary Starts a cloud phone instance.
        *
-       * @description Only supports starting when the instance is in the **Stopped, Backup Failed, or Recovery Failed** state.
+       * @description You can start an instance only when it is in the **Stopped, Backup Failed, or Recovery Failed** state.
        *
        * @param request StartAndroidInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2397,9 +2395,9 @@ namespace EdsAic20230930
       Models::StartAndroidInstanceResponse startAndroidInstanceWithOptions(const Models::StartAndroidInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Start cloud phone instances.
+       * @summary Starts a cloud phone instance.
        *
-       * @description Only supports starting when the instance is in the **Stopped, Backup Failed, or Recovery Failed** state.
+       * @description You can start an instance only when it is in the **Stopped, Backup Failed, or Recovery Failed** state.
        *
        * @param request StartAndroidInstanceRequest
        * @return StartAndroidInstanceResponse
@@ -2407,9 +2405,9 @@ namespace EdsAic20230930
       Models::StartAndroidInstanceResponse startAndroidInstance(const Models::StartAndroidInstanceRequest &request);
 
       /**
-       * @summary Enables the Android Debug Bridge (ADB) connection for an instance and creates an Internet mapping rule for its ADB port. This feature is available only for standard networks.
+       * @summary Enables the ADB connection feature for instances and creates public network mapping rules for the ADB ports of the instances (standard network only).
        *
-       * @description This feature can be enabled when the instance is not in the **UNAVAILABLE** state and has a **private IP address** assigned.
+       * @description This feature can be enabled only when the instance is in the **non-exception** (**UNAVAILABLE**) state and has been successfully assigned a **private IP address**.
        *
        * @param request StartInstanceAdbRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2418,9 +2416,9 @@ namespace EdsAic20230930
       Models::StartInstanceAdbResponse startInstanceAdbWithOptions(const Models::StartInstanceAdbRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables the Android Debug Bridge (ADB) connection for an instance and creates an Internet mapping rule for its ADB port. This feature is available only for standard networks.
+       * @summary Enables the ADB connection feature for instances and creates public network mapping rules for the ADB ports of the instances (standard network only).
        *
-       * @description This feature can be enabled when the instance is not in the **UNAVAILABLE** state and has a **private IP address** assigned.
+       * @description This feature can be enabled only when the instance is in the **non-exception** (**UNAVAILABLE**) state and has been successfully assigned a **private IP address**.
        *
        * @param request StartInstanceAdbRequest
        * @return StartInstanceAdbResponse
@@ -2466,7 +2464,7 @@ namespace EdsAic20230930
       Models::StopInstanceAdbResponse stopInstanceAdb(const Models::StopInstanceAdbRequest &request);
 
       /**
-       * @summary Adds tags to one or more cloud phones.
+       * @summary Adds tags to cloud phones.
        *
        * @param request TagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2475,7 +2473,7 @@ namespace EdsAic20230930
       Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds tags to one or more cloud phones.
+       * @summary Adds tags to cloud phones.
        *
        * @param request TagResourcesRequest
        * @return TagResourcesResponse
@@ -2538,7 +2536,7 @@ namespace EdsAic20230930
       Models::UninstallSkillsResponse uninstallSkills(const Models::UninstallSkillsRequest &request);
 
       /**
-       * @summary Removes tags from cloud phones. If a tag is no longer associated with any cloud phone after it is removed, the tag is automatically deleted.
+       * @summary Removes tags from cloud phones. After a tag is removed, if it is not added to any cloud phone, the tag is automatically deleted.
        *
        * @param request UntagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2547,7 +2545,7 @@ namespace EdsAic20230930
       Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes tags from cloud phones. If a tag is no longer associated with any cloud phone after it is removed, the tag is automatically deleted.
+       * @summary Removes tags from cloud phones. After a tag is removed, if it is not added to any cloud phone, the tag is automatically deleted.
        *
        * @param request UntagResourcesRequest
        * @return UntagResourcesResponse
@@ -2593,9 +2591,9 @@ namespace EdsAic20230930
       Models::UpdateCustomImageNameResponse updateCustomImageName(const Models::UpdateCustomImageNameRequest &request);
 
       /**
-       * @summary Updates the image of an instance group. This update affects all instances in the group.
+       * @summary Changes the image of an instance group. This change applies to all instances in the instance group.
        *
-       * @description The image and the instance group must be in the active state. The image must be available in the same region as the instance group.
+       * @description The image must be in the Available state and available in the region where the instance group is located. The instance group must be in the Available state.
        *
        * @param request UpdateInstanceGroupImageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2604,9 +2602,9 @@ namespace EdsAic20230930
       Models::UpdateInstanceGroupImageResponse updateInstanceGroupImageWithOptions(const Models::UpdateInstanceGroupImageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the image of an instance group. This update affects all instances in the group.
+       * @summary Changes the image of an instance group. This change applies to all instances in the instance group.
        *
-       * @description The image and the instance group must be in the active state. The image must be available in the same region as the instance group.
+       * @description The image must be in the Available state and available in the region where the instance group is located. The instance group must be in the Available state.
        *
        * @param request UpdateInstanceGroupImageRequest
        * @return UpdateInstanceGroupImageResponse

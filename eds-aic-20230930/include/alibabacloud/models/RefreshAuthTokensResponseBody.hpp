@@ -127,7 +127,7 @@ namespace Models
 
 
       protected:
-        // The authorization token value.
+        // The value of the authorization token.
         shared_ptr<string> authToken_ {};
         // The expiration timestamp.
         shared_ptr<int64_t> expireAt_ {};

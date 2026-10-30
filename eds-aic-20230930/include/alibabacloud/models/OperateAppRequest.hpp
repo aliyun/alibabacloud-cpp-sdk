@@ -60,11 +60,11 @@ namespace Models
 
 
   protected:
-    // The ID of the app.
+    // The application ID.
     shared_ptr<int32_t> appId_ {};
-    // The IDs of the cloud phone instances.
+    // The list of instances.
     shared_ptr<vector<string>> instanceIdList_ {};
-    // The type of the operation.
+    // The operation type. Supported operations include starting, stopping, and restarting.
     shared_ptr<string> operateType_ {};
   };
 

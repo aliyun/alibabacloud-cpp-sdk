@@ -55,7 +55,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> imageId_ {};
-    // A list of instance group IDs.
+    // The list of instance group IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> instanceGroupIds_ {};

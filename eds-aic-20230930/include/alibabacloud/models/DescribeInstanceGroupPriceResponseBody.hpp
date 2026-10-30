@@ -72,7 +72,9 @@ namespace Models
 
 
     protected:
+      // The rule description.
       shared_ptr<string> description_ {};
+      // The rule ID.
       shared_ptr<string> ruleId_ {};
     };
 
@@ -168,10 +170,15 @@ namespace Models
 
 
       protected:
+        // The coupon code.
         shared_ptr<string> optionCode_ {};
+        // The coupon description.
         shared_ptr<string> promotionDesc_ {};
+        // The promotion ID.
         shared_ptr<string> promotionId_ {};
+        // The coupon name.
         shared_ptr<string> promotionName_ {};
+        // Indicates whether the promotion is selected.
         shared_ptr<bool> selected_ {};
       };
 
@@ -215,10 +222,15 @@ namespace Models
 
 
     protected:
+      // The currency unit.
       shared_ptr<string> currency_ {};
+      // The discounted price.
       shared_ptr<float> discountPrice_ {};
+      // The original price.
       shared_ptr<float> originalPrice_ {};
+      // The promotion information.
       shared_ptr<vector<Price::Promotions>> promotions_ {};
+      // The transaction price.
       shared_ptr<float> tradePrice_ {};
     };
 
@@ -250,8 +262,11 @@ namespace Models
 
 
   protected:
+    // The price.
     shared_ptr<DescribeInstanceGroupPriceResponseBody::Price> price_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The rule information.
     shared_ptr<vector<DescribeInstanceGroupPriceResponseBody::Rules>> rules_ {};
   };
 

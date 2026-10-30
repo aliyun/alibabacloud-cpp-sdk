@@ -72,9 +72,9 @@ namespace Models
 
 
     protected:
-      // The tag key. The key can be up to 128 characters in length. It cannot be an empty string. The key cannot start with \\`aliyun\\` or \\`acs:\\` and cannot contain \\`http\\://\\` or \\`https\\://\\`.
+      // The tag key. It cannot be an empty string. It can be up to 128 characters in length, cannot start with aliyun or acs:, and cannot contain http:// or https://.
       shared_ptr<string> key_ {};
-      // The tag value. The value can be up to 128 characters in length and can be an empty string. The value cannot start with \\`acs:\\` and cannot contain \\`http\\://\\` or \\`https\\://\\`.
+      // The tag value. It can be an empty string. It can be up to 128 characters in length, cannot start with acs:, and cannot contain http:// or https://.
       shared_ptr<string> value_ {};
     };
 
@@ -106,15 +106,15 @@ namespace Models
 
 
   protected:
-    // The list of cloud phone IDs. The list can contain 1 to 50 IDs.
+    // The list of resource IDs, which are cloud phone IDs. You can specify 1 to 50 IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
-    // The resource type. The value must be \\`ALIYUN::ACP::INSTANCE\\`.
+    // The resource type. Set the value to ALIYUN::ACP::INSTANCE.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The list of tags. The list can contain 1 to 20 tags.
+    // The list of tags. You can specify 1 to 20 tags.
     // 
     // This parameter is required.
     shared_ptr<vector<TagResourcesRequest::Tag>> tag_ {};

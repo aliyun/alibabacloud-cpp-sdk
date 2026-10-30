@@ -92,7 +92,7 @@ namespace Models
 
 
     protected:
-      // The ID of the cloud phone instance.
+      // The instance ID of the cloud phone.
       shared_ptr<string> androidInstanceId_ {};
       // The ID of the backup file.
       shared_ptr<string> backupFileId_ {};
@@ -135,9 +135,9 @@ namespace Models
 
 
   protected:
-    // The number of instances that are backed up.
+    // The number of backed-up instances.
     shared_ptr<int64_t> count_ {};
-    // The response elements.
+    // The returned result object.
     shared_ptr<vector<BackupAppResponseBody::Data>> data_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

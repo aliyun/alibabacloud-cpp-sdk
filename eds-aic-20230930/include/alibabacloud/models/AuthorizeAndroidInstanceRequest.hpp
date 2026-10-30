@@ -60,11 +60,11 @@ namespace Models
 
 
   protected:
-    // List of instance IDs.
+    // The list of instance IDs.
     shared_ptr<vector<string>> androidInstanceIds_ {};
-    // User ID to be assigned.
+    // The ID of the user to assign.
     shared_ptr<string> authorizeUserId_ {};
-    // User ID to be unassigned.
+    // The ID of the user to unassign.
     shared_ptr<string> unAuthorizeUserId_ {};
   };
 

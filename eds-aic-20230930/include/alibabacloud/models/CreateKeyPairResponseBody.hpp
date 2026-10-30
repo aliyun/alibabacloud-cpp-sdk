@@ -87,13 +87,13 @@ namespace Models
 
 
     protected:
-      // The time when the key pair was created.
+      // The creation time.
       shared_ptr<string> gmtCreated_ {};
-      // The ID of the key pair.
+      // The ID of the ADB key pair.
       shared_ptr<string> keyPairId_ {};
       // The name of the key pair.
       shared_ptr<string> keyPairName_ {};
-      // The private key of the key pair. The private key is PEM-encoded in PKCS#8 format and is compatible with ADB.
+      // The private key of the key pair. The private key is in the PEM-encoded PKCS#8 format that complies with ADB key pair specifications.
       shared_ptr<string> privateKeyBody_ {};
     };
 
@@ -116,7 +116,7 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // The returned result object.
     shared_ptr<CreateKeyPairResponseBody::Data> data_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

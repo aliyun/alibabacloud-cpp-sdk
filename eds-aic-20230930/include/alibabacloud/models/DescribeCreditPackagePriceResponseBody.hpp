@@ -72,7 +72,9 @@ namespace Models
 
 
     protected:
+      // The promotion description.
       shared_ptr<string> description_ {};
+      // The rule ID.
       shared_ptr<string> ruleId_ {};
     };
 
@@ -170,10 +172,15 @@ namespace Models
 
 
       protected:
+        // The coupon code.
         shared_ptr<string> optionCode_ {};
+        // The coupon description.
         shared_ptr<string> promotionDesc_ {};
+        // The ID of the promotion.
         shared_ptr<string> promotionId_ {};
+        // The coupon name.
         shared_ptr<string> promotionName_ {};
+        // Indicates whether the coupon is selected.
         shared_ptr<bool> selected_ {};
       };
 
@@ -260,9 +267,13 @@ namespace Models
 
 
         protected:
+          // The discounted price.
           shared_ptr<string> discountPrice_ {};
+          // The name of the billing module.
           shared_ptr<string> moduleName_ {};
+          // The original price.
           shared_ptr<string> originalPrice_ {};
+          // The transaction price.
           shared_ptr<string> tradePrice_ {};
         };
 
@@ -306,10 +317,15 @@ namespace Models
 
 
       protected:
+        // The discounted price.
         shared_ptr<float> discountPrice_ {};
+        // The prices of the modules.
         shared_ptr<vector<PriceDetail::ModulePrice>> modulePrice_ {};
+        // The original price.
         shared_ptr<float> originalPrice_ {};
+        // The resource type.
         shared_ptr<string> resourceType_ {};
+        // The transaction price.
         shared_ptr<float> tradePrice_ {};
       };
 
@@ -362,11 +378,20 @@ namespace Models
 
 
     protected:
+      // The currency. Valid values:
+      // - CNY: Chinese yuan
+      // - USD: US dollar
+      // - JPY: Japanese yen
       shared_ptr<string> currency_ {};
+      // The discounted price.
       shared_ptr<float> discountPrice_ {};
+      // The original price.
       shared_ptr<float> originalPrice_ {};
+      // The price details.
       shared_ptr<vector<Price::PriceDetail>> priceDetail_ {};
+      // The promotion information.
       shared_ptr<vector<Price::Promotions>> promotions_ {};
+      // The transaction price.
       shared_ptr<float> tradePrice_ {};
     };
 
@@ -398,8 +423,11 @@ namespace Models
 
 
   protected:
+    // The price.
     shared_ptr<DescribeCreditPackagePriceResponseBody::Price> price_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // The promotion rules.
     shared_ptr<vector<DescribeCreditPackagePriceResponseBody::Rules>> rules_ {};
   };
 

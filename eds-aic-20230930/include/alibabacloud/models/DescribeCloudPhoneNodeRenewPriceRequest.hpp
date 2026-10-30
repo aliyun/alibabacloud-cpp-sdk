@@ -69,9 +69,15 @@ namespace Models
 
 
   protected:
+    // The list of cloud phone matrix IDs.
     shared_ptr<vector<string>> nodeIds_ {};
+    // The subscription period. The unit is specified by PeriodUnit.
     shared_ptr<int32_t> period_ {};
+    // The unit of the subscription period. Valid values:
+    // - **Month**: Month.
+    // - **Year**: Year.
     shared_ptr<string> periodUnit_ {};
+    // The ID of the promotion.
     shared_ptr<string> promotionId_ {};
   };
 

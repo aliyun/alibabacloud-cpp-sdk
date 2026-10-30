@@ -102,24 +102,17 @@ namespace Models
 
     protected:
       // The current status of the task. Valid values:
-      // 
       // - PENDING: The task is being created.
-      // 
       // - RUNNING: The task is running.
-      // 
       // - COMPLETED: The task is completed.
-      // 
       // - FAILED: The task failed.
-      // 
       // - TIMEOUT: The task execution timed out.
-      // 
       // - PAUSING: The task is being paused.
-      // 
       // - PAUSED: The task is paused.
       shared_ptr<string> currentStatus_ {};
-      // The reason why the task resumption failed.
+      // The reason why the task failed to resume.
       shared_ptr<string> failedReason_ {};
-      // The ID of the Mobile node.
+      // The Mobile node ID.
       shared_ptr<string> instanceId_ {};
       // The time when the task is resumed, in ISO 8601 format.
       shared_ptr<string> resumingAt_ {};
@@ -160,9 +153,9 @@ namespace Models
 
 
   protected:
-    // The status code of the API operation.
+    // The API status code.
     shared_ptr<string> code_ {};
-    // The message returned by the API operation.
+    // The API response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

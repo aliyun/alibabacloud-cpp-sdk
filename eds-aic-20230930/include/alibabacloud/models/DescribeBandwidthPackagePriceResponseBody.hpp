@@ -72,7 +72,9 @@ namespace Models
 
 
     protected:
+      // The rule description.
       shared_ptr<string> description_ {};
+      // The rule ID.
       shared_ptr<string> ruleId_ {};
     };
 
@@ -168,10 +170,15 @@ namespace Models
 
 
       protected:
+        // The promotion code.
         shared_ptr<string> optionCode_ {};
+        // The promotion description.
         shared_ptr<string> promotionDesc_ {};
+        // The ID of the promotion.
         shared_ptr<string> promotionId_ {};
+        // The name of the promotion.
         shared_ptr<string> promotionName_ {};
+        // Indicates whether the promotion is selected.
         shared_ptr<bool> selected_ {};
       };
 
@@ -215,10 +222,20 @@ namespace Models
 
 
     protected:
+      // <props="china">The currency unit (CNY).
+      // <props="intl">The currency unit (USD).
       shared_ptr<string> currency_ {};
+      // The discounted price.
       shared_ptr<float> discountPrice_ {};
+      // The original price.
+      // 
+      // <props="china">Unit: CNY.
+      // 
+      // <props="intl">Unit: USD.
       shared_ptr<float> originalPrice_ {};
+      // The promotion information.
       shared_ptr<vector<Price::Promotions>> promotions_ {};
+      // The transaction price.
       shared_ptr<float> tradePrice_ {};
     };
 
@@ -250,8 +267,11 @@ namespace Models
 
 
   protected:
+    // The price.
     shared_ptr<DescribeBandwidthPackagePriceResponseBody::Price> price_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // The promotion rules.
     shared_ptr<vector<DescribeBandwidthPackagePriceResponseBody::Rules>> rules_ {};
   };
 

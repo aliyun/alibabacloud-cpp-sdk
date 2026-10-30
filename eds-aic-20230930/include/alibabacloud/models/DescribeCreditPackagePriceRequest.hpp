@@ -75,10 +75,17 @@ namespace Models
 
 
   protected:
+    // The number of credits.
     shared_ptr<int32_t> creditAmount_ {};
+    // The number of credit boost packages to purchase. Valid values: 1 to 99.
     shared_ptr<string> packageAmount_ {};
+    // The subscription period of the resource. The unit is specified by PeriodUnit. Valid values: 3 months, 6 months, and 1 year.
     shared_ptr<string> period_ {};
+    // The billing time unit of the subscription Billable methods. Valid values:
+    // - **Year**: year
+    // - **Month** (default): month
     shared_ptr<string> periodUnit_ {};
+    // The ID of the promotion.
     shared_ptr<string> promotionId_ {};
   };
 

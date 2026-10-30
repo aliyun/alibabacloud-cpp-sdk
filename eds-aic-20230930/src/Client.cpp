@@ -90,10 +90,10 @@ ActivateEdgeMobileAgentResponse Client::activateEdgeMobileAgent(const ActivateEd
 }
 
 /**
- * @summary Attaches an Android Debug Bridge (ADB) key pair to one or more cloud phone instances.
+ * @summary Attaches an ADB key pair to one or more cloud phone instances.
  *
- * @description - You can attach to an ADB key pair only to cloud phone instances in the Running state.
- * - After you attach an ADB key pair, make sure the private key of the ADB key pair is copied to the \\~/.android directory (macOS or Linux operating systems) or the C:\\Users\\Username.android directory (Windows operating systems). In addition, you must run the adb kill-server command to restart the ADB process to ensure correct ADB connection. Otherwise, ADB connection may fail due to authentication exceptions.
+ * @description - The ADB key pair takes effect only when the instance is in the Running state.
+ * - After you attach the key pair, copy the private key of the key pair to the local folder where the key pair is stored (for macOS or Linux operating systems, the folder is ~/.android. For the Windows operating system, the folder is C:\\Users\\Username\\.android.), and invoke the adb kill-server command to restart the ADB process. This ensures normal ADB connections. Otherwise, the ADB connection authentication may be failed.
  *
  * @param request AttachKeyPairRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -128,10 +128,10 @@ AttachKeyPairResponse Client::attachKeyPairWithOptions(const AttachKeyPairReques
 }
 
 /**
- * @summary Attaches an Android Debug Bridge (ADB) key pair to one or more cloud phone instances.
+ * @summary Attaches an ADB key pair to one or more cloud phone instances.
  *
- * @description - You can attach to an ADB key pair only to cloud phone instances in the Running state.
- * - After you attach an ADB key pair, make sure the private key of the ADB key pair is copied to the \\~/.android directory (macOS or Linux operating systems) or the C:\\Users\\Username.android directory (Windows operating systems). In addition, you must run the adb kill-server command to restart the ADB process to ensure correct ADB connection. Otherwise, ADB connection may fail due to authentication exceptions.
+ * @description - The ADB key pair takes effect only when the instance is in the Running state.
+ * - After you attach the key pair, copy the private key of the key pair to the local folder where the key pair is stored (for macOS or Linux operating systems, the folder is ~/.android. For the Windows operating system, the folder is C:\\Users\\Username\\.android.), and invoke the adb kill-server command to restart the ADB process. This ensures normal ADB connections. Otherwise, the ADB connection authentication may be failed.
  *
  * @param request AttachKeyPairRequest
  * @return AttachKeyPairResponse
@@ -142,10 +142,10 @@ AttachKeyPairResponse Client::attachKeyPair(const AttachKeyPairRequest &request)
 }
 
 /**
- * @summary Authorize/unauthorize Android instances for users.
+ * @summary Assigns a user to or unassigns a user from a cloud phone instance. Currently, each cloud phone instance supports only one assigned user.
  *
- * @description Instance states that support user assignment: Available, Shutting Down, Stopped, Starting, Backing Up, Restoring, Backup Failed, Restore Failed.
- * Instance states that support unassignment: Available, Shutting Down, Stopped, Starting, Backing Up, Restoring, Backup Failed, Restore Failed, Expired, Overdue, Deleted.
+ * @description Instance statuses that support user assignment: Available, Shutting down, Stopped, Starting, Backing up, Restoring, Backup failed, and Restoration failed.
+ * Instance statuses that support user unassignment: Available, Shutting down, Stopped, Starting, Backing up, Restoring, Backup failed, Restoration failed, Expired, Overdue payment, and Deleted.
  *
  * @param request AuthorizeAndroidInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -184,10 +184,10 @@ AuthorizeAndroidInstanceResponse Client::authorizeAndroidInstanceWithOptions(con
 }
 
 /**
- * @summary Authorize/unauthorize Android instances for users.
+ * @summary Assigns a user to or unassigns a user from a cloud phone instance. Currently, each cloud phone instance supports only one assigned user.
  *
- * @description Instance states that support user assignment: Available, Shutting Down, Stopped, Starting, Backing Up, Restoring, Backup Failed, Restore Failed.
- * Instance states that support unassignment: Available, Shutting Down, Stopped, Starting, Backing Up, Restoring, Backup Failed, Restore Failed, Expired, Overdue, Deleted.
+ * @description Instance statuses that support user assignment: Available, Shutting down, Stopped, Starting, Backing up, Restoring, Backup failed, and Restoration failed.
+ * Instance statuses that support user unassignment: Available, Shutting down, Stopped, Starting, Backing up, Restoring, Backup failed, Restoration failed, Expired, Overdue payment, and Deleted.
  *
  * @param request AuthorizeAndroidInstanceRequest
  * @return AuthorizeAndroidInstanceResponse
@@ -198,11 +198,11 @@ AuthorizeAndroidInstanceResponse Client::authorizeAndroidInstance(const Authoriz
 }
 
 /**
- * @summary Creates a full backup of a Cloud Phone instance. The backup includes installed applications and properties.
+ * @summary Creates a full backup of a cloud phone instance, including installed applications and properties.
  *
- * @description 1. To ensure that the backup is successful, shut down the instance before you start the data backup. The operation may fail if the cloud phone instance is used during the backup process.
- * 2. You should test the backup file to ensure that you can restore the instance from it. After the restoration is complete, verify that your data is complete and that all features function correctly. Do not delete the original backup file or reset the source instance until this verification is complete. Otherwise, you may lose your data.
- * 3. You cannot back up and restore data between different image versions, between custom images and public images, or across different architectures, such as cpm.gx7.10xlarge and cpm.gx8.16xlarge.
+ * @description 1. To ensure a high success rate, back up data after the instance is shut down. Operating the cloud phone during the backup process may cause the backup to fail.
+ * 2. Ensure that the backup file can be restored properly. After the restoration is complete, check and verify that all data is intact and functions are working properly before deleting the original backup file and resetting the source instance. Otherwise, data loss may occur.
+ * 3. Backup and restoration across different image versions are not supported. Backup and restoration between custom images and public images are not supported. Backup and restoration across different architectures (cpm.gx7.10xlarge and cpm.gx8.16xlarge) are not supported.
  *
  * @param request BackupAndroidInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -227,6 +227,10 @@ BackupAndroidInstanceResponse Client::backupAndroidInstanceWithOptions(const Bac
     query["Description"] = request.getDescription();
   }
 
+  if (!!request.hasExcludeAppList()) {
+    query["ExcludeAppList"] = request.getExcludeAppList();
+  }
+
   if (!!request.hasUploadEndpoint()) {
     query["UploadEndpoint"] = request.getUploadEndpoint();
   }
@@ -249,11 +253,11 @@ BackupAndroidInstanceResponse Client::backupAndroidInstanceWithOptions(const Bac
 }
 
 /**
- * @summary Creates a full backup of a Cloud Phone instance. The backup includes installed applications and properties.
+ * @summary Creates a full backup of a cloud phone instance, including installed applications and properties.
  *
- * @description 1. To ensure that the backup is successful, shut down the instance before you start the data backup. The operation may fail if the cloud phone instance is used during the backup process.
- * 2. You should test the backup file to ensure that you can restore the instance from it. After the restoration is complete, verify that your data is complete and that all features function correctly. Do not delete the original backup file or reset the source instance until this verification is complete. Otherwise, you may lose your data.
- * 3. You cannot back up and restore data between different image versions, between custom images and public images, or across different architectures, such as cpm.gx7.10xlarge and cpm.gx8.16xlarge.
+ * @description 1. To ensure a high success rate, back up data after the instance is shut down. Operating the cloud phone during the backup process may cause the backup to fail.
+ * 2. Ensure that the backup file can be restored properly. After the restoration is complete, check and verify that all data is intact and functions are working properly before deleting the original backup file and resetting the source instance. Otherwise, data loss may occur.
+ * 3. Backup and restoration across different image versions are not supported. Backup and restoration between custom images and public images are not supported. Backup and restoration across different architectures (cpm.gx7.10xlarge and cpm.gx8.16xlarge) are not supported.
  *
  * @param request BackupAndroidInstanceRequest
  * @return BackupAndroidInstanceResponse
@@ -264,11 +268,11 @@ BackupAndroidInstanceResponse Client::backupAndroidInstance(const BackupAndroidI
 }
 
 /**
- * @summary Backs up specified applications on a cloud phone instance. The backup includes the application and its cache.
+ * @summary Backs up specified applications on cloud phone instances, including the applications and application caches.
  *
- * @description 1. Shut down the cloud phone instance before you back up data to ensure that the operation succeeds. Using the cloud phone during a backup may cause the operation to fail.
- * 2. Ensure that the backup file can be used to restore the instance successfully. After you restore from a backup, verify that your data is complete and that all features are working correctly. Do not delete the original backup file or reset the source instance until you complete this verification. Failure to do so may result in data loss.
- * 3. Backup and restore operations are not suppported across different image versions, between custom images and public images, or across different architectures, such as cpm.gx7.10xlarge and cpm.gx8.16xlarge.
+ * @description 1. To ensure a high success rate, back up data after the cloud phone is shut down. Operating the cloud phone during the backup process may cause the backup to fail.
+ * 2. Make sure that your backup files can be restored properly. After the restoration is complete, check and verify that all your data is intact and all features work as expected before you delete the original backup files or reset the source instance. Otherwise, your data may be lost.
+ * 3. Backup and restoration are not supported across different image versions, between custom images and public images, or across different architectures (such as cpm.gx7.10xlarge and cpm.gx8.16xlarge).
  *
  * @param request BackupAppRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -319,11 +323,11 @@ BackupAppResponse Client::backupAppWithOptions(const BackupAppRequest &request, 
 }
 
 /**
- * @summary Backs up specified applications on a cloud phone instance. The backup includes the application and its cache.
+ * @summary Backs up specified applications on cloud phone instances, including the applications and application caches.
  *
- * @description 1. Shut down the cloud phone instance before you back up data to ensure that the operation succeeds. Using the cloud phone during a backup may cause the operation to fail.
- * 2. Ensure that the backup file can be used to restore the instance successfully. After you restore from a backup, verify that your data is complete and that all features are working correctly. Do not delete the original backup file or reset the source instance until you complete this verification. Failure to do so may result in data loss.
- * 3. Backup and restore operations are not suppported across different image versions, between custom images and public images, or across different architectures, such as cpm.gx7.10xlarge and cpm.gx8.16xlarge.
+ * @description 1. To ensure a high success rate, back up data after the cloud phone is shut down. Operating the cloud phone during the backup process may cause the backup to fail.
+ * 2. Make sure that your backup files can be restored properly. After the restoration is complete, check and verify that all your data is intact and all features work as expected before you delete the original backup files or reset the source instance. Otherwise, your data may be lost.
+ * 3. Backup and restoration are not supported across different image versions, between custom images and public images, or across different architectures (such as cpm.gx7.10xlarge and cpm.gx8.16xlarge).
  *
  * @param request BackupAppRequest
  * @return BackupAppResponse
@@ -334,9 +338,9 @@ BackupAppResponse Client::backupApp(const BackupAppRequest &request) {
 }
 
 /**
- * @summary Generates a backup file and uploads it to remote storage. Scenarios: You can perform regular backups for data security, or back up files from one instance and recover them to multiple instances to achieve replication and migration.
+ * @summary Generates a backup file and uploads it to remote storage. Scenarios: You can perform regular backups for data security, or back up files from a single instance and recover them to multiple instances to achieve an effect similar to replication and migration.
  *
- * @description Currently, backup files generated by cloud phones can only be stored in Object Storage Service (OSS).
+ * @description Currently, backup files generated by Cloud Phone can only be saved to Object Storage Service (OSS).
  *
  * @param request BackupFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -363,6 +367,10 @@ BackupFileResponse Client::backupFileWithOptions(const BackupFileRequest &reques
 
   if (!!request.hasDescription()) {
     query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasExcludeAppList()) {
+    query["ExcludeAppList"] = request.getExcludeAppList();
   }
 
   if (!!request.hasExcludeSourceFilePathList()) {
@@ -403,9 +411,9 @@ BackupFileResponse Client::backupFileWithOptions(const BackupFileRequest &reques
 }
 
 /**
- * @summary Generates a backup file and uploads it to remote storage. Scenarios: You can perform regular backups for data security, or back up files from one instance and recover them to multiple instances to achieve replication and migration.
+ * @summary Generates a backup file and uploads it to remote storage. Scenarios: You can perform regular backups for data security, or back up files from a single instance and recover them to multiple instances to achieve an effect similar to replication and migration.
  *
- * @description Currently, backup files generated by cloud phones can only be stored in Object Storage Service (OSS).
+ * @description Currently, backup files generated by Cloud Phone can only be saved to Object Storage Service (OSS).
  *
  * @param request BackupFileRequest
  * @return BackupFileResponse
@@ -490,7 +498,7 @@ BatchGetAcpConnectionTicketResponse Client::batchGetAcpConnectionTicket(const Ba
 }
 
 /**
- * @summary Cancels running agent tasks on a mobile node.
+ * @summary Cancels running agent tasks on Mobile nodes.
  *
  * @param request CancelAgentTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -521,7 +529,7 @@ CancelAgentTaskResponse Client::cancelAgentTaskWithOptions(const CancelAgentTask
 }
 
 /**
- * @summary Cancels running agent tasks on a mobile node.
+ * @summary Cancels running agent tasks on Mobile nodes.
  *
  * @param request CancelAgentTaskRequest
  * @return CancelAgentTaskResponse
@@ -614,7 +622,7 @@ ChangeCloudPhoneNodeResponse Client::changeCloudPhoneNode(const ChangeCloudPhone
 }
 
 /**
- * @summary Checks the inventory status of cloud phone resources. Before creating an instance, you can use this operation to check whether the inventory in the target region is sufficient, and then proceed with creation after confirmation.
+ * @summary Checks the inventory status of cloud phone resources. Before creating an instance, you can call this operation to check whether the inventory in the target region is sufficient.
  *
  * @param request CheckResourceStockRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -661,7 +669,7 @@ CheckResourceStockResponse Client::checkResourceStockWithOptions(const CheckReso
 }
 
 /**
- * @summary Checks the inventory status of cloud phone resources. Before creating an instance, you can use this operation to check whether the inventory in the target region is sufficient, and then proceed with creation after confirmation.
+ * @summary Checks the inventory status of cloud phone resources. Before creating an instance, you can call this operation to check whether the inventory in the target region is sufficient.
  *
  * @param request CheckResourceStockRequest
  * @return CheckResourceStockResponse
@@ -1352,7 +1360,7 @@ CreateCreditPackageResponse Client::createCreditPackage(const CreateCreditPackag
 }
 
 /**
- * @summary Creates a custom image from a cloud phone instance. Then, you can use the image to create more cloud phones with the same configuration.
+ * @summary Creates a custom image from a cloud phone instance. You can use the custom image to create more cloud phones with the same configuration.
  *
  * @param request CreateCustomImageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1395,7 +1403,7 @@ CreateCustomImageResponse Client::createCustomImageWithOptions(const CreateCusto
 }
 
 /**
- * @summary Creates a custom image from a cloud phone instance. Then, you can use the image to create more cloud phones with the same configuration.
+ * @summary Creates a custom image from a cloud phone instance. You can use the custom image to create more cloud phones with the same configuration.
  *
  * @param request CreateCustomImageRequest
  * @return CreateCustomImageResponse
@@ -1406,9 +1414,9 @@ CreateCustomImageResponse Client::createCustomImage(const CreateCustomImageReque
 }
 
 /**
- * @summary Places an order to purchase an edge agent package.
+ * @summary Purchases an edge agent package.
  *
- * @description This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of WUYING Cloud Phone.
+ * @description This operation involves billing. Make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of WUYING Cloud Phone before you call this operation.
  *
  * @param request CreateEdgeMobileAgentPackageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1471,9 +1479,9 @@ CreateEdgeMobileAgentPackageResponse Client::createEdgeMobileAgentPackageWithOpt
 }
 
 /**
- * @summary Places an order to purchase an edge agent package.
+ * @summary Purchases an edge agent package.
  *
- * @description This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of WUYING Cloud Phone.
+ * @description This operation involves billing. Make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of WUYING Cloud Phone before you call this operation.
  *
  * @param request CreateEdgeMobileAgentPackageRequest
  * @return CreateEdgeMobileAgentPackageResponse
@@ -1484,10 +1492,9 @@ CreateEdgeMobileAgentPackageResponse Client::createEdgeMobileAgentPackage(const 
 }
 
 /**
- * @summary You can connect to Cloud Phones using the Android Debug Bridge (ADB). ADB lets you manage devices and applications, and transfer files. These operations require high permissions. Because Cloud Phones do not have physical interfaces, you cannot use a USB connection to trigger an authorization dialog box on the device. Therefore, you must configure a key pair before you connect to a Cloud Phone with ADB over a network. This key pair ensures that the device trusts the client and that all operations are secure. You can call the CreateKeyPair operation to create an ADB key pair. The system stores the public key and returns the private key. The private key is in PEM-encoded PKCS#8 format and complies with ADB connection standards. You must securely store the private key.
+ * @summary Creates an ADB key pair. You can use ADB to connect to a cloud phone for device management, application management, and file transfers. ADB operations require elevated permissions. Cloud phones lack physical interfaces, so you cannot trigger a device-side authorization dialog box over USB. Therefore, when ADB connects to a cloud phone over a network, you must configure a key pair in advance to establish trust between the device and the client and ensure secure operations. You can invoke the CreateKeyPair operation to create an ADB key pair. The system stores the public key and returns the private key in the PKCS#8 format with PEM encoding that complies with ADB connection specifications. You must securely store the private key.
  *
- * @description You can also use the Android Debug Bridge (ADB) tool to create a key pair and then upload it to the Cloud Phone console by calling the [](t2729840.xdita#)operation. This key pair can be used in the same way as a key pair created by the system.
- * Each tenant can have a maximum of 500 key pairs.
+ * @description In addition to calling CreateKeyPair, you can use the ADB tool to create a key pair and upload it to the Wuying Cloud Phone console by calling [ImportKeyPair](https://help.aliyun.com/document_detail/2807340.html). The uploaded key pair works the same way as a system-generated key pair. Each tenant can create a maximum of 500 key pairs.
  *
  * @param request CreateKeyPairRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1518,10 +1525,9 @@ CreateKeyPairResponse Client::createKeyPairWithOptions(const CreateKeyPairReques
 }
 
 /**
- * @summary You can connect to Cloud Phones using the Android Debug Bridge (ADB). ADB lets you manage devices and applications, and transfer files. These operations require high permissions. Because Cloud Phones do not have physical interfaces, you cannot use a USB connection to trigger an authorization dialog box on the device. Therefore, you must configure a key pair before you connect to a Cloud Phone with ADB over a network. This key pair ensures that the device trusts the client and that all operations are secure. You can call the CreateKeyPair operation to create an ADB key pair. The system stores the public key and returns the private key. The private key is in PEM-encoded PKCS#8 format and complies with ADB connection standards. You must securely store the private key.
+ * @summary Creates an ADB key pair. You can use ADB to connect to a cloud phone for device management, application management, and file transfers. ADB operations require elevated permissions. Cloud phones lack physical interfaces, so you cannot trigger a device-side authorization dialog box over USB. Therefore, when ADB connects to a cloud phone over a network, you must configure a key pair in advance to establish trust between the device and the client and ensure secure operations. You can invoke the CreateKeyPair operation to create an ADB key pair. The system stores the public key and returns the private key in the PKCS#8 format with PEM encoding that complies with ADB connection specifications. You must securely store the private key.
  *
- * @description You can also use the Android Debug Bridge (ADB) tool to create a key pair and then upload it to the Cloud Phone console by calling the [](t2729840.xdita#)operation. This key pair can be used in the same way as a key pair created by the system.
- * Each tenant can have a maximum of 500 key pairs.
+ * @description In addition to calling CreateKeyPair, you can use the ADB tool to create a key pair and upload it to the Wuying Cloud Phone console by calling [ImportKeyPair](https://help.aliyun.com/document_detail/2807340.html). The uploaded key pair works the same way as a system-generated key pair. Each tenant can create a maximum of 500 key pairs.
  *
  * @param request CreateKeyPairRequest
  * @return CreateKeyPairResponse
@@ -1704,7 +1710,7 @@ CreateMobileAgentTaskResponse Client::createMobileAgentTask(const CreateMobileAg
 }
 
 /**
- * @summary Creates a policy that applies unified settings to cloud phones. These settings include features such as network redirection, watermarks, resolution, and the clipboard.
+ * @summary Creates a policy. Policies are used to configure unified settings for cloud phones, such as network redirection policies, watermarks, resolution, and clipboard settings.
  *
  * @param tmpReq CreatePolicyGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1785,7 +1791,7 @@ CreatePolicyGroupResponse Client::createPolicyGroupWithOptions(const CreatePolic
 }
 
 /**
- * @summary Creates a policy that applies unified settings to cloud phones. These settings include features such as network redirection, watermarks, resolution, and the clipboard.
+ * @summary Creates a policy. Policies are used to configure unified settings for cloud phones, such as network redirection policies, watermarks, resolution, and clipboard settings.
  *
  * @param request CreatePolicyGroupRequest
  * @return CreatePolicyGroupResponse
@@ -2024,10 +2030,10 @@ DeleteAgentSkillResponse Client::deleteAgentSkill(const DeleteAgentSkillRequest 
 }
 
 /**
- * @summary Deletes an Android instance group. All instances in the group are also deleted. This operation cannot be undone. Proceed with caution.
+ * @summary Deletes a cloud phone instance group. All instances in the instance group are also deleted and cannot be recovered. Proceed with caution.
  *
- * @description Pay-as-you-go instance groups can be deleted at any time.
- * Subscription instance groups can be deleted only after they expire.
+ * @description Pay-as-you-go instance groups can be deleted directly.
+ * Subscription instance groups can be deleted only after they expire. Only subscription instance groups in the Expired state can be deleted.
  *
  * @param request DeleteAndroidInstanceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2058,10 +2064,10 @@ DeleteAndroidInstanceGroupResponse Client::deleteAndroidInstanceGroupWithOptions
 }
 
 /**
- * @summary Deletes an Android instance group. All instances in the group are also deleted. This operation cannot be undone. Proceed with caution.
+ * @summary Deletes a cloud phone instance group. All instances in the instance group are also deleted and cannot be recovered. Proceed with caution.
  *
- * @description Pay-as-you-go instance groups can be deleted at any time.
- * Subscription instance groups can be deleted only after they expire.
+ * @description Pay-as-you-go instance groups can be deleted directly.
+ * Subscription instance groups can be deleted only after they expire. Only subscription instance groups in the Expired state can be deleted.
  *
  * @param request DeleteAndroidInstanceGroupRequest
  * @return DeleteAndroidInstanceGroupResponse
@@ -2072,7 +2078,7 @@ DeleteAndroidInstanceGroupResponse Client::deleteAndroidInstanceGroup(const Dele
 }
 
 /**
- * @summary Deletes an application. Before you delete an application, make sure that the application is not installed on any instances.
+ * @summary Deletes an application. Ensure that the application is not installed on any instance group before deletion.
  *
  * @param request DeleteAppsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2103,7 +2109,7 @@ DeleteAppsResponse Client::deleteAppsWithOptions(const DeleteAppsRequest &reques
 }
 
 /**
- * @summary Deletes an application. Before you delete an application, make sure that the application is not installed on any instances.
+ * @summary Deletes an application. Ensure that the application is not installed on any instance group before deletion.
  *
  * @param request DeleteAppsRequest
  * @return DeleteAppsResponse
@@ -2254,10 +2260,10 @@ DeleteImagesResponse Client::deleteImages(const DeleteImagesRequest &request) {
 }
 
 /**
- * @summary Deletes Android Debug Bridge (ADB) key pairs.
+ * @summary Deletes a cloud phone key pair.
  *
- * @description *   If a cloud phone instance is currently associated with the ADB key pair you intend to delete, the ADB key pair cannot be deleted.
- * *   Once an ADB key pair is deleted, it cannot be retrieved or queried by using the DescribeKeyPairs operation.
+ * @description - If an ADB key pair is already attached to a cloud phone instance, the key pair cannot be deleted.
+ * - After an ADB key pair is deleted, it can no longer be queried by calling DescribeKeyPairs.
  *
  * @param request DeleteKeyPairsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2288,10 +2294,10 @@ DeleteKeyPairsResponse Client::deleteKeyPairsWithOptions(const DeleteKeyPairsReq
 }
 
 /**
- * @summary Deletes Android Debug Bridge (ADB) key pairs.
+ * @summary Deletes a cloud phone key pair.
  *
- * @description *   If a cloud phone instance is currently associated with the ADB key pair you intend to delete, the ADB key pair cannot be deleted.
- * *   Once an ADB key pair is deleted, it cannot be retrieved or queried by using the DescribeKeyPairs operation.
+ * @description - If an ADB key pair is already attached to a cloud phone instance, the key pair cannot be deleted.
+ * - After an ADB key pair is deleted, it can no longer be queried by calling DescribeKeyPairs.
  *
  * @param request DeleteKeyPairsRequest
  * @return DeleteKeyPairsResponse
@@ -2344,9 +2350,9 @@ DeleteMobileAgentPackageResponse Client::deleteMobileAgentPackage(const DeleteMo
 }
 
 /**
- * @summary Deletes one or more policy groups.
+ * @summary Deletes one or more policies.
  *
- * @description A policy group cannot be deleted if it is associated with an instance group.
+ * @description You cannot delete a policy if it is associated with an undeleted instance group.
  *
  * @param request DeletePolicyGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2377,9 +2383,9 @@ DeletePolicyGroupResponse Client::deletePolicyGroupWithOptions(const DeletePolic
 }
 
 /**
- * @summary Deletes one or more policy groups.
+ * @summary Deletes one or more policies.
  *
- * @description A policy group cannot be deleted if it is associated with an instance group.
+ * @description You cannot delete a policy if it is associated with an undeleted instance group.
  *
  * @param request DeletePolicyGroupRequest
  * @return DeletePolicyGroupResponse
@@ -2916,7 +2922,7 @@ DescribeBackupFilesResponse Client::describeBackupFiles(const DescribeBackupFile
 }
 
 /**
- * @summary 带宽包询价
+ * @summary Queries the price of a cloud phone bandwidth plan.
  *
  * @param request DescribeBandwidthPackagePriceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2971,7 +2977,7 @@ DescribeBandwidthPackagePriceResponse Client::describeBandwidthPackagePriceWithO
 }
 
 /**
- * @summary 带宽包询价
+ * @summary Queries the price of a cloud phone bandwidth plan.
  *
  * @param request DescribeBandwidthPackagePriceRequest
  * @return DescribeBandwidthPackagePriceResponse
@@ -3028,7 +3034,7 @@ DescribeBucketsResponse Client::describeBuckets(const DescribeBucketsRequest &re
 }
 
 /**
- * @summary 云手机节点询价
+ * @summary Queries the purchase price of a cloud phone matrix.
  *
  * @param request DescribeCloudPhoneNodePriceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3103,7 +3109,7 @@ DescribeCloudPhoneNodePriceResponse Client::describeCloudPhoneNodePriceWithOptio
 }
 
 /**
- * @summary 云手机节点询价
+ * @summary Queries the purchase price of a cloud phone matrix.
  *
  * @param request DescribeCloudPhoneNodePriceRequest
  * @return DescribeCloudPhoneNodePriceResponse
@@ -3114,7 +3120,7 @@ DescribeCloudPhoneNodePriceResponse Client::describeCloudPhoneNodePrice(const De
 }
 
 /**
- * @summary 云手机节点续费询价
+ * @summary Queries the renewal price of a cloud phone matrix.
  *
  * @param request DescribeCloudPhoneNodeRenewPriceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3157,7 +3163,7 @@ DescribeCloudPhoneNodeRenewPriceResponse Client::describeCloudPhoneNodeRenewPric
 }
 
 /**
- * @summary 云手机节点续费询价
+ * @summary Queries the renewal price of a cloud phone matrix.
  *
  * @param request DescribeCloudPhoneNodeRenewPriceRequest
  * @return DescribeCloudPhoneNodeRenewPriceResponse
@@ -3382,7 +3388,7 @@ DescribeCreditPackageResponse Client::describeCreditPackage(const DescribeCredit
 }
 
 /**
- * @summary 积分包询价
+ * @summary Queries the prices of AI credit boost packages for Cloud Phone.
  *
  * @param request DescribeCreditPackagePriceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3429,7 +3435,7 @@ DescribeCreditPackagePriceResponse Client::describeCreditPackagePriceWithOptions
 }
 
 /**
- * @summary 积分包询价
+ * @summary Queries the prices of AI credit boost packages for Cloud Phone.
  *
  * @param request DescribeCreditPackagePriceRequest
  * @return DescribeCreditPackagePriceResponse
@@ -3624,7 +3630,7 @@ DescribeImageListResponse Client::describeImageList(const DescribeImageListReque
 }
 
 /**
- * @summary 查询安卓实例组价格
+ * @summary Queries the price of an instance group.
  *
  * @param request DescribeInstanceGroupPriceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3699,7 +3705,7 @@ DescribeInstanceGroupPriceResponse Client::describeInstanceGroupPriceWithOptions
 }
 
 /**
- * @summary 查询安卓实例组价格
+ * @summary Queries the price of an instance group.
  *
  * @param request DescribeInstanceGroupPriceRequest
  * @return DescribeInstanceGroupPriceResponse
@@ -3814,7 +3820,7 @@ DescribeInvocationsResponse Client::describeInvocations(const DescribeInvocation
 }
 
 /**
- * @summary Queries JVS instance information.
+ * @summary Queries the details of JVS instances.
  *
  * @param request DescribeJVSInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3853,7 +3859,7 @@ DescribeJVSInstanceResponse Client::describeJVSInstanceWithOptions(const Describ
 }
 
 /**
- * @summary Queries JVS instance information.
+ * @summary Queries the details of JVS instances.
  *
  * @param request DescribeJVSInstanceRequest
  * @return DescribeJVSInstanceResponse
@@ -4196,7 +4202,7 @@ DescribeMobileAgentPackageResponse Client::describeMobileAgentPackage(const Desc
 }
 
 /**
- * @summary mobileAgent套餐包询价
+ * @summary Queries the pricing of MobileAgent packages.
  *
  * @param request DescribeMobileAgentPackagePriceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4251,7 +4257,7 @@ DescribeMobileAgentPackagePriceResponse Client::describeMobileAgentPackagePriceW
 }
 
 /**
- * @summary mobileAgent套餐包询价
+ * @summary Queries the pricing of MobileAgent packages.
  *
  * @param request DescribeMobileAgentPackagePriceRequest
  * @return DescribeMobileAgentPackagePriceResponse
@@ -4262,7 +4268,7 @@ DescribeMobileAgentPackagePriceResponse Client::describeMobileAgentPackagePrice(
 }
 
 /**
- * @summary MobileAgent套餐包续费询价
+ * @summary Queries the renewal price of MobileAgent resource plans.
  *
  * @param request DescribeMobileAgentPackagePriceForRenewRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4305,7 +4311,7 @@ DescribeMobileAgentPackagePriceForRenewResponse Client::describeMobileAgentPacka
 }
 
 /**
- * @summary MobileAgent套餐包续费询价
+ * @summary Queries the renewal price of MobileAgent resource plans.
  *
  * @param request DescribeMobileAgentPackagePriceForRenewRequest
  * @return DescribeMobileAgentPackagePriceForRenewResponse
@@ -6674,9 +6680,9 @@ ModifySystemPropertyTemplateResponse Client::modifySystemPropertyTemplate(const 
 }
 
 /**
- * @summary Operates apps in a cloud phone, such as opening, closing, and reopening apps.
+ * @summary Starts, stops, or restarts applications in a cloud phone.
  *
- * @description This operation runs asynchronously. To check the operation result, visit the Task Center. To retrieve task details, call the [](t2740507.xdita#)operation.
+ * @description This API operation is asynchronous. You can view the operation results in the task center. To query tasks, call the [DescribeTasks](~~DescribeTasks~~) operation.
  *
  * @param request OperateAppRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6715,9 +6721,9 @@ OperateAppResponse Client::operateAppWithOptions(const OperateAppRequest &reques
 }
 
 /**
- * @summary Operates apps in a cloud phone, such as opening, closing, and reopening apps.
+ * @summary Starts, stops, or restarts applications in a cloud phone.
  *
- * @description This operation runs asynchronously. To check the operation result, visit the Task Center. To retrieve task details, call the [](t2740507.xdita#)operation.
+ * @description This API operation is asynchronous. You can view the operation results in the task center. To query tasks, call the [DescribeTasks](~~DescribeTasks~~) operation.
  *
  * @param request OperateAppRequest
  * @return OperateAppResponse
@@ -6828,7 +6834,7 @@ RebootAndroidInstancesInGroupResponse Client::rebootAndroidInstancesInGroup(cons
 }
 
 /**
- * @summary 重启矩阵
+ * @summary Restarts cloud phone matrices.
  *
  * @param request RebootCloudPhoneNodesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6863,7 +6869,7 @@ RebootCloudPhoneNodesResponse Client::rebootCloudPhoneNodesWithOptions(const Reb
 }
 
 /**
- * @summary 重启矩阵
+ * @summary Restarts cloud phone matrices.
  *
  * @param request RebootCloudPhoneNodesRequest
  * @return RebootCloudPhoneNodesResponse
@@ -6874,10 +6880,10 @@ RebootCloudPhoneNodesResponse Client::rebootCloudPhoneNodes(const RebootCloudPho
 }
 
 /**
- * @summary Restores a full instance backup to another cloud phone instance.
+ * @summary Restores a backup file of a cloud phone instance generated from a full-device backup to another cloud phone instance.
  *
- * @description 1. When you restore a full instance, the system restarts the instance to ensure a successful restoration. A restart is not required if you restore only applications and data. Make sure the instance is in an active state. Do not perform any operations on the instance during the restoration process. Otherwise, the restoration may fail.
- * 2. Ensure that the backup file can be used to restore the instance properly. After a restoration is complete, check that all your data is complete and all features are working properly. Do not delete the original backup file or reset the source instance until you have verified the restored data. Otherwise, you may lose your data.
+ * @description 1. To ensure a high success rate, the cloud phone is restarted during a full-device restore. App and data restoration does not require a restart. Make sure your cloud phone is available and do not operate it during the restoration process. Otherwise, the restoration may fail.
+ * 2. Make sure your backup file can be restored properly. After the restoration is complete, check and verify that all your data is intact and functions are working properly before you delete the original backup file or reset the source instance. Otherwise, your data may be lost.
  *
  * @param request RecoverAndroidInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6896,6 +6902,10 @@ RecoverAndroidInstanceResponse Client::recoverAndroidInstanceWithOptions(const R
 
   if (!!request.hasBackupFilePath()) {
     query["BackupFilePath"] = request.getBackupFilePath();
+  }
+
+  if (!!request.hasExcludeAppList()) {
+    query["ExcludeAppList"] = request.getExcludeAppList();
   }
 
   if (!!request.hasUploadEndpoint()) {
@@ -6924,10 +6934,10 @@ RecoverAndroidInstanceResponse Client::recoverAndroidInstanceWithOptions(const R
 }
 
 /**
- * @summary Restores a full instance backup to another cloud phone instance.
+ * @summary Restores a backup file of a cloud phone instance generated from a full-device backup to another cloud phone instance.
  *
- * @description 1. When you restore a full instance, the system restarts the instance to ensure a successful restoration. A restart is not required if you restore only applications and data. Make sure the instance is in an active state. Do not perform any operations on the instance during the restoration process. Otherwise, the restoration may fail.
- * 2. Ensure that the backup file can be used to restore the instance properly. After a restoration is complete, check that all your data is complete and all features are working properly. Do not delete the original backup file or reset the source instance until you have verified the restored data. Otherwise, you may lose your data.
+ * @description 1. To ensure a high success rate, the cloud phone is restarted during a full-device restore. App and data restoration does not require a restart. Make sure your cloud phone is available and do not operate it during the restoration process. Otherwise, the restoration may fail.
+ * 2. Make sure your backup file can be restored properly. After the restoration is complete, check and verify that all your data is intact and functions are working properly before you delete the original backup file or reset the source instance. Otherwise, your data may be lost.
  *
  * @param request RecoverAndroidInstanceRequest
  * @return RecoverAndroidInstanceResponse
@@ -7004,9 +7014,9 @@ RecoverAppResponse Client::recoverApp(const RecoverAppRequest &request) {
 }
 
 /**
- * @summary Restores backup files.
+ * @summary Restores a backup file.
  *
- * @description Currently, this operation allows you to restore only backup files generated by cloud phones that are stored in Object Storage Service (OSS) buckets.
+ * @description Currently, only backup files generated by cloud phones and saved in Object Storage Service (OSS) are supported.
  *
  * @param request RecoveryFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7029,6 +7039,10 @@ RecoveryFileResponse Client::recoveryFileWithOptions(const RecoveryFileRequest &
 
   if (!!request.hasBackupFilePath()) {
     query["BackupFilePath"] = request.getBackupFilePath();
+  }
+
+  if (!!request.hasExcludeAppList()) {
+    query["ExcludeAppList"] = request.getExcludeAppList();
   }
 
   if (!!request.hasUploadEndpoint()) {
@@ -7057,9 +7071,9 @@ RecoveryFileResponse Client::recoveryFileWithOptions(const RecoveryFileRequest &
 }
 
 /**
- * @summary Restores backup files.
+ * @summary Restores a backup file.
  *
- * @description Currently, this operation allows you to restore only backup files generated by cloud phones that are stored in Object Storage Service (OSS) buckets.
+ * @description Currently, only backup files generated by cloud phones and saved in Object Storage Service (OSS) are supported.
  *
  * @param request RecoveryFileRequest
  * @return RecoveryFileResponse
@@ -7070,7 +7084,7 @@ RecoveryFileResponse Client::recoveryFile(const RecoveryFileRequest &request) {
 }
 
 /**
- * @summary Refreshes model authentication tokens.
+ * @summary Refreshes the model authentication tokens.
  *
  * @param request RefreshAuthTokensRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7109,7 +7123,7 @@ RefreshAuthTokensResponse Client::refreshAuthTokensWithOptions(const RefreshAuth
 }
 
 /**
- * @summary Refreshes model authentication tokens.
+ * @summary Refreshes the model authentication tokens.
  *
  * @param request RefreshAuthTokensRequest
  * @return RefreshAuthTokensResponse
@@ -7644,9 +7658,9 @@ RunSyncCommandResponse Client::runSyncCommand(const RunSyncCommandRequest &reque
 }
 
 /**
- * @summary Pushes files from Object Storage Service (OSS) or a public download link to one or more cloud phones.
+ * @summary Pushes files from OSS or public download URLs to cloud phones.
  *
- * @description Use this operation to send files or folders from Object Storage Service (OSS) to cloud phones.
+ * @description Currently, only files or folders from Object Storage Service (OSS) can be sent to cloud phones.
  *
  * @param request SendFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7709,9 +7723,9 @@ SendFileResponse Client::sendFileWithOptions(const SendFileRequest &request, con
 }
 
 /**
- * @summary Pushes files from Object Storage Service (OSS) or a public download link to one or more cloud phones.
+ * @summary Pushes files from OSS or public download URLs to cloud phones.
  *
- * @description Use this operation to send files or folders from Object Storage Service (OSS) to cloud phones.
+ * @description Currently, only files or folders from Object Storage Service (OSS) can be sent to cloud phones.
  *
  * @param request SendFileRequest
  * @return SendFileResponse
@@ -7722,7 +7736,7 @@ SendFileResponse Client::sendFile(const SendFileRequest &request) {
 }
 
 /**
- * @summary Sends a property template to cloud phone instances and, based on the template, sets properties in the Android system using the setprop command. An APK or a related program can read these property values. If you specify multiple template IDs, the property templates are randomly sent to the cloud phone instances.
+ * @summary Sends property templates. The templates are delivered to cloud phones and configured in the Android system of the cloud phones by using the setprop command. APKs or related applications can read these property values. If multiple template IDs are specified, the property templates and cloud phone instances are randomly matched.
  *
  * @param request SendSystemPropertyTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7763,7 +7777,7 @@ SendSystemPropertyTemplateResponse Client::sendSystemPropertyTemplateWithOptions
 }
 
 /**
- * @summary Sends a property template to cloud phone instances and, based on the template, sets properties in the Android system using the setprop command. An APK or a related program can read these property values. If you specify multiple template IDs, the property templates are randomly sent to the cloud phone instances.
+ * @summary Sends property templates. The templates are delivered to cloud phones and configured in the Android system of the cloud phones by using the setprop command. APKs or related applications can read these property values. If multiple template IDs are specified, the property templates and cloud phone instances are randomly matched.
  *
  * @param request SendSystemPropertyTemplateRequest
  * @return SendSystemPropertyTemplateResponse
@@ -7774,9 +7788,9 @@ SendSystemPropertyTemplateResponse Client::sendSystemPropertyTemplate(const Send
 }
 
 /**
- * @summary Sets the authentication status for cloud phone instances. If you enable Android Debug Bridge (ADB) authentication for cloud phone instances, the system will verify the validity of the ADB key pairs provided by end users when they connect to the instances over ADB. To ensure successful authentication and a proper connection, we recommend that you attach ADB key pairs to cloud phone instances. If you disable ADB authentication for cloud phone instances, the system will no longer verify the validity of any ADB key pairs. As a result, end users can connect to the cloud phone instances over ADB without authentication, provided the network connection is functioning properly.
+ * @summary Sets the ADB authentication status of an instance. If ADB authentication is enabled, the cloud phone instance verifies the validity of the ADB key pair when you connect to the instance over ADB. In this case, bind an ADB key pair before connecting to the cloud phone instance over ADB. If ADB authentication is disabled, the cloud phone instance does not verify the validity of the ADB key pair. You can connect to the cloud phone instance over ADB as long as network connectivity is available.
  *
- * @description Before you call this operation, make sure that the desired cloud phone instance is in the Running state.
+ * @description The ADB authentication settings take effect only when the instance is in the Running state.
  *
  * @param request SetAdbSecureRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7811,9 +7825,9 @@ SetAdbSecureResponse Client::setAdbSecureWithOptions(const SetAdbSecureRequest &
 }
 
 /**
- * @summary Sets the authentication status for cloud phone instances. If you enable Android Debug Bridge (ADB) authentication for cloud phone instances, the system will verify the validity of the ADB key pairs provided by end users when they connect to the instances over ADB. To ensure successful authentication and a proper connection, we recommend that you attach ADB key pairs to cloud phone instances. If you disable ADB authentication for cloud phone instances, the system will no longer verify the validity of any ADB key pairs. As a result, end users can connect to the cloud phone instances over ADB without authentication, provided the network connection is functioning properly.
+ * @summary Sets the ADB authentication status of an instance. If ADB authentication is enabled, the cloud phone instance verifies the validity of the ADB key pair when you connect to the instance over ADB. In this case, bind an ADB key pair before connecting to the cloud phone instance over ADB. If ADB authentication is disabled, the cloud phone instance does not verify the validity of the ADB key pair. You can connect to the cloud phone instance over ADB as long as network connectivity is available.
  *
- * @description Before you call this operation, make sure that the desired cloud phone instance is in the Running state.
+ * @description The ADB authentication settings take effect only when the instance is in the Running state.
  *
  * @param request SetAdbSecureRequest
  * @return SetAdbSecureResponse
@@ -7824,13 +7838,13 @@ SetAdbSecureResponse Client::setAdbSecure(const SetAdbSecureRequest &request) {
 }
 
 /**
- * @summary Adds or purges IP addresses and domain names from the network access blacklist.
+ * @summary Updates the network access blacklist by adding or clearing IP addresses and domain names.
  *
- * @description - This operation requires image version 26.01 or later.
- * - This API call synchronously updates the IP address blacklist and the domain name blacklist.
- * - The IP address blacklist supports individual IP addresses and IP address segments. The update overwrites the existing configuration. If you pass an empty string (""), all configured IP blacklist entries are purged.
- * - The domain name blacklist supports only exact matches and does not support regular expressions. If you pass an empty string (""), all configured domain name blacklist entries are purged.
- * - After you change the configuration, restart the cloud phone to apply the new blacklist rules. Note that these rules may not take effect if you use an agent.
+ * @description - The image version must be 26.01 or later.
+ * - This operation supports synchronous updates of the IP address blacklist and the domain name blacklist.
+ * - The IP address blacklist supports single IP addresses and CIDR blocks and uses an overwrite update method. If an empty string "" is specified, all configured IP blacklist entries are cleared.
+ * - The domain name blacklist supports only exact match and does not support regular expressions. If an empty string "" is specified, all configured domain name blacklist entries are cleared.
+ * - After the configuration is changed, you must restart the cloud phone for the new blacklist rules to take effect. Note that these rules may not take effect when a proxy is used.
  *
  * @param request SetNetworkBlacklistRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7865,13 +7879,13 @@ SetNetworkBlacklistResponse Client::setNetworkBlacklistWithOptions(const SetNetw
 }
 
 /**
- * @summary Adds or purges IP addresses and domain names from the network access blacklist.
+ * @summary Updates the network access blacklist by adding or clearing IP addresses and domain names.
  *
- * @description - This operation requires image version 26.01 or later.
- * - This API call synchronously updates the IP address blacklist and the domain name blacklist.
- * - The IP address blacklist supports individual IP addresses and IP address segments. The update overwrites the existing configuration. If you pass an empty string (""), all configured IP blacklist entries are purged.
- * - The domain name blacklist supports only exact matches and does not support regular expressions. If you pass an empty string (""), all configured domain name blacklist entries are purged.
- * - After you change the configuration, restart the cloud phone to apply the new blacklist rules. Note that these rules may not take effect if you use an agent.
+ * @description - The image version must be 26.01 or later.
+ * - This operation supports synchronous updates of the IP address blacklist and the domain name blacklist.
+ * - The IP address blacklist supports single IP addresses and CIDR blocks and uses an overwrite update method. If an empty string "" is specified, all configured IP blacklist entries are cleared.
+ * - The domain name blacklist supports only exact match and does not support regular expressions. If an empty string "" is specified, all configured domain name blacklist entries are cleared.
+ * - After the configuration is changed, you must restart the cloud phone for the new blacklist rules to take effect. Note that these rules may not take effect when a proxy is used.
  *
  * @param request SetNetworkBlacklistRequest
  * @return SetNetworkBlacklistResponse
@@ -7882,9 +7896,9 @@ SetNetworkBlacklistResponse Client::setNetworkBlacklist(const SetNetworkBlacklis
 }
 
 /**
- * @summary Start cloud phone instances.
+ * @summary Starts a cloud phone instance.
  *
- * @description Only supports starting when the instance is in the **Stopped, Backup Failed, or Recovery Failed** state.
+ * @description You can start an instance only when it is in the **Stopped, Backup Failed, or Recovery Failed** state.
  *
  * @param request StartAndroidInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7919,9 +7933,9 @@ StartAndroidInstanceResponse Client::startAndroidInstanceWithOptions(const Start
 }
 
 /**
- * @summary Start cloud phone instances.
+ * @summary Starts a cloud phone instance.
  *
- * @description Only supports starting when the instance is in the **Stopped, Backup Failed, or Recovery Failed** state.
+ * @description You can start an instance only when it is in the **Stopped, Backup Failed, or Recovery Failed** state.
  *
  * @param request StartAndroidInstanceRequest
  * @return StartAndroidInstanceResponse
@@ -7932,9 +7946,9 @@ StartAndroidInstanceResponse Client::startAndroidInstance(const StartAndroidInst
 }
 
 /**
- * @summary Enables the Android Debug Bridge (ADB) connection for an instance and creates an Internet mapping rule for its ADB port. This feature is available only for standard networks.
+ * @summary Enables the ADB connection feature for instances and creates public network mapping rules for the ADB ports of the instances (standard network only).
  *
- * @description This feature can be enabled when the instance is not in the **UNAVAILABLE** state and has a **private IP address** assigned.
+ * @description This feature can be enabled only when the instance is in the **non-exception** (**UNAVAILABLE**) state and has been successfully assigned a **private IP address**.
  *
  * @param request StartInstanceAdbRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7965,9 +7979,9 @@ StartInstanceAdbResponse Client::startInstanceAdbWithOptions(const StartInstance
 }
 
 /**
- * @summary Enables the Android Debug Bridge (ADB) connection for an instance and creates an Internet mapping rule for its ADB port. This feature is available only for standard networks.
+ * @summary Enables the ADB connection feature for instances and creates public network mapping rules for the ADB ports of the instances (standard network only).
  *
- * @description This feature can be enabled when the instance is not in the **UNAVAILABLE** state and has a **private IP address** assigned.
+ * @description This feature can be enabled only when the instance is in the **non-exception** (**UNAVAILABLE**) state and has been successfully assigned a **private IP address**.
  *
  * @param request StartInstanceAdbRequest
  * @return StartInstanceAdbResponse
@@ -8074,7 +8088,7 @@ StopInstanceAdbResponse Client::stopInstanceAdb(const StopInstanceAdbRequest &re
 }
 
 /**
- * @summary Adds tags to one or more cloud phones.
+ * @summary Adds tags to cloud phones.
  *
  * @param request TagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8113,7 +8127,7 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
- * @summary Adds tags to one or more cloud phones.
+ * @summary Adds tags to cloud phones.
  *
  * @param request TagResourcesRequest
  * @return TagResourcesResponse
@@ -8270,7 +8284,7 @@ UninstallSkillsResponse Client::uninstallSkills(const UninstallSkillsRequest &re
 }
 
 /**
- * @summary Removes tags from cloud phones. If a tag is no longer associated with any cloud phone after it is removed, the tag is automatically deleted.
+ * @summary Removes tags from cloud phones. After a tag is removed, if it is not added to any cloud phone, the tag is automatically deleted.
  *
  * @param request UntagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8313,7 +8327,7 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 }
 
 /**
- * @summary Removes tags from cloud phones. If a tag is no longer associated with any cloud phone after it is removed, the tag is automatically deleted.
+ * @summary Removes tags from cloud phones. After a tag is removed, if it is not added to any cloud phone, the tag is automatically deleted.
  *
  * @param request UntagResourcesRequest
  * @return UntagResourcesResponse
@@ -8420,9 +8434,9 @@ UpdateCustomImageNameResponse Client::updateCustomImageName(const UpdateCustomIm
 }
 
 /**
- * @summary Updates the image of an instance group. This update affects all instances in the group.
+ * @summary Changes the image of an instance group. This change applies to all instances in the instance group.
  *
- * @description The image and the instance group must be in the active state. The image must be available in the same region as the instance group.
+ * @description The image must be in the Available state and available in the region where the instance group is located. The instance group must be in the Available state.
  *
  * @param request UpdateInstanceGroupImageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8457,9 +8471,9 @@ UpdateInstanceGroupImageResponse Client::updateInstanceGroupImageWithOptions(con
 }
 
 /**
- * @summary Updates the image of an instance group. This update affects all instances in the group.
+ * @summary Changes the image of an instance group. This change applies to all instances in the instance group.
  *
- * @description The image and the instance group must be in the active state. The image must be available in the same region as the instance group.
+ * @description The image must be in the Available state and available in the region where the instance group is located. The instance group must be in the Available state.
  *
  * @param request UpdateInstanceGroupImageRequest
  * @return UpdateInstanceGroupImageResponse

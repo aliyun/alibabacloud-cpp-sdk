@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BackupFileName, backupFileName_);
       DARABONBA_PTR_TO_JSON(BackupFilePath, backupFilePath_);
       DARABONBA_PTR_TO_JSON(Description, description_);
+      DARABONBA_PTR_TO_JSON(ExcludeAppList, excludeAppList_);
       DARABONBA_PTR_TO_JSON(ExcludeSourceFilePathList, excludeSourceFilePathList_);
       DARABONBA_PTR_TO_JSON(SourceAppList, sourceAppList_);
       DARABONBA_PTR_TO_JSON(SourceFilePathList, sourceFilePathList_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(BackupFileName, backupFileName_);
       DARABONBA_PTR_FROM_JSON(BackupFilePath, backupFilePath_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
+      DARABONBA_PTR_FROM_JSON(ExcludeAppList, excludeAppList_);
       DARABONBA_PTR_FROM_JSON(ExcludeSourceFilePathList, excludeSourceFilePathList_);
       DARABONBA_PTR_FROM_JSON(SourceAppList, sourceAppList_);
       DARABONBA_PTR_FROM_JSON(SourceFilePathList, sourceFilePathList_);
@@ -49,8 +51,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->androidInstanceIdList_ == nullptr
-        && this->backupAll_ == nullptr && this->backupFileName_ == nullptr && this->backupFilePath_ == nullptr && this->description_ == nullptr && this->excludeSourceFilePathList_ == nullptr
-        && this->sourceAppList_ == nullptr && this->sourceFilePathList_ == nullptr && this->uploadEndpoint_ == nullptr && this->uploadType_ == nullptr; };
+        && this->backupAll_ == nullptr && this->backupFileName_ == nullptr && this->backupFilePath_ == nullptr && this->description_ == nullptr && this->excludeAppList_ == nullptr
+        && this->excludeSourceFilePathList_ == nullptr && this->sourceAppList_ == nullptr && this->sourceFilePathList_ == nullptr && this->uploadEndpoint_ == nullptr && this->uploadType_ == nullptr; };
     // androidInstanceIdList Field Functions 
     bool hasAndroidInstanceIdList() const { return this->androidInstanceIdList_ != nullptr;};
     void deleteAndroidInstanceIdList() { this->androidInstanceIdList_ = nullptr;};
@@ -86,6 +88,15 @@ namespace Models
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline BackupFileRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // excludeAppList Field Functions 
+    bool hasExcludeAppList() const { return this->excludeAppList_ != nullptr;};
+    void deleteExcludeAppList() { this->excludeAppList_ = nullptr;};
+    inline const vector<string> & getExcludeAppList() const { DARABONBA_PTR_GET_CONST(excludeAppList_, vector<string>) };
+    inline vector<string> getExcludeAppList() { DARABONBA_PTR_GET(excludeAppList_, vector<string>) };
+    inline BackupFileRequest& setExcludeAppList(const vector<string> & excludeAppList) { DARABONBA_PTR_SET_VALUE(excludeAppList_, excludeAppList) };
+    inline BackupFileRequest& setExcludeAppList(vector<string> && excludeAppList) { DARABONBA_PTR_SET_RVALUE(excludeAppList_, excludeAppList) };
 
 
     // excludeSourceFilePathList Field Functions 
@@ -138,22 +149,24 @@ namespace Models
     shared_ptr<bool> backupAll_ {};
     // The name of the backup file.
     shared_ptr<string> backupFileName_ {};
-    // The upload path of the backup file.
+    // The upload address of the backup file.
     // > If you upload the backup file to an OSS bucket, call the describeBuckets operation to obtain the bucketName, and select ossObjectList to obtain the key. The key is the folder path in the OSS bucket. Concatenate them into `oss://${bucketName}/${key}`.
     // 
     // This parameter is required.
     shared_ptr<string> backupFilePath_ {};
     // The description of the backup file.
     shared_ptr<string> description_ {};
+    // The list of application package names excluded from full instance backup. Matched applications only skip APK collection, and user data is backed up as usual. If this parameter is not specified, no applications are excluded.
+    shared_ptr<vector<string>> excludeAppList_ {};
     // The list of file paths in the Android container to exclude from the backup.
     shared_ptr<vector<string>> excludeSourceFilePathList_ {};
-    // The list of application package names to back up.
+    // The list of package names of the applications to back up.
     shared_ptr<vector<string>> sourceAppList_ {};
     // The list of file paths to back up.
     shared_ptr<vector<string>> sourceFilePathList_ {};
-    // The domain name of the backup endpoint.
+    // The domain name of the backup address.
     // 
-    // > If you upload the backup file to an OSS bucket, call the describeBuckets operation to obtain the bucket. If the cloud phone and the bucket are in the same region, obtain the intranetEndpoint field. If they are in different regions, obtain the extranetEndpoint field.
+    // > If you upload the backup file to an OSS bucket, call the describeBuckets operation to obtain the bucket. If the Cloud Phone instance and the bucket are in the same region, obtain the intranetEndpoint field. If they are in different regions, obtain the extranetEndpoint field.
     shared_ptr<string> uploadEndpoint_ {};
     // The backup type.
     shared_ptr<string> uploadType_ {};

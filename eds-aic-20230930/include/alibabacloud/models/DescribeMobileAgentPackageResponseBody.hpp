@@ -206,11 +206,11 @@ namespace Models
 
 
     protected:
-      // The expiration time. The time format is YYYY-MM-DD HH:mm:ss.
+      // The expiration time. Format: YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> expiredAt_ {};
       // The node instance IDs.
       shared_ptr<vector<string>> instanceIds_ {};
-      // The package credit quota.
+      // The credit quota of the package.
       shared_ptr<string> packageCredit_ {};
       // The package ID.
       shared_ptr<string> packageId_ {};

@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BackupAll, backupAll_);
       DARABONBA_PTR_TO_JSON(BackupFileId, backupFileId_);
       DARABONBA_PTR_TO_JSON(BackupFilePath, backupFilePath_);
+      DARABONBA_PTR_TO_JSON(ExcludeAppList, excludeAppList_);
       DARABONBA_PTR_TO_JSON(UploadEndpoint, uploadEndpoint_);
       DARABONBA_PTR_TO_JSON(UploadType, uploadType_);
     };
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(BackupAll, backupAll_);
       DARABONBA_PTR_FROM_JSON(BackupFileId, backupFileId_);
       DARABONBA_PTR_FROM_JSON(BackupFilePath, backupFilePath_);
+      DARABONBA_PTR_FROM_JSON(ExcludeAppList, excludeAppList_);
       DARABONBA_PTR_FROM_JSON(UploadEndpoint, uploadEndpoint_);
       DARABONBA_PTR_FROM_JSON(UploadType, uploadType_);
     };
@@ -41,7 +43,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->androidInstanceIdList_ == nullptr
-        && this->backupAll_ == nullptr && this->backupFileId_ == nullptr && this->backupFilePath_ == nullptr && this->uploadEndpoint_ == nullptr && this->uploadType_ == nullptr; };
+        && this->backupAll_ == nullptr && this->backupFileId_ == nullptr && this->backupFilePath_ == nullptr && this->excludeAppList_ == nullptr && this->uploadEndpoint_ == nullptr
+        && this->uploadType_ == nullptr; };
     // androidInstanceIdList Field Functions 
     bool hasAndroidInstanceIdList() const { return this->androidInstanceIdList_ != nullptr;};
     void deleteAndroidInstanceIdList() { this->androidInstanceIdList_ = nullptr;};
@@ -72,6 +75,15 @@ namespace Models
     inline RecoveryFileRequest& setBackupFilePath(string backupFilePath) { DARABONBA_PTR_SET_VALUE(backupFilePath_, backupFilePath) };
 
 
+    // excludeAppList Field Functions 
+    bool hasExcludeAppList() const { return this->excludeAppList_ != nullptr;};
+    void deleteExcludeAppList() { this->excludeAppList_ = nullptr;};
+    inline const vector<string> & getExcludeAppList() const { DARABONBA_PTR_GET_CONST(excludeAppList_, vector<string>) };
+    inline vector<string> getExcludeAppList() { DARABONBA_PTR_GET(excludeAppList_, vector<string>) };
+    inline RecoveryFileRequest& setExcludeAppList(const vector<string> & excludeAppList) { DARABONBA_PTR_SET_VALUE(excludeAppList_, excludeAppList) };
+    inline RecoveryFileRequest& setExcludeAppList(vector<string> && excludeAppList) { DARABONBA_PTR_SET_RVALUE(excludeAppList_, excludeAppList) };
+
+
     // uploadEndpoint Field Functions 
     bool hasUploadEndpoint() const { return this->uploadEndpoint_ != nullptr;};
     void deleteUploadEndpoint() { this->uploadEndpoint_ = nullptr;};
@@ -87,23 +99,22 @@ namespace Models
 
 
   protected:
-    // The IDs of the instances.
+    // The list of instance IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> androidInstanceIdList_ {};
-    // Specifies whether to back up the whole instance.
+    // Specifies whether to back up the entire device.
     shared_ptr<bool> backupAll_ {};
     // The ID of the backup file.
     shared_ptr<string> backupFileId_ {};
-    // The OSS path to which the backup file is uploaded.
-    // 
-    // > When calling the describeBuckets operation to retrieve a bucket name, you must also call the ossObjectList operation to obtain the object key. Combine these to form the full path: oss\\://${bucketName}/${key}.
+    // The OSS URL to which the backup file is uploaded.
+    // <notice>Call the describeBuckets operation to obtain the bucketName, and select ossObjectList to obtain the key. The key is the path of the backup file. Concatenate them into "oss://${bucketName}/${key}".</notice>
     shared_ptr<string> backupFilePath_ {};
-    // The endpoint of the OSS bucket that stores the backup file.
-    // 
-    // > : When calling the DescribeBuckets operation to query buckets, retrieve the IntranetEndpoint value if the cloud phone and the OSS bucket are in the same region. If they are in different regions, retrieve the ExtranetEndpoint value instead.
+    shared_ptr<vector<string>> excludeAppList_ {};
+    // The domain name of the backup address.
+    // <notice>Call the DescribeBuckets operation to obtain the bucket. If the cloud phone and the bucket are in the same region, obtain the IntranetEndpoint field. If they are in different regions, obtain the ExtranetEndpoint field.</notice>
     shared_ptr<string> uploadEndpoint_ {};
-    // The type of the backup.
+    // The backup type.
     shared_ptr<string> uploadType_ {};
   };
 

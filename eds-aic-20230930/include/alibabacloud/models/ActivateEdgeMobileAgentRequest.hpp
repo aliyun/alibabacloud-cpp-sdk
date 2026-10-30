@@ -66,17 +66,13 @@ namespace Models
 
 
   protected:
-    // The device form factor. Valid values:
-    // - BOX
-    // - PHONE
-    // - PAD
-    // - OTHER
+    // The device class. Valid values: BOX, PHONE, PAD, and OTHER.
     shared_ptr<string> deviceClass_ {};
     // The unique identifier of the device.
     // 
     // This parameter is required.
     shared_ptr<string> deviceId_ {};
-    // The extended device metadata in JSON format. The string contains information such as fingerprint, deviceModel, and firmwareVersion.
+    // The extended metadata of the device. The value is a JSON string that contains information such as fingerprint, deviceModel, and firmwareVersion.
     shared_ptr<string> deviceMeta_ {};
     // The license key.
     // 

@@ -51,7 +51,7 @@ namespace Models
 
 
   protected:
-    // The IDs of the cloud phone instances. You can specify a maximum of 50 cloud phone instances.
+    // The cloud phone instance ID list. You can specify up to 50 instances.
     shared_ptr<vector<string>> instanceIds_ {};
     // The ID of the ADB key pair.
     // 

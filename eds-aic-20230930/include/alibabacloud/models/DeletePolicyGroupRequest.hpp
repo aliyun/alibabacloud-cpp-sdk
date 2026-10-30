@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // A list of policy group IDs. If any specified policy group is associated with an existing instance group, the entire operation fails.
+    // The list of policy IDs. If any policy is associated with an undeleted instance group, the entire deletion operation fails.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> policyGroupIds_ {};

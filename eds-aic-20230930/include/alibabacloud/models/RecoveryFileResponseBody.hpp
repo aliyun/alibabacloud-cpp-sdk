@@ -115,11 +115,11 @@ namespace Models
   protected:
     // The number of restored instances.
     shared_ptr<int64_t> count_ {};
-    // The backup file that is restored.
+    // The returned result object.
     shared_ptr<vector<RecoveryFileResponseBody::Data>> data_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the batch task.
+    // The batch task ID.
     shared_ptr<string> taskId_ {};
   };
 

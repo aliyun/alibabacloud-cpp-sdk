@@ -87,7 +87,7 @@ namespace Models
 
 
     protected:
-      // The assigned API key. The plaintext value is returned only upon the first activation.
+      // The assigned API key. The plaintext is returned only upon the first activation.
       shared_ptr<string> authToken_ {};
       // The device ID.
       shared_ptr<string> deviceId_ {};

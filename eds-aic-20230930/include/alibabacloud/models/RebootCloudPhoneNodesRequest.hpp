@@ -51,7 +51,12 @@ namespace Models
 
 
   protected:
+    // Specifies whether to force a restart. Valid values:
+    // - true: Forces a restart without waiting for the instances to gracefully exit.
+    // - false: Performs a graceful restart.
+    // Default value: false.
     shared_ptr<bool> force_ {};
+    // The IDs of the cloud phone matrices. Valid values of N: 1 to 100.
     shared_ptr<vector<string>> nodeIds_ {};
   };
 

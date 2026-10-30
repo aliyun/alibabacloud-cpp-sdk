@@ -94,12 +94,21 @@ namespace Models
 
 
   protected:
+    // The number of MobileAgent packages.
     shared_ptr<string> amount_ {};
+    // The region ID for the purchase.
     shared_ptr<string> bizRegionId_ {};
+    // The number of credits.
     shared_ptr<int32_t> creditAmount_ {};
+    // The specifications of the MobileAgent package.
     shared_ptr<string> mobileAgentPackageSpec_ {};
+    // The subscription duration of the purchased resource. The unit is specified by PeriodUnit. Valid value: 1 month.
     shared_ptr<string> period_ {};
+    // The duration unit of the subscription billing method. Valid values:
+    // - **Year**: Year.
+    // - **Month** (default): Month.
     shared_ptr<string> periodUnit_ {};
+    // The ID of the promotion.
     shared_ptr<string> promotionId_ {};
   };
 

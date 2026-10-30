@@ -132,25 +132,25 @@ namespace Models
   protected:
     // Specifies whether to enable local camera redirection.
     shared_ptr<string> cameraRedirect_ {};
-    // The clipboard permission.
+    // The clipboard permissions.
     shared_ptr<string> clipboard_ {};
-    // The file transfer policy for the web client.
+    // The file transfer policy for the Wuying web client.
     shared_ptr<string> html5FileTransfer_ {};
-    // The local disk mapping permission.
+    // The local disk mapping permissions.
     shared_ptr<string> localDrive_ {};
     // Specifies whether to lock the resolution.
     shared_ptr<string> lockResolution_ {};
-    // Network redirection.
+    // The network redirection settings.
     shared_ptr<string> netRedirectPolicyShrink_ {};
     // The policy name.
     shared_ptr<string> policyGroupName_ {};
     // The policy type.
     shared_ptr<string> policyType_ {};
-    // The resolution height, in pixels.
+    // The height of the resolution. Unit: pixels.
     shared_ptr<int32_t> resolutionHeight_ {};
-    // The resolution width, in pixels.
+    // The width of the resolution. Unit: pixels.
     shared_ptr<int32_t> resolutionWidth_ {};
-    // Screen watermark.
+    // The screen watermark settings.
     shared_ptr<string> watermarkShrink_ {};
   };
 

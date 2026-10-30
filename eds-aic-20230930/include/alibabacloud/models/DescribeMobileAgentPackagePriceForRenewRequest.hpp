@@ -69,9 +69,15 @@ namespace Models
 
 
   protected:
+    // The IDs of the MobileAgent resource plans.
     shared_ptr<vector<string>> mobileAgentPackageIds_ {};
+    // The subscription period of the resource. The unit is specified by PeriodUnit. Valid values: 1 month, 2 months, 3 months, 6 months, and 1 year.
     shared_ptr<string> period_ {};
+    // The unit of the subscription period. Valid values:
+    // - **Month**: Month.
+    // - **Year**: Year.
     shared_ptr<string> periodUnit_ {};
+    // The promotion ID.
     shared_ptr<string> promotionId_ {};
   };
 

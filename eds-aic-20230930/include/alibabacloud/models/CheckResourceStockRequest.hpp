@@ -85,7 +85,7 @@ namespace Models
     shared_ptr<string> bizRegionId_ {};
     // Specifies whether to enable GPU acceleration.
     shared_ptr<bool> gpuAcceleration_ {};
-    // The zone to which the resource belongs.
+    // The zone of the resource.
     shared_ptr<string> zoneId_ {};
   };
 

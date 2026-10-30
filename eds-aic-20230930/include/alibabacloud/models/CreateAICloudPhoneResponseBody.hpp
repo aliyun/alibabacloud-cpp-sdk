@@ -72,9 +72,9 @@ namespace Models
 
 
     protected:
-      // The order ID.
+      // The ID of the order.
       shared_ptr<int64_t> orderId_ {};
-      // The list of package IDs. After the payment is successful, instances are created based on these IDs through a callback.
+      // The list of package IDs. After a successful payment, a callback creates instances based on these IDs.
       shared_ptr<vector<string>> packageIds_ {};
     };
 
@@ -99,7 +99,7 @@ namespace Models
   protected:
     // The response data object.
     shared_ptr<CreateAICloudPhoneResponseBody::Data> data_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

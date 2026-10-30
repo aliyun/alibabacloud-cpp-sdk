@@ -128,7 +128,7 @@ namespace Models
 
 
   protected:
-    // The additional prompt. This parameter takes effect only when the task is passively paused, such as pausing to wait for user confirmation.
+    // The additional prompt. This parameter takes effect only when the task is passively paused, such as when waiting for user confirmation.
     shared_ptr<string> additionalPrompt_ {};
     // The list of clarification answers submitted when resuming the task.
     shared_ptr<vector<ResumeAgentTaskRequest::ClarificationAnswers>> clarificationAnswers_ {};
@@ -136,7 +136,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<vector<string>> taskIds_ {};
-    // The ID of the tool invoke to resume.
+    // The ID of the tool invocation to be resumed.
     shared_ptr<string> toolCallId_ {};
   };
 

@@ -113,20 +113,15 @@ namespace Models
 
   protected:
     // Specifies whether to enable automatic payment. Valid values:
+    // - **true**: Enables automatic payment. Make sure that your account balance is sufficient.
+    // - **false**: Generates an unpaid order without deducting fees. This is the default value.
     // 
-    // - **true**: Enable automatic payment. Make sure that your account balance is sufficient.
-    // - **false** (default): Generate the order without making a payment.
-    // 
-    // 
-    // 
-    // 
-    // > If your payment method has an insufficient balance, set this parameter to false. An unpaid order is generated, and you can log on to the WUYING Cloud Phone console to complete the payment.
+    // > If your payment method has an insufficient balance, you can set this parameter to false. An unpaid order is generated, and you can log on to the WUYING Cloud Phone console to complete the payment.
     // >
     shared_ptr<bool> autoPay_ {};
-    // Specifies whether to enable auto-renewal. Valid values:
-    // 
-    // * **true**: Enable auto-renewal.
-    // * **false** (default): Disable auto-renewal.
+    // Specifies whether to enable auto-renewal for the instance. Valid values:
+    // - **true**: Enables auto-renewal.
+    // - **false**: Disables auto-renewal. This is the default value.
     shared_ptr<bool> autoRenew_ {};
     // The region where the agent is located.
     // 
@@ -134,23 +129,21 @@ namespace Models
     shared_ptr<string> bizRegionId_ {};
     // The idempotency token.
     shared_ptr<string> clientToken_ {};
-    // The device form factor.
+    // The device type.
     // 
     // This parameter is required.
     shared_ptr<string> deviceClass_ {};
-    // The subscription duration of the resource. The unit is specified by `PeriodUnit`.
+    // The subscription duration of the resource. The unit is specified by PeriodUnit.
     // 
     // This parameter is required.
     shared_ptr<int32_t> period_ {};
-    // The unit of the subscription duration.
-    // 
-    // Valid values:
-    // - **Month**: month.
-    // - **Year**: year.
+    // The unit of the subscription duration. Valid values:
+    // - **Month**: month
+    // - **Year**: year
     // 
     // This parameter is required.
     shared_ptr<string> periodUnit_ {};
-    // The promotion ID.
+    // The ID of the promotion.
     shared_ptr<string> promotionId_ {};
     // The number of packages.
     // 

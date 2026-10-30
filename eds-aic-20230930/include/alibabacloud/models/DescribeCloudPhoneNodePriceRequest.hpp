@@ -140,19 +140,41 @@ namespace Models
 
 
   protected:
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> bizRegionId_ {};
+    // The billing method.
     shared_ptr<string> chargeType_ {};
+    // The number of cloud phone matrices to purchase.
     shared_ptr<string> count_ {};
+    // Specifies whether to use a single image disk. Default value: false. Valid values:
+    // 
+    // - true: Uses only the system disk.
+    // 
+    // - false: Uses the system disk and the shared internal storage image disk.
     shared_ptr<bool> isSingleImgDisk_ {};
+    // The subscription period of the resource. The unit is specified by PeriodUnit. Valid values: 1 month, 2 months, 3 months, 6 months, and 1 year.
     shared_ptr<string> period_ {};
+    // The unit of the subscription period. Valid values:
+    // - **Month**: Month.
+    // - **Year**: Year.
     shared_ptr<string> periodUnit_ {};
+    // The number of provisioned instances, which refers to the number of cloud phone instances in the matrix.
     shared_ptr<int32_t> phoneCount_ {};
+    // The size of the dedicated internal storage. Unit: GiB.
     shared_ptr<int32_t> phoneDataVolume_ {};
+    // The promotion ID.
     shared_ptr<string> promotionId_ {};
+    // The size of the shared internal storage. Unit: GiB.
+    // 
+    // > The minimum size of the shared internal storage must be greater than the number of instances in the matrix multiplied by 10 GiB.
     shared_ptr<int32_t> serverShareDataVolume_ {};
+    // The specifications of the cloud phone matrix.
+    // 
     // This parameter is required.
     shared_ptr<string> serverType_ {};
+    // The size of the swap space.
     shared_ptr<int32_t> swapSize_ {};
   };
 
