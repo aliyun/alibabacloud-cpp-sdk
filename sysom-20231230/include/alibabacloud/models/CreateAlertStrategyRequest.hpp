@@ -93,7 +93,7 @@ namespace Models
       shared_ptr<vector<string>> clusters_ {};
       // The alert contacts.
       shared_ptr<vector<int32_t>> destinations_ {};
-      // The collection of exception items that receive alerts.
+      // The collection of anomaly items that trigger alerts.
       shared_ptr<vector<string>> items_ {};
     };
 
@@ -136,7 +136,7 @@ namespace Models
     shared_ptr<bool> enabled_ {};
     // The Kubernetes label.
     shared_ptr<bool> k8sLabel_ {};
-    // The Policy Name of the alerting policy.
+    // The alert policy name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};

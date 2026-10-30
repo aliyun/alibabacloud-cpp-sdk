@@ -125,7 +125,7 @@ namespace Models
     protected:
       // The cluster topology data structure.
       shared_ptr<Data::DataItem> data_ {};
-      // The number of GPU cards returned.
+      // The total number of GPUs returned.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -162,7 +162,7 @@ namespace Models
 
 
   protected:
-    // The result code. Valid values: Success, Sysom.ServerError, Sysom.InvalidParameter.
+    // The response code. Valid values: Success, Sysom.ServerError, and Sysom.InvalidParameter.
     shared_ptr<string> code_ {};
     // The data returned by the operation.
     shared_ptr<GetGpuClusterTopologyResponseBody::Data> data_ {};

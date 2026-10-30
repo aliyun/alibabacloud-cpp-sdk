@@ -77,15 +77,15 @@ namespace Models
 
 
   protected:
-    // The response code. Valid values: Success and Sysom.ACKClusterNotFound.
+    // The code. Valid values: Success and Sysom.ACKClusterNotFound.
     shared_ptr<string> code_ {};
-    // The list of clusters returned.
+    // The list of clusters.
     Darabonba::Json data_ {};
-    // The error message returned when the code is not Success.
+    // The error message. If the code is not success, the message is the error information.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The number of clusters returned.
+    // The total number of returned entries.
     shared_ptr<int32_t> total_ {};
   };
 

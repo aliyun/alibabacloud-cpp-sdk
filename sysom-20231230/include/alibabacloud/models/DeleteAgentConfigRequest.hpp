@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the component associated with the configuration to delete.
+    // The ID of the component associated with the configuration to be deleted.
     shared_ptr<string> agentId_ {};
     // The ID of the component configuration to delete.
     shared_ptr<string> configId_ {};

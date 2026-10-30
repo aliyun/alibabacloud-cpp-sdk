@@ -111,15 +111,15 @@ namespace Models
 
 
     protected:
-      // The diagnostic result.
+      // The diagnostic results.
       Darabonba::Json result_ {};
       // The service name.
       shared_ptr<string> serviceName_ {};
-      // The status of the root data.
+      // The root data status.
       shared_ptr<string> status_ {};
-      // The time when the data was created.
+      // The data creation time.
       shared_ptr<string> submitTime_ {};
-      // The unique task ID.
+      // The unique identifier of the task.
       shared_ptr<string> taskId_ {};
       // The training task ID.
       shared_ptr<string> traceTaskId_ {};
@@ -162,9 +162,9 @@ namespace Models
     shared_ptr<string> code_ {};
     // The data details.
     shared_ptr<GetAifgResultResponseBody::Data> data_ {};
-    // The message returned.
+    // The message content.
     shared_ptr<string> message_ {};
-    // The unique request ID.
+    // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
   };
 

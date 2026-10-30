@@ -106,9 +106,9 @@ namespace Models
       shared_ptr<string> email_ {};
       // The phone number.
       shared_ptr<string> phone_ {};
-      // The chatbot secret key.
+      // The secret of the chatbot.
       shared_ptr<string> sec_ {};
-      // The webhook URL.
+      // The webhook URL of the chatbot.
       shared_ptr<string> webhook_ {};
     };
 
@@ -183,11 +183,15 @@ namespace Models
 
 
   protected:
+    // The app ID of the chatbot.
     shared_ptr<string> appId_ {};
+    // The app secret of the chatbot.
     shared_ptr<string> appSecret_ {};
+    // The group ID.
     shared_ptr<vector<string>> groupId_ {};
     // The ID of the alert contact.
     shared_ptr<string> id_ {};
+    // Specifies whether the contact is an IM chatbot.
     shared_ptr<bool> imbot_ {};
     // The name of the alert contact.
     shared_ptr<string> name_ {};

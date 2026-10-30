@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The ID of the component for which you want to retrieve configurations.
+    // The ID of the component.
     // 
     // This parameter is required.
     shared_ptr<string> agentId_ {};
@@ -92,7 +92,7 @@ namespace Models
     shared_ptr<string> configId_ {};
     // The name of the configuration.
     shared_ptr<string> configName_ {};
-    // The current page number. This field is available when page-based pagination is used.
+    // The current page number. This parameter is available only when pagination by page number is used.
     shared_ptr<string> current_ {};
     // The number of entries to return on each page. Default value: 10.
     shared_ptr<string> pageSize_ {};

@@ -107,7 +107,7 @@ namespace Models
     // The returned data.
     shared_ptr<InstallHotfixResponseBody::Data> data_ {};
     // The error message.
-    // - If code == Success, this field is empty.
+    // - If `code == Success`, this field is empty.
     // - Otherwise, this field contains the request error message.
     shared_ptr<string> message_ {};
     // The request ID, which can be used for end-to-end diagnostics.

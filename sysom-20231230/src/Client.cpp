@@ -4,6 +4,7 @@
 #include <alibabacloud/Openapi.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
+#include <darabonba/encode/Encoder.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
@@ -442,7 +443,7 @@ CreateAlertDestinationResponse Client::createAlertDestination(const CreateAlertD
 }
 
 /**
- * @summary Creates an alert policy for push notifications.
+ * @summary Creates an alert push policy.
  *
  * @param request CreateAlertStrategyRequest
  * @param headers map
@@ -487,7 +488,7 @@ CreateAlertStrategyResponse Client::createAlertStrategyWithOptions(const CreateA
 }
 
 /**
- * @summary Creates an alert policy for push notifications.
+ * @summary Creates an alert push policy.
  *
  * @param request CreateAlertStrategyRequest
  * @return CreateAlertStrategyResponse
@@ -557,6 +558,61 @@ CreateClusterVpcEndpointConnectionResponse Client::createClusterVpcEndpointConne
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return createClusterVpcEndpointConnectionWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 创建 Copilot 会话
+ *
+ * @description - 本接口仅创建会话，不发送消息，也不触发 Agent 执行。
+ * - 创建成功后，使用返回的 sessionId 调用 GenerateCopilotStreamResponse 发送消息。
+ * - 会话 ID 由服务端生成，不支持调用方指定。
+ * - 每次成功调用均创建一个独立会话。本接口不提供客户端幂等参数，重复调用可能创建多个会话。
+ *
+ * @param request CreateCopilotSessionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateCopilotSessionResponse
+ */
+CreateCopilotSessionResponse Client::createCopilotSessionWithOptions(const CreateCopilotSessionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateCopilotSession"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/copilot/sessions")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateCopilotSessionResponse>();
+}
+
+/**
+ * @summary 创建 Copilot 会话
+ *
+ * @description - 本接口仅创建会话，不发送消息，也不触发 Agent 执行。
+ * - 创建成功后，使用返回的 sessionId 调用 GenerateCopilotStreamResponse 发送消息。
+ * - 会话 ID 由服务端生成，不支持调用方指定。
+ * - 每次成功调用均创建一个独立会话。本接口不提供客户端幂等参数，重复调用可能创建多个会话。
+ *
+ * @param request CreateCopilotSessionRequest
+ * @return CreateCopilotSessionResponse
+ */
+CreateCopilotSessionResponse Client::createCopilotSession(const CreateCopilotSessionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createCopilotSessionWithOptions(request, headers, runtime);
 }
 
 /**
@@ -818,6 +874,67 @@ DeleteAlertStrategyResponse Client::deleteAlertStrategy(const DeleteAlertStrateg
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteAlertStrategyWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 删除指定的 Copilot 会话
+ *
+ * @description - 仅支持删除当前用户的会话。
+ * - 会话存在尚未结束的执行时，不允许删除。请先通过 GenerateCopilotStreamResponse 接口发送 action=stop，确认执行结束后再删除。
+ * - 删除后，无法再通过会话查询接口获取该会话及其历史记录。
+ * - 会话不存在或不属于当前用户时返回错误。重复删除同一个会话不保证成功。
+ * - 删除会话不会撤销已经执行的操作，也不会删除产生该会话的定时任务。
+ *
+ * @param request DeleteCopilotSessionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteCopilotSessionResponse
+ */
+DeleteCopilotSessionResponse Client::deleteCopilotSessionWithOptions(const DeleteCopilotSessionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentId()) {
+    query["agentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["sessionId"] = request.getSessionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteCopilotSession"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/copilot/delete-session")},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteCopilotSessionResponse>();
+}
+
+/**
+ * @summary 删除指定的 Copilot 会话
+ *
+ * @description - 仅支持删除当前用户的会话。
+ * - 会话存在尚未结束的执行时，不允许删除。请先通过 GenerateCopilotStreamResponse 接口发送 action=stop，确认执行结束后再删除。
+ * - 删除后，无法再通过会话查询接口获取该会话及其历史记录。
+ * - 会话不存在或不属于当前用户时返回错误。重复删除同一个会话不保证成功。
+ * - 删除会话不会撤销已经执行的操作，也不会删除产生该会话的定时任务。
+ *
+ * @param request DeleteCopilotSessionRequest
+ * @return DeleteCopilotSessionResponse
+ */
+DeleteCopilotSessionResponse Client::deleteCopilotSession(const DeleteCopilotSessionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteCopilotSessionWithOptions(request, headers, runtime);
 }
 
 /**
@@ -1200,7 +1317,7 @@ GetAgentResponse Client::getAgent(const GetAgentRequest &request) {
 }
 
 /**
- * @summary Retrieves component configurations.
+ * @summary Retrieves the component configuration.
  *
  * @param request GetAgentConfigRequest
  * @param headers map
@@ -1253,7 +1370,7 @@ GetAgentConfigResponse Client::getAgentConfigWithOptions(const GetAgentConfigReq
 }
 
 /**
- * @summary Retrieves component configurations.
+ * @summary Retrieves the component configuration.
  *
  * @param request GetAgentConfigRequest
  * @return GetAgentConfigResponse
@@ -1265,7 +1382,7 @@ GetAgentConfigResponse Client::getAgentConfig(const GetAgentConfigRequest &reque
 }
 
 /**
- * @summary Retrieves the execution status of an Agent installation task.
+ * @summary Retrieves the execution status of an agent installation task.
  *
  * @param request GetAgentTaskRequest
  * @param headers map
@@ -1298,7 +1415,7 @@ GetAgentTaskResponse Client::getAgentTaskWithOptions(const GetAgentTaskRequest &
 }
 
 /**
- * @summary Retrieves the execution status of an Agent installation task.
+ * @summary Retrieves the execution status of an agent installation task.
  *
  * @param request GetAgentTaskRequest
  * @return GetAgentTaskResponse
@@ -1310,9 +1427,9 @@ GetAgentTaskResponse Client::getAgentTask(const GetAgentTaskRequest &request) {
 }
 
 /**
- * @summary Retrieves diagnostic results.
+ * @summary Retrieves the diagnostic results.
  *
- * @description The diagnostic process is asynchronous. When you call this operation, the diagnosis may still be in progress. Check the `data.status` field in the response to determine the current state. When `data.status == Success`, the diagnosis is complete and you can read the diagnostic results from `data.result`.
+ * @description The diagnostic process is asynchronous. Therefore, when you call this operation, the diagnosis may still be in progress. You can check the `data.status` field in the response to determine the status. If `data.status` is `Success`, the diagnosis is successful, and you can read the diagnostic results from `data.result`.
  *
  * @param request GetAifgResultRequest
  * @param headers map
@@ -1345,9 +1462,9 @@ GetAifgResultResponse Client::getAifgResultWithOptions(const GetAifgResultReques
 }
 
 /**
- * @summary Retrieves diagnostic results.
+ * @summary Retrieves the diagnostic results.
  *
- * @description The diagnostic process is asynchronous. When you call this operation, the diagnosis may still be in progress. Check the `data.status` field in the response to determine the current state. When `data.status == Success`, the diagnosis is complete and you can read the diagnostic results from `data.result`.
+ * @description The diagnostic process is asynchronous. Therefore, when you call this operation, the diagnosis may still be in progress. You can check the `data.status` field in the response to determine the status. If `data.status` is `Success`, the diagnosis is successful, and you can read the diagnostic results from `data.result`.
  *
  * @param request GetAifgResultRequest
  * @return GetAifgResultResponse
@@ -1359,9 +1476,9 @@ GetAifgResultResponse Client::getAifgResult(const GetAifgResultRequest &request)
 }
 
 /**
- * @summary Retrieves the URL link of a diagnostic result.
+ * @summary Retrieves the URL for diagnostic results.
  *
- * @description The diagnostic process is asynchronous. When you call this operation, the diagnosis may still be in progress. You can check the `data.status` field in the response data to determine the current state. When `data.status == Success`, the diagnosis is complete and you can read the diagnostic result from `data.result`.
+ * @description The diagnostic process is asynchronous. Therefore, when you call this operation, the diagnosis may still be in progress. You can check the `data.status` field in the response to determine the status. If `data.status` is `Success`, the diagnosis is successful, and you can read the diagnostic results from `data.result`.
  *
  * @param request GetAifgUrlRequest
  * @param headers map
@@ -1394,9 +1511,9 @@ GetAifgUrlResponse Client::getAifgUrlWithOptions(const GetAifgUrlRequest &reques
 }
 
 /**
- * @summary Retrieves the URL link of a diagnostic result.
+ * @summary Retrieves the URL for diagnostic results.
  *
- * @description The diagnostic process is asynchronous. When you call this operation, the diagnosis may still be in progress. You can check the `data.status` field in the response data to determine the current state. When `data.status == Success`, the diagnosis is complete and you can read the diagnostic result from `data.result`.
+ * @description The diagnostic process is asynchronous. Therefore, when you call this operation, the diagnosis may still be in progress. You can check the `data.status` field in the response to determine the status. If `data.status` is `Success`, the diagnosis is successful, and you can read the diagnostic results from `data.result`.
  *
  * @param request GetAifgUrlRequest
  * @return GetAifgUrlResponse
@@ -1453,7 +1570,7 @@ GetAlertDestinationResponse Client::getAlertDestination(const GetAlertDestinatio
 }
 
 /**
- * @summary Retrieves an alert rule of a user by policy ID.
+ * @summary Retrieves an alert policy for a user based on the policy ID.
  *
  * @param request GetAlertStrategyRequest
  * @param headers map
@@ -1486,7 +1603,7 @@ GetAlertStrategyResponse Client::getAlertStrategyWithOptions(const GetAlertStrat
 }
 
 /**
- * @summary Retrieves an alert rule of a user by policy ID.
+ * @summary Retrieves an alert policy for a user based on the policy ID.
  *
  * @param request GetAlertStrategyRequest
  * @return GetAlertStrategyResponse
@@ -1604,6 +1721,57 @@ GetCopilotHistoryResponse Client::getCopilotHistory(const GetCopilotHistoryReque
 }
 
 /**
+ * @summary 获取 Copilot 会话与执行状态
+ *
+ * @description - 仅支持查询当前用户的会话，一次查询一个会话。
+ * - 返回会话详情及执行摘要，不返回聊天内容。查询历史消息和事件，请调用 ListCopilotSessionMessages。
+ * - 会话的 status 表示是否归档。判断是否正在执行，应读取 activeTurn。
+ * - lastTurn 表示最近一次执行，不一定已经结束；执行过程中，activeTurn 和 lastTurn 可以指向同一轮执行。
+ * - 会话不存在、已删除或不属于当前用户时返回错误。
+ *
+ * @param request GetCopilotSessionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCopilotSessionResponse
+ */
+GetCopilotSessionResponse Client::getCopilotSessionWithOptions(const string &sessionId, const GetCopilotSessionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetCopilotSession"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/copilot/sessions/" , Darabonba::Encode::Encoder::percentEncode(sessionId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCopilotSessionResponse>();
+}
+
+/**
+ * @summary 获取 Copilot 会话与执行状态
+ *
+ * @description - 仅支持查询当前用户的会话，一次查询一个会话。
+ * - 返回会话详情及执行摘要，不返回聊天内容。查询历史消息和事件，请调用 ListCopilotSessionMessages。
+ * - 会话的 status 表示是否归档。判断是否正在执行，应读取 activeTurn。
+ * - lastTurn 表示最近一次执行，不一定已经结束；执行过程中，activeTurn 和 lastTurn 可以指向同一轮执行。
+ * - 会话不存在、已删除或不属于当前用户时返回错误。
+ *
+ * @param request GetCopilotSessionRequest
+ * @return GetCopilotSessionResponse
+ */
+GetCopilotSessionResponse Client::getCopilotSession(const string &sessionId, const GetCopilotSessionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getCopilotSessionWithOptions(sessionId, request, headers, runtime);
+}
+
+/**
  * @summary Queries the hotfixes and compatible packages for a CVE.
  *
  * @description Queries published hotfixes in batches by CVE ID. You can filter the results by full kernel version.
@@ -1706,11 +1874,11 @@ GetDiagnosisResultResponse Client::getDiagnosisResult(const GetDiagnosisResultRe
 }
 
 /**
- * @summary Retrieves the GPU cluster parameter list.
+ * @summary Retrieves the list of parameters for a GPU cluster.
  *
- * @description After installing the component for the target ACK cluster:
- * 1. First, when a cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only 50 instances are included in the first batch.
- * 2. Then, the operating system console periodically checks the scaling status of the managed cluster. When a new ECS instance is added to the cluster, the operating system console automatically installs the component without user intervention.
+ * @description After you install the component for the target ACK cluster:
+ * 1. When the cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only 50 nodes are installed in the first batch.
+ * 2. The operating system console periodically checks the scaling status of the managed cluster. When a new ECS instance is added to the cluster, the operating system console automatically installs the component on the instance without user intervention.
  *
  * @param request GetGpuClusterArgsOptionsRequest
  * @param headers map
@@ -1747,11 +1915,11 @@ GetGpuClusterArgsOptionsResponse Client::getGpuClusterArgsOptionsWithOptions(con
 }
 
 /**
- * @summary Retrieves the GPU cluster parameter list.
+ * @summary Retrieves the list of parameters for a GPU cluster.
  *
- * @description After installing the component for the target ACK cluster:
- * 1. First, when a cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only 50 instances are included in the first batch.
- * 2. Then, the operating system console periodically checks the scaling status of the managed cluster. When a new ECS instance is added to the cluster, the operating system console automatically installs the component without user intervention.
+ * @description After you install the component for the target ACK cluster:
+ * 1. When the cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only 50 nodes are installed in the first batch.
+ * 2. The operating system console periodically checks the scaling status of the managed cluster. When a new ECS instance is added to the cluster, the operating system console automatically installs the component on the instance without user intervention.
  *
  * @param request GetGpuClusterArgsOptionsRequest
  * @return GetGpuClusterArgsOptionsResponse
@@ -1765,9 +1933,9 @@ GetGpuClusterArgsOptionsResponse Client::getGpuClusterArgsOptions(const GetGpuCl
 /**
  * @summary Retrieves the list of GPU cluster alerts.
  *
- * @description After installing the component on the target ACK cluster:
- * 1. When a cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only the first 50 nodes are processed in the first batch.
- * 2. The operating system console periodically checks the scaling status of managed clusters. When a new ECS instance is added to a cluster, the console automatically installs the component on it without user intervention.
+ * @description After you install the component for the target ACK cluster:
+ * 1. When the cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only 50 nodes are installed in the first batch.
+ * 2. The operating system console periodically checks the scaling status of the managed cluster. When a new ECS instance is added to the cluster, the operating system console automatically installs the component on it without user intervention.
  *
  * @param request GetGpuClusterListAlarmRecordRequest
  * @param headers map
@@ -1830,9 +1998,9 @@ GetGpuClusterListAlarmRecordResponse Client::getGpuClusterListAlarmRecordWithOpt
 /**
  * @summary Retrieves the list of GPU cluster alerts.
  *
- * @description After installing the component on the target ACK cluster:
- * 1. When a cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only the first 50 nodes are processed in the first batch.
- * 2. The operating system console periodically checks the scaling status of managed clusters. When a new ECS instance is added to a cluster, the console automatically installs the component on it without user intervention.
+ * @description After you install the component for the target ACK cluster:
+ * 1. When the cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only 50 nodes are installed in the first batch.
+ * 2. The operating system console periodically checks the scaling status of the managed cluster. When a new ECS instance is added to the cluster, the operating system console automatically installs the component on it without user intervention.
  *
  * @param request GetGpuClusterListAlarmRecordRequest
  * @return GetGpuClusterListAlarmRecordResponse
@@ -1844,11 +2012,11 @@ GetGpuClusterListAlarmRecordResponse Client::getGpuClusterListAlarmRecord(const 
 }
 
 /**
- * @summary Retrieves the GPU cluster topology.
+ * @summary Retrieves the topology of a GPU cluster.
  *
- * @description After you install the component on the target ACK cluster:
- * 1. When a cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only the first 50 nodes are processed in the first batch.
- * 2. The operating system console periodically checks the scaling status of managed clusters. When a new ECS instance is added to a cluster, the console automatically installs the component on it without requiring manual intervention.
+ * @description After you install the component for the target ACK cluster:
+ * 1. When the cluster is initially managed, the component is installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only 50 nodes are installed in the first batch.
+ * 2. The operating system console periodically checks the scaling status of the managed cluster. When a new ECS instance is added to the cluster, the operating system console automatically installs the component on the instance without user intervention.
  *
  * @param request GetGpuClusterTopologyRequest
  * @param headers map
@@ -1909,11 +2077,11 @@ GetGpuClusterTopologyResponse Client::getGpuClusterTopologyWithOptions(const Get
 }
 
 /**
- * @summary Retrieves the GPU cluster topology.
+ * @summary Retrieves the topology of a GPU cluster.
  *
- * @description After you install the component on the target ACK cluster:
- * 1. When a cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only the first 50 nodes are processed in the first batch.
- * 2. The operating system console periodically checks the scaling status of managed clusters. When a new ECS instance is added to a cluster, the console automatically installs the component on it without requiring manual intervention.
+ * @description After you install the component for the target ACK cluster:
+ * 1. When the cluster is initially managed, the component is installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only 50 nodes are installed in the first batch.
+ * 2. The operating system console periodically checks the scaling status of the managed cluster. When a new ECS instance is added to the cluster, the operating system console automatically installs the component on the instance without user intervention.
  *
  * @param request GetGpuClusterTopologyRequest
  * @return GetGpuClusterTopologyResponse
@@ -2104,7 +2272,7 @@ GetHotSpotUniqListResponse Client::getHotSpotUniqList(const GetHotSpotUniqListRe
 }
 
 /**
- * @summary Queries the status of an asynchronous task for CVE hotfixes on a node.
+ * @summary Queries the status of an asynchronous CVE hotfix task.
  *
  * @description The hotfix task process is asynchronous. When you call this operation, the task may still be running. You can check the `data.status` field in the response to determine the task status. If `data.status` is `Success`, the task succeeded, and you can obtain the task result from the `data.result` field.
  *
@@ -2139,7 +2307,7 @@ GetHotfixTaskResponse Client::getHotfixTaskWithOptions(const GetHotfixTaskReques
 }
 
 /**
- * @summary Queries the status of an asynchronous task for CVE hotfixes on a node.
+ * @summary Queries the status of an asynchronous CVE hotfix task.
  *
  * @description The hotfix task process is asynchronous. When you call this operation, the task may still be running. You can check the `data.status` field in the response to determine the task status. If `data.status` is `Success`, the task succeeded, and you can obtain the task result from the `data.result` field.
  *
@@ -2568,11 +2736,11 @@ GetInstantScoreResponse Client::getInstantScore(const GetInstantScoreRequest &re
 }
 
 /**
- * @summary Retrieves a list of GPU clusters.
+ * @summary Queries the list of GPU clusters.
  *
- * @description After installing the component for the target ACK cluster:
- * 1. First, when a cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster contains more than 50 nodes, only 50 instances are included in the first batch.
- * 2. Then, the operating system console periodically checks the scaling status of the managed cluster. When a new ECS instance is added to the cluster, the operating system console automatically installs the component on it without user intervention.
+ * @description After you install components for the target ACK cluster:
+ * 1. When the cluster is managed for the first time, the system installs components on all Elastic Compute Service (ECS) instances in the cluster. If the cluster has more than 50 nodes, only 50 nodes are installed in the first batch.
+ * 2. The Operating System console periodically checks the scaling status of the managed cluster. When a new ECS instance is added to the cluster, the Operating System console automatically installs components without user intervention.
  *
  * @param request GetListGpuClusterRequest
  * @param headers map
@@ -2609,11 +2777,11 @@ GetListGpuClusterResponse Client::getListGpuClusterWithOptions(const GetListGpuC
 }
 
 /**
- * @summary Retrieves a list of GPU clusters.
+ * @summary Queries the list of GPU clusters.
  *
- * @description After installing the component for the target ACK cluster:
- * 1. First, when a cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster contains more than 50 nodes, only 50 instances are included in the first batch.
- * 2. Then, the operating system console periodically checks the scaling status of the managed cluster. When a new ECS instance is added to the cluster, the operating system console automatically installs the component on it without user intervention.
+ * @description After you install components for the target ACK cluster:
+ * 1. When the cluster is managed for the first time, the system installs components on all Elastic Compute Service (ECS) instances in the cluster. If the cluster has more than 50 nodes, only 50 nodes are installed in the first batch.
+ * 2. The Operating System console periodically checks the scaling status of the managed cluster. When a new ECS instance is added to the cluster, the Operating System console automatically installs components without user intervention.
  *
  * @param request GetListGpuClusterRequest
  * @return GetListGpuClusterResponse
@@ -3219,9 +3387,9 @@ InstallAgentWithTypeResponse Client::installAgentWithType(const InstallAgentWith
 }
 
 /**
- * @summary Installs CVE hotfixes asynchronously on specified instances.
+ * @summary Installs CVE hotfixes asynchronously on the specified instances.
  *
- * @description This operation asynchronously installs the agent. After the operation is called, a task ID is returned. You can use this ID to call the GetHotfixTask operation to query the execution status of the task.
+ * @description Calling this operation to install hotfixes is asynchronous. After the operation is called, a task_id is returned. You can use this ID to call the GetHotfixTask operation to query the execution status of the task.
  *
  * @param request InstallHotfixRequest
  * @param headers map
@@ -3258,9 +3426,9 @@ InstallHotfixResponse Client::installHotfixWithOptions(const InstallHotfixReques
 }
 
 /**
- * @summary Installs CVE hotfixes asynchronously on specified instances.
+ * @summary Installs CVE hotfixes asynchronously on the specified instances.
  *
- * @description This operation asynchronously installs the agent. After the operation is called, a task ID is returned. You can use this ID to call the GetHotfixTask operation to query the execution status of the task.
+ * @description Calling this operation to install hotfixes is asynchronous. After the operation is called, a task_id is returned. You can use this ID to call the GetHotfixTask operation to query the execution status of the task.
  *
  * @param request InstallHotfixRequest
  * @return InstallHotfixResponse
@@ -3593,9 +3761,9 @@ ListAgentsResponse Client::listAgents(const ListAgentsRequest &request) {
 }
 
 /**
- * @summary Retrieves a list of diagnostic tasks.
+ * @summary Retrieves the list of diagnostic tasks.
  *
- * @description This operation retrieves the list of regions where the current user has machines managed by SysOM. If the user has ECS instances in a region but those instances are not managed by SysOM, that region does not appear in the results.
+ * @description This operation retrieves the list of regions where the current user has machines managed by SysOM. If a user has ECS instances in a region but they are not managed by SysOM, the region will not appear in the API response.
  *
  * @param request ListAifgJobsRequest
  * @param headers map
@@ -3648,9 +3816,9 @@ ListAifgJobsResponse Client::listAifgJobsWithOptions(const ListAifgJobsRequest &
 }
 
 /**
- * @summary Retrieves a list of diagnostic tasks.
+ * @summary Retrieves the list of diagnostic tasks.
  *
- * @description This operation retrieves the list of regions where the current user has machines managed by SysOM. If the user has ECS instances in a region but those instances are not managed by SysOM, that region does not appear in the results.
+ * @description This operation retrieves the list of regions where the current user has machines managed by SysOM. If a user has ECS instances in a region but they are not managed by SysOM, the region will not appear in the API response.
  *
  * @param request ListAifgJobsRequest
  * @return ListAifgJobsResponse
@@ -3759,7 +3927,7 @@ ListAlertItemsResponse Client::listAlertItems() {
 }
 
 /**
- * @summary Retrieves all alert policies configured by the user for push notifications.
+ * @summary Retrieves all alert notification policies for the user.
  *
  * @param request ListAlertStrategiesRequest
  * @param headers map
@@ -3808,7 +3976,7 @@ ListAlertStrategiesResponse Client::listAlertStrategiesWithOptions(const ListAle
 }
 
 /**
- * @summary Retrieves all alert policies configured by the user for push notifications.
+ * @summary Retrieves all alert notification policies for the user.
  *
  * @param request ListAlertStrategiesRequest
  * @return ListAlertStrategiesResponse
@@ -4666,9 +4834,9 @@ ListPodsOfInstanceResponse Client::listPodsOfInstance(const ListPodsOfInstanceRe
 }
 
 /**
- * @summary Lists all regions that contain managed instances.
+ * @summary Lists all regions with managed instances.
  *
- * @description This operation retrieves the list of regions where the current user has instances managed by SysOM. If a user has ECS instances in a region but none of them are managed by SysOM, that region is not included in the response.
+ * @description This operation retrieves the list of regions where the current user has instances managed by SysOM. If you have ECS instances in a region but they are not managed by SysOM, the region is not included in the response.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4693,9 +4861,9 @@ ListRegionsResponse Client::listRegionsWithOptions(const map<string, string> &he
 }
 
 /**
- * @summary Lists all regions that contain managed instances.
+ * @summary Lists all regions with managed instances.
  *
- * @description This operation retrieves the list of regions where the current user has instances managed by SysOM. If a user has ECS instances in a region but none of them are managed by SysOM, that region is not included in the response.
+ * @description This operation retrieves the list of regions where the current user has instances managed by SysOM. If you have ECS instances in a region but they are not managed by SysOM, the region is not included in the response.
  *
  * @return ListRegionsResponse
  */
@@ -4751,9 +4919,9 @@ ListVmcoreDiagnosisTaskResponse Client::listVmcoreDiagnosisTask(const ListVmcore
 }
 
 /**
- * @summary Asynchronously queries the CVE hotfix status on specified instances.
+ * @summary Asynchronously queries the CVE hotfix status on the specified instances.
  *
- * @description The call to this operation to install the agent is asynchronous. After you call this operation, a task_id is returned. You can use this ID to call the GetHotfixTask operation to obtain the execution status of the task.
+ * @description Calling this API operation to install the agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetHotfixTask operation to query the execution status of the task.
  *
  * @param request QueryHotfixStatusRequest
  * @param headers map
@@ -4790,9 +4958,9 @@ QueryHotfixStatusResponse Client::queryHotfixStatusWithOptions(const QueryHotfix
 }
 
 /**
- * @summary Asynchronously queries the CVE hotfix status on specified instances.
+ * @summary Asynchronously queries the CVE hotfix status on the specified instances.
  *
- * @description The call to this operation to install the agent is asynchronous. After you call this operation, a task_id is returned. You can use this ID to call the GetHotfixTask operation to obtain the execution status of the task.
+ * @description Calling this API operation to install the agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetHotfixTask operation to query the execution status of the task.
  *
  * @param request QueryHotfixStatusRequest
  * @return QueryHotfixStatusResponse
@@ -4956,7 +5124,7 @@ StartAIDiffAnalysisResponse Client::startAIDiffAnalysis(const StartAIDiffAnalysi
 /**
  * @summary Triggers AI application diagnostics.
  *
- * @description Currently, only comparative analysis of the same PID across different steps within the same AI Infra analysis record is supported.
+ * @description Currently, only comparative analysis of the same PID across different steps under the same AI Infra analysis record is supported.
  *
  * @param request StartAifgAnalysisRequest
  * @param headers map
@@ -5003,7 +5171,7 @@ StartAifgAnalysisResponse Client::startAifgAnalysisWithOptions(const StartAifgAn
 /**
  * @summary Triggers AI application diagnostics.
  *
- * @description Currently, only comparative analysis of the same PID across different steps within the same AI Infra analysis record is supported.
+ * @description Currently, only comparative analysis of the same PID across different steps under the same AI Infra analysis record is supported.
  *
  * @param request StartAifgAnalysisRequest
  * @return StartAifgAnalysisResponse
@@ -5186,9 +5354,9 @@ UninstallAgentWithTypeResponse Client::uninstallAgentWithType(const UninstallAge
 }
 
 /**
- * @summary Asynchronously uninstalls CVE hotfixes from the specified instances.
+ * @summary Asynchronously uninstalls a CVE hotfix from a specified instance.
  *
- * @description This operation is asynchronous. After you call this operation, a task_id is returned. You can use this ID to call the GetHotfixTask operation to query the execution status of the task.
+ * @description Calling this API to install the agent is asynchronous. After you call this API, a task_id is returned. You can use this ID to call the GetHotfixTask API to obtain the execution status of the task.
  *
  * @param request UninstallHotfixRequest
  * @param headers map
@@ -5225,9 +5393,9 @@ UninstallHotfixResponse Client::uninstallHotfixWithOptions(const UninstallHotfix
 }
 
 /**
- * @summary Asynchronously uninstalls CVE hotfixes from the specified instances.
+ * @summary Asynchronously uninstalls a CVE hotfix from a specified instance.
  *
- * @description This operation is asynchronous. After you call this operation, a task_id is returned. You can use this ID to call the GetHotfixTask operation to query the execution status of the task.
+ * @description Calling this API to install the agent is asynchronous. After you call this API, a task_id is returned. You can use this ID to call the GetHotfixTask API to obtain the execution status of the task.
  *
  * @param request UninstallHotfixRequest
  * @return UninstallHotfixResponse
@@ -5239,9 +5407,9 @@ UninstallHotfixResponse Client::uninstallHotfix(const UninstallHotfixRequest &re
 }
 
 /**
- * @summary Updates the component configuration.
+ * @summary Updates the configuration of a component.
  *
- * @description After the configuration is updated, the new configuration is delivered to all resources that use it.
+ * @description After the configuration is updated, the new configuration is delivered to all resources to which the configuration is applied.
  *
  * @param request UpdateAgentConfigRequest
  * @param headers map
@@ -5282,9 +5450,9 @@ UpdateAgentConfigResponse Client::updateAgentConfigWithOptions(const UpdateAgent
 }
 
 /**
- * @summary Updates the component configuration.
+ * @summary Updates the configuration of a component.
  *
- * @description After the configuration is updated, the new configuration is delivered to all resources that use it.
+ * @description After the configuration is updated, the new configuration is delivered to all resources to which the configuration is applied.
  *
  * @param request UpdateAgentConfigRequest
  * @return UpdateAgentConfigResponse
@@ -5426,7 +5594,7 @@ UpdateAlertEnabledResponse Client::updateAlertEnabled(const UpdateAlertEnabledRe
 }
 
 /**
- * @summary Updates a push alert policy.
+ * @summary Updates the alert push policy.
  *
  * @param request UpdateAlertStrategyRequest
  * @param headers map
@@ -5475,7 +5643,7 @@ UpdateAlertStrategyResponse Client::updateAlertStrategyWithOptions(const UpdateA
 }
 
 /**
- * @summary Updates a push alert policy.
+ * @summary Updates the alert push policy.
  *
  * @param request UpdateAlertStrategyRequest
  * @return UpdateAlertStrategyResponse
@@ -5487,7 +5655,7 @@ UpdateAlertStrategyResponse Client::updateAlertStrategy(const UpdateAlertStrateg
 }
 
 /**
- * @summary Updates the configuration of a cluster component.
+ * @summary Updates the component configuration of a cluster.
  *
  * @param request UpdateClusterAgentConfigRequest
  * @param headers map
@@ -5528,7 +5696,7 @@ UpdateClusterAgentConfigResponse Client::updateClusterAgentConfigWithOptions(con
 }
 
 /**
- * @summary Updates the configuration of a cluster component.
+ * @summary Updates the component configuration of a cluster.
  *
  * @param request UpdateClusterAgentConfigRequest
  * @return UpdateClusterAgentConfigResponse
@@ -5658,7 +5826,7 @@ UpdateFuncSwitchRecordResponse Client::updateFuncSwitchRecord(const UpdateFuncSw
 }
 
 /**
- * @summary Updates the component configuration of an instance.
+ * @summary Updates the component configurations of an instance.
  *
  * @param request UpdateInstanceAgentConfigRequest
  * @param headers map
@@ -5699,7 +5867,7 @@ UpdateInstanceAgentConfigResponse Client::updateInstanceAgentConfigWithOptions(c
 }
 
 /**
- * @summary Updates the component configuration of an instance.
+ * @summary Updates the component configurations of an instance.
  *
  * @param request UpdateInstanceAgentConfigRequest
  * @return UpdateInstanceAgentConfigResponse

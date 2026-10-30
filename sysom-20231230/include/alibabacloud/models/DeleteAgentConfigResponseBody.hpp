@@ -101,8 +101,8 @@ namespace Models
 
   protected:
     // The status code.
-    // - `code == Success`: The authorization succeeded.
-    // - Other status codes indicate that the authorization failed. If the authorization failed, check the `message` field for the detailed fault message.
+    // - `code == Success`: Authorization succeeded.
+    // - Other status codes indicate that authorization failed. If authorization failed, check the `message` field for detailed error messages.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<DeleteAgentConfigResponseBody::Data> data_ {};

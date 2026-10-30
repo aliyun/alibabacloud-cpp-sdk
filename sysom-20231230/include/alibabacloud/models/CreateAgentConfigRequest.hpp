@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The ID of the component for the configuration. You can obtain the component ID from ListAgents.
+    // The ID of the agent associated with the configuration. You can obtain the agent ID from ListAgents.
     // 
     // This parameter is required.
     shared_ptr<string> agentId_ {};

@@ -171,11 +171,11 @@ namespace Models
       shared_ptr<string> serviceName_ {};
       // The status of the data item.
       shared_ptr<string> status_ {};
-      // The sub-status of the data item.
+      // The sub-status of data item 0.
       shared_ptr<string> subStatus_ {};
       // The time when the data was submitted.
       shared_ptr<string> submitTime_ {};
-      // The task ID.
+      // The ID of the task.
       shared_ptr<string> taskId_ {};
       // The unique identifier of the trace task.
       shared_ptr<string> traceTaskId_ {};
@@ -240,19 +240,17 @@ namespace Models
     shared_ptr<string> code_ {};
     // The data under the root node.
     shared_ptr<vector<ListAifgJobsResponseBody::Data>> data_ {};
-    // The maximum number of records to retrieve in a single request.
+    // The maximum number of records to retrieve at a time.
     shared_ptr<int32_t> maxResults_ {};
-    // Indicates the position read by the current call. An empty value indicates that all data has been read.
+    // Indicates the read position returned by the current call. An empty value indicates that all data has been read.
     // 
     // This parameter is required.
     shared_ptr<string> message_ {};
-    // The pagination token.
-    // 
-    // > A non-empty value indicates that more data is available.
+    // The pagination cursor. A non-empty value indicates that more data is available.
     shared_ptr<string> nextToken_ {};
     // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total count.
     shared_ptr<int64_t> total_ {};
   };
 

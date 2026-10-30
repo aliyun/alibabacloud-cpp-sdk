@@ -69,13 +69,13 @@ namespace Models
 
 
   protected:
-    // The request ID, which can be used for end-to-end diagnostics.
+    // The request ID. You can use it for end-to-end diagnostics.
     shared_ptr<string> requestId_ {};
     // The error code.
     shared_ptr<string> code_ {};
     // The list of regions.
     shared_ptr<vector<string>> data_ {};
-    // The error code description. This value is empty if no error occurs.
+    // The error message. This field is empty if no error occurs.
     shared_ptr<string> message_ {};
   };
 

@@ -122,11 +122,11 @@ namespace Models
 
 
       protected:
-        // The collection of clusters that receive alerts.
+        // The clusters that receive alerts.
         shared_ptr<vector<string>> clusters_ {};
         // The alert contacts.
         Darabonba::Json destinations_ {};
-        // The list of exception items that receive alerts.
+        // The list of anomaly items that trigger alerts.
         Darabonba::Json items_ {};
       };
 
@@ -244,8 +244,8 @@ namespace Models
 
   protected:
     // The status code.
-    // - `code == Success` indicates that the authorization is successful.
-    // - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault message.
+    // - If `code == Success`, the authorization is successful.
+    // - Other status codes indicate that the authorization failed. If the authorization fails, check the `message` field for the detailed fault message.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<GetAlertStrategyResponseBody::Data> data_ {};

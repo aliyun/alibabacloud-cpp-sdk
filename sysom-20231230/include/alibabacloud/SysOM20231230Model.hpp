@@ -26,6 +26,9 @@
 #include <alibabacloud/models/CreateClusterVpcEndpointConnectionRequest.hpp>
 #include <alibabacloud/models/CreateClusterVpcEndpointConnectionResponseBody.hpp>
 #include <alibabacloud/models/CreateClusterVpcEndpointConnectionResponse.hpp>
+#include <alibabacloud/models/CreateCopilotSessionRequest.hpp>
+#include <alibabacloud/models/CreateCopilotSessionResponseBody.hpp>
+#include <alibabacloud/models/CreateCopilotSessionResponse.hpp>
 #include <alibabacloud/models/CreateInstanceInspectionRequest.hpp>
 #include <alibabacloud/models/CreateInstanceInspectionResponseBody.hpp>
 #include <alibabacloud/models/CreateInstanceInspectionResponse.hpp>
@@ -41,6 +44,9 @@
 #include <alibabacloud/models/DeleteAlertStrategyRequest.hpp>
 #include <alibabacloud/models/DeleteAlertStrategyResponseBody.hpp>
 #include <alibabacloud/models/DeleteAlertStrategyResponse.hpp>
+#include <alibabacloud/models/DeleteCopilotSessionRequest.hpp>
+#include <alibabacloud/models/DeleteCopilotSessionResponseBody.hpp>
+#include <alibabacloud/models/DeleteCopilotSessionResponse.hpp>
 #include <alibabacloud/models/DescribeMetricListRequest.hpp>
 #include <alibabacloud/models/DescribeMetricListResponseBody.hpp>
 #include <alibabacloud/models/DescribeMetricListResponse.hpp>
@@ -83,6 +89,9 @@
 #include <alibabacloud/models/GetCopilotHistoryRequest.hpp>
 #include <alibabacloud/models/GetCopilotHistoryResponseBody.hpp>
 #include <alibabacloud/models/GetCopilotHistoryResponse.hpp>
+#include <alibabacloud/models/GetCopilotSessionRequest.hpp>
+#include <alibabacloud/models/GetCopilotSessionResponseBody.hpp>
+#include <alibabacloud/models/GetCopilotSessionResponse.hpp>
 #include <alibabacloud/models/GetCveHotfixRequest.hpp>
 #include <alibabacloud/models/GetCveHotfixResponseBody.hpp>
 #include <alibabacloud/models/GetCveHotfixResponse.hpp>

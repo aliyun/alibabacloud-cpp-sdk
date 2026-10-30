@@ -88,11 +88,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> current_ {};
-    // The maximum number of records to retrieve in a single request.
+    // The maximum number of records to retrieve at a time.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token.
-    // 
-    // > A non-empty value indicates that more data is available.
+    // The pagination cursor. A non-empty value indicates that more data is available.
     shared_ptr<string> nextToken_ {};
     // The number of entries per page.
     // 
@@ -100,7 +98,7 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // The region ID.
     shared_ptr<string> region_ {};
-    // The service name of the diagnostic service.
+    // The diagnostic service name.
     // 
     // This parameter is required.
     shared_ptr<string> serviceName_ {};

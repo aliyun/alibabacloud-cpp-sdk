@@ -107,7 +107,7 @@ namespace Models
       shared_ptr<string> analysisId_ {};
       // The analysis time.
       shared_ptr<string> analysisTime_ {};
-      // The analysis parameters of the AI job analysis.
+      // The parameters for the AI job analysis.
       shared_ptr<string> arguments_ {};
       // The analysis failure log.
       shared_ptr<string> failedLog_ {};
@@ -157,7 +157,7 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The response data.
     shared_ptr<vector<GetListRecordResponseBody::Data>> data_ {};
     // The status code description.
     shared_ptr<string> message_ {};

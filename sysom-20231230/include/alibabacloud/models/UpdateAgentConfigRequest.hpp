@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The ID of the component whose configuration you want to update.
+    // The ID of the component whose configuration is to be updated.
     // 
     // This parameter is required.
     shared_ptr<string> agentId_ {};

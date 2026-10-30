@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // The task ID.
+      // The identifier.
       shared_ptr<string> taskId_ {};
     };
 

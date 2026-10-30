@@ -63,7 +63,9 @@ namespace Models
 
 
     protected:
-      // The task ID. You can use this task ID to call the GetAgentTask operation to check the task execution status.
+      // The task ID.
+      // 
+      // You can use this task ID to call the GetAgentTask operation to check the task execution status.
       shared_ptr<string> taskId_ {};
     };
 
@@ -102,9 +104,11 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The returned results.
+    // The returned result.
     shared_ptr<UpdateInstanceAgentConfigResponseBody::Data> data_ {};
-    // The error message. If `code == Success`, this field is empty. Otherwise, this field contains the error message of the request.
+    // The error message.
+    // - If `code == Success`, this field is empty.
+    // - Otherwise, this field contains the request error message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

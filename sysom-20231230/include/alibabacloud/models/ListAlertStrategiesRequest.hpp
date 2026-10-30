@@ -75,9 +75,9 @@ namespace Models
 
 
   protected:
-    // The current page number (starting from 1).
+    // The current page number, starting from 1.
     shared_ptr<int32_t> current_ {};
-    // The maximum number of records to retrieve in a single request.
+    // The maximum number of records to retrieve per request.
     shared_ptr<int32_t> maxResults_ {};
     // The Policy Name of the alerting policy.
     shared_ptr<string> name_ {};

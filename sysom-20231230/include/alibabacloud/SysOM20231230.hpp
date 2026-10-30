@@ -159,7 +159,7 @@ namespace SysOM20231230
       Models::CreateAlertDestinationResponse createAlertDestination(const Models::CreateAlertDestinationRequest &request);
 
       /**
-       * @summary Creates an alert policy for push notifications.
+       * @summary Creates an alert push policy.
        *
        * @param request CreateAlertStrategyRequest
        * @param headers map
@@ -169,7 +169,7 @@ namespace SysOM20231230
       Models::CreateAlertStrategyResponse createAlertStrategyWithOptions(const Models::CreateAlertStrategyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an alert policy for push notifications.
+       * @summary Creates an alert push policy.
        *
        * @param request CreateAlertStrategyRequest
        * @return CreateAlertStrategyResponse
@@ -201,6 +201,34 @@ namespace SysOM20231230
        * @return CreateClusterVpcEndpointConnectionResponse
        */
       Models::CreateClusterVpcEndpointConnectionResponse createClusterVpcEndpointConnection(const Models::CreateClusterVpcEndpointConnectionRequest &request);
+
+      /**
+       * @summary 创建 Copilot 会话
+       *
+       * @description - 本接口仅创建会话，不发送消息，也不触发 Agent 执行。
+       * - 创建成功后，使用返回的 sessionId 调用 GenerateCopilotStreamResponse 发送消息。
+       * - 会话 ID 由服务端生成，不支持调用方指定。
+       * - 每次成功调用均创建一个独立会话。本接口不提供客户端幂等参数，重复调用可能创建多个会话。
+       *
+       * @param request CreateCopilotSessionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateCopilotSessionResponse
+       */
+      Models::CreateCopilotSessionResponse createCopilotSessionWithOptions(const Models::CreateCopilotSessionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建 Copilot 会话
+       *
+       * @description - 本接口仅创建会话，不发送消息，也不触发 Agent 执行。
+       * - 创建成功后，使用返回的 sessionId 调用 GenerateCopilotStreamResponse 发送消息。
+       * - 会话 ID 由服务端生成，不支持调用方指定。
+       * - 每次成功调用均创建一个独立会话。本接口不提供客户端幂等参数，重复调用可能创建多个会话。
+       *
+       * @param request CreateCopilotSessionRequest
+       * @return CreateCopilotSessionResponse
+       */
+      Models::CreateCopilotSessionResponse createCopilotSession(const Models::CreateCopilotSessionRequest &request);
 
       /**
        * @summary Creates a SysOM instance inspection.
@@ -291,6 +319,36 @@ namespace SysOM20231230
        * @return DeleteAlertStrategyResponse
        */
       Models::DeleteAlertStrategyResponse deleteAlertStrategy(const Models::DeleteAlertStrategyRequest &request);
+
+      /**
+       * @summary 删除指定的 Copilot 会话
+       *
+       * @description - 仅支持删除当前用户的会话。
+       * - 会话存在尚未结束的执行时，不允许删除。请先通过 GenerateCopilotStreamResponse 接口发送 action=stop，确认执行结束后再删除。
+       * - 删除后，无法再通过会话查询接口获取该会话及其历史记录。
+       * - 会话不存在或不属于当前用户时返回错误。重复删除同一个会话不保证成功。
+       * - 删除会话不会撤销已经执行的操作，也不会删除产生该会话的定时任务。
+       *
+       * @param request DeleteCopilotSessionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteCopilotSessionResponse
+       */
+      Models::DeleteCopilotSessionResponse deleteCopilotSessionWithOptions(const Models::DeleteCopilotSessionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除指定的 Copilot 会话
+       *
+       * @description - 仅支持删除当前用户的会话。
+       * - 会话存在尚未结束的执行时，不允许删除。请先通过 GenerateCopilotStreamResponse 接口发送 action=stop，确认执行结束后再删除。
+       * - 删除后，无法再通过会话查询接口获取该会话及其历史记录。
+       * - 会话不存在或不属于当前用户时返回错误。重复删除同一个会话不保证成功。
+       * - 删除会话不会撤销已经执行的操作，也不会删除产生该会话的定时任务。
+       *
+       * @param request DeleteCopilotSessionRequest
+       * @return DeleteCopilotSessionResponse
+       */
+      Models::DeleteCopilotSessionResponse deleteCopilotSession(const Models::DeleteCopilotSessionRequest &request);
 
       /**
        * @summary Queries metric data.
@@ -433,7 +491,7 @@ namespace SysOM20231230
       Models::GetAgentResponse getAgent(const Models::GetAgentRequest &request);
 
       /**
-       * @summary Retrieves component configurations.
+       * @summary Retrieves the component configuration.
        *
        * @param request GetAgentConfigRequest
        * @param headers map
@@ -443,7 +501,7 @@ namespace SysOM20231230
       Models::GetAgentConfigResponse getAgentConfigWithOptions(const Models::GetAgentConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves component configurations.
+       * @summary Retrieves the component configuration.
        *
        * @param request GetAgentConfigRequest
        * @return GetAgentConfigResponse
@@ -451,7 +509,7 @@ namespace SysOM20231230
       Models::GetAgentConfigResponse getAgentConfig(const Models::GetAgentConfigRequest &request);
 
       /**
-       * @summary Retrieves the execution status of an Agent installation task.
+       * @summary Retrieves the execution status of an agent installation task.
        *
        * @param request GetAgentTaskRequest
        * @param headers map
@@ -461,7 +519,7 @@ namespace SysOM20231230
       Models::GetAgentTaskResponse getAgentTaskWithOptions(const Models::GetAgentTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the execution status of an Agent installation task.
+       * @summary Retrieves the execution status of an agent installation task.
        *
        * @param request GetAgentTaskRequest
        * @return GetAgentTaskResponse
@@ -469,9 +527,9 @@ namespace SysOM20231230
       Models::GetAgentTaskResponse getAgentTask(const Models::GetAgentTaskRequest &request);
 
       /**
-       * @summary Retrieves diagnostic results.
+       * @summary Retrieves the diagnostic results.
        *
-       * @description The diagnostic process is asynchronous. When you call this operation, the diagnosis may still be in progress. Check the `data.status` field in the response to determine the current state. When `data.status == Success`, the diagnosis is complete and you can read the diagnostic results from `data.result`.
+       * @description The diagnostic process is asynchronous. Therefore, when you call this operation, the diagnosis may still be in progress. You can check the `data.status` field in the response to determine the status. If `data.status` is `Success`, the diagnosis is successful, and you can read the diagnostic results from `data.result`.
        *
        * @param request GetAifgResultRequest
        * @param headers map
@@ -481,9 +539,9 @@ namespace SysOM20231230
       Models::GetAifgResultResponse getAifgResultWithOptions(const Models::GetAifgResultRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves diagnostic results.
+       * @summary Retrieves the diagnostic results.
        *
-       * @description The diagnostic process is asynchronous. When you call this operation, the diagnosis may still be in progress. Check the `data.status` field in the response to determine the current state. When `data.status == Success`, the diagnosis is complete and you can read the diagnostic results from `data.result`.
+       * @description The diagnostic process is asynchronous. Therefore, when you call this operation, the diagnosis may still be in progress. You can check the `data.status` field in the response to determine the status. If `data.status` is `Success`, the diagnosis is successful, and you can read the diagnostic results from `data.result`.
        *
        * @param request GetAifgResultRequest
        * @return GetAifgResultResponse
@@ -491,9 +549,9 @@ namespace SysOM20231230
       Models::GetAifgResultResponse getAifgResult(const Models::GetAifgResultRequest &request);
 
       /**
-       * @summary Retrieves the URL link of a diagnostic result.
+       * @summary Retrieves the URL for diagnostic results.
        *
-       * @description The diagnostic process is asynchronous. When you call this operation, the diagnosis may still be in progress. You can check the `data.status` field in the response data to determine the current state. When `data.status == Success`, the diagnosis is complete and you can read the diagnostic result from `data.result`.
+       * @description The diagnostic process is asynchronous. Therefore, when you call this operation, the diagnosis may still be in progress. You can check the `data.status` field in the response to determine the status. If `data.status` is `Success`, the diagnosis is successful, and you can read the diagnostic results from `data.result`.
        *
        * @param request GetAifgUrlRequest
        * @param headers map
@@ -503,9 +561,9 @@ namespace SysOM20231230
       Models::GetAifgUrlResponse getAifgUrlWithOptions(const Models::GetAifgUrlRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the URL link of a diagnostic result.
+       * @summary Retrieves the URL for diagnostic results.
        *
-       * @description The diagnostic process is asynchronous. When you call this operation, the diagnosis may still be in progress. You can check the `data.status` field in the response data to determine the current state. When `data.status == Success`, the diagnosis is complete and you can read the diagnostic result from `data.result`.
+       * @description The diagnostic process is asynchronous. Therefore, when you call this operation, the diagnosis may still be in progress. You can check the `data.status` field in the response to determine the status. If `data.status` is `Success`, the diagnosis is successful, and you can read the diagnostic results from `data.result`.
        *
        * @param request GetAifgUrlRequest
        * @return GetAifgUrlResponse
@@ -531,7 +589,7 @@ namespace SysOM20231230
       Models::GetAlertDestinationResponse getAlertDestination(const Models::GetAlertDestinationRequest &request);
 
       /**
-       * @summary Retrieves an alert rule of a user by policy ID.
+       * @summary Retrieves an alert policy for a user based on the policy ID.
        *
        * @param request GetAlertStrategyRequest
        * @param headers map
@@ -541,7 +599,7 @@ namespace SysOM20231230
       Models::GetAlertStrategyResponse getAlertStrategyWithOptions(const Models::GetAlertStrategyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves an alert rule of a user by policy ID.
+       * @summary Retrieves an alert policy for a user based on the policy ID.
        *
        * @param request GetAlertStrategyRequest
        * @return GetAlertStrategyResponse
@@ -583,6 +641,36 @@ namespace SysOM20231230
        * @return GetCopilotHistoryResponse
        */
       Models::GetCopilotHistoryResponse getCopilotHistory(const Models::GetCopilotHistoryRequest &request);
+
+      /**
+       * @summary 获取 Copilot 会话与执行状态
+       *
+       * @description - 仅支持查询当前用户的会话，一次查询一个会话。
+       * - 返回会话详情及执行摘要，不返回聊天内容。查询历史消息和事件，请调用 ListCopilotSessionMessages。
+       * - 会话的 status 表示是否归档。判断是否正在执行，应读取 activeTurn。
+       * - lastTurn 表示最近一次执行，不一定已经结束；执行过程中，activeTurn 和 lastTurn 可以指向同一轮执行。
+       * - 会话不存在、已删除或不属于当前用户时返回错误。
+       *
+       * @param request GetCopilotSessionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetCopilotSessionResponse
+       */
+      Models::GetCopilotSessionResponse getCopilotSessionWithOptions(const string &sessionId, const Models::GetCopilotSessionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取 Copilot 会话与执行状态
+       *
+       * @description - 仅支持查询当前用户的会话，一次查询一个会话。
+       * - 返回会话详情及执行摘要，不返回聊天内容。查询历史消息和事件，请调用 ListCopilotSessionMessages。
+       * - 会话的 status 表示是否归档。判断是否正在执行，应读取 activeTurn。
+       * - lastTurn 表示最近一次执行，不一定已经结束；执行过程中，activeTurn 和 lastTurn 可以指向同一轮执行。
+       * - 会话不存在、已删除或不属于当前用户时返回错误。
+       *
+       * @param request GetCopilotSessionRequest
+       * @return GetCopilotSessionResponse
+       */
+      Models::GetCopilotSessionResponse getCopilotSession(const string &sessionId, const Models::GetCopilotSessionRequest &request);
 
       /**
        * @summary Queries the hotfixes and compatible packages for a CVE.
@@ -629,11 +717,11 @@ namespace SysOM20231230
       Models::GetDiagnosisResultResponse getDiagnosisResult(const Models::GetDiagnosisResultRequest &request);
 
       /**
-       * @summary Retrieves the GPU cluster parameter list.
+       * @summary Retrieves the list of parameters for a GPU cluster.
        *
-       * @description After installing the component for the target ACK cluster:
-       * 1. First, when a cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only 50 instances are included in the first batch.
-       * 2. Then, the operating system console periodically checks the scaling status of the managed cluster. When a new ECS instance is added to the cluster, the operating system console automatically installs the component without user intervention.
+       * @description After you install the component for the target ACK cluster:
+       * 1. When the cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only 50 nodes are installed in the first batch.
+       * 2. The operating system console periodically checks the scaling status of the managed cluster. When a new ECS instance is added to the cluster, the operating system console automatically installs the component on the instance without user intervention.
        *
        * @param request GetGpuClusterArgsOptionsRequest
        * @param headers map
@@ -643,11 +731,11 @@ namespace SysOM20231230
       Models::GetGpuClusterArgsOptionsResponse getGpuClusterArgsOptionsWithOptions(const Models::GetGpuClusterArgsOptionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the GPU cluster parameter list.
+       * @summary Retrieves the list of parameters for a GPU cluster.
        *
-       * @description After installing the component for the target ACK cluster:
-       * 1. First, when a cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only 50 instances are included in the first batch.
-       * 2. Then, the operating system console periodically checks the scaling status of the managed cluster. When a new ECS instance is added to the cluster, the operating system console automatically installs the component without user intervention.
+       * @description After you install the component for the target ACK cluster:
+       * 1. When the cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only 50 nodes are installed in the first batch.
+       * 2. The operating system console periodically checks the scaling status of the managed cluster. When a new ECS instance is added to the cluster, the operating system console automatically installs the component on the instance without user intervention.
        *
        * @param request GetGpuClusterArgsOptionsRequest
        * @return GetGpuClusterArgsOptionsResponse
@@ -657,9 +745,9 @@ namespace SysOM20231230
       /**
        * @summary Retrieves the list of GPU cluster alerts.
        *
-       * @description After installing the component on the target ACK cluster:
-       * 1. When a cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only the first 50 nodes are processed in the first batch.
-       * 2. The operating system console periodically checks the scaling status of managed clusters. When a new ECS instance is added to a cluster, the console automatically installs the component on it without user intervention.
+       * @description After you install the component for the target ACK cluster:
+       * 1. When the cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only 50 nodes are installed in the first batch.
+       * 2. The operating system console periodically checks the scaling status of the managed cluster. When a new ECS instance is added to the cluster, the operating system console automatically installs the component on it without user intervention.
        *
        * @param request GetGpuClusterListAlarmRecordRequest
        * @param headers map
@@ -671,9 +759,9 @@ namespace SysOM20231230
       /**
        * @summary Retrieves the list of GPU cluster alerts.
        *
-       * @description After installing the component on the target ACK cluster:
-       * 1. When a cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only the first 50 nodes are processed in the first batch.
-       * 2. The operating system console periodically checks the scaling status of managed clusters. When a new ECS instance is added to a cluster, the console automatically installs the component on it without user intervention.
+       * @description After you install the component for the target ACK cluster:
+       * 1. When the cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only 50 nodes are installed in the first batch.
+       * 2. The operating system console periodically checks the scaling status of the managed cluster. When a new ECS instance is added to the cluster, the operating system console automatically installs the component on it without user intervention.
        *
        * @param request GetGpuClusterListAlarmRecordRequest
        * @return GetGpuClusterListAlarmRecordResponse
@@ -681,11 +769,11 @@ namespace SysOM20231230
       Models::GetGpuClusterListAlarmRecordResponse getGpuClusterListAlarmRecord(const Models::GetGpuClusterListAlarmRecordRequest &request);
 
       /**
-       * @summary Retrieves the GPU cluster topology.
+       * @summary Retrieves the topology of a GPU cluster.
        *
-       * @description After you install the component on the target ACK cluster:
-       * 1. When a cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only the first 50 nodes are processed in the first batch.
-       * 2. The operating system console periodically checks the scaling status of managed clusters. When a new ECS instance is added to a cluster, the console automatically installs the component on it without requiring manual intervention.
+       * @description After you install the component for the target ACK cluster:
+       * 1. When the cluster is initially managed, the component is installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only 50 nodes are installed in the first batch.
+       * 2. The operating system console periodically checks the scaling status of the managed cluster. When a new ECS instance is added to the cluster, the operating system console automatically installs the component on the instance without user intervention.
        *
        * @param request GetGpuClusterTopologyRequest
        * @param headers map
@@ -695,11 +783,11 @@ namespace SysOM20231230
       Models::GetGpuClusterTopologyResponse getGpuClusterTopologyWithOptions(const Models::GetGpuClusterTopologyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the GPU cluster topology.
+       * @summary Retrieves the topology of a GPU cluster.
        *
-       * @description After you install the component on the target ACK cluster:
-       * 1. When a cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only the first 50 nodes are processed in the first batch.
-       * 2. The operating system console periodically checks the scaling status of managed clusters. When a new ECS instance is added to a cluster, the console automatically installs the component on it without requiring manual intervention.
+       * @description After you install the component for the target ACK cluster:
+       * 1. When the cluster is initially managed, the component is installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only 50 nodes are installed in the first batch.
+       * 2. The operating system console periodically checks the scaling status of the managed cluster. When a new ECS instance is added to the cluster, the operating system console automatically installs the component on the instance without user intervention.
        *
        * @param request GetGpuClusterTopologyRequest
        * @return GetGpuClusterTopologyResponse
@@ -761,7 +849,7 @@ namespace SysOM20231230
       Models::GetHotSpotUniqListResponse getHotSpotUniqList(const Models::GetHotSpotUniqListRequest &request);
 
       /**
-       * @summary Queries the status of an asynchronous task for CVE hotfixes on a node.
+       * @summary Queries the status of an asynchronous CVE hotfix task.
        *
        * @description The hotfix task process is asynchronous. When you call this operation, the task may still be running. You can check the `data.status` field in the response to determine the task status. If `data.status` is `Success`, the task succeeded, and you can obtain the task result from the `data.result` field.
        *
@@ -773,7 +861,7 @@ namespace SysOM20231230
       Models::GetHotfixTaskResponse getHotfixTaskWithOptions(const Models::GetHotfixTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the status of an asynchronous task for CVE hotfixes on a node.
+       * @summary Queries the status of an asynchronous CVE hotfix task.
        *
        * @description The hotfix task process is asynchronous. When you call this operation, the task may still be running. You can check the `data.status` field in the response to determine the task status. If `data.status` is `Success`, the task succeeded, and you can obtain the task result from the `data.result` field.
        *
@@ -909,11 +997,11 @@ namespace SysOM20231230
       Models::GetInstantScoreResponse getInstantScore(const Models::GetInstantScoreRequest &request);
 
       /**
-       * @summary Retrieves a list of GPU clusters.
+       * @summary Queries the list of GPU clusters.
        *
-       * @description After installing the component for the target ACK cluster:
-       * 1. First, when a cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster contains more than 50 nodes, only 50 instances are included in the first batch.
-       * 2. Then, the operating system console periodically checks the scaling status of the managed cluster. When a new ECS instance is added to the cluster, the operating system console automatically installs the component on it without user intervention.
+       * @description After you install components for the target ACK cluster:
+       * 1. When the cluster is managed for the first time, the system installs components on all Elastic Compute Service (ECS) instances in the cluster. If the cluster has more than 50 nodes, only 50 nodes are installed in the first batch.
+       * 2. The Operating System console periodically checks the scaling status of the managed cluster. When a new ECS instance is added to the cluster, the Operating System console automatically installs components without user intervention.
        *
        * @param request GetListGpuClusterRequest
        * @param headers map
@@ -923,11 +1011,11 @@ namespace SysOM20231230
       Models::GetListGpuClusterResponse getListGpuClusterWithOptions(const Models::GetListGpuClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of GPU clusters.
+       * @summary Queries the list of GPU clusters.
        *
-       * @description After installing the component for the target ACK cluster:
-       * 1. First, when a cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster contains more than 50 nodes, only 50 instances are included in the first batch.
-       * 2. Then, the operating system console periodically checks the scaling status of the managed cluster. When a new ECS instance is added to the cluster, the operating system console automatically installs the component on it without user intervention.
+       * @description After you install components for the target ACK cluster:
+       * 1. When the cluster is managed for the first time, the system installs components on all Elastic Compute Service (ECS) instances in the cluster. If the cluster has more than 50 nodes, only 50 nodes are installed in the first batch.
+       * 2. The Operating System console periodically checks the scaling status of the managed cluster. When a new ECS instance is added to the cluster, the Operating System console automatically installs components without user intervention.
        *
        * @param request GetListGpuClusterRequest
        * @return GetListGpuClusterResponse
@@ -1145,9 +1233,9 @@ namespace SysOM20231230
       Models::InstallAgentWithTypeResponse installAgentWithType(const Models::InstallAgentWithTypeRequest &request);
 
       /**
-       * @summary Installs CVE hotfixes asynchronously on specified instances.
+       * @summary Installs CVE hotfixes asynchronously on the specified instances.
        *
-       * @description This operation asynchronously installs the agent. After the operation is called, a task ID is returned. You can use this ID to call the GetHotfixTask operation to query the execution status of the task.
+       * @description Calling this operation to install hotfixes is asynchronous. After the operation is called, a task_id is returned. You can use this ID to call the GetHotfixTask operation to query the execution status of the task.
        *
        * @param request InstallHotfixRequest
        * @param headers map
@@ -1157,9 +1245,9 @@ namespace SysOM20231230
       Models::InstallHotfixResponse installHotfixWithOptions(const Models::InstallHotfixRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Installs CVE hotfixes asynchronously on specified instances.
+       * @summary Installs CVE hotfixes asynchronously on the specified instances.
        *
-       * @description This operation asynchronously installs the agent. After the operation is called, a task ID is returned. You can use this ID to call the GetHotfixTask operation to query the execution status of the task.
+       * @description Calling this operation to install hotfixes is asynchronous. After the operation is called, a task_id is returned. You can use this ID to call the GetHotfixTask operation to query the execution status of the task.
        *
        * @param request InstallHotfixRequest
        * @return InstallHotfixResponse
@@ -1269,9 +1357,9 @@ namespace SysOM20231230
       Models::ListAgentsResponse listAgents(const Models::ListAgentsRequest &request);
 
       /**
-       * @summary Retrieves a list of diagnostic tasks.
+       * @summary Retrieves the list of diagnostic tasks.
        *
-       * @description This operation retrieves the list of regions where the current user has machines managed by SysOM. If the user has ECS instances in a region but those instances are not managed by SysOM, that region does not appear in the results.
+       * @description This operation retrieves the list of regions where the current user has machines managed by SysOM. If a user has ECS instances in a region but they are not managed by SysOM, the region will not appear in the API response.
        *
        * @param request ListAifgJobsRequest
        * @param headers map
@@ -1281,9 +1369,9 @@ namespace SysOM20231230
       Models::ListAifgJobsResponse listAifgJobsWithOptions(const Models::ListAifgJobsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of diagnostic tasks.
+       * @summary Retrieves the list of diagnostic tasks.
        *
-       * @description This operation retrieves the list of regions where the current user has machines managed by SysOM. If the user has ECS instances in a region but those instances are not managed by SysOM, that region does not appear in the results.
+       * @description This operation retrieves the list of regions where the current user has machines managed by SysOM. If a user has ECS instances in a region but they are not managed by SysOM, the region will not appear in the API response.
        *
        * @param request ListAifgJobsRequest
        * @return ListAifgJobsResponse
@@ -1325,7 +1413,7 @@ namespace SysOM20231230
       Models::ListAlertItemsResponse listAlertItems();
 
       /**
-       * @summary Retrieves all alert policies configured by the user for push notifications.
+       * @summary Retrieves all alert notification policies for the user.
        *
        * @param request ListAlertStrategiesRequest
        * @param headers map
@@ -1335,7 +1423,7 @@ namespace SysOM20231230
       Models::ListAlertStrategiesResponse listAlertStrategiesWithOptions(const Models::ListAlertStrategiesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves all alert policies configured by the user for push notifications.
+       * @summary Retrieves all alert notification policies for the user.
        *
        * @param request ListAlertStrategiesRequest
        * @return ListAlertStrategiesResponse
@@ -1579,9 +1667,9 @@ namespace SysOM20231230
       Models::ListPodsOfInstanceResponse listPodsOfInstance(const Models::ListPodsOfInstanceRequest &request);
 
       /**
-       * @summary Lists all regions that contain managed instances.
+       * @summary Lists all regions with managed instances.
        *
-       * @description This operation retrieves the list of regions where the current user has instances managed by SysOM. If a user has ECS instances in a region but none of them are managed by SysOM, that region is not included in the response.
+       * @description This operation retrieves the list of regions where the current user has instances managed by SysOM. If you have ECS instances in a region but they are not managed by SysOM, the region is not included in the response.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1590,9 +1678,9 @@ namespace SysOM20231230
       Models::ListRegionsResponse listRegionsWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists all regions that contain managed instances.
+       * @summary Lists all regions with managed instances.
        *
-       * @description This operation retrieves the list of regions where the current user has instances managed by SysOM. If a user has ECS instances in a region but none of them are managed by SysOM, that region is not included in the response.
+       * @description This operation retrieves the list of regions where the current user has instances managed by SysOM. If you have ECS instances in a region but they are not managed by SysOM, the region is not included in the response.
        *
        * @return ListRegionsResponse
        */
@@ -1617,9 +1705,9 @@ namespace SysOM20231230
       Models::ListVmcoreDiagnosisTaskResponse listVmcoreDiagnosisTask(const Models::ListVmcoreDiagnosisTaskRequest &request);
 
       /**
-       * @summary Asynchronously queries the CVE hotfix status on specified instances.
+       * @summary Asynchronously queries the CVE hotfix status on the specified instances.
        *
-       * @description The call to this operation to install the agent is asynchronous. After you call this operation, a task_id is returned. You can use this ID to call the GetHotfixTask operation to obtain the execution status of the task.
+       * @description Calling this API operation to install the agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetHotfixTask operation to query the execution status of the task.
        *
        * @param request QueryHotfixStatusRequest
        * @param headers map
@@ -1629,9 +1717,9 @@ namespace SysOM20231230
       Models::QueryHotfixStatusResponse queryHotfixStatusWithOptions(const Models::QueryHotfixStatusRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Asynchronously queries the CVE hotfix status on specified instances.
+       * @summary Asynchronously queries the CVE hotfix status on the specified instances.
        *
-       * @description The call to this operation to install the agent is asynchronous. After you call this operation, a task_id is returned. You can use this ID to call the GetHotfixTask operation to obtain the execution status of the task.
+       * @description Calling this API operation to install the agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetHotfixTask operation to query the execution status of the task.
        *
        * @param request QueryHotfixStatusRequest
        * @return QueryHotfixStatusResponse
@@ -1681,7 +1769,7 @@ namespace SysOM20231230
       /**
        * @summary Triggers AI application diagnostics.
        *
-       * @description Currently, only comparative analysis of the same PID across different steps within the same AI Infra analysis record is supported.
+       * @description Currently, only comparative analysis of the same PID across different steps under the same AI Infra analysis record is supported.
        *
        * @param request StartAifgAnalysisRequest
        * @param headers map
@@ -1693,7 +1781,7 @@ namespace SysOM20231230
       /**
        * @summary Triggers AI application diagnostics.
        *
-       * @description Currently, only comparative analysis of the same PID across different steps within the same AI Infra analysis record is supported.
+       * @description Currently, only comparative analysis of the same PID across different steps under the same AI Infra analysis record is supported.
        *
        * @param request StartAifgAnalysisRequest
        * @return StartAifgAnalysisResponse
@@ -1763,9 +1851,9 @@ namespace SysOM20231230
       Models::UninstallAgentWithTypeResponse uninstallAgentWithType(const Models::UninstallAgentWithTypeRequest &request);
 
       /**
-       * @summary Asynchronously uninstalls CVE hotfixes from the specified instances.
+       * @summary Asynchronously uninstalls a CVE hotfix from a specified instance.
        *
-       * @description This operation is asynchronous. After you call this operation, a task_id is returned. You can use this ID to call the GetHotfixTask operation to query the execution status of the task.
+       * @description Calling this API to install the agent is asynchronous. After you call this API, a task_id is returned. You can use this ID to call the GetHotfixTask API to obtain the execution status of the task.
        *
        * @param request UninstallHotfixRequest
        * @param headers map
@@ -1775,9 +1863,9 @@ namespace SysOM20231230
       Models::UninstallHotfixResponse uninstallHotfixWithOptions(const Models::UninstallHotfixRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Asynchronously uninstalls CVE hotfixes from the specified instances.
+       * @summary Asynchronously uninstalls a CVE hotfix from a specified instance.
        *
-       * @description This operation is asynchronous. After you call this operation, a task_id is returned. You can use this ID to call the GetHotfixTask operation to query the execution status of the task.
+       * @description Calling this API to install the agent is asynchronous. After you call this API, a task_id is returned. You can use this ID to call the GetHotfixTask API to obtain the execution status of the task.
        *
        * @param request UninstallHotfixRequest
        * @return UninstallHotfixResponse
@@ -1785,9 +1873,9 @@ namespace SysOM20231230
       Models::UninstallHotfixResponse uninstallHotfix(const Models::UninstallHotfixRequest &request);
 
       /**
-       * @summary Updates the component configuration.
+       * @summary Updates the configuration of a component.
        *
-       * @description After the configuration is updated, the new configuration is delivered to all resources that use it.
+       * @description After the configuration is updated, the new configuration is delivered to all resources to which the configuration is applied.
        *
        * @param request UpdateAgentConfigRequest
        * @param headers map
@@ -1797,9 +1885,9 @@ namespace SysOM20231230
       Models::UpdateAgentConfigResponse updateAgentConfigWithOptions(const Models::UpdateAgentConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the component configuration.
+       * @summary Updates the configuration of a component.
        *
-       * @description After the configuration is updated, the new configuration is delivered to all resources that use it.
+       * @description After the configuration is updated, the new configuration is delivered to all resources to which the configuration is applied.
        *
        * @param request UpdateAgentConfigRequest
        * @return UpdateAgentConfigResponse
@@ -1847,7 +1935,7 @@ namespace SysOM20231230
       Models::UpdateAlertEnabledResponse updateAlertEnabled(const Models::UpdateAlertEnabledRequest &request);
 
       /**
-       * @summary Updates a push alert policy.
+       * @summary Updates the alert push policy.
        *
        * @param request UpdateAlertStrategyRequest
        * @param headers map
@@ -1857,7 +1945,7 @@ namespace SysOM20231230
       Models::UpdateAlertStrategyResponse updateAlertStrategyWithOptions(const Models::UpdateAlertStrategyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a push alert policy.
+       * @summary Updates the alert push policy.
        *
        * @param request UpdateAlertStrategyRequest
        * @return UpdateAlertStrategyResponse
@@ -1865,7 +1953,7 @@ namespace SysOM20231230
       Models::UpdateAlertStrategyResponse updateAlertStrategy(const Models::UpdateAlertStrategyRequest &request);
 
       /**
-       * @summary Updates the configuration of a cluster component.
+       * @summary Updates the component configuration of a cluster.
        *
        * @param request UpdateClusterAgentConfigRequest
        * @param headers map
@@ -1875,7 +1963,7 @@ namespace SysOM20231230
       Models::UpdateClusterAgentConfigResponse updateClusterAgentConfigWithOptions(const Models::UpdateClusterAgentConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the configuration of a cluster component.
+       * @summary Updates the component configuration of a cluster.
        *
        * @param request UpdateClusterAgentConfigRequest
        * @return UpdateClusterAgentConfigResponse
@@ -1925,7 +2013,7 @@ namespace SysOM20231230
       Models::UpdateFuncSwitchRecordResponse updateFuncSwitchRecord(const Models::UpdateFuncSwitchRecordRequest &request);
 
       /**
-       * @summary Updates the component configuration of an instance.
+       * @summary Updates the component configurations of an instance.
        *
        * @param request UpdateInstanceAgentConfigRequest
        * @param headers map
@@ -1935,7 +2023,7 @@ namespace SysOM20231230
       Models::UpdateInstanceAgentConfigResponse updateInstanceAgentConfigWithOptions(const Models::UpdateInstanceAgentConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the component configuration of an instance.
+       * @summary Updates the component configurations of an instance.
        *
        * @param request UpdateInstanceAgentConfigRequest
        * @return UpdateInstanceAgentConfigResponse

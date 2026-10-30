@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The ID of the component whose configuration is to be updated.
+    // The ID of the component whose configuration you want to update.
     // 
     // This parameter is required.
     shared_ptr<string> agentId_ {};
@@ -65,7 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The ID of the component configuration to install on the cluster.
+    // The ID of the component configuration to be installed on the cluster.
     // 
     // This parameter is required.
     shared_ptr<string> configId_ {};

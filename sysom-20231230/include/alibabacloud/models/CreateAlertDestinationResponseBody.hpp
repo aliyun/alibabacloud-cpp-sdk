@@ -128,9 +128,9 @@ namespace Models
         shared_ptr<string> email_ {};
         // The phone number.
         shared_ptr<string> phone_ {};
-        // The chatbot secret key.
+        // The secret key of the bot.
         shared_ptr<string> sec_ {};
-        // The webhook URL of the chatbot.
+        // The webhook URL of the bot.
         shared_ptr<string> webhook_ {};
       };
 
@@ -196,7 +196,7 @@ namespace Models
 
 
     protected:
-      // The time when the contact was created.
+      // The creation time.
       shared_ptr<int64_t> createdAt_ {};
       // The policy ID.
       shared_ptr<int32_t> id_ {};
@@ -206,11 +206,11 @@ namespace Models
       shared_ptr<Data::Params> params_ {};
       // The configuration source.
       shared_ptr<string> source_ {};
-      // The notification target. Currently, only DingTalk chatbots are supported.
+      // The push target. Currently, only DingTalk bots are supported.
       shared_ptr<string> target_ {};
       // The user ID.
       shared_ptr<string> uid_ {};
-      // The time when the contact was last updated.
+      // The update time.
       shared_ptr<int64_t> updatedAt_ {};
     };
 
@@ -253,7 +253,7 @@ namespace Models
     shared_ptr<CreateAlertDestinationResponseBody::Data> data_ {};
     // The error message.
     // - If `code == Success`, this field is empty.
-    // - Otherwise, this field contains the error message of the request.
+    // - Otherwise, this field contains the request error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

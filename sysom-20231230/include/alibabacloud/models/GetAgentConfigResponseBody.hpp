@@ -234,7 +234,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The number of returned records.
+    // The total number of returned records.
     shared_ptr<int64_t> total_ {};
   };
 

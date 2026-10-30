@@ -89,7 +89,7 @@ namespace Models
       shared_ptr<string> cluster_ {};
       // The ECS instance ID.
       shared_ptr<string> instance_ {};
-      // The reason why the instance is not supported for management. This field is not empty when success is false.
+      // The reason why the instance is not supported for management. This field is not empty when the success field is false.
       shared_ptr<string> reason_ {};
     };
 
@@ -134,14 +134,14 @@ namespace Models
 
   protected:
     // The status code.
-    // - If `code` is `Success`, the authorization is successful.
-    // - Other status codes indicate that the authorization failed. If the authorization failed, check the `message` field for the detailed fault information.
+    // - If the value is `Success`, the authorization is successful.
+    // - Other status codes indicate that the authorization failed. If the authorization failed, check the `message` field for the detailed fault message.
     shared_ptr<string> code_ {};
     // The returned result.
     shared_ptr<vector<CheckAgentConfigSupportedResponseBody::Data>> data_ {};
     // The error message.
-    // - If code is Success, this field is empty.
-    // - Otherwise, this field contains the error information of the request.
+    // - If the value of `code` is `Success`, this field is empty.
+    // - Otherwise, this field contains the error message of the request.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

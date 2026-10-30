@@ -77,7 +77,7 @@ namespace Models
 
 
   protected:
-    // The response code. Valid values: Success and Sysom.ServerError.
+    // The response code, which is Success or Sysom.ServerError.
     shared_ptr<string> code_ {};
     // The result of the parameter retrieval.
     Darabonba::Json data_ {};
@@ -85,7 +85,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The total number of returned entries.
+    // The total number of returned items.
     shared_ptr<int32_t> total_ {};
   };
 

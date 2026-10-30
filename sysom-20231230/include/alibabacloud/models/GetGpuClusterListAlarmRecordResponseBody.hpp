@@ -153,23 +153,23 @@ namespace Models
 
 
     protected:
-      // The cluster where the alert was triggered.
+      // The cluster where the alert is triggered.
       shared_ptr<string> alarmCluster_ {};
-      // The additional information about the alert.
+      // The extended information of the alert.
       Darabonba::Json alarmExtInfo_ {};
       // The unique ID of the alert.
       shared_ptr<string> alarmId_ {};
-      // The event log associated with the alert.
+      // The alerting event log.
       shared_ptr<string> alarmLog_ {};
       // The ID of the task where the anomaly occurred.
       shared_ptr<string> alarmTask_ {};
-      // The date and time when the alert was triggered.
+      // The date and time when the alert is triggered.
       shared_ptr<string> alarmTime_ {};
       // The topology snapshot.
       Darabonba::Json alarmTopology_ {};
-      // The Alarm Metric for alerting.
+      // The alerting type.
       shared_ptr<string> alarmType_ {};
-      // The task status.
+      // The status of the task.
       shared_ptr<string> status_ {};
       // The UUID of the cloud account.
       shared_ptr<string> uid_ {};
@@ -215,11 +215,11 @@ namespace Models
 
 
   protected:
-    // The value is "Success" or "Sysom.ServerError".
+    // The response code. Valid values: Success and Sysom.ServerError.
     shared_ptr<string> code_ {};
     // The list of alert data.
     shared_ptr<vector<GetGpuClusterListAlarmRecordResponseBody::Data>> data_ {};
-    // When code is not "Success", message contains the error information.
+    // The error message returned when the code is not Success.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

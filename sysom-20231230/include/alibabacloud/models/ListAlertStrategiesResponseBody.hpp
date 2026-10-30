@@ -132,7 +132,7 @@ namespace Models
         shared_ptr<vector<string>> clusters_ {};
         // The list of alert contacts and policy destinations.
         shared_ptr<vector<int32_t>> destinations_ {};
-        // The list of anomaly items that receive alerts.
+        // The list of exception items that receive alerts.
         shared_ptr<vector<string>> items_ {};
       };
 
@@ -204,7 +204,7 @@ namespace Models
       shared_ptr<bool> enabled_ {};
       // The policy ID.
       shared_ptr<int64_t> id_ {};
-      // Indicates whether Kubernetes labels are required.
+      // Indicates whether K8s labels are required.
       shared_ptr<bool> k8sLabel_ {};
       // The policy name.
       shared_ptr<string> name_ {};
@@ -272,16 +272,16 @@ namespace Models
 
   protected:
     // The status code.
-    // - `code == Success` indicates that the authorization is successful.
-    // - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
+    // - If `code == Success`, the authorization is successful.
+    // - Other status codes indicate that the authorization failed. If the authorization failed, check the `message` field for the detailed error message.
     shared_ptr<string> code_ {};
-    // The returned result.
+    // The returned results.
     shared_ptr<vector<ListAlertStrategiesResponseBody::Data>> data_ {};
-    // The maximum number of entries returned.
+    // The maximum number of returned results.
     shared_ptr<int32_t> maxResults_ {};
     // The error message.
     // - If `code == Success`, this field is empty.
-    // - Otherwise, this field contains the request error information.
+    // - Otherwise, this field contains the request error message.
     shared_ptr<string> message_ {};
     // The pagination token for the next request.
     shared_ptr<string> nextToken_ {};

@@ -104,9 +104,9 @@ namespace Models
       shared_ptr<string> email_ {};
       // The phone number.
       shared_ptr<string> phone_ {};
-      // The chatbot secret key.
+      // The secret key of the bot.
       shared_ptr<string> sec_ {};
-      // The webhook URL of the chatbot.
+      // The webhook URL of the bot.
       shared_ptr<string> webhook_ {};
     };
 
@@ -174,9 +174,13 @@ namespace Models
 
 
   protected:
+    // The ID of the IM bot.
     shared_ptr<string> appId_ {};
+    // The secret key of the IM bot.
     shared_ptr<string> appSecret_ {};
+    // The ID of the group.
     shared_ptr<vector<string>> groupId_ {};
+    // Specifies whether the IM bot is enabled.
     shared_ptr<bool> imbot_ {};
     // The name of the alert contact.
     shared_ptr<string> name_ {};
@@ -184,7 +188,7 @@ namespace Models
     shared_ptr<CreateAlertDestinationRequest::Params> params_ {};
     // The configuration source.
     shared_ptr<string> source_ {};
-    // The notification target. Currently, only DingTalk chatbots are supported.
+    // The push target. Currently, only DingTalk bots are supported.
     shared_ptr<string> target_ {};
   };
 

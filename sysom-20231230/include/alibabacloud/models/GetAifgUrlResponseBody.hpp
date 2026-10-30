@@ -61,7 +61,7 @@ namespace Models
 
 
     protected:
-      // The URL of the diagnostic details.
+      // The URL for diagnostic details.
       shared_ptr<string> url_ {};
     };
 
@@ -95,7 +95,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The response data.
     shared_ptr<GetAifgUrlResponseBody::Data> data_ {};
-    // The description of the status code.
+    // The status code description.
     shared_ptr<string> message_ {};
   };
 

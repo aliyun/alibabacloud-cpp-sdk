@@ -84,18 +84,19 @@ namespace Models
 
 
   protected:
+    // The component configuration ID.
     shared_ptr<string> agentConfigId_ {};
-    // Filters results by cluster ID.
+    // Filters by cluster ID.
     // 
-    // > This cluster ID is not the ACK cluster ID. It is the `cluster_id` field returned by this operation or the `id` field returned by the ListCluster operation.
+    // > This cluster ID is not the ACK cluster ID. It is the `cluster_id` field in the data returned by this operation, or the `id` field in the data returned by the ListCluster operation.
     shared_ptr<string> clusterId_ {};
-    // The current page number (starting from 1).
+    // The current page number, starting from 1.
     shared_ptr<int64_t> current_ {};
     // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // Specifies the agent ID to filter the installation list. You can use this parameter together with the plugin_version parameter.
+    // Filters the installation list by the specified agent. You can use this parameter together with the plugin_version parameter.
     shared_ptr<string> pluginId_ {};
-    // Cannot be used alone. Use this parameter together with plugin_id to filter the installation list by a specific agent version.
+    // This parameter cannot be used alone and must be used together with the plugin_id parameter to filter the installation list by the specified agent and version.
     shared_ptr<string> pluginVersion_ {};
   };
 
