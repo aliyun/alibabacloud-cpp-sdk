@@ -2,10 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_GETVPCPEERCONNECTIONATTRIBUTERESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETVPCPEERCONNECTIONATTRIBUTERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/GetVpcPeerConnectionAttributeResponseBodyAcceptingVpc.hpp>
 #include <vector>
-#include <alibabacloud/models/GetVpcPeerConnectionAttributeResponseBodyTags.hpp>
-#include <alibabacloud/models/GetVpcPeerConnectionAttributeResponseBodyVpc.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -23,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Bandwidth, bandwidth_);
       DARABONBA_PTR_TO_JSON(BizStatus, bizStatus_);
       DARABONBA_PTR_TO_JSON(Description, description_);
+      DARABONBA_PTR_TO_JSON(EnableJumboFrame, enableJumboFrame_);
       DARABONBA_PTR_TO_JSON(GmtCreate, gmtCreate_);
       DARABONBA_PTR_TO_JSON(GmtExpired, gmtExpired_);
       DARABONBA_PTR_TO_JSON(GmtModified, gmtModified_);
@@ -45,6 +43,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Bandwidth, bandwidth_);
       DARABONBA_PTR_FROM_JSON(BizStatus, bizStatus_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
+      DARABONBA_PTR_FROM_JSON(EnableJumboFrame, enableJumboFrame_);
       DARABONBA_PTR_FROM_JSON(GmtCreate, gmtCreate_);
       DARABONBA_PTR_FROM_JSON(GmtExpired, gmtExpired_);
       DARABONBA_PTR_FROM_JSON(GmtModified, gmtModified_);
@@ -71,220 +70,397 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acceptingOwnerUid_ != nullptr
-        && this->acceptingRegionId_ != nullptr && this->acceptingVpc_ != nullptr && this->bandwidth_ != nullptr && this->bizStatus_ != nullptr && this->description_ != nullptr
-        && this->gmtCreate_ != nullptr && this->gmtExpired_ != nullptr && this->gmtModified_ != nullptr && this->instanceId_ != nullptr && this->linkType_ != nullptr
-        && this->managedService_ != nullptr && this->name_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->requestId_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->status_ != nullptr && this->tags_ != nullptr && this->vpc_ != nullptr; };
+    class Vpc : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Vpc& obj) { 
+        DARABONBA_PTR_TO_JSON(Ipv4Cidrs, ipv4Cidrs_);
+        DARABONBA_PTR_TO_JSON(Ipv6Cidrs, ipv6Cidrs_);
+        DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
+      };
+      friend void from_json(const Darabonba::Json& j, Vpc& obj) { 
+        DARABONBA_PTR_FROM_JSON(Ipv4Cidrs, ipv4Cidrs_);
+        DARABONBA_PTR_FROM_JSON(Ipv6Cidrs, ipv6Cidrs_);
+        DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
+      };
+      Vpc() = default ;
+      Vpc(const Vpc &) = default ;
+      Vpc(Vpc &&) = default ;
+      Vpc(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Vpc() = default ;
+      Vpc& operator=(const Vpc &) = default ;
+      Vpc& operator=(Vpc &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->ipv4Cidrs_ == nullptr
+        && this->ipv6Cidrs_ == nullptr && this->vpcId_ == nullptr; };
+      // ipv4Cidrs Field Functions 
+      bool hasIpv4Cidrs() const { return this->ipv4Cidrs_ != nullptr;};
+      void deleteIpv4Cidrs() { this->ipv4Cidrs_ = nullptr;};
+      inline const vector<string> & getIpv4Cidrs() const { DARABONBA_PTR_GET_CONST(ipv4Cidrs_, vector<string>) };
+      inline vector<string> getIpv4Cidrs() { DARABONBA_PTR_GET(ipv4Cidrs_, vector<string>) };
+      inline Vpc& setIpv4Cidrs(const vector<string> & ipv4Cidrs) { DARABONBA_PTR_SET_VALUE(ipv4Cidrs_, ipv4Cidrs) };
+      inline Vpc& setIpv4Cidrs(vector<string> && ipv4Cidrs) { DARABONBA_PTR_SET_RVALUE(ipv4Cidrs_, ipv4Cidrs) };
+
+
+      // ipv6Cidrs Field Functions 
+      bool hasIpv6Cidrs() const { return this->ipv6Cidrs_ != nullptr;};
+      void deleteIpv6Cidrs() { this->ipv6Cidrs_ = nullptr;};
+      inline const vector<string> & getIpv6Cidrs() const { DARABONBA_PTR_GET_CONST(ipv6Cidrs_, vector<string>) };
+      inline vector<string> getIpv6Cidrs() { DARABONBA_PTR_GET(ipv6Cidrs_, vector<string>) };
+      inline Vpc& setIpv6Cidrs(const vector<string> & ipv6Cidrs) { DARABONBA_PTR_SET_VALUE(ipv6Cidrs_, ipv6Cidrs) };
+      inline Vpc& setIpv6Cidrs(vector<string> && ipv6Cidrs) { DARABONBA_PTR_SET_RVALUE(ipv6Cidrs_, ipv6Cidrs) };
+
+
+      // vpcId Field Functions 
+      bool hasVpcId() const { return this->vpcId_ != nullptr;};
+      void deleteVpcId() { this->vpcId_ = nullptr;};
+      inline string getVpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
+      inline Vpc& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
+
+
+    protected:
+      // The IPv4 CIDR blocks of the requester.
+      shared_ptr<vector<string>> ipv4Cidrs_ {};
+      // The IPv6 CIDR blocks of the requester.
+      shared_ptr<vector<string>> ipv6Cidrs_ {};
+      // The instance ID of the requester VPC-connected instance.
+      shared_ptr<string> vpcId_ {};
+    };
+
+    class Tags : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tags& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tags& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Tags() = default ;
+      Tags(const Tags &) = default ;
+      Tags(Tags &&) = default ;
+      Tags(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tags() = default ;
+      Tags& operator=(const Tags &) = default ;
+      Tags& operator=(Tags &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tags& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // The tag key.
+      shared_ptr<string> key_ {};
+      // The tag value.
+      shared_ptr<string> value_ {};
+    };
+
+    class AcceptingVpc : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const AcceptingVpc& obj) { 
+        DARABONBA_PTR_TO_JSON(Ipv4Cidrs, ipv4Cidrs_);
+        DARABONBA_PTR_TO_JSON(Ipv6Cidrs, ipv6Cidrs_);
+        DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
+      };
+      friend void from_json(const Darabonba::Json& j, AcceptingVpc& obj) { 
+        DARABONBA_PTR_FROM_JSON(Ipv4Cidrs, ipv4Cidrs_);
+        DARABONBA_PTR_FROM_JSON(Ipv6Cidrs, ipv6Cidrs_);
+        DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
+      };
+      AcceptingVpc() = default ;
+      AcceptingVpc(const AcceptingVpc &) = default ;
+      AcceptingVpc(AcceptingVpc &&) = default ;
+      AcceptingVpc(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~AcceptingVpc() = default ;
+      AcceptingVpc& operator=(const AcceptingVpc &) = default ;
+      AcceptingVpc& operator=(AcceptingVpc &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->ipv4Cidrs_ == nullptr
+        && this->ipv6Cidrs_ == nullptr && this->vpcId_ == nullptr; };
+      // ipv4Cidrs Field Functions 
+      bool hasIpv4Cidrs() const { return this->ipv4Cidrs_ != nullptr;};
+      void deleteIpv4Cidrs() { this->ipv4Cidrs_ = nullptr;};
+      inline const vector<string> & getIpv4Cidrs() const { DARABONBA_PTR_GET_CONST(ipv4Cidrs_, vector<string>) };
+      inline vector<string> getIpv4Cidrs() { DARABONBA_PTR_GET(ipv4Cidrs_, vector<string>) };
+      inline AcceptingVpc& setIpv4Cidrs(const vector<string> & ipv4Cidrs) { DARABONBA_PTR_SET_VALUE(ipv4Cidrs_, ipv4Cidrs) };
+      inline AcceptingVpc& setIpv4Cidrs(vector<string> && ipv4Cidrs) { DARABONBA_PTR_SET_RVALUE(ipv4Cidrs_, ipv4Cidrs) };
+
+
+      // ipv6Cidrs Field Functions 
+      bool hasIpv6Cidrs() const { return this->ipv6Cidrs_ != nullptr;};
+      void deleteIpv6Cidrs() { this->ipv6Cidrs_ = nullptr;};
+      inline const vector<string> & getIpv6Cidrs() const { DARABONBA_PTR_GET_CONST(ipv6Cidrs_, vector<string>) };
+      inline vector<string> getIpv6Cidrs() { DARABONBA_PTR_GET(ipv6Cidrs_, vector<string>) };
+      inline AcceptingVpc& setIpv6Cidrs(const vector<string> & ipv6Cidrs) { DARABONBA_PTR_SET_VALUE(ipv6Cidrs_, ipv6Cidrs) };
+      inline AcceptingVpc& setIpv6Cidrs(vector<string> && ipv6Cidrs) { DARABONBA_PTR_SET_RVALUE(ipv6Cidrs_, ipv6Cidrs) };
+
+
+      // vpcId Field Functions 
+      bool hasVpcId() const { return this->vpcId_ != nullptr;};
+      void deleteVpcId() { this->vpcId_ = nullptr;};
+      inline string getVpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
+      inline AcceptingVpc& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
+
+
+    protected:
+      // The IPv4 CIDR blocks of the acceptor.
+      shared_ptr<vector<string>> ipv4Cidrs_ {};
+      // The IPv6 CIDR blocks of the acceptor.
+      shared_ptr<vector<string>> ipv6Cidrs_ {};
+      // The instance ID of the acceptor VPC-connected instance.
+      shared_ptr<string> vpcId_ {};
+    };
+
+    virtual bool empty() const override { return this->acceptingOwnerUid_ == nullptr
+        && this->acceptingRegionId_ == nullptr && this->acceptingVpc_ == nullptr && this->bandwidth_ == nullptr && this->bizStatus_ == nullptr && this->description_ == nullptr
+        && this->enableJumboFrame_ == nullptr && this->gmtCreate_ == nullptr && this->gmtExpired_ == nullptr && this->gmtModified_ == nullptr && this->instanceId_ == nullptr
+        && this->linkType_ == nullptr && this->managedService_ == nullptr && this->name_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr
+        && this->requestId_ == nullptr && this->resourceGroupId_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr && this->vpc_ == nullptr; };
     // acceptingOwnerUid Field Functions 
     bool hasAcceptingOwnerUid() const { return this->acceptingOwnerUid_ != nullptr;};
     void deleteAcceptingOwnerUid() { this->acceptingOwnerUid_ = nullptr;};
-    inline int64_t acceptingOwnerUid() const { DARABONBA_PTR_GET_DEFAULT(acceptingOwnerUid_, 0L) };
+    inline int64_t getAcceptingOwnerUid() const { DARABONBA_PTR_GET_DEFAULT(acceptingOwnerUid_, 0L) };
     inline GetVpcPeerConnectionAttributeResponseBody& setAcceptingOwnerUid(int64_t acceptingOwnerUid) { DARABONBA_PTR_SET_VALUE(acceptingOwnerUid_, acceptingOwnerUid) };
 
 
     // acceptingRegionId Field Functions 
     bool hasAcceptingRegionId() const { return this->acceptingRegionId_ != nullptr;};
     void deleteAcceptingRegionId() { this->acceptingRegionId_ = nullptr;};
-    inline string acceptingRegionId() const { DARABONBA_PTR_GET_DEFAULT(acceptingRegionId_, "") };
+    inline string getAcceptingRegionId() const { DARABONBA_PTR_GET_DEFAULT(acceptingRegionId_, "") };
     inline GetVpcPeerConnectionAttributeResponseBody& setAcceptingRegionId(string acceptingRegionId) { DARABONBA_PTR_SET_VALUE(acceptingRegionId_, acceptingRegionId) };
 
 
     // acceptingVpc Field Functions 
     bool hasAcceptingVpc() const { return this->acceptingVpc_ != nullptr;};
     void deleteAcceptingVpc() { this->acceptingVpc_ = nullptr;};
-    inline const GetVpcPeerConnectionAttributeResponseBodyAcceptingVpc & acceptingVpc() const { DARABONBA_PTR_GET_CONST(acceptingVpc_, GetVpcPeerConnectionAttributeResponseBodyAcceptingVpc) };
-    inline GetVpcPeerConnectionAttributeResponseBodyAcceptingVpc acceptingVpc() { DARABONBA_PTR_GET(acceptingVpc_, GetVpcPeerConnectionAttributeResponseBodyAcceptingVpc) };
-    inline GetVpcPeerConnectionAttributeResponseBody& setAcceptingVpc(const GetVpcPeerConnectionAttributeResponseBodyAcceptingVpc & acceptingVpc) { DARABONBA_PTR_SET_VALUE(acceptingVpc_, acceptingVpc) };
-    inline GetVpcPeerConnectionAttributeResponseBody& setAcceptingVpc(GetVpcPeerConnectionAttributeResponseBodyAcceptingVpc && acceptingVpc) { DARABONBA_PTR_SET_RVALUE(acceptingVpc_, acceptingVpc) };
+    inline const GetVpcPeerConnectionAttributeResponseBody::AcceptingVpc & getAcceptingVpc() const { DARABONBA_PTR_GET_CONST(acceptingVpc_, GetVpcPeerConnectionAttributeResponseBody::AcceptingVpc) };
+    inline GetVpcPeerConnectionAttributeResponseBody::AcceptingVpc getAcceptingVpc() { DARABONBA_PTR_GET(acceptingVpc_, GetVpcPeerConnectionAttributeResponseBody::AcceptingVpc) };
+    inline GetVpcPeerConnectionAttributeResponseBody& setAcceptingVpc(const GetVpcPeerConnectionAttributeResponseBody::AcceptingVpc & acceptingVpc) { DARABONBA_PTR_SET_VALUE(acceptingVpc_, acceptingVpc) };
+    inline GetVpcPeerConnectionAttributeResponseBody& setAcceptingVpc(GetVpcPeerConnectionAttributeResponseBody::AcceptingVpc && acceptingVpc) { DARABONBA_PTR_SET_RVALUE(acceptingVpc_, acceptingVpc) };
 
 
     // bandwidth Field Functions 
     bool hasBandwidth() const { return this->bandwidth_ != nullptr;};
     void deleteBandwidth() { this->bandwidth_ = nullptr;};
-    inline int32_t bandwidth() const { DARABONBA_PTR_GET_DEFAULT(bandwidth_, 0) };
+    inline int32_t getBandwidth() const { DARABONBA_PTR_GET_DEFAULT(bandwidth_, 0) };
     inline GetVpcPeerConnectionAttributeResponseBody& setBandwidth(int32_t bandwidth) { DARABONBA_PTR_SET_VALUE(bandwidth_, bandwidth) };
 
 
     // bizStatus Field Functions 
     bool hasBizStatus() const { return this->bizStatus_ != nullptr;};
     void deleteBizStatus() { this->bizStatus_ = nullptr;};
-    inline string bizStatus() const { DARABONBA_PTR_GET_DEFAULT(bizStatus_, "") };
+    inline string getBizStatus() const { DARABONBA_PTR_GET_DEFAULT(bizStatus_, "") };
     inline GetVpcPeerConnectionAttributeResponseBody& setBizStatus(string bizStatus) { DARABONBA_PTR_SET_VALUE(bizStatus_, bizStatus) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline GetVpcPeerConnectionAttributeResponseBody& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // enableJumboFrame Field Functions 
+    bool hasEnableJumboFrame() const { return this->enableJumboFrame_ != nullptr;};
+    void deleteEnableJumboFrame() { this->enableJumboFrame_ = nullptr;};
+    inline bool getEnableJumboFrame() const { DARABONBA_PTR_GET_DEFAULT(enableJumboFrame_, false) };
+    inline GetVpcPeerConnectionAttributeResponseBody& setEnableJumboFrame(bool enableJumboFrame) { DARABONBA_PTR_SET_VALUE(enableJumboFrame_, enableJumboFrame) };
 
 
     // gmtCreate Field Functions 
     bool hasGmtCreate() const { return this->gmtCreate_ != nullptr;};
     void deleteGmtCreate() { this->gmtCreate_ = nullptr;};
-    inline string gmtCreate() const { DARABONBA_PTR_GET_DEFAULT(gmtCreate_, "") };
+    inline string getGmtCreate() const { DARABONBA_PTR_GET_DEFAULT(gmtCreate_, "") };
     inline GetVpcPeerConnectionAttributeResponseBody& setGmtCreate(string gmtCreate) { DARABONBA_PTR_SET_VALUE(gmtCreate_, gmtCreate) };
 
 
     // gmtExpired Field Functions 
     bool hasGmtExpired() const { return this->gmtExpired_ != nullptr;};
     void deleteGmtExpired() { this->gmtExpired_ = nullptr;};
-    inline string gmtExpired() const { DARABONBA_PTR_GET_DEFAULT(gmtExpired_, "") };
+    inline string getGmtExpired() const { DARABONBA_PTR_GET_DEFAULT(gmtExpired_, "") };
     inline GetVpcPeerConnectionAttributeResponseBody& setGmtExpired(string gmtExpired) { DARABONBA_PTR_SET_VALUE(gmtExpired_, gmtExpired) };
 
 
     // gmtModified Field Functions 
     bool hasGmtModified() const { return this->gmtModified_ != nullptr;};
     void deleteGmtModified() { this->gmtModified_ = nullptr;};
-    inline string gmtModified() const { DARABONBA_PTR_GET_DEFAULT(gmtModified_, "") };
+    inline string getGmtModified() const { DARABONBA_PTR_GET_DEFAULT(gmtModified_, "") };
     inline GetVpcPeerConnectionAttributeResponseBody& setGmtModified(string gmtModified) { DARABONBA_PTR_SET_VALUE(gmtModified_, gmtModified) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetVpcPeerConnectionAttributeResponseBody& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // linkType Field Functions 
     bool hasLinkType() const { return this->linkType_ != nullptr;};
     void deleteLinkType() { this->linkType_ = nullptr;};
-    inline string linkType() const { DARABONBA_PTR_GET_DEFAULT(linkType_, "") };
+    inline string getLinkType() const { DARABONBA_PTR_GET_DEFAULT(linkType_, "") };
     inline GetVpcPeerConnectionAttributeResponseBody& setLinkType(string linkType) { DARABONBA_PTR_SET_VALUE(linkType_, linkType) };
 
 
     // managedService Field Functions 
     bool hasManagedService() const { return this->managedService_ != nullptr;};
     void deleteManagedService() { this->managedService_ = nullptr;};
-    inline string managedService() const { DARABONBA_PTR_GET_DEFAULT(managedService_, "") };
+    inline string getManagedService() const { DARABONBA_PTR_GET_DEFAULT(managedService_, "") };
     inline GetVpcPeerConnectionAttributeResponseBody& setManagedService(string managedService) { DARABONBA_PTR_SET_VALUE(managedService_, managedService) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline GetVpcPeerConnectionAttributeResponseBody& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline GetVpcPeerConnectionAttributeResponseBody& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetVpcPeerConnectionAttributeResponseBody& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetVpcPeerConnectionAttributeResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline GetVpcPeerConnectionAttributeResponseBody& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline GetVpcPeerConnectionAttributeResponseBody& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
-    inline const vector<GetVpcPeerConnectionAttributeResponseBodyTags> & tags() const { DARABONBA_PTR_GET_CONST(tags_, vector<GetVpcPeerConnectionAttributeResponseBodyTags>) };
-    inline vector<GetVpcPeerConnectionAttributeResponseBodyTags> tags() { DARABONBA_PTR_GET(tags_, vector<GetVpcPeerConnectionAttributeResponseBodyTags>) };
-    inline GetVpcPeerConnectionAttributeResponseBody& setTags(const vector<GetVpcPeerConnectionAttributeResponseBodyTags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
-    inline GetVpcPeerConnectionAttributeResponseBody& setTags(vector<GetVpcPeerConnectionAttributeResponseBodyTags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+    inline const vector<GetVpcPeerConnectionAttributeResponseBody::Tags> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<GetVpcPeerConnectionAttributeResponseBody::Tags>) };
+    inline vector<GetVpcPeerConnectionAttributeResponseBody::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<GetVpcPeerConnectionAttributeResponseBody::Tags>) };
+    inline GetVpcPeerConnectionAttributeResponseBody& setTags(const vector<GetVpcPeerConnectionAttributeResponseBody::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+    inline GetVpcPeerConnectionAttributeResponseBody& setTags(vector<GetVpcPeerConnectionAttributeResponseBody::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
     // vpc Field Functions 
     bool hasVpc() const { return this->vpc_ != nullptr;};
     void deleteVpc() { this->vpc_ = nullptr;};
-    inline const GetVpcPeerConnectionAttributeResponseBodyVpc & vpc() const { DARABONBA_PTR_GET_CONST(vpc_, GetVpcPeerConnectionAttributeResponseBodyVpc) };
-    inline GetVpcPeerConnectionAttributeResponseBodyVpc vpc() { DARABONBA_PTR_GET(vpc_, GetVpcPeerConnectionAttributeResponseBodyVpc) };
-    inline GetVpcPeerConnectionAttributeResponseBody& setVpc(const GetVpcPeerConnectionAttributeResponseBodyVpc & vpc) { DARABONBA_PTR_SET_VALUE(vpc_, vpc) };
-    inline GetVpcPeerConnectionAttributeResponseBody& setVpc(GetVpcPeerConnectionAttributeResponseBodyVpc && vpc) { DARABONBA_PTR_SET_RVALUE(vpc_, vpc) };
+    inline const GetVpcPeerConnectionAttributeResponseBody::Vpc & getVpc() const { DARABONBA_PTR_GET_CONST(vpc_, GetVpcPeerConnectionAttributeResponseBody::Vpc) };
+    inline GetVpcPeerConnectionAttributeResponseBody::Vpc getVpc() { DARABONBA_PTR_GET(vpc_, GetVpcPeerConnectionAttributeResponseBody::Vpc) };
+    inline GetVpcPeerConnectionAttributeResponseBody& setVpc(const GetVpcPeerConnectionAttributeResponseBody::Vpc & vpc) { DARABONBA_PTR_SET_VALUE(vpc_, vpc) };
+    inline GetVpcPeerConnectionAttributeResponseBody& setVpc(GetVpcPeerConnectionAttributeResponseBody::Vpc && vpc) { DARABONBA_PTR_SET_RVALUE(vpc_, vpc) };
 
 
   protected:
-    // The ID of the Alibaba Cloud account to which the accepter VPC belongs.
-    std::shared_ptr<int64_t> acceptingOwnerUid_ = nullptr;
-    // The region ID of the accepter VPC.
-    std::shared_ptr<string> acceptingRegionId_ = nullptr;
-    // The details of the accepter VPC.
-    std::shared_ptr<GetVpcPeerConnectionAttributeResponseBodyAcceptingVpc> acceptingVpc_ = nullptr;
-    // The bandwidth of the VPC peering connection. Unit: Mbit /s. The value is an integer greater than 0.
+    // The Alibaba Cloud account ID of the acceptor of the VPC peering connection.
+    shared_ptr<int64_t> acceptingOwnerUid_ {};
+    // The region ID of the acceptor of the VPC peering connection.
+    shared_ptr<string> acceptingRegionId_ {};
+    // The details of the acceptor VPC-connected instance.
+    shared_ptr<GetVpcPeerConnectionAttributeResponseBody::AcceptingVpc> acceptingVpc_ {};
+    // The bandwidth of the VPC peering connection. Unit: Mbit/s. Valid values: integers greater than 0.
     // 
-    // >  A value of -1 indicates that the bandwidth is unlimited.
+    // > A value of -1 indicates that the bandwidth is not limited.
     // 
-    // Default value:
+    // Default values:
+    // - The default bandwidth of a cross-region VPC peering connection is 1024 Mbit/s.
+    // - The default bandwidth of an intra-region VPC peering connection is -1 Mbit/s, which indicates that the bandwidth is not limited.
+    shared_ptr<int32_t> bandwidth_ {};
+    // The billing status of the VPC peering connection. Valid values:
     // 
-    // *   The default bandwidth value of an inter-region VPC peering connection is 1,024 Mbit/s.
-    // *   The default bandwidth value of an intra-region VPC peering connection is -1 Mbit/s, which indicates that the bandwidth is unlimited.
-    std::shared_ptr<int32_t> bandwidth_ = nullptr;
-    // The status of the VPC peering connection. Valid values:
-    // 
-    // *   **Normal**
-    // *   **FinancialLocked**
-    std::shared_ptr<string> bizStatus_ = nullptr;
+    // - **Normal**: Normal.
+    // - **FinancialLocked**: Locked due to overdue payments.
+    shared_ptr<string> bizStatus_ {};
     // The description of the VPC peering connection.
-    std::shared_ptr<string> description_ = nullptr;
-    // The time when the VPC peering connection was created. The time follows the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ss` format. The time is displayed in UTC.
-    std::shared_ptr<string> gmtCreate_ = nullptr;
+    shared_ptr<string> description_ {};
+    // Indicates whether the jumbo frame feature is enabled for the VPC peering connection. Valid values:
+    // - true: Enabled.
+    // - false: Disabled.
+    shared_ptr<bool> enableJumboFrame_ {};
+    // The time when the VPC peering connection was created. The time is displayed in UTC in the `YYYY-MM-DDThh:mm:ssZ` format.
+    shared_ptr<string> gmtCreate_ {};
     // The expiration time of the VPC peering connection.
     // 
-    // A valid expiration time is returned only when the **Status** of the VPC peering connection is **Accepting** or **Expired**. Otherwise, **null** is returned.
-    std::shared_ptr<string> gmtExpired_ = nullptr;
-    // The time when the VPC peering connection was modified. The time follows the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ss` format. The time is displayed in UTC.
-    std::shared_ptr<string> gmtModified_ = nullptr;
-    // The ID of the VPC peering connection.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    // A specific expiration time is returned only when the **Status** of the VPC peering connection is **Accepting** or **Expired**. If the VPC peering connection is in other states, **null** is returned.
+    shared_ptr<string> gmtExpired_ {};
+    // The time when the VPC peering connection was modified. The time is displayed in UTC in the `YYYY-MM-DDThh:mm:ssZ` format.
+    shared_ptr<string> gmtModified_ {};
+    // The instance ID of the VPC peering connection.
+    shared_ptr<string> instanceId_ {};
     // The link type of the VPC peering connection.
-    std::shared_ptr<string> linkType_ = nullptr;
-    std::shared_ptr<string> managedService_ = nullptr;
+    // 
+    // Default values:
+    // - The default link type of a cross-region VPC peering connection is Gold.
+    // - The default link type of an intra-region VPC peering connection is empty.
+    shared_ptr<string> linkType_ {};
+    // The associated cloud service.
+    shared_ptr<string> managedService_ {};
     // The name of the VPC peering connection.
-    std::shared_ptr<string> name_ = nullptr;
-    // The ID of the Alibaba Cloud account to which the requester VPC belongs.
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    // The region ID of the requester VPC.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> name_ {};
+    // The Alibaba Cloud account ID of the requester of the VPC peering connection.
+    shared_ptr<int64_t> ownerId_ {};
+    // The region ID of the requester of the VPC peering connection.
+    shared_ptr<string> regionId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The ID of the resource group.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The status of the VPC peering connection. Valid values:
     // 
-    // *   **Creating**
-    // *   **Accepting**
-    // *   **Updating**
-    // *   **Rejected**
-    // *   **Expired**
-    // *   **Activated**
-    // *   **Deleting**
-    // *   **Deleted**
+    // - **Creating**: Creating.
+    // - **Accepting**: Accepting.
+    // - **Updating**: Updating.
+    // - **Rejected**: Rejected.
+    // - **Expired**: Expired.
+    // - **Activated**: Activated.
+    // - **Deleting**: Deleting.
+    // - **Deleted**: Deleted. 
     // 
-    // For more information about the status of VPC peering connections, see [Overview](https://help.aliyun.com/document_detail/418507.html).
-    std::shared_ptr<string> status_ = nullptr;
-    // The tag list.
-    std::shared_ptr<vector<GetVpcPeerConnectionAttributeResponseBodyTags>> tags_ = nullptr;
-    // The details of the requester VPC.
-    std::shared_ptr<GetVpcPeerConnectionAttributeResponseBodyVpc> vpc_ = nullptr;
+    // For more information about the statuses of VPC peering connections, see [VPC peering connection overview](https://help.aliyun.com/document_detail/418507.html).
+    shared_ptr<string> status_ {};
+    // The tags.
+    shared_ptr<vector<GetVpcPeerConnectionAttributeResponseBody::Tags>> tags_ {};
+    // The details of the requester VPC-connected instance.
+    shared_ptr<GetVpcPeerConnectionAttributeResponseBody::Vpc> vpc_ {};
   };
 
   } // namespace Models

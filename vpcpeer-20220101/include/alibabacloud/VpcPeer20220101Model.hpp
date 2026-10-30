@@ -36,19 +36,5 @@
 #include <alibabacloud/models/UnTagResourcesRequest.hpp>
 #include <alibabacloud/models/UnTagResourcesResponseBody.hpp>
 #include <alibabacloud/models/UnTagResourcesResponse.hpp>
-#include <alibabacloud/models/AcceptVpcPeerConnectionRequestTag.hpp>
-#include <alibabacloud/models/CreateVpcPeerConnectionRequestTag.hpp>
-#include <alibabacloud/models/GetVpcPeerConnectionAttributeResponseBodyAcceptingVpc.hpp>
-#include <alibabacloud/models/GetVpcPeerConnectionAttributeResponseBodyTags.hpp>
-#include <alibabacloud/models/GetVpcPeerConnectionAttributeResponseBodyVpc.hpp>
-#include <alibabacloud/models/ListTagResourcesRequestTag.hpp>
-#include <alibabacloud/models/ListTagResourcesResponseBodyTagResources.hpp>
-#include <alibabacloud/models/ListVpcPeerConnectionsRequestTags.hpp>
-#include <alibabacloud/models/ListVpcPeerConnectionsShrinkRequestTags.hpp>
-#include <alibabacloud/models/ListVpcPeerConnectionsResponseBodyVpcPeerConnectsAcceptingVpc.hpp>
-#include <alibabacloud/models/ListVpcPeerConnectionsResponseBodyVpcPeerConnectsTags.hpp>
-#include <alibabacloud/models/ListVpcPeerConnectionsResponseBodyVpcPeerConnectsVpc.hpp>
-#include <alibabacloud/models/ListVpcPeerConnectionsResponseBodyVpcPeerConnects.hpp>
-#include <alibabacloud/models/TagResourcesRequestTag.hpp>
 
 #endif
