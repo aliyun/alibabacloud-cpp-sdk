@@ -116,11 +116,11 @@ namespace Models
 
 
       protected:
-        // The model deployment authorization. A value of true indicates that the model has been granted authorization. A value of false indicates that the model has not been granted authorization.
+        // The model deployment permission. A value of true indicates that the model is authorized for deployment. A value of false indicates that the model is not authorized.
         shared_ptr<bool> deploy_ {};
-        // The model training authorization. A value of true indicates that the model has been granted training authorization. A value of false indicates that the model has not been granted authorization.
+        // The model training permission. A value of true indicates that the model is authorized for fine-tuning. A value of false indicates that the model is not authorized.
         shared_ptr<bool> fineTune_ {};
-        // Indicates whether the model has inference permission. A value of true indicates that the model is authorized. A value of false indicates that the model is not authorized.
+        // The model invocation permission. A value of true indicates that the model is authorized for inference. A value of false indicates that the model is not authorized.
         shared_ptr<bool> inference_ {};
       };
 
@@ -152,7 +152,7 @@ namespace Models
     protected:
       // The model.
       shared_ptr<string> model_ {};
-      // The model name.
+      // The name of the model.
       shared_ptr<string> name_ {};
       // The authorization status.
       shared_ptr<List::Permissions> permissions_ {};
@@ -227,7 +227,7 @@ namespace Models
 
 
   protected:
-    // The error code. This value is empty when the call is successful.
+    // The error code. This parameter is empty if the call is successful.
     shared_ptr<string> code_ {};
     // The error message.
     shared_ptr<string> errorMessage_ {};
@@ -235,15 +235,15 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The list of workspace permissions.
     shared_ptr<vector<ListModelPermissionsResponseBody::List>> list_ {};
-    // The maximum number of entries returned per request.
+    // The maximum number of records returned in a single call.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next request.
+    // The pagination token for the next request.
     shared_ptr<string> nextToken_ {};
-    // The unique request ID.
+    // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the API call is successful.
     shared_ptr<bool> success_ {};
-    // The total number of entries.
+    // The total number of records.
     shared_ptr<int64_t> totalCount_ {};
   };
 

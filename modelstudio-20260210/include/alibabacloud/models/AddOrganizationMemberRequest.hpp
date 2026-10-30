@@ -61,15 +61,14 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
-    // The organization role code. Only ORG_ADMIN or ORG_MEMBER is allowed. Default value: ORG_MEMBER.
+    // The organization role code. Valid values: ORG_ADMIN and ORG_MEMBER. Default value: ORG_MEMBER.
     // 
     // This parameter is required.
     shared_ptr<string> orgRoleCode_ {};
     // The seat specification. Valid values:
-    // 
-    // - standard: standard seat.
-    // - pro: premium seat.
-    // - max: exclusive seat.
+    // - standard: Standard seat.
+    // - pro: Pro seat.
+    // - max: Premium seat.
     shared_ptr<string> specType_ {};
   };
 

@@ -194,11 +194,17 @@ namespace Models
 
 
         protected:
+          // The start time of the current cycle.
           shared_ptr<int64_t> cycleEndTime_ {};
+          // The start time of the current cycle.
           shared_ptr<int64_t> cycleStartTime_ {};
+          // The remaining entitlement quota for the current cycle.
           shared_ptr<double> cycleSurplusValue_ {};
+          // The total entitlement quota for the current cycle.
           shared_ptr<double> cycleTotalValue_ {};
+          // The entitlement type.
           shared_ptr<string> equityType_ {};
+          // The unit of measurement for the entitlement.
           shared_ptr<string> equityUnit_ {};
         };
 
@@ -264,13 +270,21 @@ namespace Models
 
 
       protected:
+        // The end time of the subscription.
         shared_ptr<int64_t> endTime_ {};
+        // The list of subscription entitlements.
         shared_ptr<vector<SubscriptionInfo::EquityList>> equityList_ {};
+        // The code of the subscription instance.
         shared_ptr<string> instanceCode_ {};
+        // The billing method.
         shared_ptr<string> payMode_ {};
+        // The code of the subscription product.
         shared_ptr<string> productCode_ {};
+        // The specification type of the subscription.
         shared_ptr<string> specType_ {};
+        // The start time of the subscription.
         shared_ptr<int64_t> startTime_ {};
+        // The subscription status.
         shared_ptr<string> status_ {};
       };
 
@@ -376,14 +390,23 @@ namespace Models
 
 
       protected:
+        // The currently available quota.
         shared_ptr<double> availableLimit_ {};
+        // The end time of the current cycle.
         shared_ptr<int64_t> cycleEndTime_ {};
+        // The start time of the current cycle.
         shared_ptr<int64_t> cycleStartTime_ {};
+        // The frozen quota.
         shared_ptr<double> frozenCredits_ {};
+        // Indicates whether a quota limit exists for the shared usage package.
         shared_ptr<bool> hasShareLimit_ {};
+        // Indicates whether the quota is currently available.
         shared_ptr<bool> isAvailable_ {};
+        // The time when the quota limit configuration was last modified.
         shared_ptr<int64_t> lastConfirmedTime_ {};
+        // The upper limit of the quota.
         shared_ptr<double> upperLimit_ {};
+        // The used quota.
         shared_ptr<double> usedCredits_ {};
       };
 
@@ -496,7 +519,7 @@ namespace Models
 
 
     protected:
-      // The member business ID.
+      // The business ID of the member.
       shared_ptr<string> accountBizId_ {};
       // The ID of the member accounts.
       shared_ptr<string> accountId_ {};
@@ -504,26 +527,28 @@ namespace Models
       shared_ptr<string> accountName_ {};
       // API Key ID
       shared_ptr<string> apiKeyId_ {};
-      // The member email address.
+      // The email address of the member.
       shared_ptr<string> email_ {};
       // The time when the member joined.
       shared_ptr<string> gmtCreate_ {};
       // The masked API key.
       shared_ptr<string> maskedApiKey_ {};
-      // The organization ID.
+      // The ID of the organization.
       shared_ptr<string> orgId_ {};
+      // The upper limit information for the shared usage package available to the member.
       shared_ptr<Data::PackLimitInfo> packLimitInfo_ {};
-      // The list of member roles.
+      // The list of roles for the member.
       shared_ptr<vector<string>> roles_ {};
-      // The seat resource allocate ID.
+      // The resource allocation ID of the seat.
       shared_ptr<string> seatId_ {};
-      // The seat specification type. Valid values:
+      // The specification type of the seat. Valid values:
       // - standard: Standard seat.
       // - pro: Pro seat.
-      // - max: Max seat.
+      // - max: Premium seat.
       shared_ptr<string> specType_ {};
-      // The member status.
+      // The status of the member.
       shared_ptr<string> status_ {};
+      // The subscription information of the member.
       shared_ptr<Data::SubscriptionInfo> subscriptionInfo_ {};
     };
 

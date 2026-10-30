@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The error code. This parameter is empty if the request was successful.
+    // The error code. This parameter is empty if the request is successful.
     shared_ptr<string> code_ {};
-    // The error message. This parameter is empty if the request was successful.
+    // The error message. This parameter is empty if the request is successful.
     shared_ptr<string> message_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

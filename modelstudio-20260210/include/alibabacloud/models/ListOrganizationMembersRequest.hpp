@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // Specifies whether to filter by seat assignment.
+    // Specifies whether to filter by seat allocation status.
     shared_ptr<bool> hasSeat_ {};
-    // Fuzzy filter by member name. Matches accountName or email, case-insensitive.
+    // The fuzzy filter for the member name. It matches the accountName or email and is case-insensitive.
     shared_ptr<string> name_ {};
-    // The page number, starting from 1. Default value: 1.
+    // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
     // The number of entries per page. Default value: 20. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // Filters by member status, such as ACTIVE or FROZEN. A value of null indicates no filtering.
+    // The filter for the member status, such as ACTIVE or FROZEN. A null value indicates no filtering.
     shared_ptr<string> status_ {};
   };
 

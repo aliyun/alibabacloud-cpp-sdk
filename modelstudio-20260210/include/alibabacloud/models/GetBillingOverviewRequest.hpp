@@ -16,18 +16,22 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const GetBillingOverviewRequest& obj) { 
       DARABONBA_PTR_TO_JSON(billMonth, billMonth_);
       DARABONBA_PTR_TO_JSON(filter, filter_);
+      DARABONBA_PTR_TO_JSON(granularity, granularity_);
       DARABONBA_PTR_TO_JSON(groupBy, groupBy_);
       DARABONBA_PTR_TO_JSON(locale, locale_);
       DARABONBA_PTR_TO_JSON(regionId, regionId_);
+      DARABONBA_PTR_TO_JSON(timePeriod, timePeriod_);
       DARABONBA_PTR_TO_JSON(topNum, topNum_);
       DARABONBA_PTR_TO_JSON(zeroFilter, zeroFilter_);
     };
     friend void from_json(const Darabonba::Json& j, GetBillingOverviewRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(billMonth, billMonth_);
       DARABONBA_PTR_FROM_JSON(filter, filter_);
+      DARABONBA_PTR_FROM_JSON(granularity, granularity_);
       DARABONBA_PTR_FROM_JSON(groupBy, groupBy_);
       DARABONBA_PTR_FROM_JSON(locale, locale_);
       DARABONBA_PTR_FROM_JSON(regionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(timePeriod, timePeriod_);
       DARABONBA_PTR_FROM_JSON(topNum, topNum_);
       DARABONBA_PTR_FROM_JSON(zeroFilter, zeroFilter_);
     };
@@ -42,6 +46,50 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class TimePeriod : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const TimePeriod& obj) { 
+        DARABONBA_PTR_TO_JSON(end, end_);
+        DARABONBA_PTR_TO_JSON(start, start_);
+      };
+      friend void from_json(const Darabonba::Json& j, TimePeriod& obj) { 
+        DARABONBA_PTR_FROM_JSON(end, end_);
+        DARABONBA_PTR_FROM_JSON(start, start_);
+      };
+      TimePeriod() = default ;
+      TimePeriod(const TimePeriod &) = default ;
+      TimePeriod(TimePeriod &&) = default ;
+      TimePeriod(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~TimePeriod() = default ;
+      TimePeriod& operator=(const TimePeriod &) = default ;
+      TimePeriod& operator=(TimePeriod &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->end_ == nullptr
+        && this->start_ == nullptr; };
+      // end Field Functions 
+      bool hasEnd() const { return this->end_ != nullptr;};
+      void deleteEnd() { this->end_ = nullptr;};
+      inline string getEnd() const { DARABONBA_PTR_GET_DEFAULT(end_, "") };
+      inline TimePeriod& setEnd(string end) { DARABONBA_PTR_SET_VALUE(end_, end) };
+
+
+      // start Field Functions 
+      bool hasStart() const { return this->start_ != nullptr;};
+      void deleteStart() { this->start_ = nullptr;};
+      inline string getStart() const { DARABONBA_PTR_GET_DEFAULT(start_, "") };
+      inline TimePeriod& setStart(string start) { DARABONBA_PTR_SET_VALUE(start_, start) };
+
+
+    protected:
+      // The end time of the query. This time point is included in the query range. The format is determined by granularity.
+      shared_ptr<string> end_ {};
+      // The start time of the query. This time point is included in the query range. The format is determined by granularity.
+      shared_ptr<string> start_ {};
+    };
+
     class GroupBy : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const GroupBy& obj) { 
@@ -70,7 +118,7 @@ namespace Models
 
 
     protected:
-      // The grouping dimension code. For more information, see the "Additional information" section below.
+      // The code of the grouping dimension. For more information, see the "Additional notes" section below.
       shared_ptr<string> code_ {};
     };
 
@@ -142,7 +190,7 @@ namespace Models
 
 
       protected:
-        // The filter field. For more information, see the "Additional information" section below.
+        // The filter field. For more information, see the "Additional notes" section below.
         shared_ptr<string> code_ {};
         // The filter type.
         shared_ptr<string> selectType_ {};
@@ -166,8 +214,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->billMonth_ == nullptr
-        && this->filter_ == nullptr && this->groupBy_ == nullptr && this->locale_ == nullptr && this->regionId_ == nullptr && this->topNum_ == nullptr
-        && this->zeroFilter_ == nullptr; };
+        && this->filter_ == nullptr && this->granularity_ == nullptr && this->groupBy_ == nullptr && this->locale_ == nullptr && this->regionId_ == nullptr
+        && this->timePeriod_ == nullptr && this->topNum_ == nullptr && this->zeroFilter_ == nullptr; };
     // billMonth Field Functions 
     bool hasBillMonth() const { return this->billMonth_ != nullptr;};
     void deleteBillMonth() { this->billMonth_ = nullptr;};
@@ -182,6 +230,13 @@ namespace Models
     inline GetBillingOverviewRequest::Filter getFilter() { DARABONBA_PTR_GET(filter_, GetBillingOverviewRequest::Filter) };
     inline GetBillingOverviewRequest& setFilter(const GetBillingOverviewRequest::Filter & filter) { DARABONBA_PTR_SET_VALUE(filter_, filter) };
     inline GetBillingOverviewRequest& setFilter(GetBillingOverviewRequest::Filter && filter) { DARABONBA_PTR_SET_RVALUE(filter_, filter) };
+
+
+    // granularity Field Functions 
+    bool hasGranularity() const { return this->granularity_ != nullptr;};
+    void deleteGranularity() { this->granularity_ = nullptr;};
+    inline string getGranularity() const { DARABONBA_PTR_GET_DEFAULT(granularity_, "") };
+    inline GetBillingOverviewRequest& setGranularity(string granularity) { DARABONBA_PTR_SET_VALUE(granularity_, granularity) };
 
 
     // groupBy Field Functions 
@@ -207,6 +262,15 @@ namespace Models
     inline GetBillingOverviewRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // timePeriod Field Functions 
+    bool hasTimePeriod() const { return this->timePeriod_ != nullptr;};
+    void deleteTimePeriod() { this->timePeriod_ = nullptr;};
+    inline const GetBillingOverviewRequest::TimePeriod & getTimePeriod() const { DARABONBA_PTR_GET_CONST(timePeriod_, GetBillingOverviewRequest::TimePeriod) };
+    inline GetBillingOverviewRequest::TimePeriod getTimePeriod() { DARABONBA_PTR_GET(timePeriod_, GetBillingOverviewRequest::TimePeriod) };
+    inline GetBillingOverviewRequest& setTimePeriod(const GetBillingOverviewRequest::TimePeriod & timePeriod) { DARABONBA_PTR_SET_VALUE(timePeriod_, timePeriod) };
+    inline GetBillingOverviewRequest& setTimePeriod(GetBillingOverviewRequest::TimePeriod && timePeriod) { DARABONBA_PTR_SET_RVALUE(timePeriod_, timePeriod) };
+
+
     // topNum Field Functions 
     bool hasTopNum() const { return this->topNum_ != nullptr;};
     void deleteTopNum() { this->topNum_ = nullptr;};
@@ -222,19 +286,23 @@ namespace Models
 
 
   protected:
-    // The billing month. This parameter is required.
+    // The billing month.
     shared_ptr<string> billMonth_ {};
-    // The filter condition.
+    // The filter conditions.
     shared_ptr<GetBillingOverviewRequest::Filter> filter_ {};
+    // The time granularity.
+    shared_ptr<string> granularity_ {};
     // The list of grouping conditions. Currently, you must specify exactly one grouping dimension.
     shared_ptr<vector<GetBillingOverviewRequest::GroupBy>> groupBy_ {};
-    // The response language. Default value: en-US.
+    // The language of the response. Default value: en-US.
     shared_ptr<string> locale_ {};
-    // The region.
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The query time range, which includes the start and end times. Both the start and end times are included in the query range. The time format must be consistent with the granularity, and the start time cannot be later than the end time.
+    shared_ptr<GetBillingOverviewRequest::TimePeriod> timePeriod_ {};
     // The number of groups to return. Valid values: 1 to 20. Default value: 20.
     shared_ptr<int32_t> topNum_ {};
-    // Specifies whether to filter out groups with a zero amount. Default value: true.
+    // Specifies whether to filter out groups with an amount of 0. Default value: true.
     shared_ptr<bool> zeroFilter_ {};
   };
 

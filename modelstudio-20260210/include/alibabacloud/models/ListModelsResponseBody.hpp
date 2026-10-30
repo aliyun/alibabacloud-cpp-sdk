@@ -160,9 +160,16 @@ namespace Models
 
 
         protected:
+          // The price. The currency unit depends on the account type: ￥ for accounts in the Chinese mainland and $ for international accounts.
           shared_ptr<string> price_ {};
+          // The price type.
           shared_ptr<string> priceName_ {};
+          // The billing method.
           shared_ptr<string> priceUnit_ {};
+          // The time band. Valid values:
+          // - peak: Peak hours.
+          // - offpeak: Off-peak hours.
+          // - standard: No time-based tiering.
           shared_ptr<string> timeBand_ {};
         };
 
@@ -185,7 +192,9 @@ namespace Models
 
 
       protected:
+        // The model pricing.
         shared_ptr<vector<Prices::PricesItem>> prices_ {};
+        // The tier name. If tiered pricing is not used, the value is Default.
         shared_ptr<string> rangeName_ {};
       };
 
@@ -263,11 +272,17 @@ namespace Models
 
 
       protected:
+        // The context length.
         shared_ptr<int64_t> contextWindow_ {};
+        // The maximum input length.
         shared_ptr<int64_t> maxInputTokens_ {};
+        // The maximum output length.
         shared_ptr<int64_t> maxOutputTokens_ {};
+        // The maximum chain-of-thought length.
         shared_ptr<int64_t> maxReasoningTokens_ {};
+        // The maximum input length in thinking mode.
         shared_ptr<int64_t> reasoningMaxInputTokens_ {};
+        // The maximum output length in thinking mode.
         shared_ptr<int64_t> reasoningMaxOutputTokens_ {};
       };
 
@@ -313,7 +328,9 @@ namespace Models
 
 
       protected:
+        // The input modality. Valid values: Text, Image, Audio, and Video.
         shared_ptr<vector<string>> requestModality_ {};
+        // The output modality. Valid values: Text, Image, Audio, and Video.
         shared_ptr<vector<string>> responseModality_ {};
       };
 
@@ -401,15 +418,25 @@ namespace Models
 
 
     protected:
+      // The model type.
       shared_ptr<vector<string>> capabilities_ {};
+      // The model description.
       shared_ptr<string> description_ {};
+      // The list of model capabilities.
       shared_ptr<vector<string>> features_ {};
+      // The modality type.
       shared_ptr<Models::InferenceMetadata> inferenceMetadata_ {};
+      // The model name for exact match.
       shared_ptr<string> model_ {};
+      // The model information, including various context lengths.
       shared_ptr<Models::ModelInfo> modelInfo_ {};
+      // The model name for fuzzy match.
       shared_ptr<string> name_ {};
+      // The list of model pricing.
       shared_ptr<vector<Models::Prices>> prices_ {};
+      // The model provider.
       shared_ptr<string> provider_ {};
+      // The release time.
       shared_ptr<int64_t> publishedTime_ {};
     };
 
@@ -482,14 +509,23 @@ namespace Models
 
 
   protected:
+    // The error code. This field is empty when the call is successful.
     shared_ptr<string> code_ {};
+    // The error message. This field is empty when the call is successful.
     shared_ptr<string> errorMessage_ {};
+    // The HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
+    // The maximum number of records returned per request.
     shared_ptr<int64_t> maxResults_ {};
+    // The list of models.
     shared_ptr<vector<ListModelsResponseBody::Models>> models_ {};
+    // The token for the next request.
     shared_ptr<string> nextToken_ {};
+    // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call was successful.
     shared_ptr<bool> success_ {};
+    // The total number of records.
     shared_ptr<int64_t> totalCount_ {};
   };
 

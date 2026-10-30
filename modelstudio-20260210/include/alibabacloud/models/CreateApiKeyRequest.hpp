@@ -100,7 +100,7 @@ namespace Models
         // The list of accessible models.
         // >Notice: This parameter takes effect only when allowAllModels is set to false.
         shared_ptr<vector<string>> accessibleModels_ {};
-        // Specifies whether all models with granted inference permissions in the workspace are accessible. Valid values:
+        // Specifies whether to allow access to all models that have been granted inference permissions in the workspace. Valid values:
         // 
         // - true
         // - false
@@ -135,17 +135,14 @@ namespace Models
 
 
     protected:
-      // The IP access whitelist.
+      // The IP address whitelist.
       // 
       // > 
-      // > - When you set custom permissions and leave the IP access whitelist empty, the server sets the default values to IPv4 (0.0.0.0/0) and IPv6 (::/0), which allows all traffic.
+      // > - If you select custom permissions and do not specify an IP address whitelist, the server defaults to IPv4 (0.0.0.0/0) and IPv6 (::/0), which allows all IP addresses.
       shared_ptr<vector<string>> accessIps_ {};
-      // The model access scope.
+      // The model access scope. If you configure this parameter, you can only call the selected models. If you do not configure this parameter, you can access all models that have been granted inference permissions in the specified workspace by default.
       shared_ptr<Auth::ModelAccessScope> modelAccessScope_ {};
-      // Valid values:
-      // 
-      // - All: all permissions.
-      // - Custom: custom permissions.
+      // The permission type. Valid values: All: all permissions. Custom: custom permissions.
       shared_ptr<string> type_ {};
     };
 
@@ -181,7 +178,7 @@ namespace Models
     shared_ptr<string> description_ {};
     // The workspace ID.
     // > 
-    // > - If you leave this parameter empty, the API key is automatically assigned to the default workspace.
+    // > - If you do not specify this parameter, the created API key is automatically assigned to the default workspace.
     shared_ptr<string> workspaceId_ {};
   };
 

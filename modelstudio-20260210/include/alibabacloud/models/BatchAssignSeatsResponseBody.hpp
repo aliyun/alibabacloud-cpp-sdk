@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The organization description.
+    // The description of the organization.
     shared_ptr<string> description_ {};
-    // The organization name.
+    // The name of the organization.
     shared_ptr<string> name_ {};
   };
 

@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // Indicates whether the API call is successful. Valid values:
+    // Indicates whether the API call was successful. Valid values:
     // 
     // - true: Successful.
     // - false: Failed.

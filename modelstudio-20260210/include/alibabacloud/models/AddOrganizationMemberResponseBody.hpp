@@ -79,7 +79,7 @@ namespace Models
     protected:
       // The account ID.
       shared_ptr<string> accountId_ {};
-      // Indicates whether the seat was assigned successfully.
+      // Indicates whether the seat is assigned successfully.
       shared_ptr<bool> seatAssigned_ {};
     };
 
@@ -140,7 +140,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

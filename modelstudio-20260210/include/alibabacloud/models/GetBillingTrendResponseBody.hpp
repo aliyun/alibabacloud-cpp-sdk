@@ -43,11 +43,13 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(costTotals, costTotals_);
         DARABONBA_PTR_TO_JSON(groupByTotal, groupByTotal_);
+        DARABONBA_PTR_TO_JSON(historyPeriod, historyPeriod_);
         DARABONBA_PTR_TO_JSON(resultByTime, resultByTime_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(costTotals, costTotals_);
         DARABONBA_PTR_FROM_JSON(groupByTotal, groupByTotal_);
+        DARABONBA_PTR_FROM_JSON(historyPeriod, historyPeriod_);
         DARABONBA_PTR_FROM_JSON(resultByTime, resultByTime_);
       };
       Data() = default ;
@@ -140,13 +142,13 @@ namespace Models
 
 
         protected:
-          // The total amount for the current period.
+          // The total cost amount of the current period.
           shared_ptr<string> amount_ {};
-          // The currency of the amount for the current period.
+          // The currency of the amount in the current period.
           shared_ptr<string> currency_ {};
-          // The pretax amount for the current period.
+          // The pretax amount of the current period.
           shared_ptr<string> pretaxAmount_ {};
-          // The tax amount for the current period.
+          // The tax amount of the current period.
           shared_ptr<string> taxAmount_ {};
         };
 
@@ -224,17 +226,17 @@ namespace Models
 
 
         protected:
-          // The amount of the group within the current period.
+          // The amount of the group in the current period.
           shared_ptr<string> amount_ {};
-          // The grouping dimension value. Data beyond the top N uses DIMENSION_GROUP_OTHERS_VALUE.
+          // The dimension value of the group. For data other than the top N items, DIMENSION_GROUP_OTHERS_VALUE is used.
           shared_ptr<string> key_ {};
-          // The display name of the group. This value is affected by the locale parameter.
+          // The display name of the group, which is affected by the locale input parameter.
           shared_ptr<string> name_ {};
           // The ratio of the current group amount to the total amount of the current period.
           shared_ptr<string> percentage_ {};
-          // The pretax amount of the group within the current period.
+          // The pretax amount of the group in the current period.
           shared_ptr<string> pretaxAmount_ {};
-          // The tax amount of the group within the current period.
+          // The tax amount of the group in the current period.
           shared_ptr<string> taxAmount_ {};
         };
 
@@ -266,12 +268,429 @@ namespace Models
 
 
       protected:
-        // The statistical period. DAY returns yyyyMMdd. MONTH returns yyyyMM.
+        // The statistical period. DAY returns yyyyMMdd, and MONTH returns yyyyMM.
         shared_ptr<string> period_ {};
         // The cost groups that actually exist in the current period.
         shared_ptr<vector<ResultByTime::PeriodDetails>> periodDetails_ {};
-        // The total cost for the current period.
+        // The total costs of the current period.
         shared_ptr<ResultByTime::Total> total_ {};
+      };
+
+      class HistoryPeriod : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const HistoryPeriod& obj) { 
+          DARABONBA_PTR_TO_JSON(costTotals, costTotals_);
+          DARABONBA_PTR_TO_JSON(groupByTotal, groupByTotal_);
+          DARABONBA_PTR_TO_JSON(resultByTime, resultByTime_);
+        };
+        friend void from_json(const Darabonba::Json& j, HistoryPeriod& obj) { 
+          DARABONBA_PTR_FROM_JSON(costTotals, costTotals_);
+          DARABONBA_PTR_FROM_JSON(groupByTotal, groupByTotal_);
+          DARABONBA_PTR_FROM_JSON(resultByTime, resultByTime_);
+        };
+        HistoryPeriod() = default ;
+        HistoryPeriod(const HistoryPeriod &) = default ;
+        HistoryPeriod(HistoryPeriod &&) = default ;
+        HistoryPeriod(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~HistoryPeriod() = default ;
+        HistoryPeriod& operator=(const HistoryPeriod &) = default ;
+        HistoryPeriod& operator=(HistoryPeriod &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class ResultByTime : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const ResultByTime& obj) { 
+            DARABONBA_PTR_TO_JSON(period, period_);
+            DARABONBA_PTR_TO_JSON(periodDetails, periodDetails_);
+            DARABONBA_PTR_TO_JSON(total, total_);
+          };
+          friend void from_json(const Darabonba::Json& j, ResultByTime& obj) { 
+            DARABONBA_PTR_FROM_JSON(period, period_);
+            DARABONBA_PTR_FROM_JSON(periodDetails, periodDetails_);
+            DARABONBA_PTR_FROM_JSON(total, total_);
+          };
+          ResultByTime() = default ;
+          ResultByTime(const ResultByTime &) = default ;
+          ResultByTime(ResultByTime &&) = default ;
+          ResultByTime(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~ResultByTime() = default ;
+          ResultByTime& operator=(const ResultByTime &) = default ;
+          ResultByTime& operator=(ResultByTime &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class Total : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const Total& obj) { 
+              DARABONBA_PTR_TO_JSON(amount, amount_);
+              DARABONBA_PTR_TO_JSON(currency, currency_);
+              DARABONBA_PTR_TO_JSON(pretaxAmount, pretaxAmount_);
+              DARABONBA_PTR_TO_JSON(taxAmount, taxAmount_);
+            };
+            friend void from_json(const Darabonba::Json& j, Total& obj) { 
+              DARABONBA_PTR_FROM_JSON(amount, amount_);
+              DARABONBA_PTR_FROM_JSON(currency, currency_);
+              DARABONBA_PTR_FROM_JSON(pretaxAmount, pretaxAmount_);
+              DARABONBA_PTR_FROM_JSON(taxAmount, taxAmount_);
+            };
+            Total() = default ;
+            Total(const Total &) = default ;
+            Total(Total &&) = default ;
+            Total(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~Total() = default ;
+            Total& operator=(const Total &) = default ;
+            Total& operator=(Total &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->amount_ == nullptr
+        && this->currency_ == nullptr && this->pretaxAmount_ == nullptr && this->taxAmount_ == nullptr; };
+            // amount Field Functions 
+            bool hasAmount() const { return this->amount_ != nullptr;};
+            void deleteAmount() { this->amount_ = nullptr;};
+            inline string getAmount() const { DARABONBA_PTR_GET_DEFAULT(amount_, "") };
+            inline Total& setAmount(string amount) { DARABONBA_PTR_SET_VALUE(amount_, amount) };
+
+
+            // currency Field Functions 
+            bool hasCurrency() const { return this->currency_ != nullptr;};
+            void deleteCurrency() { this->currency_ = nullptr;};
+            inline string getCurrency() const { DARABONBA_PTR_GET_DEFAULT(currency_, "") };
+            inline Total& setCurrency(string currency) { DARABONBA_PTR_SET_VALUE(currency_, currency) };
+
+
+            // pretaxAmount Field Functions 
+            bool hasPretaxAmount() const { return this->pretaxAmount_ != nullptr;};
+            void deletePretaxAmount() { this->pretaxAmount_ = nullptr;};
+            inline string getPretaxAmount() const { DARABONBA_PTR_GET_DEFAULT(pretaxAmount_, "") };
+            inline Total& setPretaxAmount(string pretaxAmount) { DARABONBA_PTR_SET_VALUE(pretaxAmount_, pretaxAmount) };
+
+
+            // taxAmount Field Functions 
+            bool hasTaxAmount() const { return this->taxAmount_ != nullptr;};
+            void deleteTaxAmount() { this->taxAmount_ = nullptr;};
+            inline string getTaxAmount() const { DARABONBA_PTR_GET_DEFAULT(taxAmount_, "") };
+            inline Total& setTaxAmount(string taxAmount) { DARABONBA_PTR_SET_VALUE(taxAmount_, taxAmount) };
+
+
+          protected:
+            // The total cost amount of the current period.
+            shared_ptr<string> amount_ {};
+            // The currency of the amount.
+            shared_ptr<string> currency_ {};
+            // The total pretax amount.
+            shared_ptr<string> pretaxAmount_ {};
+            // The total tax amount.
+            shared_ptr<string> taxAmount_ {};
+          };
+
+          class PeriodDetails : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const PeriodDetails& obj) { 
+              DARABONBA_PTR_TO_JSON(amount, amount_);
+              DARABONBA_PTR_TO_JSON(key, key_);
+              DARABONBA_PTR_TO_JSON(name, name_);
+              DARABONBA_PTR_TO_JSON(percentage, percentage_);
+              DARABONBA_PTR_TO_JSON(pretaxAmount, pretaxAmount_);
+              DARABONBA_PTR_TO_JSON(taxAmount, taxAmount_);
+            };
+            friend void from_json(const Darabonba::Json& j, PeriodDetails& obj) { 
+              DARABONBA_PTR_FROM_JSON(amount, amount_);
+              DARABONBA_PTR_FROM_JSON(key, key_);
+              DARABONBA_PTR_FROM_JSON(name, name_);
+              DARABONBA_PTR_FROM_JSON(percentage, percentage_);
+              DARABONBA_PTR_FROM_JSON(pretaxAmount, pretaxAmount_);
+              DARABONBA_PTR_FROM_JSON(taxAmount, taxAmount_);
+            };
+            PeriodDetails() = default ;
+            PeriodDetails(const PeriodDetails &) = default ;
+            PeriodDetails(PeriodDetails &&) = default ;
+            PeriodDetails(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~PeriodDetails() = default ;
+            PeriodDetails& operator=(const PeriodDetails &) = default ;
+            PeriodDetails& operator=(PeriodDetails &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->amount_ == nullptr
+        && this->key_ == nullptr && this->name_ == nullptr && this->percentage_ == nullptr && this->pretaxAmount_ == nullptr && this->taxAmount_ == nullptr; };
+            // amount Field Functions 
+            bool hasAmount() const { return this->amount_ != nullptr;};
+            void deleteAmount() { this->amount_ = nullptr;};
+            inline string getAmount() const { DARABONBA_PTR_GET_DEFAULT(amount_, "") };
+            inline PeriodDetails& setAmount(string amount) { DARABONBA_PTR_SET_VALUE(amount_, amount) };
+
+
+            // key Field Functions 
+            bool hasKey() const { return this->key_ != nullptr;};
+            void deleteKey() { this->key_ = nullptr;};
+            inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+            inline PeriodDetails& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+            // name Field Functions 
+            bool hasName() const { return this->name_ != nullptr;};
+            void deleteName() { this->name_ = nullptr;};
+            inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+            inline PeriodDetails& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+            // percentage Field Functions 
+            bool hasPercentage() const { return this->percentage_ != nullptr;};
+            void deletePercentage() { this->percentage_ = nullptr;};
+            inline string getPercentage() const { DARABONBA_PTR_GET_DEFAULT(percentage_, "") };
+            inline PeriodDetails& setPercentage(string percentage) { DARABONBA_PTR_SET_VALUE(percentage_, percentage) };
+
+
+            // pretaxAmount Field Functions 
+            bool hasPretaxAmount() const { return this->pretaxAmount_ != nullptr;};
+            void deletePretaxAmount() { this->pretaxAmount_ = nullptr;};
+            inline string getPretaxAmount() const { DARABONBA_PTR_GET_DEFAULT(pretaxAmount_, "") };
+            inline PeriodDetails& setPretaxAmount(string pretaxAmount) { DARABONBA_PTR_SET_VALUE(pretaxAmount_, pretaxAmount) };
+
+
+            // taxAmount Field Functions 
+            bool hasTaxAmount() const { return this->taxAmount_ != nullptr;};
+            void deleteTaxAmount() { this->taxAmount_ = nullptr;};
+            inline string getTaxAmount() const { DARABONBA_PTR_GET_DEFAULT(taxAmount_, "") };
+            inline PeriodDetails& setTaxAmount(string taxAmount) { DARABONBA_PTR_SET_VALUE(taxAmount_, taxAmount) };
+
+
+          protected:
+            // The amount of the current group.
+            shared_ptr<string> amount_ {};
+            // The dimension value of the group. If the value is null, DIMENSION_FILTER_NULL_VALUE is returned.
+            shared_ptr<string> key_ {};
+            // The display name of the group, which is affected by the locale parameter. If the value is null, a hyphen (-) is displayed.
+            shared_ptr<string> name_ {};
+            // The percentage of the group amount.
+            shared_ptr<string> percentage_ {};
+            // The total pretax amount.
+            shared_ptr<string> pretaxAmount_ {};
+            // The total tax amount.
+            shared_ptr<string> taxAmount_ {};
+          };
+
+          virtual bool empty() const override { return this->period_ == nullptr
+        && this->periodDetails_ == nullptr && this->total_ == nullptr; };
+          // period Field Functions 
+          bool hasPeriod() const { return this->period_ != nullptr;};
+          void deletePeriod() { this->period_ = nullptr;};
+          inline string getPeriod() const { DARABONBA_PTR_GET_DEFAULT(period_, "") };
+          inline ResultByTime& setPeriod(string period) { DARABONBA_PTR_SET_VALUE(period_, period) };
+
+
+          // periodDetails Field Functions 
+          bool hasPeriodDetails() const { return this->periodDetails_ != nullptr;};
+          void deletePeriodDetails() { this->periodDetails_ = nullptr;};
+          inline const vector<ResultByTime::PeriodDetails> & getPeriodDetails() const { DARABONBA_PTR_GET_CONST(periodDetails_, vector<ResultByTime::PeriodDetails>) };
+          inline vector<ResultByTime::PeriodDetails> getPeriodDetails() { DARABONBA_PTR_GET(periodDetails_, vector<ResultByTime::PeriodDetails>) };
+          inline ResultByTime& setPeriodDetails(const vector<ResultByTime::PeriodDetails> & periodDetails) { DARABONBA_PTR_SET_VALUE(periodDetails_, periodDetails) };
+          inline ResultByTime& setPeriodDetails(vector<ResultByTime::PeriodDetails> && periodDetails) { DARABONBA_PTR_SET_RVALUE(periodDetails_, periodDetails) };
+
+
+          // total Field Functions 
+          bool hasTotal() const { return this->total_ != nullptr;};
+          void deleteTotal() { this->total_ = nullptr;};
+          inline const ResultByTime::Total & getTotal() const { DARABONBA_PTR_GET_CONST(total_, ResultByTime::Total) };
+          inline ResultByTime::Total getTotal() { DARABONBA_PTR_GET(total_, ResultByTime::Total) };
+          inline ResultByTime& setTotal(const ResultByTime::Total & total) { DARABONBA_PTR_SET_VALUE(total_, total) };
+          inline ResultByTime& setTotal(ResultByTime::Total && total) { DARABONBA_PTR_SET_RVALUE(total_, total) };
+
+
+        protected:
+          // The statistical period.
+          shared_ptr<string> period_ {};
+          // The cost groups that actually exist in the current period.
+          shared_ptr<vector<ResultByTime::PeriodDetails>> periodDetails_ {};
+          // The total costs of the current period.
+          shared_ptr<ResultByTime::Total> total_ {};
+        };
+
+        class GroupByTotal : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const GroupByTotal& obj) { 
+            DARABONBA_PTR_TO_JSON(amount, amount_);
+            DARABONBA_PTR_TO_JSON(key, key_);
+            DARABONBA_PTR_TO_JSON(name, name_);
+            DARABONBA_PTR_TO_JSON(pretaxAmount, pretaxAmount_);
+            DARABONBA_PTR_TO_JSON(taxAmount, taxAmount_);
+          };
+          friend void from_json(const Darabonba::Json& j, GroupByTotal& obj) { 
+            DARABONBA_PTR_FROM_JSON(amount, amount_);
+            DARABONBA_PTR_FROM_JSON(key, key_);
+            DARABONBA_PTR_FROM_JSON(name, name_);
+            DARABONBA_PTR_FROM_JSON(pretaxAmount, pretaxAmount_);
+            DARABONBA_PTR_FROM_JSON(taxAmount, taxAmount_);
+          };
+          GroupByTotal() = default ;
+          GroupByTotal(const GroupByTotal &) = default ;
+          GroupByTotal(GroupByTotal &&) = default ;
+          GroupByTotal(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~GroupByTotal() = default ;
+          GroupByTotal& operator=(const GroupByTotal &) = default ;
+          GroupByTotal& operator=(GroupByTotal &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->amount_ == nullptr
+        && this->key_ == nullptr && this->name_ == nullptr && this->pretaxAmount_ == nullptr && this->taxAmount_ == nullptr; };
+          // amount Field Functions 
+          bool hasAmount() const { return this->amount_ != nullptr;};
+          void deleteAmount() { this->amount_ = nullptr;};
+          inline string getAmount() const { DARABONBA_PTR_GET_DEFAULT(amount_, "") };
+          inline GroupByTotal& setAmount(string amount) { DARABONBA_PTR_SET_VALUE(amount_, amount) };
+
+
+          // key Field Functions 
+          bool hasKey() const { return this->key_ != nullptr;};
+          void deleteKey() { this->key_ = nullptr;};
+          inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+          inline GroupByTotal& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+          // name Field Functions 
+          bool hasName() const { return this->name_ != nullptr;};
+          void deleteName() { this->name_ = nullptr;};
+          inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+          inline GroupByTotal& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+          // pretaxAmount Field Functions 
+          bool hasPretaxAmount() const { return this->pretaxAmount_ != nullptr;};
+          void deletePretaxAmount() { this->pretaxAmount_ = nullptr;};
+          inline string getPretaxAmount() const { DARABONBA_PTR_GET_DEFAULT(pretaxAmount_, "") };
+          inline GroupByTotal& setPretaxAmount(string pretaxAmount) { DARABONBA_PTR_SET_VALUE(pretaxAmount_, pretaxAmount) };
+
+
+          // taxAmount Field Functions 
+          bool hasTaxAmount() const { return this->taxAmount_ != nullptr;};
+          void deleteTaxAmount() { this->taxAmount_ = nullptr;};
+          inline string getTaxAmount() const { DARABONBA_PTR_GET_DEFAULT(taxAmount_, "") };
+          inline GroupByTotal& setTaxAmount(string taxAmount) { DARABONBA_PTR_SET_VALUE(taxAmount_, taxAmount) };
+
+
+        protected:
+          // The total amount of the current group.
+          shared_ptr<string> amount_ {};
+          // The dimension value of the group. If the value is null, DIMENSION_FILTER_NULL_VALUE is returned.
+          shared_ptr<string> key_ {};
+          // The display name of the group, which is affected by the locale parameter. If the value is null, a hyphen (-) is displayed.
+          shared_ptr<string> name_ {};
+          // The total pretax amount.
+          shared_ptr<string> pretaxAmount_ {};
+          // The total tax amount.
+          shared_ptr<string> taxAmount_ {};
+        };
+
+        class CostTotals : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const CostTotals& obj) { 
+            DARABONBA_PTR_TO_JSON(amount, amount_);
+            DARABONBA_PTR_TO_JSON(currency, currency_);
+            DARABONBA_PTR_TO_JSON(pretaxAmount, pretaxAmount_);
+            DARABONBA_PTR_TO_JSON(taxAmount, taxAmount_);
+          };
+          friend void from_json(const Darabonba::Json& j, CostTotals& obj) { 
+            DARABONBA_PTR_FROM_JSON(amount, amount_);
+            DARABONBA_PTR_FROM_JSON(currency, currency_);
+            DARABONBA_PTR_FROM_JSON(pretaxAmount, pretaxAmount_);
+            DARABONBA_PTR_FROM_JSON(taxAmount, taxAmount_);
+          };
+          CostTotals() = default ;
+          CostTotals(const CostTotals &) = default ;
+          CostTotals(CostTotals &&) = default ;
+          CostTotals(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~CostTotals() = default ;
+          CostTotals& operator=(const CostTotals &) = default ;
+          CostTotals& operator=(CostTotals &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->amount_ == nullptr
+        && this->currency_ == nullptr && this->pretaxAmount_ == nullptr && this->taxAmount_ == nullptr; };
+          // amount Field Functions 
+          bool hasAmount() const { return this->amount_ != nullptr;};
+          void deleteAmount() { this->amount_ = nullptr;};
+          inline string getAmount() const { DARABONBA_PTR_GET_DEFAULT(amount_, "") };
+          inline CostTotals& setAmount(string amount) { DARABONBA_PTR_SET_VALUE(amount_, amount) };
+
+
+          // currency Field Functions 
+          bool hasCurrency() const { return this->currency_ != nullptr;};
+          void deleteCurrency() { this->currency_ = nullptr;};
+          inline string getCurrency() const { DARABONBA_PTR_GET_DEFAULT(currency_, "") };
+          inline CostTotals& setCurrency(string currency) { DARABONBA_PTR_SET_VALUE(currency_, currency) };
+
+
+          // pretaxAmount Field Functions 
+          bool hasPretaxAmount() const { return this->pretaxAmount_ != nullptr;};
+          void deletePretaxAmount() { this->pretaxAmount_ = nullptr;};
+          inline string getPretaxAmount() const { DARABONBA_PTR_GET_DEFAULT(pretaxAmount_, "") };
+          inline CostTotals& setPretaxAmount(string pretaxAmount) { DARABONBA_PTR_SET_VALUE(pretaxAmount_, pretaxAmount) };
+
+
+          // taxAmount Field Functions 
+          bool hasTaxAmount() const { return this->taxAmount_ != nullptr;};
+          void deleteTaxAmount() { this->taxAmount_ = nullptr;};
+          inline string getTaxAmount() const { DARABONBA_PTR_GET_DEFAULT(taxAmount_, "") };
+          inline CostTotals& setTaxAmount(string taxAmount) { DARABONBA_PTR_SET_VALUE(taxAmount_, taxAmount) };
+
+
+        protected:
+          // The total cost amount.
+          shared_ptr<string> amount_ {};
+          // The currency of the amount.
+          shared_ptr<string> currency_ {};
+          // The pretax amount.
+          shared_ptr<string> pretaxAmount_ {};
+          // The tax amount.
+          shared_ptr<string> taxAmount_ {};
+        };
+
+        virtual bool empty() const override { return this->costTotals_ == nullptr
+        && this->groupByTotal_ == nullptr && this->resultByTime_ == nullptr; };
+        // costTotals Field Functions 
+        bool hasCostTotals() const { return this->costTotals_ != nullptr;};
+        void deleteCostTotals() { this->costTotals_ = nullptr;};
+        inline const HistoryPeriod::CostTotals & getCostTotals() const { DARABONBA_PTR_GET_CONST(costTotals_, HistoryPeriod::CostTotals) };
+        inline HistoryPeriod::CostTotals getCostTotals() { DARABONBA_PTR_GET(costTotals_, HistoryPeriod::CostTotals) };
+        inline HistoryPeriod& setCostTotals(const HistoryPeriod::CostTotals & costTotals) { DARABONBA_PTR_SET_VALUE(costTotals_, costTotals) };
+        inline HistoryPeriod& setCostTotals(HistoryPeriod::CostTotals && costTotals) { DARABONBA_PTR_SET_RVALUE(costTotals_, costTotals) };
+
+
+        // groupByTotal Field Functions 
+        bool hasGroupByTotal() const { return this->groupByTotal_ != nullptr;};
+        void deleteGroupByTotal() { this->groupByTotal_ = nullptr;};
+        inline const vector<HistoryPeriod::GroupByTotal> & getGroupByTotal() const { DARABONBA_PTR_GET_CONST(groupByTotal_, vector<HistoryPeriod::GroupByTotal>) };
+        inline vector<HistoryPeriod::GroupByTotal> getGroupByTotal() { DARABONBA_PTR_GET(groupByTotal_, vector<HistoryPeriod::GroupByTotal>) };
+        inline HistoryPeriod& setGroupByTotal(const vector<HistoryPeriod::GroupByTotal> & groupByTotal) { DARABONBA_PTR_SET_VALUE(groupByTotal_, groupByTotal) };
+        inline HistoryPeriod& setGroupByTotal(vector<HistoryPeriod::GroupByTotal> && groupByTotal) { DARABONBA_PTR_SET_RVALUE(groupByTotal_, groupByTotal) };
+
+
+        // resultByTime Field Functions 
+        bool hasResultByTime() const { return this->resultByTime_ != nullptr;};
+        void deleteResultByTime() { this->resultByTime_ = nullptr;};
+        inline const vector<HistoryPeriod::ResultByTime> & getResultByTime() const { DARABONBA_PTR_GET_CONST(resultByTime_, vector<HistoryPeriod::ResultByTime>) };
+        inline vector<HistoryPeriod::ResultByTime> getResultByTime() { DARABONBA_PTR_GET(resultByTime_, vector<HistoryPeriod::ResultByTime>) };
+        inline HistoryPeriod& setResultByTime(const vector<HistoryPeriod::ResultByTime> & resultByTime) { DARABONBA_PTR_SET_VALUE(resultByTime_, resultByTime) };
+        inline HistoryPeriod& setResultByTime(vector<HistoryPeriod::ResultByTime> && resultByTime) { DARABONBA_PTR_SET_RVALUE(resultByTime_, resultByTime) };
+
+
+      protected:
+        // The total costs within the historical range, including the top N items and Other.
+        shared_ptr<HistoryPeriod::CostTotals> costTotals_ {};
+        // The total costs of the top N groups and the optional Other group within the historical period.
+        shared_ptr<vector<HistoryPeriod::GroupByTotal>> groupByTotal_ {};
+        // The list of cost trends sorted in ascending order by time.
+        shared_ptr<vector<HistoryPeriod::ResultByTime>> resultByTime_ {};
       };
 
       class GroupByTotal : public Darabonba::Model {
@@ -341,9 +760,9 @@ namespace Models
       protected:
         // The total amount of the current group.
         shared_ptr<string> amount_ {};
-        // The grouping dimension value.
+        // The dimension value of the group.
         shared_ptr<string> key_ {};
-        // The display name of the group. This value is affected by the locale parameter.
+        // The display name of the group, which is affected by the locale input parameter.
         shared_ptr<string> name_ {};
         // The pretax amount of the current group.
         shared_ptr<string> pretaxAmount_ {};
@@ -407,7 +826,7 @@ namespace Models
 
 
       protected:
-        // The total amount.
+        // The total cost amount.
         shared_ptr<string> amount_ {};
         // The currency of the amount.
         shared_ptr<string> currency_ {};
@@ -418,7 +837,7 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->costTotals_ == nullptr
-        && this->groupByTotal_ == nullptr && this->resultByTime_ == nullptr; };
+        && this->groupByTotal_ == nullptr && this->historyPeriod_ == nullptr && this->resultByTime_ == nullptr; };
       // costTotals Field Functions 
       bool hasCostTotals() const { return this->costTotals_ != nullptr;};
       void deleteCostTotals() { this->costTotals_ = nullptr;};
@@ -437,6 +856,15 @@ namespace Models
       inline Data& setGroupByTotal(vector<Data::GroupByTotal> && groupByTotal) { DARABONBA_PTR_SET_RVALUE(groupByTotal_, groupByTotal) };
 
 
+      // historyPeriod Field Functions 
+      bool hasHistoryPeriod() const { return this->historyPeriod_ != nullptr;};
+      void deleteHistoryPeriod() { this->historyPeriod_ = nullptr;};
+      inline const Data::HistoryPeriod & getHistoryPeriod() const { DARABONBA_PTR_GET_CONST(historyPeriod_, Data::HistoryPeriod) };
+      inline Data::HistoryPeriod getHistoryPeriod() { DARABONBA_PTR_GET(historyPeriod_, Data::HistoryPeriod) };
+      inline Data& setHistoryPeriod(const Data::HistoryPeriod & historyPeriod) { DARABONBA_PTR_SET_VALUE(historyPeriod_, historyPeriod) };
+      inline Data& setHistoryPeriod(Data::HistoryPeriod && historyPeriod) { DARABONBA_PTR_SET_RVALUE(historyPeriod_, historyPeriod) };
+
+
       // resultByTime Field Functions 
       bool hasResultByTime() const { return this->resultByTime_ != nullptr;};
       void deleteResultByTime() { this->resultByTime_ = nullptr;};
@@ -447,11 +875,13 @@ namespace Models
 
 
     protected:
-      // The total cost for the entire query time range, including the top N groups and "Others".
+      // The total costs within the entire query time range, including the top N items and Other.
       shared_ptr<Data::CostTotals> costTotals_ {};
-      // The total cost of the top N groups and the optional "Others" group within the period.
+      // The total costs of the top N groups and the optional Other group within the period.
       shared_ptr<vector<Data::GroupByTotal>> groupByTotal_ {};
-      // The cost trend list sorted by time in ascending order.
+      // The historical period data, which is returned when the includeHistoryPeriod input parameter is set to true.
+      shared_ptr<Data::HistoryPeriod> historyPeriod_ {};
+      // The list of cost trends sorted in ascending order by time.
       shared_ptr<vector<Data::ResultByTime>> resultByTime_ {};
     };
 
@@ -497,13 +927,13 @@ namespace Models
   protected:
     // The request result code.
     shared_ptr<string> code_ {};
-    // The response data.
+    // The returned data.
     shared_ptr<GetBillingTrendResponseBody::Data> data_ {};
-    // The request result description.
+    // The description of the request result.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

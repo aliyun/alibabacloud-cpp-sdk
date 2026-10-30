@@ -82,14 +82,14 @@ namespace Models
 
 
     protected:
-      // The default organization role ID to assign. Valid values:
+      // The ID of the default assigned organization role. Valid values:
       // 
       // - SYSTEM_ROLE_ORG_ADMIN
       // - SYSTEM_ROLE_ORG_MEMBER
       shared_ptr<string> defaultRoleId_ {};
       // The organization ID.
       shared_ptr<string> orgId_ {};
-      // The default seat allocation strategy. Valid values:
+      // The default seat assignment strategy. Valid values:
       // 
       // - HIGH_TO_LOW
       // - LOW_TO_HIGH 
@@ -132,11 +132,11 @@ namespace Models
   protected:
     // The response status code.
     shared_ptr<string> code_ {};
-    // The data result of the current category statistics.
+    // The statistical data results for the current category.
     shared_ptr<GetTokenPlanOrgInviteConfigResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // Indicates whether the API call is successful. Valid values:
+    // Indicates whether the API call was successful. Valid values:
     // 
     // - true: Successful.
     // - false: Failed.

@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
-    // The throttling values for the workspace.
+    // The throttling limits for the workspace.
     shared_ptr<string> workspaceLimitsShrink_ {};
   };
 

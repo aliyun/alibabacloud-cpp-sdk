@@ -37,7 +37,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Creates an account and directly adds it as a member.
+ * @summary Creates an account and directly adds a member.
  *
  * @param request AddOrganizationMemberRequest
  * @param headers map
@@ -78,7 +78,7 @@ AddOrganizationMemberResponse Client::addOrganizationMemberWithOptions(const Add
 }
 
 /**
- * @summary Creates an account and directly adds it as a member.
+ * @summary Creates an account and directly adds a member.
  *
  * @param request AddOrganizationMemberRequest
  * @return AddOrganizationMemberResponse
@@ -90,7 +90,7 @@ AddOrganizationMemberResponse Client::addOrganizationMember(const AddOrganizatio
 }
 
 /**
- * @summary Assigns seats in batches to the member level.
+ * @summary Assigns seats to member accounts in batches.
  *
  * @param request BatchAssignSeatsRequest
  * @param headers map
@@ -131,7 +131,7 @@ BatchAssignSeatsResponse Client::batchAssignSeatsWithOptions(const BatchAssignSe
 }
 
 /**
- * @summary Assigns seats in batches to the member level.
+ * @summary Assigns seats to member accounts in batches.
  *
  * @param request BatchAssignSeatsRequest
  * @return BatchAssignSeatsResponse
@@ -143,7 +143,7 @@ BatchAssignSeatsResponse Client::batchAssignSeats(const BatchAssignSeatsRequest 
 }
 
 /**
- * @summary Revokes member-level seats in batches.
+ * @summary Revokes member-level seats in bulk.
  *
  * @param tmpReq BatchRevokeSeatsRequest
  * @param headers map
@@ -186,7 +186,7 @@ BatchRevokeSeatsResponse Client::batchRevokeSeatsWithOptions(const BatchRevokeSe
 }
 
 /**
- * @summary Revokes member-level seats in batches.
+ * @summary Revokes member-level seats in bulk.
  *
  * @param request BatchRevokeSeatsRequest
  * @return BatchRevokeSeatsResponse
@@ -198,7 +198,7 @@ BatchRevokeSeatsResponse Client::batchRevokeSeats(const BatchRevokeSeatsRequest 
 }
 
 /**
- * @summary Before using large models or applications in Alibaba Cloud Model Studio, create an API key as an authentication credential.
+ * @summary Creates an API key as an authentication credential before using large models or applications in Alibaba Cloud Model Studio.
  *
  * @param request CreateApiKeyRequest
  * @param headers map
@@ -241,7 +241,7 @@ CreateApiKeyResponse Client::createApiKeyWithOptions(const CreateApiKeyRequest &
 }
 
 /**
- * @summary Before using large models or applications in Alibaba Cloud Model Studio, create an API key as an authentication credential.
+ * @summary Creates an API key as an authentication credential before using large models or applications in Alibaba Cloud Model Studio.
  *
  * @param request CreateApiKeyRequest
  * @return CreateApiKeyResponse
@@ -253,14 +253,14 @@ CreateApiKeyResponse Client::createApiKey(const CreateApiKeyRequest &request) {
 }
 
 /**
- * @summary Creates a TokenPlan member invitation link.
+ * @summary Creates an invitation link for a TokenPlan member.
  *
- * @description A user can have only one valid invitation link at a time.
+ * @description A user can have only one valid invitation link.
  * If the user already has a valid invitation link, this operation returns the existing link.
- * To create a new link, call the RevokeTokenPlanInviteLink operation to invalidate the current link first.
- * This operation returns only the generated token. The invitation link is assembled in the following format: `https://{host}/accept-invite?token=[token]&orgId=[orgId]`
+ * To create a new link, call the RevokeTokenPlanInviteLink operation to invalidate the current link.
+ * This operation returns only the generated token. The invitation link is concatenated in the following format: `https://{host}/accept-invite?token=[token]&orgId=[orgId]`.
  * * For the China site, the host is tokenplan-enterprise.bailian.aliyunportal.com.
- * * For the China site, the host is tokenplan-enterprise.modelstudio.aliyunportal.com.
+ * * For the international site, the host is tokenplan-enterprise.modelstudio.aliyunportal.com.
  *
  * @param request CreateTokenPlanInviteLinkRequest
  * @param headers map
@@ -297,14 +297,14 @@ CreateTokenPlanInviteLinkResponse Client::createTokenPlanInviteLinkWithOptions(c
 }
 
 /**
- * @summary Creates a TokenPlan member invitation link.
+ * @summary Creates an invitation link for a TokenPlan member.
  *
- * @description A user can have only one valid invitation link at a time.
+ * @description A user can have only one valid invitation link.
  * If the user already has a valid invitation link, this operation returns the existing link.
- * To create a new link, call the RevokeTokenPlanInviteLink operation to invalidate the current link first.
- * This operation returns only the generated token. The invitation link is assembled in the following format: `https://{host}/accept-invite?token=[token]&orgId=[orgId]`
+ * To create a new link, call the RevokeTokenPlanInviteLink operation to invalidate the current link.
+ * This operation returns only the generated token. The invitation link is concatenated in the following format: `https://{host}/accept-invite?token=[token]&orgId=[orgId]`.
  * * For the China site, the host is tokenplan-enterprise.bailian.aliyunportal.com.
- * * For the China site, the host is tokenplan-enterprise.modelstudio.aliyunportal.com.
+ * * For the international site, the host is tokenplan-enterprise.modelstudio.aliyunportal.com.
  *
  * @param request CreateTokenPlanInviteLinkRequest
  * @return CreateTokenPlanInviteLinkResponse
@@ -414,7 +414,7 @@ CreateWorkspaceResponse Client::createWorkspace(const CreateWorkspaceRequest &re
 }
 
 /**
- * @summary Deletes an authentication credential API key.
+ * @summary Deletes an authentication API key.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -439,7 +439,7 @@ DeleteApiKeyResponse Client::deleteApiKeyWithOptions(const string &apiKeyId, con
 }
 
 /**
- * @summary Deletes an authentication credential API key.
+ * @summary Deletes an authentication API key.
  *
  * @return DeleteApiKeyResponse
  */
@@ -452,11 +452,11 @@ DeleteApiKeyResponse Client::deleteApiKey(const string &apiKeyId) {
 /**
  * @summary Deletes a workspace.
  *
- * @description A workspace can be deleted only if the following conditional requirements are met:
+ * @description You can delete a workspace only if it meets the following conditional requirements:
  * 1. The workspace is not the default workspace.
- * 2. The workspace is not used to purchase other products, such as AMB.
- * 3. In permission management, the workspace is not granted to Resource Access Management (RAM) users or RAM roles.
- * 4. The workspace does not contain any resources, such as API keys, model deployments, or knowledge bases.
+ * 2. The workspace is not used to purchase other services, such as AMB.
+ * 3. The workspace is not granted to Resource Access Management (RAM) users or RAM roles in permission management.
+ * 4. No resources exist in the workspace, such as API keys, model deployments, or knowledge bases.
  *
  * @param request DeleteWorkspaceRequest
  * @param headers map
@@ -485,11 +485,11 @@ DeleteWorkspaceResponse Client::deleteWorkspaceWithOptions(const string &workspa
 /**
  * @summary Deletes a workspace.
  *
- * @description A workspace can be deleted only if the following conditional requirements are met:
+ * @description You can delete a workspace only if it meets the following conditional requirements:
  * 1. The workspace is not the default workspace.
- * 2. The workspace is not used to purchase other products, such as AMB.
- * 3. In permission management, the workspace is not granted to Resource Access Management (RAM) users or RAM roles.
- * 4. The workspace does not contain any resources, such as API keys, model deployments, or knowledge bases.
+ * 2. The workspace is not used to purchase other services, such as AMB.
+ * 3. The workspace is not granted to Resource Access Management (RAM) users or RAM roles in permission management.
+ * 4. No resources exist in the workspace, such as API keys, model deployments, or knowledge bases.
  *
  * @param request DeleteWorkspaceRequest
  * @return DeleteWorkspaceResponse
@@ -503,7 +503,7 @@ DeleteWorkspaceResponse Client::deleteWorkspace(const string &workspaceId, const
 /**
  * @summary Disables an API key.
  *
- * @description An API key that is already disabled cannot be disabled again.
+ * @description You cannot disable an API key repeatedly.
  *
  * @param request DisableApiKeyRequest
  * @param headers map
@@ -532,7 +532,7 @@ DisableApiKeyResponse Client::disableApiKeyWithOptions(const string &apiKeyId, c
 /**
  * @summary Disables an API key.
  *
- * @description An API key that is already disabled cannot be disabled again.
+ * @description You cannot disable an API key repeatedly.
  *
  * @param request DisableApiKeyRequest
  * @return DisableApiKeyResponse
@@ -546,7 +546,7 @@ DisableApiKeyResponse Client::disableApiKey(const string &apiKeyId, const Disabl
 /**
  * @summary Enables an API key.
  *
- * @description An API key that is already enabled cannot be enabled again.
+ * @description You cannot enable an API key multiple times.
  *
  * @param request EnableApiKeyRequest
  * @param headers map
@@ -575,7 +575,7 @@ EnableApiKeyResponse Client::enableApiKeyWithOptions(const string &apiKeyId, con
 /**
  * @summary Enables an API key.
  *
- * @description An API key that is already enabled cannot be enabled again.
+ * @description You cannot enable an API key multiple times.
  *
  * @param request EnableApiKeyRequest
  * @return EnableApiKeyResponse
@@ -623,7 +623,7 @@ GetApiKeyResponse Client::getApiKey(const string &apiKeyId) {
 }
 
 /**
- * @summary Queries the bill overview.
+ * @summary Queries the billing overview.
  *
  * @param tmpReq GetBillingOverviewRequest
  * @param headers map
@@ -642,6 +642,10 @@ GetBillingOverviewResponse Client::getBillingOverviewWithOptions(const GetBillin
     request.setGroupByShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getGroupBy(), "groupBy", "json"));
   }
 
+  if (!!tmpReq.hasTimePeriod()) {
+    request.setTimePeriodShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTimePeriod(), "timePeriod", "json"));
+  }
+
   json query = {};
   if (!!request.hasBillMonth()) {
     query["billMonth"] = request.getBillMonth();
@@ -649,6 +653,10 @@ GetBillingOverviewResponse Client::getBillingOverviewWithOptions(const GetBillin
 
   if (!!request.hasFilterShrink()) {
     query["filter"] = request.getFilterShrink();
+  }
+
+  if (!!request.hasGranularity()) {
+    query["granularity"] = request.getGranularity();
   }
 
   if (!!request.hasGroupByShrink()) {
@@ -661,6 +669,10 @@ GetBillingOverviewResponse Client::getBillingOverviewWithOptions(const GetBillin
 
   if (!!request.hasRegionId()) {
     query["regionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTimePeriodShrink()) {
+    query["timePeriod"] = request.getTimePeriodShrink();
   }
 
   if (!!request.hasTopNum()) {
@@ -690,7 +702,7 @@ GetBillingOverviewResponse Client::getBillingOverviewWithOptions(const GetBillin
 }
 
 /**
- * @summary Queries the bill overview.
+ * @summary Queries the billing overview.
  *
  * @param request GetBillingOverviewRequest
  * @return GetBillingOverviewResponse
@@ -702,7 +714,7 @@ GetBillingOverviewResponse Client::getBillingOverview(const GetBillingOverviewRe
 }
 
 /**
- * @summary Queries bill trends.
+ * @summary Queries the billing trends.
  *
  * @param tmpReq GetBillingTrendRequest
  * @param headers map
@@ -736,6 +748,10 @@ GetBillingTrendResponse Client::getBillingTrendWithOptions(const GetBillingTrend
 
   if (!!request.hasGroupByShrink()) {
     query["groupBy"] = request.getGroupByShrink();
+  }
+
+  if (!!request.hasIncludeHistoryPeriod()) {
+    query["includeHistoryPeriod"] = request.getIncludeHistoryPeriod();
   }
 
   if (!!request.hasLocale()) {
@@ -777,7 +793,7 @@ GetBillingTrendResponse Client::getBillingTrendWithOptions(const GetBillingTrend
 }
 
 /**
- * @summary Queries bill trends.
+ * @summary Queries the billing trends.
  *
  * @param request GetBillingTrendRequest
  * @return GetBillingTrendResponse
@@ -789,9 +805,9 @@ GetBillingTrendResponse Client::getBillingTrend(const GetBillingTrendRequest &re
 }
 
 /**
- * @summary Retrieves information about a specified organization.
+ * @summary Retrieves the details of a specified organization.
  *
- * @description Retrieves information about a specified organization by OrgId.
+ * @description Retrieves the details of a specified organization by using the organization ID.
  *
  * @param request GetOrganizationRequest
  * @param headers map
@@ -818,9 +834,9 @@ GetOrganizationResponse Client::getOrganizationWithOptions(const GetOrganization
 }
 
 /**
- * @summary Retrieves information about a specified organization.
+ * @summary Retrieves the details of a specified organization.
  *
- * @description Retrieves information about a specified organization by OrgId.
+ * @description Retrieves the details of a specified organization by using the organization ID.
  *
  * @param request GetOrganizationRequest
  * @return GetOrganizationResponse
@@ -832,7 +848,7 @@ GetOrganizationResponse Client::getOrganization(const GetOrganizationRequest &re
 }
 
 /**
- * @summary Queries organization member statistics information, including the total number of members, the number of administrators, the number of regular members, the number of members with allocated seats, and the number of members without allocated seats.
+ * @summary Queries the statistics information of organization members, including the total number of members, the number of administrators, the number of regular members, the number of members with allocated seats, and the number of members without allocated seats.
  *
  * @param request GetOrganizationMemberSeatStatsRequest
  * @param headers map
@@ -859,7 +875,7 @@ GetOrganizationMemberSeatStatsResponse Client::getOrganizationMemberSeatStatsWit
 }
 
 /**
- * @summary Queries organization member statistics information, including the total number of members, the number of administrators, the number of regular members, the number of members with allocated seats, and the number of members without allocated seats.
+ * @summary Queries the statistics information of organization members, including the total number of members, the number of administrators, the number of regular members, the number of members with allocated seats, and the number of members without allocated seats.
  *
  * @param request GetOrganizationMemberSeatStatsRequest
  * @return GetOrganizationMemberSeatStatsResponse
@@ -871,7 +887,7 @@ GetOrganizationMemberSeatStatsResponse Client::getOrganizationMemberSeatStats(co
 }
 
 /**
- * @summary Queries seat details by paging.
+ * @summary Performs a paging query on seat details.
  *
  * @param request GetSubscriptionSeatDetailsRequest
  * @param headers map
@@ -924,7 +940,7 @@ GetSubscriptionSeatDetailsResponse Client::getSubscriptionSeatDetailsWithOptions
 }
 
 /**
- * @summary Queries seat details by paging.
+ * @summary Performs a paging query on seat details.
  *
  * @param request GetSubscriptionSeatDetailsRequest
  * @return GetSubscriptionSeatDetailsResponse
@@ -936,7 +952,7 @@ GetSubscriptionSeatDetailsResponse Client::getSubscriptionSeatDetails(const GetS
 }
 
 /**
- * @summary Queries the number of members and seats for member management.
+ * @summary Queries the member and seat count information for member management.
  *
  * @param request GetSubscriptionStatsRequest
  * @param headers map
@@ -963,7 +979,7 @@ GetSubscriptionStatsResponse Client::getSubscriptionStatsWithOptions(const GetSu
 }
 
 /**
- * @summary Queries the number of members and seats for member management.
+ * @summary Queries the member and seat count information for member management.
  *
  * @param request GetSubscriptionStatsRequest
  * @return GetSubscriptionStatsResponse
@@ -975,9 +991,9 @@ GetSubscriptionStatsResponse Client::getSubscriptionStats(const GetSubscriptionS
 }
 
 /**
- * @summary Retrieves the TokenPlan account details and organization information.
+ * @summary Retrieves the details and organization information of a TokenPlan account.
  *
- * @description Retrieves the TokenPlan management platform account information when the user is logged in.
+ * @description Retrieves the account information from the TokenPlan management platform when logged on.
  *
  * @param request GetTokenPlanAccountDetailRequest
  * @param headers map
@@ -1004,9 +1020,9 @@ GetTokenPlanAccountDetailResponse Client::getTokenPlanAccountDetailWithOptions(c
 }
 
 /**
- * @summary Retrieves the TokenPlan account details and organization information.
+ * @summary Retrieves the details and organization information of a TokenPlan account.
  *
- * @description Retrieves the TokenPlan management platform account information when the user is logged in.
+ * @description Retrieves the account information from the TokenPlan management platform when logged on.
  *
  * @param request GetTokenPlanAccountDetailRequest
  * @return GetTokenPlanAccountDetailResponse
@@ -1018,9 +1034,9 @@ GetTokenPlanAccountDetailResponse Client::getTokenPlanAccountDetail(const GetTok
 }
 
 /**
- * @summary Retrieves the TokenPlan member invitation link.
+ * @summary Retrieves the invitation link for a TokenPlan member.
  *
- * @description This operation returns only the generated token and expiration time. The invitation link is assembled in the following format: `https://{host}/accept-invite?token=[token]&orgId=[orgId]`
+ * @description This operation returns only the generated token and expiration time. The invitation link is concatenated in the following format: `https://{host}/accept-invite?token=[token]&orgId=[orgId]`.
  * * For the China site, the host is tokenplan-enterprise.bailian.aliyunportal.com.
  * * For the international site, the host is tokenplan-enterprise.modelstudio.aliyunportal.com.
  *
@@ -1049,9 +1065,9 @@ GetTokenPlanInviteLinkResponse Client::getTokenPlanInviteLinkWithOptions(const G
 }
 
 /**
- * @summary Retrieves the TokenPlan member invitation link.
+ * @summary Retrieves the invitation link for a TokenPlan member.
  *
- * @description This operation returns only the generated token and expiration time. The invitation link is assembled in the following format: `https://{host}/accept-invite?token=[token]&orgId=[orgId]`
+ * @description This operation returns only the generated token and expiration time. The invitation link is concatenated in the following format: `https://{host}/accept-invite?token=[token]&orgId=[orgId]`.
  * * For the China site, the host is tokenplan-enterprise.bailian.aliyunportal.com.
  * * For the international site, the host is tokenplan-enterprise.modelstudio.aliyunportal.com.
  *
@@ -1234,15 +1250,15 @@ ListModelLimitsResponse Client::listModelLimits(const ListModelLimitsRequest &re
 }
 
 /**
- * @summary Queries model authorizations for a workspace.
+ * @summary Queries model authorizations in a workspace.
  *
- * @description ## Operation description
- * - Use `workspaceId` to specify the workspace to query (required, cannot be empty).
- * - Token-based pagination is used: `nextToken` is a string-type offset. Do not pass it for the first page. `maxResults` defaults to 20. If the upper limit is exceeded, `InvalidParameter.maxResults` is returned.
- * - `authorizationScope` controls the query dimension: `AUTHORIZED` = models that have been authorized for the specified action. `AUTHORIZABLE` = full authorizable catalog.
- * - `modelAction` specifies the authorization action dimension. Currently only `INFERENCE` is supported. If left empty, it defaults to `INFERENCE`.
- * - `filter` supports filtering by `name` (fuzzy match on model and name) or `model` (exact match on a single model).
- * - Returns a `TokenBasedPage` that contains the authorization status (inference/fineTune/deploy) and rate limit information for each model.
+ * @description ## Request description
+ * - Specify the workspace to query by using `workspaceId` (required and cannot be empty).
+ * - Uses token-based pagination: `nextToken` is a string offset and is not required for the first page. The default value of `maxResults` is 20. If the value exceeds the upper limit, the `InvalidParameter.maxResults` error is returned.
+ * - `authorizationScope` controls the query dimension: `AUTHORIZED` specifies models that are authorized for the specified action, and `AUTHORIZABLE` specifies all authorizable directories.
+ * - `modelAction` specifies the authorization action dimension. Currently, only `INFERENCE` is supported. If this parameter is left empty, the default value `INFERENCE` is used.
+ * - `filter` supports filtering by `name` (fuzzy match for model and name) or `model` (exact match for a single model).
+ * - Returns `TokenBasedPage`, which contains the authorization status (inference, fine-tuning, and deployment) and throttling information for each model.
  *
  * @param request ListModelPermissionsRequest
  * @param headers map
@@ -1295,15 +1311,15 @@ ListModelPermissionsResponse Client::listModelPermissionsWithOptions(const ListM
 }
 
 /**
- * @summary Queries model authorizations for a workspace.
+ * @summary Queries model authorizations in a workspace.
  *
- * @description ## Operation description
- * - Use `workspaceId` to specify the workspace to query (required, cannot be empty).
- * - Token-based pagination is used: `nextToken` is a string-type offset. Do not pass it for the first page. `maxResults` defaults to 20. If the upper limit is exceeded, `InvalidParameter.maxResults` is returned.
- * - `authorizationScope` controls the query dimension: `AUTHORIZED` = models that have been authorized for the specified action. `AUTHORIZABLE` = full authorizable catalog.
- * - `modelAction` specifies the authorization action dimension. Currently only `INFERENCE` is supported. If left empty, it defaults to `INFERENCE`.
- * - `filter` supports filtering by `name` (fuzzy match on model and name) or `model` (exact match on a single model).
- * - Returns a `TokenBasedPage` that contains the authorization status (inference/fineTune/deploy) and rate limit information for each model.
+ * @description ## Request description
+ * - Specify the workspace to query by using `workspaceId` (required and cannot be empty).
+ * - Uses token-based pagination: `nextToken` is a string offset and is not required for the first page. The default value of `maxResults` is 20. If the value exceeds the upper limit, the `InvalidParameter.maxResults` error is returned.
+ * - `authorizationScope` controls the query dimension: `AUTHORIZED` specifies models that are authorized for the specified action, and `AUTHORIZABLE` specifies all authorizable directories.
+ * - `modelAction` specifies the authorization action dimension. Currently, only `INFERENCE` is supported. If this parameter is left empty, the default value `INFERENCE` is used.
+ * - `filter` supports filtering by `name` (fuzzy match for model and name) or `model` (exact match for a single model).
+ * - Returns `TokenBasedPage`, which contains the authorization status (inference, fine-tuning, and deployment) and throttling information for each model.
  *
  * @param request ListModelPermissionsRequest
  * @return ListModelPermissionsResponse
@@ -1315,7 +1331,7 @@ ListModelPermissionsResponse Client::listModelPermissions(const ListModelPermiss
 }
 
 /**
- * @summary 模型元数据-查询基础模型列表
+ * @summary Queries a list of models.
  *
  * @param tmpReq ListModelsRequest
  * @param headers map
@@ -1394,7 +1410,7 @@ ListModelsResponse Client::listModelsWithOptions(const ListModelsRequest &tmpReq
 }
 
 /**
- * @summary 模型元数据-查询基础模型列表
+ * @summary Queries a list of models.
  *
  * @param request ListModelsRequest
  * @return ListModelsResponse
@@ -1406,7 +1422,7 @@ ListModelsResponse Client::listModels(const ListModelsRequest &request) {
 }
 
 /**
- * @summary Queries the list of organization members (including seat information). Supports filtering by name, status, and seat assignment, and supports pagination.
+ * @summary Queries a list of organization members, including seat information. Supports filtering by name, status, and seat allocation status, and supports pagination.
  *
  * @param request ListOrganizationMembersRequest
  * @param headers map
@@ -1455,7 +1471,7 @@ ListOrganizationMembersResponse Client::listOrganizationMembersWithOptions(const
 }
 
 /**
- * @summary Queries the list of organization members (including seat information). Supports filtering by name, status, and seat assignment, and supports pagination.
+ * @summary Queries a list of organization members, including seat information. Supports filtering by name, status, and seat allocation status, and supports pagination.
  *
  * @param request ListOrganizationMembersRequest
  * @return ListOrganizationMembersResponse
@@ -1669,7 +1685,7 @@ ResetApiKeyResponse Client::resetApiKey(const string &apiKeyId, const ResetApiKe
 }
 
 /**
- * @summary Revokes a TokenPlan member invitation link.
+ * @summary Revokes the TokenPlan member invitation link.
  *
  * @param request RevokeTokenPlanInviteLinkRequest
  * @param headers map
@@ -1696,7 +1712,7 @@ RevokeTokenPlanInviteLinkResponse Client::revokeTokenPlanInviteLinkWithOptions(c
 }
 
 /**
- * @summary Revokes a TokenPlan member invitation link.
+ * @summary Revokes the TokenPlan member invitation link.
  *
  * @param request RevokeTokenPlanInviteLinkRequest
  * @return RevokeTokenPlanInviteLinkResponse
@@ -1710,7 +1726,7 @@ RevokeTokenPlanInviteLinkResponse Client::revokeTokenPlanInviteLink(const Revoke
 /**
  * @summary Resets a UAC API key.
  *
- * @description Only the API Key value changes. The API Key ID remains unchanged.
+ * @description Only the API key changes. The API key ID remains unchanged.
  *
  * @param request RotateTokenPlanKeyRequest
  * @param headers map
@@ -1745,7 +1761,7 @@ RotateTokenPlanKeyResponse Client::rotateTokenPlanKeyWithOptions(const RotateTok
 /**
  * @summary Resets a UAC API key.
  *
- * @description Only the API Key value changes. The API Key ID remains unchanged.
+ * @description Only the API key changes. The API key ID remains unchanged.
  *
  * @param request RotateTokenPlanKeyRequest
  * @return RotateTokenPlanKeyResponse
@@ -1806,7 +1822,7 @@ SetTokenPlanOrgInviteConfigResponse Client::setTokenPlanOrgInviteConfig(const Se
 }
 
 /**
- * @summary Edits the information of an API Key authentication credential.
+ * @summary Modifies the information of an API key.
  *
  * @param request UpdateApiKeyRequest
  * @param headers map
@@ -1845,7 +1861,7 @@ UpdateApiKeyResponse Client::updateApiKeyWithOptions(const string &apiKeyId, con
 }
 
 /**
- * @summary Edits the information of an API Key authentication credential.
+ * @summary Modifies the information of an API key.
  *
  * @param request UpdateApiKeyRequest
  * @return UpdateApiKeyResponse
@@ -1857,7 +1873,7 @@ UpdateApiKeyResponse Client::updateApiKey(const string &apiKeyId, const UpdateAp
 }
 
 /**
- * @summary Updates the model throttling configuration for a workspace.
+ * @summary Updates the model throttling settings for a workspace.
  *
  * @param tmpReq UpdateModelLimitsRequest
  * @param headers map
@@ -1900,7 +1916,7 @@ UpdateModelLimitsResponse Client::updateModelLimitsWithOptions(const UpdateModel
 }
 
 /**
- * @summary Updates the model throttling configuration for a workspace.
+ * @summary Updates the model throttling settings for a workspace.
  *
  * @param request UpdateModelLimitsRequest
  * @return UpdateModelLimitsResponse
@@ -1912,7 +1928,7 @@ UpdateModelLimitsResponse Client::updateModelLimits(const UpdateModelLimitsReque
 }
 
 /**
- * @summary Updates model authorization for a workspace.
+ * @summary Updates the model authorization for a workspace.
  *
  * @param request UpdateModelPermissionsRequest
  * @param headers map
@@ -1953,7 +1969,7 @@ UpdateModelPermissionsResponse Client::updateModelPermissionsWithOptions(const U
 }
 
 /**
- * @summary Updates model authorization for a workspace.
+ * @summary Updates the model authorization for a workspace.
  *
  * @param request UpdateModelPermissionsRequest
  * @return UpdateModelPermissionsResponse
@@ -1965,7 +1981,7 @@ UpdateModelPermissionsResponse Client::updateModelPermissions(const UpdateModelP
 }
 
 /**
- * @summary Modifies organization information.
+ * @summary Modifies the organization information.
  *
  * @param request UpdateOrganizationRequest
  * @param headers map
@@ -2002,7 +2018,7 @@ UpdateOrganizationResponse Client::updateOrganizationWithOptions(const UpdateOrg
 }
 
 /**
- * @summary Modifies organization information.
+ * @summary Modifies the organization information.
  *
  * @param request UpdateOrganizationRequest
  * @return UpdateOrganizationResponse

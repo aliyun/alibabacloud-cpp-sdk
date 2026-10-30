@@ -130,22 +130,22 @@ namespace Models
 
 
   protected:
-    // The authorization query dimension. Valid values:
+    // The query dimension for the authorization scope.
     // 
-    // - **AUTHORIZED**: models that have been authorized for the specified modelAction. Use this value together with modelAction.
-    // - **AUTHORIZABLE**: full authorizable catalog.
+    // - **AUTHORIZED**: models that are authorized for the specified modelAction. This value must be used together with modelAction.
+    // - **AUTHORIZABLE**: all authorizable directories.
     shared_ptr<string> authorizationScope_ {};
     // The filter conditions.
     shared_ptr<ListModelPermissionsRequest::Filter> filter_ {};
-    // The maximum number of entries to return per page. Default value: 20. If the upper limit is exceeded, the error code InvalidParameter.maxResults is returned.
+    // The maximum number of entries to return on each page. Default value: 20. If the value exceeds the upper limit, the `InvalidParameter.maxResults` error is returned.
     shared_ptr<int32_t> maxResults_ {};
-    // The authorization action dimension. Valid values:
+    // The authorization action dimension.
     // 
-    // - **INFERENCE**: model inference authorization.
+    // - **INFERENCE**: model invocation authorization.
     shared_ptr<string> modelAction_ {};
-    // The pagination token (offset) for the next page. Do not pass this parameter for the first page.
+    // The pagination token that is used to retrieve the next page. This parameter is not required for the first page.
     shared_ptr<string> nextToken_ {};
-    // The workspace ID. This parameter is required and cannot be empty.
+    // The ID of the workspace. This parameter is required.
     // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};

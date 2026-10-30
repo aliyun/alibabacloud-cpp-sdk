@@ -147,11 +147,11 @@ namespace Models
     shared_ptr<vector<DeleteWorkspaceResponseBody::FailReasons>> failReasons_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Indicates whether the workspace is successfully deleted. Valid values:
+    // Indicates whether the deletion is successful. Valid values:
     // 
-    // - true: Succeeded.
+    // - true: successful
     // 
-    // - false: Failed.
+    // - false: failed
     shared_ptr<bool> isDeleted_ {};
     // The response message.
     shared_ptr<string> message_ {};
@@ -159,8 +159,8 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the API call is successful. Valid values:
     // 
-    // - true: Succeeded.
-    // - false: Failed.
+    // - true: successful
+    // - false: failed
     shared_ptr<bool> success_ {};
   };
 

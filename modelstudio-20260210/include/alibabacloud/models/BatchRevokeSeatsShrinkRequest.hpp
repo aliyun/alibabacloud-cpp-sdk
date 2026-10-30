@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The list of revocation items. This parameter is required.
     shared_ptr<string> itemsShrink_ {};
-    // The language. Valid values: zh-CN and en-US.
+    // The locale. Valid values: zh-CN and en-US.
     shared_ptr<string> locale_ {};
   };
 

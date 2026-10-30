@@ -91,17 +91,21 @@ namespace Models
     shared_ptr<int32_t> pageNo_ {};
     // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The seat assignment status filter. Set to true for assigned seats, false for unassigned seats, or null for all seats.
+    // The filter for the seat assignment status. Valid values:
+    // 
+    // - true: assigned
+    // - false: unassigned
+    // - null: all
     shared_ptr<bool> queryAssigned_ {};
     // The seat ID.
     shared_ptr<string> seatId_ {};
     // The seat type (specType). Valid values:
     // 
-    // - standard: standard seat.
-    // - pro: pro seat.
-    // - max: premium seat.
+    // - standard: standard seat
+    // - pro: advanced seat
+    // - max: premium seat
     shared_ptr<string> seatType_ {};
-    // The list of seat statuses used for filtering.
+    // The list of seat statuses for filtering.
     shared_ptr<vector<string>> statusList_ {};
   };
 

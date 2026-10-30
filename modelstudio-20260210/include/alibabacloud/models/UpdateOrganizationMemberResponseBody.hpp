@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The error code. This parameter is empty if the operation is successful.
+    // The error code. This parameter is empty if the request is successful.
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message. This parameter is empty if the operation is successful.
+    // The error message. This parameter is empty if the request is successful.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -186,7 +186,7 @@ namespace Models
         protected:
           // The end time of the current cycle, in milliseconds.
           shared_ptr<int64_t> cycleEndTime_ {};
-          // The equity code (subscription code). This does not need to be consumed in CREDITS scenarios.
+          // The entitlement code (subscription code). Consumption is not required in the credits scenario.
           shared_ptr<string> cycleInstanceId_ {};
           // The start time of the current cycle, in milliseconds.
           shared_ptr<int64_t> cycleStartTime_ {};
@@ -194,9 +194,9 @@ namespace Models
           shared_ptr<double> cycleSurplusValue_ {};
           // The total quota of the current cycle.
           shared_ptr<double> cycleTotalValue_ {};
-          // The time-series version of the current cycle.
+          // The sequence version of the current cycle.
           shared_ptr<int64_t> cycleVersion_ {};
-          // The equity type, such as CREDITS, SPN, or resource plan.
+          // The entitlement type, such as CREDITS, SPN, or resource plan.
           shared_ptr<string> equityType_ {};
         };
 
@@ -296,7 +296,7 @@ namespace Models
         shared_ptr<string> assignedStatus_ {};
         // The expiration time of the seat.
         shared_ptr<int64_t> endTime_ {};
-        // The currently active equity instances. For TokenPlan products, this list contains only one active equity instance.
+        // The active entitlement instances. For the TokenPlan product, this list contains only one active entitlement instance.
         shared_ptr<vector<Items::EquityList>> equityList_ {};
         // The instance code of the seat.
         shared_ptr<string> instanceCode_ {};
@@ -304,19 +304,20 @@ namespace Models
         shared_ptr<string> seatId_ {};
         // The seat type. Valid values: 
         // 
-        // - standard: standard seat.
-        // - pro: pro seat.
-        // - max: premium seat.
+        // - standard: standard seat
+        // - pro: advanced seat
+        // - max: premium seat
         shared_ptr<string> specType_ {};
         // The start time of the seat.
         shared_ptr<int64_t> startTime_ {};
         // The seat status. Valid values:
-        // - CREATING: being created.
-        // - NORMAL: active.
-        // - LIMIT: restricted due to overdue payment.
-        // - RELEASE: released upon expiration.
-        // - STOP: stopped upon expiration.
-        // - REFUNDED: refunded.
+        // 
+        // - CREATING: creating
+        // - NORMAL: valid
+        // - LIMIT: restricted due to overdue payment
+        // - RELEASE: released upon expiration
+        // - STOP: stopped upon expiration
+        // - REFUNDED: refunded
         shared_ptr<string> status_ {};
       };
 
@@ -355,7 +356,7 @@ namespace Models
     protected:
       // The data items.
       shared_ptr<vector<Data::Items>> items_ {};
-      // The page number. The value is greater than 0 and does not exceed the maximum value of the Integer data type.
+      // The page number. The value must be greater than 0 and cannot exceed the maximum value of the Integer data type.
       shared_ptr<int32_t> pageNo_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
@@ -404,8 +405,8 @@ namespace Models
     shared_ptr<string> message_ {};
     // Indicates whether the call is successful. Valid values:
     // 
-    // - true: Successful.
-    // - false: Failed.
+    // - true: successful
+    // - false: failed
     shared_ptr<bool> success_ {};
   };
 

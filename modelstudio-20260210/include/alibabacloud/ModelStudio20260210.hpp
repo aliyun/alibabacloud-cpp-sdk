@@ -21,7 +21,7 @@ namespace ModelStudio20260210
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Creates an account and directly adds it as a member.
+       * @summary Creates an account and directly adds a member.
        *
        * @param request AddOrganizationMemberRequest
        * @param headers map
@@ -31,7 +31,7 @@ namespace ModelStudio20260210
       Models::AddOrganizationMemberResponse addOrganizationMemberWithOptions(const Models::AddOrganizationMemberRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an account and directly adds it as a member.
+       * @summary Creates an account and directly adds a member.
        *
        * @param request AddOrganizationMemberRequest
        * @return AddOrganizationMemberResponse
@@ -39,7 +39,7 @@ namespace ModelStudio20260210
       Models::AddOrganizationMemberResponse addOrganizationMember(const Models::AddOrganizationMemberRequest &request);
 
       /**
-       * @summary Assigns seats in batches to the member level.
+       * @summary Assigns seats to member accounts in batches.
        *
        * @param request BatchAssignSeatsRequest
        * @param headers map
@@ -49,7 +49,7 @@ namespace ModelStudio20260210
       Models::BatchAssignSeatsResponse batchAssignSeatsWithOptions(const Models::BatchAssignSeatsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Assigns seats in batches to the member level.
+       * @summary Assigns seats to member accounts in batches.
        *
        * @param request BatchAssignSeatsRequest
        * @return BatchAssignSeatsResponse
@@ -57,7 +57,7 @@ namespace ModelStudio20260210
       Models::BatchAssignSeatsResponse batchAssignSeats(const Models::BatchAssignSeatsRequest &request);
 
       /**
-       * @summary Revokes member-level seats in batches.
+       * @summary Revokes member-level seats in bulk.
        *
        * @param tmpReq BatchRevokeSeatsRequest
        * @param headers map
@@ -67,7 +67,7 @@ namespace ModelStudio20260210
       Models::BatchRevokeSeatsResponse batchRevokeSeatsWithOptions(const Models::BatchRevokeSeatsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Revokes member-level seats in batches.
+       * @summary Revokes member-level seats in bulk.
        *
        * @param request BatchRevokeSeatsRequest
        * @return BatchRevokeSeatsResponse
@@ -75,7 +75,7 @@ namespace ModelStudio20260210
       Models::BatchRevokeSeatsResponse batchRevokeSeats(const Models::BatchRevokeSeatsRequest &request);
 
       /**
-       * @summary Before using large models or applications in Alibaba Cloud Model Studio, create an API key as an authentication credential.
+       * @summary Creates an API key as an authentication credential before using large models or applications in Alibaba Cloud Model Studio.
        *
        * @param request CreateApiKeyRequest
        * @param headers map
@@ -85,7 +85,7 @@ namespace ModelStudio20260210
       Models::CreateApiKeyResponse createApiKeyWithOptions(const Models::CreateApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Before using large models or applications in Alibaba Cloud Model Studio, create an API key as an authentication credential.
+       * @summary Creates an API key as an authentication credential before using large models or applications in Alibaba Cloud Model Studio.
        *
        * @param request CreateApiKeyRequest
        * @return CreateApiKeyResponse
@@ -93,14 +93,14 @@ namespace ModelStudio20260210
       Models::CreateApiKeyResponse createApiKey(const Models::CreateApiKeyRequest &request);
 
       /**
-       * @summary Creates a TokenPlan member invitation link.
+       * @summary Creates an invitation link for a TokenPlan member.
        *
-       * @description A user can have only one valid invitation link at a time.
+       * @description A user can have only one valid invitation link.
        * If the user already has a valid invitation link, this operation returns the existing link.
-       * To create a new link, call the RevokeTokenPlanInviteLink operation to invalidate the current link first.
-       * This operation returns only the generated token. The invitation link is assembled in the following format: `https://{host}/accept-invite?token=[token]&orgId=[orgId]`
+       * To create a new link, call the RevokeTokenPlanInviteLink operation to invalidate the current link.
+       * This operation returns only the generated token. The invitation link is concatenated in the following format: `https://{host}/accept-invite?token=[token]&orgId=[orgId]`.
        * * For the China site, the host is tokenplan-enterprise.bailian.aliyunportal.com.
-       * * For the China site, the host is tokenplan-enterprise.modelstudio.aliyunportal.com.
+       * * For the international site, the host is tokenplan-enterprise.modelstudio.aliyunportal.com.
        *
        * @param request CreateTokenPlanInviteLinkRequest
        * @param headers map
@@ -110,14 +110,14 @@ namespace ModelStudio20260210
       Models::CreateTokenPlanInviteLinkResponse createTokenPlanInviteLinkWithOptions(const Models::CreateTokenPlanInviteLinkRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a TokenPlan member invitation link.
+       * @summary Creates an invitation link for a TokenPlan member.
        *
-       * @description A user can have only one valid invitation link at a time.
+       * @description A user can have only one valid invitation link.
        * If the user already has a valid invitation link, this operation returns the existing link.
-       * To create a new link, call the RevokeTokenPlanInviteLink operation to invalidate the current link first.
-       * This operation returns only the generated token. The invitation link is assembled in the following format: `https://{host}/accept-invite?token=[token]&orgId=[orgId]`
+       * To create a new link, call the RevokeTokenPlanInviteLink operation to invalidate the current link.
+       * This operation returns only the generated token. The invitation link is concatenated in the following format: `https://{host}/accept-invite?token=[token]&orgId=[orgId]`.
        * * For the China site, the host is tokenplan-enterprise.bailian.aliyunportal.com.
-       * * For the China site, the host is tokenplan-enterprise.modelstudio.aliyunportal.com.
+       * * For the international site, the host is tokenplan-enterprise.modelstudio.aliyunportal.com.
        *
        * @param request CreateTokenPlanInviteLinkRequest
        * @return CreateTokenPlanInviteLinkResponse
@@ -161,7 +161,7 @@ namespace ModelStudio20260210
       Models::CreateWorkspaceResponse createWorkspace(const Models::CreateWorkspaceRequest &request);
 
       /**
-       * @summary Deletes an authentication credential API key.
+       * @summary Deletes an authentication API key.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -170,7 +170,7 @@ namespace ModelStudio20260210
       Models::DeleteApiKeyResponse deleteApiKeyWithOptions(const string &apiKeyId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an authentication credential API key.
+       * @summary Deletes an authentication API key.
        *
        * @return DeleteApiKeyResponse
        */
@@ -179,11 +179,11 @@ namespace ModelStudio20260210
       /**
        * @summary Deletes a workspace.
        *
-       * @description A workspace can be deleted only if the following conditional requirements are met:
+       * @description You can delete a workspace only if it meets the following conditional requirements:
        * 1. The workspace is not the default workspace.
-       * 2. The workspace is not used to purchase other products, such as AMB.
-       * 3. In permission management, the workspace is not granted to Resource Access Management (RAM) users or RAM roles.
-       * 4. The workspace does not contain any resources, such as API keys, model deployments, or knowledge bases.
+       * 2. The workspace is not used to purchase other services, such as AMB.
+       * 3. The workspace is not granted to Resource Access Management (RAM) users or RAM roles in permission management.
+       * 4. No resources exist in the workspace, such as API keys, model deployments, or knowledge bases.
        *
        * @param request DeleteWorkspaceRequest
        * @param headers map
@@ -195,11 +195,11 @@ namespace ModelStudio20260210
       /**
        * @summary Deletes a workspace.
        *
-       * @description A workspace can be deleted only if the following conditional requirements are met:
+       * @description You can delete a workspace only if it meets the following conditional requirements:
        * 1. The workspace is not the default workspace.
-       * 2. The workspace is not used to purchase other products, such as AMB.
-       * 3. In permission management, the workspace is not granted to Resource Access Management (RAM) users or RAM roles.
-       * 4. The workspace does not contain any resources, such as API keys, model deployments, or knowledge bases.
+       * 2. The workspace is not used to purchase other services, such as AMB.
+       * 3. The workspace is not granted to Resource Access Management (RAM) users or RAM roles in permission management.
+       * 4. No resources exist in the workspace, such as API keys, model deployments, or knowledge bases.
        *
        * @param request DeleteWorkspaceRequest
        * @return DeleteWorkspaceResponse
@@ -209,7 +209,7 @@ namespace ModelStudio20260210
       /**
        * @summary Disables an API key.
        *
-       * @description An API key that is already disabled cannot be disabled again.
+       * @description You cannot disable an API key repeatedly.
        *
        * @param request DisableApiKeyRequest
        * @param headers map
@@ -221,7 +221,7 @@ namespace ModelStudio20260210
       /**
        * @summary Disables an API key.
        *
-       * @description An API key that is already disabled cannot be disabled again.
+       * @description You cannot disable an API key repeatedly.
        *
        * @param request DisableApiKeyRequest
        * @return DisableApiKeyResponse
@@ -231,7 +231,7 @@ namespace ModelStudio20260210
       /**
        * @summary Enables an API key.
        *
-       * @description An API key that is already enabled cannot be enabled again.
+       * @description You cannot enable an API key multiple times.
        *
        * @param request EnableApiKeyRequest
        * @param headers map
@@ -243,7 +243,7 @@ namespace ModelStudio20260210
       /**
        * @summary Enables an API key.
        *
-       * @description An API key that is already enabled cannot be enabled again.
+       * @description You cannot enable an API key multiple times.
        *
        * @param request EnableApiKeyRequest
        * @return EnableApiKeyResponse
@@ -267,7 +267,7 @@ namespace ModelStudio20260210
       Models::GetApiKeyResponse getApiKey(const string &apiKeyId);
 
       /**
-       * @summary Queries the bill overview.
+       * @summary Queries the billing overview.
        *
        * @param tmpReq GetBillingOverviewRequest
        * @param headers map
@@ -277,7 +277,7 @@ namespace ModelStudio20260210
       Models::GetBillingOverviewResponse getBillingOverviewWithOptions(const Models::GetBillingOverviewRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the bill overview.
+       * @summary Queries the billing overview.
        *
        * @param request GetBillingOverviewRequest
        * @return GetBillingOverviewResponse
@@ -285,7 +285,7 @@ namespace ModelStudio20260210
       Models::GetBillingOverviewResponse getBillingOverview(const Models::GetBillingOverviewRequest &request);
 
       /**
-       * @summary Queries bill trends.
+       * @summary Queries the billing trends.
        *
        * @param tmpReq GetBillingTrendRequest
        * @param headers map
@@ -295,7 +295,7 @@ namespace ModelStudio20260210
       Models::GetBillingTrendResponse getBillingTrendWithOptions(const Models::GetBillingTrendRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries bill trends.
+       * @summary Queries the billing trends.
        *
        * @param request GetBillingTrendRequest
        * @return GetBillingTrendResponse
@@ -303,9 +303,9 @@ namespace ModelStudio20260210
       Models::GetBillingTrendResponse getBillingTrend(const Models::GetBillingTrendRequest &request);
 
       /**
-       * @summary Retrieves information about a specified organization.
+       * @summary Retrieves the details of a specified organization.
        *
-       * @description Retrieves information about a specified organization by OrgId.
+       * @description Retrieves the details of a specified organization by using the organization ID.
        *
        * @param request GetOrganizationRequest
        * @param headers map
@@ -315,9 +315,9 @@ namespace ModelStudio20260210
       Models::GetOrganizationResponse getOrganizationWithOptions(const Models::GetOrganizationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves information about a specified organization.
+       * @summary Retrieves the details of a specified organization.
        *
-       * @description Retrieves information about a specified organization by OrgId.
+       * @description Retrieves the details of a specified organization by using the organization ID.
        *
        * @param request GetOrganizationRequest
        * @return GetOrganizationResponse
@@ -325,7 +325,7 @@ namespace ModelStudio20260210
       Models::GetOrganizationResponse getOrganization(const Models::GetOrganizationRequest &request);
 
       /**
-       * @summary Queries organization member statistics information, including the total number of members, the number of administrators, the number of regular members, the number of members with allocated seats, and the number of members without allocated seats.
+       * @summary Queries the statistics information of organization members, including the total number of members, the number of administrators, the number of regular members, the number of members with allocated seats, and the number of members without allocated seats.
        *
        * @param request GetOrganizationMemberSeatStatsRequest
        * @param headers map
@@ -335,7 +335,7 @@ namespace ModelStudio20260210
       Models::GetOrganizationMemberSeatStatsResponse getOrganizationMemberSeatStatsWithOptions(const Models::GetOrganizationMemberSeatStatsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries organization member statistics information, including the total number of members, the number of administrators, the number of regular members, the number of members with allocated seats, and the number of members without allocated seats.
+       * @summary Queries the statistics information of organization members, including the total number of members, the number of administrators, the number of regular members, the number of members with allocated seats, and the number of members without allocated seats.
        *
        * @param request GetOrganizationMemberSeatStatsRequest
        * @return GetOrganizationMemberSeatStatsResponse
@@ -343,7 +343,7 @@ namespace ModelStudio20260210
       Models::GetOrganizationMemberSeatStatsResponse getOrganizationMemberSeatStats(const Models::GetOrganizationMemberSeatStatsRequest &request);
 
       /**
-       * @summary Queries seat details by paging.
+       * @summary Performs a paging query on seat details.
        *
        * @param request GetSubscriptionSeatDetailsRequest
        * @param headers map
@@ -353,7 +353,7 @@ namespace ModelStudio20260210
       Models::GetSubscriptionSeatDetailsResponse getSubscriptionSeatDetailsWithOptions(const Models::GetSubscriptionSeatDetailsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries seat details by paging.
+       * @summary Performs a paging query on seat details.
        *
        * @param request GetSubscriptionSeatDetailsRequest
        * @return GetSubscriptionSeatDetailsResponse
@@ -361,7 +361,7 @@ namespace ModelStudio20260210
       Models::GetSubscriptionSeatDetailsResponse getSubscriptionSeatDetails(const Models::GetSubscriptionSeatDetailsRequest &request);
 
       /**
-       * @summary Queries the number of members and seats for member management.
+       * @summary Queries the member and seat count information for member management.
        *
        * @param request GetSubscriptionStatsRequest
        * @param headers map
@@ -371,7 +371,7 @@ namespace ModelStudio20260210
       Models::GetSubscriptionStatsResponse getSubscriptionStatsWithOptions(const Models::GetSubscriptionStatsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the number of members and seats for member management.
+       * @summary Queries the member and seat count information for member management.
        *
        * @param request GetSubscriptionStatsRequest
        * @return GetSubscriptionStatsResponse
@@ -379,9 +379,9 @@ namespace ModelStudio20260210
       Models::GetSubscriptionStatsResponse getSubscriptionStats(const Models::GetSubscriptionStatsRequest &request);
 
       /**
-       * @summary Retrieves the TokenPlan account details and organization information.
+       * @summary Retrieves the details and organization information of a TokenPlan account.
        *
-       * @description Retrieves the TokenPlan management platform account information when the user is logged in.
+       * @description Retrieves the account information from the TokenPlan management platform when logged on.
        *
        * @param request GetTokenPlanAccountDetailRequest
        * @param headers map
@@ -391,9 +391,9 @@ namespace ModelStudio20260210
       Models::GetTokenPlanAccountDetailResponse getTokenPlanAccountDetailWithOptions(const Models::GetTokenPlanAccountDetailRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the TokenPlan account details and organization information.
+       * @summary Retrieves the details and organization information of a TokenPlan account.
        *
-       * @description Retrieves the TokenPlan management platform account information when the user is logged in.
+       * @description Retrieves the account information from the TokenPlan management platform when logged on.
        *
        * @param request GetTokenPlanAccountDetailRequest
        * @return GetTokenPlanAccountDetailResponse
@@ -401,9 +401,9 @@ namespace ModelStudio20260210
       Models::GetTokenPlanAccountDetailResponse getTokenPlanAccountDetail(const Models::GetTokenPlanAccountDetailRequest &request);
 
       /**
-       * @summary Retrieves the TokenPlan member invitation link.
+       * @summary Retrieves the invitation link for a TokenPlan member.
        *
-       * @description This operation returns only the generated token and expiration time. The invitation link is assembled in the following format: `https://{host}/accept-invite?token=[token]&orgId=[orgId]`
+       * @description This operation returns only the generated token and expiration time. The invitation link is concatenated in the following format: `https://{host}/accept-invite?token=[token]&orgId=[orgId]`.
        * * For the China site, the host is tokenplan-enterprise.bailian.aliyunportal.com.
        * * For the international site, the host is tokenplan-enterprise.modelstudio.aliyunportal.com.
        *
@@ -415,9 +415,9 @@ namespace ModelStudio20260210
       Models::GetTokenPlanInviteLinkResponse getTokenPlanInviteLinkWithOptions(const Models::GetTokenPlanInviteLinkRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the TokenPlan member invitation link.
+       * @summary Retrieves the invitation link for a TokenPlan member.
        *
-       * @description This operation returns only the generated token and expiration time. The invitation link is assembled in the following format: `https://{host}/accept-invite?token=[token]&orgId=[orgId]`
+       * @description This operation returns only the generated token and expiration time. The invitation link is concatenated in the following format: `https://{host}/accept-invite?token=[token]&orgId=[orgId]`.
        * * For the China site, the host is tokenplan-enterprise.bailian.aliyunportal.com.
        * * For the international site, the host is tokenplan-enterprise.modelstudio.aliyunportal.com.
        *
@@ -481,15 +481,15 @@ namespace ModelStudio20260210
       Models::ListModelLimitsResponse listModelLimits(const Models::ListModelLimitsRequest &request);
 
       /**
-       * @summary Queries model authorizations for a workspace.
+       * @summary Queries model authorizations in a workspace.
        *
-       * @description ## Operation description
-       * - Use `workspaceId` to specify the workspace to query (required, cannot be empty).
-       * - Token-based pagination is used: `nextToken` is a string-type offset. Do not pass it for the first page. `maxResults` defaults to 20. If the upper limit is exceeded, `InvalidParameter.maxResults` is returned.
-       * - `authorizationScope` controls the query dimension: `AUTHORIZED` = models that have been authorized for the specified action. `AUTHORIZABLE` = full authorizable catalog.
-       * - `modelAction` specifies the authorization action dimension. Currently only `INFERENCE` is supported. If left empty, it defaults to `INFERENCE`.
-       * - `filter` supports filtering by `name` (fuzzy match on model and name) or `model` (exact match on a single model).
-       * - Returns a `TokenBasedPage` that contains the authorization status (inference/fineTune/deploy) and rate limit information for each model.
+       * @description ## Request description
+       * - Specify the workspace to query by using `workspaceId` (required and cannot be empty).
+       * - Uses token-based pagination: `nextToken` is a string offset and is not required for the first page. The default value of `maxResults` is 20. If the value exceeds the upper limit, the `InvalidParameter.maxResults` error is returned.
+       * - `authorizationScope` controls the query dimension: `AUTHORIZED` specifies models that are authorized for the specified action, and `AUTHORIZABLE` specifies all authorizable directories.
+       * - `modelAction` specifies the authorization action dimension. Currently, only `INFERENCE` is supported. If this parameter is left empty, the default value `INFERENCE` is used.
+       * - `filter` supports filtering by `name` (fuzzy match for model and name) or `model` (exact match for a single model).
+       * - Returns `TokenBasedPage`, which contains the authorization status (inference, fine-tuning, and deployment) and throttling information for each model.
        *
        * @param request ListModelPermissionsRequest
        * @param headers map
@@ -499,15 +499,15 @@ namespace ModelStudio20260210
       Models::ListModelPermissionsResponse listModelPermissionsWithOptions(const Models::ListModelPermissionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries model authorizations for a workspace.
+       * @summary Queries model authorizations in a workspace.
        *
-       * @description ## Operation description
-       * - Use `workspaceId` to specify the workspace to query (required, cannot be empty).
-       * - Token-based pagination is used: `nextToken` is a string-type offset. Do not pass it for the first page. `maxResults` defaults to 20. If the upper limit is exceeded, `InvalidParameter.maxResults` is returned.
-       * - `authorizationScope` controls the query dimension: `AUTHORIZED` = models that have been authorized for the specified action. `AUTHORIZABLE` = full authorizable catalog.
-       * - `modelAction` specifies the authorization action dimension. Currently only `INFERENCE` is supported. If left empty, it defaults to `INFERENCE`.
-       * - `filter` supports filtering by `name` (fuzzy match on model and name) or `model` (exact match on a single model).
-       * - Returns a `TokenBasedPage` that contains the authorization status (inference/fineTune/deploy) and rate limit information for each model.
+       * @description ## Request description
+       * - Specify the workspace to query by using `workspaceId` (required and cannot be empty).
+       * - Uses token-based pagination: `nextToken` is a string offset and is not required for the first page. The default value of `maxResults` is 20. If the value exceeds the upper limit, the `InvalidParameter.maxResults` error is returned.
+       * - `authorizationScope` controls the query dimension: `AUTHORIZED` specifies models that are authorized for the specified action, and `AUTHORIZABLE` specifies all authorizable directories.
+       * - `modelAction` specifies the authorization action dimension. Currently, only `INFERENCE` is supported. If this parameter is left empty, the default value `INFERENCE` is used.
+       * - `filter` supports filtering by `name` (fuzzy match for model and name) or `model` (exact match for a single model).
+       * - Returns `TokenBasedPage`, which contains the authorization status (inference, fine-tuning, and deployment) and throttling information for each model.
        *
        * @param request ListModelPermissionsRequest
        * @return ListModelPermissionsResponse
@@ -515,7 +515,7 @@ namespace ModelStudio20260210
       Models::ListModelPermissionsResponse listModelPermissions(const Models::ListModelPermissionsRequest &request);
 
       /**
-       * @summary 模型元数据-查询基础模型列表
+       * @summary Queries a list of models.
        *
        * @param tmpReq ListModelsRequest
        * @param headers map
@@ -525,7 +525,7 @@ namespace ModelStudio20260210
       Models::ListModelsResponse listModelsWithOptions(const Models::ListModelsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 模型元数据-查询基础模型列表
+       * @summary Queries a list of models.
        *
        * @param request ListModelsRequest
        * @return ListModelsResponse
@@ -533,7 +533,7 @@ namespace ModelStudio20260210
       Models::ListModelsResponse listModels(const Models::ListModelsRequest &request);
 
       /**
-       * @summary Queries the list of organization members (including seat information). Supports filtering by name, status, and seat assignment, and supports pagination.
+       * @summary Queries a list of organization members, including seat information. Supports filtering by name, status, and seat allocation status, and supports pagination.
        *
        * @param request ListOrganizationMembersRequest
        * @param headers map
@@ -543,7 +543,7 @@ namespace ModelStudio20260210
       Models::ListOrganizationMembersResponse listOrganizationMembersWithOptions(const Models::ListOrganizationMembersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of organization members (including seat information). Supports filtering by name, status, and seat assignment, and supports pagination.
+       * @summary Queries a list of organization members, including seat information. Supports filtering by name, status, and seat allocation status, and supports pagination.
        *
        * @param request ListOrganizationMembersRequest
        * @return ListOrganizationMembersResponse
@@ -627,7 +627,7 @@ namespace ModelStudio20260210
       Models::ResetApiKeyResponse resetApiKey(const string &apiKeyId, const Models::ResetApiKeyRequest &request);
 
       /**
-       * @summary Revokes a TokenPlan member invitation link.
+       * @summary Revokes the TokenPlan member invitation link.
        *
        * @param request RevokeTokenPlanInviteLinkRequest
        * @param headers map
@@ -637,7 +637,7 @@ namespace ModelStudio20260210
       Models::RevokeTokenPlanInviteLinkResponse revokeTokenPlanInviteLinkWithOptions(const Models::RevokeTokenPlanInviteLinkRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Revokes a TokenPlan member invitation link.
+       * @summary Revokes the TokenPlan member invitation link.
        *
        * @param request RevokeTokenPlanInviteLinkRequest
        * @return RevokeTokenPlanInviteLinkResponse
@@ -647,7 +647,7 @@ namespace ModelStudio20260210
       /**
        * @summary Resets a UAC API key.
        *
-       * @description Only the API Key value changes. The API Key ID remains unchanged.
+       * @description Only the API key changes. The API key ID remains unchanged.
        *
        * @param request RotateTokenPlanKeyRequest
        * @param headers map
@@ -659,7 +659,7 @@ namespace ModelStudio20260210
       /**
        * @summary Resets a UAC API key.
        *
-       * @description Only the API Key value changes. The API Key ID remains unchanged.
+       * @description Only the API key changes. The API key ID remains unchanged.
        *
        * @param request RotateTokenPlanKeyRequest
        * @return RotateTokenPlanKeyResponse
@@ -685,7 +685,7 @@ namespace ModelStudio20260210
       Models::SetTokenPlanOrgInviteConfigResponse setTokenPlanOrgInviteConfig(const Models::SetTokenPlanOrgInviteConfigRequest &request);
 
       /**
-       * @summary Edits the information of an API Key authentication credential.
+       * @summary Modifies the information of an API key.
        *
        * @param request UpdateApiKeyRequest
        * @param headers map
@@ -695,7 +695,7 @@ namespace ModelStudio20260210
       Models::UpdateApiKeyResponse updateApiKeyWithOptions(const string &apiKeyId, const Models::UpdateApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Edits the information of an API Key authentication credential.
+       * @summary Modifies the information of an API key.
        *
        * @param request UpdateApiKeyRequest
        * @return UpdateApiKeyResponse
@@ -703,7 +703,7 @@ namespace ModelStudio20260210
       Models::UpdateApiKeyResponse updateApiKey(const string &apiKeyId, const Models::UpdateApiKeyRequest &request);
 
       /**
-       * @summary Updates the model throttling configuration for a workspace.
+       * @summary Updates the model throttling settings for a workspace.
        *
        * @param tmpReq UpdateModelLimitsRequest
        * @param headers map
@@ -713,7 +713,7 @@ namespace ModelStudio20260210
       Models::UpdateModelLimitsResponse updateModelLimitsWithOptions(const Models::UpdateModelLimitsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the model throttling configuration for a workspace.
+       * @summary Updates the model throttling settings for a workspace.
        *
        * @param request UpdateModelLimitsRequest
        * @return UpdateModelLimitsResponse
@@ -721,7 +721,7 @@ namespace ModelStudio20260210
       Models::UpdateModelLimitsResponse updateModelLimits(const Models::UpdateModelLimitsRequest &request);
 
       /**
-       * @summary Updates model authorization for a workspace.
+       * @summary Updates the model authorization for a workspace.
        *
        * @param request UpdateModelPermissionsRequest
        * @param headers map
@@ -731,7 +731,7 @@ namespace ModelStudio20260210
       Models::UpdateModelPermissionsResponse updateModelPermissionsWithOptions(const Models::UpdateModelPermissionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates model authorization for a workspace.
+       * @summary Updates the model authorization for a workspace.
        *
        * @param request UpdateModelPermissionsRequest
        * @return UpdateModelPermissionsResponse
@@ -739,7 +739,7 @@ namespace ModelStudio20260210
       Models::UpdateModelPermissionsResponse updateModelPermissions(const Models::UpdateModelPermissionsRequest &request);
 
       /**
-       * @summary Modifies organization information.
+       * @summary Modifies the organization information.
        *
        * @param request UpdateOrganizationRequest
        * @param headers map
@@ -749,7 +749,7 @@ namespace ModelStudio20260210
       Models::UpdateOrganizationResponse updateOrganizationWithOptions(const Models::UpdateOrganizationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies organization information.
+       * @summary Modifies the organization information.
        *
        * @param request UpdateOrganizationRequest
        * @return UpdateOrganizationResponse

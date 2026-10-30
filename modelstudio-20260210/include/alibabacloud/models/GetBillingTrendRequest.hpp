@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(filter, filter_);
       DARABONBA_PTR_TO_JSON(granularity, granularity_);
       DARABONBA_PTR_TO_JSON(groupBy, groupBy_);
+      DARABONBA_PTR_TO_JSON(includeHistoryPeriod, includeHistoryPeriod_);
       DARABONBA_PTR_TO_JSON(locale, locale_);
       DARABONBA_PTR_TO_JSON(regionId, regionId_);
       DARABONBA_PTR_TO_JSON(timePeriod, timePeriod_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(filter, filter_);
       DARABONBA_PTR_FROM_JSON(granularity, granularity_);
       DARABONBA_PTR_FROM_JSON(groupBy, groupBy_);
+      DARABONBA_PTR_FROM_JSON(includeHistoryPeriod, includeHistoryPeriod_);
       DARABONBA_PTR_FROM_JSON(locale, locale_);
       DARABONBA_PTR_FROM_JSON(regionId, regionId_);
       DARABONBA_PTR_FROM_JSON(timePeriod, timePeriod_);
@@ -116,7 +118,7 @@ namespace Models
 
 
     protected:
-      // The grouping dimension code. For more information, see the "Additional information" section below.
+      // The grouping dimension code. For more information, see the "Additional notes" section below.
       shared_ptr<string> code_ {};
     };
 
@@ -188,11 +190,11 @@ namespace Models
 
 
       protected:
-        // The filter dimension code. For more information, see the "Additional information" section below.
+        // The filter dimension code. For more information, see the "Additional notes" section below.
         shared_ptr<string> code_ {};
-        // The filter method.
+        // The filtering method.
         shared_ptr<string> selectType_ {};
-        // The filter value list.
+        // The list of filter values.
         shared_ptr<vector<string>> values_ {};
       };
 
@@ -207,13 +209,13 @@ namespace Models
 
 
     protected:
-      // The dimension filter list.
+      // The list of dimension filters.
       shared_ptr<vector<Filter::Dimensions>> dimensions_ {};
     };
 
     virtual bool empty() const override { return this->filter_ == nullptr
-        && this->granularity_ == nullptr && this->groupBy_ == nullptr && this->locale_ == nullptr && this->regionId_ == nullptr && this->timePeriod_ == nullptr
-        && this->topNum_ == nullptr && this->zeroFilter_ == nullptr; };
+        && this->granularity_ == nullptr && this->groupBy_ == nullptr && this->includeHistoryPeriod_ == nullptr && this->locale_ == nullptr && this->regionId_ == nullptr
+        && this->timePeriod_ == nullptr && this->topNum_ == nullptr && this->zeroFilter_ == nullptr; };
     // filter Field Functions 
     bool hasFilter() const { return this->filter_ != nullptr;};
     void deleteFilter() { this->filter_ = nullptr;};
@@ -237,6 +239,13 @@ namespace Models
     inline vector<GetBillingTrendRequest::GroupBy> getGroupBy() { DARABONBA_PTR_GET(groupBy_, vector<GetBillingTrendRequest::GroupBy>) };
     inline GetBillingTrendRequest& setGroupBy(const vector<GetBillingTrendRequest::GroupBy> & groupBy) { DARABONBA_PTR_SET_VALUE(groupBy_, groupBy) };
     inline GetBillingTrendRequest& setGroupBy(vector<GetBillingTrendRequest::GroupBy> && groupBy) { DARABONBA_PTR_SET_RVALUE(groupBy_, groupBy) };
+
+
+    // includeHistoryPeriod Field Functions 
+    bool hasIncludeHistoryPeriod() const { return this->includeHistoryPeriod_ != nullptr;};
+    void deleteIncludeHistoryPeriod() { this->includeHistoryPeriod_ = nullptr;};
+    inline bool getIncludeHistoryPeriod() const { DARABONBA_PTR_GET_DEFAULT(includeHistoryPeriod_, false) };
+    inline GetBillingTrendRequest& setIncludeHistoryPeriod(bool includeHistoryPeriod) { DARABONBA_PTR_SET_VALUE(includeHistoryPeriod_, includeHistoryPeriod) };
 
 
     // locale Field Functions 
@@ -277,21 +286,23 @@ namespace Models
 
 
   protected:
-    // The dimension filter conditions.
+    // The dimension filter condition.
     shared_ptr<GetBillingTrendRequest::Filter> filter_ {};
     // The query granularity. This parameter is required.
     shared_ptr<string> granularity_ {};
-    // The grouping conditions. This parameter must contain one and only one element.
+    // The grouping condition. This parameter must contain exactly one element.
     shared_ptr<vector<GetBillingTrendRequest::GroupBy>> groupBy_ {};
-    // The response language. Default value: en-US.
+    // Specifies whether to query the previous non-overlapping period of the same length. Default value: false.
+    shared_ptr<bool> includeHistoryPeriod_ {};
+    // The language of the response. Default value: en-US.
     shared_ptr<string> locale_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The query time range, including the start time and end time. This parameter is required.
+    // The time range to query, including the start time and end time. This parameter is required.
     shared_ptr<GetBillingTrendRequest::TimePeriod> timePeriod_ {};
-    // The number of groups to return. Valid values: 1 to 20. Default value: 20. The remaining groups are merged into "Others".
+    // The number of groups to return. Valid values: 1 to 20. Default value: 20. The remaining groups are merged into "Other".
     shared_ptr<int32_t> topNum_ {};
-    // Specifies whether to filter out groups with a zero amount. Default value: true.
+    // Specifies whether to filter out groups with an amount of 0. Default value: true.
     shared_ptr<bool> zeroFilter_ {};
   };
 

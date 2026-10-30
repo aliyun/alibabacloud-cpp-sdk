@@ -135,13 +135,14 @@ namespace Models
       protected:
         // The number of assigned seats.
         shared_ptr<int64_t> assignedSeats_ {};
-        // The total credits quota for the seat.
+        // The total credits quota for seats.
         shared_ptr<double> seatCredits_ {};
-        // The refresh time of the current cycle, in milliseconds.
+        // The refresh time of the current cycle in milliseconds.
         shared_ptr<int64_t> seatRefreshTime_ {};
         // The remaining credits for the current cycle.
         shared_ptr<double> seatRemainingCredits_ {};
         // The seat type (specType). Valid values:
+        // 
         // - standard: Standard seat.
         // - pro: Pro seat.
         // - max: Premium seat.
@@ -176,11 +177,11 @@ namespace Models
 
 
     protected:
-      // The list of seat information, grouped by specType.
+      // The list of seat information grouped by specType.
       shared_ptr<vector<Data::Items>> items_ {};
-      // The subscription end time, in milliseconds.
+      // The subscription end time in milliseconds.
       shared_ptr<int64_t> subscriptionEndTime_ {};
-      // The subscription start time, in milliseconds.
+      // The subscription start time in milliseconds.
       shared_ptr<int64_t> subscriptionStartTime_ {};
     };
 
@@ -223,7 +224,7 @@ namespace Models
     shared_ptr<GetSubscriptionStatsResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // Indicates whether the API call is successful. Valid values:
+    // Indicates whether the call was successful. Valid values:
     // 
     // - true: Successful.
     // - false: Failed.

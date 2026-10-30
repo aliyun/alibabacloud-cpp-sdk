@@ -106,10 +106,10 @@ namespace Models
     shared_ptr<CreateTokenPlanInviteLinkResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // Indicates whether the call was successful. Valid values:
+    // Indicates whether the operation was successful. Valid values:
     // 
-    // - true: The call was successful.
-    // - false: The call failed.
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

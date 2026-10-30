@@ -118,8 +118,7 @@ namespace Models
     shared_ptr<GetTokenPlanInviteLinkResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // Indicates whether the call was successful. Valid values:
-    // 
+    // Indicates whether the API call is successful. Valid values:
     // - true: Successful.
     // - false: Failed.
     shared_ptr<bool> success_ {};

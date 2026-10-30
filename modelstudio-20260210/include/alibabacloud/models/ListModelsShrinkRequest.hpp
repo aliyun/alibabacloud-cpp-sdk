@@ -112,14 +112,62 @@ namespace Models
 
 
   protected:
+    // The model type. Valid values:
+    // - Reasoning: Deep thinking.
+    // - VU: Visual understanding.
+    // - IG: Image generation.
+    // - VG: Video generation.
+    // - ASR: Speech recognition.
+    // - TTS: Speech synthesis.
+    // - ME: Multimodal embedding.
+    // - Realtime-Omni: Real-time omni-modal.
+    // - Multimodal-Omni: Omni-modal.
+    // - Realtime-Text-to-Speech: Real-time speech synthesis.
+    // - TG: Text generation.
+    // - TR: Text embedding.
+    // - Realtime-ASR: Real-time speech recognition.
+    // - Realtime-Audio-Translate: Real-time audio translation.
+    // - 3D-generation: 3D generation.
+    // - Realtime-Chatting: Real-time voice conversation.
     shared_ptr<string> capabilitiesShrink_ {};
+    // The context window size used to filter models with a context window smaller than this value.
     shared_ptr<int64_t> contextWindow_ {};
+    // The model capability. Valid values:
+    // - model-experience: Playground.
+    // - function-calling: Function calling.
+    // - structured-outputs: Structured output.
+    // - web-search: Web search.
+    // - prefix-completion: Partial mode.
+    // - cache: Cache.
+    // - batch: Batch inference.
+    // - fine-tuning: Model fine-tuning.
     shared_ptr<string> featuresShrink_ {};
+    // The language. Valid values:
+    // - zh-CN: Chinese.
+    // - en-US: English.
     shared_ptr<string> language_ {};
+    // The maximum number of results to return. Valid values: 0 to 200.
     shared_ptr<int64_t> maxResults_ {};
+    // The model name for exact match.
     shared_ptr<string> model_ {};
+    // The model name for fuzzy match.
     shared_ptr<string> name_ {};
+    // The next token.
     shared_ptr<string> nextToken_ {};
+    // The provider. Valid values:
+    // - qwen: Alibaba Cloud - Qwen.
+    // - zhipu-ai: Zhipu AI.
+    // - wan: Alibaba Cloud - Wan.
+    // - qwen-domain-model: Alibaba Cloud - Domain Model.
+    // - mini-max: MiniMax.
+    // - moonshot-ai: Moonshot AI.
+    // - deepseek: DeepSeek.
+    // - happyhorse: Alibaba Cloud - HappyHorse.
+    // - kling: Kling AI.
+    // - pixverse: PixVerse.
+    // - vidu: Vidu.
+    // - tripo: Tripo.
+    // - xiaomi: Xiaomi MiMo.
     shared_ptr<string> providersShrink_ {};
   };
 

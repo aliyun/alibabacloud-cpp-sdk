@@ -62,12 +62,12 @@ namespace Models
   protected:
     // The list of target member IDs.
     shared_ptr<vector<string>> accountIds_ {};
-    // The language. Valid values: zh-CN and en-US.
+    // The locale. Valid values: zh-CN and en-US.
     shared_ptr<string> locale_ {};
     // The seat type. Valid values:
-    // - standard: standard seat
-    // - pro: pro seat
-    // - max: premium seat
+    // - standard: Standard seat.
+    // - pro: Pro seat.
+    // - max: Max seat.
     // 
     // This parameter is required.
     shared_ptr<string> seatType_ {};

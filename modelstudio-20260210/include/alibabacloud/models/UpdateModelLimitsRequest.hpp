@@ -109,17 +109,16 @@ namespace Models
       // The model.
       shared_ptr<string> model_ {};
       // The throttling operation type. Valid values:
-      // 
       // - **OVERLAY**: Sets or overwrites the throttling configuration.
-      // - **DELETE**: Deletes the throttling configuration (restores to no throttling).
+      // - **DELETE**: Deletes the throttling configuration to restore the unlimited state.
       shared_ptr<string> operationType_ {};
-      // The request throttling value.
+      // The request throttling limit.
       shared_ptr<int64_t> requestLimit_ {};
-      // The time period for request throttling. Unit: seconds.
+      // The time period for request throttling, in seconds.
       shared_ptr<int64_t> requestLimitPeriod_ {};
-      // The usage throttling value.
+      // The usage throttling limit.
       shared_ptr<int64_t> usageLimit_ {};
-      // The time period for usage throttling. Unit: seconds.
+      // The time period for usage throttling, in seconds.
       shared_ptr<int64_t> usageLimitPeriod_ {};
     };
 
@@ -146,7 +145,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
-    // The throttling values for the workspace.
+    // The throttling limits for the workspace.
     shared_ptr<vector<UpdateModelLimitsRequest::WorkspaceLimits>> workspaceLimits_ {};
   };
 

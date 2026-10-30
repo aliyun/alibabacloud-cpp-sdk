@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(filter, filterShrink_);
       DARABONBA_PTR_TO_JSON(granularity, granularity_);
       DARABONBA_PTR_TO_JSON(groupBy, groupByShrink_);
+      DARABONBA_PTR_TO_JSON(includeHistoryPeriod, includeHistoryPeriod_);
       DARABONBA_PTR_TO_JSON(locale, locale_);
       DARABONBA_PTR_TO_JSON(regionId, regionId_);
       DARABONBA_PTR_TO_JSON(timePeriod, timePeriodShrink_);
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(filter, filterShrink_);
       DARABONBA_PTR_FROM_JSON(granularity, granularity_);
       DARABONBA_PTR_FROM_JSON(groupBy, groupByShrink_);
+      DARABONBA_PTR_FROM_JSON(includeHistoryPeriod, includeHistoryPeriod_);
       DARABONBA_PTR_FROM_JSON(locale, locale_);
       DARABONBA_PTR_FROM_JSON(regionId, regionId_);
       DARABONBA_PTR_FROM_JSON(timePeriod, timePeriodShrink_);
@@ -44,8 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->filterShrink_ == nullptr
-        && this->granularity_ == nullptr && this->groupByShrink_ == nullptr && this->locale_ == nullptr && this->regionId_ == nullptr && this->timePeriodShrink_ == nullptr
-        && this->topNum_ == nullptr && this->zeroFilter_ == nullptr; };
+        && this->granularity_ == nullptr && this->groupByShrink_ == nullptr && this->includeHistoryPeriod_ == nullptr && this->locale_ == nullptr && this->regionId_ == nullptr
+        && this->timePeriodShrink_ == nullptr && this->topNum_ == nullptr && this->zeroFilter_ == nullptr; };
     // filterShrink Field Functions 
     bool hasFilterShrink() const { return this->filterShrink_ != nullptr;};
     void deleteFilterShrink() { this->filterShrink_ = nullptr;};
@@ -65,6 +67,13 @@ namespace Models
     void deleteGroupByShrink() { this->groupByShrink_ = nullptr;};
     inline string getGroupByShrink() const { DARABONBA_PTR_GET_DEFAULT(groupByShrink_, "") };
     inline GetBillingTrendShrinkRequest& setGroupByShrink(string groupByShrink) { DARABONBA_PTR_SET_VALUE(groupByShrink_, groupByShrink) };
+
+
+    // includeHistoryPeriod Field Functions 
+    bool hasIncludeHistoryPeriod() const { return this->includeHistoryPeriod_ != nullptr;};
+    void deleteIncludeHistoryPeriod() { this->includeHistoryPeriod_ = nullptr;};
+    inline bool getIncludeHistoryPeriod() const { DARABONBA_PTR_GET_DEFAULT(includeHistoryPeriod_, false) };
+    inline GetBillingTrendShrinkRequest& setIncludeHistoryPeriod(bool includeHistoryPeriod) { DARABONBA_PTR_SET_VALUE(includeHistoryPeriod_, includeHistoryPeriod) };
 
 
     // locale Field Functions 
@@ -103,21 +112,23 @@ namespace Models
 
 
   protected:
-    // The dimension filter conditions.
+    // The dimension filter condition.
     shared_ptr<string> filterShrink_ {};
     // The query granularity. This parameter is required.
     shared_ptr<string> granularity_ {};
-    // The grouping conditions. This parameter must contain one and only one element.
+    // The grouping condition. This parameter must contain exactly one element.
     shared_ptr<string> groupByShrink_ {};
-    // The response language. Default value: en-US.
+    // Specifies whether to query the previous non-overlapping period of the same length. Default value: false.
+    shared_ptr<bool> includeHistoryPeriod_ {};
+    // The language of the response. Default value: en-US.
     shared_ptr<string> locale_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The query time range, including the start time and end time. This parameter is required.
+    // The time range to query, including the start time and end time. This parameter is required.
     shared_ptr<string> timePeriodShrink_ {};
-    // The number of groups to return. Valid values: 1 to 20. Default value: 20. The remaining groups are merged into "Others".
+    // The number of groups to return. Valid values: 1 to 20. Default value: 20. The remaining groups are merged into "Other".
     shared_ptr<int32_t> topNum_ {};
-    // Specifies whether to filter out groups with a zero amount. Default value: true.
+    // Specifies whether to filter out groups with an amount of 0. Default value: true.
     shared_ptr<bool> zeroFilter_ {};
   };
 

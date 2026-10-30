@@ -157,10 +157,12 @@ namespace Models
 
         protected:
           // The member status. Valid values:
-          // - ACTIVE 
+          // 
+          // - ACTIVE
           // - FROZEN
           shared_ptr<string> memberStatus_ {};
           // The workspace role code. Valid values:
+          // 
           // - WS_ADMIN
           // - WS_MEMBER
           shared_ptr<string> roleCode_ {};
@@ -210,7 +212,7 @@ namespace Models
 
 
       protected:
-        // The organization member status. Valid values:
+        // The status of the organization member. Valid values:
         // 
         // - ACTIVE 
         // - INITIAL 
@@ -300,17 +302,20 @@ namespace Models
       // - SSO 
       // - SA
       shared_ptr<string> accountType_ {};
-      // The Alibaba Cloud UID. This parameter applies only to accounts of the ALIYUN type.
+      // The Alibaba Cloud UID of an ALIYUN account.
       shared_ptr<string> aliyunUid_ {};
-      // The time when the account was created.
+      // The creation time.
       shared_ptr<string> createdAt_ {};
-      // The email address. This parameter applies only to accounts of the SSO type.
+      // The email address of an SSO account.
       shared_ptr<string> email_ {};
-      // The global status of the account. A value of 0 indicates Normal. A value of 1 indicates Frozen.
+      // The global status of the account. Valid values:
+      // 
+      // - 0: Normal.
+      // - 1: Frozen.
       shared_ptr<bool> isDeleted_ {};
       // The display name of the account.
       shared_ptr<string> name_ {};
-      // The list of organization memberships in a tree structure (organization → workspace).
+      // The list of organization memberships in a tree structure from organization to workspace.
       shared_ptr<vector<Data::OrgMemberships>> orgMemberships_ {};
     };
 
@@ -369,12 +374,12 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The unique request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the API call is successful. Valid values:
     // 
-    // - true: Successful.
-    // - false: Failed.
+    // - true: The call is successful.
+    // - false: The call fails.
     shared_ptr<bool> success_ {};
   };
 

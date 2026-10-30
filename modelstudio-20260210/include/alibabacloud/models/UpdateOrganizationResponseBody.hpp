@@ -141,23 +141,24 @@ namespace Models
 
 
     protected:
-      // The organization description.
+      // The description of the organization.
       shared_ptr<string> description_ {};
-      // The creation time.
+      // The time when the organization was created.
       shared_ptr<string> gmtCreate_ {};
-      // The modification time.
+      // The time when the organization was updated.
       shared_ptr<string> gmtModified_ {};
-      // The organization name.
+      // The name of the organization.
       shared_ptr<string> name_ {};
-      // The product namespace ID.
+      // The ID of the product namespace.
       shared_ptr<string> namespaceId_ {};
-      // The organization ID.
+      // The ID of the organization.
       shared_ptr<string> orgId_ {};
-      // The business account identifier of the organization owner. The value is aliyunUid for the ALIYUN type and userIdentifier for the SSO type.
+      // The business account identifier of the organization owner. For the ALIYUN type, the value is aliyunUid. For the SSO type, the value is userIdentifier.
       shared_ptr<string> ownerBizAccountId_ {};
       // The UAC account ID of the organization owner.
       shared_ptr<string> ownerId_ {};
       // The status. Valid values:
+      // 
       // - ACTIVE
       // - FROZEN
       shared_ptr<string> status_ {};
@@ -218,12 +219,12 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the API call is successful. Valid values:
+    // Indicates whether the API call was successful. Valid values:
     // 
-    // - true: Successful.
-    // - false: Failed.
+    // - true: The call was successful.
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

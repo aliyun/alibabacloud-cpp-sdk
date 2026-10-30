@@ -100,15 +100,15 @@ namespace Models
 
 
     protected:
-      // The API Key ID, which is system-generated.
+      // The system-generated API key ID.
       shared_ptr<string> apiKeyId_ {};
-      // The new masked_api_key returned by BaiLian, such as sk_***cdef.
+      // The new masked API key returned by Model Studio, such as sk_***cdef.
       shared_ptr<string> maskedApiKey_ {};
-      // The new plaintext API Key returned by BaiLian. This value is returned only once during the reset operation.
+      // The new plaintext API key returned by Model Studio. This key is returned only once upon reset.
       shared_ptr<string> plainApiKey_ {};
-      // The time when the API key was reset.
+      // The reset time.
       shared_ptr<string> resetAt_ {};
-      // The source_id returned by BaiLian.
+      // The source_id returned by Model Studio.
       shared_ptr<string> sourceId_ {};
     };
 
@@ -151,7 +151,7 @@ namespace Models
     shared_ptr<RotateTokenPlanKeyResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // Indicates whether the API call is successful. Valid values:
+    // Indicates whether the API call was successful. Valid values:
     // 
     // - true: Successful.
     // - false: Failed.

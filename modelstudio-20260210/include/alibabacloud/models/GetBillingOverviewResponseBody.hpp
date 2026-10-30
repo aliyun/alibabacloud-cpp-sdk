@@ -134,13 +134,13 @@ namespace Models
       protected:
         // The amount of the current group.
         shared_ptr<string> amount_ {};
-        // The list of commodity codes associated with the current group.
+        // The list of commodity codes involved in the current group.
         shared_ptr<vector<string>> articleCodes_ {};
-        // The grouping dimension value. A null value is returned as DIMENSION_FILTER_NULL_VALUE.
+        // The value of the grouping dimension. If the value is null, DIMENSION_FILTER_NULL_VALUE is returned.
         shared_ptr<string> key_ {};
-        // The display name of the group, which is affected by the locale parameter. A null value is displayed as -.
+        // The display name of the group, which is affected by the locale parameter. If the value is null, a hyphen (-) is displayed.
         shared_ptr<string> name_ {};
-        // The ratio of the group amount to the total amount of the top N groups.
+        // The proportion of the group amount to the total amount of the top N groups.
         shared_ptr<string> percentage_ {};
       };
 
@@ -186,7 +186,7 @@ namespace Models
     protected:
       // The currency of the amount.
       shared_ptr<string> currency_ {};
-      // The top N groups sorted by amount in descending order.
+      // The list of top N groups sorted by amount in descending order.
       shared_ptr<vector<Data::Groups>> groups_ {};
       // The total pretax amount.
       shared_ptr<string> pretaxAmount_ {};
@@ -236,15 +236,15 @@ namespace Models
 
 
   protected:
-    // The request result code.
+    // The result code of the request.
     shared_ptr<string> code_ {};
-    // The bill overview data.
+    // The billing overview data.
     shared_ptr<GetBillingOverviewResponseBody::Data> data_ {};
-    // The request result message.
+    // The description of the request result.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 
