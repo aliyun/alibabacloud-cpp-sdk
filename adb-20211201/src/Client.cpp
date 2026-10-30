@@ -10928,6 +10928,64 @@ ExistRunningSQLEngineResponse Client::existRunningSQLEngine(const ExistRunningSQ
 }
 
 /**
+ * @summary Creates a reference record for a knowledge base file.
+ *
+ * @param request ForkKnowledgeFileRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ForkKnowledgeFileResponse
+ */
+ForkKnowledgeFileResponse Client::forkKnowledgeFileWithOptions(const ForkKnowledgeFileRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasFileId()) {
+    query["FileId"] = request.getFileId();
+  }
+
+  if (!!request.hasFileLocation()) {
+    query["FileLocation"] = request.getFileLocation();
+  }
+
+  if (!!request.hasTags()) {
+    query["Tags"] = request.getTags();
+  }
+
+  if (!!request.hasUploadUser()) {
+    query["UploadUser"] = request.getUploadUser();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ForkKnowledgeFile"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ForkKnowledgeFileResponse>();
+}
+
+/**
+ * @summary Creates a reference record for a knowledge base file.
+ *
+ * @param request ForkKnowledgeFileRequest
+ * @return ForkKnowledgeFileResponse
+ */
+ForkKnowledgeFileResponse Client::forkKnowledgeFile(const ForkKnowledgeFileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return forkKnowledgeFileWithOptions(request, runtime);
+}
+
+/**
  * @summary Generates an executable SQL statement from a semantic SQL statement.
  *
  * @param request GenerateSqlBySemanticSqlRequest
@@ -13035,6 +13093,10 @@ ListKnowledgeFilesResponse Client::listKnowledgeFilesWithOptions(const ListKnowl
 
   if (!!request.hasFileIds()) {
     query["FileIds"] = request.getFileIds();
+  }
+
+  if (!!request.hasFileLocation()) {
+    query["FileLocation"] = request.getFileLocation();
   }
 
   if (!!request.hasPage()) {
@@ -17087,6 +17149,56 @@ SuspendApsJobResponse Client::suspendApsJobWithOptions(const SuspendApsJobReques
 SuspendApsJobResponse Client::suspendApsJob(const SuspendApsJobRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return suspendApsJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary Submits a reparse task for a knowledge base file.
+ *
+ * @param request TriggerKnowledgeFileParseRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TriggerKnowledgeFileParseResponse
+ */
+TriggerKnowledgeFileParseResponse Client::triggerKnowledgeFileParseWithOptions(const TriggerKnowledgeFileParseRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasFileId()) {
+    query["FileId"] = request.getFileId();
+  }
+
+  if (!!request.hasFileLocation()) {
+    query["FileLocation"] = request.getFileLocation();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "TriggerKnowledgeFileParse"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TriggerKnowledgeFileParseResponse>();
+}
+
+/**
+ * @summary Submits a reparse task for a knowledge base file.
+ *
+ * @param request TriggerKnowledgeFileParseRequest
+ * @return TriggerKnowledgeFileParseResponse
+ */
+TriggerKnowledgeFileParseResponse Client::triggerKnowledgeFileParse(const TriggerKnowledgeFileParseRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return triggerKnowledgeFileParseWithOptions(request, runtime);
 }
 
 /**

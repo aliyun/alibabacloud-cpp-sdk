@@ -532,6 +532,9 @@
 #include <alibabacloud/models/ExistRunningSQLEngineRequest.hpp>
 #include <alibabacloud/models/ExistRunningSQLEngineResponseBody.hpp>
 #include <alibabacloud/models/ExistRunningSQLEngineResponse.hpp>
+#include <alibabacloud/models/ForkKnowledgeFileRequest.hpp>
+#include <alibabacloud/models/ForkKnowledgeFileResponseBody.hpp>
+#include <alibabacloud/models/ForkKnowledgeFileResponse.hpp>
 #include <alibabacloud/models/GenerateSqlBySemanticSqlRequest.hpp>
 #include <alibabacloud/models/GenerateSqlBySemanticSqlResponseBody.hpp>
 #include <alibabacloud/models/GenerateSqlBySemanticSqlResponse.hpp>
@@ -838,6 +841,9 @@
 #include <alibabacloud/models/SuspendApsJobRequest.hpp>
 #include <alibabacloud/models/SuspendApsJobResponseBody.hpp>
 #include <alibabacloud/models/SuspendApsJobResponse.hpp>
+#include <alibabacloud/models/TriggerKnowledgeFileParseRequest.hpp>
+#include <alibabacloud/models/TriggerKnowledgeFileParseResponseBody.hpp>
+#include <alibabacloud/models/TriggerKnowledgeFileParseResponse.hpp>
 #include <alibabacloud/models/UnbindAccountRequest.hpp>
 #include <alibabacloud/models/UnbindAccountResponseBody.hpp>
 #include <alibabacloud/models/UnbindAccountResponse.hpp>

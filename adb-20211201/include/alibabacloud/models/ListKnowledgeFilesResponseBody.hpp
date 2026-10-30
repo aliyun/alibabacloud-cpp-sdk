@@ -181,7 +181,7 @@ namespace Models
 
 
       protected:
-        // The time when the file was added to the knowledge base. The format is yyyy-MM-dd HH:mm:ss.
+        // The time when the file was added to the knowledge base. The time is in the yyyy-MM-dd HH:mm:ss format.
         shared_ptr<string> createdAt_ {};
         // The ID of the file.
         shared_ptr<int64_t> fileId_ {};
@@ -193,11 +193,11 @@ namespace Models
         shared_ptr<string> format_ {};
         // Indicates whether the file is a directory.
         shared_ptr<bool> isDirectory_ {};
-        // The file_id of the content host.
+        // The `file_id` of the content host.
         shared_ptr<int64_t> ownerFileId_ {};
         // The total number of pages in the file, such as the number of pages in a PDF file.
         shared_ptr<int32_t> pageCount_ {};
-        // The processing information of the knowledge base file.
+        // The processing message of the knowledge base file.
         shared_ptr<string> processMessage_ {};
         // The status of the file in the knowledge base. Valid values:
         // 
@@ -205,7 +205,7 @@ namespace Models
         // 
         // - Finished: The file has been processed.
         shared_ptr<string> processStatus_ {};
-        // The update time. The format is yyyy-MM-dd HH:mm:ss.
+        // The time when the file was updated. The time is in the yyyy-MM-dd HH:mm:ss format.
         shared_ptr<string> updatedAt_ {};
       };
 
@@ -264,11 +264,11 @@ namespace Models
       shared_ptr<int32_t> page_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // Indicates whether the request was successful. Valid values:
-      // - **true**: The request was successful.
-      // - **false**: The request failed.
+      // Indicates whether the request is successful. Valid values:
+      // - **true**: The request is successful.
+      // - **false**: The request fails.
       shared_ptr<bool> success_ {};
-      // The total number of records.
+      // The total number of entries.
       shared_ptr<int64_t> total_ {};
     };
 

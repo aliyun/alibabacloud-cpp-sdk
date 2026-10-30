@@ -66,10 +66,11 @@ namespace Models
 
 
   protected:
-    // The database cluster ID.
+    // The ID of the database cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The ID of the file.
     shared_ptr<string> fileId_ {};
     // The location of the knowledge base document.
     shared_ptr<string> fileLocation_ {};

@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListKnowledgeFilesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(FileIds, fileIds_);
+      DARABONBA_PTR_TO_JSON(FileLocation, fileLocation_);
       DARABONBA_PTR_TO_JSON(Page, page_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(Status, status_);
@@ -23,6 +24,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ListKnowledgeFilesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(FileIds, fileIds_);
+      DARABONBA_PTR_FROM_JSON(FileLocation, fileLocation_);
       DARABONBA_PTR_FROM_JSON(Page, page_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && this->fileIds_ == nullptr && this->page_ == nullptr && this->pageSize_ == nullptr && this->status_ == nullptr && this->user_ == nullptr; };
+        && this->fileIds_ == nullptr && this->fileLocation_ == nullptr && this->page_ == nullptr && this->pageSize_ == nullptr && this->status_ == nullptr
+        && this->user_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
@@ -53,6 +56,13 @@ namespace Models
     void deleteFileIds() { this->fileIds_ = nullptr;};
     inline string getFileIds() const { DARABONBA_PTR_GET_DEFAULT(fileIds_, "") };
     inline ListKnowledgeFilesRequest& setFileIds(string fileIds) { DARABONBA_PTR_SET_VALUE(fileIds_, fileIds) };
+
+
+    // fileLocation Field Functions 
+    bool hasFileLocation() const { return this->fileLocation_ != nullptr;};
+    void deleteFileLocation() { this->fileLocation_ = nullptr;};
+    inline string getFileLocation() const { DARABONBA_PTR_GET_DEFAULT(fileLocation_, "") };
+    inline ListKnowledgeFilesRequest& setFileLocation(string fileLocation) { DARABONBA_PTR_SET_VALUE(fileLocation_, fileLocation) };
 
 
     // page Field Functions 
@@ -84,19 +94,21 @@ namespace Models
 
 
   protected:
-    // The ADB instance ID.
+    // The ID of the ADB instance.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     // The JSON string of the file ID array, which contains up to 200 positive integers.
     shared_ptr<string> fileIds_ {};
-    // The page number, starting from 1. If this parameter is not specified, the default value is 1.
+    // The URL of the knowledge base file.
+    shared_ptr<string> fileLocation_ {};
+    // The page number. Pages start from 1. If you do not specify this parameter, the default value is 1.
     shared_ptr<string> page_ {};
-    // The number of entries per page. Valid values: 1 to 100. If this parameter is not specified, the default value is 20.
+    // The number of entries per page. Valid values: 1 to 100. If you do not specify this parameter, the default value is 20.
     shared_ptr<string> pageSize_ {};
     // The processing status. Valid values: PENDING, PROCESSING, COMPLETED, FAILED, DUPLICATED, and SKIPPED.
     shared_ptr<string> status_ {};
-    // The stable ID of the authorized user. If this parameter is not specified, all files in the knowledge base can be queried.
+    // The stable ID of the authorized user. If you do not specify this parameter, all files in the knowledge base can be queried.
     shared_ptr<string> user_ {};
   };
 

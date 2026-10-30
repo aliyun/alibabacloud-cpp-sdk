@@ -3327,6 +3327,23 @@ namespace Adb20211201
       Models::ExistRunningSQLEngineResponse existRunningSQLEngine(const Models::ExistRunningSQLEngineRequest &request);
 
       /**
+       * @summary Creates a reference record for a knowledge base file.
+       *
+       * @param request ForkKnowledgeFileRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ForkKnowledgeFileResponse
+       */
+      Models::ForkKnowledgeFileResponse forkKnowledgeFileWithOptions(const Models::ForkKnowledgeFileRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a reference record for a knowledge base file.
+       *
+       * @param request ForkKnowledgeFileRequest
+       * @return ForkKnowledgeFileResponse
+       */
+      Models::ForkKnowledgeFileResponse forkKnowledgeFile(const Models::ForkKnowledgeFileRequest &request);
+
+      /**
        * @summary Generates an executable SQL statement from a semantic SQL statement.
        *
        * @param request GenerateSqlBySemanticSqlRequest
@@ -5405,6 +5422,23 @@ namespace Adb20211201
        * @return SuspendApsJobResponse
        */
       Models::SuspendApsJobResponse suspendApsJob(const Models::SuspendApsJobRequest &request);
+
+      /**
+       * @summary Submits a reparse task for a knowledge base file.
+       *
+       * @param request TriggerKnowledgeFileParseRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TriggerKnowledgeFileParseResponse
+       */
+      Models::TriggerKnowledgeFileParseResponse triggerKnowledgeFileParseWithOptions(const Models::TriggerKnowledgeFileParseRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Submits a reparse task for a knowledge base file.
+       *
+       * @param request TriggerKnowledgeFileParseRequest
+       * @return TriggerKnowledgeFileParseResponse
+       */
+      Models::TriggerKnowledgeFileParseResponse triggerKnowledgeFileParse(const Models::TriggerKnowledgeFileParseRequest &request);
 
       /**
        * @summary Disassociates a standard account of an AnalyticDB for MySQL cluster from a Resource Access Management (RAM) user.

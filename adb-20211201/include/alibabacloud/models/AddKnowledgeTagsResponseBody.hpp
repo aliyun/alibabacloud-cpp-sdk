@@ -167,11 +167,11 @@ namespace Models
       shared_ptr<string> fileLocation_ {};
       // The message.
       shared_ptr<string> message_ {};
-      // The number of tags that were successfully updated.
+      // The number of tags that were successfully modified.
       shared_ptr<int32_t> replaced_ {};
       // The list of skipped tags.
       shared_ptr<vector<Data::Skipped>> skipped_ {};
-      // Indicates whether the request was successful. Valid values:
+      // Specifies whether the request was successful. Valid values:
       // - **true**: The request was successful.
       // - **false**: The request failed.
       shared_ptr<bool> success_ {};
