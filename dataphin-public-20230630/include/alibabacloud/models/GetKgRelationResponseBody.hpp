@@ -116,7 +116,7 @@ namespace Models
       protected:
         // The property code.
         shared_ptr<string> code_ {};
-        // The property data type. Valid values: STRING (string), INTEGER (integer), FLOAT (floating-point number), BOOLEAN (Boolean), DATE (date), LIST (list), and others.
+        // The property data type. Valid values: STRING (string), INTEGER (integer), FLOAT (floating-point number), BOOLEAN (Boolean), DATE (date), and LIST (list).
         shared_ptr<string> dataType_ {};
         // The property value.
         shared_ptr<string> value_ {};
@@ -162,11 +162,11 @@ namespace Models
 
 
     protected:
-      // The list of relationship record properties.
+      // The property list of the relation record.
       shared_ptr<vector<RelationInfo::PropertyList>> propertyList_ {};
-      // The relationship record ID.
+      // The relation record ID.
       shared_ptr<string> relationId_ {};
-      // The relationship type code.
+      // The relation type code.
       shared_ptr<string> relationType_ {};
       // The source entity ID.
       shared_ptr<string> sourceEntityId_ {};
@@ -227,11 +227,11 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The backend exception details.
     shared_ptr<string> message_ {};
-    // The relationship record details.
+    // The relation record details.
     shared_ptr<GetKgRelationResponseBody::RelationInfo> relationInfo_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

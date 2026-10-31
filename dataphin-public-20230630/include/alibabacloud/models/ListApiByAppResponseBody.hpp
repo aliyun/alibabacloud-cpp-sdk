@@ -411,7 +411,7 @@ namespace Models
         protected:
           // The date format.
           shared_ptr<string> dateFormat_ {};
-          // The default value for registered APIs.
+          // The default value for the registered API.
           shared_ptr<string> defaultValue_ {};
           // The parameter description.
           shared_ptr<string> description_ {};
@@ -435,7 +435,7 @@ namespace Models
           shared_ptr<string> paramName_ {};
           // The parameter type.
           shared_ptr<string> paramType_ {};
-          // The request parameter location for registered APIs or the value path for response parameters.
+          // The request parameter location or response parameter value path for the registered API.
           shared_ptr<string> parameterLocation_ {};
           // The parameter example.
           shared_ptr<string> sample_ {};
@@ -690,7 +690,7 @@ namespace Models
         protected:
           // The date format.
           shared_ptr<string> dateFormat_ {};
-          // The default value for registered APIs.
+          // The default value for the registered API.
           shared_ptr<string> defaultValue_ {};
           // The parameter description.
           shared_ptr<string> description_ {};
@@ -714,7 +714,7 @@ namespace Models
           shared_ptr<string> paramName_ {};
           // The parameter type.
           shared_ptr<string> paramType_ {};
-          // The request parameter location for registered APIs or the value path for response parameters.
+          // The request parameter location or response parameter value path for the registered API.
           shared_ptr<string> parameterLocation_ {};
           // The parameter example.
           shared_ptr<string> sample_ {};
@@ -854,27 +854,27 @@ namespace Models
         protected:
           // The primary key of data_api.
           shared_ptr<int64_t> apiId_ {};
-          // The API datasource authentication mode.
+          // The API data source authentication method.
           shared_ptr<string> authenticationMode_ {};
-          // The API datasource ID.
+          // The API data source ID.
           shared_ptr<string> datasourceId_ {};
-          // The API datasource name.
+          // The API data source name.
           shared_ptr<string> datasourceName_ {};
           // The failure example.
           shared_ptr<string> failExample_ {};
-          // The HTTP method of the registered API.
+          // The request method of the registered API.
           shared_ptr<int64_t> httpMethod_ {};
-          // The model type.
+          // The mode.
           shared_ptr<int64_t> modelType_ {};
           // The service path.
           shared_ptr<string> path_ {};
-          // The API datasource request protocol.
+          // The API data source request protocol.
           shared_ptr<string> protocol_ {};
           // The success example.
           shared_ptr<string> successExample_ {};
           // The timeout period.
           shared_ptr<int64_t> timeout_ {};
-          // The API datasource URL.
+          // The URL of the API data source.
           shared_ptr<string> url_ {};
         };
 
@@ -1125,7 +1125,7 @@ namespace Models
         protected:
           // The date format.
           shared_ptr<string> dateFormat_ {};
-          // The default value for registered APIs.
+          // The default value for the registered API.
           shared_ptr<string> defaultValue_ {};
           // The parameter description.
           shared_ptr<string> description_ {};
@@ -1149,7 +1149,7 @@ namespace Models
           shared_ptr<string> paramName_ {};
           // The parameter type.
           shared_ptr<string> paramType_ {};
-          // The request parameter location for registered APIs or the value path for response parameters.
+          // The request parameter location or response parameter value path for the registered API.
           shared_ptr<string> parameterLocation_ {};
           // The parameter example.
           shared_ptr<string> sample_ {};
@@ -1491,22 +1491,22 @@ namespace Models
         shared_ptr<string> bizModuleEnName_ {};
         // The API cache switch.
         shared_ptr<string> cacheSwitch_ {};
-        // The cache duration, in seconds.
+        // The cache duration in seconds.
         shared_ptr<string> cacheTime_ {};
         // The creation type. Valid values:
-        // SQL_MODE(0, "Logical table API - SQL mode"),
-        // WIZARD_MODE(1, "Logical table API - wizard mode"),
-        // DIRECT_API_MODE(2, "Direct datasource - SQL mode"),
-        // REGISTER_API_MODE(3, "Registered API mode"),
-        // COMPOSITE_API_MODE(4, "Composite API mode").
+        // - SQL_MODE: Logical table API - SQL mode.
+        // - WIZARD_MODE: Logical table API - wizard mode.
+        // - DIRECT_API_MODE: Direct connection data source - SQL mode.
+        // - REGISTER_API_MODE: Registered API mode.
+        // - COMPOSITE_API_MODE: Composite API mode.
         shared_ptr<int64_t> createType_ {};
         // The data environment.
         shared_ptr<int64_t> dbEnv_ {};
         // The description.
         shared_ptr<string> description_ {};
-        // The datasource ID of the direct API.
+        // The data source ID of the direct connection API.
         shared_ptr<int64_t> directDatasourceId_ {};
-        // The datasource name of the direct API.
+        // The data source name of the direct connection API.
         shared_ptr<string> directDatasourceName_ {};
         // The API group ID.
         shared_ptr<int64_t> groupId_ {};
@@ -1514,13 +1514,13 @@ namespace Models
         shared_ptr<string> groupName_ {};
         // The API ID.
         shared_ptr<int64_t> id_ {};
-        // Indicates whether the table is a logical table.
+        // Indicates whether it is a logical table.
         shared_ptr<bool> isLogicalTable_ {};
-        // Indicates whether the query is a paged query.
+        // Indicates whether it is a paging query.
         shared_ptr<int64_t> isPagedQuery_ {};
         // The maximum number of returned records.
         shared_ptr<int64_t> maxReturnNum_ {};
-        // The model type.
+        // The mode.
         shared_ptr<int64_t> modelType_ {};
         // The API name.
         shared_ptr<string> name_ {};
@@ -1546,7 +1546,7 @@ namespace Models
         shared_ptr<string> resourceGroupName_ {};
         // -
         shared_ptr<vector<Data::ResponseParamList>> responseParamList_ {};
-        // The sample call result.
+        // The call result sample.
         shared_ptr<string> resultSample_ {};
         // The return type.
         shared_ptr<int64_t> returnType_ {};
@@ -1562,7 +1562,7 @@ namespace Models
         shared_ptr<string> sqlStatement_ {};
         // The logical table name.
         shared_ptr<string> tableName_ {};
-        // The timeout duration, in seconds.
+        // The timeout duration in seconds.
         shared_ptr<string> timeout_ {};
         // The update frequency.
         shared_ptr<int64_t> updateRate_ {};
@@ -1593,7 +1593,7 @@ namespace Models
     protected:
       // The API list.
       shared_ptr<vector<ListResult::Data>> data_ {};
-      // The total number of records.
+      // The total count.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -1650,11 +1650,11 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The query result.
     shared_ptr<ListApiByAppResponseBody::ListResult> listResult_ {};
-    // The details of the backend exception.
+    // The backend exception details.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

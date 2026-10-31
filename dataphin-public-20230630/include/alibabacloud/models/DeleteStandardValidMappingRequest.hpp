@@ -85,9 +85,9 @@ namespace Models
 
 
     protected:
-      // The list of parent GUIDs. A maximum of 1000 GUIDs are supported.
+      // The list of parent GUIDs. The maximum number of GUIDs is 1,000.
       shared_ptr<vector<string>> belongGuidList_ {};
-      // The list of GUIDs. A maximum of 1000 GUIDs are supported.
+      // The list of GUIDs. The maximum number of GUIDs is 1,000.
       shared_ptr<vector<string>> guidList_ {};
       // The standard ID.
       // 
@@ -121,7 +121,7 @@ namespace Models
 
 
   protected:
-    // The delete instruction.
+    // The delete command.
     // 
     // This parameter is required.
     shared_ptr<DeleteStandardValidMappingRequest::DeleteCommand> deleteCommand_ {};
@@ -129,6 +129,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator user ID.
     shared_ptr<string> opUserId_ {};
   };
 

@@ -87,11 +87,11 @@ namespace Models
 
 
     protected:
-      // Error message returned when the operation fails.
+      // The error message returned when the operation fails.
       shared_ptr<string> errorMessage_ {};
-      // Node ID.
+      // The node ID.
       shared_ptr<string> nodeId_ {};
-      // Operation result.
+      // The operation result.
       shared_ptr<string> status_ {};
     };
 
@@ -142,17 +142,17 @@ namespace Models
 
 
   protected:
-    // Error code. A value of OK indicates a successful request.
+    // The error code. A value of OK indicates that the request is normal.
     shared_ptr<string> code_ {};
-    // HTTP status code returned by the backend.
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Error message.
+    // The error message.
     shared_ptr<string> message_ {};
-    // Results of the node resume scheduling operation.
+    // The results of the node scheduling resumption operations.
     shared_ptr<vector<ResumePhysicalNodeResponseBody::NodeOperateResultList>> nodeOperateResultList_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

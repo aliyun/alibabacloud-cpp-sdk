@@ -79,18 +79,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the user who performs the operation.
     shared_ptr<string> opUserId_ {};
     // The project ID. This parameter is required when the temporary authorization is used to create resource files.
     shared_ptr<int64_t> projectId_ {};
-    // The purpose of the authorization. Valid values:
-    // 
-    // - RESOURCE: creates resource files.
-    // - COMPUTE_SOURCE_SETTING: stores compute source configurations.
-    // - NONE: no specific purpose.
-    // 
-    // Default value: NONE.
+    // The purpose of the authorization. Valid values: RESOURCE (creating resource files), COMPUTE_SOURCE_SETTING (configuring storage and compute sources), and NONE (no specific purpose). Default value: NONE.
     shared_ptr<string> purpose_ {};
-    // Specifies whether to use an internal endpoint. Default value: false.
+    // Specifies whether to use the internal endpoint. Default value: false.
     shared_ptr<bool> useVpcEndpoint_ {};
   };
 

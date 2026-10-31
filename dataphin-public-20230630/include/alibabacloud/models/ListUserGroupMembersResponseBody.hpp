@@ -137,11 +137,11 @@ namespace Models
 
 
         protected:
-          // The account name of the user.
+          // The user account name.
           shared_ptr<string> accountName_ {};
-          // The username.
+          // The display name.
           shared_ptr<string> displayName_ {};
-          // The user ID.
+          // The user IDs.
           shared_ptr<string> id_ {};
         };
 
@@ -192,11 +192,11 @@ namespace Models
 
 
         protected:
-          // The account name of the user.
+          // The user account name.
           shared_ptr<string> accountName_ {};
-          // The username.
+          // The display name.
           shared_ptr<string> displayName_ {};
-          // The user ID.
+          // The user IDs.
           shared_ptr<string> id_ {};
         };
 
@@ -249,9 +249,9 @@ namespace Models
 
 
       protected:
-        // The user who added the member.
+        // The creator.
         shared_ptr<MemberList::Creator> creator_ {};
-        // The time when the member was added to the user group.
+        // The time when the user group member was added.
         shared_ptr<int64_t> gmtCreate_ {};
         // The user group member ID.
         shared_ptr<string> id_ {};
@@ -259,7 +259,7 @@ namespace Models
         shared_ptr<string> userGroupId_ {};
         // The user group member.
         shared_ptr<MemberList::UserInfo> userInfo_ {};
-        // The role of the member in the user group.
+        // The role of the user group member in the user group.
         shared_ptr<string> userRole_ {};
       };
 
@@ -282,7 +282,7 @@ namespace Models
 
 
     protected:
-      // The paged list.
+      // The paginated list.
       shared_ptr<vector<PageResult::MemberList>> memberList_ {};
       // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
@@ -335,17 +335,17 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request was successful.
+    // The error code. OK indicates that the request is successful.
     shared_ptr<string> code_ {};
-    // The HTTP status code returned by the backend.
+    // The HTTP status code of the backend response.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The paged query result.
+    // The paging query result.
     shared_ptr<ListUserGroupMembersResponseBody::PageResult> pageResult_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

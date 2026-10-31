@@ -43,6 +43,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Description, description_);
         DARABONBA_PTR_TO_JSON(Id, id_);
         DARABONBA_PTR_TO_JSON(Name, name_);
+        DARABONBA_PTR_TO_JSON(TimeZone, timeZone_);
         DARABONBA_PTR_TO_JSON(Type, type_);
         DARABONBA_PTR_TO_JSON(TypeVersion, typeVersion_);
       };
@@ -53,6 +54,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Description, description_);
         DARABONBA_PTR_FROM_JSON(Id, id_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
+        DARABONBA_PTR_FROM_JSON(TimeZone, timeZone_);
         DARABONBA_PTR_FROM_JSON(Type, type_);
         DARABONBA_PTR_FROM_JSON(TypeVersion, typeVersion_);
       };
@@ -109,7 +111,7 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<string> key_ {};
-        // The configuration item value.
+        // The value of the configuration item.
         // 
         // This parameter is required.
         shared_ptr<string> value_ {};
@@ -117,7 +119,7 @@ namespace Models
 
       virtual bool empty() const override { return this->clusterId_ == nullptr
         && this->configList_ == nullptr && this->createType_ == nullptr && this->description_ == nullptr && this->id_ == nullptr && this->name_ == nullptr
-        && this->type_ == nullptr && this->typeVersion_ == nullptr; };
+        && this->timeZone_ == nullptr && this->type_ == nullptr && this->typeVersion_ == nullptr; };
       // clusterId Field Functions 
       bool hasClusterId() const { return this->clusterId_ != nullptr;};
       void deleteClusterId() { this->clusterId_ = nullptr;};
@@ -162,6 +164,13 @@ namespace Models
       inline UpdateCommand& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+      // timeZone Field Functions 
+      bool hasTimeZone() const { return this->timeZone_ != nullptr;};
+      void deleteTimeZone() { this->timeZone_ = nullptr;};
+      inline string getTimeZone() const { DARABONBA_PTR_GET_DEFAULT(timeZone_, "") };
+      inline UpdateCommand& setTimeZone(string timeZone) { DARABONBA_PTR_SET_VALUE(timeZone_, timeZone) };
+
+
       // type Field Functions 
       bool hasType() const { return this->type_ != nullptr;};
       void deleteType() { this->type_ = nullptr;};
@@ -177,33 +186,35 @@ namespace Models
 
 
     protected:
-      // The associated cluster ID. This parameter takes effect only when CreateType is left empty or set to COMPUTE_SOURCE (to create a compute source that references a cluster). This parameter is mutually exclusive with CreateType=CLUSTER.
+      // The ID of the associated cluster. This parameter takes effect only when CreateType is left empty or set to COMPUTE_SOURCE, which means creating a compute source that references a cluster. This parameter is mutually exclusive with CreateType=CLUSTER.
       shared_ptr<int64_t> clusterId_ {};
-      // The connection configuration items.
+      // The connection configurations.
       // 
       // This parameter is required.
       shared_ptr<vector<UpdateCommand::ConfigList>> configList_ {};
-      // The creation entity type. Valid values:
-      // - CLUSTER: Creates the entity as a cluster. ClusterId cannot be specified.
-      // - COMPUTE_SOURCE: Creates the entity as a compute source. This is the default value.
+      // The type of the entity to create. Valid values:
+      // - CLUSTER: creates a cluster. You cannot specify ClusterId.
+      // - COMPUTE_SOURCE: creates a compute source. This is the default value.
       shared_ptr<string> createType_ {};
       // The description.
       // 
       // This parameter is required.
       shared_ptr<string> description_ {};
-      // The compute source ID.
+      // The ID of the compute source.
       // 
       // This parameter is required.
       shared_ptr<int64_t> id_ {};
-      // The compute source name.
+      // The name of the compute source.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The compute source type.
+      // The name of the time zone, such as Asia/Shanghai. If you do not specify this parameter when you update the compute source, the original value is retained.
+      shared_ptr<string> timeZone_ {};
+      // The type of the compute source.
       // 
       // This parameter is required.
       shared_ptr<string> type_ {};
-      // The compute source type version.
+      // The version of the compute source type.
       shared_ptr<string> typeVersion_ {};
     };
 
@@ -237,9 +248,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
-    // The operator user ID.
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
-    // The edit command.
+    // The update command.
     // 
     // This parameter is required.
     shared_ptr<UpdateComputeSourceRequest::UpdateCommand> updateCommand_ {};

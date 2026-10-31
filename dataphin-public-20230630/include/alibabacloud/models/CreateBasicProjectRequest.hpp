@@ -199,7 +199,7 @@ namespace Models
       shared_ptr<int64_t> computeSourceId_ {};
       // The project description.
       shared_ptr<string> description_ {};
-      // The project display name.
+      // The display name of the project.
       shared_ptr<string> displayName_ {};
       // The project name.
       // 
@@ -209,7 +209,7 @@ namespace Models
       shared_ptr<string> nameSpaceTag_ {};
       // The real-time compute source ID.
       shared_ptr<int64_t> streamComputeSourceId_ {};
-      // The project type. If this parameter is left empty, the default value GENERAL is used.
+      // The project type. Default value: GENERAL.
       shared_ptr<string> type_ {};
       // The sandbox whitelist.
       shared_ptr<vector<CreateCommand::WhiteLists>> whiteLists_ {};
@@ -241,7 +241,7 @@ namespace Models
 
 
   protected:
-    // The create command.
+    // The creation command.
     // 
     // This parameter is required.
     shared_ptr<CreateBasicProjectRequest::CreateCommand> createCommand_ {};
@@ -249,6 +249,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator ID.
     shared_ptr<string> opUserId_ {};
   };
 

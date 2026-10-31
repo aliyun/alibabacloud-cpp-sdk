@@ -227,37 +227,37 @@ namespace Models
 
 
       protected:
-        // Change type. Valid values: 0: Create. 1: Update. 2: Delete.
+        // The change type. Valid values: 0: create. 1: update. 2: delete.
         shared_ptr<int32_t> changeType_ {};
-        // Publish error message.
+        // The publish error message.
         shared_ptr<string> errorMessage_ {};
-        // Publish completion time in the yyyy-MM-dd HH:mm:ss format.
+        // The publish completion time. Format: yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> finishTime_ {};
-        // Creation time in the yyyy-MM-dd HH:mm:ss format.
+        // The creation time. Format: yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> gmtCreate_ {};
-        // Modification time in the yyyy-MM-dd HH:mm:ss format.
+        // The update time. Format: yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> gmtModify_ {};
-        // Publish record ID, which is not the object ID and is globally unique in the publish list.
+        // The ID of the publish record. This is not the object ID and is globally unique in the publish list.
         shared_ptr<int64_t> id_ {};
-        // Node ID.
+        // The node ID.
         shared_ptr<string> nodeId_ {};
-        // Object ID.
+        // The object ID.
         shared_ptr<string> objectId_ {};
-        // Object name.
+        // The object name.
         shared_ptr<string> objectName_ {};
-        // Object type.
+        // The object type.
         shared_ptr<string> objectType_ {};
-        // Object version.
+        // The object version.
         shared_ptr<string> objectVersion_ {};
-        // Project ID.
+        // The project ID.
         shared_ptr<string> projectId_ {};
-        // Publish name.
+        // The publish name.
         shared_ptr<string> publishName_ {};
-        // Publish status. Valid values: 0: Failed. 1: Succeeded. 2: Publishing.
+        // The publish status. Valid values: 0: failed. 1: successful. 2: publishing.
         shared_ptr<int32_t> publishStatus_ {};
-        // Publisher ID.
+        // The ID of the publisher.
         shared_ptr<string> publisher_ {};
-        // Publisher name.
+        // The name of the publisher.
         shared_ptr<string> publisherName_ {};
       };
 
@@ -280,9 +280,9 @@ namespace Models
 
 
     protected:
-      // Publish record list.
+      // The publish record list.
       shared_ptr<vector<ListResult::Data>> data_ {};
-      // Total count.
+      // The total count.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -333,17 +333,17 @@ namespace Models
 
 
   protected:
-    // Error code. A value of OK indicates that the request was successful.
+    // The error code. A value of OK indicates that the request is normal.
     shared_ptr<string> code_ {};
-    // Backend response HTTP status code.
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Query result.
+    // The query result.
     shared_ptr<ListPublishRecordsResponseBody::ListResult> listResult_ {};
-    // Error message.
+    // The error message.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

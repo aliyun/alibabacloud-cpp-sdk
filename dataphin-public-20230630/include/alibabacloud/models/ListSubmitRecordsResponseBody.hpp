@@ -200,76 +200,79 @@ namespace Models
 
 
       protected:
-        // Change type. 0: Create / 1: Update / 2: Delete.
+        // The change type. Valid values:
+        // - 0: create
+        // - 1: update
+        // - 2: delete
         shared_ptr<int32_t> changeType_ {};
-        // Creation time in the yyyy-MM-dd HH:mm:ss format.
+        // The time when the record was created. Format: yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> gmtCreate_ {};
-        // Modification time in the yyyy-MM-dd HH:mm:ss format.
+        // The time when the record was updated. Format: yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> gmtModify_ {};
-        // Pending deployment record ID.
+        // The ID of the pending publish record.
         shared_ptr<int64_t> id_ {};
-        // Node ID.
+        // The ID of the node.
         shared_ptr<string> nodeId_ {};
-        // Object ID.
+        // The ID of the object.
         shared_ptr<string> objectId_ {};
-        // Object name.
+        // The name of the object.
         shared_ptr<string> objectName_ {};
-        // Object type. Valid values:
-        // - MaxCompute SQL task: MAX_COMPUTE_SQL
-        // - MaxCompute MR task: MAX_COMPUTE_MR
-        // - Spark JAR on MaxCompute: SPARK_JAR_ON_MAX_COMPUTE
-        // - Shell task: SHELL
-        // - Python task: PYTHON
-        // - Perl script: PERL
-        // - Check: CHECK
-        // - Sync task: DATA_X
-        // - Virtual node: VIRTUAL
-        // - Resource: IDE_RESOURCE
-        // - Function: UDF
-        // - Hive SQL task: HIVE_SQL
-        // - Hadoop MR task: HADOOP_MR
-        // - Spark JAR on Hive task: SPARK_JAR_ON_HIVE
-        // - Flink SQL task: FLINK_SQL
-        // - Flink SQL template task: FLINK_TEMPLATE_SQL
-        // - Stream computing template: STREAM_TEMPLATE
-        // - Metatable: META_TABLE
-        // - Stream computing function: STREAM_UDF
-        // - Real-time Flink DataStream: FLINK_DATASTREAM
-        // - Real-time custom data source: STREAM_CUSTOM_DATASOURCE
-        // - AnalyticDB for PostgreSQL task: ADB_FOR_PG
-        // - TDH SQL task: INCEPTOR_SQL
-        // - Mirror table: MIRROR_TABLE
-        // - Intermediate table: MIDDLE_TABLE
-        // - Application table: APPLICATION_TABLE
-        // - Impala SQL task: IMPALA_SQL
-        // - Offline pipeline task: OFFLINE_PIPELINE
-        // - Real-time pipeline task: REAL_TIME_PIPELINE
-        // - Dimension logical table: DIM_LOGICAL_TABLE
-        // - Fact logical table: FCT_LOGICAL_TABLE
-        // - Business condition: BIZ_CONDITION
-        // - Atomic metric: ATOM_INDEX
-        // - Derived metric: DERIVED_INDEX
-        // - Calculated derived metric: CALC_DERIVED_INDEX
-        // - PAI task: PAI_DESIGNER
-        // - ArgoDB SQL task: ARGODB_SQL
-        // - Hologres SQL task: HOLOGRES_SQL
-        // - Impala SQL task: IMPALA_SQL
-        // - StarRocks SQL task: STARROCKS_SQL
-        // - Database SQL task: DATABASE_SQL
-        // - Spark SQL task: SPARK_SQL
-        // - Compute template: TASK_TEMPLATE
-        // - External trigger node: EXTERNAL_TRIGGER
-        // - Gauss SQL task: GAUSS_SQL
+        // The object type. Valid values:
+        // - MAX_COMPUTE_SQL: MaxCompute SQL node
+        // - MAX_COMPUTE_MR: MaxCompute MR node
+        // - SPARK_JAR_ON_MAX_COMPUTE: Spark JAR on MaxCompute node
+        // - SHELL: Shell node
+        // - PYTHON: Python node
+        // - PERL: Perl script
+        // - CHECK: Check node
+        // - DATA_X: Data synchronization node
+        // - VIRTUAL: Virtual node
+        // - IDE_RESOURCE: Resource
+        // - UDF: Function
+        // - HIVE_SQL: Hive SQL node
+        // - HADOOP_MR: Hadoop MR node
+        // - SPARK_JAR_ON_HIVE: Spark JAR on Hive node
+        // - FLINK_SQL: Flink SQL node
+        // - FLINK_TEMPLATE_SQL: Flink SQL template node
+        // - STREAM_TEMPLATE: Stream computing template
+        // - META_TABLE: Metatable
+        // - STREAM_UDF: Stream computing function
+        // - FLINK_DATASTREAM: Real-time Flink DataStream node
+        // - STREAM_CUSTOM_DATASOURCE: Real-time custom data source
+        // - ADB_FOR_PG: AnalyticDB for PostgreSQL node
+        // - INCEPTOR_SQL: Inceptor SQL node
+        // - MIRROR_TABLE: Mirror table
+        // - MIDDLE_TABLE: Intermediate table
+        // - APPLICATION_TABLE: Application table
+        // - IMPALA_SQL: Impala SQL node
+        // - OFFLINE_PIPELINE: Offline pipeline node
+        // - REAL_TIME_PIPELINE: Real-time pipeline node
+        // - DIM_LOGICAL_TABLE: Logical dimension table
+        // - FCT_LOGICAL_TABLE: Logical fact table
+        // - BIZ_CONDITION: Business filter
+        // - ATOM_INDEX: Atomic metric
+        // - DERIVED_INDEX: Derived metric
+        // - CALC_DERIVED_INDEX: Derivative metric
+        // - PAI_DESIGNER: PAI Designer node
+        // - ARGODB_SQL: ArgoDB SQL node
+        // - HOLOGRES_SQL: Hologres SQL node
+        // - IMPALA_SQL: Impala SQL node
+        // - STARROCKS_SQL: StarRocks SQL node
+        // - DATABASE_SQL: Database SQL node
+        // - SPARK_SQL: Spark SQL node
+        // - TASK_TEMPLATE: Task template
+        // - EXTERNAL_TRIGGER: External trigger node
+        // - GAUSS_SQL: Gauss SQL node
         shared_ptr<string> objectType_ {};
-        // Object version.
+        // The version of the object.
         shared_ptr<string> objectVersion_ {};
-        // Project ID.
+        // The project ID.
         shared_ptr<string> projectId_ {};
-        // Submission comment.
+        // The submission comment.
         shared_ptr<string> submitComment_ {};
-        // Submitter ID.
+        // The ID of the submitter.
         shared_ptr<string> submitter_ {};
-        // Submitter name.
+        // The name of the submitter.
         shared_ptr<string> submitterName_ {};
       };
 
@@ -292,9 +295,9 @@ namespace Models
 
 
     protected:
-      // List of pending deployment records.
+      // The list of pending publish records.
       shared_ptr<vector<ListResult::Data>> data_ {};
-      // Total count.
+      // The total count.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -345,17 +348,17 @@ namespace Models
 
 
   protected:
-    // Error code. OK indicates a successful request.
+    // The error code. A value of OK indicates that the request is successful.
     shared_ptr<string> code_ {};
-    // HTTP status code returned by the backend.
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Query result.
+    // The query result.
     shared_ptr<ListSubmitRecordsResponseBody::ListResult> listResult_ {};
-    // Error message.
+    // The error message.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Whether the request is successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

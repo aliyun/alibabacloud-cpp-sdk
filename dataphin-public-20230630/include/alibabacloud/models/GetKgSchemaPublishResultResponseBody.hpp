@@ -89,13 +89,13 @@ namespace Models
       // The publish content.
       shared_ptr<string> content_ {};
       // The publish status. Valid values:
-      // - Publishing: Publishing in progress.
-      // - Published: Published successfully.
-      // - Partial: Partially completed.
-      // - Failed: Failed.
-      // - RollbackFailed: Publish failed and rollback failed.
+      // - Publishing: The publish task is in progress.
+      // - Published: The publish task is successful.
+      // - Partial: The publish task is partially completed.
+      // - Failed: The publish task failed.
+      // - RollbackFailed: The publish task failed and the rollback failed.
       shared_ptr<string> status_ {};
-      // The version number.
+      // The version ID.
       shared_ptr<int32_t> versionId_ {};
     };
 
@@ -156,7 +156,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

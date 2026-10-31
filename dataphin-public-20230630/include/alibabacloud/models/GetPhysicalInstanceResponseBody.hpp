@@ -170,9 +170,9 @@ namespace Models
 
 
         protected:
-          // User ID
+          // The user ID.
           shared_ptr<string> id_ {};
-          // Username
+          // The username.
           shared_ptr<string> name_ {};
         };
 
@@ -214,9 +214,9 @@ namespace Models
 
 
         protected:
-          // User ID
+          // The user ID.
           shared_ptr<string> id_ {};
-          // Username
+          // The username.
           shared_ptr<string> name_ {};
         };
 
@@ -258,9 +258,9 @@ namespace Models
 
 
         protected:
-          // User ID
+          // The user ID.
           shared_ptr<string> id_ {};
-          // Username
+          // The username.
           shared_ptr<string> name_ {};
         };
 
@@ -415,44 +415,44 @@ namespace Models
 
 
       protected:
-        // Business unit name
+        // The business unit name.
         shared_ptr<string> bizUnitName_ {};
-        // Creation time
+        // The creation time.
         shared_ptr<string> createTime_ {};
-        // Creator
+        // The creator.
         shared_ptr<NodeInfo::Creator> creator_ {};
-        // Description
+        // The description.
         shared_ptr<string> description_ {};
-        // Indicates whether this is a dry run.
+        // Indicates whether a dry run is performed.
         shared_ptr<bool> dryRun_ {};
-        // Source system of the node
+        // The source system of the node.
         shared_ptr<string> from_ {};
-        // Indicates whether the development environment exists.
+        // Indicates whether a development environment is available.
         shared_ptr<bool> hasDev_ {};
-        // Indicates whether the production environment exists.
+        // Indicates whether a production environment is available.
         shared_ptr<bool> hasProd_ {};
-        // Node ID
+        // The node ID.
         shared_ptr<string> id_ {};
-        // Last modified time
+        // The last modified time.
         shared_ptr<string> lastModifiedTime_ {};
-        // Modifier
+        // The modifier.
         shared_ptr<NodeInfo::Modifier> modifier_ {};
-        // Node name
+        // The node name.
         shared_ptr<string> name_ {};
-        // Owner list
+        // The owners.
         shared_ptr<vector<NodeInfo::OwnerList>> ownerList_ {};
-        // Priority
+        // The priority. Valid values:
         // - HIGHEST
         // - HIGH
         // - MIDDLE
         // - LOW
         // - LOWEST
         shared_ptr<vector<string>> priorityList_ {};
-        // Resource group list
+        // The resource group.
         shared_ptr<vector<string>> resourceGroupList_ {};
         // Indicates whether scheduling is paused.
         shared_ptr<bool> schedulePaused_ {};
-        // Scheduling period
+        // The scheduling cycle. Valid values:
         // - YEARLY
         // - MONTHLY
         // - WEEKLY
@@ -460,7 +460,7 @@ namespace Models
         // - HOURLY
         // - MINUTELY
         shared_ptr<vector<string>> schedulePeriodList_ {};
-        // Sub-business type
+        // The sub-business type. Valid values:
         // - MAX_COMPUTE_SQL
         // - HIVE_SQL
         // - SHELL
@@ -468,14 +468,14 @@ namespace Models
         // - ONE_SERVICE_SQL
         // - DATABASE_SQL
         shared_ptr<string> subDetailType_ {};
-        // Node type
-        // - BBOX_LOGIC_TABLE_NODE: Logical table node
-        // - BBOX_LOGIC_FIELD_NODE: Logical field node
-        // - BBOX_LOGIC_FIELD_GROUP_NODE: Field group node
-        // - BBOX_INNER_TEMP_NODE: Logical table temp node
-        // - DATA_PROCESS: Code task
-        // - STREAM_TASK_NODE: Real-time task
-        // - PIPELINE_NODE: Pipeline node
+        // The node type. Valid values:
+        // - BBOX_LOGIC_TABLE_NODE: logical table node
+        // - BBOX_LOGIC_FIELD_NODE: logical field node
+        // - BBOX_LOGIC_FIELD_GROUP_NODE: field group node
+        // - BBOX_INNER_TEMP_NODE: logical table temporary node
+        // - DATA_PROCESS: code task
+        // - STREAM_TASK_NODE: real-time task
+        // - PIPELINE_NODE: pipeline node
         // - FLINK_BATCH: Flink batch task
         // - ODM_NODE: ODM node
         shared_ptr<string> type_ {};
@@ -559,25 +559,25 @@ namespace Models
 
 
     protected:
-      // Business date
+      // The business date.
       shared_ptr<string> bizDate_ {};
-      // Scheduled time
+      // The scheduled time.
       shared_ptr<string> dueTime_ {};
-      // Execution duration
+      // The execution duration.
       shared_ptr<string> duration_ {};
-      // End execution time
+      // The end time of the execution.
       shared_ptr<int64_t> endExecuteTime_ {};
-      // Extended information
+      // The extended information.
       shared_ptr<string> extendInfo_ {};
-      // Instance ID
+      // The instance ID.
       shared_ptr<string> id_ {};
-      // Running instance index
+      // The sequence number of the instance.
       shared_ptr<int32_t> index_ {};
-      // Node details
+      // The node details.
       shared_ptr<Instance::NodeInfo> nodeInfo_ {};
-      // Start execution time
+      // The start time of the execution.
       shared_ptr<int64_t> startExecuteTime_ {};
-      // Status list
+      // The status list.
       shared_ptr<vector<string>> statusList_ {};
     };
 
@@ -628,17 +628,17 @@ namespace Models
 
 
   protected:
-    // Error code. A value of OK indicates that the request was successful.
+    // The error code. A value of OK indicates that the request is successful.
     shared_ptr<string> code_ {};
-    // HTTP status code
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Instance details
+    // The instance details.
     shared_ptr<GetPhysicalInstanceResponseBody::Instance> instance_ {};
-    // Error message
+    // The error message.
     shared_ptr<string> message_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

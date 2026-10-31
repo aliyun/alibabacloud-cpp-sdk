@@ -75,20 +75,21 @@ namespace Models
 
 
   protected:
-    // Remarks.
+    // The comment.
     // 
     // This parameter is required.
     shared_ptr<string> comment_ {};
-    // Resource file ID.
+    // The resource file ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // Tenant ID.
+    // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator user ID.
     shared_ptr<string> opUserId_ {};
-    // Project ID.
+    // The project ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};

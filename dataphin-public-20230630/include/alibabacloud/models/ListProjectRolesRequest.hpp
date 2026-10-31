@@ -57,10 +57,13 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The user ID of the operator.
     shared_ptr<string> opUserId_ {};
-    // 项目类型，BASIC-基础模式项目，DEV-开发环境项目，PROD-生产环境项目，TAG-标签平台项目，可选值：BASIC、DEV、PROD、TAG
+    // The project type. Valid values: BASIC (basic mode project), DEV (development environment project), PROD (production environment project), and TAG (tag platform project).
     // 
     // This parameter is required.
     shared_ptr<string> projectType_ {};

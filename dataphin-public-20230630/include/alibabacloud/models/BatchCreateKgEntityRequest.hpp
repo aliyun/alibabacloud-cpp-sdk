@@ -147,7 +147,7 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<string> entityType_ {};
-        // The list of entity record properties.
+        // The list of properties for the entity record.
         // 
         // This parameter is required.
         shared_ptr<vector<EntityList::PropertyList>> propertyList_ {};
@@ -211,7 +211,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
-    // The ID of the operator user.
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
     // The workspace ID.
     // 

@@ -95,7 +95,7 @@ namespace Models
       protected:
         // The user ID.
         shared_ptr<string> id_ {};
-        // The list of roles. Valid values:
+        // The role list. Valid values:
         // - SYSTEM_ADMIN
         // - DATASOURCE_MANAGER
         // - SECURITY_ADMIN
@@ -103,7 +103,7 @@ namespace Models
         // - EXPORT_ADMIN
         // - DATA_STANDARD_MANAGER
         // - LABELS_BUSINESS_PLANNER
-        // - BUSINESS_MEMBER.
+        // - BUSINESS_MEMBER
         shared_ptr<vector<string>> roleList_ {};
       };
 
@@ -118,7 +118,7 @@ namespace Models
 
 
     protected:
-      // The list of members.
+      // The member list.
       // 
       // This parameter is required.
       shared_ptr<vector<AddCommand::UserList>> userList_ {};
@@ -158,6 +158,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator user ID.
     shared_ptr<string> opUserId_ {};
   };
 

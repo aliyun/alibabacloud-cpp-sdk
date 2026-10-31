@@ -61,6 +61,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The user ID of the operator.
     shared_ptr<string> opUserId_ {};
     // The transfer information.
     shared_ptr<string> privilegeTransferRecordShrink_ {};

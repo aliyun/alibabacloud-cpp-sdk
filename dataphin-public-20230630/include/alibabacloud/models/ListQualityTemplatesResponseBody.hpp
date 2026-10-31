@@ -163,11 +163,11 @@ namespace Models
 
 
         protected:
-          // The control type.
+          // The type of the control.
           shared_ptr<string> componentType_ {};
-          // The property name.
+          // The name of the property.
           shared_ptr<string> name_ {};
-          // The property value.
+          // The value of the property.
           shared_ptr<string> value_ {};
         };
 
@@ -315,14 +315,14 @@ namespace Models
 
       protected:
         // The template category. Valid values:
-        // - CONSISTENT: consistency
-        // - EFFECTIVE: validity
-        // - TIMELINESE: timeliness
-        // - ACCURATE: accuracy
-        // - UNIQUENESS: uniqueness
-        // - COMPLETENESS: completeness
-        // - STABILITY: stability
-        // - CUSTOM: custom.
+        // - CONSISTENT: Consistency.
+        // - EFFECTIVE: Effectiveness.
+        // - TIMELINESE: Timeliness.
+        // - ACCURATE: Accuracy.
+        // - UNIQUENESS: Uniqueness.
+        // - COMPLETENESS: Completeness.
+        // - STABILITY: Stability.
+        // - CUSTOM: Custom.
         shared_ptr<string> catalog_ {};
         // The display name of the template category.
         shared_ptr<string> catalogName_ {};
@@ -332,21 +332,21 @@ namespace Models
         shared_ptr<string> creator_ {};
         // The name of the creator.
         shared_ptr<string> creatorName_ {};
-        // The template description.
+        // The description of the template.
         shared_ptr<string> description_ {};
-        // The rule configuration key-value pairs.
+        // The key-value pairs for rule configuration.
         shared_ptr<vector<QualityTemplateList::FormPropertyList>> formPropertyList_ {};
-        // The template ID.
+        // The ID of the template.
         shared_ptr<int64_t> id_ {};
         // Indicates whether the template is a system template.
         shared_ptr<bool> isSystemTemplate_ {};
-        // The user ID of the last modifier.
+        // The user ID of the last updater.
         shared_ptr<string> modifier_ {};
-        // The name of the last modifier.
+        // The name of the last updater.
         shared_ptr<string> modifierName_ {};
-        // The modification time.
+        // The update time.
         shared_ptr<string> modifyTime_ {};
-        // The template name.
+        // The name of the template.
         shared_ptr<string> name_ {};
         // The user ID of the owner.
         shared_ptr<string> owner_ {};
@@ -354,42 +354,42 @@ namespace Models
         shared_ptr<string> ownerName_ {};
         // Indicates whether all data source types are supported.
         shared_ptr<bool> supportAllDataSourceType_ {};
-        // The supported data source types, such as MySQL, Oracle, Microsoft SQL Server, MaxCompute, and Hive.
+        // The specific data source types that are supported, such as MySQL, Oracle, Microsoft SQL Server, MaxCompute, and Hive.
         shared_ptr<vector<string>> supportDataSourceTypeList_ {};
-        // The templatetype. Valid values:
-        // - FIELD_NULL_VALUE_VALIDATE: field null value check
-        // - FIELD_EMPTY_STRING_VALIDATE: field empty character string check
-        // - FIELD_UNIQUE_VALIDATE: field uniqueness check
-        // - FIELD_GROUP_COUNT_VALIDATE: field unique value count check
-        // - FIELD_DUPLICATE_VALUE_COUNT_VALIDATE: field duplicate value count check
-        // - FUNCTION_TIME_COMPARE: time function comparison
-        // - SINGLE_TABLE_TIME_COMPARE: non-partitioned table time field comparison
-        // - DOUBLE_TABLE_TIME_COMPARE: two-table time field comparison
-        // - FIELD_FORMAT_VALIDATE: field format check
-        // - FIELD_LENGTH_VALIDATE: field length check
-        // - FIELD_VALUE_RANGE_VALIDATE: field value range check
-        // - CODE_TABLE_COMPARE: lookup table reference comparison
-        // - STANDARD_CODE_TABLE_COMPARE: data standard lookup table reference comparison
-        // - SINGLE_TABLE_FIELD_VALUE_COMPARE: non-partitioned table field value consistency comparison
-        // - SINGLE_TABLE_FIELD_STATISTICAL_COMPARE: non-partitioned table field statistical value consistency comparison
-        // - SINGLE_TABLE_FIELD_EXP_COMPARE: non-partitioned table field business logic consistency comparison
-        // - DOUBLE_TABLE_FIELD_VALUE_COMPARE: two-table field value consistency comparison
-        // - DOUBLE_TABLE_FIELD_STATISTICAL_COMPARE: two-table field statistical value consistency comparison
-        // - CROSS_DOUBLE_TABLE_FIELD_STATISTICAL_COMPARE: cross-source two-table field statistical value consistency comparison
-        // - DOUBLE_TABLE_FIELD_EXP_COMPARE: two-table field business logic consistency comparison
-        // - TABLE_STABILITY_VALIDATE: table stability check
-        // - TABLE_FLUCTUATION_VALIDATE: table fluctuation check
-        // - FIELD_STABILITY_VALIDATE: field stability check
-        // - FIELD_FLUCTUATION_VALIDATE: field fluctuation check
-        // - CUSTOM_STATISTICAL_VALIDATE: custom statistical metric check
-        // - CUSTOM_DATA_DETAILS_VALIDATE: custom data details check
-        // - DATASOURCE_AVAILABLE_CHECK: data source connectivity monitoring
-        // - TABLE_SCHEMA_CHECK: table schema change monitoring
-        // - REAL_TIME_OFFLINE_COMPARE: real-time and offline comparison
-        // - REAL_TIME_STATISTICAL_VALIDATE: real-time statistical value monitoring
-        // - REAL_TIME_MULTI_CHAIN_COMPARE: real-time multi-link comparison.
+        // The template type. Valid values:
+        // - FIELD_NULL_VALUE_VALIDATE: Field null value check.
+        // - FIELD_EMPTY_STRING_VALIDATE: Field empty string check.
+        // - FIELD_UNIQUE_VALIDATE: Field uniqueness check.
+        // - FIELD_GROUP_COUNT_VALIDATE: Field unique value count check.
+        // - FIELD_DUPLICATE_VALUE_COUNT_VALIDATE: Field duplicate value count check.
+        // - FUNCTION_TIME_COMPARE: Time function comparison.
+        // - SINGLE_TABLE_TIME_COMPARE: Non-partitioned table time field comparison.
+        // - DOUBLE_TABLE_TIME_COMPARE: Two-table time field comparison.
+        // - FIELD_FORMAT_VALIDATE: Field format check.
+        // - FIELD_LENGTH_VALIDATE: Field length check.
+        // - FIELD_VALUE_RANGE_VALIDATE: Field value range check.
+        // - CODE_TABLE_COMPARE: Lookup table reference comparison.
+        // - STANDARD_CODE_TABLE_COMPARE: Data standard lookup table reference comparison.
+        // - SINGLE_TABLE_FIELD_VALUE_COMPARE: Non-partitioned table field value consistency comparison.
+        // - SINGLE_TABLE_FIELD_STATISTICAL_COMPARE: Non-partitioned table field statistical value consistency comparison.
+        // - SINGLE_TABLE_FIELD_EXP_COMPARE: Non-partitioned table field business logic consistency comparison.
+        // - DOUBLE_TABLE_FIELD_VALUE_COMPARE: Two-table field value consistency comparison.
+        // - DOUBLE_TABLE_FIELD_STATISTICAL_COMPARE: Two-table field statistical value consistency comparison.
+        // - CROSS_DOUBLE_TABLE_FIELD_STATISTICAL_COMPARE: Cross-source two-table field statistical value consistency comparison.
+        // - DOUBLE_TABLE_FIELD_EXP_COMPARE: Two-table field business logic consistency comparison.
+        // - TABLE_STABILITY_VALIDATE: Table stability check.
+        // - TABLE_FLUCTUATION_VALIDATE: Table fluctuation check.
+        // - FIELD_STABILITY_VALIDATE: Field stability check.
+        // - FIELD_FLUCTUATION_VALIDATE: Field fluctuation check.
+        // - CUSTOM_STATISTICAL_VALIDATE: Custom statistical metric check.
+        // - CUSTOM_DATA_DETAILS_VALIDATE: Custom data details check.
+        // - DATASOURCE_AVAILABLE_CHECK: Data source connectivity check.
+        // - TABLE_SCHEMA_CHECK: Table schema change check.
+        // - REAL_TIME_OFFLINE_COMPARE: Real-time and offline comparison.
+        // - REAL_TIME_STATISTICAL_VALIDATE: Real-time statistical value check.
+        // - REAL_TIME_MULTI_CHAIN_COMPARE: Real-time multi-link comparison.
         shared_ptr<string> type_ {};
-        // The display name of the templatetype.
+        // The display name of the template type.
         shared_ptr<string> typeName_ {};
       };
 
@@ -412,7 +412,7 @@ namespace Models
 
 
     protected:
-      // The list of quality templates.
+      // The paged list of quality templates.
       shared_ptr<vector<PageResult::QualityTemplateList>> qualityTemplateList_ {};
       // The total number of records.
       shared_ptr<int64_t> totalCount_ {};
@@ -469,13 +469,13 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The details of the backend exception.
+    // The backend exception details.
     shared_ptr<string> message_ {};
     // The paged query result.
     shared_ptr<ListQualityTemplatesResponseBody::PageResult> pageResult_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

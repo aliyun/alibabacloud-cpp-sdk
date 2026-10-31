@@ -168,9 +168,9 @@ namespace Models
     protected:
       // The content type.
       shared_ptr<string> contentType_ {};
-      // The data domain ID.
+      // The subject domain ID.
       shared_ptr<string> dataUnit_ {};
-      // Specifies whether to include version details. Default value: FALSE.
+      // Specifies whether to include version details. Default value: false.
       shared_ptr<bool> includeVersionList_ {};
       // The keyword.
       shared_ptr<string> keyword_ {};
@@ -178,21 +178,19 @@ namespace Models
       shared_ptr<string> owner_ {};
       // The page number.
       shared_ptr<int32_t> page_ {};
-      // The number of entries per page.
+      // The number of items per page.
       shared_ptr<int32_t> pageSize_ {};
       // The project ID.
       // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
-      // The dataset scenario. Valid values:
-      // - OFFLINE: offline.
-      // - REALTIME: real-time.
+      // The dataset scenario. Valid values: OFFLINE (offline) and REALTIME (real-time).
       shared_ptr<string> scenario_ {};
       // The storage type.
       shared_ptr<string> storageType_ {};
       // The tenant ID.
       shared_ptr<int64_t> tenantId_ {};
-      // The dataset type. If left empty, all types are queried.
+      // The dataset types. If this parameter is left empty, all types are queried.
       shared_ptr<vector<string>> typeList_ {};
     };
 
@@ -228,6 +226,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator ID.
     shared_ptr<string> opUserId_ {};
   };
 

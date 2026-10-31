@@ -144,7 +144,7 @@ namespace Models
         protected:
           // The configuration item.
           shared_ptr<string> key_ {};
-          // The configuration item value.
+          // The value of the configuration item.
           shared_ptr<string> value_ {};
         };
 
@@ -254,28 +254,28 @@ namespace Models
         shared_ptr<string> createUserName_ {};
         // The ID of the creator.
         shared_ptr<string> creator_ {};
-        // The role of the current logon user relative to this record. Valid values:
-        // - SuperAdmin: the current user is a super administrator.
-        // - ProjMan: the current user is a project administrator for this record.
-        // - NormalUser: the current user is a regular user for this record, meaning the user is neither a super administrator nor a project administrator.
+        // The role of the current logged-on user for this record. Valid values:
+        // - SuperAdmin: The current user is a super administrator.
+        // - ProjMan: The current user is a project manager for this record.
+        // - NormalUser: The current user is a regular user for this record, meaning the user is neither a super administrator nor a project manager.
         shared_ptr<string> currentUserRole_ {};
         // The ID of the owner.
         shared_ptr<string> owner_ {};
         // The name of the owner.
         shared_ptr<string> ownerUserName_ {};
-        // The user to whom the permission belongs.
+        // The permission owner.
         shared_ptr<string> privilegeBelongTo_ {};
-        // The source of the authorization. Valid values:
-        // - 0: owner.
+        // The authorization source. Valid values:
+        // - 0: Owner.
         shared_ptr<int32_t> privilegeFrom_ {};
         // The project ID.
         shared_ptr<int32_t> projectId_ {};
         // The project name.
         shared_ptr<string> projectName_ {};
-        // The description, used for troubleshooting.
+        // The description used for troubleshooting.
         shared_ptr<vector<PermissionList::RemarkForDebugList>> remarkForDebugList_ {};
         // The role. Valid values:
-        // - 0: owner.
+        // - 0: Owner.
         shared_ptr<int32_t> role_ {};
       };
 
@@ -355,13 +355,13 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The details of the backend exception.
+    // The backend exception details.
     shared_ptr<string> message_ {};
     // The paging query result.
     shared_ptr<ListDataServiceMyAppPermissionsResponseBody::PageResult> pageResult_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

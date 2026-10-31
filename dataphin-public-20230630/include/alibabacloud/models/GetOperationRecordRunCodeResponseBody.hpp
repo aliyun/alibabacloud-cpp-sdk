@@ -158,11 +158,11 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The backend exception details.
     shared_ptr<string> message_ {};
-    // The operation log code response.
+    // The operation record code response.
     shared_ptr<GetOperationRecordRunCodeResponseBody::OperationLogCodeResponse> operationLogCodeResponse_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

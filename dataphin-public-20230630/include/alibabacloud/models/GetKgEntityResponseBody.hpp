@@ -112,14 +112,7 @@ namespace Models
       protected:
         // The property code.
         shared_ptr<string> code_ {};
-        // The property data type. Valid values:
-        // 
-        // - STRING: string
-        // - INTEGER: integer
-        // - FLOAT: floating-point number
-        // - BOOLEAN: Boolean
-        // - DATE: date
-        // - LIST: list
+        // The property data type. Valid values: STRING (string), INTEGER (integer), FLOAT (floating-point number), BOOLEAN (Boolean value), DATE (date), and LIST (list).
         shared_ptr<string> dataType_ {};
         // The property value.
         shared_ptr<string> value_ {};
@@ -155,7 +148,7 @@ namespace Models
       shared_ptr<string> entityId_ {};
       // The entity type code.
       shared_ptr<string> entityType_ {};
-      // The list of entity record properties.
+      // The property list of the entity record.
       shared_ptr<vector<EntityInfo::PropertyList>> propertyList_ {};
     };
 
@@ -216,7 +209,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

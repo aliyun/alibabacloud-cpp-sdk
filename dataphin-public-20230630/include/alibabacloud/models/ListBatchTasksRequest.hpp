@@ -287,29 +287,53 @@ namespace Models
 
 
     protected:
+      // Specifies whether to enable conditional scheduling. If not specified, no filtering is applied.
       shared_ptr<bool> conditionScheduleEnable_ {};
+      // The start time of the creation time range, in milliseconds. Must be specified together with CreateEndTime.
       shared_ptr<int64_t> createBeginTime_ {};
+      // The end time of the creation time range, in milliseconds. Must be specified together with CreateBeginTime.
       shared_ptr<int64_t> createEndTime_ {};
+      // The list of developer IDs. If multiple IDs are specified, the union is used. If empty or not specified, no filtering is applied.
       shared_ptr<vector<string>> developOwnerList_ {};
+      // The list of task directories, such as ["/"]. If empty or not specified, no filtering is applied.
       shared_ptr<vector<string>> directoryList_ {};
+      // Specifies whether to include tasks in the subdirectories of the directories specified in DirectoryList. Default value: false.
       shared_ptr<bool> includeSubDirectory_ {};
+      // The search keyword for fuzzy matching by task name or node ID. If empty or not specified, no filtering is applied.
       shared_ptr<string> keyword_ {};
+      // The list of recent submit statuses. Valid values: SUBMITTING, SUCCESS, FAILED, and WARNING. If empty or not specified, no filtering is applied.
       shared_ptr<vector<string>> lastSubmitStatusList_ {};
+      // The list of locker IDs. If multiple IDs are specified, the union is used. If empty or not specified, no filtering by locker is applied.
       shared_ptr<vector<string>> lockUserList_ {};
+      // The start time of the last modification time range, in milliseconds. Must be specified together with ModifiedEndTime.
       shared_ptr<int64_t> modifiedBeginTime_ {};
+      // The end time of the last modification time range, in milliseconds. Must be specified together with ModifiedBeginTime.
       shared_ptr<int64_t> modifiedEndTime_ {};
+      // The list of scheduling types. Valid values: 0 (Manual), 1 (Normal), 2 (Paused), and 3 (Dry run). If empty or not specified, no filtering is applied.
       shared_ptr<vector<int32_t>> nodeStatusList_ {};
+      // The list of O&M owner IDs. If multiple IDs are specified, the union is used. If empty or not specified, no filtering is applied.
       shared_ptr<vector<string>> opsOwnerList_ {};
+      // The list of output table names for exact matching. If multiple table names are specified, the OR logical operator is used. If empty or not specified, no filtering is applied.
       shared_ptr<vector<string>> outputTableNameList_ {};
+      // The page number. Pages start from 1. Default value: 1.
       shared_ptr<int32_t> page_ {};
+      // The number of entries per page. Default value: 20. Maximum value: 100.
       shared_ptr<int32_t> pageSize_ {};
+      // The project ID. The query scope is limited to this project.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
+      // Specifies whether the task is published to the production environment. If not specified, no filtering is applied.
       shared_ptr<bool> published_ {};
+      // The ID of the referenced offline code template. If empty or not specified, no filtering is applied.
       shared_ptr<string> refCodeTemplateId_ {};
+      // The list of scheduling intervals. Valid values: MINUTELY, HOURLY, DAILY, WEEKLY, and MONTHLY. If empty or not specified, no filtering is applied.
       shared_ptr<vector<string>> scheduleIntervalTypeList_ {};
+      // The list of task statuses. Valid values: 0 (Draft), 1 (Submitting), 2 (Submitted), and 100 (In development). If empty or not specified, no filtering is applied.
       shared_ptr<vector<int32_t>> taskStatusList_ {};
+      // The list of task tag names. If empty or not specified, no filtering is applied.
       shared_ptr<vector<string>> taskTagList_ {};
+      // The list of task type codes. If empty or not specified, no filtering is applied.
       shared_ptr<vector<int32_t>> taskTypeList_ {};
     };
 
@@ -339,10 +363,15 @@ namespace Models
 
 
   protected:
+    // The task query conditions.
+    // 
     // This parameter is required.
     shared_ptr<ListBatchTasksRequest::BatchTaskQuery> batchTaskQuery_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the user who performs the operation.
     shared_ptr<string> opUserId_ {};
   };
 

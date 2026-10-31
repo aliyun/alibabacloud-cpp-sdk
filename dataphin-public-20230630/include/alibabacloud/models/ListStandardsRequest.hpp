@@ -153,27 +153,27 @@ namespace Models
 
 
     protected:
-      // Directory of the standard.
+      // The folder to which the standard belongs.
       shared_ptr<string> directory_ {};
-      // Search keyword: fuzzy search by standard name, English name, or code. Case-insensitive, sorted by relevance.
+      // The search keyword. Supports case-insensitive fuzzy search by standard name, English name, or code, and sorts results by relevance.
       shared_ptr<string> keyword_ {};
-      // Page number. Default value: 1.
+      // The page number. Default value: 1.
       shared_ptr<int32_t> pageNo_ {};
-      // Number of records per page. Default value: 20.
+      // The number of entries per page. Default value: 20.
       shared_ptr<int32_t> pageSize_ {};
-      // Standard set ID list.
+      // The IDs of the standard sets to which the standards belong.
       shared_ptr<vector<int64_t>> standardSetIdList_ {};
-      // Stage of the standard: DEV or PROD.
+      // The stages of the standards. Valid values: DEV and PROD.
       // 
       // This parameter is required.
       shared_ptr<string> standardStage_ {};
-      // Standard status list. Standard statuses under DEV stage: DRAFT, UNDER_REVISION, UNDER_REVIEW, REVIEW_PASSED, IN_PUBLISH. Standard statuses under PROD stage: NOT_ACTIVATED, ACTIVE, EXPIRED.
+      // The list of standard statuses. For the DEV stage, the standard statuses are: DRAFT (Draft), UNDER_REVISION (Under Revision), UNDER_REVIEW (Under Review), REVIEW_PASSED (Approved), and IN_PUBLISH (Publishing). For the PROD stage, the standard statuses are: NOT_ACTIVATED (Not Activated), ACTIVE (Active), and EXPIRED (Expired).
       shared_ptr<vector<string>> standardStatusList_ {};
-      // Standard template ID list.
+      // The IDs of the standard templates to which the standards belong.
       shared_ptr<vector<int64_t>> standardTemplateIdList_ {};
-      // Standard type: Basic, EMPTY indicates the standard type is empty.
+      // The list of standard types. Valid values: Basic, and EMPTY (the standard type is empty).
       shared_ptr<vector<string>> standardTypeList_ {};
-      // User ID: only queries standards visible to this user ID. If empty, queries standards visible to the current user.
+      // The user ID. If specified, only standards visible to this user are queried. If left empty, standards visible to the current user are queried.
       shared_ptr<string> userId_ {};
     };
 
@@ -203,14 +203,15 @@ namespace Models
 
 
   protected:
-    // Search conditions.
+    // The search conditions.
     // 
     // This parameter is required.
     shared_ptr<ListStandardsRequest::ListQuery> listQuery_ {};
-    // Tenant ID.
+    // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the user who performs the operation.
     shared_ptr<string> opUserId_ {};
   };
 

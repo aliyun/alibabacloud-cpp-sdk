@@ -116,7 +116,7 @@ namespace Models
 
 
       protected:
-        // The account name of the user.
+        // The user account name.
         shared_ptr<string> accountName_ {};
         // The username.
         shared_ptr<string> displayName_ {};
@@ -175,13 +175,13 @@ namespace Models
       shared_ptr<bool> active_ {};
       // The administrators of the user group.
       shared_ptr<vector<UserGroupInfo::AdminList>> adminList_ {};
-      // The description of the user group.
+      // The user group description.
       shared_ptr<string> description_ {};
       // The user group ID.
       shared_ptr<string> id_ {};
       // The role of the current user in the user group.
       shared_ptr<string> myRole_ {};
-      // The name of the user group.
+      // The user group name.
       shared_ptr<string> name_ {};
     };
 
@@ -232,7 +232,7 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request was successful.
+    // The error code. OK indicates that the request is normal.
     shared_ptr<string> code_ {};
     // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
@@ -240,7 +240,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
     // The user group details.
     shared_ptr<GetUserGroupResponseBody::UserGroupInfo> userGroupInfo_ {};

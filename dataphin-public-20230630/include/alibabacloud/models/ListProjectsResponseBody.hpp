@@ -231,7 +231,7 @@ namespace Models
         shared_ptr<int64_t> bizUnitId_ {};
         // The compute source ID.
         shared_ptr<int64_t> dataSourceId_ {};
-        // The name of the compute source.
+        // The compute source name.
         shared_ptr<string> dataSourceName_ {};
         // The description.
         shared_ptr<string> description_ {};
@@ -239,9 +239,9 @@ namespace Models
         shared_ptr<string> displayName_ {};
         // The environment identifier.
         shared_ptr<string> env_ {};
-        // The time when the project was created, in the yyyy-MM-dd HH:mm:ss format.
+        // The creation time. Format: yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> gmtCreate_ {};
-        // The time when the project was last modified, in the yyyy-MM-dd HH:mm:ss format.
+        // The update time. Format: yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> gmtModified_ {};
         // The project ID.
         shared_ptr<int64_t> id_ {};
@@ -255,7 +255,7 @@ namespace Models
         shared_ptr<string> ownerName_ {};
         // The real-time compute source ID.
         shared_ptr<int64_t> realtimeDataSourceId_ {};
-        // The name of the real-time compute source.
+        // The real-time compute source name.
         shared_ptr<string> realtimeDataSourceName_ {};
         // The project type.
         shared_ptr<string> type_ {};
@@ -280,7 +280,7 @@ namespace Models
 
 
     protected:
-      // The paginated list of projects.
+      // The paginated project list.
       shared_ptr<vector<PageResult::ProjectList>> projectList_ {};
       // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
@@ -337,13 +337,13 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The details of the backend exception.
+    // The backend exception details.
     shared_ptr<string> message_ {};
     // The paging query result.
     shared_ptr<ListProjectsResponseBody::PageResult> pageResult_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

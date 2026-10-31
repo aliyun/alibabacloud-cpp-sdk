@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The API ID.
+    // The ID of the API.
     // 
     // This parameter is required.
     shared_ptr<int64_t> apiId_ {};
@@ -83,12 +83,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
-    // The data service project ID.
+    // The ID of the data service project.
     // 
     // This parameter is required.
     shared_ptr<int32_t> projectId_ {};
-    // The API version number.
+    // The API version ID.
     // 
     // This parameter is required.
     shared_ptr<string> versionId_ {};

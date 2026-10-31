@@ -86,9 +86,9 @@ namespace Models
 
 
     protected:
-      // The task execution result.
+      // The execution result of the task.
       shared_ptr<string> result_ {};
-      // The ID of the corresponding scheduling task.
+      // The ID of the corresponding scheduled task.
       shared_ptr<string> scheduleTaskId_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
@@ -141,7 +141,7 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request was successful.
+    // The error code. A value of OK indicates that the request is successful.
     shared_ptr<string> code_ {};
     // The execution result.
     shared_ptr<GetAdHocTaskResultResponseBody::ExecuteResult> executeResult_ {};
@@ -151,7 +151,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

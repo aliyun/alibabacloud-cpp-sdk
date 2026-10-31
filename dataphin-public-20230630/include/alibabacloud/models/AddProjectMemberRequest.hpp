@@ -60,10 +60,12 @@ namespace Models
       class UserList : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const UserList& obj) { 
+          DARABONBA_PTR_TO_JSON(RoleCodeList, roleCodeList_);
           DARABONBA_PTR_TO_JSON(RoleList, roleList_);
           DARABONBA_PTR_TO_JSON(UserId, userId_);
         };
         friend void from_json(const Darabonba::Json& j, UserList& obj) { 
+          DARABONBA_PTR_FROM_JSON(RoleCodeList, roleCodeList_);
           DARABONBA_PTR_FROM_JSON(RoleList, roleList_);
           DARABONBA_PTR_FROM_JSON(UserId, userId_);
         };
@@ -78,8 +80,17 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->roleList_ == nullptr
-        && this->userId_ == nullptr; };
+        virtual bool empty() const override { return this->roleCodeList_ == nullptr
+        && this->roleList_ == nullptr && this->userId_ == nullptr; };
+        // roleCodeList Field Functions 
+        bool hasRoleCodeList() const { return this->roleCodeList_ != nullptr;};
+        void deleteRoleCodeList() { this->roleCodeList_ = nullptr;};
+        inline const vector<string> & getRoleCodeList() const { DARABONBA_PTR_GET_CONST(roleCodeList_, vector<string>) };
+        inline vector<string> getRoleCodeList() { DARABONBA_PTR_GET(roleCodeList_, vector<string>) };
+        inline UserList& setRoleCodeList(const vector<string> & roleCodeList) { DARABONBA_PTR_SET_VALUE(roleCodeList_, roleCodeList) };
+        inline UserList& setRoleCodeList(vector<string> && roleCodeList) { DARABONBA_PTR_SET_RVALUE(roleCodeList_, roleCodeList) };
+
+
         // roleList Field Functions 
         bool hasRoleList() const { return this->roleList_ != nullptr;};
         void deleteRoleList() { this->roleList_ = nullptr;};
@@ -97,9 +108,9 @@ namespace Models
 
 
       protected:
-        // The member roles. Valid values: 1: project administrator. 2: developer. 3: visitor. 4: analyst. 5: O&M engineer.
-        // 
-        // This parameter is required.
+        // The list of role codes for members. System and custom project roles are supported and can be obtained from ListProjectRoles. Only one role is supported. If this parameter is not empty, it takes precedence over RoleList. You must specify at least one of RoleList and RoleCodeList.
+        shared_ptr<vector<string>> roleCodeList_ {};
+        // The member role. Valid values: 1 (Project administrator), 2 (Developer), 3 (Guest), 4 (Analyst), and 5 (O&M engineer).
         shared_ptr<vector<int32_t>> roleList_ {};
         // The user ID.
         // 
@@ -126,11 +137,11 @@ namespace Models
 
 
     protected:
-      // The environment identifier. Valid values: DEV, PROD.
+      // The environment identifier. Valid values: DEV and PROD.
       // 
       // This parameter is required.
       shared_ptr<string> env_ {};
-      // The list of user members.
+      // The user members.
       // 
       // This parameter is required.
       shared_ptr<vector<AddCommand::UserList>> userList_ {};
@@ -169,7 +180,7 @@ namespace Models
 
 
   protected:
-    // The command for adding members.
+    // The command to add members.
     // 
     // This parameter is required.
     shared_ptr<AddProjectMemberRequest::AddCommand> addCommand_ {};
@@ -181,7 +192,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
-    // The ID of the operator user.
+    // The operator user ID.
     shared_ptr<string> opUserId_ {};
   };
 

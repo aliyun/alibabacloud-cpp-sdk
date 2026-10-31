@@ -233,21 +233,37 @@ namespace Models
 
 
       protected:
+        // The description of the task.
         shared_ptr<string> description_ {};
+        // The folder where the task is located.
         shared_ptr<string> directory_ {};
+        // The ID of the task file. You can use this ID as the input parameter for the GetBatchTaskInfo operation.
         shared_ptr<int64_t> fileId_ {};
+        // The latest submit status. Valid values: SUBMITTING, SUCCESS, and FAILED.
         shared_ptr<string> lastSubmitStatus_ {};
+        // The latest submitted version number.
         shared_ptr<int32_t> lastVersion_ {};
+        // The name of the task.
         shared_ptr<string> name_ {};
+        // The ID of the node.
         shared_ptr<string> nodeId_ {};
+        // The name of the node.
         shared_ptr<string> nodeName_ {};
+        // The list of output table names for the node.
         shared_ptr<vector<string>> nodeOutputNameList_ {};
+        // The type of the node. Valid values: 1 (periodic task) and 3 (manual task).
         shared_ptr<int32_t> nodeType_ {};
+        // The task type code.
         shared_ptr<int32_t> operatorType_ {};
+        // The name of the task owner.
         shared_ptr<string> ownerName_ {};
+        // The ID of the task owner.
         shared_ptr<string> ownerUserId_ {};
+        // Indicates whether the task has been published to the production environment.
         shared_ptr<bool> published_ {};
+        // Indicates whether the task has been submitted.
         shared_ptr<bool> released_ {};
+        // The status of the task. Valid values: DRAFT, DEVELOP, and SUBMITTED.
         shared_ptr<string> status_ {};
       };
 
@@ -284,9 +300,13 @@ namespace Models
 
 
     protected:
+      // The total number of tasks that meet the query conditions, regardless of pagination.
       shared_ptr<int32_t> count_ {};
+      // The current page number.
       shared_ptr<int32_t> page_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The list of tasks on the current page.
       shared_ptr<vector<PageResult::ResultData>> resultData_ {};
     };
 
@@ -337,11 +357,17 @@ namespace Models
 
 
   protected:
+    // The error code. A value of OK indicates that the request is successful.
     shared_ptr<string> code_ {};
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The paginated result of the task query.
     shared_ptr<ListBatchTasksResponseBody::PageResult> pageResult_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

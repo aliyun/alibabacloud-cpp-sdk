@@ -57,12 +57,13 @@ namespace Models
 
 
   protected:
-    // The tenant ID.
+    // The ID of the tenant.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the user who performs the operation.
     shared_ptr<string> opUserId_ {};
-    // The statistical query instruction.
+    // The statistics query instruction.
     // 
     // This parameter is required.
     shared_ptr<string> statisticsQueryShrink_ {};

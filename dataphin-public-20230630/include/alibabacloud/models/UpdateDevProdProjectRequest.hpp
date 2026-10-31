@@ -223,13 +223,13 @@ namespace Models
     protected:
       // The business unit ID.
       shared_ptr<int64_t> bizUnitId_ {};
-      // The ID of the offline compute source in the development environment.
+      // The ID of the offline compute source for the development environment.
       shared_ptr<int64_t> devComputeSourceId_ {};
       // The description of the development environment.
       shared_ptr<string> devDescription_ {};
-      // The ID of the real-time compute source in the development environment.
+      // The ID of the real-time compute source for the development environment.
       shared_ptr<int64_t> devStreamComputeSourceId_ {};
-      // The display name of the project.
+      // The project display name.
       shared_ptr<string> displayName_ {};
       // The project ID.
       // 
@@ -237,15 +237,15 @@ namespace Models
       shared_ptr<int64_t> id_ {};
       // The project name.
       shared_ptr<string> name_ {};
-      // The namespace identifier.
+      // The namespace tag.
       shared_ptr<string> nameSpaceTag_ {};
-      // The ID of the offline compute source in the production environment.
+      // The ID of the offline compute source for the production environment.
       shared_ptr<int64_t> prodComputeSourceId_ {};
       // The description of the production environment.
       shared_ptr<string> prodDescription_ {};
-      // The ID of the real-time compute source in the production environment.
+      // The ID of the real-time compute source for the production environment.
       shared_ptr<int64_t> prodStreamComputeSourceId_ {};
-      // The sandbox whitelist.
+      // The sandbox whitelists.
       shared_ptr<vector<UpdateCommand::WhiteLists>> whiteLists_ {};
     };
 
@@ -279,6 +279,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator user ID.
     shared_ptr<string> opUserId_ {};
     // The update command.
     // 

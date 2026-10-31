@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The delete request.
+    // The deletion request.
     // 
     // This parameter is required.
     shared_ptr<string> deleteCommandShrink_ {};
@@ -65,6 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the user who performs the operation.
     shared_ptr<string> opUserId_ {};
   };
 

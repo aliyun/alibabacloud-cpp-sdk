@@ -202,11 +202,11 @@ namespace Models
 
 
       protected:
-        // The start time.
+        // The start time in the YYYY-MM-DD HH:mm:ss format.
         shared_ptr<string> beginTime_ {};
         // The code type.
         shared_ptr<int32_t> codeType_ {};
-        // The execution duration, in milliseconds.
+        // The execution duration in milliseconds.
         shared_ptr<int64_t> duration_ {};
         // The record ID.
         shared_ptr<int64_t> id_ {};
@@ -218,13 +218,13 @@ namespace Models
         shared_ptr<int64_t> operationId_ {};
         // The project ID.
         shared_ptr<int64_t> projectId_ {};
-        // The list of related tables.
+        // The list of associated tables.
         shared_ptr<vector<string>> relationTables_ {};
-        // The ID of the executor.
+        // The executor ID.
         shared_ptr<string> runner_ {};
-        // The name of the executor.
+        // The runner name.
         shared_ptr<string> runnerName_ {};
-        // The task status.
+        // The node status.
         shared_ptr<int32_t> status_ {};
         // The tenant ID.
         shared_ptr<int64_t> tenantId_ {};
@@ -251,7 +251,7 @@ namespace Models
     protected:
       // The total number of records.
       shared_ptr<int32_t> count_ {};
-      // The list of operation logs.
+      // The operation log list.
       shared_ptr<vector<OperationLogListResponse::ResultData>> resultData_ {};
     };
 
@@ -312,7 +312,7 @@ namespace Models
     shared_ptr<ListOperationRecordResponseBody::OperationLogListResponse> operationLogListResponse_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

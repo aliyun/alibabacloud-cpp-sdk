@@ -133,16 +133,16 @@ namespace Models
 
 
     protected:
-      // The list of instances to operate on.
+      // The O&M instance list.
       // 
       // This parameter is required.
       shared_ptr<vector<OperateCommand::InstanceIdList>> instanceIdList_ {};
-      // The operation to perform. Valid values:	
-      // - RERUN: Reruns the instance.
-      // - PAUSE: Pauses the instance.
-      // - RESUME: Resumes the instance.
-      // - TERMINATE: Stops the instance.
-      // - SET_SUCCESS: Sets the instance status to successful.
+      // The operation. Valid values:	
+      // - RERUN: Rerun.
+      // - PAUSE: Pause.
+      // - RESUME: Resume.
+      // - TERMINATE: Stop.
+      // - SET_SUCCESS: Set to success.
       // 
       // This parameter is required.
       shared_ptr<string> operation_ {};
@@ -186,13 +186,14 @@ namespace Models
 
   protected:
     // The environment identifier. Valid values:
-    // - DEV: development environment. 
-    // - PROD (default): production environment.
+    // - DEV: Development environment. 
+    // - PROD: Production environment. This is the default value.
     shared_ptr<string> env_ {};
     // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator user ID.
     shared_ptr<string> opUserId_ {};
     // The operation request.
     // 

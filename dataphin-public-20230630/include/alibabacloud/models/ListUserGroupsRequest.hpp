@@ -114,7 +114,7 @@ namespace Models
       shared_ptr<bool> active_ {};
       // The user IDs of the user group administrators.
       shared_ptr<vector<string>> adminIdList_ {};
-      // Specifies whether to filter user groups that the current user belongs to.
+      // Specifies whether to filter out the user groups to which the current user belongs.
       shared_ptr<bool> filterMine_ {};
       // The keyword for the user group name.
       shared_ptr<string> keyword_ {};
@@ -154,7 +154,7 @@ namespace Models
 
 
   protected:
-    // The paged query parameters.
+    // The paging query.
     // 
     // This parameter is required.
     shared_ptr<ListUserGroupsRequest::ListQuery> listQuery_ {};
@@ -162,6 +162,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

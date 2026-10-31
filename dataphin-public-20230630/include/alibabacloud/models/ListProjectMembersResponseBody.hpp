@@ -69,6 +69,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Id, id_);
           DARABONBA_PTR_TO_JSON(LastModifier, lastModifier_);
           DARABONBA_PTR_TO_JSON(LastModifierName, lastModifierName_);
+          DARABONBA_PTR_TO_JSON(RoleCodeList, roleCodeList_);
           DARABONBA_PTR_TO_JSON(RoleIdList, roleIdList_);
           DARABONBA_PTR_TO_JSON(UserId, userId_);
           DARABONBA_PTR_TO_JSON(UserName, userName_);
@@ -79,6 +80,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(Id, id_);
           DARABONBA_PTR_FROM_JSON(LastModifier, lastModifier_);
           DARABONBA_PTR_FROM_JSON(LastModifierName, lastModifierName_);
+          DARABONBA_PTR_FROM_JSON(RoleCodeList, roleCodeList_);
           DARABONBA_PTR_FROM_JSON(RoleIdList, roleIdList_);
           DARABONBA_PTR_FROM_JSON(UserId, userId_);
           DARABONBA_PTR_FROM_JSON(UserName, userName_);
@@ -95,8 +97,8 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->gmtCreate_ == nullptr
-        && this->gmtModified_ == nullptr && this->id_ == nullptr && this->lastModifier_ == nullptr && this->lastModifierName_ == nullptr && this->roleIdList_ == nullptr
-        && this->userId_ == nullptr && this->userName_ == nullptr; };
+        && this->gmtModified_ == nullptr && this->id_ == nullptr && this->lastModifier_ == nullptr && this->lastModifierName_ == nullptr && this->roleCodeList_ == nullptr
+        && this->roleIdList_ == nullptr && this->userId_ == nullptr && this->userName_ == nullptr; };
         // gmtCreate Field Functions 
         bool hasGmtCreate() const { return this->gmtCreate_ != nullptr;};
         void deleteGmtCreate() { this->gmtCreate_ = nullptr;};
@@ -132,6 +134,15 @@ namespace Models
         inline ProjectMemberList& setLastModifierName(string lastModifierName) { DARABONBA_PTR_SET_VALUE(lastModifierName_, lastModifierName) };
 
 
+        // roleCodeList Field Functions 
+        bool hasRoleCodeList() const { return this->roleCodeList_ != nullptr;};
+        void deleteRoleCodeList() { this->roleCodeList_ = nullptr;};
+        inline const vector<string> & getRoleCodeList() const { DARABONBA_PTR_GET_CONST(roleCodeList_, vector<string>) };
+        inline vector<string> getRoleCodeList() { DARABONBA_PTR_GET(roleCodeList_, vector<string>) };
+        inline ProjectMemberList& setRoleCodeList(const vector<string> & roleCodeList) { DARABONBA_PTR_SET_VALUE(roleCodeList_, roleCodeList) };
+        inline ProjectMemberList& setRoleCodeList(vector<string> && roleCodeList) { DARABONBA_PTR_SET_RVALUE(roleCodeList_, roleCodeList) };
+
+
         // roleIdList Field Functions 
         bool hasRoleIdList() const { return this->roleIdList_ != nullptr;};
         void deleteRoleIdList() { this->roleIdList_ = nullptr;};
@@ -158,14 +169,16 @@ namespace Models
       protected:
         // The creation timestamp.
         shared_ptr<string> gmtCreate_ {};
-        // The last modified timestamp.
+        // The update timestamp.
         shared_ptr<string> gmtModified_ {};
         // The project ID.
         shared_ptr<int64_t> id_ {};
-        // The ID of the user who last modified the record.
+        // The ID of the editor.
         shared_ptr<string> lastModifier_ {};
-        // The name of the user who last modified the record.
+        // The name of the editor.
         shared_ptr<string> lastModifierName_ {};
+        // The list of role codes bound to the member, including system and custom project roles. This list can be used to add or edit project members.
+        shared_ptr<vector<string>> roleCodeList_ {};
         // The roles.
         shared_ptr<vector<int32_t>> roleIdList_ {};
         // The user ID of the member.
@@ -246,17 +259,17 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request was successful.
+    // The request error code. A value of OK indicates that the request is successful.
     shared_ptr<string> code_ {};
     // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message.
+    // The request error message.
     shared_ptr<string> message_ {};
     // The paging query result.
     shared_ptr<ListProjectMembersResponseBody::PageResult> pageResult_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

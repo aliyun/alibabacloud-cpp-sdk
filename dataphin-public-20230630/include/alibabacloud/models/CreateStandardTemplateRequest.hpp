@@ -93,7 +93,7 @@ namespace Models
 
 
       protected:
-        // Publish comment.
+        // The release comment.
         shared_ptr<string> comment_ {};
       };
 
@@ -220,7 +220,7 @@ namespace Models
 
 
             protected:
-              // Number of digits.
+              // The number of digits.
               // 
               // This parameter is required.
               shared_ptr<int32_t> digit_ {};
@@ -228,11 +228,11 @@ namespace Models
               // 
               // This parameter is required.
               shared_ptr<bool> needPaddingZero_ {};
-              // Start value.
+              // The start value.
               // 
               // This parameter is required.
               shared_ptr<int64_t> startValue_ {};
-              // Step.
+              // The step size.
               // 
               // This parameter is required.
               shared_ptr<int32_t> step_ {};
@@ -271,17 +271,17 @@ namespace Models
 
 
           protected:
-            // Auto-increment sequence configuration.
+            // The auto-increment sequence configuration.
             shared_ptr<CodeRuleList::AutoIncrementSequenceConfig> autoIncrementSequenceConfig_ {};
-            // Code rule position index.
+            // The position index of the code rule.
             // 
             // This parameter is required.
             shared_ptr<int32_t> index_ {};
-            // Code rule type. Valid values: FIXED_STRING (fixed string), AUTO_INCREMENT (auto-increment sequence), and STANDARD_SET_CODE (standard set code).
+            // The type of the code rule. Valid values: FIXED_STRING: Fixed string. AUTO_INCREMENT: Auto-increment sequence. STANDARD_SET_CODE: Standard set code.
             // 
             // This parameter is required.
             shared_ptr<string> type_ {};
-            // Code rule format or value.
+            // The format or value of the code rule.
             shared_ptr<string> value_ {};
           };
 
@@ -304,11 +304,11 @@ namespace Models
 
 
         protected:
-          // Standard code rules.
+          // The standard code rules.
           // 
           // This parameter is required.
           shared_ptr<vector<AutoConfig::CodeRuleList>> codeRuleList_ {};
-          // Specifies whether to enable strict validation.
+          // Specifies whether strict validation is enabled.
           // 
           // This parameter is required.
           shared_ptr<bool> needStrongValidate_ {};
@@ -333,9 +333,9 @@ namespace Models
 
 
       protected:
-        // Standard code rule auto-generation configuration. Effective when the generation method is AUTO_GENERATE.
+        // The auto-generation configuration for standard code rules. This configuration takes effect only when the generation method is set to AUTO_GENERATE.
         shared_ptr<CodeRuleConfig::AutoConfig> autoConfig_ {};
-        // Standard code generation method. Valid values: CUSTOMIZED (custom) and AUTO_GENERATE (auto-generate based on standard code rules).
+        // The standard code generation method. Valid values: CUSTOMIZED: Custom. AUTO_GENERATE: Automatically generated based on standard code rules.
         // 
         // This parameter is required.
         shared_ptr<string> generateType_ {};
@@ -509,11 +509,11 @@ namespace Models
                 // 
                 // This parameter is required.
                 shared_ptr<bool> includeMinValue_ {};
-                // Maximum value.
+                // The maximum value.
                 // 
                 // This parameter is required.
                 shared_ptr<string> maxValue_ {};
-                // Minimum value.
+                // The minimum value.
                 // 
                 // This parameter is required.
                 shared_ptr<string> minValue_ {};
@@ -557,9 +557,9 @@ namespace Models
 
 
               protected:
-                // Referenced lookup table column.
+                // The referenced field in the lookup table.
                 shared_ptr<string> column_ {};
-                // Lookup table ID.
+                // The ID of the lookup table.
                 // 
                 // This parameter is required.
                 shared_ptr<int64_t> lookupTableId_ {};
@@ -609,17 +609,17 @@ namespace Models
 
 
             protected:
-              // Dataphin attribute type. Effective when the value source is DATAPHIN_ATTRIBUTE. Valid values: BIZ_UNIT (data domain), PROJECT (project), USER (user), and USER_GROUP (user group).
+              // The value range. This parameter takes effect when the value source is set to DATAPHIN_ATTRIBUTE. Valid values: BIZ_UNIT (business unit), PROJECT (project), USER (user), and USER_GROUP (user group).
               shared_ptr<string> dataphinAttributeType_ {};
-              // Lookup table reference. Effective when the value source is LOOKUP_TABLE.
+              // The value range. This parameter takes effect when the value source is set to LOOKUP_TABLE.
               shared_ptr<ValueRange::LookupTableReference> lookupTableReference_ {};
-              // Min-max value configuration. Effective when the value source is MIN_MAX.
+              // The value range. This parameter takes effect when the value source is set to MIN_MAX.
               shared_ptr<ValueRange::MinMaxValueConfig> minMaxValueConfig_ {};
-              // Value source. Valid values: NONE (no constraint), LIST (from a list), LOOKUP_TABLE (lookup table), MIN_MAX (between minimum and maximum values), DATAPHIN_ATTRIBUTE (Dataphin system attribute), BUILT_IN_DATA_TYPES (built-in data types), BUILT_IN_DATA_CLASSIFICATION (built-in data classification), and BUILT_IN_DATA_LEVEL (built-in data security level).
+              // The value source. Valid values: NONE (no constraint), LIST (obtained from a list), LOOKUP_TABLE (lookup table), MIN_MAX (value between the maximum and minimum values), DATAPHIN_ATTRIBUTE (Dataphin system property), BUILT_IN_DATA_TYPES (built-in data type), BUILT_IN_DATA_CLASSIFICATION (built-in data categorization), and BUILT_IN_DATA_LEVEL (built-in data security classification).
               // 
               // This parameter is required.
               shared_ptr<string> valueConstraint_ {};
-              // Value list. Effective when the value source is LIST.
+              // The value range. This parameter takes effect when the value source is set to LIST.
               shared_ptr<vector<string>> valueList_ {};
             };
 
@@ -663,19 +663,19 @@ namespace Models
 
 
           protected:
-            // Data type of the attribute value. Valid values: STRING (string), BIGINT (numeric), DOUBLE (floating point), DATE (date with day precision), DATETIME (date with millisecond precision), and BOOLEAN (boolean).
+            // The data type of the attribute value. Valid values: STRING (string), BIGINT (numeric), DOUBLE (floating-point), DATE (date, accurate to the day), DATETIME (date and time, accurate to the millisecond), and BOOLEAN (Boolean).
             // 
             // This parameter is required.
             shared_ptr<string> dataType_ {};
-            // Default value.
+            // The default value.
             shared_ptr<string> defaultValue_ {};
-            // Attribute value length. An empty value or -1 indicates no length limit. Usually only the string type has a length limit for attribute values.
+            // The length of the attribute value. An empty value or -1 indicates that the length is not limited. Typically, the length is limited only for string types.
             shared_ptr<int32_t> length_ {};
-            // Attribute value type. Valid values: CUSTOMIZED (custom input), SINGLE_ENUM (single enumeration value), MULTIPLE_ENUMS (multiple enumeration values), and RANGE (range value).
+            // The attribute value type. Valid values: CUSTOMIZED (custom input), SINGLE_ENUM (single enumerated value), MULTIPLE_ENUMS (multiple enumerated values), and RANGE (range value).
             // 
             // This parameter is required.
             shared_ptr<string> type_ {};
-            // Value range.
+            // The value range.
             // 
             // This parameter is required.
             shared_ptr<ValueConfig::ValueRange> valueRange_ {};
@@ -761,11 +761,11 @@ namespace Models
 
 
               protected:
-                // Standard ID.
+                // The ID of the standard.
                 // 
                 // This parameter is required.
                 shared_ptr<int64_t> standardId_ {};
-                // Version number.
+                // The version number.
                 // 
                 // This parameter is required.
                 shared_ptr<int32_t> version_ {};
@@ -790,11 +790,11 @@ namespace Models
 
 
             protected:
-              // Attribute source type. Valid values: SYSTEM (system attribute), CUSTOM (custom attribute), and STANDARD (standard).
+              // The source of the attribute. Valid values: SYSTEM (system attribute), CUSTOM (custom attribute), and STANDARD (standard).
               // 
               // This parameter is required.
               shared_ptr<string> attributeFrom_ {};
-              // Standard reference. Effective when the attribute source is STANDARD.
+              // The corresponding standard. This parameter takes effect when the attribute source is set to STANDARD.
               shared_ptr<AttributeFromInfo::StandardReference> standardReference_ {};
             };
 
@@ -817,11 +817,11 @@ namespace Models
 
 
           protected:
-            // Attribute source.
+            // The source of the attribute.
             // 
             // This parameter is required.
             shared_ptr<RefAttribute::AttributeFromInfo> attributeFromInfo_ {};
-            // Attribute ID.
+            // The ID of the attribute.
             // 
             // This parameter is required.
             shared_ptr<int64_t> attributeId_ {};
@@ -884,19 +884,19 @@ namespace Models
 
 
         protected:
-          // Attribute code. Not required when referencing a public attribute.
+          // The attribute code. This parameter is not required when a common attribute is referenced.
           shared_ptr<string> code_ {};
-          // Description.
+          // The description.
           shared_ptr<string> description_ {};
-          // Attribute name. Not required when referencing a public attribute.
+          // The attribute name. This parameter is not required when a common attribute is referenced.
           shared_ptr<string> name_ {};
-          // Referenced attribute information.
+          // The referenced attribute information.
           shared_ptr<AttributeList::RefAttribute> refAttribute_ {};
-          // Specifies whether the attribute is required. Not required when referencing a public attribute.
+          // Specifies whether the attribute is required. This parameter is not required when a common attribute is referenced.
           shared_ptr<bool> required_ {};
-          // Attribute type. Valid values: BIZ_ATTRIBUTE (business attribute), TECH_ATTRIBUTE (technical attribute), MANAGEMENT_ATTRIBUTE (management attribute), QUALITY_ATTRIBUTE (quality attribute), MASTER_DATA_ATTRIBUTE (master data attribute), LIFECYCLE_ATTRIBUTE (lifecycle attribute), and SECURITY_ATTRIBUTE (security attribute). Not required when referencing a public attribute.
+          // The attribute type. Valid values: BIZ_ATTRIBUTE (business attribute), TECH_ATTRIBUTE (technical attribute), MANAGEMENT_ATTRIBUTE (management attribute), QUALITY_ATTRIBUTE (quality attribute), MASTER_DATA_ATTRIBUTE (master data attribute), LIFECYCLE_ATTRIBUTE (lifecycle attribute), and SECURITY_ATTRIBUTE (security attribute). This parameter is not required when a common attribute is referenced.
           shared_ptr<string> type_ {};
-          // Value configuration. Not required when referencing a public attribute.
+          // The value configuration. This parameter is not required when a common attribute is referenced.
           shared_ptr<AttributeList::ValueConfig> valueConfig_ {};
         };
 
@@ -911,7 +911,7 @@ namespace Models
 
 
       protected:
-        // Attribute list.
+        // The attribute list.
         // 
         // This parameter is required.
         shared_ptr<vector<AttributesConfig::AttributeList>> attributeList_ {};
@@ -978,25 +978,25 @@ namespace Models
 
 
     protected:
-      // Attribute configuration.
+      // The attribute configuration.
       // 
       // This parameter is required.
       shared_ptr<CreateCommand::AttributesConfig> attributesConfig_ {};
-      // Standard template code. Globally unique. Cannot be modified when referenced.
+      // The standard template code. It is globally unique and cannot be modified when referenced.
       // 
       // This parameter is required.
       shared_ptr<string> code_ {};
-      // Standard code auto-generation rule configuration.
+      // The standard code auto-generation rule configuration.
       shared_ptr<CreateCommand::CodeRuleConfig> codeRuleConfig_ {};
-      // Standard template description.
+      // The standard template description.
       shared_ptr<string> description_ {};
-      // Maintainers.
+      // The maintainers.
       shared_ptr<vector<string>> maintainerList_ {};
-      // Standard template name.
+      // The standard template name.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // Standard template publish information.
+      // The release information of the standard template.
       shared_ptr<CreateCommand::PublishInfo> publishInfo_ {};
     };
 
@@ -1026,14 +1026,15 @@ namespace Models
 
 
   protected:
-    // Create command.
+    // The create command.
     // 
     // This parameter is required.
     shared_ptr<CreateStandardTemplateRequest::CreateCommand> createCommand_ {};
-    // Tenant ID.
+    // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

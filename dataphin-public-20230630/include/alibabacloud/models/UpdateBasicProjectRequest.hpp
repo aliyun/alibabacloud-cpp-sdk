@@ -195,7 +195,7 @@ namespace Models
     protected:
       // The business unit ID.
       shared_ptr<int64_t> bizUnitId_ {};
-      // The ID of the offline compute source.
+      // The offline compute source ID.
       shared_ptr<int64_t> computeSourceId_ {};
       // The project description.
       shared_ptr<string> description_ {};
@@ -205,13 +205,13 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<int64_t> id_ {};
-      // The project name. This value cannot be modified. Pass in the current project name.
+      // The project name. This parameter cannot be modified. Specify the current project name.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
       // The namespace identifier.
       shared_ptr<string> nameSpaceTag_ {};
-      // The ID of the real-time compute source.
+      // The real-time compute source ID.
       shared_ptr<int64_t> streamComputeSourceId_ {};
       // The sandbox whitelist.
       shared_ptr<vector<UpdateCommand::WhiteLists>> whiteLists_ {};
@@ -247,6 +247,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator ID.
     shared_ptr<string> opUserId_ {};
     // The update command.
     // 

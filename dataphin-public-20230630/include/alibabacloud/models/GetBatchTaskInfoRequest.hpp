@@ -86,7 +86,7 @@ namespace Models
   protected:
     // The environment identifier. Valid values: dev and prod. Default value: dev.
     shared_ptr<string> env_ {};
-    // The node ID in the task directory tree.
+    // The ID of the node in the task directory tree.
     // 
     // This parameter is required.
     shared_ptr<int64_t> fileId_ {};

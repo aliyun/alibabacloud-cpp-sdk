@@ -139,11 +139,11 @@ namespace Models
 
 
         protected:
-          // The table field.
+          // The field of the table.
           shared_ptr<string> columnName_ {};
-          // The mapping field name.
+          // The name of the mapped field.
           shared_ptr<string> mappingColumnName_ {};
-          // The table GUID.
+          // The GUID of the table.
           shared_ptr<string> resourceId_ {};
         };
 
@@ -325,15 +325,15 @@ namespace Models
 
 
           protected:
-            // The mapping field name.
+            // The name of the mapped field.
             shared_ptr<string> mappingColumnName_ {};
-            // The expression operator.
+            // The operator of the expression.
             shared_ptr<string> operator_ {};
             // The sub-expressions.
             shared_ptr<vector<Darabonba::Json>> subConditions_ {};
-            // The expression type.
+            // The type of the expression.
             shared_ptr<string> type_ {};
-            // The expression operation values.
+            // The operand values of the expression.
             shared_ptr<vector<string>> values_ {};
           };
 
@@ -394,17 +394,17 @@ namespace Models
 
 
         protected:
-          // The rule expressions.
+          // The expressions of the rule.
           shared_ptr<vector<Rules::Expressions>> expressions_ {};
-          // The rule ID.
+          // The ID of the rule.
           shared_ptr<int64_t> id_ {};
           // Indicates whether the rule is deleted.
           shared_ptr<bool> isDelete_ {};
-          // The rule name.
+          // The name of the rule.
           shared_ptr<string> ruleName_ {};
           // The scope type of the rule.
           shared_ptr<string> scopeType_ {};
-          // The rule status.
+          // The status of the rule.
           shared_ptr<int32_t> status_ {};
           // The accounts bound to the rule.
           shared_ptr<vector<Rules::UserMappingList>> userMappingList_ {};
@@ -555,7 +555,7 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request was successful.
+    // The error code. A value of OK indicates that the request is successful.
     shared_ptr<string> code_ {};
     // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
@@ -565,7 +565,7 @@ namespace Models
     shared_ptr<ListRowPermissionByUserIdResponseBody::PageResult> pageResult_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

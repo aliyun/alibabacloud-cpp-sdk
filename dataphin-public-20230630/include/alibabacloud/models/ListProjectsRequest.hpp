@@ -112,7 +112,7 @@ namespace Models
     protected:
       // The environment identifier.
       shared_ptr<string> env_ {};
-      // The keyword for fuzzy match.
+      // The keyword for fuzzy matching.
       shared_ptr<string> keyword_ {};
       // The project mode.
       shared_ptr<string> mode_ {};
@@ -154,10 +154,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<ListProjectsRequest::ListQuery> listQuery_ {};
-    // The tenant ID.
+    // The operator tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator user ID.
     shared_ptr<string> opUserId_ {};
   };
 

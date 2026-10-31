@@ -66,14 +66,15 @@ namespace Models
 
 
   protected:
-    // The node ID of the task directory tree.
+    // The ID of the node in the task directory tree.
     // 
     // This parameter is required.
     shared_ptr<int64_t> fileId_ {};
-    // Tenant ID
+    // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
     // The project to which the task belongs.
     // 

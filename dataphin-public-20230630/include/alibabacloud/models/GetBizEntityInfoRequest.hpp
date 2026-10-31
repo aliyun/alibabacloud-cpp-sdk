@@ -74,8 +74,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator user ID.
     shared_ptr<string> opUserId_ {};
-    // The business entity type. For more information, refer to the create business entity operation.
+    // The business entity type. For more information, see the Create business entity operation.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

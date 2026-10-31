@@ -121,11 +121,11 @@ namespace Models
 
 
       protected:
-        // The code description.
+        // The description of the code.
         shared_ptr<string> description_ {};
         // The English name of the code.
         shared_ptr<string> englishName_ {};
-        // The code name.
+        // The name of the code.
         // 
         // This parameter is required.
         shared_ptr<string> name_ {};
@@ -163,7 +163,7 @@ namespace Models
 
 
       protected:
-        // The directory to which the lookup table belongs.
+        // The parent folder.
         // 
         // This parameter is required.
         shared_ptr<string> directory_ {};
@@ -226,25 +226,25 @@ namespace Models
 
 
     protected:
-      // The lookup table code.
+      // The code of the lookup table.
       // 
       // This parameter is required.
       shared_ptr<string> code_ {};
-      // The lookup table description.
+      // The description of the lookup table.
       shared_ptr<string> description_ {};
-      // The directory to which the lookup table belongs.
+      // The parent folder.
       shared_ptr<UpdateCommand::DirectoryReference> directoryReference_ {};
-      // The lookup table ID.
+      // The ID of the lookup table.
       // 
       // This parameter is required.
       shared_ptr<int64_t> id_ {};
       // The list of lookup table values.
       shared_ptr<vector<UpdateCommand::LookupTableValueList>> lookupTableValueList_ {};
-      // The lookup table name.
+      // The name of the lookup table.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The ID of the lookup table owner. Default value: the user ID of the caller.
+      // The ID of the lookup table owner. Default value: the ID of the caller.
       shared_ptr<string> owner_ {};
     };
 
@@ -278,6 +278,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
     // The update command.
     // 

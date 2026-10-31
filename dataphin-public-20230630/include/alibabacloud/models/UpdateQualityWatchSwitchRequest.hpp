@@ -74,11 +74,11 @@ namespace Models
 
 
     protected:
-      // Specifies whether to enable the monitored object.
+      // Specifies whether to enable the feature.
       // 
       // This parameter is required.
       shared_ptr<bool> open_ {};
-      // The list of monitoring IDs.
+      // The list of watch IDs.
       // 
       // This parameter is required.
       shared_ptr<vector<int64_t>> watchIdList_ {};
@@ -114,6 +114,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator user ID.
     shared_ptr<string> opUserId_ {};
     // The update instruction.
     // 

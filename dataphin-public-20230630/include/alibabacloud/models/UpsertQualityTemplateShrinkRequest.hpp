@@ -57,12 +57,13 @@ namespace Models
 
 
   protected:
-    // Tenant ID.
+    // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
-    // Upsert command.
+    // The upsert command.
     // 
     // This parameter is required.
     shared_ptr<string> upsertCommandShrink_ {};

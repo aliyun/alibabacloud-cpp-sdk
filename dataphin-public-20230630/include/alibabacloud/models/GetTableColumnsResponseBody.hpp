@@ -286,21 +286,21 @@ namespace Models
       shared_ptr<string> classifyName_ {};
       // The comment of the field.
       shared_ptr<string> comment_ {};
-      // The creation time of the field.
+      // The creation time, in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
-      // The creator of the field.
+      // The creator.
       shared_ptr<string> creator_ {};
       // The ID of the data source.
       shared_ptr<int64_t> dataSourceId_ {};
       // The type of the data source.
       shared_ptr<string> dataSourceType_ {};
-      // The data type of the field.
+      // The data type.
       shared_ptr<string> dataType_ {};
-      // The default value of the field.
+      // The default value.
       shared_ptr<string> defaultValue_ {};
       // The display name of the field.
       shared_ptr<string> displayName_ {};
-      // The environment to which the column belongs. Valid values: dev and prod.
+      // The environment to which the field belongs. Valid values: dev and prod.
       shared_ptr<string> env_ {};
       // The GUID of the column.
       shared_ptr<string> guid_ {};
@@ -310,21 +310,21 @@ namespace Models
       shared_ptr<bool> isPartitionColumn_ {};
       // Indicates whether the field is a primary key.
       shared_ptr<bool> isPrimaryKey_ {};
-      // The last modifier of the field.
+      // The user who last modified the field.
       shared_ptr<string> lastModifier_ {};
-      // The abbreviation of the data level.
+      // The abbreviation of the data security level.
       shared_ptr<string> levelAbbreviation_ {};
-      // The modification time of the field.
+      // The modification time, in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> modifyTime_ {};
       // The name of the field.
       shared_ptr<string> name_ {};
-      // Indicates whether the field allows null values.
+      // Indicates whether the field can be null.
       shared_ptr<bool> nullable_ {};
-      // The sequence number of the column.
+      // The sequence number.
       shared_ptr<int32_t> seqNumber_ {};
       // The GUID of the table.
       shared_ptr<string> tableGuid_ {};
-      // The table name.
+      // The name of the table.
       shared_ptr<string> tableName_ {};
       // The number of queries in the last 30 days.
       shared_ptr<int64_t> visitCount30d_ {};
@@ -379,15 +379,15 @@ namespace Models
   protected:
     // The backend response code.
     shared_ptr<string> code_ {};
-    // The list of asset table columns.
+    // The list of columns in the asset table.
     shared_ptr<vector<GetTableColumnsResponseBody::ColumnList>> columnList_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The backend exception details.
+    // The details of the backend exception.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

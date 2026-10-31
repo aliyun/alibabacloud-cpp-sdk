@@ -165,13 +165,13 @@ namespace Models
         protected:
           // The example value.
           shared_ptr<string> exampleValue_ {};
-          // The field authorization status.
+          // The authorization status of the field.
           shared_ptr<int32_t> isAuthorized_ {};
-          // The parameter type.
+          // The data type of the parameter.
           shared_ptr<int32_t> parameterDataType_ {};
-          // The description.
+          // The description of the parameter.
           shared_ptr<string> parameterDescription_ {};
-          // The parameter name.
+          // The name of the parameter.
           shared_ptr<string> parameterName_ {};
         };
 
@@ -242,13 +242,13 @@ namespace Models
         protected:
           // The example value.
           shared_ptr<string> exampleValue_ {};
-          // The field authorization status.
+          // The authorization status of the field.
           shared_ptr<int32_t> isAuthorized_ {};
-          // The parameter type.
+          // The data type of the parameter.
           shared_ptr<int32_t> parameterDataType_ {};
-          // The description.
+          // The description of the parameter.
           shared_ptr<string> parameterDescription_ {};
-          // The parameter name.
+          // The name of the parameter.
           shared_ptr<string> parameterName_ {};
         };
 
@@ -332,23 +332,23 @@ namespace Models
       protected:
         // API_ID
         shared_ptr<int64_t> apiId_ {};
-        // The API name.
+        // The name of the API.
         shared_ptr<string> apiName_ {};
-        // The application ID.
+        // The ID of the application.
         shared_ptr<int64_t> appId_ {};
-        // The permission type.
+        // The type of the permission.
         shared_ptr<string> authType_ {};
-        // The list of fields authorized for the API in the development environment.
+        // The list of authorized fields for the API in the development environment.
         shared_ptr<vector<Data::AuthorizedDevReturnParameters>> authorizedDevReturnParameters_ {};
-        // The list of fields authorized for the API in the production environment.
+        // The list of authorized fields for the API in the production environment.
         shared_ptr<vector<Data::AuthorizedProdReturnParameters>> authorizedProdReturnParameters_ {};
-        // The API description.
+        // The description of the API.
         shared_ptr<string> description_ {};
-        // The validity period of the API permission in the development environment.
+        // The validity period of API permissions in the development environment.
         shared_ptr<string> devAuthPeriod_ {};
-        // The validity period of the API permission in the production environment.
+        // The validity period of API permissions in the production environment.
         shared_ptr<string> prodAuthPeriod_ {};
-        // The data service project ID.
+        // The ID of the data service project.
         shared_ptr<int64_t> projectId_ {};
       };
 
@@ -373,7 +373,7 @@ namespace Models
     protected:
       // The list of authorized API details.
       shared_ptr<vector<Result::Data>> data_ {};
-      // The total number of entries returned.
+      // The total number of returned entries.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -424,17 +424,17 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request was successful.
+    // The error code. OK indicates that the request is successful.
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The request ID, which uniquely identifies the request.
+    // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
     // The query result.
     shared_ptr<ListAuthorizedDataServiceApiDetailsResponseBody::Result> result_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

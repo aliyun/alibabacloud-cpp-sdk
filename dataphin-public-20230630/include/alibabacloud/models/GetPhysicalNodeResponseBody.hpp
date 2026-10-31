@@ -422,26 +422,26 @@ namespace Models
     protected:
       // The creation time.
       shared_ptr<int64_t> createTime_ {};
-      // The node creator.
+      // The creator of the node.
       shared_ptr<NodeInfo::Creator> creator_ {};
-      // The cron expression used to calculate the scheduling time.
+      // The cron expression, which is used to calculate the trigger time.
       shared_ptr<string> cronExpression_ {};
       // The data source ID.
       shared_ptr<int64_t> dataSourceId_ {};
-      // The data source schema. This parameter takes effect only for data source types that require a schema, such as Oracle. If set to "default", the value is null.
+      // The schema of the data source. This parameter takes effect only for data source types that require a schema, such as Oracle. If it is set to "default", the value is null.
       shared_ptr<string> dataSourceSchema_ {};
       // The node description.
       shared_ptr<string> description_ {};
-      // The node source. Valid values:
-      // - DATA_PROCESS: code development.
-      // - BLACK_BOX: modeling development.
-      // - PIPELINE: pipeline.
+      // The source of the node. Valid values:
+      // - DATA_PROCESS: code development
+      // - BLACK_BOX: modeling development
+      // - PIPELINE: PIPELINE
       shared_ptr<string> from_ {};
       // The node ID.
       shared_ptr<string> id_ {};
-      // The time of the last modification.
+      // The last update time.
       shared_ptr<int64_t> lastModifiedTime_ {};
-      // The user who last modified the node.
+      // The user who last updated the node.
       shared_ptr<NodeInfo::Modifier> modifier_ {};
       // The node name.
       shared_ptr<string> name_ {};
@@ -451,19 +451,18 @@ namespace Models
       // - SHELL
       // - PYTHON
       // - ONE_SERVICE_SQL
-      // - DATABASE_SQL and others.
+      // - DATABASE_SQL, etc.
       shared_ptr<string> operatorType_ {};
       // The list of output names.
       shared_ptr<vector<string>> outputNameList_ {};
-      // The node owner.
+      // The owner of the node.
       shared_ptr<NodeInfo::Owner> owner_ {};
       // The scheduling priority. Valid values:
-      // 
       // - HIGHEST
       // - HIGH
       // - MIDDLE
       // - LOW
-      // - LOWEST.
+      // - LOWEST
       shared_ptr<string> priority_ {};
       // The project to which the node belongs.
       shared_ptr<NodeInfo::ProjectInfo> projectInfo_ {};
@@ -473,11 +472,11 @@ namespace Models
       // - DAILY
       // - WEEKLY
       // - MONTHLY
-      // - QUARTERLY.
+      // - QUARTERLY
       shared_ptr<string> scheduleType_ {};
       // The scheduling status.
       shared_ptr<string> status_ {};
-      // The trigger configuration, which is used to implement field-level dependencies on logical tables.
+      // The trigger configuration, which is used to implement field dependencies for logical tables.
       shared_ptr<string> triggerConfig_ {};
     };
 
@@ -528,7 +527,7 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request was successful.
+    // The error code. A value of OK indicates that the request is successful.
     shared_ptr<string> code_ {};
     // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
@@ -538,7 +537,7 @@ namespace Models
     shared_ptr<GetPhysicalNodeResponseBody::NodeInfo> nodeInfo_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -67,10 +67,10 @@ namespace Models
 
   protected:
     // The environment identifier. Valid values:
-    // - DEV: development environment 
-    // - PROD (default): production environment.
+    // - DEV: Development environment. 
+    // - PROD: Production environment. This is the default value.
     shared_ptr<string> env_ {};
-    // The request for running a manual task.
+    // The request to run a manual task.
     // 
     // This parameter is required.
     shared_ptr<string> executeCommandShrink_ {};
@@ -78,6 +78,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator ID.
     shared_ptr<string> opUserId_ {};
   };
 

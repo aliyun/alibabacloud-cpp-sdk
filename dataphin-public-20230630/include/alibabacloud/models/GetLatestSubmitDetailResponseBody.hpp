@@ -144,7 +144,7 @@ namespace Models
         protected:
           // The object ID.
           shared_ptr<string> objectId_ {};
-          // The object name.
+          // The name of the object.
           shared_ptr<string> objectName_ {};
           // The object type.
           shared_ptr<string> objectType_ {};
@@ -199,15 +199,15 @@ namespace Models
       protected:
         // The change type. Valid values: CREATE, UPDATE, and DELETE.
         shared_ptr<string> changeType_ {};
-        // The node ID.
+        // The ID of the node.
         shared_ptr<string> nodeId_ {};
-        // The object version.
+        // The version of the object.
         shared_ptr<string> objectVersion_ {};
-        // The project ID.
+        // The ID of the project.
         shared_ptr<int64_t> projectId_ {};
-        // The submit comment.
+        // The commit description.
         shared_ptr<string> submitComment_ {};
-        // The submit object.
+        // The object to be published.
         shared_ptr<ReleaseObject::SubmitObject> submitObject_ {};
       };
 
@@ -251,32 +251,29 @@ namespace Models
 
 
     protected:
-      // The submit record ID.
+      // The ID of the commit record.
       shared_ptr<int64_t> id_ {};
-      // The publish status. Valid values: 
-      // - NOT_VERIFIED: not verified.
-      // - APPROVING: approval in progress.
-      // - APPROVE_FAILED: approval failed.
-      // - APPROVE_SUCCESS: approval succeeded.
-      // - APPROVE_REVOKED: approval revoked.
-      // - CHECKING: publish verification in progress.
-      // - CHECK_FAILED: publish verification failed.
-      // - CHECK_SUCCESS: publish verification succeeded.
-      // - PUBLISHING: publishing in progress.
-      // - FAILED: publish failed.
-      // - SUCCESS: publish succeeded.
+      // The status of the publish record. Valid values: 
+      // - NOT_VERIFIED: Not verified.
+      // - APPROVING: Approving.
+      // - APPROVE_FAILED: Approval failed.
+      // - APPROVE_SUCCESS: Approval succeeded.
+      // - APPROVE_REVOKED: Approval revoked.
+      // - CHECKING: Checking.
+      // - CHECK_FAILED: Check failed.
+      // - CHECK_SUCCESS: Check succeeded.
+      // - PUBLISHING: Publishing.
+      // - FAILED: Failed.
+      // - SUCCESS: Succeeded.
       shared_ptr<string> publishStatus_ {};
-      // The pending submit record object.
+      // The object of the pending release record.
       shared_ptr<SubmitDetailResult::ReleaseObject> releaseObject_ {};
-      // The submit status. Valid values: 
-      // 
-      // - TO_BE_PUBLISHED: pending.
-      // 
-      // - PUBLISHED: published.
-      // 
-      // - PUBLISHING: publishing.
+      // The status of the pending release record. Valid values:
+      // - TO_BE_PUBLISHED: Pending release.
+      // - PUBLISHED: Published.
+      // - PUBLISHING: Publishing.
       shared_ptr<string> submitStatus_ {};
-      // The record tag.
+      // The tag of the record.
       shared_ptr<string> tag_ {};
     };
 
@@ -327,7 +324,7 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request was successful.
+    // The error code. A value of OK indicates that the request is successful.
     shared_ptr<string> code_ {};
     // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
@@ -335,9 +332,9 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The pending submit details.
+    // The details of the pending release.
     shared_ptr<GetLatestSubmitDetailResponseBody::SubmitDetailResult> submitDetailResult_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

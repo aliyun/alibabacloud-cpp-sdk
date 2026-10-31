@@ -79,7 +79,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> comment_ {};
-    // The ID of the user-defined function.
+    // The ID of the custom function.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
@@ -87,6 +87,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator user.
     shared_ptr<string> opUserId_ {};
     // The project ID.
     // 

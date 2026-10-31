@@ -74,6 +74,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operating user.
     shared_ptr<string> opUserId_ {};
     // The project ID.
     // 

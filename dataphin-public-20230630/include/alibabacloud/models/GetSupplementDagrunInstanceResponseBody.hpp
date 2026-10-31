@@ -419,61 +419,57 @@ namespace Models
       protected:
         // The business unit.
         shared_ptr<string> bizUnitName_ {};
-        // The creation time.
+        // The creation time. The format is YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> createTime_ {};
-        // The creator of the node.
+        // The node creator.
         shared_ptr<NodeInfo::Creator> creator_ {};
         // The node description.
         shared_ptr<string> description_ {};
-        // Indicates whether the node is a dry run.
+        // Indicates whether the node runs in dry-run mode.
         shared_ptr<bool> dryRun_ {};
         // The source business system. Valid values:
-        // 
         // - DATA_PROCESS: code development.
         // - BLACK_BOX: black box.
         // - ONE_ID: extraction.
         // - PIPELINE: pipeline.
         shared_ptr<string> from_ {};
-        // Indicates whether the node exists in the development environment.
+        // Indicates whether a development environment exists.
         shared_ptr<bool> hasDev_ {};
-        // Indicates whether the node exists in the production environment.
+        // Indicates whether a production environment exists.
         shared_ptr<bool> hasProd_ {};
         // The node ID.
         shared_ptr<string> id_ {};
-        // The last modification time.
+        // The last modified time. The format is YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> lastModifiedTime_ {};
         // The modifier.
         shared_ptr<NodeInfo::Modifier> modifier_ {};
         // The node name.
         shared_ptr<string> name_ {};
-        // The owners of the node.
+        // The node owners.
         shared_ptr<vector<NodeInfo::OwnerList>> ownerList_ {};
         // The priority. Valid values:
-        // 
         // - HIGHEST
         // - HIGH
         // - MIDDLE
         // - LOW
-        // - LOWEST.
+        // - LOWEST
         shared_ptr<vector<string>> priorityList_ {};
-        // The schedule resource groups.
+        // The list of resource groups.
         shared_ptr<vector<string>> resourceGroupList_ {};
-        // Indicates whether the node is paused.
+        // Indicates whether the schedule is paused.
         shared_ptr<bool> schedulePaused_ {};
-        // The scheduling period. Valid values:
-        // 
+        // The schedule cycle. Valid values:
         // - MINUTELY
         // - HOURLY
         // - DAILY
         // - WEEKLY
         // - MONTHLY
-        // - QUARTERLY.
+        // - QUARTERLY
         shared_ptr<vector<string>> schedulePeriodList_ {};
         // The node subtype.
         shared_ptr<string> subDetailType_ {};
         // The node type. Valid values:
-        // 
-        // - DATA_PROCESS: code node.
+        // - DATA_PROCESS: code task.
         // - BBOX_LOGIC_TABLE_NODE: black box logical table node.
         // - ONE_ID_LABEL: extraction label node.
         // - ONE_ID_RULE: extraction label node.
@@ -566,34 +562,32 @@ namespace Models
 
 
     protected:
-      // The business date.
+      // The business date. The format is YYYY-MM-DD.
       shared_ptr<int64_t> bizDate_ {};
-      // The scheduled date.
+      // The scheduled date. The format is YYYY-MM-DD.
       shared_ptr<int64_t> dueTime_ {};
       // The execution duration. Unit: seconds.
       shared_ptr<string> duration_ {};
-      // The end time of the execution.
+      // The time when the execution ended.
       shared_ptr<int64_t> endExecuteTime_ {};
-      // The extended information. This field contains information specific to instances of different business systems, such as the fileId of a pipeline, whether a logical table is a hierarchy dimension table, mid-node information, and instance output names.
+      // The extended information. This includes specific information for instances of different business systems, such as the fileId of a pipeline, whether a logical table is a hierarchy dimension table, mid node information, and the instance output name.
       shared_ptr<string> extendInfo_ {};
       // The instance ID.
       shared_ptr<string> id_ {};
-      // The sequence number of the hourly or minutely instance.
+      // The instance index for hourly or minutely instances.
       shared_ptr<int32_t> index_ {};
-      // The details of the node associated with the instance.
+      // The node details corresponding to the instance.
       shared_ptr<InstanceList::NodeInfo> nodeInfo_ {};
-      // The start time of the execution.
+      // The time when the execution started.
       shared_ptr<int64_t> startExecuteTime_ {};
       // The list of instance statuses. A physical instance list contains only one status. Valid values:
-      // 
-      // - NIT: init.
-      // - WATING: waiting.
+      // - NIT: initialized.
+      // - WATING: pending.
       // - RUNNING: running.
-      // - SUCCESS: succeeded.
+      // - SUCCESS: successful.
       // - FAILED: failed.
       shared_ptr<vector<string>> statusList_ {};
       // The instance type. Valid values:
-      // 
       // - NORMAL: periodic instance.
       // - SUPPLEMENT: data backfill instance.
       // - MANUAL: manual instance.
@@ -647,7 +641,7 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request was successful.
+    // The error code. A value of OK indicates that the request is normal.
     shared_ptr<string> code_ {};
     // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
@@ -657,7 +651,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

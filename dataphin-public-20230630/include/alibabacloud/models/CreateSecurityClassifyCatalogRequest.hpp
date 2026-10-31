@@ -96,14 +96,14 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The list of administrator IDs. This parameter takes effect only when the parent folder is the root folder.
+      // The list of administrator IDs. This parameter is valid only when the parent folder is the root folder.
       shared_ptr<vector<string>> ownerList_ {};
-      // The full path of the parent folder. Default value: /.
+      // The full path of the parent classification folder. Default value: /.
       shared_ptr<string> parentPath_ {};
-      // The visibility scope of the classification folder. Valid values:
-      // - PUBLIC: visible to all users.
-      // - PRIVATE: visible only to administrators.
-      // Default value: PUBLIC. This parameter takes effect only when the parent folder is the root folder.
+      // The visibility scope of the classification. This parameter is valid only when the parent folder is the root folder. Valid values:
+      // - PUBLIC: Public.
+      // - PRIVATE: Visible only to administrators.
+      // Default value: PUBLIC.
       shared_ptr<string> visibleType_ {};
     };
 
@@ -133,7 +133,7 @@ namespace Models
 
 
   protected:
-    // The create command.
+    // The creation command.
     // 
     // This parameter is required.
     shared_ptr<CreateSecurityClassifyCatalogRequest::CreateCommand> createCommand_ {};
@@ -141,6 +141,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

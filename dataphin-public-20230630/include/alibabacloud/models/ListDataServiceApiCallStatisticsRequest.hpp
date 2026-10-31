@@ -119,21 +119,30 @@ namespace Models
 
 
     protected:
-      // End time. Format: yyyy-MM-dd HH:mm:ss.
+      // The end time. Format: yyyy-MM-dd HH:mm:ss.
       // 
       // This parameter is required.
       shared_ptr<string> endTime_ {};
-      // Search keyword.
+      // The search keyword.
       shared_ptr<string> keyword_ {};
-      // Sort column. Valid values: CALL_COUNT (call count), ERROR_COUNT (error count), ERROR_RATE (error rate), AVG_RESPONSE_TIME (average response time), and OFFLINE_RATE (offline percentage). Default value: CALL_COUNT.
+      // The column by which to sort the results. Valid values:
+      // - CALL_COUNT: the number of calls.
+      // - ERROR_COUNT: the number of exceptions.
+      // - ERROR_RATE: the error rate.
+      // - AVG_RESPONSE_TIME: the average response time.
+      // - OFFLINE_RATE: the offline percentage.
+      // Default value: CALL_COUNT.
       shared_ptr<string> orderColumn_ {};
-      // Sort order. Valid values: 1 (ascending) and 2 (descending). Default value: 1.
+      // The sort order. Valid values:
+      // - 1: ascending order.
+      // - 2: descending order.
+      // Default value: 1.
       shared_ptr<int32_t> orderType_ {};
-      // Page number. Default value: 1.
+      // The page number. Default value: 1.
       shared_ptr<int32_t> pageNo_ {};
-      // Number of entries per page. Default value: 20.
+      // The number of entries per page. Default value: 20.
       shared_ptr<int32_t> pageSize_ {};
-      // Start time. Format: yyyy-MM-dd HH:mm:ss.
+      // The start time. Format: yyyy-MM-dd HH:mm:ss.
       // 
       // This parameter is required.
       shared_ptr<string> startTime_ {};
@@ -172,18 +181,21 @@ namespace Models
 
 
   protected:
-    // Search conditions.
+    // The search conditions.
     // 
     // This parameter is required.
     shared_ptr<ListDataServiceApiCallStatisticsRequest::ListQuery> listQuery_ {};
-    // Tenant ID.
+    // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
-    // Data service project ID.
+    // The data service project ID.
     // 
-    // This parameter is required.
+    // > If this parameter is not specified:
+    // > - Super administrators can query data of all service projects.
+    // > - Users other than super administrators can query data of service projects where they have the service project administrator or O&M user permissions.
     shared_ptr<int32_t> projectId_ {};
   };
 

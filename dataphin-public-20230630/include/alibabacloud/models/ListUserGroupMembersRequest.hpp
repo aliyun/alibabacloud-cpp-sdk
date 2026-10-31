@@ -107,13 +107,13 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<int32_t> pageNo_ {};
-      // The number of records per page.
+      // The number of entries per page.
       // 
       // This parameter is required.
       shared_ptr<int32_t> pageSize_ {};
       // The user group ID.
       shared_ptr<string> userGroupId_ {};
-      // The user ID.
+      // The user IDs.
       shared_ptr<vector<string>> userIdList_ {};
     };
 
@@ -143,7 +143,7 @@ namespace Models
 
 
   protected:
-    // The paged query parameters.
+    // The paging query.
     // 
     // This parameter is required.
     shared_ptr<ListUserGroupMembersRequest::ListQuery> listQuery_ {};
@@ -151,6 +151,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator ID.
     shared_ptr<string> opUserId_ {};
   };
 

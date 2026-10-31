@@ -80,7 +80,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> env_ {};
-      // The user IDs.
+      // The list of user IDs.
       shared_ptr<vector<string>> userIdList_ {};
     };
 
@@ -125,8 +125,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator user ID.
     shared_ptr<string> opUserId_ {};
-    // The command to remove a member.
+    // The member removal command.
     // 
     // This parameter is required.
     shared_ptr<RemoveProjectMemberRequest::RemoveCommand> removeCommand_ {};

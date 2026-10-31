@@ -139,9 +139,9 @@ namespace Models
         protected:
           // The account name of the user.
           shared_ptr<string> accountName_ {};
-          // The username.
+          // The display name of the user.
           shared_ptr<string> displayName_ {};
-          // The user ID.
+          // The ID of the user.
           shared_ptr<string> id_ {};
         };
 
@@ -198,11 +198,11 @@ namespace Models
         shared_ptr<vector<UserGroupList::AdminList>> adminList_ {};
         // The description of the user group.
         shared_ptr<string> description_ {};
-        // The user group ID.
+        // The ID of the user group.
         shared_ptr<string> id_ {};
         // The role of the current user in the user group.
         shared_ptr<string> myRole_ {};
-        // The user group name.
+        // The name of the user group.
         shared_ptr<string> name_ {};
       };
 
@@ -227,7 +227,7 @@ namespace Models
     protected:
       // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
-      // The paged list.
+      // The paginated list.
       shared_ptr<vector<PageResult::UserGroupList>> userGroupList_ {};
     };
 
@@ -278,17 +278,17 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request was successful.
+    // The error code. A value of OK indicates that the request is successful.
     shared_ptr<string> code_ {};
     // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The paged query result.
+    // The paging query result.
     shared_ptr<ListUserGroupsResponseBody::PageResult> pageResult_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

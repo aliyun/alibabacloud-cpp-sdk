@@ -57,6 +57,7 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const MemberList& obj) { 
           DARABONBA_PTR_TO_JSON(DingNumber, dingNumber_);
+          DARABONBA_PTR_TO_JSON(DisplayName, displayName_);
           DARABONBA_PTR_TO_JSON(Mail, mail_);
           DARABONBA_PTR_TO_JSON(MobilePhone, mobilePhone_);
           DARABONBA_PTR_TO_JSON(RoleList, roleList_);
@@ -64,6 +65,7 @@ namespace Models
         };
         friend void from_json(const Darabonba::Json& j, MemberList& obj) { 
           DARABONBA_PTR_FROM_JSON(DingNumber, dingNumber_);
+          DARABONBA_PTR_FROM_JSON(DisplayName, displayName_);
           DARABONBA_PTR_FROM_JSON(Mail, mail_);
           DARABONBA_PTR_FROM_JSON(MobilePhone, mobilePhone_);
           DARABONBA_PTR_FROM_JSON(RoleList, roleList_);
@@ -81,12 +83,19 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->dingNumber_ == nullptr
-        && this->mail_ == nullptr && this->mobilePhone_ == nullptr && this->roleList_ == nullptr && this->userId_ == nullptr; };
+        && this->displayName_ == nullptr && this->mail_ == nullptr && this->mobilePhone_ == nullptr && this->roleList_ == nullptr && this->userId_ == nullptr; };
         // dingNumber Field Functions 
         bool hasDingNumber() const { return this->dingNumber_ != nullptr;};
         void deleteDingNumber() { this->dingNumber_ = nullptr;};
         inline string getDingNumber() const { DARABONBA_PTR_GET_DEFAULT(dingNumber_, "") };
         inline MemberList& setDingNumber(string dingNumber) { DARABONBA_PTR_SET_VALUE(dingNumber_, dingNumber) };
+
+
+        // displayName Field Functions 
+        bool hasDisplayName() const { return this->displayName_ != nullptr;};
+        void deleteDisplayName() { this->displayName_ = nullptr;};
+        inline string getDisplayName() const { DARABONBA_PTR_GET_DEFAULT(displayName_, "") };
+        inline MemberList& setDisplayName(string displayName) { DARABONBA_PTR_SET_VALUE(displayName_, displayName) };
 
 
         // mail Field Functions 
@@ -120,13 +129,15 @@ namespace Models
 
 
       protected:
-        // The DingTalk number.
+        // The DingTalk ID.
         shared_ptr<string> dingNumber_ {};
+        // The display name of the user.
+        shared_ptr<string> displayName_ {};
         // The email address.
         shared_ptr<string> mail_ {};
         // The phone number.
         shared_ptr<string> mobilePhone_ {};
-        // The list of roles.
+        // The role list.
         shared_ptr<vector<string>> roleList_ {};
         // The user ID.
         shared_ptr<string> userId_ {};
@@ -143,7 +154,7 @@ namespace Models
 
 
     protected:
-      // The list of members.
+      // The member list.
       // 
       // This parameter is required.
       shared_ptr<vector<UpdateCommand::MemberList>> memberList_ {};
@@ -179,6 +190,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
     // The request object.
     // 

@@ -265,11 +265,11 @@ namespace Models
         shared_ptr<string> displayNameWithoutStatus_ {};
         // Indicates whether the IP whitelist is enabled.
         shared_ptr<string> enableWhiteIp_ {};
-        // The Lark chatbot.
+        // The Lark bot.
         shared_ptr<string> feiShuRobot_ {};
         // The time when the user was created.
         shared_ptr<int64_t> gmtCreate_ {};
-        // The time when the user was last modified.
+        // The time when the user was modified.
         shared_ptr<int64_t> gmtModified_ {};
         // The user ID.
         shared_ptr<string> id_ {};
@@ -285,13 +285,13 @@ namespace Models
         shared_ptr<string> parentId_ {};
         // The real name of the user.
         shared_ptr<string> realName_ {};
-        // The source ID of the user.
+        // The ID of the user source.
         shared_ptr<string> sourceId_ {};
-        // The source type of the user.
+        // The source of the user.
         shared_ptr<string> sourceType_ {};
-        // The WeCom chatbot.
+        // The WeCom bot.
         shared_ptr<string> weChatRobot_ {};
-        // The IP whitelist.
+        // The IP address whitelist.
         shared_ptr<string> whiteIp_ {};
       };
 
@@ -316,7 +316,7 @@ namespace Models
     protected:
       // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
-      // The list of users.
+      // The user list.
       shared_ptr<vector<PageResult::UserList>> userList_ {};
     };
 
@@ -367,17 +367,17 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request was successful.
+    // The error code. A value of OK indicates that the request is successful.
     shared_ptr<string> code_ {};
     // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The paging query result.
+    // The paged query result.
     shared_ptr<ListAddableUsersResponseBody::PageResult> pageResult_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

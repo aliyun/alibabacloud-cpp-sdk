@@ -147,9 +147,9 @@ namespace Models
 
 
       protected:
-        // The validation object name.
+        // The name of the validation object.
         shared_ptr<string> name_ {};
-        // The validation object type. Valid values: UNKNOWN, TABLE, COLUMN, DATASOURCE, DATASOURCE_TABLE, REALTIME, INDEX, CHAIN.
+        // The object type of the validation object. Valid values: UNKNOWN, TABLE, COLUMN, DATASOURCE, DATASOURCE_TABLE, REALTIME, INDEX, and CHAIN.
         shared_ptr<string> type_ {};
       };
 
@@ -246,21 +246,19 @@ namespace Models
 
 
       protected:
-        // The condition node ID.
+        // The ID of the condition node.
         shared_ptr<string> id_ {};
         // The metric.
         shared_ptr<string> metric_ {};
-        // The metric name.
+        // The name of the metric.
         shared_ptr<string> metricName_ {};
-        // The operator. Valid values: EQUAL, NOT_EQUAL, LARGER, SMALLER, LARGE_OR_EQUAL, SMALLER_OR_EQUAL, AND, OR.
+        // The operator. Valid values: EQUAL, NOT_EQUAL, LARGER, SMALLER, LARGE_OR_EQUAL, SMALLER_OR_EQUAL, AND, and OR.
         shared_ptr<string> operator_ {};
-        // The operator name.
+        // The name of the operator.
         shared_ptr<string> operatorName_ {};
-        // The parent condition node ID.
+        // The ID of the parent condition node.
         shared_ptr<string> parentId_ {};
-        // The condition type. Valid values:
-        // - RELATION: relationship
-        // - EXPRESSION: expression.
+        // The type of the condition. Valid values: RELATION and EXPRESSION.
         shared_ptr<string> type_ {};
         // The value.
         shared_ptr<string> value_ {};
@@ -304,9 +302,9 @@ namespace Models
 
 
       protected:
-        // The schedule ID.
+        // The ID of the schedule.
         shared_ptr<int64_t> scheduleId_ {};
-        // The schedule name.
+        // The name of the schedule.
         shared_ptr<string> scheduleName_ {};
       };
 
@@ -357,11 +355,11 @@ namespace Models
 
 
       protected:
-        // The control type.
+        // The type of the component.
         shared_ptr<string> componentType_ {};
-        // The property name.
+        // The name of the property.
         shared_ptr<string> name_ {};
-        // The property value.
+        // The value of the property.
         shared_ptr<string> value_ {};
       };
 
@@ -453,15 +451,15 @@ namespace Models
 
 
         protected:
-          // Indicates whether the maximum value is included.
+          // Specifies whether the maximum value is included.
           shared_ptr<bool> includeMaxValue_ {};
-          // Indicates whether the minimum value is included.
+          // Specifies whether the minimum value is included.
           shared_ptr<bool> includeMinValue_ {};
-          // The maximum value. This applies to range interval attributes.
+          // The maximum value, which applies to range attributes.
           shared_ptr<string> maxValue_ {};
-          // The minimum value. This applies to range interval attributes.
+          // The minimum value, which applies to range attributes.
           shared_ptr<string> minValue_ {};
-          // The list of attribute values. This applies to attributes with custom input, single-select dropdown, or multi-select dropdown input methods.
+          // The attribute value list, which applies to attributes with the input method set to custom input, single-select drop-down list, or multi-select drop-down list.
           shared_ptr<vector<string>> valueList_ {};
         };
 
@@ -590,15 +588,15 @@ namespace Models
 
 
             protected:
-              // Indicates whether the maximum value is included.
+              // Specifies whether the maximum value is included.
               shared_ptr<bool> includeMaxValue_ {};
-              // Indicates whether the minimum value is included.
+              // Specifies whether the minimum value is included.
               shared_ptr<bool> includeMinValue_ {};
-              // The maximum value. This applies to range interval attributes.
+              // The maximum value, which applies to range attributes.
               shared_ptr<string> maxValue_ {};
-              // The minimum value. This applies to range interval attributes.
+              // The minimum value, which applies to range attributes.
               shared_ptr<string> minValue_ {};
-              // The list of attribute values. This applies to attributes with custom input, single-select dropdown, or multi-select dropdown input methods.
+              // The attribute value list, which applies to attributes with the input method set to custom input, single-select drop-down list, or multi-select drop-down list.
               shared_ptr<vector<string>> valueList_ {};
             };
 
@@ -644,25 +642,15 @@ namespace Models
 
 
           protected:
-            // The attribute field data type. Valid values:
-            // - STRING: text
-            // - BIGINT: integer
-            // - DOUBLE: floating-point
-            // - BOOLEAN: Boolean
-            // - DATE: date
-            // - DATETIME: datetime.
+            // The attribute field type. Valid values: STRING (text), BIGINT (integer), DOUBLE (floating-point number), BOOLEAN (boolean), DATE (date), and DATETIME (datetime).
             shared_ptr<string> dataType_ {};
-            // The attribute default value.
+            // The default value of the attribute.
             shared_ptr<ValueConfig::DefaultValue> defaultValue_ {};
-            // The attribute field length. This constrains the maximum length of text-type attribute values.
+            // The attribute field length, which can be used to constrain the maximum length of text attribute values.
             shared_ptr<int32_t> length_ {};
-            // The attribute value input method. Valid values:
-            // - CUSTOMIZED: custom input
-            // - SINGLE_ENUM: single-select dropdown
-            // - MULTIPLE_ENUMS: multi-select dropdown
-            // - RANGE: range interval.
+            // The attribute value input method. Valid values: CUSTOMIZED (custom input), SINGLE_ENUM (single-select drop-down list), MULTIPLE_ENUMS (multi-select drop-down list), and RANGE (range).
             shared_ptr<string> type_ {};
-            // The attribute option values. This applies only to attributes with a single-select dropdown or multi-select dropdown input method.
+            // The attribute option values, which apply only to attributes with the input method set to single-select drop-down list or multi-select drop-down list.
             shared_ptr<vector<string>> valueEnumList_ {};
           };
 
@@ -723,15 +711,15 @@ namespace Models
         protected:
           // The description.
           shared_ptr<string> description_ {};
-          // Indicates whether the attribute is enabled.
+          // Specifies whether the attribute is enabled.
           shared_ptr<bool> enabled_ {};
           // The attribute ID.
           shared_ptr<int64_t> id_ {};
           // The attribute name.
           shared_ptr<string> name_ {};
-          // Indicates whether the attribute is required.
+          // Specifies whether the attribute is required.
           shared_ptr<bool> required_ {};
-          // Indicates whether the attribute is searchable.
+          // Specifies whether the attribute is searchable.
           shared_ptr<bool> searchable_ {};
           // The attribute value configuration details.
           shared_ptr<AttributeInfo::ValueConfig> valueConfig_ {};
@@ -760,7 +748,7 @@ namespace Models
       protected:
         // The attribute details.
         shared_ptr<AttributeWithValueList::AttributeInfo> attributeInfo_ {};
-        // The property value.
+        // The value of the property.
         shared_ptr<AttributeWithValueList::AttributeValue> attributeValue_ {};
       };
 
@@ -965,49 +953,37 @@ namespace Models
 
 
     protected:
-      // The rule business attribute configurations.
+      // The business attribute configuration of the rule.
       shared_ptr<vector<QualityRuleInfo::AttributeWithValueList>> attributeWithValueList_ {};
-      // The rule categories. Valid values:
-      // - CONSISTENT: consistency
-      // - EFFECTIVE: validity
-      // - TIMELINESE: timeliness
-      // - ACCURATE: accuracy
-      // - UNIQUENESS: uniqueness
-      // - COMPLETENESS: completeness
-      // - STABILITY: stability
-      // - CUSTOM: custom.
+      // The category of the rule. Valid values: CONSISTENT, EFFECTIVE, TIMELINESE, ACCURATE, UNIQUENESS, COMPLETENESS, STABILITY, and CUSTOM.
       shared_ptr<vector<string>> catalogList_ {};
-      // The creation time.
+      // The creation time, in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
       // The creator.
       shared_ptr<string> creator_ {};
-      // The creator name.
+      // The name of the creator.
       shared_ptr<string> creatorName_ {};
       // The description.
       shared_ptr<string> description_ {};
-      // Indicates whether exception archiving is enabled.
+      // Indicates whether error archiving is enabled.
       shared_ptr<bool> enableErrorArchive_ {};
-      // The rule configuration key-value pairs. These vary by templatetype. Different templatetypes return different form key-value pair configurations.
+      // The key-value pairs for rule configuration. The returned form key-value pairs vary based on the templatetype.
       shared_ptr<vector<QualityRuleInfo::FormPropertyList>> formPropertyList_ {};
-      // The quality rule ID.
+      // The ID of the quality rule.
       shared_ptr<int64_t> id_ {};
       // The ID of the user who last modified the rule.
       shared_ptr<string> modifier_ {};
       // The name of the user who last modified the rule.
       shared_ptr<string> modifierName_ {};
-      // The modification time.
+      // The modification time, in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> modifyTime_ {};
-      // The quality rule name.
+      // The name of the quality rule.
       shared_ptr<string> name_ {};
-      // The list of schedules bound to the rule.
+      // The list of schedules associated with the rule.
       shared_ptr<vector<QualityRuleInfo::ScheduleBindList>> scheduleBindList_ {};
-      // The quality rule status. Valid values:
-      // - ENABLE
-      // - DISABLE.
+      // The status of the quality rule. Valid values: ENABLE and DISABLE.
       shared_ptr<string> status_ {};
-      // The rule strength. Valid values:
-      // - STRONG
-      // - WEAK.
+      // The strength of the rule. Valid values: STRONG and WEAK.
       shared_ptr<string> strength_ {};
       // The template ID.
       shared_ptr<int64_t> templateId_ {};
@@ -1017,7 +993,7 @@ namespace Models
       // - SYSTEM: system preset
       // - CUSTOM: custom template
       // - TEMPLATE: union of SYSTEM and CUSTOM
-      // - CUSTOM_SQL: custom SQL template.
+      // - CUSTOM_SQL: custom SQL template
       shared_ptr<string> templateScope_ {};
       // The templatetype. Valid values:
       //   - FIELD_NULL_VALUE_VALIDATE: field null value check
@@ -1046,15 +1022,15 @@ namespace Models
       //   - FIELD_FLUCTUATION_VALIDATE: field fluctuation check
       //   - CUSTOM_STATISTICAL_VALIDATE: custom statistical metric check
       //   - CUSTOM_DATA_DETAILS_VALIDATE: custom data details check
-      //   - DATASOURCE_AVAILABLE_CHECK: data source connectivity monitoring
-      //   - TABLE_SCHEMA_CHECK: table schema change monitoring
+      //   - DATASOURCE_AVAILABLE_CHECK: data source connectivity check
+      //   - TABLE_SCHEMA_CHECK: table schema change check
       //   - REAL_TIME_OFFLINE_COMPARE: real-time and offline comparison
-      //   - REAL_TIME_STATISTICAL_VALIDATE: real-time statistical value monitoring
-      //   - REAL_TIME_MULTI_CHAIN_COMPARE: real-time multi-link comparison, and more.
+      //   - REAL_TIME_STATISTICAL_VALIDATE: real-time statistical value check
+      //   - REAL_TIME_MULTI_CHAIN_COMPARE: real-time multi-link comparison
       shared_ptr<string> templateType_ {};
-      // The ID of the most recent test run task.
+      // The ID of the latest test run task.
       shared_ptr<int64_t> testRunRuleTaskId_ {};
-      // The status of the most recent test run task. Valid values: NOT_RUN, WAITING, RUNNING, SUCCESS, FAILED.
+      // The status of the latest test run task. Valid values: NOT_RUN, WAITING, RUNNING, SUCCESS, and FAILED.
       shared_ptr<string> testRunRuleTaskStatus_ {};
       // Indicates whether the test run validation passed.
       shared_ptr<bool> testRunRuleValidateResult_ {};
@@ -1062,7 +1038,7 @@ namespace Models
       shared_ptr<vector<QualityRuleInfo::ValidateConditionList>> validateConditionList_ {};
       // The validation object.
       shared_ptr<QualityRuleInfo::ValidateObject> validateObject_ {};
-      // The ID of the associated monitoring task.
+      // The ID of the associated quality watchtask.
       shared_ptr<int64_t> watchId_ {};
     };
 
@@ -1117,13 +1093,13 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The details of the backend exception.
+    // The backend exception details.
     shared_ptr<string> message_ {};
     // The quality rule details.
     shared_ptr<GetQualityRuleResponseBody::QualityRuleInfo> qualityRuleInfo_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

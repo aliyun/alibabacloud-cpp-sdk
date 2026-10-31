@@ -188,19 +188,19 @@ namespace Models
 
 
     protected:
-      // The application group name.
+      // The name of the application group.
       shared_ptr<string> appGroup_ {};
       // The application ID.
       shared_ptr<int32_t> appId_ {};
       // The AppKey of the application.
       shared_ptr<string> appKey_ {};
-      // The application name.
+      // The name of the application.
       shared_ptr<string> appName_ {};
       // The AppSecret of the application.
       shared_ptr<string> appSecret_ {};
-      // The IP whitelist addresses. Specify IP addresses or CIDR blocks separated by semicolons (;). CIDR blocks end with a slash (/) followed by a number in the range of 1 to 32. Example: 192.168.3.12/24.
+      // The IP address whitelist. Separate IP addresses or CIDR blocks with semicolons. For CIDR blocks, use a forward slash (/) to separate the IP address and the prefix length, which ranges from 1 to 32. Example: 192.168.3.12/24.
       shared_ptr<string> ipWhitelist_ {};
-      // Indicates whether the IP whitelist is enabled. Valid values:
+      // Indicates whether the IP address whitelist is enabled. Valid values:
       // - true: Enabled.
       // - false: Disabled.
       shared_ptr<bool> ipWhitelistStatus_ {};
@@ -257,17 +257,17 @@ namespace Models
 
 
   protected:
-    // The response code returned by the backend.
+    // The backend response code.
     shared_ptr<string> code_ {};
     // The details of the data service application.
     shared_ptr<GetDataServiceAppResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message returned by the backend.
+    // The details of the backend exception.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

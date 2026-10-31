@@ -85,11 +85,11 @@ namespace Models
 
 
     protected:
-      // Belonging GUID list, with an upper limit of 1000
+      // The list of parent GUIDs. The maximum number of items is 1,000.
       shared_ptr<vector<string>> belongGuidList_ {};
-      // GUID list, with an upper limit of 1000
+      // The list of GUIDs. The maximum number of items is 1,000.
       shared_ptr<vector<string>> guidList_ {};
-      // Standard ID
+      // The standard ID.
       // 
       // This parameter is required.
       shared_ptr<int64_t> standardId_ {};
@@ -121,12 +121,13 @@ namespace Models
 
 
   protected:
-    // Tenant ID
+    // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator user ID.
     shared_ptr<string> opUserId_ {};
-    // Update Command
+    // The update instruction.
     // 
     // This parameter is required.
     shared_ptr<UpdateStandardMappingToInvalidRequest::UpdateCommand> updateCommand_ {};

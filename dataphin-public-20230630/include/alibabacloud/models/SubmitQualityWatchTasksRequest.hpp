@@ -83,11 +83,11 @@ namespace Models
 
 
     protected:
-      // The business date, in the yyyy-MM-dd format.
+      // The business date. Format: yyyy-MM-dd.
       shared_ptr<string> bizDate_ {};
-      // The partition expression. This is a custom expression.
+      // The custom partition expression.
       shared_ptr<string> partitionExpression_ {};
-      // The monitored object IDs.
+      // The IDs of the monitored objects.
       // 
       // This parameter is required.
       shared_ptr<vector<int64_t>> watchIdList_ {};
@@ -123,6 +123,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
     // The submit command.
     // 

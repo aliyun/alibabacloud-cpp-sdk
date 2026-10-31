@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The command to create a pipeline. Both offline and real-time pipelines are supported.
+    // Creates a pipeline, which supports offline and real-time pipelines.
     // 
     // This parameter is required.
     shared_ptr<string> createPipelineNodeCommandShrink_ {};
@@ -65,6 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator ID.
     shared_ptr<string> opUserId_ {};
   };
 

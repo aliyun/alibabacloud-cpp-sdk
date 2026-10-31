@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // **[Deprecated]** The environment identifier. Valid values:
-    // - DEV: Development environment. 
-    // - PROD (default): Production environment.
+    // The environment identifier. **[Deprecated]** Valid values:
+    // - DEV: development environment. 
+    // - PROD: production environment. This is the default value.
     shared_ptr<string> env_ {};
     // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
-    // The ID of the operation user.
+    // The ID of the operating user.
     shared_ptr<string> opUserId_ {};
   };
 

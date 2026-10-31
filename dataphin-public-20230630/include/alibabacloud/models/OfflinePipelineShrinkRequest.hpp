@@ -70,7 +70,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> contextShrink_ {};
-    // The offline command for the pipeline node.
+    // The command to take the pipeline task offline.
     // 
     // This parameter is required.
     shared_ptr<string> offlineCommandShrink_ {};
@@ -78,6 +78,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the user who performs the operation.
     shared_ptr<string> opUserId_ {};
   };
 

@@ -124,30 +124,30 @@ namespace Models
 
 
     protected:
-      // Data source name
+      // The name of the data source.
       shared_ptr<string> name_ {};
-      // Data source owner
+      // The owners of the data sources.
       shared_ptr<vector<string>> ownerList_ {};
-      // Page number. The value starts from 1.
+      // The page number. The starting page is 1.
       // 
       // This parameter is required.
       shared_ptr<int32_t> page_ {};
-      // Number of records per page
+      // The number of records per page.
       // 
       // This parameter is required.
       shared_ptr<int32_t> pageSize_ {};
-      // Data source scope. Valid values:
-      // - STREAMING: Real-time
-      // - OFFLINE: Offline
-      // - DIP_META_SYNC: Meta warehouse initialization
-      // - DATA_DISTILL: Data distillation
-      // - CUMPUTE_SOURCE_SHADOW: Shadow compute source
-      // - LABEL: Label
-      // - ALL: Offline + Real-time
+      // The usage scopes of the data sources. Valid values:
+      // - STREAMING: Real-time.
+      // - OFFLINE: Offline.
+      // - DIP_META_SYNC: Metadata warehouse initialization.
+      // - DATA_DISTILL: Data distillation.
+      // - CUMPUTE_SOURCE_SHADOW: Shadow compute source.
+      // - LABEL: Label.
+      // - ALL: Offline and real-time.
       shared_ptr<vector<string>> scopeList_ {};
-      // Tag marked when creating the data source
+      // The tag specified during data source creation.
       shared_ptr<string> tag_ {};
-      // Data source type
+      // The data source types.
       shared_ptr<vector<string>> typeList_ {};
     };
 
@@ -177,14 +177,15 @@ namespace Models
 
 
   protected:
-    // Paginated query
+    // The paged query parameters.
     // 
     // This parameter is required.
     shared_ptr<ListDataSourceWithConfigRequest::ListQuery> listQuery_ {};
-    // Tenant ID
+    // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator user ID.
     shared_ptr<string> opUserId_ {};
   };
 

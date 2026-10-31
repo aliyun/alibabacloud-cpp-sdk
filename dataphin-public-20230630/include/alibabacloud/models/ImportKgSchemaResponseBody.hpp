@@ -77,9 +77,9 @@ namespace Models
 
 
     protected:
-      // The number of entity types that were changed.
+      // The number of changed entity types.
       shared_ptr<int32_t> entityTypeCount_ {};
-      // The number of relation types that were changed.
+      // The number of changed relation types.
       shared_ptr<int32_t> relationTypeCount_ {};
     };
 
@@ -140,7 +140,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

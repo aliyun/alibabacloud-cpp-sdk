@@ -217,7 +217,7 @@ namespace Models
       shared_ptr<int64_t> devComputeSourceId_ {};
       // The description of the development environment.
       shared_ptr<string> devDescription_ {};
-      // The ID of the real-time compute source in the development environment.
+      // The ID of the streaming compute source in the development environment.
       shared_ptr<int64_t> devStreamComputeSourceId_ {};
       // The display name of the project.
       shared_ptr<string> displayName_ {};
@@ -225,13 +225,13 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The namespace identifier.
+      // The namespace tag.
       shared_ptr<string> nameSpaceTag_ {};
       // The ID of the offline compute source in the production environment.
       shared_ptr<int64_t> prodComputeSourceId_ {};
       // The description of the production environment.
       shared_ptr<string> prodDescription_ {};
-      // The ID of the real-time compute source in the production environment.
+      // The ID of the streaming compute source in the production environment.
       shared_ptr<int64_t> prodStreamComputeSourceId_ {};
       // The sandbox whitelist.
       shared_ptr<vector<CreateCommand::WhiteLists>> whiteLists_ {};
@@ -263,7 +263,7 @@ namespace Models
 
 
   protected:
-    // The create command.
+    // The creation command.
     // 
     // This parameter is required.
     shared_ptr<CreateDevProdProjectRequest::CreateCommand> createCommand_ {};
@@ -271,6 +271,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

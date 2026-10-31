@@ -124,9 +124,9 @@ namespace Models
 
 
       protected:
-        // Project ID
+        // The project ID.
         shared_ptr<string> id_ {};
-        // Project name
+        // The project name.
         shared_ptr<string> name_ {};
       };
 
@@ -168,9 +168,9 @@ namespace Models
 
 
       protected:
-        // User ID
+        // The user ID.
         shared_ptr<string> id_ {};
-        // Username
+        // The username.
         shared_ptr<string> name_ {};
       };
 
@@ -212,9 +212,9 @@ namespace Models
 
 
       protected:
-        // User ID
+        // The user ID.
         shared_ptr<string> id_ {};
-        // Username
+        // The username.
         shared_ptr<string> name_ {};
       };
 
@@ -256,9 +256,9 @@ namespace Models
 
 
       protected:
-        // User ID
+        // The user ID.
         shared_ptr<string> id_ {};
-        // Username
+        // The username.
         shared_ptr<string> name_ {};
       };
 
@@ -380,46 +380,46 @@ namespace Models
 
 
     protected:
-      // Creation time
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // Node creator
+      // The creator of the node.
       shared_ptr<NodeInfo::Creator> creator_ {};
-      // Description
+      // The description.
       shared_ptr<string> description_ {};
-      // Node source
-      // - DATA_PROCESS: Code development
-      // - BLACK_BOX: Black box
-      // - ONE_ID: Extraction
-      // - PIPELINE: Pipeline
+      // The node source. Valid values:
+      // - DATA_PROCESS: code development
+      // - BLACK_BOX: black box
+      // - ONE_ID: extraction
+      // - PIPELINE: pipeline
       shared_ptr<string> from_ {};
-      // Node ID
+      // The node ID.
       shared_ptr<string> id_ {};
-      // Last modified time
+      // The update time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> lastModifiedTime_ {};
-      // Node modifier
+      // The modifier of the node.
       shared_ptr<NodeInfo::Modifier> modifier_ {};
-      // Name
+      // The name.
       shared_ptr<string> name_ {};
-      // Node subtype
+      // The node subtype. Valid values:
       // - MAX_COMPUTE_SQL
       // - HIVE_SQL
       // - SHELL
       // - PYTHON
       // - ONE_SERVICE_SQL
-      // - DATABASE_SQL, etc.
+      // - DATABASE_SQL
       shared_ptr<string> operatorType_ {};
-      // Node owner
+      // The owner of the node.
       shared_ptr<NodeInfo::Owner> owner_ {};
-      // Priority
+      // The priority. Valid values:
       // - HIGHEST
       // - HIGH
       // - MIDDLE
       // - LOW
       // - LOWEST
       shared_ptr<string> priority_ {};
-      // Project to which the node belongs
+      // The project to which the node belongs.
       shared_ptr<NodeInfo::ProjectInfo> projectInfo_ {};
-      // Scheduling period type
+      // The scheduling cycle type. Valid values:
       // - MINUTELY
       // - HOURLY
       // - DAILY
@@ -427,9 +427,9 @@ namespace Models
       // - MONTHLY
       // - YEARLY
       shared_ptr<string> scheduleType_ {};
-      // Node scheduling status
+      // The scheduling status of the node.
       shared_ptr<string> status_ {};
-      // Trigger configuration, used to implement field dependencies on logical tables
+      // The trigger configuration, which is used to implement field dependencies for logical tables.
       shared_ptr<string> triggerConfig_ {};
     };
 
@@ -480,17 +480,17 @@ namespace Models
 
 
   protected:
-    // Error code. OK indicates a successful request.
+    // The error code. A value of OK indicates that the request is normal.
     shared_ptr<string> code_ {};
-    // HTTP status code returned by the backend
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Error message
+    // The error message.
     shared_ptr<string> message_ {};
-    // Node details
+    // The node details.
     shared_ptr<GetPhysicalNodeByOutputNameResponseBody::NodeInfo> nodeInfo_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

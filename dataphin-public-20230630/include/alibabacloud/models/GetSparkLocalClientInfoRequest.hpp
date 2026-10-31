@@ -67,9 +67,8 @@ namespace Models
 
   protected:
     // The environment identifier. Valid values:
-    // 
-    // - DEV: development environment.
-    // - PROD: production environment.
+    // - DEV: Development environment.
+    // - PROD: Production environment.
     // 
     // This parameter is required.
     shared_ptr<string> envEnum_ {};
@@ -77,6 +76,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
     // The project ID.
     // 

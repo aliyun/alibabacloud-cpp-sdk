@@ -83,7 +83,7 @@ namespace Models
 
 
     protected:
-      // The publish comment. The string can be up to 1024 characters in length.
+      // The publish comment. The maximum length is 1,024 characters.
       // 
       // This parameter is required.
       shared_ptr<string> comment_ {};
@@ -91,7 +91,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
-      // The list of pending publish record IDs to be published. A maximum of 50 submit IDs can be specified.
+      // The list of submit record IDs for the items to be published. A maximum of 50 submit IDs are supported.
       // 
       // This parameter is required.
       shared_ptr<vector<int64_t>> submitIdList_ {};
@@ -127,6 +127,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator ID.
     shared_ptr<string> opUserId_ {};
     // The publish command.
     // 

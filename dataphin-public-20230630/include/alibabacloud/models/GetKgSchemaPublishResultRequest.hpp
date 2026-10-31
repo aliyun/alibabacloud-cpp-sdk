@@ -70,8 +70,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
-    // The version number. If this parameter is left empty, the most recent publish record is returned.
+    // The version ID. If this parameter is left empty, the latest publish record is retrieved.
     shared_ptr<int32_t> versionId_ {};
     // The model ID.
     // 

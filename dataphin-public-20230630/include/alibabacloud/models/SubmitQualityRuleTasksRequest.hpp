@@ -101,11 +101,11 @@ namespace Models
 
 
       protected:
-        // Rule ID
+        // The rule ID.
         // 
         // This parameter is required.
         shared_ptr<int64_t> ruleId_ {};
-        // Monitoring object ID
+        // The monitored object ID.
         // 
         // This parameter is required.
         shared_ptr<int64_t> watchId_ {};
@@ -158,19 +158,23 @@ namespace Models
 
 
     protected:
-      // Business date, format: yyyy-MM-dd
+      // The business date. Format: yyyy-MM-dd.
       shared_ptr<string> bizDate_ {};
-      // Whether it is a test run: true for test run, false for formal run.
+      // Specifies whether to perform a test run. Valid values:
+      // - true: performs a test run.
+      // - false: performs a formal run.
       // 
       // This parameter is required.
       shared_ptr<bool> isTestRun_ {};
-      // Partition expression - custom expression
+      // The custom partition expression.
       shared_ptr<string> partitionExpression_ {};
-      // Source of the test run partition expression: SCHEDULE for existing schedule, CUSTOM for custom.
+      // The source of the partition expression for the test run. Valid values:
+      // - SCHEDULE: existing schedule.
+      // - CUSTOM: custom expression.
       shared_ptr<string> partitionExpressionFrom_ {};
-      // Existing schedule ID
+      // The ID of the existing schedule.
       shared_ptr<int64_t> scheduleId_ {};
-      // Monitoring object and rule IDs
+      // The monitored object and rule IDs.
       // 
       // This parameter is required.
       shared_ptr<vector<SubmitCommand::WatchRuleIdList>> watchRuleIdList_ {};
@@ -202,12 +206,13 @@ namespace Models
 
 
   protected:
-    // Tenant ID
+    // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
-    // Submit command
+    // The submit command.
     // 
     // This parameter is required.
     shared_ptr<SubmitQualityRuleTasksRequest::SubmitCommand> submitCommand_ {};

@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The ID of the schedule object.
+    // The ID of the scheduling object.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
@@ -65,6 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

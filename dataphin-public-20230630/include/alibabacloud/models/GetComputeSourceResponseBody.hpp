@@ -187,11 +187,11 @@ namespace Models
 
 
     protected:
-      // Indicates whether a project is associated.
+      // Indicates whether the compute source is bound to a project.
       shared_ptr<bool> bindProject_ {};
-      // The ID of the associated project.
+      // The ID of the bound project.
       shared_ptr<int64_t> bindProjectId_ {};
-      // The name of the associated project.
+      // The name of the bound project.
       shared_ptr<string> bindProjectName_ {};
       // The ID of the compute source creator.
       shared_ptr<string> creator_ {};
@@ -203,7 +203,7 @@ namespace Models
       shared_ptr<string> displayName_ {};
       // The creation timestamp.
       shared_ptr<string> gmtCreate_ {};
-      // The last modification timestamp.
+      // The update timestamp.
       shared_ptr<string> gmtModified_ {};
       // The compute source ID.
       shared_ptr<int64_t> id_ {};
@@ -264,17 +264,17 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request was successful.
+    // The error code. OK indicates that the request is successful.
     shared_ptr<string> code_ {};
     // The compute source details.
     shared_ptr<GetComputeSourceResponseBody::ComputeSourceInfo> computeSourceInfo_ {};
     // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message.
+    // The error message of the request.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

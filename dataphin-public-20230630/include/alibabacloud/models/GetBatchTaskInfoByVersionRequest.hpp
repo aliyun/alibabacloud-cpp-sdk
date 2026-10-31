@@ -83,13 +83,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
-    // The operator user ID.
+    // The operator ID.
     shared_ptr<string> opUserId_ {};
     // The project to which the task belongs.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
-    // The version number.
+    // The version ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> versionId_ {};

@@ -126,7 +126,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<vector<CheckCommand::ConfigItemList>> configItemList_ {};
-      // The data source type. For supported data source types, see the documentation for creating a data source.
+      // The datasource type. For supported datasources, see Create a datasource.
       // 
       // This parameter is required.
       shared_ptr<string> type_ {};
@@ -158,7 +158,7 @@ namespace Models
 
 
   protected:
-    // The object to check.
+    // The check target.
     // 
     // This parameter is required.
     shared_ptr<CheckDataSourceConnectivityRequest::CheckCommand> checkCommand_ {};
@@ -166,6 +166,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator ID.
     shared_ptr<string> opUserId_ {};
   };
 

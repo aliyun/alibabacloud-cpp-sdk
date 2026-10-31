@@ -113,16 +113,23 @@ namespace Models
 
 
     protected:
-      // The business ID. If the operation is a data backfill, this value is the data backfill workflow ID.
+      // The business ID. If the operation is data backfill, this parameter indicates the data backfill workflow.
       shared_ptr<string> externalBizId_ {};
-      // The submit ID of the data backfill request.
+      // The submit ID of the data backfill.
       shared_ptr<string> jobId_ {};
       // The operation type. Valid values:
-      // - SUPPLY_DATA: data backfill.
+      // - SUPPLY_DATA: data backfill
+      // - UPDATE_OWNER: update owner
+      // - UPDATE_PRIORITY: update priority
+      // - UPDATE_TASK_GROUP: update task group
+      // - UPDATE_RESOURCE_GROUP: update resource group
+      // - PAUSE: pause
+      // - RESUME: resume
+      // - TRIGGER_EXECUTE: trigger execution
       shared_ptr<string> operation_ {};
       // The status.
       shared_ptr<string> operationStatus_ {};
-      // The user ID of the submitter.
+      // The ID of the user who submitted the request.
       shared_ptr<string> operator_ {};
       // The progress.
       shared_ptr<string> progress_ {};
@@ -175,17 +182,17 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request was successful.
+    // The error code. A value of OK indicates that the request is successful.
     shared_ptr<string> code_ {};
-    // The HTTP status code returned by the backend.
+    // The backend HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The submit status of the operation.
+    // The operation submit status.
     shared_ptr<GetOperationSubmitStatusResponseBody::OperationSubmitJob> operationSubmitJob_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

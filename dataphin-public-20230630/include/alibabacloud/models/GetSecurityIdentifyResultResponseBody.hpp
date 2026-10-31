@@ -399,13 +399,13 @@ namespace Models
 
 
     protected:
-      // The business date.
+      // The business date. Format: YYYY-MM-DD.
       shared_ptr<string> bizDate_ {};
-      // The display name of the business unit in Chinese.
+      // The Chinese name of the business unit.
       shared_ptr<string> bizUnitDisplayName_ {};
-      // The business unit ID.
+      // The ID of the business unit.
       shared_ptr<int64_t> bizUnitId_ {};
-      // The business unit name.
+      // The name of the business unit.
       shared_ptr<string> bizUnitName_ {};
       // The classification abbreviation.
       shared_ptr<string> classifyAbbreviation_ {};
@@ -413,53 +413,51 @@ namespace Models
       shared_ptr<int64_t> classifyId_ {};
       // The classification name.
       shared_ptr<string> classifyName_ {};
-      // The creation time.
+      // The creation time. Format: YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> createTime_ {};
       // The creator.
       shared_ptr<string> creator_ {};
-      // The data source ID.
+      // The ID of the data source.
       shared_ptr<int64_t> datasourceId_ {};
-      // The data source name.
+      // The name of the data source.
       shared_ptr<string> datasourceName_ {};
       // The field description.
       shared_ptr<string> fieldDescription_ {};
-      // The field ID.
+      // The ID of the field.
       shared_ptr<string> fieldId_ {};
-      // The field name.
+      // The name of the field.
       shared_ptr<string> fieldName_ {};
-      // Indicates whether a better matching result exists.
+      // Indicates whether a better match is available.
       shared_ptr<bool> hasBetterRule_ {};
-      // The identification result ID.
+      // The recognition result ID.
       shared_ptr<int64_t> id_ {};
-      // The identification record ID.
+      // The ID of the identification record.
       shared_ptr<int64_t> identifyRecordId_ {};
-      // Indicates whether a custom tagging rule is used.
+      // Indicates whether a custom identification rule is used.
       shared_ptr<bool> isCustomIdentify_ {};
-      // Indicates whether the result is locked.
+      // Indicates whether the item is locked.
       shared_ptr<bool> isLocked_ {};
-      // The sensitivity level abbreviation.
+      // The abbreviation of the classification level.
       shared_ptr<string> levelAbbreviation_ {};
-      // The sensitivity level color.
+      // The color of the classification level.
       shared_ptr<int64_t> levelColor_ {};
-      // The sensitivity level index.
+      // The classification level.
       shared_ptr<int64_t> levelIndex_ {};
-      // The sensitivity level name.
+      // The name of the classification level.
       shared_ptr<string> levelName_ {};
       // The modifier.
       shared_ptr<string> modifier_ {};
-      // The modification time.
+      // The modification time in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> modifyTime_ {};
-      // The display name of the project in Chinese.
+      // The Chinese name of the project.
       shared_ptr<string> projectDisplayName_ {};
-      // The project ID.
+      // The ID of the project.
       shared_ptr<int64_t> projectId_ {};
-      // The project name.
+      // The name of the project.
       shared_ptr<string> projectName_ {};
-      // The scan task ID.
+      // The ID of the scan task.
       shared_ptr<int64_t> scanTaskId_ {};
-      // The status. Valid values:
-      // - ENABLE: enabled.
-      // - DISABLE: disabled.
+      // The status. Valid values: ENABLE (enabled) and DISABLE (disabled).
       shared_ptr<string> status_ {};
       // The table catalog.
       shared_ptr<string> tableCatalog_ {};
@@ -467,21 +465,21 @@ namespace Models
       shared_ptr<string> tableDescription_ {};
       // The table environment.
       shared_ptr<string> tableEnv_ {};
-      // The table ID.
+      // The ID of the table.
       shared_ptr<string> tableId_ {};
-      // The table name.
+      // The name of the table.
       shared_ptr<string> tableName_ {};
-      // The identification table task ID.
+      // The ID of the table identification task.
       shared_ptr<int64_t> tableTaskId_ {};
       // The table type. Valid values:
-      // - LOGIC_TABLE: logical table.
-      // - LOGIC_DIM_TABLE: logical dimension table.
-      // - LOGIC_FACT_TABLE: fact logical table.
-      // - LOGIC_SUM_TABLE: aggregate logical table.
-      // - LOGIC_ODM_SOURCE: source table.
-      // - LOGIC_LABEL_TABLE: label logical table.
-      // - PHYSICAL_TABLE: physical table.
-      // - REAL_TIME_LOGIC_TABLE: real-time configured logical table.
+      // - LOGIC_TABLE: logical table
+      // - LOGIC_DIM_TABLE: logical dimension table
+      // - LOGIC_FACT_TABLE: logical fact table
+      // - LOGIC_SUM_TABLE: logical aggregate table
+      // - LOGIC_ODM_SOURCE: source table
+      // - LOGIC_LABEL_TABLE: logical label table
+      // - PHYSICAL_TABLE: physical table
+      // - REAL_TIME_LOGIC_TABLE: real-time configured logical table
       shared_ptr<string> tableType_ {};
     };
 
@@ -536,13 +534,13 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The details of the backend exception.
+    // The backend exception details.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
     // The identification result details.
     shared_ptr<GetSecurityIdentifyResultResponseBody::SecurityIdentifyResultInfo> securityIdentifyResultInfo_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

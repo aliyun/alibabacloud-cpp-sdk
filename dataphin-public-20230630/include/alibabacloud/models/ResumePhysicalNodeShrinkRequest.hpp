@@ -66,16 +66,17 @@ namespace Models
 
 
   protected:
-    // Environment identifier.
-    // - DEV: Development environment
-    // - PROD (default): Production environment
+    // The environment identifier. Valid values:
+    // - DEV: development environment 
+    // - PROD: production environment. This is the default value.
     shared_ptr<string> env_ {};
-    // Tenant ID.
+    // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
-    // Resume scheduling request.
+    // The request to resume scheduling.
     // 
     // This parameter is required.
     shared_ptr<string> resumeCommandShrink_ {};

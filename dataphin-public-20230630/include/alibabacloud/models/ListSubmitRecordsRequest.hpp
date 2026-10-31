@@ -145,25 +145,25 @@ namespace Models
 
 
       protected:
-        // List of change types (0: Create / 1: Update / 2: Delete).
+        // The list of change types (0: Create, 1: Update, 2: Delete).
         shared_ptr<vector<int32_t>> changeTypeList_ {};
-        // Page number.
+        // The page number.
         // 
         // This parameter is required.
         shared_ptr<int32_t> page_ {};
-        // Page size.
+        // The number of entries per page.
         // 
         // This parameter is required.
         shared_ptr<int32_t> pageSize_ {};
-        // Project ID.
+        // The project IDs.
         // 
         // This parameter is required.
         shared_ptr<vector<int64_t>> projectIdList_ {};
-        // Submission end time in the yyyy-MM-dd HH:mm:ss format.
+        // The submission end time in the yyyy-MM-dd HH:mm:ss format.
         shared_ptr<string> submitEndTime_ {};
-        // Submission start time in the yyyy-MM-dd HH:mm:ss format.
+        // The submission start time in the yyyy-MM-dd HH:mm:ss format.
         shared_ptr<string> submitStartTime_ {};
-        // Submitter.
+        // The submitters.
         shared_ptr<vector<string>> submitterList_ {};
       };
 
@@ -186,9 +186,9 @@ namespace Models
 
 
     protected:
-      // Search keyword.
+      // The search keyword.
       shared_ptr<string> keyword_ {};
-      // Pending deployment record filter.
+      // The filter for pending release records.
       // 
       // This parameter is required.
       shared_ptr<ListQuery::SearchFilter> searchFilter_ {};
@@ -220,14 +220,15 @@ namespace Models
 
 
   protected:
-    // Query command.
+    // The query command.
     // 
     // This parameter is required.
     shared_ptr<ListSubmitRecordsRequest::ListQuery> listQuery_ {};
-    // Tenant ID.
+    // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

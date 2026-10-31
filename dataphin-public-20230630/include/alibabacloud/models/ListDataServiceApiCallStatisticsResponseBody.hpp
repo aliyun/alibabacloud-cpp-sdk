@@ -211,33 +211,33 @@ namespace Models
 
 
       protected:
-        // API ID.
+        // The API code.
         shared_ptr<int64_t> apiId_ {};
-        // API name.
+        // The API name.
         shared_ptr<string> apiName_ {};
-        // Authorized application names.
+        // The names of the authorized applications.
         shared_ptr<vector<string>> appNameList_ {};
-        // Number of authorized applications.
+        // The number of authorized applications.
         shared_ptr<int32_t> authorizedAppCount_ {};
-        // Average response time, in milliseconds.
+        // The average response time, in milliseconds.
         shared_ptr<double> avgResponseTime_ {};
-        // Number of calls.
+        // The number of calls.
         shared_ptr<int64_t> callCount_ {};
-        // Creator.
+        // The creator.
         shared_ptr<string> creator_ {};
-        // Number of call errors.
+        // The number of call exceptions.
         shared_ptr<string> errorCount_ {};
-        // Error rate.
+        // The error rate.
         shared_ptr<string> errorRate_ {};
-        // Last call time. Format: yyyy-MM-dd HH:mm:ss.
+        // The time of the last call. Format: yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> lastCallTime_ {};
-        // Offline percentage.
+        // The offline percentage.
         shared_ptr<string> offlineRate_ {};
-        // Data service project ID.
+        // The data service project ID.
         shared_ptr<int32_t> projectId_ {};
-        // Data service project.
+        // The name of the data service project.
         shared_ptr<string> projectName_ {};
-        // SQL table primary key.
+        // The primary key of the SQL table.
         shared_ptr<int32_t> sqlId_ {};
       };
 
@@ -260,9 +260,9 @@ namespace Models
 
 
     protected:
-      // API call statistics list.
+      // The list of API call statistics.
       shared_ptr<vector<PageResult::CallStatisticsList>> callStatisticsList_ {};
-      // Total number of records.
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -313,17 +313,17 @@ namespace Models
 
 
   protected:
-    // Backend response code.
+    // The backend response code.
     shared_ptr<string> code_ {};
-    // HTTP status code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Backend error details.
+    // The backend exception details.
     shared_ptr<string> message_ {};
-    // Paginated query result.
+    // The paged query result.
     shared_ptr<ListDataServiceApiCallStatisticsResponseBody::PageResult> pageResult_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -71,9 +71,9 @@ namespace Models
 
 
     protected:
-      // The deletion mode selection. Valid values:
-      // - DEV: deletes the data source only in the development environment.
-      // - DEV_PROD: deletes the data source in both the development and production environments.
+      // The deletion mode. Valid values:
+      // - DEV: Deletes only the data source in the development environment.
+      // - DEV_PROD: Deletes the data sources in both the development and production environments.
       // 
       // This parameter is required.
       shared_ptr<string> mode_ {};
@@ -109,7 +109,7 @@ namespace Models
 
 
   protected:
-    // The request for deleting a data source.
+    // The data source deletion request.
     // 
     // This parameter is required.
     shared_ptr<DeleteDataSourceRequest::DeleteCommand> deleteCommand_ {};
@@ -117,6 +117,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

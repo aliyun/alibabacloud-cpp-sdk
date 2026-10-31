@@ -75,18 +75,19 @@ namespace Models
 
 
   protected:
-    // The filter condition.
+    // The filter conditions.
     shared_ptr<string> filterQueryShrink_ {};
-    // The standard template ID.
+    // The ID of the standard template.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // Specifies whether to allow a null value to be returned when the template does not exist. If set to false, an exception is thrown. Default value: true.
+    // Specifies whether to allow a null value to be returned when the template does not exist. If this parameter is set to false, an exception is thrown. Default value: true.
     shared_ptr<bool> nullable_ {};
     // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

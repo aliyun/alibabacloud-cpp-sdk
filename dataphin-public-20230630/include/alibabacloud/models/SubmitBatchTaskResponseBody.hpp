@@ -77,9 +77,9 @@ namespace Models
 
 
     protected:
-      // The ID of the scheduling node.
+      // The ID of the task scheduling node.
       shared_ptr<string> nodeId_ {};
-      // The ID of the object pending publish.
+      // The ID of the object to be published.
       shared_ptr<int64_t> submitId_ {};
     };
 
@@ -130,17 +130,17 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request was successful.
+    // The error code returned for the request. A value of OK indicates that the request is normal.
     shared_ptr<string> code_ {};
     // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message.
+    // The error message returned for the request.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The submit result.
+    // The edit result.
     shared_ptr<SubmitBatchTaskResponseBody::SubmitResult> submitResult_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

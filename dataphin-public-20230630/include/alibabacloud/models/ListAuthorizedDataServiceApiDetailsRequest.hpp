@@ -90,6 +90,7 @@ namespace Models
 
     protected:
       // The application key.
+      // >Notice: Deprecated. Use AppKeyStr.</notice>
       shared_ptr<int64_t> appKey_ {};
       // The application key.
       shared_ptr<string> appKeyStr_ {};
@@ -137,6 +138,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator ID.
     shared_ptr<string> opUserId_ {};
   };
 

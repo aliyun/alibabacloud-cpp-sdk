@@ -421,79 +421,79 @@ namespace Models
 
 
       protected:
-        // Business date.
+        // The business date.
         shared_ptr<string> bizDate_ {};
-        // Business unit display name.
+        // The Chinese name of the business unit.
         shared_ptr<string> bizUnitDisplayName_ {};
-        // Business unit ID.
+        // The ID of the business unit.
         shared_ptr<int64_t> bizUnitId_ {};
-        // Business unit name.
+        // The names of the business units.
         shared_ptr<string> bizUnitName_ {};
-        // Classification abbreviation.
+        // The abbreviation of the classification.
         shared_ptr<string> classifyAbbreviation_ {};
-        // Classification ID.
+        // The ID of the classification.
         shared_ptr<int64_t> classifyId_ {};
-        // Classification name.
+        // The name of the classification.
         shared_ptr<string> classifyName_ {};
-        // Creation time.
+        // The creation time.
         shared_ptr<string> createTime_ {};
-        // Creator.
+        // The creator.
         shared_ptr<string> creator_ {};
-        // Data source ID.
+        // The ID of the data source.
         shared_ptr<int64_t> datasourceId_ {};
-        // Data source name.
+        // The names of the data sources.
         shared_ptr<string> datasourceName_ {};
-        // Field description.
+        // The description of the field.
         shared_ptr<string> fieldDescription_ {};
-        // Field ID.
+        // The ID of the field.
         shared_ptr<string> fieldId_ {};
-        // Field name.
+        // The name of the field.
         shared_ptr<string> fieldName_ {};
-        // Whether a better matching result exists.
+        // Indicates whether a better match exists.
         shared_ptr<bool> hasBetterRule_ {};
-        // Identification result ID.
+        // The ID of the identification result.
         shared_ptr<int64_t> id_ {};
-        // Identification record ID.
+        // The ID of the identification record.
         shared_ptr<int64_t> identifyRecordId_ {};
-        // Whether it is a custom tagging rule.
+        // Indicates whether a custom identification rule is used.
         shared_ptr<bool> isCustomIdentify_ {};
-        // Whether it is locked.
+        // Specifies whether the item is locked.
         shared_ptr<bool> isLocked_ {};
-        // Security level abbreviation.
+        // The abbreviation of the classification level.
         shared_ptr<string> levelAbbreviation_ {};
-        // Security level color.
+        // The color of the classification level.
         shared_ptr<int64_t> levelColor_ {};
-        // Security level index.
+        // The classification level.
         shared_ptr<int64_t> levelIndex_ {};
-        // Security level name.
+        // The name of the classification level.
         shared_ptr<string> levelName_ {};
-        // Modifier.
+        // The modifier.
         shared_ptr<string> modifier_ {};
-        // Modification time.
+        // The modification time.
         shared_ptr<string> modifyTime_ {};
-        // Project display name.
+        // The Chinese name of the project.
         shared_ptr<string> projectDisplayName_ {};
-        // Project ID.
+        // The ID of the project.
         shared_ptr<int64_t> projectId_ {};
-        // Project name.
+        // The names of the projects.
         shared_ptr<string> projectName_ {};
-        // Scan task ID.
+        // The ID of the scan task.
         shared_ptr<int64_t> scanTaskId_ {};
-        // Status. Valid values: ENABLE and DISABLE.
+        // The status. Valid values: ENABLE (enabled) and DISABLE (disabled).
         shared_ptr<string> status_ {};
-        // Table catalog.
+        // The catalog of the table.
         shared_ptr<string> tableCatalog_ {};
-        // Table description.
+        // The description of the table.
         shared_ptr<string> tableDescription_ {};
-        // Table environment.
+        // The environment of the table.
         shared_ptr<string> tableEnv_ {};
-        // Table ID.
+        // The ID of the table.
         shared_ptr<string> tableId_ {};
-        // Table name.
+        // The name of the table.
         shared_ptr<string> tableName_ {};
-        // Table identification task ID.
+        // The ID of the table identification task.
         shared_ptr<int64_t> tableTaskId_ {};
-        // Table type. Valid values: LOGIC_TABLE (logical table), LOGIC_DIM_TABLE (dimension logical table), LOGIC_FACT_TABLE (fact logical table), LOGIC_SUM_TABLE (summary logical table), LOGIC_ODM_SOURCE (source table), LOGIC_LABEL_TABLE (label logical table), PHYSICAL_TABLE (physical table), REAL_TIME_LOGIC_TABLE (real-time configured logical table).
+        // The table type. Valid values: LOGIC_TABLE (logical table), LOGIC_DIM_TABLE (logical dimension table), LOGIC_FACT_TABLE (logical fact table), LOGIC_SUM_TABLE (logical aggregate table), LOGIC_ODM_SOURCE (source table), LOGIC_LABEL_TABLE (logical tag table), PHYSICAL_TABLE (physical table), and REAL_TIME_LOGIC_TABLE (real-time configured logical table).
         shared_ptr<string> tableType_ {};
       };
 
@@ -516,9 +516,9 @@ namespace Models
 
 
     protected:
-      // Paginated identification result list.
+      // The paginated list of identification results.
       shared_ptr<vector<PageResult::SecurityIdentifyResultList>> securityIdentifyResultList_ {};
-      // Total number of records.
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -569,17 +569,17 @@ namespace Models
 
 
   protected:
-    // Backend response code.
+    // The backend response code.
     shared_ptr<string> code_ {};
-    // HTTP status code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Backend response error details.
+    // The backend exception details.
     shared_ptr<string> message_ {};
-    // Paginated query result.
+    // The paging query result.
     shared_ptr<ListSecurityIdentifyResultsResponseBody::PageResult> pageResult_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Whether the request is successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

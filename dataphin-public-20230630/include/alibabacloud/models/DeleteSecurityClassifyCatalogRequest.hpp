@@ -71,11 +71,11 @@ namespace Models
 
 
     protected:
-      // The full path of the original catalog.
+      // The full path of the original folder.
       // 
       // This parameter is required.
       shared_ptr<string> path_ {};
-      // Specifies whether to return deletion details. Default value: true.
+      // Specifies whether to return the deletion details. Default value: true.
       shared_ptr<bool> returnRemovedDetails_ {};
     };
 
@@ -105,7 +105,7 @@ namespace Models
 
 
   protected:
-    // The delete instruction.
+    // The delete command.
     // 
     // This parameter is required.
     shared_ptr<DeleteSecurityClassifyCatalogRequest::DeleteCommand> deleteCommand_ {};
@@ -113,6 +113,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The user ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

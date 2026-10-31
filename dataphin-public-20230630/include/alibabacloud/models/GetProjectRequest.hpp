@@ -66,18 +66,19 @@ namespace Models
 
 
   protected:
-    // Project environment. Valid values:
-    //  - DEV: development environment.
-    //  - PROD: production environment.
+    // The project environment. Valid values:
+    // - DEV: development environment
+    // - PROD: production environment
     shared_ptr<string> env_ {};
-    // Project ID.
+    // The project ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // Tenant ID.
+    // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator user ID.
     shared_ptr<string> opUserId_ {};
   };
 

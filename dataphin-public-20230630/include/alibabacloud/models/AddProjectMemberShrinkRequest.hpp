@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The command for adding members.
+    // The command to add members.
     // 
     // This parameter is required.
     shared_ptr<string> addCommandShrink_ {};
@@ -78,7 +78,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
-    // The ID of the operator user.
+    // The operator user ID.
     shared_ptr<string> opUserId_ {};
   };
 

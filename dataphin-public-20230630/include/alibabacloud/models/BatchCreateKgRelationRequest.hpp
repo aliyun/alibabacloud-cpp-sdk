@@ -161,17 +161,17 @@ namespace Models
 
 
       protected:
-        // The list of relationship record properties.
+        // The relationship record property list.
         shared_ptr<vector<RelationList::PropertyList>> propertyList_ {};
         // The relationship type code.
         // 
         // This parameter is required.
         shared_ptr<string> relationType_ {};
-        // The ID of the source entity record.
+        // The source entity record ID.
         // 
         // This parameter is required.
         shared_ptr<string> sourceEntityId_ {};
-        // The ID of the target entity record.
+        // The target entity record ID.
         // 
         // This parameter is required.
         shared_ptr<string> targetEntityId_ {};
@@ -188,7 +188,7 @@ namespace Models
 
 
     protected:
-      // The list of relationships.
+      // The relationship list.
       // 
       // This parameter is required.
       shared_ptr<vector<CreateCommand::RelationList>> relationList_ {};
@@ -235,6 +235,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
     // The workspace ID.
     // 

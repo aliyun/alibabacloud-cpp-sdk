@@ -155,9 +155,9 @@ namespace Models
       shared_ptr<string> objectName_ {};
       // region
       shared_ptr<string> region_ {};
-      // The temporary security token.
+      // The security token.
       shared_ptr<string> securityToken_ {};
-      // The storage cluster type. Valid values: oss and ceph.
+      // The type of the storage cluster. Valid values: oss and ceph.
       shared_ptr<string> storageType_ {};
     };
 
@@ -216,9 +216,9 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The details of the temporary read/write authorization.
+    // The details of the temporary read and write authorization.
     shared_ptr<GetFileStorageCredentialResponseBody::StorageCredential> storageCredential_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

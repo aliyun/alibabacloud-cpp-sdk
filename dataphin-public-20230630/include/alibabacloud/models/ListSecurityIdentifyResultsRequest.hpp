@@ -151,25 +151,27 @@ namespace Models
 
 
     protected:
-      // Business unit names.
+      // The names of the business units.
       shared_ptr<vector<string>> bizUnitNameList_ {};
-      // Data classification ID.
+      // The data classification ID.
       shared_ptr<int64_t> classifyId_ {};
-      // Data source names.
+      // The names of the data sources.
       shared_ptr<vector<string>> datasourceNameList_ {};
-      // Environment identifier of the data source, project, or business unit.
+      // The environment identifier of the associated data source, project, or business unit.
       shared_ptr<string> env_ {};
-      // Whether it is locked.
+      // Specifies whether the item is locked.
       shared_ptr<bool> isLocked_ {};
-      // Keyword filter. Supports matching by table catalog, table name, table display name, and field name.
+      // The keyword filter. Supports matching by table catalog, table name, Chinese table name, or field name.
       shared_ptr<string> keyword_ {};
-      // Page number. Default value: 1.
+      // The page number. Default value: 1.
       shared_ptr<int32_t> pageNo_ {};
-      // Number of records per page. Default value: 20.
+      // The number of records per page. Default value: 20.
       shared_ptr<int32_t> pageSize_ {};
-      // Project names.
+      // The names of the projects.
       shared_ptr<vector<string>> projectNameList_ {};
-      // Effective status filter: ENABLE or DISABLE.
+      // The filter for the effective status. Valid values:
+      // - ENABLE: Enabled.
+      // - DISABLE: Disabled.
       shared_ptr<string> status_ {};
     };
 
@@ -199,12 +201,13 @@ namespace Models
 
 
   protected:
-    // Query conditions.
+    // The search criteria.
     shared_ptr<ListSecurityIdentifyResultsRequest::ListQuery> listQuery_ {};
-    // Tenant ID.
+    // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

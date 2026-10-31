@@ -42,6 +42,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ConfigList, configList_);
         DARABONBA_PTR_TO_JSON(Des, des_);
         DARABONBA_PTR_TO_JSON(Name, name_);
+        DARABONBA_PTR_TO_JSON(TimeZone, timeZone_);
         DARABONBA_PTR_TO_JSON(Type, type_);
         DARABONBA_PTR_TO_JSON(TypeVersion, typeVersion_);
       };
@@ -51,6 +52,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ConfigList, configList_);
         DARABONBA_PTR_FROM_JSON(Des, des_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
+        DARABONBA_PTR_FROM_JSON(TimeZone, timeZone_);
         DARABONBA_PTR_FROM_JSON(Type, type_);
         DARABONBA_PTR_FROM_JSON(TypeVersion, typeVersion_);
       };
@@ -103,11 +105,11 @@ namespace Models
 
 
       protected:
-        // The configuration item.
+        // The configuration key.
         // 
         // This parameter is required.
         shared_ptr<string> key_ {};
-        // The value of the configuration item.
+        // The configuration value.
         // 
         // This parameter is required.
         shared_ptr<string> value_ {};
@@ -166,15 +168,15 @@ namespace Models
       protected:
         // The control mode.
         shared_ptr<string> clusterSafetyAuthType_ {};
-        // The list of whitelist user group IDs.
+        // The list of whitelisted user group IDs.
         shared_ptr<vector<string>> userGroupIds_ {};
-        // The list of whitelist user IDs.
+        // The list of whitelisted user IDs.
         shared_ptr<vector<string>> userIds_ {};
       };
 
       virtual bool empty() const override { return this->clusterAdmins_ == nullptr
-        && this->clusterSafetyControl_ == nullptr && this->configList_ == nullptr && this->des_ == nullptr && this->name_ == nullptr && this->type_ == nullptr
-        && this->typeVersion_ == nullptr; };
+        && this->clusterSafetyControl_ == nullptr && this->configList_ == nullptr && this->des_ == nullptr && this->name_ == nullptr && this->timeZone_ == nullptr
+        && this->type_ == nullptr && this->typeVersion_ == nullptr; };
       // clusterAdmins Field Functions 
       bool hasClusterAdmins() const { return this->clusterAdmins_ != nullptr;};
       void deleteClusterAdmins() { this->clusterAdmins_ = nullptr;};
@@ -216,6 +218,13 @@ namespace Models
       inline ClusterConfig& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+      // timeZone Field Functions 
+      bool hasTimeZone() const { return this->timeZone_ != nullptr;};
+      void deleteTimeZone() { this->timeZone_ = nullptr;};
+      inline string getTimeZone() const { DARABONBA_PTR_GET_DEFAULT(timeZone_, "") };
+      inline ClusterConfig& setTimeZone(string timeZone) { DARABONBA_PTR_SET_VALUE(timeZone_, timeZone) };
+
+
       // type Field Functions 
       bool hasType() const { return this->type_ != nullptr;};
       void deleteType() { this->type_ = nullptr;};
@@ -245,6 +254,8 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
+      // The time zone name, such as Asia/Shanghai. If this parameter is not specified during an update, the original value is retained.
+      shared_ptr<string> timeZone_ {};
       // The cluster type.
       // 
       // This parameter is required.
@@ -287,7 +298,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
-    // The ID of the operator user.
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

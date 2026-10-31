@@ -82,7 +82,7 @@ namespace Models
 
 
     protected:
-      // The knowledge graph definition content converted based on the specified format.
+      // The knowledge graph definition content converted based on the format.
       shared_ptr<string> content_ {};
       // The format of the knowledge graph definition content. Valid values: json and yaml. Default value: yaml.
       shared_ptr<string> inputFormat_ {};
@@ -123,7 +123,7 @@ namespace Models
 
 
   protected:
-    // The command for importing the knowledge graph definition.
+    // The import command for the knowledge graph definition.
     // 
     // This parameter is required.
     shared_ptr<ImportKgSchemaRequest::ImportCommand> importCommand_ {};
@@ -131,7 +131,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
-    // The ID of the operator user.
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
     // The workspace ID.
     // 

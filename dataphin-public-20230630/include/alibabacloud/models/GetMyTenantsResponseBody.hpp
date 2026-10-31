@@ -162,7 +162,7 @@ namespace Models
 
 
     protected:
-      // The time when the tenant was deleted.
+      // The deletion time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> deleteTime_ {};
       // Indicates whether the tenant is deleted.
       shared_ptr<bool> deleted_ {};
@@ -174,7 +174,7 @@ namespace Models
       shared_ptr<string> name_ {};
       // Indicates whether the tenant is an O&M tenant.
       shared_ptr<bool> opsTenant_ {};
-      // The ID of the user to whom the tenant belongs.
+      // The ID of the tenant owner.
       shared_ptr<string> ownerId_ {};
       // Indicates whether resource quota calculation is performed.
       shared_ptr<bool> resourceLimited_ {};
@@ -233,7 +233,7 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request was successful.
+    // The error code. OK indicates that the request is successful.
     shared_ptr<string> code_ {};
     // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
@@ -241,7 +241,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
     // The list of tenants.
     shared_ptr<vector<GetMyTenantsResponseBody::TenantList>> tenantList_ {};

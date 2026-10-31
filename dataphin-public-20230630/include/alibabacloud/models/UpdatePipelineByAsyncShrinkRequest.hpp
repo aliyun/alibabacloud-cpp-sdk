@@ -74,8 +74,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the user who performs the operation.
     shared_ptr<string> opUserId_ {};
-    // The pipeline node update configuration.
+    // The update configuration for the pipeline task.
     // 
     // This parameter is required.
     shared_ptr<string> updateCommandShrink_ {};

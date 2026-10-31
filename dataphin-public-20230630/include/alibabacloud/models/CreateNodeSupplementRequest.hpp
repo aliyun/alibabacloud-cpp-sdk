@@ -42,6 +42,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ContainAllDownStream, containAllDownStream_);
         DARABONBA_PTR_TO_JSON(DownStreamNodeIdList, downStreamNodeIdList_);
         DARABONBA_PTR_TO_JSON(EndBizDate, endBizDate_);
+        DARABONBA_PTR_TO_JSON(ExecuteStatusOfIdleNode, executeStatusOfIdleNode_);
+        DARABONBA_PTR_TO_JSON(ExecuteStatusOfPauseNode, executeStatusOfPauseNode_);
         DARABONBA_PTR_TO_JSON(FilterList, filterList_);
         DARABONBA_PTR_TO_JSON(GlobalParamList, globalParamList_);
         DARABONBA_PTR_TO_JSON(MaxDueTime, maxDueTime_);
@@ -52,12 +54,15 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Parallelism, parallelism_);
         DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
         DARABONBA_PTR_TO_JSON(RunImmediately, runImmediately_);
+        DARABONBA_PTR_TO_JSON(ScheduleResourceGroupId, scheduleResourceGroupId_);
         DARABONBA_PTR_TO_JSON(StartBizDate, startBizDate_);
       };
       friend void from_json(const Darabonba::Json& j, CreateCommand& obj) { 
         DARABONBA_PTR_FROM_JSON(ContainAllDownStream, containAllDownStream_);
         DARABONBA_PTR_FROM_JSON(DownStreamNodeIdList, downStreamNodeIdList_);
         DARABONBA_PTR_FROM_JSON(EndBizDate, endBizDate_);
+        DARABONBA_PTR_FROM_JSON(ExecuteStatusOfIdleNode, executeStatusOfIdleNode_);
+        DARABONBA_PTR_FROM_JSON(ExecuteStatusOfPauseNode, executeStatusOfPauseNode_);
         DARABONBA_PTR_FROM_JSON(FilterList, filterList_);
         DARABONBA_PTR_FROM_JSON(GlobalParamList, globalParamList_);
         DARABONBA_PTR_FROM_JSON(MaxDueTime, maxDueTime_);
@@ -68,6 +73,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Parallelism, parallelism_);
         DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
         DARABONBA_PTR_FROM_JSON(RunImmediately, runImmediately_);
+        DARABONBA_PTR_FROM_JSON(ScheduleResourceGroupId, scheduleResourceGroupId_);
         DARABONBA_PTR_FROM_JSON(StartBizDate, startBizDate_);
       };
       CreateCommand() = default ;
@@ -167,7 +173,7 @@ namespace Models
       protected:
         // The node ID.
         shared_ptr<string> nodeId_ {};
-        // The parameter list.
+        // The list of parameters.
         shared_ptr<vector<NodeParamsList::ParamList>> paramList_ {};
       };
 
@@ -211,7 +217,7 @@ namespace Models
 
 
       protected:
-        // The list of field IDs. This parameter is applicable when the node ID is a logical table node ID. If this parameter is not specified, all fields in the table are used by default.
+        // The list of field IDs. This parameter can be specified when the node is a logical table node. If you do not specify this parameter, all fields in the table are used by default.
         shared_ptr<vector<string>> fieldIdList_ {};
         // The node ID.
         // 
@@ -319,8 +325,8 @@ namespace Models
         // - NODE_OUTPUT_NAME: node output name
         // - NODE_NAME: node name
         // - NODE_ID: node ID
-        // - TARGETS: specified endpoints
-        // - SOURCES: specified start points
+        // - TARGETS: specified destination
+        // - SOURCES: specified source
         shared_ptr<string> key_ {};
         // The list of filter values.
         shared_ptr<vector<string>> valueList_ {};
@@ -366,16 +372,17 @@ namespace Models
 
 
       protected:
-        // The field ID.
+        // The field IDs.
         shared_ptr<vector<string>> fieldIdList_ {};
         // The node ID.
         shared_ptr<string> id_ {};
       };
 
       virtual bool empty() const override { return this->containAllDownStream_ == nullptr
-        && this->downStreamNodeIdList_ == nullptr && this->endBizDate_ == nullptr && this->filterList_ == nullptr && this->globalParamList_ == nullptr && this->maxDueTime_ == nullptr
-        && this->minDueTime_ == nullptr && this->name_ == nullptr && this->nodeIdList_ == nullptr && this->nodeParamsList_ == nullptr && this->parallelism_ == nullptr
-        && this->projectId_ == nullptr && this->runImmediately_ == nullptr && this->startBizDate_ == nullptr; };
+        && this->downStreamNodeIdList_ == nullptr && this->endBizDate_ == nullptr && this->executeStatusOfIdleNode_ == nullptr && this->executeStatusOfPauseNode_ == nullptr && this->filterList_ == nullptr
+        && this->globalParamList_ == nullptr && this->maxDueTime_ == nullptr && this->minDueTime_ == nullptr && this->name_ == nullptr && this->nodeIdList_ == nullptr
+        && this->nodeParamsList_ == nullptr && this->parallelism_ == nullptr && this->projectId_ == nullptr && this->runImmediately_ == nullptr && this->scheduleResourceGroupId_ == nullptr
+        && this->startBizDate_ == nullptr; };
       // containAllDownStream Field Functions 
       bool hasContainAllDownStream() const { return this->containAllDownStream_ != nullptr;};
       void deleteContainAllDownStream() { this->containAllDownStream_ = nullptr;};
@@ -397,6 +404,20 @@ namespace Models
       void deleteEndBizDate() { this->endBizDate_ = nullptr;};
       inline string getEndBizDate() const { DARABONBA_PTR_GET_DEFAULT(endBizDate_, "") };
       inline CreateCommand& setEndBizDate(string endBizDate) { DARABONBA_PTR_SET_VALUE(endBizDate_, endBizDate) };
+
+
+      // executeStatusOfIdleNode Field Functions 
+      bool hasExecuteStatusOfIdleNode() const { return this->executeStatusOfIdleNode_ != nullptr;};
+      void deleteExecuteStatusOfIdleNode() { this->executeStatusOfIdleNode_ = nullptr;};
+      inline string getExecuteStatusOfIdleNode() const { DARABONBA_PTR_GET_DEFAULT(executeStatusOfIdleNode_, "") };
+      inline CreateCommand& setExecuteStatusOfIdleNode(string executeStatusOfIdleNode) { DARABONBA_PTR_SET_VALUE(executeStatusOfIdleNode_, executeStatusOfIdleNode) };
+
+
+      // executeStatusOfPauseNode Field Functions 
+      bool hasExecuteStatusOfPauseNode() const { return this->executeStatusOfPauseNode_ != nullptr;};
+      void deleteExecuteStatusOfPauseNode() { this->executeStatusOfPauseNode_ = nullptr;};
+      inline string getExecuteStatusOfPauseNode() const { DARABONBA_PTR_GET_DEFAULT(executeStatusOfPauseNode_, "") };
+      inline CreateCommand& setExecuteStatusOfPauseNode(string executeStatusOfPauseNode) { DARABONBA_PTR_SET_VALUE(executeStatusOfPauseNode_, executeStatusOfPauseNode) };
 
 
       // filterList Field Functions 
@@ -477,6 +498,13 @@ namespace Models
       inline CreateCommand& setRunImmediately(bool runImmediately) { DARABONBA_PTR_SET_VALUE(runImmediately_, runImmediately) };
 
 
+      // scheduleResourceGroupId Field Functions 
+      bool hasScheduleResourceGroupId() const { return this->scheduleResourceGroupId_ != nullptr;};
+      void deleteScheduleResourceGroupId() { this->scheduleResourceGroupId_ = nullptr;};
+      inline string getScheduleResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(scheduleResourceGroupId_, "") };
+      inline CreateCommand& setScheduleResourceGroupId(string scheduleResourceGroupId) { DARABONBA_PTR_SET_VALUE(scheduleResourceGroupId_, scheduleResourceGroupId) };
+
+
       // startBizDate Field Functions 
       bool hasStartBizDate() const { return this->startBizDate_ != nullptr;};
       void deleteStartBizDate() { this->startBizDate_ = nullptr;};
@@ -485,29 +513,33 @@ namespace Models
 
 
     protected:
-      // Specifies whether to include all downstream nodes in batch mode. Default value: false.
+      // Specifies whether to include all downstream nodes in massive mode. Default value: false.
       shared_ptr<bool> containAllDownStream_ {};
-      // The IDs of downstream nodes to run. This parameter takes effect only when ContainAllDownStream is set to false.
+      // The IDs of the downstream nodes to run. This parameter takes effect only when ContainAllDownStream is set to false.
       shared_ptr<vector<CreateCommand::DownStreamNodeIdList>> downStreamNodeIdList_ {};
-      // The end business date.
+      // The end business date. Format: YYYY-MM-DD.
       // 
       // This parameter is required.
       shared_ptr<string> endBizDate_ {};
-      // The list of filters. This parameter is used together with ContainAllDownStream to include or exclude nodes based on criteria such as project or node. Default value: empty.
+      // The execution status of idle nodes. Valid values: NORMAL, PAUSED, and IDLE.
+      shared_ptr<string> executeStatusOfIdleNode_ {};
+      // The execution status of paused nodes. Valid values: NORMAL, PAUSED, and IDLE.
+      shared_ptr<string> executeStatusOfPauseNode_ {};
+      // The filter list. This parameter is used together with ContainAllDownStream to include or exclude items such as projects and nodes. Default value: empty.
       shared_ptr<vector<CreateCommand::FilterList>> filterList_ {};
-      // The runtime global parameters.
+      // The global parameters at runtime.
       shared_ptr<vector<CreateCommand::GlobalParamList>> globalParamList_ {};
-      // The latest trigger time in the HH:MM format. This parameter is applicable only to hourly nodes.
+      // The latest trigger time. Format: HH:MM. This parameter is dedicated to hourly nodes.
       shared_ptr<string> maxDueTime_ {};
-      // The earliest trigger time in the HH:MM format. This parameter is applicable only to hourly nodes.
+      // The earliest trigger time. Format: HH:MM. This parameter is dedicated to hourly nodes.
       shared_ptr<string> minDueTime_ {};
-      // The name of the data backfill. If this parameter is not specified, the system automatically generates a name.
+      // The name of the data backfill task. If you do not specify this parameter, the system generates a name.
       shared_ptr<string> name_ {};
-      // The root nodes for data backfill. Multiple root nodes are supported.
+      // The IDs of the root nodes for data backfill. Multiple root nodes are supported.
       // 
       // This parameter is required.
       shared_ptr<vector<CreateCommand::NodeIdList>> nodeIdList_ {};
-      // The runtime custom parameters configured by node.
+      // The custom parameters at runtime, configured by node.
       shared_ptr<vector<CreateCommand::NodeParamsList>> nodeParamsList_ {};
       // The concurrency. Default value: 1.
       shared_ptr<int32_t> parallelism_ {};
@@ -515,9 +547,14 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
-      // Corresponds to the "Task Run Time" option in the data backfill dialog box. If this parameter is set to true, the scheduled run time of instances is ignored and all instances run immediately. If this parameter is set to false, instances wait for their scheduled run time before running. Default value: true.
+      // Corresponds to the Task Run Time option in the data backfill dialog box on the page. Valid values:
+      // - true: ignores the scheduled run time of instances and runs all instances immediately.
+      // - false: waits for the scheduled run time of instances and runs each instance only when its scheduled time is reached.
+      // Default value: true.
       shared_ptr<bool> runImmediately_ {};
-      // The start business date.
+      // The ID of the schedule resource group.
+      shared_ptr<string> scheduleResourceGroupId_ {};
+      // The start business date. Format: YYYY-MM-DD.
       // 
       // This parameter is required.
       shared_ptr<string> startBizDate_ {};
@@ -561,14 +598,14 @@ namespace Models
     // This parameter is required.
     shared_ptr<CreateNodeSupplementRequest::CreateCommand> createCommand_ {};
     // The environment identifier. Valid values:
-    // - DEV: Development environment. 
-    // - PROD (default): Production environment.
+    // - DEV: development environment 
+    // - PROD: production environment (default)
     shared_ptr<string> env_ {};
     // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
-    // The ID of the operator user.
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

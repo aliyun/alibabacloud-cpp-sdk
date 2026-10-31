@@ -57,10 +57,15 @@ namespace Models
 
 
   protected:
+    // The task query conditions.
+    // 
     // This parameter is required.
     shared_ptr<string> batchTaskQueryShrink_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the user who performs the operation.
     shared_ptr<string> opUserId_ {};
   };
 

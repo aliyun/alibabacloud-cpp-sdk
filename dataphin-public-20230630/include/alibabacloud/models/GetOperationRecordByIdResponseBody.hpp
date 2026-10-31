@@ -183,14 +183,9 @@ namespace Models
     protected:
       // The start time.
       shared_ptr<string> beginTime_ {};
-      // The code type. Valid values:
-      // - SQL0: SQL
-      // - shell1: Shell
-      // - Python2: Python
-      // - MR3: MR
-      // - Spark4: Spark
+      // The code type. Valid values: SQL0, shell1, Python2, MR3, and Spark4.
       shared_ptr<int32_t> codeType_ {};
-      // The execution duration, in milliseconds.
+      // The execution duration in milliseconds.
       shared_ptr<int64_t> duration_ {};
       // The record ID.
       shared_ptr<int64_t> id_ {};
@@ -198,20 +193,17 @@ namespace Models
       shared_ptr<string> name_ {};
       // The object type.
       shared_ptr<string> objectType_ {};
-      // The operation log ID.
+      // The operation record ID.
       shared_ptr<int64_t> operationId_ {};
       // The project ID.
       shared_ptr<int64_t> projectId_ {};
-      // The list of related tables.
+      // The associated tables.
       shared_ptr<vector<string>> relationTables_ {};
-      // The ID of the runner.
+      // The executor ID.
       shared_ptr<string> runner_ {};
-      // The name of the runner.
+      // The executor name.
       shared_ptr<string> runnerName_ {};
-      // The node status. Valid values:
-      // - 4: Running.
-      // - 5: Succeeded.
-      // - 6: Failed.
+      // The task status. Valid values: 4 (Running), 5 (Successful), and 6 (Failed).
       shared_ptr<int32_t> status_ {};
       // The tenant ID.
       shared_ptr<int64_t> tenantId_ {};
@@ -270,11 +262,11 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The backend exception details.
     shared_ptr<string> message_ {};
-    // The operation log details.
+    // The execution record details.
     shared_ptr<GetOperationRecordByIdResponseBody::OperationLogDTO> operationLogDTO_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

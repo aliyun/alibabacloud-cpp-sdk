@@ -147,9 +147,9 @@ namespace Models
 
 
         protected:
-          // The table field.
+          // The column of the table.
           shared_ptr<string> columnName_ {};
-          // The name of the mapping field.
+          // The name of the mapped column.
           shared_ptr<string> mappingColumnName_ {};
           // The GUID of the table.
           shared_ptr<string> resourceId_ {};
@@ -333,15 +333,15 @@ namespace Models
 
 
           protected:
-            // The name of the mapping field.
+            // The name of the mapped column.
             shared_ptr<string> mappingColumnName_ {};
-            // The expression operator.
+            // The operator of the expression.
             shared_ptr<string> operator_ {};
             // The sub-expressions.
             shared_ptr<vector<Darabonba::Json>> subConditions_ {};
-            // The expression type.
+            // The type of the expression.
             shared_ptr<string> type_ {};
-            // The operation values of the expression.
+            // The values of the expression operands.
             shared_ptr<vector<string>> values_ {};
           };
 
@@ -412,7 +412,7 @@ namespace Models
           shared_ptr<string> ruleName_ {};
           // The scope type of the rule.
           shared_ptr<string> scopeType_ {};
-          // The rule status.
+          // The status of the rule.
           shared_ptr<int32_t> status_ {};
           // The accounts bound to the rule.
           shared_ptr<vector<Rules::UserMappingList>> userMappingList_ {};
@@ -465,11 +465,11 @@ namespace Models
 
 
         protected:
-          // The description of the mapping field.
+          // The description of the mapped column.
           shared_ptr<string> columnDesc_ {};
-          // The name of the mapping field.
+          // The name of the mapped column.
           shared_ptr<string> columnName_ {};
-          // The type of the mapping field.
+          // The type of the mapped column.
           shared_ptr<string> columnType_ {};
         };
 
@@ -566,15 +566,15 @@ namespace Models
         shared_ptr<string> gmtCreate_ {};
         // The update time.
         shared_ptr<string> gmtModified_ {};
-        // The mapping fields.
+        // The mapped columns.
         shared_ptr<vector<Data::MappingColumns>> mappingColumns_ {};
         // The modifier.
         shared_ptr<string> modifier_ {};
-        // The description of the row-level permission.
+        // The row-level permission description.
         shared_ptr<string> rowPermissionDesc_ {};
         // The row-level permission ID.
         shared_ptr<int64_t> rowPermissionId_ {};
-        // The name of the row-level permission.
+        // The row-level permission name.
         shared_ptr<string> rowPermissionName_ {};
         // The rules.
         shared_ptr<vector<Data::Rules>> rules_ {};
@@ -656,7 +656,7 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request was successful.
+    // The error code. OK indicates that the request is successful.
     shared_ptr<string> code_ {};
     // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
@@ -666,7 +666,7 @@ namespace Models
     shared_ptr<ListRowPermissionResponseBody::PageResult> pageResult_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -70,17 +70,18 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
-    // The object ID, such as a table ID, datasource ID, or metric ID.
+    // The ID of the object, such as the table ID, data source ID, or metric ID.
     // 
     // This parameter is required.
     shared_ptr<string> watchObjectId_ {};
     // The monitored object type. Valid values:
     // - TABLE: Dataphin table.
-    // - DATASOURCE_TABLE: global table.
-    // - DATASOURCE: datasource.
-    // - INDEX: metric.
-    // - REALTIME_LOGICAL_TABLE: real-time meta table.
+    // - DATASOURCE_TABLE: Global table.
+    // - DATASOURCE: Data source.
+    // - INDEX: Metric.
+    // - REALTIME_LOGICAL_TABLE: Real-time metatable.
     // 
     // This parameter is required.
     shared_ptr<string> watchType_ {};

@@ -80,7 +80,7 @@ namespace Models
     protected:
       // AppId
       shared_ptr<int32_t> id_ {};
-      // The application name.
+      // The name of the application.
       shared_ptr<string> name_ {};
     };
 
@@ -131,7 +131,7 @@ namespace Models
 
 
   protected:
-    // The list of application groups.
+    // The list of applications.
     shared_ptr<vector<GetDataServiceAppsByGroupIdResponseBody::AppInfoList>> appInfoList_ {};
     // The backend response code.
     shared_ptr<string> code_ {};
@@ -141,7 +141,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

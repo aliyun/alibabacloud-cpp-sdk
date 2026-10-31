@@ -66,18 +66,21 @@ namespace Models
 
 
   protected:
-    // Search conditions.
+    // The search conditions.
     // 
     // This parameter is required.
     shared_ptr<string> listQueryShrink_ {};
-    // Tenant ID.
+    // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
-    // Data service project ID.
+    // The data service project ID.
     // 
-    // This parameter is required.
+    // > If this parameter is not specified:
+    // > - Super administrators can query data of all service projects.
+    // > - Users other than super administrators can query data of service projects where they have the service project administrator or O&M user permissions.
     shared_ptr<int32_t> projectId_ {};
   };
 

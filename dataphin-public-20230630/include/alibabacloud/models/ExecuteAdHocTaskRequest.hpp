@@ -168,17 +168,17 @@ namespace Models
 
 
     protected:
-      // The node script.
+      // The task script.
       // 
       // This parameter is required.
       shared_ptr<string> code_ {};
-      // The catalog for a database SQL task. This parameter takes effect only for data source types that require a catalog, such as Presto.
+      // The data source catalog for database SQL tasks. This parameter takes effect only for data source types that require a catalog, such as Presto.
       shared_ptr<string> dataSourceCatalog_ {};
-      // The data source ID for a database SQL task.
+      // The data source ID for database SQL tasks.
       shared_ptr<int64_t> dataSourceId_ {};
-      // The schema for a database SQL task. This parameter takes effect only for data source types that require a schema, such as Oracle.
+      // The data source schema for database SQL tasks. This parameter takes effect only for data source types that require a schema, such as Oracle.
       shared_ptr<string> dataSourceSchema_ {};
-      // The node type.
+      // The task type.
       // 
       // This parameter is required.
       shared_ptr<string> operatorType_ {};
@@ -224,6 +224,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator ID.
     shared_ptr<string> opUserId_ {};
   };
 

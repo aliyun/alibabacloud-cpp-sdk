@@ -78,9 +78,9 @@ namespace Models
 
 
     protected:
-      // Indicates whether the user has the permission on the specified resource
+      // Indicates whether the user has the specified resource permissions.
       shared_ptr<bool> hasPermission_ {};
-      // Resource ID
+      // The resource ID.
       shared_ptr<string> resourceId_ {};
     };
 
@@ -131,17 +131,17 @@ namespace Models
 
 
   protected:
-    // Error code. OK indicates a successful request
+    // The error code. A value of OK indicates that the request is successful.
     shared_ptr<string> code_ {};
-    // HTTP status code returned by the backend
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Error message
+    // The error message.
     shared_ptr<string> message_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Resource permission list
+    // The resource permission list.
     shared_ptr<vector<CheckResourcePermissionResponseBody::ResourcePermissionList>> resourcePermissionList_ {};
-    // Indicates whether the request was successful
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

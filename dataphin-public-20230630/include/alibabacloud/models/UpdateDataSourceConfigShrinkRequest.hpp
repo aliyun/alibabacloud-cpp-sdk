@@ -61,8 +61,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator user ID.
     shared_ptr<string> opUserId_ {};
-    // The data source configuration item change.
+    // The changes to the datasource configuration items.
     // 
     // This parameter is required.
     shared_ptr<string> updateCommandShrink_ {};

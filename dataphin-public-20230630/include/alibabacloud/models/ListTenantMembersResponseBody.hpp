@@ -318,17 +318,17 @@ namespace Models
       protected:
         // The account name.
         shared_ptr<string> accountName_ {};
-        // The DingTalk number.
+        // The DingTalk ID.
         shared_ptr<string> dingNumber_ {};
         // The display name of the user.
         shared_ptr<string> displayName_ {};
-        // The display name of the user without status.
+        // The display name of the user without the status.
         shared_ptr<string> displayNameWithoutStatus_ {};
-        // Indicates whether the IP address whitelist is enabled.
+        // Indicates whether the IP whitelist is enabled.
         shared_ptr<string> enableWhiteIp_ {};
-        // The time when the user was created.
+        // The creation time.
         shared_ptr<int64_t> gmtCreate_ {};
-        // The time when the user was last modified.
+        // The modification time.
         shared_ptr<int64_t> gmtModified_ {};
         // The user ID.
         shared_ptr<string> id_ {};
@@ -342,13 +342,13 @@ namespace Models
         shared_ptr<string> nickName_ {};
         // The real name of the user.
         shared_ptr<string> realName_ {};
-        // The list of member roles.
+        // The member role.
         shared_ptr<vector<string>> roleList_ {};
-        // The user source ID.
+        // The ID of the user source.
         shared_ptr<string> sourceId_ {};
-        // The user source.
+        // The source of the user.
         shared_ptr<string> sourceType_ {};
-        // The list of user groups to which the user belongs.
+        // The resource groups to which the user belongs.
         shared_ptr<vector<UserList::UserGroupList>> userGroupList_ {};
         // The IP address whitelist.
         shared_ptr<string> whiteIp_ {};
@@ -373,9 +373,9 @@ namespace Models
 
 
     protected:
-      // The total number of entries.
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
-      // The list of users.
+      // The user list.
       shared_ptr<vector<PageResult::UserList>> userList_ {};
     };
 
@@ -426,17 +426,17 @@ namespace Models
 
 
   protected:
-    // The error code. OK indicates a successful request.
+    // The error code. OK indicates that the request is successful.
     shared_ptr<string> code_ {};
-    // The HTTP status code.
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The paginated query result.
+    // The paged query result.
     shared_ptr<ListTenantMembersResponseBody::PageResult> pageResult_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

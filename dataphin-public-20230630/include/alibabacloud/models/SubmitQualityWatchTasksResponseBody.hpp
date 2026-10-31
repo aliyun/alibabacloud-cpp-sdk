@@ -70,7 +70,7 @@ namespace Models
 
 
     protected:
-      // The list of quality watchtask IDs.
+      // The IDs of the monitoring object check nodes.
       shared_ptr<vector<int64_t>> watchTaskIdList_ {};
     };
 
@@ -125,13 +125,13 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The details of the backend exception.
+    // The backend exception details.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
     // The execution result.
     shared_ptr<SubmitQualityWatchTasksResponseBody::SubmitResult> submitResult_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

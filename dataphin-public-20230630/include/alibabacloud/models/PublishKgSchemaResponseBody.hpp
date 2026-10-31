@@ -77,7 +77,7 @@ namespace Models
 
 
     protected:
-      // The expected latest model version number after the publish operation.
+      // The expected latest model version number after publishing.
       shared_ptr<int32_t> versionId_ {};
       // The model ID.
       shared_ptr<string> workspaceId_ {};
@@ -140,7 +140,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

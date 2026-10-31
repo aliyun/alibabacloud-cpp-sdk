@@ -71,7 +71,7 @@ namespace Models
 
 
     protected:
-      // The review remarks. The value can be up to 128 characters in length.
+      // The review comment. Maximum length: 128 characters.
       // 
       // This parameter is required.
       shared_ptr<string> comment_ {};
@@ -107,7 +107,7 @@ namespace Models
 
 
   protected:
-    // The offline instruction.
+    // The offline command.
     // 
     // This parameter is required.
     shared_ptr<OfflineStandardRequest::OfflineCommand> offlineCommand_ {};
@@ -115,6 +115,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator user ID.
     shared_ptr<string> opUserId_ {};
   };
 

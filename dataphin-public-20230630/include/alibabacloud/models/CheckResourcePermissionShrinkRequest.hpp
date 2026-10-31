@@ -57,14 +57,15 @@ namespace Models
 
 
   protected:
-    // Check user resource permission
+    // The user resource permission check command.
     // 
     // This parameter is required.
     shared_ptr<string> checkCommandShrink_ {};
-    // Tenant ID
+    // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

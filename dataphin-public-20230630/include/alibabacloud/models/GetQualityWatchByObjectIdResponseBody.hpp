@@ -255,15 +255,13 @@ namespace Models
         shared_ptr<string> bizUnitName_ {};
         // The table catalog.
         shared_ptr<string> catalog_ {};
-        // The datasource ID.
+        // The data source ID.
         shared_ptr<string> dataSourceId_ {};
-        // The datasource type.
+        // The data source type.
         shared_ptr<string> dataSourceType_ {};
         // The description.
         shared_ptr<string> description_ {};
-        // The environment identifier. Valid values:
-        // - DEV
-        // - PROD.
+        // The environment identifier. Valid values: DEV and PROD.
         shared_ptr<string> env_ {};
         // The table ID.
         shared_ptr<string> id_ {};
@@ -273,19 +271,13 @@ namespace Models
         shared_ptr<string> name_ {};
         // The user ID of the owner.
         shared_ptr<string> owner_ {};
-        // The name of the owner.
+        // The username of the owner.
         shared_ptr<string> ownerName_ {};
         // The project ID.
         shared_ptr<int64_t> projectId_ {};
         // The project name.
         shared_ptr<string> projectName_ {};
-        // The type. Valid values:
-        // - LOGIC_DIM_TABLE: logical dimension table.
-        // - LOGIC_FACT_TABLE: logical fact table.
-        // - LOGIC_SUM_TABLE: logical aggregate table.
-        // - LOGIC_LABEL_TABLE: logical label table.
-        // - PHYSICAL_TABLE: physical table.
-        // - REALTIME_LOGICAL_TABLE: real-time meta table.
+        // The type. Valid values: LOGIC_DIM_TABLE (logical dimension table), LOGIC_FACT_TABLE (logical fact table), LOGIC_SUM_TABLE (logical aggregate table), LOGIC_LABEL_TABLE (logical tag table), PHYSICAL_TABLE (physical table), and REALTIME_LOGICAL_TABLE (real-time metadata table).
         shared_ptr<string> type_ {};
       };
 
@@ -480,13 +472,9 @@ namespace Models
         shared_ptr<string> bizUnitName_ {};
         // The metric catalog.
         shared_ptr<string> catalog_ {};
-        // The name of the cell aggregate table.
+        // The name of the cell summary logical table.
         shared_ptr<string> cellSumLogicTableName_ {};
-        // The computation type of the metric. Valid values:
-        // - AUTO
-        // - CUSTOM
-        // - MOUNT
-        // - COMBINE.
+        // The compute type of the metric. Valid values: AUTO, CUSTOM, MOUNT, and COMBINE.
         shared_ptr<string> computeType_ {};
         // The data type of the metric.
         shared_ptr<string> dateType_ {};
@@ -494,7 +482,7 @@ namespace Models
         shared_ptr<string> description_ {};
         // The display name of the metric.
         shared_ptr<string> displayName_ {};
-        // The display name of the statistical granularity.
+        // The statistical granularity name.
         shared_ptr<string> granularityDisplayName_ {};
         // The statistical granularity ID.
         shared_ptr<int64_t> granularityId_ {};
@@ -506,14 +494,13 @@ namespace Models
         shared_ptr<string> name_ {};
         // The user ID of the owner.
         shared_ptr<string> owner_ {};
-        // The name of the owner.
+        // The username of the owner.
         shared_ptr<string> ownerName_ {};
         // The project ID.
         shared_ptr<int64_t> projectId_ {};
         // The project name.
         shared_ptr<string> projectName_ {};
-        // The metric type. Valid values:
-        // - INDEX.
+        // The metric type. Valid value: INDEX.
         shared_ptr<string> type_ {};
       };
 
@@ -632,25 +619,21 @@ namespace Models
         shared_ptr<string> createTime_ {};
         // The creator.
         shared_ptr<string> creator_ {};
-        // The name of the creator.
+        // The creator name.
         shared_ptr<string> creatorName_ {};
-        // The environment identifier. Valid values:
-        // - PROD
-        // - DEV.
+        // The environment identifier. Valid values: PROD and DEV.
         shared_ptr<string> env_ {};
-        // The datasource ID.
+        // The data source ID.
         shared_ptr<string> id_ {};
-        // The modification time.
+        // The update time.
         shared_ptr<string> modifyTime_ {};
-        // The datasource name.
+        // The data source name.
         shared_ptr<string> name_ {};
         // The user ID of the owner.
         shared_ptr<string> owner_ {};
-        // The name of the owner.
+        // The username of the owner.
         shared_ptr<string> ownerName_ {};
-        // The datasource type. Valid values:
-        // - MAX_COMPUTE
-        // - HADOOP.
+        // The data source type. Valid values: MAX_COMPUTE and HADOOP.
         shared_ptr<string> type_ {};
       };
 
@@ -796,25 +779,25 @@ namespace Models
       shared_ptr<string> createTime_ {};
       // The creator.
       shared_ptr<string> creator_ {};
-      // The name of the creator.
+      // The creator name.
       shared_ptr<string> creatorName_ {};
-      // The datasource details.
+      // The data source details.
       shared_ptr<QualityWatchInfo::DataSourceInfo> dataSourceInfo_ {};
       // The number of enabled rules.
       shared_ptr<int64_t> enabledRuleCount_ {};
-      // The monitoring ID.
+      // The monitor ID.
       shared_ptr<int64_t> id_ {};
       // The metric details.
       shared_ptr<QualityWatchInfo::IndexInfo> indexInfo_ {};
-      // The ID of the most recent quality watchtask for the monitored object.
+      // The ID of the latest quality watchtask.
       shared_ptr<int64_t> latestWatchTaskId_ {};
-      // The status of the most recent quality watchtask for the monitored object.
+      // The status of the latest quality watchtask.
       shared_ptr<string> latestWatchTaskStatus_ {};
       // The user ID of the last modifier.
       shared_ptr<string> modifier_ {};
-      // The modification time.
+      // The update time.
       shared_ptr<string> modifyTime_ {};
-      // The monitoring name.
+      // The monitor name.
       shared_ptr<string> name_ {};
       // The user ID of the quality owner.
       shared_ptr<string> qualityOwner_ {};
@@ -822,18 +805,11 @@ namespace Models
       shared_ptr<string> qualityOwnerName_ {};
       // The number of rules.
       shared_ptr<int64_t> ruleCount_ {};
-      // The status. Valid values:
-      // - ENABLE
-      // - DISABLE.
+      // The status. Valid values: ENABLE and DISABLE.
       shared_ptr<string> status_ {};
       // The monitored table object.
       shared_ptr<QualityWatchInfo::TableInfo> tableInfo_ {};
-      // The monitored object type. Valid values:
-      // - TABLE: Dataphin table.
-      // - DATASOURCE_TABLE: global table.
-      // - DATASOURCE: datasource.
-      // - INDEX: metric.
-      // - REALTIME_LOGICAL_TABLE: real-time meta table.
+      // The monitored object type. Valid values: TABLE (Dataphin table), DATASOURCE_TABLE (global table), DATASOURCE (data source), INDEX (metric), and REALTIME_LOGICAL_TABLE (real-time metadata table).
       shared_ptr<string> type_ {};
     };
 
@@ -888,13 +864,13 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error details from the backend.
+    // The backend exception details.
     shared_ptr<string> message_ {};
-    // The details of the monitored object.
+    // The monitored object details.
     shared_ptr<GetQualityWatchByObjectIdResponseBody::QualityWatchInfo> qualityWatchInfo_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -300,11 +300,11 @@ namespace Models
 
 
       protected:
-        // The list of parent business process IDs. This parameter is valid only when the entity type is business process.
+        // The list of IDs of the business processes to which the business entity belongs. This parameter is valid only when the business entity type is business process.
         shared_ptr<vector<int64_t>> belongToBizEntityIdList_ {};
         // The ID of the business unit to which the business process belongs.
         shared_ptr<int64_t> bizUnitId_ {};
-        // The list of child business object IDs. This parameter is valid only when the entity type is business object.
+        // The list of child business object IDs. This parameter is valid only when the business entity type is business object.
         shared_ptr<vector<int64_t>> childBizEntityIdList_ {};
         // The ID of the data domain to which the business process belongs.
         shared_ptr<int64_t> dataDomainId_ {};
@@ -314,9 +314,9 @@ namespace Models
         shared_ptr<string> displayName_ {};
         // The time when the business entity was created.
         shared_ptr<string> gmtCreate_ {};
-        // The time when the business entity was last modified.
+        // The time when the business entity was last updated.
         shared_ptr<string> gmtModified_ {};
-        // Indicates whether the entity is a child business object.
+        // Indicates whether the business entity has child business objects.
         shared_ptr<bool> hasChildBizEntity_ {};
         // The ID of the business entity.
         shared_ptr<int64_t> id_ {};
@@ -324,35 +324,35 @@ namespace Models
         shared_ptr<string> lastModifier_ {};
         // The name of the user who last modified the business entity.
         shared_ptr<string> lastModifierName_ {};
-        // Indicates whether the entity is a sublevel of a hierarchy dimension.
+        // Indicates whether the business entity is a sub-level of a hierarchy dimension.
         shared_ptr<bool> levelSubBizObject_ {};
         // The name of the business entity.
         shared_ptr<string> name_ {};
         // The online status of the business entity. Valid values: 
         // - SUBMITTED: not online.
-        // - APPROVING: pending approval.
+        // - APPROVING: under approval.
         // - PUBLISHED: online.
-        // - REJECT: failed to go online.
+        // - REJECT: rejected.
         shared_ptr<string> onlineStatus_ {};
         // The ID of the business entity owner.
         shared_ptr<string> ownerName_ {};
         // The ID of the business entity owner.
         shared_ptr<string> ownerUserId_ {};
-        // The list of associated central business entity IDs.
+        // The list of IDs of the associated central business entities.
         shared_ptr<vector<int64_t>> refBizEntityIdList_ {};
         // The number of associated logical tables.
         shared_ptr<int32_t> refTableCount_ {};
         // The status of the business entity. Valid values:
         // - DRAFT: draft or not online.
-        // - SUBMITTING: being submitted.
+        // - SUBMITTING: submitting.
         // - SUBMITTED: submitted.
-        // - DEVELOPING: under development.
-        // - PUBLISHING: being published.
+        // - DEVELOPING: in development.
+        // - PUBLISHING: publishing.
         // - PUBLISHED: published.
         shared_ptr<string> status_ {};
         // The subtype of the business entity.
         shared_ptr<string> subType_ {};
-        // The list of subsequent business process IDs. This parameter is valid only when the entity type is business process.
+        // The list of IDs of the subsequent business processes. This parameter is valid only when the business entity type is business process.
         shared_ptr<vector<int64_t>> suffixBizEntityIdList_ {};
         // The type of the business entity. Valid values:
         // - BIZ_OBJECT: business object.
@@ -432,7 +432,7 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request was successful.
+    // The error code. A value of OK indicates that the request is successful.
     shared_ptr<string> code_ {};
     // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
@@ -442,7 +442,7 @@ namespace Models
     shared_ptr<ListBizEntitiesResponseBody::PageResult> pageResult_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

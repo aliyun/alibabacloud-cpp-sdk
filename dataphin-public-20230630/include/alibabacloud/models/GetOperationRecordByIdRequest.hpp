@@ -71,7 +71,7 @@ namespace Models
 
 
     protected:
-      // The operation log ID.
+      // The operation record ID.
       // 
       // This parameter is required.
       shared_ptr<int64_t> operationId_ {};
@@ -115,6 +115,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator user ID.
     shared_ptr<string> opUserId_ {};
   };
 

@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // Backend response code
+    // The backend response code.
     shared_ptr<string> code_ {};
-    // HTTP response code
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Backend response exception details
+    // The backend exception details.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Whether the request is successful
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

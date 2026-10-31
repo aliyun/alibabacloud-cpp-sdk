@@ -43,6 +43,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ConditionScheduleParamList, conditionScheduleParamList_);
         DARABONBA_PTR_TO_JSON(ConditionScheduleTemplateId, conditionScheduleTemplateId_);
         DARABONBA_PTR_TO_JSON(ContextParamList, contextParamList_);
+        DARABONBA_PTR_TO_JSON(CpuResource, cpuResource_);
         DARABONBA_PTR_TO_JSON(CronExpression, cronExpression_);
         DARABONBA_PTR_TO_JSON(CustomScheduleConfig, customScheduleConfig_);
         DARABONBA_PTR_TO_JSON(DataSourceCatalog, dataSourceCatalog_);
@@ -52,7 +53,10 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DevResourceGroupId, devResourceGroupId_);
         DARABONBA_PTR_TO_JSON(DevelopOwnerIdList, developOwnerIdList_);
         DARABONBA_PTR_TO_JSON(Engine, engine_);
+        DARABONBA_PTR_TO_JSON(ExecuteRerunConfig, executeRerunConfig_);
+        DARABONBA_PTR_TO_JSON(ExecuteTimeOutConfig, executeTimeOutConfig_);
         DARABONBA_PTR_TO_JSON(FileId, fileId_);
+        DARABONBA_PTR_TO_JSON(MemoryResource, memoryResource_);
         DARABONBA_PTR_TO_JSON(Name, name_);
         DARABONBA_PTR_TO_JSON(NodeDescription, nodeDescription_);
         DARABONBA_PTR_TO_JSON(NodeOutputNameList, nodeOutputNameList_);
@@ -64,8 +68,13 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
         DARABONBA_PTR_TO_JSON(PythonModuleList, pythonModuleList_);
         DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
+        DARABONBA_PTR_TO_JSON(ResourceReferenceList, resourceReferenceList_);
+        DARABONBA_PTR_TO_JSON(RetryOnTimeoutEnable, retryOnTimeoutEnable_);
         DARABONBA_PTR_TO_JSON(SchedulePeriod, schedulePeriod_);
         DARABONBA_PTR_TO_JSON(SparkClientInfo, sparkClientInfo_);
+        DARABONBA_PTR_TO_JSON(SparkDynamicResourceSwitch, sparkDynamicResourceSwitch_);
+        DARABONBA_PTR_TO_JSON(SparkResourceEffectScope, sparkResourceEffectScope_);
+        DARABONBA_PTR_TO_JSON(SparkSqlResourceConfigMap, sparkSqlResourceConfigMap_);
         DARABONBA_PTR_TO_JSON(TaskTagList, taskTagList_);
         DARABONBA_PTR_TO_JSON(TaskType, taskType_);
         DARABONBA_PTR_TO_JSON(UpStreamList, upStreamList_);
@@ -79,6 +88,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ConditionScheduleParamList, conditionScheduleParamList_);
         DARABONBA_PTR_FROM_JSON(ConditionScheduleTemplateId, conditionScheduleTemplateId_);
         DARABONBA_PTR_FROM_JSON(ContextParamList, contextParamList_);
+        DARABONBA_PTR_FROM_JSON(CpuResource, cpuResource_);
         DARABONBA_PTR_FROM_JSON(CronExpression, cronExpression_);
         DARABONBA_PTR_FROM_JSON(CustomScheduleConfig, customScheduleConfig_);
         DARABONBA_PTR_FROM_JSON(DataSourceCatalog, dataSourceCatalog_);
@@ -88,7 +98,10 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DevResourceGroupId, devResourceGroupId_);
         DARABONBA_PTR_FROM_JSON(DevelopOwnerIdList, developOwnerIdList_);
         DARABONBA_PTR_FROM_JSON(Engine, engine_);
+        DARABONBA_PTR_FROM_JSON(ExecuteRerunConfig, executeRerunConfig_);
+        DARABONBA_PTR_FROM_JSON(ExecuteTimeOutConfig, executeTimeOutConfig_);
         DARABONBA_PTR_FROM_JSON(FileId, fileId_);
+        DARABONBA_PTR_FROM_JSON(MemoryResource, memoryResource_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
         DARABONBA_PTR_FROM_JSON(NodeDescription, nodeDescription_);
         DARABONBA_PTR_FROM_JSON(NodeOutputNameList, nodeOutputNameList_);
@@ -100,8 +113,13 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
         DARABONBA_PTR_FROM_JSON(PythonModuleList, pythonModuleList_);
         DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
+        DARABONBA_PTR_FROM_JSON(ResourceReferenceList, resourceReferenceList_);
+        DARABONBA_PTR_FROM_JSON(RetryOnTimeoutEnable, retryOnTimeoutEnable_);
         DARABONBA_PTR_FROM_JSON(SchedulePeriod, schedulePeriod_);
         DARABONBA_PTR_FROM_JSON(SparkClientInfo, sparkClientInfo_);
+        DARABONBA_PTR_FROM_JSON(SparkDynamicResourceSwitch, sparkDynamicResourceSwitch_);
+        DARABONBA_PTR_FROM_JSON(SparkResourceEffectScope, sparkResourceEffectScope_);
+        DARABONBA_PTR_FROM_JSON(SparkSqlResourceConfigMap, sparkSqlResourceConfigMap_);
         DARABONBA_PTR_FROM_JSON(TaskTagList, taskTagList_);
         DARABONBA_PTR_FROM_JSON(TaskType, taskType_);
         DARABONBA_PTR_FROM_JSON(UpStreamList, upStreamList_);
@@ -387,6 +405,105 @@ namespace Models
         shared_ptr<string> value_ {};
       };
 
+      class ExecuteTimeOutConfig : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ExecuteTimeOutConfig& obj) { 
+          DARABONBA_PTR_TO_JSON(CustomValues, customValues_);
+          DARABONBA_PTR_TO_JSON(FollowSystem, followSystem_);
+        };
+        friend void from_json(const Darabonba::Json& j, ExecuteTimeOutConfig& obj) { 
+          DARABONBA_PTR_FROM_JSON(CustomValues, customValues_);
+          DARABONBA_PTR_FROM_JSON(FollowSystem, followSystem_);
+        };
+        ExecuteTimeOutConfig() = default ;
+        ExecuteTimeOutConfig(const ExecuteTimeOutConfig &) = default ;
+        ExecuteTimeOutConfig(ExecuteTimeOutConfig &&) = default ;
+        ExecuteTimeOutConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ExecuteTimeOutConfig() = default ;
+        ExecuteTimeOutConfig& operator=(const ExecuteTimeOutConfig &) = default ;
+        ExecuteTimeOutConfig& operator=(ExecuteTimeOutConfig &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->customValues_ == nullptr
+        && this->followSystem_ == nullptr; };
+        // customValues Field Functions 
+        bool hasCustomValues() const { return this->customValues_ != nullptr;};
+        void deleteCustomValues() { this->customValues_ = nullptr;};
+        inline string getCustomValues() const { DARABONBA_PTR_GET_DEFAULT(customValues_, "") };
+        inline ExecuteTimeOutConfig& setCustomValues(string customValues) { DARABONBA_PTR_SET_VALUE(customValues_, customValues) };
+
+
+        // followSystem Field Functions 
+        bool hasFollowSystem() const { return this->followSystem_ != nullptr;};
+        void deleteFollowSystem() { this->followSystem_ = nullptr;};
+        inline bool getFollowSystem() const { DARABONBA_PTR_GET_DEFAULT(followSystem_, false) };
+        inline ExecuteTimeOutConfig& setFollowSystem(bool followSystem) { DARABONBA_PTR_SET_VALUE(followSystem_, followSystem) };
+
+
+      protected:
+        // 自定义超时时间。
+        shared_ptr<string> customValues_ {};
+        // 是否跟随系统配置。
+        shared_ptr<bool> followSystem_ {};
+      };
+
+      class ExecuteRerunConfig : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ExecuteRerunConfig& obj) { 
+          DARABONBA_PTR_TO_JSON(CustomRerunInterval, customRerunInterval_);
+          DARABONBA_PTR_TO_JSON(CustomRerunTimes, customRerunTimes_);
+          DARABONBA_PTR_TO_JSON(FollowSystem, followSystem_);
+        };
+        friend void from_json(const Darabonba::Json& j, ExecuteRerunConfig& obj) { 
+          DARABONBA_PTR_FROM_JSON(CustomRerunInterval, customRerunInterval_);
+          DARABONBA_PTR_FROM_JSON(CustomRerunTimes, customRerunTimes_);
+          DARABONBA_PTR_FROM_JSON(FollowSystem, followSystem_);
+        };
+        ExecuteRerunConfig() = default ;
+        ExecuteRerunConfig(const ExecuteRerunConfig &) = default ;
+        ExecuteRerunConfig(ExecuteRerunConfig &&) = default ;
+        ExecuteRerunConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ExecuteRerunConfig() = default ;
+        ExecuteRerunConfig& operator=(const ExecuteRerunConfig &) = default ;
+        ExecuteRerunConfig& operator=(ExecuteRerunConfig &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->customRerunInterval_ == nullptr
+        && this->customRerunTimes_ == nullptr && this->followSystem_ == nullptr; };
+        // customRerunInterval Field Functions 
+        bool hasCustomRerunInterval() const { return this->customRerunInterval_ != nullptr;};
+        void deleteCustomRerunInterval() { this->customRerunInterval_ = nullptr;};
+        inline string getCustomRerunInterval() const { DARABONBA_PTR_GET_DEFAULT(customRerunInterval_, "") };
+        inline ExecuteRerunConfig& setCustomRerunInterval(string customRerunInterval) { DARABONBA_PTR_SET_VALUE(customRerunInterval_, customRerunInterval) };
+
+
+        // customRerunTimes Field Functions 
+        bool hasCustomRerunTimes() const { return this->customRerunTimes_ != nullptr;};
+        void deleteCustomRerunTimes() { this->customRerunTimes_ = nullptr;};
+        inline string getCustomRerunTimes() const { DARABONBA_PTR_GET_DEFAULT(customRerunTimes_, "") };
+        inline ExecuteRerunConfig& setCustomRerunTimes(string customRerunTimes) { DARABONBA_PTR_SET_VALUE(customRerunTimes_, customRerunTimes) };
+
+
+        // followSystem Field Functions 
+        bool hasFollowSystem() const { return this->followSystem_ != nullptr;};
+        void deleteFollowSystem() { this->followSystem_ = nullptr;};
+        inline bool getFollowSystem() const { DARABONBA_PTR_GET_DEFAULT(followSystem_, false) };
+        inline ExecuteRerunConfig& setFollowSystem(bool followSystem) { DARABONBA_PTR_SET_VALUE(followSystem_, followSystem) };
+
+
+      protected:
+        // 自定义失败重试间隔。
+        shared_ptr<string> customRerunInterval_ {};
+        // 自定义失败重试次数。
+        shared_ptr<string> customRerunTimes_ {};
+        // 是否跟随系统配置。
+        shared_ptr<bool> followSystem_ {};
+      };
+
       class CustomScheduleConfig : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const CustomScheduleConfig& obj) { 
@@ -642,12 +759,14 @@ namespace Models
 
       virtual bool empty() const override { return this->baseScheduleTemplateId_ == nullptr
         && this->code_ == nullptr && this->conditionScheduleEnable_ == nullptr && this->conditionScheduleParamList_ == nullptr && this->conditionScheduleTemplateId_ == nullptr && this->contextParamList_ == nullptr
-        && this->cronExpression_ == nullptr && this->customScheduleConfig_ == nullptr && this->dataSourceCatalog_ == nullptr && this->dataSourceId_ == nullptr && this->dataSourceSchema_ == nullptr
-        && this->devHttpPath_ == nullptr && this->devResourceGroupId_ == nullptr && this->developOwnerIdList_ == nullptr && this->engine_ == nullptr && this->fileId_ == nullptr
-        && this->name_ == nullptr && this->nodeDescription_ == nullptr && this->nodeOutputNameList_ == nullptr && this->nodeStatus_ == nullptr && this->opsOwnerIdList_ == nullptr
-        && this->paramList_ == nullptr && this->priority_ == nullptr && this->prodHttpPath_ == nullptr && this->projectId_ == nullptr && this->pythonModuleList_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->schedulePeriod_ == nullptr && this->sparkClientInfo_ == nullptr && this->taskTagList_ == nullptr && this->taskType_ == nullptr
-        && this->upStreamList_ == nullptr && this->validEndDate_ == nullptr && this->validStartDate_ == nullptr; };
+        && this->cpuResource_ == nullptr && this->cronExpression_ == nullptr && this->customScheduleConfig_ == nullptr && this->dataSourceCatalog_ == nullptr && this->dataSourceId_ == nullptr
+        && this->dataSourceSchema_ == nullptr && this->devHttpPath_ == nullptr && this->devResourceGroupId_ == nullptr && this->developOwnerIdList_ == nullptr && this->engine_ == nullptr
+        && this->executeRerunConfig_ == nullptr && this->executeTimeOutConfig_ == nullptr && this->fileId_ == nullptr && this->memoryResource_ == nullptr && this->name_ == nullptr
+        && this->nodeDescription_ == nullptr && this->nodeOutputNameList_ == nullptr && this->nodeStatus_ == nullptr && this->opsOwnerIdList_ == nullptr && this->paramList_ == nullptr
+        && this->priority_ == nullptr && this->prodHttpPath_ == nullptr && this->projectId_ == nullptr && this->pythonModuleList_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->resourceReferenceList_ == nullptr && this->retryOnTimeoutEnable_ == nullptr && this->schedulePeriod_ == nullptr && this->sparkClientInfo_ == nullptr && this->sparkDynamicResourceSwitch_ == nullptr
+        && this->sparkResourceEffectScope_ == nullptr && this->sparkSqlResourceConfigMap_ == nullptr && this->taskTagList_ == nullptr && this->taskType_ == nullptr && this->upStreamList_ == nullptr
+        && this->validEndDate_ == nullptr && this->validStartDate_ == nullptr; };
       // baseScheduleTemplateId Field Functions 
       bool hasBaseScheduleTemplateId() const { return this->baseScheduleTemplateId_ != nullptr;};
       void deleteBaseScheduleTemplateId() { this->baseScheduleTemplateId_ = nullptr;};
@@ -692,6 +811,13 @@ namespace Models
       inline vector<UpdateCommand::ContextParamList> getContextParamList() { DARABONBA_PTR_GET(contextParamList_, vector<UpdateCommand::ContextParamList>) };
       inline UpdateCommand& setContextParamList(const vector<UpdateCommand::ContextParamList> & contextParamList) { DARABONBA_PTR_SET_VALUE(contextParamList_, contextParamList) };
       inline UpdateCommand& setContextParamList(vector<UpdateCommand::ContextParamList> && contextParamList) { DARABONBA_PTR_SET_RVALUE(contextParamList_, contextParamList) };
+
+
+      // cpuResource Field Functions 
+      bool hasCpuResource() const { return this->cpuResource_ != nullptr;};
+      void deleteCpuResource() { this->cpuResource_ = nullptr;};
+      inline string getCpuResource() const { DARABONBA_PTR_GET_DEFAULT(cpuResource_, "") };
+      inline UpdateCommand& setCpuResource(string cpuResource) { DARABONBA_PTR_SET_VALUE(cpuResource_, cpuResource) };
 
 
       // cronExpression Field Functions 
@@ -761,11 +887,36 @@ namespace Models
       inline UpdateCommand& setEngine(string engine) { DARABONBA_PTR_SET_VALUE(engine_, engine) };
 
 
+      // executeRerunConfig Field Functions 
+      bool hasExecuteRerunConfig() const { return this->executeRerunConfig_ != nullptr;};
+      void deleteExecuteRerunConfig() { this->executeRerunConfig_ = nullptr;};
+      inline const UpdateCommand::ExecuteRerunConfig & getExecuteRerunConfig() const { DARABONBA_PTR_GET_CONST(executeRerunConfig_, UpdateCommand::ExecuteRerunConfig) };
+      inline UpdateCommand::ExecuteRerunConfig getExecuteRerunConfig() { DARABONBA_PTR_GET(executeRerunConfig_, UpdateCommand::ExecuteRerunConfig) };
+      inline UpdateCommand& setExecuteRerunConfig(const UpdateCommand::ExecuteRerunConfig & executeRerunConfig) { DARABONBA_PTR_SET_VALUE(executeRerunConfig_, executeRerunConfig) };
+      inline UpdateCommand& setExecuteRerunConfig(UpdateCommand::ExecuteRerunConfig && executeRerunConfig) { DARABONBA_PTR_SET_RVALUE(executeRerunConfig_, executeRerunConfig) };
+
+
+      // executeTimeOutConfig Field Functions 
+      bool hasExecuteTimeOutConfig() const { return this->executeTimeOutConfig_ != nullptr;};
+      void deleteExecuteTimeOutConfig() { this->executeTimeOutConfig_ = nullptr;};
+      inline const UpdateCommand::ExecuteTimeOutConfig & getExecuteTimeOutConfig() const { DARABONBA_PTR_GET_CONST(executeTimeOutConfig_, UpdateCommand::ExecuteTimeOutConfig) };
+      inline UpdateCommand::ExecuteTimeOutConfig getExecuteTimeOutConfig() { DARABONBA_PTR_GET(executeTimeOutConfig_, UpdateCommand::ExecuteTimeOutConfig) };
+      inline UpdateCommand& setExecuteTimeOutConfig(const UpdateCommand::ExecuteTimeOutConfig & executeTimeOutConfig) { DARABONBA_PTR_SET_VALUE(executeTimeOutConfig_, executeTimeOutConfig) };
+      inline UpdateCommand& setExecuteTimeOutConfig(UpdateCommand::ExecuteTimeOutConfig && executeTimeOutConfig) { DARABONBA_PTR_SET_RVALUE(executeTimeOutConfig_, executeTimeOutConfig) };
+
+
       // fileId Field Functions 
       bool hasFileId() const { return this->fileId_ != nullptr;};
       void deleteFileId() { this->fileId_ = nullptr;};
       inline int64_t getFileId() const { DARABONBA_PTR_GET_DEFAULT(fileId_, 0L) };
       inline UpdateCommand& setFileId(int64_t fileId) { DARABONBA_PTR_SET_VALUE(fileId_, fileId) };
+
+
+      // memoryResource Field Functions 
+      bool hasMemoryResource() const { return this->memoryResource_ != nullptr;};
+      void deleteMemoryResource() { this->memoryResource_ = nullptr;};
+      inline string getMemoryResource() const { DARABONBA_PTR_GET_DEFAULT(memoryResource_, "") };
+      inline UpdateCommand& setMemoryResource(string memoryResource) { DARABONBA_PTR_SET_VALUE(memoryResource_, memoryResource) };
 
 
       // name Field Functions 
@@ -853,6 +1004,22 @@ namespace Models
       inline UpdateCommand& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
+      // resourceReferenceList Field Functions 
+      bool hasResourceReferenceList() const { return this->resourceReferenceList_ != nullptr;};
+      void deleteResourceReferenceList() { this->resourceReferenceList_ = nullptr;};
+      inline const vector<string> & getResourceReferenceList() const { DARABONBA_PTR_GET_CONST(resourceReferenceList_, vector<string>) };
+      inline vector<string> getResourceReferenceList() { DARABONBA_PTR_GET(resourceReferenceList_, vector<string>) };
+      inline UpdateCommand& setResourceReferenceList(const vector<string> & resourceReferenceList) { DARABONBA_PTR_SET_VALUE(resourceReferenceList_, resourceReferenceList) };
+      inline UpdateCommand& setResourceReferenceList(vector<string> && resourceReferenceList) { DARABONBA_PTR_SET_RVALUE(resourceReferenceList_, resourceReferenceList) };
+
+
+      // retryOnTimeoutEnable Field Functions 
+      bool hasRetryOnTimeoutEnable() const { return this->retryOnTimeoutEnable_ != nullptr;};
+      void deleteRetryOnTimeoutEnable() { this->retryOnTimeoutEnable_ = nullptr;};
+      inline bool getRetryOnTimeoutEnable() const { DARABONBA_PTR_GET_DEFAULT(retryOnTimeoutEnable_, false) };
+      inline UpdateCommand& setRetryOnTimeoutEnable(bool retryOnTimeoutEnable) { DARABONBA_PTR_SET_VALUE(retryOnTimeoutEnable_, retryOnTimeoutEnable) };
+
+
       // schedulePeriod Field Functions 
       bool hasSchedulePeriod() const { return this->schedulePeriod_ != nullptr;};
       void deleteSchedulePeriod() { this->schedulePeriod_ = nullptr;};
@@ -867,6 +1034,27 @@ namespace Models
       inline UpdateCommand::SparkClientInfo getSparkClientInfo() { DARABONBA_PTR_GET(sparkClientInfo_, UpdateCommand::SparkClientInfo) };
       inline UpdateCommand& setSparkClientInfo(const UpdateCommand::SparkClientInfo & sparkClientInfo) { DARABONBA_PTR_SET_VALUE(sparkClientInfo_, sparkClientInfo) };
       inline UpdateCommand& setSparkClientInfo(UpdateCommand::SparkClientInfo && sparkClientInfo) { DARABONBA_PTR_SET_RVALUE(sparkClientInfo_, sparkClientInfo) };
+
+
+      // sparkDynamicResourceSwitch Field Functions 
+      bool hasSparkDynamicResourceSwitch() const { return this->sparkDynamicResourceSwitch_ != nullptr;};
+      void deleteSparkDynamicResourceSwitch() { this->sparkDynamicResourceSwitch_ = nullptr;};
+      inline bool getSparkDynamicResourceSwitch() const { DARABONBA_PTR_GET_DEFAULT(sparkDynamicResourceSwitch_, false) };
+      inline UpdateCommand& setSparkDynamicResourceSwitch(bool sparkDynamicResourceSwitch) { DARABONBA_PTR_SET_VALUE(sparkDynamicResourceSwitch_, sparkDynamicResourceSwitch) };
+
+
+      // sparkResourceEffectScope Field Functions 
+      bool hasSparkResourceEffectScope() const { return this->sparkResourceEffectScope_ != nullptr;};
+      void deleteSparkResourceEffectScope() { this->sparkResourceEffectScope_ = nullptr;};
+      inline string getSparkResourceEffectScope() const { DARABONBA_PTR_GET_DEFAULT(sparkResourceEffectScope_, "") };
+      inline UpdateCommand& setSparkResourceEffectScope(string sparkResourceEffectScope) { DARABONBA_PTR_SET_VALUE(sparkResourceEffectScope_, sparkResourceEffectScope) };
+
+
+      // sparkSqlResourceConfigMap Field Functions 
+      bool hasSparkSqlResourceConfigMap() const { return this->sparkSqlResourceConfigMap_ != nullptr;};
+      void deleteSparkSqlResourceConfigMap() { this->sparkSqlResourceConfigMap_ = nullptr;};
+      inline string getSparkSqlResourceConfigMap() const { DARABONBA_PTR_GET_DEFAULT(sparkSqlResourceConfigMap_, "") };
+      inline UpdateCommand& setSparkSqlResourceConfigMap(string sparkSqlResourceConfigMap) { DARABONBA_PTR_SET_VALUE(sparkSqlResourceConfigMap_, sparkSqlResourceConfigMap) };
 
 
       // taskTagList Field Functions 
@@ -923,6 +1111,8 @@ namespace Models
       shared_ptr<int64_t> conditionScheduleTemplateId_ {};
       // The cross-node parameters. These are output parameters declared by the current node for downstream nodes to reference. This parameter overwrites the existing parameters. If this parameter is not specified, the original parameters are retained.
       shared_ptr<vector<UpdateCommand::ContextParamList>> contextParamList_ {};
+      // 不传时保留任务当前配置。
+      shared_ptr<string> cpuResource_ {};
       // The cron expression for automatic scheduling. You can refer to Linux cron expressions.
       shared_ptr<string> cronExpression_ {};
       // The custom schedule interval configuration.
@@ -944,10 +1134,16 @@ namespace Models
       // - PYTHON3_7: Python 3.7.
       // - PYTHON3_11: Python 3.11.
       shared_ptr<string> engine_ {};
+      // 失败重试配置。不传时保留任务当前配置。传入时整体替换该配置对象。
+      shared_ptr<UpdateCommand::ExecuteRerunConfig> executeRerunConfig_ {};
+      // 执行超时配置。不传时保留任务当前配置。传入时整体替换该配置对象。
+      shared_ptr<UpdateCommand::ExecuteTimeOutConfig> executeTimeOutConfig_ {};
       // The ID of the task directory tree node.
       // 
       // This parameter is required.
       shared_ptr<int64_t> fileId_ {};
+      // 不传时保留任务当前配置。
+      shared_ptr<string> memoryResource_ {};
       // The name of the offline task.
       // 
       // This parameter is required.
@@ -977,6 +1173,9 @@ namespace Models
       shared_ptr<vector<string>> pythonModuleList_ {};
       // The ID of the scheduling resource group for the production node.
       shared_ptr<string> resourceGroupId_ {};
+      shared_ptr<vector<string>> resourceReferenceList_ {};
+      // 超时重试开关。不传时保留任务当前配置。显式传入false时关闭。
+      shared_ptr<bool> retryOnTimeoutEnable_ {};
       // The scheduling cycle. Valid values:
       // - YEARLY: Yearly.
       // - MONTHLY: Monthly.
@@ -987,6 +1186,12 @@ namespace Models
       shared_ptr<string> schedulePeriod_ {};
       // The Spark client.
       shared_ptr<UpdateCommand::SparkClientInfo> sparkClientInfo_ {};
+      // 不传时保留任务当前配置。显式传入false时关闭。
+      shared_ptr<bool> sparkDynamicResourceSwitch_ {};
+      // ONLY_PROD表示仅生产环境，PROD_AND_DEV表示生产和开发环境。不传时保留任务当前配置。
+      shared_ptr<string> sparkResourceEffectScope_ {};
+      // Spark SQL资源配置，键为配置项名称，值为字符串。不传时保留任务当前配置；传入空JSON对象{}时清空配置。
+      shared_ptr<string> sparkSqlResourceConfigMap_ {};
       // The list of node tags. This parameter overwrites all existing tags. If you do not specify this parameter, the original tags remain unchanged.
       shared_ptr<vector<string>> taskTagList_ {};
       // The type of the node. Valid values:

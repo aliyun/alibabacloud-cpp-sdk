@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The identification result ID.
+    // The recognition result ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
@@ -65,6 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator user ID.
     shared_ptr<string> opUserId_ {};
   };
 

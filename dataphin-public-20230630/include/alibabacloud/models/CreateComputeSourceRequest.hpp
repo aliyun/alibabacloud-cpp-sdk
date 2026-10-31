@@ -42,6 +42,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CreateType, createType_);
         DARABONBA_PTR_TO_JSON(Description, description_);
         DARABONBA_PTR_TO_JSON(Name, name_);
+        DARABONBA_PTR_TO_JSON(TimeZone, timeZone_);
         DARABONBA_PTR_TO_JSON(Type, type_);
         DARABONBA_PTR_TO_JSON(TypeVersion, typeVersion_);
       };
@@ -51,6 +52,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(CreateType, createType_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
+        DARABONBA_PTR_FROM_JSON(TimeZone, timeZone_);
         DARABONBA_PTR_FROM_JSON(Type, type_);
         DARABONBA_PTR_FROM_JSON(TypeVersion, typeVersion_);
       };
@@ -114,8 +116,8 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->clusterId_ == nullptr
-        && this->configList_ == nullptr && this->createType_ == nullptr && this->description_ == nullptr && this->name_ == nullptr && this->type_ == nullptr
-        && this->typeVersion_ == nullptr; };
+        && this->configList_ == nullptr && this->createType_ == nullptr && this->description_ == nullptr && this->name_ == nullptr && this->timeZone_ == nullptr
+        && this->type_ == nullptr && this->typeVersion_ == nullptr; };
       // clusterId Field Functions 
       bool hasClusterId() const { return this->clusterId_ != nullptr;};
       void deleteClusterId() { this->clusterId_ = nullptr;};
@@ -153,6 +155,13 @@ namespace Models
       inline CreateCommand& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+      // timeZone Field Functions 
+      bool hasTimeZone() const { return this->timeZone_ != nullptr;};
+      void deleteTimeZone() { this->timeZone_ = nullptr;};
+      inline string getTimeZone() const { DARABONBA_PTR_GET_DEFAULT(timeZone_, "") };
+      inline CreateCommand& setTimeZone(string timeZone) { DARABONBA_PTR_SET_VALUE(timeZone_, timeZone) };
+
+
       // type Field Functions 
       bool hasType() const { return this->type_ != nullptr;};
       void deleteType() { this->type_ = nullptr;};
@@ -168,16 +177,15 @@ namespace Models
 
 
     protected:
-      // The ID of the associated cluster. This parameter takes effect only when CreateType is not specified or is set to COMPUTE_SOURCE, which creates a compute source that references a cluster. This parameter is mutually exclusive with CreateType=CLUSTER.
+      // The ID of the associated cluster. This parameter takes effect only when CreateType is left empty or set to COMPUTE_SOURCE, which indicates that a compute source referencing a cluster is created. This parameter is mutually exclusive with CreateType set to CLUSTER.
       shared_ptr<int64_t> clusterId_ {};
       // The connection configuration items.
       // 
       // This parameter is required.
       shared_ptr<vector<CreateCommand::ConfigList>> configList_ {};
-      // The type of entity to create. Valid values:
-      // 
-      // - CLUSTER: Creates a cluster. ClusterId cannot be specified.
-      // - COMPUTE_SOURCE: Creates a compute source. This is the default value.
+      // The type of the entity to create. Valid values:
+      // - CLUSTER: creates a cluster. You cannot specify ClusterId.
+      // - COMPUTE_SOURCE: creates a compute source. This is the default value.
       shared_ptr<string> createType_ {};
       // The description.
       shared_ptr<string> description_ {};
@@ -185,6 +193,8 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
+      // The name of the time zone, such as Asia/Shanghai. If this parameter is not specified during an update, the original value is retained.
+      shared_ptr<string> timeZone_ {};
       // The type of the compute source.
       // 
       // This parameter is required.
@@ -227,7 +237,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
-    // The ID of the operator.
+    // The ID of the operating user.
     shared_ptr<string> opUserId_ {};
   };
 

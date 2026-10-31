@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The command for registering and adding data lineage.
+    // The command to register data lineage.
     // 
     // This parameter is required.
     shared_ptr<string> addRegisterLineageCommandShrink_ {};
@@ -65,6 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator ID.
     shared_ptr<string> opUserId_ {};
   };
 

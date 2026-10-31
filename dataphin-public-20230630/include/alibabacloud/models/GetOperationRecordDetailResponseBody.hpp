@@ -134,7 +134,7 @@ namespace Models
         shared_ptr<int32_t> index_ {};
         // The result content.
         shared_ptr<string> result_ {};
-        // The result SQL statement.
+        // The result SQL.
         shared_ptr<string> sql_ {};
         // The task ID.
         shared_ptr<string> taskId_ {};
@@ -238,11 +238,11 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The backend exception details.
     shared_ptr<string> message_ {};
-    // The execution record detail response.
+    // The operation record detail response.
     shared_ptr<GetOperationRecordDetailResponseBody::OperationRecordDetailResponse> operationRecordDetailResponse_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

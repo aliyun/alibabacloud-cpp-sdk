@@ -74,7 +74,7 @@ namespace Models
 
 
     protected:
-      // Specifies whether the result is effective.
+      // Specifies whether the result takes effect.
       // 
       // This parameter is required.
       shared_ptr<bool> enable_ {};
@@ -114,8 +114,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
-    // The update instruction.
+    // The update command.
     // 
     // This parameter is required.
     shared_ptr<UpdateSecurityIdentifyResultStatusRequest::UpdateCommand> updateCommand_ {};

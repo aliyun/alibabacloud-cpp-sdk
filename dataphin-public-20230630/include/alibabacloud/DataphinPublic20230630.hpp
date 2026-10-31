@@ -40,7 +40,7 @@ namespace DataphinPublic20230630
       Models::AddDataServiceAppMemberResponse addDataServiceAppMember(const Models::AddDataServiceAppMemberRequest &request);
 
       /**
-       * @summary Adds users to a data service project and assigns roles to them.
+       * @summary Adds a user to a Data Service project and assigns a role.
        *
        * @param tmpReq AddDataServiceProjectMemberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -49,7 +49,7 @@ namespace DataphinPublic20230630
       Models::AddDataServiceProjectMemberResponse addDataServiceProjectMemberWithOptions(const Models::AddDataServiceProjectMemberRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds users to a data service project and assigns roles to them.
+       * @summary Adds a user to a Data Service project and assigns a role.
        *
        * @param request AddDataServiceProjectMemberRequest
        * @return AddDataServiceProjectMemberResponse
@@ -57,7 +57,7 @@ namespace DataphinPublic20230630
       Models::AddDataServiceProjectMemberResponse addDataServiceProjectMember(const Models::AddDataServiceProjectMemberRequest &request);
 
       /**
-       * @summary Adds members to a project.
+       * @summary Adds project members.
        *
        * @param tmpReq AddProjectMemberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -66,7 +66,7 @@ namespace DataphinPublic20230630
       Models::AddProjectMemberResponse addProjectMemberWithOptions(const Models::AddProjectMemberRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds members to a project.
+       * @summary Adds project members.
        *
        * @param request AddProjectMemberRequest
        * @return AddProjectMemberResponse
@@ -74,7 +74,7 @@ namespace DataphinPublic20230630
       Models::AddProjectMemberResponse addProjectMember(const Models::AddProjectMemberRequest &request);
 
       /**
-       * @summary Registers data lineage. Available since version v5.4.0.
+       * @summary Registers data lineage. Released in version 5.4.0.
        *
        * @param tmpReq AddRegisterLineageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -83,7 +83,7 @@ namespace DataphinPublic20230630
       Models::AddRegisterLineageResponse addRegisterLineageWithOptions(const Models::AddRegisterLineageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Registers data lineage. Available since version v5.4.0.
+       * @summary Registers data lineage. Released in version 5.4.0.
        *
        * @param request AddRegisterLineageRequest
        * @return AddRegisterLineageResponse
@@ -91,7 +91,7 @@ namespace DataphinPublic20230630
       Models::AddRegisterLineageResponse addRegisterLineage(const Models::AddRegisterLineageRequest &request);
 
       /**
-       * @summary Adds users to a tenant in batches. Only super administrators (SuperAdmin) and system administrators can invoke this API operation.
+       * @summary Adds users to a tenant in batches. This API operation can be invoked only by super administrators and system administration.
        *
        * @param tmpReq AddTenantMembersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -100,7 +100,7 @@ namespace DataphinPublic20230630
       Models::AddTenantMembersResponse addTenantMembersWithOptions(const Models::AddTenantMembersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds users to a tenant in batches. Only super administrators (SuperAdmin) and system administrators can invoke this API operation.
+       * @summary Adds users to a tenant in batches. This API operation can be invoked only by super administrators and system administration.
        *
        * @param request AddTenantMembersRequest
        * @return AddTenantMembersResponse
@@ -176,6 +176,23 @@ namespace DataphinPublic20230630
       Models::ApplyDataServiceAppResponse applyDataServiceApp(const Models::ApplyDataServiceAppRequest &request);
 
       /**
+       * @summary Applies for resource permissions at the table or column level. Available since version 6.4.0.
+       *
+       * @param tmpReq ApplyResourcePermissionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ApplyResourcePermissionResponse
+       */
+      Models::ApplyResourcePermissionResponse applyResourcePermissionWithOptions(const Models::ApplyResourcePermissionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Applies for resource permissions at the table or column level. Available since version 6.4.0.
+       *
+       * @param request ApplyResourcePermissionRequest
+       * @return ApplyResourcePermissionResponse
+       */
+      Models::ApplyResourcePermissionResponse applyResourcePermission(const Models::ApplyResourcePermissionRequest &request);
+
+      /**
        * @summary Binds specified quality rules to schedule settings.
        * Release version: v5.4.2.
        *
@@ -195,7 +212,7 @@ namespace DataphinPublic20230630
       Models::AssignQualityRuleOfAllRuleScopeSchedulesResponse assignQualityRuleOfAllRuleScopeSchedules(const Models::AssignQualityRuleOfAllRuleScopeSchedulesRequest &request);
 
       /**
-       * @summary Creates knowledge graph entity records in batches. Available since version v6.1.1.
+       * @summary Creates knowledge graph entity records in batches. Released in version v6.1.1.
        *
        * @param tmpReq BatchCreateKgEntityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -204,7 +221,7 @@ namespace DataphinPublic20230630
       Models::BatchCreateKgEntityResponse batchCreateKgEntityWithOptions(const Models::BatchCreateKgEntityRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates knowledge graph entity records in batches. Available since version v6.1.1.
+       * @summary Creates knowledge graph entity records in batches. Released in version v6.1.1.
        *
        * @param request BatchCreateKgEntityRequest
        * @return BatchCreateKgEntityResponse
@@ -212,7 +229,7 @@ namespace DataphinPublic20230630
       Models::BatchCreateKgEntityResponse batchCreateKgEntity(const Models::BatchCreateKgEntityRequest &request);
 
       /**
-       * @summary Creates knowledge graph relationship records in batches. Online version: v6.1.1.
+       * @summary Creates knowledge graph relationship records in batches. Released in version v6.1.1.
        *
        * @param tmpReq BatchCreateKgRelationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -221,7 +238,7 @@ namespace DataphinPublic20230630
       Models::BatchCreateKgRelationResponse batchCreateKgRelationWithOptions(const Models::BatchCreateKgRelationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates knowledge graph relationship records in batches. Online version: v6.1.1.
+       * @summary Creates knowledge graph relationship records in batches. Released in version v6.1.1.
        *
        * @param request BatchCreateKgRelationRequest
        * @return BatchCreateKgRelationResponse
@@ -246,7 +263,24 @@ namespace DataphinPublic20230630
       Models::BatchHandoverAssetResponse batchHandoverAsset(const Models::BatchHandoverAssetRequest &request);
 
       /**
-       * @summary Checks the connectivity of a compute source.
+       * @summary Checks the connectivity of a saved cluster. Available since v6.4.0.
+       *
+       * @param request CheckComputeClusterConnectivityByIdRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CheckComputeClusterConnectivityByIdResponse
+       */
+      Models::CheckComputeClusterConnectivityByIdResponse checkComputeClusterConnectivityByIdWithOptions(const Models::CheckComputeClusterConnectivityByIdRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Checks the connectivity of a saved cluster. Available since v6.4.0.
+       *
+       * @param request CheckComputeClusterConnectivityByIdRequest
+       * @return CheckComputeClusterConnectivityByIdResponse
+       */
+      Models::CheckComputeClusterConnectivityByIdResponse checkComputeClusterConnectivityById(const Models::CheckComputeClusterConnectivityByIdRequest &request);
+
+      /**
+       * @summary Validates the connectivity.
        *
        * @param tmpReq CheckComputeSourceConnectivityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -255,7 +289,7 @@ namespace DataphinPublic20230630
       Models::CheckComputeSourceConnectivityResponse checkComputeSourceConnectivityWithOptions(const Models::CheckComputeSourceConnectivityRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Checks the connectivity of a compute source.
+       * @summary Validates the connectivity.
        *
        * @param request CheckComputeSourceConnectivityRequest
        * @return CheckComputeSourceConnectivityResponse
@@ -263,7 +297,7 @@ namespace DataphinPublic20230630
       Models::CheckComputeSourceConnectivityResponse checkComputeSourceConnectivity(const Models::CheckComputeSourceConnectivityRequest &request);
 
       /**
-       * @summary Checks the connectivity of an existing compute source by compute source ID.
+       * @summary Verifies the connectivity of an existing compute source by using the compute source ID.
        *
        * @param request CheckComputeSourceConnectivityByIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -272,7 +306,7 @@ namespace DataphinPublic20230630
       Models::CheckComputeSourceConnectivityByIdResponse checkComputeSourceConnectivityByIdWithOptions(const Models::CheckComputeSourceConnectivityByIdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Checks the connectivity of an existing compute source by compute source ID.
+       * @summary Verifies the connectivity of an existing compute source by using the compute source ID.
        *
        * @param request CheckComputeSourceConnectivityByIdRequest
        * @return CheckComputeSourceConnectivityByIdResponse
@@ -280,7 +314,7 @@ namespace DataphinPublic20230630
       Models::CheckComputeSourceConnectivityByIdResponse checkComputeSourceConnectivityById(const Models::CheckComputeSourceConnectivityByIdRequest &request);
 
       /**
-       * @summary Checks the connectivity of a data source.
+       * @summary Checks the connectivity of a datasource.
        *
        * @param tmpReq CheckDataSourceConnectivityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -289,7 +323,7 @@ namespace DataphinPublic20230630
       Models::CheckDataSourceConnectivityResponse checkDataSourceConnectivityWithOptions(const Models::CheckDataSourceConnectivityRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Checks the connectivity of a data source.
+       * @summary Checks the connectivity of a datasource.
        *
        * @param request CheckDataSourceConnectivityRequest
        * @return CheckDataSourceConnectivityResponse
@@ -335,7 +369,7 @@ namespace DataphinPublic20230630
       Models::CheckDataSourceConnectivityOnResourceGroupResponse checkDataSourceConnectivityOnResourceGroup(const Models::CheckDataSourceConnectivityOnResourceGroupRequest &request);
 
       /**
-       * @summary Checks whether a project has data dependencies such as tasks.
+       * @summary Checks whether the project is depended on by data dependencies such as nodes.
        *
        * @param request CheckProjectHasDependencyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -344,7 +378,7 @@ namespace DataphinPublic20230630
       Models::CheckProjectHasDependencyResponse checkProjectHasDependencyWithOptions(const Models::CheckProjectHasDependencyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Checks whether a project has data dependencies such as tasks.
+       * @summary Checks whether the project is depended on by data dependencies such as nodes.
        *
        * @param request CheckProjectHasDependencyRequest
        * @return CheckProjectHasDependencyResponse
@@ -352,7 +386,7 @@ namespace DataphinPublic20230630
       Models::CheckProjectHasDependencyResponse checkProjectHasDependency(const Models::CheckProjectHasDependencyRequest &request);
 
       /**
-       * @summary Checks whether a user has the permission on a specified resource.
+       * @summary Checks whether a user has the specified resource permissions.
        *
        * @param tmpReq CheckResourcePermissionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -361,7 +395,7 @@ namespace DataphinPublic20230630
       Models::CheckResourcePermissionResponse checkResourcePermissionWithOptions(const Models::CheckResourcePermissionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Checks whether a user has the permission on a specified resource.
+       * @summary Checks whether a user has the specified resource permissions.
        *
        * @param request CheckResourcePermissionRequest
        * @return CheckResourcePermissionResponse
@@ -403,7 +437,7 @@ namespace DataphinPublic20230630
       Models::CreateBasicProjectResponse createBasicProject(const Models::CreateBasicProjectRequest &request);
 
       /**
-       * @summary Creates a batch task.
+       * @summary Creates an offline computing task.
        *
        * @param tmpReq CreateBatchTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -412,12 +446,29 @@ namespace DataphinPublic20230630
       Models::CreateBatchTaskResponse createBatchTaskWithOptions(const Models::CreateBatchTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a batch task.
+       * @summary Creates an offline computing task.
        *
        * @param request CreateBatchTaskRequest
        * @return CreateBatchTaskResponse
        */
       Models::CreateBatchTaskResponse createBatchTask(const Models::CreateBatchTaskRequest &request);
+
+      /**
+       * @summary Creates an offline computing template. Available since version 6.4.0.
+       *
+       * @param tmpReq CreateBatchTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateBatchTemplateResponse
+       */
+      Models::CreateBatchTemplateResponse createBatchTemplateWithOptions(const Models::CreateBatchTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an offline computing template. Available since version 6.4.0.
+       *
+       * @param request CreateBatchTemplateRequest
+       * @return CreateBatchTemplateResponse
+       */
+      Models::CreateBatchTemplateResponse createBatchTemplate(const Models::CreateBatchTemplateRequest &request);
 
       /**
        * @summary Creates a business entity.
@@ -437,8 +488,7 @@ namespace DataphinPublic20230630
       Models::CreateBizEntityResponse createBizEntity(const Models::CreateBizEntityRequest &request);
 
       /**
-       * @summary Creates a business metric.
-       * Release version: v5.5.0.
+       * @summary Creates a business metric. Release version: v5.5.0.
        *
        * @param tmpReq CreateBizMetricRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -447,8 +497,7 @@ namespace DataphinPublic20230630
       Models::CreateBizMetricResponse createBizMetricWithOptions(const Models::CreateBizMetricRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a business metric.
-       * Release version: v5.5.0.
+       * @summary Creates a business metric. Release version: v5.5.0.
        *
        * @param request CreateBizMetricRequest
        * @return CreateBizMetricResponse
@@ -473,7 +522,7 @@ namespace DataphinPublic20230630
       Models::CreateBizUnitResponse createBizUnit(const Models::CreateBizUnitRequest &request);
 
       /**
-       * @summary Creates a cluster. Online since version v6.3.0.
+       * @summary Creates a cluster. Release version: v6.3.0.
        *
        * @param tmpReq CreateComputeClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -482,7 +531,7 @@ namespace DataphinPublic20230630
       Models::CreateComputeClusterResponse createComputeClusterWithOptions(const Models::CreateComputeClusterRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a cluster. Online since version v6.3.0.
+       * @summary Creates a cluster. Release version: v6.3.0.
        *
        * @param request CreateComputeClusterRequest
        * @return CreateComputeClusterResponse
@@ -490,7 +539,7 @@ namespace DataphinPublic20230630
       Models::CreateComputeClusterResponse createComputeCluster(const Models::CreateComputeClusterRequest &request);
 
       /**
-       * @summary Creates a compute source. Business unit administrators and project administrators have permissions to perform this operation.
+       * @summary Creates a compute source. Only business unit administrators and project administrators are authorized to perform this operation.
        *
        * @param tmpReq CreateComputeSourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -499,7 +548,7 @@ namespace DataphinPublic20230630
       Models::CreateComputeSourceResponse createComputeSourceWithOptions(const Models::CreateComputeSourceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a compute source. Business unit administrators and project administrators have permissions to perform this operation.
+       * @summary Creates a compute source. Only business unit administrators and project administrators are authorized to perform this operation.
        *
        * @param request CreateComputeSourceRequest
        * @return CreateComputeSourceResponse
@@ -596,16 +645,16 @@ namespace DataphinPublic20230630
       Models::CreateDataSourceResponse createDataSource(const Models::CreateDataSourceRequest &request);
 
       /**
-       * @summary Creates a new dataset in the specified project. Available since v6.2.0.
+       * @summary Creates a dataset in a specified project. Available since v6.2.0.
        *
        * @description ## Request description
-       * - This API creates a new dataset in the specified project.
-       * - `ProjectId` is a required parameter that specifies the ID of the project in which to create the dataset.
-       * - `CreateCommand` is a complex object that contains the configuration information required to create the dataset.
-       * - `Name`, `Type`, `ContentType`, and `Scenario` are required fields that specify the dataset name, type, content type, and scenarios.
-       * - `FileStorageConfig` and `MetadataStorageConfig` in `VersionConfig` can be configured as needed.
-       * - If you need real-time meta-table configuration, provide the `RealtimeMetaTableConfig` information.
-       * - Make sure all required fields are correctly filled in. Otherwise, the request failed.
+       * - This API operation creates a dataset in a specified project.
+       * - ProjectId is a required parameter that specifies the ID of the project in which to create the dataset.
+       * - CreateCommand is a complex object that contains various configuration information required to create the dataset.
+       * - Name, Type, ContentType, and Scenario are required fields that specify the dataset name, type, content type, and Scenarios, respectively.
+       * - You can configure FileStorageConfig and MetadataStorageConfig in VersionConfig as needed.
+       * - If real-time metatable configuration is required, provide the RealtimeMetaTableConfig information.
+       * - Make sure that all required fields are correctly filled in. Otherwise, the request will be failed.
        *
        * @param tmpReq CreateDatasetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -614,16 +663,16 @@ namespace DataphinPublic20230630
       Models::CreateDatasetResponse createDatasetWithOptions(const Models::CreateDatasetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a new dataset in the specified project. Available since v6.2.0.
+       * @summary Creates a dataset in a specified project. Available since v6.2.0.
        *
        * @description ## Request description
-       * - This API creates a new dataset in the specified project.
-       * - `ProjectId` is a required parameter that specifies the ID of the project in which to create the dataset.
-       * - `CreateCommand` is a complex object that contains the configuration information required to create the dataset.
-       * - `Name`, `Type`, `ContentType`, and `Scenario` are required fields that specify the dataset name, type, content type, and scenarios.
-       * - `FileStorageConfig` and `MetadataStorageConfig` in `VersionConfig` can be configured as needed.
-       * - If you need real-time meta-table configuration, provide the `RealtimeMetaTableConfig` information.
-       * - Make sure all required fields are correctly filled in. Otherwise, the request failed.
+       * - This API operation creates a dataset in a specified project.
+       * - ProjectId is a required parameter that specifies the ID of the project in which to create the dataset.
+       * - CreateCommand is a complex object that contains various configuration information required to create the dataset.
+       * - Name, Type, ContentType, and Scenario are required fields that specify the dataset name, type, content type, and Scenarios, respectively.
+       * - You can configure FileStorageConfig and MetadataStorageConfig in VersionConfig as needed.
+       * - If real-time metatable configuration is required, provide the RealtimeMetaTableConfig information.
+       * - Make sure that all required fields are correctly filled in. Otherwise, the request will be failed.
        *
        * @param request CreateDatasetRequest
        * @return CreateDatasetResponse
@@ -699,9 +748,7 @@ namespace DataphinPublic20230630
       Models::CreateKgRelationResponse createKgRelation(const Models::CreateKgRelationRequest &request);
 
       /**
-       * @summary General-purpose data backfill operation that supports both list mode and batch mode data backfill:
-       * 1. Generates data backfill instances that run and affect data output of related tables.
-       * 2. Triggers node execution, which incurs compute and storage costs.
+       * @summary Backfills data in list mode or massive mode. Take note of the following items: 1. Data backfill instances are generated and run, which affects the data output of related tables. 2. Nodes are run, which incurs computing and storage costs.
        *
        * @param tmpReq CreateNodeSupplementRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -710,9 +757,7 @@ namespace DataphinPublic20230630
       Models::CreateNodeSupplementResponse createNodeSupplementWithOptions(const Models::CreateNodeSupplementRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary General-purpose data backfill operation that supports both list mode and batch mode data backfill:
-       * 1. Generates data backfill instances that run and affect data output of related tables.
-       * 2. Triggers node execution, which incurs compute and storage costs.
+       * @summary Backfills data in list mode or massive mode. Take note of the following items: 1. Data backfill instances are generated and run, which affects the data output of related tables. 2. Nodes are run, which incurs computing and storage costs.
        *
        * @param request CreateNodeSupplementRequest
        * @return CreateNodeSupplementResponse
@@ -771,6 +816,23 @@ namespace DataphinPublic20230630
       Models::CreatePipelineNodeResponse createPipelineNode(const Models::CreatePipelineNodeRequest &request);
 
       /**
+       * @summary Creates a quality rectification process. Released in version 6.4.0.
+       *
+       * @param tmpReq CreateRectifyFlowRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateRectifyFlowResponse
+       */
+      Models::CreateRectifyFlowResponse createRectifyFlowWithOptions(const Models::CreateRectifyFlowRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a quality rectification process. Released in version 6.4.0.
+       *
+       * @param request CreateRectifyFlowRequest
+       * @return CreateRectifyFlowResponse
+       */
+      Models::CreateRectifyFlowResponse createRectifyFlow(const Models::CreateRectifyFlowRequest &request);
+
+      /**
        * @summary Creates a resource file.
        *
        * @param tmpReq CreateResourceRequest
@@ -807,6 +869,23 @@ namespace DataphinPublic20230630
        * @return CreateRowPermissionResponse
        */
       Models::CreateRowPermissionResponse createRowPermission(const Models::CreateRowPermissionRequest &request);
+
+      /**
+       * @summary Creates a scheduling monitoring alerting configuration by specifying a monitored object and one or more alerting rules. Online version: v6.4.0.
+       *
+       * @param tmpReq CreateScheduleMonitorRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateScheduleMonitorResponse
+       */
+      Models::CreateScheduleMonitorResponse createScheduleMonitorWithOptions(const Models::CreateScheduleMonitorRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a scheduling monitoring alerting configuration by specifying a monitored object and one or more alerting rules. Online version: v6.4.0.
+       *
+       * @param request CreateScheduleMonitorRequest
+       * @return CreateScheduleMonitorResponse
+       */
+      Models::CreateScheduleMonitorResponse createScheduleMonitor(const Models::CreateScheduleMonitorRequest &request);
 
       /**
        * @summary Creates a data category. Available since v5.4.2.
@@ -879,8 +958,7 @@ namespace DataphinPublic20230630
       Models::CreateSecurityLevelResponse createSecurityLevel(const Models::CreateSecurityLevelRequest &request);
 
       /**
-       * @summary Creates a standard.
-       * Release version: v5.4.2.
+       * @summary Creates a standard. Release version: v5.4.2.
        *
        * @param tmpReq CreateStandardRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -889,8 +967,7 @@ namespace DataphinPublic20230630
       Models::CreateStandardResponse createStandardWithOptions(const Models::CreateStandardRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a standard.
-       * Release version: v5.4.2.
+       * @summary Creates a standard. Release version: v5.4.2.
        *
        * @param request CreateStandardRequest
        * @return CreateStandardResponse
@@ -898,8 +975,7 @@ namespace DataphinPublic20230630
       Models::CreateStandardResponse createStandard(const Models::CreateStandardRequest &request);
 
       /**
-       * @summary Creates a data standard lookup table.
-       * Release version: v5.4.2.
+       * @summary Creates a data standard lookup table. Released in version v5.4.2.
        *
        * @param tmpReq CreateStandardLookupTableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -908,8 +984,7 @@ namespace DataphinPublic20230630
       Models::CreateStandardLookupTableResponse createStandardLookupTableWithOptions(const Models::CreateStandardLookupTableRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a data standard lookup table.
-       * Release version: v5.4.2.
+       * @summary Creates a data standard lookup table. Released in version v5.4.2.
        *
        * @param request CreateStandardLookupTableRequest
        * @return CreateStandardLookupTableResponse
@@ -974,8 +1049,7 @@ namespace DataphinPublic20230630
       Models::CreateStandardSetResponse createStandardSet(const Models::CreateStandardSetRequest &request);
 
       /**
-       * @summary Create a data standard template.
-       * Release version: v5.4.2.
+       * @summary Creates a data standard template. Release version: v5.4.2.
        *
        * @param tmpReq CreateStandardTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -984,8 +1058,7 @@ namespace DataphinPublic20230630
       Models::CreateStandardTemplateResponse createStandardTemplateWithOptions(const Models::CreateStandardTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a data standard template.
-       * Release version: v5.4.2.
+       * @summary Creates a data standard template. Release version: v5.4.2.
        *
        * @param request CreateStandardTemplateRequest
        * @return CreateStandardTemplateResponse
@@ -993,8 +1066,7 @@ namespace DataphinPublic20230630
       Models::CreateStandardTemplateResponse createStandardTemplate(const Models::CreateStandardTemplateRequest &request);
 
       /**
-       * @summary Creates a data standard root word.
-       * Release version: v5.4.2.
+       * @summary Creates a data standard root word. Released in version v5.4.2.
        *
        * @param tmpReq CreateStandardWordRootRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1003,8 +1075,7 @@ namespace DataphinPublic20230630
       Models::CreateStandardWordRootResponse createStandardWordRootWithOptions(const Models::CreateStandardWordRootRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a data standard root word.
-       * Release version: v5.4.2.
+       * @summary Creates a data standard root word. Released in version v5.4.2.
        *
        * @param request CreateStandardWordRootRequest
        * @return CreateStandardWordRootResponse
@@ -1012,7 +1083,7 @@ namespace DataphinPublic20230630
       Models::CreateStandardWordRootResponse createStandardWordRoot(const Models::CreateStandardWordRootRequest &request);
 
       /**
-       * @summary Creates a stream-batch integrated node.
+       * @summary Creates a stream-batch integrated task.
        *
        * @param tmpReq CreateStreamBatchJobMappingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1021,7 +1092,7 @@ namespace DataphinPublic20230630
       Models::CreateStreamBatchJobMappingResponse createStreamBatchJobMappingWithOptions(const Models::CreateStreamBatchJobMappingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a stream-batch integrated node.
+       * @summary Creates a stream-batch integrated task.
        *
        * @param request CreateStreamBatchJobMappingRequest
        * @return CreateStreamBatchJobMappingResponse
@@ -1097,7 +1168,7 @@ namespace DataphinPublic20230630
       Models::DeleteAdHocFileResponse deleteAdHocFile(const Models::DeleteAdHocFileRequest &request);
 
       /**
-       * @summary Deletes a batch task. If the node has not been offlined, you must offline it before deleting it.
+       * @summary Deletes an offline computing task. If the task is not offline, you must take it offline before deleting it.
        *
        * @param tmpReq DeleteBatchTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1106,7 +1177,7 @@ namespace DataphinPublic20230630
       Models::DeleteBatchTaskResponse deleteBatchTaskWithOptions(const Models::DeleteBatchTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a batch task. If the node has not been offlined, you must offline it before deleting it.
+       * @summary Deletes an offline computing task. If the task is not offline, you must take it offline before deleting it.
        *
        * @param request DeleteBatchTaskRequest
        * @return DeleteBatchTaskResponse
@@ -1341,7 +1412,7 @@ namespace DataphinPublic20230630
       Models::DeleteKgRelationResponse deleteKgRelation(const Models::DeleteKgRelationRequest &request);
 
       /**
-       * @summary Deletes a project (applicable to both Basic and Dev-Prod projects).
+       * @summary Deletes a project. This applies to both Basic and Dev-Prod projects.
        *
        * @param request DeleteProjectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1350,7 +1421,7 @@ namespace DataphinPublic20230630
       Models::DeleteProjectResponse deleteProjectWithOptions(const Models::DeleteProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a project (applicable to both Basic and Dev-Prod projects).
+       * @summary Deletes a project. This applies to both Basic and Dev-Prod projects.
        *
        * @param request DeleteProjectRequest
        * @return DeleteProjectResponse
@@ -1358,8 +1429,7 @@ namespace DataphinPublic20230630
       Models::DeleteProjectResponse deleteProject(const Models::DeleteProjectRequest &request);
 
       /**
-       * @summary Deletes quality rule objects in batches.
-       * Release version: v5.4.2.
+       * @summary Deletes quality rule objects in batches. Released in version 5.4.2.
        *
        * @param tmpReq DeleteQualityRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1368,8 +1438,7 @@ namespace DataphinPublic20230630
       Models::DeleteQualityRulesResponse deleteQualityRulesWithOptions(const Models::DeleteQualityRulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes quality rule objects in batches.
-       * Release version: v5.4.2.
+       * @summary Deletes quality rule objects in batches. Released in version 5.4.2.
        *
        * @param request DeleteQualityRulesRequest
        * @return DeleteQualityRulesResponse
@@ -1377,8 +1446,7 @@ namespace DataphinPublic20230630
       Models::DeleteQualityRulesResponse deleteQualityRules(const Models::DeleteQualityRulesRequest &request);
 
       /**
-       * @summary Deletes quality scheduling objects in batches.
-       * Release version: v5.4.2.
+       * @summary Deletes multiple quality scheduling objects. Release version: v5.4.2.
        *
        * @param tmpReq DeleteQualitySchedulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1387,8 +1455,7 @@ namespace DataphinPublic20230630
       Models::DeleteQualitySchedulesResponse deleteQualitySchedulesWithOptions(const Models::DeleteQualitySchedulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes quality scheduling objects in batches.
-       * Release version: v5.4.2.
+       * @summary Deletes multiple quality scheduling objects. Release version: v5.4.2.
        *
        * @param request DeleteQualitySchedulesRequest
        * @return DeleteQualitySchedulesResponse
@@ -1396,8 +1463,7 @@ namespace DataphinPublic20230630
       Models::DeleteQualitySchedulesResponse deleteQualitySchedules(const Models::DeleteQualitySchedulesRequest &request);
 
       /**
-       * @summary Deletes quality template objects in batches.
-       * Online version: v5.4.2.
+       * @summary Deletes quality template objects in batches. Available since version v5.4.2.
        *
        * @param tmpReq DeleteQualityTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1406,8 +1472,7 @@ namespace DataphinPublic20230630
       Models::DeleteQualityTemplatesResponse deleteQualityTemplatesWithOptions(const Models::DeleteQualityTemplatesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes quality template objects in batches.
-       * Online version: v5.4.2.
+       * @summary Deletes quality template objects in batches. Available since version v5.4.2.
        *
        * @param request DeleteQualityTemplatesRequest
        * @return DeleteQualityTemplatesResponse
@@ -1415,8 +1480,7 @@ namespace DataphinPublic20230630
       Models::DeleteQualityTemplatesResponse deleteQualityTemplates(const Models::DeleteQualityTemplatesRequest &request);
 
       /**
-       * @summary Deletes monitored objects in batches.
-       * Release version: v5.4.2.
+       * @summary Deletes quality monitored objects in batches. Release version: v5.4.2.
        *
        * @param tmpReq DeleteQualityWatchesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1425,8 +1489,7 @@ namespace DataphinPublic20230630
       Models::DeleteQualityWatchesResponse deleteQualityWatchesWithOptions(const Models::DeleteQualityWatchesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes monitored objects in batches.
-       * Release version: v5.4.2.
+       * @summary Deletes quality monitored objects in batches. Release version: v5.4.2.
        *
        * @param request DeleteQualityWatchesRequest
        * @return DeleteQualityWatchesResponse
@@ -1451,7 +1514,7 @@ namespace DataphinPublic20230630
       Models::DeleteRegisterLineageResponse deleteRegisterLineage(const Models::DeleteRegisterLineageRequest &request);
 
       /**
-       * @summary Delete a resource file.
+       * @summary Deletes a resource file.
        *
        * @param request DeleteResourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1460,7 +1523,7 @@ namespace DataphinPublic20230630
       Models::DeleteResourceResponse deleteResourceWithOptions(const Models::DeleteResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete a resource file.
+       * @summary Deletes a resource file.
        *
        * @param request DeleteResourceRequest
        * @return DeleteResourceResponse
@@ -1468,7 +1531,7 @@ namespace DataphinPublic20230630
       Models::DeleteResourceResponse deleteResource(const Models::DeleteResourceRequest &request);
 
       /**
-       * @summary Deletes a row-level permission.
+       * @summary Deletes row-level permissions.
        *
        * @param tmpReq DeleteRowPermissionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1477,7 +1540,7 @@ namespace DataphinPublic20230630
       Models::DeleteRowPermissionResponse deleteRowPermissionWithOptions(const Models::DeleteRowPermissionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a row-level permission.
+       * @summary Deletes row-level permissions.
        *
        * @param request DeleteRowPermissionRequest
        * @return DeleteRowPermissionResponse
@@ -1485,7 +1548,7 @@ namespace DataphinPublic20230630
       Models::DeleteRowPermissionResponse deleteRowPermission(const Models::DeleteRowPermissionRequest &request);
 
       /**
-       * @summary Deletes a data categorization. Available since v5.4.2.
+       * @summary Deletes a data category. Released in version v5.4.2.
        *
        * @param tmpReq DeleteSecurityClassifyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1494,7 +1557,7 @@ namespace DataphinPublic20230630
       Models::DeleteSecurityClassifyResponse deleteSecurityClassifyWithOptions(const Models::DeleteSecurityClassifyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a data categorization. Available since v5.4.2.
+       * @summary Deletes a data category. Released in version v5.4.2.
        *
        * @param request DeleteSecurityClassifyRequest
        * @return DeleteSecurityClassifyResponse
@@ -1502,7 +1565,7 @@ namespace DataphinPublic20230630
       Models::DeleteSecurityClassifyResponse deleteSecurityClassify(const Models::DeleteSecurityClassifyRequest &request);
 
       /**
-       * @summary Deletes a data classification catalog. Available since v5.4.2.
+       * @summary Deletes a data classification catalog. Available since version v5.4.2.
        *
        * @param tmpReq DeleteSecurityClassifyCatalogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1511,7 +1574,7 @@ namespace DataphinPublic20230630
       Models::DeleteSecurityClassifyCatalogResponse deleteSecurityClassifyCatalogWithOptions(const Models::DeleteSecurityClassifyCatalogRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a data classification catalog. Available since v5.4.2.
+       * @summary Deletes a data classification catalog. Available since version v5.4.2.
        *
        * @param request DeleteSecurityClassifyCatalogRequest
        * @return DeleteSecurityClassifyCatalogResponse
@@ -1519,7 +1582,7 @@ namespace DataphinPublic20230630
       Models::DeleteSecurityClassifyCatalogResponse deleteSecurityClassifyCatalog(const Models::DeleteSecurityClassifyCatalogRequest &request);
 
       /**
-       * @summary Deletes security identification results in batches. Release version: v5.4.2.
+       * @summary Deletes security identification results in batches. Released in version 5.4.2.
        *
        * @param tmpReq DeleteSecurityIdentifyResultsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1528,7 +1591,7 @@ namespace DataphinPublic20230630
       Models::DeleteSecurityIdentifyResultsResponse deleteSecurityIdentifyResultsWithOptions(const Models::DeleteSecurityIdentifyResultsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes security identification results in batches. Release version: v5.4.2.
+       * @summary Deletes security identification results in batches. Released in version 5.4.2.
        *
        * @param request DeleteSecurityIdentifyResultsRequest
        * @return DeleteSecurityIdentifyResultsResponse
@@ -1553,8 +1616,7 @@ namespace DataphinPublic20230630
       Models::DeleteSecurityLevelResponse deleteSecurityLevel(const Models::DeleteSecurityLevelRequest &request);
 
       /**
-       * @summary Deletes a standard.
-       * Online version: v5.4.2.
+       * @summary Deletes a standard. Release version: v5.4.2.
        *
        * @param tmpReq DeleteStandardRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1563,8 +1625,7 @@ namespace DataphinPublic20230630
       Models::DeleteStandardResponse deleteStandardWithOptions(const Models::DeleteStandardRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a standard.
-       * Online version: v5.4.2.
+       * @summary Deletes a standard. Release version: v5.4.2.
        *
        * @param request DeleteStandardRequest
        * @return DeleteStandardResponse
@@ -1572,8 +1633,7 @@ namespace DataphinPublic20230630
       Models::DeleteStandardResponse deleteStandard(const Models::DeleteStandardRequest &request);
 
       /**
-       * @summary Deletes invalid mapping relationships.
-       * Online version: v5.4.2.
+       * @summary Deletes invalid mapping relationships. Released in version v5.4.2.
        *
        * @param tmpReq DeleteStandardInValidMappingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1582,8 +1642,7 @@ namespace DataphinPublic20230630
       Models::DeleteStandardInValidMappingResponse deleteStandardInValidMappingWithOptions(const Models::DeleteStandardInValidMappingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes invalid mapping relationships.
-       * Online version: v5.4.2.
+       * @summary Deletes invalid mapping relationships. Released in version v5.4.2.
        *
        * @param request DeleteStandardInValidMappingRequest
        * @return DeleteStandardInValidMappingResponse
@@ -1591,7 +1650,7 @@ namespace DataphinPublic20230630
       Models::DeleteStandardInValidMappingResponse deleteStandardInValidMapping(const Models::DeleteStandardInValidMappingRequest &request);
 
       /**
-       * @summary Deletes a data standard lookup table. Release version: v5.4.2.
+       * @summary Deletes a data standard lookup table. Released in version 5.4.2.
        *
        * @param request DeleteStandardLookupTableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1600,7 +1659,7 @@ namespace DataphinPublic20230630
       Models::DeleteStandardLookupTableResponse deleteStandardLookupTableWithOptions(const Models::DeleteStandardLookupTableRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a data standard lookup table. Release version: v5.4.2.
+       * @summary Deletes a data standard lookup table. Released in version 5.4.2.
        *
        * @param request DeleteStandardLookupTableRequest
        * @return DeleteStandardLookupTableResponse
@@ -1608,8 +1667,7 @@ namespace DataphinPublic20230630
       Models::DeleteStandardLookupTableResponse deleteStandardLookupTable(const Models::DeleteStandardLookupTableRequest &request);
 
       /**
-       * @summary Deletes standard associations in batches.
-       * Release version: v5.4.2.
+       * @summary Deletes standard associations in batches. Available since version 5.4.2.
        *
        * @param tmpReq DeleteStandardRelationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1618,8 +1676,7 @@ namespace DataphinPublic20230630
       Models::DeleteStandardRelationsResponse deleteStandardRelationsWithOptions(const Models::DeleteStandardRelationsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes standard associations in batches.
-       * Release version: v5.4.2.
+       * @summary Deletes standard associations in batches. Available since version 5.4.2.
        *
        * @param request DeleteStandardRelationsRequest
        * @return DeleteStandardRelationsResponse
@@ -1646,8 +1703,7 @@ namespace DataphinPublic20230630
       Models::DeleteStandardSetResponse deleteStandardSet(const Models::DeleteStandardSetRequest &request);
 
       /**
-       * @summary Deletes valid mapping relationships.
-       * Release version: v5.4.2.
+       * @summary Deletes valid mapping relationships. Release version: v5.4.2.
        *
        * @param tmpReq DeleteStandardValidMappingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1656,8 +1712,7 @@ namespace DataphinPublic20230630
       Models::DeleteStandardValidMappingResponse deleteStandardValidMappingWithOptions(const Models::DeleteStandardValidMappingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes valid mapping relationships.
-       * Release version: v5.4.2.
+       * @summary Deletes valid mapping relationships. Release version: v5.4.2.
        *
        * @param request DeleteStandardValidMappingRequest
        * @return DeleteStandardValidMappingResponse
@@ -1684,7 +1739,7 @@ namespace DataphinPublic20230630
       Models::DeleteStandardWordRootResponse deleteStandardWordRoot(const Models::DeleteStandardWordRootRequest &request);
 
       /**
-       * @summary Deletes a user-defined function.
+       * @summary Deletes a custom function.
        *
        * @param request DeleteUdfRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1693,7 +1748,7 @@ namespace DataphinPublic20230630
       Models::DeleteUdfResponse deleteUdfWithOptions(const Models::DeleteUdfRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a user-defined function.
+       * @summary Deletes a custom function.
        *
        * @param request DeleteUdfRequest
        * @return DeleteUdfResponse
@@ -1803,7 +1858,7 @@ namespace DataphinPublic20230630
       Models::ExecuteManualNodeResponse executeManualNode(const Models::ExecuteManualNodeRequest &request);
 
       /**
-       * @summary Runs a trigger-based node.
+       * @summary Runs a trigger node.
        *
        * @param request ExecuteTriggerNodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1812,7 +1867,7 @@ namespace DataphinPublic20230630
       Models::ExecuteTriggerNodeResponse executeTriggerNodeWithOptions(const Models::ExecuteTriggerNodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Runs a trigger-based node.
+       * @summary Runs a trigger node.
        *
        * @param request ExecuteTriggerNodeRequest
        * @return ExecuteTriggerNodeResponse
@@ -1854,7 +1909,7 @@ namespace DataphinPublic20230630
       Models::FixDataResponse fixData(const Models::FixDataRequest &request);
 
       /**
-       * @summary Retrieves all authorized accounts under a specific row-level permission by row-level permission ID.
+       * @summary Retrieves all authorized accounts for a row-level permission by using the row-level permission ID.
        *
        * @param tmpReq GetAccountByRowPermissionIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1863,7 +1918,7 @@ namespace DataphinPublic20230630
       Models::GetAccountByRowPermissionIdResponse getAccountByRowPermissionIdWithOptions(const Models::GetAccountByRowPermissionIdRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves all authorized accounts under a specific row-level permission by row-level permission ID.
+       * @summary Retrieves all authorized accounts for a row-level permission by using the row-level permission ID.
        *
        * @param request GetAccountByRowPermissionIdRequest
        * @return GetAccountByRowPermissionIdResponse
@@ -1888,7 +1943,7 @@ namespace DataphinPublic20230630
       Models::GetAdHocFileResponse getAdHocFile(const Models::GetAdHocFileRequest &request);
 
       /**
-       * @summary Retrieves the runtime logs of an ad hoc query task.
+       * @summary Retrieves the execution logs of an ad-hoc query task.
        *
        * @param request GetAdHocTaskLogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1897,7 +1952,7 @@ namespace DataphinPublic20230630
       Models::GetAdHocTaskLogResponse getAdHocTaskLogWithOptions(const Models::GetAdHocTaskLogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the runtime logs of an ad hoc query task.
+       * @summary Retrieves the execution logs of an ad-hoc query task.
        *
        * @param request GetAdHocTaskLogRequest
        * @return GetAdHocTaskLogResponse
@@ -1905,7 +1960,7 @@ namespace DataphinPublic20230630
       Models::GetAdHocTaskLogResponse getAdHocTaskLog(const Models::GetAdHocTaskLogRequest &request);
 
       /**
-       * @summary Retrieves the task execution result of an ad hoc query.
+       * @summary Retrieves the execution results of an ad hoc query task.
        *
        * @param request GetAdHocTaskResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1914,7 +1969,7 @@ namespace DataphinPublic20230630
       Models::GetAdHocTaskResultResponse getAdHocTaskResultWithOptions(const Models::GetAdHocTaskResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the task execution result of an ad hoc query.
+       * @summary Retrieves the execution results of an ad hoc query task.
        *
        * @param request GetAdHocTaskResultRequest
        * @return GetAdHocTaskResultResponse
@@ -1939,6 +1994,23 @@ namespace DataphinPublic20230630
       Models::GetAlertEventResponse getAlertEvent(const Models::GetAlertEventRequest &request);
 
       /**
+       * @summary Queries the details of an approval task based on the approval flow ID, including the approval process steps. Available from version 6.4.0.
+       *
+       * @param request GetApprovalTaskDetailRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetApprovalTaskDetailResponse
+       */
+      Models::GetApprovalTaskDetailResponse getApprovalTaskDetailWithOptions(const Models::GetApprovalTaskDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of an approval task based on the approval flow ID, including the approval process steps. Available from version 6.4.0.
+       *
+       * @param request GetApprovalTaskDetailRequest
+       * @return GetApprovalTaskDetailResponse
+       */
+      Models::GetApprovalTaskDetailResponse getApprovalTaskDetail(const Models::GetApprovalTaskDetailRequest &request);
+
+      /**
        * @summary Queries asset property values. Online version: v6.3.0.
        *
        * @param tmpReq GetAssetAttributesRequest
@@ -1956,8 +2028,7 @@ namespace DataphinPublic20230630
       Models::GetAssetAttributesResponse getAssetAttributes(const Models::GetAssetAttributesRequest &request);
 
       /**
-       * @summary Queries mapping relationships by asset object GUID.
-       * Available since: v5.4.2.
+       * @summary Queries the mapping relationships based on the asset object GUID. Released in version 5.4.2.
        *
        * @param tmpReq GetAssetMappingRelationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1966,8 +2037,7 @@ namespace DataphinPublic20230630
       Models::GetAssetMappingRelationsResponse getAssetMappingRelationsWithOptions(const Models::GetAssetMappingRelationsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries mapping relationships by asset object GUID.
-       * Available since: v5.4.2.
+       * @summary Queries the mapping relationships based on the asset object GUID. Released in version 5.4.2.
        *
        * @param request GetAssetMappingRelationsRequest
        * @return GetAssetMappingRelationsResponse
@@ -2026,7 +2096,7 @@ namespace DataphinPublic20230630
       Models::GetBatchTaskInfoByVersionResponse getBatchTaskInfoByVersion(const Models::GetBatchTaskInfoByVersionRequest &request);
 
       /**
-       * @summary Obtains the custom lineage of an offline task.
+       * @summary Retrieves the custom lineage of an offline task.
        *
        * @param request GetBatchTaskUdfLineagesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2035,7 +2105,7 @@ namespace DataphinPublic20230630
       Models::GetBatchTaskUdfLineagesResponse getBatchTaskUdfLineagesWithOptions(const Models::GetBatchTaskUdfLineagesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the custom lineage of an offline task.
+       * @summary Retrieves the custom lineage of an offline task.
        *
        * @param request GetBatchTaskUdfLineagesRequest
        * @return GetBatchTaskUdfLineagesResponse
@@ -2043,7 +2113,7 @@ namespace DataphinPublic20230630
       Models::GetBatchTaskUdfLineagesResponse getBatchTaskUdfLineages(const Models::GetBatchTaskUdfLineagesRequest &request);
 
       /**
-       * @summary Retrieves the version list of a batch task.
+       * @summary Queries a list of batch taskfile versions.
        *
        * @param request GetBatchTaskVersionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2052,7 +2122,7 @@ namespace DataphinPublic20230630
       Models::GetBatchTaskVersionsResponse getBatchTaskVersionsWithOptions(const Models::GetBatchTaskVersionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the version list of a batch task.
+       * @summary Queries a list of batch taskfile versions.
        *
        * @param request GetBatchTaskVersionsRequest
        * @return GetBatchTaskVersionsResponse
@@ -2060,7 +2130,7 @@ namespace DataphinPublic20230630
       Models::GetBatchTaskVersionsResponse getBatchTaskVersions(const Models::GetBatchTaskVersionsRequest &request);
 
       /**
-       * @summary Retrieves the version list of a specified offline template ID. Online version: v6.2.0.
+       * @summary Retrieves the versions of a specified offline template. Available since v6.2.0.
        *
        * @param request GetBatchTemplateVersionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2069,7 +2139,7 @@ namespace DataphinPublic20230630
       Models::GetBatchTemplateVersionsResponse getBatchTemplateVersionsWithOptions(const Models::GetBatchTemplateVersionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the version list of a specified offline template ID. Online version: v6.2.0.
+       * @summary Retrieves the versions of a specified offline template. Available since v6.2.0.
        *
        * @param request GetBatchTemplateVersionsRequest
        * @return GetBatchTemplateVersionsResponse
@@ -2077,8 +2147,7 @@ namespace DataphinPublic20230630
       Models::GetBatchTemplateVersionsResponse getBatchTemplateVersions(const Models::GetBatchTemplateVersionsRequest &request);
 
       /**
-       * @summary Query mapping relationships by belonging asset GUID.
-       * Release version: v5.4.2.
+       * @summary Queries the mapping relationships based on the GUID of the owning asset. Released in v5.4.2.
        *
        * @param tmpReq GetBelongAssetMappingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2087,8 +2156,7 @@ namespace DataphinPublic20230630
       Models::GetBelongAssetMappingResponse getBelongAssetMappingWithOptions(const Models::GetBelongAssetMappingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query mapping relationships by belonging asset GUID.
-       * Release version: v5.4.2.
+       * @summary Queries the mapping relationships based on the GUID of the owning asset. Released in v5.4.2.
        *
        * @param request GetBelongAssetMappingRequest
        * @return GetBelongAssetMappingResponse
@@ -2130,8 +2198,7 @@ namespace DataphinPublic20230630
       Models::GetBizEntityInfoByVersionResponse getBizEntityInfoByVersion(const Models::GetBizEntityInfoByVersionRequest &request);
 
       /**
-       * @summary Query business metric details by name.
-       * Release version: v5.5.0.
+       * @summary Queries the details of a business metric by name. Release version: v5.5.0.
        *
        * @param tmpReq GetBizMetricByNameRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2140,8 +2207,7 @@ namespace DataphinPublic20230630
       Models::GetBizMetricByNameResponse getBizMetricByNameWithOptions(const Models::GetBizMetricByNameRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query business metric details by name.
-       * Release version: v5.5.0.
+       * @summary Queries the details of a business metric by name. Release version: v5.5.0.
        *
        * @param request GetBizMetricByNameRequest
        * @return GetBizMetricByNameResponse
@@ -2149,7 +2215,7 @@ namespace DataphinPublic20230630
       Models::GetBizMetricByNameResponse getBizMetricByName(const Models::GetBizMetricByNameRequest &request);
 
       /**
-       * @summary Retrieves the details of a data domain.
+       * @summary Retrieves the details of a data sector.
        *
        * @param request GetBizUnitInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2158,7 +2224,7 @@ namespace DataphinPublic20230630
       Models::GetBizUnitInfoResponse getBizUnitInfoWithOptions(const Models::GetBizUnitInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a data domain.
+       * @summary Retrieves the details of a data sector.
        *
        * @param request GetBizUnitInfoRequest
        * @return GetBizUnitInfoResponse
@@ -2204,10 +2270,9 @@ namespace DataphinPublic20230630
       Models::GetCheckConnectivityJobByJobIdResponse getCheckConnectivityJobByJobId(const Models::GetCheckConnectivityJobByJobIdRequest &request);
 
       /**
-       * @summary Queries the list of connectivity check tasks for a specified data source ID. This operation includes null value validation and tenant permission verification to prevent cross-tenant access.
-       * Release version: v5.5.0.
+       * @summary Queries a list of connectivity check tasks based on the specified data source ID, including null value validation and tenant permission verification to prevent cross-tenant access. Release version: v5.5.0.
        *
-       * @description Queries the details of connectivity tasks that have been tested for a specified data source ID.
+       * @description Queries the details of tested connectivity tasks based on the data source ID.
        *
        * @param request GetCheckConnectivityJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2216,10 +2281,9 @@ namespace DataphinPublic20230630
       Models::GetCheckConnectivityJobsResponse getCheckConnectivityJobsWithOptions(const Models::GetCheckConnectivityJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of connectivity check tasks for a specified data source ID. This operation includes null value validation and tenant permission verification to prevent cross-tenant access.
-       * Release version: v5.5.0.
+       * @summary Queries a list of connectivity check tasks based on the specified data source ID, including null value validation and tenant permission verification to prevent cross-tenant access. Release version: v5.5.0.
        *
-       * @description Queries the details of connectivity tasks that have been tested for a specified data source ID.
+       * @description Queries the details of tested connectivity tasks based on the data source ID.
        *
        * @param request GetCheckConnectivityJobsRequest
        * @return GetCheckConnectivityJobsResponse
@@ -2265,7 +2329,7 @@ namespace DataphinPublic20230630
       Models::GetComputeClusterResponse getComputeCluster(const Models::GetComputeClusterRequest &request);
 
       /**
-       * @summary Retrieves the details of a compute source by compute source ID.
+       * @summary Retrieves the details of a compute source by its ID.
        *
        * @param request GetComputeSourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2274,7 +2338,7 @@ namespace DataphinPublic20230630
       Models::GetComputeSourceResponse getComputeSourceWithOptions(const Models::GetComputeSourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a compute source by compute source ID.
+       * @summary Retrieves the details of a compute source by its ID.
        *
        * @param request GetComputeSourceRequest
        * @return GetComputeSourceResponse
@@ -2320,7 +2384,7 @@ namespace DataphinPublic20230630
       Models::GetDataDomainInfoResponse getDataDomainInfo(const Models::GetDataDomainInfoRequest &request);
 
       /**
-       * @summary Service Monitoring: Retrieves the aggregate statistics of API calls.
+       * @summary Retrieves the summary statistics of API calls for Service Monitoring.
        *
        * @param request GetDataServiceApiCallSummaryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2329,7 +2393,7 @@ namespace DataphinPublic20230630
       Models::GetDataServiceApiCallSummaryResponse getDataServiceApiCallSummaryWithOptions(const Models::GetDataServiceApiCallSummaryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Service Monitoring: Retrieves the aggregate statistics of API calls.
+       * @summary Retrieves the summary statistics of API calls for Service Monitoring.
        *
        * @param request GetDataServiceApiCallSummaryRequest
        * @return GetDataServiceApiCallSummaryResponse
@@ -2354,7 +2418,7 @@ namespace DataphinPublic20230630
       Models::GetDataServiceApiCallTrendResponse getDataServiceApiCallTrend(const Models::GetDataServiceApiCallTrendRequest &request);
 
       /**
-       * @summary Retrieves API documentation.
+       * @summary Retrieves the API documentation.
        *
        * @param request GetDataServiceApiDocumentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2363,7 +2427,7 @@ namespace DataphinPublic20230630
       Models::GetDataServiceApiDocumentResponse getDataServiceApiDocumentWithOptions(const Models::GetDataServiceApiDocumentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves API documentation.
+       * @summary Retrieves the API documentation.
        *
        * @param request GetDataServiceApiDocumentRequest
        * @return GetDataServiceApiDocumentResponse
@@ -2405,8 +2469,7 @@ namespace DataphinPublic20230630
       Models::GetDataServiceApiGroupsResponse getDataServiceApiGroups(const Models::GetDataServiceApiGroupsRequest &request);
 
       /**
-       * @summary Queries the details of a data service application, including the project, application name, authentication information, and IP whitelist. Only application members can view the details.
-       * Release version: v6.0.0.
+       * @summary Queries the details of a data service application, including the project, application name, authentication information, and IP address whitelist. Only application members can view this information. Released in v6.0.0.
        *
        * @param request GetDataServiceAppRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2415,8 +2478,7 @@ namespace DataphinPublic20230630
       Models::GetDataServiceAppResponse getDataServiceAppWithOptions(const Models::GetDataServiceAppRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a data service application, including the project, application name, authentication information, and IP whitelist. Only application members can view the details.
-       * Release version: v6.0.0.
+       * @summary Queries the details of a data service application, including the project, application name, authentication information, and IP address whitelist. Only application members can view this information. Released in v6.0.0.
        *
        * @param request GetDataServiceAppRequest
        * @return GetDataServiceAppResponse
@@ -2424,7 +2486,7 @@ namespace DataphinPublic20230630
       Models::GetDataServiceAppResponse getDataServiceApp(const Models::GetDataServiceAppRequest &request);
 
       /**
-       * @summary Retrieves the list of users who have permissions on an application.
+       * @summary Retrieves the list of users who have permissions for the application.
        *
        * @param request GetDataServiceAppAuthorizedUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2433,7 +2495,7 @@ namespace DataphinPublic20230630
       Models::GetDataServiceAppAuthorizedUsersResponse getDataServiceAppAuthorizedUsersWithOptions(const Models::GetDataServiceAppAuthorizedUsersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of users who have permissions on an application.
+       * @summary Retrieves the list of users who have permissions for the application.
        *
        * @param request GetDataServiceAppAuthorizedUsersRequest
        * @return GetDataServiceAppAuthorizedUsersResponse
@@ -2477,7 +2539,7 @@ namespace DataphinPublic20230630
       Models::GetDataServiceAppMembersResponse getDataServiceAppMembers(const Models::GetDataServiceAppMembersRequest &request);
 
       /**
-       * @summary Queries the list of applications in a group.
+       * @summary Queries the applications in a group.
        *
        * @param request GetDataServiceAppsByGroupIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2486,7 +2548,7 @@ namespace DataphinPublic20230630
       Models::GetDataServiceAppsByGroupIdResponse getDataServiceAppsByGroupIdWithOptions(const Models::GetDataServiceAppsByGroupIdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of applications in a group.
+       * @summary Queries the applications in a group.
        *
        * @param request GetDataServiceAppsByGroupIdRequest
        * @return GetDataServiceAppsByGroupIdResponse
@@ -2511,7 +2573,7 @@ namespace DataphinPublic20230630
       Models::GetDataServiceAuthorizedAppsByGroupIdResponse getDataServiceAuthorizedAppsByGroupId(const Models::GetDataServiceAuthorizedAppsByGroupIdRequest &request);
 
       /**
-       * @summary Queries the list of projects that the current user has permissions to access.
+       * @summary Queries the list of projects that the user has access to.
        *
        * @param request GetDataServiceAuthorizedProjectsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2520,7 +2582,7 @@ namespace DataphinPublic20230630
       Models::GetDataServiceAuthorizedProjectsResponse getDataServiceAuthorizedProjectsWithOptions(const Models::GetDataServiceAuthorizedProjectsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of projects that the current user has permissions to access.
+       * @summary Queries the list of projects that the user has access to.
        *
        * @param request GetDataServiceAuthorizedProjectsRequest
        * @return GetDataServiceAuthorizedProjectsResponse
@@ -2545,7 +2607,7 @@ namespace DataphinPublic20230630
       Models::GetDataServiceMyProjectsResponse getDataServiceMyProjects(const Models::GetDataServiceMyProjectsRequest &request);
 
       /**
-       * @summary Retrieves the list of users who can be added as project members.
+       * @summary Retrieves a list of users that can be added as project members.
        *
        * @param request GetDataServiceProjectAddableUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2554,7 +2616,7 @@ namespace DataphinPublic20230630
       Models::GetDataServiceProjectAddableUsersResponse getDataServiceProjectAddableUsersWithOptions(const Models::GetDataServiceProjectAddableUsersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of users who can be added as project members.
+       * @summary Retrieves a list of users that can be added as project members.
        *
        * @param request GetDataServiceProjectAddableUsersRequest
        * @return GetDataServiceProjectAddableUsersResponse
@@ -2600,7 +2662,7 @@ namespace DataphinPublic20230630
       Models::GetDatasetResponse getDataset(const Models::GetDatasetRequest &request);
 
       /**
-       * @summary Query upstream dependencies of development objects.
+       * @summary Queries the upstream dependencies of a development object.
        *
        * @param request GetDevObjectDependencyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2609,7 +2671,7 @@ namespace DataphinPublic20230630
       Models::GetDevObjectDependencyResponse getDevObjectDependencyWithOptions(const Models::GetDevObjectDependencyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query upstream dependencies of development objects.
+       * @summary Queries the upstream dependencies of a development object.
        *
        * @param request GetDevObjectDependencyRequest
        * @return GetDevObjectDependencyResponse
@@ -2634,7 +2696,7 @@ namespace DataphinPublic20230630
       Models::GetDirectoryTreeResponse getDirectoryTree(const Models::GetDirectoryTreeRequest &request);
 
       /**
-       * @summary Obtains temporary read/write authorization for file storage.
+       * @summary Retrieves temporary read and write authorization for file storage.
        *
        * @param request GetFileStorageCredentialRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2643,12 +2705,33 @@ namespace DataphinPublic20230630
       Models::GetFileStorageCredentialResponse getFileStorageCredentialWithOptions(const Models::GetFileStorageCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains temporary read/write authorization for file storage.
+       * @summary Retrieves temporary read and write authorization for file storage.
        *
        * @param request GetFileStorageCredentialRequest
        * @return GetFileStorageCredentialResponse
        */
       Models::GetFileStorageCredentialResponse getFileStorageCredential(const Models::GetFileStorageCredentialRequest &request);
+
+      /**
+       * @summary Retrieves the statistical granularity information of an aggregate logical table. Available from version 6.4.0.
+       *
+       * @description Queries the statistical granularity of an aggregate logical table. Recursive objects are referenced by ID. Logical tree node IDs are valid only within the currently returned tree.
+       *
+       * @param request GetGranularityBySummaryIdRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetGranularityBySummaryIdResponse
+       */
+      Models::GetGranularityBySummaryIdResponse getGranularityBySummaryIdWithOptions(const Models::GetGranularityBySummaryIdRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the statistical granularity information of an aggregate logical table. Available from version 6.4.0.
+       *
+       * @description Queries the statistical granularity of an aggregate logical table. Recursive objects are referenced by ID. Logical tree node IDs are valid only within the currently returned tree.
+       *
+       * @param request GetGranularityBySummaryIdRequest
+       * @return GetGranularityBySummaryIdResponse
+       */
+      Models::GetGranularityBySummaryIdResponse getGranularityBySummaryId(const Models::GetGranularityBySummaryIdRequest &request);
 
       /**
        * @summary Queries the downstream instances of a specified instance.
@@ -2668,7 +2751,7 @@ namespace DataphinPublic20230630
       Models::GetInstanceDownStreamResponse getInstanceDownStream(const Models::GetInstanceDownStreamRequest &request);
 
       /**
-       * @summary Queries the dag of an instance. Logical tables and code nodes are supported.
+       * @summary Queries the upstream and downstream nodes of an instance. Supports logical tables and code nodes.
        *
        * @param tmpReq GetInstanceUpDownStreamRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2677,7 +2760,7 @@ namespace DataphinPublic20230630
       Models::GetInstanceUpDownStreamResponse getInstanceUpDownStreamWithOptions(const Models::GetInstanceUpDownStreamRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the dag of an instance. Logical tables and code nodes are supported.
+       * @summary Queries the upstream and downstream nodes of an instance. Supports logical tables and code nodes.
        *
        * @param request GetInstanceUpDownStreamRequest
        * @return GetInstanceUpDownStreamResponse
@@ -2685,7 +2768,7 @@ namespace DataphinPublic20230630
       Models::GetInstanceUpDownStreamResponse getInstanceUpDownStream(const Models::GetInstanceUpDownStreamRequest &request);
 
       /**
-       * @summary Retrieves the list of workspaces with authorized knowledge graphs. Online version: v6.3.0.
+       * @summary Retrieves a list of workspaces with authorized knowledge graphs. Release version: v6.3.0.
        *
        * @param request GetKgAuthorizedWorkspacesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2694,7 +2777,7 @@ namespace DataphinPublic20230630
       Models::GetKgAuthorizedWorkspacesResponse getKgAuthorizedWorkspacesWithOptions(const Models::GetKgAuthorizedWorkspacesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of workspaces with authorized knowledge graphs. Online version: v6.3.0.
+       * @summary Retrieves a list of workspaces with authorized knowledge graphs. Release version: v6.3.0.
        *
        * @param request GetKgAuthorizedWorkspacesRequest
        * @return GetKgAuthorizedWorkspacesResponse
@@ -2702,7 +2785,7 @@ namespace DataphinPublic20230630
       Models::GetKgAuthorizedWorkspacesResponse getKgAuthorizedWorkspaces(const Models::GetKgAuthorizedWorkspacesRequest &request);
 
       /**
-       * @summary Retrieves the details of a knowledge graph entity record. Online version: v6.1.1.
+       * @summary Retrieves the details of a knowledge graph entity record. Available since version 6.1.1.
        *
        * @param request GetKgEntityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2711,7 +2794,7 @@ namespace DataphinPublic20230630
       Models::GetKgEntityResponse getKgEntityWithOptions(const Models::GetKgEntityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a knowledge graph entity record. Online version: v6.1.1.
+       * @summary Retrieves the details of a knowledge graph entity record. Available since version 6.1.1.
        *
        * @param request GetKgEntityRequest
        * @return GetKgEntityResponse
@@ -2736,7 +2819,7 @@ namespace DataphinPublic20230630
       Models::GetKgNeighborResponse getKgNeighbor(const Models::GetKgNeighborRequest &request);
 
       /**
-       * @summary Retrieves the details of a knowledge graph relationship record. Online version: v6.1.1.
+       * @summary Retrieves the details of a knowledge graph relation record. Released in version v6.1.1.
        *
        * @param request GetKgRelationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2745,7 +2828,7 @@ namespace DataphinPublic20230630
       Models::GetKgRelationResponse getKgRelationWithOptions(const Models::GetKgRelationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a knowledge graph relationship record. Online version: v6.1.1.
+       * @summary Retrieves the details of a knowledge graph relation record. Released in version v6.1.1.
        *
        * @param request GetKgRelationRequest
        * @return GetKgRelationResponse
@@ -2753,7 +2836,7 @@ namespace DataphinPublic20230630
       Models::GetKgRelationResponse getKgRelation(const Models::GetKgRelationRequest &request);
 
       /**
-       * @summary Retrieves the publish result of a knowledge graph model. Online version: v6.2.0.
+       * @summary Retrieves the publish result of a graph model. Online version: v6.2.0.
        *
        * @param request GetKgSchemaPublishResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2762,7 +2845,7 @@ namespace DataphinPublic20230630
       Models::GetKgSchemaPublishResultResponse getKgSchemaPublishResultWithOptions(const Models::GetKgSchemaPublishResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the publish result of a knowledge graph model. Online version: v6.2.0.
+       * @summary Retrieves the publish result of a graph model. Online version: v6.2.0.
        *
        * @param request GetKgSchemaPublishResultRequest
        * @return GetKgSchemaPublishResultResponse
@@ -2770,7 +2853,7 @@ namespace DataphinPublic20230630
       Models::GetKgSchemaPublishResultResponse getKgSchemaPublishResult(const Models::GetKgSchemaPublishResultRequest &request);
 
       /**
-       * @summary Retrieves the details of the latest pending submit record.
+       * @summary Retrieves the details of the latest pending release record.
        *
        * @param tmpReq GetLatestSubmitDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2779,7 +2862,7 @@ namespace DataphinPublic20230630
       Models::GetLatestSubmitDetailResponse getLatestSubmitDetailWithOptions(const Models::GetLatestSubmitDetailRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of the latest pending submit record.
+       * @summary Retrieves the details of the latest pending release record.
        *
        * @param request GetLatestSubmitDetailRequest
        * @return GetLatestSubmitDetailResponse
@@ -2821,7 +2904,7 @@ namespace DataphinPublic20230630
       Models::GetLlmModelProvidersResponse getLlmModelProviders(const Models::GetLlmModelProvidersRequest &request);
 
       /**
-       * @summary Retrieves the list of roles for the current user.
+       * @summary Retrieves the list of user roles.
        *
        * @param request GetMyRolesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2830,7 +2913,7 @@ namespace DataphinPublic20230630
       Models::GetMyRolesResponse getMyRolesWithOptions(const Models::GetMyRolesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of roles for the current user.
+       * @summary Retrieves the list of user roles.
        *
        * @param request GetMyRolesRequest
        * @return GetMyRolesResponse
@@ -2855,7 +2938,7 @@ namespace DataphinPublic20230630
       Models::GetMyTenantsResponse getMyTenants(const Models::GetMyTenantsRequest &request);
 
       /**
-       * @summary Queries the dag of a node. This is a general-purpose operation.
+       * @summary Queries the upstream and downstream nodes of a node.
        *
        * @param tmpReq GetNodeUpDownStreamRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2864,7 +2947,7 @@ namespace DataphinPublic20230630
       Models::GetNodeUpDownStreamResponse getNodeUpDownStreamWithOptions(const Models::GetNodeUpDownStreamRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the dag of a node. This is a general-purpose operation.
+       * @summary Queries the upstream and downstream nodes of a node.
        *
        * @param request GetNodeUpDownStreamRequest
        * @return GetNodeUpDownStreamResponse
@@ -2872,7 +2955,7 @@ namespace DataphinPublic20230630
       Models::GetNodeUpDownStreamResponse getNodeUpDownStream(const Models::GetNodeUpDownStreamRequest &request);
 
       /**
-       * @summary Queries an operation log by ID. Available since v6.2.0.
+       * @summary Queries an execution record by ID. Available since version 6.2.0.
        *
        * @param tmpReq GetOperationRecordByIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2881,7 +2964,7 @@ namespace DataphinPublic20230630
       Models::GetOperationRecordByIdResponse getOperationRecordByIdWithOptions(const Models::GetOperationRecordByIdRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries an operation log by ID. Available since v6.2.0.
+       * @summary Queries an execution record by ID. Available since version 6.2.0.
        *
        * @param request GetOperationRecordByIdRequest
        * @return GetOperationRecordByIdResponse
@@ -2889,7 +2972,7 @@ namespace DataphinPublic20230630
       Models::GetOperationRecordByIdResponse getOperationRecordById(const Models::GetOperationRecordByIdRequest &request);
 
       /**
-       * @summary Queries the details of an execution record. Released in version v6.2.0.
+       * @summary Queries the details of an operation record. Available since version 6.2.0.
        *
        * @param tmpReq GetOperationRecordDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2898,7 +2981,7 @@ namespace DataphinPublic20230630
       Models::GetOperationRecordDetailResponse getOperationRecordDetailWithOptions(const Models::GetOperationRecordDetailRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of an execution record. Released in version v6.2.0.
+       * @summary Queries the details of an operation record. Available since version 6.2.0.
        *
        * @param request GetOperationRecordDetailRequest
        * @return GetOperationRecordDetailResponse
@@ -2906,7 +2989,7 @@ namespace DataphinPublic20230630
       Models::GetOperationRecordDetailResponse getOperationRecordDetail(const Models::GetOperationRecordDetailRequest &request);
 
       /**
-       * @summary Queries the execution code of an operation log. Online version: v6.2.0.
+       * @summary Queries the executed code of operation records. Release version: v6.2.0.
        *
        * @param tmpReq GetOperationRecordRunCodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2915,7 +2998,7 @@ namespace DataphinPublic20230630
       Models::GetOperationRecordRunCodeResponse getOperationRecordRunCodeWithOptions(const Models::GetOperationRecordRunCodeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the execution code of an operation log. Online version: v6.2.0.
+       * @summary Queries the executed code of operation records. Release version: v6.2.0.
        *
        * @param request GetOperationRecordRunCodeRequest
        * @return GetOperationRecordRunCodeResponse
@@ -2923,7 +3006,7 @@ namespace DataphinPublic20230630
       Models::GetOperationRecordRunCodeResponse getOperationRecordRunCode(const Models::GetOperationRecordRunCodeRequest &request);
 
       /**
-       * @summary Queries the submit status of a data backfill request.
+       * @summary Queries the submit status of data backfill.
        *
        * @param request GetOperationSubmitStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2932,7 +3015,7 @@ namespace DataphinPublic20230630
       Models::GetOperationSubmitStatusResponse getOperationSubmitStatusWithOptions(const Models::GetOperationSubmitStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the submit status of a data backfill request.
+       * @summary Queries the submit status of data backfill.
        *
        * @param request GetOperationSubmitStatusRequest
        * @return GetOperationSubmitStatusResponse
@@ -2940,7 +3023,7 @@ namespace DataphinPublic20230630
       Models::GetOperationSubmitStatusResponse getOperationSubmitStatus(const Models::GetOperationSubmitStatusRequest &request);
 
       /**
-       * @summary Gets instance information.
+       * @summary Retrieves instance information.
        *
        * @param request GetPhysicalInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2949,7 +3032,7 @@ namespace DataphinPublic20230630
       Models::GetPhysicalInstanceResponse getPhysicalInstanceWithOptions(const Models::GetPhysicalInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Gets instance information.
+       * @summary Retrieves instance information.
        *
        * @param request GetPhysicalInstanceRequest
        * @return GetPhysicalInstanceResponse
@@ -2974,7 +3057,7 @@ namespace DataphinPublic20230630
       Models::GetPhysicalInstanceLogResponse getPhysicalInstanceLog(const Models::GetPhysicalInstanceLogRequest &request);
 
       /**
-       * @summary Queries a physical schedule resource.
+       * @summary Queries physical scheduling nodes.
        *
        * @param request GetPhysicalNodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2983,7 +3066,7 @@ namespace DataphinPublic20230630
       Models::GetPhysicalNodeResponse getPhysicalNodeWithOptions(const Models::GetPhysicalNodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a physical schedule resource.
+       * @summary Queries physical scheduling nodes.
        *
        * @param request GetPhysicalNodeRequest
        * @return GetPhysicalNodeResponse
@@ -2991,7 +3074,7 @@ namespace DataphinPublic20230630
       Models::GetPhysicalNodeResponse getPhysicalNode(const Models::GetPhysicalNodeRequest &request);
 
       /**
-       * @summary Queries a physical node by output name. Only offline code nodes and integration task nodes are supported.
+       * @summary Queries physical nodes by output name. Only offline code nodes and integration task nodes are supported.
        *
        * @param request GetPhysicalNodeByOutputNameRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3000,7 +3083,7 @@ namespace DataphinPublic20230630
       Models::GetPhysicalNodeByOutputNameResponse getPhysicalNodeByOutputNameWithOptions(const Models::GetPhysicalNodeByOutputNameRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a physical node by output name. Only offline code nodes and integration task nodes are supported.
+       * @summary Queries physical nodes by output name. Only offline code nodes and integration task nodes are supported.
        *
        * @param request GetPhysicalNodeByOutputNameRequest
        * @return GetPhysicalNodeByOutputNameResponse
@@ -3008,7 +3091,7 @@ namespace DataphinPublic20230630
       Models::GetPhysicalNodeByOutputNameResponse getPhysicalNodeByOutputName(const Models::GetPhysicalNodeByOutputNameRequest &request);
 
       /**
-       * @summary Queries the code content of a schedule resource node.
+       * @summary Queries the code content of a scheduling node.
        *
        * @param request GetPhysicalNodeContentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3017,7 +3100,7 @@ namespace DataphinPublic20230630
       Models::GetPhysicalNodeContentResponse getPhysicalNodeContentWithOptions(const Models::GetPhysicalNodeContentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the code content of a schedule resource node.
+       * @summary Queries the code content of a scheduling node.
        *
        * @param request GetPhysicalNodeContentRequest
        * @return GetPhysicalNodeContentResponse
@@ -3025,7 +3108,7 @@ namespace DataphinPublic20230630
       Models::GetPhysicalNodeContentResponse getPhysicalNodeContent(const Models::GetPhysicalNodeContentRequest &request);
 
       /**
-       * @summary Queries the operation logs of a node.
+       * @summary Queries the node operation logs.
        *
        * @param request GetPhysicalNodeOperationLogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3034,7 +3117,7 @@ namespace DataphinPublic20230630
       Models::GetPhysicalNodeOperationLogResponse getPhysicalNodeOperationLogWithOptions(const Models::GetPhysicalNodeOperationLogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the operation logs of a node.
+       * @summary Queries the node operation logs.
        *
        * @param request GetPhysicalNodeOperationLogRequest
        * @return GetPhysicalNodeOperationLogResponse
@@ -3076,7 +3159,7 @@ namespace DataphinPublic20230630
       Models::GetPipelineByIdResponse getPipelineById(const Models::GetPipelineByIdRequest &request);
 
       /**
-       * @summary Get project details by project ID.
+       * @summary Retrieves the details of a project by project ID.
        *
        * @param request GetProjectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3085,7 +3168,7 @@ namespace DataphinPublic20230630
       Models::GetProjectResponse getProjectWithOptions(const Models::GetProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get project details by project ID.
+       * @summary Retrieves the details of a project by project ID.
        *
        * @param request GetProjectRequest
        * @return GetProjectResponse
@@ -3110,7 +3193,7 @@ namespace DataphinPublic20230630
       Models::GetProjectByNameResponse getProjectByName(const Models::GetProjectByNameRequest &request);
 
       /**
-       * @summary Retrieves the production account of a project. Only a super administrator (SuperAdmin) can call this API operation.
+       * @summary Retrieves the production account for a project. Only super administrators can call this API operation.
        *
        * @param request GetProjectProduceUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3119,7 +3202,7 @@ namespace DataphinPublic20230630
       Models::GetProjectProduceUserResponse getProjectProduceUserWithOptions(const Models::GetProjectProduceUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the production account of a project. Only a super administrator (SuperAdmin) can call this API operation.
+       * @summary Retrieves the production account for a project. Only super administrators can call this API operation.
        *
        * @param request GetProjectProduceUserRequest
        * @return GetProjectProduceUserResponse
@@ -3127,7 +3210,7 @@ namespace DataphinPublic20230630
       Models::GetProjectProduceUserResponse getProjectProduceUser(const Models::GetProjectProduceUserRequest &request);
 
       /**
-       * @summary Retrieves the whitelist of a project.
+       * @summary Retrieves the project whitelist.
        *
        * @param request GetProjectWhiteListsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3136,7 +3219,7 @@ namespace DataphinPublic20230630
       Models::GetProjectWhiteListsResponse getProjectWhiteListsWithOptions(const Models::GetProjectWhiteListsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the whitelist of a project.
+       * @summary Retrieves the project whitelist.
        *
        * @param request GetProjectWhiteListsRequest
        * @return GetProjectWhiteListsResponse
@@ -3178,8 +3261,7 @@ namespace DataphinPublic20230630
       Models::GetQualityArchiveTableProgressResponse getQualityArchiveTableProgress(const Models::GetQualityArchiveTableProgressRequest &request);
 
       /**
-       * @summary Retrieves a quality rule object.
-       * Release version: v5.4.2.
+       * @summary Retrieves the quality rule object. Release version: v5.4.2.
        *
        * @param request GetQualityRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3188,8 +3270,7 @@ namespace DataphinPublic20230630
       Models::GetQualityRuleResponse getQualityRuleWithOptions(const Models::GetQualityRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a quality rule object.
-       * Release version: v5.4.2.
+       * @summary Retrieves the quality rule object. Release version: v5.4.2.
        *
        * @param request GetQualityRuleRequest
        * @return GetQualityRuleResponse
@@ -3197,7 +3278,7 @@ namespace DataphinPublic20230630
       Models::GetQualityRuleResponse getQualityRule(const Models::GetQualityRuleRequest &request);
 
       /**
-       * @summary Retrieves the details of a quality node task object. Online version: v5.4.2.
+       * @summary Retrieves the details of a quality task object. Released in version 5.4.2.
        *
        * @param request GetQualityRuleTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3206,7 +3287,7 @@ namespace DataphinPublic20230630
       Models::GetQualityRuleTaskResponse getQualityRuleTaskWithOptions(const Models::GetQualityRuleTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a quality node task object. Online version: v5.4.2.
+       * @summary Retrieves the details of a quality task object. Released in version 5.4.2.
        *
        * @param request GetQualityRuleTaskRequest
        * @return GetQualityRuleTaskResponse
@@ -3233,8 +3314,7 @@ namespace DataphinPublic20230630
       Models::GetQualityRuleTaskLogResponse getQualityRuleTaskLog(const Models::GetQualityRuleTaskLogRequest &request);
 
       /**
-       * @summary Retrieves a quality schedule object.
-       * Release version: v5.4.2.
+       * @summary Retrieves the quality scheduling object. Available since v5.4.2.
        *
        * @param request GetQualityScheduleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3243,8 +3323,7 @@ namespace DataphinPublic20230630
       Models::GetQualityScheduleResponse getQualityScheduleWithOptions(const Models::GetQualityScheduleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a quality schedule object.
-       * Release version: v5.4.2.
+       * @summary Retrieves the quality scheduling object. Available since v5.4.2.
        *
        * @param request GetQualityScheduleRequest
        * @return GetQualityScheduleResponse
@@ -3252,8 +3331,7 @@ namespace DataphinPublic20230630
       Models::GetQualityScheduleResponse getQualitySchedule(const Models::GetQualityScheduleRequest &request);
 
       /**
-       * @summary Retrieves a list of schedule settings by monitored object ID.
-       * Release version: v5.4.2.
+       * @summary Retrieves a list of scheduling settings by monitored object ID. Available since v5.4.2.
        *
        * @param request GetQualitySchedulesByWatchIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3262,8 +3340,7 @@ namespace DataphinPublic20230630
       Models::GetQualitySchedulesByWatchIdResponse getQualitySchedulesByWatchIdWithOptions(const Models::GetQualitySchedulesByWatchIdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of schedule settings by monitored object ID.
-       * Release version: v5.4.2.
+       * @summary Retrieves a list of scheduling settings by monitored object ID. Available since v5.4.2.
        *
        * @param request GetQualitySchedulesByWatchIdRequest
        * @return GetQualitySchedulesByWatchIdResponse
@@ -3271,8 +3348,7 @@ namespace DataphinPublic20230630
       Models::GetQualitySchedulesByWatchIdResponse getQualitySchedulesByWatchId(const Models::GetQualitySchedulesByWatchIdRequest &request);
 
       /**
-       * @summary Retrieves a quality template object.
-       * Release version: v5.4.2.
+       * @summary Retrieves a quality template object. Released in version 5.4.2.
        *
        * @param request GetQualityTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3281,8 +3357,7 @@ namespace DataphinPublic20230630
       Models::GetQualityTemplateResponse getQualityTemplateWithOptions(const Models::GetQualityTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a quality template object.
-       * Release version: v5.4.2.
+       * @summary Retrieves a quality template object. Released in version 5.4.2.
        *
        * @param request GetQualityTemplateRequest
        * @return GetQualityTemplateResponse
@@ -3309,8 +3384,7 @@ namespace DataphinPublic20230630
       Models::GetQualityWatchResponse getQualityWatch(const Models::GetQualityWatchRequest &request);
 
       /**
-       * @summary Retrieves a quality watchtask record by the original ID of the monitored object, such as the ID of a datasource, table, or metric.
-       * Release version: v5.4.2.
+       * @summary Retrieves a quality watchtask record by the original ID of the monitored object, such as the ID of a data source, table, or metric. Release version: v5.4.2.
        *
        * @param request GetQualityWatchByObjectIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3319,8 +3393,7 @@ namespace DataphinPublic20230630
       Models::GetQualityWatchByObjectIdResponse getQualityWatchByObjectIdWithOptions(const Models::GetQualityWatchByObjectIdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a quality watchtask record by the original ID of the monitored object, such as the ID of a datasource, table, or metric.
-       * Release version: v5.4.2.
+       * @summary Retrieves a quality watchtask record by the original ID of the monitored object, such as the ID of a data source, table, or metric. Release version: v5.4.2.
        *
        * @param request GetQualityWatchByObjectIdRequest
        * @return GetQualityWatchByObjectIdResponse
@@ -3328,8 +3401,7 @@ namespace DataphinPublic20230630
       Models::GetQualityWatchByObjectIdResponse getQualityWatchByObjectId(const Models::GetQualityWatchByObjectIdRequest &request);
 
       /**
-       * @summary Retrieves a monitoring node task object.
-       * Online version: v5.4.2.
+       * @summary Retrieves a monitoring node object. Online version: v5.4.2.
        *
        * @param request GetQualityWatchTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3338,8 +3410,7 @@ namespace DataphinPublic20230630
       Models::GetQualityWatchTaskResponse getQualityWatchTaskWithOptions(const Models::GetQualityWatchTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a monitoring node task object.
-       * Online version: v5.4.2.
+       * @summary Retrieves a monitoring node object. Online version: v5.4.2.
        *
        * @param request GetQualityWatchTaskRequest
        * @return GetQualityWatchTaskResponse
@@ -3383,6 +3454,23 @@ namespace DataphinPublic20230630
       Models::GetQueueEngineVersionByEnvResponse getQueueEngineVersionByEnv(const Models::GetQueueEngineVersionByEnvRequest &request);
 
       /**
+       * @summary Retrieves the quality rectification process. Released in version 6.4.0.
+       *
+       * @param tmpReq GetRectifyFlowRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetRectifyFlowResponse
+       */
+      Models::GetRectifyFlowResponse getRectifyFlowWithOptions(const Models::GetRectifyFlowRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the quality rectification process. Released in version 6.4.0.
+       *
+       * @param request GetRectifyFlowRequest
+       * @return GetRectifyFlowResponse
+       */
+      Models::GetRectifyFlowResponse getRectifyFlow(const Models::GetRectifyFlowRequest &request);
+
+      /**
        * @summary Retrieves the details of a resource file.
        *
        * @param request GetResourceRequest
@@ -3417,7 +3505,7 @@ namespace DataphinPublic20230630
       Models::GetResourceByVersionResponse getResourceByVersion(const Models::GetResourceByVersionRequest &request);
 
       /**
-       * @summary Retrieves row permissions by table GUIDs. Online version: v5.4.2.
+       * @summary Online version: v5.4.2.
        *
        * @param tmpReq GetRowPermissionByTableGuidsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3426,7 +3514,7 @@ namespace DataphinPublic20230630
       Models::GetRowPermissionByTableGuidsResponse getRowPermissionByTableGuidsWithOptions(const Models::GetRowPermissionByTableGuidsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves row permissions by table GUIDs. Online version: v5.4.2.
+       * @summary Online version: v5.4.2.
        *
        * @param request GetRowPermissionByTableGuidsRequest
        * @return GetRowPermissionByTableGuidsResponse
@@ -3451,8 +3539,7 @@ namespace DataphinPublic20230630
       Models::GetSecurityClassifyResponse getSecurityClassify(const Models::GetSecurityClassifyRequest &request);
 
       /**
-       * @summary Retrieves the details of an identification result.
-       * Release version: v5.4.2.
+       * @summary Retrieves the details of a recognition result. Release version: v5.4.2.
        *
        * @param request GetSecurityIdentifyResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3461,8 +3548,7 @@ namespace DataphinPublic20230630
       Models::GetSecurityIdentifyResultResponse getSecurityIdentifyResultWithOptions(const Models::GetSecurityIdentifyResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of an identification result.
-       * Release version: v5.4.2.
+       * @summary Retrieves the details of a recognition result. Release version: v5.4.2.
        *
        * @param request GetSecurityIdentifyResultRequest
        * @return GetSecurityIdentifyResultResponse
@@ -3506,7 +3592,7 @@ namespace DataphinPublic20230630
       /**
        * @summary Retrieves the Dataphin server version.
        *
-       * @description Queries the details of a published API based on the AppKey.
+       * @description Queries the details of published APIs based on the appKey.
        *
        * @param request GetServerVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3517,7 +3603,7 @@ namespace DataphinPublic20230630
       /**
        * @summary Retrieves the Dataphin server version.
        *
-       * @description Queries the details of a published API based on the AppKey.
+       * @description Queries the details of published APIs based on the appKey.
        *
        * @param request GetServerVersionRequest
        * @return GetServerVersionResponse
@@ -3542,7 +3628,7 @@ namespace DataphinPublic20230630
       Models::GetSourceTableMetaResponse getSourceTableMeta(const Models::GetSourceTableMetaRequest &request);
 
       /**
-       * @summary Retrieves the Spark client information of the cluster associated with a compute source.
+       * @summary Retrieves the Spark client information for the cluster associated with the compute source.
        *
        * @param request GetSparkLocalClientInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3551,7 +3637,7 @@ namespace DataphinPublic20230630
       Models::GetSparkLocalClientInfoResponse getSparkLocalClientInfoWithOptions(const Models::GetSparkLocalClientInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the Spark client information of the cluster associated with a compute source.
+       * @summary Retrieves the Spark client information for the cluster associated with the compute source.
        *
        * @param request GetSparkLocalClientInfoRequest
        * @return GetSparkLocalClientInfoResponse
@@ -3559,8 +3645,7 @@ namespace DataphinPublic20230630
       Models::GetSparkLocalClientInfoResponse getSparkLocalClientInfo(const Models::GetSparkLocalClientInfoRequest &request);
 
       /**
-       * @summary Retrieves the details of a standard.
-       * Release version: v5.4.2.
+       * @summary Retrieves the details of a standard. Released in v5.4.2.
        *
        * @param tmpReq GetStandardRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3569,8 +3654,7 @@ namespace DataphinPublic20230630
       Models::GetStandardResponse getStandardWithOptions(const Models::GetStandardRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a standard.
-       * Release version: v5.4.2.
+       * @summary Retrieves the details of a standard. Released in v5.4.2.
        *
        * @param request GetStandardRequest
        * @return GetStandardResponse
@@ -3578,8 +3662,7 @@ namespace DataphinPublic20230630
       Models::GetStandardResponse getStandard(const Models::GetStandardRequest &request);
 
       /**
-       * @summary Retrieves the details of a data standard lookup table.
-       * Online version: v5.4.2.
+       * @summary Retrieves the details of a data standard lookup table. Released in version 5.4.2.
        *
        * @param request GetStandardLookupTableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3588,8 +3671,7 @@ namespace DataphinPublic20230630
       Models::GetStandardLookupTableResponse getStandardLookupTableWithOptions(const Models::GetStandardLookupTableRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a data standard lookup table.
-       * Online version: v5.4.2.
+       * @summary Retrieves the details of a data standard lookup table. Released in version 5.4.2.
        *
        * @param request GetStandardLookupTableRequest
        * @return GetStandardLookupTableResponse
@@ -3597,8 +3679,7 @@ namespace DataphinPublic20230630
       Models::GetStandardLookupTableResponse getStandardLookupTable(const Models::GetStandardLookupTableRequest &request);
 
       /**
-       * @summary Retrieves the details of a standard set.
-       * Release version: v5.4.2.
+       * @summary Retrieves the details of a standard set. Release version: v5.4.2.
        *
        * @param request GetStandardSetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3607,8 +3688,7 @@ namespace DataphinPublic20230630
       Models::GetStandardSetResponse getStandardSetWithOptions(const Models::GetStandardSetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a standard set.
-       * Release version: v5.4.2.
+       * @summary Retrieves the details of a standard set. Release version: v5.4.2.
        *
        * @param request GetStandardSetRequest
        * @return GetStandardSetResponse
@@ -3616,8 +3696,8 @@ namespace DataphinPublic20230630
       Models::GetStandardSetResponse getStandardSet(const Models::GetStandardSetRequest &request);
 
       /**
-       * @summary Queries the number of standards grouped by standard type under a specified folder.
-       * Online version: v5.4.2.
+       * @summary Queries the statistics of standards by standard type under a directory.
+       * Available since: v5.4.2.
        *
        * @param tmpReq GetStandardStatisticsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3626,8 +3706,8 @@ namespace DataphinPublic20230630
       Models::GetStandardStatisticsResponse getStandardStatisticsWithOptions(const Models::GetStandardStatisticsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the number of standards grouped by standard type under a specified folder.
-       * Online version: v5.4.2.
+       * @summary Queries the statistics of standards by standard type under a directory.
+       * Available since: v5.4.2.
        *
        * @param request GetStandardStatisticsRequest
        * @return GetStandardStatisticsResponse
@@ -3635,8 +3715,7 @@ namespace DataphinPublic20230630
       Models::GetStandardStatisticsResponse getStandardStatistics(const Models::GetStandardStatisticsRequest &request);
 
       /**
-       * @summary Retrieves the details of a data standard template.
-       * Online version: v5.4.2.
+       * @summary Retrieves the details of a data standard template. Released in version v5.4.2.
        *
        * @param tmpReq GetStandardTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3645,8 +3724,7 @@ namespace DataphinPublic20230630
       Models::GetStandardTemplateResponse getStandardTemplateWithOptions(const Models::GetStandardTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a data standard template.
-       * Online version: v5.4.2.
+       * @summary Retrieves the details of a data standard template. Released in version v5.4.2.
        *
        * @param request GetStandardTemplateRequest
        * @return GetStandardTemplateResponse
@@ -3654,8 +3732,7 @@ namespace DataphinPublic20230630
       Models::GetStandardTemplateResponse getStandardTemplate(const Models::GetStandardTemplateRequest &request);
 
       /**
-       * @summary Retrieves the details of a data standard word root.
-       * Online version: v5.4.2.
+       * @summary Queries the details of a data standard word root. Release version: v5.4.2.
        *
        * @param request GetStandardWordRootRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3664,8 +3741,7 @@ namespace DataphinPublic20230630
       Models::GetStandardWordRootResponse getStandardWordRootWithOptions(const Models::GetStandardWordRootRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a data standard word root.
-       * Online version: v5.4.2.
+       * @summary Queries the details of a data standard word root. Release version: v5.4.2.
        *
        * @param request GetStandardWordRootRequest
        * @return GetStandardWordRootResponse
@@ -3690,6 +3766,69 @@ namespace DataphinPublic20230630
       Models::GetStreamJobsResponse getStreamJobs(const Models::GetStreamJobsRequest &request);
 
       /**
+       * @summary Retrieves the full text of JobManager or TaskManager logs. Available since version 6.4.0.
+       *
+       * @description Retrieves the full text of JobManager or TaskManager logs in the production environment.
+       *
+       * @param request GetStreamLogContentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetStreamLogContentResponse
+       */
+      Models::GetStreamLogContentResponse getStreamLogContentWithOptions(const Models::GetStreamLogContentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the full text of JobManager or TaskManager logs. Available since version 6.4.0.
+       *
+       * @description Retrieves the full text of JobManager or TaskManager logs in the production environment.
+       *
+       * @param request GetStreamLogContentRequest
+       * @return GetStreamLogContentResponse
+       */
+      Models::GetStreamLogContentResponse getStreamLogContent(const Models::GetStreamLogContentRequest &request);
+
+      /**
+       * @summary Retrieves a single start or stop operation record and the log content. Available since version 6.4.0.
+       *
+       * @description Retrieves a single start or stop operation record and the log content by querying the production environment.
+       *
+       * @param request GetStreamOpsRecordRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetStreamOpsRecordResponse
+       */
+      Models::GetStreamOpsRecordResponse getStreamOpsRecordWithOptions(const Models::GetStreamOpsRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves a single start or stop operation record and the log content. Available since version 6.4.0.
+       *
+       * @description Retrieves a single start or stop operation record and the log content by querying the production environment.
+       *
+       * @param request GetStreamOpsRecordRequest
+       * @return GetStreamOpsRecordResponse
+       */
+      Models::GetStreamOpsRecordResponse getStreamOpsRecord(const Models::GetStreamOpsRecordRequest &request);
+
+      /**
+       * @summary Queries the basic information and running status of a real-time task. Available since v6.4.0.
+       *
+       * @description Queries the basic information and running status of a real-time task. The DEV and PROD environments are supported.
+       *
+       * @param request GetStreamTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetStreamTaskResponse
+       */
+      Models::GetStreamTaskResponse getStreamTaskWithOptions(const Models::GetStreamTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the basic information and running status of a real-time task. Available since v6.4.0.
+       *
+       * @description Queries the basic information and running status of a real-time task. The DEV and PROD environments are supported.
+       *
+       * @param request GetStreamTaskRequest
+       * @return GetStreamTaskResponse
+       */
+      Models::GetStreamTaskResponse getStreamTask(const Models::GetStreamTaskRequest &request);
+
+      /**
        * @summary Retrieves dagrun information for all business dates of a data backfill instance workflow.
        *
        * @param request GetSupplementDagrunRequest
@@ -3707,7 +3846,7 @@ namespace DataphinPublic20230630
       Models::GetSupplementDagrunResponse getSupplementDagrun(const Models::GetSupplementDagrunRequest &request);
 
       /**
-       * @summary Lists the instances of all nodes for a specific business date in a data backfill workflow.
+       * @summary Lists all node instances for a specific business date in a data backfill workflow.
        *
        * @param request GetSupplementDagrunInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3716,7 +3855,7 @@ namespace DataphinPublic20230630
       Models::GetSupplementDagrunInstanceResponse getSupplementDagrunInstanceWithOptions(const Models::GetSupplementDagrunInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the instances of all nodes for a specific business date in a data backfill workflow.
+       * @summary Lists all node instances for a specific business date in a data backfill workflow.
        *
        * @param request GetSupplementDagrunInstanceRequest
        * @return GetSupplementDagrunInstanceResponse
@@ -3777,7 +3916,7 @@ namespace DataphinPublic20230630
       Models::GetTableColumnLineagesResponse getTableColumnLineages(const Models::GetTableColumnLineagesRequest &request);
 
       /**
-       * @summary Queries the columns of a Dataphin table in the asset inventory. Supported table types: logical dimension table, fact logical table, aggregate logical table, tag logical table, logical table view, physical table, physical view, and materialized view table. Release version: v5.4.2.
+       * @summary Queries the fields of Dataphin tables in the asset inventory. Supported table types include logical dimension tables, logical fact tables, logical aggregate tables, logical tag tables, logical table views, physical tables, physical views, and materialized views. Released in version 5.4.2.
        *
        * @param request GetTableColumnsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3786,7 +3925,7 @@ namespace DataphinPublic20230630
       Models::GetTableColumnsResponse getTableColumnsWithOptions(const Models::GetTableColumnsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the columns of a Dataphin table in the asset inventory. Supported table types: logical dimension table, fact logical table, aggregate logical table, tag logical table, logical table view, physical table, physical view, and materialized view table. Release version: v5.4.2.
+       * @summary Queries the fields of Dataphin tables in the asset inventory. Supported table types include logical dimension tables, logical fact tables, logical aggregate tables, logical tag tables, logical table views, physical tables, physical views, and materialized views. Released in version 5.4.2.
        *
        * @param request GetTableColumnsRequest
        * @return GetTableColumnsResponse
@@ -3864,7 +4003,7 @@ namespace DataphinPublic20230630
       Models::GetUdfResponse getUdf(const Models::GetUdfRequest &request);
 
       /**
-       * @summary Queries the details of a specific version of a user-defined function.
+       * @summary Queries the details of a custom function version.
        *
        * @param request GetUdfByVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3873,7 +4012,7 @@ namespace DataphinPublic20230630
       Models::GetUdfByVersionResponse getUdfByVersionWithOptions(const Models::GetUdfByVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a specific version of a user-defined function.
+       * @summary Queries the details of a custom function version.
        *
        * @param request GetUdfByVersionRequest
        * @return GetUdfByVersionResponse
@@ -3949,7 +4088,7 @@ namespace DataphinPublic20230630
       Models::GetUsersResponse getUsers(const Models::GetUsersRequest &request);
 
       /**
-       * @summary Grants API authorization.
+       * @summary Grants permissions for an API.
        *
        * @param tmpReq GrantDataServiceApiRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3958,7 +4097,7 @@ namespace DataphinPublic20230630
       Models::GrantDataServiceApiResponse grantDataServiceApiWithOptions(const Models::GrantDataServiceApiRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Grants API authorization.
+       * @summary Grants permissions for an API.
        *
        * @param request GrantDataServiceApiRequest
        * @return GrantDataServiceApiResponse
@@ -3966,7 +4105,7 @@ namespace DataphinPublic20230630
       Models::GrantDataServiceApiResponse grantDataServiceApi(const Models::GrantDataServiceApiRequest &request);
 
       /**
-       * @summary Grants permissions on resources to users by resource point.
+       * @summary Grants resource permissions to users.
        *
        * @param tmpReq GrantResourcePermissionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3975,7 +4114,7 @@ namespace DataphinPublic20230630
       Models::GrantResourcePermissionResponse grantResourcePermissionWithOptions(const Models::GrantResourcePermissionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Grants permissions on resources to users by resource point.
+       * @summary Grants resource permissions to users.
        *
        * @param request GrantResourcePermissionRequest
        * @return GrantResourcePermissionResponse
@@ -3983,7 +4122,7 @@ namespace DataphinPublic20230630
       Models::GrantResourcePermissionResponse grantResourcePermission(const Models::GrantResourcePermissionRequest &request);
 
       /**
-       * @summary Imports a knowledge graph model definition. Online version: v6.1.1.
+       * @summary Imports the knowledge graph model definition. Release version: v6.1.1.
        *
        * @param tmpReq ImportKgSchemaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3992,7 +4131,7 @@ namespace DataphinPublic20230630
       Models::ImportKgSchemaResponse importKgSchemaWithOptions(const Models::ImportKgSchemaRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Imports a knowledge graph model definition. Online version: v6.1.1.
+       * @summary Imports the knowledge graph model definition. Release version: v6.1.1.
        *
        * @param request ImportKgSchemaRequest
        * @return ImportKgSchemaResponse
@@ -4017,7 +4156,7 @@ namespace DataphinPublic20230630
       Models::ListAddableRolesResponse listAddableRoles(const Models::ListAddableRolesRequest &request);
 
       /**
-       * @summary Queries users that can be added to a tenant. Only the super administrator (SuperAdmin) and system administrator can call this operation. The users must already exist in the Dataphin instance member list but have not yet been added to the tenant member list.
+       * @summary Queries the users that can be added to a tenant. Only super administrators and system administrators can invoke this operation. The users must be added to the member list of the Dataphin instance but have not yet been added to the tenant member list.
        *
        * @param tmpReq ListAddableUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4026,7 +4165,7 @@ namespace DataphinPublic20230630
       Models::ListAddableUsersResponse listAddableUsersWithOptions(const Models::ListAddableUsersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries users that can be added to a tenant. Only the super administrator (SuperAdmin) and system administrator can call this operation. The users must already exist in the Dataphin instance member list but have not yet been added to the tenant member list.
+       * @summary Queries the users that can be added to a tenant. Only super administrators and system administrators can invoke this operation. The users must be added to the member list of the Dataphin instance but have not yet been added to the tenant member list.
        *
        * @param request ListAddableUsersRequest
        * @return ListAddableUsersResponse
@@ -4068,9 +4207,9 @@ namespace DataphinPublic20230630
       Models::ListAlertNotificationsResponse listAlertNotifications(const Models::ListAlertNotificationsRequest &request);
 
       /**
-       * @summary Queries the list of APIs by application.
+       * @summary Queries the API list for an application.
        *
-       * @description Queries the detailed information of published APIs by appKey.
+       * @description Queries the details of published APIs by AppKey.
        *
        * @param tmpReq ListApiByAppRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4079,9 +4218,9 @@ namespace DataphinPublic20230630
       Models::ListApiByAppResponse listApiByAppWithOptions(const Models::ListApiByAppRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of APIs by application.
+       * @summary Queries the API list for an application.
        *
-       * @description Queries the detailed information of published APIs by appKey.
+       * @description Queries the details of published APIs by AppKey.
        *
        * @param request ListApiByAppRequest
        * @return ListApiByAppResponse
@@ -4140,9 +4279,10 @@ namespace DataphinPublic20230630
       Models::ListAssetTopicsResponse listAssetTopics(const Models::ListAssetTopicsRequest &request);
 
       /**
-       * @summary Queries the specific field list of APIs that an application has requested.
+       * @summary Queries the specific field list of the APIs that an application has applied for.
        *
-       * @description ## Request description.
+       * @description ## Request description
+       * This API allows you to query the APIs authorized to an application by providing the tenant ID, the AppKey of the data service application, or a keyword of the application name. Pagination is supported. The returned data includes the API ID, name, project, authorization validity period (for development and production environments), permission type, and field lists for production and development environments (including field or parameter name, parameter type, description, example value, and authorization status). Note that pagination parameters are required.
        *
        * @param tmpReq ListAuthorizedDataServiceApiDetailsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4151,9 +4291,10 @@ namespace DataphinPublic20230630
       Models::ListAuthorizedDataServiceApiDetailsResponse listAuthorizedDataServiceApiDetailsWithOptions(const Models::ListAuthorizedDataServiceApiDetailsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the specific field list of APIs that an application has requested.
+       * @summary Queries the specific field list of the APIs that an application has applied for.
        *
-       * @description ## Request description.
+       * @description ## Request description
+       * This API allows you to query the APIs authorized to an application by providing the tenant ID, the AppKey of the data service application, or a keyword of the application name. Pagination is supported. The returned data includes the API ID, name, project, authorization validity period (for development and production environments), permission type, and field lists for production and development environments (including field or parameter name, parameter type, description, example value, and authorization status). Note that pagination parameters are required.
        *
        * @param request ListAuthorizedDataServiceApiDetailsRequest
        * @return ListAuthorizedDataServiceApiDetailsResponse
@@ -4161,7 +4302,7 @@ namespace DataphinPublic20230630
       Models::ListAuthorizedDataServiceApiDetailsResponse listAuthorizedDataServiceApiDetails(const Models::ListAuthorizedDataServiceApiDetailsRequest &request);
 
       /**
-       * @summary 查询离线计算任务列表，支持按任务名称模糊检索、按产出表名精确定位构建该表的任务并获取其文件ID
+       * @summary Queries a list of offline computing tasks. Supports fuzzy search by task name and exact matching by output table name to locate the task that generates the table and retrieve its file ID. Available since version 6.3.2.
        *
        * @param tmpReq ListBatchTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4170,7 +4311,7 @@ namespace DataphinPublic20230630
       Models::ListBatchTasksResponse listBatchTasksWithOptions(const Models::ListBatchTasksRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询离线计算任务列表，支持按任务名称模糊检索、按产出表名精确定位构建该表的任务并获取其文件ID
+       * @summary Queries a list of offline computing tasks. Supports fuzzy search by task name and exact matching by output table name to locate the task that generates the table and retrieve its file ID. Available since version 6.3.2.
        *
        * @param request ListBatchTasksRequest
        * @return ListBatchTasksResponse
@@ -4178,7 +4319,7 @@ namespace DataphinPublic20230630
       Models::ListBatchTasksResponse listBatchTasks(const Models::ListBatchTasksRequest &request);
 
       /**
-       * @summary Queries offline computing templates by paging. Online version: v6.2.0.
+       * @summary Performs a paging query on offline computing templates. Released in version v6.2.0.
        *
        * @param tmpReq ListBatchTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4187,7 +4328,7 @@ namespace DataphinPublic20230630
       Models::ListBatchTemplatesResponse listBatchTemplatesWithOptions(const Models::ListBatchTemplatesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries offline computing templates by paging. Online version: v6.2.0.
+       * @summary Performs a paging query on offline computing templates. Released in version v6.2.0.
        *
        * @param request ListBatchTemplatesRequest
        * @return ListBatchTemplatesResponse
@@ -4212,7 +4353,7 @@ namespace DataphinPublic20230630
       Models::ListBizEntitiesResponse listBizEntities(const Models::ListBizEntitiesRequest &request);
 
       /**
-       * @summary Retrieves all business units under the current tenant.
+       * @summary Queries all business units under the current tenant.
        *
        * @param request ListBizUnitsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4221,7 +4362,7 @@ namespace DataphinPublic20230630
       Models::ListBizUnitsResponse listBizUnitsWithOptions(const Models::ListBizUnitsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves all business units under the current tenant.
+       * @summary Queries all business units under the current tenant.
        *
        * @param request ListBizUnitsRequest
        * @return ListBizUnitsResponse
@@ -4301,7 +4442,7 @@ namespace DataphinPublic20230630
       Models::ListDataDomainsResponse listDataDomains(const Models::ListDataDomainsRequest &request);
 
       /**
-       * @summary O&M analysis: API call statistics.
+       * @summary Queries API invoke statistics information for O&M analysis.
        *
        * @param tmpReq ListDataServiceApiCallStatisticsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4310,7 +4451,7 @@ namespace DataphinPublic20230630
       Models::ListDataServiceApiCallStatisticsResponse listDataServiceApiCallStatisticsWithOptions(const Models::ListDataServiceApiCallStatisticsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary O&M analysis: API call statistics.
+       * @summary Queries API invoke statistics information for O&M analysis.
        *
        * @param request ListDataServiceApiCallStatisticsRequest
        * @return ListDataServiceApiCallStatisticsResponse
@@ -4318,7 +4459,7 @@ namespace DataphinPublic20230630
       Models::ListDataServiceApiCallStatisticsResponse listDataServiceApiCallStatistics(const Models::ListDataServiceApiCallStatisticsRequest &request);
 
       /**
-       * @summary Queries data service call logs with pagination.
+       * @summary Performs a paging query on data service invoke logs.
        *
        * @param tmpReq ListDataServiceApiCallsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4327,7 +4468,7 @@ namespace DataphinPublic20230630
       Models::ListDataServiceApiCallsResponse listDataServiceApiCallsWithOptions(const Models::ListDataServiceApiCallsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries data service call logs with pagination.
+       * @summary Performs a paging query on data service invoke logs.
        *
        * @param request ListDataServiceApiCallsRequest
        * @return ListDataServiceApiCallsResponse
@@ -4439,7 +4580,7 @@ namespace DataphinPublic20230630
       Models::ListDataServicePublishedApisResponse listDataServicePublishedApis(const Models::ListDataServicePublishedApisRequest &request);
 
       /**
-       * @summary Search for data sources. The results include data source configuration items.
+       * @summary Searches for data sources and returns results that include datasource config items.
        *
        * @param tmpReq ListDataSourceWithConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4448,7 +4589,7 @@ namespace DataphinPublic20230630
       Models::ListDataSourceWithConfigResponse listDataSourceWithConfigWithOptions(const Models::ListDataSourceWithConfigRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Search for data sources. The results include data source configuration items.
+       * @summary Searches for data sources and returns results that include datasource config items.
        *
        * @param request ListDataSourceWithConfigRequest
        * @return ListDataSourceWithConfigResponse
@@ -4456,10 +4597,10 @@ namespace DataphinPublic20230630
       Models::ListDataSourceWithConfigResponse listDataSourceWithConfig(const Models::ListDataSourceWithConfigRequest &request);
 
       /**
-       * @summary Lists datasets in a project based on specified conditional query criteria. Online version: v6.2.0.
+       * @summary Performs a conditional query to retrieve a list of datasets in a project. Online version: v6.2.0.
        *
-       * @description ## Operation description
-       * This API allows you to retrieve dataset information for a specific project by providing a tenant ID, project ID, and other optional parameters such as keywords and type lists. Paging is supported. The returned data includes basic dataset information and version details. ProjectId is required. Other parameters are optional and can be configured as needed to filter results.
+       * @description ## Request description
+       * This API allows you to retrieve dataset information for a specific project by providing the tenant ID, project ID, and other optional parameters such as keywords and type lists. Paging is supported for paged query, and the returned packet includes the basic information of the datasets and their version details. Note that ProjectId is required, while other parameters are options that you can configure in Settings as needed to filter the results.
        *
        * @param tmpReq ListDatasetsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4468,10 +4609,10 @@ namespace DataphinPublic20230630
       Models::ListDatasetsResponse listDatasetsWithOptions(const Models::ListDatasetsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists datasets in a project based on specified conditional query criteria. Online version: v6.2.0.
+       * @summary Performs a conditional query to retrieve a list of datasets in a project. Online version: v6.2.0.
        *
-       * @description ## Operation description
-       * This API allows you to retrieve dataset information for a specific project by providing a tenant ID, project ID, and other optional parameters such as keywords and type lists. Paging is supported. The returned data includes basic dataset information and version details. ProjectId is required. Other parameters are optional and can be configured as needed to filter results.
+       * @description ## Request description
+       * This API allows you to retrieve dataset information for a specific project by providing the tenant ID, project ID, and other optional parameters such as keywords and type lists. Paging is supported for paged query, and the returned packet includes the basic information of the datasets and their version details. Note that ProjectId is required, while other parameters are options that you can configure in Settings as needed to filter the results.
        *
        * @param request ListDatasetsRequest
        * @return ListDatasetsResponse
@@ -4534,6 +4675,23 @@ namespace DataphinPublic20230630
        * @return ListInstancesResponse
        */
       Models::ListInstancesResponse listInstances(const Models::ListInstancesRequest &request);
+
+      /**
+       * @summary Retrieves the list of custom Kubernetes resource groups under a tenant. Released in version 6.4.0.
+       *
+       * @param request ListK8SResourceGroupIdsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListK8SResourceGroupIdsResponse
+       */
+      Models::ListK8SResourceGroupIdsResponse listK8SResourceGroupIdsWithOptions(const Models::ListK8SResourceGroupIdsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the list of custom Kubernetes resource groups under a tenant. Released in version 6.4.0.
+       *
+       * @param request ListK8SResourceGroupIdsRequest
+       * @return ListK8SResourceGroupIdsResponse
+       */
+      Models::ListK8SResourceGroupIdsResponse listK8SResourceGroupIds(const Models::ListK8SResourceGroupIdsRequest &request);
 
       /**
        * @summary Queries knowledge graph entity records with paging. Online version: v6.1.1.
@@ -4604,7 +4762,7 @@ namespace DataphinPublic20230630
       Models::ListNodesResponse listNodes(const Models::ListNodesRequest &request);
 
       /**
-       * @summary Performs a paged query on the list of operation records. Online version: v6.2.0.
+       * @summary Performs a paging query on the list of execution records. Online version: v6.2.0.
        *
        * @param tmpReq ListOperationRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4613,7 +4771,7 @@ namespace DataphinPublic20230630
       Models::ListOperationRecordResponse listOperationRecordWithOptions(const Models::ListOperationRecordRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a paged query on the list of operation records. Online version: v6.2.0.
+       * @summary Performs a paging query on the list of execution records. Online version: v6.2.0.
        *
        * @param request ListOperationRecordRequest
        * @return ListOperationRecordResponse
@@ -4655,12 +4813,16 @@ namespace DataphinPublic20230630
       Models::ListProjectMembersResponse listProjectMembers(const Models::ListProjectMembersRequest &request);
 
       /**
-       * @summary 获取项目角色列表
+       * @summary Retrieves a list of project roles. Release version: v6.3.2.
        *
-       * @description 获取租户指定项目类型下的项目角色列表。返回角色列表中 roleType 字段标识角色类型：
-       * - BUILD_IN：内置角色
-       * - CUSTOM：自定义角色
-       * 请求参数 ProjectType 必填，可选值为：BASIC（基础模式项目）、DEV（开发环境项目）、PROD（生产环境项目）、TAG（标签平台项目）。
+       * @description Retrieves the list of project roles for a specified project type under a tenant. The roleType field in the returned role list indicates the role type:
+       * - BUILD_IN: built-in role.
+       * - CUSTOM: custom role.
+       * The ProjectType request parameter is required. Valid values:
+       * - BASIC: basic mode project.
+       * - DEV: development environment project.
+       * - PROD: production environment project.
+       * - TAG: tag platform project.
        *
        * @param request ListProjectRolesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4669,12 +4831,16 @@ namespace DataphinPublic20230630
       Models::ListProjectRolesResponse listProjectRolesWithOptions(const Models::ListProjectRolesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取项目角色列表
+       * @summary Retrieves a list of project roles. Release version: v6.3.2.
        *
-       * @description 获取租户指定项目类型下的项目角色列表。返回角色列表中 roleType 字段标识角色类型：
-       * - BUILD_IN：内置角色
-       * - CUSTOM：自定义角色
-       * 请求参数 ProjectType 必填，可选值为：BASIC（基础模式项目）、DEV（开发环境项目）、PROD（生产环境项目）、TAG（标签平台项目）。
+       * @description Retrieves the list of project roles for a specified project type under a tenant. The roleType field in the returned role list indicates the role type:
+       * - BUILD_IN: built-in role.
+       * - CUSTOM: custom role.
+       * The ProjectType request parameter is required. Valid values:
+       * - BASIC: basic mode project.
+       * - DEV: development environment project.
+       * - PROD: production environment project.
+       * - TAG: tag platform project.
        *
        * @param request ListProjectRolesRequest
        * @return ListProjectRolesResponse
@@ -4716,6 +4882,23 @@ namespace DataphinPublic20230630
       Models::ListPublishRecordsResponse listPublishRecords(const Models::ListPublishRecordsRequest &request);
 
       /**
+       * @summary Performs a paged query on Python third-party packages with paging. Online version: v6.4.0.
+       *
+       * @param tmpReq ListPythonModulesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListPythonModulesResponse
+       */
+      Models::ListPythonModulesResponse listPythonModulesWithOptions(const Models::ListPythonModulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Performs a paged query on Python third-party packages with paging. Online version: v6.4.0.
+       *
+       * @param request ListPythonModulesRequest
+       * @return ListPythonModulesResponse
+       */
+      Models::ListPythonModulesResponse listPythonModules(const Models::ListPythonModulesRequest &request);
+
+      /**
        * @summary Queries the list of anomaly archived tables under a specified monitored object. Online version: v6.3.0.
        *
        * @param tmpReq ListQualityArchiveTablesRequest
@@ -4733,8 +4916,7 @@ namespace DataphinPublic20230630
       Models::ListQualityArchiveTablesResponse listQualityArchiveTables(const Models::ListQualityArchiveTablesRequest &request);
 
       /**
-       * @summary Queries quality rule tasks by paging.
-       * Online version: v5.4.2.
+       * @summary Performs a paging query of quality rule nodes. Online version: v5.4.2.
        *
        * @param tmpReq ListQualityRuleTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4743,8 +4925,7 @@ namespace DataphinPublic20230630
       Models::ListQualityRuleTasksResponse listQualityRuleTasksWithOptions(const Models::ListQualityRuleTasksRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries quality rule tasks by paging.
-       * Online version: v5.4.2.
+       * @summary Performs a paging query of quality rule nodes. Online version: v5.4.2.
        *
        * @param request ListQualityRuleTasksRequest
        * @return ListQualityRuleTasksResponse
@@ -4752,8 +4933,7 @@ namespace DataphinPublic20230630
       Models::ListQualityRuleTasksResponse listQualityRuleTasks(const Models::ListQualityRuleTasksRequest &request);
 
       /**
-       * @summary Queries quality rules by paging.
-       * Online version: v5.4.2.
+       * @summary Performs a paged query of quality rules. Supports paging. Available online in version 5.4.2.
        *
        * @param tmpReq ListQualityRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4762,8 +4942,7 @@ namespace DataphinPublic20230630
       Models::ListQualityRulesResponse listQualityRulesWithOptions(const Models::ListQualityRulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries quality rules by paging.
-       * Online version: v5.4.2.
+       * @summary Performs a paged query of quality rules. Supports paging. Available online in version 5.4.2.
        *
        * @param request ListQualityRulesRequest
        * @return ListQualityRulesResponse
@@ -4771,8 +4950,7 @@ namespace DataphinPublic20230630
       Models::ListQualityRulesResponse listQualityRules(const Models::ListQualityRulesRequest &request);
 
       /**
-       * @summary Queries quality templates by paging.
-       * Online version: v5.4.2.
+       * @summary Performs a paging query on quality templates. Online version: v5.4.2.
        *
        * @param tmpReq ListQualityTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4781,8 +4959,7 @@ namespace DataphinPublic20230630
       Models::ListQualityTemplatesResponse listQualityTemplatesWithOptions(const Models::ListQualityTemplatesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries quality templates by paging.
-       * Online version: v5.4.2.
+       * @summary Performs a paging query on quality templates. Online version: v5.4.2.
        *
        * @param request ListQualityTemplatesRequest
        * @return ListQualityTemplatesResponse
@@ -4809,8 +4986,7 @@ namespace DataphinPublic20230630
       Models::ListQualityWatchTasksResponse listQualityWatchTasks(const Models::ListQualityWatchTasksRequest &request);
 
       /**
-       * @summary Performs a paged query of quality monitored objects.
-       * Online version: v5.4.2.
+       * @summary Queries quality monitoring objects by using a paging query. Online version: v5.4.2.
        *
        * @param tmpReq ListQualityWatchesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4819,13 +4995,29 @@ namespace DataphinPublic20230630
       Models::ListQualityWatchesResponse listQualityWatchesWithOptions(const Models::ListQualityWatchesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a paged query of quality monitored objects.
-       * Online version: v5.4.2.
+       * @summary Queries quality monitoring objects by using a paging query. Online version: v5.4.2.
        *
        * @param request ListQualityWatchesRequest
        * @return ListQualityWatchesResponse
        */
       Models::ListQualityWatchesResponse listQualityWatches(const Models::ListQualityWatchesRequest &request);
+
+      /**
+       * @summary Queries quality rectification processes. Released in version v6.4.0.
+       *
+       * @param tmpReq ListRectifyFlowRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListRectifyFlowResponse
+       */
+      Models::ListRectifyFlowResponse listRectifyFlowWithOptions(const Models::ListRectifyFlowRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries quality rectification processes. Released in version v6.4.0.
+       *
+       * @param request ListRectifyFlowRequest
+       * @return ListRectifyFlowResponse
+       */
+      Models::ListRectifyFlowResponse listRectifyFlow(const Models::ListRectifyFlowRequest &request);
 
       /**
        * @summary Retrieves a paginated list of permission operation logs.
@@ -4862,7 +5054,7 @@ namespace DataphinPublic20230630
       Models::ListResourcePermissionsResponse listResourcePermissions(const Models::ListResourcePermissionsRequest &request);
 
       /**
-       * @summary Performs a paged query of row-level permissions.
+       * @summary Performs a paging query on row-level permissions.
        *
        * @param tmpReq ListRowPermissionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4871,7 +5063,7 @@ namespace DataphinPublic20230630
       Models::ListRowPermissionResponse listRowPermissionWithOptions(const Models::ListRowPermissionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a paged query of row-level permissions.
+       * @summary Performs a paging query on row-level permissions.
        *
        * @param request ListRowPermissionRequest
        * @return ListRowPermissionResponse
@@ -4879,7 +5071,7 @@ namespace DataphinPublic20230630
       Models::ListRowPermissionResponse listRowPermission(const Models::ListRowPermissionRequest &request);
 
       /**
-       * @summary Queries row-level permissions of a specified user by paging.
+       * @summary Performs a paging query on the row-level permissions of a specified user.
        *
        * @param tmpReq ListRowPermissionByUserIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4888,12 +5080,29 @@ namespace DataphinPublic20230630
       Models::ListRowPermissionByUserIdResponse listRowPermissionByUserIdWithOptions(const Models::ListRowPermissionByUserIdRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries row-level permissions of a specified user by paging.
+       * @summary Performs a paging query on the row-level permissions of a specified user.
        *
        * @param request ListRowPermissionByUserIdRequest
        * @return ListRowPermissionByUserIdResponse
        */
       Models::ListRowPermissionByUserIdResponse listRowPermissionByUserId(const Models::ListRowPermissionByUserIdRequest &request);
+
+      /**
+       * @summary Performs a paged query on the scheduling monitoring and alerting configuration list. Supports filtering by project, monitored object type, alerting cause, notification method, recipient, creator, on-call schedule, logical table or field, and keyword. Online version: v6.4.0.
+       *
+       * @param tmpReq ListScheduleMonitorRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListScheduleMonitorResponse
+       */
+      Models::ListScheduleMonitorResponse listScheduleMonitorWithOptions(const Models::ListScheduleMonitorRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Performs a paged query on the scheduling monitoring and alerting configuration list. Supports filtering by project, monitored object type, alerting cause, notification method, recipient, creator, on-call schedule, logical table or field, and keyword. Online version: v6.4.0.
+       *
+       * @param request ListScheduleMonitorRequest
+       * @return ListScheduleMonitorResponse
+       */
+      Models::ListScheduleMonitorResponse listScheduleMonitor(const Models::ListScheduleMonitorRequest &request);
 
       /**
        * @summary Queries a list of scheduling templates. Supports fuzzy search by template name and pagination, and is used to select a scheduling template when updating a task. Release version: v6.3.2.
@@ -4949,8 +5158,7 @@ namespace DataphinPublic20230630
       Models::ListSecurityIdentifyRecordsResponse listSecurityIdentifyRecords(const Models::ListSecurityIdentifyRecordsRequest &request);
 
       /**
-       * @summary Query security identification results by page.
-       * Release version: v5.4.2.
+       * @summary Performs a paged query on security identification results with paging. The online version is v5.4.2.
        *
        * @param tmpReq ListSecurityIdentifyResultsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4959,8 +5167,7 @@ namespace DataphinPublic20230630
       Models::ListSecurityIdentifyResultsResponse listSecurityIdentifyResultsWithOptions(const Models::ListSecurityIdentifyResultsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query security identification results by page.
-       * Release version: v5.4.2.
+       * @summary Performs a paged query on security identification results with paging. The online version is v5.4.2.
        *
        * @param request ListSecurityIdentifyResultsRequest
        * @return ListSecurityIdentifyResultsResponse
@@ -4968,8 +5175,7 @@ namespace DataphinPublic20230630
       Models::ListSecurityIdentifyResultsResponse listSecurityIdentifyResults(const Models::ListSecurityIdentifyResultsRequest &request);
 
       /**
-       * @summary Query the standard list by page.
-       * Release version: v5.4.2.
+       * @summary Performs a paging query on the standard list. Released in version v5.4.2.
        *
        * @param tmpReq ListStandardsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4978,8 +5184,7 @@ namespace DataphinPublic20230630
       Models::ListStandardsResponse listStandardsWithOptions(const Models::ListStandardsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the standard list by page.
-       * Release version: v5.4.2.
+       * @summary Performs a paging query on the standard list. Released in version v5.4.2.
        *
        * @param request ListStandardsRequest
        * @return ListStandardsResponse
@@ -4987,7 +5192,112 @@ namespace DataphinPublic20230630
       Models::ListStandardsResponse listStandards(const Models::ListStandardsRequest &request);
 
       /**
-       * @summary Paginate and retrieve the list of pending deployment records.
+       * @summary Retrieves a list of historical running instances for a real-time task. Available since v6.4.0.
+       *
+       * @description Retrieves the list of historical running instances for a real-time task in the production environment.
+       *
+       * @param request ListStreamInstanceRecordsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListStreamInstanceRecordsResponse
+       */
+      Models::ListStreamInstanceRecordsResponse listStreamInstanceRecordsWithOptions(const Models::ListStreamInstanceRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves a list of historical running instances for a real-time task. Available since v6.4.0.
+       *
+       * @description Retrieves the list of historical running instances for a real-time task in the production environment.
+       *
+       * @param request ListStreamInstanceRecordsRequest
+       * @return ListStreamInstanceRecordsResponse
+       */
+      Models::ListStreamInstanceRecordsResponse listStreamInstanceRecords(const Models::ListStreamInstanceRecordsRequest &request);
+
+      /**
+       * @summary Retrieves the list of JobManager log files for a real-time task. Available since version 6.4.0.
+       *
+       * @description Retrieves the list of JobManager log files for a real-time task in the production environment.
+       *
+       * @param request ListStreamJobManagerLogsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListStreamJobManagerLogsResponse
+       */
+      Models::ListStreamJobManagerLogsResponse listStreamJobManagerLogsWithOptions(const Models::ListStreamJobManagerLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the list of JobManager log files for a real-time task. Available since version 6.4.0.
+       *
+       * @description Retrieves the list of JobManager log files for a real-time task in the production environment.
+       *
+       * @param request ListStreamJobManagerLogsRequest
+       * @return ListStreamJobManagerLogsResponse
+       */
+      Models::ListStreamJobManagerLogsResponse listStreamJobManagerLogs(const Models::ListStreamJobManagerLogsRequest &request);
+
+      /**
+       * @summary Queries the start and stop operation records of real-time tasks. Available since v6.4.0.
+       *
+       * @description Retrieves the start and stop operation records of real-time tasks in the production environment.
+       *
+       * @param request ListStreamOpsRecordsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListStreamOpsRecordsResponse
+       */
+      Models::ListStreamOpsRecordsResponse listStreamOpsRecordsWithOptions(const Models::ListStreamOpsRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the start and stop operation records of real-time tasks. Available since v6.4.0.
+       *
+       * @description Retrieves the start and stop operation records of real-time tasks in the production environment.
+       *
+       * @param request ListStreamOpsRecordsRequest
+       * @return ListStreamOpsRecordsResponse
+       */
+      Models::ListStreamOpsRecordsResponse listStreamOpsRecords(const Models::ListStreamOpsRecordsRequest &request);
+
+      /**
+       * @summary Retrieves the list of log files for a specified TaskManager. Available since v6.4.0.
+       *
+       * @description Retrieves the list of log files for a specified TaskManager in the production environment.
+       *
+       * @param request ListStreamTaskManagerLogsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListStreamTaskManagerLogsResponse
+       */
+      Models::ListStreamTaskManagerLogsResponse listStreamTaskManagerLogsWithOptions(const Models::ListStreamTaskManagerLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the list of log files for a specified TaskManager. Available since v6.4.0.
+       *
+       * @description Retrieves the list of log files for a specified TaskManager in the production environment.
+       *
+       * @param request ListStreamTaskManagerLogsRequest
+       * @return ListStreamTaskManagerLogsResponse
+       */
+      Models::ListStreamTaskManagerLogsResponse listStreamTaskManagerLogs(const Models::ListStreamTaskManagerLogsRequest &request);
+
+      /**
+       * @summary Retrieves the list of TaskManagers for a real-time task. Available since v6.4.0.
+       *
+       * @description Retrieves the list of TaskManagers for a real-time task in the production environment.
+       *
+       * @param request ListStreamTaskManagersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListStreamTaskManagersResponse
+       */
+      Models::ListStreamTaskManagersResponse listStreamTaskManagersWithOptions(const Models::ListStreamTaskManagersRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the list of TaskManagers for a real-time task. Available since v6.4.0.
+       *
+       * @description Retrieves the list of TaskManagers for a real-time task in the production environment.
+       *
+       * @param request ListStreamTaskManagersRequest
+       * @return ListStreamTaskManagersResponse
+       */
+      Models::ListStreamTaskManagersResponse listStreamTaskManagers(const Models::ListStreamTaskManagersRequest &request);
+
+      /**
+       * @summary Retrieves a paginated list of pending release records.
        *
        * @param tmpReq ListSubmitRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4996,7 +5306,7 @@ namespace DataphinPublic20230630
       Models::ListSubmitRecordsResponse listSubmitRecordsWithOptions(const Models::ListSubmitRecordsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Paginate and retrieve the list of pending deployment records.
+       * @summary Retrieves a paginated list of pending release records.
        *
        * @param request ListSubmitRecordsRequest
        * @return ListSubmitRecordsResponse
@@ -5023,7 +5333,7 @@ namespace DataphinPublic20230630
       Models::ListTablesResponse listTables(const Models::ListTablesRequest &request);
 
       /**
-       * @summary Queries the list of tenant members.
+       * @summary Retrieves a list of tenant members.
        *
        * @param tmpReq ListTenantMembersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5032,7 +5342,7 @@ namespace DataphinPublic20230630
       Models::ListTenantMembersResponse listTenantMembersWithOptions(const Models::ListTenantMembersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of tenant members.
+       * @summary Retrieves a list of tenant members.
        *
        * @param request ListTenantMembersRequest
        * @return ListTenantMembersResponse
@@ -5067,7 +5377,7 @@ namespace DataphinPublic20230630
       Models::ListTenantRolesResponse listTenantRoles(const Models::ListTenantRolesRequest &request);
 
       /**
-       * @summary Performs a paging query of user group members.
+       * @summary Performs a paging query on the members of a user group.
        *
        * @param tmpReq ListUserGroupMembersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5076,7 +5386,7 @@ namespace DataphinPublic20230630
       Models::ListUserGroupMembersResponse listUserGroupMembersWithOptions(const Models::ListUserGroupMembersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a paging query of user group members.
+       * @summary Performs a paging query on the members of a user group.
        *
        * @param request ListUserGroupMembersRequest
        * @return ListUserGroupMembersResponse
@@ -5084,7 +5394,7 @@ namespace DataphinPublic20230630
       Models::ListUserGroupMembersResponse listUserGroupMembers(const Models::ListUserGroupMembersRequest &request);
 
       /**
-       * @summary Queries user groups by paging.
+       * @summary Performs a paging query on the user group list.
        *
        * @param tmpReq ListUserGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5093,7 +5403,7 @@ namespace DataphinPublic20230630
       Models::ListUserGroupsResponse listUserGroupsWithOptions(const Models::ListUserGroupsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries user groups by paging.
+       * @summary Performs a paging query on the user group list.
        *
        * @param request ListUserGroupsRequest
        * @return ListUserGroupsResponse
@@ -5101,7 +5411,41 @@ namespace DataphinPublic20230630
       Models::ListUserGroupsResponse listUserGroups(const Models::ListUserGroupsRequest &request);
 
       /**
-       * @summary Offlines a batch task.
+       * @summary Queries the list of projects that a specified user participates in. Released in version v6.4.0.
+       *
+       * @param tmpReq ListUserProjectsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListUserProjectsResponse
+       */
+      Models::ListUserProjectsResponse listUserProjectsWithOptions(const Models::ListUserProjectsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of projects that a specified user participates in. Released in version v6.4.0.
+       *
+       * @param request ListUserProjectsRequest
+       * @return ListUserProjectsResponse
+       */
+      Models::ListUserProjectsResponse listUserProjects(const Models::ListUserProjectsRequest &request);
+
+      /**
+       * @summary Performs a paged query for paging the user list. Online version: v6.4.0.
+       *
+       * @param tmpReq ListUsersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListUsersResponse
+       */
+      Models::ListUsersResponse listUsersWithOptions(const Models::ListUsersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Performs a paged query for paging the user list. Online version: v6.4.0.
+       *
+       * @param request ListUsersRequest
+       * @return ListUsersResponse
+       */
+      Models::ListUsersResponse listUsers(const Models::ListUsersRequest &request);
+
+      /**
+       * @summary Takes an offline computing task offline.
        *
        * @param request OfflineBatchTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5110,7 +5454,7 @@ namespace DataphinPublic20230630
       Models::OfflineBatchTaskResponse offlineBatchTaskWithOptions(const Models::OfflineBatchTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Offlines a batch task.
+       * @summary Takes an offline computing task offline.
        *
        * @param request OfflineBatchTaskRequest
        * @return OfflineBatchTaskResponse
@@ -5135,7 +5479,7 @@ namespace DataphinPublic20230630
       Models::OfflineBizEntityResponse offlineBizEntity(const Models::OfflineBizEntityRequest &request);
 
       /**
-       * @summary Offlines an integration pipeline node.
+       * @summary Takes an integration pipeline task offline.
        *
        * @param tmpReq OfflinePipelineRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5144,7 +5488,7 @@ namespace DataphinPublic20230630
       Models::OfflinePipelineResponse offlinePipelineWithOptions(const Models::OfflinePipelineRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Offlines an integration pipeline node.
+       * @summary Takes an integration pipeline task offline.
        *
        * @param request OfflinePipelineRequest
        * @return OfflinePipelineResponse
@@ -5152,7 +5496,7 @@ namespace DataphinPublic20230630
       Models::OfflinePipelineResponse offlinePipeline(const Models::OfflinePipelineRequest &request);
 
       /**
-       * @summary Asynchronously offlines an integration pipeline node.
+       * @summary Asynchronously takes an integration pipeline task offline.
        *
        * @param tmpReq OfflinePipelineByAsyncRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5161,7 +5505,7 @@ namespace DataphinPublic20230630
       Models::OfflinePipelineByAsyncResponse offlinePipelineByAsyncWithOptions(const Models::OfflinePipelineByAsyncRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Asynchronously offlines an integration pipeline node.
+       * @summary Asynchronously takes an integration pipeline task offline.
        *
        * @param request OfflinePipelineByAsyncRequest
        * @return OfflinePipelineByAsyncResponse
@@ -5169,8 +5513,7 @@ namespace DataphinPublic20230630
       Models::OfflinePipelineByAsyncResponse offlinePipelineByAsync(const Models::OfflinePipelineByAsyncRequest &request);
 
       /**
-       * @summary Offlines a standard.
-       * Online version: v5.4.2.
+       * @summary Takes a standard offline. Introduced in version v5.4.2.
        *
        * @param tmpReq OfflineStandardRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5179,8 +5522,7 @@ namespace DataphinPublic20230630
       Models::OfflineStandardResponse offlineStandardWithOptions(const Models::OfflineStandardRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Offlines a standard.
-       * Online version: v5.4.2.
+       * @summary Takes a standard offline. Introduced in version v5.4.2.
        *
        * @param request OfflineStandardRequest
        * @return OfflineStandardResponse
@@ -5205,7 +5547,7 @@ namespace DataphinPublic20230630
       Models::OnlineBizEntityResponse onlineBizEntity(const Models::OnlineBizEntityRequest &request);
 
       /**
-       * @summary Performs batch O&M operations on instances. Both physical instances and logical table instances are supported.
+       * @summary Performs batch O&M operations on instances, supporting physical instances and logical table instances.
        *
        * @param tmpReq OperateInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5214,7 +5556,7 @@ namespace DataphinPublic20230630
       Models::OperateInstanceResponse operateInstanceWithOptions(const Models::OperateInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs batch O&M operations on instances. Both physical instances and logical table instances are supported.
+       * @summary Performs batch O&M operations on instances, supporting physical instances and logical table instances.
        *
        * @param request OperateInstanceRequest
        * @return OperateInstanceResponse
@@ -5273,7 +5615,7 @@ namespace DataphinPublic20230630
       Models::PublishDataServiceApiResponse publishDataServiceApi(const Models::PublishDataServiceApiRequest &request);
 
       /**
-       * @summary Publishes a knowledge graph model. Online version: v6.2.0.
+       * @summary Publishes a graph model. The online version is v6.2.0.
        *
        * @param tmpReq PublishKgSchemaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5282,7 +5624,7 @@ namespace DataphinPublic20230630
       Models::PublishKgSchemaResponse publishKgSchemaWithOptions(const Models::PublishKgSchemaRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Publishes a knowledge graph model. Online version: v6.2.0.
+       * @summary Publishes a graph model. The online version is v6.2.0.
        *
        * @param request PublishKgSchemaRequest
        * @return PublishKgSchemaResponse
@@ -5326,6 +5668,23 @@ namespace DataphinPublic20230630
       Models::PublishStandardResponse publishStandard(const Models::PublishStandardRequest &request);
 
       /**
+       * @summary Queries the submit result of a real-time integration task based on the submit detail ID. Available since v6.4.0.
+       *
+       * @param tmpReq QueryPipelineSubmitResultRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryPipelineSubmitResultResponse
+       */
+      Models::QueryPipelineSubmitResultResponse queryPipelineSubmitResultWithOptions(const Models::QueryPipelineSubmitResultRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the submit result of a real-time integration task based on the submit detail ID. Available since v6.4.0.
+       *
+       * @param request QueryPipelineSubmitResultRequest
+       * @return QueryPipelineSubmitResultResponse
+       */
+      Models::QueryPipelineSubmitResultResponse queryPipelineSubmitResult(const Models::QueryPipelineSubmitResultRequest &request);
+
+      /**
        * @summary Remove regular members from a data service application. Only the application owner can perform this operation.
        * Released version: v6.0.0.
        *
@@ -5345,7 +5704,7 @@ namespace DataphinPublic20230630
       Models::RemoveDataServiceAppMemberResponse removeDataServiceAppMember(const Models::RemoveDataServiceAppMemberRequest &request);
 
       /**
-       * @summary Deletes a project member.
+       * @summary Removes a project member.
        *
        * @param tmpReq RemoveProjectMemberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5354,7 +5713,7 @@ namespace DataphinPublic20230630
       Models::RemoveProjectMemberResponse removeProjectMemberWithOptions(const Models::RemoveProjectMemberRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a project member.
+       * @summary Removes a project member.
        *
        * @param request RemoveProjectMemberRequest
        * @return RemoveProjectMemberResponse
@@ -5379,6 +5738,23 @@ namespace DataphinPublic20230630
        * @return RemoveQualityRuleSchedulesResponse
        */
       Models::RemoveQualityRuleSchedulesResponse removeQualityRuleSchedules(const Models::RemoveQualityRuleSchedulesRequest &request);
+
+      /**
+       * @summary Deletes one or more scheduling monitoring alert configurations. Available since v6.4.0.
+       *
+       * @param tmpReq RemoveScheduleMonitorRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RemoveScheduleMonitorResponse
+       */
+      Models::RemoveScheduleMonitorResponse removeScheduleMonitorWithOptions(const Models::RemoveScheduleMonitorRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes one or more scheduling monitoring alert configurations. Available since v6.4.0.
+       *
+       * @param request RemoveScheduleMonitorRequest
+       * @return RemoveScheduleMonitorResponse
+       */
+      Models::RemoveScheduleMonitorResponse removeScheduleMonitor(const Models::RemoveScheduleMonitorRequest &request);
 
       /**
        * @summary Removes a tenant member. Only super administrators and system administrators can invoke this API operation.
@@ -5432,8 +5808,7 @@ namespace DataphinPublic20230630
       Models::ReplaceProjectWhiteListsResponse replaceProjectWhiteLists(const Models::ReplaceProjectWhiteListsRequest &request);
 
       /**
-       * @summary Reset the Data Service application key. Only the application owner can perform this operation.
-       * Release version: v6.0.0.
+       * @summary Resets the application key of a data service. Only the application owner can perform this operation. Released in v6.0.0.
        *
        * @param tmpReq ResetDataServiceAppSecretRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5442,8 +5817,7 @@ namespace DataphinPublic20230630
       Models::ResetDataServiceAppSecretResponse resetDataServiceAppSecretWithOptions(const Models::ResetDataServiceAppSecretRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Reset the Data Service application key. Only the application owner can perform this operation.
-       * Release version: v6.0.0.
+       * @summary Resets the application key of a data service. Only the application owner can perform this operation. Released in v6.0.0.
        *
        * @param request ResetDataServiceAppSecretRequest
        * @return ResetDataServiceAppSecretResponse
@@ -5451,7 +5825,7 @@ namespace DataphinPublic20230630
       Models::ResetDataServiceAppSecretResponse resetDataServiceAppSecret(const Models::ResetDataServiceAppSecretRequest &request);
 
       /**
-       * @summary Resume physical node scheduling.
+       * @summary Resumes the scheduling of physical nodes.
        *
        * @param tmpReq ResumePhysicalNodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5460,7 +5834,7 @@ namespace DataphinPublic20230630
       Models::ResumePhysicalNodeResponse resumePhysicalNodeWithOptions(const Models::ResumePhysicalNodeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Resume physical node scheduling.
+       * @summary Resumes the scheduling of physical nodes.
        *
        * @param request ResumePhysicalNodeRequest
        * @return ResumePhysicalNodeResponse
@@ -5483,6 +5857,23 @@ namespace DataphinPublic20230630
        * @return RetryTransferOwnershipResponse
        */
       Models::RetryTransferOwnershipResponse retryTransferOwnership(const Models::RetryTransferOwnershipRequest &request);
+
+      /**
+       * @summary Reviews the quality rectification process. Release version: v6.4.0.
+       *
+       * @param tmpReq ReviewRectifyFlowRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ReviewRectifyFlowResponse
+       */
+      Models::ReviewRectifyFlowResponse reviewRectifyFlowWithOptions(const Models::ReviewRectifyFlowRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Reviews the quality rectification process. Release version: v6.4.0.
+       *
+       * @param request ReviewRectifyFlowRequest
+       * @return ReviewRectifyFlowResponse
+       */
+      Models::ReviewRectifyFlowResponse reviewRectifyFlow(const Models::ReviewRectifyFlowRequest &request);
 
       /**
        * @summary Revokes API authorization.
@@ -5621,7 +6012,7 @@ namespace DataphinPublic20230630
       Models::SubmitAssetsOnShelveResponse submitAssetsOnShelve(const Models::SubmitAssetsOnShelveRequest &request);
 
       /**
-       * @summary Submits a batch task.
+       * @summary Submits an offline computing task.
        *
        * @param tmpReq SubmitBatchTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5630,12 +6021,46 @@ namespace DataphinPublic20230630
       Models::SubmitBatchTaskResponse submitBatchTaskWithOptions(const Models::SubmitBatchTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a batch task.
+       * @summary Submits an offline computing task.
        *
        * @param request SubmitBatchTaskRequest
        * @return SubmitBatchTaskResponse
        */
       Models::SubmitBatchTaskResponse submitBatchTask(const Models::SubmitBatchTaskRequest &request);
+
+      /**
+       * @summary Submits an offline computing template. Available since v6.4.0.
+       *
+       * @param tmpReq SubmitBatchTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitBatchTemplateResponse
+       */
+      Models::SubmitBatchTemplateResponse submitBatchTemplateWithOptions(const Models::SubmitBatchTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Submits an offline computing template. Available since v6.4.0.
+       *
+       * @param request SubmitBatchTemplateRequest
+       * @return SubmitBatchTemplateResponse
+       */
+      Models::SubmitBatchTemplateResponse submitBatchTemplate(const Models::SubmitBatchTemplateRequest &request);
+
+      /**
+       * @summary Performs an asynchronous commit of a real-time integration pipeline task based on the OAQueryId. Online version: v6.4.0.
+       *
+       * @param tmpReq SubmitPipelineAsyncRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitPipelineAsyncResponse
+       */
+      Models::SubmitPipelineAsyncResponse submitPipelineAsyncWithOptions(const Models::SubmitPipelineAsyncRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Performs an asynchronous commit of a real-time integration pipeline task based on the OAQueryId. Online version: v6.4.0.
+       *
+       * @param request SubmitPipelineAsyncRequest
+       * @return SubmitPipelineAsyncResponse
+       */
+      Models::SubmitPipelineAsyncResponse submitPipelineAsync(const Models::SubmitPipelineAsyncRequest &request);
 
       /**
        * @summary Submits an integration pipeline task by OAQueryId.
@@ -5655,8 +6080,7 @@ namespace DataphinPublic20230630
       Models::SubmitPipelineByIdResponse submitPipelineById(const Models::SubmitPipelineByIdRequest &request);
 
       /**
-       * @summary Batch submit rule tasks with support for test runs.
-       * Release version: v5.4.2.
+       * @summary Submits rule tasks in batches and supports test runs. Available since version 5.4.2.
        *
        * @param tmpReq SubmitQualityRuleTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5665,8 +6089,7 @@ namespace DataphinPublic20230630
       Models::SubmitQualityRuleTasksResponse submitQualityRuleTasksWithOptions(const Models::SubmitQualityRuleTasksRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Batch submit rule tasks with support for test runs.
-       * Release version: v5.4.2.
+       * @summary Submits rule tasks in batches and supports test runs. Available since version 5.4.2.
        *
        * @param request SubmitQualityRuleTasksRequest
        * @return SubmitQualityRuleTasksResponse
@@ -5674,8 +6097,7 @@ namespace DataphinPublic20230630
       Models::SubmitQualityRuleTasksResponse submitQualityRuleTasks(const Models::SubmitQualityRuleTasksRequest &request);
 
       /**
-       * @summary Submits quality watchtask check tasks in batches.
-       * Online version: v5.4.2.
+       * @summary Submits multiple monitoring object check nodes in batches. Released in version v5.4.2.
        *
        * @param tmpReq SubmitQualityWatchTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5684,13 +6106,29 @@ namespace DataphinPublic20230630
       Models::SubmitQualityWatchTasksResponse submitQualityWatchTasksWithOptions(const Models::SubmitQualityWatchTasksRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits quality watchtask check tasks in batches.
-       * Online version: v5.4.2.
+       * @summary Submits multiple monitoring object check nodes in batches. Released in version v5.4.2.
        *
        * @param request SubmitQualityWatchTasksRequest
        * @return SubmitQualityWatchTasksResponse
        */
       Models::SubmitQualityWatchTasksResponse submitQualityWatchTasks(const Models::SubmitQualityWatchTasksRequest &request);
+
+      /**
+       * @summary Submits a quality rectification process for review. Released in v6.4.0.
+       *
+       * @param tmpReq SubmitRectifyFlowForReviewRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitRectifyFlowForReviewResponse
+       */
+      Models::SubmitRectifyFlowForReviewResponse submitRectifyFlowForReviewWithOptions(const Models::SubmitRectifyFlowForReviewRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Submits a quality rectification process for review. Released in v6.4.0.
+       *
+       * @param request SubmitRectifyFlowForReviewRequest
+       * @return SubmitRectifyFlowForReviewResponse
+       */
+      Models::SubmitRectifyFlowForReviewResponse submitRectifyFlowForReview(const Models::SubmitRectifyFlowForReviewRequest &request);
 
       /**
        * @summary Synchronizes department information.
@@ -5743,7 +6181,7 @@ namespace DataphinPublic20230630
       Models::SyncDepartmentUserResponse syncDepartmentUser(const Models::SyncDepartmentUserRequest &request);
 
       /**
-       * @summary Transfers ownership to a new owner in one click.
+       * @summary Transfers the ownership with one click.
        *
        * @param tmpReq TransferOwnershipForAllObjectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5752,7 +6190,7 @@ namespace DataphinPublic20230630
       Models::TransferOwnershipForAllObjectResponse transferOwnershipForAllObjectWithOptions(const Models::TransferOwnershipForAllObjectRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Transfers ownership to a new owner in one click.
+       * @summary Transfers the ownership with one click.
        *
        * @param request TransferOwnershipForAllObjectRequest
        * @return TransferOwnershipForAllObjectResponse
@@ -5794,7 +6232,7 @@ namespace DataphinPublic20230630
       Models::UpdateAssetAttributesResponse updateAssetAttributes(const Models::UpdateAssetAttributesRequest &request);
 
       /**
-       * @summary Edits a Basic (single-environment) project. The project name cannot be modified. You must pass in the current project name.
+       * @summary Updates a Basic (single-environment) project. The project name cannot be modified. You must specify the current project name.
        *
        * @param tmpReq UpdateBasicProjectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5803,7 +6241,7 @@ namespace DataphinPublic20230630
       Models::UpdateBasicProjectResponse updateBasicProjectWithOptions(const Models::UpdateBasicProjectRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Edits a Basic (single-environment) project. The project name cannot be modified. You must pass in the current project name.
+       * @summary Updates a Basic (single-environment) project. The project name cannot be modified. You must specify the current project name.
        *
        * @param request UpdateBasicProjectRequest
        * @return UpdateBasicProjectResponse
@@ -5845,6 +6283,23 @@ namespace DataphinPublic20230630
       Models::UpdateBatchTaskUdfLineagesResponse updateBatchTaskUdfLineages(const Models::UpdateBatchTaskUdfLineagesRequest &request);
 
       /**
+       * @summary Modifies an offline computing template. Available since v6.4.0.
+       *
+       * @param tmpReq UpdateBatchTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateBatchTemplateResponse
+       */
+      Models::UpdateBatchTemplateResponse updateBatchTemplateWithOptions(const Models::UpdateBatchTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies an offline computing template. Available since v6.4.0.
+       *
+       * @param request UpdateBatchTemplateRequest
+       * @return UpdateBatchTemplateResponse
+       */
+      Models::UpdateBatchTemplateResponse updateBatchTemplate(const Models::UpdateBatchTemplateRequest &request);
+
+      /**
        * @summary Updates a business entity.
        *
        * @param tmpReq UpdateBizEntityRequest
@@ -5862,8 +6317,7 @@ namespace DataphinPublic20230630
       Models::UpdateBizEntityResponse updateBizEntity(const Models::UpdateBizEntityRequest &request);
 
       /**
-       * @summary Update a business metric.
-       * Release version: v5.5.0.
+       * @summary Updates a business metric. Release version: v5.5.0.
        *
        * @param tmpReq UpdateBizMetricRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5872,8 +6326,7 @@ namespace DataphinPublic20230630
       Models::UpdateBizMetricResponse updateBizMetricWithOptions(const Models::UpdateBizMetricRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update a business metric.
-       * Release version: v5.5.0.
+       * @summary Updates a business metric. Release version: v5.5.0.
        *
        * @param request UpdateBizMetricRequest
        * @return UpdateBizMetricResponse
@@ -5881,7 +6334,7 @@ namespace DataphinPublic20230630
       Models::UpdateBizMetricResponse updateBizMetric(const Models::UpdateBizMetricRequest &request);
 
       /**
-       * @summary Updates a data domain.
+       * @summary Updates a business unit.
        *
        * @param tmpReq UpdateBizUnitRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5890,7 +6343,7 @@ namespace DataphinPublic20230630
       Models::UpdateBizUnitResponse updateBizUnitWithOptions(const Models::UpdateBizUnitRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a data domain.
+       * @summary Updates a business unit.
        *
        * @param request UpdateBizUnitRequest
        * @return UpdateBizUnitResponse
@@ -5915,7 +6368,7 @@ namespace DataphinPublic20230630
       Models::UpdateComputeClusterResponse updateComputeCluster(const Models::UpdateComputeClusterRequest &request);
 
       /**
-       * @summary Edits a compute source. Business unit administrators and project administrators have permissions to perform this operation.
+       * @summary Updates a compute source. Only business unit administrators and project administrators have the permissions to perform this operation.
        *
        * @param tmpReq UpdateComputeSourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5924,7 +6377,7 @@ namespace DataphinPublic20230630
       Models::UpdateComputeSourceResponse updateComputeSourceWithOptions(const Models::UpdateComputeSourceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Edits a compute source. Business unit administrators and project administrators have permissions to perform this operation.
+       * @summary Updates a compute source. Only business unit administrators and project administrators have the permissions to perform this operation.
        *
        * @param request UpdateComputeSourceRequest
        * @return UpdateComputeSourceResponse
@@ -5991,8 +6444,7 @@ namespace DataphinPublic20230630
       Models::UpdateDataServiceAppResponse updateDataServiceApp(const Models::UpdateDataServiceAppRequest &request);
 
       /**
-       * @summary Updates a data service application group. Only superusers and system administrators can perform this operation.
-       * Online version: v6.0.0.
+       * @summary Updates an application group for the data service. Only super administrators and system administrators can perform this operation. Online version: v6.0.0.
        *
        * @param tmpReq UpdateDataServiceAppGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6001,8 +6453,7 @@ namespace DataphinPublic20230630
       Models::UpdateDataServiceAppGroupResponse updateDataServiceAppGroupWithOptions(const Models::UpdateDataServiceAppGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a data service application group. Only superusers and system administrators can perform this operation.
-       * Online version: v6.0.0.
+       * @summary Updates an application group for the data service. Only super administrators and system administrators can perform this operation. Online version: v6.0.0.
        *
        * @param request UpdateDataServiceAppGroupRequest
        * @return UpdateDataServiceAppGroupResponse
@@ -6046,7 +6497,7 @@ namespace DataphinPublic20230630
       Models::UpdateDataSourceBasicInfoResponse updateDataSourceBasicInfo(const Models::UpdateDataSourceBasicInfoRequest &request);
 
       /**
-       * @summary Edits the connection configuration items of a data source. Tenant administrators, data administrators, business unit administrators, project administrators, and operations administrators have permissions to perform this operation.
+       * @summary Modifies the connection configuration items of a datasource. Only tenant administrators, data administrators, business unit administrators, project administrators, and operations administrators are authorized to perform this operation.
        *
        * @param tmpReq UpdateDataSourceConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6055,7 +6506,7 @@ namespace DataphinPublic20230630
       Models::UpdateDataSourceConfigResponse updateDataSourceConfigWithOptions(const Models::UpdateDataSourceConfigRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Edits the connection configuration items of a data source. Tenant administrators, data administrators, business unit administrators, project administrators, and operations administrators have permissions to perform this operation.
+       * @summary Modifies the connection configuration items of a datasource. Only tenant administrators, data administrators, business unit administrators, project administrators, and operations administrators are authorized to perform this operation.
        *
        * @param request UpdateDataSourceConfigRequest
        * @return UpdateDataSourceConfigResponse
@@ -6063,9 +6514,15 @@ namespace DataphinPublic20230630
       Models::UpdateDataSourceConfigResponse updateDataSourceConfig(const Models::UpdateDataSourceConfigRequest &request);
 
       /**
-       * @summary Updates the information of a dataset in a specified project. Available since v6.2.0.
+       * @summary Updates the information of a dataset in a specified project. Available since version 6.2.0.
        *
-       * @description ## Request description.
+       * @description ## Request description
+       * - This API operation updates the details of an existing dataset in a specific project.
+       * - You must specify the `ProjectId` and `UpdateCommand` parameters. The `UpdateCommand` parameter contains the specific fields of the dataset to be updated.
+       * - The `Id` field in `UpdateCommand` is required to identify the dataset to be updated.
+       * - Other fields such as `Name`, `Type`, and `DataCellId` are optional. Specify them based on your actual requirements.
+       * - Version configuration (`VersionConfig`) and real-time metatable configuration (`RealtimeMetaTableConfig`) provide more detailed setting options, including storage paths and table schemas. These are also optional.
+       * - Make sure that all provided ID values, such as `ProjectId`, `Id`, and `DataSourceId`, are valid and correctly associated in the system.
        *
        * @param tmpReq UpdateDatasetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6074,9 +6531,15 @@ namespace DataphinPublic20230630
       Models::UpdateDatasetResponse updateDatasetWithOptions(const Models::UpdateDatasetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the information of a dataset in a specified project. Available since v6.2.0.
+       * @summary Updates the information of a dataset in a specified project. Available since version 6.2.0.
        *
-       * @description ## Request description.
+       * @description ## Request description
+       * - This API operation updates the details of an existing dataset in a specific project.
+       * - You must specify the `ProjectId` and `UpdateCommand` parameters. The `UpdateCommand` parameter contains the specific fields of the dataset to be updated.
+       * - The `Id` field in `UpdateCommand` is required to identify the dataset to be updated.
+       * - Other fields such as `Name`, `Type`, and `DataCellId` are optional. Specify them based on your actual requirements.
+       * - Version configuration (`VersionConfig`) and real-time metatable configuration (`RealtimeMetaTableConfig`) provide more detailed setting options, including storage paths and table schemas. These are also optional.
+       * - Make sure that all provided ID values, such as `ProjectId`, `Id`, and `DataSourceId`, are valid and correctly associated in the system.
        *
        * @param request UpdateDatasetRequest
        * @return UpdateDatasetResponse
@@ -6084,7 +6547,7 @@ namespace DataphinPublic20230630
       Models::UpdateDatasetResponse updateDataset(const Models::UpdateDatasetRequest &request);
 
       /**
-       * @summary Edits a Dev-Prod (dual-environment) project.
+       * @summary Modifies a Dev-Prod (dual-environment) project.
        *
        * @param tmpReq UpdateDevProdProjectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6093,7 +6556,7 @@ namespace DataphinPublic20230630
       Models::UpdateDevProdProjectResponse updateDevProdProjectWithOptions(const Models::UpdateDevProdProjectRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Edits a Dev-Prod (dual-environment) project.
+       * @summary Modifies a Dev-Prod (dual-environment) project.
        *
        * @param request UpdateDevProdProjectRequest
        * @return UpdateDevProdProjectResponse
@@ -6203,7 +6666,7 @@ namespace DataphinPublic20230630
       Models::UpdatePipelineResponse updatePipeline(const Models::UpdatePipelineRequest &request);
 
       /**
-       * @summary Asynchronously updates a pipeline or unstructured workflow node.
+       * @summary Asynchronously updates a pipeline or unstructured workflow task.
        *
        * @param tmpReq UpdatePipelineByAsyncRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6212,7 +6675,7 @@ namespace DataphinPublic20230630
       Models::UpdatePipelineByAsyncResponse updatePipelineByAsyncWithOptions(const Models::UpdatePipelineByAsyncRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Asynchronously updates a pipeline or unstructured workflow node.
+       * @summary Asynchronously updates a pipeline or unstructured workflow task.
        *
        * @param request UpdatePipelineByAsyncRequest
        * @return UpdatePipelineByAsyncResponse
@@ -6220,7 +6683,7 @@ namespace DataphinPublic20230630
       Models::UpdatePipelineByAsyncResponse updatePipelineByAsync(const Models::UpdatePipelineByAsyncRequest &request);
 
       /**
-       * @summary Edits project members.
+       * @summary Modifies the members of a project.
        *
        * @param tmpReq UpdateProjectMemberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6229,7 +6692,7 @@ namespace DataphinPublic20230630
       Models::UpdateProjectMemberResponse updateProjectMemberWithOptions(const Models::UpdateProjectMemberRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Edits project members.
+       * @summary Modifies the members of a project.
        *
        * @param request UpdateProjectMemberRequest
        * @return UpdateProjectMemberResponse
@@ -6237,8 +6700,7 @@ namespace DataphinPublic20230630
       Models::UpdateProjectMemberResponse updateProjectMember(const Models::UpdateProjectMemberRequest &request);
 
       /**
-       * @summary Enables or disables quality rules in batches.
-       * Release version: v5.4.2.
+       * @summary Enables or disables quality rules in batches. Release version: v5.4.2.
        *
        * @param tmpReq UpdateQualityRuleSwitchRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6247,8 +6709,7 @@ namespace DataphinPublic20230630
       Models::UpdateQualityRuleSwitchResponse updateQualityRuleSwitchWithOptions(const Models::UpdateQualityRuleSwitchRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables or disables quality rules in batches.
-       * Release version: v5.4.2.
+       * @summary Enables or disables quality rules in batches. Release version: v5.4.2.
        *
        * @param request UpdateQualityRuleSwitchRequest
        * @return UpdateQualityRuleSwitchResponse
@@ -6256,8 +6717,7 @@ namespace DataphinPublic20230630
       Models::UpdateQualityRuleSwitchResponse updateQualityRuleSwitch(const Models::UpdateQualityRuleSwitchRequest &request);
 
       /**
-       * @summary Starts or stops quality monitored objects in batches.
-       * Release version: v5.4.2.
+       * @summary Enables or disables quality monitored objects in batches. Release version: v5.4.2.
        *
        * @param tmpReq UpdateQualityWatchSwitchRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6266,8 +6726,7 @@ namespace DataphinPublic20230630
       Models::UpdateQualityWatchSwitchResponse updateQualityWatchSwitchWithOptions(const Models::UpdateQualityWatchSwitchRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Starts or stops quality monitored objects in batches.
-       * Release version: v5.4.2.
+       * @summary Enables or disables quality monitored objects in batches. Release version: v5.4.2.
        *
        * @param request UpdateQualityWatchSwitchRequest
        * @return UpdateQualityWatchSwitchResponse
@@ -6275,7 +6734,7 @@ namespace DataphinPublic20230630
       Models::UpdateQualityWatchSwitchResponse updateQualityWatchSwitch(const Models::UpdateQualityWatchSwitchRequest &request);
 
       /**
-       * @summary Edits a resource file.
+       * @summary Updates a resource file.
        *
        * @param tmpReq UpdateResourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6284,7 +6743,7 @@ namespace DataphinPublic20230630
       Models::UpdateResourceResponse updateResourceWithOptions(const Models::UpdateResourceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Edits a resource file.
+       * @summary Updates a resource file.
        *
        * @param request UpdateResourceRequest
        * @return UpdateResourceResponse
@@ -6307,6 +6766,23 @@ namespace DataphinPublic20230630
        * @return UpdateRowPermissionResponse
        */
       Models::UpdateRowPermissionResponse updateRowPermission(const Models::UpdateRowPermissionRequest &request);
+
+      /**
+       * @summary Updates existing scheduling monitoring and alert configurations by modifying monitored objects or alert rules. Available since version 6.4.0.
+       *
+       * @param tmpReq UpdateScheduleMonitorRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateScheduleMonitorResponse
+       */
+      Models::UpdateScheduleMonitorResponse updateScheduleMonitorWithOptions(const Models::UpdateScheduleMonitorRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates existing scheduling monitoring and alert configurations by modifying monitored objects or alert rules. Available since version 6.4.0.
+       *
+       * @param request UpdateScheduleMonitorRequest
+       * @return UpdateScheduleMonitorResponse
+       */
+      Models::UpdateScheduleMonitorResponse updateScheduleMonitor(const Models::UpdateScheduleMonitorRequest &request);
 
       /**
        * @summary Updates a data classification.
@@ -6345,8 +6821,7 @@ namespace DataphinPublic20230630
       Models::UpdateSecurityClassifyCatalogResponse updateSecurityClassifyCatalog(const Models::UpdateSecurityClassifyCatalogRequest &request);
 
       /**
-       * @summary Updates the effective status of security identification results.
-       * Release version: v5.4.2.
+       * @summary Updates the effective status of security identification results. Released in version 5.4.2.
        *
        * @param tmpReq UpdateSecurityIdentifyResultStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6355,8 +6830,7 @@ namespace DataphinPublic20230630
       Models::UpdateSecurityIdentifyResultStatusResponse updateSecurityIdentifyResultStatusWithOptions(const Models::UpdateSecurityIdentifyResultStatusRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the effective status of security identification results.
-       * Release version: v5.4.2.
+       * @summary Updates the effective status of security identification results. Released in version 5.4.2.
        *
        * @param request UpdateSecurityIdentifyResultStatusRequest
        * @return UpdateSecurityIdentifyResultStatusResponse
@@ -6383,8 +6857,7 @@ namespace DataphinPublic20230630
       Models::UpdateSecurityLevelResponse updateSecurityLevel(const Models::UpdateSecurityLevelRequest &request);
 
       /**
-       * @summary Updates a standard.
-       * Release version: v5.4.2.
+       * @summary Updates a standard. Release version: v5.4.2.
        *
        * @param tmpReq UpdateStandardRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6393,8 +6866,7 @@ namespace DataphinPublic20230630
       Models::UpdateStandardResponse updateStandardWithOptions(const Models::UpdateStandardRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a standard.
-       * Release version: v5.4.2.
+       * @summary Updates a standard. Release version: v5.4.2.
        *
        * @param request UpdateStandardRequest
        * @return UpdateStandardResponse
@@ -6402,8 +6874,7 @@ namespace DataphinPublic20230630
       Models::UpdateStandardResponse updateStandard(const Models::UpdateStandardRequest &request);
 
       /**
-       * @summary Updates a data standard lookup table.
-       * Release version: v5.4.2.
+       * @summary Updates a data standard lookup table. Release version: v5.4.2.
        *
        * @param tmpReq UpdateStandardLookupTableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6412,8 +6883,7 @@ namespace DataphinPublic20230630
       Models::UpdateStandardLookupTableResponse updateStandardLookupTableWithOptions(const Models::UpdateStandardLookupTableRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a data standard lookup table.
-       * Release version: v5.4.2.
+       * @summary Updates a data standard lookup table. Release version: v5.4.2.
        *
        * @param request UpdateStandardLookupTableRequest
        * @return UpdateStandardLookupTableResponse
@@ -6421,8 +6891,7 @@ namespace DataphinPublic20230630
       Models::UpdateStandardLookupTableResponse updateStandardLookupTable(const Models::UpdateStandardLookupTableRequest &request);
 
       /**
-       * @summary Sets the standard mapping relationship to invalid mapping.
-       * Release version: v5.4.2.
+       * @summary Invalidates standard mapping relationships. Released in version 5.4.2.
        *
        * @param tmpReq UpdateStandardMappingToInvalidRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6431,8 +6900,7 @@ namespace DataphinPublic20230630
       Models::UpdateStandardMappingToInvalidResponse updateStandardMappingToInvalidWithOptions(const Models::UpdateStandardMappingToInvalidRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sets the standard mapping relationship to invalid mapping.
-       * Release version: v5.4.2.
+       * @summary Invalidates standard mapping relationships. Released in version 5.4.2.
        *
        * @param request UpdateStandardMappingToInvalidRequest
        * @return UpdateStandardMappingToInvalidResponse
@@ -6497,7 +6965,7 @@ namespace DataphinPublic20230630
       Models::UpdateStandardWordRootResponse updateStandardWordRoot(const Models::UpdateStandardWordRootRequest &request);
 
       /**
-       * @summary Modifies the compute settings of a tenant.
+       * @summary Modifies the computing settings of a tenant.
        *
        * @param tmpReq UpdateTenantComputeEngineRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6506,7 +6974,7 @@ namespace DataphinPublic20230630
       Models::UpdateTenantComputeEngineResponse updateTenantComputeEngineWithOptions(const Models::UpdateTenantComputeEngineRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the compute settings of a tenant.
+       * @summary Modifies the computing settings of a tenant.
        *
        * @param request UpdateTenantComputeEngineRequest
        * @return UpdateTenantComputeEngineResponse
@@ -6514,7 +6982,7 @@ namespace DataphinPublic20230630
       Models::UpdateTenantComputeEngineResponse updateTenantComputeEngine(const Models::UpdateTenantComputeEngineRequest &request);
 
       /**
-       * @summary Edits tenant members.
+       * @summary Modifies tenant members.
        *
        * @param tmpReq UpdateTenantMemberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6523,7 +6991,7 @@ namespace DataphinPublic20230630
       Models::UpdateTenantMemberResponse updateTenantMemberWithOptions(const Models::UpdateTenantMemberRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Edits tenant members.
+       * @summary Modifies tenant members.
        *
        * @param request UpdateTenantMemberRequest
        * @return UpdateTenantMemberResponse
@@ -6565,7 +7033,7 @@ namespace DataphinPublic20230630
       Models::UpdateUserGroupResponse updateUserGroup(const Models::UpdateUserGroupRequest &request);
 
       /**
-       * @summary Modifies the enabled status of a user group.
+       * @summary Updates the enabled status of a user group.
        *
        * @param request UpdateUserGroupSwitchRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6574,7 +7042,7 @@ namespace DataphinPublic20230630
       Models::UpdateUserGroupSwitchResponse updateUserGroupSwitchWithOptions(const Models::UpdateUserGroupSwitchRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the enabled status of a user group.
+       * @summary Updates the enabled status of a user group.
        *
        * @param request UpdateUserGroupSwitchRequest
        * @return UpdateUserGroupSwitchResponse
@@ -6635,8 +7103,7 @@ namespace DataphinPublic20230630
       Models::UpsertQualityRuleResponse upsertQualityRule(const Models::UpsertQualityRuleRequest &request);
 
       /**
-       * @summary Creates or updates a schedule setting.
-       * Release version: v5.4.2.
+       * @summary Creates or modifies scheduling settings. Released in version 5.4.2.
        *
        * @param tmpReq UpsertQualityScheduleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6645,8 +7112,7 @@ namespace DataphinPublic20230630
       Models::UpsertQualityScheduleResponse upsertQualityScheduleWithOptions(const Models::UpsertQualityScheduleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates or updates a schedule setting.
-       * Release version: v5.4.2.
+       * @summary Creates or modifies scheduling settings. Released in version 5.4.2.
        *
        * @param request UpsertQualityScheduleRequest
        * @return UpsertQualityScheduleResponse
@@ -6654,8 +7120,7 @@ namespace DataphinPublic20230630
       Models::UpsertQualityScheduleResponse upsertQualitySchedule(const Models::UpsertQualityScheduleRequest &request);
 
       /**
-       * @summary Creates or updates a quality template.
-       * Release version: v5.4.2.
+       * @summary Creates or updates a quality template. Released in version 5.4.2.
        *
        * @param tmpReq UpsertQualityTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6664,8 +7129,7 @@ namespace DataphinPublic20230630
       Models::UpsertQualityTemplateResponse upsertQualityTemplateWithOptions(const Models::UpsertQualityTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates or updates a quality template.
-       * Release version: v5.4.2.
+       * @summary Creates or updates a quality template. Released in version 5.4.2.
        *
        * @param request UpsertQualityTemplateRequest
        * @return UpsertQualityTemplateResponse
@@ -6673,8 +7137,7 @@ namespace DataphinPublic20230630
       Models::UpsertQualityTemplateResponse upsertQualityTemplate(const Models::UpsertQualityTemplateRequest &request);
 
       /**
-       * @summary Creates or updates a quality monitored object. You can add multiple types of quality monitored objects, including Dataphin tables, global tables, data sources, metrics, and real-time meta tables.
-       * Release version: v5.4.2.
+       * @summary Creates or updates a quality monitored object. You can add multiple types of quality monitored objects, including Dataphin tables, global tables, data sources, metrics, and real-time metatables. Release version: v5.4.2.
        *
        * @param tmpReq UpsertQualityWatchRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6683,8 +7146,7 @@ namespace DataphinPublic20230630
       Models::UpsertQualityWatchResponse upsertQualityWatchWithOptions(const Models::UpsertQualityWatchRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates or updates a quality monitored object. You can add multiple types of quality monitored objects, including Dataphin tables, global tables, data sources, metrics, and real-time meta tables.
-       * Release version: v5.4.2.
+       * @summary Creates or updates a quality monitored object. You can add multiple types of quality monitored objects, including Dataphin tables, global tables, data sources, metrics, and real-time metatables. Release version: v5.4.2.
        *
        * @param request UpsertQualityWatchRequest
        * @return UpsertQualityWatchResponse

@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The ID of the business unit to which the entity belongs.
+    // The ID of the business unit.
     // 
     // This parameter is required.
     shared_ptr<int64_t> bizUnitId_ {};
@@ -87,8 +87,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
-    // The type of the business entity. For more information, refer to the create business entity operation.
+    // The type of the business entity. For more information, see the Create a business entity operation.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

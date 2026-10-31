@@ -156,27 +156,27 @@ namespace Models
 
 
       protected:
-        // List of change types (0: Create, 1: Update, 2: Delete).
+        // The list of change types (0: Create, 1: Update, 2: Delete).
         shared_ptr<vector<int32_t>> changeTypeList_ {};
-        // Page number.
+        // The page number.
         // 
         // This parameter is required.
         shared_ptr<int32_t> page_ {};
-        // Page size.
+        // The number of entries per page.
         // 
         // This parameter is required.
         shared_ptr<int32_t> pageSize_ {};
-        // List of project IDs.
+        // The list of project IDs.
         // 
         // This parameter is required.
         shared_ptr<vector<int64_t>> projectIdList_ {};
-        // Publish end time in the yyyy-MM-dd HH:mm:ss format.
+        // The publish end time in yyyy-MM-dd HH:mm:ss format.
         shared_ptr<string> publishEndTime_ {};
-        // Publish start time in the yyyy-MM-dd HH:mm:ss format.
+        // The publish start time in yyyy-MM-dd HH:mm:ss format.
         shared_ptr<string> publishStartTime_ {};
-        // List of publish statuses (0: Failed, 1: Succeeded, 2: Publishing).
+        // The list of publish statuses (0: Failed, 1: Successful, 2: Publishing).
         shared_ptr<vector<int32_t>> publishStatusList_ {};
-        // List of submitter IDs.
+        // The list of submitter IDs.
         shared_ptr<vector<string>> submitterList_ {};
       };
 
@@ -199,9 +199,9 @@ namespace Models
 
 
     protected:
-      // Search keyword.
+      // The search keyword.
       shared_ptr<string> keyword_ {};
-      // Publish record filter.
+      // The publish record filter.
       // 
       // This parameter is required.
       shared_ptr<ListQuery::SearchFilter> searchFilter_ {};
@@ -233,14 +233,15 @@ namespace Models
 
 
   protected:
-    // Query command.
+    // The query command.
     // 
     // This parameter is required.
     shared_ptr<ListPublishRecordsRequest::ListQuery> listQuery_ {};
-    // Tenant ID.
+    // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator user ID.
     shared_ptr<string> opUserId_ {};
   };
 

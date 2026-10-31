@@ -144,7 +144,7 @@ namespace Models
       protected:
         // The whitelist description.
         shared_ptr<string> description_ {};
-        // The IP address.
+        // ip
         shared_ptr<string> ip_ {};
         // The port.
         shared_ptr<string> port_ {};
@@ -291,9 +291,9 @@ namespace Models
 
 
     protected:
-      // The dependent data module display name.
+      // The display name of the dependent data module.
       shared_ptr<string> bizUnitDisplayName_ {};
-      // The dependent data module ID.
+      // The ID of the dependent data module.
       shared_ptr<int64_t> bizUnitId_ {};
       // The compute source ID.
       shared_ptr<int64_t> computeSourceId_ {};
@@ -319,17 +319,17 @@ namespace Models
       shared_ptr<string> name_ {};
       // The project tag.
       shared_ptr<string> nameSpaceTag_ {};
-      // The project owner ID.
+      // The ID of the project owner.
       shared_ptr<string> owner_ {};
       // The project owner.
       shared_ptr<string> ownerName_ {};
-      // The stream compute source ID.
+      // The real-time compute source ID.
       shared_ptr<int64_t> streamComputeSourceId_ {};
-      // The stream compute source name.
+      // The real-time compute source name.
       shared_ptr<string> streamComputeSourceName_ {};
       // The project type.
       shared_ptr<string> type_ {};
-      // The whitelists.
+      // The whitelist.
       shared_ptr<vector<ProjectInfo::WhiteLists>> whiteLists_ {};
     };
 
@@ -380,9 +380,9 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request was successful.
+    // The error code. A value of OK indicates that the request is successful.
     shared_ptr<string> code_ {};
-    // The HTTP status code.
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The error message.
     shared_ptr<string> message_ {};
@@ -390,7 +390,7 @@ namespace Models
     shared_ptr<GetProjectResponseBody::ProjectInfo> projectInfo_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

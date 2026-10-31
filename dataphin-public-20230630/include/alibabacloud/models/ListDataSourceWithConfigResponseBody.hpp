@@ -163,9 +163,9 @@ namespace Models
 
 
           protected:
-            // Configuration item ID
+            // The ID of the configuration item.
             shared_ptr<string> key_ {};
-            // Configuration item value
+            // The value of the configuration item.
             shared_ptr<string> value_ {};
           };
 
@@ -267,31 +267,31 @@ namespace Models
 
 
         protected:
-          // Connection configuration items
+          // The connection configuration items.
           shared_ptr<vector<ProdDataSourceInfo::ConfigItemList>> configItemList_ {};
-          // Creation time
+          // The creation time.
           shared_ptr<int64_t> createTime_ {};
-          // Creator ID
+          // The ID of the creator.
           shared_ptr<string> creator_ {};
-          // Creator name
+          // The name of the creator.
           shared_ptr<string> creatorName_ {};
-          // Description
+          // The description.
           shared_ptr<string> description_ {};
-          // Environment of the data source
+          // The environment to which the data source belongs.
           shared_ptr<string> env_ {};
-          // Data source ID
+          // The ID of the data source.
           shared_ptr<int64_t> id_ {};
-          // Modification time
+          // The modification time.
           shared_ptr<int64_t> modifyTime_ {};
-          // Data source name
+          // The name of the data source.
           shared_ptr<string> name_ {};
-          // Owner ID
+          // The ID of the owner.
           shared_ptr<string> owner_ {};
-          // Owner name
+          // The name of the owner.
           shared_ptr<string> ownerName_ {};
-          // Data source scope
+          // The usage scope of the data source.
           shared_ptr<string> scope_ {};
-          // Data source type
+          // The data source types.
           shared_ptr<string> type_ {};
         };
 
@@ -376,9 +376,9 @@ namespace Models
 
 
           protected:
-            // Configuration item ID
+            // The ID of the configuration item.
             shared_ptr<string> key_ {};
-            // Configuration item value
+            // The value of the configuration item.
             shared_ptr<string> value_ {};
           };
 
@@ -480,31 +480,31 @@ namespace Models
 
 
         protected:
-          // Connection configuration items
+          // The connection configuration items.
           shared_ptr<vector<DevDataSourceInfo::ConfigItemList>> configItemList_ {};
-          // Creation time
+          // The creation time.
           shared_ptr<int64_t> createTime_ {};
-          // Creator ID
+          // The ID of the creator.
           shared_ptr<string> creator_ {};
-          // Creator name
+          // The name of the creator.
           shared_ptr<string> creatorName_ {};
-          // Description
+          // The description.
           shared_ptr<string> description_ {};
-          // Environment of the data source
+          // The environment to which the data source belongs.
           shared_ptr<string> env_ {};
-          // Data source ID
+          // The ID of the data source.
           shared_ptr<int64_t> id_ {};
-          // Modification time
+          // The modification time.
           shared_ptr<int64_t> modifyTime_ {};
-          // Data source name
+          // The name of the data source.
           shared_ptr<string> name_ {};
-          // Owner ID
+          // The ID of the owner.
           shared_ptr<string> owner_ {};
-          // Owner name
+          // The name of the owner.
           shared_ptr<string> ownerName_ {};
-          // Data source scope
+          // The usage scope of the data source.
           shared_ptr<string> scope_ {};
-          // Data source type
+          // The data source types.
           shared_ptr<string> type_ {};
         };
 
@@ -529,9 +529,9 @@ namespace Models
 
 
       protected:
-        // Development environment data source
+        // The data source in the development environment.
         shared_ptr<DataSourceList::DevDataSourceInfo> devDataSourceInfo_ {};
-        // Production environment data source
+        // The data source in the production environment.
         shared_ptr<DataSourceList::ProdDataSourceInfo> prodDataSourceInfo_ {};
       };
 
@@ -554,9 +554,9 @@ namespace Models
 
 
     protected:
-      // Paginated list
+      // The paginated list.
       shared_ptr<vector<PageResult::DataSourceList>> dataSourceList_ {};
-      // Total number of records
+      // The total number of records.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -607,17 +607,17 @@ namespace Models
 
 
   protected:
-    // Error code. OK indicates that the request was successful.
+    // The error code. A value of OK indicates that the request is successful.
     shared_ptr<string> code_ {};
-    // HTTP status code
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Error message
+    // The error message.
     shared_ptr<string> message_ {};
-    // Query result.
+    // The query result.
     shared_ptr<ListDataSourceWithConfigResponseBody::PageResult> pageResult_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Whether the request was successful
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

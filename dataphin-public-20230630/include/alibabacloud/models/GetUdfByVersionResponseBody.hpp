@@ -169,21 +169,21 @@ namespace Models
 
 
     protected:
-      // The udf type. Valid values:
-      // - 1: window function.
-      // - 2: statistical function.
-      // - 3: numerical function.
-      // - 4: string function.
-      // - 5: time function.
-      // - 6: IP address utility function.
+      // The category. Valid values:
+      // - 1: Window function.
+      // - 2: Statistical function.
+      // - 3: Numerical function.
+      // - 4: String function.
+      // - 5: Time function.
+      // - 6: IP address helper function.
       // - 7: URL-related function.
-      // - 8: encoding and decoding function.
-      // - 9: business-related function.
-      // - 10: other.
+      // - 8: Encoding and decoding function.
+      // - 9: Business-related function.
+      // - 10: Other.
       shared_ptr<int32_t> category_ {};
       // The registered class name.
       shared_ptr<string> className_ {};
-      // The command help.
+      // The command help information.
       shared_ptr<string> commandHelp_ {};
       // The compute engine. Valid values: HADOOP, MAX_COMPUTE, and FLINK.
       shared_ptr<string> computeEngineType_ {};
@@ -191,13 +191,13 @@ namespace Models
       shared_ptr<string> creator_ {};
       // The description.
       shared_ptr<string> description_ {};
-      // The directory where the function is stored.
+      // The storage directory.
       shared_ptr<string> directory_ {};
-      // The creation time, in the yyyy-MM-d HH:mm:ss format.
+      // The creation time. Format: yyyy-MM-d HH:mm:ss.
       shared_ptr<string> gmtCreate_ {};
-      // The update time, in the yyyy-MM-d HH:mm:ss format.
+      // The update time. Format: yyyy-MM-d HH:mm:ss.
       shared_ptr<string> gmtModified_ {};
-      // The ID of the user-defined function.
+      // The custom function ID.
       shared_ptr<int64_t> id_ {};
       // The last modifier.
       shared_ptr<string> lastModifier_ {};
@@ -256,13 +256,13 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The details of the backend exception.
+    // The backend exception details.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
-    // The details of the user-defined function.
+    // The custom function details.
     shared_ptr<GetUdfByVersionResponseBody::UdfInfo> udfInfo_ {};
   };
 

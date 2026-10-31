@@ -107,21 +107,21 @@ namespace Models
     protected:
       // The log details.
       shared_ptr<string> context_ {};
-      // The operation time.
+      // The operation time. The format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> operationTime_ {};
       // The operation type. Valid values:
-      // - TASK_UPDATE_PRIORITY: updates the node priority.
-      // - PAUSE_TASK: pauses scheduling.
-      // - RESUME_TASK: resumes scheduling.
-      // - CREATE_NODE: creates a node.
-      // - FORCE_DELETE_NODE: force deletes a node.
-      // - UPDATE_NODE: updates a node.
-      // - DELETE_NODE: deletes a node.
-      // - CHANGE_NODE_OWNER: changes the node owner.
+      // - TASK_UPDATE_PRIORITY: modifies the node priority
+      // - PAUSE_TASK: pauses scheduling
+      // - RESUME_TASK: resumes scheduling
+      // - CREATE_NODE: creates a node
+      // - FORCE_DELETE_NODE: force deletes a node
+      // - UPDATE_NODE: updates a node
+      // - DELETE_NODE: deletes a node
+      // - CHANGE_NODE_OWNER: changes the node owner
       shared_ptr<string> operationType_ {};
-      // The operator ID.
+      // The ID of the operator.
       shared_ptr<string> operator_ {};
-      // The operator name.
+      // The name of the operator.
       shared_ptr<string> operatorName_ {};
     };
 
@@ -172,7 +172,7 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request was successful.
+    // The error code. OK indicates that the request is successful.
     shared_ptr<string> code_ {};
     // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
@@ -182,7 +182,7 @@ namespace Models
     shared_ptr<vector<GetPhysicalNodeOperationLogResponseBody::OperationLogList>> operationLogList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

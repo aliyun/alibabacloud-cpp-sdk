@@ -93,7 +93,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<int64_t> bizUnitId_ {};
-      // The remarks for the offline operation.
+      // The offline comment.
       // 
       // This parameter is required.
       shared_ptr<string> comment_ {};
@@ -101,9 +101,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<int64_t> id_ {};
-      // The business type. Valid values:
-      // - BIZ_OBJECT
-      // - BIZ_PROCESS.
+      // The business type. Valid values: BIZ_OBJECT and BIZ_PROCESS.
       // 
       // This parameter is required.
       shared_ptr<string> type_ {};
@@ -143,6 +141,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

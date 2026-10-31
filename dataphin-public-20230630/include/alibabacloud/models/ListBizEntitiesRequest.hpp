@@ -166,21 +166,21 @@ namespace Models
 
 
       protected:
-        // The list of business unit IDs.
+        // The IDs of the business units.
         shared_ptr<vector<int64_t>> bizUnitIdList_ {};
-        // The list of business unit IDs.
+        // The IDs of the business units.
         shared_ptr<vector<string>> bizUnitNameList_ {};
-        // The list of data domain IDs.
+        // The IDs of the data domains.
         shared_ptr<vector<int64_t>> dataDomainIdList_ {};
-        // The list of data domain IDs.
+        // The IDs of the data domains.
         shared_ptr<vector<string>> dataDomainNameList_ {};
         // Specifies whether the business entity is associated with a logical table.
         shared_ptr<bool> hasTableRef_ {};
-        // The list of owner user IDs.
+        // The IDs of the owners.
         shared_ptr<vector<string>> ownerUserIdList_ {};
-        // The list of business entity statuses. For more information, refer to the API operation for querying business entity details.
+        // The status of the business entity. For more information, refer to the "Get business entity details" API operation.
         shared_ptr<vector<string>> statusList_ {};
-        // The list of business entity subtypes. For more information, refer to the API operation for querying business entity details.
+        // The subtypes of the business entity. For more information, refer to the "Get business entity details" API operation.
         shared_ptr<vector<string>> subTypeList_ {};
       };
 
@@ -261,6 +261,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

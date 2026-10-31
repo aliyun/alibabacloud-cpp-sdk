@@ -86,7 +86,7 @@ namespace Models
 
 
     protected:
-      // The node code content.
+      // The code content of the node.
       shared_ptr<string> codeContent_ {};
       // The node ID.
       shared_ptr<string> nodeId_ {};
@@ -141,7 +141,7 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request was successful.
+    // The error code. OK indicates that the request is successful.
     shared_ptr<string> code_ {};
     // The node information.
     shared_ptr<GetPhysicalNodeContentResponseBody::Data> data_ {};
@@ -151,7 +151,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

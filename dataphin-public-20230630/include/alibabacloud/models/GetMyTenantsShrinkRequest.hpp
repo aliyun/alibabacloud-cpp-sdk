@@ -57,12 +57,13 @@ namespace Models
 
 
   protected:
-    // The feature codes owned by the tenant.
+    // The feature codes of the tenant.
     shared_ptr<string> featureCodeListShrink_ {};
     // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

@@ -77,7 +77,7 @@ namespace Models
 
 
     protected:
-      // The number of subtasks split from the parsed task.
+      // The number of subtasks generated after the task is parsed and split.
       shared_ptr<int32_t> subTaskCount_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
@@ -130,7 +130,7 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request was successful.
+    // The error code. A value of OK indicates that the request is normal.
     shared_ptr<string> code_ {};
     // The execution result.
     shared_ptr<ExecuteAdHocTaskResponseBody::ExecuteResult> executeResult_ {};
@@ -140,7 +140,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

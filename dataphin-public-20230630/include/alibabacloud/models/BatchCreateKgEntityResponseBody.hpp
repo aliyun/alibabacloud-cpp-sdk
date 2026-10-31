@@ -101,7 +101,7 @@ namespace Models
 
 
       protected:
-        // The entity record ID.
+        // The ID of the entity record.
         shared_ptr<string> entityId_ {};
         // The entity type code.
         shared_ptr<string> entityType_ {};
@@ -133,9 +133,9 @@ namespace Models
 
 
     protected:
-      // The number of entity records that failed to be created.
+      // The number of failed records.
       shared_ptr<int32_t> failCount_ {};
-      // The number of successfully created entity records.
+      // The number of successfully created records.
       shared_ptr<int32_t> successCount_ {};
       // The list of IDs of successfully created entity records.
       shared_ptr<vector<CreateResult::SuccessEntityList>> successEntityList_ {};
@@ -194,7 +194,7 @@ namespace Models
     shared_ptr<BatchCreateKgEntityResponseBody::CreateResult> createResult_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The backend exception details.
+    // The details of the backend exception.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

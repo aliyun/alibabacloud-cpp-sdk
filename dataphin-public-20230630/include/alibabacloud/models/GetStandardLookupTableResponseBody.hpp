@@ -141,7 +141,7 @@ namespace Models
 
 
       protected:
-        // The code description.
+        // The description of the code.
         shared_ptr<string> description_ {};
         // The English name of the code.
         shared_ptr<string> englishName_ {};
@@ -179,7 +179,7 @@ namespace Models
 
 
       protected:
-        // The directory to which the lookup table belongs.
+        // The parent folder.
         shared_ptr<string> directory_ {};
       };
 
@@ -292,29 +292,29 @@ namespace Models
     protected:
       // The code of the lookup table.
       shared_ptr<string> code_ {};
-      // The creation time.
+      // The creation time. The format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> createTime_ {};
-      // The user ID of the creator.
+      // The ID of the user who created the lookup table.
       shared_ptr<string> creator_ {};
-      // The username of the creator.
+      // The username of the user who created the lookup table.
       shared_ptr<string> creatorName_ {};
       // The description of the lookup table.
       shared_ptr<string> description_ {};
-      // The directory to which the lookup table belongs.
+      // The parent folder.
       shared_ptr<LookupTableInfo::DirectoryReference> directoryReference_ {};
-      // The lookup table ID.
+      // The ID of the lookup table.
       shared_ptr<int64_t> id_ {};
-      // The user ID of the last modifier.
+      // The ID of the user who last modified the lookup table.
       shared_ptr<string> lastModifier_ {};
-      // The username of the last modifier.
+      // The username of the user who last modified the lookup table.
       shared_ptr<string> lastModifierName_ {};
       // The list of lookup table values.
       shared_ptr<vector<LookupTableInfo::LookupTableValueList>> lookupTableValueList_ {};
-      // The modification time.
+      // The update time. The format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> modifyTime_ {};
       // The name of the lookup table.
       shared_ptr<string> name_ {};
-      // The user ID of the owner.
+      // The ID of the owner.
       shared_ptr<string> owner_ {};
       // The username of the owner.
       shared_ptr<string> ownerName_ {};
@@ -377,7 +377,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

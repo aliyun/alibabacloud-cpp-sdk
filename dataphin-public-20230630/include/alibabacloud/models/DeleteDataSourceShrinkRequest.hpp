@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The request for deleting a data source.
+    // The data source deletion request.
     // 
     // This parameter is required.
     shared_ptr<string> deleteCommandShrink_ {};
@@ -65,6 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

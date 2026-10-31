@@ -43,6 +43,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(AsyncId, asyncId_);
+        DARABONBA_PTR_TO_JSON(CheckDetail, checkDetail_);
         DARABONBA_PTR_TO_JSON(ErrorCode, errorCode_);
         DARABONBA_PTR_TO_JSON(ErrorMessage, errorMessage_);
         DARABONBA_PTR_TO_JSON(HostMachine, hostMachine_);
@@ -54,6 +55,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(AsyncId, asyncId_);
+        DARABONBA_PTR_FROM_JSON(CheckDetail, checkDetail_);
         DARABONBA_PTR_FROM_JSON(ErrorCode, errorCode_);
         DARABONBA_PTR_FROM_JSON(ErrorMessage, errorMessage_);
         DARABONBA_PTR_FROM_JSON(HostMachine, hostMachine_);
@@ -75,13 +77,20 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->asyncId_ == nullptr
-        && this->errorCode_ == nullptr && this->errorMessage_ == nullptr && this->hostMachine_ == nullptr && this->nodeId_ == nullptr && this->pipelineId_ == nullptr
-        && this->status_ == nullptr && this->submitId_ == nullptr && this->version_ == nullptr; };
+        && this->checkDetail_ == nullptr && this->errorCode_ == nullptr && this->errorMessage_ == nullptr && this->hostMachine_ == nullptr && this->nodeId_ == nullptr
+        && this->pipelineId_ == nullptr && this->status_ == nullptr && this->submitId_ == nullptr && this->version_ == nullptr; };
       // asyncId Field Functions 
       bool hasAsyncId() const { return this->asyncId_ != nullptr;};
       void deleteAsyncId() { this->asyncId_ = nullptr;};
       inline int64_t getAsyncId() const { DARABONBA_PTR_GET_DEFAULT(asyncId_, 0L) };
       inline Data& setAsyncId(int64_t asyncId) { DARABONBA_PTR_SET_VALUE(asyncId_, asyncId) };
+
+
+      // checkDetail Field Functions 
+      bool hasCheckDetail() const { return this->checkDetail_ != nullptr;};
+      void deleteCheckDetail() { this->checkDetail_ = nullptr;};
+      inline string getCheckDetail() const { DARABONBA_PTR_GET_DEFAULT(checkDetail_, "") };
+      inline Data& setCheckDetail(string checkDetail) { DARABONBA_PTR_SET_VALUE(checkDetail_, checkDetail) };
 
 
       // errorCode Field Functions 
@@ -143,24 +152,23 @@ namespace Models
     protected:
       // The asynchronous execution query ID.
       shared_ptr<int64_t> asyncId_ {};
-      // The error code returned when the execution fails.
+      // The check result of the commit details. The value is a JSON character string and is returned only for asynchronous commit links. The structure is consistent with the commit details on the product page.
+      shared_ptr<string> checkDetail_ {};
+      // The error code returned when an execution exception occurs.
       shared_ptr<string> errorCode_ {};
-      // The error message returned when the execution fails.
+      // The error message returned when an execution exception occurs.
       shared_ptr<string> errorMessage_ {};
-      // The information about the server host that processes the execution request.
+      // The server host information for request execution.
       shared_ptr<string> hostMachine_ {};
-      // The scheduling node ID of the pipeline task.
+      // The ID of the scheduling node for the pipeline task.
       shared_ptr<string> nodeId_ {};
       // The primary key ID of the pipeline.
       shared_ptr<int64_t> pipelineId_ {};
-      // The current execution status. Valid values:
-      // - SUCCESS: execution succeeded.
-      // - FAILED: execution failed.
-      // - RUNNING: execution in progress.
+      // The current execution status. Valid values: SUCCESS: The execution is successful. FAILED: The execution fails. RUNNING: The execution is in progress.
       shared_ptr<string> status_ {};
       // The publish ID generated after the pipeline task is submitted. You can use this ID to publish the task through the publish domain.
       shared_ptr<int64_t> submitId_ {};
-      // The version number generated when the pipeline task is submitted.
+      // The version number generated after the pipeline task is submitted.
       shared_ptr<string> version_ {};
     };
 
@@ -217,7 +225,7 @@ namespace Models
     shared_ptr<GetPipelineAsyncResultResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error details returned by the backend.
+    // The details of the backend response exception.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

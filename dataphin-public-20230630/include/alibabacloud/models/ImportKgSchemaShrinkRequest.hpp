@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The command for importing the knowledge graph definition.
+    // The import command for the knowledge graph definition.
     // 
     // This parameter is required.
     shared_ptr<string> importCommandShrink_ {};
@@ -74,7 +74,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
-    // The ID of the operator user.
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
     // The workspace ID.
     // 

@@ -82,7 +82,7 @@ namespace Models
     protected:
       // The page number.
       shared_ptr<int32_t> page_ {};
-      // The number of records per page.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
       // The search keyword.
       shared_ptr<string> searchText_ {};
@@ -122,6 +122,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

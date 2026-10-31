@@ -74,8 +74,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator user ID.
     shared_ptr<string> opUserId_ {};
-    // The command to remove a member.
+    // The member removal command.
     // 
     // This parameter is required.
     shared_ptr<string> removeCommandShrink_ {};

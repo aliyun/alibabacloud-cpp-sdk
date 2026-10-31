@@ -160,13 +160,11 @@ namespace Models
 
 
     protected:
-      // The Asset Type. Valid values:
-      // - COLUMN: field.
-      // - INDEX: metric.
+      // The asset type. Valid values: COLUMN (field) and INDEX (metric).
       shared_ptr<string> assetType_ {};
       // The GUID of the asset.
       shared_ptr<string> guid_ {};
-      // The update time.
+      // The update time. The format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> modifyTime_ {};
       // The name of the asset.
       shared_ptr<string> name_ {};
@@ -176,7 +174,7 @@ namespace Models
       shared_ptr<int64_t> standardId_ {};
       // The name of the standard.
       shared_ptr<string> standardName_ {};
-      // The folder in which the standard set resides.
+      // The folder where the standard set is located.
       shared_ptr<string> standardSetDirectory_ {};
       // The ID of the standard set.
       shared_ptr<int64_t> standardSetId_ {};
@@ -239,11 +237,11 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The list of mapping relationships.
     shared_ptr<vector<GetAssetMappingRelationsResponseBody::MappingRelationList>> mappingRelationList_ {};
-    // The error details from the backend response.
+    // The backend exception details.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

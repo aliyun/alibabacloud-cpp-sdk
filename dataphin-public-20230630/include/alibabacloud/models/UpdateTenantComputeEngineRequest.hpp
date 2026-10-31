@@ -83,7 +83,7 @@ namespace Models
 
 
     protected:
-      // The list of cluster node endpoints.
+      // The cluster node connection list.
       // 
       // This parameter is required.
       shared_ptr<vector<string>> clusterUrlList_ {};
@@ -125,6 +125,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator user ID.
     shared_ptr<string> opUserId_ {};
     // The update command.
     // 

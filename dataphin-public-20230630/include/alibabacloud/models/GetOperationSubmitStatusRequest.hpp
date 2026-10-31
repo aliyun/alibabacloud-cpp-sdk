@@ -67,10 +67,11 @@ namespace Models
 
   protected:
     // The environment identifier. Valid values:
-    // - DEV: Development environment. 
-    // - PROD (default): Production environment.
+    // - DEV: development environment
+    // - PROD: production environment
+    // Default value: PROD.
     shared_ptr<string> env_ {};
-    // The job ID returned after submission in batch mode.
+    // The job ID returned after submission in massive mode.
     // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
@@ -78,6 +79,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator ID.
     shared_ptr<string> opUserId_ {};
   };
 

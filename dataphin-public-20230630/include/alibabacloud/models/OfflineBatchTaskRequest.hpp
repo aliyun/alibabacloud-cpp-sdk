@@ -79,7 +79,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> comment_ {};
-    // The node ID in the node directory tree.
+    // The node ID in the task directory tree.
     // 
     // This parameter is required.
     shared_ptr<int64_t> fileId_ {};
@@ -87,6 +87,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
     // The project ID.
     // 

@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The offset for querying logs. Increment the value based on the returned result. Set the initial value to 0.
+    // The offset for log queries. Increment this value based on the returned results. Set the initial value to 0.
     // 
     // This parameter is required.
     shared_ptr<int32_t> offset_ {};
@@ -92,12 +92,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
     // The project ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
-    // The subtask ID. The value starts from 0.
+    // The subtask ID, starting from 0.
     // 
     // This parameter is required.
     shared_ptr<int32_t> subTaskId_ {};

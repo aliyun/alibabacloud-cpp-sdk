@@ -80,9 +80,9 @@ namespace Models
 
 
     protected:
-      // The list of standard IDs that do not exist.
+      // The list of non-existent standard IDs.
       shared_ptr<vector<int64_t>> notExistStandardIdList_ {};
-      // The number of successfully deleted associations.
+      // The number of successful operations.
       shared_ptr<int32_t> successCount_ {};
     };
 
@@ -139,11 +139,11 @@ namespace Models
     shared_ptr<DeleteStandardRelationsResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The details of the backend exception.
+    // The backend exception details.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

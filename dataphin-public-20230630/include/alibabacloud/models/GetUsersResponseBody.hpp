@@ -236,17 +236,17 @@ namespace Models
     protected:
       // The account name.
       shared_ptr<string> accountName_ {};
-      // The DingTalk number.
+      // The DingTalk ID.
       shared_ptr<string> dingNumber_ {};
       // The display name of the user.
       shared_ptr<string> displayName_ {};
-      // The display name of the user without status.
+      // The display name of the user without the status.
       shared_ptr<string> displayNameWithoutStatus_ {};
       // Indicates whether the IP whitelist is enabled.
       shared_ptr<string> enableWhiteIp_ {};
-      // The Lark chatbot.
+      // The Lark bot.
       shared_ptr<string> feiShuRobot_ {};
-      // The creation time.
+      // The time when the user was created.
       shared_ptr<int64_t> gmtCreate_ {};
       // The last modification time.
       shared_ptr<int64_t> gmtModified_ {};
@@ -260,17 +260,17 @@ namespace Models
       shared_ptr<string> name_ {};
       // The nickname of the user.
       shared_ptr<string> nickName_ {};
-      // The ID of the primary account to which the user belongs.
+      // The ID of the Alibaba Cloud account to which the user belongs.
       shared_ptr<string> parentId_ {};
       // The real name of the user.
       shared_ptr<string> realName_ {};
-      // The source ID of the user.
+      // The ID of the user source.
       shared_ptr<string> sourceId_ {};
-      // The source type of the user.
+      // The source of the user.
       shared_ptr<string> sourceType_ {};
-      // The WeCom chatbot.
+      // The WeCom bot.
       shared_ptr<string> weChatRobot_ {};
-      // The IP whitelist.
+      // The whitelist.
       shared_ptr<string> whiteIp_ {};
     };
 
@@ -321,7 +321,7 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request was successful.
+    // The error code. OK indicates that the request is successful.
     shared_ptr<string> code_ {};
     // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
@@ -329,7 +329,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
     // The list of users.
     shared_ptr<vector<GetUsersResponseBody::UserList>> userList_ {};

@@ -80,15 +80,15 @@ namespace Models
 
 
     protected:
-      // The description of the delete operation.
+      // The description of the deletion operation.
       // 
       // This parameter is required.
       shared_ptr<string> comment_ {};
-      // The ID of the node in the folder.
+      // The ID of the node in the task directory tree.
       // 
       // This parameter is required.
       shared_ptr<int64_t> fileId_ {};
-      // The ID of the project to which the node belongs.
+      // The ID of the project to which the task belongs.
       // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
@@ -120,7 +120,7 @@ namespace Models
 
 
   protected:
-    // The delete request.
+    // The deletion request.
     // 
     // This parameter is required.
     shared_ptr<DeleteBatchTaskRequest::DeleteCommand> deleteCommand_ {};
@@ -128,6 +128,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the user who performs the operation.
     shared_ptr<string> opUserId_ {};
   };
 

@@ -177,15 +177,17 @@ namespace Models
 
 
         protected:
-          // Standard template code.
+          // The code of the standard template.
           shared_ptr<string> code_ {};
-          // Standard template ID.
+          // The ID of the standard template.
           shared_ptr<int64_t> id_ {};
-          // Standard template name.
+          // The name of the standard template.
           shared_ptr<string> name_ {};
-          // Standard template source: CUSTOM for custom standard templates, SYSTEM for system built-in standard templates.
+          // The source of the standard template. Valid values:
+          // - CUSTOM: Custom standard template.
+          // - SYSTEM: Built-in standard template.
           shared_ptr<string> templateFrom_ {};
-          // Version number.
+          // The version number.
           shared_ptr<int32_t> version_ {};
         };
 
@@ -245,13 +247,13 @@ namespace Models
 
 
         protected:
-          // Standard set code.
+          // The code of the standard set.
           shared_ptr<string> code_ {};
-          // Directory of the standard set.
+          // The folder to which the standard set belongs.
           shared_ptr<string> directory_ {};
-          // Standard set ID.
+          // The ID of the standard set.
           shared_ptr<int64_t> id_ {};
-          // Standard set name.
+          // The name of the standard set.
           shared_ptr<string> name_ {};
         };
 
@@ -293,9 +295,9 @@ namespace Models
 
 
         protected:
-          // User ID.
+          // The ID of the user.
           shared_ptr<string> id_ {};
-          // User name.
+          // The name of the user.
           shared_ptr<string> name_ {};
         };
 
@@ -337,9 +339,9 @@ namespace Models
 
 
         protected:
-          // User ID.
+          // The ID of the user.
           shared_ptr<string> id_ {};
-          // User name.
+          // The name of the user.
           shared_ptr<string> name_ {};
         };
 
@@ -390,11 +392,13 @@ namespace Models
 
 
         protected:
-          // End time of the effective period.
+          // The end time of the effective period. The format is YYYY-MM-DD HH:mm:ss.
           shared_ptr<string> endTime_ {};
-          // Start time of the effective period.
+          // The start time of the effective period. The format is YYYY-MM-DD HH:mm:ss.
           shared_ptr<string> startTime_ {};
-          // Effective time type: FOREVER for permanent, TIME_PERIOD for a time period.
+          // The effective period type. Valid values:
+          // - FOREVER: Permanent.
+          // - TIME_PERIOD: Time period.
           shared_ptr<string> type_ {};
         };
 
@@ -436,9 +440,9 @@ namespace Models
 
 
         protected:
-          // User ID.
+          // The ID of the user.
           shared_ptr<string> id_ {};
-          // User name.
+          // The name of the user.
           shared_ptr<string> name_ {};
         };
 
@@ -610,13 +614,13 @@ namespace Models
 
 
                 protected:
-                  // Whether to include the maximum value.
+                  // Specifies whether to include the maximum value.
                   shared_ptr<bool> includeMaxValue_ {};
-                  // Whether to include the minimum value.
+                  // Specifies whether to include the minimum value.
                   shared_ptr<bool> includeMinValue_ {};
-                  // Maximum value.
+                  // The maximum value.
                   shared_ptr<string> maxValue_ {};
-                  // Minimum value.
+                  // The minimum value.
                   shared_ptr<string> minValue_ {};
                 };
 
@@ -658,9 +662,9 @@ namespace Models
 
 
                 protected:
-                  // Referenced lookup table column.
+                  // The referenced field in the lookup table.
                   shared_ptr<string> column_ {};
-                  // Lookup table ID.
+                  // The ID of the lookup table.
                   shared_ptr<int64_t> lookupTableId_ {};
                 };
 
@@ -708,15 +712,15 @@ namespace Models
 
 
               protected:
-                // Value range, effective when value constraint is DATAPHIN_ATTRIBUTE: BIZ_UNIT for data business unit, PROJECT for project, USER for user, USER_GROUP for user group.
+                // The value range. This parameter takes effect when the value source is set to DATAPHIN_ATTRIBUTE. Valid values: BIZ_UNIT: data block. PROJECT: project. USER: user. USER_GROUP: user group.
                 shared_ptr<string> dataphinAttributeType_ {};
-                // Value range, effective when value constraint is LOOKUP_TABLE.
+                // The value range. This parameter takes effect when the value source is set to LOOKUP_TABLE.
                 shared_ptr<ValueRange::LookupTableReference> lookupTableReference_ {};
-                // Value range, effective when value constraint is MIN_MAX.
+                // The value range. This parameter takes effect when the value source is set to MIN_MAX.
                 shared_ptr<ValueRange::MinMaxValueConfig> minMaxValueConfig_ {};
-                // Value constraint: NONE for no constraint, LIST for obtaining from a list, LOOKUP_TABLE for lookup table, MIN_MAX for values between minimum and maximum, DATAPHIN_ATTRIBUTE for Dataphin system attribute, BUILT_IN_DATA_TYPES for built-in data types, BUILT_IN_DATA_CLASSIFICATION for built-in data classification, BUILT_IN_DATA_LEVEL for built-in data security level.
+                // The value source. Valid values: NONE: no constraint. LIST: obtained from a list. LOOKUP_TABLE: lookup table. MIN_MAX: obtained between the maximum and minimum values. DATAPHIN_ATTRIBUTE: Dataphin system property. BUILT_IN_DATA_TYPES: built-in data type. BUILT_IN_DATA_CLASSIFICATION: built-in data categorization. BUILT_IN_DATA_LEVEL: built-in data security classification.
                 shared_ptr<string> valueConstraint_ {};
-                // Value range, effective when value constraint is LIST.
+                // The value range. This parameter takes effect when the value source is set to LIST.
                 shared_ptr<vector<string>> valueList_ {};
               };
 
@@ -760,15 +764,15 @@ namespace Models
 
 
             protected:
-              // Data type of the attribute value: STRING for string, BIGINT for numeric type, DOUBLE for floating-point type, DATE for date accurate to day, DATETIME for date accurate to milliseconds, BOOLEAN for boolean.
+              // The data type of the attribute value. Valid values: STRING: string. BIGINT: numeric type. DOUBLE: floating-point type. DATE: date accurate to day. DATETIME: date accurate to millisecond. BOOLEAN: Boolean type.
               shared_ptr<string> dataType_ {};
-              // Default value.
+              // The default value.
               shared_ptr<string> defaultValue_ {};
-              // Attribute value length. If empty or -1, the length is not limited. Typically, only string types limit the attribute value length.
+              // The length of the attribute value. An empty value or -1 indicates that the length is not limited. Typically, only the string type limits the length of the attribute value.
               shared_ptr<int32_t> length_ {};
-              // Attribute value type: CUSTOMIZED for custom input, SINGLE_ENUM for single enumeration value, MULTIPLE_ENUMS for multiple enumeration values, RANGE for range value.
+              // The attribute value type. Valid values: CUSTOMIZED: custom input. SINGLE_ENUM: single enum value. MULTIPLE_ENUMS: multiple enum values. RANGE: range value.
               shared_ptr<string> type_ {};
-              // Value range.
+              // The value range.
               shared_ptr<ValueConfig::ValueRange> valueRange_ {};
             };
 
@@ -852,9 +856,9 @@ namespace Models
 
 
                 protected:
-                  // Standard ID.
+                  // The ID of the standard.
                   shared_ptr<int64_t> standardId_ {};
-                  // Version number.
+                  // The version number.
                   shared_ptr<int32_t> version_ {};
                 };
 
@@ -877,9 +881,9 @@ namespace Models
 
 
               protected:
-                // Attribute source: SYSTEM for system attribute, CUSTOM for custom attribute, STANDARD for standard.
+                // The source of the attribute. Valid values: SYSTEM: system attribute. CUSTOM: custom attribute. STANDARD: standard.
                 shared_ptr<string> attributeFrom_ {};
-                // Corresponding standard, effective when attribute source is STANDARD.
+                // The corresponding standard. This parameter takes effect when the attribute source is set to STANDARD.
                 shared_ptr<AttributeFromInfo::StandardReference> standardReference_ {};
               };
 
@@ -902,9 +906,9 @@ namespace Models
 
 
             protected:
-              // Attribute source.
+              // The source of the attribute.
               shared_ptr<RefAttribute::AttributeFromInfo> attributeFromInfo_ {};
-              // Attribute ID.
+              // The ID of the attribute.
               shared_ptr<int64_t> attributeId_ {};
             };
 
@@ -955,11 +959,11 @@ namespace Models
 
 
             protected:
-              // Column to check.
+              // The field to be checked.
               shared_ptr<string> columnName_ {};
-              // Whether case-sensitive.
+              // Specifies whether the check is case-sensitive.
               shared_ptr<bool> isCaseSensitive_ {};
-              // Monitor type: METADATA for metadata monitoring, QUALITY for data quality monitoring.
+              // The monitoring method. Valid values: METADATA: metadata monitoring. QUALITY: data quality monitoring.
               shared_ptr<string> type_ {};
             };
 
@@ -1043,25 +1047,25 @@ namespace Models
 
 
           protected:
-            // Attribute code.
+            // The attribute code.
             shared_ptr<string> code_ {};
-            // Description.
+            // The description.
             shared_ptr<string> description_ {};
-            // Whether to enable monitor configuration.
+            // Specifies whether to enable the monitoring configuration.
             shared_ptr<bool> enableMonitorConfig_ {};
-            // Attribute ID.
+            // The ID of the attribute.
             shared_ptr<int64_t> id_ {};
-            // Monitor configuration.
+            // The monitoring configuration.
             shared_ptr<Attribute::MonitorConfig> monitorConfig_ {};
-            // Attribute name.
+            // The attribute name.
             shared_ptr<string> name_ {};
-            // Referenced attribute information.
+            // The referenced attribute information.
             shared_ptr<Attribute::RefAttribute> refAttribute_ {};
-            // Whether it is required.
+            // Specifies whether the attribute is required.
             shared_ptr<bool> required_ {};
-            // Attribute type: BIZ_ATTRIBUTE for business attribute, TECH_ATTRIBUTE for technical attribute, MANAGEMENT_ATTRIBUTE for management attribute, QUALITY_ATTRIBUTE for quality attribute, MASTER_DATA_ATTRIBUTE for master data attribute, LIFECYCLE_ATTRIBUTE for lifecycle attribute, SECURITY_ATTRIBUTE for security attribute.
+            // The attribute type. Valid values: BIZ_ATTRIBUTE: business attribute. TECH_ATTRIBUTE: technical attribute. MANAGEMENT_ATTRIBUTE: management attribute. QUALITY_ATTRIBUTE: quality attribute. MASTER_DATA_ATTRIBUTE: master data attribute. LIFECYCLE_ATTRIBUTE: lifecycle attribute. SECURITY_ATTRIBUTE: security attribute.
             shared_ptr<string> type_ {};
-            // Value configuration.
+            // The value configuration.
             shared_ptr<Attribute::ValueConfig> valueConfig_ {};
           };
 
@@ -1084,9 +1088,9 @@ namespace Models
 
 
         protected:
-          // Attribute details.
+          // The attribute details.
           shared_ptr<AttributeWithValueList::Attribute> attribute_ {};
-          // Attribute value.
+          // The attribute value.
           shared_ptr<string> value_ {};
         };
 
@@ -1229,39 +1233,39 @@ namespace Models
 
 
       protected:
-        // Attribute value configuration list.
+        // The attribute value configuration.
         shared_ptr<vector<StandardList::AttributeWithValueList>> attributeWithValueList_ {};
-        // Standard code.
+        // The code of the standard.
         shared_ptr<string> code_ {};
-        // Creator.
+        // The creator.
         shared_ptr<StandardList::Creator> creator_ {};
-        // Description.
+        // The description.
         shared_ptr<string> description_ {};
-        // Effective time configuration.
+        // The effective period configuration.
         shared_ptr<StandardList::EffectiveTimeConfig> effectiveTimeConfig_ {};
-        // Standard English name.
+        // The English name of the standard.
         shared_ptr<string> englishName_ {};
-        // Standard ID.
+        // The standard ID.
         shared_ptr<int64_t> id_ {};
-        // Last modifier.
+        // The user who last updated the standard.
         shared_ptr<StandardList::LastModifier> lastModifier_ {};
-        // Last modified time.
+        // The last modified time. The format is YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> modifyTime_ {};
-        // Standard name.
+        // The name of the standard.
         shared_ptr<string> name_ {};
-        // Owner.
+        // The owner.
         shared_ptr<StandardList::Owner> owner_ {};
-        // Stage of the standard.
+        // The stage of the standard.
         shared_ptr<string> stage_ {};
-        // Standard set that the current standard depends on.
+        // The standard set that the current standard depends on.
         shared_ptr<StandardList::StandardSet> standardSet_ {};
-        // Standard template that the current standard depends on.
+        // The standard template that the current standard depends on.
         shared_ptr<StandardList::StandardTemplate> standardTemplate_ {};
-        // Status of the standard.
+        // The status of the standard.
         shared_ptr<string> status_ {};
-        // Standard type.
+        // The type of the standard.
         shared_ptr<string> type_ {};
-        // Version number.
+        // The version number.
         shared_ptr<int32_t> version_ {};
       };
 
@@ -1284,9 +1288,9 @@ namespace Models
 
 
     protected:
-      // Standard list.
+      // The standard list.
       shared_ptr<vector<PageResult::StandardList>> standardList_ {};
-      // Total number of records.
+      // The total number of records.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -1337,17 +1341,17 @@ namespace Models
 
 
   protected:
-    // Backend response code.
+    // The backend response code.
     shared_ptr<string> code_ {};
-    // HTTP response code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Details of the backend response error.
+    // The backend exception details.
     shared_ptr<string> message_ {};
-    // Paginated query result.
+    // The paged query result.
     shared_ptr<ListStandardsResponseBody::PageResult> pageResult_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Whether the request is successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

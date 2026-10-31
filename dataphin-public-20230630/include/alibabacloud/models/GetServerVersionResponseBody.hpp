@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request is successful.
+    // The request error code. A value of OK indicates that the request is normal.
     shared_ptr<string> code_ {};
-    // The Dataphin server version number.
+    // The version number of the Dataphin server.
     shared_ptr<string> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message.
+    // The error message of the request.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

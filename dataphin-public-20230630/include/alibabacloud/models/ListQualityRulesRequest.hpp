@@ -157,52 +157,23 @@ namespace Models
 
 
     protected:
-      // The rule type. Valid values:
-      // - CONSISTENT: consistency.
-      // - EFFECTIVE: validity.
-      // - TIMELINESE: timeliness.
-      // - ACCURATE: accuracy.
-      // - UNIQUENESS: uniqueness.
-      // - COMPLETENESS: completeness.
-      // - STABILITY: stability.
-      // - CUSTOM: custom.
+      // The rule type. Valid values: CONSISTENT (Consistency), EFFECTIVE (Effectiveness), TIMELINESE (Timeliness), ACCURATE (Accuracy), UNIQUENESS (Uniqueness), COMPLETENESS (Completeness), STABILITY (Stability), and CUSTOM (Custom).
       shared_ptr<vector<string>> catalogList_ {};
-      // The search keyword for filtering. Supports searching by rule name and validation object.
+      // The search keyword. Supports searching by rule name and validation object.
       shared_ptr<string> keyword_ {};
       // The page number. Default value: 1.
       shared_ptr<int32_t> pageNo_ {};
-      // The number of records per page. Default value: 20.
+      // The number of entries per page. Default value: 20.
       shared_ptr<int32_t> pageSize_ {};
-      // The rule strength. Valid values:
-      // - STRONG: strong.
-      // - WEAK: weak.
+      // The rule strength. Valid values: STRONG (Strong) and WEAK (Weak).
       shared_ptr<vector<string>> ruleStrengthList_ {};
-      // The rule effective status. Valid values:
-      // - ENABLE: enabled.
-      // - DISABLE: disabled.
+      // The effective status of the rule. Valid values: ENABLE (Enabled) and DISABLE (Disabled).
       shared_ptr<vector<string>> statusList_ {};
       // The rule template.
       shared_ptr<vector<int64_t>> templateIdList_ {};
-      // The task status. Valid values:
-      // - NOT_RUN: not executed.
-      // - WAITING: waiting.
-      // - RUNNING: executing.
-      // - SUCCESS: execution succeeded.
-      // - FAILED: execution failed.
-      // - CANCEL: canceled.
-      // - TIMEOUT: timed out.
-      // - OFFLINE: offline.
+      // The task status. Valid values: NOT_RUN (Not run), WAITING (Waiting), RUNNING (Running), SUCCESS (Succeeded), FAILED (Failed), CANCEL (Canceled), TIMEOUT (Timed out), and OFFLINE (Offline).
       shared_ptr<vector<string>> testRunTaskStatusList_ {};
-      // The trial run validation result. Valid values:
-      // - NOT_RUN: not executed.
-      // - WAITING: waiting for execution.
-      // - RUNNING: executing.
-      // - PASS: passed.
-      // - NOT_PASS: not passed.
-      // - FAILED: execution failed.
-      // - OFFLINE: offline. The task needs to be restarted.
-      // - CANCEL: task canceled.
-      // - TIMEOUT: task timed out.
+      // The validation result of the rule test run. Valid values: NOT_RUN (Not run), WAITING (Waiting), RUNNING (Running), PASS (Passed), NOT_PASS (Not passed), FAILED (Failed), OFFLINE (Offline, requires restart), CANCEL (Canceled), and TIMEOUT (Timed out).
       shared_ptr<vector<string>> testRunTaskValidateResultList_ {};
       // The monitoring ID.
       shared_ptr<int64_t> watchId_ {};
@@ -234,12 +205,13 @@ namespace Models
 
 
   protected:
-    // The paged query conditions.
+    // The paged query conditions, including paging parameters.
     shared_ptr<ListQualityRulesRequest::ListQuery> listQuery_ {};
     // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator ID.
     shared_ptr<string> opUserId_ {};
   };
 

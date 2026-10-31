@@ -120,7 +120,7 @@ namespace Models
 
 
         protected:
-          // The default value to backfill for the property.
+          // The default value to be backfilled for the property.
           // 
           // This parameter is required.
           shared_ptr<string> defaultValue_ {};
@@ -163,24 +163,19 @@ namespace Models
 
 
       protected:
-        // The backfill property default value policy. This parameter takes effect only when PolicyType is set to BackFillDefault.
+        // The default value backfill policy for properties. This policy takes effect only when the policy type is BackFillDefault.
         // 
         // This parameter is required.
         shared_ptr<DataAdjustmentPolicies::BackFillDefaultValuePolicy> backFillDefaultValuePolicy_ {};
-        // The policy type. Valid values:
-        // 
-        // - BackFillDefault: backfills default values when a property changes from optional to required.
+        // The policy type. Valid value: BackFillDefault (backfills default values when a property changes from optional to required).
         // 
         // This parameter is required.
         shared_ptr<string> policyType_ {};
-        // The type to which the policy applies. Valid values:
-        // 
-        // - ENTITY: applies to entity types.
-        // - RELATION: applies to relation types.
+        // The policy scope. Valid values: ENTITY (applies to entity types) and RELATION (applies to relationship types).
         // 
         // This parameter is required.
         shared_ptr<string> type_ {};
-        // The code of the entity type or relation type.
+        // The code of the entity type or relationship type.
         // 
         // This parameter is required.
         shared_ptr<string> typeCode_ {};
@@ -250,8 +245,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
-    // The publish command and its details.
+    // The publish command details.
     // 
     // This parameter is required.
     shared_ptr<PublishKgSchemaRequest::PublishCommand> publishCommand_ {};

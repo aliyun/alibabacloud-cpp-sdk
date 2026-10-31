@@ -80,11 +80,11 @@ namespace Models
 
 
     protected:
-      // The categorization ID. If this parameter is not specified, the categorization is matched and deleted based on the categorization name and parent path.
+      // The category ID. If this parameter is not provided, the category is matched and deleted based on the category name and parent path.
       shared_ptr<int64_t> id_ {};
-      // The categorization name.
+      // The category name.
       shared_ptr<string> name_ {};
-      // The categorization path. Default value: /.
+      // The category path. Default value: /.
       shared_ptr<string> parentPath_ {};
     };
 
@@ -114,7 +114,7 @@ namespace Models
 
 
   protected:
-    // The delete instruction.
+    // The update command.
     // 
     // This parameter is required.
     shared_ptr<DeleteSecurityClassifyRequest::DeleteCommand> deleteCommand_ {};
@@ -122,6 +122,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator user ID.
     shared_ptr<string> opUserId_ {};
   };
 

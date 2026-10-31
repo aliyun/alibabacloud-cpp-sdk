@@ -98,21 +98,17 @@ namespace Models
 
 
     protected:
-      // Specifies whether to return associated standards and associated lookup tables. Default value: false.
+      // Specifies whether to return related standards and lookup tables. Default value: false.
       shared_ptr<bool> needRelation_ {};
-      // Specifies whether to return a null value when the standard does not exist. If set to false, an exception is thrown. Default value: true.
+      // Specifies whether to allow a null value to be returned when the standard does not exist. If this parameter is set to false, an exception is thrown. Default value: true.
       shared_ptr<bool> nullable_ {};
       // The standard ID.
       // 
       // This parameter is required.
       shared_ptr<int64_t> standardId_ {};
-      // The stage to which the standard belongs. Valid values:
-      // - dev: development stage.
-      // - prod: production stage.
-      // 
-      // Default value: prod.
+      // The stage to which the standard belongs. Valid values: dev and prod. Default value: prod.
       shared_ptr<string> standardStage_ {};
-      // The version number. If left empty, the latest version is used.
+      // The version number. An empty value indicates the latest version.
       shared_ptr<int32_t> version_ {};
     };
 
@@ -146,6 +142,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator user ID.
     shared_ptr<string> opUserId_ {};
     // The query command.
     // 

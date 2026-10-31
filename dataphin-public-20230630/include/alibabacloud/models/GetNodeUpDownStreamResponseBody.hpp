@@ -128,9 +128,9 @@ namespace Models
         // The node name.
         shared_ptr<string> name_ {};
         // The node type. Valid values:
-        // - DATA_PROCESS: code task.
-        // - BBOX_LOGIC_TABLE_NODE: black box logical table node.
-        // - PIPELINE_NODE: pipeline node.
+        // - DATA_PROCESS: Code task.
+        // - BBOX_LOGIC_TABLE_NODE: Black box logical table node.
+        // - PIPELINE_NODE: Pipeline node.
         shared_ptr<string> type_ {};
       };
 
@@ -199,9 +199,9 @@ namespace Models
         // The node name.
         shared_ptr<string> name_ {};
         // The node type. Valid values:
-        // - DATA_PROCESS: code task.
-        // - BBOX_LOGIC_TABLE_NODE: logical table node.
-        // - PIPELINE_NODE: pipeline node.
+        // - DATA_PROCESS: Code task.
+        // - BBOX_LOGIC_TABLE_NODE: Logical table node.
+        // - PIPELINE_NODE: Pipeline node.
         shared_ptr<string> type_ {};
       };
 
@@ -270,9 +270,9 @@ namespace Models
         // The node name.
         shared_ptr<string> name_ {};
         // The node type. Valid values:
-        // - DATA_PROCESS: code task.
-        // - BBOX_LOGIC_TABLE_NODE: logical table node.
-        // - PIPELINE_NODE: pipeline node.
+        // - DATA_PROCESS: Code task.
+        // - BBOX_LOGIC_TABLE_NODE: Logical table node.
+        // - PIPELINE_NODE: Pipeline node.
         shared_ptr<string> type_ {};
       };
 
@@ -308,7 +308,7 @@ namespace Models
     protected:
       // The downstream nodes.
       shared_ptr<vector<NodeDagInfo::DownStreamNodeList>> downStreamNodeList_ {};
-      // The center nodes.
+      // The central nodes.
       shared_ptr<vector<NodeDagInfo::StartNodeList>> startNodeList_ {};
       // The upstream nodes.
       shared_ptr<vector<NodeDagInfo::UpStreamNodeList>> upStreamNodeList_ {};
@@ -361,17 +361,17 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request was successful.
+    // The error code. A value of OK indicates that the request is successful.
     shared_ptr<string> code_ {};
     // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The dag data of the node.
+    // The dag information of the node.
     shared_ptr<GetNodeUpDownStreamResponseBody::NodeDagInfo> nodeDagInfo_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

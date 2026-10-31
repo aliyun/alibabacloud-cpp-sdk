@@ -164,13 +164,13 @@ namespace Models
 
 
       protected:
-        // The attribute values corresponding to the attributes in the referenced template. If left empty, default values are used.
+        // The attribute values for the attribute list in the referenced template. If this parameter is left empty, the default values are used.
         shared_ptr<vector<StandardTemplateReference::AttributeValueList>> attributeValueList_ {};
         // The standard template ID.
         // 
         // This parameter is required.
         shared_ptr<int64_t> id_ {};
-        // The version number of the standard template. The latest version is used by default.
+        // The version number of the standard template. By default, the latest version is used.
         shared_ptr<int32_t> version_ {};
       };
 
@@ -361,28 +361,27 @@ namespace Models
             // The metric name. This parameter is required when the validation type is EXPRESSION.
             shared_ptr<string> metricName_ {};
             // The operator. If the validation type is EXPRESSION, valid values:
-            // - EQUAL: equal to.
-            // - NOT_EQUAL: not equal to.
-            // - LARGER: greater than.
-            // - LARGE_OR_EQUAL: greater than or equal to.
-            // - SMALLER: less than.
-            // - SMALLER_OR_EQUAL: less than or equal to.
-            // 
+            // - EQUAL: Equal to.
+            // - NOT_EQUAL: Not equal to.
+            // - LARGER: Greater than.
+            // - LARGE_OR_EQUAL: Greater than or equal to.
+            // - SMALLER: Less than.
+            // - SMALLER_OR_EQUAL: Less than or equal to.
             // If the validation type is RELATION, valid values:
-            // - AND: and.
-            // - OR: or.
+            // - AND: And.
+            // - OR: Or.
             // 
             // This parameter is required.
             shared_ptr<string> operator_ {};
             // The parent validation configuration ID. The parent rule validation type can only be RELATION.
             shared_ptr<string> parentId_ {};
             // The rule validation type. Valid values:
-            // - RELATION: relation.
-            // - EXPRESSION: expression.
+            // - RELATION: Relationship.
+            // - EXPRESSION: Expression.
             // 
             // This parameter is required.
             shared_ptr<string> type_ {};
-            // The value to compare against.
+            // The value to be compared.
             shared_ptr<string> value_ {};
           };
 
@@ -428,7 +427,7 @@ namespace Models
             // 
             // This parameter is required.
             shared_ptr<string> key_ {};
-            // The configuration item value.
+            // The value of the configuration item.
             // 
             // This parameter is required.
             shared_ptr<string> value_ {};
@@ -490,8 +489,8 @@ namespace Models
             // This parameter is required.
             shared_ptr<string> name_ {};
             // The template source. Valid values:
-            // - FROM_SYSTEM: system template.
-            // - CUSTOMIZED: custom template.
+            // - FROM_SYSTEM: System template.
+            // - CUSTOMIZED: Custom template.
             // 
             // This parameter is required.
             shared_ptr<string> type_ {};
@@ -544,15 +543,15 @@ namespace Models
 
 
           protected:
-            // The field to check.
+            // The field to be checked.
             shared_ptr<string> columnName_ {};
             // Specifies whether the check is case-sensitive.
             // 
             // This parameter is required.
             shared_ptr<bool> isCaseSensitive_ {};
             // The monitoring method. Valid values:
-            // - METADATA: metadata monitoring.
-            // - QUALITY: data quality monitoring.
+            // - METADATA: Metadata monitoring.
+            // - QUALITY: Data quality monitoring.
             // 
             // This parameter is required.
             shared_ptr<string> type_ {};
@@ -655,39 +654,40 @@ namespace Models
 
 
         protected:
-          // The associated attribute ID.
+          // The ID of the associated attribute.
           shared_ptr<int64_t> attributeId_ {};
-          // The monitoring configuration for the associated attribute.
+          // The monitoring configuration of the associated attribute.
           shared_ptr<StandardMonitorConfigList::AttributeMonitorConfig> attributeMonitorConfig_ {};
           // The attribute name.
           shared_ptr<string> attributeName_ {};
           // The rule description.
           shared_ptr<string> description_ {};
-          // The monitoring configuration ID. If left empty, a new monitoring configuration is created. If an existing monitoring configuration ID is specified, the corresponding monitoring configuration is updated.
+          // The monitoring configuration ID. If this parameter is left empty, a new monitoring configuration is created. If an existing monitoring configuration ID is specified, the corresponding monitoring configuration is updated.
           shared_ptr<int64_t> id_ {};
-          // The method used to add the monitoring configuration. Valid values:
-          // - BY_USER: manually added.
-          // - BY_SYSTEM_ATTRIBUTE: preset by system attribute.
+          // The addition method. Valid values:
+          // - BY_USER: Manual addition.
+          // - BY_SYSTEM_ATTRIBUTE: Preset by system attributes.
           // 
           // This parameter is required.
           shared_ptr<string> monitorFrom_ {};
           // The rule template. This parameter is required when the monitoring type is QUALITY.
           shared_ptr<StandardMonitorConfigList::QualityRuleTemplate> qualityRuleTemplate_ {};
-          // The rule configurations. This parameter is required when the monitoring type is QUALITY.
+          // The rule configuration. This parameter is required when the monitoring type is QUALITY.
           shared_ptr<vector<StandardMonitorConfigList::RuleConfigList>> ruleConfigList_ {};
           // The rule name.
           // 
           // This parameter is required.
           shared_ptr<string> ruleName_ {};
-          // The rule subtype. This parameter is required when the monitoring type is QUALITY. Valid values:
-          // - BY_ATTRIBUTE: configured based on attributes.
-          // - CUSTOMIZED: custom configuration.
+          // The rule subtype. Valid values:
+          // - BY_ATTRIBUTE: Attribute-based configuration.
+          // - CUSTOMIZED: Custom configuration.
+          // This parameter is required when the monitoring type is QUALITY.
           shared_ptr<string> ruleSubType_ {};
-          // The rule validation configurations. This parameter is required when the monitoring type is QUALITY.
+          // The rule validation configuration. This parameter is required when the monitoring type is QUALITY.
           shared_ptr<vector<StandardMonitorConfigList::RuleValidateConfigList>> ruleValidateConfigList_ {};
           // The monitoring type. Valid values:
-          // - METADATA: metadata monitoring.
-          // - QUALITY: data quality monitoring.
+          // - METADATA: Metadata monitoring.
+          // - QUALITY: Data quality monitoring.
           // 
           // This parameter is required.
           shared_ptr<string> type_ {};
@@ -704,7 +704,7 @@ namespace Models
 
 
       protected:
-        // The list of standard monitoring configurations.
+        // The standard monitoring configuration list.
         // 
         // This parameter is required.
         shared_ptr<vector<StandardGeneralMonitorConfig::StandardMonitorConfigList>> standardMonitorConfigList_ {};
@@ -761,9 +761,7 @@ namespace Models
         shared_ptr<string> endTime_ {};
         // The start time of the effective period.
         shared_ptr<string> startTime_ {};
-        // The effective period type. Valid values:
-        // - FOREVER: permanent.
-        // - TIME_PERIOD: time period.
+        // The effective period type. Valid values: FOREVER (permanent) and TIME_PERIOD (time period).
         // 
         // This parameter is required.
         shared_ptr<string> type_ {};
@@ -855,9 +853,9 @@ namespace Models
       shared_ptr<string> description_ {};
       // The effective period configuration.
       shared_ptr<UpdateCommand::EffectiveTimeConfig> effectiveTimeConfig_ {};
-      // Specifies whether to generate a standard code based on rules. If set to true, the standard code specified in the attribute values is ignored and regenerated.
+      // Specifies whether to generate standard codes based on rules. If this parameter is set to true, invalid standard codes entered in the attribute values are regenerated.
       shared_ptr<bool> needGenerateStandardCode_ {};
-      // The owner. If not specified, the current user is used.
+      // The owner. If this parameter is not specified, the current user is used as the owner.
       shared_ptr<string> owner_ {};
       // The standard monitoring configuration.
       shared_ptr<UpdateCommand::StandardGeneralMonitorConfig> standardGeneralMonitorConfig_ {};
@@ -865,7 +863,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<int64_t> standardId_ {};
-      // The reference to the standard set that the current standard belongs to.
+      // The reference to the standard set to which the current standard belongs.
       // 
       // This parameter is required.
       shared_ptr<UpdateCommand::StandardSetReference> standardSetReference_ {};
@@ -873,7 +871,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> standardStatus_ {};
-      // The standard template to which the standard belongs.
+      // The reference to the standard template to which the standard belongs.
       // 
       // This parameter is required.
       shared_ptr<UpdateCommand::StandardTemplateReference> standardTemplateReference_ {};
@@ -911,6 +909,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
     // The update command.
     // 

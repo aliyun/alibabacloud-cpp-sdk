@@ -153,25 +153,25 @@ namespace Models
 
 
       protected:
-        // The list of business event activity IDs contained in the business flow activity. This parameter is valid only when the current entity is a business flow activity.
+        // The list of IDs of business event activities included in the business process activity. This parameter is valid only when the current activity is a business process activity.
         shared_ptr<vector<int64_t>> bizEventEntityIdList_ {};
-        // The description of the business process. The description can be up to 128 characters in length.
+        // The description of the business activity. The description can be up to 128 characters in length.
         shared_ptr<string> description_ {};
-        // The display name of the business process. The name can be up to 64 characters in length and can contain only Chinese characters, letters, digits, underscores, and hyphens.
+        // The display name of the business activity. The name can be up to 64 characters in length and can contain only Chinese characters, letters, digits, underscores (_), and hyphens (-).
         // 
         // This parameter is required.
         shared_ptr<string> displayName_ {};
-        // The code name of the business process. The name can be up to 64 characters in length and can contain only letters, digits, and underscores. For the ADB_PG engine, the code name can be up to 40 characters in length.
+        // The coded name of the business activity. The name can be up to 64 characters in length and can contain only letters, digits, and underscores (_). If the ADB_PG engine is used, the coded name can be up to 40 characters in length.
         // 
         // This parameter is required.
         shared_ptr<string> name_ {};
-        // The user ID of the business process owner.
+        // The ID of the user who is the owner of the business activity.
         // 
         // This parameter is required.
         shared_ptr<string> ownerUserId_ {};
-        // The preceding business flow activities of the business flow activity.
+        // The preceding business process activities of the business process activity.
         shared_ptr<vector<int64_t>> preBizProcessIdList_ {};
-        // The list of associated online business entity IDs. If this parameter is not specified, the existing values are cleared.
+        // The list of IDs of associated online business entities. If you do not specify this parameter, the original values are cleared.
         shared_ptr<vector<int64_t>> refBizEntityIdList_ {};
       };
 
@@ -253,21 +253,21 @@ namespace Models
       protected:
         // The description of the business object. The description can be up to 128 characters in length.
         shared_ptr<string> description_ {};
-        // The display name of the business object. The name can be up to 64 characters in length and can contain only Chinese characters, letters, digits, underscores, and hyphens.
+        // The display name of the business object. The name can be up to 64 characters in length and can contain only Chinese characters, letters, digits, underscores (_), and hyphens (-).
         // 
         // This parameter is required.
         shared_ptr<string> displayName_ {};
-        // The code name of the business object. The name can be up to 64 characters in length and can contain only letters, digits, and underscores. For the ADB_PG engine, the code name can be up to 40 characters in length.
+        // The coded name of the business object. The name can be up to 64 characters in length and can contain only letters, digits, and underscores (_). If the ADB_PG engine is used, the coded name can be up to 40 characters in length.
         // 
         // This parameter is required.
         shared_ptr<string> name_ {};
-        // The user ID of the business object owner.
+        // The ID of the user who is the owner of the business object.
         // 
         // This parameter is required.
         shared_ptr<string> ownerUserId_ {};
-        // The inherited entity of the business object. Only common business objects support inherited entity configuration, and only online business objects can be inherited.
+        // The ID of the parent entity inherited by the business object. Only common business objects can be configured to inherit entities, and they can only inherit online business objects.
         shared_ptr<int64_t> parentId_ {};
-        // The list of associated online business entity IDs. If this parameter is not specified, the existing values are cleared.
+        // The list of IDs of associated online business entities. If you do not specify this parameter, the original values are cleared.
         shared_ptr<vector<int64_t>> refBizEntityIdList_ {};
       };
 
@@ -322,13 +322,13 @@ namespace Models
     protected:
       // The business object.
       shared_ptr<UpdateCommand::BizObject> bizObject_ {};
-      // The business process.
+      // The business activity.
       shared_ptr<UpdateCommand::BizProcess> bizProcess_ {};
-      // The ID of the business unit to which the business process belongs.
+      // The ID of the business unit to which the business activity belongs.
       // 
       // This parameter is required.
       shared_ptr<int64_t> bizUnitId_ {};
-      // The ID of the data domain to which the business process belongs.
+      // The ID of the subject domain to which the business activity belongs.
       // 
       // This parameter is required.
       shared_ptr<int64_t> dataDomainId_ {};
@@ -336,7 +336,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<int64_t> id_ {};
-      // The type of the business entity. For more information, refer to the create business entity operation.
+      // The type of the business entity. For more information, see the Create a business entity operation.
       // 
       // This parameter is required.
       shared_ptr<string> type_ {};
@@ -372,6 +372,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the user who performs the operation.
     shared_ptr<string> opUserId_ {};
     // The update request.
     // 

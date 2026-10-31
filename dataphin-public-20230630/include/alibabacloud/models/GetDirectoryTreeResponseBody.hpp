@@ -209,33 +209,33 @@ namespace Models
 
 
       protected:
-        // Directory type.
+        // The directory type.
         shared_ptr<string> categoryType_ {};
-        // Creator ID.
+        // The ID of the creator.
         shared_ptr<string> creator_ {};
-        // Creator name.
+        // The name of the creator.
         shared_ptr<string> creatorName_ {};
-        // Data cell ID.
+        // The data cell ID.
         shared_ptr<int64_t> dataCellId_ {};
-        // Directory path. Valid only for file or resource nodes.
+        // The directory path. This parameter is valid only for file or resource nodes.
         shared_ptr<string> dirName_ {};
-        // Creation time. Empty for non-entity object nodes.
+        // The creation time. This parameter is empty for non-entity object nodes.
         shared_ptr<string> gmtCreate_ {};
-        // Modification time. Empty for non-entity object nodes.
+        // The modification time. This parameter is empty for non-entity object nodes.
         shared_ptr<string> gmtModified_ {};
-        // Directory ID.
+        // The directory ID.
         shared_ptr<int64_t> id_ {};
-        // Last modifier ID.
+        // The ID of the last modifier.
         shared_ptr<string> lastModifier_ {};
-        // Last modifier name.
+        // The name of the last modifier.
         shared_ptr<string> lastModifierName_ {};
-        // Display name of the object.
+        // The display name of the object.
         shared_ptr<string> name_ {};
-        // Project ID.
+        // The project ID.
         shared_ptr<int64_t> projectId_ {};
-        // Directory string ID.
+        // The string ID of the directory.
         shared_ptr<string> stringId_ {};
-        // Object type.
+        // The object type.
         shared_ptr<string> type_ {};
       };
 
@@ -387,33 +387,33 @@ namespace Models
 
 
       protected:
-        // Directory type.
+        // The directory type.
         shared_ptr<string> categoryType_ {};
-        // Creator ID.
+        // The ID of the creator.
         shared_ptr<string> creator_ {};
-        // Creator name.
+        // The name of the creator.
         shared_ptr<string> creatorName_ {};
-        // Data cell ID.
+        // The data cell ID.
         shared_ptr<int64_t> dataCellId_ {};
-        // Directory path. Valid only for file or resource nodes.
+        // The directory path. This parameter is valid only for file or resource nodes.
         shared_ptr<string> dirName_ {};
-        // Creation time. Empty for non-entity object nodes.
+        // The creation time. This parameter is empty for non-entity object nodes.
         shared_ptr<string> gmtCreate_ {};
-        // Modification time. Empty for non-entity object nodes.
+        // The modification time. This parameter is empty for non-entity object nodes.
         shared_ptr<string> gmtModified_ {};
-        // Directory ID.
+        // The directory ID.
         shared_ptr<int64_t> id_ {};
-        // Last modifier ID.
+        // The ID of the last modifier.
         shared_ptr<string> lastModifier_ {};
-        // Last modifier name.
+        // The name of the last modifier.
         shared_ptr<string> lastModifierName_ {};
-        // Display name of the object.
+        // The display name of the object.
         shared_ptr<string> name_ {};
-        // Project ID.
+        // The project ID.
         shared_ptr<int64_t> projectId_ {};
-        // Directory string ID.
+        // The string ID of the directory.
         shared_ptr<string> stringId_ {};
-        // Object type.
+        // The object type.
         shared_ptr<string> type_ {};
       };
 
@@ -438,9 +438,9 @@ namespace Models
 
 
     protected:
-      // Child node.
+      // The child nodes.
       shared_ptr<Data::Children> children_ {};
-      // Parent node.
+      // The parent node.
       shared_ptr<Data::Parent> parent_ {};
     };
 
@@ -491,15 +491,15 @@ namespace Models
 
 
   protected:
-    // Error code. OK indicates a successful request.
+    // The error code. A value of OK indicates that the request is successful.
     shared_ptr<string> code_ {};
-    // Directory tree information. Returns the directory tree with all edge information, traversed level by level from the root node.
+    // The directory tree information. The directory tree and all edge information are returned through a level-order traversal starting from the root node.
     shared_ptr<vector<GetDirectoryTreeResponseBody::Data>> data_ {};
-    // HTTP status code.
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Error message.
+    // The error message.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};

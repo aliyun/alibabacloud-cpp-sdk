@@ -99,7 +99,7 @@ namespace Models
 
     protected:
       // The application key.
-      // >Notice: Deprecated. Use AppKeyStr instead.</notice>.
+      // >Notice: Deprecated. Use AppKeyStr.</notice>
       shared_ptr<int64_t> appKey_ {};
       // The application key.
       shared_ptr<string> appKeyStr_ {};
@@ -141,8 +141,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
-    // The paged query parameters.
+    // The paging query parameters.
     // 
     // This parameter is required.
     shared_ptr<ListApiByAppRequest::PageQuery> pageQuery_ {};

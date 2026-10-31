@@ -111,8 +111,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
-    // The pending submit query request.
+    // The pending release query request.
     // 
     // This parameter is required.
     shared_ptr<GetLatestSubmitDetailRequest::SubmitDetailQuery> submitDetailQuery_ {};

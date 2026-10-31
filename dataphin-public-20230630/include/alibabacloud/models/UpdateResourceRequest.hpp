@@ -117,13 +117,11 @@ namespace Models
 
 
     protected:
-      // The commit remarks.
+      // The submission comment.
       // 
       // This parameter is required.
       shared_ptr<string> comment_ {};
-      // The compute engine type. Valid values:
-      // - MAX_COMPUTE
-      // - HADOOP.
+      // The compute engine type. Valid values: MAX_COMPUTE and HADOOP.
       // 
       // This parameter is required.
       shared_ptr<string> computeEngineType_ {};
@@ -143,7 +141,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
-      // The storage address of the resource.
+      // The resource storage address.
       // 
       // This parameter is required.
       shared_ptr<string> storageAddress_ {};
@@ -179,8 +177,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
-    // The edit command.
+    // The update command.
     // 
     // This parameter is required.
     shared_ptr<UpdateResourceRequest::UpdateCommand> updateCommand_ {};

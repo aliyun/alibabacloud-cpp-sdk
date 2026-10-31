@@ -1,0 +1,239 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_QUERYPIPELINESUBMITRESULTRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_QUERYPIPELINESUBMITRESULTRESPONSEBODY_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace DataphinPublic20230630
+{
+namespace Models
+{
+  class QueryPipelineSubmitResultResponseBody : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const QueryPipelineSubmitResultResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(Code, code_);
+      DARABONBA_PTR_TO_JSON(Data, data_);
+      DARABONBA_PTR_TO_JSON(HttpStatusCode, httpStatusCode_);
+      DARABONBA_PTR_TO_JSON(Message, message_);
+      DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(Success, success_);
+    };
+    friend void from_json(const Darabonba::Json& j, QueryPipelineSubmitResultResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(Code, code_);
+      DARABONBA_PTR_FROM_JSON(Data, data_);
+      DARABONBA_PTR_FROM_JSON(HttpStatusCode, httpStatusCode_);
+      DARABONBA_PTR_FROM_JSON(Message, message_);
+      DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(Success, success_);
+    };
+    QueryPipelineSubmitResultResponseBody() = default ;
+    QueryPipelineSubmitResultResponseBody(const QueryPipelineSubmitResultResponseBody &) = default ;
+    QueryPipelineSubmitResultResponseBody(QueryPipelineSubmitResultResponseBody &&) = default ;
+    QueryPipelineSubmitResultResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~QueryPipelineSubmitResultResponseBody() = default ;
+    QueryPipelineSubmitResultResponseBody& operator=(const QueryPipelineSubmitResultResponseBody &) = default ;
+    QueryPipelineSubmitResultResponseBody& operator=(QueryPipelineSubmitResultResponseBody &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(AsyncId, asyncId_);
+        DARABONBA_PTR_TO_JSON(CheckDetail, checkDetail_);
+        DARABONBA_PTR_TO_JSON(ErrorCode, errorCode_);
+        DARABONBA_PTR_TO_JSON(ErrorMessage, errorMessage_);
+        DARABONBA_PTR_TO_JSON(HostMachine, hostMachine_);
+        DARABONBA_PTR_TO_JSON(NodeId, nodeId_);
+        DARABONBA_PTR_TO_JSON(PipelineId, pipelineId_);
+        DARABONBA_PTR_TO_JSON(Status, status_);
+        DARABONBA_PTR_TO_JSON(SubmitId, submitId_);
+        DARABONBA_PTR_TO_JSON(Version, version_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(AsyncId, asyncId_);
+        DARABONBA_PTR_FROM_JSON(CheckDetail, checkDetail_);
+        DARABONBA_PTR_FROM_JSON(ErrorCode, errorCode_);
+        DARABONBA_PTR_FROM_JSON(ErrorMessage, errorMessage_);
+        DARABONBA_PTR_FROM_JSON(HostMachine, hostMachine_);
+        DARABONBA_PTR_FROM_JSON(NodeId, nodeId_);
+        DARABONBA_PTR_FROM_JSON(PipelineId, pipelineId_);
+        DARABONBA_PTR_FROM_JSON(Status, status_);
+        DARABONBA_PTR_FROM_JSON(SubmitId, submitId_);
+        DARABONBA_PTR_FROM_JSON(Version, version_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->asyncId_ == nullptr
+        && this->checkDetail_ == nullptr && this->errorCode_ == nullptr && this->errorMessage_ == nullptr && this->hostMachine_ == nullptr && this->nodeId_ == nullptr
+        && this->pipelineId_ == nullptr && this->status_ == nullptr && this->submitId_ == nullptr && this->version_ == nullptr; };
+      // asyncId Field Functions 
+      bool hasAsyncId() const { return this->asyncId_ != nullptr;};
+      void deleteAsyncId() { this->asyncId_ = nullptr;};
+      inline int64_t getAsyncId() const { DARABONBA_PTR_GET_DEFAULT(asyncId_, 0L) };
+      inline Data& setAsyncId(int64_t asyncId) { DARABONBA_PTR_SET_VALUE(asyncId_, asyncId) };
+
+
+      // checkDetail Field Functions 
+      bool hasCheckDetail() const { return this->checkDetail_ != nullptr;};
+      void deleteCheckDetail() { this->checkDetail_ = nullptr;};
+      inline string getCheckDetail() const { DARABONBA_PTR_GET_DEFAULT(checkDetail_, "") };
+      inline Data& setCheckDetail(string checkDetail) { DARABONBA_PTR_SET_VALUE(checkDetail_, checkDetail) };
+
+
+      // errorCode Field Functions 
+      bool hasErrorCode() const { return this->errorCode_ != nullptr;};
+      void deleteErrorCode() { this->errorCode_ = nullptr;};
+      inline string getErrorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
+      inline Data& setErrorCode(string errorCode) { DARABONBA_PTR_SET_VALUE(errorCode_, errorCode) };
+
+
+      // errorMessage Field Functions 
+      bool hasErrorMessage() const { return this->errorMessage_ != nullptr;};
+      void deleteErrorMessage() { this->errorMessage_ = nullptr;};
+      inline string getErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
+      inline Data& setErrorMessage(string errorMessage) { DARABONBA_PTR_SET_VALUE(errorMessage_, errorMessage) };
+
+
+      // hostMachine Field Functions 
+      bool hasHostMachine() const { return this->hostMachine_ != nullptr;};
+      void deleteHostMachine() { this->hostMachine_ = nullptr;};
+      inline string getHostMachine() const { DARABONBA_PTR_GET_DEFAULT(hostMachine_, "") };
+      inline Data& setHostMachine(string hostMachine) { DARABONBA_PTR_SET_VALUE(hostMachine_, hostMachine) };
+
+
+      // nodeId Field Functions 
+      bool hasNodeId() const { return this->nodeId_ != nullptr;};
+      void deleteNodeId() { this->nodeId_ = nullptr;};
+      inline string getNodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
+      inline Data& setNodeId(string nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
+
+
+      // pipelineId Field Functions 
+      bool hasPipelineId() const { return this->pipelineId_ != nullptr;};
+      void deletePipelineId() { this->pipelineId_ = nullptr;};
+      inline int64_t getPipelineId() const { DARABONBA_PTR_GET_DEFAULT(pipelineId_, 0L) };
+      inline Data& setPipelineId(int64_t pipelineId) { DARABONBA_PTR_SET_VALUE(pipelineId_, pipelineId) };
+
+
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline Data& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+      // submitId Field Functions 
+      bool hasSubmitId() const { return this->submitId_ != nullptr;};
+      void deleteSubmitId() { this->submitId_ = nullptr;};
+      inline int64_t getSubmitId() const { DARABONBA_PTR_GET_DEFAULT(submitId_, 0L) };
+      inline Data& setSubmitId(int64_t submitId) { DARABONBA_PTR_SET_VALUE(submitId_, submitId) };
+
+
+      // version Field Functions 
+      bool hasVersion() const { return this->version_ != nullptr;};
+      void deleteVersion() { this->version_ = nullptr;};
+      inline string getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+      inline Data& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
+    protected:
+      // The query ID for asynchronous execution.
+      shared_ptr<int64_t> asyncId_ {};
+      // The check result of the commit details. The value is a JSON character string and is returned only for the asynchronous commit process. The structure is consistent with the commit details on the product page.
+      shared_ptr<string> checkDetail_ {};
+      // The error code returned when an execution exception occurs.
+      shared_ptr<string> errorCode_ {};
+      // The error message returned when an execution exception occurs.
+      shared_ptr<string> errorMessage_ {};
+      // The server host information for request execution.
+      shared_ptr<string> hostMachine_ {};
+      // The ID of the schedule node for the pipeline task.
+      shared_ptr<string> nodeId_ {};
+      // The primary key ID of the pipeline.
+      shared_ptr<int64_t> pipelineId_ {};
+      // The current execution status. Valid values: SUCCESS: execution succeeded. FAILED: execution failed. RUNNING: execution in progress.
+      shared_ptr<string> status_ {};
+      // The publish ID generated after the pipeline task is submitted, which is used to publish the task through the publish domain.
+      shared_ptr<int64_t> submitId_ {};
+      // The version number generated when the pipeline task is submitted.
+      shared_ptr<string> version_ {};
+    };
+
+    virtual bool empty() const override { return this->code_ == nullptr
+        && this->data_ == nullptr && this->httpStatusCode_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
+    // code Field Functions 
+    bool hasCode() const { return this->code_ != nullptr;};
+    void deleteCode() { this->code_ = nullptr;};
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline QueryPipelineSubmitResultResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+    // data Field Functions 
+    bool hasData() const { return this->data_ != nullptr;};
+    void deleteData() { this->data_ = nullptr;};
+    inline const QueryPipelineSubmitResultResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, QueryPipelineSubmitResultResponseBody::Data) };
+    inline QueryPipelineSubmitResultResponseBody::Data getData() { DARABONBA_PTR_GET(data_, QueryPipelineSubmitResultResponseBody::Data) };
+    inline QueryPipelineSubmitResultResponseBody& setData(const QueryPipelineSubmitResultResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline QueryPipelineSubmitResultResponseBody& setData(QueryPipelineSubmitResultResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+
+
+    // httpStatusCode Field Functions 
+    bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
+    void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
+    inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
+    inline QueryPipelineSubmitResultResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
+
+
+    // message Field Functions 
+    bool hasMessage() const { return this->message_ != nullptr;};
+    void deleteMessage() { this->message_ = nullptr;};
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline QueryPipelineSubmitResultResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+
+
+    // requestId Field Functions 
+    bool hasRequestId() const { return this->requestId_ != nullptr;};
+    void deleteRequestId() { this->requestId_ = nullptr;};
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline QueryPipelineSubmitResultResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+    // success Field Functions 
+    bool hasSuccess() const { return this->success_ != nullptr;};
+    void deleteSuccess() { this->success_ = nullptr;};
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline QueryPipelineSubmitResultResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+
+
+  protected:
+    // The backend response code.
+    shared_ptr<string> code_ {};
+    // The asynchronous execution result.
+    shared_ptr<QueryPipelineSubmitResultResponseBody::Data> data_ {};
+    // The HTTP response code.
+    shared_ptr<int32_t> httpStatusCode_ {};
+    // The details of the backend response exception.
+    shared_ptr<string> message_ {};
+    // Id of the request
+    shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
+    shared_ptr<bool> success_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace DataphinPublic20230630
+#endif

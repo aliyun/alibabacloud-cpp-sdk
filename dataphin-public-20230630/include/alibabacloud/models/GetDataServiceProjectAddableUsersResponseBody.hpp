@@ -87,9 +87,9 @@ namespace Models
 
 
     protected:
-      // The username of the user.
+      // The user account.
       shared_ptr<string> accountName_ {};
-      // The nickname of the user.
+      // The user nickname.
       shared_ptr<string> displayName_ {};
       // The user ID.
       shared_ptr<string> userId_ {};
@@ -146,11 +146,11 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The details of the backend exception.
+    // The backend exception details.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
     // The list of project members.
     shared_ptr<vector<GetDataServiceProjectAddableUsersResponseBody::UserList>> userList_ {};

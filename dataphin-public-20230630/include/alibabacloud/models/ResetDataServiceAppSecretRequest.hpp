@@ -80,18 +80,13 @@ namespace Models
 
 
     protected:
-      // Application ID
+      // The application ID.
       // 
       // This parameter is required.
       shared_ptr<int32_t> appId_ {};
-      // The new application key, which must be globally unique and is used when calling APIs.
-      // The length is 8 to 128 English characters, and can contain digits, underscores (_), and hyphens (-).
-      // Customization is supported only when using Alibaba Cloud API Gateway or the built-in gateway. This configuration is ignored when using a dedicated cloud gateway.
+      // The new application key. The key must be globally unique and is used when you call API operations. The key must be 8 to 128 characters in length, and can contain digits, underscores (_), and hyphens (-). You can customize this parameter only when you use Alibaba Cloud API Gateway or the built-in gateway. If you use Apsara Stack Gateway, this parameter is ignored.
       shared_ptr<string> appKey_ {};
-      // The new application secret.
-      // If this parameter is left empty, the system automatically generates a new AppSecret value.
-      // The length is 8 to 127 English characters, and can contain digits, underscores (_), and hyphens (-).
-      // Customization is supported only when using Alibaba Cloud API Gateway or the built-in gateway. This configuration is ignored when using a dedicated cloud gateway.
+      // The new application secret. If you leave this parameter empty, the system automatically generates a new AppSecret value. The secret must be 8 to 127 characters in length, and can contain digits, underscores (_), and hyphens (-). You can customize this parameter only when you use Alibaba Cloud API Gateway or the built-in gateway. If you use Apsara Stack Gateway, this parameter is ignored.
       shared_ptr<string> appSecret_ {};
     };
 
@@ -121,12 +116,13 @@ namespace Models
 
 
   protected:
-    // Tenant ID
+    // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
-    // Reset Data Service Application Key
+    // The update command to reset the application key of a data service.
     // 
     // This parameter is required.
     shared_ptr<ResetDataServiceAppSecretRequest::UpdateCommand> updateCommand_ {};

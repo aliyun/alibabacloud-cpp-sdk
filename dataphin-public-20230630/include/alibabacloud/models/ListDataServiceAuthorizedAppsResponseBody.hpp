@@ -294,39 +294,48 @@ namespace Models
       protected:
         // The primary key ID of the application.
         shared_ptr<int32_t> appId_ {};
-        // The application name.
+        // The name of the application.
         shared_ptr<string> appName_ {};
-        // The ID of the permission account, which is the applicant ID.
+        // The ID of the authorized account, which is the ID of the applicant.
         shared_ptr<string> applyUserId_ {};
-        // The permission account, which is the applicant.
+        // The name of the authorized account, which is the name of the applicant.
         shared_ptr<string> applyUserName_ {};
-        // The expiration date in the format of yyyy-MM-dd.
+        // The expiration date. Format: yyyy-MM-dd.
         shared_ptr<string> expireDate_ {};
-        // The application ID.
+        // The ID of the authorization request.
         shared_ptr<int32_t> id_ {};
-        // Indicates whether the current user is a project administrator.
+        // Indicates whether the current user is a project manager.
         shared_ptr<bool> isProjectManager_ {};
         // The ID of the owner.
         shared_ptr<string> owner_ {};
         // The name of the owner.
         shared_ptr<string> ownerUserName_ {};
-        // The permission account. Valid values: 0: individual account.
+        // The authorized account type. Valid values:
+        // - 0: Individual account.
         shared_ptr<int32_t> privilegeAccount_ {};
-        // The permission type. Valid values: 0: usage permission. 1: development permission.
+        // The permission type. Valid values:
+        // - 0: Usage permissions.
+        // - 1: Development permissions.
         shared_ptr<int32_t> privilegeType_ {};
         // The project ID.
         shared_ptr<int32_t> projectId_ {};
         // The project name.
         shared_ptr<string> projectName_ {};
-        // Indicates whether the user actually has owner permissions on this application. The user may lack permissions because of expiration or other reasons.
+        // Indicates whether the user actually has the owner permissions for the application. The user may not have the permissions due to expiration or other reasons.
         shared_ptr<bool> realHasOwnerPrivilege_ {};
-        // Indicates whether the user actually has permissions.
+        // Indicates whether the user actually has the permissions.
         shared_ptr<bool> realHasPrivilege_ {};
-        // The descriptions used for troubleshooting.
+        // The description used for troubleshooting.
         shared_ptr<vector<AuthorizedAppList::RemarkForDebugList>> remarkForDebugList_ {};
-        // Indicates whether the permissions can be returned or revoked.
+        // Indicates whether the permission can be returned or revoked.
         shared_ptr<bool> revocable_ {};
-        // The detailed status of the revoke button. Valid values: -1: super administrators cannot revoke. -2: owners cannot revoke. -3: project administrators without actual permissions are grayed out. -4: regular users without permissions cannot revoke. 1: project administrators with actual permissions can revoke. 2: regular users with permissions can revoke.
+        // The detailed status of the revocation button. Valid values:
+        // - -1: Super administrators cannot relinquish the permission.
+        // - -2: Owners cannot relinquish the permission.
+        // - -3: Project managers without actual permissions (grayed out).
+        // - -4: Regular users without permissions cannot relinquish the permission.
+        // - 1: Project managers with actual permissions can relinquish the permission.
+        // - 2: Regular users with permissions can relinquish the permission.
         shared_ptr<int32_t> revocableDetail_ {};
       };
 
@@ -408,11 +417,11 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The details of the backend exception.
     shared_ptr<string> message_ {};
-    // The paging query result.
+    // The paging query results.
     shared_ptr<ListDataServiceAuthorizedAppsResponseBody::PageResult> pageResult_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

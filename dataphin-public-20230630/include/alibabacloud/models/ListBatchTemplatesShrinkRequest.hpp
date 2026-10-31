@@ -77,12 +77,13 @@ namespace Models
   protected:
     // The runtime environment. Default value: PROD.
     shared_ptr<string> env_ {};
-    // The paged query conditions.
+    // The paging query conditions.
     shared_ptr<string> listQueryShrink_ {};
     // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator user ID.
     shared_ptr<string> opUserId_ {};
     // The project ID.
     // 

@@ -183,15 +183,15 @@ namespace Models
 
 
     protected:
-      // The end of the start time range. Format: yyyy-MM-dd HH:mm:ss.
+      // The end time of the time range. Format: yyyy-MM-dd HH:mm:ss.
       shared_ptr<string> beginTimeEnd_ {};
-      // The beginning of the start time range. Format: yyyy-MM-dd HH:mm:ss.
+      // The start time of the time range. Format: yyyy-MM-dd HH:mm:ss.
       shared_ptr<string> beginTimeStart_ {};
       // The keyword for code search.
       shared_ptr<string> codeContent_ {};
       // The list of code types.
       shared_ptr<vector<int32_t>> codeType_ {};
-      // The list of duration ranges.
+      // The list of durations.
       shared_ptr<vector<int32_t>> duration_ {};
       // The script name.
       shared_ptr<string> fileName_ {};
@@ -209,7 +209,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
-      // The sort type. Valid values: 0 (start time ascending), 1 (start time descending), 2 (object name).
+      // The sort type. Valid values: 0: Ascending order by start time. 1: Descending order by start time. 2: Object name.
       shared_ptr<int32_t> sortType_ {};
       // The list of task statuses.
       shared_ptr<vector<int32_t>> status_ {};
@@ -251,6 +251,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

@@ -16,12 +16,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Catalog, catalog_);
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
       DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
+      DARABONBA_PTR_TO_JSON(TableGuid, tableGuid_);
       DARABONBA_PTR_TO_JSON(TableName, tableName_);
     };
     friend void from_json(const Darabonba::Json& j, GetTableColumnsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Catalog, catalog_);
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
       DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
+      DARABONBA_PTR_FROM_JSON(TableGuid, tableGuid_);
       DARABONBA_PTR_FROM_JSON(TableName, tableName_);
     };
     GetTableColumnsRequest() = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->catalog_ == nullptr
-        && this->opTenantId_ == nullptr && this->opUserId_ == nullptr && this->tableName_ == nullptr; };
+        && this->opTenantId_ == nullptr && this->opUserId_ == nullptr && this->tableGuid_ == nullptr && this->tableName_ == nullptr; };
     // catalog Field Functions 
     bool hasCatalog() const { return this->catalog_ != nullptr;};
     void deleteCatalog() { this->catalog_ = nullptr;};
@@ -58,6 +60,13 @@ namespace Models
     inline GetTableColumnsRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
 
 
+    // tableGuid Field Functions 
+    bool hasTableGuid() const { return this->tableGuid_ != nullptr;};
+    void deleteTableGuid() { this->tableGuid_ = nullptr;};
+    inline string getTableGuid() const { DARABONBA_PTR_GET_DEFAULT(tableGuid_, "") };
+    inline GetTableColumnsRequest& setTableGuid(string tableGuid) { DARABONBA_PTR_SET_VALUE(tableGuid_, tableGuid) };
+
+
     // tableName Field Functions 
     bool hasTableName() const { return this->tableName_ != nullptr;};
     void deleteTableName() { this->tableName_ = nullptr;};
@@ -66,18 +75,17 @@ namespace Models
 
 
   protected:
-    // The asset table catalog, which is the name of the business unit or workspace.
-    // 
-    // This parameter is required.
+    // The catalog of the asset table, which is the name of the business unit or project workspace.
     shared_ptr<string> catalog_ {};
     // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
-    // The table name.
-    // 
-    // This parameter is required.
+    // The GUID of the table. If this parameter is specified, it takes precedence in the query, and the Catalog and TableName parameters are ignored even if they are provided.
+    shared_ptr<string> tableGuid_ {};
+    // The name of the table.
     shared_ptr<string> tableName_ {};
   };
 

@@ -101,7 +101,7 @@ namespace Models
 
 
       protected:
-        // The API permission field ID.
+        // The ID of the API permission field.
         shared_ptr<int32_t> id_ {};
       };
 
@@ -133,7 +133,7 @@ namespace Models
 
 
       protected:
-        // The API permission field ID.
+        // The ID of the API permission field.
         shared_ptr<int32_t> id_ {};
       };
 
@@ -223,31 +223,28 @@ namespace Models
       shared_ptr<int64_t> apiId_ {};
       // The application ID.
       shared_ptr<int32_t> appId_ {};
-      // Specifies whether to apply for permissions on operation-type APIs in the development environment.
+      // Specifies whether to apply for permissions in the development environment for operation APIs.
       shared_ptr<bool> applyDev_ {};
-      // Specifies whether to apply for permissions on operation-type APIs in the production environment.
+      // Specifies whether to apply for permissions in the production environment for operation APIs.
       shared_ptr<bool> applyProd_ {};
       // The application type. Valid values:
-      // 
-      // - APP: application.
-      // - USER: individual account.
+      // - APP: application
+      // - USER: individual account
       shared_ptr<string> applyType_ {};
       // The list of permission types.
-      // 
-      // - When the principal is an application, the following permission types are supported. To apply for delegation permissions, you must also apply for usage permissions.
-      // 
-      //   - USE: usage permission.
-      //   - DELEGATION: delegation permission.
-      // - When the principal is an individual, only USE (usage) permission is supported.
-      // - If this parameter is not specified, the default value is USE (usage) permission.
+      // - If the applicant is an application, the following permission types are supported. When applying for the delegation permission, you must also apply for the use permission:
+      //   - USE: use permission
+      //   - DELEGATION: delegation permission
+      // - If the applicant is an individual, only the USE permission is supported.
+      // - If this parameter is not specified, the default value is USE.
       shared_ptr<vector<string>> authTypes_ {};
-      // The list of permission fields for query-type APIs in the development environment. This parameter is required in dev-prod mode. DevFieldList and ProdFieldList cannot both be empty.
+      // The list of permission fields in the development environment for query APIs. This parameter is required in dev-prod mode. Either devFieldList or prodFieldList must be specified.
       shared_ptr<vector<ApplyCommand::DevFieldList>> devFieldList_ {};
-      // The expiration date in the format of yyyy-MM-dd.
+      // The expiration date. Format: yyyy-MM-dd.
       // 
       // This parameter is required.
       shared_ptr<string> expireDate_ {};
-      // The list of permission fields for query-type APIs in the production environment. This parameter is required in basic mode.
+      // The list of permission fields in the production environment for query APIs. This parameter is required in basic mode.
       shared_ptr<vector<ApplyCommand::ProdFieldList>> prodFieldList_ {};
       // The reason for the application.
       // 
@@ -288,7 +285,7 @@ namespace Models
 
 
   protected:
-    // The apply command.
+    // The application command.
     // 
     // This parameter is required.
     shared_ptr<ApplyDataServiceApiRequest::ApplyCommand> applyCommand_ {};
@@ -296,6 +293,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
     // The data service project ID.
     // 

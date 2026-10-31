@@ -134,11 +134,14 @@ namespace Models
 
 
       protected:
-        // Visibility scope type. Valid values: ALL_USERS_CAN_VIEW (visible to all users), PART_USERS_CAN_VIEW (visible to specified users), and PART_USERS_CAN_NOT_VIEW (invisible to specified users)
+        // The visibility scope type. Valid values:
+        // - ALL_USERS_CAN_VIEW: Visible to all users.
+        // - PART_USERS_CAN_VIEW: Visible to specific users.
+        // - PART_USERS_CAN_NOT_VIEW: Invisible to specific users.
         shared_ptr<string> scopeType_ {};
-        // Enter user group names. This parameter is read only when the visibility scope is set to PART_USERS_CAN_VIEW or PART_USERS_CAN_NOT_VIEW
+        // The user group names. This parameter is read only when the visibility scope of the asset is set to Visible to specific users or Invisible to specific users.
         shared_ptr<vector<string>> userGroupNames_ {};
-        // Enter the usernames of individual accounts. This parameter takes effect only when the visibility scope is set to PART_USERS_CAN_VIEW or PART_USERS_CAN_NOT_VIEW
+        // The usernames of individual accounts. This parameter is valid only when the visibility scope of the asset is set to Visible to specific users or Invisible to specific users.
         shared_ptr<vector<string>> userNames_ {};
       };
 
@@ -180,9 +183,12 @@ namespace Models
 
 
       protected:
-        // Business metric name
+        // The name of the business metric.
         shared_ptr<string> name_ {};
-        // Correlation type. Valid values: POSITIVE (positive correlation), NEGATIVE (negative correlation), and OTHER (other)
+        // The relationship type. Valid values:
+        // - POSITIVE: Positive correlation.
+        // - NEGATIVE: Negative correlation.
+        // - OTHER: Other.
         shared_ptr<string> relationType_ {};
       };
 
@@ -226,9 +232,9 @@ namespace Models
 
 
       protected:
-        // Custom attribute code
+        // The code of the custom attribute.
         shared_ptr<string> code_ {};
-        // List of attribute values. 1. For custom input and single-select dropdown attributes, only the first value in the list is read. 2. For multi-select dropdown attributes, all values in the list are read. 3. For hyperlink attributes, the first value is used as the display text and the second value is used as the link URL.
+        // The attribute values. 1. For custom input and drop-down single-select attributes, only the first attribute value in the list is read. 2. For drop-down multi-select attributes, all attribute values in the list are read. 3. For hyperlink attributes, the first attribute value in the list is read as the display text, and the second attribute value is read as the redirect link.
         shared_ptr<vector<string>> values_ {};
       };
 
@@ -361,39 +367,44 @@ namespace Models
 
 
     protected:
-      // List of associated technical metrics. Enter the full name of the technical metric in the format of "TableFullName.MetricName", where "TableFullName" equals "AssetSource.TableName". A technical metric can only be associated with one business metric and cannot be associated repeatedly
+      // The associated technical metrics. Enter the technical metric in the "Full table name.Metric name" format, where the "Full table name" is equal to "Asset source.Table name". A technical metric can be associated with only one business metric and cannot be repeatedly associated.
       shared_ptr<vector<string>> associatedTechMetricFullNames_ {};
-      // Business owner. Enter the username of the owner account
+      // The business owner. Enter the username of the owner\\"s account.
       shared_ptr<string> bizOwnerName_ {};
-      // List of catalog IDs
+      // The IDs of the parent folders.
       shared_ptr<vector<int64_t>> catalogIds_ {};
-      // List of custom attributes. Enter the attribute code and attribute values for each
+      // The custom attributes. Enter the attribute code and attribute value separately.
       shared_ptr<vector<UpdateBizMetricCommand::CustomAttribute>> customAttribute_ {};
-      // Description
+      // The description.
       shared_ptr<string> description_ {};
-      // Display name
+      // The display name.
       shared_ptr<string> displayName_ {};
-      // Asset labels
+      // The asset labels.
       shared_ptr<vector<string>> labels_ {};
-      // Metric definition. To reference other business metrics, enclose the metric name in square brackets [ ]
+      // The metric definition. To reference other business metrics, enclose the metric names in half-width square brackets [].
       shared_ptr<string> metricDefinition_ {};
-      // This parameter is read only when the metric relationship diagram is enabled. Only a calculation expression composed of metric names selected from related business metrics is supported. Supported operators include +, -, *, /, (), %, and ∑. Each metric name must be enclosed in square brackets [ ]. If no operator is specified between two metrics, the system automatically fills in a placeholder. If no metric relationship expression is configured, the metric relationship diagram switch is automatically disabled
+      // The expression for the metric relationship diagram. This parameter is read only when the metric relationship diagram is enabled. You can only enter a calculation expression composed of metric names selected from the related business metrics. The supported operators are +, -, *, /, (), %, and ∑. Each metric name must be enclosed in half-width square brackets []. If no operator is specified between two metrics, the system automatically adds padding as a placeholder. If the metric relational expression is not configured, a shutdown of the metric relationship diagram switch is automatically triggered.
       shared_ptr<string> metricRelationDiagramExpression_ {};
-      // Metric relationship diagram switch. Valid values: true (enabled) and false (disabled). This can be enabled only when at least one related business metric exists. Otherwise, it is automatically disabled
+      // Specifies whether to enable the metric relationship diagram. Valid values:
+      // - true: Enabled.
+      // - false: Disabled.
+      // This switch can be enabled only when at least one related business metric exists. Otherwise, it is automatically disabled.
       shared_ptr<bool> metricRelationDiagramSwitchOpen_ {};
-      // Enter the name of the business metric to update
+      // The name of the business metric to update.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The new name. Enter this when you need to modify the metric name
+      // The new name. Specify this parameter when you need to modify the metric name.
       shared_ptr<string> newName_ {};
-      // Content of the usage instructions. Only text format is supported
+      // The content of the usage instructions. Only text format is supported.
       shared_ptr<string> operateInstructionContent_ {};
-      // Specifies whether the usage instructions are enabled. Valid values: true (enabled) and false (disabled)
+      // Specifies whether to enable the usage instructions. Valid values:
+      // - true: Enabled.
+      // - false: Disabled.
       shared_ptr<bool> operateInstructionEnabled_ {};
-      // List of related business metrics
+      // The related business metrics.
       shared_ptr<vector<UpdateBizMetricCommand::RelatedBizMetrics>> relatedBizMetrics_ {};
-      // Visibility scope
+      // The visibility scope.
       shared_ptr<UpdateBizMetricCommand::ViewScope> viewScope_ {};
     };
 
@@ -423,12 +434,13 @@ namespace Models
 
 
   protected:
-    // Tenant ID
+    // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
-    // Update request
+    // The update request.
     // 
     // This parameter is required.
     shared_ptr<UpdateBizMetricRequest::UpdateBizMetricCommand> updateBizMetricCommand_ {};

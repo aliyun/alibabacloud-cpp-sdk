@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The application group ID.
+    // The ID of the application group.
     // 
     // This parameter is required.
     shared_ptr<int32_t> groupId_ {};
@@ -74,8 +74,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
-    // The data service project ID.
+    // The ID of the data service project.
     // 
     // This parameter is required.
     shared_ptr<int32_t> projectId_ {};

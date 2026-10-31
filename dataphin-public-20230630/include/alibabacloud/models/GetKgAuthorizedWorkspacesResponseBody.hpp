@@ -191,19 +191,19 @@ namespace Models
 
 
       protected:
-        // The description of the knowledge graph workspace.
+        // The description of the graph workspace.
         shared_ptr<string> description_ {};
-        // The creation time of the knowledge graph workspace.
+        // The time when the graph workspace was created.
         shared_ptr<string> gmtCreate_ {};
-        // The latest publish time of the knowledge graph workspace. This value is empty if the workspace has never been published successfully.
+        // The latest publish time of the graph workspace. This parameter is empty if the workspace has never been successfully published.
         shared_ptr<string> lastPublishTime_ {};
-        // The latest publish version number of the knowledge graph workspace. This value is empty if the workspace has never been published successfully.
+        // The latest publish version of the graph workspace. This parameter is empty if the workspace has never been successfully published.
         shared_ptr<int32_t> lastPublishVersion_ {};
-        // The name of the knowledge graph workspace.
+        // The name of the graph workspace.
         shared_ptr<string> name_ {};
-        // The list of roles assigned to the specified user in the workspace. This is an empty list if the user is not a member of the workspace.
+        // The list of roles of the specified user in the workspace. This list is empty if the user is not a member of the workspace.
         shared_ptr<vector<WorkspaceList::RoleList>> roleList_ {};
-        // The ID of the knowledge graph workspace.
+        // The ID of the graph workspace.
         shared_ptr<string> workspaceId_ {};
       };
 
@@ -226,9 +226,9 @@ namespace Models
 
 
     protected:
-      // The total number of knowledge graph workspaces that the user has permissions on.
+      // The total number of authorized graph workspaces.
       shared_ptr<int32_t> totalCount_ {};
-      // The list of knowledge graph workspaces that the user has permissions on.
+      // The list of authorized graph workspaces.
       shared_ptr<vector<Data::WorkspaceList>> workspaceList_ {};
     };
 
@@ -289,7 +289,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

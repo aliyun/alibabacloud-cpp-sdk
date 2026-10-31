@@ -179,7 +179,7 @@ namespace Models
     protected:
       // The cron expression for timed scheduling.
       shared_ptr<string> cronExpression_ {};
-      // The schedule object ID. If this parameter is specified, the schedule is updated. If this parameter is not specified, a schedule is created.
+      // The ID of the schedule object. Pass this parameter to update the object, or omit it to create a new object.
       shared_ptr<int64_t> id_ {};
       // The name of the schedule object.
       // 
@@ -191,43 +191,43 @@ namespace Models
       // - EVERY_DAY: every day.
       // - PRE_DAY: yesterday.
       // - TODAY: today.
-      // - FIRST_DAY_OF_WEEK: first day of the week (Sunday).
+      // - FIRST_DAY_OF_WEEK: the first day of the week (Sunday).
       // - CUSTOM: custom.
       shared_ptr<string> partitionType_ {};
-      // The schedule interval type for timed scheduling. Valid values:
-      // - DAILY: day.
-      // - WEEKLY: week.
-      // - MONTHLY: month.
-      // - HOURLY: hour.
-      // - MINUTELY: minute.
+      // The scheduling epoch type for timed scheduling. Valid values:
+      // - DAILY: daily.
+      // - WEEKLY: weekly.
+      // - MONTHLY: monthly.
+      // - HOURLY: hourly.
+      // - MINUTELY: minutely.
       shared_ptr<string> periodScheduleIntervalType_ {};
-      // The schedule interval values for timed scheduling.
+      // The scheduling epoch values for timed scheduling.
       shared_ptr<vector<string>> periodScheduleParamList_ {};
-      // The trigger method for fixed task triggers. Valid values:
-      // - ALL_TASKS_FINISHED: triggered when all tasks are finished.
-      // - ONE_TASKS_FINISHED: triggered when one task is finished.
-      // - PRE_ONE_TASKS_START: triggered when the previous task starts.
+      // The trigger method for static task triggers. Valid values:
+      // - ALL_TASKS_FINISHED: All tasks are finished.
+      // - ONE_TASKS_FINISHED: One task is finished.
+      // - PRE_ONE_TASKS_START: The previous task is started.
       shared_ptr<string> staticTaskTriggerType_ {};
-      // The list of trigger nodes for trigger scheduling.
+      // The list of trigger tasks for the trigger schedule.
       shared_ptr<vector<string>> triggerNodeList_ {};
-      // The trigger method for trigger scheduling. Valid values:
-      // - STATIC_TASK_TRIGGER: fixed task trigger.
+      // The trigger method for the trigger schedule. Valid values:
+      // - STATIC_TASK_TRIGGER: static task trigger.
       // - CODE_CHECK_TRIGGER: code check trigger.
       shared_ptr<string> triggerType_ {};
       // The schedule type. Valid values:
       // - PERIOD_SCHEDULE: timed scheduling.
       // - MANUAL_SCHEDULE: manual trigger.
       // - CODE_CHECK_TRIGGER: code check trigger.
-      // - STATIC_TASK_TRIGGER: fixed task trigger.
+      // - STATIC_TASK_TRIGGER: static task trigger.
       // - DEPENDENCY_SCHEDULE: dependency scheduling.
       // 
       // This parameter is required.
       shared_ptr<string> type_ {};
       // The validation scope. Valid values:
-      // - TASK_REFERRED_PARTITION: task update partition.
+      // - TASK_REFERRED_PARTITION: task updated partition.
       // - USER_DEFINED_PARTITION: custom partition.
       shared_ptr<string> validatePartitionType_ {};
-      // The monitored object ID.
+      // The ID of the monitored object.
       // 
       // This parameter is required.
       shared_ptr<int64_t> watchId_ {};
@@ -263,8 +263,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
-    // The update instruction.
+    // The upsert command.
     // 
     // This parameter is required.
     shared_ptr<UpsertQualityScheduleRequest::UpsertCommand> upsertCommand_ {};

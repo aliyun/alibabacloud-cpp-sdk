@@ -61,8 +61,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
-    // The stream-batch integrated node information.
+    // The stream-batch integrated task information.
     // 
     // This parameter is required.
     shared_ptr<string> streamBatchJobMappingCreateCommandShrink_ {};

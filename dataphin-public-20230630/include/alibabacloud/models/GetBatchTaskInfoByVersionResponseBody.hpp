@@ -44,16 +44,23 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const TaskInfo& obj) { 
         DARABONBA_PTR_TO_JSON(Code, code_);
+        DARABONBA_PTR_TO_JSON(CodeTemplateId, codeTemplateId_);
+        DARABONBA_PTR_TO_JSON(CodeTemplateVersion, codeTemplateVersion_);
+        DARABONBA_PTR_TO_JSON(CpuResource, cpuResource_);
         DARABONBA_PTR_TO_JSON(CronExpression, cronExpression_);
         DARABONBA_PTR_TO_JSON(CustomScheduleConfig, customScheduleConfig_);
         DARABONBA_PTR_TO_JSON(DagId, dagId_);
         DARABONBA_PTR_TO_JSON(DataSourceCatalog, dataSourceCatalog_);
         DARABONBA_PTR_TO_JSON(DataSourceId, dataSourceId_);
         DARABONBA_PTR_TO_JSON(DataSourceSchema, dataSourceSchema_);
+        DARABONBA_PTR_TO_JSON(DatabricksPythonConnectInfo, databricksPythonConnectInfo_);
         DARABONBA_PTR_TO_JSON(DevelopOwnerIdList, developOwnerIdList_);
         DARABONBA_PTR_TO_JSON(DevelopOwnerNameList, developOwnerNameList_);
+        DARABONBA_PTR_TO_JSON(ExecuteRerunConfig, executeRerunConfig_);
+        DARABONBA_PTR_TO_JSON(ExecuteTimeOutConfig, executeTimeOutConfig_);
         DARABONBA_PTR_TO_JSON(FileId, fileId_);
         DARABONBA_PTR_TO_JSON(HasDevNode, hasDevNode_);
+        DARABONBA_PTR_TO_JSON(MemoryResource, memoryResource_);
         DARABONBA_PTR_TO_JSON(Name, name_);
         DARABONBA_PTR_TO_JSON(NeedPublish, needPublish_);
         DARABONBA_PTR_TO_JSON(NodeDescription, nodeDescription_);
@@ -67,6 +74,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(OpsOwnerNameList, opsOwnerNameList_);
         DARABONBA_PTR_TO_JSON(OwnerName, ownerName_);
         DARABONBA_PTR_TO_JSON(OwnerUserId, ownerUserId_);
+        DARABONBA_PTR_TO_JSON(PaiConfig, paiConfig_);
         DARABONBA_PTR_TO_JSON(ParamList, paramList_);
         DARABONBA_PTR_TO_JSON(Paused, paused_);
         DARABONBA_PTR_TO_JSON(Priority, priority_);
@@ -76,25 +84,37 @@ namespace Models
         DARABONBA_PTR_TO_JSON(PythonVersion, pythonVersion_);
         DARABONBA_PTR_TO_JSON(Remark, remark_);
         DARABONBA_PTR_TO_JSON(Rerunable, rerunable_);
+        DARABONBA_PTR_TO_JSON(RetryOnTimeoutEnable, retryOnTimeoutEnable_);
         DARABONBA_PTR_TO_JSON(SchedulePeriod, schedulePeriod_);
         DARABONBA_PTR_TO_JSON(ScheduleType, scheduleType_);
         DARABONBA_PTR_TO_JSON(SparkClientInfo, sparkClientInfo_);
+        DARABONBA_PTR_TO_JSON(SparkDynamicResourceSwitch, sparkDynamicResourceSwitch_);
+        DARABONBA_PTR_TO_JSON(SparkResourceEffectScope, sparkResourceEffectScope_);
+        DARABONBA_PTR_TO_JSON(SparkSqlResourceConfigMap, sparkSqlResourceConfigMap_);
+        DARABONBA_PTR_TO_JSON(SparkVersion, sparkVersion_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(TaskType, taskType_);
         DARABONBA_PTR_TO_JSON(UpStreamList, upStreamList_);
       };
       friend void from_json(const Darabonba::Json& j, TaskInfo& obj) { 
         DARABONBA_PTR_FROM_JSON(Code, code_);
+        DARABONBA_PTR_FROM_JSON(CodeTemplateId, codeTemplateId_);
+        DARABONBA_PTR_FROM_JSON(CodeTemplateVersion, codeTemplateVersion_);
+        DARABONBA_PTR_FROM_JSON(CpuResource, cpuResource_);
         DARABONBA_PTR_FROM_JSON(CronExpression, cronExpression_);
         DARABONBA_PTR_FROM_JSON(CustomScheduleConfig, customScheduleConfig_);
         DARABONBA_PTR_FROM_JSON(DagId, dagId_);
         DARABONBA_PTR_FROM_JSON(DataSourceCatalog, dataSourceCatalog_);
         DARABONBA_PTR_FROM_JSON(DataSourceId, dataSourceId_);
         DARABONBA_PTR_FROM_JSON(DataSourceSchema, dataSourceSchema_);
+        DARABONBA_PTR_FROM_JSON(DatabricksPythonConnectInfo, databricksPythonConnectInfo_);
         DARABONBA_PTR_FROM_JSON(DevelopOwnerIdList, developOwnerIdList_);
         DARABONBA_PTR_FROM_JSON(DevelopOwnerNameList, developOwnerNameList_);
+        DARABONBA_PTR_FROM_JSON(ExecuteRerunConfig, executeRerunConfig_);
+        DARABONBA_PTR_FROM_JSON(ExecuteTimeOutConfig, executeTimeOutConfig_);
         DARABONBA_PTR_FROM_JSON(FileId, fileId_);
         DARABONBA_PTR_FROM_JSON(HasDevNode, hasDevNode_);
+        DARABONBA_PTR_FROM_JSON(MemoryResource, memoryResource_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
         DARABONBA_PTR_FROM_JSON(NeedPublish, needPublish_);
         DARABONBA_PTR_FROM_JSON(NodeDescription, nodeDescription_);
@@ -108,6 +128,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(OpsOwnerNameList, opsOwnerNameList_);
         DARABONBA_PTR_FROM_JSON(OwnerName, ownerName_);
         DARABONBA_PTR_FROM_JSON(OwnerUserId, ownerUserId_);
+        DARABONBA_PTR_FROM_JSON(PaiConfig, paiConfig_);
         DARABONBA_PTR_FROM_JSON(ParamList, paramList_);
         DARABONBA_PTR_FROM_JSON(Paused, paused_);
         DARABONBA_PTR_FROM_JSON(Priority, priority_);
@@ -117,9 +138,14 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(PythonVersion, pythonVersion_);
         DARABONBA_PTR_FROM_JSON(Remark, remark_);
         DARABONBA_PTR_FROM_JSON(Rerunable, rerunable_);
+        DARABONBA_PTR_FROM_JSON(RetryOnTimeoutEnable, retryOnTimeoutEnable_);
         DARABONBA_PTR_FROM_JSON(SchedulePeriod, schedulePeriod_);
         DARABONBA_PTR_FROM_JSON(ScheduleType, scheduleType_);
         DARABONBA_PTR_FROM_JSON(SparkClientInfo, sparkClientInfo_);
+        DARABONBA_PTR_FROM_JSON(SparkDynamicResourceSwitch, sparkDynamicResourceSwitch_);
+        DARABONBA_PTR_FROM_JSON(SparkResourceEffectScope, sparkResourceEffectScope_);
+        DARABONBA_PTR_FROM_JSON(SparkSqlResourceConfigMap, sparkSqlResourceConfigMap_);
+        DARABONBA_PTR_FROM_JSON(SparkVersion, sparkVersion_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(TaskType, taskType_);
         DARABONBA_PTR_FROM_JSON(UpStreamList, upStreamList_);
@@ -212,13 +238,13 @@ namespace Models
 
 
         protected:
-          // The period offset. This parameter is required when PeriodType is set to LAST_N_PERIOD.
+          // The period offset. This parameter is required when the PeriodType parameter is set to LAST_N_PERIOD.
           shared_ptr<int32_t> periodOffset_ {};
           // The dependency period type. Valid values:
-          // - CURRENT_PERIOD
-          // - LAST_PERIOD
-          // - LAST_N_PERIOD
-          // - LAST_24_HOUR
+          // - CURRENT_PERIOD: Current period.
+          // - LAST_PERIOD: Last period.
+          // - LAST_N_PERIOD: Last N periods.
+          // - LAST_24_HOUR: Last 24 hours.
           shared_ptr<string> periodType_ {};
         };
 
@@ -310,20 +336,20 @@ namespace Models
         // The dependency period.
         shared_ptr<UpStreamList::DependPeriod> dependPeriod_ {};
         // The dependency strategy. Valid values:
-        // - ALL
-        // - FIRST
-        // - LAST
-        // - NEAR
+        // - ALL: All.
+        // - FIRST: First.
+        // - LAST: Last.
+        // - NEAR: Nearest.
         shared_ptr<string> dependStrategy_ {};
-        // The fields of the dependent logical table.
+        // The dependent logical table fields.
         shared_ptr<vector<string>> fieldList_ {};
-        // The node type of the upstream dependency. Valid values:
+        // The upstream dependency node type. Valid values:
         // - PHYSICAL: Physical node.
         // - LOGICAL: Logical table dependency.
         shared_ptr<string> nodeType_ {};
         // The period difference. A value of 0 indicates a same-period dependency. A positive integer indicates a dependency on the previous N periods.
         shared_ptr<int32_t> periodDiff_ {};
-        // Indicates whether the upstream node is enabled.
+        // Specifies whether the upstream node is enabled.
         shared_ptr<bool> sourceNodeEnabled_ {};
         // The ID of the upstream node.
         shared_ptr<string> sourceNodeId_ {};
@@ -429,9 +455,9 @@ namespace Models
         shared_ptr<int64_t> moduleId_ {};
         // The name of the third-party package.
         shared_ptr<string> name_ {};
-        // The Python version that the third-party package depends on.
+        // The Python version required by the third-party package.
         shared_ptr<string> pythonVersion_ {};
-        // The version number of the third-party package.
+        // The version of the third-party package.
         shared_ptr<string> version_ {};
       };
 
@@ -473,10 +499,219 @@ namespace Models
 
 
       protected:
-        // The name of the parameter.
+        // The parameter name.
         shared_ptr<string> key_ {};
-        // The value of the parameter.
+        // The parameter value.
         shared_ptr<string> value_ {};
+      };
+
+      class PaiConfig : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const PaiConfig& obj) { 
+          DARABONBA_PTR_TO_JSON(ExperimentId, experimentId_);
+          DARABONBA_PTR_TO_JSON(Region, region_);
+          DARABONBA_PTR_TO_JSON(WorkSpaceId, workSpaceId_);
+        };
+        friend void from_json(const Darabonba::Json& j, PaiConfig& obj) { 
+          DARABONBA_PTR_FROM_JSON(ExperimentId, experimentId_);
+          DARABONBA_PTR_FROM_JSON(Region, region_);
+          DARABONBA_PTR_FROM_JSON(WorkSpaceId, workSpaceId_);
+        };
+        PaiConfig() = default ;
+        PaiConfig(const PaiConfig &) = default ;
+        PaiConfig(PaiConfig &&) = default ;
+        PaiConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~PaiConfig() = default ;
+        PaiConfig& operator=(const PaiConfig &) = default ;
+        PaiConfig& operator=(PaiConfig &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->experimentId_ == nullptr
+        && this->region_ == nullptr && this->workSpaceId_ == nullptr; };
+        // experimentId Field Functions 
+        bool hasExperimentId() const { return this->experimentId_ != nullptr;};
+        void deleteExperimentId() { this->experimentId_ = nullptr;};
+        inline string getExperimentId() const { DARABONBA_PTR_GET_DEFAULT(experimentId_, "") };
+        inline PaiConfig& setExperimentId(string experimentId) { DARABONBA_PTR_SET_VALUE(experimentId_, experimentId) };
+
+
+        // region Field Functions 
+        bool hasRegion() const { return this->region_ != nullptr;};
+        void deleteRegion() { this->region_ = nullptr;};
+        inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+        inline PaiConfig& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
+
+
+        // workSpaceId Field Functions 
+        bool hasWorkSpaceId() const { return this->workSpaceId_ != nullptr;};
+        void deleteWorkSpaceId() { this->workSpaceId_ = nullptr;};
+        inline string getWorkSpaceId() const { DARABONBA_PTR_GET_DEFAULT(workSpaceId_, "") };
+        inline PaiConfig& setWorkSpaceId(string workSpaceId) { DARABONBA_PTR_SET_VALUE(workSpaceId_, workSpaceId) };
+
+
+      protected:
+        // The PAI experiment ID.
+        shared_ptr<string> experimentId_ {};
+        // The PAI region.
+        shared_ptr<string> region_ {};
+        // The PAI workspace ID.
+        shared_ptr<string> workSpaceId_ {};
+      };
+
+      class ExecuteTimeOutConfig : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ExecuteTimeOutConfig& obj) { 
+          DARABONBA_PTR_TO_JSON(CustomValues, customValues_);
+          DARABONBA_PTR_TO_JSON(FollowSystem, followSystem_);
+        };
+        friend void from_json(const Darabonba::Json& j, ExecuteTimeOutConfig& obj) { 
+          DARABONBA_PTR_FROM_JSON(CustomValues, customValues_);
+          DARABONBA_PTR_FROM_JSON(FollowSystem, followSystem_);
+        };
+        ExecuteTimeOutConfig() = default ;
+        ExecuteTimeOutConfig(const ExecuteTimeOutConfig &) = default ;
+        ExecuteTimeOutConfig(ExecuteTimeOutConfig &&) = default ;
+        ExecuteTimeOutConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ExecuteTimeOutConfig() = default ;
+        ExecuteTimeOutConfig& operator=(const ExecuteTimeOutConfig &) = default ;
+        ExecuteTimeOutConfig& operator=(ExecuteTimeOutConfig &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->customValues_ == nullptr
+        && this->followSystem_ == nullptr; };
+        // customValues Field Functions 
+        bool hasCustomValues() const { return this->customValues_ != nullptr;};
+        void deleteCustomValues() { this->customValues_ = nullptr;};
+        inline string getCustomValues() const { DARABONBA_PTR_GET_DEFAULT(customValues_, "") };
+        inline ExecuteTimeOutConfig& setCustomValues(string customValues) { DARABONBA_PTR_SET_VALUE(customValues_, customValues) };
+
+
+        // followSystem Field Functions 
+        bool hasFollowSystem() const { return this->followSystem_ != nullptr;};
+        void deleteFollowSystem() { this->followSystem_ = nullptr;};
+        inline bool getFollowSystem() const { DARABONBA_PTR_GET_DEFAULT(followSystem_, false) };
+        inline ExecuteTimeOutConfig& setFollowSystem(bool followSystem) { DARABONBA_PTR_SET_VALUE(followSystem_, followSystem) };
+
+
+      protected:
+        // The custom timeout period.
+        shared_ptr<string> customValues_ {};
+        // Specifies whether to follow the system retry configuration.
+        shared_ptr<bool> followSystem_ {};
+      };
+
+      class ExecuteRerunConfig : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ExecuteRerunConfig& obj) { 
+          DARABONBA_PTR_TO_JSON(CustomRerunInterval, customRerunInterval_);
+          DARABONBA_PTR_TO_JSON(CustomRerunTimes, customRerunTimes_);
+          DARABONBA_PTR_TO_JSON(FollowSystem, followSystem_);
+        };
+        friend void from_json(const Darabonba::Json& j, ExecuteRerunConfig& obj) { 
+          DARABONBA_PTR_FROM_JSON(CustomRerunInterval, customRerunInterval_);
+          DARABONBA_PTR_FROM_JSON(CustomRerunTimes, customRerunTimes_);
+          DARABONBA_PTR_FROM_JSON(FollowSystem, followSystem_);
+        };
+        ExecuteRerunConfig() = default ;
+        ExecuteRerunConfig(const ExecuteRerunConfig &) = default ;
+        ExecuteRerunConfig(ExecuteRerunConfig &&) = default ;
+        ExecuteRerunConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ExecuteRerunConfig() = default ;
+        ExecuteRerunConfig& operator=(const ExecuteRerunConfig &) = default ;
+        ExecuteRerunConfig& operator=(ExecuteRerunConfig &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->customRerunInterval_ == nullptr
+        && this->customRerunTimes_ == nullptr && this->followSystem_ == nullptr; };
+        // customRerunInterval Field Functions 
+        bool hasCustomRerunInterval() const { return this->customRerunInterval_ != nullptr;};
+        void deleteCustomRerunInterval() { this->customRerunInterval_ = nullptr;};
+        inline string getCustomRerunInterval() const { DARABONBA_PTR_GET_DEFAULT(customRerunInterval_, "") };
+        inline ExecuteRerunConfig& setCustomRerunInterval(string customRerunInterval) { DARABONBA_PTR_SET_VALUE(customRerunInterval_, customRerunInterval) };
+
+
+        // customRerunTimes Field Functions 
+        bool hasCustomRerunTimes() const { return this->customRerunTimes_ != nullptr;};
+        void deleteCustomRerunTimes() { this->customRerunTimes_ = nullptr;};
+        inline string getCustomRerunTimes() const { DARABONBA_PTR_GET_DEFAULT(customRerunTimes_, "") };
+        inline ExecuteRerunConfig& setCustomRerunTimes(string customRerunTimes) { DARABONBA_PTR_SET_VALUE(customRerunTimes_, customRerunTimes) };
+
+
+        // followSystem Field Functions 
+        bool hasFollowSystem() const { return this->followSystem_ != nullptr;};
+        void deleteFollowSystem() { this->followSystem_ = nullptr;};
+        inline bool getFollowSystem() const { DARABONBA_PTR_GET_DEFAULT(followSystem_, false) };
+        inline ExecuteRerunConfig& setFollowSystem(bool followSystem) { DARABONBA_PTR_SET_VALUE(followSystem_, followSystem) };
+
+
+      protected:
+        // The custom retry interval for failed executions.
+        shared_ptr<string> customRerunInterval_ {};
+        // The custom number of retries for failed executions.
+        shared_ptr<string> customRerunTimes_ {};
+        // Specifies whether to follow the system retry configuration.
+        shared_ptr<bool> followSystem_ {};
+      };
+
+      class DatabricksPythonConnectInfo : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const DatabricksPythonConnectInfo& obj) { 
+          DARABONBA_PTR_TO_JSON(DevHttpPath, devHttpPath_);
+          DARABONBA_PTR_TO_JSON(EnableDatabricksPythonConnect, enableDatabricksPythonConnect_);
+          DARABONBA_PTR_TO_JSON(ProdHttpPath, prodHttpPath_);
+        };
+        friend void from_json(const Darabonba::Json& j, DatabricksPythonConnectInfo& obj) { 
+          DARABONBA_PTR_FROM_JSON(DevHttpPath, devHttpPath_);
+          DARABONBA_PTR_FROM_JSON(EnableDatabricksPythonConnect, enableDatabricksPythonConnect_);
+          DARABONBA_PTR_FROM_JSON(ProdHttpPath, prodHttpPath_);
+        };
+        DatabricksPythonConnectInfo() = default ;
+        DatabricksPythonConnectInfo(const DatabricksPythonConnectInfo &) = default ;
+        DatabricksPythonConnectInfo(DatabricksPythonConnectInfo &&) = default ;
+        DatabricksPythonConnectInfo(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~DatabricksPythonConnectInfo() = default ;
+        DatabricksPythonConnectInfo& operator=(const DatabricksPythonConnectInfo &) = default ;
+        DatabricksPythonConnectInfo& operator=(DatabricksPythonConnectInfo &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->devHttpPath_ == nullptr
+        && this->enableDatabricksPythonConnect_ == nullptr && this->prodHttpPath_ == nullptr; };
+        // devHttpPath Field Functions 
+        bool hasDevHttpPath() const { return this->devHttpPath_ != nullptr;};
+        void deleteDevHttpPath() { this->devHttpPath_ = nullptr;};
+        inline string getDevHttpPath() const { DARABONBA_PTR_GET_DEFAULT(devHttpPath_, "") };
+        inline DatabricksPythonConnectInfo& setDevHttpPath(string devHttpPath) { DARABONBA_PTR_SET_VALUE(devHttpPath_, devHttpPath) };
+
+
+        // enableDatabricksPythonConnect Field Functions 
+        bool hasEnableDatabricksPythonConnect() const { return this->enableDatabricksPythonConnect_ != nullptr;};
+        void deleteEnableDatabricksPythonConnect() { this->enableDatabricksPythonConnect_ = nullptr;};
+        inline bool getEnableDatabricksPythonConnect() const { DARABONBA_PTR_GET_DEFAULT(enableDatabricksPythonConnect_, false) };
+        inline DatabricksPythonConnectInfo& setEnableDatabricksPythonConnect(bool enableDatabricksPythonConnect) { DARABONBA_PTR_SET_VALUE(enableDatabricksPythonConnect_, enableDatabricksPythonConnect) };
+
+
+        // prodHttpPath Field Functions 
+        bool hasProdHttpPath() const { return this->prodHttpPath_ != nullptr;};
+        void deleteProdHttpPath() { this->prodHttpPath_ = nullptr;};
+        inline string getProdHttpPath() const { DARABONBA_PTR_GET_DEFAULT(prodHttpPath_, "") };
+        inline DatabricksPythonConnectInfo& setProdHttpPath(string prodHttpPath) { DARABONBA_PTR_SET_VALUE(prodHttpPath_, prodHttpPath) };
+
+
+      protected:
+        // The HTTP path in the development environment.
+        shared_ptr<string> devHttpPath_ {};
+        // Specifies whether to enable Databricks Python Connect.
+        shared_ptr<bool> enableDatabricksPythonConnect_ {};
+        // The HTTP path in the production environment.
+        shared_ptr<string> prodHttpPath_ {};
       };
 
       class CustomScheduleConfig : public Darabonba::Model {
@@ -557,19 +792,43 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->code_ == nullptr
-        && this->cronExpression_ == nullptr && this->customScheduleConfig_ == nullptr && this->dagId_ == nullptr && this->dataSourceCatalog_ == nullptr && this->dataSourceId_ == nullptr
-        && this->dataSourceSchema_ == nullptr && this->developOwnerIdList_ == nullptr && this->developOwnerNameList_ == nullptr && this->fileId_ == nullptr && this->hasDevNode_ == nullptr
-        && this->name_ == nullptr && this->needPublish_ == nullptr && this->nodeDescription_ == nullptr && this->nodeFrom_ == nullptr && this->nodeId_ == nullptr
-        && this->nodeName_ == nullptr && this->nodeOutputNameList_ == nullptr && this->nodeStatus_ == nullptr && this->operatorUserId_ == nullptr && this->opsOwnerIdList_ == nullptr
-        && this->opsOwnerNameList_ == nullptr && this->ownerName_ == nullptr && this->ownerUserId_ == nullptr && this->paramList_ == nullptr && this->paused_ == nullptr
-        && this->priority_ == nullptr && this->projectId_ == nullptr && this->published_ == nullptr && this->pythonModuleList_ == nullptr && this->pythonVersion_ == nullptr
-        && this->remark_ == nullptr && this->rerunable_ == nullptr && this->schedulePeriod_ == nullptr && this->scheduleType_ == nullptr && this->sparkClientInfo_ == nullptr
-        && this->status_ == nullptr && this->taskType_ == nullptr && this->upStreamList_ == nullptr; };
+        && this->codeTemplateId_ == nullptr && this->codeTemplateVersion_ == nullptr && this->cpuResource_ == nullptr && this->cronExpression_ == nullptr && this->customScheduleConfig_ == nullptr
+        && this->dagId_ == nullptr && this->dataSourceCatalog_ == nullptr && this->dataSourceId_ == nullptr && this->dataSourceSchema_ == nullptr && this->databricksPythonConnectInfo_ == nullptr
+        && this->developOwnerIdList_ == nullptr && this->developOwnerNameList_ == nullptr && this->executeRerunConfig_ == nullptr && this->executeTimeOutConfig_ == nullptr && this->fileId_ == nullptr
+        && this->hasDevNode_ == nullptr && this->memoryResource_ == nullptr && this->name_ == nullptr && this->needPublish_ == nullptr && this->nodeDescription_ == nullptr
+        && this->nodeFrom_ == nullptr && this->nodeId_ == nullptr && this->nodeName_ == nullptr && this->nodeOutputNameList_ == nullptr && this->nodeStatus_ == nullptr
+        && this->operatorUserId_ == nullptr && this->opsOwnerIdList_ == nullptr && this->opsOwnerNameList_ == nullptr && this->ownerName_ == nullptr && this->ownerUserId_ == nullptr
+        && this->paiConfig_ == nullptr && this->paramList_ == nullptr && this->paused_ == nullptr && this->priority_ == nullptr && this->projectId_ == nullptr
+        && this->published_ == nullptr && this->pythonModuleList_ == nullptr && this->pythonVersion_ == nullptr && this->remark_ == nullptr && this->rerunable_ == nullptr
+        && this->retryOnTimeoutEnable_ == nullptr && this->schedulePeriod_ == nullptr && this->scheduleType_ == nullptr && this->sparkClientInfo_ == nullptr && this->sparkDynamicResourceSwitch_ == nullptr
+        && this->sparkResourceEffectScope_ == nullptr && this->sparkSqlResourceConfigMap_ == nullptr && this->sparkVersion_ == nullptr && this->status_ == nullptr && this->taskType_ == nullptr
+        && this->upStreamList_ == nullptr; };
       // code Field Functions 
       bool hasCode() const { return this->code_ != nullptr;};
       void deleteCode() { this->code_ = nullptr;};
       inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
       inline TaskInfo& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+      // codeTemplateId Field Functions 
+      bool hasCodeTemplateId() const { return this->codeTemplateId_ != nullptr;};
+      void deleteCodeTemplateId() { this->codeTemplateId_ = nullptr;};
+      inline string getCodeTemplateId() const { DARABONBA_PTR_GET_DEFAULT(codeTemplateId_, "") };
+      inline TaskInfo& setCodeTemplateId(string codeTemplateId) { DARABONBA_PTR_SET_VALUE(codeTemplateId_, codeTemplateId) };
+
+
+      // codeTemplateVersion Field Functions 
+      bool hasCodeTemplateVersion() const { return this->codeTemplateVersion_ != nullptr;};
+      void deleteCodeTemplateVersion() { this->codeTemplateVersion_ = nullptr;};
+      inline int32_t getCodeTemplateVersion() const { DARABONBA_PTR_GET_DEFAULT(codeTemplateVersion_, 0) };
+      inline TaskInfo& setCodeTemplateVersion(int32_t codeTemplateVersion) { DARABONBA_PTR_SET_VALUE(codeTemplateVersion_, codeTemplateVersion) };
+
+
+      // cpuResource Field Functions 
+      bool hasCpuResource() const { return this->cpuResource_ != nullptr;};
+      void deleteCpuResource() { this->cpuResource_ = nullptr;};
+      inline string getCpuResource() const { DARABONBA_PTR_GET_DEFAULT(cpuResource_, "") };
+      inline TaskInfo& setCpuResource(string cpuResource) { DARABONBA_PTR_SET_VALUE(cpuResource_, cpuResource) };
 
 
       // cronExpression Field Functions 
@@ -616,6 +875,15 @@ namespace Models
       inline TaskInfo& setDataSourceSchema(string dataSourceSchema) { DARABONBA_PTR_SET_VALUE(dataSourceSchema_, dataSourceSchema) };
 
 
+      // databricksPythonConnectInfo Field Functions 
+      bool hasDatabricksPythonConnectInfo() const { return this->databricksPythonConnectInfo_ != nullptr;};
+      void deleteDatabricksPythonConnectInfo() { this->databricksPythonConnectInfo_ = nullptr;};
+      inline const TaskInfo::DatabricksPythonConnectInfo & getDatabricksPythonConnectInfo() const { DARABONBA_PTR_GET_CONST(databricksPythonConnectInfo_, TaskInfo::DatabricksPythonConnectInfo) };
+      inline TaskInfo::DatabricksPythonConnectInfo getDatabricksPythonConnectInfo() { DARABONBA_PTR_GET(databricksPythonConnectInfo_, TaskInfo::DatabricksPythonConnectInfo) };
+      inline TaskInfo& setDatabricksPythonConnectInfo(const TaskInfo::DatabricksPythonConnectInfo & databricksPythonConnectInfo) { DARABONBA_PTR_SET_VALUE(databricksPythonConnectInfo_, databricksPythonConnectInfo) };
+      inline TaskInfo& setDatabricksPythonConnectInfo(TaskInfo::DatabricksPythonConnectInfo && databricksPythonConnectInfo) { DARABONBA_PTR_SET_RVALUE(databricksPythonConnectInfo_, databricksPythonConnectInfo) };
+
+
       // developOwnerIdList Field Functions 
       bool hasDevelopOwnerIdList() const { return this->developOwnerIdList_ != nullptr;};
       void deleteDevelopOwnerIdList() { this->developOwnerIdList_ = nullptr;};
@@ -634,6 +902,24 @@ namespace Models
       inline TaskInfo& setDevelopOwnerNameList(vector<string> && developOwnerNameList) { DARABONBA_PTR_SET_RVALUE(developOwnerNameList_, developOwnerNameList) };
 
 
+      // executeRerunConfig Field Functions 
+      bool hasExecuteRerunConfig() const { return this->executeRerunConfig_ != nullptr;};
+      void deleteExecuteRerunConfig() { this->executeRerunConfig_ = nullptr;};
+      inline const TaskInfo::ExecuteRerunConfig & getExecuteRerunConfig() const { DARABONBA_PTR_GET_CONST(executeRerunConfig_, TaskInfo::ExecuteRerunConfig) };
+      inline TaskInfo::ExecuteRerunConfig getExecuteRerunConfig() { DARABONBA_PTR_GET(executeRerunConfig_, TaskInfo::ExecuteRerunConfig) };
+      inline TaskInfo& setExecuteRerunConfig(const TaskInfo::ExecuteRerunConfig & executeRerunConfig) { DARABONBA_PTR_SET_VALUE(executeRerunConfig_, executeRerunConfig) };
+      inline TaskInfo& setExecuteRerunConfig(TaskInfo::ExecuteRerunConfig && executeRerunConfig) { DARABONBA_PTR_SET_RVALUE(executeRerunConfig_, executeRerunConfig) };
+
+
+      // executeTimeOutConfig Field Functions 
+      bool hasExecuteTimeOutConfig() const { return this->executeTimeOutConfig_ != nullptr;};
+      void deleteExecuteTimeOutConfig() { this->executeTimeOutConfig_ = nullptr;};
+      inline const TaskInfo::ExecuteTimeOutConfig & getExecuteTimeOutConfig() const { DARABONBA_PTR_GET_CONST(executeTimeOutConfig_, TaskInfo::ExecuteTimeOutConfig) };
+      inline TaskInfo::ExecuteTimeOutConfig getExecuteTimeOutConfig() { DARABONBA_PTR_GET(executeTimeOutConfig_, TaskInfo::ExecuteTimeOutConfig) };
+      inline TaskInfo& setExecuteTimeOutConfig(const TaskInfo::ExecuteTimeOutConfig & executeTimeOutConfig) { DARABONBA_PTR_SET_VALUE(executeTimeOutConfig_, executeTimeOutConfig) };
+      inline TaskInfo& setExecuteTimeOutConfig(TaskInfo::ExecuteTimeOutConfig && executeTimeOutConfig) { DARABONBA_PTR_SET_RVALUE(executeTimeOutConfig_, executeTimeOutConfig) };
+
+
       // fileId Field Functions 
       bool hasFileId() const { return this->fileId_ != nullptr;};
       void deleteFileId() { this->fileId_ = nullptr;};
@@ -646,6 +932,13 @@ namespace Models
       void deleteHasDevNode() { this->hasDevNode_ = nullptr;};
       inline bool getHasDevNode() const { DARABONBA_PTR_GET_DEFAULT(hasDevNode_, false) };
       inline TaskInfo& setHasDevNode(bool hasDevNode) { DARABONBA_PTR_SET_VALUE(hasDevNode_, hasDevNode) };
+
+
+      // memoryResource Field Functions 
+      bool hasMemoryResource() const { return this->memoryResource_ != nullptr;};
+      void deleteMemoryResource() { this->memoryResource_ = nullptr;};
+      inline string getMemoryResource() const { DARABONBA_PTR_GET_DEFAULT(memoryResource_, "") };
+      inline TaskInfo& setMemoryResource(string memoryResource) { DARABONBA_PTR_SET_VALUE(memoryResource_, memoryResource) };
 
 
       // name Field Functions 
@@ -745,6 +1038,15 @@ namespace Models
       inline TaskInfo& setOwnerUserId(string ownerUserId) { DARABONBA_PTR_SET_VALUE(ownerUserId_, ownerUserId) };
 
 
+      // paiConfig Field Functions 
+      bool hasPaiConfig() const { return this->paiConfig_ != nullptr;};
+      void deletePaiConfig() { this->paiConfig_ = nullptr;};
+      inline const TaskInfo::PaiConfig & getPaiConfig() const { DARABONBA_PTR_GET_CONST(paiConfig_, TaskInfo::PaiConfig) };
+      inline TaskInfo::PaiConfig getPaiConfig() { DARABONBA_PTR_GET(paiConfig_, TaskInfo::PaiConfig) };
+      inline TaskInfo& setPaiConfig(const TaskInfo::PaiConfig & paiConfig) { DARABONBA_PTR_SET_VALUE(paiConfig_, paiConfig) };
+      inline TaskInfo& setPaiConfig(TaskInfo::PaiConfig && paiConfig) { DARABONBA_PTR_SET_RVALUE(paiConfig_, paiConfig) };
+
+
       // paramList Field Functions 
       bool hasParamList() const { return this->paramList_ != nullptr;};
       void deleteParamList() { this->paramList_ = nullptr;};
@@ -812,6 +1114,13 @@ namespace Models
       inline TaskInfo& setRerunable(bool rerunable) { DARABONBA_PTR_SET_VALUE(rerunable_, rerunable) };
 
 
+      // retryOnTimeoutEnable Field Functions 
+      bool hasRetryOnTimeoutEnable() const { return this->retryOnTimeoutEnable_ != nullptr;};
+      void deleteRetryOnTimeoutEnable() { this->retryOnTimeoutEnable_ = nullptr;};
+      inline bool getRetryOnTimeoutEnable() const { DARABONBA_PTR_GET_DEFAULT(retryOnTimeoutEnable_, false) };
+      inline TaskInfo& setRetryOnTimeoutEnable(bool retryOnTimeoutEnable) { DARABONBA_PTR_SET_VALUE(retryOnTimeoutEnable_, retryOnTimeoutEnable) };
+
+
       // schedulePeriod Field Functions 
       bool hasSchedulePeriod() const { return this->schedulePeriod_ != nullptr;};
       void deleteSchedulePeriod() { this->schedulePeriod_ = nullptr;};
@@ -833,6 +1142,34 @@ namespace Models
       inline TaskInfo::SparkClientInfo getSparkClientInfo() { DARABONBA_PTR_GET(sparkClientInfo_, TaskInfo::SparkClientInfo) };
       inline TaskInfo& setSparkClientInfo(const TaskInfo::SparkClientInfo & sparkClientInfo) { DARABONBA_PTR_SET_VALUE(sparkClientInfo_, sparkClientInfo) };
       inline TaskInfo& setSparkClientInfo(TaskInfo::SparkClientInfo && sparkClientInfo) { DARABONBA_PTR_SET_RVALUE(sparkClientInfo_, sparkClientInfo) };
+
+
+      // sparkDynamicResourceSwitch Field Functions 
+      bool hasSparkDynamicResourceSwitch() const { return this->sparkDynamicResourceSwitch_ != nullptr;};
+      void deleteSparkDynamicResourceSwitch() { this->sparkDynamicResourceSwitch_ = nullptr;};
+      inline bool getSparkDynamicResourceSwitch() const { DARABONBA_PTR_GET_DEFAULT(sparkDynamicResourceSwitch_, false) };
+      inline TaskInfo& setSparkDynamicResourceSwitch(bool sparkDynamicResourceSwitch) { DARABONBA_PTR_SET_VALUE(sparkDynamicResourceSwitch_, sparkDynamicResourceSwitch) };
+
+
+      // sparkResourceEffectScope Field Functions 
+      bool hasSparkResourceEffectScope() const { return this->sparkResourceEffectScope_ != nullptr;};
+      void deleteSparkResourceEffectScope() { this->sparkResourceEffectScope_ = nullptr;};
+      inline string getSparkResourceEffectScope() const { DARABONBA_PTR_GET_DEFAULT(sparkResourceEffectScope_, "") };
+      inline TaskInfo& setSparkResourceEffectScope(string sparkResourceEffectScope) { DARABONBA_PTR_SET_VALUE(sparkResourceEffectScope_, sparkResourceEffectScope) };
+
+
+      // sparkSqlResourceConfigMap Field Functions 
+      bool hasSparkSqlResourceConfigMap() const { return this->sparkSqlResourceConfigMap_ != nullptr;};
+      void deleteSparkSqlResourceConfigMap() { this->sparkSqlResourceConfigMap_ = nullptr;};
+      inline string getSparkSqlResourceConfigMap() const { DARABONBA_PTR_GET_DEFAULT(sparkSqlResourceConfigMap_, "") };
+      inline TaskInfo& setSparkSqlResourceConfigMap(string sparkSqlResourceConfigMap) { DARABONBA_PTR_SET_VALUE(sparkSqlResourceConfigMap_, sparkSqlResourceConfigMap) };
+
+
+      // sparkVersion Field Functions 
+      bool hasSparkVersion() const { return this->sparkVersion_ != nullptr;};
+      void deleteSparkVersion() { this->sparkVersion_ = nullptr;};
+      inline string getSparkVersion() const { DARABONBA_PTR_GET_DEFAULT(sparkVersion_, "") };
+      inline TaskInfo& setSparkVersion(string sparkVersion) { DARABONBA_PTR_SET_VALUE(sparkVersion_, sparkVersion) };
 
 
       // status Field Functions 
@@ -859,73 +1196,91 @@ namespace Models
 
 
     protected:
-      // The code of the task.
+      // The code of the node.
       shared_ptr<string> code_ {};
+      // The ID of the offline code template.
+      shared_ptr<string> codeTemplateId_ {};
+      // The version of the offline code template.
+      shared_ptr<int32_t> codeTemplateVersion_ {};
+      // The current CPU resource configuration of the node. If queried by version, this is the configuration of the corresponding version.
+      shared_ptr<string> cpuResource_ {};
       // The cron expression for automatic scheduling. You can refer to Linux cron expressions.
       shared_ptr<string> cronExpression_ {};
       // The custom scheduling interval configuration.
       shared_ptr<TaskInfo::CustomScheduleConfig> customScheduleConfig_ {};
-      // The ID of the DAG to which the task belongs.
+      // The ID of the DAG to which the node belongs.
       shared_ptr<string> dagId_ {};
-      // The catalog of the data source. This parameter takes effect only for database SQL tasks and data source types that require a catalog, such as Presto.
+      // The catalog of the data source. This parameter applies only to database SQL nodes and data source types that require a catalog, such as Presto.
       shared_ptr<string> dataSourceCatalog_ {};
-      // The ID of the data source for the database SQL task.
+      // The ID of the data source for the database SQL node.
       shared_ptr<string> dataSourceId_ {};
-      // The schema of the data source. This parameter takes effect only for database SQL tasks and data source types that require a schema, such as Oracle.
+      // The schema of the data source. This parameter applies only to database SQL nodes and data source types that require a schema, such as Oracle.
       shared_ptr<string> dataSourceSchema_ {};
+      // The Python connection information.
+      shared_ptr<TaskInfo::DatabricksPythonConnectInfo> databricksPythonConnectInfo_ {};
       // The IDs of the developers.
       shared_ptr<vector<string>> developOwnerIdList_ {};
       // The names of the developers.
       shared_ptr<vector<string>> developOwnerNameList_ {};
+      // The retry configuration for failed executions. This is the current configuration of the node. If queried by version, this is the configuration of the corresponding version.
+      shared_ptr<TaskInfo::ExecuteRerunConfig> executeRerunConfig_ {};
+      // The execution timeout configuration. This is the current configuration of the node. If queried by version, this is the configuration of the corresponding version.
+      shared_ptr<TaskInfo::ExecuteTimeOutConfig> executeTimeOutConfig_ {};
       // The node ID of the task directory tree.
       shared_ptr<int64_t> fileId_ {};
       // Indicates whether a development environment node exists.
       shared_ptr<bool> hasDevNode_ {};
-      // The name of the task.
+      // The current CPU resource configuration of the node. If queried by version, this is the configuration of the corresponding version.
+      shared_ptr<string> memoryResource_ {};
+      // The task name.
       shared_ptr<string> name_ {};
-      // Indicates whether the task needs to be published.
+      // Specifies whether publishing is required.
       shared_ptr<bool> needPublish_ {};
-      // The description of the task.
+      // The task description.
       shared_ptr<string> nodeDescription_ {};
-      // The source of the node. This indicates the organization or application that created the node.
+      // The source of the node, which indicates the organization or application that created the node.
       shared_ptr<string> nodeFrom_ {};
-      // The ID of the node.
+      // The node ID.
       shared_ptr<string> nodeId_ {};
-      // The name of the node.
+      // The node name.
       shared_ptr<string> nodeName_ {};
-      // The output names of the node.
+      // The list of node output names.
       shared_ptr<vector<string>> nodeOutputNameList_ {};
-      // The status of the node. Valid values: 1 (Normal), 2 (Paused), and 3 (Dry run).
+      // The node status. Valid values: 1: Normal. 2: Paused. 3: Dry run.
       shared_ptr<int32_t> nodeStatus_ {};
       // The ID of the user who performs the current operation.
       shared_ptr<string> operatorUserId_ {};
-      // The IDs of the O&M owners.
+      // The list of O&M owner IDs.
       shared_ptr<vector<string>> opsOwnerIdList_ {};
-      // The names of the O&M owners.
+      // The list of O&M owner names.
       shared_ptr<vector<string>> opsOwnerNameList_ {};
       // The name of the node owner.
       shared_ptr<string> ownerName_ {};
       // The user ID of the node owner.
       shared_ptr<string> ownerUserId_ {};
+      // The PAI configuration.
+      shared_ptr<TaskInfo::PaiConfig> paiConfig_ {};
       // The list of custom parameters for the node.
       shared_ptr<vector<TaskInfo::ParamList>> paramList_ {};
-      // Indicates whether the scheduling of the node is paused.
+      // Specifies whether node scheduling is paused.
       shared_ptr<bool> paused_ {};
-      // The scheduling priority of the task. Valid values: 1 to 9. A larger value indicates a lower priority.
+      // The task scheduling priority. Valid values: 1 to 9. A larger value indicates a lower priority.
       shared_ptr<int32_t> priority_ {};
-      // The ID of the project.
+      // The project ID.
       shared_ptr<int64_t> projectId_ {};
-      // Indicates whether the node is published.
+      // Specifies whether the task is published.
       shared_ptr<bool> published_ {};
-      // The list of third-party packages that the Python task depends on.
+      // The list of third-party packages required by the Python task.
       shared_ptr<vector<TaskInfo::PythonModuleList>> pythonModuleList_ {};
-      // The Python version of the Python task, such as Python 3.7.
+      // The Python version for the Python task, such as Python 3.7.
       shared_ptr<string> pythonVersion_ {};
-      // The remark.
+      // The remarks.
       shared_ptr<string> remark_ {};
-      // Indicates whether the task can be rerun.
+      // Specifies whether the node can be rerun.
       shared_ptr<bool> rerunable_ {};
-      // The scheduling period. Valid values:
+      // Specifies whether to enable retry on timeout. This reflects the current configuration of the node. When queried by version, it reflects the configuration of the corresponding version.
+      shared_ptr<bool> retryOnTimeoutEnable_ {};
+      // The schedule period. Valid values:
       // - YEARLY: Yearly.
       // - MONTHLY: Monthly.
       // - WEEKLY: Weekly.
@@ -934,17 +1289,28 @@ namespace Models
       // - MINUTELY: Minutely.
       shared_ptr<string> schedulePeriod_ {};
       // The node type. Valid values:
-      // - 1: Periodic task.
-      // - 3: Manual task.
+      // - 1: Periodic node.
+      // - 3: Manual node.
       shared_ptr<int32_t> scheduleType_ {};
       // The Spark client.
       shared_ptr<TaskInfo::SparkClientInfo> sparkClientInfo_ {};
+      // The current CPU resource configuration of the node. If queried by version, this is the configuration of the corresponding version.
+      shared_ptr<bool> sparkDynamicResourceSwitch_ {};
+      // The effective scope of the Spark resource configuration. Valid values:
+      // - ONLY_PROD: Production environment only.
+      // - PROD_AND_DEV: Production and development environments.
+      // This reflects the current configuration of the node. When queried by version, it reflects the configuration of the corresponding version.
+      shared_ptr<string> sparkResourceEffectScope_ {};
+      // The Spark SQL resource configuration. The key is the configuration item name and the value is a string. The configuration is returned as a JSON string, such as {"spark.executor.memory":"2g"}. This reflects the current configuration of the node. When queried by version, it reflects the configuration of the corresponding version.
+      shared_ptr<string> sparkSqlResourceConfigMap_ {};
+      // The MaxCompute Spark version.
+      shared_ptr<string> sparkVersion_ {};
       // The publish status. Valid values:
       // - 0: Draft.
       // - 1: Submitted.
       // - 100: In development.
       shared_ptr<string> status_ {};
-      // The task type. For more information, see the API operation for creating an offline computing task.
+      // The task type. For more information, see the API operation for creating an offline computing node.
       shared_ptr<int32_t> taskType_ {};
       // The upstream dependencies.
       shared_ptr<vector<TaskInfo::UpStreamList>> upStreamList_ {};
@@ -997,7 +1363,7 @@ namespace Models
 
 
   protected:
-    // The error code of the request. A value of OK indicates that the request is successful.
+    // The error code. OK indicates that the request is successful.
     shared_ptr<string> code_ {};
     // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
@@ -1007,7 +1373,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
-    // The task details.
+    // The node details.
     shared_ptr<GetBatchTaskInfoByVersionResponseBody::TaskInfo> taskInfo_ {};
   };
 

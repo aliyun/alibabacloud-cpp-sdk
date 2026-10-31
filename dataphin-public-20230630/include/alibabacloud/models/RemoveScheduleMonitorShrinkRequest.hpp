@@ -1,0 +1,75 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_REMOVESCHEDULEMONITORSHRINKREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_REMOVESCHEDULEMONITORSHRINKREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace DataphinPublic20230630
+{
+namespace Models
+{
+  class RemoveScheduleMonitorShrinkRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const RemoveScheduleMonitorShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
+      DARABONBA_PTR_TO_JSON(RemoveCommand, removeCommandShrink_);
+    };
+    friend void from_json(const Darabonba::Json& j, RemoveScheduleMonitorShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
+      DARABONBA_PTR_FROM_JSON(RemoveCommand, removeCommandShrink_);
+    };
+    RemoveScheduleMonitorShrinkRequest() = default ;
+    RemoveScheduleMonitorShrinkRequest(const RemoveScheduleMonitorShrinkRequest &) = default ;
+    RemoveScheduleMonitorShrinkRequest(RemoveScheduleMonitorShrinkRequest &&) = default ;
+    RemoveScheduleMonitorShrinkRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~RemoveScheduleMonitorShrinkRequest() = default ;
+    RemoveScheduleMonitorShrinkRequest& operator=(const RemoveScheduleMonitorShrinkRequest &) = default ;
+    RemoveScheduleMonitorShrinkRequest& operator=(RemoveScheduleMonitorShrinkRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->opTenantId_ == nullptr
+        && this->opUserId_ == nullptr && this->removeCommandShrink_ == nullptr; };
+    // opTenantId Field Functions 
+    bool hasOpTenantId() const { return this->opTenantId_ != nullptr;};
+    void deleteOpTenantId() { this->opTenantId_ = nullptr;};
+    inline int64_t getOpTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
+    inline RemoveScheduleMonitorShrinkRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
+
+
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline RemoveScheduleMonitorShrinkRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
+
+
+    // removeCommandShrink Field Functions 
+    bool hasRemoveCommandShrink() const { return this->removeCommandShrink_ != nullptr;};
+    void deleteRemoveCommandShrink() { this->removeCommandShrink_ = nullptr;};
+    inline string getRemoveCommandShrink() const { DARABONBA_PTR_GET_DEFAULT(removeCommandShrink_, "") };
+    inline RemoveScheduleMonitorShrinkRequest& setRemoveCommandShrink(string removeCommandShrink) { DARABONBA_PTR_SET_VALUE(removeCommandShrink_, removeCommandShrink) };
+
+
+  protected:
+    // The tenant ID.
+    // 
+    // This parameter is required.
+    shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
+    shared_ptr<string> opUserId_ {};
+    // The request body for removing scheduling monitoring.
+    // 
+    // This parameter is required.
+    shared_ptr<string> removeCommandShrink_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace DataphinPublic20230630
+#endif

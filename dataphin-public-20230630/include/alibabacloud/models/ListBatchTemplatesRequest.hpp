@@ -43,11 +43,13 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Keyword, keyword_);
         DARABONBA_PTR_TO_JSON(PageNum, pageNum_);
         DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+        DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
       };
       friend void from_json(const Darabonba::Json& j, ListQuery& obj) { 
         DARABONBA_PTR_FROM_JSON(Keyword, keyword_);
         DARABONBA_PTR_FROM_JSON(PageNum, pageNum_);
         DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+        DARABONBA_PTR_FROM_JSON(TemplateId, templateId_);
       };
       ListQuery() = default ;
       ListQuery(const ListQuery &) = default ;
@@ -61,7 +63,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->keyword_ == nullptr
-        && this->pageNum_ == nullptr && this->pageSize_ == nullptr; };
+        && this->pageNum_ == nullptr && this->pageSize_ == nullptr && this->templateId_ == nullptr; };
       // keyword Field Functions 
       bool hasKeyword() const { return this->keyword_ != nullptr;};
       void deleteKeyword() { this->keyword_ = nullptr;};
@@ -83,13 +85,22 @@ namespace Models
       inline ListQuery& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+      // templateId Field Functions 
+      bool hasTemplateId() const { return this->templateId_ != nullptr;};
+      void deleteTemplateId() { this->templateId_ = nullptr;};
+      inline int64_t getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, 0L) };
+      inline ListQuery& setTemplateId(int64_t templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
+
+
     protected:
-      // The template name keyword.
+      // The keyword in the template name.
       shared_ptr<string> keyword_ {};
       // The page number. Default value: 1.
       shared_ptr<int32_t> pageNum_ {};
       // The number of records per page. Default value: 20.
       shared_ptr<int32_t> pageSize_ {};
+      // The template ID. The query is based on the template ID.
+      shared_ptr<int64_t> templateId_ {};
     };
 
     virtual bool empty() const override { return this->env_ == nullptr
@@ -134,12 +145,13 @@ namespace Models
   protected:
     // The runtime environment. Default value: PROD.
     shared_ptr<string> env_ {};
-    // The paged query conditions.
+    // The paging query conditions.
     shared_ptr<ListBatchTemplatesRequest::ListQuery> listQuery_ {};
     // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator user ID.
     shared_ptr<string> opUserId_ {};
     // The project ID.
     // 

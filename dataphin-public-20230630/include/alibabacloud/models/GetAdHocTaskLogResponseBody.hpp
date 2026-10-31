@@ -123,19 +123,19 @@ namespace Models
 
 
     protected:
-      // The runtime log content.
+      // The execution log.
       shared_ptr<string> content_ {};
-      // Indicates whether the next log entry exists.
+      // Indicates whether more log entries exist.
       shared_ptr<bool> hasNext_ {};
-      // Indicates whether the current query produces a result.
+      // Indicates whether the current query will generate results.
       shared_ptr<bool> hasResult_ {};
-      // The start position of the next log entry.
+      // The starting position of the next log entry.
       shared_ptr<int32_t> nextOffset_ {};
       // The subtask ID.
       shared_ptr<int32_t> subTaskId_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
-      // The task running status. Example: WAIT_RESOURCE indicates that the task is waiting for resources.
+      // The execution status of the task. Valid values: WAIT_RESOURCE (waiting for resources).
       shared_ptr<string> taskStatus_ {};
     };
 
@@ -186,7 +186,7 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request was successful.
+    // The error code. A value of OK indicates that the request is normal.
     shared_ptr<string> code_ {};
     // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
@@ -196,7 +196,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

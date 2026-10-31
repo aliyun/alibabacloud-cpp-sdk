@@ -91,11 +91,11 @@ namespace Models
 
 
     protected:
-      // The list of full paths of child catalogs that were deleted as a result of the cascading deletion.
+      // The list of full paths of the subdirectories that are cascade-deleted.
       shared_ptr<vector<string>> childCatalogFullPathList_ {};
-      // The list of classification IDs that were deleted as a result of the cascading deletion.
+      // The list of IDs of the classifications that are cascade-deleted.
       shared_ptr<vector<int64_t>> classifyIdList_ {};
-      // Indicates whether the deletion was successful.
+      // Indicates whether the deletion is successful.
       shared_ptr<bool> success_ {};
     };
 
@@ -156,7 +156,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -146,7 +146,7 @@ namespace Models
 
 
     protected:
-      // The expiration timestamp, in milliseconds.
+      // The timestamp for the end of the validity period, in milliseconds.
       // 
       // This parameter is required.
       shared_ptr<string> effectiveEnd_ {};
@@ -154,9 +154,9 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<vector<string>> operateList_ {};
-      // The reason for the authorization.
+      // The reason for authorization.
       shared_ptr<string> reason_ {};
-      // The list of resources.
+      // The resources.
       // 
       // This parameter is required.
       shared_ptr<vector<GrantCommand::ResourceList>> resourceList_ {};
@@ -164,7 +164,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> resourceType_ {};
-      // The authorized users pending authorization.
+      // The users pending authorization.
       // 
       // This parameter is required.
       shared_ptr<vector<string>> userIdList_ {};
@@ -204,6 +204,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 
