@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The JSON configuration of the custom agent. You must specify name, artifact, roleArn, and runtime.
+    // The JSON configuration of the custom agent. You must specify the name, artifact, roleArn, and runtime parameters.
     shared_ptr<string> bodyShrink_ {};
     // Idempotence is not currently guaranteed. Do not rely on this parameter to prevent duplicate requests.
     shared_ptr<string> clientToken_ {};

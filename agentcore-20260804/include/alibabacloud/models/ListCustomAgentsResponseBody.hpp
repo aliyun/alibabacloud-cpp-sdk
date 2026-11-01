@@ -50,6 +50,8 @@ namespace Models
     class Items : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Items& obj) { 
+        DARABONBA_PTR_TO_JSON(accessMode, accessMode_);
+        DARABONBA_PTR_TO_JSON(accessScope, accessScope_);
         DARABONBA_PTR_TO_JSON(agentId, agentId_);
         DARABONBA_PTR_TO_JSON(artifact, artifact_);
         DARABONBA_PTR_TO_JSON(codePackageInfo, codePackageInfo_);
@@ -66,6 +68,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
       };
       friend void from_json(const Darabonba::Json& j, Items& obj) { 
+        DARABONBA_PTR_FROM_JSON(accessMode, accessMode_);
+        DARABONBA_PTR_FROM_JSON(accessScope, accessScope_);
         DARABONBA_PTR_FROM_JSON(agentId, agentId_);
         DARABONBA_PTR_FROM_JSON(artifact, artifact_);
         DARABONBA_PTR_FROM_JSON(codePackageInfo, codePackageInfo_);
@@ -153,7 +157,7 @@ namespace Models
 
 
         protected:
-          // The purpose description of the current API path.
+          // The description of the purpose for the current API path.
           shared_ptr<string> description_ {};
           // The API path corresponding to the current protocol.
           // 
@@ -189,7 +193,7 @@ namespace Models
 
 
       protected:
-        // The request header configuration of the current protocol. The key is the header name and the value is a string.
+        // The request header configuration for the current protocol. The key is the header name and the value is a string.
         shared_ptr<map<string, string>> headers_ {};
         // The list of API paths corresponding to the current protocol.
         shared_ptr<vector<Protocol::Paths>> paths_ {};
@@ -380,9 +384,9 @@ namespace Models
           shared_ptr<string> entrypoint_ {};
           // The ID of the ACR Enterprise instance.
           shared_ptr<string> instanceId_ {};
-          // The ACR namespace.
+          // The namespace of Container Registry.
           shared_ptr<string> namespace_ {};
-          // The name of the ACR image repository.
+          // The name of the Container Registry image repository.
           shared_ptr<string> repo_ {};
           // The image tag.
           shared_ptr<string> tag_ {};
@@ -439,7 +443,7 @@ namespace Models
 
 
         protected:
-          // The startup command for the code package. This parameter is required in code package mode. The working directory is the root directory of the extracted code, which is /code. Example: python main.py. Quotes and escape characters are supported. Environment variables, pipes, and logical operations are not automatically expanded. For complex commands, use a script within the package.
+          // The startup command for the code package. This parameter is required in code package mode. The working directory is the root directory of the extracted code, which is /code. Example: python main.py. Quotes and escapes are supported. Environment variables, pipes, and logical operations are not automatically expanded. For complex commands, use a script within the package.
           // 
           // This parameter is required.
           shared_ptr<string> entrypoint_ {};
@@ -491,10 +495,24 @@ namespace Models
         shared_ptr<int32_t> port_ {};
       };
 
-      virtual bool empty() const override { return this->agentId_ == nullptr
-        && this->artifact_ == nullptr && this->codePackageInfo_ == nullptr && this->createMode_ == nullptr && this->createdAt_ == nullptr && this->deployType_ == nullptr
-        && this->description_ == nullptr && this->latestSpecVersion_ == nullptr && this->name_ == nullptr && this->protocol_ == nullptr && this->runtime_ == nullptr
-        && this->status_ == nullptr && this->updatedAt_ == nullptr && this->workspaceId_ == nullptr; };
+      virtual bool empty() const override { return this->accessMode_ == nullptr
+        && this->accessScope_ == nullptr && this->agentId_ == nullptr && this->artifact_ == nullptr && this->codePackageInfo_ == nullptr && this->createMode_ == nullptr
+        && this->createdAt_ == nullptr && this->deployType_ == nullptr && this->description_ == nullptr && this->latestSpecVersion_ == nullptr && this->name_ == nullptr
+        && this->protocol_ == nullptr && this->runtime_ == nullptr && this->status_ == nullptr && this->updatedAt_ == nullptr && this->workspaceId_ == nullptr; };
+      // accessMode Field Functions 
+      bool hasAccessMode() const { return this->accessMode_ != nullptr;};
+      void deleteAccessMode() { this->accessMode_ = nullptr;};
+      inline string getAccessMode() const { DARABONBA_PTR_GET_DEFAULT(accessMode_, "") };
+      inline Items& setAccessMode(string accessMode) { DARABONBA_PTR_SET_VALUE(accessMode_, accessMode) };
+
+
+      // accessScope Field Functions 
+      bool hasAccessScope() const { return this->accessScope_ != nullptr;};
+      void deleteAccessScope() { this->accessScope_ = nullptr;};
+      inline string getAccessScope() const { DARABONBA_PTR_GET_DEFAULT(accessScope_, "") };
+      inline Items& setAccessScope(string accessScope) { DARABONBA_PTR_SET_VALUE(accessScope_, accessScope) };
+
+
       // agentId Field Functions 
       bool hasAgentId() const { return this->agentId_ != nullptr;};
       void deleteAgentId() { this->agentId_ = nullptr;};
@@ -600,17 +618,21 @@ namespace Models
 
 
     protected:
+      // The inbound access mode.
+      shared_ptr<string> accessMode_ {};
+      // The user access scope.
+      shared_ptr<string> accessScope_ {};
       // The unique identifier of the custom agent. You can obtain this ID from the response of the CreateCustomAgent or ListCustomAgents operation.
       shared_ptr<string> agentId_ {};
       // The agent artifact.
       shared_ptr<Items::Artifact> artifact_ {};
       // The currently saved code package information.
       shared_ptr<Items::CodePackageInfo> codePackageInfo_ {};
-      // The creation method of the agent. The value is CUSTOM for custom agents.
+      // The creation mode of the agent. The value is CUSTOM for custom agents.
       shared_ptr<string> createMode_ {};
-      // The time when the agent was created. The time is in ISO 8601 format. The trailing Z indicates the UTC time zone. Fractional seconds may be included.
+      // The time when the agent was created. The time is in ISO 8601 format. A trailing Z indicates the UTC time zone. Fractional seconds may be included.
       shared_ptr<string> createdAt_ {};
-      // The deployment method of the agent. Custom agents are deployed and managed by the platform. The value is MANAGED for custom agents.
+      // The deployment mode of the agent. Custom agents are deployed and managed by the platform. The value is MANAGED for custom agents.
       shared_ptr<string> deployType_ {};
       // The description of the agent\\"s purpose.
       shared_ptr<string> description_ {};
@@ -631,7 +653,7 @@ namespace Models
       // - Deleted: The agent is deleted.
       // To query the execution progress of the latest configuration, call the GetCustomAgent operation.
       shared_ptr<string> status_ {};
-      // The time when the agent was last updated. The time is in ISO 8601 format. The trailing Z indicates the UTC time zone. Fractional seconds may be included.
+      // The time when the agent was last updated. The time follows the ISO 8601 format. The trailing Z indicates the UTC time zone. Fractional seconds are supported.
       shared_ptr<string> updatedAt_ {};
       // The ID of the workspace to which the custom agent belongs.
       shared_ptr<string> workspaceId_ {};
@@ -708,19 +730,19 @@ namespace Models
   protected:
     // The request result code. The value is SUCCESS if the request is successful.
     shared_ptr<string> code_ {};
-    // The HTTP status code of the request. The value is 200 if the request is successful.
+    // The HTTP status code of the current request. The value is 200 if the request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The list of custom agent summaries on the current page. To query the complete configuration and the execution result of the latest version, call the GetCustomAgent operation.
     shared_ptr<vector<ListCustomAgentsResponseBody::Items>> items_ {};
-    // The maximum number of results returned per page for the current query.
+    // The maximum number of items to return per page in this query.
     shared_ptr<int32_t> maxResults_ {};
-    // The message that describes the result of the request. The value is success if the request is successful.
+    // The processing result message for this request. The value is success if the request succeeds.
     shared_ptr<string> message_ {};
-    // The opaque token used to query the next page. An empty value indicates that no more pages are available. Pass this token as-is in subsequent requests.
+    // The opaque token used to query the next page. An empty value indicates that no more pages are available. Pass this token as is in subsequent requests.
     shared_ptr<string> nextToken_ {};
-    // The unique identifier of the request. You can use this ID to locate and troubleshoot issues.
+    // The unique identifier of the request, used to locate and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was processed successfully. A value of true indicates that the request was successful. A successful creation, update, or deletion response does not mean that the background operation is complete.
+    // Indicates whether the request was processed successfully. A value of true indicates success. A successful creation, update, or deletion does not mean that the background operation is complete.
     shared_ptr<bool> success_ {};
     // The total number of custom agents that meet the query conditions in the specified workspace.
     shared_ptr<int64_t> totalCount_ {};

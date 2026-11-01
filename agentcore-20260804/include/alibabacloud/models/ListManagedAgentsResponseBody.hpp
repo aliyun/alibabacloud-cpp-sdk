@@ -49,6 +49,8 @@ namespace Models
     class Items : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Items& obj) { 
+        DARABONBA_PTR_TO_JSON(accessMode, accessMode_);
+        DARABONBA_PTR_TO_JSON(accessScope, accessScope_);
         DARABONBA_PTR_TO_JSON(agentId, agentId_);
         DARABONBA_PTR_TO_JSON(createMode, createMode_);
         DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
@@ -63,6 +65,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
       };
       friend void from_json(const Darabonba::Json& j, Items& obj) { 
+        DARABONBA_PTR_FROM_JSON(accessMode, accessMode_);
+        DARABONBA_PTR_FROM_JSON(accessScope, accessScope_);
         DARABONBA_PTR_FROM_JSON(agentId, agentId_);
         DARABONBA_PTR_FROM_JSON(createMode, createMode_);
         DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
@@ -146,9 +150,9 @@ namespace Models
 
 
         protected:
-          // Binds a Service Account Key of the QoderCLI Connector by Key ID. This parameter can be omitted when only one key exists, but is required when multiple keys exist.
+          // Connector Service Account Key
           shared_ptr<string> connectorServiceAccountKey_ {};
-          // The Connector Key name populated during queries. This value is not used as a binding reference during writes.
+          // Connector Service Account Name
           shared_ptr<string> connectorServiceAccountName_ {};
         };
 
@@ -171,16 +175,30 @@ namespace Models
 
 
       protected:
-        // The Connector binding configuration for the qodercli framework.
+        // The runtime framework configuration.
         shared_ptr<Harness::Configuration> configuration_ {};
-        // The runtime framework type. Valid values: qwenpaw and qodercli. The qodercli type binds by configuration.connectorServiceAccountKey, and the name is also populated during queries.
+        // The runtime framework type.
         shared_ptr<string> type_ {};
       };
 
-      virtual bool empty() const override { return this->agentId_ == nullptr
-        && this->createMode_ == nullptr && this->createdAt_ == nullptr && this->deployType_ == nullptr && this->description_ == nullptr && this->harness_ == nullptr
-        && this->latestSpecVersion_ == nullptr && this->name_ == nullptr && this->runtime_ == nullptr && this->status_ == nullptr && this->updatedAt_ == nullptr
-        && this->workspaceId_ == nullptr; };
+      virtual bool empty() const override { return this->accessMode_ == nullptr
+        && this->accessScope_ == nullptr && this->agentId_ == nullptr && this->createMode_ == nullptr && this->createdAt_ == nullptr && this->deployType_ == nullptr
+        && this->description_ == nullptr && this->harness_ == nullptr && this->latestSpecVersion_ == nullptr && this->name_ == nullptr && this->runtime_ == nullptr
+        && this->status_ == nullptr && this->updatedAt_ == nullptr && this->workspaceId_ == nullptr; };
+      // accessMode Field Functions 
+      bool hasAccessMode() const { return this->accessMode_ != nullptr;};
+      void deleteAccessMode() { this->accessMode_ = nullptr;};
+      inline string getAccessMode() const { DARABONBA_PTR_GET_DEFAULT(accessMode_, "") };
+      inline Items& setAccessMode(string accessMode) { DARABONBA_PTR_SET_VALUE(accessMode_, accessMode) };
+
+
+      // accessScope Field Functions 
+      bool hasAccessScope() const { return this->accessScope_ != nullptr;};
+      void deleteAccessScope() { this->accessScope_ = nullptr;};
+      inline string getAccessScope() const { DARABONBA_PTR_GET_DEFAULT(accessScope_, "") };
+      inline Items& setAccessScope(string accessScope) { DARABONBA_PTR_SET_VALUE(accessScope_, accessScope) };
+
+
       // agentId Field Functions 
       bool hasAgentId() const { return this->agentId_ != nullptr;};
       void deleteAgentId() { this->agentId_ = nullptr;};
@@ -268,7 +286,11 @@ namespace Models
 
 
     protected:
-      // The managed agent ID.
+      // API_KEY 表示使用 API Key；USER 表示使用用户身份。
+      shared_ptr<string> accessMode_ {};
+      // 仅 accessMode 为 USER 时返回：ALL 表示全部用户，SPECIFIED 表示指定用户。
+      shared_ptr<string> accessScope_ {};
+      // The ID of the managed agent.
       shared_ptr<string> agentId_ {};
       // The creation mode.
       shared_ptr<string> createMode_ {};
@@ -363,21 +385,21 @@ namespace Models
 
 
   protected:
-    // The business status code. A value of SUCCESS indicates success.
+    // The business status code. The value is SUCCESS if the request is successful.
     shared_ptr<string> code_ {};
-    // The HTTP status code. A value of 200 indicates success.
+    // The HTTP status code. The value is 200 if the request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The list of managed agents.
     shared_ptr<vector<ListManagedAgentsResponseBody::Items>> items_ {};
     // The maximum number of results returned for this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The result message of the request.
+    // The message about the request processing result.
     shared_ptr<string> message_ {};
-    // The token for the next page. An empty value indicates the last page.
+    // The token for the next page. An empty value indicates that the last page is reached.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
     // The total number of records.
     shared_ptr<int64_t> totalCount_ {};

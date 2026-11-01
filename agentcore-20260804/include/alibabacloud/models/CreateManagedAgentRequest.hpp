@@ -35,6 +35,8 @@ namespace Models
     class Body : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Body& obj) { 
+        DARABONBA_PTR_TO_JSON(accessMode, accessMode_);
+        DARABONBA_PTR_TO_JSON(accessScope, accessScope_);
         DARABONBA_PTR_TO_JSON(agenticFsMounts, agenticFsMounts_);
         DARABONBA_PTR_TO_JSON(description, description_);
         DARABONBA_PTR_TO_JSON(environment, environment_);
@@ -52,6 +54,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(tools, tools_);
       };
       friend void from_json(const Darabonba::Json& j, Body& obj) { 
+        DARABONBA_PTR_FROM_JSON(accessMode, accessMode_);
+        DARABONBA_PTR_FROM_JSON(accessScope, accessScope_);
         DARABONBA_PTR_FROM_JSON(agenticFsMounts, agenticFsMounts_);
         DARABONBA_PTR_FROM_JSON(description, description_);
         DARABONBA_PTR_FROM_JSON(environment, environment_);
@@ -375,9 +379,11 @@ namespace Models
 
 
         protected:
-          // The version selector type. Valid values: LABEL: selects by label. VERSION: selects by specific version.
+          // The version selector type. Valid values:
+          // - LABEL: selects by label
+          // - VERSION: selects by specific version
           shared_ptr<string> type_ {};
-          // The selector value. When the type is LABEL, this is the label name, such as latest. When the type is VERSION, this is the specific version number.
+          // The selector value. When the type is LABEL, this value is the label name, such as latest. When the type is VERSION, this value is the specific version number.
           shared_ptr<string> value_ {};
         };
 
@@ -418,7 +424,9 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<string> name_ {};
-        // The skill source type. Valid values: REFERENCE: references the AI registry. STATIC: statically provided with the package.
+        // The skill source type. Valid values:
+        // - REFERENCE: references the AI Registry
+        // - STATIC: statically provided with the package
         shared_ptr<string> sourceType_ {};
         // The skill version.
         shared_ptr<string> version_ {};
@@ -560,15 +568,15 @@ namespace Models
 
 
         protected:
-          // Specifies whether auto-scaling is enabled. This parameter is required and validated by the backend when HPA is present.
+          // Specifies whether to enable auto-scaling. This parameter is required and validated by the backend when HPA is specified.
           shared_ptr<bool> enabled_ {};
-          // The maximum number of active sessions per sandbox. This parameter is required and validated by the backend when HPA is present.
+          // The maximum number of active sessions per sandbox. This parameter is required and validated by the backend when HPA is specified.
           shared_ptr<int32_t> maxConcurrentSessionsPerSandbox_ {};
-          // The maximum number of sandboxes. This parameter is required and must not be less than the minimum value when HPA is enabled.
+          // The maximum number of sandboxes. This parameter is required when HPA is enabled and must not be less than the minimum value.
           shared_ptr<int32_t> maxSandboxCount_ {};
           // The minimum number of sandboxes. This parameter is required when HPA is enabled.
           shared_ptr<int32_t> minSandboxCount_ {};
-          // The timeout period in seconds for reclaiming an inactive session. This parameter is required and validated by the backend when HPA is present.
+          // The idle timeout period for a session before it is reclaimed, in seconds. This parameter is required and validated by the backend when HPA is specified.
           shared_ptr<int32_t> sessionTtlSeconds_ {};
         };
 
@@ -763,9 +771,9 @@ namespace Models
         shared_ptr<string> bucketName_ {};
         // The absolute mount path in the container. This parameter is required and validated by the backend for each mount item.
         shared_ptr<string> mountPath_ {};
-        // The relative object prefix in the bucket. If this parameter is not specified, the entire bucket is mounted.
+        // The relative object prefix in the bucket. If not specified, the entire bucket is mounted.
         shared_ptr<string> path_ {};
-        // Specifies whether the mount is read-only. Default value: false.
+        // Specifies whether the mount is read-only. If not specified, the default value is false.
         shared_ptr<bool> readOnly_ {};
       };
 
@@ -818,7 +826,7 @@ namespace Models
 
 
         protected:
-          // Specifies whether to allow VPC access.
+          // Specifies whether to allow access to the VPC.
           shared_ptr<bool> enabled_ {};
         };
 
@@ -850,7 +858,7 @@ namespace Models
 
 
         protected:
-          // Specifies whether to allow Internet access.
+          // Specifies whether to allow access to the Internet.
           shared_ptr<bool> enabled_ {};
         };
 
@@ -960,13 +968,13 @@ namespace Models
 
 
         protected:
-          // Specifies whether to enable the token quota. Default value: true. If you set this parameter to false, the quota is disabled and existing quota rules are deleted.
+          // Specifies whether to enable the token quota. If not specified, the default value is true. A value of false disables the quota and deletes existing quota rules.
           shared_ptr<bool> enabled_ {};
           // The quota limit type. This parameter is required and validated by the backend when the quota is enabled. Fixed value: token.
           shared_ptr<string> limitType_ {};
           // The statistical period for the quota. This parameter is required and validated by the backend when the quota is enabled. Valid values: day (daily) and month (monthly).
           shared_ptr<string> periodType_ {};
-          // The maximum number of tokens that can be consumed within a single period. This parameter is required and validated by the backend when the quota is enabled. The value must be greater than 0.
+          // The maximum number of tokens allowed to be consumed in a single period. This parameter is required and validated by the backend when the quota is enabled. The value must be greater than 0.
           shared_ptr<int64_t> usageLimit_ {};
         };
 
@@ -1000,7 +1008,7 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<string> modelConnectionId_ {};
-        // The upstream model name.
+        // The name of the upstream model.
         shared_ptr<string> modelName_ {};
         // The model token quota configuration. If this parameter is not passed, no quota is configured.
         shared_ptr<Model::Quota> quota_ {};
@@ -1286,16 +1294,31 @@ namespace Models
         shared_ptr<string> mountPath_ {};
         // The existing non-empty relative directory under the access point. This parameter is required and validated by the backend for each mount item. Root directories, absolute paths, and parent directory segments are not allowed.
         shared_ptr<string> path_ {};
-        // Specifies whether the mount is read-only. Default value: false. This parameter does not represent a read-only policy for a RAM role.
+        // Specifies whether the mount is read-only. If omitted, the default value is false. This parameter does not represent a read-only policy for a RAM role.
         shared_ptr<bool> readOnly_ {};
         // The domain name of the access point. This parameter is required and validated by the backend for each mount item. Do not include the protocol, port, or path. Use the DomainName value from the NAS ListAccessPoints response.
         shared_ptr<string> server_ {};
       };
 
-      virtual bool empty() const override { return this->agenticFsMounts_ == nullptr
-        && this->description_ == nullptr && this->environment_ == nullptr && this->harness_ == nullptr && this->instruction_ == nullptr && this->model_ == nullptr
-        && this->name_ == nullptr && this->network_ == nullptr && this->ossMounts_ == nullptr && this->promptVariables_ == nullptr && this->runtime_ == nullptr
-        && this->skills_ == nullptr && this->subAgents_ == nullptr && this->template_ == nullptr && this->tools_ == nullptr; };
+      virtual bool empty() const override { return this->accessMode_ == nullptr
+        && this->accessScope_ == nullptr && this->agenticFsMounts_ == nullptr && this->description_ == nullptr && this->environment_ == nullptr && this->harness_ == nullptr
+        && this->instruction_ == nullptr && this->model_ == nullptr && this->name_ == nullptr && this->network_ == nullptr && this->ossMounts_ == nullptr
+        && this->promptVariables_ == nullptr && this->runtime_ == nullptr && this->skills_ == nullptr && this->subAgents_ == nullptr && this->template_ == nullptr
+        && this->tools_ == nullptr; };
+      // accessMode Field Functions 
+      bool hasAccessMode() const { return this->accessMode_ != nullptr;};
+      void deleteAccessMode() { this->accessMode_ = nullptr;};
+      inline string getAccessMode() const { DARABONBA_PTR_GET_DEFAULT(accessMode_, "") };
+      inline Body& setAccessMode(string accessMode) { DARABONBA_PTR_SET_VALUE(accessMode_, accessMode) };
+
+
+      // accessScope Field Functions 
+      bool hasAccessScope() const { return this->accessScope_ != nullptr;};
+      void deleteAccessScope() { this->accessScope_ = nullptr;};
+      inline string getAccessScope() const { DARABONBA_PTR_GET_DEFAULT(accessScope_, "") };
+      inline Body& setAccessScope(string accessScope) { DARABONBA_PTR_SET_VALUE(accessScope_, accessScope) };
+
+
       // agenticFsMounts Field Functions 
       bool hasAgenticFsMounts() const { return this->agenticFsMounts_ != nullptr;};
       void deleteAgenticFsMounts() { this->agenticFsMounts_ = nullptr;};
@@ -1426,7 +1449,11 @@ namespace Models
 
 
     protected:
-      // The AgenticFS mounts. Omitting this parameter or passing an empty array indicates no AgenticFS mounts. Null values are rejected. The total number of AgenticFS and OSS mounts cannot exceed 10.
+      // The inbound access mode.
+      shared_ptr<string> accessMode_ {};
+      // The user access scope.
+      shared_ptr<string> accessScope_ {};
+      // The list of AgenticFS mounts. If omitted or set to an empty array during creation, no AgenticFS mounts are configured. A null value is rejected. The total number of AgenticFS and OSS mounts cannot exceed 10.
       shared_ptr<vector<Body::AgenticFsMounts>> agenticFsMounts_ {};
       // The description of the managed agent.
       shared_ptr<string> description_ {};

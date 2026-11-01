@@ -82,12 +82,14 @@ namespace Models
       class NetworkConfiguration : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const NetworkConfiguration& obj) { 
+          DARABONBA_PTR_TO_JSON(privateIngressEnabled, privateIngressEnabled_);
           DARABONBA_PTR_TO_JSON(publicEgressEnabled, publicEgressEnabled_);
           DARABONBA_PTR_TO_JSON(publicEgressIp, publicEgressIp_);
           DARABONBA_PTR_TO_JSON(publicIngressEnabled, publicIngressEnabled_);
           DARABONBA_PTR_TO_JSON(vpc, vpc_);
         };
         friend void from_json(const Darabonba::Json& j, NetworkConfiguration& obj) { 
+          DARABONBA_PTR_FROM_JSON(privateIngressEnabled, privateIngressEnabled_);
           DARABONBA_PTR_FROM_JSON(publicEgressEnabled, publicEgressEnabled_);
           DARABONBA_PTR_FROM_JSON(publicEgressIp, publicEgressIp_);
           DARABONBA_PTR_FROM_JSON(publicIngressEnabled, publicIngressEnabled_);
@@ -161,8 +163,15 @@ namespace Models
           shared_ptr<string> vpcId_ {};
         };
 
-        virtual bool empty() const override { return this->publicEgressEnabled_ == nullptr
-        && this->publicEgressIp_ == nullptr && this->publicIngressEnabled_ == nullptr && this->vpc_ == nullptr; };
+        virtual bool empty() const override { return this->privateIngressEnabled_ == nullptr
+        && this->publicEgressEnabled_ == nullptr && this->publicEgressIp_ == nullptr && this->publicIngressEnabled_ == nullptr && this->vpc_ == nullptr; };
+        // privateIngressEnabled Field Functions 
+        bool hasPrivateIngressEnabled() const { return this->privateIngressEnabled_ != nullptr;};
+        void deletePrivateIngressEnabled() { this->privateIngressEnabled_ = nullptr;};
+        inline bool getPrivateIngressEnabled() const { DARABONBA_PTR_GET_DEFAULT(privateIngressEnabled_, false) };
+        inline NetworkConfiguration& setPrivateIngressEnabled(bool privateIngressEnabled) { DARABONBA_PTR_SET_VALUE(privateIngressEnabled_, privateIngressEnabled) };
+
+
         // publicEgressEnabled Field Functions 
         bool hasPublicEgressEnabled() const { return this->publicEgressEnabled_ != nullptr;};
         void deletePublicEgressEnabled() { this->publicEgressEnabled_ = nullptr;};
@@ -194,11 +203,13 @@ namespace Models
 
 
       protected:
-        // Returns the target configuration value. Updating indicates that the change is still being executed, and UpdateFailed indicates that the current change failed. This setting only controls the use of the platform public egress for the latest versions of managed and custom agents. It does not control fixed historical versions, model or MCP proxy egress, or the public egress of the user VPC.
+        // Indicates whether private network ingress access is enabled for the workspace. A value of true indicates that the feature is enabled, and a value of false indicates that the feature is disabled. This switch is independent of the enabled field in the user VPC network configuration.
+        shared_ptr<bool> privateIngressEnabled_ {};
+        // Returns the target configuration value. Updating indicates that the change is still being executed, and UpdateFailed indicates that the change failed in the current round. This parameter only controls the use of the platform public network egress by the latest versions of managed and custom agents. It does not control fixed historical versions, model or MCP proxy egress, or the public network egress of the user VPC.
         shared_ptr<bool> publicEgressEnabled_ {};
-        // The public egress IP address of the workspace.
+        // The public network egress IP address of the workspace.
         shared_ptr<string> publicEgressIp_ {};
-        // Returns the target configuration value. Updating indicates that the change is in progress, and UpdateFailed indicates that the change failed. When disabled, the public ingress for all agent endpoints in the workspace is closed. When re-enabled, the original public ingress is restored. INNER_DIRECT and user VPC ingress are not affected. Collaboration and Element Web ingress are not controlled by this setting.
+        // Returns the target configuration value. Updating indicates that the change is in progress, and UpdateFailed indicates that the change failed. After this feature is disabled, the public network ingress of all agent endpoints in the workspace is disabled. After this feature is re-enabled, the original public network ingress is restored. INNER_DIRECT and user VPC ingress are not affected. Collaboration and Element Web ingress are not controlled by this feature.
         shared_ptr<bool> publicIngressEnabled_ {};
         // The VPC network configuration of the user.
         shared_ptr<NetworkConfiguration::Vpc> vpc_ {};

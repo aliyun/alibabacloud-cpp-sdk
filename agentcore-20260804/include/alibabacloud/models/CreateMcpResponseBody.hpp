@@ -56,6 +56,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(mcpServerId, mcpServerId_);
         DARABONBA_PTR_TO_JSON(name, name_);
         DARABONBA_PTR_TO_JSON(officialTag, officialTag_);
+        DARABONBA_PTR_TO_JSON(permissionMode, permissionMode_);
         DARABONBA_PTR_TO_JSON(protocol, protocol_);
         DARABONBA_PTR_TO_JSON(status, status_);
         DARABONBA_PTR_TO_JSON(statusReason, statusReason_);
@@ -77,6 +78,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(mcpServerId, mcpServerId_);
         DARABONBA_PTR_FROM_JSON(name, name_);
         DARABONBA_PTR_FROM_JSON(officialTag, officialTag_);
+        DARABONBA_PTR_FROM_JSON(permissionMode, permissionMode_);
         DARABONBA_PTR_FROM_JSON(protocol, protocol_);
         DARABONBA_PTR_FROM_JSON(status, status_);
         DARABONBA_PTR_FROM_JSON(statusReason, statusReason_);
@@ -1705,8 +1707,8 @@ namespace Models
       virtual bool empty() const override { return this->addresses_ == nullptr
         && this->auth_ == nullptr && this->customTags_ == nullptr && this->deploymentConfig_ == nullptr && this->description_ == nullptr && this->endpoint_ == nullptr
         && this->functionName_ == nullptr && this->marketSource_ == nullptr && this->mcpServerConfig_ == nullptr && this->mcpServerId_ == nullptr && this->name_ == nullptr
-        && this->officialTag_ == nullptr && this->protocol_ == nullptr && this->status_ == nullptr && this->statusReason_ == nullptr && this->swaggerConfig_ == nullptr
-        && this->template_ == nullptr && this->type_ == nullptr && this->usageActive_ == nullptr; };
+        && this->officialTag_ == nullptr && this->permissionMode_ == nullptr && this->protocol_ == nullptr && this->status_ == nullptr && this->statusReason_ == nullptr
+        && this->swaggerConfig_ == nullptr && this->template_ == nullptr && this->type_ == nullptr && this->usageActive_ == nullptr; };
       // addresses Field Functions 
       bool hasAddresses() const { return this->addresses_ != nullptr;};
       void deleteAddresses() { this->addresses_ = nullptr;};
@@ -1801,6 +1803,13 @@ namespace Models
       inline Data& setOfficialTag(string officialTag) { DARABONBA_PTR_SET_VALUE(officialTag_, officialTag) };
 
 
+      // permissionMode Field Functions 
+      bool hasPermissionMode() const { return this->permissionMode_ != nullptr;};
+      void deletePermissionMode() { this->permissionMode_ = nullptr;};
+      inline string getPermissionMode() const { DARABONBA_PTR_GET_DEFAULT(permissionMode_, "") };
+      inline Data& setPermissionMode(string permissionMode) { DARABONBA_PTR_SET_VALUE(permissionMode_, permissionMode) };
+
+
       // protocol Field Functions 
       bool hasProtocol() const { return this->protocol_ != nullptr;};
       void deleteProtocol() { this->protocol_ = nullptr;};
@@ -1877,6 +1886,8 @@ namespace Models
       shared_ptr<string> name_ {};
       // The official tag managed by the server.
       shared_ptr<string> officialTag_ {};
+      // PUBLIC 表示公开访问；CONTROLLED 表示根据权限规则控制访问。
+      shared_ptr<string> permissionMode_ {};
       // The MCP protocol.
       shared_ptr<string> protocol_ {};
       // The status.

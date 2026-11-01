@@ -41,6 +41,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(customTags, customTags_);
         DARABONBA_PTR_TO_JSON(deploymentConfig, deploymentConfig_);
         DARABONBA_PTR_TO_JSON(description, description_);
+        DARABONBA_PTR_TO_JSON(permissionMode, permissionMode_);
         DARABONBA_PTR_TO_JSON(swaggerConfig, swaggerConfig_);
       };
       friend void from_json(const Darabonba::Json& j, Body& obj) { 
@@ -49,6 +50,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(customTags, customTags_);
         DARABONBA_PTR_FROM_JSON(deploymentConfig, deploymentConfig_);
         DARABONBA_PTR_FROM_JSON(description, description_);
+        DARABONBA_PTR_FROM_JSON(permissionMode, permissionMode_);
         DARABONBA_PTR_FROM_JSON(swaggerConfig, swaggerConfig_);
       };
       Body() = default ;
@@ -202,21 +204,21 @@ namespace Models
 
 
         protected:
-          // The CPU specification. Unit: cores. Default value: 0.25.
+          // The CPU specification in cores. Default value: 0.25.
           shared_ptr<double> cpu_ {};
-          // The ephemeral disk size. Unit: MB. Valid values: 512 and 10240.
+          // The ephemeral disk size in MB. Valid values: 512 and 10240.
           shared_ptr<int32_t> diskSize_ {};
           // The environment variables.
           shared_ptr<map<string, string>> environmentVariables_ {};
-          // The ARN of the RAM role used when user code accesses downstream Alibaba Cloud resources.
+          // The ARN of the RAM role used by user code to access downstream Alibaba Cloud resources.
           shared_ptr<string> executionRoleArn_ {};
           // Default value: 200.
           shared_ptr<int32_t> instanceConcurrency_ {};
-          // Unit: MB. Default value: 512.
+          // The unit is MB. Default value: 512.
           shared_ptr<int32_t> memory_ {};
           // Default value: 9000.
           shared_ptr<int32_t> port_ {};
-          // Unit: seconds. Default value: 300.
+          // The unit is seconds. Default value: 300.
           shared_ptr<int32_t> timeout_ {};
         };
 
@@ -303,7 +305,7 @@ namespace Models
           shared_ptr<bool> enabled_ {};
           // The reserved reference to the parameter transformation and result enhancement rule set.
           shared_ptr<string> ruleSetId_ {};
-          // The transformation rule version.
+          // The version of the transformation rule.
           shared_ptr<string> version_ {};
         };
 
@@ -391,11 +393,11 @@ namespace Models
 
 
           protected:
-            // The OSS bucket name.
+            // The name of the OSS bucket.
             shared_ptr<string> bucketName_ {};
-            // The OSS bucket path.
+            // The path in the OSS bucket.
             shared_ptr<string> bucketPath_ {};
-            // The OSS service endpoint.
+            // The endpoint of the OSS service.
             shared_ptr<string> endpoint_ {};
             // The local mount directory.
             shared_ptr<string> mountDir_ {};
@@ -478,11 +480,11 @@ namespace Models
         protected:
           // The network mode.
           shared_ptr<string> networkMode_ {};
-          // The security group ID.
+          // The ID of the security group.
           shared_ptr<string> securityGroupId_ {};
           // The list of vSwitch IDs.
           shared_ptr<vector<string>> vSwitchIds_ {};
-          // The VPC ID.
+          // The ID of the virtual private cloud (VPC).
           shared_ptr<string> vpcId_ {};
         };
 
@@ -560,7 +562,7 @@ namespace Models
             shared_ptr<bool> enableTls_ {};
             // The local mount directory.
             shared_ptr<string> mountDir_ {};
-            // The NAS server address.
+            // The address of the NAS server.
             shared_ptr<string> serverAddr_ {};
           };
 
@@ -590,11 +592,11 @@ namespace Models
 
 
         protected:
-          // The runtime user group ID.
+          // The ID of the user group.
           shared_ptr<int32_t> groupId_ {};
           // The list of NAS mount points.
           shared_ptr<vector<NasConfiguration::MountPoints>> mountPoints_ {};
-          // The runtime user ID.
+          // The ID of the user.
           shared_ptr<int32_t> userId_ {};
         };
 
@@ -654,13 +656,13 @@ namespace Models
 
 
         protected:
-          // For example, /mcp or /sse.
+          // The MCP endpoint path, such as /mcp or /sse.
           shared_ptr<string> endpointPath_ {};
-          // Currently fixed to 1.
+          // The number of concurrent sessions per instance. This value is currently fixed at 1.
           shared_ptr<int32_t> sessionConcurrencyPerInstance_ {};
-          // The session idle timeout. Unit: seconds. Default value: 1800.
+          // The session idle timeout in seconds. Default value: 1800.
           shared_ptr<int32_t> sessionIdleTimeoutSeconds_ {};
-          // The maximum session lifetime. Unit: seconds. Default value: 21600.
+          // The maximum session lifetime in seconds. Default value: 21600.
           shared_ptr<int32_t> sessionMaxLifetimeSeconds_ {};
         };
 
@@ -733,11 +735,11 @@ namespace Models
           shared_ptr<bool> enableInstanceMetrics_ {};
           // Specifies whether to collect request metrics.
           shared_ptr<bool> enableRequestMetrics_ {};
-          // The log segmentation start rule for Function Compute.
+          // The start rule for Function Compute log splitting.
           shared_ptr<string> logBeginRule_ {};
-          // The Logstore name.
+          // The name of the Logstore.
           shared_ptr<string> logstore_ {};
-          // The Log Service project name.
+          // The name of the Simple Log Service project.
           shared_ptr<string> project_ {};
         };
 
@@ -852,11 +854,11 @@ namespace Models
             shared_ptr<string> description_ {};
             // Specifies whether to enable the hook.
             shared_ptr<bool> enabled_ {};
-            // The hook event.
+            // The event of the hook.
             shared_ptr<string> event_ {};
-            // The HTTP request headers for the hook.
+            // The request headers of the hook.
             shared_ptr<map<string, string>> headers_ {};
-            // The timeout period, in milliseconds.
+            // The timeout period of the hook, in milliseconds.
             shared_ptr<int32_t> timeout_ {};
             // The callback URL of the hook.
             shared_ptr<string> url_ {};
@@ -873,7 +875,7 @@ namespace Models
 
 
         protected:
-          // The list of hooks executed in array order. Supported hook events: PRE_LIST_TOOLS, PRE_CALL_TOOL, POST_LIST_TOOLS, and POST_CALL_TOOL.
+          // Executes PRE_LIST_TOOLS, PRE_CALL_TOOL, POST_LIST_TOOLS, and POST_CALL_TOOL hooks in the array order.
           shared_ptr<vector<HookConfiguration::Hooks>> hooks_ {};
         };
 
@@ -965,17 +967,17 @@ namespace Models
 
 
         protected:
-          // The ID of the Alibaba Cloud Container Registry (ACR) instance.
+          // The ID of the ACR instance.
           shared_ptr<string> acrInstanceId_ {};
           // The startup command.
           shared_ptr<vector<string>> command_ {};
-          // The container entrypoint arguments.
+          // The entrypoint parameters of the container.
           shared_ptr<vector<string>> entrypoint_ {};
           // The URL of the container image.
           shared_ptr<string> image_ {};
           // The type of the image registry.
           shared_ptr<string> imageRegistryType_ {};
-          // The MCP runtime mode for the custom container. The custom container must expose a standard MCP endpoint. Set this parameter to SELF_HOSTED.
+          // The MCP runtime mode. Custom containers must currently expose standard MCP by themselves. Valid value: SELF_HOSTED.
           shared_ptr<string> mcpRuntimeMode_ {};
           // The source type of the container. Currently fixed to CONTAINER_IMAGE.
           shared_ptr<string> sourceType_ {};
@@ -1030,11 +1032,11 @@ namespace Models
 
 
         protected:
-          // The temporary code package token returned by GetMcpCodePackageUploadUrl. After the pre-signed upload is complete, use this token to create or update a code deployment.
+          // The temporary code package token returned by GetMcpCodePackageUploadUrl. It is used to create or update a code deployment after a presigned upload is completed.
           shared_ptr<string> codePackageToken_ {};
-          // The full startup command. Pass each argument as a separate element in order. For example, when using supergateway to start a stdio MCP, pass supergateway, --stdio, the full subcommand, and the remaining arguments.
+          // The complete startup command, passed sequentially by parameter boundaries. For example, when using supergateway to start a stdio MCP, pass supergateway, --stdio, the complete subcommand, and the remaining parameters.
           shared_ptr<vector<string>> command_ {};
-          // The code package runtime. Valid values: python3.13, nodejs22, and java17.
+          // The runtime of the code package. Valid values: python3.13, nodejs22, and java17.
           shared_ptr<string> language_ {};
         };
 
@@ -1096,11 +1098,11 @@ namespace Models
         protected:
           // Specifies whether to enable authorization.
           shared_ptr<bool> authorizationEnabled_ {};
-          // The Alibaba Cloud Resource Name (ARN) of the credential provider.
+          // The ARN of the credential provider.
           shared_ptr<string> credentialProviderArn_ {};
           // The type of the credential provider.
           shared_ptr<string> credentialProviderType_ {};
-          // Specifies whether to enable Agent Identity.
+          // Specifies whether to enable agent identity.
           shared_ptr<bool> enabled_ {};
         };
 
@@ -1151,13 +1153,11 @@ namespace Models
 
 
         protected:
-          // The AgentCore Credential referenced when mode is set to CREDENTIAL.
+          // References an AgentCore credential when the mode is CREDENTIAL.
           shared_ptr<string> credentialId_ {};
-          // Specifies whether to enable ingress access control.
+          // Specifies whether to enable entrypoint access control.
           shared_ptr<bool> enabled_ {};
-          // The access control mode. Valid values:
-          // - ANONYMOUS: anonymous access.
-          // - CREDENTIAL: access with an AgentCore credential.
+          // Specifies the access control mode. ANONYMOUS indicates anonymous access. CREDENTIAL indicates the use of AgentCore access credentials.
           shared_ptr<string> mode_ {};
         };
 
@@ -1290,13 +1290,11 @@ namespace Models
 
 
       protected:
-        // The MCP ingress access control configuration.
+        // The MCP entrypoint access control.
         shared_ptr<DeploymentConfig::AccessControl> accessControl_ {};
-        // The Agent Identity configuration.
+        // The agent identity configuration.
         shared_ptr<DeploymentConfig::AgentIdentityConfiguration> agentIdentityConfiguration_ {};
-        // The artifact type. Valid values:
-        // - Code: a ZIP code package.
-        // - Container: a custom container.
+        // The artifact type. Code indicates a ZIP code package. Container indicates a custom container.
         shared_ptr<string> artifactType_ {};
         // The code package configuration.
         shared_ptr<DeploymentConfig::CodeConfiguration> codeConfiguration_ {};
@@ -1464,7 +1462,7 @@ namespace Models
         protected:
           // The name.
           shared_ptr<string> name_ {};
-          // The authentication parameter value.
+          // The value of the authentication parameter.
           shared_ptr<string> value_ {};
         };
 
@@ -1506,7 +1504,7 @@ namespace Models
 
 
         protected:
-          // The API key for authenticating MCP callers.
+          // The API key used to verify MCP callers.
           shared_ptr<string> apiKey_ {};
           // The name of the request header that carries the API key.
           shared_ptr<string> headerName_ {};
@@ -1549,7 +1547,7 @@ namespace Models
 
 
       protected:
-        // The API key authentication configuration for code-deployed MCP callers.
+        // The API key authentication configuration for callers of code-deployed MCP services.
         shared_ptr<Auth::CodePackage> codePackage_ {};
         // The direct proxy authentication configuration.
         shared_ptr<Auth::DirectProxy> directProxy_ {};
@@ -1560,7 +1558,8 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->addresses_ == nullptr
-        && this->auth_ == nullptr && this->customTags_ == nullptr && this->deploymentConfig_ == nullptr && this->description_ == nullptr && this->swaggerConfig_ == nullptr; };
+        && this->auth_ == nullptr && this->customTags_ == nullptr && this->deploymentConfig_ == nullptr && this->description_ == nullptr && this->permissionMode_ == nullptr
+        && this->swaggerConfig_ == nullptr; };
       // addresses Field Functions 
       bool hasAddresses() const { return this->addresses_ != nullptr;};
       void deleteAddresses() { this->addresses_ = nullptr;};
@@ -1604,6 +1603,13 @@ namespace Models
       inline Body& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
+      // permissionMode Field Functions 
+      bool hasPermissionMode() const { return this->permissionMode_ != nullptr;};
+      void deletePermissionMode() { this->permissionMode_ = nullptr;};
+      inline string getPermissionMode() const { DARABONBA_PTR_GET_DEFAULT(permissionMode_, "") };
+      inline Body& setPermissionMode(string permissionMode) { DARABONBA_PTR_SET_VALUE(permissionMode_, permissionMode) };
+
+
       // swaggerConfig Field Functions 
       bool hasSwaggerConfig() const { return this->swaggerConfig_ != nullptr;};
       void deleteSwaggerConfig() { this->swaggerConfig_ = nullptr;};
@@ -1614,15 +1620,17 @@ namespace Models
     protected:
       // The list of MCP service addresses.
       shared_ptr<vector<string>> addresses_ {};
-      // The backend authentication configuration. When enabled is set to true: for DIRECT_PROXY, specify directProxy (name/value). For HTTP_TO_MCP, specify the httpToMcp array (each item contains id/type/credential, and apiKey also requires position/name). Multiple authentication objects are supported, and the first one is used as the default upstream credential. HTTP_TO_MCP credentials are merged into the securitySchemes of the Swagger specification.
+      // The backend authentication configuration. When enabled is set to true, specify directProxy (name and value) for DIRECT_PROXY, specify the httpToMcp array (each item includes id, type, and credential; apiKey also requires position and name) for HTTP_TO_MCP, which supports multiple authentication objects where the first one is the default upstream credential, and specify codePackage (headerName and apiKey) for CODE_PACKAGE to verify MCP callers. HTTP_TO_MCP credentials are merged into the securitySchemes of Swagger.
       shared_ptr<Body::Auth> auth_ {};
-      // Custom tags. Multiple tags are supported. Pass an empty list to clear all tags.
+      // The custom tags. Multiple tags are supported. Pass an empty list to clear the tags.
       shared_ptr<vector<string>> customTags_ {};
-      // Deployment configuration patch for a CODE_PACKAGE MCP. Object fields are merged hierarchically. To keep the current deployed code package, omit CodeConfiguration.CodePackageToken so the server reuses the existing package. To replace the code package, pass a new non-empty Token. CodePackageUrl is supported only for CreateMcp and is not supported during updates.
+      // The deployment configuration patch for CODE_PACKAGE MCP, where object fields are merged hierarchically. To retain the current code package, omit CodeConfiguration.CodePackageToken and the server reuses the deployed code package. To replace the code package, provide a new non-empty token. CodePackageUrl is supported only in CreateMcp and not in updates.
       shared_ptr<Body::DeploymentConfig> deploymentConfig_ {};
       // The description.
       shared_ptr<string> description_ {};
-      // Required if Type is set to HTTP_TO_MCP.
+      // The access permission mode. PUBLIC indicates public access, and CONTROLLED indicates that access is controlled based on permission rules.
+      shared_ptr<string> permissionMode_ {};
+      // The Swagger configuration. Specify this field if the type is HTTP_TO_MCP.
       shared_ptr<string> swaggerConfig_ {};
     };
 
@@ -1647,7 +1655,7 @@ namespace Models
   protected:
     // The request body.
     shared_ptr<UpdateMcpRequest::Body> body_ {};
-    // The client token that is used to ensure the idempotency of the request.
+    // The client token used to ensure the idempotency of the request.
     shared_ptr<string> clientToken_ {};
   };
 

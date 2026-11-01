@@ -81,6 +81,10 @@
 #include <alibabacloud/models/CreateModelConnectionShrinkRequest.hpp>
 #include <alibabacloud/models/CreateModelConnectionResponseBody.hpp>
 #include <alibabacloud/models/CreateModelConnectionResponse.hpp>
+#include <alibabacloud/models/CreatePermissionRulesRequest.hpp>
+#include <alibabacloud/models/CreatePermissionRulesShrinkRequest.hpp>
+#include <alibabacloud/models/CreatePermissionRulesResponseBody.hpp>
+#include <alibabacloud/models/CreatePermissionRulesResponse.hpp>
 #include <alibabacloud/models/CreateSkillDraftRequest.hpp>
 #include <alibabacloud/models/CreateSkillDraftShrinkRequest.hpp>
 #include <alibabacloud/models/CreateSkillDraftResponseBody.hpp>
@@ -101,6 +105,9 @@
 #include <alibabacloud/models/DebugModelShrinkRequest.hpp>
 #include <alibabacloud/models/DebugModelResponseBody.hpp>
 #include <alibabacloud/models/DebugModelResponse.hpp>
+#include <alibabacloud/models/DeleteAccessApplicationRequest.hpp>
+#include <alibabacloud/models/DeleteAccessApplicationResponseBody.hpp>
+#include <alibabacloud/models/DeleteAccessApplicationResponse.hpp>
 #include <alibabacloud/models/DeleteAgentIMChannelRequest.hpp>
 #include <alibabacloud/models/DeleteAgentIMChannelResponseBody.hpp>
 #include <alibabacloud/models/DeleteAgentIMChannelResponse.hpp>
@@ -146,6 +153,9 @@
 #include <alibabacloud/models/DeleteModelConnectionRequest.hpp>
 #include <alibabacloud/models/DeleteModelConnectionResponseBody.hpp>
 #include <alibabacloud/models/DeleteModelConnectionResponse.hpp>
+#include <alibabacloud/models/DeletePermissionRuleRequest.hpp>
+#include <alibabacloud/models/DeletePermissionRuleResponseBody.hpp>
+#include <alibabacloud/models/DeletePermissionRuleResponse.hpp>
 #include <alibabacloud/models/DeleteSkillRequest.hpp>
 #include <alibabacloud/models/DeleteSkillResponseBody.hpp>
 #include <alibabacloud/models/DeleteSkillResponse.hpp>
@@ -181,6 +191,9 @@
 #include <alibabacloud/models/ForcePublishSkillVersionShrinkRequest.hpp>
 #include <alibabacloud/models/ForcePublishSkillVersionResponseBody.hpp>
 #include <alibabacloud/models/ForcePublishSkillVersionResponse.hpp>
+#include <alibabacloud/models/GetAccessApplicationRequest.hpp>
+#include <alibabacloud/models/GetAccessApplicationResponseBody.hpp>
+#include <alibabacloud/models/GetAccessApplicationResponse.hpp>
 #include <alibabacloud/models/GetAgentCodePackageDownloadUrlRequest.hpp>
 #include <alibabacloud/models/GetAgentCodePackageDownloadUrlResponseBody.hpp>
 #include <alibabacloud/models/GetAgentCodePackageDownloadUrlResponse.hpp>
@@ -374,6 +387,9 @@
 #include <alibabacloud/models/ListModelsRequest.hpp>
 #include <alibabacloud/models/ListModelsResponseBody.hpp>
 #include <alibabacloud/models/ListModelsResponse.hpp>
+#include <alibabacloud/models/ListPermissionRulesRequest.hpp>
+#include <alibabacloud/models/ListPermissionRulesResponseBody.hpp>
+#include <alibabacloud/models/ListPermissionRulesResponse.hpp>
 #include <alibabacloud/models/ListPredefinedModelProvidersRequest.hpp>
 #include <alibabacloud/models/ListPredefinedModelProvidersResponseBody.hpp>
 #include <alibabacloud/models/ListPredefinedModelProvidersResponse.hpp>
@@ -447,6 +463,10 @@
 #include <alibabacloud/models/SubmitSkillVersionShrinkRequest.hpp>
 #include <alibabacloud/models/SubmitSkillVersionResponseBody.hpp>
 #include <alibabacloud/models/SubmitSkillVersionResponse.hpp>
+#include <alibabacloud/models/UpdateAccessApplicationRequest.hpp>
+#include <alibabacloud/models/UpdateAccessApplicationShrinkRequest.hpp>
+#include <alibabacloud/models/UpdateAccessApplicationResponseBody.hpp>
+#include <alibabacloud/models/UpdateAccessApplicationResponse.hpp>
 #include <alibabacloud/models/UpdateAgentIMChannelRequest.hpp>
 #include <alibabacloud/models/UpdateAgentIMChannelShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateAgentIMChannelResponseBody.hpp>

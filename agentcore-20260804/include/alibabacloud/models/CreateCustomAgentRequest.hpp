@@ -36,6 +36,8 @@ namespace Models
     class Body : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Body& obj) { 
+        DARABONBA_PTR_TO_JSON(accessMode, accessMode_);
+        DARABONBA_PTR_TO_JSON(accessScope, accessScope_);
         DARABONBA_PTR_TO_JSON(agenticFsMounts, agenticFsMounts_);
         DARABONBA_PTR_TO_JSON(artifact, artifact_);
         DARABONBA_PTR_TO_JSON(customImage, customImage_);
@@ -53,6 +55,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(useImageCache, useImageCache_);
       };
       friend void from_json(const Darabonba::Json& j, Body& obj) { 
+        DARABONBA_PTR_FROM_JSON(accessMode, accessMode_);
+        DARABONBA_PTR_FROM_JSON(accessScope, accessScope_);
         DARABONBA_PTR_FROM_JSON(agenticFsMounts, agenticFsMounts_);
         DARABONBA_PTR_FROM_JSON(artifact, artifact_);
         DARABONBA_PTR_FROM_JSON(customImage, customImage_);
@@ -218,7 +222,7 @@ namespace Models
 
 
         protected:
-          // Specifies whether to enable elastic scaling. A value of true indicates that elastic scaling is enabled, and a value of false indicates that elastic scaling is disabled. When runtime is provided, omitting this field defaults to false.
+          // Specifies whether to enable elastic scaling. A value of true indicates that elastic scaling is enabled, and false indicates that it is disabled. When runtime is provided, omitting this field defaults to false.
           // 
           // This parameter is required.
           shared_ptr<bool> enabled_ {};
@@ -303,7 +307,7 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<Runtime::Compute> compute_ {};
-        // The optional elastic policy. When runtime is provided, omitting hpa or its fields applies the following default values: enabled is false, the minimum number of instances is 1, the maximum number of instances is 10, the maximum number of concurrent sessions per instance is 100, and the session idle timeout is 600 seconds. To retain the original policy during an update, provide the complete hpa configuration.
+        // The optional elastic policy. When runtime is provided, omitting hpa or its fields uses the following default values: enabled is false, the minimum number of instances is 1, the maximum number of instances is 10, the maximum number of concurrent sessions per instance is 100, and the session idle timeout is 600 seconds. To retain the original policy during an update, provide the complete hpa configuration.
         shared_ptr<Runtime::Hpa> hpa_ {};
         // The session policy configuration used to set the session association method for requests.
         // 
@@ -483,7 +487,7 @@ namespace Models
         shared_ptr<string> mountPath_ {};
         // The non-empty object directory prefix in the bucket, such as datasets/train. Leading and trailing forward slashes (/) are removed. The root directory is not supported, and parent directory traversal is not allowed.
         shared_ptr<string> path_ {};
-        // Specifies whether the mount is read-only. A value of true indicates read-only, and a value of false indicates read and write. If you omit this parameter, the default value is false.
+        // Specifies whether the mount is read-only. A value of true indicates read-only, and a value of false indicates read and write. If this parameter is omitted, the default value is false.
         shared_ptr<bool> readOnly_ {};
       };
 
@@ -568,7 +572,7 @@ namespace Models
 
 
         protected:
-          // Specifies whether to allow the agent to access the user VPC configured for the workspace. A Boolean value is required when you configure accessVpc. For this setting to take effect, the workspace must also allow VPC access.
+          // Specifies whether to allow the agent to access the user VPC configured for the workspace. A Boolean value is required when accessVpc is configured. For this setting to take effect, the workspace must also allow VPC access.
           shared_ptr<bool> enabled_ {};
         };
 
@@ -600,7 +604,7 @@ namespace Models
 
 
         protected:
-          // Specifies whether to allow the agent to access the Internet. A Boolean value is required when you configure accessInternet. For this setting to take effect, the workspace must also allow Internet access.
+          // Specifies whether to allow the agent to access the Internet. A Boolean value is required when accessInternet is configured. For this setting to take effect, the workspace must also allow Internet access.
           shared_ptr<bool> enabled_ {};
         };
 
@@ -627,7 +631,7 @@ namespace Models
       protected:
         // The Internet access configuration. If this access item is omitted, Internet access is not restricted on the agent side. However, the workspace must still allow Internet access.
         shared_ptr<Network::AccessInternet> accessInternet_ {};
-        // The user VPC access configuration. If this access item is omitted, VPC access is not restricted on the agent side. However, the workspace must still be configured to allow access to the user VPC.
+        // The user VPC access configuration. If this access item is omitted, VPC access is not restricted on the agent side. However, the workspace must be configured to allow access to the user VPC.
         shared_ptr<Network::AccessVpc> accessVpc_ {};
       };
 
@@ -688,9 +692,9 @@ namespace Models
 
 
         protected:
-          // The name of the SLS Logstore that receives agent logs.
+          // The name of the Simple Log Service Logstore that receives agent logs.
           shared_ptr<string> logstore_ {};
-          // The name of the SLS project that receives agent logs.
+          // The name of the Simple Log Service project that receives agent logs.
           shared_ptr<string> project_ {};
         };
 
@@ -705,7 +709,7 @@ namespace Models
 
 
       protected:
-        // The SLS log delivery destination. When you configure this object, neither the project nor the logstore field can be empty.
+        // The Simple Log Service log delivery destination. When this object is configured, neither the project nor the logstore field can be empty.
         shared_ptr<Logging::Sls> sls_ {};
       };
 
@@ -783,13 +787,13 @@ namespace Models
 
 
       protected:
-        // This parameter currently takes no effect. Omit this parameter.
+        // This parameter is currently invalid. Omit this field.
         shared_ptr<int32_t> healthyThreshold_ {};
         // The interval between two health checks, in seconds. This value must be a positive integer. Default value: 10.
         shared_ptr<int32_t> intervalSeconds_ {};
         // The HTTP health check path. The path must start with a forward slash (/). Default value: /healthz.
         shared_ptr<string> path_ {};
-        // The port accessed for health checks. This field is required when you configure a health check. Valid values: 1 to 65535.
+        // The port accessed for health checks. This field is required when health checks are configured. Valid values: 1 to 65535.
         shared_ptr<int32_t> port_ {};
         // The timeout period for a single health check, in seconds. This value must be a positive integer and less than the value of intervalSeconds. Default value: 2.
         shared_ptr<int32_t> timeoutSeconds_ {};
@@ -854,7 +858,7 @@ namespace Models
 
 
         protected:
-          // The name of the environment variable. This parameter cannot be empty and must be unique in the current environment variable list.
+          // The name of the environment variable. This parameter cannot be empty and must be unique within the current environment variable list.
           // 
           // This parameter is required.
           shared_ptr<string> name_ {};
@@ -968,7 +972,7 @@ namespace Models
           shared_ptr<string> type_ {};
           // The ID of the security group. This parameter is required when type is set to vpc. The security group must belong to the selected VPC.
           shared_ptr<string> vSwitchId_ {};
-          // The ID of the VPC. This parameter is required when type is set to vpc. The account and region to which the VPC belongs are verified by the backend.
+          // The ID of the VPC. This parameter is required when type is set to vpc. The associated account and region are verified by the backend.
           shared_ptr<string> vpcId_ {};
         };
 
@@ -1012,15 +1016,15 @@ namespace Models
 
 
       protected:
-        // The custom image address. This parameter is required when you submit customImage and is verified by the backend. Specify the full registry[:port]/repository:tag or registry[:port]/repository@sha256:digest format. Multi-level paths are supported. Do not include the protocol or user information.
+        // The address of the custom image. This parameter is required when you submit customImage and is verified by the backend. Specify the full registry[:port]/repository:tag or registry[:port]/repository@sha256:digest format. Multi-level paths are supported. Do not include the protocol or user information.
         shared_ptr<string> image_ {};
-        // The repository password or token for the current task. Submit a non-empty value in pair with username. The value is not trimmed. Null, empty strings, or masked values are not accepted. This parameter is used only for the current task and is not permanently saved or returned. To use anonymous access, omit both this parameter and username.
+        // The password or token for the current repository.
         shared_ptr<string> password_ {};
-        // The independent network configuration for pulling the image. This parameter is required when you submit customImage and is verified by the backend. To use the public network, specify only type=public.
+        // The independent network configuration for pulling the image. This parameter is required when you submit customImage and is verified by the backend. For public networks, only pass type=public.
         shared_ptr<CustomImage::PullNetwork> pullNetwork_ {};
-        // Specifies whether to skip HTTPS certificate verification. If you omit this parameter, the default value is false. Null is not accepted. HTTP fallback semantics are still under discussion and do not affect the definition of this field. The image address does not include the protocol.
+        // Specifies whether to skip HTTPS certificate verification.
         shared_ptr<bool> skipTlsVerify_ {};
-        // The repository username for the current task. When you create or explicitly update a private source, resubmit this parameter in pair with password. Existing copies also require verification. To use anonymous access, omit both this parameter and password. Read-only usernames are not automatically used as input for the current task.
+        // The username for the current repository.
         shared_ptr<string> username_ {};
       };
 
@@ -1131,7 +1135,7 @@ namespace Models
           shared_ptr<string> repo_ {};
           // The image tag used for deployment. This parameter cannot be empty. When you update the tag, you must also specify artifact.port and other required image fields.
           shared_ptr<string> tag_ {};
-          // The image source type. Only acr is supported, which indicates Alibaba Cloud Container Registry (ACR).
+          // The source type of the image. Currently, only acr is supported, which indicates Alibaba Cloud Container Registry (ACR).
           // 
           // This parameter is required.
           shared_ptr<string> type_ {};
@@ -1184,15 +1188,15 @@ namespace Models
 
 
         protected:
-          // The startup command for the code package. This parameter is required in code package mode. The working directory is the extracted code root directory /code, such as python main.py. Quotes and escapes are supported. Environment variables, pipes, and logical operations are not automatically expanded. Use scripts within the package for complex commands.
+          // The startup command for the code package. This parameter is required in code package mode. The working directory is the root directory of the extracted code, which is /code. Example: python main.py. Quotes and escapes are supported. Environment variables, pipes, and logical operations are not automatically expanded. For complex commands, use a script within the package.
           // 
           // This parameter is required.
           shared_ptr<string> entrypoint_ {};
-          // The code runtime environment identifier, such as python3.12. When you create or switch environments, use the identifier returned by ListAgentCodeRuntimes. The identifier is verified by the current version catalog and is not a fixed enumeration.
+          // The identifier of the code runtime environment, such as python3.12. When you create or switch the environment, use the identifier returned by ListAgentCodeRuntimes. The identifier is verified by the current version catalog and is not a fixed enumeration.
           // 
           // This parameter is required.
           shared_ptr<string> languageRuntime_ {};
-          // The source address of the code package. This parameter supports oss:// addresses or HTTPS object addresses of standard OSS public domain names, including OSS signed URLs. Arbitrary external sites, custom domain names, and additional authentication request headers are not supported. After a local upload, use the sourceUri returned by GetAgentCodePackageUploadUrl. The address is reverified and transferred during creation or update. After the address is saved, a fixed oss:// address of the platform is returned. You can reuse this fixed address for regular updates.
+          // The source URI of the code package. This parameter supports oss:// addresses or HTTPS object addresses of standard OSS public domain names, including OSS signed URLs. Arbitrary external sites, custom domain names, or additional authentication request headers are not supported. For local uploads, use the sourceUri returned by GetAgentCodePackageUploadUrl. The URI is reverified and transferred during creation or update. After the URI is saved, a fixed oss:// address of the platform is returned. You can reuse this fixed address for regular updates.
           // 
           // This parameter is required.
           shared_ptr<string> sourceUri_ {};
@@ -1226,11 +1230,11 @@ namespace Models
 
 
       protected:
-        // The code package deployment configuration. This parameter is mutually exclusive with container. Code packages use the ZIP or TAR.GZ format. Dependencies must be packaged by the user. The platform does not install dependencies or perform online builds.
+        // The code package deployment configuration. This parameter is mutually exclusive with container. The code package uses the ZIP or TAR.GZ format. Dependencies must be packaged by the user. The platform does not install dependencies or perform online builds.
         shared_ptr<Artifact::Code> code_ {};
-        // The Container Registry (ACR) container image configuration. You must specify type, instanceId, namespace, repo, and tag. Do not configure code at the same time.
+        // The Container Registry (ACR) container image configuration. You must specify the type, instanceId, namespace, repo, and tag parameters. Do not configure code at the same time.
         shared_ptr<Artifact::Container> container_ {};
-        // The TCP port on which the agent service listens. Valid values: 1 to 65535.
+        // The TCP port listened by the agent service. Valid values: 1 to 65535.
         // 
         // This parameter is required.
         shared_ptr<int32_t> port_ {};
@@ -1292,20 +1296,35 @@ namespace Models
 
 
       protected:
-        // The subdirectory under /mnt/agenticfs/ in the container. This parameter is required for each mount item. Mount targets cannot be duplicated or form parent-child overrides.
+        // The subdirectory under /mnt/agenticfs/ in the container. This parameter is required for each mount item and is verified by the backend. Mount targets must not be duplicated or form parent-child overrides.
         shared_ptr<string> mountPath_ {};
         // The existing non-empty relative directory under the access point. This parameter is required for each mount item. Root directories, absolute paths, and parent directory traversals are not allowed.
         shared_ptr<string> path_ {};
-        // Specifies whether the mount is read-only. A value of true indicates read-only, and a value of false indicates read and write. If you omit this parameter, the default value is false.
+        // Specifies whether the mount is read-only. A value of true indicates read-only, and a value of false indicates read and write. If this parameter is omitted, the default value is false.
         shared_ptr<bool> readOnly_ {};
         // The domain name of the access point. This parameter is required for each mount item. Specify the DomainName value from the ListAccessPoints response of NAS. Do not include the protocol, port, or path.
         shared_ptr<string> server_ {};
       };
 
-      virtual bool empty() const override { return this->agenticFsMounts_ == nullptr
-        && this->artifact_ == nullptr && this->customImage_ == nullptr && this->description_ == nullptr && this->environment_ == nullptr && this->healthCheck_ == nullptr
-        && this->logging_ == nullptr && this->name_ == nullptr && this->network_ == nullptr && this->observability_ == nullptr && this->ossMounts_ == nullptr
-        && this->protocol_ == nullptr && this->roleArn_ == nullptr && this->runtime_ == nullptr && this->useImageCache_ == nullptr; };
+      virtual bool empty() const override { return this->accessMode_ == nullptr
+        && this->accessScope_ == nullptr && this->agenticFsMounts_ == nullptr && this->artifact_ == nullptr && this->customImage_ == nullptr && this->description_ == nullptr
+        && this->environment_ == nullptr && this->healthCheck_ == nullptr && this->logging_ == nullptr && this->name_ == nullptr && this->network_ == nullptr
+        && this->observability_ == nullptr && this->ossMounts_ == nullptr && this->protocol_ == nullptr && this->roleArn_ == nullptr && this->runtime_ == nullptr
+        && this->useImageCache_ == nullptr; };
+      // accessMode Field Functions 
+      bool hasAccessMode() const { return this->accessMode_ != nullptr;};
+      void deleteAccessMode() { this->accessMode_ = nullptr;};
+      inline string getAccessMode() const { DARABONBA_PTR_GET_DEFAULT(accessMode_, "") };
+      inline Body& setAccessMode(string accessMode) { DARABONBA_PTR_SET_VALUE(accessMode_, accessMode) };
+
+
+      // accessScope Field Functions 
+      bool hasAccessScope() const { return this->accessScope_ != nullptr;};
+      void deleteAccessScope() { this->accessScope_ = nullptr;};
+      inline string getAccessScope() const { DARABONBA_PTR_GET_DEFAULT(accessScope_, "") };
+      inline Body& setAccessScope(string accessScope) { DARABONBA_PTR_SET_VALUE(accessScope_, accessScope) };
+
+
       // agenticFsMounts Field Functions 
       bool hasAgenticFsMounts() const { return this->agenticFsMounts_ != nullptr;};
       void deleteAgenticFsMounts() { this->agenticFsMounts_ = nullptr;};
@@ -1434,43 +1453,47 @@ namespace Models
 
 
     protected:
+      // 省略时默认为 API_KEY。USER 表示使用用户身份访问。
+      shared_ptr<string> accessMode_ {};
+      // accessMode 为 USER 时必填；ALL 表示全部用户，SPECIFIED 表示指定用户。
+      shared_ptr<string> accessScope_ {};
       // The list of additional AgenticFS mounts. The total number of AgenticFS mounts and ossMounts cannot exceed 10. If you omit this parameter or pass an empty array [] during creation, no additional mounts are configured. If you omit this parameter during an update, the original value is retained. If you pass an empty array [], the mounts are cleared. You cannot pass null.
       shared_ptr<vector<Body::AgenticFsMounts>> agenticFsMounts_ {};
-      // The deployment artifact configuration. You must specify the service listening port and choose either code or container as the deployment method.
+      // The deployment artifact configuration. You must specify the service listening port in the port parameter and choose either code or container as the deployment method.
       // 
       // This parameter is required.
       shared_ptr<Body::Artifact> artifact_ {};
-      // The custom image source. This parameter is required when artifact.container.type is set to custom. Omit this parameter for other sources.
+      // The source of the custom image. This parameter is required when artifact.container.type is set to custom. Omit this parameter for other sources.
       shared_ptr<Body::CustomImage> customImage_ {};
-      // The description of the agent purpose. The description can be up to 1,024 characters in length after leading and trailing spaces are removed.
+      // The description of the agent\\"s purpose. The maximum length is 1,024 characters after leading and trailing whitespaces are removed.
       shared_ptr<string> description_ {};
       // The environment variable configuration passed to the agent runtime process.
       shared_ptr<Body::Environment> environment_ {};
-      // The optional HTTP health check configuration. When this object is provided, the port field is required, and unspecified fields use default values. Omitting this field during creation means no health check is configured. Omitting this top-level field during an update retains the original configuration, while passing null removes the health check.
+      // The optional HTTP health check configuration. When this object is provided, the port field is required, and unspecified fields use default values. Omitting this field during creation means no health check is configured. During an update, omitting this top-level field retains the original configuration, while passing null removes the health check.
       shared_ptr<Body::HealthCheck> healthCheck_ {};
-      // The log delivery configuration for the agent. You can specify the Simple Log Service (SLS) project and Logstore. After a successful creation or update, verify that logs are delivered as expected.
+      // The log delivery configuration for the agent. You can specify the Simple Log Service project and Logstore. After a successful creation or update, verify that logs are delivered properly.
       shared_ptr<Body::Logging> logging_ {};
-      // The custom name of the agent. The name must be 1 to 128 characters in length after leading and trailing spaces are removed. The name must be unique within the same workspace.
+      // The custom name of the agent. The name must be 1 to 128 characters in length after leading and trailing spaces are removed, and must be unique within the same workspace.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The network access configuration for the agent. When this object is provided, omitted access items are treated as allowed. The actual accessible scope is still restricted by the network configuration of the workspace. To retain the original restrictions during an update, specify both accessInternet and accessVpc.
+      // The network access configuration for the agent. When this object is provided, omitted access items are treated as allowed. The actual accessible scope is still restricted by the workspace network configuration. To retain the original restrictions during an update, specify both accessInternet and accessVpc.
       shared_ptr<Body::Network> network_ {};
-      // The high-code agent observability configuration.
+      // The observability configuration for high-code agents.
       shared_ptr<Body::Observability> observability_ {};
-      // The OSS mount list. The total number of items in this list and agenticFsMounts cannot exceed 10. Each item must include bucketName, path, and mountPath. Mount targets must not be duplicated or overlap with each other. During an update, this list is replaced entirely. Pass an empty array [] to clear the list.
+      // The OSS mount list. The total number of items in this list and agenticFsMounts cannot exceed 10. Each item must include bucketName, path, and mountPath. Mount targets must not be duplicated or overlap with each other. During an update, this list is replaced entirely. Pass an empty array to clear the list.
       shared_ptr<vector<Body::OssMounts>> ossMounts_ {};
       // The list of invocation protocols supported by the agent. Each item includes the protocol type and optional paths and request headers. During an update, this list is replaced entirely.
       shared_ptr<vector<Body::Protocol>> protocol_ {};
-      // The ARN of the RAM role used by the agent to access user cloud resources. The role must have the required permissions for the accessed cloud resources.
+      // The ARN of the RAM role used by the agent to access user cloud resources. The role must have permissions to access the cloud resources.
       // 
       // This parameter is required.
       shared_ptr<string> roleArn_ {};
-      // The runtime configuration, including compute specifications, session policies, and an optional elastic policy. Both compute and sessionPolicy must be specified at the same time.
+      // The runtime configuration, including compute specifications, session policies, and optional elastic policy. Both compute and sessionPolicy must be specified at the same time.
       // 
       // This parameter is required.
       shared_ptr<Body::Runtime> runtime_ {};
-      // The default value is false if omitted during creation. Explicit true or false settings are supported. The new contract rejects null and invalid types. Existing compatibility endpoints are handled according to migration agreements.
+      // Specifies whether to use the image cache. If omitted during creation, the default value is false. Explicit true or false settings are supported. The new contract rejects null and invalid types. Existing compatibility endpoints are handled according to migration agreements.
       shared_ptr<bool> useImageCache_ {};
     };
 
@@ -1493,7 +1516,7 @@ namespace Models
 
 
   protected:
-    // The JSON configuration of the custom agent. You must specify name, artifact, roleArn, and runtime.
+    // The JSON configuration of the custom agent. You must specify the name, artifact, roleArn, and runtime parameters.
     shared_ptr<CreateCustomAgentRequest::Body> body_ {};
     // Idempotence is not currently guaranteed. Do not rely on this parameter to prevent duplicate requests.
     shared_ptr<string> clientToken_ {};

@@ -42,6 +42,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(deploymentConfig, deploymentConfig_);
         DARABONBA_PTR_TO_JSON(description, description_);
         DARABONBA_PTR_TO_JSON(name, name_);
+        DARABONBA_PTR_TO_JSON(permissionMode, permissionMode_);
         DARABONBA_PTR_TO_JSON(protocol, protocol_);
         DARABONBA_PTR_TO_JSON(swaggerConfig, swaggerConfig_);
         DARABONBA_PTR_TO_JSON(type, type_);
@@ -53,6 +54,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(deploymentConfig, deploymentConfig_);
         DARABONBA_PTR_FROM_JSON(description, description_);
         DARABONBA_PTR_FROM_JSON(name, name_);
+        DARABONBA_PTR_FROM_JSON(permissionMode, permissionMode_);
         DARABONBA_PTR_FROM_JSON(protocol, protocol_);
         DARABONBA_PTR_FROM_JSON(swaggerConfig, swaggerConfig_);
         DARABONBA_PTR_FROM_JSON(type, type_);
@@ -1578,7 +1580,7 @@ namespace Models
 
       virtual bool empty() const override { return this->addresses_ == nullptr
         && this->auth_ == nullptr && this->customTags_ == nullptr && this->deploymentConfig_ == nullptr && this->description_ == nullptr && this->name_ == nullptr
-        && this->protocol_ == nullptr && this->swaggerConfig_ == nullptr && this->type_ == nullptr; };
+        && this->permissionMode_ == nullptr && this->protocol_ == nullptr && this->swaggerConfig_ == nullptr && this->type_ == nullptr; };
       // addresses Field Functions 
       bool hasAddresses() const { return this->addresses_ != nullptr;};
       void deleteAddresses() { this->addresses_ = nullptr;};
@@ -1629,6 +1631,13 @@ namespace Models
       inline Body& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+      // permissionMode Field Functions 
+      bool hasPermissionMode() const { return this->permissionMode_ != nullptr;};
+      void deletePermissionMode() { this->permissionMode_ = nullptr;};
+      inline string getPermissionMode() const { DARABONBA_PTR_GET_DEFAULT(permissionMode_, "") };
+      inline Body& setPermissionMode(string permissionMode) { DARABONBA_PTR_SET_VALUE(permissionMode_, permissionMode) };
+
+
       // protocol Field Functions 
       bool hasProtocol() const { return this->protocol_ != nullptr;};
       void deleteProtocol() { this->protocol_ = nullptr;};
@@ -1665,6 +1674,8 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
+      // PUBLIC 表示公开访问；CONTROLLED 表示根据权限规则控制访问。
+      shared_ptr<string> permissionMode_ {};
       // The MCP protocol.
       shared_ptr<string> protocol_ {};
       // Required if Type is set to HTTP_TO_MCP.

@@ -42,6 +42,8 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(accessMode, accessMode_);
+        DARABONBA_PTR_TO_JSON(accessScope, accessScope_);
         DARABONBA_PTR_TO_JSON(agentId, agentId_);
         DARABONBA_PTR_TO_JSON(createMode, createMode_);
         DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
@@ -55,6 +57,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(accessMode, accessMode_);
+        DARABONBA_PTR_FROM_JSON(accessScope, accessScope_);
         DARABONBA_PTR_FROM_JSON(agentId, agentId_);
         DARABONBA_PTR_FROM_JSON(createMode, createMode_);
         DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
@@ -78,9 +82,24 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->agentId_ == nullptr
-        && this->createMode_ == nullptr && this->createdAt_ == nullptr && this->deployType_ == nullptr && this->description_ == nullptr && this->latestSpecVersion_ == nullptr
-        && this->name_ == nullptr && this->runtime_ == nullptr && this->status_ == nullptr && this->updatedAt_ == nullptr && this->workspaceId_ == nullptr; };
+      virtual bool empty() const override { return this->accessMode_ == nullptr
+        && this->accessScope_ == nullptr && this->agentId_ == nullptr && this->createMode_ == nullptr && this->createdAt_ == nullptr && this->deployType_ == nullptr
+        && this->description_ == nullptr && this->latestSpecVersion_ == nullptr && this->name_ == nullptr && this->runtime_ == nullptr && this->status_ == nullptr
+        && this->updatedAt_ == nullptr && this->workspaceId_ == nullptr; };
+      // accessMode Field Functions 
+      bool hasAccessMode() const { return this->accessMode_ != nullptr;};
+      void deleteAccessMode() { this->accessMode_ = nullptr;};
+      inline string getAccessMode() const { DARABONBA_PTR_GET_DEFAULT(accessMode_, "") };
+      inline Data& setAccessMode(string accessMode) { DARABONBA_PTR_SET_VALUE(accessMode_, accessMode) };
+
+
+      // accessScope Field Functions 
+      bool hasAccessScope() const { return this->accessScope_ != nullptr;};
+      void deleteAccessScope() { this->accessScope_ = nullptr;};
+      inline string getAccessScope() const { DARABONBA_PTR_GET_DEFAULT(accessScope_, "") };
+      inline Data& setAccessScope(string accessScope) { DARABONBA_PTR_SET_VALUE(accessScope_, accessScope) };
+
+
       // agentId Field Functions 
       bool hasAgentId() const { return this->agentId_ != nullptr;};
       void deleteAgentId() { this->agentId_ = nullptr;};
@@ -159,15 +178,19 @@ namespace Models
 
 
     protected:
+      // The inbound access mode.
+      shared_ptr<string> accessMode_ {};
+      // The user access scope.
+      shared_ptr<string> accessScope_ {};
       // The unique identifier of the custom agent. You can obtain it from the response of CreateCustomAgent or ListCustomAgents.
       shared_ptr<string> agentId_ {};
-      // The creation method of the agent. The value is CUSTOM for custom agents.
+      // The creation mode of the agent. The value is CUSTOM for custom agents.
       shared_ptr<string> createMode_ {};
       // The time when the agent was created. The time is in ISO 8601 format. A trailing Z indicates the UTC time zone. Fractional seconds may be included.
       shared_ptr<string> createdAt_ {};
-      // The deployment method of the agent. Custom agents are deployed and managed by the platform. The value is MANAGED.
+      // The deployment mode of the agent. Custom agents are deployed and managed by the platform, so the value is MANAGED.
       shared_ptr<string> deployType_ {};
-      // The description of the agent\\"s purpose.
+      // The description of the agent.
       shared_ptr<string> description_ {};
       // The latest configuration version number. Updates with the same configuration may retain the original version number. This field does not indicate that the configuration has taken effect.
       shared_ptr<int64_t> latestSpecVersion_ {};
@@ -178,11 +201,11 @@ namespace Models
       // The overall status of the agent. Valid values:
       // - Creating: The agent is being created.
       // - Running: The agent is running.
-      // - Failed: The agent is in a failed state.
+      // - Failed: The agent failed.
       // - Updating: The agent is being updated.
       // - Deleting: The agent is being deleted.
-      // - Deleted: The agent has been deleted.
-      // Call GetCustomAgent to retrieve the latest configuration execution progress.
+      // - Deleted: The agent is deleted.
+      // Call GetCustomAgent to query the execution progress of the latest configuration.
       shared_ptr<string> status_ {};
       // The time when the agent was last updated. The time is in ISO 8601 format. A trailing Z indicates the UTC time zone. Fractional seconds may be included.
       shared_ptr<string> updatedAt_ {};
@@ -247,7 +270,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The unique identifier of the request. You can use this ID to locate and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. A value of true indicates success. A successful creation, update, or deletion does not mean that the background operation is complete.
+    // Indicates whether the request was processed successfully. A value of true indicates success. A successful creation, update, or deletion does not mean that the background operations are complete.
     shared_ptr<bool> success_ {};
   };
 
