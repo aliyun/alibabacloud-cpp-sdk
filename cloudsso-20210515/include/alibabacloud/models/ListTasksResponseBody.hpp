@@ -220,12 +220,13 @@ namespace Models
       shared_ptr<string> accessConfigurationId_ {};
       // The name of the access configuration.
       shared_ptr<string> accessConfigurationName_ {};
-      // The end time of the task.
+      // The end time of the task. The time is displayed in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> endTime_ {};
-      // The cause of the task failure.
+      // The reason why the task failed.
       // 
-      // > This parameter is returned only when the value of `Status` is `Failed`.
+      // > This parameter is returned only if Status is set to Failed.
       shared_ptr<string> failureReason_ {};
+      // The ID of the Alibaba Cloud account to which the authorization target belongs.
       shared_ptr<string> originTargetId_ {};
       // The ID of the CloudSSO identity.
       shared_ptr<string> principalId_ {};
@@ -233,43 +234,39 @@ namespace Models
       shared_ptr<string> principalName_ {};
       // The type of the CloudSSO identity. Valid values:
       // 
-      // - User
-      // 
-      // - Group
+      // - User: The CloudSSO user.
+      // - Group: The CloudSSO group.
       shared_ptr<string> principalType_ {};
-      // The start time of the task.
+      // The start time of the task. The time is displayed in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> startTime_ {};
-      // The task status. Valid values:
+      // The status of the task. Valid values:
       // 
       // - InProgress: The task is running.
-      // 
-      // - Success: The task is successful.
-      // 
+      // - Success: The task succeeded.
       // - Failed: The task failed.
       shared_ptr<string> status_ {};
-      // The ID of the task object.
+      // The ID of the task target.
       shared_ptr<string> targetId_ {};
-      // The name of the task object.
+      // The name of the task target.
       shared_ptr<string> targetName_ {};
-      // The path ID of the task object in the resource directory.
+      // The path ID of the task target in the resource directory.
       shared_ptr<string> targetPath_ {};
-      // The path name of the task object in the resource directory.
+      // The path name of the task target in the resource directory.
       shared_ptr<string> targetPathName_ {};
-      // The type of the task object.
+      // The type of the task target.
       // 
-      // The value is fixed as RD-Account, which indicates the accounts in the resource directory.
+      // Valid values:
+      // 
+      // - RD-Account: The task target is an account in a resource directory.
       shared_ptr<string> targetType_ {};
-      // The ID of the job.
+      // The ID of the task.
       shared_ptr<string> taskId_ {};
-      // The task type. Valid values:
+      // The type of the node. Valid values:
       // 
-      // - ProvisionAccessConfiguration: An access configuration is provisioned.
-      // 
-      // - DeprovisionAccessConfiguration: An access configuration is de-provisioned.
-      // 
-      // - CreateAccessAssignment: Access permissions on an account in the resource directory are assigned.
-      // 
-      // - DeleteAccessAssignment: Access permissions on an account in the resource directory are removed.
+      // - ProvisionAccessConfiguration: Access configuration deployment.
+      // - DeprovisionAccessConfiguration: Removes access configuration provisioning.
+      // - CreateAccessAssignment: Grants authorization to an account in a resource directory.
+      // - DeleteAccessAssignment: Removes authorization from an account in a resource directory.
       shared_ptr<string> taskType_ {};
     };
 
@@ -320,23 +317,22 @@ namespace Models
 
 
   protected:
-    // Indicates whether the queried entries are truncated. Valid values:
+    // Indicates whether the returned results are truncated. Valid values:
     // 
-    // - true
-    // 
-    // - false
+    // - true: The returned results are truncated.
+    // - false: The returned results are not truncated.
     shared_ptr<bool> isTruncated_ {};
-    // The maximum number of entries returned per page.
+    // The maximum number of entries returned on each page.
     shared_ptr<int32_t> maxResults_ {};
-    // The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+    // The token used to return the next page of the query results.
     // 
-    // > This parameter is returned only when the value of `IsTruncated` is `true`.
+    // > This parameter is returned only if IsTruncated is set to true.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The tasks.
+    // The list of tasks.
     shared_ptr<vector<ListTasksResponseBody::Tasks>> tasks_ {};
-    // The total number of entries returned.
+    // The total number of entries that meet the conditional request parameter.
     shared_ptr<int32_t> totalCounts_ {};
   };
 

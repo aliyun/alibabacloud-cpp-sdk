@@ -179,42 +179,42 @@ namespace Models
 
 
     protected:
-      // The ID of the access configuration.
+      // The access configuration ID.
       shared_ptr<string> accessConfigurationId_ {};
-      // The name of the access configuration.
+      // The access configuration name.
       shared_ptr<string> accessConfigurationName_ {};
+      // The Alibaba Cloud account ID of the authorization target.
       shared_ptr<string> originTargetId_ {};
-      // The ID of the CloudSSO identity.
+      // The CloudSSO identity ID.
       shared_ptr<string> principalId_ {};
-      // The name of the CloudSSO identity.
+      // The CloudSSO identity name.
       shared_ptr<string> principalName_ {};
-      // The type of the CloudSSO identity. Valid values:
+      // The CloudSSO identity type. Valid values:
       // 
-      // - User
-      // 
-      // - Group
+      // - User: user
+      // - Group: group
       shared_ptr<string> principalType_ {};
       // The task status. Valid values:
       // 
-      // - InProgress: The task is running.
-      // 
+      // - InProgress: The task is in progress.
       // - Success: The task is successful.
-      // 
       // - Failed: The task failed.
       shared_ptr<string> status_ {};
-      // The ID of the task object.
+      // The target ID of the task.
       shared_ptr<string> targetId_ {};
-      // The name of the task object.
+      // The name of the task target.
       shared_ptr<string> targetName_ {};
-      // The path ID of the task object in the resource directory.
+      // The path ID of the task target in the resource directory.
       shared_ptr<string> targetPath_ {};
-      // The path name of the task object in the resource directory.
+      // The path name of the task target in the resource directory.
       shared_ptr<string> targetPathName_ {};
-      // The type of the task object. The value is fixed as RD-Account, which indicates the accounts in the resource directory.
+      // The target type of the task. Valid values:
+      // - RD-Account: The task target is an account in a resource directory.
       shared_ptr<string> targetType_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
-      // The task type. The value is fixed as DeleteAccessAssignment, which indicates that access permissions on an account in your resource directory are removed.
+      // The task type. Valid values:
+      // - DeleteAccessAssignment: The task removes an authorization from an account in a resource directory.
       shared_ptr<string> taskType_ {};
     };
 

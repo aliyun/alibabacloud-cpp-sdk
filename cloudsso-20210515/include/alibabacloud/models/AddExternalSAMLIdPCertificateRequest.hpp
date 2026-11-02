@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the directory.
+    // The directory ID.
     shared_ptr<string> directoryId_ {};
-    // The X.509 certificate in the PEM format.
+    // The X.509 certificate in PEM format.
     // 
-    // The certificate is provided by the SAML identity provider (IdP).
+    // The certificate is provided by the SAML IdP.
     shared_ptr<string> x509Certificate_ {};
   };
 

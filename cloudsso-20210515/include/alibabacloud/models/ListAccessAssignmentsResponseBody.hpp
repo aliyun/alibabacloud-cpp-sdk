@@ -174,8 +174,9 @@ namespace Models
       shared_ptr<string> accessConfigurationId_ {};
       // The name of the access configuration.
       shared_ptr<string> accessConfigurationName_ {};
-      // The time when the access permissions were assigned.
+      // The time when the access assignment was successful. The time follows the RFC 3339 standard and is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> createTime_ {};
+      // The ID of the Alibaba Cloud account to which the authorization target belongs.
       shared_ptr<string> originTargetId_ {};
       // The ID of the CloudSSO identity.
       shared_ptr<string> principalId_ {};
@@ -183,21 +184,21 @@ namespace Models
       shared_ptr<string> principalName_ {};
       // The type of the CloudSSO identity. Valid values:
       // 
-      // - User
-      // 
-      // - Group
+      // - User: user.
+      // - Group: group.
       shared_ptr<string> principalType_ {};
-      // The ID of the task object.
+      // The ID of the task target.
       shared_ptr<string> targetId_ {};
-      // The name of the task object.
+      // The name of the task target.
       shared_ptr<string> targetName_ {};
-      // The path ID of the task object in the resource directory.
+      // The path ID of the task target in the resource directory.
       shared_ptr<string> targetPath_ {};
-      // The path name of the task object in the resource directory.
+      // The path name of the task target in the resource directory.
       shared_ptr<string> targetPathName_ {};
-      // The type of the task object.
+      // The type of the task target.
       // 
-      // The value is fixed as RD-Account, which indicates the accounts in the resource directory.
+      // Valid values:
+      // - RD-Account: The task target is an account in a resource directory.
       shared_ptr<string> targetType_ {};
     };
 
@@ -248,23 +249,22 @@ namespace Models
 
 
   protected:
-    // The access permissions that are assigned.
+    // The list of access assignments.
     shared_ptr<vector<ListAccessAssignmentsResponseBody::AccessAssignments>> accessAssignments_ {};
-    // Indicates whether the queried entries are truncated. Valid values:
+    // Indicates whether the returned result is truncated. Valid values:
     // 
-    // - true
-    // 
-    // - false
+    // - true: The result is truncated.
+    // - false: The result is not truncated.
     shared_ptr<bool> isTruncated_ {};
-    // The maximum number of entries returned per page.
+    // The maximum number of entries returned on each page.
     shared_ptr<int32_t> maxResults_ {};
-    // The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+    // The token for the next page of query results.
     // 
-    // > This parameter is returned only when the value of IsTruncated is `true`.\\`\\`
+    // > This parameter is returned only when `IsTruncated` is set to `true`.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries that meet the filter conditions specified in the request parameters.
     shared_ptr<int32_t> totalCounts_ {};
   };
 

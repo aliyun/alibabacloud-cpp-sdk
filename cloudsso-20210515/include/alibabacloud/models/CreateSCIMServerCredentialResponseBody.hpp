@@ -115,21 +115,22 @@ namespace Models
 
 
     protected:
-      // The time when the SCIM credential was created.
+      // The time when the SCIM credential was created. The time is displayed in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> createTime_ {};
       // The ID of the SCIM credential.
       shared_ptr<string> credentialId_ {};
-      // The SCIM credential.
+      // The SCIM credential secret.
       // 
-      // > The SCIM credential is returned only when it is created. After the SCIM credential is created, you cannot query it. Keep the SCIM credential confidential.
+      // > The SCIM credential secret is returned only when the credential is created and cannot be queried later. Keep it secure.
       shared_ptr<string> credentialSecret_ {};
       // The type of the SCIM credential.
       shared_ptr<string> credentialType_ {};
-      // The ID of the directory.
+      // The directory ID.
       shared_ptr<string> directoryId_ {};
-      // The time when the SCIM credential expires.
+      // The time when the SCIM credential expires. The time is displayed in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> expireTime_ {};
-      // The status of the SCIM credential. The value is fixed as Enabled, which indicates that the SCIM credential is enabled.
+      // The status of the SCIM credential. Valid values:
+      // - Enabled: The SCIM credential is enabled.
       shared_ptr<string> status_ {};
     };
 
@@ -154,7 +155,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the SCIM credential.
+    // The SCIM credential information.
     shared_ptr<CreateSCIMServerCredentialResponseBody::SCIMServerCredential> SCIMServerCredential_ {};
   };
 

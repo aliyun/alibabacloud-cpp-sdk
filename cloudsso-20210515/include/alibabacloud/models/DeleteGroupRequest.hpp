@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the directory.
+    // The directory ID.
     shared_ptr<string> directoryId_ {};
     // The ID of the group.
     shared_ptr<string> groupId_ {};

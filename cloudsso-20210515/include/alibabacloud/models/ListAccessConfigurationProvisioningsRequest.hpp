@@ -103,38 +103,38 @@ namespace Models
 
 
   protected:
-    // The ID of the access configuration. The ID can be used to filter access permissions.
+    // The access configuration ID used as a filter condition for the query.
     shared_ptr<string> accessConfigurationId_ {};
-    // The ID of the directory.
+    // The directory ID.
     shared_ptr<string> directoryId_ {};
-    // The maximum number of entries per page.
+    // The maximum number of entries to return on each page.
     // 
     // Valid values: 1 to 20.
     // 
     // Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. If this is your first time to call this operation, you do not need to specify the `NextToken` parameter.
+    // The token used to return the next page of query results. You do not need to specify NextToken when you call this operation for the first time.
     // 
-    // When you call this operation for the first time, if the total number of entries to return exceeds the value of `MaxResults`, the entries are truncated. Only the entries that match the value of `MaxResults` are returned, and the excess entries are not returned. In this case, the value of the response parameter `IsTruncated` is `true`, and `NextToken` is returned. In the next call, you can use the value of `NextToken` and maintain the settings of the other request parameters to query the excess entries. You can repeat the call until the value of `IsTruncated` becomes `false`. This way, all entries are returned.
+    // When you call this operation for the first time, if the total number of returned entries exceeds the value of MaxResults, the returned results are truncated. Only the number of entries specified by MaxResults is returned, the IsTruncated parameter is set to true, and a NextToken is returned. You can use the returned NextToken to call this operation again to query the truncated entries while keeping other request parameters unchanged. You can repeat this process until IsTruncated is set to false, which indicates that all entries are returned.
     shared_ptr<string> nextToken_ {};
+    // The Alibaba Cloud account ID of the provisioning target.
     shared_ptr<string> originTargetId_ {};
-    // The status of the access configuration. The value can be used to filter accounts. Valid values:
+    // The provisioning status used as a filter condition for the query. Valid values:
     // 
-    // - Provisioned: The access configuration is provisioned.
-    // 
-    // - ReprovisionRequired: The access configuration needs to be re-provisioned.
-    // 
-    // - DeprovisionFailed: The access configuration failed to be provisioned.
+    // - Provisioned: The provisioning succeeded.
+    // - ReprovisionRequired: Reprovisioning is required.
+    // - DeprovisionFailed: The provisioning failed.
     shared_ptr<string> provisioningStatus_ {};
-    // The ID of the task object. The ID can be used to filter access permissions.
+    // The target ID used as a filter condition for the query.
     // 
-    // > You can use the type to filter access permissions only if you specify both `TargetId` and `TargetType`.
+    // > You must specify both TargetId and TargetType for them to take effect as filter conditions.
     shared_ptr<string> targetId_ {};
-    // The type of the task object. The type can be used to filter access permissions.
+    // The target type used as a filter condition for the query.
     // 
-    // Set the value to RD-Account, which specifies the accounts in the resource directory.
+    // Valid values:
+    // - RD-Account: The target is an account in a resource directory.
     // 
-    // > You can use the type to filter access permissions only if you specify both `TargetId` and `TargetType`.
+    // > You must specify both TargetId and TargetType for them to take effect as filter conditions.
     shared_ptr<string> targetType_ {};
   };
 

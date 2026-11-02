@@ -179,6 +179,9 @@
 #include <alibabacloud/models/ListSCIMServerCredentialsRequest.hpp>
 #include <alibabacloud/models/ListSCIMServerCredentialsResponseBody.hpp>
 #include <alibabacloud/models/ListSCIMServerCredentialsResponse.hpp>
+#include <alibabacloud/models/ListTagResourcesRequest.hpp>
+#include <alibabacloud/models/ListTagResourcesResponseBody.hpp>
+#include <alibabacloud/models/ListTagResourcesResponse.hpp>
 #include <alibabacloud/models/ListTasksRequest.hpp>
 #include <alibabacloud/models/ListTasksResponseBody.hpp>
 #include <alibabacloud/models/ListTasksResponse.hpp>
@@ -224,6 +227,12 @@
 #include <alibabacloud/models/SetSCIMSynchronizationStatusRequest.hpp>
 #include <alibabacloud/models/SetSCIMSynchronizationStatusResponseBody.hpp>
 #include <alibabacloud/models/SetSCIMSynchronizationStatusResponse.hpp>
+#include <alibabacloud/models/TagResourcesRequest.hpp>
+#include <alibabacloud/models/TagResourcesResponseBody.hpp>
+#include <alibabacloud/models/TagResourcesResponse.hpp>
+#include <alibabacloud/models/UntagResourcesRequest.hpp>
+#include <alibabacloud/models/UntagResourcesResponseBody.hpp>
+#include <alibabacloud/models/UntagResourcesResponse.hpp>
 #include <alibabacloud/models/UpdateAccessConfigurationRequest.hpp>
 #include <alibabacloud/models/UpdateAccessConfigurationResponseBody.hpp>
 #include <alibabacloud/models/UpdateAccessConfigurationResponse.hpp>

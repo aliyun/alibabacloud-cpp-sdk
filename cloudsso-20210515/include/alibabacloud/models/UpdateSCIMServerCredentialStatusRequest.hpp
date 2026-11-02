@@ -59,13 +59,12 @@ namespace Models
   protected:
     // The ID of the SCIM credential.
     shared_ptr<string> credentialId_ {};
-    // The ID of the directory.
+    // The directory ID.
     shared_ptr<string> directoryId_ {};
-    // The new status of the SCIM credential. Valid values:
+    // The status of the SCIM credential. Valid values:
     // 
-    // - Enabled: The SCIM credential is enabled.
-    // 
-    // - Disabled: The SCIM credential is disabled.
+    // - Enabled: Enabled.
+    // - Disabled: Disabled.
     shared_ptr<string> newStatus_ {};
   };
 

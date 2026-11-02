@@ -98,13 +98,13 @@ namespace Models
     protected:
       // The time when the directory was created. The time is displayed in UTC.
       shared_ptr<string> createTime_ {};
-      // The ID of the directory.
+      // The directory ID.
       shared_ptr<string> directoryId_ {};
       // The name of the directory.
       shared_ptr<string> directoryName_ {};
       // The region ID of the directory.
       shared_ptr<string> region_ {};
-      // The time when the directory was modified. The time is displayed in UTC.
+      // The time when the directory was updated. The time is displayed in UTC.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -127,7 +127,7 @@ namespace Models
 
 
   protected:
-    // The information about the directory.
+    // The directory information.
     shared_ptr<CreateDirectoryResponseBody::Directory> directory_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

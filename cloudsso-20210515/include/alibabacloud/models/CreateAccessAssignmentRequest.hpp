@@ -94,26 +94,23 @@ namespace Models
 
 
   protected:
-    // The ID of the access configuration.
+    // The access configuration ID.
     shared_ptr<string> accessConfigurationId_ {};
-    // The ID of the directory.
+    // The directory ID.
     shared_ptr<string> directoryId_ {};
+    // The Alibaba Cloud account ID of the authorization target.
     shared_ptr<string> originTargetId_ {};
-    // The ID of the CloudSSO identity.
-    // 
-    // - If you set `PrincipalType` to `User`, set `PrincipalId` to the ID of the CloudSSO user.
-    // 
-    // - If you set `PrincipalType` to `Group`, set `PrincipalId` to the ID of the CloudSSO group.
+    // The CloudSSO identity ID. Details:
+    // - If PrincipalType is set to User, PrincipalId is the CloudSSO user ID.
+    // - If PrincipalType is set to Group, PrincipalId is the CloudSSO group ID.
     shared_ptr<string> principalId_ {};
-    // The type of the CloudSSO identity. Valid values:
-    // 
-    // - User
-    // 
-    // - Group
+    // The CloudSSO identity type. Valid values:
+    // - User: user
+    // - Group: group
     shared_ptr<string> principalType_ {};
-    // The ID of the task object.
+    // The ID of the deployment target.
     shared_ptr<string> targetId_ {};
-    // The type of the task object. Set the value to RD-Account, which specifies the accounts in the resource directory.
+    // The target type of the task. Valid value: RD-Account, which indicates that the task target is an account in a resource directory.
     shared_ptr<string> targetType_ {};
   };
 

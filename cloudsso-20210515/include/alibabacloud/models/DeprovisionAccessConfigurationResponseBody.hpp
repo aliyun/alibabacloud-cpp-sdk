@@ -156,28 +156,29 @@ namespace Models
       shared_ptr<string> accessConfigurationId_ {};
       // The name of the access configuration.
       shared_ptr<string> accessConfigurationName_ {};
+      // The ID of the Alibaba Cloud account to which the deployment target belongs.
       shared_ptr<string> originTargetId_ {};
       // The task status. Valid values:
       // 
-      // - InProgress: The task is running.
-      // 
-      // - Success: The task is successful.
-      // 
+      // - InProgress: The task is in progress.
+      // - Success: The task succeeded.
       // - Failed: The task failed.
       shared_ptr<string> status_ {};
-      // The ID of the task object.
+      // The ID of the task target.
       shared_ptr<string> targetId_ {};
-      // The name of the task object.
+      // The name of the task target.
       shared_ptr<string> targetName_ {};
-      // The path ID of the task object in the resource directory.
+      // The path ID of the task target in the resource directory.
       shared_ptr<string> targetPath_ {};
-      // The path name of the task object in the resource directory.
+      // The path name of the task target in the resource directory.
       shared_ptr<string> targetPathName_ {};
-      // The type of the task object. The value is fixed as RD-Account, which indicates the accounts in the resource directory.
+      // The type of the task target. Valid values:
+      // - RD-Account: The task target is an account in a resource directory.
       shared_ptr<string> targetType_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
-      // The task type. The value is fixed as DeprovisionAccessConfiguration, which indicates that the access configuration is de-provisioned.
+      // The task type. Valid values:
+      // - DeprovisionAccessConfiguration: The task deprovisions the access configuration.
       shared_ptr<string> taskType_ {};
     };
 

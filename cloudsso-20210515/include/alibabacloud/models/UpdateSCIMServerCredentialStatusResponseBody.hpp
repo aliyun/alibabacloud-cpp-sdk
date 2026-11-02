@@ -105,21 +105,20 @@ namespace Models
 
 
     protected:
-      // The time when the SCIM credential was created.
+      // The creation time of the SCIM credential. The time is in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> createTime_ {};
       // The ID of the SCIM credential.
       shared_ptr<string> credentialId_ {};
       // The type of the SCIM credential.
       shared_ptr<string> credentialType_ {};
-      // The ID of the directory.
+      // The directory ID.
       shared_ptr<string> directoryId_ {};
-      // The time when the SCIM credential expires.
+      // The expiration time of the SCIM credential. The time is in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> expireTime_ {};
       // The status of the SCIM credential. Valid values:
       // 
-      // - Enabled: The SCIM credential is enabled.
-      // 
-      // - Disabled: The SCIM credential is disabled.
+      // - Enabled: Enabled.
+      // - Disabled: Disabled.
       shared_ptr<string> status_ {};
     };
 
@@ -144,7 +143,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the SCIM credential.
+    // The SCIM credential information.
     shared_ptr<UpdateSCIMServerCredentialStatusResponseBody::SCIMServerCredential> SCIMServerCredential_ {};
   };
 

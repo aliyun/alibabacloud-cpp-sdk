@@ -96,15 +96,15 @@ namespace Models
 
 
     protected:
-      // The time when the directory was created.
+      // The time when the directory was created. The time is in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> createTime_ {};
-      // The ID of the directory.
+      // The directory ID.
       shared_ptr<string> directoryId_ {};
       // The name of the directory.
       shared_ptr<string> directoryName_ {};
-      // The region ID of the directory.
+      // The ID of the region where the directory is located.
       shared_ptr<string> region_ {};
-      // The time when the directory was modified.
+      // The time when the directory was updated. The time is in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -127,7 +127,7 @@ namespace Models
 
 
   protected:
-    // The information about the directory.
+    // The directory information.
     shared_ptr<GetDirectoryResponseBody::Directory> directory_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

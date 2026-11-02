@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the directory.
+    // The directory ID.
     shared_ptr<string> directoryId_ {};
-    // The ID of the user.
+    // The user ID.
     shared_ptr<string> userId_ {};
   };
 

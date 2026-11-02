@@ -79,10 +79,12 @@ namespace Models
     shared_ptr<string> accessConfigurationId_ {};
     // The directory ID.
     shared_ptr<string> directoryId_ {};
+    // The ID of the Alibaba Cloud account to which the deployment target belongs.
     shared_ptr<string> originTargetId_ {};
-    // The ID of the task object.
+    // The ID of the task target.
     shared_ptr<string> targetId_ {};
-    // The type of the task object. Set the value to RD-Account, which specifies the accounts in the resource directory.
+    // The type of the task target. Valid values:
+    // - RD-Account: The task target is an account in a resource directory.
     shared_ptr<string> targetType_ {};
   };
 

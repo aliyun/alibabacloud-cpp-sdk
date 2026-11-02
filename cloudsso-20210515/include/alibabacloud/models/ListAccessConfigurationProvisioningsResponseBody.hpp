@@ -190,42 +190,42 @@ namespace Models
 
 
     protected:
-      // The ID of the access configuration.
+      // The access configuration ID.
       shared_ptr<string> accessConfigurationId_ {};
       // The name of the access configuration.
       shared_ptr<string> accessConfigurationName_ {};
-      // The first time when the access configuration was provisioned.
+      // The time when the first provisioning succeeded. The time is displayed in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> createTime_ {};
+      // The Alibaba Cloud account ID of the provisioning target.
       shared_ptr<string> originTargetId_ {};
-      // The name of the custom policy that is created for an account in the resource directory.
+      // The Policy Name of the custom policy created in the account in a resource directory.
       shared_ptr<vector<string>> RAMPolicyNames_ {};
-      // The name of the RAM role that is created for an account in the resource directory.
+      // The name of the RAM role created in the account in a resource directory.
       shared_ptr<string> RAMRoleName_ {};
-      // The name of the Security Assertion Markup Language (SAML) identity provider (IdP) that is created within an account in the resource directory.
+      // The name of the SAML IdP created in the account in a resource directory.
       shared_ptr<string> SAMLProviderName_ {};
-      // The status of the access configuration. Valid values:
+      // The provisioning status. Valid values:
       // 
-      // - Provisioned: The access configuration is provisioned.
-      // 
-      // - ReprovisionRequired: The access configuration needs to be re-provisioned.
-      // 
-      // - DeprovisionFailed: The access configuration failed to be provisioned.
+      // - Provisioned: The provisioning succeeded.
+      // - ReprovisionRequired: Reprovisioning is required.
+      // - DeprovisionFailed: The provisioning failed.
       shared_ptr<string> status_ {};
-      // The ID of the task object.
+      // The target ID.
       // 
-      // If the value of TargetType is `RD-Account`, the value of this parameter is the UID of an account in the resource directory.
+      // If the target type is RD-Account, this parameter indicates the UID of the account in a resource directory.
       shared_ptr<string> targetId_ {};
-      // The name of the task object.
+      // The name of the target.
       shared_ptr<string> targetName_ {};
-      // The path ID of the task object in the resource directory.
+      // The path ID of the target in the resource directory.
       shared_ptr<string> targetPath_ {};
-      // The path name of the task object in the resource directory.
+      // The path name of the target in the resource directory.
       shared_ptr<string> targetPathName_ {};
-      // The type of the task object.
+      // The target type.
       // 
-      // Set the value to RD-Account, which specifies the accounts in the resource directory.
+      // Valid values:
+      // - RD-Account: The target is an account in a resource directory.
       shared_ptr<string> targetType_ {};
-      // The last time when the access configuration was provisioned.
+      // The time when the latest provisioning succeeded. The time is displayed in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -276,23 +276,22 @@ namespace Models
 
 
   protected:
-    // The accounts for which the access configuration is provisioned.
+    // The list of access configuration provisionings.
     shared_ptr<vector<ListAccessConfigurationProvisioningsResponseBody::AccessConfigurationProvisionings>> accessConfigurationProvisionings_ {};
-    // Indicates whether the queried entries are truncated. Valid values:
+    // Indicates whether the returned results are truncated. Valid values:
     // 
-    // - true
-    // 
-    // - false
+    // - true: The results are truncated.
+    // - false: The results are not truncated.
     shared_ptr<bool> isTruncated_ {};
-    // The maximum number of entries returned per page.
+    // The maximum number of entries returned on each page.
     shared_ptr<int32_t> maxResults_ {};
-    // The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+    // The token used to return the next page of query results.
     // 
-    // > This parameter is returned only when the value of `IsTruncated` is `true`.
+    // > This parameter is returned only when IsTruncated is set to true.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries that meet the filter conditions specified in the request parameters.
     shared_ptr<int32_t> totalCounts_ {};
   };
 

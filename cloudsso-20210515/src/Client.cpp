@@ -36,10 +36,10 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Adds a Security Assertion Markup Language (SAML) signing certificate.
+ * @summary Adds a SAML signing certificate.
  *
  * @description You can add up to two SAML signing certificates.
- * This topic provides an example on how to add a SAML signing certificate to the directory `d-00fc2p61****`.
+ * This topic provides an example of adding a new SAML signing certificate to the `d-00fc2p61****` directory.
  *
  * @param request AddExternalSAMLIdPCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -74,10 +74,10 @@ AddExternalSAMLIdPCertificateResponse Client::addExternalSAMLIdPCertificateWithO
 }
 
 /**
- * @summary Adds a Security Assertion Markup Language (SAML) signing certificate.
+ * @summary Adds a SAML signing certificate.
  *
  * @description You can add up to two SAML signing certificates.
- * This topic provides an example on how to add a SAML signing certificate to the directory `d-00fc2p61****`.
+ * This topic provides an example of adding a new SAML signing certificate to the `d-00fc2p61****` directory.
  *
  * @param request AddExternalSAMLIdPCertificateRequest
  * @return AddExternalSAMLIdPCertificateResponse
@@ -88,9 +88,9 @@ AddExternalSAMLIdPCertificateResponse Client::addExternalSAMLIdPCertificate(cons
 }
 
 /**
- * @summary Adds a policy to an access configuration.
+ * @summary Adds an access policy to an access configuration.
  *
- * @description This topic provides an example on how to add the system policy `AliyunECSFullAccess` to the access configuration `ac-00jhtfl8thteu6uj****`.
+ * @description This topic provides an example of adding a system policy named `AliyunECSFullAccess` to the access configuration `ac-00jhtfl8thteu6uj****`.
  *
  * @param request AddPermissionPolicyToAccessConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -137,9 +137,9 @@ AddPermissionPolicyToAccessConfigurationResponse Client::addPermissionPolicyToAc
 }
 
 /**
- * @summary Adds a policy to an access configuration.
+ * @summary Adds an access policy to an access configuration.
  *
- * @description This topic provides an example on how to add the system policy `AliyunECSFullAccess` to the access configuration `ac-00jhtfl8thteu6uj****`.
+ * @description This topic provides an example of adding a system policy named `AliyunECSFullAccess` to the access configuration `ac-00jhtfl8thteu6uj****`.
  *
  * @param request AddPermissionPolicyToAccessConfigurationRequest
  * @return AddPermissionPolicyToAccessConfigurationResponse
@@ -152,8 +152,8 @@ AddPermissionPolicyToAccessConfigurationResponse Client::addPermissionPolicyToAc
 /**
  * @summary Adds a user to a group.
  *
- * @description If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot add a user to a group that is synchronized by using SCIM.
- * This topic provides an example on how to add the user `u-00q8wbq42wiltcrk****` to the group `g-00jqzghi2n3o5hkh****`.
+ * @description After SCIM synchronization is enabled, you cannot add users to SCIM-synchronized groups.
+ * This topic provides an example of adding the user `u-00q8wbq42wiltcrk****` to the group `g-00jqzghi2n3o5hkh****`.
  *
  * @param request AddUserToGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -194,8 +194,8 @@ AddUserToGroupResponse Client::addUserToGroupWithOptions(const AddUserToGroupReq
 /**
  * @summary Adds a user to a group.
  *
- * @description If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot add a user to a group that is synchronized by using SCIM.
- * This topic provides an example on how to add the user `u-00q8wbq42wiltcrk****` to the group `g-00jqzghi2n3o5hkh****`.
+ * @description After SCIM synchronization is enabled, you cannot add users to SCIM-synchronized groups.
+ * This topic provides an example of adding the user `u-00q8wbq42wiltcrk****` to the group `g-00jqzghi2n3o5hkh****`.
  *
  * @param request AddUserToGroupRequest
  * @return AddUserToGroupResponse
@@ -206,10 +206,10 @@ AddUserToGroupResponse Client::addUserToGroup(const AddUserToGroupRequest &reque
 }
 
 /**
- * @summary Clears the configurations of a Security Assertion Markup Language (SAML) identity provider (IdP).
+ * @summary Clears the configuration of the SAML IdP.
  *
- * @description If single sign-on (SSO) logon is disabled, you can clear the configurations of a SAML IdP. If SSO logon is enabled, you cannot clear the configurations.
- * This topic provides an example on how to clear the configurations of the SAML IdP within the directory `d-00fc2p61****`.
+ * @description You can clear the SAML IdP information only when SSO logon is disabled. Otherwise, you cannot perform this operation.
+ * This topic provides an example of clearing the configuration of the SAML IdP for the `d-00fc2p61****` directory.
  *
  * @param request ClearExternalSAMLIdentityProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -240,10 +240,10 @@ ClearExternalSAMLIdentityProviderResponse Client::clearExternalSAMLIdentityProvi
 }
 
 /**
- * @summary Clears the configurations of a Security Assertion Markup Language (SAML) identity provider (IdP).
+ * @summary Clears the configuration of the SAML IdP.
  *
- * @description If single sign-on (SSO) logon is disabled, you can clear the configurations of a SAML IdP. If SSO logon is enabled, you cannot clear the configurations.
- * This topic provides an example on how to clear the configurations of the SAML IdP within the directory `d-00fc2p61****`.
+ * @description You can clear the SAML IdP information only when SSO logon is disabled. Otherwise, you cannot perform this operation.
+ * This topic provides an example of clearing the configuration of the SAML IdP for the `d-00fc2p61****` directory.
  *
  * @param request ClearExternalSAMLIdentityProviderRequest
  * @return ClearExternalSAMLIdentityProviderResponse
@@ -254,11 +254,11 @@ ClearExternalSAMLIdentityProviderResponse Client::clearExternalSAMLIdentityProvi
 }
 
 /**
- * @summary Assigns access permissions on an account in your resource directory to a user or a group by using an access configuration.
+ * @summary Configures the settings for the users or groups allowed to access an account in a resource directory, and the corresponding access permissions (access configurations).
  *
- * @description When you call this operation, an asynchronous task is created. You can call the [GetTask](https://help.aliyun.com/document_detail/340670.html) operation to query the progress of the task based on the value of the `TaskId` response parameter.
- * For more information about how to assign permissions on an account in your resource directory, see [Overview of multi-account authorization](https://help.aliyun.com/document_detail/266726.html).
- * This topic provides an example on how to assign access permissions on the account `114240524784****` in your resource directory to the CloudSSO user `u-00q8wbq42wiltcrk****` by using the access configuration `ac-00jhtfl8thteu6uj****`. After the call is successful, the CloudSSO user can access resources within the account in the resource directory.
+ * @description This API operation is asynchronous. You can use the TaskId returned in the response to call [GetTask](https://help.aliyun.com/document_detail/340670.html) to query the task execution status.
+ * For more information about granting access to an account in a resource directory, see [Multi-account authorization overview](https://help.aliyun.com/document_detail/266726.html).
+ * This topic provides an example on how to assign the access configuration `ac-00jhtfl8thteu6uj****` to the CloudSSO user `u-00q8wbq42wiltcrk****` for the account `114240524784****` in a resource directory. This allows the CloudSSO user to access authorized resources in the account.
  *
  * @param request CreateAccessAssignmentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -313,11 +313,11 @@ CreateAccessAssignmentResponse Client::createAccessAssignmentWithOptions(const C
 }
 
 /**
- * @summary Assigns access permissions on an account in your resource directory to a user or a group by using an access configuration.
+ * @summary Configures the settings for the users or groups allowed to access an account in a resource directory, and the corresponding access permissions (access configurations).
  *
- * @description When you call this operation, an asynchronous task is created. You can call the [GetTask](https://help.aliyun.com/document_detail/340670.html) operation to query the progress of the task based on the value of the `TaskId` response parameter.
- * For more information about how to assign permissions on an account in your resource directory, see [Overview of multi-account authorization](https://help.aliyun.com/document_detail/266726.html).
- * This topic provides an example on how to assign access permissions on the account `114240524784****` in your resource directory to the CloudSSO user `u-00q8wbq42wiltcrk****` by using the access configuration `ac-00jhtfl8thteu6uj****`. After the call is successful, the CloudSSO user can access resources within the account in the resource directory.
+ * @description This API operation is asynchronous. You can use the TaskId returned in the response to call [GetTask](https://help.aliyun.com/document_detail/340670.html) to query the task execution status.
+ * For more information about granting access to an account in a resource directory, see [Multi-account authorization overview](https://help.aliyun.com/document_detail/266726.html).
+ * This topic provides an example on how to assign the access configuration `ac-00jhtfl8thteu6uj****` to the CloudSSO user `u-00q8wbq42wiltcrk****` for the account `114240524784****` in a resource directory. This allows the CloudSSO user to access authorized resources in the account.
  *
  * @param request CreateAccessAssignmentRequest
  * @return CreateAccessAssignmentResponse
@@ -398,13 +398,13 @@ CreateAccessConfigurationResponse Client::createAccessConfiguration(const Create
 /**
  * @summary Creates a directory.
  *
- * @description ### [](#)Operation description
- * A directory is a CloudSSO instance. Before you can use CloudSSO, you must create a directory. The directory is used to manage all CloudSSO resources.
- * To create a directory, you must select a region. Alibaba Cloud stores data in the directory only in the region that you select. However, you can deploy Alibaba Cloud resources including Elastic Compute Service (ECS) instances and ApsaraDB RDS instances in other regions. You can also use your cloud account for logons and access the Alibaba Cloud resources in other regions. You can select a region to create a directory based on your security compliance requirements and the geographic location of specific users. If you do not have strict security compliance requirements, we recommend that you select a region that is the closest to the geographical location of the specific users. This way, access to cloud resources is accelerated. You can create the CloudSSO directory in the China (Shanghai), China (Hong Kong), US (Silicon Valley), or Germany (Frankfurt) region.
+ * @description ### Usage notes
+ * A directory is an instance in CloudSSO. You must create a directory before you use CloudSSO. All CloudSSO resources must be maintained in the directory.
+ * You must select a region for the CloudSSO directory. Alibaba Cloud ensures that all CloudSSO-related data is stored only in this region. This is independent of where you deploy cloud resources such as ECS and ApsaraDB RDS. You can log on to and access cloud resources in any region from anywhere in the world. You can select a region based on your security and compliance requirements and the geographic location of your target users. If you do not have special security and compliance requirements, select the region closest to your target users to improve access speed. Currently, you can create directories in the following four regions: China (Shanghai), China (Hong Kong), US (Silicon Valley), and Germany (Frankfurt).
  * This topic provides an example on how to create a directory named `example` in the China (Shanghai) region.
- * ### [](#)Limits
- * *   You can create only one directory for a management account.
- * *   If you want to change the region of a directory, you must delete the directory and then create a directory in a different region.
+ * ### Limits
+ * - A management account can create only one directory.
+ * - To change the region of the directory, you must delete the existing directory and create a new one in another region.
  *
  * @param request CreateDirectoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -437,13 +437,13 @@ CreateDirectoryResponse Client::createDirectoryWithOptions(const CreateDirectory
 /**
  * @summary Creates a directory.
  *
- * @description ### [](#)Operation description
- * A directory is a CloudSSO instance. Before you can use CloudSSO, you must create a directory. The directory is used to manage all CloudSSO resources.
- * To create a directory, you must select a region. Alibaba Cloud stores data in the directory only in the region that you select. However, you can deploy Alibaba Cloud resources including Elastic Compute Service (ECS) instances and ApsaraDB RDS instances in other regions. You can also use your cloud account for logons and access the Alibaba Cloud resources in other regions. You can select a region to create a directory based on your security compliance requirements and the geographic location of specific users. If you do not have strict security compliance requirements, we recommend that you select a region that is the closest to the geographical location of the specific users. This way, access to cloud resources is accelerated. You can create the CloudSSO directory in the China (Shanghai), China (Hong Kong), US (Silicon Valley), or Germany (Frankfurt) region.
+ * @description ### Usage notes
+ * A directory is an instance in CloudSSO. You must create a directory before you use CloudSSO. All CloudSSO resources must be maintained in the directory.
+ * You must select a region for the CloudSSO directory. Alibaba Cloud ensures that all CloudSSO-related data is stored only in this region. This is independent of where you deploy cloud resources such as ECS and ApsaraDB RDS. You can log on to and access cloud resources in any region from anywhere in the world. You can select a region based on your security and compliance requirements and the geographic location of your target users. If you do not have special security and compliance requirements, select the region closest to your target users to improve access speed. Currently, you can create directories in the following four regions: China (Shanghai), China (Hong Kong), US (Silicon Valley), and Germany (Frankfurt).
  * This topic provides an example on how to create a directory named `example` in the China (Shanghai) region.
- * ### [](#)Limits
- * *   You can create only one directory for a management account.
- * *   If you want to change the region of a directory, you must delete the directory and then create a directory in a different region.
+ * ### Limits
+ * - A management account can create only one directory.
+ * - To change the region of the directory, you must delete the existing directory and create a new one in another region.
  *
  * @param request CreateDirectoryRequest
  * @return CreateDirectoryResponse
@@ -454,9 +454,9 @@ CreateDirectoryResponse Client::createDirectory(const CreateDirectoryRequest &re
 }
 
 /**
- * @summary Creates a group.
+ * @summary Creates a user group.
  *
- * @description This topic provides an example on how to create a group named `TestGroup`.
+ * @description This topic provides an example of creating a user group named `TestGroup`.
  *
  * @param request CreateGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -495,9 +495,9 @@ CreateGroupResponse Client::createGroupWithOptions(const CreateGroupRequest &req
 }
 
 /**
- * @summary Creates a group.
+ * @summary Creates a user group.
  *
- * @description This topic provides an example on how to create a group named `TestGroup`.
+ * @description This topic provides an example of creating a user group named `TestGroup`.
  *
  * @param request CreateGroupRequest
  * @return CreateGroupResponse
@@ -508,10 +508,10 @@ CreateGroupResponse Client::createGroup(const CreateGroupRequest &request) {
 }
 
 /**
- * @summary Creates a System for Cross-domain Identity Management (SCIM) credential.
+ * @summary Creates a SCIM credential.
  *
- * @description SCIM credentials are required for SCIM synchronization. You can create up to two SCIM credentials.
- * This topic provides an example on how to create a SCIM credential within the directory `d-00fc2p61****`.
+ * @description A SCIM credential is required for SCIM synchronization. You can create up to two SCIM credentials.
+ * This topic provides an example on how to create a SCIM credential in the directory `d-00fc2p61****`.
  *
  * @param request CreateSCIMServerCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -542,10 +542,10 @@ CreateSCIMServerCredentialResponse Client::createSCIMServerCredentialWithOptions
 }
 
 /**
- * @summary Creates a System for Cross-domain Identity Management (SCIM) credential.
+ * @summary Creates a SCIM credential.
  *
- * @description SCIM credentials are required for SCIM synchronization. You can create up to two SCIM credentials.
- * This topic provides an example on how to create a SCIM credential within the directory `d-00fc2p61****`.
+ * @description A SCIM credential is required for SCIM synchronization. You can create up to two SCIM credentials.
+ * This topic provides an example on how to create a SCIM credential in the directory `d-00fc2p61****`.
  *
  * @param request CreateSCIMServerCredentialRequest
  * @return CreateSCIMServerCredentialResponse
@@ -630,9 +630,9 @@ CreateUserResponse Client::createUser(const CreateUserRequest &request) {
 }
 
 /**
- * @summary Creates a Resource Access Management (RAM) user provisioning.
+ * @summary Invokes CreateUserProvisioning to create a Resource Access Management (RAM) user synchronization.
  *
- * @description You can create a RAM user provisioning for a member in your resource directory to create a RAM user that has the same username as a CloudSSO user. This way, the CloudSSO user can access the resources of the member as the RAM user.
+ * @description You can create a Resource Access Management (RAM) user synchronization to synchronously create a Resource Access Management (RAM) user that has the same name as a CloudSSO user in a destination account in a resource directory. You can then use the Resource Access Management (RAM) user to access resources in the account.
  *
  * @param request CreateUserProvisioningRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -691,9 +691,9 @@ CreateUserProvisioningResponse Client::createUserProvisioningWithOptions(const C
 }
 
 /**
- * @summary Creates a Resource Access Management (RAM) user provisioning.
+ * @summary Invokes CreateUserProvisioning to create a Resource Access Management (RAM) user synchronization.
  *
- * @description You can create a RAM user provisioning for a member in your resource directory to create a RAM user that has the same username as a CloudSSO user. This way, the CloudSSO user can access the resources of the member as the RAM user.
+ * @description You can create a Resource Access Management (RAM) user synchronization to synchronously create a Resource Access Management (RAM) user that has the same name as a CloudSSO user in a destination account in a resource directory. You can then use the Resource Access Management (RAM) user to access resources in the account.
  *
  * @param request CreateUserProvisioningRequest
  * @return CreateUserProvisioningResponse
@@ -704,10 +704,10 @@ CreateUserProvisioningResponse Client::createUserProvisioning(const CreateUserPr
 }
 
 /**
- * @summary Removes the access permissions on an account in a resource directory.
+ * @summary Removes the authorization from an account in a resource directory.
  *
- * @description When you call this operation, an asynchronous task is created. You can call the [GetTask](https://help.aliyun.com/document_detail/340670.html) operation to query the progress of the task based on the value of the `TaskId` response parameter.
- * This topic provides an example on how to remove the access permissions on the account `114240524784****` in the resource directory from the CloudSSO user `u-00q8wbq42wiltcrk****`. The access permissions are assigned by using the access configuration `ac-00jhtfl8thteu6uj****`.
+ * @description This API operation is asynchronous. You can use the `TaskId` returned in the response to call [GetTask](https://help.aliyun.com/document_detail/340670.html) to query the task execution status.
+ * This topic provides an example of removing the authorization for the CloudSSO user `u-00q8wbq42wiltcrk****` to use the access configuration `ac-00jhtfl8thteu6uj****` on the account in a resource directory `114240524784****`.
  *
  * @param request DeleteAccessAssignmentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -766,10 +766,10 @@ DeleteAccessAssignmentResponse Client::deleteAccessAssignmentWithOptions(const D
 }
 
 /**
- * @summary Removes the access permissions on an account in a resource directory.
+ * @summary Removes the authorization from an account in a resource directory.
  *
- * @description When you call this operation, an asynchronous task is created. You can call the [GetTask](https://help.aliyun.com/document_detail/340670.html) operation to query the progress of the task based on the value of the `TaskId` response parameter.
- * This topic provides an example on how to remove the access permissions on the account `114240524784****` in the resource directory from the CloudSSO user `u-00q8wbq42wiltcrk****`. The access permissions are assigned by using the access configuration `ac-00jhtfl8thteu6uj****`.
+ * @description This API operation is asynchronous. You can use the `TaskId` returned in the response to call [GetTask](https://help.aliyun.com/document_detail/340670.html) to query the task execution status.
+ * This topic provides an example of removing the authorization for the CloudSSO user `u-00q8wbq42wiltcrk****` to use the access configuration `ac-00jhtfl8thteu6uj****` on the account in a resource directory `114240524784****`.
  *
  * @param request DeleteAccessAssignmentRequest
  * @return DeleteAccessAssignmentResponse
@@ -782,10 +782,10 @@ DeleteAccessAssignmentResponse Client::deleteAccessAssignment(const DeleteAccess
 /**
  * @summary Deletes an access configuration.
  *
- * @description ### [](#)Prerequisites
- * The access configuration that you want to delete is de-provisioned from the accounts in your resource directory. For more information, see [DeprovisionAccessConfiguration](https://help.aliyun.com/document_detail/338352.html).
- * ### [](#)Operation description
- * This topic provides an example on how to delete the access configuration whose ID is `ac-001j9mcm3k7335bc****`.
+ * @description ### Before you begin
+ * Before you delete an access configuration, you must deprovision the access configuration from the members of the resource directory. For more information, see [DeprovisionAccessConfiguration](https://help.aliyun.com/document_detail/338352.html).
+ * ### Usage notes
+ * This topic provides an example on how to delete an access configuration whose ID is `ac-001j9mcm3k7335bc****`.
  *
  * @param request DeleteAccessConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -826,10 +826,10 @@ DeleteAccessConfigurationResponse Client::deleteAccessConfigurationWithOptions(c
 /**
  * @summary Deletes an access configuration.
  *
- * @description ### [](#)Prerequisites
- * The access configuration that you want to delete is de-provisioned from the accounts in your resource directory. For more information, see [DeprovisionAccessConfiguration](https://help.aliyun.com/document_detail/338352.html).
- * ### [](#)Operation description
- * This topic provides an example on how to delete the access configuration whose ID is `ac-001j9mcm3k7335bc****`.
+ * @description ### Before you begin
+ * Before you delete an access configuration, you must deprovision the access configuration from the members of the resource directory. For more information, see [DeprovisionAccessConfiguration](https://help.aliyun.com/document_detail/338352.html).
+ * ### Usage notes
+ * This topic provides an example on how to delete an access configuration whose ID is `ac-001j9mcm3k7335bc****`.
  *
  * @param request DeleteAccessConfigurationRequest
  * @return DeleteAccessConfigurationResponse
@@ -842,16 +842,16 @@ DeleteAccessConfigurationResponse Client::deleteAccessConfiguration(const Delete
 /**
  * @summary Deletes a directory.
  *
- * @description ### [](#)Prerequisites
- * No resources are contained in the directory that you want to delete.
- * *   Access permissions on the accounts in your resource directory are removed from all users and groups. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
- * *   Users are deleted. For more information, see [DeleteUser](https://help.aliyun.com/document_detail/341671.html).
- * *   Groups are deleted. For more information, see [DeleteGroup](https://help.aliyun.com/document_detail/341821.html).
- * *   Access configurations are deleted. For more information, see [DeleteAccessConfiguration](https://help.aliyun.com/document_detail/336907.html).
- * *   System for Cross-domain Identity Management (SCIM) credentials are deleted. For more information, see [DeleteSCIMServerCredential](https://help.aliyun.com/document_detail/341842.html).
- * *   Single sign-on (SSO) logon configurations are deleted. For more information, see [ClearExternalSAMLIdentityProvider](https://help.aliyun.com/document_detail/341573.html).
- * ### [](#)Operation description
- * This topic provides an example on how to delete a directory whose ID is `d-00fc2p61****`.
+ * @description ### Before you begin
+ * Before you delete a directory, make sure that the directory does not contain any resources. Specifically:
+ * - Remove all authorizations for users and groups on an account in a resource directory. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
+ * - Delete users. For more information, see [DeleteUser](https://help.aliyun.com/document_detail/341671.html).
+ * - Delete groups. For more information, see [DeleteGroup](https://help.aliyun.com/document_detail/341821.html).
+ * - Delete access configurations. For more information, see [DeleteAccessConfiguration](https://help.aliyun.com/document_detail/336907.html).
+ * - Delete SCIM credentials. For more information, see [DeleteSCIMServerCredential](https://help.aliyun.com/document_detail/341842.html).
+ * - Delete single sign-on configurations. For more information, see [ClearExternalSAMLIdentityProvider](https://help.aliyun.com/document_detail/341573.html).
+ * ### Usage notes
+ * This topic provides an example on how to delete a directory with the ID `d-00fc2p61****`.
  *
  * @param request DeleteDirectoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -884,16 +884,16 @@ DeleteDirectoryResponse Client::deleteDirectoryWithOptions(const DeleteDirectory
 /**
  * @summary Deletes a directory.
  *
- * @description ### [](#)Prerequisites
- * No resources are contained in the directory that you want to delete.
- * *   Access permissions on the accounts in your resource directory are removed from all users and groups. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
- * *   Users are deleted. For more information, see [DeleteUser](https://help.aliyun.com/document_detail/341671.html).
- * *   Groups are deleted. For more information, see [DeleteGroup](https://help.aliyun.com/document_detail/341821.html).
- * *   Access configurations are deleted. For more information, see [DeleteAccessConfiguration](https://help.aliyun.com/document_detail/336907.html).
- * *   System for Cross-domain Identity Management (SCIM) credentials are deleted. For more information, see [DeleteSCIMServerCredential](https://help.aliyun.com/document_detail/341842.html).
- * *   Single sign-on (SSO) logon configurations are deleted. For more information, see [ClearExternalSAMLIdentityProvider](https://help.aliyun.com/document_detail/341573.html).
- * ### [](#)Operation description
- * This topic provides an example on how to delete a directory whose ID is `d-00fc2p61****`.
+ * @description ### Before you begin
+ * Before you delete a directory, make sure that the directory does not contain any resources. Specifically:
+ * - Remove all authorizations for users and groups on an account in a resource directory. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
+ * - Delete users. For more information, see [DeleteUser](https://help.aliyun.com/document_detail/341671.html).
+ * - Delete groups. For more information, see [DeleteGroup](https://help.aliyun.com/document_detail/341821.html).
+ * - Delete access configurations. For more information, see [DeleteAccessConfiguration](https://help.aliyun.com/document_detail/336907.html).
+ * - Delete SCIM credentials. For more information, see [DeleteSCIMServerCredential](https://help.aliyun.com/document_detail/341842.html).
+ * - Delete single sign-on configurations. For more information, see [ClearExternalSAMLIdentityProvider](https://help.aliyun.com/document_detail/341573.html).
+ * ### Usage notes
+ * This topic provides an example on how to delete a directory with the ID `d-00fc2p61****`.
  *
  * @param request DeleteDirectoryRequest
  * @return DeleteDirectoryResponse
@@ -904,15 +904,15 @@ DeleteDirectoryResponse Client::deleteDirectory(const DeleteDirectoryRequest &re
 }
 
 /**
- * @summary Deletes a group.
+ * @summary Deletes a specified group.
  *
- * @description ### [](#)Prerequisites
- * The group that you want to delete is not associated with the following resources. If the group is associated with the resources, the deletion fails.
- * - Users: You must remove users from the group. For more information, see [RemoveUserFromGroup](https://help.aliyun.com/document_detail/335116.html).
- * - Access permissions: You must remove the access permissions on the accounts in your resource directory from the group. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
- * ### [](#)Operation description
- * If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot delete a group that is synchronized by using SCIM.
- * This topic provides an example on how to delete the group `g-00jqzghi2n3o5hkh****`.
+ * @description ### Before you begin
+ * Before you delete a user group, make sure that the user group is not associated with the following resources. Otherwise, the deletion failed.
+ * - Users: You must remove users from the user group. For more information, see [RemoveUserFromGroup](https://help.aliyun.com/document_detail/335116.html).
+ * - Authorization: You must remove the authorization of the user group on the account in a resource directory. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
+ * ### Usage notes
+ * If SCIM synchronization is enabled, you cannot delete user groups that are synchronized by using SCIM.
+ * This topic provides an example on how to delete the user group `g-00jqzghi2n3o5hkh****`.
  *
  * @param request DeleteGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -947,15 +947,15 @@ DeleteGroupResponse Client::deleteGroupWithOptions(const DeleteGroupRequest &req
 }
 
 /**
- * @summary Deletes a group.
+ * @summary Deletes a specified group.
  *
- * @description ### [](#)Prerequisites
- * The group that you want to delete is not associated with the following resources. If the group is associated with the resources, the deletion fails.
- * - Users: You must remove users from the group. For more information, see [RemoveUserFromGroup](https://help.aliyun.com/document_detail/335116.html).
- * - Access permissions: You must remove the access permissions on the accounts in your resource directory from the group. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
- * ### [](#)Operation description
- * If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot delete a group that is synchronized by using SCIM.
- * This topic provides an example on how to delete the group `g-00jqzghi2n3o5hkh****`.
+ * @description ### Before you begin
+ * Before you delete a user group, make sure that the user group is not associated with the following resources. Otherwise, the deletion failed.
+ * - Users: You must remove users from the user group. For more information, see [RemoveUserFromGroup](https://help.aliyun.com/document_detail/335116.html).
+ * - Authorization: You must remove the authorization of the user group on the account in a resource directory. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
+ * ### Usage notes
+ * If SCIM synchronization is enabled, you cannot delete user groups that are synchronized by using SCIM.
+ * This topic provides an example on how to delete the user group `g-00jqzghi2n3o5hkh****`.
  *
  * @param request DeleteGroupRequest
  * @return DeleteGroupResponse
@@ -1024,10 +1024,10 @@ DeleteMFADeviceForUserResponse Client::deleteMFADeviceForUser(const DeleteMFADev
 }
 
 /**
- * @summary Deletes a System for Cross-domain Identity Management (SCIM) credential.
+ * @summary Deletes a SCIM credential.
  *
- * @description After a SCIM credential is deleted, the synchronization task that uses the SCIM credential fails.
- * This topic provides an example on how to delete the SCIM credential whose ID is `scimcred-004whl0kvfwcypbi****`.
+ * @description After a SCIM credential is deleted, synchronization tasks that use the SCIM credential will fail.
+ * This topic provides an example of deleting a SCIM credential whose ID is `scimcred-004whl0kvfwcypbi****`.
  *
  * @param request DeleteSCIMServerCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1062,10 +1062,10 @@ DeleteSCIMServerCredentialResponse Client::deleteSCIMServerCredentialWithOptions
 }
 
 /**
- * @summary Deletes a System for Cross-domain Identity Management (SCIM) credential.
+ * @summary Deletes a SCIM credential.
  *
- * @description After a SCIM credential is deleted, the synchronization task that uses the SCIM credential fails.
- * This topic provides an example on how to delete the SCIM credential whose ID is `scimcred-004whl0kvfwcypbi****`.
+ * @description After a SCIM credential is deleted, synchronization tasks that use the SCIM credential will fail.
+ * This topic provides an example of deleting a SCIM credential whose ID is `scimcred-004whl0kvfwcypbi****`.
  *
  * @param request DeleteSCIMServerCredentialRequest
  * @return DeleteSCIMServerCredentialResponse
@@ -1078,14 +1078,14 @@ DeleteSCIMServerCredentialResponse Client::deleteSCIMServerCredential(const Dele
 /**
  * @summary Deletes a user.
  *
- * @description ### [](#)Prerequisites
- * Before you delete a user, make sure that the user is not associated with the following resources. Otherwise, the deletion fails.
- * *   Multi-factor authentication (MFA) devices: You must delete the MFA devices bound to the user. For more information, see [DeleteMFADeviceForUser](https://help.aliyun.com/document_detail/341675.html).
- * *   Access permissions: You must remove the access permissions on the accounts in your resource directory from the user. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
- * *   Groups: You must remove the user from groups. For more information, see [RemoveUserFromGroup](https://help.aliyun.com/document_detail/335116.html).
- * ### [](#)Precautions
- * If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot delete a user that is synchronized by using SCIM.
- * This topic provides an example on how to delete the user whose ID is `u-00q8wbq42wiltcrk****`.
+ * @description ### Before you begin
+ * Before you delete a user, ensure that the user is not associated with the following resources. Otherwise, the deletion will result in a failed state:
+ * - MFA devices: You must delete the MFA device attached to the user. For more information, see [DeleteMFADeviceForUser](https://help.aliyun.com/document_detail/341675.html).
+ * - Authorization: You must remove the authorization of the user on the account in a resource directory. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
+ * - Groups: You must remove the user from groups. For more information, see [RemoveUserFromGroup](https://help.aliyun.com/document_detail/335116.html).
+ * ### Usage notes
+ * You cannot delete a SCIM-synchronized user when SCIM synchronization is enabled.
+ * This topic provides an example of deleting a user whose ID is `u-00q8wbq42wiltcrk****`.
  *
  * @param request DeleteUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1122,14 +1122,14 @@ DeleteUserResponse Client::deleteUserWithOptions(const DeleteUserRequest &reques
 /**
  * @summary Deletes a user.
  *
- * @description ### [](#)Prerequisites
- * Before you delete a user, make sure that the user is not associated with the following resources. Otherwise, the deletion fails.
- * *   Multi-factor authentication (MFA) devices: You must delete the MFA devices bound to the user. For more information, see [DeleteMFADeviceForUser](https://help.aliyun.com/document_detail/341675.html).
- * *   Access permissions: You must remove the access permissions on the accounts in your resource directory from the user. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
- * *   Groups: You must remove the user from groups. For more information, see [RemoveUserFromGroup](https://help.aliyun.com/document_detail/335116.html).
- * ### [](#)Precautions
- * If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot delete a user that is synchronized by using SCIM.
- * This topic provides an example on how to delete the user whose ID is `u-00q8wbq42wiltcrk****`.
+ * @description ### Before you begin
+ * Before you delete a user, ensure that the user is not associated with the following resources. Otherwise, the deletion will result in a failed state:
+ * - MFA devices: You must delete the MFA device attached to the user. For more information, see [DeleteMFADeviceForUser](https://help.aliyun.com/document_detail/341675.html).
+ * - Authorization: You must remove the authorization of the user on the account in a resource directory. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
+ * - Groups: You must remove the user from groups. For more information, see [RemoveUserFromGroup](https://help.aliyun.com/document_detail/335116.html).
+ * ### Usage notes
+ * You cannot delete a SCIM-synchronized user when SCIM synchronization is enabled.
+ * This topic provides an example of deleting a user whose ID is `u-00q8wbq42wiltcrk****`.
  *
  * @param request DeleteUserRequest
  * @return DeleteUserResponse
@@ -1140,7 +1140,7 @@ DeleteUserResponse Client::deleteUser(const DeleteUserRequest &request) {
 }
 
 /**
- * @summary Deletes a Resource Access Management (RAM) user provisioning.
+ * @summary Invokes DeleteUserProvisioning to delete a Resource Access Management (RAM) user synchronization.
  *
  * @param request DeleteUserProvisioningRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1179,7 +1179,7 @@ DeleteUserProvisioningResponse Client::deleteUserProvisioningWithOptions(const D
 }
 
 /**
- * @summary Deletes a Resource Access Management (RAM) user provisioning.
+ * @summary Invokes DeleteUserProvisioning to delete a Resource Access Management (RAM) user synchronization.
  *
  * @param request DeleteUserProvisioningRequest
  * @return DeleteUserProvisioningResponse
@@ -1190,7 +1190,7 @@ DeleteUserProvisioningResponse Client::deleteUserProvisioning(const DeleteUserPr
 }
 
 /**
- * @summary Deletes a Resource Access Management (RAM) user provisioning event.
+ * @summary Invokes DeleteUserProvisioningEvent to delete a Resource Access Management (RAM) user synchronization event that failed to execute.
  *
  * @param request DeleteUserProvisioningEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1229,7 +1229,7 @@ DeleteUserProvisioningEventResponse Client::deleteUserProvisioningEventWithOptio
 }
 
 /**
- * @summary Deletes a Resource Access Management (RAM) user provisioning event.
+ * @summary Invokes DeleteUserProvisioningEvent to delete a Resource Access Management (RAM) user synchronization event that failed to execute.
  *
  * @param request DeleteUserProvisioningEventRequest
  * @return DeleteUserProvisioningEventResponse
@@ -1240,10 +1240,10 @@ DeleteUserProvisioningEventResponse Client::deleteUserProvisioningEvent(const De
 }
 
 /**
- * @summary De-provisions an access configuration from an account in your resource directory.
+ * @summary Deprovisions an access configuration from an account in a resource directory.
  *
- * @description When you call this operation, an asynchronous task is automatically created. You can call the [GetTask](https://help.aliyun.com/document_detail/340670.html) operation to query the progress of the task based on the value of the `TaskId` response parameter.
- * This topic provides an example on how to de-provision the access configuration `ac-00jhtfl8thteu6uj****` from the account `114240524784****` in your resource directory.
+ * @description This API operation is asynchronous. You can use the `TaskId` returned in the response parameters to call [GetTask](https://help.aliyun.com/document_detail/340670.html) and query the task execution status.
+ * This topic provides an example of deprovisioning the access configuration `ac-00jhtfl8thteu6uj****` from the account in a resource directory `114240524784****`.
  *
  * @param request DeprovisionAccessConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1290,10 +1290,10 @@ DeprovisionAccessConfigurationResponse Client::deprovisionAccessConfigurationWit
 }
 
 /**
- * @summary De-provisions an access configuration from an account in your resource directory.
+ * @summary Deprovisions an access configuration from an account in a resource directory.
  *
- * @description When you call this operation, an asynchronous task is automatically created. You can call the [GetTask](https://help.aliyun.com/document_detail/340670.html) operation to query the progress of the task based on the value of the `TaskId` response parameter.
- * This topic provides an example on how to de-provision the access configuration `ac-00jhtfl8thteu6uj****` from the account `114240524784****` in your resource directory.
+ * @description This API operation is asynchronous. You can use the `TaskId` returned in the response parameters to call [GetTask](https://help.aliyun.com/document_detail/340670.html) and query the task execution status.
+ * This topic provides an example of deprovisioning the access configuration `ac-00jhtfl8thteu6uj****` from the account in a resource directory `114240524784****`.
  *
  * @param request DeprovisionAccessConfigurationRequest
  * @return DeprovisionAccessConfigurationResponse
@@ -1382,10 +1382,10 @@ DisableServiceResponse Client::disableService() {
 }
 
 /**
- * @summary Enables the delegated administrator account of CloudSSO.
+ * @summary Enables a CloudSSO delegated administrator account.
  *
- * @description You can use the management account of a resource directory to specify a member of the resource directory as the delegated administrator account of CloudSSO. For more information, see [Add a delegated administrator account](https://help.aliyun.com/document_detail/208117.html).
- * After the delegated administrator account of CloudSSO is specified, you can call this operation to enable the delegated administrator account of CloudSSO to manage CloudSSO resources.
+ * @description The management account of a resource directory can set a member of the resource directory as a CloudSSO delegated administrator account. For more information, see [Add a delegated administrator account](https://help.aliyun.com/document_detail/208117.html).
+ * After the configuration is complete, you can call this operation to enable the CloudSSO delegated administrator account to manage CloudSSO.
  *
  * @param request EnableDelegateAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1416,10 +1416,10 @@ EnableDelegateAccountResponse Client::enableDelegateAccountWithOptions(const Ena
 }
 
 /**
- * @summary Enables the delegated administrator account of CloudSSO.
+ * @summary Enables a CloudSSO delegated administrator account.
  *
- * @description You can use the management account of a resource directory to specify a member of the resource directory as the delegated administrator account of CloudSSO. For more information, see [Add a delegated administrator account](https://help.aliyun.com/document_detail/208117.html).
- * After the delegated administrator account of CloudSSO is specified, you can call this operation to enable the delegated administrator account of CloudSSO to manage CloudSSO resources.
+ * @description The management account of a resource directory can set a member of the resource directory as a CloudSSO delegated administrator account. For more information, see [Add a delegated administrator account](https://help.aliyun.com/document_detail/208117.html).
+ * After the configuration is complete, you can call this operation to enable the CloudSSO delegated administrator account to manage CloudSSO.
  *
  * @param request EnableDelegateAccountRequest
  * @return EnableDelegateAccountResponse
@@ -1564,9 +1564,9 @@ GetAttributePassingSettingResponse Client::getAttributePassingSetting(const GetA
 }
 
 /**
- * @summary Queries information about a directory.
+ * @summary Queries the details of a directory.
  *
- * @description This topic provides an example on how to query information about the directory whose ID is `d-00fc2p61****`.
+ * @description This topic provides an example of querying the details of a directory whose ID is `d-00fc2p61****`.
  *
  * @param request GetDirectoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1597,9 +1597,9 @@ GetDirectoryResponse Client::getDirectoryWithOptions(const GetDirectoryRequest &
 }
 
 /**
- * @summary Queries information about a directory.
+ * @summary Queries the details of a directory.
  *
- * @description This topic provides an example on how to query information about the directory whose ID is `d-00fc2p61****`.
+ * @description This topic provides an example of querying the details of a directory whose ID is `d-00fc2p61****`.
  *
  * @param request GetDirectoryRequest
  * @return GetDirectoryResponse
@@ -2104,9 +2104,9 @@ GetServiceStatusResponse Client::getServiceStatus() {
 }
 
 /**
- * @summary Queries information about an asynchronous task.
+ * @summary Queries the details of an asynchronous task.
  *
- * @description This topic provides an example on how to query the information about the task whose ID is `t-shfqw1u1edszvxw5****`.
+ * @description This topic provides an example of querying the details of a task whose ID is `t-shfqw1u1edszvxw5****`.
  *
  * @param request GetTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2141,9 +2141,9 @@ GetTaskResponse Client::getTaskWithOptions(const GetTaskRequest &request, const 
 }
 
 /**
- * @summary Queries information about an asynchronous task.
+ * @summary Queries the details of an asynchronous task.
  *
- * @description This topic provides an example on how to query the information about the task whose ID is `t-shfqw1u1edszvxw5****`.
+ * @description This topic provides an example of querying the details of a task whose ID is `t-shfqw1u1edszvxw5****`.
  *
  * @param request GetTaskRequest
  * @return GetTaskResponse
@@ -2580,9 +2580,9 @@ GetUserProvisioningStatisticsResponse Client::getUserProvisioningStatistics(cons
 }
 
 /**
- * @summary Queries the access permissions that are assigned.
+ * @summary Queries access assignments.
  *
- * @description This topic provides an example on how to query the assigned access permissions on the account `114240524784****` in your resource directory. The returned result shows that access permissions on the account in your resource directory is assigned to one user.
+ * @description This topic provides an example of querying the access assignments on the account in a resource directory `114240524784****`. The response shows that one access assignment record exists on the account.
  *
  * @param request ListAccessAssignmentsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2645,9 +2645,9 @@ ListAccessAssignmentsResponse Client::listAccessAssignmentsWithOptions(const Lis
 }
 
 /**
- * @summary Queries the access permissions that are assigned.
+ * @summary Queries access assignments.
  *
- * @description This topic provides an example on how to query the assigned access permissions on the account `114240524784****` in your resource directory. The returned result shows that access permissions on the account in your resource directory is assigned to one user.
+ * @description This topic provides an example of querying the access assignments on the account in a resource directory `114240524784****`. The response shows that one access assignment record exists on the account.
  *
  * @param request ListAccessAssignmentsRequest
  * @return ListAccessAssignmentsResponse
@@ -2658,9 +2658,9 @@ ListAccessAssignmentsResponse Client::listAccessAssignments(const ListAccessAssi
 }
 
 /**
- * @summary Queries the access configurations that are provisioned.
+ * @summary Queries access configuration provisionings.
  *
- * @description This topic provides an example on how to query the accounts for which the access permission `ac-00ccule7tadaijxc****` is provisioned. The returned result shows that the access configuration is provisioned for two accounts in your resource directory.
+ * @description This topic provides an example of querying the deployment list of the access configuration `ac-00ccule7tadaijxc****`. The response shows that the access configuration is deployed in two accounts, each being an account in a resource directory.
  *
  * @param request ListAccessConfigurationProvisioningsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2719,9 +2719,9 @@ ListAccessConfigurationProvisioningsResponse Client::listAccessConfigurationProv
 }
 
 /**
- * @summary Queries the access configurations that are provisioned.
+ * @summary Queries access configuration provisionings.
  *
- * @description This topic provides an example on how to query the accounts for which the access permission `ac-00ccule7tadaijxc****` is provisioned. The returned result shows that the access configuration is provisioned for two accounts in your resource directory.
+ * @description This topic provides an example of querying the deployment list of the access configuration `ac-00ccule7tadaijxc****`. The response shows that the access configuration is deployed in two accounts, each being an account in a resource directory.
  *
  * @param request ListAccessConfigurationProvisioningsRequest
  * @return ListAccessConfigurationProvisioningsResponse
@@ -3208,10 +3208,67 @@ ListSCIMServerCredentialsResponse Client::listSCIMServerCredentials(const ListSC
 }
 
 /**
- * @summary Queries asynchronous tasks.
+ * @summary Queries the relationships between resources and tags.
  *
- * @description By default, this operation queries the tasks within the previous 24 hours. This operation allows you to query the tasks within a maximum of 7 days. You can specify the start time of the query by using `Filter`.
- * This topic provides an example on how to query the tasks within the previous 24 hours.
+ * @param request ListTagResourcesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListTagResourcesResponse
+ */
+ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDirectoryId()) {
+    query["DirectoryId"] = request.getDirectoryId();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasResourceId()) {
+    query["ResourceId"] = request.getResourceId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
+  }
+
+  if (!!request.hasTag()) {
+    query["Tag"] = request.getTag();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListTagResources"},
+    {"version" , "2021-05-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListTagResourcesResponse>();
+}
+
+/**
+ * @summary Queries the relationships between resources and tags.
+ *
+ * @param request ListTagResourcesRequest
+ * @return ListTagResourcesResponse
+ */
+ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listTagResourcesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries a list of asynchronous tasks.
+ *
+ * @description By default, this operation queries the list of tasks created within the last 24 hours. You can query tasks created within the last 7 days at most. You can use the Filter parameter to specify the start time of the query. This topic provides an example on how to query the list of tasks created within the last 24 hours.
  *
  * @param request ListTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3282,10 +3339,9 @@ ListTasksResponse Client::listTasksWithOptions(const ListTasksRequest &request, 
 }
 
 /**
- * @summary Queries asynchronous tasks.
+ * @summary Queries a list of asynchronous tasks.
  *
- * @description By default, this operation queries the tasks within the previous 24 hours. This operation allows you to query the tasks within a maximum of 7 days. You can specify the start time of the query by using `Filter`.
- * This topic provides an example on how to query the tasks within the previous 24 hours.
+ * @description By default, this operation queries the list of tasks created within the last 24 hours. You can query tasks created within the last 7 days at most. You can use the Filter parameter to specify the start time of the query. This topic provides an example on how to query the list of tasks created within the last 24 hours.
  *
  * @param request ListTasksRequest
  * @return ListTasksResponse
@@ -3482,10 +3538,10 @@ ListUsersResponse Client::listUsers(const ListUsersRequest &request) {
 }
 
 /**
- * @summary Provisions an access configuration for an account in your resource directory.
+ * @summary Invokes ProvisionAccessConfiguration to perform access configuration provisioning and deployment for an account in a resource directory.
  *
- * @description When you call this operation, an asynchronous task is automatically created. You can call the [GetTask](https://help.aliyun.com/document_detail/340670.html) operation to query the progress of the task based on the value of the `TaskId` response parameter.
- * This topic provides an example on how to provision the access configuration `ac-00jhtfl8thteu6uj****` for the account `114240524784****` in your resource directory.
+ * @description This API operation is asynchronous. You can use the `TaskId` returned in the response to call [GetTask](https://help.aliyun.com/document_detail/340670.html) and query the task execution status.
+ * This topic provides an example of provisioning the access configuration `ac-00jhtfl8thteu6uj****` to the account in a resource directory `114240524784****`.
  *
  * @param request ProvisionAccessConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3532,10 +3588,10 @@ ProvisionAccessConfigurationResponse Client::provisionAccessConfigurationWithOpt
 }
 
 /**
- * @summary Provisions an access configuration for an account in your resource directory.
+ * @summary Invokes ProvisionAccessConfiguration to perform access configuration provisioning and deployment for an account in a resource directory.
  *
- * @description When you call this operation, an asynchronous task is automatically created. You can call the [GetTask](https://help.aliyun.com/document_detail/340670.html) operation to query the progress of the task based on the value of the `TaskId` response parameter.
- * This topic provides an example on how to provision the access configuration `ac-00jhtfl8thteu6uj****` for the account `114240524784****` in your resource directory.
+ * @description This API operation is asynchronous. You can use the `TaskId` returned in the response to call [GetTask](https://help.aliyun.com/document_detail/340670.html) and query the task execution status.
+ * This topic provides an example of provisioning the access configuration `ac-00jhtfl8thteu6uj****` to the account in a resource directory `114240524784****`.
  *
  * @param request ProvisionAccessConfigurationRequest
  * @return ProvisionAccessConfigurationResponse
@@ -3714,9 +3770,9 @@ RemoveUserFromGroupResponse Client::removeUserFromGroup(const RemoveUserFromGrou
 /**
  * @summary Resets the password of a user.
  *
- * @description If a user forgets the password, the password expires, or the password poses security risks, a CloudSSO administrator can reset the password for the user.
- * > After you enable single sign-on (SSO) logon, the password of a user cannot be reset.
- * This topic provides an example on how to reset the password of the user `u-00q8wbq42wiltcrk****`. The new password is automatically generated by the system.
+ * @description A CloudSSO administrator can reset the password of a user when the user forgets the password, the password expires, or the password poses a security risk.
+ * > You cannot reset user passwords after single sign-on (SSO) is enabled.
+ * This topic provides an example of resetting the password of the user u-00q8wbq42wiltcrk**** by using a system-generated password.
  *
  * @param request ResetUserPasswordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3765,9 +3821,9 @@ ResetUserPasswordResponse Client::resetUserPasswordWithOptions(const ResetUserPa
 /**
  * @summary Resets the password of a user.
  *
- * @description If a user forgets the password, the password expires, or the password poses security risks, a CloudSSO administrator can reset the password for the user.
- * > After you enable single sign-on (SSO) logon, the password of a user cannot be reset.
- * This topic provides an example on how to reset the password of the user `u-00q8wbq42wiltcrk****`. The new password is automatically generated by the system.
+ * @description A CloudSSO administrator can reset the password of a user when the user forgets the password, the password expires, or the password poses a security risk.
+ * > You cannot reset user passwords after single sign-on (SSO) is enabled.
+ * This topic provides an example of resetting the password of the user u-00q8wbq42wiltcrk**** by using a system-generated password.
  *
  * @param request ResetUserPasswordRequest
  * @return ResetUserPasswordResponse
@@ -4142,6 +4198,118 @@ SetSCIMSynchronizationStatusResponse Client::setSCIMSynchronizationStatus(const 
 }
 
 /**
+ * @summary Tags resources.
+ *
+ * @param request TagResourcesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TagResourcesResponse
+ */
+TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDirectoryId()) {
+    query["DirectoryId"] = request.getDirectoryId();
+  }
+
+  if (!!request.hasResourceId()) {
+    query["ResourceId"] = request.getResourceId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
+  }
+
+  if (!!request.hasTag()) {
+    query["Tag"] = request.getTag();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "TagResources"},
+    {"version" , "2021-05-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TagResourcesResponse>();
+}
+
+/**
+ * @summary Tags resources.
+ *
+ * @param request TagResourcesRequest
+ * @return TagResourcesResponse
+ */
+TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return tagResourcesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Untags resources.
+ *
+ * @param request UntagResourcesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UntagResourcesResponse
+ */
+UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAll()) {
+    query["All"] = request.getAll();
+  }
+
+  if (!!request.hasDirectoryId()) {
+    query["DirectoryId"] = request.getDirectoryId();
+  }
+
+  if (!!request.hasResourceId()) {
+    query["ResourceId"] = request.getResourceId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
+  }
+
+  if (!!request.hasTagKey()) {
+    query["TagKey"] = request.getTagKey();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UntagResources"},
+    {"version" , "2021-05-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UntagResourcesResponse>();
+}
+
+/**
+ * @summary Untags resources.
+ *
+ * @param request UntagResourcesRequest
+ * @return UntagResourcesResponse
+ */
+UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return untagResourcesWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies information about an access configuration.
  *
  * @description You can modify the `Description`, `SessionDuration`, and `RelayState` parameters for an access configuration.
@@ -4494,9 +4662,9 @@ UpdateMFAAuthenticationSettingsResponse Client::updateMFAAuthenticationSettings(
 }
 
 /**
- * @summary Enables or disables a System for Cross-domain Identity Management (SCIM) credential.
+ * @summary Enables or disables a SCIM credential.
  *
- * @description This topic provides an example on how to disable the SCIM credential whose ID is `scimcred-004whl0kvfwcypbi****`. After the SCIM credential is disabled, the synchronization task that uses the SCIM credential fails. You can call this operation again to enable the SCIM credential.
+ * @description This topic provides an example of disabling the SCIM credential whose ID is `scimcred-004whl0kvfwcypbi****`. After the credential is disabled, synchronization tasks that use this SCIM credential will fail. You can call this operation again to enable the SCIM credential.
  *
  * @param request UpdateSCIMServerCredentialStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4535,9 +4703,9 @@ UpdateSCIMServerCredentialStatusResponse Client::updateSCIMServerCredentialStatu
 }
 
 /**
- * @summary Enables or disables a System for Cross-domain Identity Management (SCIM) credential.
+ * @summary Enables or disables a SCIM credential.
  *
- * @description This topic provides an example on how to disable the SCIM credential whose ID is `scimcred-004whl0kvfwcypbi****`. After the SCIM credential is disabled, the synchronization task that uses the SCIM credential fails. You can call this operation again to enable the SCIM credential.
+ * @description This topic provides an example of disabling the SCIM credential whose ID is `scimcred-004whl0kvfwcypbi****`. After the credential is disabled, synchronization tasks that use this SCIM credential will fail. You can call this operation again to enable the SCIM credential.
  *
  * @param request UpdateSCIMServerCredentialStatusRequest
  * @return UpdateSCIMServerCredentialStatusResponse

@@ -211,48 +211,49 @@ namespace Models
       shared_ptr<string> accessConfigurationId_ {};
       // The name of the access configuration.
       shared_ptr<string> accessConfigurationName_ {};
-      // The end time of the task.
+      // The end time of the task. The time is in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> endTime_ {};
-      // The cause of the task failure.
+      // The reason why the task failed.
       // 
-      // >  This parameter is returned only when the value of `Status` is `Failed`.
+      // > This parameter is returned only when `Status` is `Failed`.
       shared_ptr<string> failureReason_ {};
+      // The ID of the Alibaba Cloud account to which the target belongs.
       shared_ptr<string> originTargetId_ {};
       // The ID of the CloudSSO identity.
       shared_ptr<string> principalId_ {};
       // The name of the CloudSSO identity.
       shared_ptr<string> principalName_ {};
-      // The type of the CloudSSO identity. Valid values:
+      // The CloudSSO identity type. Valid values:
       // 
-      // *   User
-      // *   Group
+      // - User: user.
+      // - Group: user group.
       shared_ptr<string> principalType_ {};
-      // The start time of the task.
+      // The start time of the task. The time is in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> startTime_ {};
       // The task status. Valid values:
       // 
-      // *   InProgress: The task is running.
-      // *   Success: The task is successful.
-      // *   Failed: The task failed.
+      // - InProgress: The task is in progress.
+      // - Success: The task succeeded.
+      // - Failed: The task failed.
       shared_ptr<string> status_ {};
-      // The ID of the task object.
+      // The ID of the task target.
       shared_ptr<string> targetId_ {};
-      // The name of the task object.
+      // The name of the task target.
       shared_ptr<string> targetName_ {};
-      // The path ID of the task object in the resource directory.
+      // The path ID of the task target in the resource directory.
       shared_ptr<string> targetPath_ {};
-      // The path name of the task object in the resource directory.
+      // The path name of the task target in the resource directory.
       shared_ptr<string> targetPathName_ {};
-      // The type of the task object. The value is fixed as RD-Account, which indicates the accounts in the resource directory.
+      // The task target type. Valid values: RD-Account, which indicates that the task target is an account in a resource directory.
       shared_ptr<string> targetType_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
       // The task type. Valid values:
       // 
-      // *   ProvisionAccessConfiguration: An access configuration is provisioned.
-      // *   DeprovisionAccessConfiguration: An access configuration is de-provisioned.
-      // *   CreateAccessAssignment: Access permissions on an account in the resource directory are assigned.
-      // *   DeleteAccessAssignment: Access permissions on an account in the resource directory are removed.
+      // - ProvisionAccessConfiguration: Deploys the access configuration.
+      // - DeprovisionAccessConfiguration: Removes the access configuration deployment.
+      // - CreateAccessAssignment: Grants authorization to an account in a resource directory.
+      // - DeleteAccessAssignment: Revokes authorization from an account in a resource directory.
       shared_ptr<string> taskType_ {};
     };
 

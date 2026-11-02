@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // The ID of the resource directory.
+    // The directory ID.
     shared_ptr<string> directoryId_ {};
-    // The ID of the RAM user provisioning event.
+    // The ID of the Resource Access Management (RAM) user synchronization event.
     // 
-    // You can call the [ListUserProvisioningEvents](https://help.aliyun.com/document_detail/2636305.html) operation to query the value of `EventId`.
+    // You can invoke [ListUserProvisioningEvents](https://help.aliyun.com/document_detail/2636305.html) to retrieve the `EventId`.
     shared_ptr<string> eventId_ {};
-    // The ID of the RAM user provisioning.
+    // The ID of the Resource Access Management (RAM) user synchronization.
     shared_ptr<string> userProvisioningId_ {};
   };
 

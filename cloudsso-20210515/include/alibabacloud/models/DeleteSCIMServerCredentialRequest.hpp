@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The ID of the SCIM credential.
     shared_ptr<string> credentialId_ {};
-    // The ID of the directory.
+    // The directory ID.
     shared_ptr<string> directoryId_ {};
   };
 
