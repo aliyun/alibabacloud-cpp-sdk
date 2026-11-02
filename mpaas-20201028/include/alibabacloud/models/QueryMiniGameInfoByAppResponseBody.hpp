@@ -56,6 +56,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(MiniProgramId, miniProgramId_);
         DARABONBA_PTR_TO_JSON(MiniProgramName, miniProgramName_);
         DARABONBA_PTR_TO_JSON(Slogan, slogan_);
+        DARABONBA_PTR_TO_JSON(UserProfileData, userProfileData_);
         DARABONBA_PTR_TO_JSON(Version, version_);
       };
       friend void from_json(const Darabonba::Json& j, Content& obj) { 
@@ -72,6 +73,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(MiniProgramId, miniProgramId_);
         DARABONBA_PTR_FROM_JSON(MiniProgramName, miniProgramName_);
         DARABONBA_PTR_FROM_JSON(Slogan, slogan_);
+        DARABONBA_PTR_FROM_JSON(UserProfileData, userProfileData_);
         DARABONBA_PTR_FROM_JSON(Version, version_);
       };
       Content() = default ;
@@ -85,10 +87,143 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class UserProfileData : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const UserProfileData& obj) { 
+          DARABONBA_PTR_TO_JSON(ActiveRegionCodes, activeRegionCodes_);
+          DARABONBA_PTR_TO_JSON(ActiveRegions, activeRegions_);
+          DARABONBA_PTR_TO_JSON(AgeSegment, ageSegment_);
+          DARABONBA_PTR_TO_JSON(AndroidActiveModels, androidActiveModels_);
+          DARABONBA_PTR_TO_JSON(AndroidRatio, androidRatio_);
+          DARABONBA_PTR_TO_JSON(FemaleRatio, femaleRatio_);
+          DARABONBA_PTR_TO_JSON(HarmonyRatio, harmonyRatio_);
+          DARABONBA_PTR_TO_JSON(IosActiveModels, iosActiveModels_);
+          DARABONBA_PTR_TO_JSON(IosRatio, iosRatio_);
+          DARABONBA_PTR_TO_JSON(MaleRatio, maleRatio_);
+          DARABONBA_PTR_TO_JSON(ProfileRemark, profileRemark_);
+        };
+        friend void from_json(const Darabonba::Json& j, UserProfileData& obj) { 
+          DARABONBA_PTR_FROM_JSON(ActiveRegionCodes, activeRegionCodes_);
+          DARABONBA_PTR_FROM_JSON(ActiveRegions, activeRegions_);
+          DARABONBA_PTR_FROM_JSON(AgeSegment, ageSegment_);
+          DARABONBA_PTR_FROM_JSON(AndroidActiveModels, androidActiveModels_);
+          DARABONBA_PTR_FROM_JSON(AndroidRatio, androidRatio_);
+          DARABONBA_PTR_FROM_JSON(FemaleRatio, femaleRatio_);
+          DARABONBA_PTR_FROM_JSON(HarmonyRatio, harmonyRatio_);
+          DARABONBA_PTR_FROM_JSON(IosActiveModels, iosActiveModels_);
+          DARABONBA_PTR_FROM_JSON(IosRatio, iosRatio_);
+          DARABONBA_PTR_FROM_JSON(MaleRatio, maleRatio_);
+          DARABONBA_PTR_FROM_JSON(ProfileRemark, profileRemark_);
+        };
+        UserProfileData() = default ;
+        UserProfileData(const UserProfileData &) = default ;
+        UserProfileData(UserProfileData &&) = default ;
+        UserProfileData(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~UserProfileData() = default ;
+        UserProfileData& operator=(const UserProfileData &) = default ;
+        UserProfileData& operator=(UserProfileData &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->activeRegionCodes_ == nullptr
+        && this->activeRegions_ == nullptr && this->ageSegment_ == nullptr && this->androidActiveModels_ == nullptr && this->androidRatio_ == nullptr && this->femaleRatio_ == nullptr
+        && this->harmonyRatio_ == nullptr && this->iosActiveModels_ == nullptr && this->iosRatio_ == nullptr && this->maleRatio_ == nullptr && this->profileRemark_ == nullptr; };
+        // activeRegionCodes Field Functions 
+        bool hasActiveRegionCodes() const { return this->activeRegionCodes_ != nullptr;};
+        void deleteActiveRegionCodes() { this->activeRegionCodes_ = nullptr;};
+        inline string getActiveRegionCodes() const { DARABONBA_PTR_GET_DEFAULT(activeRegionCodes_, "") };
+        inline UserProfileData& setActiveRegionCodes(string activeRegionCodes) { DARABONBA_PTR_SET_VALUE(activeRegionCodes_, activeRegionCodes) };
+
+
+        // activeRegions Field Functions 
+        bool hasActiveRegions() const { return this->activeRegions_ != nullptr;};
+        void deleteActiveRegions() { this->activeRegions_ = nullptr;};
+        inline string getActiveRegions() const { DARABONBA_PTR_GET_DEFAULT(activeRegions_, "") };
+        inline UserProfileData& setActiveRegions(string activeRegions) { DARABONBA_PTR_SET_VALUE(activeRegions_, activeRegions) };
+
+
+        // ageSegment Field Functions 
+        bool hasAgeSegment() const { return this->ageSegment_ != nullptr;};
+        void deleteAgeSegment() { this->ageSegment_ = nullptr;};
+        inline string getAgeSegment() const { DARABONBA_PTR_GET_DEFAULT(ageSegment_, "") };
+        inline UserProfileData& setAgeSegment(string ageSegment) { DARABONBA_PTR_SET_VALUE(ageSegment_, ageSegment) };
+
+
+        // androidActiveModels Field Functions 
+        bool hasAndroidActiveModels() const { return this->androidActiveModels_ != nullptr;};
+        void deleteAndroidActiveModels() { this->androidActiveModels_ = nullptr;};
+        inline string getAndroidActiveModels() const { DARABONBA_PTR_GET_DEFAULT(androidActiveModels_, "") };
+        inline UserProfileData& setAndroidActiveModels(string androidActiveModels) { DARABONBA_PTR_SET_VALUE(androidActiveModels_, androidActiveModels) };
+
+
+        // androidRatio Field Functions 
+        bool hasAndroidRatio() const { return this->androidRatio_ != nullptr;};
+        void deleteAndroidRatio() { this->androidRatio_ = nullptr;};
+        inline int32_t getAndroidRatio() const { DARABONBA_PTR_GET_DEFAULT(androidRatio_, 0) };
+        inline UserProfileData& setAndroidRatio(int32_t androidRatio) { DARABONBA_PTR_SET_VALUE(androidRatio_, androidRatio) };
+
+
+        // femaleRatio Field Functions 
+        bool hasFemaleRatio() const { return this->femaleRatio_ != nullptr;};
+        void deleteFemaleRatio() { this->femaleRatio_ = nullptr;};
+        inline int32_t getFemaleRatio() const { DARABONBA_PTR_GET_DEFAULT(femaleRatio_, 0) };
+        inline UserProfileData& setFemaleRatio(int32_t femaleRatio) { DARABONBA_PTR_SET_VALUE(femaleRatio_, femaleRatio) };
+
+
+        // harmonyRatio Field Functions 
+        bool hasHarmonyRatio() const { return this->harmonyRatio_ != nullptr;};
+        void deleteHarmonyRatio() { this->harmonyRatio_ = nullptr;};
+        inline int32_t getHarmonyRatio() const { DARABONBA_PTR_GET_DEFAULT(harmonyRatio_, 0) };
+        inline UserProfileData& setHarmonyRatio(int32_t harmonyRatio) { DARABONBA_PTR_SET_VALUE(harmonyRatio_, harmonyRatio) };
+
+
+        // iosActiveModels Field Functions 
+        bool hasIosActiveModels() const { return this->iosActiveModels_ != nullptr;};
+        void deleteIosActiveModels() { this->iosActiveModels_ = nullptr;};
+        inline string getIosActiveModels() const { DARABONBA_PTR_GET_DEFAULT(iosActiveModels_, "") };
+        inline UserProfileData& setIosActiveModels(string iosActiveModels) { DARABONBA_PTR_SET_VALUE(iosActiveModels_, iosActiveModels) };
+
+
+        // iosRatio Field Functions 
+        bool hasIosRatio() const { return this->iosRatio_ != nullptr;};
+        void deleteIosRatio() { this->iosRatio_ = nullptr;};
+        inline int32_t getIosRatio() const { DARABONBA_PTR_GET_DEFAULT(iosRatio_, 0) };
+        inline UserProfileData& setIosRatio(int32_t iosRatio) { DARABONBA_PTR_SET_VALUE(iosRatio_, iosRatio) };
+
+
+        // maleRatio Field Functions 
+        bool hasMaleRatio() const { return this->maleRatio_ != nullptr;};
+        void deleteMaleRatio() { this->maleRatio_ = nullptr;};
+        inline int32_t getMaleRatio() const { DARABONBA_PTR_GET_DEFAULT(maleRatio_, 0) };
+        inline UserProfileData& setMaleRatio(int32_t maleRatio) { DARABONBA_PTR_SET_VALUE(maleRatio_, maleRatio) };
+
+
+        // profileRemark Field Functions 
+        bool hasProfileRemark() const { return this->profileRemark_ != nullptr;};
+        void deleteProfileRemark() { this->profileRemark_ = nullptr;};
+        inline string getProfileRemark() const { DARABONBA_PTR_GET_DEFAULT(profileRemark_, "") };
+        inline UserProfileData& setProfileRemark(string profileRemark) { DARABONBA_PTR_SET_VALUE(profileRemark_, profileRemark) };
+
+
+      protected:
+        shared_ptr<string> activeRegionCodes_ {};
+        shared_ptr<string> activeRegions_ {};
+        shared_ptr<string> ageSegment_ {};
+        shared_ptr<string> androidActiveModels_ {};
+        shared_ptr<int32_t> androidRatio_ {};
+        shared_ptr<int32_t> femaleRatio_ {};
+        shared_ptr<int32_t> harmonyRatio_ {};
+        shared_ptr<string> iosActiveModels_ {};
+        shared_ptr<int32_t> iosRatio_ {};
+        shared_ptr<int32_t> maleRatio_ {};
+        shared_ptr<string> profileRemark_ {};
+      };
+
       virtual bool empty() const override { return this->gameEngine_ == nullptr
         && this->gameMaker_ == nullptr && this->gameTypeLevel1_ == nullptr && this->gameTypeLevel2_ == nullptr && this->gameTypeLevel3_ == nullptr && this->gameVersionId_ == nullptr
         && this->gmtModified_ == nullptr && this->icon_ == nullptr && this->introduction_ == nullptr && this->miniProgramCode_ == nullptr && this->miniProgramId_ == nullptr
-        && this->miniProgramName_ == nullptr && this->slogan_ == nullptr && this->version_ == nullptr; };
+        && this->miniProgramName_ == nullptr && this->slogan_ == nullptr && this->userProfileData_ == nullptr && this->version_ == nullptr; };
       // gameEngine Field Functions 
       bool hasGameEngine() const { return this->gameEngine_ != nullptr;};
       void deleteGameEngine() { this->gameEngine_ = nullptr;};
@@ -180,6 +315,15 @@ namespace Models
       inline Content& setSlogan(string slogan) { DARABONBA_PTR_SET_VALUE(slogan_, slogan) };
 
 
+      // userProfileData Field Functions 
+      bool hasUserProfileData() const { return this->userProfileData_ != nullptr;};
+      void deleteUserProfileData() { this->userProfileData_ = nullptr;};
+      inline const Content::UserProfileData & getUserProfileData() const { DARABONBA_PTR_GET_CONST(userProfileData_, Content::UserProfileData) };
+      inline Content::UserProfileData getUserProfileData() { DARABONBA_PTR_GET(userProfileData_, Content::UserProfileData) };
+      inline Content& setUserProfileData(const Content::UserProfileData & userProfileData) { DARABONBA_PTR_SET_VALUE(userProfileData_, userProfileData) };
+      inline Content& setUserProfileData(Content::UserProfileData && userProfileData) { DARABONBA_PTR_SET_RVALUE(userProfileData_, userProfileData) };
+
+
       // version Field Functions 
       bool hasVersion() const { return this->version_ != nullptr;};
       void deleteVersion() { this->version_ = nullptr;};
@@ -201,6 +345,7 @@ namespace Models
       shared_ptr<int64_t> miniProgramId_ {};
       shared_ptr<string> miniProgramName_ {};
       shared_ptr<string> slogan_ {};
+      shared_ptr<Content::UserProfileData> userProfileData_ {};
       shared_ptr<string> version_ {};
     };
 

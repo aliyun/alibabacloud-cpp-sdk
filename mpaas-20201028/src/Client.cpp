@@ -548,6 +548,314 @@ CopyMcdpGroupResponse Client::copyMcdpGroup(const CopyMcdpGroupRequest &request)
 }
 
 /**
+ * @summary 创建网关 API
+ *
+ * @param tmpReq CreateGatewayApiRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateGatewayApiResponse
+ */
+CreateGatewayApiResponse Client::createGatewayApiWithOptions(const CreateGatewayApiRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateGatewayApiShrinkRequest request = CreateGatewayApiShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCacheRule()) {
+    request.setCacheRuleShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCacheRule(), "CacheRule", "json"));
+  }
+
+  if (!!tmpReq.hasDefaultLimitRule()) {
+    request.setDefaultLimitRuleShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDefaultLimitRule(), "DefaultLimitRule", "json"));
+  }
+
+  if (!!tmpReq.hasHeaderRules()) {
+    request.setHeaderRulesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHeaderRules(), "HeaderRules", "json"));
+  }
+
+  if (!!tmpReq.hasLimitRule()) {
+    request.setLimitRuleShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLimitRule(), "LimitRule", "json"));
+  }
+
+  if (!!tmpReq.hasMigrateRule()) {
+    request.setMigrateRuleShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMigrateRule(), "MigrateRule", "json"));
+  }
+
+  if (!!tmpReq.hasMockRule()) {
+    request.setMockRuleShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMockRule(), "MockRule", "json"));
+  }
+
+  if (!!tmpReq.hasRequestParams()) {
+    request.setRequestParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRequestParams(), "RequestParams", "json"));
+  }
+
+  if (!!tmpReq.hasRpcParameterTypes()) {
+    request.setRpcParameterTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRpcParameterTypes(), "RpcParameterTypes", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasApiName()) {
+    body["ApiName"] = request.getApiName();
+  }
+
+  if (!!request.hasApiStatus()) {
+    body["ApiStatus"] = request.getApiStatus();
+  }
+
+  if (!!request.hasApiType()) {
+    body["ApiType"] = request.getApiType();
+  }
+
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasAuthRuleName()) {
+    body["AuthRuleName"] = request.getAuthRuleName();
+  }
+
+  if (!!request.hasCacheRuleShrink()) {
+    body["CacheRule"] = request.getCacheRuleShrink();
+  }
+
+  if (!!request.hasCharset()) {
+    body["Charset"] = request.getCharset();
+  }
+
+  if (!!request.hasContentType()) {
+    body["ContentType"] = request.getContentType();
+  }
+
+  if (!!request.hasDefaultLimitRuleShrink()) {
+    body["DefaultLimitRule"] = request.getDefaultLimitRuleShrink();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasGroupId()) {
+    body["GroupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasHeaderRulesShrink()) {
+    body["HeaderRules"] = request.getHeaderRulesShrink();
+  }
+
+  if (!!request.hasInterfaceType()) {
+    body["InterfaceType"] = request.getInterfaceType();
+  }
+
+  if (!!request.hasLimitRuleShrink()) {
+    body["LimitRule"] = request.getLimitRuleShrink();
+  }
+
+  if (!!request.hasMethod()) {
+    body["Method"] = request.getMethod();
+  }
+
+  if (!!request.hasMethodName()) {
+    body["MethodName"] = request.getMethodName();
+  }
+
+  if (!!request.hasMigrateRuleShrink()) {
+    body["MigrateRule"] = request.getMigrateRuleShrink();
+  }
+
+  if (!!request.hasMockRuleShrink()) {
+    body["MockRule"] = request.getMockRuleShrink();
+  }
+
+  if (!!request.hasNeedEncrypt()) {
+    body["NeedEncrypt"] = request.getNeedEncrypt();
+  }
+
+  if (!!request.hasNeedJsonp()) {
+    body["NeedJsonp"] = request.getNeedJsonp();
+  }
+
+  if (!!request.hasNeedSign()) {
+    body["NeedSign"] = request.getNeedSign();
+  }
+
+  if (!!request.hasOperationType()) {
+    body["OperationType"] = request.getOperationType();
+  }
+
+  if (!!request.hasPath()) {
+    body["Path"] = request.getPath();
+  }
+
+  if (!!request.hasRequestBodyModel()) {
+    body["RequestBodyModel"] = request.getRequestBodyModel();
+  }
+
+  if (!!request.hasRequestParamsShrink()) {
+    body["RequestParams"] = request.getRequestParamsShrink();
+  }
+
+  if (!!request.hasResponseBodyModel()) {
+    body["ResponseBodyModel"] = request.getResponseBodyModel();
+  }
+
+  if (!!request.hasRpcParameterTypesShrink()) {
+    body["RpcParameterTypes"] = request.getRpcParameterTypesShrink();
+  }
+
+  if (!!request.hasSerialization()) {
+    body["Serialization"] = request.getSerialization();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.getTenantId();
+  }
+
+  if (!!request.hasTimeout()) {
+    body["Timeout"] = request.getTimeout();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateGatewayApi"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateGatewayApiResponse>();
+}
+
+/**
+ * @summary 创建网关 API
+ *
+ * @param request CreateGatewayApiRequest
+ * @return CreateGatewayApiResponse
+ */
+CreateGatewayApiResponse Client::createGatewayApi(const CreateGatewayApiRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createGatewayApiWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建网关 API 分组
+ *
+ * @param tmpReq CreateGatewayApiGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateGatewayApiGroupResponse
+ */
+CreateGatewayApiGroupResponse Client::createGatewayApiGroupWithOptions(const CreateGatewayApiGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateGatewayApiGroupShrinkRequest request = CreateGatewayApiGroupShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCenters()) {
+    request.setCentersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCenters(), "Centers", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasCentersShrink()) {
+    body["Centers"] = request.getCentersShrink();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasDomainName()) {
+    body["DomainName"] = request.getDomainName();
+  }
+
+  if (!!request.hasEnableMTLS()) {
+    body["EnableMTLS"] = request.getEnableMTLS();
+  }
+
+  if (!!request.hasGroupName()) {
+    body["GroupName"] = request.getGroupName();
+  }
+
+  if (!!request.hasHost()) {
+    body["Host"] = request.getHost();
+  }
+
+  if (!!request.hasHttpsModel()) {
+    body["HttpsModel"] = request.getHttpsModel();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasInstancePort()) {
+    body["InstancePort"] = request.getInstancePort();
+  }
+
+  if (!!request.hasRegionMode()) {
+    body["RegionMode"] = request.getRegionMode();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.getTenantId();
+  }
+
+  if (!!request.hasTimeout()) {
+    body["Timeout"] = request.getTimeout();
+  }
+
+  if (!!request.hasUpstreamType()) {
+    body["UpstreamType"] = request.getUpstreamType();
+  }
+
+  if (!!request.hasVpcId()) {
+    body["VpcId"] = request.getVpcId();
+  }
+
+  if (!!request.hasVpcModel()) {
+    body["VpcModel"] = request.getVpcModel();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateGatewayApiGroup"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateGatewayApiGroupResponse>();
+}
+
+/**
+ * @summary 创建网关 API 分组
+ *
+ * @param request CreateGatewayApiGroupRequest
+ * @return CreateGatewayApiGroupResponse
+ */
+CreateGatewayApiGroupResponse Client::createGatewayApiGroup(const CreateGatewayApiGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createGatewayApiGroupWithOptions(request, runtime);
+}
+
+/**
  * @summary 创建短链
  *
  * @param request CreateLinkRequest
@@ -2574,6 +2882,114 @@ DeleteCubecardWhitelistContentResponse Client::deleteCubecardWhitelistContent(co
 }
 
 /**
+ * @summary 删除网关 API
+ *
+ * @param request DeleteGatewayApiRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteGatewayApiResponse
+ */
+DeleteGatewayApiResponse Client::deleteGatewayApiWithOptions(const DeleteGatewayApiRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasApiId()) {
+    body["ApiId"] = request.getApiId();
+  }
+
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.getTenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteGatewayApi"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteGatewayApiResponse>();
+}
+
+/**
+ * @summary 删除网关 API
+ *
+ * @param request DeleteGatewayApiRequest
+ * @return DeleteGatewayApiResponse
+ */
+DeleteGatewayApiResponse Client::deleteGatewayApi(const DeleteGatewayApiRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteGatewayApiWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除网关 API 分组
+ *
+ * @param request DeleteGatewayApiGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteGatewayApiGroupResponse
+ */
+DeleteGatewayApiGroupResponse Client::deleteGatewayApiGroupWithOptions(const DeleteGatewayApiGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasGroupId()) {
+    body["GroupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.getTenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteGatewayApiGroup"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteGatewayApiGroupResponse>();
+}
+
+/**
+ * @summary 删除网关 API 分组
+ *
+ * @param request DeleteGatewayApiGroupRequest
+ * @return DeleteGatewayApiGroupResponse
+ */
+DeleteGatewayApiGroupResponse Client::deleteGatewayApiGroup(const DeleteGatewayApiGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteGatewayApiGroupWithOptions(request, runtime);
+}
+
+/**
  * @param request DeleteMcdpAimRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteMcdpAimResponse
@@ -3194,6 +3610,66 @@ ExistMcubeRsaKeyResponse Client::existMcubeRsaKey(const ExistMcubeRsaKeyRequest 
 }
 
 /**
+ * @summary 导出网关 API
+ *
+ * @param tmpReq ExportGatewayApisRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ExportGatewayApisResponse
+ */
+ExportGatewayApisResponse Client::exportGatewayApisWithOptions(const ExportGatewayApisRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ExportGatewayApisShrinkRequest request = ExportGatewayApisShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasApiIds()) {
+    request.setApiIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getApiIds(), "ApiIds", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasApiIdsShrink()) {
+    body["ApiIds"] = request.getApiIdsShrink();
+  }
+
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.getTenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ExportGatewayApis"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ExportGatewayApisResponse>();
+}
+
+/**
+ * @summary 导出网关 API
+ *
+ * @param request ExportGatewayApisRequest
+ * @return ExportGatewayApisResponse
+ */
+ExportGatewayApisResponse Client::exportGatewayApis(const ExportGatewayApisRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return exportGatewayApisWithOptions(request, runtime);
+}
+
+/**
  * @param request ExportMappCenterAppConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ExportMappCenterAppConfigResponse
@@ -3435,6 +3911,114 @@ GetGameReviewByStatusResponse Client::getGameReviewByStatusWithOptions(const Get
 GetGameReviewByStatusResponse Client::getGameReviewByStatus(const GetGameReviewByStatusRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getGameReviewByStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询网关 API 详情
+ *
+ * @param request GetGatewayApiRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetGatewayApiResponse
+ */
+GetGatewayApiResponse Client::getGatewayApiWithOptions(const GetGatewayApiRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasApiId()) {
+    body["ApiId"] = request.getApiId();
+  }
+
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.getTenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetGatewayApi"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetGatewayApiResponse>();
+}
+
+/**
+ * @summary 查询网关 API 详情
+ *
+ * @param request GetGatewayApiRequest
+ * @return GetGatewayApiResponse
+ */
+GetGatewayApiResponse Client::getGatewayApi(const GetGatewayApiRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getGatewayApiWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询网关 API 分组详情
+ *
+ * @param request GetGatewayApiGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetGatewayApiGroupResponse
+ */
+GetGatewayApiGroupResponse Client::getGatewayApiGroupWithOptions(const GetGatewayApiGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasGroupId()) {
+    body["GroupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.getTenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetGatewayApiGroup"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetGatewayApiGroupResponse>();
+}
+
+/**
+ * @summary 查询网关 API 分组详情
+ *
+ * @param request GetGatewayApiGroupRequest
+ * @return GetGatewayApiGroupResponse
+ */
+GetGatewayApiGroupResponse Client::getGatewayApiGroup(const GetGatewayApiGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getGatewayApiGroupWithOptions(request, runtime);
 }
 
 /**
@@ -3996,6 +4580,64 @@ GetUserAppUploadProcessInMsaResponse Client::getUserAppUploadProcessInMsa(const 
 }
 
 /**
+ * @summary 导入网关 API
+ *
+ * @param request ImportGatewayApisRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ImportGatewayApisResponse
+ */
+ImportGatewayApisResponse Client::importGatewayApisWithOptions(const ImportGatewayApisRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasFileUrl()) {
+    body["FileUrl"] = request.getFileUrl();
+  }
+
+  if (!!request.hasImportMode()) {
+    body["ImportMode"] = request.getImportMode();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.getTenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ImportGatewayApis"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ImportGatewayApisResponse>();
+}
+
+/**
+ * @summary 导入网关 API
+ *
+ * @param request ImportGatewayApisRequest
+ * @return ImportGatewayApisResponse
+ */
+ImportGatewayApisResponse Client::importGatewayApis(const ImportGatewayApisRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return importGatewayApisWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询报表
  *
  * @param request ListAnalysisCoreIndexRequest
@@ -4098,6 +4740,150 @@ ListCubecardAppsResponse Client::listCubecardAppsWithOptions(const ListCubecardA
 ListCubecardAppsResponse Client::listCubecardApps(const ListCubecardAppsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listCubecardAppsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询网关 API 分组列表
+ *
+ * @param request ListGatewayApiGroupsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListGatewayApiGroupsResponse
+ */
+ListGatewayApiGroupsResponse Client::listGatewayApiGroupsWithOptions(const ListGatewayApiGroupsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasKeyword()) {
+    body["Keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.getTenantId();
+  }
+
+  if (!!request.hasUpstreamType()) {
+    body["UpstreamType"] = request.getUpstreamType();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListGatewayApiGroups"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListGatewayApiGroupsResponse>();
+}
+
+/**
+ * @summary 查询网关 API 分组列表
+ *
+ * @param request ListGatewayApiGroupsRequest
+ * @return ListGatewayApiGroupsResponse
+ */
+ListGatewayApiGroupsResponse Client::listGatewayApiGroups(const ListGatewayApiGroupsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listGatewayApiGroupsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询网关 API 列表
+ *
+ * @param request ListGatewayApisRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListGatewayApisResponse
+ */
+ListGatewayApisResponse Client::listGatewayApisWithOptions(const ListGatewayApisRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasApiStatus()) {
+    body["ApiStatus"] = request.getApiStatus();
+  }
+
+  if (!!request.hasApiType()) {
+    body["ApiType"] = request.getApiType();
+  }
+
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasGroupId()) {
+    body["GroupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasKeyword()) {
+    body["Keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSysName()) {
+    body["SysName"] = request.getSysName();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.getTenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListGatewayApis"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListGatewayApisResponse>();
+}
+
+/**
+ * @summary 查询网关 API 列表
+ *
+ * @param request ListGatewayApisRequest
+ * @return ListGatewayApisResponse
+ */
+ListGatewayApisResponse Client::listGatewayApis(const ListGatewayApisRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listGatewayApisWithOptions(request, runtime);
 }
 
 /**
@@ -6995,6 +7781,60 @@ QueryMiniGameInfoByAppResponse Client::queryMiniGameInfoByApp(const QueryMiniGam
 }
 
 /**
+ * @summary 查询小游戏已审核通过的资质信息
+ *
+ * @param request QueryMiniGameQualificationByAppRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryMiniGameQualificationByAppResponse
+ */
+QueryMiniGameQualificationByAppResponse Client::queryMiniGameQualificationByAppWithOptions(const QueryMiniGameQualificationByAppRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasMiniProgramCode()) {
+    body["MiniProgramCode"] = request.getMiniProgramCode();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.getTenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "QueryMiniGameQualificationByApp"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryMiniGameQualificationByAppResponse>();
+}
+
+/**
+ * @summary 查询小游戏已审核通过的资质信息
+ *
+ * @param request QueryMiniGameQualificationByAppRequest
+ * @return QueryMiniGameQualificationByAppResponse
+ */
+QueryMiniGameQualificationByAppResponse Client::queryMiniGameQualificationByApp(const QueryMiniGameQualificationByAppRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryMiniGameQualificationByAppWithOptions(request, runtime);
+}
+
+/**
  * @param request QueryMpsSchedulerListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryMpsSchedulerListResponse
@@ -7918,6 +8758,322 @@ StartUserAppAsyncEnhanceInMsaResponse Client::startUserAppAsyncEnhanceInMsaWithO
 StartUserAppAsyncEnhanceInMsaResponse Client::startUserAppAsyncEnhanceInMsa(const StartUserAppAsyncEnhanceInMsaRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return startUserAppAsyncEnhanceInMsaWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新网关 API
+ *
+ * @param tmpReq UpdateGatewayApiRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateGatewayApiResponse
+ */
+UpdateGatewayApiResponse Client::updateGatewayApiWithOptions(const UpdateGatewayApiRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateGatewayApiShrinkRequest request = UpdateGatewayApiShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCacheRule()) {
+    request.setCacheRuleShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCacheRule(), "CacheRule", "json"));
+  }
+
+  if (!!tmpReq.hasDefaultLimitRule()) {
+    request.setDefaultLimitRuleShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDefaultLimitRule(), "DefaultLimitRule", "json"));
+  }
+
+  if (!!tmpReq.hasHeaderRules()) {
+    request.setHeaderRulesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHeaderRules(), "HeaderRules", "json"));
+  }
+
+  if (!!tmpReq.hasLimitRule()) {
+    request.setLimitRuleShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLimitRule(), "LimitRule", "json"));
+  }
+
+  if (!!tmpReq.hasMigrateRule()) {
+    request.setMigrateRuleShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMigrateRule(), "MigrateRule", "json"));
+  }
+
+  if (!!tmpReq.hasMockRule()) {
+    request.setMockRuleShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMockRule(), "MockRule", "json"));
+  }
+
+  if (!!tmpReq.hasRequestParams()) {
+    request.setRequestParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRequestParams(), "RequestParams", "json"));
+  }
+
+  if (!!tmpReq.hasRpcParameterTypes()) {
+    request.setRpcParameterTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRpcParameterTypes(), "RpcParameterTypes", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasApiId()) {
+    body["ApiId"] = request.getApiId();
+  }
+
+  if (!!request.hasApiName()) {
+    body["ApiName"] = request.getApiName();
+  }
+
+  if (!!request.hasApiStatus()) {
+    body["ApiStatus"] = request.getApiStatus();
+  }
+
+  if (!!request.hasApiType()) {
+    body["ApiType"] = request.getApiType();
+  }
+
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasAuthRuleName()) {
+    body["AuthRuleName"] = request.getAuthRuleName();
+  }
+
+  if (!!request.hasCacheRuleShrink()) {
+    body["CacheRule"] = request.getCacheRuleShrink();
+  }
+
+  if (!!request.hasCharset()) {
+    body["Charset"] = request.getCharset();
+  }
+
+  if (!!request.hasContentType()) {
+    body["ContentType"] = request.getContentType();
+  }
+
+  if (!!request.hasDefaultLimitRuleShrink()) {
+    body["DefaultLimitRule"] = request.getDefaultLimitRuleShrink();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasGroupId()) {
+    body["GroupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasHeaderRulesShrink()) {
+    body["HeaderRules"] = request.getHeaderRulesShrink();
+  }
+
+  if (!!request.hasInterfaceType()) {
+    body["InterfaceType"] = request.getInterfaceType();
+  }
+
+  if (!!request.hasLimitRuleShrink()) {
+    body["LimitRule"] = request.getLimitRuleShrink();
+  }
+
+  if (!!request.hasMethod()) {
+    body["Method"] = request.getMethod();
+  }
+
+  if (!!request.hasMethodName()) {
+    body["MethodName"] = request.getMethodName();
+  }
+
+  if (!!request.hasMigrateRuleShrink()) {
+    body["MigrateRule"] = request.getMigrateRuleShrink();
+  }
+
+  if (!!request.hasMockRuleShrink()) {
+    body["MockRule"] = request.getMockRuleShrink();
+  }
+
+  if (!!request.hasNeedEncrypt()) {
+    body["NeedEncrypt"] = request.getNeedEncrypt();
+  }
+
+  if (!!request.hasNeedJsonp()) {
+    body["NeedJsonp"] = request.getNeedJsonp();
+  }
+
+  if (!!request.hasNeedSign()) {
+    body["NeedSign"] = request.getNeedSign();
+  }
+
+  if (!!request.hasOperationType()) {
+    body["OperationType"] = request.getOperationType();
+  }
+
+  if (!!request.hasPath()) {
+    body["Path"] = request.getPath();
+  }
+
+  if (!!request.hasRequestBodyModel()) {
+    body["RequestBodyModel"] = request.getRequestBodyModel();
+  }
+
+  if (!!request.hasRequestParamsShrink()) {
+    body["RequestParams"] = request.getRequestParamsShrink();
+  }
+
+  if (!!request.hasResponseBodyModel()) {
+    body["ResponseBodyModel"] = request.getResponseBodyModel();
+  }
+
+  if (!!request.hasRpcParameterTypesShrink()) {
+    body["RpcParameterTypes"] = request.getRpcParameterTypesShrink();
+  }
+
+  if (!!request.hasSerialization()) {
+    body["Serialization"] = request.getSerialization();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.getTenantId();
+  }
+
+  if (!!request.hasTimeout()) {
+    body["Timeout"] = request.getTimeout();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateGatewayApi"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateGatewayApiResponse>();
+}
+
+/**
+ * @summary 更新网关 API
+ *
+ * @param request UpdateGatewayApiRequest
+ * @return UpdateGatewayApiResponse
+ */
+UpdateGatewayApiResponse Client::updateGatewayApi(const UpdateGatewayApiRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateGatewayApiWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新网关 API 分组
+ *
+ * @param tmpReq UpdateGatewayApiGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateGatewayApiGroupResponse
+ */
+UpdateGatewayApiGroupResponse Client::updateGatewayApiGroupWithOptions(const UpdateGatewayApiGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateGatewayApiGroupShrinkRequest request = UpdateGatewayApiGroupShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCenters()) {
+    request.setCentersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCenters(), "Centers", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasCentersShrink()) {
+    body["Centers"] = request.getCentersShrink();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasDomainName()) {
+    body["DomainName"] = request.getDomainName();
+  }
+
+  if (!!request.hasEnableMTLS()) {
+    body["EnableMTLS"] = request.getEnableMTLS();
+  }
+
+  if (!!request.hasGroupId()) {
+    body["GroupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasGroupName()) {
+    body["GroupName"] = request.getGroupName();
+  }
+
+  if (!!request.hasHost()) {
+    body["Host"] = request.getHost();
+  }
+
+  if (!!request.hasHttpsModel()) {
+    body["HttpsModel"] = request.getHttpsModel();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasInstancePort()) {
+    body["InstancePort"] = request.getInstancePort();
+  }
+
+  if (!!request.hasRegionMode()) {
+    body["RegionMode"] = request.getRegionMode();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.getTenantId();
+  }
+
+  if (!!request.hasTimeout()) {
+    body["Timeout"] = request.getTimeout();
+  }
+
+  if (!!request.hasUpstreamType()) {
+    body["UpstreamType"] = request.getUpstreamType();
+  }
+
+  if (!!request.hasVpcId()) {
+    body["VpcId"] = request.getVpcId();
+  }
+
+  if (!!request.hasVpcModel()) {
+    body["VpcModel"] = request.getVpcModel();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateGatewayApiGroup"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateGatewayApiGroupResponse>();
+}
+
+/**
+ * @summary 更新网关 API 分组
+ *
+ * @param request UpdateGatewayApiGroupRequest
+ * @return UpdateGatewayApiGroupResponse
+ */
+UpdateGatewayApiGroupResponse Client::updateGatewayApiGroup(const UpdateGatewayApiGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateGatewayApiGroupWithOptions(request, runtime);
 }
 
 /**

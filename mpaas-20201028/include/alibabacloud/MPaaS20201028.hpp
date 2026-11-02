@@ -129,6 +129,40 @@ namespace MPaaS20201028
       Models::CopyMcdpGroupResponse copyMcdpGroup(const Models::CopyMcdpGroupRequest &request);
 
       /**
+       * @summary 创建网关 API
+       *
+       * @param tmpReq CreateGatewayApiRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateGatewayApiResponse
+       */
+      Models::CreateGatewayApiResponse createGatewayApiWithOptions(const Models::CreateGatewayApiRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建网关 API
+       *
+       * @param request CreateGatewayApiRequest
+       * @return CreateGatewayApiResponse
+       */
+      Models::CreateGatewayApiResponse createGatewayApi(const Models::CreateGatewayApiRequest &request);
+
+      /**
+       * @summary 创建网关 API 分组
+       *
+       * @param tmpReq CreateGatewayApiGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateGatewayApiGroupResponse
+       */
+      Models::CreateGatewayApiGroupResponse createGatewayApiGroupWithOptions(const Models::CreateGatewayApiGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建网关 API 分组
+       *
+       * @param request CreateGatewayApiGroupRequest
+       * @return CreateGatewayApiGroupResponse
+       */
+      Models::CreateGatewayApiGroupResponse createGatewayApiGroup(const Models::CreateGatewayApiGroupRequest &request);
+
+      /**
        * @summary 创建短链
        *
        * @param request CreateLinkRequest
@@ -491,6 +525,40 @@ namespace MPaaS20201028
       Models::DeleteCubecardWhitelistContentResponse deleteCubecardWhitelistContent(const Models::DeleteCubecardWhitelistContentRequest &request);
 
       /**
+       * @summary 删除网关 API
+       *
+       * @param request DeleteGatewayApiRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteGatewayApiResponse
+       */
+      Models::DeleteGatewayApiResponse deleteGatewayApiWithOptions(const Models::DeleteGatewayApiRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除网关 API
+       *
+       * @param request DeleteGatewayApiRequest
+       * @return DeleteGatewayApiResponse
+       */
+      Models::DeleteGatewayApiResponse deleteGatewayApi(const Models::DeleteGatewayApiRequest &request);
+
+      /**
+       * @summary 删除网关 API 分组
+       *
+       * @param request DeleteGatewayApiGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteGatewayApiGroupResponse
+       */
+      Models::DeleteGatewayApiGroupResponse deleteGatewayApiGroupWithOptions(const Models::DeleteGatewayApiGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除网关 API 分组
+       *
+       * @param request DeleteGatewayApiGroupRequest
+       * @return DeleteGatewayApiGroupResponse
+       */
+      Models::DeleteGatewayApiGroupResponse deleteGatewayApiGroup(const Models::DeleteGatewayApiGroupRequest &request);
+
+      /**
        * @param request DeleteMcdpAimRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteMcdpAimResponse
@@ -655,6 +723,23 @@ namespace MPaaS20201028
       Models::ExistMcubeRsaKeyResponse existMcubeRsaKey(const Models::ExistMcubeRsaKeyRequest &request);
 
       /**
+       * @summary 导出网关 API
+       *
+       * @param tmpReq ExportGatewayApisRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ExportGatewayApisResponse
+       */
+      Models::ExportGatewayApisResponse exportGatewayApisWithOptions(const Models::ExportGatewayApisRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 导出网关 API
+       *
+       * @param request ExportGatewayApisRequest
+       * @return ExportGatewayApisResponse
+       */
+      Models::ExportGatewayApisResponse exportGatewayApis(const Models::ExportGatewayApisRequest &request);
+
+      /**
        * @param request ExportMappCenterAppConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ExportMappCenterAppConfigResponse
@@ -713,6 +798,40 @@ namespace MPaaS20201028
        * @return GetGameReviewByStatusResponse
        */
       Models::GetGameReviewByStatusResponse getGameReviewByStatus(const Models::GetGameReviewByStatusRequest &request);
+
+      /**
+       * @summary 查询网关 API 详情
+       *
+       * @param request GetGatewayApiRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetGatewayApiResponse
+       */
+      Models::GetGatewayApiResponse getGatewayApiWithOptions(const Models::GetGatewayApiRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询网关 API 详情
+       *
+       * @param request GetGatewayApiRequest
+       * @return GetGatewayApiResponse
+       */
+      Models::GetGatewayApiResponse getGatewayApi(const Models::GetGatewayApiRequest &request);
+
+      /**
+       * @summary 查询网关 API 分组详情
+       *
+       * @param request GetGatewayApiGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetGatewayApiGroupResponse
+       */
+      Models::GetGatewayApiGroupResponse getGatewayApiGroupWithOptions(const Models::GetGatewayApiGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询网关 API 分组详情
+       *
+       * @param request GetGatewayApiGroupRequest
+       * @return GetGatewayApiGroupResponse
+       */
+      Models::GetGatewayApiGroupResponse getGatewayApiGroup(const Models::GetGatewayApiGroupRequest &request);
 
       /**
        * @param request GetLogUrlInMsaRequest
@@ -862,6 +981,23 @@ namespace MPaaS20201028
       Models::GetUserAppUploadProcessInMsaResponse getUserAppUploadProcessInMsa(const Models::GetUserAppUploadProcessInMsaRequest &request);
 
       /**
+       * @summary 导入网关 API
+       *
+       * @param request ImportGatewayApisRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ImportGatewayApisResponse
+       */
+      Models::ImportGatewayApisResponse importGatewayApisWithOptions(const Models::ImportGatewayApisRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 导入网关 API
+       *
+       * @param request ImportGatewayApisRequest
+       * @return ImportGatewayApisResponse
+       */
+      Models::ImportGatewayApisResponse importGatewayApis(const Models::ImportGatewayApisRequest &request);
+
+      /**
        * @summary 查询报表
        *
        * @param request ListAnalysisCoreIndexRequest
@@ -890,6 +1026,40 @@ namespace MPaaS20201028
        * @return ListCubecardAppsResponse
        */
       Models::ListCubecardAppsResponse listCubecardApps(const Models::ListCubecardAppsRequest &request);
+
+      /**
+       * @summary 查询网关 API 分组列表
+       *
+       * @param request ListGatewayApiGroupsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListGatewayApiGroupsResponse
+       */
+      Models::ListGatewayApiGroupsResponse listGatewayApiGroupsWithOptions(const Models::ListGatewayApiGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询网关 API 分组列表
+       *
+       * @param request ListGatewayApiGroupsRequest
+       * @return ListGatewayApiGroupsResponse
+       */
+      Models::ListGatewayApiGroupsResponse listGatewayApiGroups(const Models::ListGatewayApiGroupsRequest &request);
+
+      /**
+       * @summary 查询网关 API 列表
+       *
+       * @param request ListGatewayApisRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListGatewayApisResponse
+       */
+      Models::ListGatewayApisResponse listGatewayApisWithOptions(const Models::ListGatewayApisRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询网关 API 列表
+       *
+       * @param request ListGatewayApisRequest
+       * @return ListGatewayApisResponse
+       */
+      Models::ListGatewayApisResponse listGatewayApis(const Models::ListGatewayApisRequest &request);
 
       /**
        * @param runtime runtime options for this request RuntimeOptions
@@ -1487,6 +1657,23 @@ namespace MPaaS20201028
       Models::QueryMiniGameInfoByAppResponse queryMiniGameInfoByApp(const Models::QueryMiniGameInfoByAppRequest &request);
 
       /**
+       * @summary 查询小游戏已审核通过的资质信息
+       *
+       * @param request QueryMiniGameQualificationByAppRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryMiniGameQualificationByAppResponse
+       */
+      Models::QueryMiniGameQualificationByAppResponse queryMiniGameQualificationByAppWithOptions(const Models::QueryMiniGameQualificationByAppRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询小游戏已审核通过的资质信息
+       *
+       * @param request QueryMiniGameQualificationByAppRequest
+       * @return QueryMiniGameQualificationByAppResponse
+       */
+      Models::QueryMiniGameQualificationByAppResponse queryMiniGameQualificationByApp(const Models::QueryMiniGameQualificationByAppRequest &request);
+
+      /**
        * @param request QueryMpsSchedulerListRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryMpsSchedulerListResponse
@@ -1683,6 +1870,40 @@ namespace MPaaS20201028
        * @return StartUserAppAsyncEnhanceInMsaResponse
        */
       Models::StartUserAppAsyncEnhanceInMsaResponse startUserAppAsyncEnhanceInMsa(const Models::StartUserAppAsyncEnhanceInMsaRequest &request);
+
+      /**
+       * @summary 更新网关 API
+       *
+       * @param tmpReq UpdateGatewayApiRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateGatewayApiResponse
+       */
+      Models::UpdateGatewayApiResponse updateGatewayApiWithOptions(const Models::UpdateGatewayApiRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新网关 API
+       *
+       * @param request UpdateGatewayApiRequest
+       * @return UpdateGatewayApiResponse
+       */
+      Models::UpdateGatewayApiResponse updateGatewayApi(const Models::UpdateGatewayApiRequest &request);
+
+      /**
+       * @summary 更新网关 API 分组
+       *
+       * @param tmpReq UpdateGatewayApiGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateGatewayApiGroupResponse
+       */
+      Models::UpdateGatewayApiGroupResponse updateGatewayApiGroupWithOptions(const Models::UpdateGatewayApiGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新网关 API 分组
+       *
+       * @param request UpdateGatewayApiGroupRequest
+       * @return UpdateGatewayApiGroupResponse
+       */
+      Models::UpdateGatewayApiGroupResponse updateGatewayApiGroup(const Models::UpdateGatewayApiGroupRequest &request);
 
       /**
        * @summary 更新短链
