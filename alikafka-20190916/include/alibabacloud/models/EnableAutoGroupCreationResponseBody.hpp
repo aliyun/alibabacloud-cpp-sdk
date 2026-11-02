@@ -66,9 +66,9 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The return code.
     // 
-    // A value of **200** indicates success.
+    // A value of **200** indicates that the call is successful.
     shared_ptr<int32_t> code_ {};
     // The returned message.
     shared_ptr<string> message_ {};

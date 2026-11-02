@@ -455,28 +455,22 @@ namespace Models
 
 
     protected:
-      // The latest time when a message was stored. This time is calculated based on the consumer offsets of all topics in the consumer group.
-      // 
-      // > - This parameter is not supported for topics on Serverless instances or topics that use local storage on provisioned instances. In these cases, -1 is returned.
-      // >
-      // > - For topics that use cloud storage on provisioned instances, this parameter returns the message creation timestamp. This happens only after you submit the consumer offset for a consumer group that was created in the console or by an API call. If the message has no creation timestamp, -1 is returned.
+      // The maximum storage time of the message data corresponding to all consumer offsets of the consumer group.
+      // > 
+      // >- This parameter is not supported for all topic types in serverless instances or for topics of the local storage type in reserved instances. The value is uniformly returned as -1.
+      // >- For topics of the cloud storage type in reserved instances, the creation timestamp of the corresponding message is returned only after a consumer group created through the console or API operations submits a consumer offset. If the corresponding message does not have a creation timestamp, -1 is returned.
       shared_ptr<int64_t> lastTimestamp_ {};
       shared_ptr<ConsumerProgress::RebalanceInfoList> rebalanceInfoList_ {};
       shared_ptr<ConsumerProgress::TopicList> topicList_ {};
-      // The total number of unconsumed messages in all topics. This value is the message accumulation.
+      // The total number of unconsumed messages for all topics, which is the message accumulation.
       shared_ptr<int64_t> totalDiff_ {};
-      // The status of the consumer group:
+      // The consumption status of the consumer group. Valid values:
       // 
       // - UNKNOWN
-      // 
       // - PREPARING_REBALANCE
-      // 
       // - COMPLETING_REBALANCE
-      // 
       // - STABLE
-      // 
       // - DEAD
-      // 
       // - EMPTY
       shared_ptr<string> state_ {};
     };
@@ -521,7 +515,7 @@ namespace Models
 
 
   protected:
-    // The status code. A value of 200 indicates that the request is successful.
+    // The status code. A value of 200 indicates success.
     shared_ptr<int32_t> code_ {};
     // The consumption status.
     shared_ptr<GetConsumerProgressResponseBody::ConsumerProgress> consumerProgress_ {};
@@ -529,7 +523,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

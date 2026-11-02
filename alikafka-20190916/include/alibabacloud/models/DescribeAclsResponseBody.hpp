@@ -204,14 +204,14 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. A value of 200 indicates that the request was successful.
+    // The status code. A 200 status code indicates success.
     shared_ptr<int32_t> code_ {};
     shared_ptr<DescribeAclsResponseBody::KafkaAclList> kafkaAclList_ {};
     // The returned message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

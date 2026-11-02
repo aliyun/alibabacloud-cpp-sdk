@@ -66,25 +66,25 @@ namespace Models
 
 
   protected:
-    // Number of partitions to add.
+    // The number of partitions to add.
     // 
-    // - Must be greater than 0.
+    // - The value must be greater than 0.
     // 
-    // - It is recommended that the number of partitions is a multiple of 6 to reduce the risk of data skew.
+    // - Set the value to a multiple of 6 to reduce the risk of data skew.
     // 
-    // - The total number of partitions is limited to 1-360.
+    // - The total number of partitions must be between 1 and 360.
     // 
     // This parameter is required.
     shared_ptr<int32_t> addPartitionNum_ {};
-    // Instance ID.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Region ID of the instance.
+    // The region ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // Topic name.
+    // The topic name.
     // 
     // This parameter is required.
     shared_ptr<string> topic_ {};

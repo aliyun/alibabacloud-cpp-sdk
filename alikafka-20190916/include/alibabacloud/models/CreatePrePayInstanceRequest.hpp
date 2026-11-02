@@ -98,7 +98,7 @@ namespace Models
       // 
       // - If this parameter is left empty, all tag keys are matched.
       // 
-      // - The tag key can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
+      // - The tag key can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
       // 
       // This parameter is required.
       shared_ptr<string> key_ {};
@@ -106,9 +106,9 @@ namespace Models
       // 
       // - N ranges from 1 to 20.
       // 
-      // - This parameter can be left empty.
+      // - The tag value can be empty.
       // 
-      // - The tag value can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
+      // - The tag value can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
       shared_ptr<string> value_ {};
     };
 
@@ -240,10 +240,15 @@ namespace Models
 
 
       protected:
+        // The identifier of the additional ksqlDB instance. It is used to distinguish multiple ksqlDB instances under the same Confluent instance and generate the corresponding service name. Each instance must use a different non-empty identifier, and the original identifier must be retained for subsequent specification changes. Example: 0.
         shared_ptr<string> internalId_ {};
+        // The number of CPU cores per node in the ksqlDB instance. Valid values: 1 to 20.
         shared_ptr<int32_t> cu_ {};
+        // The number of nodes in the ksqlDB instance. Valid values: 1 to 20.
         shared_ptr<int32_t> replica_ {};
+        // The disk capacity per node in the ksqlDB instance. Unit: GB. Valid values: 100 to 30000. The value must be a multiple of 100.
         shared_ptr<int32_t> storage_ {};
+        // The component type. Set the value to KSQLDB. Example: KSQLDB.
         shared_ptr<string> type_ {};
       };
 
@@ -417,44 +422,52 @@ namespace Models
 
 
     protected:
+      // The platform version of the Confluent instance. Valid values: 7.8.2 and 8.2.1. If you select 7.8.2, you must configure ZooKeeper. If you select 8.2.1, you must configure KRaft Controller. You can configure only one of the two metadata components in a single request.
       shared_ptr<string> confluentVersion_ {};
       // The number of CPU cores for the Connect component.
       shared_ptr<int32_t> connectCU_ {};
-      // The number of Connect component replicas.
+      // The number of replicas for the Connect component.
       shared_ptr<int32_t> connectReplica_ {};
-      // The number of CPU cores for the ControlCenter component.
+      // The number of CPU cores for the Control Center component.
       shared_ptr<int32_t> controlCenterCU_ {};
-      // The number of ControlCenter component replicas.
+      // The number of replicas for the Control Center component.
       shared_ptr<int32_t> controlCenterReplica_ {};
-      // The disk capacity of the ControlCenter component. Unit: GB.
+      // The disk capacity of the Control Center component. Unit: GB.
       shared_ptr<int32_t> controlCenterStorage_ {};
-      // The number of CPU cores for Kafka Broker.
+      // The number of CPU cores for Kafka brokers.
       shared_ptr<int32_t> kafkaCU_ {};
-      // The number of Kafka Broker replicas.
+      // The number of replicas for Kafka brokers.
       shared_ptr<int32_t> kafkaReplica_ {};
-      // The number of CPU cores for the KafkaRestProxy component.
+      // The number of CPU cores for the Kafka REST Proxy component.
       shared_ptr<int32_t> kafkaRestProxyCU_ {};
-      // The number of KafkaRestProxy component replicas.
+      // The number of replicas for the Kafka REST Proxy component.
       shared_ptr<int32_t> kafkaRestProxyReplica_ {};
-      // The disk capacity of Kafka Broker. Unit: GB.
+      // The disk capacity of Kafka brokers. Unit: GB.
       shared_ptr<int32_t> kafkaStorage_ {};
+      // The number of CPU cores per node in the KRaft controller. Valid values: 2 to 20. When you create an instance in KRaft mode, you must configure this parameter together with KraftControllerStorage.
       shared_ptr<int32_t> kraftControllerCU_ {};
+      // The number of nodes in the KRaft controller. The value is fixed to 3. If you configure the KRaft controller but do not specify this parameter, the default value 3 is used.
       shared_ptr<int32_t> kraftControllerReplica_ {};
+      // The disk capacity per node in the KRaft controller. Unit: GB. Valid values: 100 to 30000. The value must be a multiple of 100. When you create an instance in KRaft mode, you must configure this parameter together with KraftControllerCU.
       shared_ptr<int32_t> kraftControllerStorage_ {};
-      // The number of CPU cores for the KsqlDB component.
+      // The number of CPU cores for the ksqlDB component.
       shared_ptr<int32_t> ksqlCU_ {};
+      // The list of additional ksqlDB instance configurations, excluding the default ksqlDB instance. Each element configures an independent ksqlDB instance. When you use this parameter, you must also configure KsqlCU, KsqlStorage, and KsqlReplica for the default instance. Each instance in the list is configured with node resources and the number of nodes separately.
+      // 
+      // Example (list content):
+      // ```json
       shared_ptr<vector<ConfluentConfig::KsqlList>> ksqlList_ {};
-      // The number of KsqlDB component replicas.
+      // The number of replicas for the ksqlDB component.
       shared_ptr<int32_t> ksqlReplica_ {};
-      // The disk capacity of the KsqlDB component. Unit: GB.
+      // The disk capacity of the ksqlDB component. Unit: GB.
       shared_ptr<int32_t> ksqlStorage_ {};
-      // The number of CPU cores for the SchemaRegistry component.
+      // The number of CPU cores for the Schema Registry component.
       shared_ptr<int32_t> schemaRegistryCU_ {};
-      // The number of SchemaRegistry component replicas.
+      // The number of replicas for the Schema Registry component.
       shared_ptr<int32_t> schemaRegistryReplica_ {};
       // The number of CPU cores for the ZooKeeper component.
       shared_ptr<int32_t> zooKeeperCU_ {};
-      // The number of ZooKeeper component replicas.
+      // The number of replicas for the ZooKeeper component.
       shared_ptr<int32_t> zooKeeperReplica_ {};
       // The disk capacity of the ZooKeeper component. Unit: GB.
       shared_ptr<int32_t> zooKeeperStorage_ {};
@@ -560,7 +573,7 @@ namespace Models
 
 
   protected:
-    // The Confluent component configurations.
+    // The configurations of Confluent components.
     // 
     // 
     // > This parameter is required when you create a Confluent instance.
@@ -572,52 +585,52 @@ namespace Models
     // - **5**: VPC-connected instance
     // 
     // 
-    // > When you create a Confluent instance, you cannot select the deployment type. Only the value 5 is allowed. After the purchase, you can configure whether to enable public access for each component.
+    // > If you create a Confluent instance, you cannot select the deployment type. You can only set this parameter to 5. After the purchase, you can configure whether to expose each component to the Internet.
     shared_ptr<int32_t> deployType_ {};
     // The disk capacity. Unit: GB.
     // 
-    // For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+    // For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
     // 
-    // > This parameter is not required when you create a Confluent instance.
+    // > If you create a Confluent instance, you do not need to specify this parameter.
     shared_ptr<int32_t> diskSize_ {};
     // The disk type. Valid values:
     // 
-    // - **0**: ultra cloud disk
+    // - **0**: Ultra disk
     // 
     // - **1**: SSD
     // 
-    // > This parameter is not required when you create a Confluent instance.
+    // > If you create a Confluent instance, you do not need to specify this parameter.
     shared_ptr<string> diskType_ {};
     // The subscription duration. Unit: months. Default value: 1. Valid values:
     // 
     // - **Confluent instances: 1 or 12**
     // - **ApsaraMQ for Kafka instances: 1**
     shared_ptr<int32_t> duration_ {};
-    // The Internet traffic.
+    // The Internet traffic bandwidth.
     // 
-    // - This parameter is required if **DeployType** is set to **4**.
+    // - If **DeployType** is set to **4**, this parameter is required.
     // 
-    // - For the value range, see [Pay-as-you-go billing method](https://help.aliyun.com/document_detail/72142.html).
+    // - For the valid values, see [pay-as-you-go billing method](https://help.aliyun.com/document_detail/72142.html).
     // 
     // 
-    // > This parameter is not required when you create a Confluent instance.
+    // > If you create a Confluent instance, you do not need to specify this parameter.
     shared_ptr<int32_t> eipMax_ {};
     // The traffic specification.
     //  
     // 
-    // - For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-    // > This parameter is not required when you create a Confluent instance.
+    // - For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+    // > If you create a Confluent instance, you do not need to specify this parameter.
     shared_ptr<string> ioMaxSpec_ {};
-    // The billing type. Valid values:
+    // The billing method. Valid values:
     // 
-    // - **0**: subscription
+    // - **0**: Subscription
     // 
-    // - **4**: Confluent subscription
+    // - **4**: Subscription for Confluent instances
     shared_ptr<int32_t> paidType_ {};
     // The number of partitions to purchase.
     // 
-    // * For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-    // > This parameter is not required when you create a Confluent instance.
+    // * For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+    // > If the instance is a Confluent instance, you do not need to specify this parameter.
     shared_ptr<int32_t> partitionNum_ {};
     // The region ID of the instance.
     // 
@@ -625,17 +638,17 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The resource group ID.
     // 
-    // If you do not specify this parameter, the instance is placed in the default resource group. You can view the resource group ID in the Resource Management console.
+    // If you do not specify this parameter, the instance is added to the default resource group. You can view the resource group ID in the Resource Management console.
     shared_ptr<string> resourceGroupId_ {};
-    // The edition type.
+    // The edition.
     // 
     // Valid values for ApsaraMQ for Kafka instances:
     // 
-    // - **normal**: Standard Edition (shared throughput for writes)
+    // - **normal**: Standard Edition (High Write)
     // 
-    // - **professional**: Professional Edition (shared throughput for writes)
+    // - **professional**: Professional Edition (High Write)
     // 
-    // - **professionalForHighRead**: Professional Edition (shared throughput for reads)
+    // - **professionalForHighRead**: Professional Edition (High Read)
     // 
     // Valid values for Confluent instances:
     // 
@@ -645,7 +658,7 @@ namespace Models
     // 
     // For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
     shared_ptr<string> specType_ {};
-    // The tags.
+    // The list of tags.
     shared_ptr<vector<CreatePrePayInstanceRequest::Tag>> tag_ {};
   };
 

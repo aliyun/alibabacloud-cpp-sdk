@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The response code. A value of 200 indicates success.
+    // The status code. A value of 200 indicates success.
     shared_ptr<int32_t> code_ {};
-    // The response message.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // The order ID.
+    // The ID of the order.
     shared_ptr<string> orderId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

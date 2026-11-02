@@ -123,73 +123,71 @@ namespace Models
   protected:
     // The operation type. Valid values:
     // 
-    // - **Write**: write.
+    // - **Write**: write
     // 
-    // - **Read**: read.
+    // - **Read**: read
     // 
-    // - **Describe**: read TransactionalId.
-    // - **IdempotentWrite**: idempotent write to Cluster.
-    // - **IDEMPOTENT_WRITE**: idempotent write to Cluster. This value is available only for serverless instances.
-    // - **DESCRIBE_CONFIGS**: query configurations. This value is available only for serverless instances.
+    // - **Describe**: read a transactional ID
+    // - **IdempotentWrite**: perform an idempotent write to a cluster
+    // - **IDEMPOTENT_WRITE**: perform an idempotent write to a cluster. Available only for serverless instances.
+    // - **DESCRIBE_CONFIGS**: query configurations. Available only for serverless instances.
     // 
     // This parameter is required.
     shared_ptr<string> aclOperationType_ {};
-    // The operation types for batch authorization. Separate multiple operations with commas (,).
+    // The operation types for batch authorization. Separate multiple operations with commas (,). Valid values:
     // 
-    // Valid values:
+    // - **Write**: write
     // 
-    // - **Write**: write.
+    // - **Read**: read
     // 
-    // - **Read**: read.
-    // 
-    // - **Describe**: read TransactionalId.
-    // - **IdempotentWrite**: idempotent write to Cluster.
-    // - **IDEMPOTENT_WRITE**: idempotent write to Cluster. This value is available only for serverless instances.
-    // - **DESCRIBE_CONFIGS**: query configurations. This value is available only for serverless instances.
+    // - **Describe**: read a transactional ID
+    // - **IdempotentWrite**: perform an idempotent write to a cluster
+    // - **IDEMPOTENT_WRITE**: perform an idempotent write to a cluster. Available only for serverless instances.
+    // - **DESCRIBE_CONFIGS**: query configurations. Available only for serverless instances.
     // 
     // 
-    // > This parameter is available only for serverless instances.
+    // > This parameter is supported only for serverless instances.
     shared_ptr<string> aclOperationTypes_ {};
     // The authorization method. Valid values:
-    // - **DENY**: Denied.
+    // - **DENY**: deny.
     //  
-    // - **ALLOW**: Allowed.
+    // - **ALLOW**: allow.
     // 
-    // > This parameter is available only for serverless instances.
+    // > This parameter is supported only for serverless instances.
     shared_ptr<string> aclPermissionType_ {};
     // The resource name.
     // 
-    // - The name of the resource, which can be a topic name, group ID, cluster name, or transaction ID.
+    // - The name of the resource. It can be a topic name, a group ID, a cluster name, or a transactional ID.
     // 
-    // - You can use an asterisk (\\*) to represent all resources of this type.
+    // - You can use an asterisk (*) to specify all resources of this type.
     // 
     // 
     // > 
-    // > - The asterisk (\\*) returns results only after permissions are granted to all resources.
+    // > - You can query the authorized resources by using an asterisk (*) only after you grant permissions to all resources.
     // 
     // This parameter is required.
     shared_ptr<string> aclResourceName_ {};
     // The matching mode. Valid values:
     // 
-    // - **LITERAL**: exact match.
+    // - **LITERAL**: exact match
     // 
-    // - **PREFIXED**: prefix match.
+    // - **PREFIXED**: prefix match
     // 
     // This parameter is required.
     shared_ptr<string> aclResourcePatternType_ {};
     // The resource type. Valid values:
     // 
-    // - **Topic**: message topic.
+    // - **Topic**: topic
     // 
-    // - **Group**: consumer group.
-    // - **Cluster**: instance.
-    // - **TransactionalId**: transaction ID.
+    // - **Group**: consumer group
+    // - **Cluster**: instance
+    // - **TransactionalId**: transactional ID
     // 
     // This parameter is required.
     shared_ptr<string> aclResourceType_ {};
     // The source IP address.
-    // >- Only specific IP addresses or an asterisk (\\*) to allow all IP addresses are supported. IP CIDR blocks are not supported.
-    // >- This parameter is available only for serverless instances.
+    // >- Only specific IP addresses or an asterisk (*) (which allows all IP addresses) are supported. CIDR blocks are not supported.
+    // >- This parameter is supported only for serverless instances.
     shared_ptr<string> host_ {};
     // The instance ID.
     // 
@@ -201,12 +199,10 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The username.
     // 
-    // - You can use an asterisk (\\*) to represent all usernames.
+    // - Before calling this API, you must create a SASL user by calling CreateSaslUser. You can query existing users by calling DescribeSaslUsers.
+    // - You can use an asterisk (*) to specify all usernames.
     // 
-    // 
-    // 
-    // > 
-    // > - The asterisk (\\*) returns results only after permissions are granted to all users.
+    // > You can query the authorized users by using an asterisk (*) only after you grant permissions to all users.
     // 
     // This parameter is required.
     shared_ptr<string> username_ {};

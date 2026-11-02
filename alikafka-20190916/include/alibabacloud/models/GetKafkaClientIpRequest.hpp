@@ -94,15 +94,16 @@ namespace Models
 
 
   protected:
-    // End time.
+    // The end time of the query range. The value is a UNIX timestamp in milliseconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
-    // Consumer group ID.
+    // The consumer group ID.
     // 
-    // > This parameter is required when Type is set to byGroup.
+    // 
+    // > This parameter is required if Type is set to byGroup.
     shared_ptr<string> group_ {};
-    // Instance ID.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -110,21 +111,19 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // Start time.
+    // The start time of the query range. The value is a UNIX timestamp in milliseconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
-    // Topic name.
-    // 
-    // > - This parameter is required when Type is set to byTopic.
+    // The topic name.
+    // > 
+    // >- This parameter is required if Type is set to byTopic.
     shared_ptr<string> topic_ {};
-    // The type of client IP query. You can choose from three methods.
+    // The type of client IP address to query. Valid values:
     // 
-    // - byInstance: Query client IPs for the instance within the specified time range.
-    // 
-    // - byTopic: Query client IPs for the topic within the specified time range.
-    // 
-    // - byGroup: Query client IPs for the group within the specified time range.
+    // - byInstance: Queries the client IP addresses within a specified time range for the instance. 
+    // - byTopic: Queries the client IP addresses within a specified time range for the topic.
+    // - byGroup: Queries the client IP addresses within a specified time range for the group.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

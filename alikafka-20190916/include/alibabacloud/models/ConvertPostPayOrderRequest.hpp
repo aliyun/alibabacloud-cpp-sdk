@@ -78,11 +78,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The billing type. Valid values:
+    // The billing method. Valid values:
     // 
-    // - **0**: subscription.
+    // - **0**: subscription
     // 
-    // - **4**: Confluent series subscription.
+    // - **4**: subscription for Confluent Edition
     shared_ptr<int32_t> paidType_ {};
     // The region ID of the instance.
     // 

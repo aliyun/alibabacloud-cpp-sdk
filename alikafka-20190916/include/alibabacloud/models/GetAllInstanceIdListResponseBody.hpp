@@ -77,15 +77,15 @@ namespace Models
 
 
   protected:
-    // The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
+    // The response code. A value of 200 indicates success.
     shared_ptr<int32_t> code_ {};
-    // The IDs of instances that are managed by the Alibaba Cloud account in all the regions.
+    // The instance IDs of all instances across all regions under the current account.
     Darabonba::Json instanceIds_ {};
-    // The returned message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

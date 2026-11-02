@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // Instance ID.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Region ID.
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // Topic name.
+    // The topic name.
     // 
     // This parameter is required.
     shared_ptr<string> topic_ {};

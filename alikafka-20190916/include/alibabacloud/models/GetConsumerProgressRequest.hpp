@@ -70,11 +70,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> consumerId_ {};
-    // Specifies whether to hide the \\`LastTimestamp\\` parameter. The default value is false. Set this parameter to true for better performance.
+    // Specifies whether to hide LastTimestamp. Default value: false. Set this parameter to true.
     // 
-    // > - If you set this parameter to true, -1 is returned for the \\`LastTimestamp\\` parameter. Otherwise, a specific value is returned. This parameter is supported only for topics of cloud storage on provisioned instances.
-    // >
-    // > - This operation processes a large amount of data and consumes a high degree of performance. Set this parameter to true to reduce the processing time.
+    // > 
+    // > - If you set this parameter to true, LastTimestamp in the response is returned as -1. Otherwise, the actual value is returned. This is supported only for topics of the cloud storage type in reserved instances.
+    // > - This operation processes a large amount of data and is resource-intensive. Set this parameter to true to reduce processing time.
     shared_ptr<bool> hideLastTimestamp_ {};
     // The instance ID.
     // 

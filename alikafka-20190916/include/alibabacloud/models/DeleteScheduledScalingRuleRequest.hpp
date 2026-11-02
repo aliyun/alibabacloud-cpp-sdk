@@ -66,8 +66,7 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The policy name.
-    // 
-    // > Only policies that are disabled or one-time policies that have been executed can be deleted.
+    // > Only disabled policies or completed one-time policies can be deleted.
     // 
     // This parameter is required.
     shared_ptr<string> ruleName_ {};

@@ -75,29 +75,27 @@ namespace Models
 
 
   protected:
-    // Instance ID.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Currently only these three request parameters are supported:
+    // Only the following three values are supported:
     // 
-    // - enable: Enable automatic topic creation.
-    // 
-    // - disable: Disable automatic topic creation.
-    // 
-    // - updatePartition: Modify the number of partitions for automatic creation.
+    // - enable: Enables automatic automatic creation.
+    // - disable: Disables automatic automatic creation.
+    // - updatePartition: Modifies the number of automatically created partitions.
     shared_ptr<string> operate_ {};
-    // Adjust the default number of partitions for automatically created topics.
+    // The default number of partitions for automatically created topics.
     // 
-    // > This value is passed only when the Operate value is updatePartition, or when UpdatePartition is true.
+    // >  Specify this parameter only when Operate is set to updatePartition or UpdatePartition is set to true.
     shared_ptr<int64_t> partitionNum_ {};
-    // Region ID.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // Modify the number of partitions for automatic creation.
+    // Specifies whether to modify the number of partitions for automatic creation.
     // 
-    // > If this parameter is set to true, the Operate parameter must be updatePartition or left empty.
+    // >  If this parameter is set to true, the Operate parameter must be set to updatePartition or left empty.
     shared_ptr<bool> updatePartition_ {};
   };
 

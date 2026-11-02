@@ -140,24 +140,24 @@ namespace Models
 
 
   protected:
-    // The duration (unit: minutes) of a single scheduled elastic scaling task.
+    // The duration of a scheduled elastic scaling task. Unit: minutes.
     // 
-    // > The value must be at least 15 minutes.
+    // > The value must be at least 15.
     // 
     // This parameter is required.
     shared_ptr<int32_t> durationMinutes_ {};
-    // Specifies whether to enable or disable the scheduled policy. Valid values:
+    // Specifies whether to enable or disable the scheduled task policy. Valid values:
     // 
-    // - **true**: Enabled.
-    // - **false**: Disabled.
+    // - **true**: enables the policy.
+    // - **false**: disables the policy.
     shared_ptr<bool> enable_ {};
-    // The time when the scheduled policy starts to take effect.
+    // The start time of the scheduled policy.
     // 
-    // If the schedule type is single execution, the start time must be at least 30 minutes later than the current time.
+    // If the schedule type is set to one-time execution, the start time must be at least 30 minutes later than the current time.
     // 
     // 
     // 
-    // >Notice: To prevent the server from continuously performing scale-up and scale-down tasks, the interval between different scheduled tasks must be at least 60 minutes.
+    // >Notice: To prevent the server from continuously executing scale-up and scale-down tasks, the interval between different scheduled tasks must be at least 60 minutes.</notice>
     // 
     // This parameter is required.
     shared_ptr<int64_t> firstScheduledTime_ {};
@@ -170,17 +170,17 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The repeat type. This parameter is required when ScheduleType is set to repeat. Valid values:
-    //       <li> Daily: timed scheduling every day.
-    //       <li> Weekly: timed scheduling every week.
+    //       <li> Daily: Daily timed scheduling.
+    //       <li> Weekly: Weekly timed scheduling.
     shared_ptr<string> repeatType_ {};
-    // The reserved production specification for scheduled elastic scaling (unit: MB/s).
+    // The reserved production specification for scheduled elastic scaling. Unit: MB/s.
     // 
-    // > At least one of ReservedPubFlow and ReservedSubFlow must be higher than the current specification.
+    // > At least one of the ReservedPubFlow and ReservedSubFlow parameters must be greater than the current specification.
     // 
     // This parameter is required.
     shared_ptr<int32_t> reservedPubFlow_ {};
-    // The reserved consumption specification for scheduled elastic scaling (unit: MB/s).
-    // > At least one of ReservedSubFlow and ReservedPubFlow must be higher than the current specification.
+    // The reserved consumption specification for scheduled elastic scaling. Unit: MB/s.
+    // > At least one of the ReservedSubFlow and ReservedPubFlow parameters must be greater than the current specification.
     // 
     // This parameter is required.
     shared_ptr<int32_t> reservedSubFlow_ {};
@@ -192,17 +192,17 @@ namespace Models
     shared_ptr<string> ruleName_ {};
     // The schedule type. Valid values:
     // 
-    // - at: scheduled once only.
+    // - at: The policy is executed only once.
     // 
-    // - repeat: scheduled repeatedly.
+    // - repeat: The policy is executed repeatedly.
     // 
     // This parameter is required.
     shared_ptr<string> scheduleType_ {};
-    // The time zone (Coordinated Universal Time).
+    // The time zone in Coordinated Universal Time (UTC).
     // 
     // This parameter is required.
     shared_ptr<string> timeZone_ {};
-    // The days of the week. Multiple days are supported for repeated execution.
+    // The days of the week. Multiple days can be selected for repeated execution.
     shared_ptr<string> weeklyTypesShrink_ {};
   };
 

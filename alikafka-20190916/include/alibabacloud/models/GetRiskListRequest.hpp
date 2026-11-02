@@ -76,7 +76,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The start index for paging.
+    // The start index for pagination.
     shared_ptr<int64_t> startIndex_ {};
   };
 

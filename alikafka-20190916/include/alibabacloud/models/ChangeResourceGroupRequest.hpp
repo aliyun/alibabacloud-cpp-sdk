@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The ID of the resource group to which you want to transfer the cloud resource instance.
+    // The ID of the destination resource group for the instance.
     // 
-    // > A resource group is a mechanism for managing resources by group within an Alibaba Cloud account. Resource groups help you resolve complex issues such as resource grouping and authorization management within a single cloud account. For more information, see [What is Resource Management](https://help.aliyun.com/document_detail/94475.html).
+    // > A resource group is a mechanism for grouping and managing resources within an Alibaba Cloud account. Resource groups help you resolve complexities such as resource grouping and authorization management within a single cloud account. For more information, see [What is Resource Management](https://help.aliyun.com/document_detail/94475.html).
     // 
     // This parameter is required.
     shared_ptr<string> newResourceGroupId_ {};
@@ -67,9 +67,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource that you want to tag. Only instance-level resources are supported.
+    // The ID of the resource. Currently, only instance-level resources are supported.
     // 
-    // Example: If the instance ID is alikafka_post-cn-v0h1fgs2xxxx, the resource ID is alikafka_post-cn-v0h1fgs2xxxx.
+    // For example, if the instance ID is alikafka_post-cn-v0h1fgs2xxxx, the resource ID is alikafka_post-cn-v0h1fgs2xxxx.
     // 
     // This parameter is required.
     shared_ptr<string> resourceId_ {};

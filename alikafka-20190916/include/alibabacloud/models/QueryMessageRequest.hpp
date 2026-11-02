@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The beginning of the time range to query. Unit: milliseconds.
+    // The start timestamp of the query range. Unit: milliseconds.
     shared_ptr<int64_t> beginTime_ {};
     // The instance ID.
     // 
@@ -105,10 +105,8 @@ namespace Models
     // The partition ID.
     shared_ptr<string> partition_ {};
     // The query type. Valid values:
-    // 
-    // - byOffset: queries messages by offset. If you select this type, you must specify the Partition and Offset parameters.
-    // 
-    // - byTimestamp: queries messages by time. If you select this type, you must specify the BeginTime parameter.
+    // - byOffset: Queries messages by offset. If you select this value, you must specify the partition ID and partition offset.
+    // - byTimestamp: Queries messages by timestamp. If you select this value, you must specify the BeginTime parameter.
     // 
     // This parameter is required.
     shared_ptr<string> queryType_ {};

@@ -55,7 +55,7 @@ namespace Alikafka20190916
       Models::BatchDeleteTopicsResponse batchDeleteTopics(const Models::BatchDeleteTopicsRequest &request);
 
       /**
-       * @summary Transfers a resource to a different resource group.
+       * @summary Transfers a resource to another resource group.
        *
        * @param request ChangeResourceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +64,7 @@ namespace Alikafka20190916
       Models::ChangeResourceGroupResponse changeResourceGroupWithOptions(const Models::ChangeResourceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Transfers a resource to a different resource group.
+       * @summary Transfers a resource to another resource group.
        *
        * @param request ChangeResourceGroupRequest
        * @return ChangeResourceGroupResponse
@@ -89,7 +89,7 @@ namespace Alikafka20190916
       Models::ConvertPostPayOrderResponse convertPostPayOrder(const Models::ConvertPostPayOrderRequest &request);
 
       /**
-       * @summary Creates an access control list (ACL).
+       * @summary Creates an ACL.
        *
        * @param request CreateAclRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -98,7 +98,7 @@ namespace Alikafka20190916
       Models::CreateAclResponse createAclWithOptions(const Models::CreateAclRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an access control list (ACL).
+       * @summary Creates an ACL.
        *
        * @param request CreateAclRequest
        * @return CreateAclResponse
@@ -106,7 +106,7 @@ namespace Alikafka20190916
       Models::CreateAclResponse createAcl(const Models::CreateAclRequest &request);
 
       /**
-       * @summary Calls CreateConsumerGroup to create a consumer group.
+       * @summary Creates a consumer group.
        *
        * @param request CreateConsumerGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -115,7 +115,7 @@ namespace Alikafka20190916
       Models::CreateConsumerGroupResponse createConsumerGroupWithOptions(const Models::CreateConsumerGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Calls CreateConsumerGroup to create a consumer group.
+       * @summary Creates a consumer group.
        *
        * @param request CreateConsumerGroupRequest
        * @return CreateConsumerGroupResponse
@@ -140,9 +140,9 @@ namespace Alikafka20190916
       Models::CreatePostPayInstanceResponse createPostPayInstance(const Models::CreatePostPayInstanceRequest &request);
 
       /**
-       * @summary Pay-as-you-go instances are billed based on the actual usage of purchased resource specifications. You use resources first and then pay for them. This billing method is suitable for testing or short-term scenarios with unpredictable traffic peaks. This topic describes how to call CreatePostPayOrder to create a pay-as-you-go instance.
+       * @summary Creates a pay-as-you-go instance. Pay-as-you-go instances are billed based on the actual usage of the purchased resource specifications. You use the resources first and then pay for them. This billing method is mainly applicable to short-term scenarios such as testing or scenarios with uncertain peak traffic. This topic describes how to call the CreatePostPayOrder operation to create a pay-as-you-go instance.
        *
-       * @description Before you use this operation, make sure that you fully understand the billing methods and pricing of pay-as-you-go instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
+       * @description Before you call this operation, make sure that you fully understand the billing methods and pricing of pay-as-you-go instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
        *
        * @param tmpReq CreatePostPayOrderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -151,9 +151,9 @@ namespace Alikafka20190916
       Models::CreatePostPayOrderResponse createPostPayOrderWithOptions(const Models::CreatePostPayOrderRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Pay-as-you-go instances are billed based on the actual usage of purchased resource specifications. You use resources first and then pay for them. This billing method is suitable for testing or short-term scenarios with unpredictable traffic peaks. This topic describes how to call CreatePostPayOrder to create a pay-as-you-go instance.
+       * @summary Creates a pay-as-you-go instance. Pay-as-you-go instances are billed based on the actual usage of the purchased resource specifications. You use the resources first and then pay for them. This billing method is mainly applicable to short-term scenarios such as testing or scenarios with uncertain peak traffic. This topic describes how to call the CreatePostPayOrder operation to create a pay-as-you-go instance.
        *
-       * @description Before you use this operation, make sure that you fully understand the billing methods and pricing of pay-as-you-go instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
+       * @description Before you call this operation, make sure that you fully understand the billing methods and pricing of pay-as-you-go instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
        *
        * @param request CreatePostPayOrderRequest
        * @return CreatePostPayOrderResponse
@@ -163,8 +163,8 @@ namespace Alikafka20190916
       /**
        * @summary Creates a subscription instance and returns the instance ID and order ID.
        *
-       * @description - Make sure that you fully understand the billing methods and pricing of subscription instances before you call this operation. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-       * - After you call this operation, the upfront instance is purchased for one epoch of one month by default. Auto-renewal is enabled by default, and the Unified Auto Renewal Cycle is one month. If you want to modify the Unified Auto Renewal Cycle or disable auto-renewal, go to the [Renewal](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console.<props="china"> For more information, see [Settings for auto-renewal](https://help.aliyun.com/document_detail/37128.html).
+       * @description - Before you call this operation, make sure that you fully understand the billing methods and pricing of subscription instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+       * - After you call this operation, the default subscription duration of the purchased subscription instance is one month, and auto-renewal is enabled by default with an auto-renewal epoch of one month. To modify the auto-renewal epoch or disable auto-renewal, go to the [Renewal Management](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console. <props="china">For more information, see [Configure auto-renewal](https://help.aliyun.com/document_detail/37128.html).
        *
        * @param tmpReq CreatePrePayInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -175,8 +175,8 @@ namespace Alikafka20190916
       /**
        * @summary Creates a subscription instance and returns the instance ID and order ID.
        *
-       * @description - Make sure that you fully understand the billing methods and pricing of subscription instances before you call this operation. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-       * - After you call this operation, the upfront instance is purchased for one epoch of one month by default. Auto-renewal is enabled by default, and the Unified Auto Renewal Cycle is one month. If you want to modify the Unified Auto Renewal Cycle or disable auto-renewal, go to the [Renewal](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console.<props="china"> For more information, see [Settings for auto-renewal](https://help.aliyun.com/document_detail/37128.html).
+       * @description - Before you call this operation, make sure that you fully understand the billing methods and pricing of subscription instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+       * - After you call this operation, the default subscription duration of the purchased subscription instance is one month, and auto-renewal is enabled by default with an auto-renewal epoch of one month. To modify the auto-renewal epoch or disable auto-renewal, go to the [Renewal Management](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console. <props="china">For more information, see [Configure auto-renewal](https://help.aliyun.com/document_detail/37128.html).
        *
        * @param request CreatePrePayInstanceRequest
        * @return CreatePrePayInstanceResponse
@@ -184,10 +184,10 @@ namespace Alikafka20190916
       Models::CreatePrePayInstanceResponse createPrePayInstance(const Models::CreatePrePayInstanceRequest &request);
 
       /**
-       * @summary Creates a subscription instance. Subscription instances require upfront payment before you can use resources. This billing method is suitable for long-term stable business scenarios.
+       * @summary Creates a subscription instance. Subscription instances require upfront payment and are suitable for long-term, stable workloads.
        *
-       * @description - Before calling this operation, make sure that you fully understand the billing method and pricing of upfront instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-       * - After you call this operation, the subscription instance is purchased for one epoch by default, and auto-renewal is enabled by default with a Unified Auto Renewal Cycle of one month. To modify the auto-renewal epoch or disable auto-renewal, go to the [Renewal Management](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console Settings.<props="china"> For more information, see [Configure auto-renewal](https://help.aliyun.com/document_detail/37128.html).
+       * @description - Before you call this operation, make sure that you fully understand the billing methods and pricing of subscription instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
+       * - After you call this operation, the default subscription duration of the purchased subscription instance is one month, and auto-renewal is enabled by default with an auto-renewal epoch of one month. To modify the auto-renewal epoch or disable auto-renewal, go to the [Renewal Management](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console. <props="china">For more information, see [Auto-renewal settings](https://help.aliyun.com/document_detail/37128.html).
        *
        * @param tmpReq CreatePrePayOrderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -196,10 +196,10 @@ namespace Alikafka20190916
       Models::CreatePrePayOrderResponse createPrePayOrderWithOptions(const Models::CreatePrePayOrderRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a subscription instance. Subscription instances require upfront payment before you can use resources. This billing method is suitable for long-term stable business scenarios.
+       * @summary Creates a subscription instance. Subscription instances require upfront payment and are suitable for long-term, stable workloads.
        *
-       * @description - Before calling this operation, make sure that you fully understand the billing method and pricing of upfront instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-       * - After you call this operation, the subscription instance is purchased for one epoch by default, and auto-renewal is enabled by default with a Unified Auto Renewal Cycle of one month. To modify the auto-renewal epoch or disable auto-renewal, go to the [Renewal Management](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console Settings.<props="china"> For more information, see [Configure auto-renewal](https://help.aliyun.com/document_detail/37128.html).
+       * @description - Before you call this operation, make sure that you fully understand the billing methods and pricing of subscription instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
+       * - After you call this operation, the default subscription duration of the purchased subscription instance is one month, and auto-renewal is enabled by default with an auto-renewal epoch of one month. To modify the auto-renewal epoch or disable auto-renewal, go to the [Renewal Management](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console. <props="china">For more information, see [Auto-renewal settings](https://help.aliyun.com/document_detail/37128.html).
        *
        * @param request CreatePrePayOrderRequest
        * @return CreatePrePayOrderResponse
@@ -207,7 +207,7 @@ namespace Alikafka20190916
       Models::CreatePrePayOrderResponse createPrePayOrder(const Models::CreatePrePayOrderRequest &request);
 
       /**
-       * @summary Creates a Simple Authentication and Security Layer (SASL) user by calling CreateSaslUser.
+       * @summary Creates a SASL user.
        *
        * @param request CreateSaslUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -216,7 +216,7 @@ namespace Alikafka20190916
       Models::CreateSaslUserResponse createSaslUserWithOptions(const Models::CreateSaslUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a Simple Authentication and Security Layer (SASL) user by calling CreateSaslUser.
+       * @summary Creates a SASL user.
        *
        * @param request CreateSaslUserRequest
        * @return CreateSaslUserResponse
@@ -224,7 +224,7 @@ namespace Alikafka20190916
       Models::CreateSaslUserResponse createSaslUser(const Models::CreateSaslUserRequest &request);
 
       /**
-       * @summary Creates a scheduled elastic scaling policy for a serverless instance after deployment.
+       * @summary Creates an elastic scheduled scaling policy for a serverless instance.
        *
        * @description ###### Only serverless instances are supported.
        *
@@ -235,7 +235,7 @@ namespace Alikafka20190916
       Models::CreateScheduledScalingRuleResponse createScheduledScalingRuleWithOptions(const Models::CreateScheduledScalingRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a scheduled elastic scaling policy for a serverless instance after deployment.
+       * @summary Creates an elastic scheduled scaling policy for a serverless instance.
        *
        * @description ###### Only serverless instances are supported.
        *
@@ -268,7 +268,7 @@ namespace Alikafka20190916
       Models::CreateTopicResponse createTopic(const Models::CreateTopicRequest &request);
 
       /**
-       * @summary Deletes an access control list (ACL).
+       * @summary Deletes an ACL.
        *
        * @param request DeleteAclRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -277,7 +277,7 @@ namespace Alikafka20190916
       Models::DeleteAclResponse deleteAclWithOptions(const Models::DeleteAclRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an access control list (ACL).
+       * @summary Deletes an ACL.
        *
        * @param request DeleteAclRequest
        * @return DeleteAclResponse
@@ -302,7 +302,7 @@ namespace Alikafka20190916
       Models::DeleteConsumerGroupResponse deleteConsumerGroup(const Models::DeleteConsumerGroupRequest &request);
 
       /**
-       * @summary Deletes an instance after a subscription or pay-as-you-go instance is released. This topic describes how to call the DeleteInstance operation to delete an instance.
+       * @summary Deletes a released subscription or pay-as-you-go instance.
        *
        * @param request DeleteInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -311,7 +311,7 @@ namespace Alikafka20190916
       Models::DeleteInstanceResponse deleteInstanceWithOptions(const Models::DeleteInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an instance after a subscription or pay-as-you-go instance is released. This topic describes how to call the DeleteInstance operation to delete an instance.
+       * @summary Deletes a released subscription or pay-as-you-go instance.
        *
        * @param request DeleteInstanceRequest
        * @return DeleteInstanceResponse
@@ -319,7 +319,7 @@ namespace Alikafka20190916
       Models::DeleteInstanceResponse deleteInstance(const Models::DeleteInstanceRequest &request);
 
       /**
-       * @summary You can call the DeleteSaslUser operation to delete a Simple Authentication and Security Layer (SASL) user.
+       * @summary Deletes a Simple Authentication and Security Layer (SASL) user.
        *
        * @param request DeleteSaslUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -328,7 +328,7 @@ namespace Alikafka20190916
       Models::DeleteSaslUserResponse deleteSaslUserWithOptions(const Models::DeleteSaslUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call the DeleteSaslUser operation to delete a Simple Authentication and Security Layer (SASL) user.
+       * @summary Deletes a Simple Authentication and Security Layer (SASL) user.
        *
        * @param request DeleteSaslUserRequest
        * @return DeleteSaslUserResponse
@@ -336,9 +336,9 @@ namespace Alikafka20190916
       Models::DeleteSaslUserResponse deleteSaslUser(const Models::DeleteSaslUserRequest &request);
 
       /**
-       * @summary After a Serverless instance is deployed, you can call this API operation to delete its scheduled scaling policy configuration.
+       * @summary Deletes the elastic scheduled policy configuration for a serverless instance.
        *
-       * @description ###### This operation applies only to Serverless instances.
+       * @description ###### Only serverless instances are supported.
        *
        * @param request DeleteScheduledScalingRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -347,9 +347,9 @@ namespace Alikafka20190916
       Models::DeleteScheduledScalingRuleResponse deleteScheduledScalingRuleWithOptions(const Models::DeleteScheduledScalingRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary After a Serverless instance is deployed, you can call this API operation to delete its scheduled scaling policy configuration.
+       * @summary Deletes the elastic scheduled policy configuration for a serverless instance.
        *
-       * @description ###### This operation applies only to Serverless instances.
+       * @description ###### Only serverless instances are supported.
        *
        * @param request DeleteScheduledScalingRuleRequest
        * @return DeleteScheduledScalingRuleResponse
@@ -391,7 +391,7 @@ namespace Alikafka20190916
       Models::DeleteUserDefinedSgResponse deleteUserDefinedSg(const Models::DeleteUserDefinedSgRequest &request);
 
       /**
-       * @summary Queries ACL resource names.
+       * @summary Queries the ACL resource names.
        *
        * @param request DescribeAclResourceNameRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -400,7 +400,7 @@ namespace Alikafka20190916
       Models::DescribeAclResourceNameResponse describeAclResourceNameWithOptions(const Models::DescribeAclResourceNameRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries ACL resource names.
+       * @summary Queries the ACL resource names.
        *
        * @param request DescribeAclResourceNameRequest
        * @return DescribeAclResourceNameResponse
@@ -425,7 +425,7 @@ namespace Alikafka20190916
       Models::DescribeAclsResponse describeAcls(const Models::DescribeAclsRequest &request);
 
       /**
-       * @summary You can call DescribeSaslUsers to query SASL users.
+       * @summary Queries SASL users.
        *
        * @param request DescribeSaslUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -434,7 +434,7 @@ namespace Alikafka20190916
       Models::DescribeSaslUsersResponse describeSaslUsersWithOptions(const Models::DescribeSaslUsersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call DescribeSaslUsers to query SASL users.
+       * @summary Queries SASL users.
        *
        * @param request DescribeSaslUsersRequest
        * @return DescribeSaslUsersResponse
@@ -476,9 +476,9 @@ namespace Alikafka20190916
       Models::DowngradePrePayOrderResponse downgradePrePayOrder(const Models::DowngradePrePayOrderRequest &request);
 
       /**
-       * @summary Enables or disables the free use of groups by calling EnableAutoGroupCreation.
+       * @summary Enables or disables automatic group creation.
        *
-       * @description Only reserved instances support this API operation.
+       * @description Currently, only reserved instances support this API operation.
        * Serverless instances are not supported.
        *
        * @param request EnableAutoGroupCreationRequest
@@ -488,9 +488,9 @@ namespace Alikafka20190916
       Models::EnableAutoGroupCreationResponse enableAutoGroupCreationWithOptions(const Models::EnableAutoGroupCreationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables or disables the free use of groups by calling EnableAutoGroupCreation.
+       * @summary Enables or disables automatic group creation.
        *
-       * @description Only reserved instances support this API operation.
+       * @description Currently, only reserved instances support this API operation.
        * Serverless instances are not supported.
        *
        * @param request EnableAutoGroupCreationRequest
@@ -499,7 +499,7 @@ namespace Alikafka20190916
       Models::EnableAutoGroupCreationResponse enableAutoGroupCreation(const Models::EnableAutoGroupCreationRequest &request);
 
       /**
-       * @summary This topic describes how to call the EnableAutoTopicCreation operation to enable or disable automatic topic creation and modify the default number of partitions for automatically created topics.
+       * @summary This topic describes how to call EnableAutoTopicCreation to enable or shut down automatic topic creation and modify the default number of partitions for automatically created topics.
        *
        * @param request EnableAutoTopicCreationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -508,7 +508,7 @@ namespace Alikafka20190916
       Models::EnableAutoTopicCreationResponse enableAutoTopicCreationWithOptions(const Models::EnableAutoTopicCreationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This topic describes how to call the EnableAutoTopicCreation operation to enable or disable automatic topic creation and modify the default number of partitions for automatically created topics.
+       * @summary This topic describes how to call EnableAutoTopicCreation to enable or shut down automatic topic creation and modify the default number of partitions for automatically created topics.
        *
        * @param request EnableAutoTopicCreationRequest
        * @return EnableAutoTopicCreationResponse
@@ -533,7 +533,7 @@ namespace Alikafka20190916
       Models::FailoverTestResponse failoverTest(const Models::FailoverTestRequest &request);
 
       /**
-       * @summary Queries the IDs of all instances in the current account.
+       * @summary Queries the instance IDs of all instances under the current account.
        *
        * @param request GetAllInstanceIdListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -542,7 +542,7 @@ namespace Alikafka20190916
       Models::GetAllInstanceIdListResponse getAllInstanceIdListWithOptions(const Models::GetAllInstanceIdListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the IDs of all instances in the current account.
+       * @summary Queries the instance IDs of all instances under the current account.
        *
        * @param request GetAllInstanceIdListRequest
        * @return GetAllInstanceIdListResponse
@@ -550,7 +550,7 @@ namespace Alikafka20190916
       Models::GetAllInstanceIdListResponse getAllInstanceIdList(const Models::GetAllInstanceIdListRequest &request);
 
       /**
-       * @summary The GetAllowedIpList operation retrieves the IP address allowlist.
+       * @summary Retrieves the IP whitelist.
        *
        * @param request GetAllowedIpListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -559,7 +559,7 @@ namespace Alikafka20190916
       Models::GetAllowedIpListResponse getAllowedIpListWithOptions(const Models::GetAllowedIpListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The GetAllowedIpList operation retrieves the IP address allowlist.
+       * @summary Retrieves the IP whitelist.
        *
        * @param request GetAllowedIpListRequest
        * @return GetAllowedIpListResponse
@@ -567,9 +567,9 @@ namespace Alikafka20190916
       Models::GetAllowedIpListResponse getAllowedIpList(const Models::GetAllowedIpListRequest &request);
 
       /**
-       * @summary After a Serverless instance is deployed, you can call this API operation to query the auto scaling configuration of the instance.
+       * @summary Queries the scheduled elastic scaling policy configurations of a serverless instance.
        *
-       * @description ###### **This operation applies only to Serverless instances.**
+       * @description ###### **Only serverless instances are supported.**
        *
        * @param request GetAutoScalingConfigurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -578,9 +578,9 @@ namespace Alikafka20190916
       Models::GetAutoScalingConfigurationResponse getAutoScalingConfigurationWithOptions(const Models::GetAutoScalingConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary After a Serverless instance is deployed, you can call this API operation to query the auto scaling configuration of the instance.
+       * @summary Queries the scheduled elastic scaling policy configurations of a serverless instance.
        *
-       * @description ###### **This operation applies only to Serverless instances.**
+       * @description ###### **Only serverless instances are supported.**
        *
        * @param request GetAutoScalingConfigurationRequest
        * @return GetAutoScalingConfigurationResponse
@@ -588,7 +588,7 @@ namespace Alikafka20190916
       Models::GetAutoScalingConfigurationResponse getAutoScalingConfiguration(const Models::GetAutoScalingConfigurationRequest &request);
 
       /**
-       * @summary Retrieves a list of consumer groups.
+       * @summary Retrieves consumer group information by calling GetConsumerList.
        *
        * @param request GetConsumerListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -597,7 +597,7 @@ namespace Alikafka20190916
       Models::GetConsumerListResponse getConsumerListWithOptions(const Models::GetConsumerListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of consumer groups.
+       * @summary Retrieves consumer group information by calling GetConsumerList.
        *
        * @param request GetConsumerListRequest
        * @return GetConsumerListResponse
@@ -622,7 +622,7 @@ namespace Alikafka20190916
       Models::GetConsumerProgressResponse getConsumerProgress(const Models::GetConsumerProgressRequest &request);
 
       /**
-       * @summary Queries information about instances in a specified region.
+       * @summary Queries the details of instances in a specified region.
        *
        * @param request GetInstanceListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -631,7 +631,7 @@ namespace Alikafka20190916
       Models::GetInstanceListResponse getInstanceListWithOptions(const Models::GetInstanceListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about instances in a specified region.
+       * @summary Queries the details of instances in a specified region.
        *
        * @param request GetInstanceListRequest
        * @return GetInstanceListResponse
@@ -641,9 +641,9 @@ namespace Alikafka20190916
       /**
        * @summary Retrieves the IP addresses of Kafka clients.
        *
-       * @description - The IP information is retrieved from the sampling logs of client requests to the server through the Kafka API.
-       * - The count indicates the number of connections from a single IP address using different ports that the server detected within the specified time range.
-       * - If your server is not running the latest minor version, the sampling logs may be inaccurate and provide less precise IP information. We recommend that you upgrade the server to the latest minor version.
+       * @description - The collected IP information is obtained from the sampled logs of API requests sent from clients to the server through Kafka.
+       * - The count indicates the number of connections from the same IP address to different ports recorded by the server within the specified time range.
+       * - If the minor version of your server is not the latest, the sampled logs may not be accurate enough, which ultimately leads to inaccurate collected IP information. Therefore, upgrade the minor version of your server as soon as possible.
        *
        * @param request GetKafkaClientIpRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -654,9 +654,9 @@ namespace Alikafka20190916
       /**
        * @summary Retrieves the IP addresses of Kafka clients.
        *
-       * @description - The IP information is retrieved from the sampling logs of client requests to the server through the Kafka API.
-       * - The count indicates the number of connections from a single IP address using different ports that the server detected within the specified time range.
-       * - If your server is not running the latest minor version, the sampling logs may be inaccurate and provide less precise IP information. We recommend that you upgrade the server to the latest minor version.
+       * @description - The collected IP information is obtained from the sampled logs of API requests sent from clients to the server through Kafka.
+       * - The count indicates the number of connections from the same IP address to different ports recorded by the server within the specified time range.
+       * - If the minor version of your server is not the latest, the sampled logs may not be accurate enough, which ultimately leads to inaccurate collected IP information. Therefore, upgrade the minor version of your server as soon as possible.
        *
        * @param request GetKafkaClientIpRequest
        * @return GetKafkaClientIpResponse
@@ -681,7 +681,7 @@ namespace Alikafka20190916
       Models::GetQuotaTipResponse getQuotaTip(const Models::GetQuotaTipRequest &request);
 
       /**
-       * @summary Queries the list of threats on an instance.
+       * @summary Queries the risk list of an instance.
        *
        * @param request GetRiskListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -690,7 +690,7 @@ namespace Alikafka20190916
       Models::GetRiskListResponse getRiskListWithOptions(const Models::GetRiskListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of threats on an instance.
+       * @summary Queries the risk list of an instance.
        *
        * @param request GetRiskListRequest
        * @return GetRiskListResponse
@@ -749,7 +749,7 @@ namespace Alikafka20190916
       Models::GetTopicSubscribeStatusResponse getTopicSubscribeStatus(const Models::GetTopicSubscribeStatusRequest &request);
 
       /**
-       * @summary Queries the details of rebalancing tasks.
+       * @summary Retrieves the details of a rebalance.
        *
        * @param request ListRebalanceInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -758,7 +758,7 @@ namespace Alikafka20190916
       Models::ListRebalanceInfoResponse listRebalanceInfoWithOptions(const Models::ListRebalanceInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of rebalancing tasks.
+       * @summary Retrieves the details of a rebalance.
        *
        * @param request ListRebalanceInfoRequest
        * @return ListRebalanceInfoResponse
@@ -766,7 +766,7 @@ namespace Alikafka20190916
       Models::ListRebalanceInfoResponse listRebalanceInfo(const Models::ListRebalanceInfoRequest &request);
 
       /**
-       * @summary Queries the list of tags that are attached to resources.
+       * @summary Queries the tags bound to resources.
        *
        * @param request ListTagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -775,7 +775,7 @@ namespace Alikafka20190916
       Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of tags that are attached to resources.
+       * @summary Queries the tags bound to resources.
        *
        * @param request ListTagResourcesRequest
        * @return ListTagResourcesResponse
@@ -800,7 +800,7 @@ namespace Alikafka20190916
       Models::ModifyInstanceNameResponse modifyInstanceName(const Models::ModifyInstanceNameRequest &request);
 
       /**
-       * @summary This operation modifies the number of partitions in a topic.
+       * @summary Modifies the number of partitions for a topic.
        *
        * @param request ModifyPartitionNumRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -809,7 +809,7 @@ namespace Alikafka20190916
       Models::ModifyPartitionNumResponse modifyPartitionNumWithOptions(const Models::ModifyPartitionNumRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This operation modifies the number of partitions in a topic.
+       * @summary Modifies the number of partitions for a topic.
        *
        * @param request ModifyPartitionNumRequest
        * @return ModifyPartitionNumResponse
@@ -817,9 +817,9 @@ namespace Alikafka20190916
       Models::ModifyPartitionNumResponse modifyPartitionNum(const Models::ModifyPartitionNumRequest &request);
 
       /**
-       * @summary After you deploy Serverless instances, you can call this API operation to modify their scheduled scaling policy.
+       * @summary Modifies the scheduled auto scaling policy of a serverless instance.
        *
-       * @description ###### This operation applies only to Serverless instances.
+       * @description ###### Only serverless instances are supported.
        *
        * @param request ModifyScheduledScalingRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -828,9 +828,9 @@ namespace Alikafka20190916
       Models::ModifyScheduledScalingRuleResponse modifyScheduledScalingRuleWithOptions(const Models::ModifyScheduledScalingRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary After you deploy Serverless instances, you can call this API operation to modify their scheduled scaling policy.
+       * @summary Modifies the scheduled auto scaling policy of a serverless instance.
        *
-       * @description ###### This operation applies only to Serverless instances.
+       * @description ###### Only serverless instances are supported.
        *
        * @param request ModifyScheduledScalingRuleRequest
        * @return ModifyScheduledScalingRuleResponse
@@ -910,7 +910,7 @@ namespace Alikafka20190916
       Models::ReleaseInstanceResponse releaseInstance(const Models::ReleaseInstanceRequest &request);
 
       /**
-       * @summary Starts an instance.
+       * @summary Enables an instance.
        *
        * @description You can call this operation only when the instance is in the Stopped state.
        *
@@ -921,7 +921,7 @@ namespace Alikafka20190916
       Models::ReopenInstanceResponse reopenInstanceWithOptions(const Models::ReopenInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Starts an instance.
+       * @summary Enables an instance.
        *
        * @description You can call this operation only when the instance is in the Stopped state.
        *
@@ -1153,7 +1153,7 @@ namespace Alikafka20190916
       /**
        * @summary Upgrades a subscription instance.
        *
-       * @description Before calling this operation, ensure you understand the billing method and pricing of subscription instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+       * @description Before you call this operation, make sure that you fully understand the billing method and pricing of subscription instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
        *
        * @param tmpReq UpgradePrePayOrderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1164,7 +1164,7 @@ namespace Alikafka20190916
       /**
        * @summary Upgrades a subscription instance.
        *
-       * @description Before calling this operation, ensure you understand the billing method and pricing of subscription instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+       * @description Before you call this operation, make sure that you fully understand the billing method and pricing of subscription instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
        *
        * @param request UpgradePrePayOrderRequest
        * @return UpgradePrePayOrderResponse

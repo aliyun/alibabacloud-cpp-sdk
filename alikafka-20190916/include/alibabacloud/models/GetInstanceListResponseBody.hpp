@@ -215,9 +215,11 @@ namespace Models
         public:
           friend void to_json(Darabonba::Json& j, const UpgradeServiceDetailInfo& obj) { 
             DARABONBA_PTR_TO_JSON(Current2OpenSourceVersion, current2OpenSourceVersion_);
+            DARABONBA_PTR_TO_JSON(MinorVersion, minorVersion_);
           };
           friend void from_json(const Darabonba::Json& j, UpgradeServiceDetailInfo& obj) { 
             DARABONBA_PTR_FROM_JSON(Current2OpenSourceVersion, current2OpenSourceVersion_);
+            DARABONBA_PTR_FROM_JSON(MinorVersion, minorVersion_);
           };
           UpgradeServiceDetailInfo() = default ;
           UpgradeServiceDetailInfo(const UpgradeServiceDetailInfo &) = default ;
@@ -230,7 +232,8 @@ namespace Models
           };
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-          virtual bool empty() const override { return this->current2OpenSourceVersion_ == nullptr; };
+          virtual bool empty() const override { return this->current2OpenSourceVersion_ == nullptr
+        && this->minorVersion_ == nullptr; };
           // current2OpenSourceVersion Field Functions 
           bool hasCurrent2OpenSourceVersion() const { return this->current2OpenSourceVersion_ != nullptr;};
           void deleteCurrent2OpenSourceVersion() { this->current2OpenSourceVersion_ = nullptr;};
@@ -238,8 +241,16 @@ namespace Models
           inline UpgradeServiceDetailInfo& setCurrent2OpenSourceVersion(string current2OpenSourceVersion) { DARABONBA_PTR_SET_VALUE(current2OpenSourceVersion_, current2OpenSourceVersion) };
 
 
+          // minorVersion Field Functions 
+          bool hasMinorVersion() const { return this->minorVersion_ != nullptr;};
+          void deleteMinorVersion() { this->minorVersion_ = nullptr;};
+          inline string getMinorVersion() const { DARABONBA_PTR_GET_DEFAULT(minorVersion_, "") };
+          inline UpgradeServiceDetailInfo& setMinorVersion(string minorVersion) { DARABONBA_PTR_SET_VALUE(minorVersion_, minorVersion) };
+
+
         protected:
           shared_ptr<string> current2OpenSourceVersion_ {};
+          shared_ptr<string> minorVersion_ {};
         };
 
         class Tags : public Darabonba::Model {
@@ -1239,14 +1250,14 @@ namespace Models
 
 
   protected:
-    // The status code. A value of 200 indicates that the request is successful.
+    // The response code. A value of 200 indicates success.
     shared_ptr<int32_t> code_ {};
     shared_ptr<GetInstanceListResponseBody::InstanceList> instanceList_ {};
     // The returned message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates if the request was successful.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

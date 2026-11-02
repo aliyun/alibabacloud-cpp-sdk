@@ -309,14 +309,14 @@ namespace Models
 
 
   protected:
-    // The return code. A value of 200 indicates that the call is successful.
+    // The response code. A value of 200 indicates success.
     shared_ptr<int32_t> code_ {};
     shared_ptr<GetConsumerListResponseBody::ConsumerList> consumerList_ {};
-    // The page number of the returned page. The minimum value is 1.
+    // The page number of the returned results. Minimum value: 1.
     shared_ptr<int32_t> currentPage_ {};
-    // The returned message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The number of entries returned per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

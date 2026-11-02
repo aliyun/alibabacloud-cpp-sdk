@@ -193,7 +193,7 @@ namespace Models
 
 
   protected:
-    // The return code. A return code of 200 indicates that the request was successful.
+    // The return code. A value of 200 indicates success.
     shared_ptr<int32_t> code_ {};
     shared_ptr<ListRebalanceInfoResponseBody::Data> data_ {};
     // The returned message.

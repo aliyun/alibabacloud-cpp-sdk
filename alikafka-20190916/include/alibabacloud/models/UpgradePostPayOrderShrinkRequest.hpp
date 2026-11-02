@@ -132,87 +132,87 @@ namespace Models
   protected:
     // The disk capacity. Unit: GB.
     // 
-    // - The disk capacity that you specify must be greater than or equal to the current disk capacity of the instance.
+    // - The specified disk capacity must be greater than or equal to the current disk capacity of the instance.
     // 
-    // - For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+    // - For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
     // 
-    // > If the instance is a serverless instance, you do not need to specify this parameter. This parameter is required for pay-as-you-go instances.
+    // > If the instance is a serverless instance, you do not need to specify this parameter. You must specify this parameter for a pay-as-you-go instance.
     shared_ptr<int32_t> diskSize_ {};
-    // The public network traffic.
+    // The Internet traffic.
     // 
-    // - The public network traffic that you specify must be greater than or equal to the current public network traffic of the instance.
-    // - For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+    // - The specified Internet traffic must be greater than or equal to the current Internet traffic of the instance.
+    // - For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
     // 
-    // > - If **EipModel** is set to **true**, the value of **EipMax** must be greater than 0.
-    // > - If **EipModel** is set to **false**, the value of **EipMax** must be **0**.
+    // > - If **EipModel** is set to **true**, **EipMax** must be greater than 0.
+    // > - If **EipModel** is set to **false**, **EipMax** must be set to **0**.
     // > - If the instance is a serverless instance, you do not need to specify this parameter.
     shared_ptr<int32_t> eipMax_ {};
-    // Specifies whether the instance requires Internet access. Valid values:
+    // Specifies whether to enable Internet access. Valid values:
     // 
-    // - true: Internet access is required.
+    // - true: enables Internet access.
     // 
-    // - false: Internet access is not required.
-    // > This parameter is optional for pay-as-you-go instances. This parameter is required for serverless instances.
+    // - false: disables Internet access.
+    // > You can specify this parameter for a pay-as-you-go instance. You must specify this parameter for a serverless instance.
     shared_ptr<bool> eipModel_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The peak traffic (not recommended).
+    // The peak traffic. We do not recommend that you specify this parameter.
     // 
-    // - The peak traffic that you specify must be greater than or equal to the current peak traffic of the instance.
+    // - The specified peak traffic must be greater than or equal to the current peak traffic of the instance.
     // 
-    // - You must specify either the traffic specification or the peak traffic. If you specify both, the traffic specification takes precedence. Specify only the traffic specification.
+    // - You must specify either the peak traffic or the traffic specification. If both are specified, the traffic specification takes precedence. We recommend that you specify only the traffic specification.
     // 
-    // - For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+    // - For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
     // > If the instance is a serverless instance, you do not need to specify this parameter.
     shared_ptr<int32_t> ioMax_ {};
-    // The traffic specification (recommended).
+    // The traffic specification. We recommend that you specify this parameter.
     // 
-    // - The traffic specification that you specify must be greater than or equal to the current traffic specification of the instance.
+    // - The specified traffic specification must be greater than or equal to the current traffic specification of the instance.
     // 
-    // - You must specify either the traffic specification or the peak traffic. If you specify both, the traffic specification takes precedence. Specify only the traffic specification.
+    // - You must specify either the peak traffic or the traffic specification. If both are specified, the traffic specification takes precedence. We recommend that you specify only the traffic specification.
     // 
-    // - For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-    // > If the instance is a serverless instance, you do not need to specify this parameter. This parameter is required for pay-as-you-go instances.
+    // - For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+    // > If the instance is a serverless instance, you do not need to specify this parameter. You must specify this parameter for a pay-as-you-go instance.
     shared_ptr<string> ioMaxSpec_ {};
-    // The number of partitions (recommended).
+    // The number of partitions. We recommend that you specify this parameter.
     // 
-    // * You must specify either the number of partitions or the topic specification. Specify only the number of partitions.
+    // * You must specify either the number of partitions or the topic specification. We recommend that you specify only the number of partitions.
     // 
-    // * If you specify both the number of partitions and the topic specification, the system verifies whether the number of partitions and the topic specification are equivalent based on the legacy topic sales model. If they are not equivalent, the request fails. If they are equivalent, the purchase is made based on the number of partitions.
+    // * If both the number of partitions and the topic specification are specified, the system verifies whether they are equivalent based on the legacy topic sales model. If they are not equivalent, the request fails. If they are equivalent, the purchase is made based on the number of partitions.
     // 
-    // * For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-    // > If the instance is a serverless instance, you do not need to specify this parameter. This parameter is required for pay-as-you-go instances.
+    // * For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+    // > If the instance is a serverless instance, you do not need to specify this parameter. You must specify this parameter for a pay-as-you-go instance.
     shared_ptr<int32_t> partitionNum_ {};
     // The region ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The settings of the serverless instance. This parameter is required when you upgrade a serverless instance.
+    // The settings for the serverless instance. This parameter is required when you change the specifications of a serverless instance.
     shared_ptr<string> serverlessConfigShrink_ {};
     // The specification type.
     // 
-    // If the PaidType of the instance is 1 (pay-as-you-go), valid values:
+    // Valid values when the PaidType parameter of the instance is set to 1 (pay-as-you-go):
     // 
-    // - normal: Standard Edition (shared throughput)
-    // - professional: Professional Edition (shared throughput)
-    // - professionalForHighRead: Professional Edition (shared throughput for high read)
+    // - normal: Standard Edition (High Write)
+    // - professional: Professional Edition (High Write)
+    // - professionalForHighRead: Professional Edition (High Read)
     // 
-    // If the PaidType of the instance is 3 (reserved specification pay-as-you-go + serverless elastic scaling pay-as-you-go), valid values:
+    // Valid values when the PaidType parameter of the instance is set to 3 (pay-as-you-go for reserved specifications + pay-as-you-go for serverless elastic scaling):
     // - normal: Serverless Standard Edition
     // 
     // For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
     shared_ptr<string> specType_ {};
-    // The number of topics (not recommended).
+    // The number of topics. We do not recommend that you specify this parameter.
     // 
-    // - You must specify either the number of partitions or the topic specification. Specify only the number of partitions.
+    // - You must specify either the number of partitions or the topic specification. We recommend that you specify only the number of partitions.
     // 
-    // - If you specify both the number of partitions and the topic specification, the system verifies whether the number of partitions and the topic specification are equivalent based on the legacy topic sales model. If they are not equivalent, the request fails. If they are equivalent, the purchase is made based on the number of partitions.
+    // - If both the number of partitions and the topic specification are specified, the system verifies whether they are equivalent based on the legacy topic sales model. If they are not equivalent, the request fails. If they are equivalent, the purchase is made based on the number of partitions.
     // 
-    // - The default value varies based on the traffic specification. Additional fees are charged if the value exceeds the default value.
+    // - The default value varies based on the traffic specification. If the number of topics exceeds the default value, you are charged extra fees.
     // 
-    // - For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+    // - For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
     // > If the instance is a serverless instance, you do not need to specify this parameter.
     shared_ptr<int32_t> topicQuota_ {};
   };

@@ -78,17 +78,17 @@ namespace Models
 
 
     protected:
-      // The tag key.
+      // The tag key of the resource.
       // 
-      // - If you do not specify this parameter, all tag keys are matched.
+      // - If this parameter is left empty, all tag keys are matched.
       // 
-      // - The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // - The tag key can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The tag value.
+      // The tag value of the resource.
       // 
-      // - If you do not specify the `Key` parameter, you do not need to specify this parameter. If you leave this parameter empty, all tag values are matched.
+      // - If the tag key is empty, this parameter must be empty. If this parameter is left empty, all tag values are matched.
       // 
-      // - The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // - The tag value can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -141,27 +141,22 @@ namespace Models
 
 
   protected:
-    // A list of instance IDs.
+    // The list of instance IDs.
     shared_ptr<vector<string>> instanceId_ {};
-    // The order ID. You can find the order ID on the <props="china">[Orders](https://usercenter2.aliyun.com/order/list?pageIndex=1\\&pageSize=20) page in the Billing Management console.
-    // <props="intl">[Orders](https://usercenter2-intl.aliyun.com/order/list?pageIndex=1\\&pageSize=20\\&spm=5176.12818093.top-nav.ditem-ord.36f016d0OQFmJa) page in the Billing Management console.
-    // >Notice: You cannot use an order ID to query Serverless instances.
+    // The order ID. You can obtain the order ID from <props="china">[Orders](https://usercenter2.aliyun.com/order/list?pageIndex=1&pageSize=20)<props="intl">[Order Management](https://usercenter2-intl.aliyun.com/order/list?pageIndex=1&pageSize=20&spm=5176.12818093.top-nav.ditem-ord.36f016d0OQFmJa) in Alibaba Cloud Expenses and Costs.>Notice: Serverless instances do not support querying by order ID.
     shared_ptr<string> orderId_ {};
-    // The ID of the region where the instance is located.
+    // The region ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group. You can view the resource group ID in the Resource Group console.
+    // The resource group ID. You can query the ID in the Resource Management console.
     shared_ptr<string> resourceGroupId_ {};
-    // The instance series. You can use this parameter to filter instances. Valid values:
-    // 
+    // The instance edition identity. You can filter instances of different editions based on the edition number. Valid values:
     // - v2
-    // 
     // - v3
-    // 
     // - confluent
     shared_ptr<string> series_ {};
-    // A list of tags.
+    // The list of tags.
     shared_ptr<vector<GetInstanceListRequest::Tag>> tag_ {};
   };
 

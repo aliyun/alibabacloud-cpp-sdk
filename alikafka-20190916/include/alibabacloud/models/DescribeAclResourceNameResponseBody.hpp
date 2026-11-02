@@ -111,14 +111,16 @@ namespace Models
 
 
   protected:
-    // The response code. A value of 200 indicates success.
+    // The return code. A value of 200 indicates success.
     shared_ptr<int32_t> code_ {};
     shared_ptr<DescribeAclResourceNameResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful.
+    // Indicates whether the call is successful. Valid values:
+    // - **true**: The call is successful.
+    // - **false**: The call fails.
     shared_ptr<bool> success_ {};
   };
 

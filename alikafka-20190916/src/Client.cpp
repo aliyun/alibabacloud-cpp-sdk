@@ -18,42 +18,6 @@ namespace Alikafka20190916
 
 AlibabaCloud::Alikafka20190916::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"us-west-1" , "alikafka.us-west-1.aliyuncs.com"},
-    {"us-southeast-1" , "alikafka.us-southeast-1.aliyuncs.com"},
-    {"us-east-1" , "alikafka.us-east-1.aliyuncs.com"},
-    {"na-south-1" , "alikafka.na-south-1.aliyuncs.com"},
-    {"me-east-1" , "alikafka.me-east-1.aliyuncs.com"},
-    {"me-central-1" , "alikafka.me-central-1.aliyuncs.com"},
-    {"eu-west-1" , "alikafka.eu-west-1.aliyuncs.com"},
-    {"eu-central-1" , "alikafka.eu-central-1.aliyuncs.com"},
-    {"cn-zhengzhou-jva" , "alikafka.cn-zhengzhou-jva.aliyuncs.com"},
-    {"cn-zhangjiakou" , "alikafka.cn-zhangjiakou.aliyuncs.com"},
-    {"cn-wulanchabu-gic-1" , "alikafka.cn-wulanchabu-gic-1.aliyuncs.com"},
-    {"cn-wulanchabu" , "alikafka.cn-wulanchabu.aliyuncs.com"},
-    {"cn-shenzhen-finance-1" , "alikafka.cn-shenzhen-finance-1.aliyuncs.com"},
-    {"cn-shenzhen" , "alikafka.cn-shenzhen.aliyuncs.com"},
-    {"cn-shanghai-finance-1" , "alikafka.cn-shanghai-finance-1.aliyuncs.com"},
-    {"cn-shanghai" , "alikafka.cn-shanghai.aliyuncs.com"},
-    {"cn-qingdao" , "alikafka.cn-qingdao.aliyuncs.com"},
-    {"cn-huhehaote" , "alikafka.cn-huhehaote.aliyuncs.com"},
-    {"cn-hongkong" , "alikafka.cn-hongkong.aliyuncs.com"},
-    {"cn-heyuan" , "alikafka.cn-heyuan.aliyuncs.com"},
-    {"cn-hangzhou-finance" , "alikafka.cn-hangzhou-finance.aliyuncs.com"},
-    {"cn-hangzhou" , "alikafka.cn-hangzhou.aliyuncs.com"},
-    {"cn-guangzhou" , "alikafka.cn-guangzhou.aliyuncs.com"},
-    {"cn-fuzhou" , "alikafka.cn-fuzhou.aliyuncs.com"},
-    {"cn-chengdu" , "alikafka.cn-chengdu.aliyuncs.com"},
-    {"cn-beijing-finance-1" , "alikafka.cn-beijing-finance-1.aliyuncs.com"},
-    {"cn-beijing" , "alikafka.cn-beijing.aliyuncs.com"},
-    {"ap-southeast-7" , "alikafka.ap-southeast-7.aliyuncs.com"},
-    {"ap-southeast-6" , "alikafka.ap-southeast-6.aliyuncs.com"},
-    {"ap-southeast-5" , "alikafka.ap-southeast-5.aliyuncs.com"},
-    {"ap-southeast-3" , "alikafka.ap-southeast-3.aliyuncs.com"},
-    {"ap-southeast-1" , "alikafka.ap-southeast-1.aliyuncs.com"},
-    {"ap-northeast-2" , "alikafka.ap-northeast-2.aliyuncs.com"},
-    {"ap-northeast-1" , "alikafka.ap-northeast-1.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("alikafka", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -184,7 +148,7 @@ BatchDeleteTopicsResponse Client::batchDeleteTopics(const BatchDeleteTopicsReque
 }
 
 /**
- * @summary Transfers a resource to a different resource group.
+ * @summary Transfers a resource to another resource group.
  *
  * @param request ChangeResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -223,7 +187,7 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
 }
 
 /**
- * @summary Transfers a resource to a different resource group.
+ * @summary Transfers a resource to another resource group.
  *
  * @param request ChangeResourceGroupRequest
  * @return ChangeResourceGroupResponse
@@ -288,7 +252,7 @@ ConvertPostPayOrderResponse Client::convertPostPayOrder(const ConvertPostPayOrde
 }
 
 /**
- * @summary Creates an access control list (ACL).
+ * @summary Creates an ACL.
  *
  * @param request CreateAclRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -355,7 +319,7 @@ CreateAclResponse Client::createAclWithOptions(const CreateAclRequest &request, 
 }
 
 /**
- * @summary Creates an access control list (ACL).
+ * @summary Creates an ACL.
  *
  * @param request CreateAclRequest
  * @return CreateAclResponse
@@ -366,7 +330,7 @@ CreateAclResponse Client::createAcl(const CreateAclRequest &request) {
 }
 
 /**
- * @summary Calls CreateConsumerGroup to create a consumer group.
+ * @summary Creates a consumer group.
  *
  * @param request CreateConsumerGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -413,7 +377,7 @@ CreateConsumerGroupResponse Client::createConsumerGroupWithOptions(const CreateC
 }
 
 /**
- * @summary Calls CreateConsumerGroup to create a consumer group.
+ * @summary Creates a consumer group.
  *
  * @param request CreateConsumerGroupRequest
  * @return CreateConsumerGroupResponse
@@ -516,9 +480,9 @@ CreatePostPayInstanceResponse Client::createPostPayInstance(const CreatePostPayI
 }
 
 /**
- * @summary Pay-as-you-go instances are billed based on the actual usage of purchased resource specifications. You use resources first and then pay for them. This billing method is suitable for testing or short-term scenarios with unpredictable traffic peaks. This topic describes how to call CreatePostPayOrder to create a pay-as-you-go instance.
+ * @summary Creates a pay-as-you-go instance. Pay-as-you-go instances are billed based on the actual usage of the purchased resource specifications. You use the resources first and then pay for them. This billing method is mainly applicable to short-term scenarios such as testing or scenarios with uncertain peak traffic. This topic describes how to call the CreatePostPayOrder operation to create a pay-as-you-go instance.
  *
- * @description Before you use this operation, make sure that you fully understand the billing methods and pricing of pay-as-you-go instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
+ * @description Before you call this operation, make sure that you fully understand the billing methods and pricing of pay-as-you-go instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
  *
  * @param tmpReq CreatePostPayOrderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -607,9 +571,9 @@ CreatePostPayOrderResponse Client::createPostPayOrderWithOptions(const CreatePos
 }
 
 /**
- * @summary Pay-as-you-go instances are billed based on the actual usage of purchased resource specifications. You use resources first and then pay for them. This billing method is suitable for testing or short-term scenarios with unpredictable traffic peaks. This topic describes how to call CreatePostPayOrder to create a pay-as-you-go instance.
+ * @summary Creates a pay-as-you-go instance. Pay-as-you-go instances are billed based on the actual usage of the purchased resource specifications. You use the resources first and then pay for them. This billing method is mainly applicable to short-term scenarios such as testing or scenarios with uncertain peak traffic. This topic describes how to call the CreatePostPayOrder operation to create a pay-as-you-go instance.
  *
- * @description Before you use this operation, make sure that you fully understand the billing methods and pricing of pay-as-you-go instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
+ * @description Before you call this operation, make sure that you fully understand the billing methods and pricing of pay-as-you-go instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
  *
  * @param request CreatePostPayOrderRequest
  * @return CreatePostPayOrderResponse
@@ -622,8 +586,8 @@ CreatePostPayOrderResponse Client::createPostPayOrder(const CreatePostPayOrderRe
 /**
  * @summary Creates a subscription instance and returns the instance ID and order ID.
  *
- * @description - Make sure that you fully understand the billing methods and pricing of subscription instances before you call this operation. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
- * - After you call this operation, the upfront instance is purchased for one epoch of one month by default. Auto-renewal is enabled by default, and the Unified Auto Renewal Cycle is one month. If you want to modify the Unified Auto Renewal Cycle or disable auto-renewal, go to the [Renewal](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console.<props="china"> For more information, see [Settings for auto-renewal](https://help.aliyun.com/document_detail/37128.html).
+ * @description - Before you call this operation, make sure that you fully understand the billing methods and pricing of subscription instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+ * - After you call this operation, the default subscription duration of the purchased subscription instance is one month, and auto-renewal is enabled by default with an auto-renewal epoch of one month. To modify the auto-renewal epoch or disable auto-renewal, go to the [Renewal Management](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console. <props="china">For more information, see [Configure auto-renewal](https://help.aliyun.com/document_detail/37128.html).
  *
  * @param tmpReq CreatePrePayInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -710,8 +674,8 @@ CreatePrePayInstanceResponse Client::createPrePayInstanceWithOptions(const Creat
 /**
  * @summary Creates a subscription instance and returns the instance ID and order ID.
  *
- * @description - Make sure that you fully understand the billing methods and pricing of subscription instances before you call this operation. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
- * - After you call this operation, the upfront instance is purchased for one epoch of one month by default. Auto-renewal is enabled by default, and the Unified Auto Renewal Cycle is one month. If you want to modify the Unified Auto Renewal Cycle or disable auto-renewal, go to the [Renewal](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console.<props="china"> For more information, see [Settings for auto-renewal](https://help.aliyun.com/document_detail/37128.html).
+ * @description - Before you call this operation, make sure that you fully understand the billing methods and pricing of subscription instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+ * - After you call this operation, the default subscription duration of the purchased subscription instance is one month, and auto-renewal is enabled by default with an auto-renewal epoch of one month. To modify the auto-renewal epoch or disable auto-renewal, go to the [Renewal Management](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console. <props="china">For more information, see [Configure auto-renewal](https://help.aliyun.com/document_detail/37128.html).
  *
  * @param request CreatePrePayInstanceRequest
  * @return CreatePrePayInstanceResponse
@@ -722,10 +686,10 @@ CreatePrePayInstanceResponse Client::createPrePayInstance(const CreatePrePayInst
 }
 
 /**
- * @summary Creates a subscription instance. Subscription instances require upfront payment before you can use resources. This billing method is suitable for long-term stable business scenarios.
+ * @summary Creates a subscription instance. Subscription instances require upfront payment and are suitable for long-term, stable workloads.
  *
- * @description - Before calling this operation, make sure that you fully understand the billing method and pricing of upfront instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
- * - After you call this operation, the subscription instance is purchased for one epoch by default, and auto-renewal is enabled by default with a Unified Auto Renewal Cycle of one month. To modify the auto-renewal epoch or disable auto-renewal, go to the [Renewal Management](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console Settings.<props="china"> For more information, see [Configure auto-renewal](https://help.aliyun.com/document_detail/37128.html).
+ * @description - Before you call this operation, make sure that you fully understand the billing methods and pricing of subscription instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
+ * - After you call this operation, the default subscription duration of the purchased subscription instance is one month, and auto-renewal is enabled by default with an auto-renewal epoch of one month. To modify the auto-renewal epoch or disable auto-renewal, go to the [Renewal Management](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console. <props="china">For more information, see [Auto-renewal settings](https://help.aliyun.com/document_detail/37128.html).
  *
  * @param tmpReq CreatePrePayOrderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -818,10 +782,10 @@ CreatePrePayOrderResponse Client::createPrePayOrderWithOptions(const CreatePrePa
 }
 
 /**
- * @summary Creates a subscription instance. Subscription instances require upfront payment before you can use resources. This billing method is suitable for long-term stable business scenarios.
+ * @summary Creates a subscription instance. Subscription instances require upfront payment and are suitable for long-term, stable workloads.
  *
- * @description - Before calling this operation, make sure that you fully understand the billing method and pricing of upfront instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
- * - After you call this operation, the subscription instance is purchased for one epoch by default, and auto-renewal is enabled by default with a Unified Auto Renewal Cycle of one month. To modify the auto-renewal epoch or disable auto-renewal, go to the [Renewal Management](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console Settings.<props="china"> For more information, see [Configure auto-renewal](https://help.aliyun.com/document_detail/37128.html).
+ * @description - Before you call this operation, make sure that you fully understand the billing methods and pricing of subscription instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
+ * - After you call this operation, the default subscription duration of the purchased subscription instance is one month, and auto-renewal is enabled by default with an auto-renewal epoch of one month. To modify the auto-renewal epoch or disable auto-renewal, go to the [Renewal Management](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console. <props="china">For more information, see [Auto-renewal settings](https://help.aliyun.com/document_detail/37128.html).
  *
  * @param request CreatePrePayOrderRequest
  * @return CreatePrePayOrderResponse
@@ -832,7 +796,7 @@ CreatePrePayOrderResponse Client::createPrePayOrder(const CreatePrePayOrderReque
 }
 
 /**
- * @summary Creates a Simple Authentication and Security Layer (SASL) user by calling CreateSaslUser.
+ * @summary Creates a SASL user.
  *
  * @param request CreateSaslUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -883,7 +847,7 @@ CreateSaslUserResponse Client::createSaslUserWithOptions(const CreateSaslUserReq
 }
 
 /**
- * @summary Creates a Simple Authentication and Security Layer (SASL) user by calling CreateSaslUser.
+ * @summary Creates a SASL user.
  *
  * @param request CreateSaslUserRequest
  * @return CreateSaslUserResponse
@@ -894,7 +858,7 @@ CreateSaslUserResponse Client::createSaslUser(const CreateSaslUserRequest &reque
 }
 
 /**
- * @summary Creates a scheduled elastic scaling policy for a serverless instance after deployment.
+ * @summary Creates an elastic scheduled scaling policy for a serverless instance.
  *
  * @description ###### Only serverless instances are supported.
  *
@@ -977,7 +941,7 @@ CreateScheduledScalingRuleResponse Client::createScheduledScalingRuleWithOptions
 }
 
 /**
- * @summary Creates a scheduled elastic scaling policy for a serverless instance after deployment.
+ * @summary Creates an elastic scheduled scaling policy for a serverless instance.
  *
  * @description ###### Only serverless instances are supported.
  *
@@ -1078,7 +1042,7 @@ CreateTopicResponse Client::createTopic(const CreateTopicRequest &request) {
 }
 
 /**
- * @summary Deletes an access control list (ACL).
+ * @summary Deletes an ACL.
  *
  * @param request DeleteAclRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1145,7 +1109,7 @@ DeleteAclResponse Client::deleteAclWithOptions(const DeleteAclRequest &request, 
 }
 
 /**
- * @summary Deletes an access control list (ACL).
+ * @summary Deletes an ACL.
  *
  * @param request DeleteAclRequest
  * @return DeleteAclResponse
@@ -1206,7 +1170,7 @@ DeleteConsumerGroupResponse Client::deleteConsumerGroup(const DeleteConsumerGrou
 }
 
 /**
- * @summary Deletes an instance after a subscription or pay-as-you-go instance is released. This topic describes how to call the DeleteInstance operation to delete an instance.
+ * @summary Deletes a released subscription or pay-as-you-go instance.
  *
  * @param request DeleteInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1241,7 +1205,7 @@ DeleteInstanceResponse Client::deleteInstanceWithOptions(const DeleteInstanceReq
 }
 
 /**
- * @summary Deletes an instance after a subscription or pay-as-you-go instance is released. This topic describes how to call the DeleteInstance operation to delete an instance.
+ * @summary Deletes a released subscription or pay-as-you-go instance.
  *
  * @param request DeleteInstanceRequest
  * @return DeleteInstanceResponse
@@ -1252,7 +1216,7 @@ DeleteInstanceResponse Client::deleteInstance(const DeleteInstanceRequest &reque
 }
 
 /**
- * @summary You can call the DeleteSaslUser operation to delete a Simple Authentication and Security Layer (SASL) user.
+ * @summary Deletes a Simple Authentication and Security Layer (SASL) user.
  *
  * @param request DeleteSaslUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1299,7 +1263,7 @@ DeleteSaslUserResponse Client::deleteSaslUserWithOptions(const DeleteSaslUserReq
 }
 
 /**
- * @summary You can call the DeleteSaslUser operation to delete a Simple Authentication and Security Layer (SASL) user.
+ * @summary Deletes a Simple Authentication and Security Layer (SASL) user.
  *
  * @param request DeleteSaslUserRequest
  * @return DeleteSaslUserResponse
@@ -1310,9 +1274,9 @@ DeleteSaslUserResponse Client::deleteSaslUser(const DeleteSaslUserRequest &reque
 }
 
 /**
- * @summary After a Serverless instance is deployed, you can call this API operation to delete its scheduled scaling policy configuration.
+ * @summary Deletes the elastic scheduled policy configuration for a serverless instance.
  *
- * @description ###### This operation applies only to Serverless instances.
+ * @description ###### Only serverless instances are supported.
  *
  * @param request DeleteScheduledScalingRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1351,9 +1315,9 @@ DeleteScheduledScalingRuleResponse Client::deleteScheduledScalingRuleWithOptions
 }
 
 /**
- * @summary After a Serverless instance is deployed, you can call this API operation to delete its scheduled scaling policy configuration.
+ * @summary Deletes the elastic scheduled policy configuration for a serverless instance.
  *
- * @description ###### This operation applies only to Serverless instances.
+ * @description ###### Only serverless instances are supported.
  *
  * @param request DeleteScheduledScalingRuleRequest
  * @return DeleteScheduledScalingRuleResponse
@@ -1470,7 +1434,7 @@ DeleteUserDefinedSgResponse Client::deleteUserDefinedSg(const DeleteUserDefinedS
 }
 
 /**
- * @summary Queries ACL resource names.
+ * @summary Queries the ACL resource names.
  *
  * @param request DescribeAclResourceNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1513,7 +1477,7 @@ DescribeAclResourceNameResponse Client::describeAclResourceNameWithOptions(const
 }
 
 /**
- * @summary Queries ACL resource names.
+ * @summary Queries the ACL resource names.
  *
  * @param request DescribeAclResourceNameRequest
  * @return DescribeAclResourceNameResponse
@@ -1598,7 +1562,7 @@ DescribeAclsResponse Client::describeAcls(const DescribeAclsRequest &request) {
 }
 
 /**
- * @summary You can call DescribeSaslUsers to query SASL users.
+ * @summary Queries SASL users.
  *
  * @param request DescribeSaslUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1633,7 +1597,7 @@ DescribeSaslUsersResponse Client::describeSaslUsersWithOptions(const DescribeSas
 }
 
 /**
- * @summary You can call DescribeSaslUsers to query SASL users.
+ * @summary Queries SASL users.
  *
  * @param request DescribeSaslUsersRequest
  * @return DescribeSaslUsersResponse
@@ -1824,9 +1788,9 @@ DowngradePrePayOrderResponse Client::downgradePrePayOrder(const DowngradePrePayO
 }
 
 /**
- * @summary Enables or disables the free use of groups by calling EnableAutoGroupCreation.
+ * @summary Enables or disables automatic group creation.
  *
- * @description Only reserved instances support this API operation.
+ * @description Currently, only reserved instances support this API operation.
  * Serverless instances are not supported.
  *
  * @param request EnableAutoGroupCreationRequest
@@ -1866,9 +1830,9 @@ EnableAutoGroupCreationResponse Client::enableAutoGroupCreationWithOptions(const
 }
 
 /**
- * @summary Enables or disables the free use of groups by calling EnableAutoGroupCreation.
+ * @summary Enables or disables automatic group creation.
  *
- * @description Only reserved instances support this API operation.
+ * @description Currently, only reserved instances support this API operation.
  * Serverless instances are not supported.
  *
  * @param request EnableAutoGroupCreationRequest
@@ -1880,7 +1844,7 @@ EnableAutoGroupCreationResponse Client::enableAutoGroupCreation(const EnableAuto
 }
 
 /**
- * @summary This topic describes how to call the EnableAutoTopicCreation operation to enable or disable automatic topic creation and modify the default number of partitions for automatically created topics.
+ * @summary This topic describes how to call EnableAutoTopicCreation to enable or shut down automatic topic creation and modify the default number of partitions for automatically created topics.
  *
  * @param request EnableAutoTopicCreationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1927,7 +1891,7 @@ EnableAutoTopicCreationResponse Client::enableAutoTopicCreationWithOptions(const
 }
 
 /**
- * @summary This topic describes how to call the EnableAutoTopicCreation operation to enable or disable automatic topic creation and modify the default number of partitions for automatically created topics.
+ * @summary This topic describes how to call EnableAutoTopicCreation to enable or shut down automatic topic creation and modify the default number of partitions for automatically created topics.
  *
  * @param request EnableAutoTopicCreationRequest
  * @return EnableAutoTopicCreationResponse
@@ -2008,7 +1972,7 @@ FailoverTestResponse Client::failoverTest(const FailoverTestRequest &request) {
 }
 
 /**
- * @summary Queries the IDs of all instances in the current account.
+ * @summary Queries the instance IDs of all instances under the current account.
  *
  * @param request GetAllInstanceIdListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2039,7 +2003,7 @@ GetAllInstanceIdListResponse Client::getAllInstanceIdListWithOptions(const GetAl
 }
 
 /**
- * @summary Queries the IDs of all instances in the current account.
+ * @summary Queries the instance IDs of all instances under the current account.
  *
  * @param request GetAllInstanceIdListRequest
  * @return GetAllInstanceIdListResponse
@@ -2050,7 +2014,7 @@ GetAllInstanceIdListResponse Client::getAllInstanceIdList(const GetAllInstanceId
 }
 
 /**
- * @summary The GetAllowedIpList operation retrieves the IP address allowlist.
+ * @summary Retrieves the IP whitelist.
  *
  * @param request GetAllowedIpListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2085,7 +2049,7 @@ GetAllowedIpListResponse Client::getAllowedIpListWithOptions(const GetAllowedIpL
 }
 
 /**
- * @summary The GetAllowedIpList operation retrieves the IP address allowlist.
+ * @summary Retrieves the IP whitelist.
  *
  * @param request GetAllowedIpListRequest
  * @return GetAllowedIpListResponse
@@ -2096,9 +2060,9 @@ GetAllowedIpListResponse Client::getAllowedIpList(const GetAllowedIpListRequest 
 }
 
 /**
- * @summary After a Serverless instance is deployed, you can call this API operation to query the auto scaling configuration of the instance.
+ * @summary Queries the scheduled elastic scaling policy configurations of a serverless instance.
  *
- * @description ###### **This operation applies only to Serverless instances.**
+ * @description ###### **Only serverless instances are supported.**
  *
  * @param request GetAutoScalingConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2133,9 +2097,9 @@ GetAutoScalingConfigurationResponse Client::getAutoScalingConfigurationWithOptio
 }
 
 /**
- * @summary After a Serverless instance is deployed, you can call this API operation to query the auto scaling configuration of the instance.
+ * @summary Queries the scheduled elastic scaling policy configurations of a serverless instance.
  *
- * @description ###### **This operation applies only to Serverless instances.**
+ * @description ###### **Only serverless instances are supported.**
  *
  * @param request GetAutoScalingConfigurationRequest
  * @return GetAutoScalingConfigurationResponse
@@ -2146,7 +2110,7 @@ GetAutoScalingConfigurationResponse Client::getAutoScalingConfiguration(const Ge
 }
 
 /**
- * @summary Retrieves a list of consumer groups.
+ * @summary Retrieves consumer group information by calling GetConsumerList.
  *
  * @param request GetConsumerListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2193,7 +2157,7 @@ GetConsumerListResponse Client::getConsumerListWithOptions(const GetConsumerList
 }
 
 /**
- * @summary Retrieves a list of consumer groups.
+ * @summary Retrieves consumer group information by calling GetConsumerList.
  *
  * @param request GetConsumerListRequest
  * @return GetConsumerListResponse
@@ -2258,7 +2222,7 @@ GetConsumerProgressResponse Client::getConsumerProgress(const GetConsumerProgres
 }
 
 /**
- * @summary Queries information about instances in a specified region.
+ * @summary Queries the details of instances in a specified region.
  *
  * @param request GetInstanceListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2309,7 +2273,7 @@ GetInstanceListResponse Client::getInstanceListWithOptions(const GetInstanceList
 }
 
 /**
- * @summary Queries information about instances in a specified region.
+ * @summary Queries the details of instances in a specified region.
  *
  * @param request GetInstanceListRequest
  * @return GetInstanceListResponse
@@ -2322,9 +2286,9 @@ GetInstanceListResponse Client::getInstanceList(const GetInstanceListRequest &re
 /**
  * @summary Retrieves the IP addresses of Kafka clients.
  *
- * @description - The IP information is retrieved from the sampling logs of client requests to the server through the Kafka API.
- * - The count indicates the number of connections from a single IP address using different ports that the server detected within the specified time range.
- * - If your server is not running the latest minor version, the sampling logs may be inaccurate and provide less precise IP information. We recommend that you upgrade the server to the latest minor version.
+ * @description - The collected IP information is obtained from the sampled logs of API requests sent from clients to the server through Kafka.
+ * - The count indicates the number of connections from the same IP address to different ports recorded by the server within the specified time range.
+ * - If the minor version of your server is not the latest, the sampled logs may not be accurate enough, which ultimately leads to inaccurate collected IP information. Therefore, upgrade the minor version of your server as soon as possible.
  *
  * @param request GetKafkaClientIpRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2381,9 +2345,9 @@ GetKafkaClientIpResponse Client::getKafkaClientIpWithOptions(const GetKafkaClien
 /**
  * @summary Retrieves the IP addresses of Kafka clients.
  *
- * @description - The IP information is retrieved from the sampling logs of client requests to the server through the Kafka API.
- * - The count indicates the number of connections from a single IP address using different ports that the server detected within the specified time range.
- * - If your server is not running the latest minor version, the sampling logs may be inaccurate and provide less precise IP information. We recommend that you upgrade the server to the latest minor version.
+ * @description - The collected IP information is obtained from the sampled logs of API requests sent from clients to the server through Kafka.
+ * - The count indicates the number of connections from the same IP address to different ports recorded by the server within the specified time range.
+ * - If the minor version of your server is not the latest, the sampled logs may not be accurate enough, which ultimately leads to inaccurate collected IP information. Therefore, upgrade the minor version of your server as soon as possible.
  *
  * @param request GetKafkaClientIpRequest
  * @return GetKafkaClientIpResponse
@@ -2440,7 +2404,7 @@ GetQuotaTipResponse Client::getQuotaTip(const GetQuotaTipRequest &request) {
 }
 
 /**
- * @summary Queries the list of threats on an instance.
+ * @summary Queries the risk list of an instance.
  *
  * @param request GetRiskListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2483,7 +2447,7 @@ GetRiskListResponse Client::getRiskListWithOptions(const GetRiskListRequest &req
 }
 
 /**
- * @summary Queries the list of threats on an instance.
+ * @summary Queries the risk list of an instance.
  *
  * @param request GetRiskListRequest
  * @return GetRiskListResponse
@@ -2652,7 +2616,7 @@ GetTopicSubscribeStatusResponse Client::getTopicSubscribeStatus(const GetTopicSu
 }
 
 /**
- * @summary Queries the details of rebalancing tasks.
+ * @summary Retrieves the details of a rebalance.
  *
  * @param request ListRebalanceInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2691,7 +2655,7 @@ ListRebalanceInfoResponse Client::listRebalanceInfoWithOptions(const ListRebalan
 }
 
 /**
- * @summary Queries the details of rebalancing tasks.
+ * @summary Retrieves the details of a rebalance.
  *
  * @param request ListRebalanceInfoRequest
  * @return ListRebalanceInfoResponse
@@ -2702,7 +2666,7 @@ ListRebalanceInfoResponse Client::listRebalanceInfo(const ListRebalanceInfoReque
 }
 
 /**
- * @summary Queries the list of tags that are attached to resources.
+ * @summary Queries the tags bound to resources.
  *
  * @param request ListTagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2749,7 +2713,7 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary Queries the list of tags that are attached to resources.
+ * @summary Queries the tags bound to resources.
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -2810,7 +2774,7 @@ ModifyInstanceNameResponse Client::modifyInstanceName(const ModifyInstanceNameRe
 }
 
 /**
- * @summary This operation modifies the number of partitions in a topic.
+ * @summary Modifies the number of partitions for a topic.
  *
  * @param request ModifyPartitionNumRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2853,7 +2817,7 @@ ModifyPartitionNumResponse Client::modifyPartitionNumWithOptions(const ModifyPar
 }
 
 /**
- * @summary This operation modifies the number of partitions in a topic.
+ * @summary Modifies the number of partitions for a topic.
  *
  * @param request ModifyPartitionNumRequest
  * @return ModifyPartitionNumResponse
@@ -2864,9 +2828,9 @@ ModifyPartitionNumResponse Client::modifyPartitionNum(const ModifyPartitionNumRe
 }
 
 /**
- * @summary After you deploy Serverless instances, you can call this API operation to modify their scheduled scaling policy.
+ * @summary Modifies the scheduled auto scaling policy of a serverless instance.
  *
- * @description ###### This operation applies only to Serverless instances.
+ * @description ###### Only serverless instances are supported.
  *
  * @param request ModifyScheduledScalingRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2909,9 +2873,9 @@ ModifyScheduledScalingRuleResponse Client::modifyScheduledScalingRuleWithOptions
 }
 
 /**
- * @summary After you deploy Serverless instances, you can call this API operation to modify their scheduled scaling policy.
+ * @summary Modifies the scheduled auto scaling policy of a serverless instance.
  *
- * @description ###### This operation applies only to Serverless instances.
+ * @description ###### Only serverless instances are supported.
  *
  * @param request ModifyScheduledScalingRuleRequest
  * @return ModifyScheduledScalingRuleResponse
@@ -3124,7 +3088,7 @@ ReleaseInstanceResponse Client::releaseInstance(const ReleaseInstanceRequest &re
 }
 
 /**
- * @summary Starts an instance.
+ * @summary Enables an instance.
  *
  * @description You can call this operation only when the instance is in the Stopped state.
  *
@@ -3161,7 +3125,7 @@ ReopenInstanceResponse Client::reopenInstanceWithOptions(const ReopenInstanceReq
 }
 
 /**
- * @summary Starts an instance.
+ * @summary Enables an instance.
  *
  * @description You can call this operation only when the instance is in the Stopped state.
  *
@@ -3894,7 +3858,7 @@ UpgradePostPayOrderResponse Client::upgradePostPayOrder(const UpgradePostPayOrde
 /**
  * @summary Upgrades a subscription instance.
  *
- * @description Before calling this operation, ensure you understand the billing method and pricing of subscription instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+ * @description Before you call this operation, make sure that you fully understand the billing method and pricing of subscription instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
  *
  * @param tmpReq UpgradePrePayOrderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3977,7 +3941,7 @@ UpgradePrePayOrderResponse Client::upgradePrePayOrderWithOptions(const UpgradePr
 /**
  * @summary Upgrades a subscription instance.
  *
- * @description Before calling this operation, ensure you understand the billing method and pricing of subscription instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+ * @description Before you call this operation, make sure that you fully understand the billing method and pricing of subscription instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
  *
  * @param request UpgradePrePayOrderRequest
  * @return UpgradePrePayOrderResponse

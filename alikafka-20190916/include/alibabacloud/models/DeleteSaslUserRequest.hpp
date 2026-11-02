@@ -75,33 +75,33 @@ namespace Models
 
 
   protected:
-    // Instance ID.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Encryption method. Valid values:
+    // The encryption mechanism. Valid values:
     // 
     // - SCRAM-SHA-512 (selected by default)
     // 
     // - SCRAM-SHA-256
     // 
-    // > This parameter is only supported for Serverless instances.
+    // > This parameter is supported only for Serverless instances.
     shared_ptr<string> mechanism_ {};
-    // Region ID.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // Type. Valid values:
+    // The type. Valid values:
     // 
-    // - **plain**: A simple username and password verification mechanism. MSMQ optimizes the PLAIN mechanism to support adding SASL users dynamically without restarting the instance.
+    // - **plain**: a simple username and password verification mechanism. ApsaraMQ for Kafka has an optimization for the PLAIN mechanism to allow you to dynamically increase SASL users without restarting the instance.
     // 
-    // - **scram**: A username and password verification mechanism with higher security than PLAIN. MSMQ uses SCRAM-SHA-256.
+    // - **scram**: a username and password verification mechanism that provides higher security than PLAIN. ApsaraMQ for Kafka uses SCRAM-SHA-256.
+    // - **LDAP**: applicable only to the delete operation for Confluent instance users.
     // 
-    // - **LDAP**: Only applicable for deleting Confluent instance users.
     // 
     // Default value: **plain**.
     shared_ptr<string> type_ {};
-    // Username.
+    // The username.
     // 
     // This parameter is required.
     shared_ptr<string> username_ {};

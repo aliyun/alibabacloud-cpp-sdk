@@ -82,7 +82,7 @@ namespace Models
       // 
       // - The tag key cannot be empty.
       // 
-      // - The tag key can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain `http://` or `https://`.
+      // - The tag key can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain `http://` or `https://`.
       // 
       // This parameter is required.
       shared_ptr<string> key_ {};
@@ -92,7 +92,7 @@ namespace Models
       // 
       // - The tag value can be empty.
       // 
-      // - The tag value can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain `http://` or `https://`.
+      // - The tag value can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -136,11 +136,11 @@ namespace Models
 
 
   protected:
-    // The consumer group name.
+    // The name of the consumer group.
     // - Reserved instances:
-    // Can contain letters, digits, underscores (_), hyphens (-), and periods (.). The value must be 3 to 64 characters in length.
+    // The name can contain uppercase and lowercase letters, digits, underscores (_), hyphens (-), and periods (.). It must be 3 to 64 characters in length.
     // - Serverless instances:
-    // Can contain only letters, digits, and special characters "@._*$#^!&-". The value must be 1 to 249 characters in length.
+    // The name can contain only letters, digits, and the special characters @._*$#^!&-. It must be 1 to 249 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> consumerId_ {};
@@ -152,9 +152,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The description.
+    // The remark.
     shared_ptr<string> remark_ {};
-    // The tags.
+    // The list of tags.
     shared_ptr<vector<CreateConsumerGroupRequest::Tag>> tag_ {};
   };
 

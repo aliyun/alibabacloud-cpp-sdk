@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The region ID of the instance. This parameter is reserved.
+    // The region ID of the instance. This is a reserved parameter.
     shared_ptr<string> regionId_ {};
   };
 

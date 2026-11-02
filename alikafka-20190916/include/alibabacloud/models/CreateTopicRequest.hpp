@@ -94,7 +94,7 @@ namespace Models
       // 
       // - If this parameter is left empty, all tag keys are matched.
       // 
-      // - The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`, or contain `http://` or `https://`.
+      // - The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       // 
       // This parameter is required.
       shared_ptr<string> key_ {};
@@ -104,7 +104,7 @@ namespace Models
       // 
       // - This parameter can be left empty.
       // 
-      // - The tag value can be up to 128 characters in length and cannot start with aliyun or acs:, or contain http:// or https://.
+      // - The tag value can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
       shared_ptr<string> value_ {};
     };
 
@@ -191,27 +191,26 @@ namespace Models
 
 
   protected:
-    // The cleanup policy configured when the storage engine of the topic is set to local storage. Valid values:
+    // The cleanup policy that is configured when the storage engine of the topic is set to local storage. Valid values:
     // 
     // - false: delete cleanup policy.
     // - true: compact cleanup policy.
     shared_ptr<bool> compactTopic_ {};
     // The supplementary configuration.
     // 
-    // - Must be in JSON format.
-    // 
+    // - The value must be in JSON format.
     // 
     // - This parameter takes effect only when **LocalTopic** is set to **true**.
     // 
     // - Supported configurations for reserved instances:
-    //   -   **retention.ms** (message retention period): ranges from 3600000 to 31536000000 milliseconds.
-    //   - **max.message.bytes** (maximum message size): ranges from 1048576 to 10485760 bytes. 
-    //   - **message.timestamp.type**: specifies the type of message timestamp. CreateTime indicates the timestamp specified by the producer when sending a message. If not specified, it is the message creation time on the client. LogAppendTime indicates the time when the message is written to disk on the server. Valid values: CreateTime or LogAppendTime. Default value: CreateTime. We recommend LogAppendTime.
+    //   - **retention.ms**: the message retention period. Valid values: 3600000 to 31536000000. Unit: milliseconds.
+    //   - **max.message.bytes**: the maximum message size. Valid values: 1048576 to 10485760. Unit: bytes.
+    //   - **message.timestamp.type**: the type of the message timestamp. CreateTime indicates the timestamp specified by the producer when sending a message. If not specified, the value is the creation time of the message on the client. LogAppendTime indicates the time when the message is written to disk on the server. Valid values: CreateTime or LogAppendTime. Default value: Createtime. We recommend that you use ApendTime.
     // 
-    //  - Supported configurations for Serverless instances:
-    //    -  **retention.hours** (message retention period): value type is String. Valid values: 24 to 8760.
-    //    -  **max.message.bytes** (maximum message size): value type is String. Valid values: 1048576 to 10485760.
-    //    -  **message.timestamp.type** (type of message timestamp): CreateTime indicates the timestamp specified by the producer when sending a message. If not specified, it is the message creation time on the client. LogAppendTime indicates the time when the message is written to disk on the server. Valid values: CreateTime or LogAppendTime. Default value: CreateTime. We recommend LogAppendTime.
+    // - Supported configurations for Serverless instances:
+    //   - **retention.hours**: the message retention period. The value type is String. Valid values: 24 to 8760.
+    //   - **max.message.bytes**: the maximum message size. The value type is String. Valid values: 1048576 to 10485760.
+    //   - **message.timestamp.type**: the type of the message timestamp. CreateTime indicates the timestamp specified by the producer when sending a message. If not specified, the value is the creation time of the message on the client. LogAppendTime indicates the time when the message is written to disk on the server. Valid values: CreateTime or LogAppendTime. Default value: Createtime. We recommend that you use ApendTime.
     shared_ptr<string> config_ {};
     // The instance ID.
     // 
@@ -228,13 +227,13 @@ namespace Models
     // 
     // - The value must be less than the number of topic replicas.
     // 
-    // - The number of in-sync replicas ranges from 1 to 3.
+    // - Valid values: 1 to 3.
     shared_ptr<int64_t> minInsyncReplicas_ {};
     // The number of partitions for the topic.
     // 
-    // - The number of partitions ranges from 1 to 360.
+    // - Valid values: 1 to 360.
     // 
-    // - The console provides different configuration suggestions based on the instance edition. Configure the number of partitions based on the console suggestions to reduce the risk of data skew.
+    // - The console provides different configuration suggestions based on the instance edition. Configure the number of partitions based on the console suggestions to reduce data skew risks.
     // 
     // Default value:
     // 
@@ -248,9 +247,9 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The description of the topic.
     // 
-    // - Can contain only letters, digits, underscores (_), and hyphens (-).
+    // - The description can contain only letters, digits, underscores (_), and hyphens (-).
     // 
-    // - Must be 3 to 64 characters in length.
+    // - The description must be 3 to 64 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> remark_ {};
@@ -258,18 +257,16 @@ namespace Models
     // 
     // - This parameter takes effect only when **LocalTopic** is set to **true**.
     // 
-    // - The number of replicas ranges from 1 to 3.
+    // - Valid values: 1 to 3.
     // 
-    // > If the number of replicas is set to **1**, data loss may occur. Set this parameter with caution.
+    // > If the number of replicas is set to **1**, data loss may occur. Proceed with caution.
     shared_ptr<int64_t> replicationFactor_ {};
     // The tag list.
     shared_ptr<vector<CreateTopicRequest::Tag>> tag_ {};
     // The name of the topic.
     // 
-    // - Reserved instances:
-    // Supports uppercase and lowercase letters, digits, underscores (_), hyphens (-), and periods (.). The name must be 3 to 64 characters in length.
-    // - Serverless instances:
-    // Supports uppercase and lowercase letters, digits, underscores (_), hyphens (-), and periods (.). The name must be 1 to 249 characters in length.
+    // - Reserved instances: The name can contain letters, digits, underscores (_), hyphens (-), and periods (.). The name must be 3 to 64 characters in length.
+    // - Serverless instances: The name can contain letters, digits, underscores (_), hyphens (-), and periods (.). The name must be 1 to 249 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> topic_ {};

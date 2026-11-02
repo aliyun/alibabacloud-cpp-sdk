@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // A return code of 200 indicates that the request succeeded.
+    // The response code. A value of 200 indicates success.
     shared_ptr<int32_t> code_ {};
     // The response message.
     shared_ptr<string> message_ {};
@@ -83,7 +83,7 @@ namespace Models
     shared_ptr<string> orderId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

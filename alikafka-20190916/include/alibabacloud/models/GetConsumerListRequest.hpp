@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The ID of the consumer group. If you do not specify this parameter, information about all consumer groups is returned.
+    // The ID of the consumer group. If you do not specify this parameter, all consumer groups are queried.
     shared_ptr<string> consumerId_ {};
-    // The number of the page to return.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
     // The ID of the instance to which the consumer group belongs.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of consumer groups to return on each page.
+    // The number of consumer groups to display per page.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID of the instance to which the consumer group belongs.
     // 

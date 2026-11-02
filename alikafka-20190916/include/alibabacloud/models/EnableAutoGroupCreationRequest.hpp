@@ -57,16 +57,16 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable the free use of groups. Valid values:
+    // Specifies whether to enable automatic group creation. Valid values:
     // 
-    // - **true**: Enable.
-    // - **false**: Disable.
+    // - **true**: Enabled.
+    // - **false**: Disabled.
     // 
     // This parameter is required.
     shared_ptr<bool> enable_ {};
     // The instance ID.
     // 
-    // You can call [GetInstanceList](https://help.aliyun.com/document_detail/437663.html) to obtain the instance ID.
+    // You can call the [GetInstanceList](https://help.aliyun.com/document_detail/437663.html) operation to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
