@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The first authentication code.
+    // The first dynamic password for authentication.
     shared_ptr<string> authenticationCode1_ {};
-    // The second authentication code.
+    // The second dynamic password for authentication.
     shared_ptr<string> authenticationCode2_ {};
-    // The serial number of the MFA device.
+    // The serial number of the multi-factor authentication device.
     shared_ptr<string> serialNumber_ {};
-    // The name of the RAM user.
+    // The username.
     shared_ptr<string> userName_ {};
   };
 

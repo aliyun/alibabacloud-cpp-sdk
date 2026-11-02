@@ -90,19 +90,13 @@ namespace Models
 
 
     protected:
-      // The name of the resource.
+      // The resource name.
       shared_ptr<string> resourceName_ {};
       // The resource type.
-      // 
-      // Enumerated values:
-      // 
-      // - role: RAM roles.
-      // 
-      // - policy: policies.
       shared_ptr<string> resourceType_ {};
-      // The key of the tag.
+      // The tag key.
       shared_ptr<string> tagKey_ {};
-      // The value of the tag.
+      // The tag value.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -132,11 +126,11 @@ namespace Models
 
 
   protected:
-    // A pagination token. It can be used in the next request to retrieve a new page of results.
+    // The pagination token used to retrieve the next page.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The tags that are added to the cloud resources.
+    // The list of tags bound to the cloud resources.
     shared_ptr<vector<ListTagResourcesResponseBody::TagResources>> tagResources_ {};
   };
 

@@ -72,9 +72,9 @@ namespace Models
 
 
     protected:
-      // The key of the tag. The tag key can be up to 128 characters in length.
+      // The tag key. The key can be up to 128 characters in length.
       shared_ptr<string> key_ {};
-      // The value of the tag. The tag value can be up to 256 characters in length.
+      // The tag value. The value can be up to 256 characters in length.
       shared_ptr<string> value_ {};
     };
 
@@ -106,17 +106,11 @@ namespace Models
 
 
   protected:
-    // The names of the resources. You can specify up to 50 resource names.
+    // The list of resource names. You can specify up to 50 resource names at a time.
     shared_ptr<vector<string>> resourceNames_ {};
     // The resource type.
-    // 
-    // Enumerated values:
-    // 
-    // - role: RAM roles.
-    // 
-    // - policy: policies.
     shared_ptr<string> resourceType_ {};
-    // The tags. You can specify up to 20 tags.
+    // The list of tags. You can specify up to 20 tags at a time.
     shared_ptr<vector<TagResourcesRequest::Tag>> tag_ {};
   };
 

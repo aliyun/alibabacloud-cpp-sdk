@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The role name.
+    // The name of the role.
     // 
     // This parameter is required.
     shared_ptr<string> roleName_ {};

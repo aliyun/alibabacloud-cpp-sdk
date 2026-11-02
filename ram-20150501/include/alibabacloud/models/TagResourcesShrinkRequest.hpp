@@ -57,17 +57,11 @@ namespace Models
 
 
   protected:
-    // The names of the resources. You can specify up to 50 resource names.
+    // The list of resource names. You can specify up to 50 resource names at a time.
     shared_ptr<string> resourceNamesShrink_ {};
     // The resource type.
-    // 
-    // Enumerated values:
-    // 
-    // - role: RAM roles.
-    // 
-    // - policy: policies.
     shared_ptr<string> resourceType_ {};
-    // The tags. You can specify up to 20 tags.
+    // The list of tags. You can specify up to 20 tags at a time.
     shared_ptr<string> tagShrink_ {};
   };
 

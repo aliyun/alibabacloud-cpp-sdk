@@ -87,13 +87,13 @@ namespace Models
 
 
     protected:
-      // The creation time.
+      // The creation time. The time is displayed in UTC in the `YYYY-MM-DDThh:mm:ssZ` format.
       shared_ptr<string> createDate_ {};
-      // Indicates whether an MFA device must be bound to the RAM user.
+      // Indicates whether the user is required to attach a multi-factor authentication device.
       shared_ptr<bool> MFABindRequired_ {};
-      // Indicates whether the RAM user must change the password upon logon.
+      // Indicates whether the user is required to reset the password upon next logon.
       shared_ptr<bool> passwordResetRequired_ {};
-      // The name of the RAM user.
+      // The username.
       shared_ptr<string> userName_ {};
     };
 
@@ -116,7 +116,7 @@ namespace Models
 
 
   protected:
-    // The logon configurations of the RAM user.
+    // The logon profile.
     shared_ptr<CreateLoginProfileResponseBody::LoginProfile> loginProfile_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

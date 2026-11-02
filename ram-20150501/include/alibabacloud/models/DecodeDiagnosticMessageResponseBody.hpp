@@ -137,23 +137,21 @@ namespace Models
 
 
       protected:
-        // The entity type to which the policy is attached.
+        // The type of the entity to which the policy is attached.
         shared_ptr<string> attachedEntityType_ {};
         // The scope to which the policy is attached.
         shared_ptr<string> attachedScope_ {};
         // The policy effect.
         shared_ptr<string> effect_ {};
-        // The policy name, as follows:
+        // The policy name information. The value varies based on the policy type:
         // 
-        // - Control policy: The control policy ID.
-        // 
-        // - RAM access policy: The access policy name.
+        // - Control policy: the ID of the control policy.
+        // - RAM access policy: the name of the access policy.
         shared_ptr<string> policyIdentifier_ {};
         // The policy type.
         shared_ptr<string> policyType_ {};
         // The policy version number.
-        // 
-        // > Only custom policies have version numbers.
+        // > Only a custom policy has a version number.
         shared_ptr<string> policyVersion_ {};
       };
 
@@ -204,15 +202,13 @@ namespace Models
 
 
       protected:
-        // The identity identifier used for authentication in the user request, as follows:
+        // The identity identifier used for authentication in the user request. The value varies based on the identity type:
         // 
-        // - RAM user: The UID of the RAM user.
-        // 
-        // - RAM role: The role name and role session name (for example, RoleName:RoleSessionName).
-        // 
-        // - SSO federated identity: The identity provider type and name (for example, saml-provider/AzureAD).
+        // - Resource Access Management (RAM) user: the UID of the RAM user.
+        // - RAM role: the role name and role session name (example: RoleName:RoleSessionName).
+        // - SSO federated identity: the identity provider type and identity provider name (example: saml-provider/AzureAD).
         shared_ptr<string> authPrincipalDisplayName_ {};
-        // The Alibaba Cloud account UID of the identity used for authentication in the user request.
+        // The UID of the Alibaba Cloud account to which the identity used for authentication in the user request belongs.
         shared_ptr<string> authPrincipalOwnerId_ {};
         // The identity type used for authentication in the user request.
         shared_ptr<string> authPrincipalType_ {};
@@ -258,9 +254,9 @@ namespace Models
 
 
       protected:
-        // The key of the authentication condition.
+        // The condition key.
         shared_ptr<string> conditionKey_ {};
-        // The list of values corresponding to the authentication condition key.
+        // The list of values corresponding to the condition key.
         shared_ptr<vector<string>> conditionValues_ {};
       };
 
@@ -331,11 +327,11 @@ namespace Models
       shared_ptr<DecodedDiagnosticMessage::AuthPrincipal> authPrincipal_ {};
       // The resource used for authentication in the user request.
       shared_ptr<string> authResource_ {};
-      // Indicates whether the denial is explicit.
+      // Indicates whether the request is explicitly denied.
       shared_ptr<bool> explicitDeny_ {};
       // The list of policies matched during authentication.
       shared_ptr<vector<DecodedDiagnosticMessage::MatchedPolicies>> matchedPolicies_ {};
-      // The policy type that caused the permission denial.
+      // The type of the policy that results in the access denied error.
       shared_ptr<string> noPermissionPolicyType_ {};
     };
 
@@ -358,7 +354,7 @@ namespace Models
 
 
   protected:
-    // The decoded diagnostic message.
+    // The decoded diagnostic information.
     shared_ptr<DecodeDiagnosticMessageResponseBody::DecodedDiagnosticMessage> decodedDiagnosticMessage_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

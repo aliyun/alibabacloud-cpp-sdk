@@ -133,27 +133,26 @@ namespace Models
 
 
     protected:
-      // The description.
+      // The comments.
       shared_ptr<string> comments_ {};
-      // The time when the RAM user was created. The time is in UTC.
+      // The time when the Resource Access Management (RAM) user was created (UTC).
       shared_ptr<string> createDate_ {};
       // The display name.
       shared_ptr<string> displayName_ {};
-      // The email address of the RAM user.
-      // 
-      // > This parameter is available only on the China site (aliyun.com).
+      // The electron mailbox of the Resource Access Management (RAM) user.
+      // > This parameter applies only to the China site.
       shared_ptr<string> email_ {};
-      // The last time the user logged on with a password. The time is in UTC.
+      // The time when the user last logged on with a password (UTC).
       shared_ptr<string> lastLoginDate_ {};
-      // The mobile phone number of the RAM user.
+      // The mobile phone number of the Resource Access Management (RAM) user.
       // 
-      // > This parameter is available only on the China site (aliyun.com).
+      // > This parameter applies only to the China site.
       shared_ptr<string> mobilePhone_ {};
-      // The time when the RAM user was last updated. The time is in UTC.
+      // The time when the Resource Access Management (RAM) user was updated (UTC).
       shared_ptr<string> updateDate_ {};
-      // The unique ID of the RAM user.
+      // The unique identity of the Resource Access Management (RAM) user.
       shared_ptr<string> userId_ {};
-      // The name of the RAM user.
+      // The name of the Resource Access Management (RAM) user.
       shared_ptr<string> userName_ {};
     };
 
@@ -176,9 +175,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the RAM user.
+    // The Resource Access Management (RAM) user information.
     shared_ptr<GetUserResponseBody::User> user_ {};
   };
 

@@ -89,7 +89,7 @@ namespace Models
     protected:
       // The description.
       shared_ptr<string> comments_ {};
-      // The creation time.
+      // The creation time. The time is displayed in UTC in the `YYYY-MM-DDThh:mm:ssZ` format.
       shared_ptr<string> createDate_ {};
       // The ID of the user group.
       shared_ptr<string> groupId_ {};
@@ -116,9 +116,9 @@ namespace Models
 
 
   protected:
-    // The information about the group.
+    // The user group information.
     shared_ptr<CreateGroupResponseBody::Group> group_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

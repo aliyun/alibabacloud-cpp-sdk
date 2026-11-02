@@ -90,6 +90,9 @@
 #include <alibabacloud/models/DetachPolicyFromUserRequest.hpp>
 #include <alibabacloud/models/DetachPolicyFromUserResponseBody.hpp>
 #include <alibabacloud/models/DetachPolicyFromUserResponse.hpp>
+#include <alibabacloud/models/GenerateServiceLastAccessedDetailsRequest.hpp>
+#include <alibabacloud/models/GenerateServiceLastAccessedDetailsResponseBody.hpp>
+#include <alibabacloud/models/GenerateServiceLastAccessedDetailsResponse.hpp>
 #include <alibabacloud/models/GetAccessKeyLastUsedRequest.hpp>
 #include <alibabacloud/models/GetAccessKeyLastUsedResponseBody.hpp>
 #include <alibabacloud/models/GetAccessKeyLastUsedResponse.hpp>
@@ -114,6 +117,9 @@
 #include <alibabacloud/models/GetRoleResponse.hpp>
 #include <alibabacloud/models/GetSecurityPreferenceResponseBody.hpp>
 #include <alibabacloud/models/GetSecurityPreferenceResponse.hpp>
+#include <alibabacloud/models/GetServiceLastAccessedDetailsRequest.hpp>
+#include <alibabacloud/models/GetServiceLastAccessedDetailsResponseBody.hpp>
+#include <alibabacloud/models/GetServiceLastAccessedDetailsResponse.hpp>
 #include <alibabacloud/models/GetServiceLinkedRoleTemplateRequest.hpp>
 #include <alibabacloud/models/GetServiceLinkedRoleTemplateResponseBody.hpp>
 #include <alibabacloud/models/GetServiceLinkedRoleTemplateResponse.hpp>

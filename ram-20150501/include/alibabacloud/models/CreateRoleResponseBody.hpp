@@ -124,13 +124,13 @@ namespace Models
 
 
     protected:
-      // Indicates whether console logon is allowed for the RAM role.
+      // Indicates whether the RAM role is allowed to log on to the console.
       shared_ptr<bool> allowConsoleLogin_ {};
       // The resource descriptor of the RAM role.
       shared_ptr<string> arn_ {};
       // The trust policy of the RAM role.
       shared_ptr<string> assumeRolePolicyDocument_ {};
-      // The time when the RAM role was created.
+      // The creation time. The time is displayed in UTC in the `YYYY-MM-DDThh:mm:ssZ` format.
       shared_ptr<string> createDate_ {};
       // The description of the RAM role.
       shared_ptr<string> description_ {};
@@ -163,7 +163,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the RAM role.
+    // The RAM role information.
     shared_ptr<CreateRoleResponseBody::Role> role_ {};
   };
 

@@ -67,24 +67,12 @@ namespace Models
 
   protected:
     // Specifies whether to remove all tags from the resources.
-    // 
-    // Enumerated values:
-    // 
-    // - true
-    // 
-    // - false
     shared_ptr<bool> all_ {};
-    // The names of the resources. You can specify up to 50 resource names.
+    // The list of resource names. You can specify up to 50 resource names at a time.
     shared_ptr<string> resourceNamesShrink_ {};
     // The resource type.
-    // 
-    // Enumerated values:
-    // 
-    // - role: RAM roles.
-    // 
-    // - policy: policies.
     shared_ptr<string> resourceType_ {};
-    // The keys of the tags. You can specify up to 20 tag keys.
+    // The list of tag keys for the resources. You can specify up to 20 tag keys at a time.
     shared_ptr<string> tagKeysShrink_ {};
   };
 

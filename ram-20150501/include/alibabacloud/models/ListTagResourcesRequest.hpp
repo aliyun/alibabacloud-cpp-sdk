@@ -76,9 +76,9 @@ namespace Models
 
 
     protected:
-      // The key of the tag. The tag key can be up to 128 characters in length.
+      // The tag key. The key can be up to 128 characters in length.
       shared_ptr<string> key_ {};
-      // The value of the tag. The tag value can be up to 256 characters in length.
+      // The tag value. The value can be up to 256 characters in length.
       shared_ptr<string> value_ {};
     };
 
@@ -124,21 +124,15 @@ namespace Models
 
 
   protected:
-    // The pagination token that is used in the next request to retrieve a new page of results.
+    // The pagination token used to retrieve the next page.
     shared_ptr<string> nextToken_ {};
-    // The number of entries per page. Valid values: 1 to 100.
+    // The number of entries to return on each page. Valid values: 1 to 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The names of the resources. You can specify up to 50 resource names.
+    // The list of resource names. You can specify up to 50 resource names at a time.
     shared_ptr<vector<string>> resourceNames_ {};
     // The resource type.
-    // 
-    // Enumerated values:
-    // 
-    // - role: RAM roles.
-    // 
-    // - policy: policies.
     shared_ptr<string> resourceType_ {};
-    // The tags. You can specify up to 20 tags.
+    // The list of tags. You can specify up to 20 tags at a time.
     shared_ptr<vector<ListTagResourcesRequest::Tag>> tag_ {};
   };
 

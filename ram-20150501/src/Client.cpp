@@ -17,31 +17,7 @@ namespace Ram20150501
 {
 
 AlibabaCloud::Ram20150501::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"cn-beijing" , "ram.aliyuncs.com"},
-    {"cn-qingdao" , "ram.aliyuncs.com"},
-    {"cn-shanghai" , "ram.aliyuncs.com"},
-    {"cn-hongkong" , "ram.aliyuncs.com"},
-    {"cn-zhangjiakou" , "ram.aliyuncs.com"},
-    {"cn-shenzhen" , "ram.aliyuncs.com"},
-    {"ap-northeast-1" , "ram.aliyuncs.com"},
-    {"cn-chengdu" , "ram.aliyuncs.com"},
-    {"ap-southeast-1" , "ram.aliyuncs.com"},
-    {"ap-southeast-3" , "ram.aliyuncs.com"},
-    {"cn-huhehaote" , "ram.aliyuncs.com"},
-    {"ap-southeast-5" , "ram.aliyuncs.com"},
-    {"cn-hangzhou" , "ram.aliyuncs.com"},
-    {"us-east-1" , "ram.aliyuncs.com"},
-    {"eu-west-1" , "ram.aliyuncs.com"},
-    {"us-west-1" , "ram.aliyuncs.com"},
-    {"eu-central-1" , "ram.aliyuncs.com"},
-    {"me-east-1" , "ram.aliyuncs.com"},
-    {"cn-shenzhen-finance-1" , "ram.aliyuncs.com"},
-    {"cn-shanghai-finance-1" , "ram.aliyuncs.com"},
-    {"cn-beijing-finance-1" , "ram.aliyuncs.com"},
-    {"cn-hangzhou-finance" , "ram.aliyuncs.com"}
-  }).get<map<string, string>>();
+  this->_endpointRule = "central";
   checkConfig(config);
   this->_endpoint = getEndpoint("ram", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -268,7 +244,7 @@ AttachPolicyToUserResponse Client::attachPolicyToUser(const AttachPolicyToUserRe
 }
 
 /**
- * @summary Binds a multi-factor authentication (MFA) device to a Resource Access Management (RAM) user.
+ * @summary Binds a multi-factor authentication device.
  *
  * @param request BindMFADeviceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -311,7 +287,7 @@ BindMFADeviceResponse Client::bindMFADeviceWithOptions(const BindMFADeviceReques
 }
 
 /**
- * @summary Binds a multi-factor authentication (MFA) device to a Resource Access Management (RAM) user.
+ * @summary Binds a multi-factor authentication device.
  *
  * @param request BindMFADeviceRequest
  * @return BindMFADeviceResponse
@@ -452,7 +428,7 @@ CreateAccessKeyResponse Client::createAccessKey(const CreateAccessKeyRequest &re
 }
 
 /**
- * @summary Creates a RAM user group.
+ * @summary Creates a user group.
  *
  * @param request CreateGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -487,7 +463,7 @@ CreateGroupResponse Client::createGroupWithOptions(const CreateGroupRequest &req
 }
 
 /**
- * @summary Creates a RAM user group.
+ * @summary Creates a user group.
  *
  * @param request CreateGroupRequest
  * @return CreateGroupResponse
@@ -498,7 +474,7 @@ CreateGroupResponse Client::createGroup(const CreateGroupRequest &request) {
 }
 
 /**
- * @summary Enables console logon for a Resource Access Management (RAM) user.
+ * @summary Invokes the CreateLoginProfile operation to enable web console logon for a Resource Access Management (RAM) user.
  *
  * @param request CreateLoginProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -541,7 +517,7 @@ CreateLoginProfileResponse Client::createLoginProfileWithOptions(const CreateLog
 }
 
 /**
- * @summary Enables console logon for a Resource Access Management (RAM) user.
+ * @summary Invokes the CreateLoginProfile operation to enable web console logon for a Resource Access Management (RAM) user.
  *
  * @param request CreateLoginProfileRequest
  * @return CreateLoginProfileResponse
@@ -552,10 +528,10 @@ CreateLoginProfileResponse Client::createLoginProfile(const CreateLoginProfileRe
 }
 
 /**
- * @summary Creates a custom policy.
+ * @summary Creates a custom access policy.
  *
- * @description For more information about policies, see [Policy overview](https://help.aliyun.com/document_detail/93732.html).
- * This topic provides an example on how to create a custom policy to query Elastic Compute Service (ECS) instances in a specific region.
+ * @description For more information about access policies, see [Access policy overview](https://help.aliyun.com/document_detail/93732.html).
+ * This topic provides an example of creating an access policy to view ECS instances in a specified region.
  *
  * @param tmpReq CreatePolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -604,10 +580,10 @@ CreatePolicyResponse Client::createPolicyWithOptions(const CreatePolicyRequest &
 }
 
 /**
- * @summary Creates a custom policy.
+ * @summary Creates a custom access policy.
  *
- * @description For more information about policies, see [Policy overview](https://help.aliyun.com/document_detail/93732.html).
- * This topic provides an example on how to create a custom policy to query Elastic Compute Service (ECS) instances in a specific region.
+ * @description For more information about access policies, see [Access policy overview](https://help.aliyun.com/document_detail/93732.html).
+ * This topic provides an example of creating an access policy to view ECS instances in a specified region.
  *
  * @param request CreatePolicyRequest
  * @return CreatePolicyResponse
@@ -618,7 +594,7 @@ CreatePolicyResponse Client::createPolicy(const CreatePolicyRequest &request) {
 }
 
 /**
- * @summary Creates a version for a policy.
+ * @summary Invokes the CreatePolicyVersion operation to create a new version for a permission access policy.
  *
  * @param request CreatePolicyVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -661,7 +637,7 @@ CreatePolicyVersionResponse Client::createPolicyVersionWithOptions(const CreateP
 }
 
 /**
- * @summary Creates a version for a policy.
+ * @summary Invokes the CreatePolicyVersion operation to create a new version for a permission access policy.
  *
  * @param request CreatePolicyVersionRequest
  * @return CreatePolicyVersionResponse
@@ -674,7 +650,7 @@ CreatePolicyVersionResponse Client::createPolicyVersion(const CreatePolicyVersio
 /**
  * @summary Creates a RAM role.
  *
- * @description ### Operation description
+ * @description ### Usage notes
  * For more information about RAM roles, see [RAM role overview](https://help.aliyun.com/document_detail/93689.html).
  *
  * @param tmpReq CreateRoleRequest
@@ -734,7 +710,7 @@ CreateRoleResponse Client::createRoleWithOptions(const CreateRoleRequest &tmpReq
 /**
  * @summary Creates a RAM role.
  *
- * @description ### Operation description
+ * @description ### Usage notes
  * For more information about RAM roles, see [RAM role overview](https://help.aliyun.com/document_detail/93689.html).
  *
  * @param request CreateRoleRequest
@@ -900,7 +876,7 @@ CreateVirtualMFADeviceResponse Client::createVirtualMFADevice(const CreateVirtua
 }
 
 /**
- * @summary Decodes the permission diagnostic information from the response body of a request that was denied due to missing RAM permissions.
+ * @summary Decodes the diagnostic information from the response body of a request that is denied due to insufficient RAM permissions.
  *
  * @param request DecodeDiagnosticMessageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -931,7 +907,7 @@ DecodeDiagnosticMessageResponse Client::decodeDiagnosticMessageWithOptions(const
 }
 
 /**
- * @summary Decodes the permission diagnostic information from the response body of a request that was denied due to missing RAM permissions.
+ * @summary Decodes the diagnostic information from the response body of a request that is denied due to insufficient RAM permissions.
  *
  * @param request DecodeDiagnosticMessageRequest
  * @return DecodeDiagnosticMessageResponse
@@ -1508,6 +1484,56 @@ DetachPolicyFromUserResponse Client::detachPolicyFromUser(const DetachPolicyFrom
 }
 
 /**
+ * @summary Generates a permission audit report for a Resource Access Management (RAM) identity to identify the permissions granted to the RAM identity and the most recent access time for each permission.
+ *
+ * @description Before using the permission audit feature to modify the permissions of a RAM identity, read [Usage notes for permission audit overview](https://www.alibabacloud.com/help/en/ram/overview-of-permissions-audit#25de984dc9dja).
+ *
+ * @param request GenerateServiceLastAccessedDetailsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GenerateServiceLastAccessedDetailsResponse
+ */
+GenerateServiceLastAccessedDetailsResponse Client::generateServiceLastAccessedDetailsWithOptions(const GenerateServiceLastAccessedDetailsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasArn()) {
+    query["Arn"] = request.getArn();
+  }
+
+  if (!!request.hasGranularity()) {
+    query["Granularity"] = request.getGranularity();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GenerateServiceLastAccessedDetails"},
+    {"version" , "2015-05-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GenerateServiceLastAccessedDetailsResponse>();
+}
+
+/**
+ * @summary Generates a permission audit report for a Resource Access Management (RAM) identity to identify the permissions granted to the RAM identity and the most recent access time for each permission.
+ *
+ * @description Before using the permission audit feature to modify the permissions of a RAM identity, read [Usage notes for permission audit overview](https://www.alibabacloud.com/help/en/ram/overview-of-permissions-audit#25de984dc9dja).
+ *
+ * @param request GenerateServiceLastAccessedDetailsRequest
+ * @return GenerateServiceLastAccessedDetailsResponse
+ */
+GenerateServiceLastAccessedDetailsResponse Client::generateServiceLastAccessedDetails(const GenerateServiceLastAccessedDetailsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return generateServiceLastAccessedDetailsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the last time when an AccessKey pair was used.
  *
  * @param request GetAccessKeyLastUsedRequest
@@ -1872,6 +1898,60 @@ GetSecurityPreferenceResponse Client::getSecurityPreference() {
 }
 
 /**
+ * @summary Queries the details of a permission audit report based on the JobId returned by the GenerateServiceLastAccessedDetails operation. The report includes the services accessible to RAM entities and the time of the last access attempt to each service.
+ *
+ * @description Before you use the permission audit feature to change the permissions of a RAM identity, read [Overview and usage notes of permission audit](https://www.alibabacloud.com/help/en/ram/overview-of-permissions-audit#25de984dc9dja).
+ *
+ * @param request GetServiceLastAccessedDetailsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetServiceLastAccessedDetailsResponse
+ */
+GetServiceLastAccessedDetailsResponse Client::getServiceLastAccessedDetailsWithOptions(const GetServiceLastAccessedDetailsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  if (!!request.hasMarker()) {
+    query["Marker"] = request.getMarker();
+  }
+
+  if (!!request.hasMaxItems()) {
+    query["MaxItems"] = request.getMaxItems();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetServiceLastAccessedDetails"},
+    {"version" , "2015-05-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetServiceLastAccessedDetailsResponse>();
+}
+
+/**
+ * @summary Queries the details of a permission audit report based on the JobId returned by the GenerateServiceLastAccessedDetails operation. The report includes the services accessible to RAM entities and the time of the last access attempt to each service.
+ *
+ * @description Before you use the permission audit feature to change the permissions of a RAM identity, read [Overview and usage notes of permission audit](https://www.alibabacloud.com/help/en/ram/overview-of-permissions-audit#25de984dc9dja).
+ *
+ * @param request GetServiceLastAccessedDetailsRequest
+ * @return GetServiceLastAccessedDetailsResponse
+ */
+GetServiceLastAccessedDetailsResponse Client::getServiceLastAccessedDetails(const GetServiceLastAccessedDetailsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getServiceLastAccessedDetailsWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the template of a service-linked role.
  *
  * @param request GetServiceLinkedRoleTemplateRequest
@@ -1914,9 +1994,9 @@ GetServiceLinkedRoleTemplateResponse Client::getServiceLinkedRoleTemplate(const 
 }
 
 /**
- * @summary You can call the GetUser operation to query the details of a Resource Access Management (RAM) user.
+ * @summary Invokes the GetUser API operation to query the details of a Resource Access Management (RAM) user.
  *
- * @description This topic provides an example of how to query the details of the RAM user `alice`.
+ * @description This topic provides an example of querying the details of the Resource Access Management (RAM) user `alice`.
  *
  * @param request GetUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1947,9 +2027,9 @@ GetUserResponse Client::getUserWithOptions(const GetUserRequest &request, const 
 }
 
 /**
- * @summary You can call the GetUser operation to query the details of a Resource Access Management (RAM) user.
+ * @summary Invokes the GetUser API operation to query the details of a Resource Access Management (RAM) user.
  *
- * @description This topic provides an example of how to query the details of the RAM user `alice`.
+ * @description This topic provides an example of querying the details of the Resource Access Management (RAM) user `alice`.
  *
  * @param request GetUserRequest
  * @return GetUserResponse
@@ -2328,9 +2408,9 @@ ListPoliciesForRoleResponse Client::listPoliciesForRole(const ListPoliciesForRol
 }
 
 /**
- * @summary Queries the policies that are attached to a RAM user.
+ * @summary Queries the list of policies attached to a Resource Access Management (RAM) user.
  *
- * @description > You can call this operation to query only the policies that are attached to Alibaba Cloud accounts. You cannot query the policies that are attached to resource groups.
+ * @description > This operation queries only the policies attached at the Alibaba Cloud account level. It does not return policies attached at the resource group level.
  *
  * @param request ListPoliciesForUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2361,9 +2441,9 @@ ListPoliciesForUserResponse Client::listPoliciesForUserWithOptions(const ListPol
 }
 
 /**
- * @summary Queries the policies that are attached to a RAM user.
+ * @summary Queries the list of policies attached to a Resource Access Management (RAM) user.
  *
- * @description > You can call this operation to query only the policies that are attached to Alibaba Cloud accounts. You cannot query the policies that are attached to resource groups.
+ * @description > This operation queries only the policies attached at the Alibaba Cloud account level. It does not return policies attached at the resource group level.
  *
  * @param request ListPoliciesForUserRequest
  * @return ListPoliciesForUserResponse
@@ -2420,7 +2500,7 @@ ListPolicyVersionsResponse Client::listPolicyVersions(const ListPolicyVersionsRe
 }
 
 /**
- * @summary Lists RAM roles.
+ * @summary Lists roles.
  *
  * @param tmpReq ListRolesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2465,7 +2545,7 @@ ListRolesResponse Client::listRolesWithOptions(const ListRolesRequest &tmpReq, c
 }
 
 /**
- * @summary Lists RAM roles.
+ * @summary Lists roles.
  *
  * @param request ListRolesRequest
  * @return ListRolesResponse
@@ -2476,7 +2556,7 @@ ListRolesResponse Client::listRoles(const ListRolesRequest &request) {
 }
 
 /**
- * @summary Queries the tags that are added to cloud resources which are Resource Access Management (RAM) roles and policies.
+ * @summary Queries the tags attached to cloud resources (RAM roles and access policies).
  *
  * @param tmpReq ListTagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2533,7 +2613,7 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary Queries the tags that are added to cloud resources which are Resource Access Management (RAM) roles and policies.
+ * @summary Queries the tags attached to cloud resources (RAM roles and access policies).
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -2544,7 +2624,7 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 }
 
 /**
- * @summary Queries the information about all RAM users.
+ * @summary Queries the details of all Resource Access Management (RAM) users.
  *
  * @param request ListUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2579,7 +2659,7 @@ ListUsersResponse Client::listUsersWithOptions(const ListUsersRequest &request, 
 }
 
 /**
- * @summary Queries the information about all RAM users.
+ * @summary Queries the details of all Resource Access Management (RAM) users.
  *
  * @param request ListUsersRequest
  * @return ListUsersResponse
@@ -2946,7 +3026,7 @@ SetSecurityPreferenceResponse Client::setSecurityPreference(const SetSecurityPre
 }
 
 /**
- * @summary Adds tags to cloud resources which are Resource Access Management (RAM) roles and policies.
+ * @summary Invokes TagResources to create and attach tags to cloud resources, such as a RAM role or an access policy.
  *
  * @param tmpReq TagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2995,7 +3075,7 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
- * @summary Adds tags to cloud resources which are Resource Access Management (RAM) roles and policies.
+ * @summary Invokes TagResources to create and attach tags to cloud resources, such as a RAM role or an access policy.
  *
  * @param request TagResourcesRequest
  * @return TagResourcesResponse
@@ -3048,7 +3128,7 @@ UnbindMFADeviceResponse Client::unbindMFADevice(const UnbindMFADeviceRequest &re
 }
 
 /**
- * @summary Removes tags from cloud resources that are Resource Access Management (RAM) roles and policies.
+ * @summary Removes tags from cloud resources (RAM roles and access policies).
  *
  * @param tmpReq UntagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3101,7 +3181,7 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 }
 
 /**
- * @summary Removes tags from cloud resources that are Resource Access Management (RAM) roles and policies.
+ * @summary Removes tags from cloud resources (RAM roles and access policies).
  *
  * @param request UntagResourcesRequest
  * @return UntagResourcesResponse
@@ -3318,9 +3398,9 @@ UpdatePolicyDescriptionResponse Client::updatePolicyDescription(const UpdatePoli
 }
 
 /**
- * @summary Calls the UpdateRole operation to update the information of a RAM role.
+ * @summary Updates the information of a RAM role.
  *
- * @description This topic provides an example on how to update the description of the RAM role `ECSAdmin` to `ECS administrator`.
+ * @description This topic provides an example of updating the description of the RAM role `ECSAdmin` to `ECS administrator`.
  *
  * @param request UpdateRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3367,9 +3447,9 @@ UpdateRoleResponse Client::updateRoleWithOptions(const UpdateRoleRequest &reques
 }
 
 /**
- * @summary Calls the UpdateRole operation to update the information of a RAM role.
+ * @summary Updates the information of a RAM role.
  *
- * @description This topic provides an example on how to update the description of the RAM role `ECSAdmin` to `ECS administrator`.
+ * @description This topic provides an example of updating the description of the RAM role `ECSAdmin` to `ECS administrator`.
  *
  * @param request UpdateRoleRequest
  * @return UpdateRoleResponse

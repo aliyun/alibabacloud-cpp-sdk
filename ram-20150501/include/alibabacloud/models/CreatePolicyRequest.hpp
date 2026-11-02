@@ -74,9 +74,9 @@ namespace Models
 
 
     protected:
-      // The key of the tag.
+      // The tag key.
       shared_ptr<string> key_ {};
-      // The value of the tag.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -113,19 +113,19 @@ namespace Models
 
 
   protected:
-    // The description of the policy.
+    // The description of the access policy.
     // 
     // The description must be 1 to 1,024 characters in length.
     shared_ptr<string> description_ {};
-    // The document of the policy.
+    // Access policy document.
     // 
-    // The document must be 1 to 6,144 characters in length.
+    // Access policy document must be 1 to 6,144 characters in length.
     // 
-    // For more information about policy elements and sample policies, see [Policy elements](https://help.aliyun.com/document_detail/93738.html) and [Overview of sample policies](https://help.aliyun.com/document_detail/210969.html).
+    // For more information about policy document elements and examples, see [Policy document elements](https://help.aliyun.com/document_detail/93738.html) and [Policy document examples](https://help.aliyun.com/document_detail/210969.html).
     shared_ptr<string> policyDocument_ {};
-    // The name of the policy.
+    // Policy Name of the access policy.
     // 
-    // The name must be 1 to 128 characters in length and can contain letters, digits, and hyphens (-).
+    // Policy Name must be 1 to 128 characters in length and can contain letters, digits, and hyphens (-).
     shared_ptr<string> policyName_ {};
     // The tags.
     shared_ptr<vector<CreatePolicyRequest::Tag>> tag_ {};

@@ -1,3 +1,6 @@
+2026-11-02 Version: 1.4.0
+- Generated cpp 2015-05-01 for Ram.
+
 2026-08-27 Version: 1.2.0
 - Support API CreateServiceLinkedRole.
 - Support API DeleteServiceLinkedRole.

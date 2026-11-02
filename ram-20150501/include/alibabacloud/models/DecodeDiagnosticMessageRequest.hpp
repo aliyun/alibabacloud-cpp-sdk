@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The encoded diagnostic message obtained from the `AccessDeniedDetail.EncodedDiagnosticMessage` field in the response body when an API request is denied due to insufficient permissions. Pass this parameter to decode the permission diagnostic information when calling this operation.
+    // The encoded diagnostic information obtained from the `AccessDeniedDetail.EncodedDiagnosticMessage` field in the response body when an API request is denied due to insufficient permissions. This parameter is used to decode the access denied diagnostic information and is required when you call this operation.
     shared_ptr<string> encodedDiagnosticMessage_ {};
   };
 

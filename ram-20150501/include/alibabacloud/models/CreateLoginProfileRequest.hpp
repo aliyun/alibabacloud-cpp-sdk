@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // Specifies whether the RAM user must bind a multi-factor authentication (MFA) device upon the next logon. Default value: `false`.
+    // Specifies whether the user must bind a multi-factor authentication (MFA) device upon next logon. Default value: `false`.
     shared_ptr<bool> MFABindRequired_ {};
-    // The logon password of the RAM user. The password must meet the password strength requirements. For more information, see [GetPasswordPolicy](https://help.aliyun.com/document_detail/2337691.html).
+    // The password. The password must meet the password strength requirements. For more information about password strength requirements, see [GetPasswordPolicy](https://help.aliyun.com/document_detail/2337691.html).
     shared_ptr<string> password_ {};
-    // Specifies whether the RAM user has to change the password upon logon. Default value: `false`.
+    // Specifies whether the user is required to reset the password upon logon. Default value: `false`.
     shared_ptr<bool> passwordResetRequired_ {};
-    // The name of the RAM user.
+    // The username.
     shared_ptr<string> userName_ {};
   };
 

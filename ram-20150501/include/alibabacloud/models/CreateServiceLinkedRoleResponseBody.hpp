@@ -119,7 +119,7 @@ namespace Models
       shared_ptr<string> arn_ {};
       // The trust policy document of the role.
       shared_ptr<string> assumeRolePolicyDocument_ {};
-      // The time when the role was created (UTC).
+      // The time when the role was created. The time is displayed in UTC.
       shared_ptr<string> createDate_ {};
       // The description of the role.
       shared_ptr<string> description_ {};
@@ -128,9 +128,9 @@ namespace Models
       // - true: The role is a service-linked role.
       // - false: The role is not a service-linked role.
       shared_ptr<bool> isServiceLinkedRole_ {};
-      // The role ID.
+      // The ID of the role.
       shared_ptr<string> roleId_ {};
-      // The role name.
+      // The name of the role.
       shared_ptr<string> roleName_ {};
     };
 
@@ -153,7 +153,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The role information.
     shared_ptr<CreateServiceLinkedRoleResponseBody::Role> role_ {};

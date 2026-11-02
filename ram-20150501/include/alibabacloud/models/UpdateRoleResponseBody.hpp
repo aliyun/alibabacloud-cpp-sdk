@@ -133,13 +133,13 @@ namespace Models
 
 
     protected:
-      // Specifies whether the RAM role is allowed to log on to the console.
+      // Specifies whether to allow the RAM role to log on to the console.
       shared_ptr<bool> allowConsoleLogin_ {};
       // The resource descriptor of the RAM role.
       shared_ptr<string> arn_ {};
       // The trust policy of the RAM role.
       shared_ptr<string> assumeRolePolicyDocument_ {};
-      // The time when the RAM role was created.
+      // The time when the RAM role was created. The time is displayed in UTC in the `YYYY-MM-DDThh:mm:ssZ` format.
       shared_ptr<string> createDate_ {};
       // The description of the RAM role.
       shared_ptr<string> description_ {};
@@ -149,7 +149,7 @@ namespace Models
       shared_ptr<string> roleId_ {};
       // The name of the RAM role.
       shared_ptr<string> roleName_ {};
-      // The time when the RAM role was updated.
+      // The time when the RAM role was updated. The time is displayed in UTC in the `YYYY-MM-DDThh:mm:ssZ` format.
       shared_ptr<string> updateDate_ {};
     };
 
@@ -172,9 +172,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The information of the RAM role.
+    // The information about the RAM role.
     shared_ptr<UpdateRoleResponseBody::Role> role_ {};
   };
 

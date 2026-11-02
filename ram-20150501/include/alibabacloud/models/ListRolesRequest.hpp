@@ -104,9 +104,9 @@ namespace Models
 
 
   protected:
-    // The marker. If the response is truncated, you can use `Marker` to retrieve the content that starts from the position after the truncation point.
+    // The marker used to retrieve the remaining results when the response is truncated.
     shared_ptr<string> marker_ {};
-    // The number of entries to return. If the response is truncated because it reaches the `MaxItems` limit, the `IsTruncated` parameter is set to `true`.
+    // The maximum number of entries to return. If the number of entries exceeds this value, the response is truncated and the `IsTruncated` parameter is set to `true`.
     // 
     // Valid values: 1 to 1000. Default value: 100.
     shared_ptr<int32_t> maxItems_ {};

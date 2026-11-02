@@ -57,21 +57,11 @@ namespace Models
 
 
   protected:
-    // The suffix of the role name.
-    // 
-    // The total length of the role name (including the suffix) is 1 to 64 characters and can contain letters, digits, periods (.), and hyphens (-).
-    // 
-    // Example: If the suffix is Example, the role name is ServiceLinkedRoleName_Example, and the maximum length cannot exceed 64 characters.
+    // The suffix of the role name. The total length of the role name, including the suffix, is 1 to 64 characters and can contain letters, digits, periods (.), and hyphens (-). For example, if the suffix is Example, the role name is ServiceLinkedRoleName_Example, and the maximum length cannot exceed 64 characters.
     shared_ptr<string> customSuffix_ {};
-    // The description of the service-linked role.
-    // 
-    // You can specify a role description only for service-linked roles that allow custom suffixes. Otherwise, the role description uses a preset value and cannot be modified.
-    // 
-    // The description must be 1 to 1,024 characters in length.
+    // The description of the service-linked role. You can specify a role description only for service-linked roles that allow custom suffixes. Otherwise, the role description uses a preset value and cannot be modified. The description must be 1 to 1,024 characters in length.
     shared_ptr<string> description_ {};
-    // The cloud service name associated with the service-linked role.
-    // 
-    // For more information, see the **Cloud service identity** column in [Cloud services that support service-linked roles](https://help.aliyun.com/document_detail/461722.html).
+    // The cloud service name. For more information, see the **Cloud service identity** column in [Cloud services associated with service-linked roles](https://help.aliyun.com/document_detail/461722.html).
     // 
     // This parameter is required.
     shared_ptr<string> serviceName_ {};
