@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> computeResourceId_ {};
-    // The DataWorks workspace to which the data source belongs.
+    // The ID of the DataWorks workspace to which the data source belongs.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};

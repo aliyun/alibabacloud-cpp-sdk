@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The comment.
     shared_ptr<string> comment_ {};
-    // The list of workflow instance IDs. You can call the ListWorkflowInstances operation to query workflow instance IDs.
+    // The IDs of the workflow instances. You can call ListWorkflowInstances to query workflow instance IDs.
     // 
     // This parameter is required.
     shared_ptr<string> idsShrink_ {};

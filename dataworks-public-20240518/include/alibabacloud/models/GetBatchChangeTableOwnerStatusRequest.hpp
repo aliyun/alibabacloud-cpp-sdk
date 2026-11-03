@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The batch transfer task ID returned by SubmitBatchChangeTableOwner.
+    // The ID of the batch transfer task returned by SubmitBatchChangeTableOwner.
     // 
     // This parameter is required.
     shared_ptr<string> batchId_ {};

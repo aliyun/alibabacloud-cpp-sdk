@@ -106,37 +106,23 @@ namespace Models
 
 
       protected:
-        // The code of the Workspace role.
-        // 
-        // The built-in system roles in a DataWorks Workspace include:
-        // 
-        // - role_project_admin: Workspace Administrator
-        // 
-        // - role_project_dev: Developer
-        // 
-        // - role_project_dg_admin: Data Governance Administrator
-        // 
-        // - role_project_guest: Guest
-        // 
-        // - role_project_security: Security Administrator
-        // 
-        // - role_project_deploy: Deployment
-        // 
-        // - role_project_owner: Workspace Owner
-        // 
-        // - role_project_data_analyst: Data Analyst
-        // 
-        // - role_project_pe: O\\&M (Operations & Maintenance)
-        // 
-        // - role_project_erd: Model Designer
+        // The code of the workspace role. Built-in workspace roles in DataWorks:
+        // - role_project_admin: workspace administrator
+        // - role_project_dev: developer
+        // - role_project_dg_admin: data governance administrator
+        // - role_project_guest: guest
+        // - role_project_security: security administrator
+        // - role_project_deploy: deployer
+        // - role_project_owner: workspace owner
+        // - role_project_data_analyst: data analyst
+        // - role_project_pe: operator
+        // - role_project_erd: model designer
         shared_ptr<string> code_ {};
-        // The name of the Workspace role.
+        // The name of the workspace role.
         shared_ptr<string> name_ {};
-        // The type of the Workspace role.
-        // 
-        // - UserCustom: A user-defined role.
-        // 
-        // - System: A built-in System Role.
+        // The type of the workspace role. Valid values:
+        // - UserCustom: custom role
+        // - System: system role
         shared_ptr<string> type_ {};
       };
 
@@ -180,21 +166,17 @@ namespace Models
 
 
     protected:
-      // The ID of the Workspace.
+      // The ID of the workspace.
       shared_ptr<int64_t> projectId_ {};
-      // Roles assigned to the Workspace member.
+      // The list of workspace roles assigned to the workspace member.
       shared_ptr<vector<ProjectMember::Roles>> roles_ {};
-      // The status of the Workspace member.
-      // 
-      // 
-      // 
-      // 
-      // - Normal: The member is active.
+      // The status of the workspace member. Valid values:
+      // - Normal: The member is normal.
       // - Forbidden: The member is disabled.
       shared_ptr<string> status_ {};
-      // The ID of the user.
+      // The ID of the DataWorks account.
       shared_ptr<string> userId_ {};
-      // The name of the user.
+      // The cloud account name of the member.
       shared_ptr<string> userName_ {};
     };
 
@@ -217,9 +199,9 @@ namespace Models
 
 
   protected:
-    // The details of the Workspace member.
+    // The details of the workspace member.
     shared_ptr<GetProjectMemberResponseBody::ProjectMember> projectMember_ {};
-    // The request ID. Use this ID to locate logs and troubleshoot issues.
+    // The request ID. You can use the ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

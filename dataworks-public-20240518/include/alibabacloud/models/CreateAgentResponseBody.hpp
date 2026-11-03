@@ -67,6 +67,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(SkillId, skillId_);
           DARABONBA_PTR_TO_JSON(Source, source_);
           DARABONBA_PTR_TO_JSON(Version, version_);
+          DARABONBA_PTR_TO_JSON(VersionSelector, versionSelector_);
         };
         friend void from_json(const Darabonba::Json& j, Skills& obj) { 
           DARABONBA_PTR_FROM_JSON(Name, name_);
@@ -74,6 +75,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(SkillId, skillId_);
           DARABONBA_PTR_FROM_JSON(Source, source_);
           DARABONBA_PTR_FROM_JSON(Version, version_);
+          DARABONBA_PTR_FROM_JSON(VersionSelector, versionSelector_);
         };
         Skills() = default ;
         Skills(const Skills &) = default ;
@@ -87,7 +89,7 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->name_ == nullptr
-        && this->packageVersion_ == nullptr && this->skillId_ == nullptr && this->source_ == nullptr && this->version_ == nullptr; };
+        && this->packageVersion_ == nullptr && this->skillId_ == nullptr && this->source_ == nullptr && this->version_ == nullptr && this->versionSelector_ == nullptr; };
         // name Field Functions 
         bool hasName() const { return this->name_ != nullptr;};
         void deleteName() { this->name_ = nullptr;};
@@ -123,13 +125,26 @@ namespace Models
         inline Skills& setVersion(int32_t version) { DARABONBA_PTR_SET_VALUE(version_, version) };
 
 
+        // versionSelector Field Functions 
+        bool hasVersionSelector() const { return this->versionSelector_ != nullptr;};
+        void deleteVersionSelector() { this->versionSelector_ = nullptr;};
+        inline string getVersionSelector() const { DARABONBA_PTR_GET_DEFAULT(versionSelector_, "") };
+        inline Skills& setVersionSelector(string versionSelector) { DARABONBA_PTR_SET_VALUE(versionSelector_, versionSelector) };
+
+
       protected:
+        // The name of the custom skill.
         shared_ptr<string> name_ {};
-        // 创建时不返回；请使用 GetAgent 显式查询已发布版本获取固定的官方制品版本。
+        // This parameter is not returned upon creation. Call GetAgent to explicitly query the published version to obtain the fixed official artifact version.
         shared_ptr<string> packageVersion_ {};
+        // The ID of the official skill.
         shared_ptr<string> skillId_ {};
+        // The source of the skill.
         shared_ptr<string> source_ {};
+        // The release version number of the custom skill.
         shared_ptr<int32_t> version_ {};
+        // The saved version selection strategy is returned only for personal or enterprise resources and is mutually exclusive with the fixed integer Version. It does not represent the specific revision actually loaded in the session. This parameter is not returned for official resources.
+        shared_ptr<string> versionSelector_ {};
       };
 
       class ExpertSuites : public Darabonba::Model {
@@ -139,12 +154,14 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Source, source_);
           DARABONBA_PTR_TO_JSON(SuiteId, suiteId_);
           DARABONBA_PTR_TO_JSON(Version, version_);
+          DARABONBA_PTR_TO_JSON(VersionSelector, versionSelector_);
         };
         friend void from_json(const Darabonba::Json& j, ExpertSuites& obj) { 
           DARABONBA_PTR_FROM_JSON(PackageVersion, packageVersion_);
           DARABONBA_PTR_FROM_JSON(Source, source_);
           DARABONBA_PTR_FROM_JSON(SuiteId, suiteId_);
           DARABONBA_PTR_FROM_JSON(Version, version_);
+          DARABONBA_PTR_FROM_JSON(VersionSelector, versionSelector_);
         };
         ExpertSuites() = default ;
         ExpertSuites(const ExpertSuites &) = default ;
@@ -158,7 +175,7 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->packageVersion_ == nullptr
-        && this->source_ == nullptr && this->suiteId_ == nullptr && this->version_ == nullptr; };
+        && this->source_ == nullptr && this->suiteId_ == nullptr && this->version_ == nullptr && this->versionSelector_ == nullptr; };
         // packageVersion Field Functions 
         bool hasPackageVersion() const { return this->packageVersion_ != nullptr;};
         void deletePackageVersion() { this->packageVersion_ = nullptr;};
@@ -187,12 +204,24 @@ namespace Models
         inline ExpertSuites& setVersion(int32_t version) { DARABONBA_PTR_SET_VALUE(version_, version) };
 
 
+        // versionSelector Field Functions 
+        bool hasVersionSelector() const { return this->versionSelector_ != nullptr;};
+        void deleteVersionSelector() { this->versionSelector_ = nullptr;};
+        inline string getVersionSelector() const { DARABONBA_PTR_GET_DEFAULT(versionSelector_, "") };
+        inline ExpertSuites& setVersionSelector(string versionSelector) { DARABONBA_PTR_SET_VALUE(versionSelector_, versionSelector) };
+
+
       protected:
-        // 创建时不返回；请使用 GetAgent 显式查询已发布版本获取固定的官方套件制品版本。
+        // This parameter is not returned upon creation. Call GetAgent to explicitly query the published version to obtain the fixed official suite artifact version.
         shared_ptr<string> packageVersion_ {};
+        // The source of the expert suite.
         shared_ptr<string> source_ {};
+        // The ID of the expert suite.
         shared_ptr<string> suiteId_ {};
+        // The release version number of the custom suite.
         shared_ptr<int32_t> version_ {};
+        // The saved version selection strategy is returned only for personal or enterprise resources and is mutually exclusive with the fixed integer Version. It does not represent the specific revision actually loaded in the session. This parameter is not returned for official resources.
+        shared_ptr<string> versionSelector_ {};
       };
 
       virtual bool empty() const override { return this->expertSuites_ == nullptr
@@ -237,19 +266,19 @@ namespace Models
 
 
     protected:
-      // 已保存的套件引用。官方资源返回来源及目录 ID；发布后的制品版本由 PackageVersion 表示。
+      // The saved suite references. Official resources return the source and directory ID. The published artifact version is represented by PackageVersion.
       shared_ptr<vector<Agent::ExpertSuites>> expertSuites_ {};
-      // The creation time. The value is a UNIX timestamp in milliseconds.
+      // The creation time, in milliseconds.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mmZ
       shared_ptr<string> gmtCreateTime_ {};
-      // The last modification time. The value is a UNIX timestamp in milliseconds.
+      // The last modification time, in milliseconds.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mmZ
       shared_ptr<string> gmtModifiedTime_ {};
       // The name of the agent.
       shared_ptr<string> name_ {};
-      // 已保存的 Skill 引用；官方 Skill 在 Agent 发布后返回固定的 PackageVersion。
+      // The saved skill references. For official skills, a fixed PackageVersion is returned after the agent is published.
       shared_ptr<vector<Agent::Skills>> skills_ {};
     };
 

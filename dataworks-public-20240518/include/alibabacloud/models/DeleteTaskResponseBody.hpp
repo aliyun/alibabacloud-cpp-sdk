@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request. You can use the ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the operation is successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -96,7 +96,9 @@ namespace Models
 
 
       protected:
+        // The ID of the agent session whose title is modified. It corresponds to the SessionId in the request.
         shared_ptr<string> sessionId_ {};
+        // The saved session title after modification. Leading and trailing whitespace characters are removed.
         shared_ptr<string> title_ {};
       };
 
@@ -158,9 +160,13 @@ namespace Models
 
 
       protected:
+        // The JSON-RPC error code.
         shared_ptr<int32_t> code_ {};
+        // The optional additional error information. The content depends on the error type.
         Darabonba::Json data_ {};
+        // The business error code.
         shared_ptr<string> errorCode_ {};
+        // The error message.
         shared_ptr<string> message_ {};
       };
 
@@ -206,10 +212,15 @@ namespace Models
 
 
     protected:
+      // The JSON-RPC error message. This field is not returned upon success.
       shared_ptr<JsonRpcResponse::Error> error_ {};
+      // The JSON-RPC correlation ID for the current request. It is passed by the caller and returned as is.
       shared_ptr<string> id_ {};
+      // The JSON-RPC protocol version.
       shared_ptr<string> jsonrpc_ {};
+      // The operation result.
       shared_ptr<JsonRpcResponse::Result> result_ {};
+      // The response time. It is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> timestamp_ {};
     };
 
@@ -232,7 +243,9 @@ namespace Models
 
 
   protected:
+    // The JSON-RPC response. Result is returned upon success, and Error is returned upon a protocol error.
     shared_ptr<UpdateAgentSessionTitleResponseBody::JsonRpcResponse> jsonRpcResponse_ {};
+    // The unique ID of the current OpenAPI request. You can use it to troubleshoot request issues.
     shared_ptr<string> requestId_ {};
   };
 

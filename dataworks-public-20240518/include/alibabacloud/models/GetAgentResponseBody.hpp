@@ -127,9 +127,9 @@ namespace Models
 
 
       protected:
-        // A list of project IDs that can view the agent.
+        // The list of visible project IDs.
         shared_ptr<vector<string>> projectIds_ {};
-        // A list of user IDs that can view the agent.
+        // The list of visible user IDs.
         shared_ptr<vector<string>> userIds_ {};
       };
 
@@ -191,13 +191,13 @@ namespace Models
 
 
       protected:
-        // **The name of the built-in tool. This parameter applies only when `Kind` is set to `builtin`.**
+        // **The built-in tool name. Valid when Kind is `builtin`.**
         shared_ptr<string> builtinName_ {};
         // **The tool type.**
         shared_ptr<string> kind_ {};
-        // **The selected MCP tool items. This parameter applies only when `Kind` is set to `mcp`.**
+        // **The selected MCP tool items. Valid when Kind is `mcp`.**
         shared_ptr<vector<string>> mcpItems_ {};
-        // **The name of the associated MCP server. This parameter applies only when `Kind` is set to `mcp`.**
+        // **The associated MCP server name. Valid when Kind is `mcp`.**
         shared_ptr<string> mcpServerName_ {};
       };
 
@@ -209,6 +209,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(SkillId, skillId_);
           DARABONBA_PTR_TO_JSON(Source, source_);
           DARABONBA_PTR_TO_JSON(Version, version_);
+          DARABONBA_PTR_TO_JSON(VersionSelector, versionSelector_);
         };
         friend void from_json(const Darabonba::Json& j, Skills& obj) { 
           DARABONBA_PTR_FROM_JSON(Name, name_);
@@ -216,6 +217,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(SkillId, skillId_);
           DARABONBA_PTR_FROM_JSON(Source, source_);
           DARABONBA_PTR_FROM_JSON(Version, version_);
+          DARABONBA_PTR_FROM_JSON(VersionSelector, versionSelector_);
         };
         Skills() = default ;
         Skills(const Skills &) = default ;
@@ -229,7 +231,7 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->name_ == nullptr
-        && this->packageVersion_ == nullptr && this->skillId_ == nullptr && this->source_ == nullptr && this->version_ == nullptr; };
+        && this->packageVersion_ == nullptr && this->skillId_ == nullptr && this->source_ == nullptr && this->version_ == nullptr && this->versionSelector_ == nullptr; };
         // name Field Functions 
         bool hasName() const { return this->name_ != nullptr;};
         void deleteName() { this->name_ = nullptr;};
@@ -265,16 +267,26 @@ namespace Models
         inline Skills& setVersion(int32_t version) { DARABONBA_PTR_SET_VALUE(version_, version) };
 
 
+        // versionSelector Field Functions 
+        bool hasVersionSelector() const { return this->versionSelector_ != nullptr;};
+        void deleteVersionSelector() { this->versionSelector_ = nullptr;};
+        inline string getVersionSelector() const { DARABONBA_PTR_GET_DEFAULT(versionSelector_, "") };
+        inline Skills& setVersionSelector(string versionSelector) { DARABONBA_PTR_SET_VALUE(versionSelector_, versionSelector) };
+
+
       protected:
         // The skill name.
         shared_ptr<string> name_ {};
-        // 指定 AgentVersion 查询已发布快照时返回固定的官方制品版本；查询草稿或自定义 Skill 时不返回。
+        // The fixed official artifact version returned when querying a released snapshot with a specified AgentVersion. This is not returned when querying a draft or a custom skill.
         shared_ptr<string> packageVersion_ {};
+        // The official skill ID.
         shared_ptr<string> skillId_ {};
-        // OFFICIAL 表示官方目录资源；省略或 DB 表示原有个人或企业资源。
+        // OFFICIAL indicates an official catalog resource. Omitted or DB indicates an original personal or enterprise resource.
         shared_ptr<string> source_ {};
-        // The skill version.
+        // The skill version number.
         shared_ptr<int32_t> version_ {};
+        // Returned only for personal or enterprise resources to indicate the saved version selection strategy, which is mutually exclusive with the fixed integer Version. It does not represent the specific revision actually loaded in the session. This is not returned for official resources.
+        shared_ptr<string> versionSelector_ {};
       };
 
       class Model : public Darabonba::Model {
@@ -353,17 +365,17 @@ namespace Models
 
 
       protected:
-        // Additional configuration for the model.
+        // The additional configuration of the model.
         Darabonba::Json config_ {};
-        // The maximum number of tokens to generate in one response.
+        // The maximum number of output tokens per generation.
         shared_ptr<int32_t> maxTokens_ {};
         // The model name.
         shared_ptr<string> modelName_ {};
-        // Indicates whether streaming output is enabled.
+        // Specifies whether streaming output is enabled.
         shared_ptr<bool> stream_ {};
-        // The temperature.
+        // The sampling temperature.
         shared_ptr<double> temperature_ {};
-        // The top-p.
+        // The nucleus sampling Top-P value.
         shared_ptr<double> topP_ {};
       };
 
@@ -378,6 +390,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Source, source_);
           DARABONBA_PTR_TO_JSON(SuiteId, suiteId_);
           DARABONBA_PTR_TO_JSON(Version, version_);
+          DARABONBA_PTR_TO_JSON(VersionSelector, versionSelector_);
         };
         friend void from_json(const Darabonba::Json& j, ExpertSuites& obj) { 
           DARABONBA_PTR_FROM_JSON(Description, description_);
@@ -388,6 +401,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(Source, source_);
           DARABONBA_PTR_FROM_JSON(SuiteId, suiteId_);
           DARABONBA_PTR_FROM_JSON(Version, version_);
+          DARABONBA_PTR_FROM_JSON(VersionSelector, versionSelector_);
         };
         ExpertSuites() = default ;
         ExpertSuites(const ExpertSuites &) = default ;
@@ -402,7 +416,7 @@ namespace Models
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->description_ == nullptr
         && this->displayName_ == nullptr && this->name_ == nullptr && this->packageVersion_ == nullptr && this->semanticVersion_ == nullptr && this->source_ == nullptr
-        && this->suiteId_ == nullptr && this->version_ == nullptr; };
+        && this->suiteId_ == nullptr && this->version_ == nullptr && this->versionSelector_ == nullptr; };
         // description Field Functions 
         bool hasDescription() const { return this->description_ != nullptr;};
         void deleteDescription() { this->description_ = nullptr;};
@@ -459,20 +473,32 @@ namespace Models
         inline ExpertSuites& setVersion(int32_t version) { DARABONBA_PTR_SET_VALUE(version_, version) };
 
 
+        // versionSelector Field Functions 
+        bool hasVersionSelector() const { return this->versionSelector_ != nullptr;};
+        void deleteVersionSelector() { this->versionSelector_ = nullptr;};
+        inline string getVersionSelector() const { DARABONBA_PTR_GET_DEFAULT(versionSelector_, "") };
+        inline ExpertSuites& setVersionSelector(string versionSelector) { DARABONBA_PTR_SET_VALUE(versionSelector_, versionSelector) };
+
+
       protected:
-        // 套件已删除、发布快照缺失或调用者无权查看时，不返回套件摘要，仅保留 ID 和版本号。
+        // If the suite is deleted, the release snapshot is missing, or the caller does not have permission to view it, the suite summary is not returned, and only the ID and version number are retained.
         shared_ptr<string> description_ {};
+        // The display name of the bound version.
         shared_ptr<string> displayName_ {};
+        // The suite name of the bound version.
         shared_ptr<string> name_ {};
-        // 显式查询 Agent 已发布版本时返回固定的官方制品版本；查询草稿或自定义套件时不返回。
+        // The fixed official artifact version returned when explicitly querying a released version of the agent. This is not returned when querying a draft or a custom suite.
         shared_ptr<string> packageVersion_ {};
-        // 可选套件摘要字段，当前新 DataAgent 应用不返回；缺省不表示版本 0。不可作为 UpdateAgent 的 Version，回写引用时必须省略。官方制品的固定版本请读取 PackageVersion。
+        // An optional suite summary field that is not returned by current new DataAgent applications. A default value does not indicate version 0. This cannot be used as the Version for UpdateAgent and must be omitted when writing back references. For the fixed version of official artifacts, read PackageVersion.
         shared_ptr<string> semanticVersion_ {};
-        // OFFICIAL 表示官方目录资源；省略或 DB 表示个人或企业资源。
+        // OFFICIAL indicates an official catalog resource. Omitted or DB indicates a personal or enterprise resource.
         shared_ptr<string> source_ {};
+        // The expert suite ID.
         shared_ptr<string> suiteId_ {};
-        // 仅个人或企业套件在引用明确指定版本或读取发布快照时返回；官方套件不返回。未返回不是 0；SDK 若将缺省整数初始化为 0，回写时必须省略。官方项只回写 Source 和 SuiteId，不传 Version、SemanticVersion 或 PackageVersion。
+        // Returned only when a personal or enterprise suite explicitly specifies a fixed integer version in the reference. This is not returned for official suites. An unreturned value is not 0. If the SDK initializes the default integer to 0, it must be omitted when writing back. For official items, only Source and SuiteId are written back, and Version, VersionSelector, SemanticVersion, or PackageVersion are not passed.
         shared_ptr<int32_t> version_ {};
+        // Returned only for personal or enterprise resources to indicate the saved version selection strategy, which is mutually exclusive with the fixed integer Version. It does not represent the specific revision actually loaded in the session. This is not returned for official resources.
+        shared_ptr<string> versionSelector_ {};
       };
 
       class CallableAgents : public Darabonba::Model {
@@ -531,13 +557,13 @@ namespace Models
 
 
       protected:
-        // The sub-agent display name.
+        // The display name of the sub-agent.
         shared_ptr<string> displayName_ {};
-        // The sub-agent name.
+        // The name of the sub-agent.
         shared_ptr<string> name_ {};
-        // The sub-agent source.
+        // The source of the sub-agent.
         shared_ptr<string> source_ {};
-        // The sub-agent version.
+        // The version number of the sub-agent.
         shared_ptr<int32_t> version_ {};
       };
 
@@ -689,27 +715,27 @@ namespace Models
 
 
     protected:
-      // 本次读取的定义版本。更新当前定义时，将该值作为 UpdateAgent 的 ExpectedVersion，可拒绝覆盖其他调用者已提交的新版本。读取历史快照的版本不代表当前版本。
+      // The definition version read in this request. When updating the current definition, use this value as the ExpectedVersion for UpdateAgent to prevent overwriting new versions submitted by other callers. The version read from a historical snapshot does not represent the current version.
       shared_ptr<int32_t> agentVersion_ {};
-      // A list of callable sub-agents.
+      // The list of callable sub-agents.
       shared_ptr<vector<Agent::CallableAgents>> callableAgents_ {};
-      // The creator ID.
+      // The ID of the creator.
       shared_ptr<string> creatorId_ {};
       // **The description.**
       shared_ptr<string> description_ {};
       // **The display name.**
       shared_ptr<string> displayName_ {};
-      // Agent 定义绑定的专家套件及固定发布版本。
+      // The expert suites associated with the agent definition, including a fixed integer revision number or a version selection strategy. Official resources continue to use PackageVersion to indicate the artifact version.
       shared_ptr<vector<Agent::ExpertSuites>> expertSuites_ {};
-      // The creation time, as a Unix timestamp in milliseconds.
+      // The creation time (millisecond timestamp).
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mmZ
       shared_ptr<string> gmtCreateTime_ {};
-      // The last modification time, as a Unix timestamp in milliseconds.
+      // The last modification time (millisecond timestamp).
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mmZ
       shared_ptr<string> gmtModifiedTime_ {};
-      // **Additional metadata.**
+      // **The extended metadata.**
       Darabonba::Json metadata_ {};
       // **The model configuration.**
       shared_ptr<Agent::Model> model_ {};
@@ -717,13 +743,13 @@ namespace Models
       shared_ptr<string> modifierId_ {};
       // **The agent name.**
       shared_ptr<string> name_ {};
-      // The runtime dependencies.
+      // The environment dependencies required for execution.
       shared_ptr<vector<string>> requiredRuntime_ {};
-      // A list of skills.
+      // The list of skills.
       shared_ptr<vector<Agent::Skills>> skills_ {};
       // **The system prompt.**
       shared_ptr<string> systemPrompt_ {};
-      // **A list of tools.**
+      // **The list of tools.**
       shared_ptr<vector<Agent::Tools>> tools_ {};
       // **The visibility level.**
       shared_ptr<string> visibility_ {};
@@ -750,7 +776,7 @@ namespace Models
 
 
   protected:
-    // The agent details.
+    // The details of the created agent.
     shared_ptr<GetAgentResponseBody::Agent> agent_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

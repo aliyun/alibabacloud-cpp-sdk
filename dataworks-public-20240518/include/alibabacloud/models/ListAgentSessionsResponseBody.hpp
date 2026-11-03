@@ -164,7 +164,7 @@ namespace Models
 
 
             protected:
-              // The session tag. You can filter sessions based on session tags. For example, if you use a fixed RAM user to call OpenAPI but the calling system has its own account system, you can filter the session list based on an account ID. In this case, set this parameter to the account ID of the calling system.
+              // The session tag. You can filter sessions based on session tags. For example, if you use a fixed RAM user to call OpenAPI operations but the calling system has its own account system, you need to filter the session list based on the account ID. In this case, you can pass the account ID of the calling system as this tag.
               shared_ptr<string> sessionTagCode_ {};
             };
 
@@ -201,12 +201,13 @@ namespace Models
 
 
           protected:
+            // Indicates whether the session is archived.
             shared_ptr<bool> archived_ {};
             // The session source.
             shared_ptr<string> sessionSource_ {};
             // The session connection status.
             shared_ptr<string> sessionStatus_ {};
-            // The list of session tags.
+            // The session tag list.
             shared_ptr<vector<Meta::SessionTagList>> sessionTagList_ {};
           };
 
@@ -257,9 +258,9 @@ namespace Models
 
 
         protected:
-          // The extended session information from DataWorks, which is not part of the ACP standard protocol.
+          // The session information extended by DataWorks, which is not part of the standard ACP protocol.
           shared_ptr<AgentSessions::Meta> meta_ {};
-          // The time when the session was created.
+          // The session creation time.
           shared_ptr<int64_t> sessionCreatedAt_ {};
           // The session description.
           shared_ptr<string> sessionDescription_ {};
@@ -267,7 +268,7 @@ namespace Models
           shared_ptr<string> sessionId_ {};
           // The session title.
           shared_ptr<string> sessionTitle_ {};
-          // The time when the session was last modified.
+          // The session update time.
           shared_ptr<int64_t> sessionUpdatedAt_ {};
         };
 
@@ -372,9 +373,13 @@ namespace Models
 
 
       protected:
+        // The JSON-RPC error code.
         shared_ptr<int32_t> code_ {};
+        // The optional additional error information. The content depends on the error type.
         Darabonba::Json data_ {};
+        // The business error code.
         shared_ptr<string> errorCode_ {};
+        // The error message.
         shared_ptr<string> message_ {};
       };
 
@@ -413,10 +418,11 @@ namespace Models
 
 
     protected:
+      // The JSON-RPC error message. This parameter is returned when the call fails and is not returned when the call succeeds.
       shared_ptr<JsonRpcResponse::Error> error_ {};
-      // The ID passed in by the requester. The value is returned as-is.
+      // The ID passed by the requester, which is returned as is.
       shared_ptr<string> id_ {};
-      // The JSON-RPC version. Fixed value: 2.0.
+      // The JSON-RPC version. Fixed to 2.0.
       shared_ptr<string> jsonrpc_ {};
       // The paginated result set of the session query.
       shared_ptr<JsonRpcResponse::Result> result_ {};

@@ -199,13 +199,13 @@ namespace Models
 
 
     protected:
-      // The submit comment.
+      // The submission comment.
       shared_ptr<string> comment_ {};
       // The structured snapshot content. This parameter is mutually exclusive with ContentUrl.
       shared_ptr<Snapshot::Content> content_ {};
-      // The OSS pre-signed download URL. This parameter is mutually exclusive with Content.
+      // The pre-signed OSS download URL. This parameter is mutually exclusive with Content.
       shared_ptr<string> contentUrl_ {};
-      // The snapshot creation time in millisecond timestamp.
+      // The timestamp when the snapshot was generated, in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The employee ID of the submitter.
       shared_ptr<string> creator_ {};
@@ -213,7 +213,7 @@ namespace Models
       shared_ptr<string> id_ {};
       // The namespace.
       shared_ptr<string> namespace_ {};
-      // The unique ID of the object to which the snapshot belongs.
+      // The unique ID of the parent object.
       shared_ptr<string> objectId_ {};
       // The snapshot type.
       shared_ptr<string> type_ {};

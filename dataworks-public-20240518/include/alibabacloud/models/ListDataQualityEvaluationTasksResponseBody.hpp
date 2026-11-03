@@ -134,11 +134,10 @@ namespace Models
 
 
         protected:
-          // This parameter takes effect when type is set to ByScheduledTaskInstance. Specifies the scheduled node IDs whose successful instance execution can trigger the task.
+          // The IDs of the scheduled nodes. This parameter takes effect only when Type is set to ByScheduledTaskInstance. It specifies the scheduled nodes whose successful instance execution triggers the task.
           shared_ptr<vector<int64_t>> taskIds_ {};
-          // The type of event that triggers the quality evaluation task. Valid values:
-          // 
-          // - ByScheduledTaskInstance: Triggered when a scheduled node instance runs successfully.
+          // The event that triggers the execution of the data quality evaluation task. Valid values:
+          // - ByScheduledTaskInstance: The scheduled instance runs successfully.
           shared_ptr<string> type_ {};
         };
 
@@ -209,10 +208,9 @@ namespace Models
           shared_ptr<string> databaseType_ {};
           // The partition settings of the partitioned table.
           shared_ptr<string> partitionSpec_ {};
-          // The unique ID of the table in DataWorks Data Map.
+          // The unique ID of the table in Data Map.
           shared_ptr<string> tableGuid_ {};
           // The monitored object type. Valid values:
-          // 
           // - Table
           shared_ptr<string> type_ {};
         };
@@ -308,16 +306,16 @@ namespace Models
 
 
             protected:
-              // The extension information in JSON format. For example, DingTalk chatbots support mentioning all members.
+              // The extended information in JSON format. For example, DingTalk chatbots support mentioning all members.
               shared_ptr<string> extension_ {};
-              // The type of the alert recipient. Valid values:
-              // - AliUid: Alibaba Cloud account UID.
-              // - WebhookUrl: custom webhook URL.
-              // - DingdingUrl: DingTalk chatbot URL.
-              // - FeishuUrl: Lark chatbot URL.
-              // - WeixinUrl: WeCom chatbot URL.
+              // The type of the notification recipient. Valid values:
+              // - AliUid: the UID of the Alibaba Cloud account
+              // - WebhookUrl: the custom webhook URL
+              // - DingdingUrl: the DingTalk chatbot URL
+              // - FeishuUrl: the Lark chatbot URL
+              // - WeixinUrl: the WeCom chatbot URL
               shared_ptr<string> receiverType_ {};
-              // The specific values of the alert recipients.
+              // The specific value of the notification recipient.
               shared_ptr<vector<string>> receiverValues_ {};
             };
 
@@ -351,7 +349,7 @@ namespace Models
 
 
             protected:
-              // The alert channel.
+              // The notification channel.
               shared_ptr<vector<string>> channels_ {};
             };
 
@@ -376,9 +374,9 @@ namespace Models
 
 
           protected:
-            // The alert channel configurations.
+            // The notification channel configuration.
             shared_ptr<vector<NotificationsItem::NotificationChannels>> notificationChannels_ {};
-            // The alert recipient configurations.
+            // The notification recipient configuration.
             shared_ptr<vector<NotificationsItem::NotificationReceivers>> notificationReceivers_ {};
           };
 
@@ -401,9 +399,9 @@ namespace Models
 
 
         protected:
-          // The condition that triggers the notification.
+          // The trigger condition of the notification.
           shared_ptr<string> condition_ {};
-          // The alert settings.
+          // The specific alert settings.
           shared_ptr<vector<Notifications::NotificationsItem>> notifications_ {};
         };
 
@@ -445,10 +443,10 @@ namespace Models
 
 
         protected:
-          // The condition that triggers the hook.
+          // The trigger condition of the hook.
           shared_ptr<string> condition_ {};
-          // The type of the follow-up action. Valid values:
-          // - BlockTaskInstance: Blocks the execution of a DataWorks node instance.
+          // The type of the subsequent action. Valid values:
+          // - BlockTaskInstance: Blocks the execution of the DataWorks task instance.
           shared_ptr<string> type_ {};
         };
 
@@ -537,17 +535,17 @@ namespace Models
         shared_ptr<int64_t> dataSourceId_ {};
         // The description of the data quality evaluation task. The description can be up to 65,535 characters in length.
         shared_ptr<string> description_ {};
-        // The callback settings during the lifecycle of data quality evaluation task instances. Currently, only one hook that blocks a scheduling node instance is supported.
+        // The callback settings in the instance lifecycle epoch of the data quality evaluation task. Currently, only one hook that blocks scheduling tasks is supported.
         shared_ptr<vector<DataQualityEvaluationTasks::Hooks>> hooks_ {};
         // The ID of the data quality evaluation task.
         shared_ptr<int64_t> id_ {};
-        // The name of the data quality evaluation task. The name can contain digits, English letters, Chinese characters, and half-width or full-width punctuation marks. The name can be up to 255 characters in length.
+        // The name of the data quality evaluation task. The name can contain digits, letters, Chinese characters, and half-width or full-width punctuation marks, and can be up to 255 characters in length.
         shared_ptr<string> name_ {};
         // The alert configuration.
         shared_ptr<DataQualityEvaluationTasks::Notifications> notifications_ {};
-        // The DataWorks workspace ID.
+        // The ID of the DataWorks workspace.
         shared_ptr<int64_t> projectId_ {};
-        // The runtime settings for data sources. Currently, only specifying the EMR YARN queue and the SQL engine for collecting EMR tables is supported. Valid SQL engine values: SPARK_SQL, KYUUBI, PRESTO_SQL, and HIVE_SQL.
+        // The settings for using the data source. Currently, you can only specify the YARN queue for EMR and set the SQL engine to SPARK_SQL, KYUUBI, PRESTO_SQL, or HIVE_SQL when collecting EMR tables.
         shared_ptr<string> runtimeConf_ {};
         // The monitored object of the data quality evaluation task.
         shared_ptr<DataQualityEvaluationTasks::Target> target_ {};
@@ -588,13 +586,13 @@ namespace Models
 
 
     protected:
-      // The quality evaluation tasks.
+      // The data quality evaluation tasks.
       shared_ptr<vector<PagingInfo::DataQualityEvaluationTasks>> dataQualityEvaluationTasks_ {};
       // The page number.
       shared_ptr<string> pageNumber_ {};
-      // The page size.
+      // The number of entries per page.
       shared_ptr<string> pageSize_ {};
-      // The total number of records.
+      // The total number of entries.
       shared_ptr<string> totalCount_ {};
     };
 
@@ -617,9 +615,9 @@ namespace Models
 
 
   protected:
-    // The paged query result of quality evaluation tasks.
+    // The paging query results of the data quality evaluation tasks.
     shared_ptr<ListDataQualityEvaluationTasksResponseBody::PagingInfo> pagingInfo_ {};
-    // The API request ID.
+    // The ID of the API request.
     shared_ptr<string> requestId_ {};
   };
 

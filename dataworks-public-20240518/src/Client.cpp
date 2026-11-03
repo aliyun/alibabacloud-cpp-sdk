@@ -84,6 +84,8 @@ AlibabaCloud::DataworksPublic20240518::Client::Client(AlibabaCloud::OpenApi::Uti
     {"us-east-1" , "dataworks.us-east-1.aliyuncs.com"},
     {"us-west-1" , "dataworks.us-west-1.aliyuncs.com"},
     {"ap-northeast-2" , "dataworks.ap-northeast-2.aliyuncs.com"},
+    {"sa-east-1" , "dataworks.sa-east-1.aliyuncs.com"},
+    {"na-south-1" , "dataworks.na-south-1.aliyuncs.com"},
     {"me-central-1" , "dataworks.me-central-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
@@ -105,7 +107,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Stops a cross-workspace publish flow.
+ * @summary Terminates a cross-workspace deployment pipeline run.
  *
  * @param request AbolishCrossProjectPipelineRunRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -144,7 +146,7 @@ AbolishCrossProjectPipelineRunResponse Client::abolishCrossProjectPipelineRunWit
 }
 
 /**
- * @summary Stops a cross-workspace publish flow.
+ * @summary Terminates a cross-workspace deployment pipeline run.
  *
  * @param request AbolishCrossProjectPipelineRunRequest
  * @return AbolishCrossProjectPipelineRunResponse
@@ -737,8 +739,8 @@ BatchUpdateTasksResponse Client::batchUpdateTasks(const BatchUpdateTasksRequest 
 /**
  * @summary Builds an image.
  *
- * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
- * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+ * 2. **Ensure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this API operation.**
  *
  * @param request BuildImageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -783,8 +785,8 @@ BuildImageResponse Client::buildImageWithOptions(const BuildImageRequest &reques
 /**
  * @summary Builds an image.
  *
- * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
- * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+ * 2. **Ensure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this API operation.**
  *
  * @param request BuildImageRequest
  * @return BuildImageResponse
@@ -861,7 +863,7 @@ CancelAgentSessionResponse Client::cancelAgentSession(const CancelAgentSessionRe
 /**
  * @summary Cancels an image test.
  *
- * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+ * @description 1. You must purchase DataWorks Basic Edition or a more advanced edition to use this feature.
  * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this operation.**
  *
  * @param request CancelImageTestRequest
@@ -899,7 +901,7 @@ CancelImageTestResponse Client::cancelImageTestWithOptions(const CancelImageTest
 /**
  * @summary Cancels an image test.
  *
- * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+ * @description 1. You must purchase DataWorks Basic Edition or a more advanced edition to use this feature.
  * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this operation.**
  *
  * @param request CancelImageTestRequest
@@ -967,12 +969,12 @@ CloneDataSourceResponse Client::cloneDataSource(const CloneDataSourceRequest &re
 /**
  * @summary Creates an agent.
  *
- * @description ## Request description
+ * @description ## Request instructions
  * - **Agent name**: Must be unique within the current account.
- * - **Model configuration**: Optional. Specifies the model used by the agent and its related settings.
- * - **Visibility level**: Defines who can access the agent. Supported values include account-wide, project-specific, or user-specific visibility.
- * - **Visibility scope**: When `PROJECT` or `USER` is selected as the visibility level, you must specify the specific project IDs or user IDs.
- * - **Other parameters**: Parameters such as the display name and description are optional. Fill them in as needed.
+ * - **Model configuration**: Optional parameter used to specify the model used by the agent and its related settings.
+ * - **Visibility level**: Defines who can access the agent. Supports visibility within the account, project, or specific users.
+ * - **Visibility scope**: When `PROJECT` or `USER` is selected as the visibility level, you must further specify the specific project IDs or user ID lists.
+ * - **Other parameters**: Display name and description are optional and can be filled in as needed.
  *
  * @param tmpReq CreateAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1083,12 +1085,12 @@ CreateAgentResponse Client::createAgentWithOptions(const CreateAgentRequest &tmp
 /**
  * @summary Creates an agent.
  *
- * @description ## Request description
+ * @description ## Request instructions
  * - **Agent name**: Must be unique within the current account.
- * - **Model configuration**: Optional. Specifies the model used by the agent and its related settings.
- * - **Visibility level**: Defines who can access the agent. Supported values include account-wide, project-specific, or user-specific visibility.
- * - **Visibility scope**: When `PROJECT` or `USER` is selected as the visibility level, you must specify the specific project IDs or user IDs.
- * - **Other parameters**: Parameters such as the display name and description are optional. Fill them in as needed.
+ * - **Model configuration**: Optional parameter used to specify the model used by the agent and its related settings.
+ * - **Visibility level**: Defines who can access the agent. Supports visibility within the account, project, or specific users.
+ * - **Visibility scope**: When `PROJECT` or `USER` is selected as the visibility level, you must further specify the specific project IDs or user ID lists.
+ * - **Other parameters**: Display name and description are optional and can be filled in as needed.
  *
  * @param request CreateAgentRequest
  * @return CreateAgentResponse
@@ -1099,16 +1101,16 @@ CreateAgentResponse Client::createAgent(const CreateAgentRequest &request) {
 }
 
 /**
- * @summary Creates a new agent session and returns the session ID.
+ * @summary Creates an agent session and returns the session ID.
  *
- * @description ## Operation description
- * - This operation creates a new agent session.
- * - Use `_meta.agent.agentName` to specify the agent name to bind. This parameter is required.
- *   - dataworks_data_agent: DataWorks built-in agent — Data Agent. Provides intelligent data development AI capabilities that cover the entire workflow of data integration, development, O&M, governance, and analytics.
- *   - dataworks_chatbi_agent: DataWorks built-in agent — ChatBI. Uses natural language processing and intelligent analytics to automate the entire analysis workflow through conversational interaction, from requirement parsing, data extraction, and automatic code generation to visual report output.
- *   - dataworks_ai_assistant_agent: DataWorks built-in agent — AI Assistant Service. An enterprise-grade dedicated AI assistant for DataWorks built on open source frameworks such as OpenClaw and Hermes Agent.
- * - Use `_meta.config.sessionSource` to pass through a session source identifier for subsequent retrieval by source.
- * - Use `_meta.config.sessionTags[].sessionTagCode` to pass in session tags.
+ * @description ## Request description
+ * - This operation creates an agent session.
+ * - You must specify the name of the bound agent by using `_meta.agent.agentName`. This parameter is required.
+ *   - dataworks_data_agent: DataWorks built-in agent - Data Agent. It provides AI capabilities for the entire data development lifecycle, including data integration, development, O&M, governance, and analysis.
+ *   - dataworks_chatbi_agent: DataWorks built-in agent - ChatBI. Based on natural language processing and intelligent analysis technologies, it automates the entire analysis process from requirement parsing, data extraction, and automatic code generation to visual report output through conversational interaction.
+ *   - dataworks_ai_assistant_agent: DataWorks built-in agent - AI Assistant. An enterprise-grade AI assistant for DataWorks built on open-source frameworks such as OpenClaw and Hermes Agent.
+ * - You can pass through the session source identifier by using `_meta.config.sessionSource` to facilitate subsequent retrieval by source.
+ * - You can pass session tags by using `_meta.config.sessionTags[].sessionTagCode`.
  *
  * @param tmpReq CreateAgentSessionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1153,16 +1155,16 @@ CreateAgentSessionResponse Client::createAgentSessionWithOptions(const CreateAge
 }
 
 /**
- * @summary Creates a new agent session and returns the session ID.
+ * @summary Creates an agent session and returns the session ID.
  *
- * @description ## Operation description
- * - This operation creates a new agent session.
- * - Use `_meta.agent.agentName` to specify the agent name to bind. This parameter is required.
- *   - dataworks_data_agent: DataWorks built-in agent — Data Agent. Provides intelligent data development AI capabilities that cover the entire workflow of data integration, development, O&M, governance, and analytics.
- *   - dataworks_chatbi_agent: DataWorks built-in agent — ChatBI. Uses natural language processing and intelligent analytics to automate the entire analysis workflow through conversational interaction, from requirement parsing, data extraction, and automatic code generation to visual report output.
- *   - dataworks_ai_assistant_agent: DataWorks built-in agent — AI Assistant Service. An enterprise-grade dedicated AI assistant for DataWorks built on open source frameworks such as OpenClaw and Hermes Agent.
- * - Use `_meta.config.sessionSource` to pass through a session source identifier for subsequent retrieval by source.
- * - Use `_meta.config.sessionTags[].sessionTagCode` to pass in session tags.
+ * @description ## Request description
+ * - This operation creates an agent session.
+ * - You must specify the name of the bound agent by using `_meta.agent.agentName`. This parameter is required.
+ *   - dataworks_data_agent: DataWorks built-in agent - Data Agent. It provides AI capabilities for the entire data development lifecycle, including data integration, development, O&M, governance, and analysis.
+ *   - dataworks_chatbi_agent: DataWorks built-in agent - ChatBI. Based on natural language processing and intelligent analysis technologies, it automates the entire analysis process from requirement parsing, data extraction, and automatic code generation to visual report output through conversational interaction.
+ *   - dataworks_ai_assistant_agent: DataWorks built-in agent - AI Assistant. An enterprise-grade AI assistant for DataWorks built on open-source frameworks such as OpenClaw and Hermes Agent.
+ * - You can pass through the session source identifier by using `_meta.config.sessionSource` to facilitate subsequent retrieval by source.
+ * - You can pass session tags by using `_meta.config.sessionTags[].sessionTagCode`.
  *
  * @param request CreateAgentSessionRequest
  * @return CreateAgentSessionResponse
@@ -2967,7 +2969,7 @@ CreateDatasetVersionResponse Client::createDatasetVersion(const CreateDatasetVer
 }
 
 /**
- * @summary Creates a file in Data Studio. This operation does not support creating Data Integration nodes.
+ * @summary Creates a file in Data Studio. This operation does not support creating data integration node tasks.
  *
  * @param request CreateFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3134,7 +3136,7 @@ CreateFileResponse Client::createFileWithOptions(const CreateFileRequest &reques
 }
 
 /**
- * @summary Creates a file in Data Studio. This operation does not support creating Data Integration nodes.
+ * @summary Creates a file in Data Studio. This operation does not support creating data integration node tasks.
  *
  * @param request CreateFileRequest
  * @return CreateFileResponse
@@ -6045,8 +6047,6 @@ DeleteDataQualityEvaluationTaskResponse Client::deleteDataQualityEvaluationTask(
 /**
  * @summary Deletes a data quality monitoring rule.
  *
- * @description 需要购买DataWorks基础版及以上版本才能使用
- *
  * @param request DeleteDataQualityRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteDataQualityRuleResponse
@@ -6081,8 +6081,6 @@ DeleteDataQualityRuleResponse Client::deleteDataQualityRuleWithOptions(const Del
 
 /**
  * @summary Deletes a data quality monitoring rule.
- *
- * @description 需要购买DataWorks基础版及以上版本才能使用
  *
  * @param request DeleteDataQualityRuleRequest
  * @return DeleteDataQualityRuleResponse
@@ -6583,8 +6581,8 @@ DeleteFunctionResponse Client::deleteFunction(const DeleteFunctionRequest &reque
 /**
  * @summary Deletes an image.
  *
- * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
- * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+ * @description 1. DataWorks Basic Edition or a higher edition is required.
+ * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this API operation.**
  *
  * @param request DeleteImageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6617,8 +6615,8 @@ DeleteImageResponse Client::deleteImageWithOptions(const DeleteImageRequest &req
 /**
  * @summary Deletes an image.
  *
- * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
- * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+ * @description 1. DataWorks Basic Edition or a higher edition is required.
+ * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this API operation.**
  *
  * @param request DeleteImageRequest
  * @return DeleteImageResponse
@@ -7523,9 +7521,9 @@ DeleteSkillResponse Client::deleteSkill(const DeleteSkillRequest &request) {
 }
 
 /**
- * @summary Deletes a task.
+ * @summary Deletes a specified task.
  *
- * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ * @description You must purchase DataWorks Basic Edition or later to use this feature.
  *
  * @param request DeleteTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7560,9 +7558,9 @@ DeleteTaskResponse Client::deleteTaskWithOptions(const DeleteTaskRequest &reques
 }
 
 /**
- * @summary Deletes a task.
+ * @summary Deletes a specified task.
  *
- * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ * @description You must purchase DataWorks Basic Edition or later to use this feature.
  *
  * @param request DeleteTaskRequest
  * @return DeleteTaskResponse
@@ -7803,8 +7801,8 @@ DetachDataQualityRulesFromEvaluationTaskResponse Client::detachDataQualityRulesF
 /**
  * @summary Disables an image.
  *
- * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
- * 2. **Before using this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this API operation.
+ * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this API operation.**
  *
  * @param request DisableImageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7837,8 +7835,8 @@ DisableImageResponse Client::disableImageWithOptions(const DisableImageRequest &
 /**
  * @summary Disables an image.
  *
- * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
- * 2. **Before using this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this API operation.
+ * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this API operation.**
  *
  * @param request DisableImageRequest
  * @return DisableImageResponse
@@ -8078,7 +8076,7 @@ DownloadSemanticResultsResponse Client::downloadSemanticResults(const DownloadSe
  * @summary Enables an image.
  *
  * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
- * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this operation.**
+ * 2. **Make sure that you have created the service-linked role AliyunServiceRoleForDataWorks before you call this API operation.**
  *
  * @param request EnableImageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8112,7 +8110,7 @@ EnableImageResponse Client::enableImageWithOptions(const EnableImageRequest &req
  * @summary Enables an image.
  *
  * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
- * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this operation.**
+ * 2. **Make sure that you have created the service-linked role AliyunServiceRoleForDataWorks before you call this API operation.**
  *
  * @param request EnableImageRequest
  * @return EnableImageResponse
@@ -8279,11 +8277,11 @@ ExecCrossProjectPipelineRunResponse Client::execCrossProjectPipelineRun(const Ex
 }
 
 /**
- * @summary Executes a specified stage of a deployment process.
+ * @summary Executes a specified stage of a deployment pipeline.
  *
- * @description > &lt;notice&gt;The stages of a deployment process are sequential. For more information, see the response of GetPipelineRun. You cannot skip or repeat a stage.&gt;&lt;/notice&gt;
- * > &lt;notice&gt;The execution is asynchronous. The response only indicates that the stage is triggered, not that the stage is executed. Check the response of GetPipelineRun for the execution result.&gt;&lt;/notice&gt;
- * > &lt;notice&gt;This operation may not be available in earlier SDK versions. In this case, use the ExecDeploymentStage operation. The parameters are the same as those described in this document.&gt;&lt;/notice&gt;
+ * @description >Notice: The stages in a deployment pipeline are sequential. For more information, see the return values of GetPipelineRun. You cannot skip or repeatedly execute a stage.
+ * >Notice: The execution process is asynchronous. The return value only indicates whether the execution is successfully triggered, not whether the stage is successfully executed. The execution result is subject to the return values of GetPipelineRun.
+ * >Notice: This operation may not be available in earlier SDK versions. In this case, use the ExecDeploymentStage operation, which uses the same parameters as described in this document.
  *
  * @param request ExecPipelineRunStageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8324,11 +8322,11 @@ ExecPipelineRunStageResponse Client::execPipelineRunStageWithOptions(const ExecP
 }
 
 /**
- * @summary Executes a specified stage of a deployment process.
+ * @summary Executes a specified stage of a deployment pipeline.
  *
- * @description > &lt;notice&gt;The stages of a deployment process are sequential. For more information, see the response of GetPipelineRun. You cannot skip or repeat a stage.&gt;&lt;/notice&gt;
- * > &lt;notice&gt;The execution is asynchronous. The response only indicates that the stage is triggered, not that the stage is executed. Check the response of GetPipelineRun for the execution result.&gt;&lt;/notice&gt;
- * > &lt;notice&gt;This operation may not be available in earlier SDK versions. In this case, use the ExecDeploymentStage operation. The parameters are the same as those described in this document.&gt;&lt;/notice&gt;
+ * @description >Notice: The stages in a deployment pipeline are sequential. For more information, see the return values of GetPipelineRun. You cannot skip or repeatedly execute a stage.
+ * >Notice: The execution process is asynchronous. The return value only indicates whether the execution is successfully triggered, not whether the stage is successfully executed. The execution result is subject to the return values of GetPipelineRun.
+ * >Notice: This operation may not be available in earlier SDK versions. In this case, use the ExecDeploymentStage operation, which uses the same parameters as described in this document.
  *
  * @param request ExecPipelineRunStageRequest
  * @return ExecPipelineRunStageResponse
@@ -8467,10 +8465,10 @@ FindBestMatchSecurityStrategyResponse Client::findBestMatchSecurityStrategy(cons
 }
 
 /**
- * @summary Retrieves agent details by name.
+ * @summary Retrieves the details of an agent.
  *
- * @description ## Request
- * This API retrieves detailed configuration information for the specified agent name, including but not limited to the model configuration, system prompt, and tool list. You must provide the exact agent name as a request parameter.
+ * @description ## Operation description
+ * This operation retrieves the detailed configuration information of an agent by its name, including but not limited to model configurations, system prompts, and tool lists. You must provide the exact agent name as a parameter in the request.
  *
  * @param request GetAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8505,10 +8503,10 @@ GetAgentResponse Client::getAgentWithOptions(const GetAgentRequest &request, con
 }
 
 /**
- * @summary Retrieves agent details by name.
+ * @summary Retrieves the details of an agent.
  *
- * @description ## Request
- * This API retrieves detailed configuration information for the specified agent name, including but not limited to the model configuration, system prompt, and tool list. You must provide the exact agent name as a request parameter.
+ * @description ## Operation description
+ * This operation retrieves the detailed configuration information of an agent by its name, including but not limited to model configurations, system prompts, and tool lists. You must provide the exact agent name as a parameter in the request.
  *
  * @param request GetAgentRequest
  * @return GetAgentResponse
@@ -8875,9 +8873,9 @@ GetCalendarResponse Client::getCalendar(const GetCalendarRequest &request) {
 }
 
 /**
- * @summary Retrieves the details of a specified data catalog in DataWorks Data Map. Currently, DLF and StarRocks catalog types are supported.
+ * @summary Retrieves the details of a specified data catalog in DataWorks Data Map. Currently, DLF and StarRocks types are supported.
  *
- * @description 1. You must have DataWorks Basic Edition or a higher edition to use this feature.
+ * @description 1. DataWorks Basic Edition or a higher edition is required.
  *
  * @param request GetCatalogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8904,9 +8902,9 @@ GetCatalogResponse Client::getCatalogWithOptions(const GetCatalogRequest &reques
 }
 
 /**
- * @summary Retrieves the details of a specified data catalog in DataWorks Data Map. Currently, DLF and StarRocks catalog types are supported.
+ * @summary Retrieves the details of a specified data catalog in DataWorks Data Map. Currently, DLF and StarRocks types are supported.
  *
- * @description 1. You must have DataWorks Basic Edition or a higher edition to use this feature.
+ * @description 1. DataWorks Basic Edition or a higher edition is required.
  *
  * @param request GetCatalogRequest
  * @return GetCatalogResponse
@@ -8961,9 +8959,9 @@ GetCertificateResponse Client::getCertificate(const GetCertificateRequest &reque
 }
 
 /**
- * @summary Retrieves the details of a specified column in a DataWorks Data Map table.
+ * @summary Retrieves the details of a specified column in a Data Map table.
  *
- * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this API operation.
  *
  * @param request GetColumnRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8990,9 +8988,9 @@ GetColumnResponse Client::getColumnWithOptions(const GetColumnRequest &request, 
 }
 
 /**
- * @summary Retrieves the details of a specified column in a DataWorks Data Map table.
+ * @summary Retrieves the details of a specified column in a Data Map table.
  *
- * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this API operation.
  *
  * @param request GetColumnRequest
  * @return GetColumnResponse
@@ -9107,11 +9105,11 @@ GetComputeResourceResponse Client::getComputeResource(const GetComputeResourceRe
 }
 
 /**
- * @summary Queries the user mappings of a compute resource. Supports EMR and Serverless Spark resource types.
+ * @summary Queries the user mappings for compute resources, supporting EMR and Serverless Spark resource types.
  *
- * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
  * 2. You must have at least one of the following roles in the DataWorks workspace:
- * - Tenant Owner, Workspace Administrator, Deployment, Developer, Project Owner, or O&amp;M Engineer
+ * - Tenant owner, workspace administrator, deployer, developer, project owner, or operator.
  *
  * @param request GetComputeResourceAuthUserMappingsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9146,11 +9144,11 @@ GetComputeResourceAuthUserMappingsResponse Client::getComputeResourceAuthUserMap
 }
 
 /**
- * @summary Queries the user mappings of a compute resource. Supports EMR and Serverless Spark resource types.
+ * @summary Queries the user mappings for compute resources, supporting EMR and Serverless Spark resource types.
  *
- * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
  * 2. You must have at least one of the following roles in the DataWorks workspace:
- * - Tenant Owner, Workspace Administrator, Deployment, Developer, Project Owner, or O&amp;M Engineer
+ * - Tenant owner, workspace administrator, deployer, developer, project owner, or operator.
  *
  * @param request GetComputeResourceAuthUserMappingsRequest
  * @return GetComputeResourceAuthUserMappingsResponse
@@ -9322,7 +9320,7 @@ GetCreateWorkflowInstancesResultResponse Client::getCreateWorkflowInstancesResul
 }
 
 /**
- * @summary Queries the details of a cross-workspace deployment flow.
+ * @summary Queries the details of a cross-workspace deployment pipeline run.
  *
  * @param request GetCrossProjectPipelineRunRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9357,7 +9355,7 @@ GetCrossProjectPipelineRunResponse Client::getCrossProjectPipelineRunWithOptions
 }
 
 /**
- * @summary Queries the details of a cross-workspace deployment flow.
+ * @summary Queries the details of a cross-workspace deployment pipeline run.
  *
  * @param request GetCrossProjectPipelineRunRequest
  * @return GetCrossProjectPipelineRunResponse
@@ -9410,9 +9408,9 @@ GetCustomAttributeResponse Client::getCustomAttribute(const GetCustomAttributeRe
 }
 
 /**
- * @summary View data integration tasks.
+ * @summary Queries the details of a data integration task.
  *
- * @description This operation requires DataWorks Basic Edition or later.
+ * @description DataWorks Basic Edition or a higher edition is required.
  *
  * @param request GetDIJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9439,9 +9437,9 @@ GetDIJobResponse Client::getDIJobWithOptions(const GetDIJobRequest &request, con
 }
 
 /**
- * @summary View data integration tasks.
+ * @summary Queries the details of a data integration task.
  *
- * @description This operation requires DataWorks Basic Edition or later.
+ * @description DataWorks Basic Edition or a higher edition is required.
  *
  * @param request GetDIJobRequest
  * @return GetDIJobResponse
@@ -9590,7 +9588,7 @@ GetDataQualityEvaluationTaskResponse Client::getDataQualityEvaluationTask(const 
  *
  * @summary Retrieves the details of a data quality check task instance.
  *
- * @description DataWorks Basic Edition or a higher edition is required to use this operation.
+ * @description DataWorks Basic Edition or a higher edition is required.
  *
  * @param request GetDataQualityEvaluationTaskInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9621,7 +9619,7 @@ GetDataQualityEvaluationTaskInstanceResponse Client::getDataQualityEvaluationTas
  *
  * @summary Retrieves the details of a data quality check task instance.
  *
- * @description DataWorks Basic Edition or a higher edition is required to use this operation.
+ * @description DataWorks Basic Edition or a higher edition is required.
  *
  * @param request GetDataQualityEvaluationTaskInstanceRequest
  * @return GetDataQualityEvaluationTaskInstanceResponse
@@ -10524,7 +10522,7 @@ GetJobStatusResponse Client::getJobStatus(const GetJobStatusRequest &request) {
 /**
  * @summary Retrieves the details of a specified lineage relationship in DataWorks Data Map.
  *
- * @description 1. You must have DataWorks Standard Edition or a higher edition to use this operation.
+ * @description 1. You must purchase DataWorks Standard Edition or a higher edition to use this operation.
  *
  * @param request GetLineageRelationshipRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10553,7 +10551,7 @@ GetLineageRelationshipResponse Client::getLineageRelationshipWithOptions(const G
 /**
  * @summary Retrieves the details of a specified lineage relationship in DataWorks Data Map.
  *
- * @description 1. You must have DataWorks Standard Edition or a higher edition to use this operation.
+ * @description 1. You must purchase DataWorks Standard Edition or a higher edition to use this operation.
  *
  * @param request GetLineageRelationshipRequest
  * @return GetLineageRelationshipResponse
@@ -11100,9 +11098,9 @@ GetProjectResponse Client::getProject(const GetProjectRequest &request) {
 }
 
 /**
- * @summary Retrieves the details of a specific member in a Workspace.
+ * @summary Queries the details of a workspace member.
  *
- * @description This operation is available only in DataWorks Basic Edition and later.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this feature.
  *
  * @param request GetProjectMemberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11137,9 +11135,9 @@ GetProjectMemberResponse Client::getProjectMemberWithOptions(const GetProjectMem
 }
 
 /**
- * @summary Retrieves the details of a specific member in a Workspace.
+ * @summary Queries the details of a workspace member.
  *
- * @description This operation is available only in DataWorks Basic Edition and later.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this feature.
  *
  * @param request GetProjectMemberRequest
  * @return GetProjectMemberResponse
@@ -11730,9 +11728,9 @@ GetSnapshotResponse Client::getSnapshot(const GetSnapshotRequest &request) {
 }
 
 /**
- * @summary Retrieves the details of a specified table in Data Map. You can choose whether to return business metadata.
+ * @summary Queries the details of a specified table in DataWorks Data Map. You can choose whether to return business metadata.
  *
- * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this API.
  *
  * @param request GetTableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11759,9 +11757,9 @@ GetTableResponse Client::getTableWithOptions(const GetTableRequest &request, con
 }
 
 /**
- * @summary Retrieves the details of a specified table in Data Map. You can choose whether to return business metadata.
+ * @summary Queries the details of a specified table in DataWorks Data Map. You can choose whether to return business metadata.
  *
- * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this API.
  *
  * @param request GetTableRequest
  * @return GetTableResponse
@@ -11944,9 +11942,9 @@ GetUpdateTaskResultResponse Client::getUpdateTaskResult(const GetUpdateTaskResul
 }
 
 /**
- * @summary Queries the information about a workflow.
+ * @summary Retrieves the details of a specified workflow.
  *
- * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ * @description This feature requires DataWorks Basic Edition or later.
  *
  * @param request GetWorkflowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11973,9 +11971,9 @@ GetWorkflowResponse Client::getWorkflowWithOptions(const GetWorkflowRequest &req
 }
 
 /**
- * @summary Queries the information about a workflow.
+ * @summary Retrieves the details of a specified workflow.
  *
- * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ * @description This feature requires DataWorks Basic Edition or later.
  *
  * @param request GetWorkflowRequest
  * @return GetWorkflowResponse
@@ -12464,14 +12462,14 @@ ListAgentSessionArtifactsResponse Client::listAgentSessionArtifacts(const ListAg
 }
 
 /**
- * @summary Loads the conversation history list of an Agent Session.
+ * @summary Retrieves the conversation history list of agent sessions.
  *
- * @description ## Operation description
- * - At least one of `agentName` and `sessionSourceList` must be provided.
- * - Supports combined filtering by `tagList`, `sessionId`, and `sessionTitle`.
- * - The response conforms to the Alibaba Cloud OpenAPI paging specification, including `totalCount`, `maxResults`, `nextToken`, and `sessionList`.
- * - If `nextToken` is an invalid character string, it defaults to 1.
- * - By default, 50 records are returned per page. Adjust this by using the `maxResults` parameter.
+ * @description ## Request description
+ * - You must specify at least one of agentName and sessionSourceList.
+ * - You can combine tagList, sessionId, and sessionTitle for filtering.
+ * - The response follows the Alibaba Cloud OpenAPI paging specification, including totalCount, maxResults, nextToken, and sessionList.
+ * - If nextToken is an invalid string, it is processed as 1 by default.
+ * - By default, 50 records are returned per page. You can adjust this by using the maxResults parameter.
  *
  * @param tmpReq ListAgentSessionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12516,14 +12514,14 @@ ListAgentSessionsResponse Client::listAgentSessionsWithOptions(const ListAgentSe
 }
 
 /**
- * @summary Loads the conversation history list of an Agent Session.
+ * @summary Retrieves the conversation history list of agent sessions.
  *
- * @description ## Operation description
- * - At least one of `agentName` and `sessionSourceList` must be provided.
- * - Supports combined filtering by `tagList`, `sessionId`, and `sessionTitle`.
- * - The response conforms to the Alibaba Cloud OpenAPI paging specification, including `totalCount`, `maxResults`, `nextToken`, and `sessionList`.
- * - If `nextToken` is an invalid character string, it defaults to 1.
- * - By default, 50 records are returned per page. Adjust this by using the `maxResults` parameter.
+ * @description ## Request description
+ * - You must specify at least one of agentName and sessionSourceList.
+ * - You can combine tagList, sessionId, and sessionTitle for filtering.
+ * - The response follows the Alibaba Cloud OpenAPI paging specification, including totalCount, maxResults, nextToken, and sessionList.
+ * - If nextToken is an invalid string, it is processed as 1 by default.
+ * - By default, 50 records are returned per page. You can adjust this by using the maxResults parameter.
  *
  * @param request ListAgentSessionsRequest
  * @return ListAgentSessionsResponse
@@ -13922,9 +13920,9 @@ ListDIJobRunDetailsResponse Client::listDIJobRunDetails(const ListDIJobRunDetail
 }
 
 /**
- * @summary Lists new-version Data Integration tasks, including real-time database synchronization tasks, batch database synchronization tasks, and real-time single-table synchronization tasks.
+ * @summary Queries synchronization tasks in the new version of Data Integration, including full-database real-time synchronization tasks, full-database batch synchronization tasks, and single-table real-time synchronization tasks.
  *
- * @description This operation requires DataWorks Basic Edition or a later edition.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request ListDIJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13951,9 +13949,9 @@ ListDIJobsResponse Client::listDIJobsWithOptions(const ListDIJobsRequest &reques
 }
 
 /**
- * @summary Lists new-version Data Integration tasks, including real-time database synchronization tasks, batch database synchronization tasks, and real-time single-table synchronization tasks.
+ * @summary Queries synchronization tasks in the new version of Data Integration, including full-database real-time synchronization tasks, full-database batch synchronization tasks, and single-table real-time synchronization tasks.
  *
- * @description This operation requires DataWorks Basic Edition or a later edition.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request ListDIJobsRequest
  * @return ListDIJobsResponse
@@ -14168,9 +14166,9 @@ ListDataQualityEvaluationTaskInstancesResponse Client::listDataQualityEvaluation
 /**
  * @deprecated OpenAPI ListDataQualityEvaluationTasks is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScans instead.
  *
- * @summary Queries a paginated list of quality monitoring tasks.
+ * @summary Performs a paging query on the data quality monitoring task list.
  *
- * @description You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+ * @description You must purchase DataWorks Basic Edition or later to use this feature.
  *
  * @param request ListDataQualityEvaluationTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14199,9 +14197,9 @@ ListDataQualityEvaluationTasksResponse Client::listDataQualityEvaluationTasksWit
 /**
  * @deprecated OpenAPI ListDataQualityEvaluationTasks is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScans instead.
  *
- * @summary Queries a paginated list of quality monitoring tasks.
+ * @summary Performs a paging query on the data quality monitoring task list.
  *
- * @description You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+ * @description You must purchase DataWorks Basic Edition or later to use this feature.
  *
  * @param request ListDataQualityEvaluationTasksRequest
  * @return ListDataQualityEvaluationTasksResponse
@@ -15066,9 +15064,9 @@ ListDownstreamTaskInstancesResponse Client::listDownstreamTaskInstances(const Li
 }
 
 /**
- * @summary Queries a list of descendant tasks of a task by page.
+ * @summary Retrieves a paginated list of downstream nodes for a specified node.
  *
- * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ * @description DataWorks Basic Edition or later is required.
  *
  * @param request ListDownstreamTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15095,9 +15093,9 @@ ListDownstreamTasksResponse Client::listDownstreamTasksWithOptions(const ListDow
 }
 
 /**
- * @summary Queries a list of descendant tasks of a task by page.
+ * @summary Retrieves a paginated list of downstream nodes for a specified node.
  *
- * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ * @description DataWorks Basic Edition or later is required.
  *
  * @param request ListDownstreamTasksRequest
  * @return ListDownstreamTasksResponse
@@ -16834,9 +16832,9 @@ ListProcessDefinitionsResponse Client::listProcessDefinitions(const ListProcessD
 }
 
 /**
- * @summary Gets a paginated list of workspace member details.
+ * @summary Performs a paging query on the details of workspace members.
  *
- * @description This feature is available in DataWorks Basic Edition and higher.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param tmpReq ListProjectMembersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16893,9 +16891,9 @@ ListProjectMembersResponse Client::listProjectMembersWithOptions(const ListProje
 }
 
 /**
- * @summary Gets a paginated list of workspace member details.
+ * @summary Performs a paging query on the details of workspace members.
  *
- * @description This feature is available in DataWorks Basic Edition and higher.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request ListProjectMembersRequest
  * @return ListProjectMembersResponse
@@ -17922,9 +17920,9 @@ ListSnapshotsResponse Client::listSnapshots(const ListSnapshotsRequest &request)
 }
 
 /**
- * @summary Queries the tables in Data Map. For types that do not support the schema level, this operation queries the tables in a specified database. For types that support the schema level, this operation queries the tables in a specified database, MaxCompute project, or schema. The response contains only basic table information and does not include technical or business metadata. For non-MaxCompute types, the response is not real-time and may be delayed by up to 1 hour compared to the metadata collection results.
+ * @summary Queries a list of data tables in DataWorks Data Map. For data source types that do not support the schema level, this operation queries data tables in a specified database. For data source types that support the schema level, this operation queries data tables in a specified database, MaxCompute project, or schema. The response includes only basic information about the data tables and excludes technical and business metadata. For non-MaxCompute data sources, the response is not real-time and may be delayed by up to one hour compared to the metadata collection results.
  *
- * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this API.
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param tmpReq ListTablesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17957,9 +17955,9 @@ ListTablesResponse Client::listTablesWithOptions(const ListTablesRequest &tmpReq
 }
 
 /**
- * @summary Queries the tables in Data Map. For types that do not support the schema level, this operation queries the tables in a specified database. For types that support the schema level, this operation queries the tables in a specified database, MaxCompute project, or schema. The response contains only basic table information and does not include technical or business metadata. For non-MaxCompute types, the response is not real-time and may be delayed by up to 1 hour compared to the metadata collection results.
+ * @summary Queries a list of data tables in DataWorks Data Map. For data source types that do not support the schema level, this operation queries data tables in a specified database. For data source types that support the schema level, this operation queries data tables in a specified database, MaxCompute project, or schema. The response includes only basic information about the data tables and excludes technical and business metadata. For non-MaxCompute data sources, the response is not real-time and may be delayed by up to one hour compared to the metadata collection results.
  *
- * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this API.
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request ListTablesRequest
  * @return ListTablesResponse
@@ -17970,10 +17968,10 @@ ListTablesResponse Client::listTables(const ListTablesRequest &request) {
 }
 
 /**
- * @summary Retrieves a paginated list of operation logs for a task instance.
+ * @summary Retrieves a paginated list of operation logs for a specified node instance.
  *
- * @description DataWorks Basic Edition or a higher edition is required.
- * Only operation logs generated within the previous 31 days can be queried.
+ * @description You must purchase DataWorks Basic Edition or later to use this API.
+ * You can only query operation logs generated within the past 31 days.
  *
  * @param request ListTaskInstanceOperationLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18000,10 +17998,10 @@ ListTaskInstanceOperationLogsResponse Client::listTaskInstanceOperationLogsWithO
 }
 
 /**
- * @summary Retrieves a paginated list of operation logs for a task instance.
+ * @summary Retrieves a paginated list of operation logs for a specified node instance.
  *
- * @description DataWorks Basic Edition or a higher edition is required.
- * Only operation logs generated within the previous 31 days can be queried.
+ * @description You must purchase DataWorks Basic Edition or later to use this API.
+ * You can only query operation logs generated within the past 31 days.
  *
  * @param request ListTaskInstanceOperationLogsRequest
  * @return ListTaskInstanceOperationLogsResponse
@@ -18620,14 +18618,14 @@ ListWorkflowsResponse Client::listWorkflows(const ListWorkflowsRequest &request)
 }
 
 /**
- * @summary Loads the message history of an existing session and returns it as an SSE stream. If the session does not exist, the server sends a JSONRPCResponse.error with a code of 400 through the SSE stream. The Content-Type is text/event-stream. Use this operation to restore session context.
+ * @summary Loads the historical messages of an existing session and returns them in a Server-Sent Events (SSE) stream. If the session does not exist, a JSONRPCResponse.error with a code of 400 is output through SSE. The Content-Type is text/event-stream. This operation applies to session context restoration scenarios.
  *
- * @description ## Request
- * - This operation retrieves session details and streams the Agent response using Server-Sent Events (SSE).
- * - If the target session does not exist, the operation returns an error frame with an error code of 400.
- * - The response includes information about the Agent\\"s request processing, such as message chunks, thought processes, and tool call status updates.
- * - The `stopReason` field indicates why the Agent stops the current turn. Possible values include reaching the maximum turn limit or being canceled.
- * - The returned content conforms to the Agent Client Protocol (ACP). For more information, see https\\://agentclientprotocol.com.
+ * @description ## Request description
+ * - This operation is used to recover the details of a specified session and return the agent response in a Server-Sent Events (SSE) stream.
+ * - If the target session does not exist, an error frame with an error code of 400 is returned.
+ * - The response contains process information about how the agent handles the request, such as message chunks, reasoning steps, and tool call status updates.
+ * - The stopReason field indicates the reason why the agent stops the current conversation turn. Valid values include but are not limited to reaching the maximum turn limit and being canceled.
+ * - The returned content complies with the open-source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com.
  *
  * @param tmpReq LoadAgentSessionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18686,14 +18684,14 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary Loads the message history of an existing session and returns it as an SSE stream. If the session does not exist, the server sends a JSONRPCResponse.error with a code of 400 through the SSE stream. The Content-Type is text/event-stream. Use this operation to restore session context.
+ * @summary Loads the historical messages of an existing session and returns them in a Server-Sent Events (SSE) stream. If the session does not exist, a JSONRPCResponse.error with a code of 400 is output through SSE. The Content-Type is text/event-stream. This operation applies to session context restoration scenarios.
  *
- * @description ## Request
- * - This operation retrieves session details and streams the Agent response using Server-Sent Events (SSE).
- * - If the target session does not exist, the operation returns an error frame with an error code of 400.
- * - The response includes information about the Agent\\"s request processing, such as message chunks, thought processes, and tool call status updates.
- * - The `stopReason` field indicates why the Agent stops the current turn. Possible values include reaching the maximum turn limit or being canceled.
- * - The returned content conforms to the Agent Client Protocol (ACP). For more information, see https\\://agentclientprotocol.com.
+ * @description ## Request description
+ * - This operation is used to recover the details of a specified session and return the agent response in a Server-Sent Events (SSE) stream.
+ * - If the target session does not exist, an error frame with an error code of 400 is returned.
+ * - The response contains process information about how the agent handles the request, such as message chunks, reasoning steps, and tool call status updates.
+ * - The stopReason field indicates the reason why the agent stops the current conversation turn. Valid values include but are not limited to reaching the maximum turn limit and being canceled.
+ * - The returned content complies with the open-source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com.
  *
  * @param tmpReq LoadAgentSessionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18738,14 +18736,14 @@ LoadAgentSessionResponse Client::loadAgentSessionWithOptions(const LoadAgentSess
 }
 
 /**
- * @summary Loads the message history of an existing session and returns it as an SSE stream. If the session does not exist, the server sends a JSONRPCResponse.error with a code of 400 through the SSE stream. The Content-Type is text/event-stream. Use this operation to restore session context.
+ * @summary Loads the historical messages of an existing session and returns them in a Server-Sent Events (SSE) stream. If the session does not exist, a JSONRPCResponse.error with a code of 400 is output through SSE. The Content-Type is text/event-stream. This operation applies to session context restoration scenarios.
  *
- * @description ## Request
- * - This operation retrieves session details and streams the Agent response using Server-Sent Events (SSE).
- * - If the target session does not exist, the operation returns an error frame with an error code of 400.
- * - The response includes information about the Agent\\"s request processing, such as message chunks, thought processes, and tool call status updates.
- * - The `stopReason` field indicates why the Agent stops the current turn. Possible values include reaching the maximum turn limit or being canceled.
- * - The returned content conforms to the Agent Client Protocol (ACP). For more information, see https\\://agentclientprotocol.com.
+ * @description ## Request description
+ * - This operation is used to recover the details of a specified session and return the agent response in a Server-Sent Events (SSE) stream.
+ * - If the target session does not exist, an error frame with an error code of 400 is returned.
+ * - The response contains process information about how the agent handles the request, such as message chunks, reasoning steps, and tool call status updates.
+ * - The stopReason field indicates the reason why the agent stops the current conversation turn. Valid values include but are not limited to reaching the maximum turn limit and being canceled.
+ * - The returned content complies with the open-source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com.
  *
  * @param request LoadAgentSessionRequest
  * @return LoadAgentSessionResponse
@@ -19002,17 +19000,17 @@ PreviewDatasetVersionResponse Client::previewDatasetVersion(const PreviewDataset
 }
 
 /**
- * @summary Sends a user prompt to an existing session and returns the Agent response in streaming mode.
+ * @summary Sends a user prompt to an existing session and streams the agent response.
  *
- * @description ## Operation description
- * - This API sends a user prompt to a specified session ID and accepts the Agent response in SSE (Server-Sent Events) streaming mode.
- * - The response may include message fragments, thinking procedures, tool calling status updates, and other information.
- * - If the specified session does not exist, a 400 fault is returned through an SSE error frame.
- * - The `stopReason` field indicates why the Agent stopped the current conversation turn.
- * - Multiple types of content blocks are supported as prompt input, such as text and OSS file download links.
- * - You can optionally provide additional meta information `Meta` to pass more context to the server.
- * - The returned content conforms to the open-source Agent Client Protocol (ACP) specification. For more information, visit: https://agentclientprotocol.com
- * - **Before invoking this API, make sure you fully understand the billing methods and pricing of the Data Agent product**: https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing
+ * @description ## Request description
+ * - This API operation sends a user prompt to a specified session ID and accepts the response from the agent in a streaming manner by using Server-Sent Events (SSE).
+ * - The response may include information such as message chunks, thinking procedures, and tool calling status updates.
+ * - If the specified session does not exist, a 400 fault is returned in an SSE fault frame.
+ * - The stopReason field indicates the reason why the agent stopped the current conversation.
+ * - Multiple types of content blocks are supported as prompt inputs, such as text and OSS file download links.
+ * - You can optionally provide additional metadata in the Meta field to pass more context to the server.
+ * - The returned content complies with the open-source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com.
+ * - **Before you invoke this operation, make sure that you fully understand the billing methods and pricing of the Data Agent product**: https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing
  *
  * @param tmpReq PromptAgentSessionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19071,17 +19069,17 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary Sends a user prompt to an existing session and returns the Agent response in streaming mode.
+ * @summary Sends a user prompt to an existing session and streams the agent response.
  *
- * @description ## Operation description
- * - This API sends a user prompt to a specified session ID and accepts the Agent response in SSE (Server-Sent Events) streaming mode.
- * - The response may include message fragments, thinking procedures, tool calling status updates, and other information.
- * - If the specified session does not exist, a 400 fault is returned through an SSE error frame.
- * - The `stopReason` field indicates why the Agent stopped the current conversation turn.
- * - Multiple types of content blocks are supported as prompt input, such as text and OSS file download links.
- * - You can optionally provide additional meta information `Meta` to pass more context to the server.
- * - The returned content conforms to the open-source Agent Client Protocol (ACP) specification. For more information, visit: https://agentclientprotocol.com
- * - **Before invoking this API, make sure you fully understand the billing methods and pricing of the Data Agent product**: https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing
+ * @description ## Request description
+ * - This API operation sends a user prompt to a specified session ID and accepts the response from the agent in a streaming manner by using Server-Sent Events (SSE).
+ * - The response may include information such as message chunks, thinking procedures, and tool calling status updates.
+ * - If the specified session does not exist, a 400 fault is returned in an SSE fault frame.
+ * - The stopReason field indicates the reason why the agent stopped the current conversation.
+ * - Multiple types of content blocks are supported as prompt inputs, such as text and OSS file download links.
+ * - You can optionally provide additional metadata in the Meta field to pass more context to the server.
+ * - The returned content complies with the open-source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com.
+ * - **Before you invoke this operation, make sure that you fully understand the billing methods and pricing of the Data Agent product**: https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing
  *
  * @param tmpReq PromptAgentSessionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19126,17 +19124,17 @@ PromptAgentSessionResponse Client::promptAgentSessionWithOptions(const PromptAge
 }
 
 /**
- * @summary Sends a user prompt to an existing session and returns the Agent response in streaming mode.
+ * @summary Sends a user prompt to an existing session and streams the agent response.
  *
- * @description ## Operation description
- * - This API sends a user prompt to a specified session ID and accepts the Agent response in SSE (Server-Sent Events) streaming mode.
- * - The response may include message fragments, thinking procedures, tool calling status updates, and other information.
- * - If the specified session does not exist, a 400 fault is returned through an SSE error frame.
- * - The `stopReason` field indicates why the Agent stopped the current conversation turn.
- * - Multiple types of content blocks are supported as prompt input, such as text and OSS file download links.
- * - You can optionally provide additional meta information `Meta` to pass more context to the server.
- * - The returned content conforms to the open-source Agent Client Protocol (ACP) specification. For more information, visit: https://agentclientprotocol.com
- * - **Before invoking this API, make sure you fully understand the billing methods and pricing of the Data Agent product**: https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing
+ * @description ## Request description
+ * - This API operation sends a user prompt to a specified session ID and accepts the response from the agent in a streaming manner by using Server-Sent Events (SSE).
+ * - The response may include information such as message chunks, thinking procedures, and tool calling status updates.
+ * - If the specified session does not exist, a 400 fault is returned in an SSE fault frame.
+ * - The stopReason field indicates the reason why the agent stopped the current conversation.
+ * - Multiple types of content blocks are supported as prompt inputs, such as text and OSS file download links.
+ * - You can optionally provide additional metadata in the Meta field to pass more context to the server.
+ * - The returned content complies with the open-source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com.
+ * - **Before you invoke this operation, make sure that you fully understand the billing methods and pricing of the Data Agent product**: https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing
  *
  * @param request PromptAgentSessionRequest
  * @return PromptAgentSessionResponse
@@ -19843,8 +19841,8 @@ RevokeMemberProjectRolesResponse Client::revokeMemberProjectRoles(const RevokeMe
 /**
  * @summary Rolls back an image.
  *
- * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
- * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+ * 2. **Before you call this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks is created.**
  *
  * @param request RollbackImageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19881,8 +19879,8 @@ RollbackImageResponse Client::rollbackImageWithOptions(const RollbackImageReques
 /**
  * @summary Rolls back an image.
  *
- * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
- * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+ * 2. **Before you call this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks is created.**
  *
  * @param request RollbackImageRequest
  * @return RollbackImageResponse
@@ -20547,13 +20545,13 @@ StopServerIdeInstanceResponse Client::stopServerIdeInstance(const StopServerIdeI
 }
 
 /**
- * @summary Stops multiple task instances.
+ * @summary Terminates multiple task instances.
  *
- * @description DataWorks Basic Edition or later is required.
- * Task instance stop mechanism and precautions:
- * 1. Stopping a task instance is an asynchronous operation. Sending a stop request does not mean that the instance stops immediately. Continue to query the instance status after sending the request to confirm the result. If external compute resources are involved, verify the actual status of the remote job.
- * 2. The status of a DataWorks task instance may not match the status of the remote job. For tasks that rely on external compute resources (such as MaxCompute, EMR, and SSH), DataWorks sends a stop request to the remote end through a client. Due to network exceptions, client compatibility, and other factors, a DataWorks task instance may be marked as failed while the remote job is still running. Therefore, you cannot rely solely on the DataWorks task instance status to determine whether the remote job has stopped. Check the status on the corresponding computing platform and manually stop the job if necessary to prevent it from continuing to run or consuming additional resources.
- * 3. Pay special attention to MaxCompute tasks that use shared schedule resource groups. DataWorks shared schedule resource groups will soon be retired. Due to component version and compatibility limits, stop commands for some MaxCompute tasks may not take effect on the remote end. If this occurs, check the actual status of the corresponding instance in MaxCompute. If the instance is still running, perform a kill operation in MaxCompute and verify that it has stopped.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+ * Instance termination mechanism and precautions:
+ * 1. Instance termination is an asynchronous operation. A termination request does not immediately stop the instance. Continue to query the instance status after the request to confirm the termination result. If external compute resources are involved, verify the actual status of the remote job.
+ * 2. The DataWorks instance status may differ from the remote job status. For tasks that depend on external compute resources (such as MaxCompute, EMR, and SSH), DataWorks sends a termination request to the remote end through a client. Due to network exceptions or client compatibility issues, a DataWorks instance may be marked as failed while the remote job is still running. Therefore, do not rely solely on the DataWorks instance status to determine whether the remote job has stopped. Check the corresponding compute platform and manually terminate the job if necessary to prevent it from continuing to run or consuming extra resources.
+ * 3. Pay special attention to MaxCompute tasks that use shared resource groups for scheduling. DataWorks shared resource groups for scheduling will soon be retired. Due to component version and compatibility limits, termination commands for some MaxCompute tasks may not take effect on the remote end. If this occurs, check the actual status of the corresponding instance in MaxCompute. If the instance is still running, run a kill command in MaxCompute and verify that the instance has stopped.
  *
  * @param tmpReq StopTaskInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20594,13 +20592,13 @@ StopTaskInstancesResponse Client::stopTaskInstancesWithOptions(const StopTaskIns
 }
 
 /**
- * @summary Stops multiple task instances.
+ * @summary Terminates multiple task instances.
  *
- * @description DataWorks Basic Edition or later is required.
- * Task instance stop mechanism and precautions:
- * 1. Stopping a task instance is an asynchronous operation. Sending a stop request does not mean that the instance stops immediately. Continue to query the instance status after sending the request to confirm the result. If external compute resources are involved, verify the actual status of the remote job.
- * 2. The status of a DataWorks task instance may not match the status of the remote job. For tasks that rely on external compute resources (such as MaxCompute, EMR, and SSH), DataWorks sends a stop request to the remote end through a client. Due to network exceptions, client compatibility, and other factors, a DataWorks task instance may be marked as failed while the remote job is still running. Therefore, you cannot rely solely on the DataWorks task instance status to determine whether the remote job has stopped. Check the status on the corresponding computing platform and manually stop the job if necessary to prevent it from continuing to run or consuming additional resources.
- * 3. Pay special attention to MaxCompute tasks that use shared schedule resource groups. DataWorks shared schedule resource groups will soon be retired. Due to component version and compatibility limits, stop commands for some MaxCompute tasks may not take effect on the remote end. If this occurs, check the actual status of the corresponding instance in MaxCompute. If the instance is still running, perform a kill operation in MaxCompute and verify that it has stopped.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+ * Instance termination mechanism and precautions:
+ * 1. Instance termination is an asynchronous operation. A termination request does not immediately stop the instance. Continue to query the instance status after the request to confirm the termination result. If external compute resources are involved, verify the actual status of the remote job.
+ * 2. The DataWorks instance status may differ from the remote job status. For tasks that depend on external compute resources (such as MaxCompute, EMR, and SSH), DataWorks sends a termination request to the remote end through a client. Due to network exceptions or client compatibility issues, a DataWorks instance may be marked as failed while the remote job is still running. Therefore, do not rely solely on the DataWorks instance status to determine whether the remote job has stopped. Check the corresponding compute platform and manually terminate the job if necessary to prevent it from continuing to run or consuming extra resources.
+ * 3. Pay special attention to MaxCompute tasks that use shared resource groups for scheduling. DataWorks shared resource groups for scheduling will soon be retired. Due to component version and compatibility limits, termination commands for some MaxCompute tasks may not take effect on the remote end. If this occurs, check the actual status of the corresponding instance in MaxCompute. If the instance is still running, run a kill command in MaxCompute and verify that the instance has stopped.
  *
  * @param request StopTaskInstancesRequest
  * @return StopTaskInstancesResponse
@@ -20611,9 +20609,9 @@ StopTaskInstancesResponse Client::stopTaskInstances(const StopTaskInstancesReque
 }
 
 /**
- * @summary Terminates multiple workflow instances in batches.
+ * @summary Terminates multiple workflow instances.
  *
- * @description You must purchase DataWorks Basic Edition or later to use this feature.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param tmpReq StopWorkflowInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20654,9 +20652,9 @@ StopWorkflowInstancesResponse Client::stopWorkflowInstancesWithOptions(const Sto
 }
 
 /**
- * @summary Terminates multiple workflow instances in batches.
+ * @summary Terminates multiple workflow instances.
  *
- * @description You must purchase DataWorks Basic Edition or later to use this feature.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request StopWorkflowInstancesRequest
  * @return StopWorkflowInstancesResponse
@@ -20781,7 +20779,7 @@ SubmitFileResponse Client::submitFile(const SubmitFileRequest &request) {
 }
 
 /**
- * @summary Suspends multiple instances at a time.
+ * @summary Pauses multiple task instances.
  *
  * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
@@ -20824,7 +20822,7 @@ SuspendTaskInstancesResponse Client::suspendTaskInstancesWithOptions(const Suspe
 }
 
 /**
- * @summary Suspends multiple instances at a time.
+ * @summary Pauses multiple task instances.
  *
  * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
@@ -21099,9 +21097,9 @@ UnTagDataAssetsResponse Client::unTagDataAssets(const UnTagDataAssetsRequest &re
 }
 
 /**
- * @summary 修改Agent会话标题
+ * @summary Modifies the title of an agent session accessible by the current identity without changing the task execution status.
  *
- * @description 修改当前身份可访问的 Agent 会话标题，不改变任务执行状态。
+ * @description Modifies the title of an agent session accessible by the current identity without changing the task execution status.
  *
  * @param tmpReq UpdateAgentSessionTitleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21146,9 +21144,9 @@ UpdateAgentSessionTitleResponse Client::updateAgentSessionTitleWithOptions(const
 }
 
 /**
- * @summary 修改Agent会话标题
+ * @summary Modifies the title of an agent session accessible by the current identity without changing the task execution status.
  *
- * @description 修改当前身份可访问的 Agent 会话标题，不改变任务执行状态。
+ * @description Modifies the title of an agent session accessible by the current identity without changing the task execution status.
  *
  * @param request UpdateAgentSessionTitleRequest
  * @return UpdateAgentSessionTitleResponse

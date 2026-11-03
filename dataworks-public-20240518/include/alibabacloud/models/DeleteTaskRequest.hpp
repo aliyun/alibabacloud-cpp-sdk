@@ -48,17 +48,11 @@ namespace Models
 
 
   protected:
-    // The task ID.
+    // The ID of the task.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // The environment of the workspace.
-    // 
-    // Valid values:
-    // 
-    // - Prod: production environment
-    // 
-    // - Dev: development environment
+    // The project environment.
     shared_ptr<string> projectEnv_ {};
   };
 

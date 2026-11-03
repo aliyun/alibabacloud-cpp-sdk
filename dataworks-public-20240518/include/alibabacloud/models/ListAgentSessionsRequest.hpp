@@ -131,21 +131,23 @@ namespace Models
 
 
     protected:
-      // **Agent name** for exact filtering. At least one of this parameter and `SessionSourceList` must be specified.
+      // The exact filter for the **agent name**. You must specify at least one of this parameter and SessionSourceList.
       shared_ptr<string> agentName_ {};
-      // true仅返回归档会话；false或省略仅返回未归档会话。
+      // Specifies whether to return only archived sessions. Valid values:
+      // - true: Only archived sessions are returned.
+      // - false or not specified: Only unarchived sessions are returned.
       shared_ptr<bool> archived_ {};
       // The number of entries per page. Default value: 50.
       shared_ptr<int32_t> maxResults_ {};
       // The token for the next page. Set this parameter to 1 for the first page.
       shared_ptr<string> nextToken_ {};
-      // The session ID for exact matching.
+      // The exact match for the session ID.
       shared_ptr<string> sessionId_ {};
-      // **Session source list** for filtering. At least one of this parameter and `AgentName` must be specified.
+      // The filter for the **session source list**. You must specify at least one of this parameter and AgentName.
       shared_ptr<vector<string>> sessionSourceList_ {};
-      // The session title for fuzzy match filtering.
+      // The fuzzy filter for the session title.
       shared_ptr<string> sessionTitle_ {};
-      // The list of session tag codes for filtering.
+      // The filter for the session tag code list.
       shared_ptr<vector<string>> tagList_ {};
     };
 
@@ -175,9 +177,9 @@ namespace Models
 
 
   protected:
-    // The ID passed in by the requester. The value is returned as-is.
+    // The ID passed by the requester, which is returned as is.
     shared_ptr<string> id_ {};
-    // The JSON-RPC version. Fixed value: 2.0.
+    // The JSON-RPC version. Fixed to 2.0.
     shared_ptr<string> jsonrpc_ {};
     // The business parameters.
     shared_ptr<ListAgentSessionsRequest::Params> params_ {};

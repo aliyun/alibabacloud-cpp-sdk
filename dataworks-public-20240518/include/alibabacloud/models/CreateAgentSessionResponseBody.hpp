@@ -86,7 +86,7 @@ namespace Models
 
 
       protected:
-        // The ID of the created session.
+        // The ID of the newly created session.
         shared_ptr<string> sessionId_ {};
       };
 
@@ -148,9 +148,13 @@ namespace Models
 
 
       protected:
+        // The JSON-RPC error code.
         shared_ptr<int32_t> code_ {};
+        // The optional additional error information. The content depends on the error type.
         Darabonba::Json data_ {};
+        // The business error code.
         shared_ptr<string> errorCode_ {};
+        // The error message.
         shared_ptr<string> message_ {};
       };
 
@@ -196,13 +200,15 @@ namespace Models
 
 
     protected:
+      // The JSON-RPC error message. This field is not returned if the request is successful.
       shared_ptr<JsonRpcResponse::Error> error_ {};
-      // The request ID passed by the caller. The value is returned as-is.
+      // The ID passed by the requester. The value is returned as is.
       shared_ptr<string> id_ {};
-      // The JSON-RPC version. Fixed value: 2.0.
+      // The JSON-RPC version. This value is always 2.0.
       shared_ptr<string> jsonrpc_ {};
       // The business data. The value is null if an error occurs.
       shared_ptr<JsonRpcResponse::Result> result_ {};
+      // The response time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> timestamp_ {};
     };
 

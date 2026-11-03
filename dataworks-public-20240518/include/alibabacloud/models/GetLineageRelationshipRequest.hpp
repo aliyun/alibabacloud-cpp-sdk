@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the lineage relationship. You can obtain this value from the response of the ListLineageRelationships operation.
+    // The ID of the lineage relationship. You can obtain this ID from the response of the ListLineageRelationships operation.
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};

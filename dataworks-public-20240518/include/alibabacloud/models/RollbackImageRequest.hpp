@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};
-    // The image version to roll back to.
+    // The image version to roll back.
     // 
     // This parameter is required.
     shared_ptr<string> imageVersion_ {};

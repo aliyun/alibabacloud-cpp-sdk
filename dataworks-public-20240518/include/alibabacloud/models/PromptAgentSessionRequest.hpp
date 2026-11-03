@@ -120,7 +120,7 @@ namespace Models
 
 
         protected:
-          // Specifies whether to hide this prompt from the user. For example, in a chat dialog box, the user asks a question such as "Sales amount in the last 7 days". Before calling the OpenAPI, the calling system retrieves some business domain knowledge through RAG that needs to be added to the Agent context but should not be displayed to the user. In this case, set this value to true.
+          // Specifies whether to hide the prompt from the user. For example, if a user asks a question in the chat dialog box, such as "Sales amount in the last 7 days", and the calling system retrieves some business domain knowledge through RAG before calling the API operation, the knowledge needs to be added to the agent context but not displayed to the user. In this case, you can set this parameter to true.
           shared_ptr<bool> hide_ {};
         };
 
@@ -195,19 +195,21 @@ namespace Models
       protected:
         // The file description.
         shared_ptr<string> description_ {};
-        // The DataWorks extended prompt meta information.
+        // The DataWorks extended prompt metadata.
         shared_ptr<Prompt::Meta> meta_ {};
         // The MIME type of the file.
         shared_ptr<string> mimeType_ {};
         // The file name.
         shared_ptr<string> name_ {};
         // The size of the file. Unit: bytes.
+        // 
+        // Valid only when Type is set to resource_link.
         shared_ptr<int64_t> size_ {};
-        // **The text content.**
+        // **Text content**
         shared_ptr<string> text_ {};
-        // The title of the file.
+        // The file title.
         shared_ptr<string> title_ {};
-        // **The content block type.**
+        // **Content block type**
         shared_ptr<string> type_ {};
         // The URI of the file.
         shared_ptr<string> uri_ {};
@@ -243,7 +245,7 @@ namespace Models
 
 
       protected:
-        // A Map type. In custom Agent scenarios, some placeholder parameters can be replaced through this value.
+        // The map-type context. In custom agent scenarios, you can use this value to replace specific placeholder parameters.
         Darabonba::Json context_ {};
       };
 
@@ -275,12 +277,12 @@ namespace Models
 
 
     protected:
-      // The extended meta information.
-      // >Notice: If the Agent bound to the specified session is named dataworks_ai_assistant_agent (AI Assistant Service), provide the instance ID of the AI Assistant Service in the Context.agent.instanceId field of the extended meta information.
+      // The extended metadata.
+      // >Notice: If the name of the agent bound to the specified session is dataworks_ai_assistant_agent (AI Assistant), you must provide the instance ID of the AI Assistant in the Context.agent.instanceId field of the extended metadata.</notice>
       shared_ptr<Params::Meta> meta_ {};
-      // The array of user message content blocks. For more information, visit: https://agentclientprotocol.com/protocol/content.
+      // The array of user message content blocks. For more information, see https://agentclientprotocol.com/protocol/content.
       shared_ptr<vector<Params::Prompt>> prompt_ {};
-      // The target session ID. If the session does not exist, an SSE error frame is returned.
+      // The ID of the target session. If the session does not exist, an SSE error frame is returned.
       shared_ptr<string> sessionId_ {};
     };
 
@@ -310,9 +312,9 @@ namespace Models
 
 
   protected:
-    // The ID passed by the requester. The value is returned as-is.
+    // The ID passed by the requester. The value is returned as is.
     shared_ptr<string> id_ {};
-    // The JSON-RPC version. Fixed value: 2.0.
+    // The JSON-RPC version. Set the value to 2.0.
     shared_ptr<string> jsonrpc_ {};
     // The business parameters.
     shared_ptr<PromptAgentSessionRequest::Params> params_ {};

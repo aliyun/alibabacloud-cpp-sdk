@@ -112,7 +112,7 @@ namespace Models
 
 
       protected:
-        // The error message returned when the table transfer fails.
+        // The error message returned when the table fails to be transferred.
         shared_ptr<string> errorMessage_ {};
         // The transfer status of the table.
         shared_ptr<string> status_ {};
@@ -175,17 +175,17 @@ namespace Models
 
 
     protected:
-      // The batch transfer task ID.
+      // The ID of the batch transfer task.
       shared_ptr<string> batchId_ {};
       // The transfer result details for each table.
       shared_ptr<vector<Data::Details>> details_ {};
-      // The number of tables that failed to transfer.
+      // The number of tables that fail to be transferred.
       shared_ptr<int32_t> failedCount_ {};
       // The number of tables that are still being processed.
       shared_ptr<int32_t> ongoingCount_ {};
       // The overall status of the task.
       shared_ptr<string> status_ {};
-      // The number of tables that were successfully transferred.
+      // The number of tables that are successfully transferred.
       shared_ptr<int32_t> successCount_ {};
       // The total number of tables in the batch.
       shared_ptr<int32_t> totalCount_ {};
@@ -221,7 +221,7 @@ namespace Models
     shared_ptr<GetBatchChangeTableOwnerStatusResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

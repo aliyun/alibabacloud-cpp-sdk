@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // This field is deprecated. Use the `Id` field instead.
+    // **[Deprecated]** This field is deprecated. Use the Id field instead.
     shared_ptr<int64_t> DIJobId_ {};
-    // The ID of the DI job.
+    // The instance ID.
     shared_ptr<int64_t> id_ {};
-    // The DataWorks workspace ID. You can call the `ListProjects` operation to obtain the workspace ID.
+    // The DataWorks workspace ID. You can call the ListProjects operation to obtain the workspace ID.
     shared_ptr<int64_t> projectId_ {};
-    // Specifies whether to return the detailed configuration, including `TransformationRules`, `TableMappings`, and `JobSettings`. This configuration is returned by default.
+    // Specifies whether to return detailed configuration information, which includes TransformationRules, TableMappings, and JobSettings. Default value: true.
     shared_ptr<bool> withDetails_ {};
   };
 

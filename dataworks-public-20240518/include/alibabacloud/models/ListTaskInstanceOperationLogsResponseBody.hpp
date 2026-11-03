@@ -122,15 +122,17 @@ namespace Models
 
 
       protected:
-        // The time when the operation log was generated.
+        // The generation time of Operation logs.
+        // 
+        // The format is a 13-digit number, such as `1710239005403`.
         shared_ptr<int64_t> createTime_ {};
-        // The operation content.
+        // The content of the operation.
         shared_ptr<string> operationContent_ {};
-        // The serial number of the operation.
+        // The sequence number of the operation.
         shared_ptr<int64_t> operationSeq_ {};
-        // The ID of the instance on which the operation was performed.
+        // The ID of the node instance on which the operation was performed.
         shared_ptr<int64_t> taskInstanceId_ {};
-        // The account ID of the operator.
+        // The account ID of the user who performed the operation.
         shared_ptr<string> user_ {};
       };
 
@@ -167,7 +169,7 @@ namespace Models
 
 
     protected:
-      // The operation logs.
+      // The list of operation logs.
       shared_ptr<vector<PagingInfo::OperationLogs>> operationLogs_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
@@ -198,7 +200,7 @@ namespace Models
   protected:
     // The pagination information.
     shared_ptr<ListTaskInstanceOperationLogsResponseBody::PagingInfo> pagingInfo_ {};
-    // The request ID. You can locate logs and troubleshoot issues based on the ID.
+    // The ID of the request. You can use the ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

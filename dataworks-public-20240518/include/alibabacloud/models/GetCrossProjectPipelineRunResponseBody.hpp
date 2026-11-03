@@ -227,13 +227,13 @@ namespace Models
 
 
     protected:
-      // The termination time. This value is a UNIX timestamp in milliseconds. This parameter is returned only after the flow is terminated.
+      // The termination time. The value is a UNIX timestamp in milliseconds. This parameter is returned only after the pipeline run is terminated.
       shared_ptr<int64_t> abolishTime_ {};
-      // The user who terminated the flow.
+      // The user who terminated the pipeline run.
       shared_ptr<string> abolisher_ {};
       // The change type.
       shared_ptr<string> changeType_ {};
-      // The creation time. This value is a UNIX timestamp in milliseconds.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The creator.
       shared_ptr<string> creator_ {};
@@ -245,11 +245,11 @@ namespace Models
       shared_ptr<string> errorCode_ {};
       // The error message.
       shared_ptr<string> errorMessage_ {};
-      // The execution time. This value is a UNIX timestamp in milliseconds.
+      // The execution time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> executeTime_ {};
       // The executor.
       shared_ptr<string> executor_ {};
-      // The completion time. This value is a UNIX timestamp in milliseconds.
+      // The completion time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> finishTime_ {};
       // The ID of the deployment object.
       shared_ptr<string> objectId_ {};
@@ -259,17 +259,11 @@ namespace Models
       shared_ptr<string> objectType_ {};
       // The version of the deployment object.
       shared_ptr<string> objectVersion_ {};
-      // The cross-workspace deployment flow ID.
+      // The cross-workspace deployment pipeline run ID.
       shared_ptr<string> pipelineRunId_ {};
       // The request ID.
       shared_ptr<string> requestId_ {};
-      // The status of the deployment flow. Valid values:
-      // - Building: Building.
-      // - Ready: Ready and waiting for execution.
-      // - Running: Running.
-      // - Termination: Terminated.
-      // - Success: Execution succeeded.
-      // - Fail: Execution failed.
+      // The status of the deployment pipeline run.
       shared_ptr<string> status_ {};
     };
 
@@ -301,9 +295,9 @@ namespace Models
   protected:
     // The business response.
     shared_ptr<GetCrossProjectPipelineRunResponseBody::Data> data_ {};
-    // The request ID, which is used to locate and troubleshoot this API call.
+    // The request ID, which is used to locate and troubleshoot the current API call.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

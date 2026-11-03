@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The operation date, accurate to the day. The default value is the current day. You can query only the operation logs generated within the previous 31 days. This value is a UNIX timestamp.
+    // The date of the operation, accurate to the day. The default value is the current day. You can query operation logs from the past 31 days. Specify the value as a timestamp.
     shared_ptr<int64_t> date_ {};
-    // The instance ID.
+    // The node instance ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};

@@ -131,15 +131,15 @@ namespace Models
 
 
         protected:
-          // The code of the role.
+          // The code of the workspace role.
           shared_ptr<string> code_ {};
-          // The name of the role.
+          // The name of the workspace role.
           shared_ptr<string> name_ {};
-          // The type of the role.
+          // The type of the workspace role. Valid values:
           // 
-          // - `UserCustom`: A user-defined role.
+          // - UserCustom: Custom role.
           // 
-          // - `System`: A system role.
+          // - System: System role.
           shared_ptr<string> type_ {};
         };
 
@@ -183,19 +183,19 @@ namespace Models
 
 
       protected:
-        // The ID of the DataWorks Workspace.
+        // The ID of the DataWorks workspace.
         shared_ptr<int64_t> projectId_ {};
-        // The roles assigned to the Workspace member.
+        // The list of workspace roles assigned to the workspace member.
         shared_ptr<vector<ProjectMembers::Roles>> roles_ {};
-        // The status of the Workspace member.
+        // The status of the workspace member. Valid values:
         // 
-        // - `Normal`: The member is active.
+        // - Normal: Normal.
         // 
-        // - `Forbidden`: The member is disabled.
+        // - Forbidden: Disabled.
         shared_ptr<string> status_ {};
-        // The ID of the DataWorks user.
+        // The DataWorks account ID.
         shared_ptr<string> userId_ {};
-        // The name of the DataWorks user.
+        // The cloud account name of the member.
         shared_ptr<string> userName_ {};
       };
 
@@ -232,13 +232,13 @@ namespace Models
 
 
     protected:
-      // The page number.
+      // The page number of the requested data.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries to return on each page.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The list of Workspace members.
+      // The list of workspace members.
       shared_ptr<vector<PagingInfo::ProjectMembers>> projectMembers_ {};
-      // The total number of matching entries.
+      // The total number of entries that meet the conditions.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -261,9 +261,9 @@ namespace Models
 
 
   protected:
-    // The paging information.
+    // The pagination information.
     shared_ptr<ListProjectMembersResponseBody::PagingInfo> pagingInfo_ {};
-    // The unique ID of the request, used to track logs and troubleshoot issues.
+    // The request ID. You can use the ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

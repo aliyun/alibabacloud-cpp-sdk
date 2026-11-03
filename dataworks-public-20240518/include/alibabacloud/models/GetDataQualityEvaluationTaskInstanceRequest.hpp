@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The instance ID of the data quality monitoring task.
+    // The data quality monitoring instance ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};

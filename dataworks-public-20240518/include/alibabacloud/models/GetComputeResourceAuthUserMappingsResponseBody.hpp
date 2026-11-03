@@ -93,9 +93,9 @@ namespace Models
 
 
       protected:
-        // The Alibaba Cloud UID.
+        // The Alibaba Cloud user ID.
         shared_ptr<string> userId_ {};
-        // The username in the target system, such as an LDAP account.
+        // The username in the destination system, such as an LDAP account.
         shared_ptr<string> username_ {};
       };
 
@@ -154,7 +154,7 @@ namespace Models
     shared_ptr<GetComputeResourceAuthUserMappingsResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -149,23 +149,26 @@ namespace Models
 
 
   protected:
-    // The list of child agents that can be called by this agent.
+    // The list of sub-agents that can be called by this agent.
     shared_ptr<string> callableAgentsShrink_ {};
     // The description of the agent.
     shared_ptr<string> description_ {};
     // The display name of the agent.
     shared_ptr<string> displayName_ {};
-    // Agent 绑定的已发布专家套件。个人或企业套件使用 SuiteId，可选 Version；官方套件必须显式指定 Source=OFFICIAL 和官方目录中的 SuiteId，不传 Version。未传时创建为空，不会默认加载所有官方套件。
+    // The released expert suites bound to the agent. For personal or enterprise suites, use SuiteId and optionally specify a fixed Version or VersionSelector. For official suites, you must explicitly set Source to OFFICIAL and specify the SuiteId from the official catalog. Do not specify Version or VersionSelector. If this parameter is not specified, an empty list is created, and official suites are not loaded by default.
     shared_ptr<string> expertSuitesShrink_ {};
-    // The extended metadata in key-value pairs.
+    // The extended metadata as key-value pairs.
     shared_ptr<string> metadataShrink_ {};
     // The model configuration.
     shared_ptr<string> modelShrink_ {};
-    // The name of the agent. The name must be unique within the current account.
+    // The name of the agent. It must be unique within the current account.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // 是否在创建 Agent 后立即发布。true 发布创建的版本；false 或省略保持原有仅创建草稿行为。保存与发布不是原子操作，发布失败时草稿可能已存在；重试前应先查询 Agent，避免重复创建。
+    // Specifies whether to publish the agent immediately after creation. Valid values:
+    // - true: Publishes the created version.
+    // - false or omitted: Retains the original behavior of creating a draft only.
+    // Saving and publishing are not atomic operations. If publishing fails, the draft may already exist. Query the agent before retrying to avoid duplicate creation.
     shared_ptr<bool> publishImmediately_ {};
     // The list of skills.
     shared_ptr<string> skillsShrink_ {};
@@ -173,12 +176,12 @@ namespace Models
     shared_ptr<string> systemPrompt_ {};
     // The list of tools.
     shared_ptr<string> toolsShrink_ {};
-    // The visibility level.<br>
+    // The visibility level. Valid values:<br>
     // `TENANT`: Visible within the account.<br>
     // `PROJECT`: Visible to specified projects.<br>
     // `USER`: Visible to specified users.
     shared_ptr<string> visibility_ {};
-    // The visibility scope. The corresponding field is used based on the visibility level.
+    // The visibility scope. The corresponding fields are used based on the Visibility parameter.
     shared_ptr<string> visibilityScopeShrink_ {};
   };
 

@@ -160,24 +160,22 @@ namespace Models
 
 
         protected:
-          // The exec mode. Valid values:
-          // 
-          // 
-          // 
-          // 
-          // - chat: Conversation mode only. Suitable for simple data queries and Q&amp;A scenarios. Advantages: fast response and low token consumption. Disadvantages: cannot handle complex problems.
-          // - cli: Sandbox mode. Suitable for complex data analytics, data processing, and code writing scenarios. Advantages: can handle complex problems, and the model autonomously performs analysis and problem resolution. Disadvantages: slower processing speed and higher token consumption compared to the conversation mode.
+          // The execution mode. Valid values:
+          // * chat: conversation mode only. This mode is suitable for simple scenarios such as data querying and Q&A. It is fast and consumes fewer tokens, but cannot handle complex problems.
+          // * cli: sandbox mode. This mode is suitable for complex scenarios such as data analytics, data processing, and code writing. It can handle complex problems and allows the model to independently analyze and process problems. However, it is slower and consumes more tokens than conversation mode.
           shared_ptr<string> executionLane_ {};
           // The authorization mode for script execution. OpenAPI currently supports only the yolo mode. Valid values:
-          // * yolo: Automatic authorization. No manual intervention is required, and the model processes tasks automatically.
+          // * yolo: automatic authorization. No manual intervention is required, and the model can process tasks automatically.
           shared_ptr<string> mode_ {};
+          // The model ID. Use the full model identifier supported by the target environment. If this parameter is omitted, the default model is used. If this parameter is specified, the server verifies its availability and applies it before the session is created.
           shared_ptr<string> model_ {};
-          // The DataWorks workspace ID. Used to initialize the session project context. If omitted, the session is treated as having no project context. You can later correct or switch the project context by using PromptAgentSession.
+          // The DataWorks workspace ID. This parameter is used to initialize the project context of the session. If this parameter is omitted, the session is processed without a project context. You can subsequently correct or switch the project context by using PromptAgentSession.
           shared_ptr<string> projectId_ {};
+          // The reasoning effort configuration. The value must be supported by the target model. A value of none disables reasoning, and a value of default uses the default configuration of the model. If an unsupported value is specified or the configuration application has failed, the session creation is marked as failed. If this parameter is omitted, the existing reasoning effort configuration is not modified. A successful configuration updates the default value of the daemon workspace and affects not only the current request.
           shared_ptr<string> reasoningEffort_ {};
           // The ID of the resource group used for initialization.
           shared_ptr<string> resourceGroupId_ {};
-          // The names of custom skills to load. Separate multiple skill names with commas (,).
+          // The names of the custom skills to be loaded. Separate multiple names with commas (,).
           shared_ptr<string> skills_ {};
         };
 
@@ -230,7 +228,7 @@ namespace Models
 
 
           protected:
-            // The session tag. You can filter sessions by tag. For example, if you use a fixed RAM user to call the OpenAPI but your system has its own account system, you can pass the account ID of your system as this tag to filter the session list by account ID. The value can be up to 128 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+            // The session tag. You can filter sessions based on session tags. For example, if a fixed RAM user is used to call an API operation but the calling system has its own account system, you need to filter the session list based on the account ID. In this case, you can pass the account ID of the calling system as the session tag. The value can be up to 128 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
             shared_ptr<string> sessionTagCode_ {};
           };
 
@@ -253,9 +251,9 @@ namespace Models
 
 
         protected:
-          // The session source identifier, which facilitates retrieval by source. For example, if an agent is used on both Page A and Page B, and you want Page A to display only sessions created on Page A, you can filter by this parameter. The value can be up to 128 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+          // The session source identifier, which facilitates retrieval by source. For example, if an agent is used on both Page A and Page B, and you want to display only sessions created on Page A, you can filter sessions based on this parameter. The value can be up to 128 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
           shared_ptr<string> sessionSource_ {};
-          // The list of session tags. You can use session tags for search and filtering.
+          // The list of session tags. You can search and filter sessions based on session tags.
           shared_ptr<vector<Config::SessionTags>> sessionTags_ {};
         };
 
@@ -287,10 +285,10 @@ namespace Models
 
 
         protected:
-          // The name of the agent to bind to the session. This parameter is required. Valid values:
-          // * dataworks_data_agent: DataWorks built-in agent — Data Agent. Provides intelligent data development AI capabilities that cover the entire workflow of data integration, development, O&M, governance, and analytics.
-          // * dataworks_chatbi_agent: DataWorks built-in agent — ChatBI. Uses natural language processing and intelligent analytics to automate the entire analysis workflow through conversational interaction, from requirement parsing, data extraction, and automatic code generation to visual report output.
-          // * dataworks_ai_assistant_agent: DataWorks built-in agent — AI Assistant Service. An enterprise-grade dedicated AI assistant for DataWorks built on open source frameworks such as OpenClaw and Hermes Agent.
+          // The name of the agent bound to the session. This parameter is required. Valid values:
+          // * dataworks_data_agent: DataWorks built-in agent - Data Agent. It provides AI capabilities for the entire data development lifecycle, including data integration, development, O&M, governance, and analysis.
+          // * dataworks_chatbi_agent: DataWorks built-in agent - ChatBI. Based on natural language processing and intelligent analysis technologies, it automates the entire analysis process from requirement parsing, data extraction, and automatic code generation to visual report output through conversational interaction.
+          // * dataworks_ai_assistant_agent: DataWorks built-in agent - AI Assistant. An enterprise-grade AI assistant for DataWorks built on open-source frameworks such as OpenClaw and Hermes Agent.
           shared_ptr<string> agentName_ {};
         };
 
@@ -324,9 +322,9 @@ namespace Models
 
 
       protected:
-        // The agent configuration for this session. Valid values are those returned by the ListAgents operation.
+        // The agent configuration for the session. Valid values are the results returned by the ListAgents operation.
         shared_ptr<Meta::Agent> agent_ {};
-        // The session parameter settings, such as filtering parameter settings based on session source and session tags.
+        // The session parameter settings, such as filter parameter settings based on the session source and session tags.
         shared_ptr<Meta::Config> config_ {};
         // The advanced parameter settings for the agent execution environment.
         shared_ptr<Meta::InitialConfigOptions> initialConfigOptions_ {};
@@ -343,7 +341,7 @@ namespace Models
 
 
     protected:
-      // The extended metadata that carries agent binding, session source, tags, and other information.
+      // The extended metadata that carries agent binding, session source, and tags.
       shared_ptr<Params::Meta> meta_ {};
     };
 
@@ -373,9 +371,9 @@ namespace Models
 
 
   protected:
-    // The request ID passed by the caller. The value is returned as-is.
+    // The ID passed by the requester. The value is returned as is.
     shared_ptr<string> id_ {};
-    // The JSON-RPC version. Fixed value: 2.0.
+    // The JSON-RPC version. This value is always 2.0.
     shared_ptr<string> jsonrpc_ {};
     // The business parameters.
     shared_ptr<CreateAgentSessionRequest::Params> params_ {};

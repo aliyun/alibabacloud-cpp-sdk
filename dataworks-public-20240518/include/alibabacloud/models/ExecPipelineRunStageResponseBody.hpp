@@ -48,20 +48,12 @@ namespace Models
 
 
   protected:
-    // The request ID. Used for locating logs and troubleshooting issues.
+    // The ID of the request. You can use the ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. Valid values:
-    // 
-    // 
-    // 
-    // 
-    // - true: The call is successful.
+    // Indicates whether the call was successful. Valid values:
+    // - true: The call was successful.
     // - false: The call failed.
-    // 
-    // 
-    // 
-    // 
-    // > &lt;notice&gt;This only indicates whether the stage is triggered, not the execution result of the deployment stage.&gt;&lt;/notice&gt;
+    // >Notice: This value only indicates whether the stage execution was successfully triggered, not the execution result of the deployment stage.
     shared_ptr<bool> success_ {};
   };
 

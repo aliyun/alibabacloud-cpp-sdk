@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The cross-workspace deployment flow ID.
+    // The cross-workspace deployment pipeline run ID.
     // 
     // This parameter is required.
     shared_ptr<string> pipelineRunId_ {};

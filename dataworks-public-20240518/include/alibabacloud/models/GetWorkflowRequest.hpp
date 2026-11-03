@@ -48,13 +48,9 @@ namespace Models
 
 
   protected:
-    // The environment of the workspace. Valid values:
-    // 
-    // - Prod: production environment
-    // 
-    // - Dev: development environment
+    // The project environment.
     shared_ptr<string> envType_ {};
-    // The workflow ID.
+    // The unique identifier of the workflow.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};

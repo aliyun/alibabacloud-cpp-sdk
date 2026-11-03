@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The JSON-RPC correlation ID for the current request. It is specified by the caller and used to correlate the request and response.
     shared_ptr<string> id_ {};
+    // The JSON-RPC protocol version. Set the value to 2.0.
     shared_ptr<string> jsonrpc_ {};
+    // The request parameters for modifying the session title, including the target session ID and the new title.
     shared_ptr<string> paramsShrink_ {};
   };
 
