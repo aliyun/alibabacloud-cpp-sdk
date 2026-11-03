@@ -14,15 +14,19 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListVoicesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(Model, model_);
       DARABONBA_PTR_TO_JSON(NlsAccessType, nlsAccessType_);
       DARABONBA_PTR_TO_JSON(NlsEngine, nlsEngine_);
+      DARABONBA_PTR_TO_JSON(OmniModel, omniModel_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
     };
     friend void from_json(const Darabonba::Json& j, ListVoicesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(Model, model_);
       DARABONBA_PTR_FROM_JSON(NlsAccessType, nlsAccessType_);
       DARABONBA_PTR_FROM_JSON(NlsEngine, nlsEngine_);
+      DARABONBA_PTR_FROM_JSON(OmniModel, omniModel_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
     };
@@ -38,12 +42,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && this->nlsAccessType_ == nullptr && this->nlsEngine_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr; };
+        && this->model_ == nullptr && this->nlsAccessType_ == nullptr && this->nlsEngine_ == nullptr && this->omniModel_ == nullptr && this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
     inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ListVoicesRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+    // model Field Functions 
+    bool hasModel() const { return this->model_ != nullptr;};
+    void deleteModel() { this->model_ = nullptr;};
+    inline string getModel() const { DARABONBA_PTR_GET_DEFAULT(model_, "") };
+    inline ListVoicesRequest& setModel(string model) { DARABONBA_PTR_SET_VALUE(model_, model) };
 
 
     // nlsAccessType Field Functions 
@@ -58,6 +70,13 @@ namespace Models
     void deleteNlsEngine() { this->nlsEngine_ = nullptr;};
     inline string getNlsEngine() const { DARABONBA_PTR_GET_DEFAULT(nlsEngine_, "") };
     inline ListVoicesRequest& setNlsEngine(string nlsEngine) { DARABONBA_PTR_SET_VALUE(nlsEngine_, nlsEngine) };
+
+
+    // omniModel Field Functions 
+    bool hasOmniModel() const { return this->omniModel_ != nullptr;};
+    void deleteOmniModel() { this->omniModel_ = nullptr;};
+    inline bool getOmniModel() const { DARABONBA_PTR_GET_DEFAULT(omniModel_, false) };
+    inline ListVoicesRequest& setOmniModel(bool omniModel) { DARABONBA_PTR_SET_VALUE(omniModel_, omniModel) };
 
 
     // pageNumber Field Functions 
@@ -75,12 +94,16 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The TTS access type.
+    // The model.
+    shared_ptr<string> model_ {};
+    // The TTS invocation method.
     shared_ptr<string> nlsAccessType_ {};
     // The TTS engine.
     shared_ptr<string> nlsEngine_ {};
+    // Specifies whether the model is an Omni model.
+    shared_ptr<bool> omniModel_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.

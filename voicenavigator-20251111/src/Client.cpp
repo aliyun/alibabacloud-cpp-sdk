@@ -1509,7 +1509,7 @@ GenerateFileUploadParamsResponse Client::generateFileUploadParams(const Generate
 }
 
 /**
- * @summary Get call details.
+ * @summary Retrieves the details of a call.
  *
  * @param request GetCallDetailRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1544,7 +1544,7 @@ GetCallDetailRecordResponse Client::getCallDetailRecordWithOptions(const GetCall
 }
 
 /**
- * @summary Get call details.
+ * @summary Retrieves the details of a call.
  *
  * @param request GetCallDetailRecordRequest
  * @return GetCallDetailRecordResponse
@@ -3045,7 +3045,7 @@ ListVoiceEnginesResponse Client::listVoiceEngines(const ListVoiceEnginesRequest 
 }
 
 /**
- * @summary Retrieves a list of available voices.
+ * @summary Retrieves the details of an instance.
  *
  * @param request ListVoicesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3058,12 +3058,20 @@ ListVoicesResponse Client::listVoicesWithOptions(const ListVoicesRequest &reques
     body["InstanceId"] = request.getInstanceId();
   }
 
+  if (!!request.hasModel()) {
+    body["Model"] = request.getModel();
+  }
+
   if (!!request.hasNlsAccessType()) {
     body["NlsAccessType"] = request.getNlsAccessType();
   }
 
   if (!!request.hasNlsEngine()) {
     body["NlsEngine"] = request.getNlsEngine();
+  }
+
+  if (!!request.hasOmniModel()) {
+    body["OmniModel"] = request.getOmniModel();
   }
 
   if (!!request.hasPageNumber()) {
@@ -3092,7 +3100,7 @@ ListVoicesResponse Client::listVoicesWithOptions(const ListVoicesRequest &reques
 }
 
 /**
- * @summary Retrieves a list of available voices.
+ * @summary Retrieves the details of an instance.
  *
  * @param request ListVoicesRequest
  * @return ListVoicesResponse

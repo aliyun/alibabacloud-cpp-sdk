@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The ID of the session.
+    // The session ID.
     shared_ptr<string> sessionId_ {};
   };
 

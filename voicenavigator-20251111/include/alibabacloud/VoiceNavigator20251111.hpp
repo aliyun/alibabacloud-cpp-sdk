@@ -464,7 +464,7 @@ namespace VoiceNavigator20251111
       Models::GenerateFileUploadParamsResponse generateFileUploadParams(const Models::GenerateFileUploadParamsRequest &request);
 
       /**
-       * @summary Get call details.
+       * @summary Retrieves the details of a call.
        *
        * @param request GetCallDetailRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -473,7 +473,7 @@ namespace VoiceNavigator20251111
       Models::GetCallDetailRecordResponse getCallDetailRecordWithOptions(const Models::GetCallDetailRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get call details.
+       * @summary Retrieves the details of a call.
        *
        * @param request GetCallDetailRecordRequest
        * @return GetCallDetailRecordResponse
@@ -980,7 +980,7 @@ namespace VoiceNavigator20251111
       Models::ListVoiceEnginesResponse listVoiceEngines(const Models::ListVoiceEnginesRequest &request);
 
       /**
-       * @summary Retrieves a list of available voices.
+       * @summary Retrieves the details of an instance.
        *
        * @param request ListVoicesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -989,7 +989,7 @@ namespace VoiceNavigator20251111
       Models::ListVoicesResponse listVoicesWithOptions(const Models::ListVoicesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of available voices.
+       * @summary Retrieves the details of an instance.
        *
        * @param request ListVoicesRequest
        * @return ListVoicesResponse

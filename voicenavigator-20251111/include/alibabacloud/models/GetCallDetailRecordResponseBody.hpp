@@ -265,37 +265,39 @@ namespace Models
 
 
       protected:
-        // The bot\\"s response. This parameter is valid when `Role` is `ASSISTANT`.
+        // The assistant response. Valid when the role is ASSISTANT.
         shared_ptr<string> answer_ {};
-        // Indicates whether the user\\"s utterance is a backchannel (for example, "uh-huh" or "okay"). This parameter is valid when `Role` is `USER`.
+        // Indicates whether the backchannel is interactive feedback from the customer to the assistant. Valid when the role is USER.
         shared_ptr<bool> backchannels_ {};
-        // The start timestamp of the turn, in milliseconds since the Unix epoch.
+        // The start timestamp. Unit: milliseconds.
         shared_ptr<int64_t> beginTime_ {};
-        // A list of control parameters. This parameter is valid when `Role` is `ASSISTANT`.
+        // The list of control parameters. Valid when the role is ASSISTANT.
         shared_ptr<string> controlParamsList_ {};
-        // The end timestamp of the turn, in milliseconds since the Unix epoch.
+        // The end timestamp. Unit: milliseconds.
         shared_ptr<int64_t> endTime_ {};
-        // The event timestamp, in milliseconds since the Unix epoch.
+        // The timestamp when the event occurred. Format: UNIX timestamp. Unit: milliseconds.
         shared_ptr<string> eventTime_ {};
-        // Additional input from the user other than speech. This parameter is valid when `Role` is `USER`.
+        // The user input other than speech. Valid when the role is USER.
         shared_ptr<string> extras_ {};
-        // Indicates whether the turn was interrupted.
+        // Indicates whether the speech was interrupted.
         shared_ptr<bool> interrupted_ {};
-        // Indicates whether the bot\\"s response is obsolete. This parameter is valid when `Role` is `ASSISTANT`.
+        // Indicates whether the assistant response is invalidated. Valid when the role is ASSISTANT.
         shared_ptr<bool> legacy_ {};
+        // The playback status.
         shared_ptr<string> playbackStatus_ {};
+        // The played content.
         shared_ptr<string> playedAnswer_ {};
-        // The number of words played from the bot\\"s response. This parameter is valid when `Role` is `USER`.
+        // The assistant speech heard by the user. Valid when the role is USER.
         shared_ptr<int32_t> playedWords_ {};
-        // The role of the speaker.
+        // The role.
         shared_ptr<string> role_ {};
-        // Indicates if this is the final part of a streamed response.
+        // The end identifier for text streaming output.
         shared_ptr<bool> streamEnd_ {};
-        // The ID of the conversation turn.
+        // The conversation turn ID.
         shared_ptr<string> streamId_ {};
-        // The user\\"s utterance. This parameter is valid when `Role` is `USER`.
+        // The user speech. Valid when the role is USER.
         shared_ptr<string> utterance_ {};
-        // Vendor-specific data sent from the client. This parameter is valid when `Role` is `USER`.
+        // The user-side pass-through data. Valid when the role is USER.
         shared_ptr<string> vendorParams_ {};
       };
 
@@ -418,29 +420,29 @@ namespace Models
 
 
     protected:
-      // The phone number of the callee.
+      // The called number.
       shared_ptr<string> callee_ {};
-      // The phone number of the caller.
+      // The calling number.
       shared_ptr<string> caller_ {};
-      // The disposition code for the call.
+      // The disposition code.
       shared_ptr<string> dispositionCode_ {};
-      // The reason for the call\\"s disposition.
+      // The call connection status.
       shared_ptr<string> dispositionReason_ {};
-      // The session duration, in seconds.
+      // The session duration. Unit: seconds.
       shared_ptr<int32_t> duration_ {};
       // The end time.
       shared_ptr<int64_t> endTime_ {};
-      // Indicates whether the user\\"s issue was resolved.
+      // Indicates whether the customer issue is resolved.
       shared_ptr<bool> issueResolved_ {};
-      // The party that ended the call.
+      // The hang-up initiator.
       shared_ptr<string> releaseInitiator_ {};
-      // The basis for the resolution judgment.
+      // The resolution evidence.
       shared_ptr<string> resolutionEvidence_ {};
       // The session ID.
       shared_ptr<string> sessionId_ {};
       // The start time.
       shared_ptr<int64_t> startTime_ {};
-      // The talk time, in seconds.
+      // The talk time. Unit: seconds.
       shared_ptr<int32_t> talkTime_ {};
       // The number of conversation turns.
       shared_ptr<int32_t> talkTurns_ {};
@@ -448,7 +450,7 @@ namespace Models
       shared_ptr<vector<Data::Transcripts>> transcripts_ {};
       // The transfer target.
       shared_ptr<string> transferTarget_ {};
-      // The transfer type.
+      // The transfer target.
       shared_ptr<string> transferType_ {};
     };
 
@@ -503,15 +505,15 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The call detail record.
+    // The call record.
     shared_ptr<GetCallDetailRecordResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // A list of parameters related to the error.
+    // The list of error parameters.
     shared_ptr<vector<string>> params_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 
