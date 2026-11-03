@@ -182,11 +182,11 @@ namespace Models
     shared_ptr<bool> audio_ {};
     // The idempotency parameter.
     shared_ptr<string> clientToken_ {};
-    // The video duration in seconds. Valid values: an integer from 2 to 30, -1 (intelligent duration), and 0 (server default of 5 seconds).
+    // The video duration in seconds. Valid values: an integer in the range of [2, 30], -1 (intelligent duration), and 0 (the server uses the default value of 5 seconds).
     shared_ptr<int32_t> duration_ {};
     // The model name. Valid values: wan3.0-video (default) and wan3.0-video-prime (high-speed version).
     shared_ptr<string> model_ {};
-    // The video description prompt. You must specify either this parameter or Media. For text-to-video generation, only Prompt is required.
+    // The video description prompt. Either this parameter or Media is required. For pure text-to-video generation, only Prompt is required.
     shared_ptr<string> prompt_ {};
     // Specifies whether to enable intelligent rewriting (prompt_extend). Default value: true.
     shared_ptr<bool> promptExtend_ {};
@@ -194,7 +194,7 @@ namespace Models
     shared_ptr<string> ratio_ {};
     // The resolution. Valid values: 1080P (default), 720P, and 480P.
     shared_ptr<string> resolution_ {};
-    // The random seed. Valid values: -1 (random), an integer from 0 to 2147483647, and 0 (server default of random).
+    // The random seed. Valid values: -1 (random), an integer in the range of [0, 2147483647], and 0 (the server uses a random seed by default).
     shared_ptr<int32_t> seed_ {};
     // Specifies whether to add a Model Studio watermark. Default value: false.
     shared_ptr<bool> watermark_ {};

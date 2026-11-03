@@ -84,7 +84,7 @@ namespace Models
     protected:
       // The OSS key of the output object.
       shared_ptr<string> objectKey_ {};
-      // The presigned download URL of the video stored in OSS after C2PA signing.
+      // The presigned download URL of the C2PA-signed object stored in OSS.
       shared_ptr<string> url_ {};
     };
 
@@ -154,11 +154,11 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The cause of the failure. This field is returned only when the task status is failed.
+    // The cause of the failure. This parameter is returned only when the task status is failed.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The task status. Valid values: running, succeeded, and failed. Set the polling interval to at least 5 seconds.
+    // The task status. Valid values: `running`, `succeeded`, and `failed`. Set the polling interval to at least 5 seconds.
     shared_ptr<string> status_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
