@@ -94,8 +94,9 @@ namespace Models
 
 
   protected:
+    // The reserved parameter.
     shared_ptr<string> branchName_ {};
-    // The certificate type. Currently, only **custom** is supported, which indicates that a custom certificate is used.
+    // The certificate type. Only **custom** is supported, which indicates that a custom certificate is used.
     // > This parameter is required when **SSLEnabled** is set to **1**.
     shared_ptr<string> CAType_ {};
     // The instance ID of the AI application.
@@ -104,13 +105,13 @@ namespace Models
     shared_ptr<string> instanceName_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // Specifies whether to enable or disable SSL. Valid values:
-    // * **1**: Enable.
-    // * **0**: Disable.
+    // Specifies whether to enable SSL. Valid values:
+    // * **1**: Enabled.
+    // * **0**: Disabled.
     // 
     // This parameter is required.
     shared_ptr<int32_t> SSLEnabled_ {};
-    // The custom certificate content.
+    // The content of the custom certificate.
     // 
     // > This parameter is required when **CAType** is set to **custom**.
     shared_ptr<string> serverCert_ {};

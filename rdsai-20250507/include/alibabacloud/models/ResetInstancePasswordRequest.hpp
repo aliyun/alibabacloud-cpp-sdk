@@ -75,16 +75,17 @@ namespace Models
 
 
   protected:
+    // The reserved parameter.
     shared_ptr<string> branchName_ {};
-    // The Supabase Dashboard password.
+    // The password for the Supabase Dashboard.
     // 
     // The password must be 8 to 32 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and underscores (_).
     shared_ptr<string> dashboardPassword_ {};
-    // The RDS database access password.
+    // The access password for the RDS database.
     // 
     // The password must be 8 to 32 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and underscores (_).
     // 
-    // >Notice: This password change also updates the access passwords of the following accounts on the associated PostgreSQL instance. These accounts are required by Supabase: postgres, supabase_admin, supabase_auth_admin, supabase_functions_admin, supabase_storage_admin, authenticator, pgbouncer.
+    // >Notice: This password is synchronized to update the access passwords of the following accounts (all required by Supabase) on the associated PostgreSQL instance: postgres, supabase_admin, supabase_auth_admin, supabase_functions_admin, supabase_storage_admin, authenticator, and pgbouncer.
     // </notice>
     shared_ptr<string> databasePassword_ {};
     // The instance ID of the AI application.

@@ -57,10 +57,11 @@ namespace Models
 
 
   protected:
+    // Reserved parameter.
     shared_ptr<string> branchName_ {};
     // The instance ID of the AI application.
     shared_ptr<string> instanceName_ {};
-    // The region.
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

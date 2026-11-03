@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The instance ID.
+    // The instance name.
     shared_ptr<string> instanceId_ {};
     // The list of API keys.
     shared_ptr<string> keysShrink_ {};

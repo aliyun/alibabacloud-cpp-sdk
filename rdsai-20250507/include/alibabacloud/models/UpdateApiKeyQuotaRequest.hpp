@@ -99,16 +99,16 @@ namespace Models
     protected:
       // API KEY
       shared_ptr<string> apiKey_ {};
+      // The daily quota of the API key.
       shared_ptr<int64_t> dailyTokenQuota_ {};
-      // The throttling ratio. This parameter is required when type is set to ratio.
+      // The rate limit ratio. This parameter is required when the limit type is set to ratio.
       shared_ptr<double> limitRate_ {};
-      // The quota type. Valid values:
-      // 
-      // - ratio: by ratio.
-      // - fixed: by fixed value.
-      // - auto: automatic allocation of EPS resource.
+      // The quota limit type. Valid values:
+      // - ratio: Proportional limit.
+      // - fixed: Fixed value.
+      // - auto: Automatic allocation.
       shared_ptr<string> limitType_ {};
-      // The fixed throttling value. This parameter is required when type is set to fixed.
+      // The fixed rate limit value. This parameter is required when the limit type is set to fixed.
       shared_ptr<int64_t> tokenQuota_ {};
     };
 
@@ -131,7 +131,7 @@ namespace Models
 
 
   protected:
-    // The instance ID.
+    // The instance name.
     shared_ptr<string> instanceId_ {};
     // The list of API keys.
     shared_ptr<vector<UpdateApiKeyQuotaRequest::Keys>> keys_ {};

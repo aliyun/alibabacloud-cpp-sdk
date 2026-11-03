@@ -66,10 +66,16 @@ namespace Models
 
 
   protected:
+    // The page number, starting from 1.
     shared_ptr<int32_t> page_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The run ID, which is a system-generated UUID.
+    // 
     // This parameter is required.
     shared_ptr<string> runId_ {};
+    // The workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

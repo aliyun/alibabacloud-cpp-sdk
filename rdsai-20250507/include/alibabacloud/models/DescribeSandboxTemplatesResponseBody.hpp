@@ -157,20 +157,20 @@ namespace Models
 
     protected:
       shared_ptr<string> createdBy_ {};
-      // The number of CPUs for the sandbox created by using this template.
+      // The number of CPUs allocated to the sandbox created by using this template.
       shared_ptr<string> defaultCpu_ {};
       // The memory size of the sandbox created by using this template.
       shared_ptr<string> defaultMemory_ {};
-      // The sandbox template description.
+      // The description of the sandbox template.
       shared_ptr<string> description_ {};
-      // Indicates whether the sandbox created by using this template can access resources in the VPC where Supabase resides.
+      // Specifies whether the sandbox created by using this template can access resources in the VPC where Supabase is deployed.
       shared_ptr<string> enableVpcAccess_ {};
       shared_ptr<string> image_ {};
-      // The sandbox template name.
+      // The name of the sandbox template.
       shared_ptr<string> name_ {};
       shared_ptr<int64_t> replicas_ {};
       shared_ptr<map<string, string>> tags_ {};
-      // The sandbox template ID. Specify this ID when you create a sandbox by using this template.
+      // The ID of the sandbox template. Specify this ID when you use the template to create a sandbox.
       shared_ptr<string> templateId_ {};
     };
 
@@ -229,19 +229,19 @@ namespace Models
 
 
   protected:
-    // A reserved parameter. You can ignore this parameter.
+    // The backup parameter. You can ignore this parameter.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that indicates the position from which the current read operation starts. An empty value indicates that the read operation starts from the beginning.
+    // The position from which the current read operation starts. An empty value indicates that the read operation starts from the beginning.
     shared_ptr<string> nextToken_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of records per page.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
     // The list of sandbox templates.
     shared_ptr<vector<DescribeSandboxTemplatesResponseBody::SandboxTemplates>> sandboxTemplates_ {};
-    // The total number of records that meet the request conditions.
+    // The total number of data entries that meet the current request conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

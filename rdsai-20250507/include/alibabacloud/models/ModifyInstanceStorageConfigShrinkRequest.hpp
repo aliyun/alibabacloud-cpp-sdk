@@ -75,8 +75,9 @@ namespace Models
 
 
   protected:
+    // The reserved parameter.
     shared_ptr<string> branchName_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, which prevents repeated submissions of requests.
+    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can generate the value on the client.
     shared_ptr<string> clientToken_ {};
     // The list of storage configurations.
     shared_ptr<string> configListShrink_ {};

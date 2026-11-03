@@ -84,14 +84,15 @@ namespace Models
 
 
   protected:
+    // The reserved parameter.
     shared_ptr<string> branchName_ {};
-    // The idempotence parameter.
+    // The idempotency parameter.
     shared_ptr<string> clientToken_ {};
-    // The name of the configuration item to modify. This parameter is used together with ConfigValue.
+    // The name of the configuration item to modify. This parameter must be used together with ConfigValue.
     shared_ptr<string> configName_ {};
-    // The value of the configuration item to modify. This parameter is used together with ConfigName.
+    // The value of the configuration item to modify. This parameter must be used together with ConfigName.
     shared_ptr<string> configValue_ {};
-    // The instance ID of the AI application.
+    // The ID of the AI application instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceName_ {};

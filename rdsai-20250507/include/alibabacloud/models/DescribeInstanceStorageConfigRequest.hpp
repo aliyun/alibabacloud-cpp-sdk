@@ -57,6 +57,7 @@ namespace Models
 
 
   protected:
+    // A reserved parameter.
     shared_ptr<string> branchName_ {};
     // The instance ID of the AI application.
     // 

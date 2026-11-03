@@ -102,9 +102,13 @@ namespace Models
 
 
     protected:
+      // The description of the skill.
       shared_ptr<string> description_ {};
+      // The unique identifier of the skill.
       shared_ptr<string> id_ {};
+      // The name of the skill.
       shared_ptr<string> name_ {};
+      // The skill type.
       shared_ptr<string> skillType_ {};
     };
 
@@ -179,7 +183,7 @@ namespace Models
 
 
   protected:
-    // The time when the dedicated agent was created.
+    // The creation time.
     shared_ptr<string> createdAt_ {};
     // Indicates whether tools are enabled.
     shared_ptr<bool> enableTools_ {};
@@ -189,12 +193,13 @@ namespace Models
     shared_ptr<string> name_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of associated skill details.
     shared_ptr<vector<GetCustomAgentResponseBody::Skills>> skills_ {};
     // The system prompt.
     shared_ptr<string> systemPrompt_ {};
     // The tool details.
     shared_ptr<vector<string>> tools_ {};
-    // The time when the dedicated agent was last modified.
+    // The modification time.
     shared_ptr<string> updatedAt_ {};
   };
 

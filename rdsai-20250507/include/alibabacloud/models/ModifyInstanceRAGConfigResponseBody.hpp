@@ -66,12 +66,13 @@ namespace Models
 
 
   protected:
+    // The reserved parameter.
     shared_ptr<string> branchName_ {};
     // The instance ID of the AI application.
     shared_ptr<string> instanceName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The RAG Agent status.
+    // The status of the RAG Agent.
     // 
     // - **true**: Enabled.
     // - **false**: Disabled.

@@ -122,16 +122,16 @@ namespace Models
       protected:
         // Api Key
         shared_ptr<string> apiKey_ {};
+        // The daily quota of the API key.
         shared_ptr<int64_t> dailyTokenQuota_ {};
-        // The quota ratio.
+        // The quota limit ratio.
         shared_ptr<float> limitRate_ {};
-        // The quota type. Valid values:
-        // 
-        // - ratio: by ratio.
-        // - fixed: by fixed value.
-        // - auto: automatic allocation of EPS resource.
+        // The quota limit type. Valid values:
+        // - ratio: Proportional limit.
+        // - fixed: Fixed value.
+        // - auto: Automatic allocation.
         shared_ptr<string> limitType_ {};
-        // The quota of the current key.
+        // The quota limit of the current key.
         shared_ptr<int64_t> tokenQuota_ {};
       };
 
@@ -183,13 +183,13 @@ namespace Models
 
 
   protected:
-    // The response data.
+    // The returned data.
     shared_ptr<UpdateApiKeyQuotaResponseBody::Data> data_ {};
-    // The response message.
+    // The returned message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The request result.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

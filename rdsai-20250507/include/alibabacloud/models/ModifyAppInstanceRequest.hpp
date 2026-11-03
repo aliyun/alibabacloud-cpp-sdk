@@ -141,12 +141,14 @@ namespace Models
 
 
   protected:
+    // The reserved parameter.
     shared_ptr<string> branchName_ {};
-    // The idempotency parameter.
+    // The client token that is used to ensure idempotence.
     shared_ptr<string> clientToken_ {};
     // The list of modules.
     shared_ptr<vector<ModifyAppInstanceRequest::Components>> components_ {};
     shared_ptr<string> DBInstanceName_ {};
+    // The instance type. Currently, only **rdsai.supabase.basic** is supported.
     shared_ptr<string> instanceClass_ {};
     // The instance ID of the AI application.
     shared_ptr<string> instanceName_ {};

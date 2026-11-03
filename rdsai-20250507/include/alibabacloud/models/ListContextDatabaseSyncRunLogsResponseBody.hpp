@@ -130,10 +130,15 @@ namespace Models
 
 
       protected:
+        // The creation time.
         shared_ptr<string> createdAt_ {};
+        // The details.
         shared_ptr<string> detail_ {};
+        // The run ID.
         shared_ptr<int64_t> id_ {};
+        // The log level. Valid values: debug, info, warn, and error.
         shared_ptr<string> level_ {};
+        // The response message.
         shared_ptr<string> message_ {};
       };
 
@@ -170,9 +175,13 @@ namespace Models
 
 
     protected:
+      // The list of logs.
       shared_ptr<vector<Data::Logs>> logs_ {};
+      // The page number, starting from 1.
       shared_ptr<int32_t> page_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -223,11 +232,17 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<ListContextDatabaseSyncRunLogsResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
+    // The message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

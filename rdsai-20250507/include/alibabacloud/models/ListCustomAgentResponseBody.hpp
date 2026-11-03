@@ -96,9 +96,13 @@ namespace Models
 
 
     protected:
+      // The description of the skill.
       shared_ptr<string> description_ {};
+      // The unique identifier of the skill.
       shared_ptr<string> id_ {};
+      // The name of the skill.
       shared_ptr<string> name_ {};
+      // The type of the skill.
       shared_ptr<string> skillType_ {};
     };
 
@@ -190,9 +194,9 @@ namespace Models
     protected:
       // The creation time.
       shared_ptr<string> createdAt_ {};
-      // Indicates whether tools are enabled.
+      // Specifies whether tools are enabled.
       shared_ptr<bool> enableTools_ {};
-      // AgentId。
+      // The agent ID.
       shared_ptr<string> id_ {};
       // The name of the dedicated agent.
       shared_ptr<string> name_ {};
@@ -257,12 +261,13 @@ namespace Models
     shared_ptr<vector<ListCustomAgentResponseBody::Data>> data_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of records per page.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of associated skill details.
     shared_ptr<vector<ListCustomAgentResponseBody::Skills>> skills_ {};
-    // The total number of data records that meet the request conditions. This parameter is optional and is not returned by default.
+    // The total number of entries that meet the request conditions. This parameter is optional and is not returned by default.
     shared_ptr<int32_t> totalCount_ {};
   };
 

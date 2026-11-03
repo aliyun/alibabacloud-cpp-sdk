@@ -103,8 +103,9 @@ namespace Models
 
 
   protected:
+    // Reserved parameter.
     shared_ptr<string> branchName_ {};
-    // The certificate type. The value is **custom**, which indicates that a custom certificate is used.
+    // The certificate type. A value of **custom** indicates that a custom certificate is used.
     shared_ptr<string> CAType_ {};
     // The instance ID of the AI application.
     shared_ptr<string> instanceName_ {};
@@ -115,7 +116,7 @@ namespace Models
     // * **0**: Disabled.
     shared_ptr<string> SSLEnabled_ {};
     shared_ptr<string> SSLExpiredTime_ {};
-    // The custom certificate content.
+    // The content of the custom certificate.
     shared_ptr<string> serverCert_ {};
     // The private key of the certificate.
     shared_ptr<string> serverKey_ {};

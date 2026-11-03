@@ -66,12 +66,13 @@ namespace Models
 
 
   protected:
+    // The reserved parameter.
     shared_ptr<string> branchName_ {};
     // The list of authentication configurations.
     shared_ptr<string> configListShrink_ {};
     // The instance ID of the AI application.
     shared_ptr<string> instanceName_ {};
-    // The region.
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

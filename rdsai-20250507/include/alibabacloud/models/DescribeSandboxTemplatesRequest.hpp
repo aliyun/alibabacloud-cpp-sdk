@@ -103,24 +103,25 @@ namespace Models
 
 
   protected:
+    // The reserved parameter.
     shared_ptr<string> branchName_ {};
     // The instance ID of the AI application.
     // 
     // This parameter is required.
     shared_ptr<string> instanceName_ {};
-    // A reserved parameter. You can ignore this parameter.
+    // The backup parameter. You can ignore this parameter.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token.
     shared_ptr<string> nextToken_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of records per page.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The sandbox template name.
+    // The name of the sandbox template.
     shared_ptr<string> templateName_ {};
   };
 

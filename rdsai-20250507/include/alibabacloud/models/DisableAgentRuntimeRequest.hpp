@@ -66,6 +66,7 @@ namespace Models
 
 
   protected:
+    // The reserved parameter.
     shared_ptr<string> branchName_ {};
     // The idempotence parameter.
     shared_ptr<string> clientToken_ {};

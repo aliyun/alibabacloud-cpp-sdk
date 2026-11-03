@@ -86,11 +86,11 @@ namespace Models
   protected:
     // The end time.
     shared_ptr<string> endTime_ {};
-    // The list of instances.
+    // The list of instance IDs.
     shared_ptr<string> instanceIdList_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of records per page.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     // The region ID.
     // 

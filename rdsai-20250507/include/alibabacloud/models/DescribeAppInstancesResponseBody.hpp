@@ -119,7 +119,9 @@ namespace Models
 
 
       protected:
+        // The component status.
         shared_ptr<string> status_ {};
+        // The component type.
         shared_ptr<string> type_ {};
       };
 
@@ -218,8 +220,9 @@ namespace Models
       shared_ptr<string> appName_ {};
       // The application type. Currently, only **supabase** is supported, which indicates [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html).
       shared_ptr<string> appType_ {};
+      // The list of components.
       shared_ptr<vector<Instances::Components>> components_ {};
-      // The instance ID of the ApsaraDB RDS for PostgreSQL database that is connected to the AI application.
+      // The instance ID of the RDS PostgreSQL database to which the AI application is connected.
       shared_ptr<string> DBInstanceName_ {};
       // The instance type.
       shared_ptr<string> instanceClass_ {};
@@ -288,7 +291,7 @@ namespace Models
   protected:
     // The list of instances.
     shared_ptr<vector<DescribeAppInstancesResponseBody::Instances>> instances_ {};
-    // A reserved parameter. You can ignore this parameter.
+    // A reserved parameter. You can ignore it.
     shared_ptr<int64_t> maxResults_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
@@ -296,7 +299,7 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

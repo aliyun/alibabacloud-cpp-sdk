@@ -142,6 +142,7 @@ namespace Models
       shared_ptr<string> instanceId_ {};
       // The recovery time.
       shared_ptr<string> recoveryTime_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
     };
 
@@ -215,11 +216,11 @@ namespace Models
     shared_ptr<int64_t> pageCount_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of records per page.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of records.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
     // The total number of pages.
     shared_ptr<int64_t> totalPages_ {};

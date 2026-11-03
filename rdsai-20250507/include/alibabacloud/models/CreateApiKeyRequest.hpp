@@ -112,25 +112,24 @@ namespace Models
 
 
   protected:
-    // The daily quota of the API key.
+    // The daily token quota for the API key.
     shared_ptr<int64_t> dailyTokenQuota_ {};
-    // The instance name.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
     // The name of the API key.
     shared_ptr<string> keyName_ {};
-    // The quota percentage.
+    // The quota limit percentage.
     shared_ptr<double> limitRate_ {};
-    // The quota type. Valid values:
-    // 
-    // - ratio: by percentage.
-    // - fixed: by fixed value.
-    // - auto: automatic allocation.
+    // The quota limit type. Valid values:
+    // - ratio: Percentage-based.
+    // - fixed: Fixed value.
+    // - auto: Automatic allocation.
     shared_ptr<string> limitType_ {};
     // The number of API keys to create. Default value: **1**.
     shared_ptr<int32_t> quantity_ {};
     shared_ptr<string> roleArn_ {};
     shared_ptr<string> roleName_ {};
-    // The quota limit for the current key.
+    // The token quota for the current key.
     shared_ptr<int64_t> tokenQuota_ {};
   };
 

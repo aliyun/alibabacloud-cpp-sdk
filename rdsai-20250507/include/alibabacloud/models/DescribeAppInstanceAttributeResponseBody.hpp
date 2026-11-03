@@ -28,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(LoginToken, loginToken_);
       DARABONBA_PTR_TO_JSON(MinorVersionDetail, minorVersionDetail_);
+      DARABONBA_PTR_TO_JSON(MinorVersionReleaseNotes, minorVersionReleaseNotes_);
       DARABONBA_PTR_TO_JSON(NatCreatedBy, natCreatedBy_);
       DARABONBA_PTR_TO_JSON(NatGatewayId, natGatewayId_);
       DARABONBA_PTR_TO_JSON(NatStatus, natStatus_);
@@ -58,6 +59,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(LoginToken, loginToken_);
       DARABONBA_PTR_FROM_JSON(MinorVersionDetail, minorVersionDetail_);
+      DARABONBA_PTR_FROM_JSON(MinorVersionReleaseNotes, minorVersionReleaseNotes_);
       DARABONBA_PTR_FROM_JSON(NatCreatedBy, natCreatedBy_);
       DARABONBA_PTR_FROM_JSON(NatGatewayId, natGatewayId_);
       DARABONBA_PTR_FROM_JSON(NatStatus, natStatus_);
@@ -149,15 +151,15 @@ namespace Models
 
 
     protected:
-      // A reserved parameter.
+      // The reserved parameter.
       shared_ptr<bool> isSystemKey_ {};
-      // A reserved parameter.
+      // The reserved parameter.
       shared_ptr<string> remark_ {};
-      // A reserved parameter.
+      // The reserved parameter.
       shared_ptr<int64_t> slsStorageBytes_ {};
-      // A reserved parameter.
+      // The reserved parameter.
       shared_ptr<string> status_ {};
-      // A reserved parameter.
+      // The reserved parameter.
       shared_ptr<string> uploadKey_ {};
     };
 
@@ -208,10 +210,10 @@ namespace Models
     virtual bool empty() const override { return this->appName_ == nullptr
         && this->appType_ == nullptr && this->branchName_ == nullptr && this->branchingEnabled_ == nullptr && this->components_ == nullptr && this->DBInstanceName_ == nullptr
         && this->eipId_ == nullptr && this->eipStatus_ == nullptr && this->instanceClass_ == nullptr && this->instanceLatestVersion_ == nullptr && this->instanceMinorVersion_ == nullptr
-        && this->instanceName_ == nullptr && this->loginToken_ == nullptr && this->minorVersionDetail_ == nullptr && this->natCreatedBy_ == nullptr && this->natGatewayId_ == nullptr
-        && this->natStatus_ == nullptr && this->publicConnectionString_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr && this->retentionHours_ == nullptr
-        && this->sqlExtendMoInstanceId_ == nullptr && this->status_ == nullptr && this->uploadKey_ == nullptr && this->uploadKeyList_ == nullptr && this->vSwitchId_ == nullptr
-        && this->vpcConnectionString_ == nullptr && this->zoneId_ == nullptr; };
+        && this->instanceName_ == nullptr && this->loginToken_ == nullptr && this->minorVersionDetail_ == nullptr && this->minorVersionReleaseNotes_ == nullptr && this->natCreatedBy_ == nullptr
+        && this->natGatewayId_ == nullptr && this->natStatus_ == nullptr && this->publicConnectionString_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr
+        && this->retentionHours_ == nullptr && this->sqlExtendMoInstanceId_ == nullptr && this->status_ == nullptr && this->uploadKey_ == nullptr && this->uploadKeyList_ == nullptr
+        && this->vSwitchId_ == nullptr && this->vpcConnectionString_ == nullptr && this->zoneId_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
@@ -310,6 +312,13 @@ namespace Models
     void deleteMinorVersionDetail() { this->minorVersionDetail_ = nullptr;};
     inline string getMinorVersionDetail() const { DARABONBA_PTR_GET_DEFAULT(minorVersionDetail_, "") };
     inline DescribeAppInstanceAttributeResponseBody& setMinorVersionDetail(string minorVersionDetail) { DARABONBA_PTR_SET_VALUE(minorVersionDetail_, minorVersionDetail) };
+
+
+    // minorVersionReleaseNotes Field Functions 
+    bool hasMinorVersionReleaseNotes() const { return this->minorVersionReleaseNotes_ != nullptr;};
+    void deleteMinorVersionReleaseNotes() { this->minorVersionReleaseNotes_ = nullptr;};
+    inline string getMinorVersionReleaseNotes() const { DARABONBA_PTR_GET_DEFAULT(minorVersionReleaseNotes_, "") };
+    inline DescribeAppInstanceAttributeResponseBody& setMinorVersionReleaseNotes(string minorVersionReleaseNotes) { DARABONBA_PTR_SET_VALUE(minorVersionReleaseNotes_, minorVersionReleaseNotes) };
 
 
     // natCreatedBy Field Functions 
@@ -417,15 +426,15 @@ namespace Models
     shared_ptr<string> appName_ {};
     // The application type. Currently, only **supabase** is supported, which indicates [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html).
     shared_ptr<string> appType_ {};
-    // A reserved parameter.
+    // The reserved parameter.
     shared_ptr<string> branchName_ {};
-    // A reserved parameter.
+    // The reserved parameter.
     shared_ptr<string> branchingEnabled_ {};
-    // The list of components.
+    // The component list.
     shared_ptr<vector<DescribeAppInstanceAttributeResponseBody::Components>> components_ {};
-    // The instance ID of the RDS PostgreSQL database instance connected to the AI application.
+    // The instance ID of the RDS PostgreSQL database instance associated with the AI application.
     shared_ptr<string> DBInstanceName_ {};
-    // The instance ID of the EIP.
+    // The EIP instance ID.
     shared_ptr<string> eipId_ {};
     // The activation status of the EIP.
     shared_ptr<string> eipStatus_ {};
@@ -437,13 +446,15 @@ namespace Models
     shared_ptr<string> instanceMinorVersion_ {};
     // The instance ID of the AI application.
     shared_ptr<string> instanceName_ {};
-    // A reserved parameter.
+    // The reserved parameter.
     shared_ptr<string> loginToken_ {};
-    // The minor versions of individual components of the RDS AI application instance.
+    // The minor versions of each component in the RDS AI application instance.
     shared_ptr<string> minorVersionDetail_ {};
+    // The release notes for the minor version of the RDS AI application instance.
+    shared_ptr<string> minorVersionReleaseNotes_ {};
     // The creator of the NAT gateway.
     shared_ptr<string> natCreatedBy_ {};
-    // The NAT gateway ID.
+    // The ID of the NAT gateway.
     shared_ptr<string> natGatewayId_ {};
     // The activation status of the NAT gateway.
     shared_ptr<string> natStatus_ {};
@@ -453,15 +464,15 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // A reserved parameter.
+    // The reserved parameter.
     shared_ptr<string> retentionHours_ {};
-    // A reserved parameter.
+    // The reserved parameter.
     shared_ptr<string> sqlExtendMoInstanceId_ {};
-    // The instance status. For more information, see [Instance status](https://help.aliyun.com/document_detail/2623972.html).
+    // The instance status. For more information, see [Instance status table](https://help.aliyun.com/document_detail/2623972.html).
     shared_ptr<string> status_ {};
-    // A reserved parameter.
+    // The reserved parameter.
     shared_ptr<string> uploadKey_ {};
-    // A reserved parameter.
+    // The reserved parameter.
     shared_ptr<vector<DescribeAppInstanceAttributeResponseBody::UploadKeyList>> uploadKeyList_ {};
     // The vSwitch ID.
     shared_ptr<string> vSwitchId_ {};

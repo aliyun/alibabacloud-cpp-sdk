@@ -122,6 +122,7 @@ namespace Models
 
 
   protected:
+    // The reserved parameter.
     shared_ptr<string> branchName_ {};
     // The list of RAG Agent configurations.
     shared_ptr<vector<DescribeInstanceRAGConfigResponseBody::ConfigList>> configList_ {};
@@ -129,7 +130,7 @@ namespace Models
     shared_ptr<string> instanceName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The RAG Agent status. Valid values:
+    // The status of the RAG Agent.
     // - **true**: Enabled.
     // - **false**: Disabled.
     shared_ptr<bool> status_ {};
