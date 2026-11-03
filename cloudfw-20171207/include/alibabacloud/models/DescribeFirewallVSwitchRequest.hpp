@@ -103,19 +103,19 @@ namespace Models
 
 
   protected:
-    // The instance ID of the VPC border firewall.
+    // The instance ID of the virtual private cloud (VPC) firewall.
     shared_ptr<string> firewallId_ {};
-    // The language of the response. Valid values:
+    // The language type.
     shared_ptr<string> lang_ {};
     // The UID of the member account.
     shared_ptr<string> memberUid_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<string> pageNo_ {};
-    // The number of the page to return.
+    // The number of entries per page.
     shared_ptr<string> pageSize_ {};
     // The region ID.
     shared_ptr<string> regionNo_ {};
-    // The ID of the VPC instance.
+    // The VPC-connected instance ID.
     shared_ptr<string> vpcId_ {};
     // The ID of the vSwitch.
     shared_ptr<string> vswitchId_ {};

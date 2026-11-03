@@ -313,45 +313,43 @@ namespace Models
 
 
     protected:
-      // The asset name.
+      // The name of the asset.
       shared_ptr<string> assetName_ {};
       // The private IP address of the asset.
       shared_ptr<string> assetPrivateIp_ {};
       // The asset type.
       shared_ptr<string> assetType_ {};
-      // The intelligence tag category. Valid values:
+      // The categorization of intelligence labels. Valid values:
       // 
-      // - **Suspicious**: suspicious
-      // 
-      // - **Malicious**: malicious
-      // 
-      // - **Trusted**: trusted
+      // - **Suspicious**: Suspicious.
+      // - **Malicious**: Malicious.
+      // - **Trusted**: Trusted.
       shared_ptr<string> categoryClassId_ {};
-      // The category name.
+      // The name of the category.
       shared_ptr<string> categoryName_ {};
-      // The city ID.
+      // The ID of the city.
       shared_ptr<string> cityId_ {};
-      // The country ID.
+      // The ID of the country.
       shared_ptr<string> countryId_ {};
       // The destination IP address.
       shared_ptr<string> dstIp_ {};
-      // The destination port.
+      // The destination ports.
       shared_ptr<string> dstPortList_ {};
       // The number of events.
       shared_ptr<int64_t> eventCnt_ {};
-      // The event\\"s risk level.
+      // The risk level of the event.
       shared_ptr<string> eventLevel_ {};
-      // The event name.
+      // The name of the event.
       shared_ptr<string> eventName_ {};
-      // The first time the event occurred, as a Unix timestamp in seconds.
+      // The time when the event first occurred. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> firstTime_ {};
-      // The last time the event occurred, as a Unix timestamp in seconds.
+      // The time when the event last occurred. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> lastTime_ {};
-      // The location of the destination IP address.
+      // The name of the region to which the destination IP address belongs.
       shared_ptr<string> locationName_ {};
-      // The payload of the intrusion prevention event.
+      // The attack payload of the intrusion prevention event.
       shared_ptr<string> payload_ {};
-      // The protocol.
+      // The protocols.
       shared_ptr<string> protoList_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
@@ -359,21 +357,21 @@ namespace Models
       shared_ptr<string> resourceId_ {};
       // The resource type.
       shared_ptr<int32_t> resourceIdType_ {};
-      // The number of sensitive data items.
+      // The amount of sensitive data.
       shared_ptr<int64_t> sensitiveDataCnt_ {};
-      // An array of sensitive data.
+      // The list of sensitive data.
       shared_ptr<vector<string>> sensitiveDataList_ {};
       // The sensitive data level.
       shared_ptr<string> sensitiveLevel_ {};
-      // The sensitive data type.
+      // The type of sensitive data.
       shared_ptr<string> sensitiveType_ {};
       // The source IP address.
       shared_ptr<string> srcIp_ {};
-      // The source port.
+      // The source ports.
       shared_ptr<string> srcPortList_ {};
-      // The traffic volume in bytes.
+      // The traffic volume.
       shared_ptr<int64_t> trafficBytes_ {};
-      // The unique identifier for the event.
+      // The UUID.
       shared_ptr<string> uuid_ {};
     };
 
@@ -405,7 +403,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // An array of data leakage events.
+    // The list of data leak events.
     shared_ptr<vector<DescribeSdlEventListResponseBody::SdlEventDetailList>> sdlEventDetailList_ {};
     // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The language of the request and the response. Valid values:
+    // The language of the request and response messages. Valid values:
     // 
     // - **zh** (default): Chinese.
     // 

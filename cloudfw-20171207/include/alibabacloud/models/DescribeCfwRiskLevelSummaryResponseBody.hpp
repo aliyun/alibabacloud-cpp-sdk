@@ -79,11 +79,10 @@ namespace Models
 
 
     protected:
-      // The threat level. Valid value:
-      // 
-      // - **medium**: medium
+      // The risk level. Valid values:
+      // - **medium**: Medium
       shared_ptr<string> level_ {};
-      // The number of ECS instances at risk.
+      // The number of at-risk ECS instances.
       shared_ptr<string> num_ {};
       // The type.
       shared_ptr<string> type_ {};
@@ -110,7 +109,7 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The list of threats.
+    // The risk list.
     shared_ptr<vector<DescribeCfwRiskLevelSummaryResponseBody::RiskList>> riskList_ {};
   };
 

@@ -61,11 +61,11 @@ namespace Models
     shared_ptr<string> module_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The security mode. Valid values:
+    // The safe mode pattern. Valid values:
     // 
-    // **0**: disabled.
+    // **0**: shutdown
     // 
-    // **1**: enabled.
+    // **1**: enabled
     shared_ptr<int32_t> securityMode_ {};
   };
 

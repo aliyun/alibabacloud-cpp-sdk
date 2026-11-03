@@ -68,15 +68,15 @@ namespace Models
   protected:
     // The language.
     shared_ptr<string> lang_ {};
-    // The modified status.
+    // The new status.
     // 
     // This parameter is required.
     shared_ptr<string> status_ {};
-    // The ACL check task ID.
+    // The ID of the ACL check task.
     // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
-    // The unique identifier ID of the ACL policy in the ACL check details.
+    // The UUID of the ACL policy in the ACL check detail.
     // 
     // This parameter is required.
     shared_ptr<string> uuid_ {};

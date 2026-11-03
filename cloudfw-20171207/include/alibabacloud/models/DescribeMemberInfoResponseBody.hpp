@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The name of the Alibaba Cloud account.
+    // The name of the main account.
     shared_ptr<string> adminName_ {};
-    // The UID of the Alibaba Cloud account.
+    // The UID of the main account.
     shared_ptr<string> adminUid_ {};
-    // Indicates whether the account is a member account.
+    // Indicates whether the account is one of the member accounts.
     shared_ptr<bool> isMember_ {};
-    // The UID of the member account.
+    // The UID of the member accounts.
     shared_ptr<string> memberUid_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

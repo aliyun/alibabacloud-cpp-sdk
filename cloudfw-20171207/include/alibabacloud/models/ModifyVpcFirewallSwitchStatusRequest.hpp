@@ -66,25 +66,25 @@ namespace Models
 
 
   protected:
-    // The status of the virtual private cloud (VPC) firewall. Valid values:
+    // Settings for the switch status of virtual private cloud (VPC) firewalls at the border. Valid values:
     // 
-    // - **open**: Enable.
+    // - **open**: enabled.
     // 
-    // - **close**: Disable.
+    // - **close**: shutdown.
     // 
     // This parameter is required.
     shared_ptr<string> firewallSwitch_ {};
-    // The language of the content within the request and response. Valid values:
+    // The language of the request and response. Valid values:
     // 
     // - **zh** (default): Chinese.
     // 
     // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The UID of the member account of the current Alibaba Cloud account.
+    // The UID of the member accounts of the current Alibaba Cloud account.
     shared_ptr<string> memberUid_ {};
-    // The instance ID of the virtual private cloud (VPC) firewall.
+    // The instance ID of the virtual private cloud (VPC) firewalls at the border.
     // 
-    // > You can invoke the [DescribeVpcFirewallList](https://help.aliyun.com/document_detail/342932.html) operation to query the instance ID of the VPC firewall.
+    // > You can invoke the [DescribeVpcFirewallList](https://help.aliyun.com/document_detail/342932.html) operation to query the instance ID of the virtual private cloud (VPC) firewalls at the border.
     // 
     // This parameter is required.
     shared_ptr<string> vpcFirewallId_ {};

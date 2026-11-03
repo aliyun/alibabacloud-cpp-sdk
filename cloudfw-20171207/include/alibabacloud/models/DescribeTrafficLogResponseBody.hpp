@@ -85,7 +85,7 @@ namespace Models
     protected:
       // The current page number.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries per page.
+      // The number of entries returned per page.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
@@ -365,9 +365,9 @@ namespace Models
       protected:
         // The region ID.
         shared_ptr<string> regionNo_ {};
-        // The VPC instance ID.
+        // The VPC-connected instance ID.
         shared_ptr<string> vpcId_ {};
-        // The VPC instance name.
+        // The instance name of the VPC.
         shared_ptr<string> vpcName_ {};
       };
 
@@ -732,35 +732,24 @@ namespace Models
 
 
     protected:
-      // The policy ID of the ACL pre-match. If this parameter is empty, all policies are included.
+      // The ID of the ACL pre-matched policy. An empty value indicates all policies.
       shared_ptr<string> aclPreRuleId_ {};
-      // The policy name of the ACL pre-match.
+      // The name of the ACL pre-matched policy.
       shared_ptr<string> aclPreRuleName_ {};
-      // The ACL pre-match status. Valid values:
-      // 
-      // **app_unknown**: application not identified.
-      // 
-      // **domain_unknown**: domain name not identified.
-      // 
-      // **normal**: normal.
+      // The ACL pre-matching status. Valid values:
+      // - **app_unknown**: The application is not identified.
+      // - **domain_unknown**: The domain name is not identified.
+      // - **normal**: Normal.
       shared_ptr<string> aclPreState_ {};
-      // The application identification status. Valid values:
-      // 
-      // **none**: initial state.
-      // 
-      // **policy_discard**: connection establishment failed because the connection was blocked by a user ACL or threat intelligence rule.
-      // 
-      // **tcp_not_establish**: TCP connection establishment failed.
-      // 
-      // **no_payload**: connection established, but DPI has analyzed 0 payloads.
-      // 
-      // **analysing**: identification in progress.
-      // 
-      // **unknown_loose**: loose mode. Identification failed. Identification continues.
-      // 
-      // **unknown_strict**: strict mode. Identification failed.
-      // 
-      // **success**: identification succeeded.
+      // The DPI status. Valid values:
+      // - **none**: Initial status.
+      // - **policy_discard**: The connection fails to be established and is blocked by user ACLs or threat intelligence.
+      // - **tcp_not_establish**: The TCP connection fails to be established.
+      // - **no_payload**: The connection is established, but DPI has analyzed zero payloads.
+      // - **analysing**: Identifying.
+      // - **unknown_loose**: In loose mode, identification fails and the system continues to identify.
+      // - **unknown_strict**: In strict mode, identification fails.
+      // - **success**: Identification succeeds.
       shared_ptr<string> appDpiState_ {};
       // The application ID.
       shared_ptr<int32_t> appId_ {};
@@ -772,49 +761,49 @@ namespace Models
       shared_ptr<int32_t> attackType_ {};
       // The city ID.
       shared_ptr<string> cityId_ {};
-      // The close reason.
+      // The closure reason.
       shared_ptr<string> closeReason_ {};
       // The cloud service instance ID.
       shared_ptr<string> cloudInstanceId_ {};
       // The country ID.
       shared_ptr<string> countryId_ {};
       // The traffic direction. Valid values:
-      // - **in**: inbound.
-      // - **out**: outbound.
+      // - **in**: Inbound.
+      // - **out**: Outbound.
       shared_ptr<string> direction_ {};
       // The domain name.
       shared_ptr<string> domainName_ {};
       // The URL in the flow log.
       shared_ptr<string> domainUrl_ {};
-      // The destination IP address. Indicates that the intrusion prevention event contains this destination IP address.
+      // The queried destination IP address. This indicates that the intrusion prevention event includes this destination IP address.
       shared_ptr<string> dstIP_ {};
       // The destination port.
       shared_ptr<int32_t> dstPort_ {};
       // The destination VPC information.
       shared_ptr<DataList::DstVpc> dstVpc_ {};
-      // The end time of the data. The value is a UNIX timestamp in seconds.
+      // The end time of the data. The time is in the UNIX timestamp format. Unit: seconds.
       shared_ptr<int64_t> endTime_ {};
-      // The additional extended data.
+      // The other extended data.
       shared_ptr<string> ext_ {};
-      // The inbound traffic in bytes.
+      // The inbound traffic.
       shared_ptr<string> inBytes_ {};
       // The number of inbound packets.
       shared_ptr<string> inPackets_ {};
       // The protocol type.
       shared_ptr<string> ipProtocol_ {};
-      // The Internet service provider (ISP).
+      // The ISP.
       shared_ptr<string> isp_ {};
       // The ISP ID.
       shared_ptr<string> ispId_ {};
       // The region of the source or destination IP address.
       shared_ptr<string> location_ {};
-      // The UID of the Cloud Firewall member accounts.
+      // The UID of the Cloud Firewall member account.
       shared_ptr<string> memberUid_ {};
-      // The outbound traffic in bytes.
+      // The outbound traffic.
       shared_ptr<string> outBytes_ {};
       // The number of outbound packets.
       shared_ptr<string> outPackets_ {};
-      // The number of bytes in the packet.
+      // The number of packet bytes.
       shared_ptr<int64_t> packetBytes_ {};
       // The number of traffic packets.
       shared_ptr<int64_t> packetCount_ {};
@@ -829,34 +818,34 @@ namespace Models
       // The rule name.
       shared_ptr<string> ruleName_ {};
       // The final result of the traffic. Valid values:
-      // - **0**: allowed.
-      // - **1**: alerted.
-      // - **2**: dropped.
+      // - **0**: Allowed.
+      // - **1**: Alerted.
+      // - **2**: Dropped.
       shared_ptr<int32_t> ruleResult_ {};
-      // The source of the hit detection rule. Valid values:
-      // - **0**: none.
-      // - **1**: basic protection.
-      // - **2**: Virtual Patches.
-      // - **3**: access control.
-      // - **4**: threat intelligence.
+      // The source of the matched detection rule. Valid values:
+      // - **0**: None.
+      // - **1**: Basic protection.
+      // - **2**: Virtual patches.
+      // - **3**: Access control.
+      // - **4**: Threat intelligence.
       shared_ptr<string> ruleSource_ {};
-      // The rule list.
+      // The list of rules.
       shared_ptr<vector<DataList::Rules>> rules_ {};
       // The source IP address.
       shared_ptr<string> srcIP_ {};
-      // The port of the data source.
+      // The source port.
       shared_ptr<int32_t> srcPort_ {};
-      // The private source IP address.
+      // The source private IP address.
       shared_ptr<string> srcPrivateIP_ {};
       // The source VPC information.
       shared_ptr<DataList::SrcVpc> srcVpc_ {};
-      // The start time of the data. The value is a UNIX timestamp in seconds.
+      // The start time of the data. The time is in the UNIX timestamp format. Unit: seconds.
       shared_ptr<int64_t> startTime_ {};
       // The ID of the matched TLS inspection rule.
       shared_ptr<string> tlsRuleId_ {};
       // The name of the matched TLS inspection rule.
       shared_ptr<string> tlsRuleName_ {};
-      // The TLS inspection scope ID.
+      // The ID of the TLS inspection scope.
       shared_ptr<string> tlsScopeId_ {};
       // The instance ID of the virtual private cloud (VPC) firewall.
       shared_ptr<string> vpcFirewallId_ {};
@@ -903,7 +892,7 @@ namespace Models
     shared_ptr<vector<DescribeTrafficLogResponseBody::DataList>> dataList_ {};
     // The pagination information.
     shared_ptr<DescribeTrafficLogResponseBody::PageInfo> pageInfo_ {};
-    // The query ID. If the query is too large, a query ID is returned first. Use this query ID to retrieve results in subsequent requests.
+    // The query ID. If the query is too large, the query ID is returned first. You can use the query ID to query the results later.
     shared_ptr<string> queryId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The details of the exception.
+    // The error details.
     shared_ptr<string> detail_ {};
-    // Indicates whether a separate page is supported for NAT ACL.
+    // Indicates whether the dedicated page for NAT ACLs is supported.
     shared_ptr<bool> natAclPageEnable_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

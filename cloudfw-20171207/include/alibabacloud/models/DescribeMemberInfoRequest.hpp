@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The UID of the member account.
+    // The UID of the member accounts.
     shared_ptr<string> memberUid_ {};
   };
 

@@ -81,15 +81,15 @@ namespace Models
     // 
     // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The ID of the region where the VPC resides.
+    // The region ID of the VPC.
     // 
-    // > For more information about the regions that Cloud Firewall supports, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
+    // > For more information about the regions supported by Cloud Firewall, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
     shared_ptr<string> regionNo_ {};
-    // The source IP address of the requester.
+    // The source IP address of the caller.
     shared_ptr<string> sourceIp_ {};
-    // The instance ID of the VPC.
+    // The instance ID of the VPC-connected instance.
     shared_ptr<string> vpcId_ {};
-    // The instance name of the VPC.
+    // The name of the VPC.
     shared_ptr<string> vpcName_ {};
   };
 

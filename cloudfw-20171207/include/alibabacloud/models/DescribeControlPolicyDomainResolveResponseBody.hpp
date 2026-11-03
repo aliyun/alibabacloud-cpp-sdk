@@ -92,11 +92,11 @@ namespace Models
     protected:
       // The domain name.
       shared_ptr<string> domain_ {};
-      // The IP address list.
+      // The list of IP addresses.
       shared_ptr<vector<string>> ipAddrList_ {};
       // The supported IP address version.
       shared_ptr<int32_t> ipVersion_ {};
-      // The update time. The value is a UNIX timestamp in seconds, which represents the number of seconds that have elapsed since January 1, 1970 (UTC).
+      // The update time. The value is a UNIX timestamp in seconds, which indicates the number of seconds that have elapsed since January 1, 1970 (UTC).
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -119,7 +119,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The domain name resolution results.
     shared_ptr<vector<DescribeControlPolicyDomainResolveResponseBody::ResolveResult>> resolveResult_ {};

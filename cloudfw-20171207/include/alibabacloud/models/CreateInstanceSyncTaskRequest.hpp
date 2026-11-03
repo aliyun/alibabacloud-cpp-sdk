@@ -48,11 +48,9 @@ namespace Models
 
 
   protected:
-    // The language type. Valid values:
-    // - **en**: English.
-    // - **zh**: Chinese.
+    // The language type.
     shared_ptr<string> lang_ {};
-    // The IP address of the access source.
+    // The source IP address of the visitor.
     shared_ptr<string> sourceIp_ {};
   };
 

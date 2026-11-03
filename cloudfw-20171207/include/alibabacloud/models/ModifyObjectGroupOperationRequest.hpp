@@ -97,50 +97,34 @@ namespace Models
 
 
   protected:
-    // The remarks for the operation.
+    // The comment for the operation.
     shared_ptr<string> comment_ {};
-    // The traffic direction that is controlled by the access control policy.
-    // 
-    // Valid values:
-    // 
+    // The traffic direction controlled by the access control policy. Valid values:
     // - **in**: Inbound traffic.
-    // 
     // - **out**: Outbound traffic.
     // 
     // This parameter is required.
     shared_ptr<string> direction_ {};
-    // The language of the response. Valid values:
-    // 
+    // The language for receiving messages. Valid values:
     // - **zh** (default): Chinese
-    // 
     // - **en**: English
     shared_ptr<string> lang_ {};
-    // The list of objects.
+    // The list of objects to operate on.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> objectList_ {};
-    // The operation to perform. Valid values:
-    // 
-    // - **subscribe**: Follows the object.
-    // 
-    // - **unsubscribe**: Unfollows the object.
-    // 
+    // The operation to perform on the object, such as adding to or removing from a whitelist, or subscribing to or unsubscribing from the object. Valid values:
+    // - **subscribe**: Subscribes to the object.
+    // - **unsubscribe**: Unsubscribes from the object.
     // - **ignore**: Adds the object to the whitelist.
-    // 
     // - **cancelIgnore**: Removes the object from the whitelist.
     // 
     // This parameter is required.
     shared_ptr<string> objectOperation_ {};
-    // The type of object to add to the whitelist or follow.
-    // 
-    // Valid values:
-    // 
+    // The type of the outbound connection whitelist or subscription. Valid values:
     // - **assetsIp**: Asset IP address.
-    // 
     // - **destinationIp**: Destination IP address.
-    // 
     // - **destinationPort**: Destination port.
-    // 
     // - **destinationDomain**: Destination domain name.
     // 
     // This parameter is required.

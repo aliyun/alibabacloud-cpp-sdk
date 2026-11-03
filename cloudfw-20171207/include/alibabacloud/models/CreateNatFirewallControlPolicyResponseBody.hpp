@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The unique ID of the access control policy.
     // 
-    // > To modify an access control policy, you must provide its unique ID. You can call the `DescribeNatFirewallControlPolicy` operation to obtain this ID.
+    // > To modify an access control policy, you must provide the unique ID of the policy. You can call the DescribeNatFirewallControlPolicy operation to obtain the ID.
     shared_ptr<string> aclUuid_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

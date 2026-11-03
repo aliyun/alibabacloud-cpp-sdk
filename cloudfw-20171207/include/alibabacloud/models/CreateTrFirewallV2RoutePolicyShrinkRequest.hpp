@@ -95,31 +95,31 @@ namespace Models
 
   protected:
     // The list of secondary traffic redirection instances.
-    // > DestCandidateList is required. If this parameter is not specified, ErrorParameters(400) is returned.
+    // > DestCandidateList is required. If this parameter is not specified, an ErrorParameters(400) error is returned.
     shared_ptr<string> destCandidateListShrink_ {};
-    // The instance ID of the virtual private cloud (VPC) firewall.
-    // > FirewallId is required. If this parameter is not specified, ErrorParameters(400) is returned. You can call DescribeTrFirewallsV2List to obtain instance ID.
+    // The instance ID of the virtual private cloud (VPC) firewalls at the border.
+    // > FirewallId is required. If this parameter is not specified, an ErrorParameters(400) error is returned. You can call the DescribeTrFirewallsV2List operation to obtain instance ID.
     shared_ptr<string> firewallId_ {};
-    // The language of the content within the response. Valid values:
+    // The language in which you want to receive messages. Valid values:
     // 
-    // - **zh** (default): Chinese
-    // - **en**: English
+    // - **zh** (default): Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The description of the traffic redirection scenario.
+    // The description of the traffic redirection policy.
     shared_ptr<string> policyDescription_ {};
-    // The name of the traffic redirection scenario.
+    // The name of the traffic redirection policy.
     shared_ptr<string> policyName_ {};
-    // The traffic redirection scenario type for the virtual private cloud (VPC) firewall for a CEN Enterprise Edition transit router. Valid values:
+    // The type of the traffic redirection scenario for virtual private cloud (VPC) firewalls at the border in the Enterprise Edition Cloud Enterprise Network (CEN). Valid values:
     // 
-    // - **fullmesh**: multi-point interconnection
+    // - **fullmesh**: Multi-point interconnection.
     // 
-    // - **one_to_one**: point-to-point
+    // - **one_to_one**: Point-to-point.
     // 
-    // - **end_to_end**: point-to-multipoint
-    // > PolicyType is required. If this parameter is not specified, ErrorParameters(400) is returned.
+    // - **end_to_end**: Point-to-multipoint.
+    // > PolicyType is required. If this parameter is not specified, an ErrorParameters(400) error is returned.
     shared_ptr<string> policyType_ {};
     // The list of primary traffic redirection instances.
-    // > SrcCandidateList is required. If this parameter is not specified, ErrorParameters(400) is returned.
+    // > SrcCandidateList is required. If this parameter is not specified, an ErrorParameters(400) error is returned.
     shared_ptr<string> srcCandidateListShrink_ {};
   };
 

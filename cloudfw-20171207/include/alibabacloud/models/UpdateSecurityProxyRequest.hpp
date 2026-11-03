@@ -66,24 +66,24 @@ namespace Models
 
 
   protected:
-    // The language of the content within the response. Valid values:
+    // The language type. Valid values:
     // 
-    // - **zh** (default): Chinese.
+    // - **zh** (default): Chinese
     // 
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
     // The ID of the NAT firewall.
     // 
     // This parameter is required.
     shared_ptr<string> proxyId_ {};
-    // The name of the NAT firewall. The name can contain uppercase and lowercase letters, Chinese characters, digits, and underscores (_). The name must be 4 to 50 characters in length and cannot start with an underscore.
+    // The name of the NAT firewall. The name must be 4 to 50 characters in length and can contain uppercase and lowercase letters, Chinese characters, digits, and underscores (_). It cannot start with an underscore.
     // 
     // This parameter is required.
     shared_ptr<string> proxyName_ {};
     // Specifies whether to enable strict mode. Valid values:
     // 
-    // - 1: strict mode.
-    // - 0: loose mode.
+    // - 1: strict mode
+    // - 0: loose mode
     shared_ptr<int32_t> strictMode_ {};
   };
 

@@ -99,7 +99,7 @@ namespace Models
   protected:
     // The list of attack application categories.
     shared_ptr<vector<DescribeAttackAppCategoryResponseBody::AppCategories>> appCategories_ {};
-    // The request ID of the returned result.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

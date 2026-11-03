@@ -94,13 +94,13 @@ namespace Models
 
 
     protected:
-      // The peak inbound network throughput. Unit: bps.
+      // The peak network throughput in the inbound direction. Unit: bit/s.
       shared_ptr<int64_t> maxInBps_ {};
-      // The peak outbound network throughput. Unit: bps.
+      // The peak network throughput in the outbound direction. Unit: bit/s.
       shared_ptr<int64_t> maxOutBps_ {};
-      // The peak total network throughput for inbound and outbound traffic. Unit: bps.
+      // The peak network throughput in both the outbound and inbound directions. Unit: bit/s.
       shared_ptr<int64_t> maxTotalBps_ {};
-      // The time of the query. This value is a UNIX timestamp. Unit: seconds.
+      // The query time. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> trafficTime_ {};
     };
 
@@ -144,15 +144,15 @@ namespace Models
 
 
   protected:
-    // A list of traffic statistics.
+    // The list of traffic statistics information.
     shared_ptr<vector<DescribeNatFirewallTrafficTrendResponseBody::DataList>> dataList_ {};
-    // The peak inbound network throughput. Unit: bps.
+    // The peak network throughput in the inbound direction. Unit: bit/s.
     shared_ptr<int64_t> maxInBps_ {};
-    // The peak outbound network throughput. Unit: bps.
+    // The peak network throughput in the outbound direction. Unit: bit/s.
     shared_ptr<int64_t> maxOutBps_ {};
-    // The peak total network throughput for inbound and outbound traffic. Unit: bps.
+    // The peak network throughput in both the outbound and inbound directions. Unit: bit/s.
     shared_ptr<int64_t> maxTotalBps_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

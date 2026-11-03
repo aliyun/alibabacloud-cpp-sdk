@@ -96,7 +96,7 @@ namespace Models
   protected:
     // The Cloud Enterprise Network (CEN) instance ID.
     shared_ptr<string> cenId_ {};
-    // The language type. Valid values:
+    // The language of the request and response. Valid values:
     // 
     // - **zh** (default): Chinese.
     // 
@@ -106,15 +106,15 @@ namespace Models
     shared_ptr<string> memberUid_ {};
     // The type of the network instance. Valid values:
     // 
-    // - **cen_firewall**: CEN basic edition firewall
+    // - **cen_firewall**: CEN Basic Edition firewall.
     // 
-    // - **cen_tr_firewall**: CEN-TR firewall
+    // - **cen_tr_firewall**: CEN-TR firewall.
     shared_ptr<string> networkInstanceType_ {};
-    // The region ID. This parameter is required. If it is not specified, ErrorParameters is returned.
+    // The region ID. This parameter is required. If this parameter is missing or invalid, ErrorRegionNoError (Region is error, please reselect) is returned.
     shared_ptr<string> region_ {};
-    // The transit router instance ID. You must specify at least one of VpcId and TransitRouterId. Specify VpcId when querying a basic edition firewall, or specify TransitRouterId when querying a transit router (TR) scenario. If neither is specified, ErrorParameters is returned.
+    // The transit router instance ID. You must specify at least one of VpcId and TransitRouterId. Specify VpcId to query the Basic Edition firewall, and specify TransitRouterId to query the transit router (TR) firewall for forward routing. If neither parameter is specified, ErrorParameters is returned.
     shared_ptr<string> transitRouterId_ {};
-    // The VPC-connected instance ID. You must specify at least one of VpcId and TransitRouterId. Specify VpcId when querying a basic edition firewall, or specify TransitRouterId when querying a forward routing (TR) scenario. If neither is specified, ErrorParameters is returned.
+    // The VPC-connected instance ID. You must specify at least one of VpcId and TransitRouterId. Specify VpcId to query the Basic Edition firewall, and specify TransitRouterId to query the transit router (TR) firewall for forward routing. If neither parameter is specified, ErrorParameters is returned.
     shared_ptr<string> vpcId_ {};
   };
 

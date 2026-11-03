@@ -66,14 +66,14 @@ namespace Models
 
 
   protected:
-    // The child instance ID. You must specify at least one of ChildInstanceId and TaskId. If both are empty, the error MissingParameter.TaskId (-360448) is returned.
+    // The ID of the child instance. You must specify at least one of ChildInstanceId and TaskId. If both are empty, the MissingParameter.TaskId (-360448) error is returned.
     shared_ptr<string> childInstanceId_ {};
     // The language type. Valid values:
     // 
     // - **zh** (default): Chinese
     // - **en**: English
     shared_ptr<string> lang_ {};
-    // The task ID. You must specify at least one of TaskId and ChildInstanceId. If both are empty, the error MissingParameter.TaskId (-360448, At least one of TaskId or ChildInstanceId is required.) is returned.
+    // The ID of the task. You must specify at least one of TaskId and ChildInstanceId. If both are empty, the MissingParameter.TaskId (-360448, At least one of TaskId or ChildInstanceId is required.) error is returned.
     shared_ptr<string> taskId_ {};
     // The type of the task. Valid values:
     // 

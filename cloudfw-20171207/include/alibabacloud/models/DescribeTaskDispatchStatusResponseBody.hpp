@@ -48,14 +48,14 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The execution status of the task. Valid values:
-    // - PENDING: pending execution.
-    // - RUNNING: running.
-    // - SUCCESS: succeeded.
-    // - FAILED: failed.
-    // - CANCELLED: cancelled.
+    // The status of the task. Valid values:
+    // - PENDING: Pending.
+    // - RUNNING: Running.
+    // - SUCCESS: Successful.
+    // - FAILED: Failed.
+    // - CANCELLED: Cancelled.
     shared_ptr<string> status_ {};
   };
 

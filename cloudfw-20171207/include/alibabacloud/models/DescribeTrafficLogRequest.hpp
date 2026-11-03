@@ -416,7 +416,7 @@ namespace Models
 
 
   protected:
-    // The ACL pre-match rule ID.
+    // The ID of the ACL pre-match rule.
     shared_ptr<string> aclPreRuleId_ {};
     // The ACL pre-match status.
     shared_ptr<string> aclPreState_ {};
@@ -430,7 +430,7 @@ namespace Models
     shared_ptr<string> attackType_ {};
     // The page number.
     shared_ptr<string> currentPage_ {};
-    // The traffic direction.
+    // The direction.
     shared_ptr<string> direction_ {};
     // The domain name.
     shared_ptr<string> domainName_ {};
@@ -444,7 +444,7 @@ namespace Models
     shared_ptr<string> dstVpcId_ {};
     // The region of the destination VPC asset.
     shared_ptr<string> dstVpcRegionNo_ {};
-    // The end time. Specify a UNIX timestamp in seconds.
+    // The end time. Specify the time in the UNIX timestamp format in seconds.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
@@ -456,55 +456,56 @@ namespace Models
     shared_ptr<string> ipProtocol_ {};
     // The IP version.
     shared_ptr<string> ipVersion_ {};
-    // The Internet service provider (ISP).
+    // The ISP.
     shared_ptr<string> isp_ {};
-    // The language of the response message. Valid values:
+    // The language of the received messages. Valid values:
     // - **zh** (default): Chinese
     // - **en**: English
     shared_ptr<string> lang_ {};
     // The region of the source or destination IP address.
     shared_ptr<string> location_ {};
-    // The UID of one of the member accounts.
+    // The UID of the member accounts.
     shared_ptr<int64_t> memberUid_ {};
     // The NAT firewall ID.
     shared_ptr<string> natFirewallId_ {};
     // The NAT gateway ID.
     shared_ptr<string> natGatewayId_ {};
-    // The number of entries per page. Maximum value: 20.
+    // The number of entries per page. The value cannot exceed 20.
     shared_ptr<string> pageSize_ {};
-    // The query ID. If the query is too large, a query ID is returned. Use this query ID to retrieve results in subsequent requests.
+    // The query ID.
+    // If the query scope is too large, a query ID is returned. You can use the query ID for subsequent queries.
     shared_ptr<string> queryId_ {};
     // The rule ID.
     shared_ptr<string> ruleId_ {};
-    // The rule action result. Valid values:
+    // The rule action.
     shared_ptr<string> ruleResult_ {};
     // The rule source.
     shared_ptr<string> ruleSource_ {};
-    // The final effective module.
+    // The module that ultimately takes effect.
     shared_ptr<string> ruleSourceFinal_ {};
-    // The tracing watermark.
+    // The tracing code.
     // 
     // This parameter is required.
     shared_ptr<string> sourceCode_ {};
-    // The IP address of the access source.
+    // The source IP address.
     shared_ptr<string> sourceIp_ {};
     // The source IP address.
     shared_ptr<string> srcIP_ {};
     // The source port.
     shared_ptr<string> srcPort_ {};
-    // The private source IP address.
+    // The source private IP address.
     shared_ptr<string> srcPrivateIP_ {};
     // The source VPC ID.
     shared_ptr<string> srcVpcId_ {};
     // The region of the source VPC asset.
     shared_ptr<string> srcVpcRegionNo_ {};
-    // The start time. Specify a UNIX timestamp in seconds. Only data within the last 7 days can be queried. We recommend that a single query span no more than one day.
+    // The start time. Specify the time in the UNIX timestamp format in seconds. Only data within the last 7 days can be queried. A single query covers a maximum of one day.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    // The TLS inspection scope ID.
+    // The ID of the TLS inspection scope.
     shared_ptr<string> tlsScopeId_ {};
-    // The instance ID of the virtual private cloud (VPC) firewall.
+    // The instance ID of the virtual private cloud (VPC) border firewall.
     shared_ptr<string> vpcFirewallId_ {};
     // The vulnerability level.
     shared_ptr<string> vulLevel_ {};

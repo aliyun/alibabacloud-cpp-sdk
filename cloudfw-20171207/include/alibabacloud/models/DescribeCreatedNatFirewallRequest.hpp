@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The language of the request and response.
+    // The language of the request and response messages.
     shared_ptr<string> lang_ {};
     // The source IP address of the requester.
     shared_ptr<string> sourceIp_ {};

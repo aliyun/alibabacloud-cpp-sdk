@@ -167,41 +167,41 @@ namespace Models
 
 
   protected:
-    // The status of the access control policy.
+    // The policy coverage status.
     shared_ptr<string> aclCoverage_ {};
-    // The number of the page to return.
+    // The current page number.
     shared_ptr<string> currentPage_ {};
     // The destination IP address.
     // 
     // This parameter is required.
     shared_ptr<string> dstIP_ {};
-    // The end of the time range to query. This is a UNIX timestamp. Unit: seconds.
+    // The end time of the query. The value is a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // Describes the outbound connections from a private network through a NAT gateway.
+    // Specifies whether to query outbound connections from the private network of a NAT gateway.
     shared_ptr<string> IPType_ {};
-    // The language of the response message.
+    // The language type for receiving messages.
     shared_ptr<string> lang_ {};
-    // The ID of the NAT Gateway.
+    // The ID of the NAT gateway.
     shared_ptr<string> natGatewayId_ {};
     // The sort order.
     shared_ptr<string> order_ {};
-    // The number of the page to return.
+    // The number of entries per page.
     shared_ptr<string> pageSize_ {};
     // The private IP address.
     shared_ptr<string> privateIP_ {};
     // The public IP address.
     shared_ptr<string> publicIP_ {};
-    // The field to use for sorting.
+    // The field by which to sort the results.
     shared_ptr<string> sort_ {};
     // The source IP address of the visitor.
     shared_ptr<string> sourceIp_ {};
-    // The start of the time range to query. This is a UNIX timestamp. Unit: seconds.
+    // The start time of the query. The value is a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    // The ID of the tag.
+    // The tag ID.
     shared_ptr<string> tagId_ {};
   };
 

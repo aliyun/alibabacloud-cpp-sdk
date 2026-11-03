@@ -154,23 +154,23 @@ namespace Models
 
 
     protected:
-      // The name of the SLS Logstore.
+      // The name of the Logstore.
       shared_ptr<string> logStoreName_ {};
-      // The maximum number of shards supported for scaling.
+      // The maximum number of shards supported for elastic scaling.
       shared_ptr<int32_t> maxSplitShard_ {};
       // The name of the Simple Log Service project.
       shared_ptr<string> projectName_ {};
-      // The storage capacity threshold, in bytes.
+      // The storage capacity threshold. Unit: bytes.
       shared_ptr<int64_t> quota_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The number of shards in use.
+      // The number of shards currently in use.
       shared_ptr<int32_t> shard_ {};
-      // The location of the Logstore. Valid values: \\`cn\\` for the Chinese mainland and \\`intl\\` for regions outside the Chinese mainland.
+      // The site to which the Logstore belongs. Valid values: cn: the Chinese mainland. intl: outside the Chinese mainland.
       shared_ptr<string> site_ {};
-      // The storage duration of logs, in days.
+      // The storage duration of logs. Unit: days.
       shared_ptr<int32_t> ttl_ {};
-      // The amount of stored logs, in bytes.
+      // The volume of stored logs. Unit: bytes.
       shared_ptr<int64_t> used_ {};
     };
 
@@ -267,29 +267,29 @@ namespace Models
   protected:
     // The information list.
     shared_ptr<vector<DescribeLogStoreInfoResponseBody::InfoList>> infoList_ {};
-    // The number of times the log storage mode can be changed.
+    // The number of times the user can switch the log mode.
     shared_ptr<int32_t> logModifyQuota_ {};
-    // The name of the SLS Logstore.
+    // The name of the Simple Log Service Logstore.
     shared_ptr<string> logStoreName_ {};
-    // The log version. 1: indicates one Logstore. 2: indicates two Logstores.
+    // The log version. Valid values: 1: one Logstore. 2: two Logstores.
     shared_ptr<int32_t> logVersion_ {};
     // The name of the Simple Log Service project.
     shared_ptr<string> projectName_ {};
-    // The available log storage capacity, in bytes.
+    // The available log storage capacity. Unit: bytes.
     shared_ptr<int64_t> quota_ {};
-    // The ID of the region where logs are delivered.
+    // The region ID for log delivery.
     shared_ptr<string> regionId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The task ID.
     shared_ptr<string> taskId_ {};
-    // The total purchased log storage capacity, in bytes.
+    // The total log storage capacity purchased by the user.
     shared_ptr<int64_t> totalQuota_ {};
-    // The storage duration of logs, in days.
+    // The storage duration of logs. Unit: days.
     shared_ptr<int32_t> ttl_ {};
-    // The used storage capacity, in bytes.
+    // The used storage capacity. Unit: bytes.
     // 
-    // > Statistics from Simple Log Service may be delayed by up to two hours.
+    // > The statistics of Simple Log Service have a delay of about two hours.
     shared_ptr<int64_t> used_ {};
   };
 

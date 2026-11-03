@@ -85,9 +85,9 @@ namespace Models
 
 
     protected:
-      // The number of threat domain names.
+      // The number of risky domain names.
       shared_ptr<int32_t> riskDomain_ {};
-      // The number of threat IP addresses.
+      // The number of risky IP addresses.
       shared_ptr<int32_t> riskIp_ {};
       // The timestamp.
       shared_ptr<int64_t> time_ {};
@@ -139,9 +139,9 @@ namespace Models
     shared_ptr<int32_t> interval_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of threat domain names.
+    // The total number of risky domain names.
     shared_ptr<int32_t> totalRiskDomain_ {};
-    // The total number of threat IP addresses.
+    // The total number of risky IP addresses.
     shared_ptr<int32_t> totalRiskIp_ {};
   };
 

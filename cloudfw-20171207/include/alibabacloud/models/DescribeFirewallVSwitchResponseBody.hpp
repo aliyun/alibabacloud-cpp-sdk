@@ -109,7 +109,7 @@ namespace Models
 
 
       protected:
-        // The instance ID of the firewall.
+        // The firewall instance ID.
         shared_ptr<string> firewallId_ {};
         // The name of the Cloud Firewall.
         shared_ptr<string> firewallName_ {};
@@ -203,7 +203,7 @@ namespace Models
       shared_ptr<string> memberUid_ {};
       // The region ID.
       shared_ptr<string> regionNo_ {};
-      // The ID of the VPC instance.
+      // The VPC-connected instance ID.
       shared_ptr<string> vpcId_ {};
       // The ID of the vSwitch.
       shared_ptr<string> vswitchId_ {};
@@ -239,7 +239,7 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};

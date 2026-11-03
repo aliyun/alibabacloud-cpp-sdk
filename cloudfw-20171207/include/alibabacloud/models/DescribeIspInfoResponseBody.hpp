@@ -72,9 +72,9 @@ namespace Models
 
 
     protected:
-      // The ID of the ISP.
+      // The ISP ID.
       shared_ptr<int32_t> ispId_ {};
-      // The name of the ISP.
+      // The ISP name.
       shared_ptr<string> ispName_ {};
     };
 

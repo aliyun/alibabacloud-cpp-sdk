@@ -66,23 +66,20 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The task status. Valid values:
     // 
-    // - finish: The task is completed. You can call a task query operation to obtain the download URL of the task file.
-    // 
-    // - start: The task has started.
-    // 
+    // - finish: The task is completed. You can query the task to obtain the download URL of the task file.
+    // - start: The task is started.
     // - error: The task failed.
+    // - expire: The task has expired. The task file is invalid and cannot be downloaded.
     // 
-    // - expire: The task has expired. The task file is no longer valid and cannot be downloaded.
-    // 
-    // This field is returned only under specific conditions, such as when the task is completed synchronously. In regular responses, only RequestId is returned. Use a task query operation to obtain the real-time status.
+    // Note: This field is returned only under specific conditions, such as when the task is completed synchronously. A standard response returns only RequestId. To query the real-time status, call a task query operation.
     shared_ptr<string> status_ {};
-    // The task ID, which uniquely identifies the task. This field is returned only under specific conditions, such as when the task is completed synchronously. In regular responses, only RequestId is returned. Use a task query operation to obtain the task status and download URL.
+    // The unique identifier of the task. Note: This field is returned only under specific conditions, such as when the task is completed synchronously. A standard response returns only RequestId. To obtain the task status and download URL, call a task query operation.
     shared_ptr<int64_t> taskId_ {};
-    // The name of the file download task. This field is returned only under specific conditions, such as when the task is completed synchronously. In regular responses, only RequestId is returned.
+    // The name of the file download task. Note: This field is returned only under specific conditions, such as when the task is completed synchronously. A standard response returns only RequestId.
     shared_ptr<string> taskName_ {};
   };
 

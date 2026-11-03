@@ -190,9 +190,8 @@ namespace Models
     shared_ptr<string> lang_ {};
     // Specifies whether to restore the traffic redirection configuration. Valid values:
     // 
-    // - true: Route rollback.
-    // 
-    // - false: Route withdrawal.
+    // - true: Rolls back the route.
+    // - false: Revokes the route.
     shared_ptr<string> shouldRecover_ {};
     // The list of primary traffic redirection instances.
     shared_ptr<vector<ModifyTrFirewallV2RoutePolicyScopeRequest::SrcCandidateList>> srcCandidateList_ {};

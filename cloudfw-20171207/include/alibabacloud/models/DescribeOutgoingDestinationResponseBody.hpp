@@ -259,11 +259,11 @@ namespace Models
 
 
     protected:
-      // The recommended ACL content.
+      // The ACL recommendation details.
       shared_ptr<string> aclRecommendDetail_ {};
       // The policy status.
       shared_ptr<string> aclStatus_ {};
-      // The domain name business.
+      // The business of the domain name.
       shared_ptr<string> business_ {};
       // The category ID.
       shared_ptr<string> categoryId_ {};
@@ -277,11 +277,11 @@ namespace Models
       shared_ptr<string> dstType_ {};
       // The group name.
       shared_ptr<string> groupName_ {};
-      // Indicates whether a recommended ACL exists.
+      // Indicates whether an ACL is recommended.
       shared_ptr<bool> hasAclRecommend_ {};
       // The inbound traffic. Unit: bytes.
       shared_ptr<int64_t> inBytes_ {};
-      // Indicates whether the entry is manually marked as normal by the user.
+      // Indicates whether the destination is manually marked as normal by the user.
       shared_ptr<bool> isMarkNormal_ {};
       // The outbound traffic. Unit: bytes.
       shared_ptr<int64_t> outBytes_ {};

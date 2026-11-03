@@ -144,19 +144,19 @@ namespace Models
 
 
         protected:
-          // The information about the precheck failure.
+          // The information about the failed check.
           shared_ptr<string> info_ {};
-          // The precheck item name.
+          // The name of the precheck item.
           shared_ptr<string> name_ {};
-          // The status of each precheck item. Valid values:
+          // The status of the precheck item. Valid values:
           // 
           // - **running**: The precheck is in progress.
           // 
-          // - **passed**: The precheck passed.
+          // - **passed**: The precheck is passed.
           // 
           // - **failed**: The precheck failed.
           shared_ptr<string> status_ {};
-          // The suggested action.
+          // The troubleshooting suggestion.
           shared_ptr<string> suggestion_ {};
         };
 
@@ -193,13 +193,13 @@ namespace Models
 
 
       protected:
-        // The number of precheck rules that failed.
+        // The number of rules that failed the precheck.
         shared_ptr<int32_t> failedCount_ {};
-        // The precheck instance name.
+        // The name of the precheck instance.
         shared_ptr<string> name_ {};
-        // The execution details of each precheck item.
+        // The execution status of each precheck item.
         shared_ptr<vector<PrecheckEntityGroups::PrecheckEntities>> precheckEntities_ {};
-        // The precheck status. Valid values:
+        // The status of the precheck. Valid values:
         // 
         // - **running**
         // 
@@ -266,13 +266,13 @@ namespace Models
       // 
       // - **running**: The precheck is in progress.
       // 
-      // - **passed**: The precheck passed.
+      // - **passed**: The precheck is passed.
       // 
       // - **failed**: The precheck failed.
       shared_ptr<string> precheckStatus_ {};
-      // The precheck timestamp.
+      // The timestamp of the precheck.
       shared_ptr<string> precheckTimestamp_ {};
-      // The region ID.
+      // The ID of the region.
       shared_ptr<string> regionNo_ {};
     };
 
@@ -304,9 +304,9 @@ namespace Models
   protected:
     // Indicates whether the task exists.
     shared_ptr<bool> isFound_ {};
-    // The precheck details.
+    // The details of the precheck.
     shared_ptr<DescribeVpcFirewallPrecheckDetailResponseBody::PrecheckDetail> precheckDetail_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The unique ID of the address book returned after the address book is created.
+    // The unique ID of the address book returned after it is successfully added.
     shared_ptr<string> groupUuid_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

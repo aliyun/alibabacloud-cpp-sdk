@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether default traffic redirection is enabled.
+    // Indicates whether traffic redirection is enabled by default.
     shared_ptr<map<string, bool>> resourceTypeAutoEnable_ {};
   };
 

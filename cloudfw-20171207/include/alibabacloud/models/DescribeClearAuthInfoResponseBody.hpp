@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The UNIX timestamp when the authorization expires.
+    // The expiration timestamp.
     shared_ptr<int32_t> endTime_ {};
-    // The number of remaining clears.
+    // The number of remaining clearances.
     shared_ptr<int32_t> leftTimes_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

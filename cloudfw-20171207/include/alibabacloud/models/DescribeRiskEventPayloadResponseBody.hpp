@@ -167,36 +167,36 @@ namespace Models
 
 
   protected:
-    // The destination IP address of the intrusion event.
+    // The destination IP address of the intrusion prevention event.
     shared_ptr<string> dstIP_ {};
-    // The destination port of the intrusion event.
+    // The destination port of the intrusion prevention event.
     shared_ptr<int32_t> dstPort_ {};
-    // The destination VPC ID of the intrusion event.
+    // The destination VPC ID of the intrusion prevention event.
     shared_ptr<string> dstVpcId_ {};
-    // Type of the hit.
+    // The type of the hit content.
     shared_ptr<int32_t> hitContentType_ {};
-    // The position where the hit ends.
+    // The end position of the hit content.
     shared_ptr<int32_t> hitTo_ {};
-    // Hit payload.
+    // The parsed payload of the hit content.
     shared_ptr<string> parsedContent_ {};
-    // The attack payload of the intrusion event.
+    // The attack payload of the intrusion prevention event.
     shared_ptr<string> payload_ {};
-    // The length of the attack payload of the intrusion event.
+    // The length of the attack payload in the intrusion prevention event.
     shared_ptr<int32_t> payloadLen_ {};
-    // The protocol type of intrusion event. Valid values:
+    // The protocol type of the intrusion prevention attack event. Valid values:
     // 
-    // *   **TCP**
-    // *   **UDP**
+    // - **TCP**
+    // - **UDP**
     shared_ptr<string> proto_ {};
     // The HTTP X-Real-IP field.
     shared_ptr<string> realIp_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The source IP address of the intrusion event.
+    // The source IP address of the intrusion prevention event.
     shared_ptr<string> srcIP_ {};
-    // The source port of the intrusion event.
+    // The source port of the intrusion prevention event.
     shared_ptr<int32_t> srcPort_ {};
-    // The source VPC ID of the intrusion event.
+    // The source VPC ID of the intrusion prevention event.
     shared_ptr<string> srcVpcId_ {};
     // The HTTP X-Forwarded-For field.
     shared_ptr<string> XForwardFor_ {};

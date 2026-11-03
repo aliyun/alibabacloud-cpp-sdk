@@ -187,23 +187,34 @@ namespace Models
     shared_ptr<string> assetsInstanceId_ {};
     // The instance name.
     shared_ptr<string> assetsInstanceName_ {};
-    // Specifies the page number to return in a paged query.
+    // Settings for the paged query. Specifies the page number to return for paging.
+    // 
+    // Default value: 1.
     shared_ptr<string> currentPage_ {};
-    // Specifies the end time of the query. The value is a UNIX timestamp in seconds. If this parameter is not specified, the current time is used.
+    // Specifies the end time of the query. The value is a UNIX timestamp in seconds. If you do not specify this parameter, the query ends at the current time.
     shared_ptr<string> endTime_ {};
-    // The ID of the compromise awareness event.
+    // The ID of the breach awareness event.
     shared_ptr<string> eventKey_ {};
-    // The name of the compromise awareness event.
+    // The name of the breach awareness event.
     shared_ptr<string> eventName_ {};
-    // The UUID of the compromise awareness event.
+    // The UUID of the breach awareness event.
     shared_ptr<string> eventUuid_ {};
-    // Specifies whether the compromise awareness event is ignored. Valid values:
+    // Specifies whether the breach awareness event is ignored. Valid values:
+    // 
+    // - **true**: Ignored.
+    // 
+    // - **false**: Not ignored.
     shared_ptr<string> isIgnore_ {};
-    // The language type of the received message. Valid values:
+    // The language of the response message. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
     // The UID of the member accounts.
     shared_ptr<int64_t> memberUid_ {};
-    // Specifies the number of entries per page in a paged query.
+    // Settings for the paged query. Specifies the number of entries to return on each page for paging.
+    // 
+    // Default value: 6. Maximum value: 10.
     shared_ptr<string> pageSize_ {};
     // The list of processing statuses.
     shared_ptr<vector<int32_t>> processStatusList_ {};
@@ -211,7 +222,7 @@ namespace Models
     shared_ptr<vector<int32_t>> riskLevel_ {};
     // The source IP address of the requester.
     shared_ptr<string> sourceIp_ {};
-    // Specifies the start time of the query. The value is a UNIX timestamp in seconds. If this parameter is not specified, the query starts from the last 30 days.
+    // Specifies the start time of the query. The value is a UNIX timestamp in seconds. If you do not specify this parameter, the query starts from 30 days ago.
     shared_ptr<string> startTime_ {};
   };
 

@@ -184,29 +184,29 @@ namespace Models
     protected:
       // The actual billed traffic for sensitive data leak detection.
       shared_ptr<float> billedDetectionTraffic_ {};
-      // The sensitive data detection traffic of the day.
+      // The sensitive data detection traffic on the day.
       shared_ptr<float> dailyDetectionTraffic_ {};
-      // The total elastic traffic of the day. Unit: GB.
+      // The total elastic traffic on the day. Unit: GB.
       shared_ptr<float> dailyOverflowTraffic_ {};
       // The default bandwidth of the edition. Unit: Mbit/s.
       shared_ptr<int64_t> defaultBandwidth_ {};
-      // The elastic bandwidth value. Unit: Mbit/s.
+      // The elastic bandwidth. Unit: Mbit/s.
       shared_ptr<int64_t> elasticBandwidth_ {};
-      // The end time of the day. The value is a UNIX timestamp in seconds.
+      // The end time of the day. The value is a UNIX timestamp accurate to seconds.
       shared_ptr<int64_t> endTime_ {};
-      // The extended bandwidth. Unit: Mbit/s.
+      // The extra bandwidth. Unit: Mbit/s.
       shared_ptr<int64_t> extensionBandwidth_ {};
       // The Internet traffic bandwidth. Unit: Gbit/s.
       shared_ptr<float> internetTrafficBandwidth_ {};
-      // The monthly free traffic for sensitive data detection. Unit: GB.
+      // The monthly free quota for sensitive data detection. Unit: GB.
       shared_ptr<float> monthlyRemainingFreeTraffic_ {};
       // The NAT traffic bandwidth. Unit: Gbit/s.
       shared_ptr<float> natTrafficBandwidth_ {};
-      // The timestamp when the maximum bandwidth (Internet + VPC + NAT) of the day occurred.
+      // The timestamp when the total bandwidth (Internet, VPC, and NAT) reaches the maximum value on the day.
       shared_ptr<int64_t> overflowTime_ {};
-      // The start time of the day. The value is a UNIX timestamp in seconds.
+      // The start time of the day. The value is a UNIX timestamp accurate to seconds.
       shared_ptr<int64_t> startTime_ {};
-      // The temporary upgrade bandwidth. Unit: Mbit/s.
+      // The temporary bandwidth upgrade. Unit: Mbit/s.
       shared_ptr<int64_t> temporaryBandwidth_ {};
       // The VPC traffic bandwidth. Unit: Gbit/s.
       shared_ptr<float> vpcTrafficBandwidth_ {};
@@ -238,11 +238,11 @@ namespace Models
 
 
   protected:
-    // The bill list, aggregated by day.
+    // The bill list aggregated by day.
     shared_ptr<vector<DescribePrepayBillTotalResponseBody::BillList>> billList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total count.
     shared_ptr<int32_t> totalCount_ {};
   };
 

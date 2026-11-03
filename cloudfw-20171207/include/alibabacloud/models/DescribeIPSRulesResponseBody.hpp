@@ -194,7 +194,7 @@ namespace Models
 
 
     protected:
-      // The target application.
+      // The attacked application.
       shared_ptr<string> attackApp_ {};
       // The attack type.
       shared_ptr<string> attackType_ {};
@@ -204,11 +204,11 @@ namespace Models
       shared_ptr<string> cve_ {};
       // The default action.
       shared_ptr<string> defaultMode_ {};
-      // A description of the rule.
+      // The rule description.
       shared_ptr<string> description_ {};
-      // The engine mode.
+      // The supported engine mode.
       // 
-      // This parameter takes effect only when `DefaultMode` is set to `drop`.
+      // This value is valid only when DefaultMode is set to drop (Block). In other modes, this value is meaningless.
       shared_ptr<int32_t> ruleClass_ {};
       // The rule ID.
       shared_ptr<string> ruleId_ {};
@@ -216,13 +216,13 @@ namespace Models
       shared_ptr<int64_t> ruleLevel_ {};
       // The rule name.
       shared_ptr<string> ruleName_ {};
-      // The rule UUID.
+      // The UUID of the rule.
       shared_ptr<string> ruleUuid_ {};
-      // The UNIX timestamp for when the rule was last updated.
+      // The timestamp when the rule was modified.
       shared_ptr<int64_t> updateTime_ {};
-      // Specifies whether the rule is user-defined.
+      // Specifies whether the rule is a custom rule.
       shared_ptr<string> userDefined_ {};
-      // The user-defined status of the rule.
+      // The user status.
       shared_ptr<int32_t> userStatus_ {};
     };
 
@@ -295,7 +295,7 @@ namespace Models
 
 
   protected:
-    // The number of rules that have the `drop` action.
+    // The total number of rules with the block action.
     shared_ptr<int64_t> dropCount_ {};
     // The number of high-risk rules.
     shared_ptr<int64_t> highRiskCount_ {};
@@ -303,7 +303,7 @@ namespace Models
     shared_ptr<int64_t> openCount_ {};
     // The page number.
     shared_ptr<int64_t> pageNo_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
@@ -311,7 +311,7 @@ namespace Models
     shared_ptr<vector<DescribeIPSRulesResponseBody::Rules>> rules_ {};
     // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
-    // The total number of user-defined rules.
+    // The total number of rules with custom actions.
     shared_ptr<int64_t> userDefineCount_ {};
   };
 

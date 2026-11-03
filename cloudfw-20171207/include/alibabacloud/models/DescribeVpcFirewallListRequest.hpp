@@ -130,37 +130,32 @@ namespace Models
 
 
   protected:
-    // The subtype of the connection. Valid values:
+    // The connection subtype. Valid values:
     // 
     // - **vpc2vpc**: Express Connect.
-    // 
-    // - **vpcpeer**: peering connection.
+    // - **vpcpeer**: VPC peering connection.
     shared_ptr<string> connectSubType_ {};
-    // The page number.
+    // The page number Settings for a paging query.
     // 
-    // Default value: **1**.
+    // Default value: **1**, which indicates the first page.
     shared_ptr<string> currentPage_ {};
-    // The status of the VPC firewall. Valid values:
+    // The status of the virtual private cloud (VPC) border firewall. Valid values:
     // 
-    // - **opened**: The firewall is enabled.
+    // - **opened**: Enabled.
+    // - **closed**: Disabled.
+    // - **notconfigured**: The virtual private cloud (VPC) border firewall is not configured.
+    // - **configured**: The virtual private cloud (VPC) border firewall is configured.
     // 
-    // - **closed**: The firewall is disabled.
-    // 
-    // - **notconfigured**: The firewall is not configured.
-    // 
-    // - **configured**: The firewall is configured.
-    // 
-    // > If you do not specify this parameter, VPC firewalls in all states are queried.
+    // > If you do not specify the Settings for this parameter, virtual private cloud (VPC) border firewalls in all states are queried.
     shared_ptr<string> firewallSwitchStatus_ {};
     // The language of the request and response. Valid values:
     // 
     // - **zh** (default): Chinese.
-    // 
     // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The UID of the member account.
+    // The UID of the member accounts of the current Alibaba Cloud account.
     shared_ptr<string> memberUid_ {};
-    // The number of entries per page.
+    // The number Settings of virtual private cloud (VPC) border firewalls per page for a paging query.
     // 
     // Default value: **10**. Maximum value: **50**.
     shared_ptr<string> pageSize_ {};
@@ -168,11 +163,11 @@ namespace Models
     shared_ptr<string> peerUid_ {};
     // The region ID of the VPC.
     // 
-    // > For more information about the regions where Cloud Firewall is supported, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
+    // > For more information about the regions supported by Cloud Firewall, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
     shared_ptr<string> regionNo_ {};
-    // The instance ID of the VPC firewall.
+    // The instance ID of the virtual private cloud (VPC) border firewall.
     shared_ptr<string> vpcFirewallId_ {};
-    // The instance name of the VPC firewall.
+    // The instance name of the virtual private cloud (VPC) border firewall.
     shared_ptr<string> vpcFirewallName_ {};
     // The instance ID of the VPC.
     shared_ptr<string> vpcId_ {};

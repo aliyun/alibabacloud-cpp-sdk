@@ -51,7 +51,7 @@ namespace Models
 
 
   protected:
-    // The list of IP assets. At least one IP address is required to enable protection.
+    // The list of IP addresses of the assets. At least one IP address is required to enable protection.
     shared_ptr<vector<string>> ipList_ {};
     // The language of the request and response. Valid values:
     // - **zh** (default): Chinese

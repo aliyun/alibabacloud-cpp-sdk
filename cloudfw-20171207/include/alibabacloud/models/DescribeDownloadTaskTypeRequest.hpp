@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // The page number. The default value is **1**.
+    // The page number of the page to return in a paged query.
+    // Default value: **1**, which indicates the first page.
     shared_ptr<string> currentPage_ {};
-    // The language of the response. Valid values:
+    // The language in which messages are received. Valid values:
     // 
     // - **zh** (default): Chinese
-    // 
     // - **en**: English
     shared_ptr<string> lang_ {};
-    // The number of entries to return on each page. Default value: 10. Maximum value: 50.
+    // The maximum number of entries to return on each page in a paged query. Default value: 10. Maximum value: 50.
     shared_ptr<string> pageSize_ {};
-    // The type of the task.
+    // The task type.
     shared_ptr<string> taskType_ {};
   };
 

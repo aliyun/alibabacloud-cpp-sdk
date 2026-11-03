@@ -108,15 +108,15 @@ namespace Models
 
 
     protected:
-      // The number of sessions blocked by the access control list (ACL).
+      // The number of ACL blocks.
       shared_ptr<int64_t> aclDrop_ {};
-      // The data timestamp. The value is a string in the YYYY-MM-DD HH:mm:ss format.
+      // The data timestamp. The value is a character string in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> dataTime_ {};
-      // The number of blocked sessions.
+      // The number of blocks.
       shared_ptr<int64_t> dropSession_ {};
-      // The number of sessions blocked by the intrusion prevention system (IPS).
+      // The number of IPS blocks.
       shared_ptr<int64_t> ipsDrop_ {};
-      // The data timestamp. This value is a UNIX timestamp. Unit: seconds.
+      // The data timestamp. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> time_ {};
       // The total number of sessions.
       shared_ptr<int64_t> totalSession_ {};

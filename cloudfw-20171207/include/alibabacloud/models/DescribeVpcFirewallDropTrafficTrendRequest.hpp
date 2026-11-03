@@ -84,21 +84,20 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. This value is a UNIX timestamp. Unit: seconds.
+    // The end time of the query. The value is a UNIX timestamp in seconds.
     shared_ptr<int64_t> endTime_ {};
     // The sort order. Valid values:
     // 
-    // - **asc**: ascending order.
-    // 
-    // - **desc**: descending order. This is the default value.
+    // - **asc**: ascending order
+    // - **desc** (default): descending order
     shared_ptr<string> order_ {};
     // The sorting criterion.
     shared_ptr<string> sort_ {};
     // The source IP address of the visitor.
     shared_ptr<string> sourceIp_ {};
-    // The start of the time range to query. This value is a UNIX timestamp. Unit: seconds.
+    // The start time of the query. The value is a UNIX timestamp in seconds.
     shared_ptr<int64_t> startTime_ {};
-    // The time point of the traffic. This value is a UNIX timestamp. Unit: seconds.
+    // The traffic time point. The value is a UNIX timestamp in seconds.
     shared_ptr<int64_t> trafficTime_ {};
   };
 

@@ -170,13 +170,13 @@ namespace Models
       shared_ptr<int64_t> newConn_ {};
       // The outbound traffic. Unit: bytes.
       shared_ptr<int64_t> outBps_ {};
-      // The total outbound network throughput. Unit: bytes.
+      // The total network traffic in the outbound direction. Unit: bytes.
       shared_ptr<int64_t> outBytes_ {};
       // The outbound packet forwarding rate. Unit: pps.
       shared_ptr<int64_t> outPps_ {};
       // The number of sessions.
       shared_ptr<int64_t> sessionCount_ {};
-      // The time when the traffic occurred. The value is a UNIX timestamp. Unit: seconds.
+      // The time when the traffic was generated. The value is a UNIX timestamp in seconds.
       shared_ptr<int32_t> time_ {};
     };
 
@@ -292,21 +292,21 @@ namespace Models
 
 
   protected:
-    // The average inbound network throughput. Unit: bit/s.
+    // The average network throughput in the inbound direction. Unit: bit/s.
     shared_ptr<int64_t> avgInBps_ {};
-    // The average outbound network throughput. Unit: bit/s.
+    // The average network throughput in the outbound direction. Unit: bit/s.
     shared_ptr<int64_t> avgOutBps_ {};
     // The average number of requests.
     shared_ptr<int64_t> avgSession_ {};
     // The average total network throughput in both the outbound and inbound directions. Unit: bit/s.
     shared_ptr<int64_t> avgTotalBps_ {};
-    // The data list.
+    // The list of returned data.
     shared_ptr<vector<DescribeVpcFirewallTrafficTrendResponseBody::DataList>> dataList_ {};
-    // The timestamp when the peak bandwidth occurred. The value is a UNIX timestamp. Unit: seconds.
+    // The timestamp when the peak bandwidth was reached. The value is a UNIX timestamp in seconds.
     shared_ptr<int64_t> maxBandwidthTime_ {};
-    // The peak inbound network throughput. Unit: bit/s.
+    // The peak network throughput in the inbound direction. Unit: bit/s.
     shared_ptr<int64_t> maxInBps_ {};
-    // The peak outbound network throughput. Unit: bit/s.
+    // The peak network throughput in the outbound direction. Unit: bit/s.
     shared_ptr<int64_t> maxOutBps_ {};
     // The peak number of requests.
     shared_ptr<int64_t> maxSession_ {};
@@ -316,9 +316,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The total traffic. Unit: bytes.
     shared_ptr<int64_t> totalBytes_ {};
-    // The total inbound network throughput. Unit: bytes.
+    // The total network traffic in the inbound direction. Unit: bytes.
     shared_ptr<int64_t> totalInBytes_ {};
-    // The total outbound network throughput. Unit: bytes.
+    // The total network traffic in the outbound direction. Unit: bytes.
     shared_ptr<int64_t> totalOutBytes_ {};
     // The total number of requests.
     shared_ptr<int64_t> totalSession_ {};

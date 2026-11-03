@@ -201,13 +201,13 @@ namespace Models
     shared_ptr<string> applicationName_ {};
     // The category ID.
     shared_ptr<string> categoryId_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<string> currentPage_ {};
     // The legacy destination IP parameter.
     // 
-    // > The POP gateway passes this parameter through, but the backend of this operation does not read it. Specifying this parameter has no filtering effect. To filter by IP address, use PublicIP or PrivateIP. If only DstIP is specified, the operation returns MissingParameter.IpFilter (-340415) because no valid IP filtering parameter is provided.
+    // > The POP gateway passes through this parameter, but the backend of this API operation does not read it. Passing this parameter does not produce any filtering effect. To filter by IP address, use PublicIP or PrivateIP. If only DstIP is provided, the MissingParameter.IpFilter (-340415) error is returned because a valid IP filter parameter is missing.
     shared_ptr<string> dstIP_ {};
-    // The end time of the query. The value is a UNIX timestamp in seconds.
+    // Specifies the end time of the query. The value is a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
@@ -222,18 +222,20 @@ namespace Models
     // The port number.
     shared_ptr<string> port_ {};
     // The private IP address.
-    // > At least one of PublicIP and PrivateIP must be specified.
+    // 
+    // > You must specify at least one of PublicIP and PrivateIP.
     shared_ptr<string> privateIP_ {};
     // The public IP address.
-    // > At least one of PublicIP and PrivateIP must be specified.
+    // 
+    // > You must specify at least one of PublicIP and PrivateIP.
     shared_ptr<string> publicIP_ {};
-    // The security policy for the Outbound Domain.
+    // The security policy for the outbound domain.
     shared_ptr<string> securitySuggest_ {};
     // The field by which to sort the results.
     shared_ptr<string> sort_ {};
     // The IP address of the access source. **[Deprecated]**
     shared_ptr<string> sourceIp_ {};
-    // The start time of the query. The value is a UNIX timestamp in seconds.
+    // Specifies the start time of the query. The value is a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

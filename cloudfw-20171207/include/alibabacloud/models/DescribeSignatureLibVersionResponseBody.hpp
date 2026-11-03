@@ -81,11 +81,11 @@ namespace Models
 
 
     protected:
-      // The type of the signature library.
+      // The type.
       shared_ptr<string> type_ {};
-      // The time when the signature library was updated. This value is a Unix timestamp in seconds.
+      // The update time of the signature library version. The value is a UNIX timestamp accurate to seconds.
       shared_ptr<int64_t> updateTime_ {};
-      // The version number of the signature library.
+      // The version.
       shared_ptr<string> version_ {};
     };
 
@@ -115,9 +115,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total count.
     shared_ptr<int32_t> totalCount_ {};
     // The version information.
     shared_ptr<vector<DescribeSignatureLibVersionResponseBody::Version>> version_ {};

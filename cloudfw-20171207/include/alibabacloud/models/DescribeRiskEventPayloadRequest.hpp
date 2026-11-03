@@ -112,30 +112,29 @@ namespace Models
 
 
   protected:
-    // The destination IP address to query. If you specify this parameter, all intrusion events with the specified destination IP address are queried.
+    // The destination IP address to query. If you specify this parameter, the query returns intrusion prevention events that involve this destination IP address.
     shared_ptr<string> dstIP_ {};
-    // The ID of the destination VPC to query. If you specify this parameter, all intrusion events that contain the specified ID of the destination VPC are queried.
+    // The destination VPC ID to query. If you specify this parameter, the query returns intrusion prevention events that involve this destination VPC ID.
     shared_ptr<string> dstVpcId_ {};
-    // The end of the time range to query. The value is a timestamp. Unit: seconds.
+    // Specifies the end time of the query. The value is a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The type of the firewall. Valid values:
-    // 
-    // *   **VpcFirewall**: virtual private cloud (VPC) firewall
-    // *   **InternetFirewall** (default): Internet firewall
+    // The type of Cloud Firewall. Valid values:
+    // - **VpcFirewall**: virtual private cloud (VPC) firewalls.
+    // - **InternetFirewall** (default): the Internet Border firewall.
     shared_ptr<string> firewallType_ {};
-    // The public IP address. If you specify this parameter, all intrusion events that contain the specified public IP address are queried.
+    // The IP address of the public asset to query. If you specify this parameter, the query returns compromise detection events that involve this asset IP address.
     shared_ptr<string> publicIP_ {};
-    // The source IP address to query. If you specify this parameter, all intrusion events from the specified source IP address are queried.
+    // The source IP address to query. If you specify this parameter, the query returns intrusion prevention events that involve this source IP address.
     shared_ptr<string> srcIP_ {};
-    // The ID of the source VPC to query. If you specify this parameter, all intrusion events that contain the specified ID of the source VPC are queried.
+    // The source VPC ID to query. If you specify this parameter, the query returns intrusion prevention events that involve this source VPC ID.
     shared_ptr<string> srcVpcId_ {};
-    // The beginning of the time range to query. The value is a timestamp. Unit: seconds.
+    // Specifies the start time of the query. The value is a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    // The UUID of the intrusion event.
+    // The UUID of the intrusion prevention event.
     // 
     // This parameter is required.
     shared_ptr<string> UUID_ {};

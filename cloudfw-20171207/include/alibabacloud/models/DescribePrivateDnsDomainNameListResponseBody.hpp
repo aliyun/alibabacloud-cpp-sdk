@@ -84,7 +84,7 @@ namespace Models
     shared_ptr<int32_t> pageNo_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The total number of private DNS domain names.
     shared_ptr<int64_t> totalCount_ {};

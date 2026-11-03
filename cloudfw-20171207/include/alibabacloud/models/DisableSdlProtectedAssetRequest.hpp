@@ -53,7 +53,7 @@ namespace Models
   protected:
     // The list of IP assets.
     shared_ptr<vector<string>> ipList_ {};
-    // The language of the response message.
+    // The language type for receiving messages.
     shared_ptr<string> lang_ {};
   };
 

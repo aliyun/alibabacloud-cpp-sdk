@@ -134,31 +134,32 @@ namespace Models
     shared_ptr<string> currentPage_ {};
     // The domain name.
     shared_ptr<string> domain_ {};
-    // The end time. This value is a UNIX timestamp in seconds.
+    // The end time. The value is a UNIX timestamp accurate to seconds.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     // The IP address of the asset.
     shared_ptr<string> IP_ {};
-    // Specifies whether to collect only the traffic that accesses AI services. This parameter is required. Set this parameter to "true". Otherwise, a parameter error is returned.
+    // Specifies whether to query only the traffic that accesses AI services. This parameter is required. You must set this parameter to "true". Otherwise, a parameter error is returned.
     shared_ptr<string> isAITraffic_ {};
-    // The language of the response. Valid values:
+    // The language of the response message. Valid values:
     // 
-    // - **zh** (default): Chinese
-    // - **en**: English
+    // - **zh** (default): Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The sort field. Valid values:
+    // The field by which to sort the results. Default value: TotalBytes. Valid values:
     // 
-    // - TotalBytes: sorts by total traffic.
-    // - SessionCount: sorts by session count.
-    // 
-    // Default value: TotalBytes.
+    // - **TotalBytes**: sorts the results by total traffic.
+    // - **SessionCount**: sorts the results by the number of sessions.
     shared_ptr<string> order_ {};
-    // The number of entries per page.
+    // The number of entries to return on each page.
     shared_ptr<string> pageSize_ {};
-    // The sort order. Valid values: asc, desc.
+    // The sort order. Valid values:
+    // 
+    // - **asc**: ascending order.
+    // - **desc**: descending order.
     shared_ptr<string> sort_ {};
-    // The start time. This value is a UNIX timestamp in seconds.
+    // The start time. The value is a UNIX timestamp accurate to seconds.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The backup time. This value is a Unix timestamp in seconds. For example: 1672502400.
+    // The backup time. The value is a UNIX timestamp accurate to seconds, such as 1672502400.
     // 
     // This parameter is required.
     shared_ptr<string> backUpTime_ {};
-    // The language of the response.
+    // The language in which you want to receive messages.
     shared_ptr<string> lang_ {};
     // The source IP address.
     shared_ptr<string> sourceIp_ {};

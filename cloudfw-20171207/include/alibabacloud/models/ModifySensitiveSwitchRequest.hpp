@@ -61,11 +61,11 @@ namespace Models
     // - **zh** (default): Chinese.
     // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The type.
+    // The category.
     shared_ptr<string> sensitiveCategory_ {};
     // The status. Valid values:
-    // - **1**: enabled.
-    // - **0**: disabled.
+    // - **1**: Enabled.
+    // - **0**: Disabled.
     shared_ptr<string> switchStatus_ {};
   };
 

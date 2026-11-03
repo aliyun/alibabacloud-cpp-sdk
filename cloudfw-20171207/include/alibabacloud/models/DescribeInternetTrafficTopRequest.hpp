@@ -140,35 +140,35 @@ namespace Models
 
 
   protected:
-    // The type of traffic data.
+    // The traffic data type.
     // 
     // This parameter is required.
     shared_ptr<string> dataType_ {};
     // The traffic direction.
     shared_ptr<string> direction_ {};
-    // The end time. The value is a UNIX timestamp. Unit: seconds.
+    // The end time. Specify a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The language of the response.
+    // The language type.
     shared_ptr<string> lang_ {};
-    // The maximum number of top entries to return. The default value is 50. Valid values: 1 to 50.
+    // The maximum number of top entries. Default value: 50. Valid values: 1 to 50.
     shared_ptr<string> limit_ {};
-    // The action of the rule.
+    // The rule protection result.
     shared_ptr<string> ruleResult_ {};
-    // The source of the rule.
+    // The rule source.
     shared_ptr<string> ruleSource_ {};
-    // The name of the country to display.
+    // Specifies whether to display country names.
     shared_ptr<string> showCountryName_ {};
-    // The sorting method.
+    // The sort method.
     shared_ptr<string> sort_ {};
-    // The tracing code for the source.
+    // The tracing code.
     // 
     // This parameter is required.
     shared_ptr<string> sourceCode_ {};
     // The source IP address.
     shared_ptr<string> sourceIp_ {};
-    // The start time. The value is a UNIX timestamp. Unit: seconds.
+    // The start time. Specify a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

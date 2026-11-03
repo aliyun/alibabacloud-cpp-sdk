@@ -79,11 +79,11 @@ namespace Models
 
 
     protected:
-      // The ID of the region to which the VPC belongs.
+      // The region ID of the VPC.
       shared_ptr<string> regionNo_ {};
-      // The instance ID of the VPC.
+      // The instance ID of the VPC-connected instance.
       shared_ptr<string> vpcId_ {};
-      // The instance name of the VPC.
+      // The name of the VPC.
       shared_ptr<string> vpcName_ {};
     };
 

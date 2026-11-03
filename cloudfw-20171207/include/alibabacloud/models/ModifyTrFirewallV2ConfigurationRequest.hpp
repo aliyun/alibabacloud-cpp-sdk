@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The instance ID of the VPC firewall. You can call DescribeTrFirewallsV2List to obtain the ID.
+    // The ID of the VPC firewall instance. You can obtain the ID by calling DescribeTrFirewallsV2List.
     // 
-    // > Note: FirewallId and FirewallName are jointly required. Both parameters must be provided at the same time. If either parameter is missing, the operation returns a 400 error.
+    // > Note: FirewallId and FirewallName are jointly required. You must specify both parameters. If either parameter is missing, the API operation returns a 400 error.
     shared_ptr<string> firewallId_ {};
-    // The instance name of the VPC firewall.
+    // The name of the VPC firewall instance.
     // 
-    // > Note: FirewallId and FirewallName are jointly required. Both parameters must be provided at the same time. If either parameter is missing, the operation returns a 400 error.
+    // > Note: FirewallId and FirewallName are jointly required. You must specify both parameters. If either parameter is missing, the API operation returns a 400 error.
     shared_ptr<string> firewallName_ {};
-    // The language of the content within the response. Valid values:
+    // The language of the response message. Valid values:
     // 
     // - **zh** (default): Chinese
     // - **en**: English

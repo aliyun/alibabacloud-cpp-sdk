@@ -57,15 +57,14 @@ namespace Models
 
 
   protected:
-    // The ID of the Cloud Firewall instance.
+    // The ID of the Cloud Firewall instance. This parameter is required. If you do not specify this parameter, the API returns a 400 error. You can call the DescribeUserBuyVersion operation to obtain the Cloud Firewall instance ID of the current account.
     shared_ptr<string> instanceId_ {};
     // The language of the request and response. Valid values:
-    // 
     // - **zh** (default): Chinese
     // - **en**: English
     shared_ptr<string> lang_ {};
-    // The operation type. Currently, only the activation operation is supported. Valid values:
-    // - open: activation
+    // The operation type. Only the enable operation is supported. Valid values:
+    // - open: Enables the module.
     shared_ptr<string> operate_ {};
   };
 

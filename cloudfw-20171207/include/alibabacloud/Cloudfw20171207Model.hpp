@@ -263,6 +263,9 @@
 #include <alibabacloud/models/DescribeDownloadTaskTypeRequest.hpp>
 #include <alibabacloud/models/DescribeDownloadTaskTypeResponseBody.hpp>
 #include <alibabacloud/models/DescribeDownloadTaskTypeResponse.hpp>
+#include <alibabacloud/models/DescribeEventLogRequest.hpp>
+#include <alibabacloud/models/DescribeEventLogResponseBody.hpp>
+#include <alibabacloud/models/DescribeEventLogResponse.hpp>
 #include <alibabacloud/models/DescribeFirewallDropStatisticsResponseBody.hpp>
 #include <alibabacloud/models/DescribeFirewallDropStatisticsResponse.hpp>
 #include <alibabacloud/models/DescribeFirewallDropTrendRequest.hpp>

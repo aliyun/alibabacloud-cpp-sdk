@@ -235,21 +235,21 @@ namespace Models
 
 
         protected:
-          // The asset type: AIGatewayEIPv6.
+          // The AIGatewayEIPv6 asset type.
           shared_ptr<bool> aiGatewayEIPv6_ {};
-          // The asset type: AlbIPv6.
+          // The AlbIPv6 asset type.
           shared_ptr<bool> albIPv6_ {};
-          // The asset type: ApigEIPv6.
+          // The ApigEIPv6 asset type.
           shared_ptr<bool> apiGatewayEIPv6_ {};
-          // The asset type: EcsIPv6.
+          // The EcsIPv6 asset type.
           shared_ptr<bool> ecsIPv6_ {};
-          // The asset type: EniEIPv6.
+          // The EniEIPv6 asset type.
           shared_ptr<bool> eniEIPv6_ {};
-          // The asset type: GaEIPv6.
+          // The GaEIPv6 asset type.
           shared_ptr<bool> gaEIPv6_ {};
-          // The asset type: NlbIPv6.
+          // The NlbIPv6 asset type.
           shared_ptr<bool> nlbIPv6_ {};
-          // The asset type: SlbIPv6.
+          // The SlbIPv6 asset type.
           shared_ptr<bool> slbIPv6_ {};
         };
 
@@ -511,7 +511,7 @@ namespace Models
 
 
     protected:
-      // The region ID of the asset.
+      // The asset region ID.
       shared_ptr<string> assetRegionId_ {};
       // The asset type.
       shared_ptr<AssetRegionResourceTypes::ResourceType> resourceType_ {};
@@ -674,8 +674,8 @@ namespace Models
 
 
   protected:
-    // The ACK cluster connector ID. You can obtain the value from the following operation:
-    // - [DescribeAckClusterConnectors](~~DescribeAckClusterConnectors~~): Lists ACK cluster connectors.
+    // The ID of the ACK cluster connector. You can obtain the value from the following operation:
+    // - [DescribeAckClusterConnectors](~~DescribeAckClusterConnectors~~): Queries the list of ACK cluster connectors.
     shared_ptr<string> ackClusterConnectorId_ {};
     // The list of ACK cluster pod labels.
     // 
@@ -684,7 +684,7 @@ namespace Models
     // The list of ACK cluster pod namespaces.
     // > A maximum of 10 namespaces are supported.
     shared_ptr<vector<string>> ackNamespaces_ {};
-    // The addresses in the address book. Separate multiple addresses with commas (,). Use a space to separate an address from its description within a single address element.
+    // The list of addresses in the address book. Separate multiple addresses with commas (,). For each address element, separate the address and the description with a space.
     // 
     // > This parameter is required when GroupType is set to `ip`, `port`, or `domain`.
     // 
@@ -696,9 +696,9 @@ namespace Models
     shared_ptr<string> addressList_ {};
     // The list of member accounts for the asset address book.
     shared_ptr<vector<int64_t>> assetMemberUids_ {};
-    // The list of regions and resource types for the asset address book.
+    // The asset address book, region, and resource type list.
     shared_ptr<vector<AddAddressBookRequest::AssetRegionResourceTypes>> assetRegionResourceTypes_ {};
-    // Indicates whether to automatically add the public IP addresses of Elastic Compute Service (ECS) instances that match the specified tags to the address book.
+    // Specifies whether the address book is automatically updated to include the public IP addresses of Elastic Compute Service (ECS) instances that match new labels.
     shared_ptr<string> autoAddTagEcs_ {};
     // The description of the address book.
     // 
@@ -712,13 +712,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> groupType_ {};
-    // The language type of the address book description.
+    // The language of the address book description.
     shared_ptr<string> lang_ {};
-    // The source IP address of the request.
+    // The source IP address of the requester.
     shared_ptr<string> sourceIp_ {};
-    // The ECS tag list.
+    // The list of ECS tags.
     shared_ptr<vector<AddAddressBookRequest::TagList>> tagList_ {};
-    // The logical relationship among multiple ECS tags to match.
+    // The relationship between multiple ECS tags to be matched.
     shared_ptr<string> tagRelation_ {};
   };
 

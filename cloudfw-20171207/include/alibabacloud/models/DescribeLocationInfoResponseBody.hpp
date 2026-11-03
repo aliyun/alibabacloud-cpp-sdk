@@ -78,9 +78,9 @@ namespace Models
 
 
     protected:
-      // The ID of the region.
+      // The region ID.
       shared_ptr<string> locId_ {};
-      // The name of the region.
+      // The region name.
       shared_ptr<string> locName_ {};
     };
 
@@ -143,9 +143,9 @@ namespace Models
 
 
       protected:
-        // The ID of the region.
+        // The region ID.
         shared_ptr<string> locId_ {};
-        // The name of the region.
+        // The region name.
         shared_ptr<string> locName_ {};
       };
 
@@ -170,7 +170,7 @@ namespace Models
     protected:
       // The list of city codes.
       shared_ptr<vector<CnProvinceList::Cities>> cities_ {};
-      // The name of the province.
+      // The province name.
       shared_ptr<string> provinceName_ {};
     };
 
@@ -212,9 +212,9 @@ namespace Models
 
 
     protected:
-      // The ID of the region.
+      // The region ID.
       shared_ptr<string> locId_ {};
-      // The name of the region.
+      // The region name.
       shared_ptr<string> locName_ {};
     };
 
@@ -269,15 +269,15 @@ namespace Models
 
 
   protected:
-    // The number of regions in China.
+    // The number of regions in the Chinese mainland.
     shared_ptr<int32_t> cnCount_ {};
-    // The list of regions in China.
+    // The list of regions in the Chinese mainland.
     shared_ptr<vector<DescribeLocationInfoResponseBody::CnList>> cnList_ {};
-    // The information about provinces and cities in China.
+    // The province and city information in the Chinese mainland.
     shared_ptr<vector<DescribeLocationInfoResponseBody::CnProvinceList>> cnProvinceList_ {};
-    // The number of regions outside China.
+    // The number of regions outside the Chinese mainland.
     shared_ptr<int32_t> overseasCount_ {};
-    // The list of regions outside China.
+    // The list of regions outside the Chinese mainland.
     shared_ptr<vector<DescribeLocationInfoResponseBody::OverseasList>> overseasList_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

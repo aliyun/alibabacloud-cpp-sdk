@@ -227,25 +227,25 @@ namespace Models
 
 
   protected:
-    // The application targeted by the attack.
+    // The attacked application.
     shared_ptr<string> attackApp_ {};
-    // The categories of applications targeted by attacks.
+    // The list of categories of the attacked applications. Specify the value in the ["AttackAppCategory1","AttackAppCategory2"] format.
     shared_ptr<vector<string>> attackAppCategory_ {};
-    // The applications targeted by attacks.
+    // The list of attacked applications.
     shared_ptr<vector<string>> attackApps_ {};
-    // The attack type.
+    // The attack application type.
     shared_ptr<string> attackType_ {};
     // The CVE ID.
     shared_ptr<string> cve_ {};
-    // The status of the rule.
+    // The enabling status.
     shared_ptr<string> defaultAction_ {};
-    // The type of firewall.
+    // The Cloud Firewall type.
     shared_ptr<string> firewallType_ {};
-    // The language of the request and response.
+    // The language of the request message.
     shared_ptr<string> lang_ {};
-    // The sort order.
+    // The sorting order.
     shared_ptr<string> order_ {};
-    // The page number.
+    // The current page number.
     // 
     // This parameter is required.
     shared_ptr<int64_t> pageNo_ {};
@@ -253,11 +253,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> pageSize_ {};
-    // Indicates whether to retrieve only modified rules.
+    // Specifies whether the rule has been modified.
     shared_ptr<string> queryModify_ {};
     // The rule action.
     shared_ptr<string> ruleAction_ {};
-    // The inspection mode.
+    // The supported engine mode.
     shared_ptr<string> ruleClass_ {};
     // The rule ID.
     shared_ptr<string> ruleId_ {};
@@ -269,11 +269,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> ruleType_ {};
-    // The field to sort by.
+    // The sorting method.
     shared_ptr<string> sort_ {};
-    // The source IP address of the request.
+    // The source IP address of the requester.
     shared_ptr<string> sourceIp_ {};
-    // The instance ID of the VPC firewall.
+    // The instance ID of the virtual private cloud (VPC) firewalls.
     shared_ptr<string> vpcFirewallId_ {};
   };
 

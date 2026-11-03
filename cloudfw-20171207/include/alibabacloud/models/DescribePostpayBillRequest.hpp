@@ -84,24 +84,24 @@ namespace Models
 
 
   protected:
-    // The page number of the current page in a paged query.
+    // The Settings for the page number of the current page during paging in a paged query.
     shared_ptr<int64_t> currentPage_ {};
-    // The end time of the bill query, expressed as a second-level UNIX timestamp. The value must be later than StartTime.
+    // The end time of the bill query. The time is a UNIX timestamp accurate to seconds and must be later than StartTime.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // Specifies the time interval for querying data. This is an enumeration value. This parameter is required. If this parameter is not specified, ERR_PARAMS_INVALID is returned. Valid values:
-    // 
-    // - 3600: queries hourly data.
-    // - 86400: queries daily data.
+    // The time interval for querying data. This parameter is required. If this parameter is not specified, ERR_PARAMS_INVALID is returned. Valid values:
+    // - 3600: hourly data.
+    // - 86400: daily data.
     shared_ptr<int32_t> interval_ {};
-    // The language. This is an enumeration value.
+    // The language. Valid values:
+    // - en: English.
+    // - zh: Chinese.
     // Default value: zh.
-    // Valid value: en.
     shared_ptr<string> lang_ {};
-    // The maximum number of entries per page in a paged query. Default value: 10.
+    // The maximum number of entries to return per page during paging in a paged query. Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
-    // The start time of the bill query, expressed as a second-level UNIX timestamp.
+    // The start time of the bill query. The time is a UNIX timestamp accurate to seconds.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

@@ -94,41 +94,40 @@ namespace Models
 
 
   protected:
-    // The status of the basic policies feature. Valid values:
+    // Indicates whether Basic Policies are enabled. Valid values:
     // 
-    // - **1**: enabled
+    // - **1**: Enabled.
     // 
-    // - **0**: disabled
+    // - **0**: shutdown.
     shared_ptr<int32_t> basicRules_ {};
-    // The status of the threat intelligence feature. Valid values:
+    // Indicates whether threat intelligence is enabled. Valid values:
     // 
-    // - **1**: enabled
+    // - **1**: Enabled.
     // 
-    // - **0**: disabled
+    // - **0**: Disabled.
     shared_ptr<int32_t> ctiRules_ {};
-    // The maximum daily traffic that can be scanned for sensitive data.
+    // The daily traffic limit for sensitive data detection.
     shared_ptr<int64_t> maxSdl_ {};
-    // The status of the virtual patching feature. Valid values:
+    // Indicates whether virtual patches are enabled. Valid values:
+    // - **1**: Enabled.
     // 
-    // - **1**: enabled
-    // 
-    // - **0**: disabled
+    // - **0**: Disabled.
     shared_ptr<int32_t> patchRules_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The strictness level of the intrusion prevention system (IPS) rules. Valid values:
+    // The IPS rules group. Valid values:
     // 
-    // - **1**: Loose
+    // - **1**: Loose rule group.
     // 
-    // - **2**: Medium
+    // - **2**: Medium rule group.
     // 
-    // - **3**: Strict
+    // - **3**: Strict rule group.
     shared_ptr<int32_t> ruleClass_ {};
-    // The mode of the IPS. Valid values:
+    // The IPS defense mode. Valid values:
     // 
-    // - **1**: Block Mode
+    // - **1**: Block mode.
     // 
-    // - **0**: Monitor Mode
+    // - **0**: Monitor mode.
     shared_ptr<int32_t> runMode_ {};
   };
 

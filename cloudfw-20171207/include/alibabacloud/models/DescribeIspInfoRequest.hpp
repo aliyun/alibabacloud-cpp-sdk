@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The language of the response message.
+    // The language type for receiving messages.
     shared_ptr<string> lang_ {};
-    // The source tracking code.
+    // The tracing code.
     // 
     // This parameter is required.
     shared_ptr<string> sourceCode_ {};

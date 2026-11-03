@@ -116,15 +116,15 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> destinationCidr_ {};
-      // The next hop of the original NAT gateway.
+      // The next hop address of the original NAT gateway.
       // 
       // This parameter is required.
       shared_ptr<string> nextHopId_ {};
-      // The network type of the next hop. Valid value: NatGateway.
+      // The network type of the next hop. Valid values: NatGateway.
       // 
       // This parameter is required.
       shared_ptr<string> nextHopType_ {};
-      // The ID of the route table to which the default route of the NAT gateway belongs.
+      // The route table to which the default route of the NAT gateway belongs.
       // 
       // This parameter is required.
       shared_ptr<string> routeTableId_ {};
@@ -239,15 +239,14 @@ namespace Models
   protected:
     // The deployment mode of the firewall service. Valid values:
     // 
-    // - **PrimaryStandby**: primary/standby mode.
-    // - **MultiPrimary**: active-active mode.
+    // - PrimaryStandby: primary/secondary mode
+    // - MultiPrimary: active-active mode
     shared_ptr<string> firewallServiceMode_ {};
     // The list of zone IDs used by the firewall service.
     shared_ptr<vector<string>> firewallServiceZones_ {};
     // The security protection switch. Valid values:
-    // 
-    // - **open**: Enabled.
-    // - **close**: Disabled.
+    // - **open**: enable
+    // - **close**: disable
     shared_ptr<string> firewallSwitch_ {};
     // The zone of the firewall vSwitch.
     shared_ptr<string> fwVswitchZoneId_ {};
@@ -279,15 +278,13 @@ namespace Models
     // - 1: Enable strict mode.
     // - 0: Disable strict mode.
     shared_ptr<int32_t> strictMode_ {};
-    // The ID of the VPC.
+    // The VPC-connected instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
     // Specifies whether to use the automatic mode for the vSwitch. Valid values:
-    // 
     // - **true**: automatic mode.
     // - **false**: manual mode.
-    // 
     // > Default value: true. If VswitchAuto is set to true, VswitchCidr is required and must be a valid CIDR block. If VswitchAuto is set to false, VswitchId is required.
     shared_ptr<string> vswitchAuto_ {};
     // The CIDR block of the vSwitch. This parameter is required when the automatic mode is used for the vSwitch.

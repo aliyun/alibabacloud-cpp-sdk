@@ -91,10 +91,8 @@ namespace Models
 
 
       protected:
-        // Indicates whether strict mode is enabled. Valid values:
-        // 
+        // Specifies whether strict mode is enabled. Valid values:
         // - 1: Strict mode is enabled.
-        // 
         // - 0: Strict mode is disabled.
         shared_ptr<int32_t> strictMode_ {};
       };
@@ -146,35 +144,30 @@ namespace Models
 
 
     protected:
-      // The ACL engine mode.
+      // The mode of the access control engine.
       shared_ptr<AclGroupList::AclConfig> aclConfig_ {};
-      // The ID of the access control policy group for the VPC boundary firewall.
+      // The access control policy group ID of the virtual private cloud (VPC) firewalls at the border. Valid values:
       // 
-      // Valid values:
+      // - If the virtual private cloud (VPC) firewalls at the border protect a Cloud Enterprise Network (CEN) instance, the policy group ID is the instance ID of the CEN instance.
       // 
-      // - If the VPC boundary firewall protects a Cloud Enterprise Network (CEN) instance, the policy group ID is the ID of the CEN instance.
+      //   Example: cen-ervw0g12b5jbw*\\*\\*\\*
       // 
-      //   Example: cen-ervw0g12b5jbw\\*\\*\\*\\*
+      // - If the virtual private cloud (VPC) firewalls at the border protect an Express Connect circuit, the policy group ID is the instance ID of the virtual private cloud (VPC) firewalls at the border.
       // 
-      // - If the VPC boundary firewall protects an Express Connect circuit, the policy group ID is the ID of the VPC boundary firewall instance.
-      // 
-      //   Example: vfw-a42bbb7b887148c9\\*\\*\\*\\*
+      //   Example: vfw-a42bbb7b887148c9*\\*\\*\\*
       shared_ptr<string> aclGroupId_ {};
-      // The name of the access control policy group for the VPC boundary firewall.
+      // The access control policy group name of the virtual private cloud (VPC) firewalls at the border.
       // 
-      // - If the VPC boundary firewall protects a Cloud Enterprise Network instance, the group name is the name of the CEN instance.
-      // 
-      // - If the VPC boundary firewall protects an Express Connect circuit, the group name is the name of the VPC boundary firewall instance.
+      // - If the virtual private cloud (VPC) firewalls at the border protect a CEN instance, the policy group name is the name of the CEN instance.
+      // - If the virtual private cloud (VPC) firewalls at the border protect an Express Connect circuit, the policy group name is the name of the virtual private cloud (VPC) firewalls at the border.
       shared_ptr<string> aclGroupName_ {};
-      // The number of policies in the access control policy group.
+      // The number of policies in the access control policy group of the virtual private cloud (VPC) firewalls at the border.
       shared_ptr<int32_t> aclRuleCount_ {};
-      // Indicates whether the policy group is a default group. Valid values:
-      // 
-      // - **true**: The policy group is a default group.
-      // 
-      // - **false**: The policy group is not a default group.
+      // Specifies whether the firewall is the default firewall. Valid values:
+      // - **true**: The firewall is the default firewall.
+      // - **false**: The firewall is not the default firewall.
       shared_ptr<bool> isDefault_ {};
-      // The ID of the member account.
+      // The ID of the member accounts of the current Alibaba Cloud account.
       shared_ptr<string> memberUid_ {};
     };
 
@@ -204,11 +197,11 @@ namespace Models
 
 
   protected:
-    // The access control policy groups.
+    // The information about the access control policy groups of the VPC firewall.
     shared_ptr<vector<DescribeVpcFirewallAclGroupListResponseBody::AclGroupList>> aclGroupList_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of access control policy groups.
+    // The total number of access control policy groups of the VPC firewall.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The lowest priority of the policies.
+    // The minimum priority value that takes effect for the access control policy.
     shared_ptr<int32_t> end_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The highest priority of the policies.
+    // The maximum priority value that takes effect for the access control policy.
     shared_ptr<int32_t> start_ {};
   };
 

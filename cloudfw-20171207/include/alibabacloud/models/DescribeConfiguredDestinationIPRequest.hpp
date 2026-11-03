@@ -121,7 +121,7 @@ namespace Models
 
 
   protected:
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<string> currentPage_ {};
     // The destination IP address.
     shared_ptr<string> destinationIP_ {};
@@ -137,11 +137,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> groupName_ {};
-    // The language of the response.
+    // The language for receiving messages.
     shared_ptr<string> lang_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page.
     shared_ptr<string> pageSize_ {};
-    // The trace code.
+    // The tracing code.
     // 
     // This parameter is required.
     shared_ptr<string> sourceCode_ {};
