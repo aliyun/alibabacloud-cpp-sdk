@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The ID of the source branch.
+    // The source branch ID.
     // 
     // This parameter is required.
     shared_ptr<string> branchId_ {};
-    // The ID of the AgenticDB cluster.
+    // The AgenticDB cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The ID of the target project.
+    // The target project ID.
     // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};

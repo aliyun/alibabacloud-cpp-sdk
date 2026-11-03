@@ -140,21 +140,19 @@ namespace Models
 
 
     protected:
-      // The client ID.
+      // The client identifier.
       shared_ptr<string> clientId_ {};
-      // The creation time.
-      // 
-      // The time is in the ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+      // The creation time. The time is in ISO 8601 format in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> creationTime_ {};
       // The description of the synchronization link.
       shared_ptr<string> description_ {};
       // The source channel of the synchronization link.
       shared_ptr<string> imPlatform_ {};
-      // The synchronization link ID.
+      // The ID of the synchronization link.
       shared_ptr<string> linkId_ {};
-      // The link name.
+      // The name of the synchronization link.
       shared_ptr<string> linkName_ {};
-      // The source directory address for synchronization.
+      // The address of the source directory for synchronization.
       shared_ptr<string> sourceDir_ {};
       // The synchronization interval. Unit: minutes.
       shared_ptr<int32_t> syncIntervalMinutes_ {};
@@ -208,13 +206,13 @@ namespace Models
   protected:
     // The list of synchronization links.
     shared_ptr<vector<DescribeKBSyncLinksResponseBody::Items>> items_ {};
-    // The page number of the current results.
+    // The page number of the returned results.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of records per page in the current results.
+    // The number of records returned on each page.
     shared_ptr<int32_t> pageSize_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The total number of synchronization links that match the query conditions.
+    // The total number of synchronization links that meet the query conditions.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

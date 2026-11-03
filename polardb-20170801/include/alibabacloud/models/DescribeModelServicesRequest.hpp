@@ -112,33 +112,29 @@ namespace Models
 
 
   protected:
-    // The ID of the gateway instance.
+    // The gateway instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> gwClusterId_ {};
     // The model category.
     shared_ptr<string> modelCategory_ {};
-    // The IDs of the model services. Separate multiple IDs with a comma (,).
+    // The model service IDs.
     shared_ptr<string> modelServiceIds_ {};
-    // The name of the model service.
+    // The model service name.
     shared_ptr<string> name_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The protocol type. Valid values:
-    // 
-    // - **openai**
-    // 
-    // - **anthropic**
-    // 
-    // - **bailian**: Models from Model Studio.
-    // 
-    // - **vllm**
+    // * **openai**
+    // * **anthropic**
+    // * **bailian**
+    // * **vllm**
     shared_ptr<string> protocol_ {};
-    // The ID of the region.
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The status of the model service.
+    // The status.
     shared_ptr<string> status_ {};
   };
 

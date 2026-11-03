@@ -131,21 +131,21 @@ namespace Models
 
 
     protected:
-      // The batch task ID.
+      // The ID of the batch task.
       shared_ptr<string> batchId_ {};
       // The task status.
       shared_ptr<string> status_ {};
-      // The number of successful batch tasks.
+      // The number of successful tasks in the batch.
       shared_ptr<int32_t> successCount_ {};
-      // The task start time.
+      // The start time of the task.
       shared_ptr<string> taskBegin_ {};
-      // The task end time.
+      // The end time of the task.
       shared_ptr<string> taskEnd_ {};
       // The description of the model service.
       shared_ptr<string> taskName_ {};
       // The task type.
       shared_ptr<string> taskType_ {};
-      // The total number of tasks that meet the filter conditions, regardless of pagination.
+      // The total number of tasks that meet the specified conditions, regardless of pagination.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -191,13 +191,13 @@ namespace Models
   protected:
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of records per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The task information.
+    // The task details.
     shared_ptr<vector<DescribeBatchTasksResponseBody::TaskList>> taskList_ {};
-    // The total number of tasks that meet the filter conditions, regardless of pagination.
+    // The total number of tasks that meet the specified conditions, regardless of pagination.
     shared_ptr<int32_t> totalCount_ {};
   };
 

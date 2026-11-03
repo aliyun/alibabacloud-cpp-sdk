@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PolarFsType, polarFsType_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(RelativeDbClusterId, relativeDbClusterId_);
+      DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
     };
     friend void from_json(const Darabonba::Json& j, DescribePolarFsRequest& obj) { 
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PolarFsType, polarFsType_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(RelativeDbClusterId, relativeDbClusterId_);
+      DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
     };
     DescribePolarFsRequest() = default ;
@@ -92,7 +94,7 @@ namespace Models
 
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
         && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->polarFsInstanceDescription_ == nullptr && this->polarFsInstanceIds_ == nullptr && this->polarFsType_ == nullptr
-        && this->regionId_ == nullptr && this->relativeDbClusterId_ == nullptr && this->tag_ == nullptr; };
+        && this->regionId_ == nullptr && this->relativeDbClusterId_ == nullptr && this->resourceGroupId_ == nullptr && this->tag_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
@@ -149,6 +151,13 @@ namespace Models
     inline DescribePolarFsRequest& setRelativeDbClusterId(string relativeDbClusterId) { DARABONBA_PTR_SET_VALUE(relativeDbClusterId_, relativeDbClusterId) };
 
 
+    // resourceGroupId Field Functions 
+    bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
+    void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline DescribePolarFsRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
+
+
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
@@ -159,9 +168,9 @@ namespace Models
 
 
   protected:
-    // The instance ID of the PolarDB instance on which the application depends.
+    // The PolarDB instance ID that the application depends on.
     shared_ptr<string> DBClusterId_ {};
-    // The page number. The value must be an integer greater than 0 and not exceeding the maximum value of Integer.
+    // The page number. The value must be a positive integer that does not exceed the maximum integer value.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Valid values:
     // 
@@ -173,7 +182,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The description of the PolarFS instance.
     shared_ptr<string> polarFsInstanceDescription_ {};
-    // The list of PolarFS instance IDs, separated by commas (,).
+    // The PolarFS instance IDs. Separate multiple instance IDs with commas (,).
     shared_ptr<string> polarFsInstanceIds_ {};
     // The PolarFS type.
     shared_ptr<string> polarFsType_ {};
@@ -183,6 +192,8 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The ID of the associated PolarDB cluster.
     shared_ptr<string> relativeDbClusterId_ {};
+    // The resource group ID.
+    shared_ptr<string> resourceGroupId_ {};
     // The tags.
     shared_ptr<vector<DescribePolarFsRequest::Tag>> tag_ {};
   };

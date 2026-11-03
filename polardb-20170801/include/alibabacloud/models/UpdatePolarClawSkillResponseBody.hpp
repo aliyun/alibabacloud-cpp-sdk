@@ -145,11 +145,11 @@ namespace Models
   protected:
     // The application ID.
     shared_ptr<string> applicationId_ {};
-    // The returned status code.
+    // The status code.
     shared_ptr<int32_t> code_ {};
     // The updated skill configuration. Sensitive values are masked.
     shared_ptr<UpdatePolarClawSkillResponseBody::Config> config_ {};
-    // The returned message.
+    // The message.
     shared_ptr<string> message_ {};
     // Indicates whether the operation is successful.
     shared_ptr<bool> ok_ {};

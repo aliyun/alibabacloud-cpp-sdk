@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The ID of the source branch.
+    // The source branch ID.
     shared_ptr<string> branchId_ {};
     // DBClusterId
     shared_ptr<string> DBClusterId_ {};
@@ -102,7 +102,7 @@ namespace Models
     shared_ptr<string> earliestRestorableTime_ {};
     // ProjectId
     shared_ptr<string> projectId_ {};
-    // The time when the query was completed, in UTC RFC3339 format. This does not represent the latest restorable time.
+    // The time when this query was completed, in UTC RFC3339 format. This does not represent the latest restorable time.
     shared_ptr<string> queriedAt_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

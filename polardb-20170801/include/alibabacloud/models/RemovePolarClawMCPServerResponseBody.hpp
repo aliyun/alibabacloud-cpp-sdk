@@ -90,7 +90,7 @@ namespace Models
     shared_ptr<int32_t> code_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // Indicates whether the operation was successful.
+    // Indicates whether the operation is successful.
     shared_ptr<bool> ok_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

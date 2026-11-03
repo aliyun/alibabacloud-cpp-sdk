@@ -121,11 +121,13 @@ namespace Models
 
 
   protected:
-    // The client ID.
+    // The client identifier.
     shared_ptr<string> clientId_ {};
-    // The creation time. The time is in ISO 8601 format and the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
+    // The creation time.
+    // 
+    // The time follows the ISO 8601 standard in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
     shared_ptr<string> creationTime_ {};
-    // The description of the link.
+    // The description of the synchronization link.
     shared_ptr<string> description_ {};
     // The source channel of the synchronization link. Valid values:
     // - FEISHU 
@@ -133,11 +135,11 @@ namespace Models
     shared_ptr<string> imPlatform_ {};
     // The ID of the synchronization link.
     shared_ptr<string> linkId_ {};
-    // The name of the link.
+    // The name of the synchronization link.
     shared_ptr<string> linkName_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The source directory address for synchronization.
+    // The address of the source directory for synchronization.
     shared_ptr<string> sourceDir_ {};
     // The synchronization interval, in minutes.
     shared_ptr<int32_t> syncIntervalMinutes_ {};

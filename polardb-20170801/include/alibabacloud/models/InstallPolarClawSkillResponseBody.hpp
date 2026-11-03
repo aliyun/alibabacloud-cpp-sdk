@@ -17,9 +17,12 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Code, code_);
       DARABONBA_PTR_TO_JSON(Message, message_);
       DARABONBA_PTR_TO_JSON(Ok, ok_);
+      DARABONBA_PTR_TO_JSON(Operation, operation_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Slug, slug_);
+      DARABONBA_PTR_TO_JSON(State, state_);
       DARABONBA_PTR_TO_JSON(TargetDir, targetDir_);
+      DARABONBA_PTR_TO_JSON(TaskId, taskId_);
       DARABONBA_PTR_TO_JSON(Version, version_);
     };
     friend void from_json(const Darabonba::Json& j, InstallPolarClawSkillResponseBody& obj) { 
@@ -27,9 +30,12 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Code, code_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
       DARABONBA_PTR_FROM_JSON(Ok, ok_);
+      DARABONBA_PTR_FROM_JSON(Operation, operation_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Slug, slug_);
+      DARABONBA_PTR_FROM_JSON(State, state_);
       DARABONBA_PTR_FROM_JSON(TargetDir, targetDir_);
+      DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
       DARABONBA_PTR_FROM_JSON(Version, version_);
     };
     InstallPolarClawSkillResponseBody() = default ;
@@ -44,8 +50,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationId_ == nullptr
-        && this->code_ == nullptr && this->message_ == nullptr && this->ok_ == nullptr && this->requestId_ == nullptr && this->slug_ == nullptr
-        && this->targetDir_ == nullptr && this->version_ == nullptr; };
+        && this->code_ == nullptr && this->message_ == nullptr && this->ok_ == nullptr && this->operation_ == nullptr && this->requestId_ == nullptr
+        && this->slug_ == nullptr && this->state_ == nullptr && this->targetDir_ == nullptr && this->taskId_ == nullptr && this->version_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
@@ -74,6 +80,13 @@ namespace Models
     inline InstallPolarClawSkillResponseBody& setOk(bool ok) { DARABONBA_PTR_SET_VALUE(ok_, ok) };
 
 
+    // operation Field Functions 
+    bool hasOperation() const { return this->operation_ != nullptr;};
+    void deleteOperation() { this->operation_ = nullptr;};
+    inline string getOperation() const { DARABONBA_PTR_GET_DEFAULT(operation_, "") };
+    inline InstallPolarClawSkillResponseBody& setOperation(string operation) { DARABONBA_PTR_SET_VALUE(operation_, operation) };
+
+
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
@@ -88,11 +101,25 @@ namespace Models
     inline InstallPolarClawSkillResponseBody& setSlug(string slug) { DARABONBA_PTR_SET_VALUE(slug_, slug) };
 
 
+    // state Field Functions 
+    bool hasState() const { return this->state_ != nullptr;};
+    void deleteState() { this->state_ = nullptr;};
+    inline string getState() const { DARABONBA_PTR_GET_DEFAULT(state_, "") };
+    inline InstallPolarClawSkillResponseBody& setState(string state) { DARABONBA_PTR_SET_VALUE(state_, state) };
+
+
     // targetDir Field Functions 
     bool hasTargetDir() const { return this->targetDir_ != nullptr;};
     void deleteTargetDir() { this->targetDir_ = nullptr;};
     inline string getTargetDir() const { DARABONBA_PTR_GET_DEFAULT(targetDir_, "") };
     inline InstallPolarClawSkillResponseBody& setTargetDir(string targetDir) { DARABONBA_PTR_SET_VALUE(targetDir_, targetDir) };
+
+
+    // taskId Field Functions 
+    bool hasTaskId() const { return this->taskId_ != nullptr;};
+    void deleteTaskId() { this->taskId_ = nullptr;};
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline InstallPolarClawSkillResponseBody& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
     // version Field Functions 
@@ -105,19 +132,25 @@ namespace Models
   protected:
     // The application ID.
     shared_ptr<string> applicationId_ {};
-    // The response status code.
+    // The returned status code.
     shared_ptr<int32_t> code_ {};
-    // The response message.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // Indicates whether the operation was successful.
+    // Indicates whether the operation is successful. This parameter is returned when Async is set to false.
     shared_ptr<bool> ok_ {};
+    // The operation name. This parameter is returned when Async is set to true.
+    shared_ptr<string> operation_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The identifier of the installed Skill.
+    // The identifier of the installed skill. This parameter is returned during synchronous execution.
     shared_ptr<string> slug_ {};
-    // The installation directory.
+    // The initial state of the task. This parameter is returned when Async is set to true.
+    shared_ptr<string> state_ {};
+    // The installation directory. This parameter is returned during synchronous execution.
     shared_ptr<string> targetDir_ {};
-    // The version number of the installed Skill.
+    // The ID of the asynchronous task. This parameter is returned when Async is set to true.
+    shared_ptr<string> taskId_ {};
+    // The installed version number. This parameter is returned during synchronous execution.
     shared_ptr<string> version_ {};
   };
 

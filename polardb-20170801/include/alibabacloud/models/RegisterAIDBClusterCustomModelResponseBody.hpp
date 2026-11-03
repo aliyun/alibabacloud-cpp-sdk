@@ -107,13 +107,13 @@ namespace Models
     shared_ptr<bool> created_ {};
     // The display name and the initial invocation name for clients.
     shared_ptr<string> displayModelName_ {};
-    // The image import status. The initial value is Importing after an image is registered.
+    // The import status of the image. The initial value is Importing after the image is registered.
     shared_ptr<string> imageImportStatus_ {};
-    // The model registration ID.
+    // The registration ID of the model.
     shared_ptr<int64_t> modelId_ {};
-    // The custom model registration key.
+    // The registration key of the custom model.
     shared_ptr<string> modelName_ {};
-    // The model type.
+    // The type of the model.
     shared_ptr<string> modelType_ {};
     // The normalized OSS path.
     shared_ptr<string> ossPath_ {};

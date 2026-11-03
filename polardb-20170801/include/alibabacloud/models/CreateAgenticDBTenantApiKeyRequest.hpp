@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(ExpireTime, expireTime_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(TenantId, tenantId_);
       DARABONBA_PTR_TO_JSON(TenantName, tenantName_);
     };
     friend void from_json(const Darabonba::Json& j, CreateAgenticDBTenantApiKeyRequest& obj) { 
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(ExpireTime, expireTime_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(TenantId, tenantId_);
       DARABONBA_PTR_FROM_JSON(TenantName, tenantName_);
     };
     CreateAgenticDBTenantApiKeyRequest() = default ;
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && this->description_ == nullptr && this->expireTime_ == nullptr && this->regionId_ == nullptr && this->tenantName_ == nullptr; };
+        && this->description_ == nullptr && this->expireTime_ == nullptr && this->regionId_ == nullptr && this->tenantId_ == nullptr && this->tenantName_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
@@ -67,6 +69,13 @@ namespace Models
     inline CreateAgenticDBTenantApiKeyRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // tenantId Field Functions 
+    bool hasTenantId() const { return this->tenantId_ != nullptr;};
+    void deleteTenantId() { this->tenantId_ = nullptr;};
+    inline string getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+    inline CreateAgenticDBTenantApiKeyRequest& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
+
+
     // tenantName Field Functions 
     bool hasTenantName() const { return this->tenantName_ != nullptr;};
     void deleteTenantName() { this->tenantName_ = nullptr;};
@@ -79,7 +88,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The description of the purpose.
+    // The usage description.
     shared_ptr<string> description_ {};
     // The expiration time in ISO 8601 format. If this parameter is not specified, the API key never expires.
     shared_ptr<string> expireTime_ {};
@@ -87,9 +96,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The name of the tenant. The name must be unique within the same cluster and be 2 to 64 characters in length.
-    // 
-    // This parameter is required.
+    // Specifies the ID of an existing tenant. If you specify this parameter, an API key is created only for the existing tenant in the current cluster. If the tenant does not exist, an error is returned and no tenant is created. If TenantName is also specified, the name must match the name of the tenant.
+    shared_ptr<string> tenantId_ {};
+    // The name of the tenant. The name must be unique within the cluster and must be 2 to 64 characters in length.
     shared_ptr<string> tenantName_ {};
   };
 

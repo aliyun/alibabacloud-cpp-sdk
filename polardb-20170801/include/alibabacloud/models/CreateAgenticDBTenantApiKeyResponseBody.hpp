@@ -98,9 +98,9 @@ namespace Models
     shared_ptr<string> apiKey_ {};
     // The resource ID of the API key.
     shared_ptr<string> apiKeyId_ {};
-    // The creation time. The time is in ISO 8601 format and follows the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
+    // The creation time. The time follows the ISO 8601 standard in the UTC time zone (YYYY-MM-DDTHH:mm:ssZ).
     shared_ptr<string> createTime_ {};
-    // The expiration time. This parameter is empty if the API key never expires. The time is in ISO 8601 format and follows the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
+    // The expiration time. If the API key never expires, this value is empty. The time follows the ISO 8601 standard in the UTC time zone (YYYY-MM-DDTHH:mm:ssZ).
     shared_ptr<string> expireTime_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

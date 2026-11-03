@@ -60,7 +60,7 @@ namespace Models
 
 
   protected:
-    // PolarClaw Agent ID。
+    // The PolarClaw Agent ID.
     // 
     // This parameter is required.
     shared_ptr<string> agentId_ {};

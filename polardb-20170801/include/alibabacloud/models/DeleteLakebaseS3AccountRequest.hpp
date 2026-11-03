@@ -62,13 +62,13 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> pfsInstanceId_ {};
     // The region ID.
-    // >You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query available region IDs.
+    // >You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The access key of the S3 account to delete.
+    // The AccessKey of the S3 account that you want to delete.
     // 
-    // > The default account cannot be deleted.
+    // > You cannot delete the default account.
     // 
     // This parameter is required.
     shared_ptr<string> userAccAk_ {};

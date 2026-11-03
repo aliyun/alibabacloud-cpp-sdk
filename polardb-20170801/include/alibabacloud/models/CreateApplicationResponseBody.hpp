@@ -135,7 +135,7 @@ namespace Models
     shared_ptr<vector<CreateApplicationResponseBody::Components>> components_ {};
     // The application description.
     shared_ptr<string> description_ {};
-    // The ID of the generated order.
+    // The generated order ID.
     shared_ptr<string> orderId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

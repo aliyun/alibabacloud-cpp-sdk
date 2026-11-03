@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The custom model registration key to delete.
+    // The key of the custom model registration to delete.
     // 
     // This parameter is required.
     shared_ptr<string> modelName_ {};

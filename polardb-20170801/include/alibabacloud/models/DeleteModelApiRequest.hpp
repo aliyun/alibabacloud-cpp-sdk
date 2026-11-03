@@ -61,7 +61,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> gwClusterId_ {};
-    // The model API ID.
+    // The ID of the model API.
     // 
     // This parameter is required.
     shared_ptr<string> modelApiId_ {};

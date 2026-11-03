@@ -87,25 +87,25 @@ namespace Models
 
 
   protected:
-    // The end of the creation time range.
+    // The end time of creation.
     // 
-    // The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+    // The time is in ISO 8601 format and the UTC time zone. The format is YYYY-MM-DDTHH:mm:ssZ.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> endTime_ {};
-    // The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: 1.
+    // The page number. The value must be greater than 0 and less than or equal to the maximum value of the Integer data type. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of records per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The start of the creation time range.
+    // The start time of creation.
     // 
-    // The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+    // The time is in ISO 8601 format and the UTC time zone. The format is YYYY-MM-DDTHH:mm:ssZ.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> startTime_ {};
     // The list of task statuses.
     // 
-    // > If this parameter is left empty, scheduled tasks in all statuses are queried by default.
+    // > If this parameter is left empty, tasks in all statuses are queried by default.
     shared_ptr<vector<string>> status_ {};
     // The batch task type.
     shared_ptr<string> taskType_ {};

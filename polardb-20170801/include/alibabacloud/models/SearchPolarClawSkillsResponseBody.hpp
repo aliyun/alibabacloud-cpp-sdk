@@ -120,7 +120,7 @@ namespace Models
       shared_ptr<string> slug_ {};
       // The brief description.
       shared_ptr<string> summary_ {};
-      // The UNIX timestamp of the last update, in seconds.
+      // The last update timestamp in UNIX seconds.
       shared_ptr<int64_t> updatedAt_ {};
       // The latest version.
       shared_ptr<string> version_ {};
@@ -168,9 +168,9 @@ namespace Models
   protected:
     // The application ID.
     shared_ptr<string> applicationId_ {};
-    // The response status code.
+    // The returned status code.
     shared_ptr<int32_t> code_ {};
-    // The response message.
+    // The returned message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

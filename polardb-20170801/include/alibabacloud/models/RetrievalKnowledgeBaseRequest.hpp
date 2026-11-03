@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The unique identifier of the knowledge base. You can specify multiple knowledge base IDs separated by commas. A maximum of 50 knowledge bases are supported.
+    // The unique identifier of the knowledge base. You can specify up to 50 knowledge base IDs separated by commas.
     // 
     // This parameter is required.
     shared_ptr<string> knowledgeBaseId_ {};
@@ -96,7 +96,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // Specifies whether to enable reranking. Default value: true.
+    // Specifies whether reranking is enabled. Default value: true.
     shared_ptr<bool> rerankEnabled_ {};
     // The similarity score threshold.
     shared_ptr<double> scoreThreshold_ {};

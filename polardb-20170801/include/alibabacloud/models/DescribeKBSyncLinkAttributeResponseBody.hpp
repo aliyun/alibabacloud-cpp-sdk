@@ -87,9 +87,9 @@ namespace Models
 
 
     protected:
-      // The validity period of the successful snapshot of Lark group members for fallback reuse, in seconds. This parameter is returned only for FEISHU synchronization links. A value of -1 indicates that the snapshot never expires. A value of 0 indicates that snapshot fallback reuse is disabled. A positive integer indicates the maximum age of the snapshot allowed for reuse. The valid value configured for the link is returned. If no value is configured, the default value -1 is returned.
+      // The validity period of the successful snapshot of Lark group members for fallback reuse, in seconds. This parameter is returned only for Lark synchronization links. A value of -1 indicates that the snapshot never expires. A value of 0 indicates that snapshot fallback reuse is disabled. A positive integer indicates the maximum age of the snapshot allowed for reuse. The valid value configured for the link is returned. If no value is configured, the default value -1 is returned.
       shared_ptr<int32_t> feishuChatMemberStaleTtlSeconds_ {};
-      // The ID of the DingTalk user who performs the operation. This parameter is returned only for DINGTALK synchronization links.
+      // The ID of the DingTalk user who performs the operation. This parameter is returned only for DingTalk synchronization links.
       shared_ptr<string> userId_ {};
     };
 
@@ -178,9 +178,9 @@ namespace Models
   protected:
     // The client ID of the source application.
     shared_ptr<string> clientId_ {};
-    // The synchronization configuration whitelist returned based on the source type. For DINGTALK, UserId can be returned. For FEISHU, FeishuChatMemberStaleTtlSeconds can be returned.
+    // The synchronization configuration whitelist returned based on the source type. For DingTalk, UserId is returned. For Lark, FeishuChatMemberStaleTtlSeconds is returned.
     shared_ptr<DescribeKBSyncLinkAttributeResponseBody::Config> config_ {};
-    // The creation time of the synchronization link.
+    // The time when the synchronization link was created. The time is displayed in the YYYY-MM-DDTHH:mm:ssZ format (UTC time).
     shared_ptr<string> creationTime_ {};
     // The description of the synchronization link.
     shared_ptr<string> description_ {};
@@ -192,7 +192,7 @@ namespace Models
     shared_ptr<string> linkName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The source directory.
+    // The source directory. For OSS sources, the bucket and object prefix in the oss://<bucket>/<prefix> format are returned. For other sources, the directory identifier or path of the corresponding channel is returned.
     shared_ptr<string> sourceDir_ {};
     // The automatic synchronization interval, in minutes.
     shared_ptr<int32_t> syncIntervalMinutes_ {};

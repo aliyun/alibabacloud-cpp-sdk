@@ -113,9 +113,9 @@ namespace Models
 
 
     protected:
-      // The name of the IP whitelist. Default value: `default`.
+      // The name of the IP address whitelist. Default value: `default`.
       shared_ptr<string> securityIPArrayName_ {};
-      // The tag of the IP whitelist.
+      // The tag of the IP address whitelist.
       shared_ptr<string> securityIPArrayTag_ {};
       // The IP addresses in the whitelist, separated by commas.
       shared_ptr<string> securityIPList_ {};
@@ -211,10 +211,9 @@ namespace Models
       shared_ptr<string> endpointId_ {};
       // The gateway instance ID.
       shared_ptr<string> gwClusterId_ {};
-      // The network type of the endpoint. Valid values:
-      // 
-      // - Private: VPC
-      // - Public: Internet
+      // The endpoint type. Valid values:
+      // - Private: VPC address.
+      // - Public: Internet address.
       shared_ptr<string> netType_ {};
       // The port.
       shared_ptr<string> port_ {};
@@ -367,11 +366,9 @@ namespace Models
 
 
   protected:
-    // The instance type code.
+    // The specification code.
     shared_ptr<string> classCode_ {};
-    // The creation time.
-    // 
-    // The time is displayed in ISO 8601 format in UTC (YYYY-MM-DDTHH:mm:ssZ).
+    // The creation time. The time is in ISO 8601 format and the UTC time zone (YYYY-MM-DDTHH:mm:ssZ).
     shared_ptr<string> createTime_ {};
     // The current version number.
     shared_ptr<string> currentVersion_ {};
@@ -379,11 +376,7 @@ namespace Models
     shared_ptr<string> dbType_ {};
     // The list of endpoints.
     shared_ptr<vector<DescribeGatewayAttributeResponseBody::Endpoints>> endpoints_ {};
-    // The expiration time.
-    // 
-    // This parameter is empty when the billing method is Postpaid.
-    // 
-    // The time is displayed in ISO 8601 format in UTC (YYYY-MM-DDTHH:mm:ssZ).
+    // The expiration time. This parameter is empty when the billing method is pay-as-you-go. The time is in ISO 8601 format and the UTC time zone (YYYY-MM-DDTHH:mm:ssZ).
     shared_ptr<string> expireTime_ {};
     // Indicates whether the cluster has expired. Valid values:
     // 
@@ -397,9 +390,7 @@ namespace Models
     shared_ptr<string> gwDescription_ {};
     // The latest version number.
     shared_ptr<string> latestVersion_ {};
-    // The last modification time.
-    // 
-    // The time is displayed in ISO 8601 format in UTC (YYYY-MM-DDTHH:mm:ssZ).
+    // The last modification time. The time is in ISO 8601 format and the UTC time zone (YYYY-MM-DDTHH:mm:ssZ).
     shared_ptr<string> modifyTime_ {};
     // The billing method. Valid values:
     // 
@@ -412,14 +403,14 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The running version number.
     shared_ptr<string> runningVersion_ {};
-    // The application-level IP whitelist.
+    // The application-level whitelist.
     shared_ptr<vector<DescribeGatewayAttributeResponseBody::SecurityIPArrays>> securityIPArrays_ {};
     // The application status. Valid values:
     // 
-    // - CREATE: creating
-    // - ACTIVATION: running
+    // - CREATE: Creating.
+    // - ACTIVATION: Running.
     shared_ptr<string> status_ {};
-    // The ID of the vSwitch.
+    // The vSwitch ID.
     shared_ptr<string> vSwitchId_ {};
     // The ID of the VPC to which the vSwitch belongs.
     shared_ptr<string> vpcId_ {};

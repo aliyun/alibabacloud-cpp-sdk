@@ -13,16 +13,20 @@ namespace Models
   class InstallPolarClawSkillRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const InstallPolarClawSkillRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AgentId, agentId_);
       DARABONBA_PTR_TO_JSON(ApplicationId, applicationId_);
       DARABONBA_PTR_TO_JSON(Force, force_);
+      DARABONBA_PTR_TO_JSON(Scope, scope_);
       DARABONBA_PTR_TO_JSON(SkillVersion, skillVersion_);
       DARABONBA_PTR_TO_JSON(Slug, slug_);
       DARABONBA_PTR_TO_JSON(Source, source_);
       DARABONBA_PTR_TO_JSON(Url, url_);
     };
     friend void from_json(const Darabonba::Json& j, InstallPolarClawSkillRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AgentId, agentId_);
       DARABONBA_PTR_FROM_JSON(ApplicationId, applicationId_);
       DARABONBA_PTR_FROM_JSON(Force, force_);
+      DARABONBA_PTR_FROM_JSON(Scope, scope_);
       DARABONBA_PTR_FROM_JSON(SkillVersion, skillVersion_);
       DARABONBA_PTR_FROM_JSON(Slug, slug_);
       DARABONBA_PTR_FROM_JSON(Source, source_);
@@ -39,8 +43,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->applicationId_ == nullptr
-        && this->force_ == nullptr && this->skillVersion_ == nullptr && this->slug_ == nullptr && this->source_ == nullptr && this->url_ == nullptr; };
+    virtual bool empty() const override { return this->agentId_ == nullptr
+        && this->applicationId_ == nullptr && this->force_ == nullptr && this->scope_ == nullptr && this->skillVersion_ == nullptr && this->slug_ == nullptr
+        && this->source_ == nullptr && this->url_ == nullptr; };
+    // agentId Field Functions 
+    bool hasAgentId() const { return this->agentId_ != nullptr;};
+    void deleteAgentId() { this->agentId_ = nullptr;};
+    inline string getAgentId() const { DARABONBA_PTR_GET_DEFAULT(agentId_, "") };
+    inline InstallPolarClawSkillRequest& setAgentId(string agentId) { DARABONBA_PTR_SET_VALUE(agentId_, agentId) };
+
+
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
@@ -53,6 +65,13 @@ namespace Models
     void deleteForce() { this->force_ = nullptr;};
     inline bool getForce() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
     inline InstallPolarClawSkillRequest& setForce(bool force) { DARABONBA_PTR_SET_VALUE(force_, force) };
+
+
+    // scope Field Functions 
+    bool hasScope() const { return this->scope_ != nullptr;};
+    void deleteScope() { this->scope_ = nullptr;};
+    inline string getScope() const { DARABONBA_PTR_GET_DEFAULT(scope_, "") };
+    inline InstallPolarClawSkillRequest& setScope(string scope) { DARABONBA_PTR_SET_VALUE(scope_, scope) };
 
 
     // skillVersion Field Functions 
@@ -84,17 +103,21 @@ namespace Models
 
 
   protected:
+    // The target agent in the workspace. If not specified, the default agent is used.
+    shared_ptr<string> agentId_ {};
     // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // Specifies whether to force a reinstallation.
+    // Specifies whether to force reinstallation.
     shared_ptr<bool> force_ {};
+    // The scope. Valid values: workspace (default) and global (shared directory). This parameter is mutually exclusive with AgentId.
+    shared_ptr<string> scope_ {};
     // The version number.
     shared_ptr<string> skillVersion_ {};
-    // The Skill identifier.
+    // The skill identifier.
     shared_ptr<string> slug_ {};
-    // The source.
+    // The source. Default value: polarhub.
     shared_ptr<string> source_ {};
     // URL
     shared_ptr<string> url_ {};

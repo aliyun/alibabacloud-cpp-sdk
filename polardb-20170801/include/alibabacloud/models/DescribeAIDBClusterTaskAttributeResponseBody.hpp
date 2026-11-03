@@ -165,31 +165,27 @@ namespace Models
 
 
     protected:
-      // The completion time of the task.
-      // 
-      // The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
+      // The completion time of the task. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> completedTime_ {};
       // The foundation model.
       shared_ptr<string> modelName_ {};
       // The path of the custom model.
       shared_ptr<string> modelPath_ {};
       // The model source. Valid values:
-      // * **public**: preset model
-      // * **custom**: custom model
+      // * **public**: Preset model.
+      // * **custom**: Custom model.
       shared_ptr<string> modelSource_ {};
       // The runtime parameters.
       shared_ptr<string> runningTimes_ {};
-      // The start time of the task.
-      // 
-      // The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
+      // The start time of the task. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> startTime_ {};
       // The task type. Valid values:
-      // * **sft**: SFT - efficient training
-      // * **grpo**: GRPO - reinforcement learning
+      // * **sft**: SFT-efficient training.
+      // * **grpo**: GRPO-reinforcement learning.
       shared_ptr<string> trainMode_ {};
       // The training method. Valid values:
-      // * **lora**
-      // * **full**: full-parameter training
+      // * **lora**: LoRA.
+      // * **full**: Full training.
       shared_ptr<string> trainType_ {};
     };
 
@@ -256,8 +252,8 @@ namespace Models
       // The split ratio from the training set.
       shared_ptr<string> splitDatasetRatio_ {};
       // The type. Valid values:
-      // * **train**: training set
-      // * **eval**: validation set
+      // * **train**: Training set.
+      // * **eval**: Validation set.
       shared_ptr<string> type_ {};
     };
 
@@ -462,13 +458,11 @@ namespace Models
 
 
   protected:
-    // The access information of the model in test deployment scenarios.
+    // The access information of the model in the test deployment scenario.
     shared_ptr<string> accessInfo_ {};
     // The network type of the cluster.
     shared_ptr<string> clusterNetworkType_ {};
-    // The creation time.
-    // 
-    // The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
+    // The creation time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> createTime_ {};
     // The custom OSS bucket information.
     shared_ptr<DescribeAIDBClusterTaskAttributeResponseBody::CustomBucketInfo> customBucketInfo_ {};
@@ -477,40 +471,36 @@ namespace Models
     // The task ID.
     shared_ptr<string> DBClusterId_ {};
     // The training status. Valid values:
-    // * **ACTIVATION**: training in progress
-    // * **COMPLETED**: training succeeded
-    // * **FAILED**: training failed
+    // * **ACTIVATION**: Training.
+    // * **COMPLETED**: Training succeeded.
+    // * **FAILED**: Training failed.
     shared_ptr<string> DBClusterStatus_ {};
     // The training status. Valid values:
-    // * **ACTIVATION**: training in progress
-    // * **COMPLETED**: training succeeded
-    // * **FAILED**: training failed
+    // * **ACTIVATION**: Training.
+    // * **COMPLETED**: Training succeeded.
+    // * **FAILED**: Training failed.
     shared_ptr<string> DBClusterStatusDesc_ {};
     // The engine type.
     shared_ptr<string> DBType_ {};
     // The version. Valid values:
-    // * **3.1**: model operator tuning
+    // * **3.1**: Model operator tuning.
     shared_ptr<string> DBVersion_ {};
     // The datasets.
     shared_ptr<vector<DescribeAIDBClusterTaskAttributeResponseBody::DataSets>> dataSets_ {};
     // The extra information, including runtime parameters.
     shared_ptr<vector<Darabonba::Json>> extraInfo_ {};
     // The instance type. Valid values:
-    // - **18**
+    // - **18**.
     shared_ptr<int64_t> kindCode_ {};
     // The lock mode. Valid values:
-    // * **0**: locked
-    // * **1**: unlocked
+    // * **0**: Locked.
+    // * **1**: Unlocked.
     shared_ptr<string> lockMode_ {};
-    // The end time of the maintenance window.
-    // 
-    // The time is displayed in UTC in the HH:mmZ format.
+    // The end time of the maintenance window. The time is displayed in UTC in the HH:mmZ format.
     shared_ptr<string> maintainEndTime_ {};
-    // The start time of the maintenance window.
-    // 
-    // The time is displayed in UTC. Example: 8:00Z.
+    // The start time of the maintenance window. The time is displayed in UTC, for example, 08:00Z.
     shared_ptr<string> maintainStartTime_ {};
-    // The list of output model paths in model fine-tuning scenarios.
+    // The list of output model paths in the model fine-tuning scenario.
     shared_ptr<string> modelPath_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

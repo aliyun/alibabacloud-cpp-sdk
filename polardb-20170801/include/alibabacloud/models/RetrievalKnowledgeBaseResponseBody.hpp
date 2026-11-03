@@ -45,6 +45,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(FileName, fileName_);
         DARABONBA_PTR_TO_JSON(Headings, headings_);
         DARABONBA_PTR_TO_JSON(ImageResources, imageResources_);
+        DARABONBA_PTR_TO_JSON(KnowledgeBaseId, knowledgeBaseId_);
         DARABONBA_PTR_TO_JSON(Metadata, metadata_);
         DARABONBA_PTR_TO_JSON(PageNumbers, pageNumbers_);
         DARABONBA_PTR_TO_JSON(ShardContent, shardContent_);
@@ -59,6 +60,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(FileName, fileName_);
         DARABONBA_PTR_FROM_JSON(Headings, headings_);
         DARABONBA_PTR_FROM_JSON(ImageResources, imageResources_);
+        DARABONBA_PTR_FROM_JSON(KnowledgeBaseId, knowledgeBaseId_);
         DARABONBA_PTR_FROM_JSON(Metadata, metadata_);
         DARABONBA_PTR_FROM_JSON(PageNumbers, pageNumbers_);
         DARABONBA_PTR_FROM_JSON(ShardContent, shardContent_);
@@ -156,8 +158,8 @@ namespace Models
 
       virtual bool empty() const override { return this->captions_ == nullptr
         && this->docItems_ == nullptr && this->fileId_ == nullptr && this->fileName_ == nullptr && this->headings_ == nullptr && this->imageResources_ == nullptr
-        && this->metadata_ == nullptr && this->pageNumbers_ == nullptr && this->shardContent_ == nullptr && this->shardIndex_ == nullptr && this->similarityScore_ == nullptr
-        && this->sourceUri_ == nullptr; };
+        && this->knowledgeBaseId_ == nullptr && this->metadata_ == nullptr && this->pageNumbers_ == nullptr && this->shardContent_ == nullptr && this->shardIndex_ == nullptr
+        && this->similarityScore_ == nullptr && this->sourceUri_ == nullptr; };
       // captions Field Functions 
       bool hasCaptions() const { return this->captions_ != nullptr;};
       void deleteCaptions() { this->captions_ = nullptr;};
@@ -208,6 +210,13 @@ namespace Models
       inline Results& setImageResources(vector<Results::ImageResources> && imageResources) { DARABONBA_PTR_SET_RVALUE(imageResources_, imageResources) };
 
 
+      // knowledgeBaseId Field Functions 
+      bool hasKnowledgeBaseId() const { return this->knowledgeBaseId_ != nullptr;};
+      void deleteKnowledgeBaseId() { this->knowledgeBaseId_ = nullptr;};
+      inline string getKnowledgeBaseId() const { DARABONBA_PTR_GET_DEFAULT(knowledgeBaseId_, "") };
+      inline Results& setKnowledgeBaseId(string knowledgeBaseId) { DARABONBA_PTR_SET_VALUE(knowledgeBaseId_, knowledgeBaseId) };
+
+
       // metadata Field Functions 
       bool hasMetadata() const { return this->metadata_ != nullptr;};
       void deleteMetadata() { this->metadata_ = nullptr;};
@@ -253,9 +262,9 @@ namespace Models
 
 
     protected:
-      // The list of captions for the figures or tables associated with the chunk.
+      // The list of figure or table captions associated with the chunk.
       shared_ptr<vector<string>> captions_ {};
-      // The list of structured element references in the source document associated with the chunk. You can use these references to precisely locate the original elements.
+      // The list of structured element references from the source document associated with the chunk. This can be used to precisely locate the original elements.
       shared_ptr<vector<string>> docItems_ {};
       // The unique identifier of the file.
       shared_ptr<string> fileId_ {};
@@ -265,6 +274,8 @@ namespace Models
       shared_ptr<vector<string>> headings_ {};
       // The list of image resources referenced by the chunk.
       shared_ptr<vector<Results::ImageResources>> imageResources_ {};
+      // The ID of the knowledge base to which the retrieved chunk belongs. This is used to distinguish the source of results when searching multiple knowledge bases.
+      shared_ptr<string> knowledgeBaseId_ {};
       // The metadata.
       shared_ptr<string> metadata_ {};
       // The list of page numbers to which the chunk belongs.

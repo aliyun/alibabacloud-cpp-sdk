@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateBatchTaskRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ApplicationType, applicationType_);
       DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
+      DARABONBA_PTR_TO_JSON(InstanceParams, instanceParams_);
       DARABONBA_PTR_TO_JSON(Param, param_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(TaskName, taskName_);
@@ -24,6 +25,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, CreateBatchTaskRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ApplicationType, applicationType_);
       DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
+      DARABONBA_PTR_FROM_JSON(InstanceParams, instanceParams_);
       DARABONBA_PTR_FROM_JSON(Param, param_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(TaskName, taskName_);
@@ -41,7 +43,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationType_ == nullptr
-        && this->instanceIds_ == nullptr && this->param_ == nullptr && this->regionId_ == nullptr && this->taskName_ == nullptr && this->taskType_ == nullptr; };
+        && this->instanceIds_ == nullptr && this->instanceParams_ == nullptr && this->param_ == nullptr && this->regionId_ == nullptr && this->taskName_ == nullptr
+        && this->taskType_ == nullptr; };
     // applicationType Field Functions 
     bool hasApplicationType() const { return this->applicationType_ != nullptr;};
     void deleteApplicationType() { this->applicationType_ = nullptr;};
@@ -56,6 +59,13 @@ namespace Models
     inline vector<string> getInstanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
     inline CreateBatchTaskRequest& setInstanceIds(const vector<string> & instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
     inline CreateBatchTaskRequest& setInstanceIds(vector<string> && instanceIds) { DARABONBA_PTR_SET_RVALUE(instanceIds_, instanceIds) };
+
+
+    // instanceParams Field Functions 
+    bool hasInstanceParams() const { return this->instanceParams_ != nullptr;};
+    void deleteInstanceParams() { this->instanceParams_ = nullptr;};
+    inline string getInstanceParams() const { DARABONBA_PTR_GET_DEFAULT(instanceParams_, "") };
+    inline CreateBatchTaskRequest& setInstanceParams(string instanceParams) { DARABONBA_PTR_SET_VALUE(instanceParams_, instanceParams) };
 
 
     // param Field Functions 
@@ -89,14 +99,15 @@ namespace Models
   protected:
     // The target application type of the batch task.
     shared_ptr<string> applicationType_ {};
-    // The instance IDs.
+    // The machine instance IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> instanceIds_ {};
+    // The per-instance parameter overrides (JSON object: instanceId -> param). This parameter is used in scenarios where multiple instances have different targets, such as different agent workspaces.
+    shared_ptr<string> instanceParams_ {};
     // The archive parameters.
     shared_ptr<string> param_ {};
-    // The region ID.
-    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to view the region information of all clusters under the target account.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to view the regions of all clusters under the target account.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

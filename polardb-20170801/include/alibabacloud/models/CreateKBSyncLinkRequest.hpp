@@ -176,7 +176,7 @@ namespace Models
 
 
   protected:
-    // The client ID.
+    // The client identifier.
     // 
     // This parameter is required.
     shared_ptr<string> clientId_ {};
@@ -186,13 +186,13 @@ namespace Models
     shared_ptr<string> clientSecret_ {};
     // The description of the synchronization link.
     shared_ptr<string> description_ {};
-    // The validity period of the Lark group member snapshot for fallback reuse, in seconds. This parameter can be explicitly set only for FEISHU synchronization links. A value of -1 indicates that the snapshot never expires. A value of 0 disables snapshot fallback reuse. A positive integer indicates the maximum age of the snapshot allowed for reuse. Default value: -1. If this parameter is omitted, -1 takes effect.
+    // The validity period of the successful snapshot of Lark group members for fallback reuse, in seconds. This parameter can be explicitly set only for FEISHU synchronization links. A value of -1 indicates that the snapshot never expires. A value of 0 disables snapshot fallback reuse. A positive integer indicates the maximum age of the snapshot allowed for reuse. Default value: -1. If this parameter is omitted, the default value -1 takes effect.
     shared_ptr<int32_t> feishuChatMemberStaleTtlSeconds_ {};
     // The unique identifier of the knowledge base.
     // 
     // This parameter is required.
     shared_ptr<string> knowledgeBaseId_ {};
-    // The name of the link.
+    // The name of the synchronization link.
     // 
     // This parameter is required.
     shared_ptr<string> linkName_ {};
@@ -204,7 +204,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The endpoint of the DingTalk sheet MCP server.
     shared_ptr<string> sheetMcpEndpoint_ {};
-    // The source directory address for synchronization.
+    // The address of the source directory for synchronization.
     // 
     // This parameter is required.
     shared_ptr<string> sourceDir_ {};
@@ -216,11 +216,11 @@ namespace Models
     shared_ptr<int32_t> syncIntervalMinutes_ {};
     // The tenant ID. This parameter is required when SourceType is set to SHAREPOINT.
     shared_ptr<string> tenantId_ {};
-    // The Lark user access token. This token is used only when the application identity cannot retrieve group members because the bot is not in the group chat.
+    // The Lark user access token. This token is used only when the application identity cannot expand group members because the bot is not in the group chat.
     shared_ptr<string> userAccessToken_ {};
-    // The ID of the DingTalk operator.
+    // The ID of the DingTalk user who performs the operation.
     shared_ptr<string> userId_ {};
-    // The Lark user refresh token. This token must be provided together with UserAccessToken to automatically rotate the fallback identity for retrieving group members.
+    // The Lark user refresh token. This token must be provided together with UserAccessToken to automatically rotate the fallback identity for expanding group members.
     shared_ptr<string> userRefreshToken_ {};
   };
 

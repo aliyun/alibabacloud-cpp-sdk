@@ -125,7 +125,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> gwClusterId_ {};
-    // The IDs of the model APIs.
+    // The model API IDs.
     shared_ptr<string> modelApiIds_ {};
     // The category. Valid values:
     // * **text**
@@ -145,7 +145,6 @@ namespace Models
     // The API path prefix.
     shared_ptr<string> pathPrefix_ {};
     // The protocol. Valid values:
-    // 
     // * **openai**
     // * **anthropic**
     // * **bailian**

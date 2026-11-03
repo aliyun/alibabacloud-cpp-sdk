@@ -169,24 +169,23 @@ namespace Models
       shared_ptr<string> config_ {};
       // The creation time.
       shared_ptr<string> gmtCreated_ {};
-      // The IDs of the model APIs.
+      // The model API IDs.
       shared_ptr<string> modelApiId_ {};
       // The name of the model API.
       shared_ptr<string> name_ {};
       // The API path prefix.
       shared_ptr<string> pathPrefix_ {};
       // The protocol. Valid values:
-      // 
       // * **openai**
       // * **anthropic**
       // * **bailian**
       // * **vllm**
       shared_ptr<string> protocol_ {};
-      // The number of input points.
+      // The number of input tokens.
       shared_ptr<string> recordInput_ {};
-      // The number of output points.
+      // The number of output tokens.
       shared_ptr<string> recordOutput_ {};
-      // The list of routing rules, formatted as a JSON array string.
+      // The list of routing rules, which is a JSON array string.
       shared_ptr<string> routeRules_ {};
       // The status of the model API.
       shared_ptr<string> status_ {};

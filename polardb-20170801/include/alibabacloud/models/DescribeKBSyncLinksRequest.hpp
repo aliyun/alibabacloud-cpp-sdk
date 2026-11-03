@@ -77,13 +77,13 @@ namespace Models
   protected:
     // The source channel of the synchronization link.
     shared_ptr<string> imPlatform_ {};
-    // The unique ID of the knowledge base.
+    // The unique identifier of the knowledge base.
     // 
     // This parameter is required.
     shared_ptr<string> knowledgeBaseId_ {};
     // The page number of the query results. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of synchronization links returned per page. Valid values: 10, 20, 30, 50, 100, 200, and 500. Default value: 30.
+    // The number of synchronization links to return on each page. Valid values: 10, 20, 30, 50, 100, 200, and 500. Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID.
     // 

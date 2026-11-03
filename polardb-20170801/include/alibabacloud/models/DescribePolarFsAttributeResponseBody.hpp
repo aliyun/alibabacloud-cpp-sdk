@@ -51,6 +51,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RelativeDbClusterId, relativeDbClusterId_);
       DARABONBA_PTR_TO_JSON(RelativePfsClusterId, relativePfsClusterId_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(SecurityGroupId, securityGroupId_);
       DARABONBA_PTR_TO_JSON(StorageSpace, storageSpace_);
       DARABONBA_PTR_TO_JSON(StorageType, storageType_);
@@ -99,6 +100,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RelativeDbClusterId, relativeDbClusterId_);
       DARABONBA_PTR_FROM_JSON(RelativePfsClusterId, relativePfsClusterId_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(SecurityGroupId, securityGroupId_);
       DARABONBA_PTR_FROM_JSON(StorageSpace, storageSpace_);
       DARABONBA_PTR_FROM_JSON(StorageType, storageType_);
@@ -277,9 +279,9 @@ namespace Models
         // The IP address.
         shared_ptr<string> IPAddress_ {};
         // The network type of the connection string. Valid values:
-        // * **Public**: public endpoint.
-        // * **Private**: private endpoint.
-        // * **Inner**: private endpoint (classic network).
+        // * **Public**: Public network address.
+        // * **Private**: Private network address.
+        // * **Inner**: Private network address (classic network).
         shared_ptr<string> netType_ {};
         // The port number.
         shared_ptr<string> port_ {};
@@ -319,7 +321,7 @@ namespace Models
       shared_ptr<vector<EndpointItems::AddressItems>> addressItems_ {};
       // The endpoint ID.
       shared_ptr<string> DBEndpointId_ {};
-      // The endpoint type. Valid values: Nas, S3Gateway, and others.
+      // The endpoint type, such as NAS or S3 Gateway.
       shared_ptr<string> endpointType_ {};
     };
 
@@ -375,8 +377,9 @@ namespace Models
         && this->metaConnString_ == nullptr && this->metaInstanceName_ == nullptr && this->metaMxsConnString_ == nullptr && this->metaUrl_ == nullptr && this->minorVersion_ == nullptr
         && this->mountInfo_ == nullptr && this->payType_ == nullptr && this->polarFsInstanceDescription_ == nullptr && this->polarFsInstanceId_ == nullptr && this->polarFsStatus_ == nullptr
         && this->polarFsType_ == nullptr && this->polarFsVersion_ == nullptr && this->regionId_ == nullptr && this->relativeDbClusterId_ == nullptr && this->relativePfsClusterId_ == nullptr
-        && this->requestId_ == nullptr && this->securityGroupId_ == nullptr && this->storageSpace_ == nullptr && this->storageType_ == nullptr && this->storageUsed_ == nullptr
-        && this->userDefaultAccName_ == nullptr && this->userDefaultAccSk_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->requestId_ == nullptr && this->resourceGroupId_ == nullptr && this->securityGroupId_ == nullptr && this->storageSpace_ == nullptr && this->storageType_ == nullptr
+        && this->storageUsed_ == nullptr && this->userDefaultAccName_ == nullptr && this->userDefaultAccSk_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr
+        && this->zoneId_ == nullptr; };
     // accelerateType Field Functions 
     bool hasAccelerateType() const { return this->accelerateType_ != nullptr;};
     void deleteAccelerateType() { this->accelerateType_ = nullptr;};
@@ -642,6 +645,13 @@ namespace Models
     inline DescribePolarFsAttributeResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // resourceGroupId Field Functions 
+    bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
+    void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline DescribePolarFsAttributeResponseBody& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
+
+
     // securityGroupId Field Functions 
     bool hasSecurityGroupId() const { return this->securityGroupId_ != nullptr;};
     void deleteSecurityGroupId() { this->securityGroupId_ = nullptr;};
@@ -708,7 +718,7 @@ namespace Models
   protected:
     // The acceleration type.
     shared_ptr<string> accelerateType_ {};
-    // The acceleration storage space. Unit: GB.
+    // The accelerated storage space. Unit: GB.
     shared_ptr<double> acceleratedStorageSpace_ {};
     // Indicates whether the acceleration cache is enabled. Valid values:
     // - **ON**: Enabled.
@@ -736,7 +746,7 @@ namespace Models
     shared_ptr<string> clientDownloadPath_ {};
     // The creation time.
     // 
-    // The time is in the ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+    // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> createTime_ {};
     // The custom bucket path.
     shared_ptr<string> customBucketPath_ {};
@@ -748,13 +758,13 @@ namespace Models
     // * **MySQL**
     // * **PostgreSQL**
     shared_ptr<string> DBType_ {};
-    // The list of endpoints, including endpoint information for types such as NAS and S3Gateway.
+    // The list of endpoints, including endpoint information for types such as NAS and S3 Gateway.
     shared_ptr<vector<DescribePolarFsAttributeResponseBody::EndpointItems>> endpointItems_ {};
     // The expiration time of the cluster.
     // 
-    // > This parameter is returned only for clusters whose billing method is **Prepaid** (subscription). An empty value is returned for **Postpaid** (pay-as-you-go) clusters.
+    // > This parameter is returned only for clusters whose billing method is **Prepaid** (subscription). For clusters whose billing method is **Postpaid** (pay-as-you-go), an empty value is returned.
     // 
-    // The time is in the ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+    // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> expireTime_ {};
     // Indicates whether the cluster has expired.
     // > This parameter is returned only for clusters whose billing method is **Prepaid** (subscription).
@@ -763,30 +773,30 @@ namespace Models
     shared_ptr<string> fileSystemId_ {};
     // The lock mode. Valid values: 
     // 
-    // - **Unlock**: Not locked.
+    // - **Unlock**: Unlocked.
     // - **ManualLock**: Manually locked. 
     // - **LockByExpiration**: Automatically locked due to cluster expiration.
     shared_ptr<string> lockMode_ {};
     // The proxy endpoint ID.
     shared_ptr<string> maxscaleEndpointId_ {};
-    // The cluster endpoint of the metadata service.
+    // The metadata service cluster endpoint.
     shared_ptr<string> metaConnString_ {};
     // The metadata instance name.
     shared_ptr<string> metaInstanceName_ {};
-    // The cluster endpoint of the metadata proxy service.
+    // The metadata proxy service cluster endpoint.
     shared_ptr<string> metaMxsConnString_ {};
-    // The metadata address for Fuse mounting (encrypted).
+    // The metadata address for FUSE mounting (encrypted).
     shared_ptr<string> metaUrl_ {};
-    // The minor version of the instance.
+    // The minor version number of the instance.
     shared_ptr<string> minorVersion_ {};
     // The mount configuration.
     shared_ptr<DescribePolarFsAttributeResponseBody::MountInfo> mountInfo_ {};
     // The billing method. Valid values:
     // 
-    // - **Postpaid**: pay-as-you-go.
-    // - **Prepaid**: subscription.
+    // - **Postpaid**: Pay-as-you-go.
+    // - **Prepaid**: Subscription.
     shared_ptr<string> payType_ {};
-    // The description of the Polarlakebase instance.
+    // The Polarlakebase instance description.
     shared_ptr<string> polarFsInstanceDescription_ {};
     // The Polarlakebase instance ID.
     shared_ptr<string> polarFsInstanceId_ {};
@@ -802,26 +812,29 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The ID of the associated PolarDB cluster.
     shared_ptr<string> relativeDbClusterId_ {};
-    // The instance ID of the associated Polarlakebase instance.
+    // The associated Polarlakebase instance ID.
     shared_ptr<string> relativePfsClusterId_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The resource group ID.
+    shared_ptr<string> resourceGroupId_ {};
     // The managed security group ID.
     shared_ptr<string> securityGroupId_ {};
     // The storage space. Unit: GB.
     shared_ptr<double> storageSpace_ {};
-    // Storage types for the High-performance Edition. Valid values:
+    // The storage type. 
+    // For High-performance Edition, valid values are:
     // * **ESSDPL1**
     // * **ESSDPL0**
     // 
-    // Storage types for the Basic Edition. Valid values:
-    // * **city_redundancy**: zone-redundant storage.
+    // For Basic Edition, valid values are:
+    // * **city_redundancy**: Zone-redundant storage.
     shared_ptr<string> storageType_ {};
     // The used storage space. Unit: bytes.
     shared_ptr<double> storageUsed_ {};
     // The default user account name for S3 Gateway.
     shared_ptr<string> userDefaultAccName_ {};
-    // The default user account key for S3 Gateway (encrypted ciphertext).
+    // The default user account secret key for S3 Gateway (encrypted ciphertext).
     shared_ptr<string> userDefaultAccSk_ {};
     // The VPC ID.
     shared_ptr<string> VPCId_ {};

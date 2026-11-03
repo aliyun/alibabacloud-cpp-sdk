@@ -78,6 +78,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(PolarFsType, polarFsType_);
           DARABONBA_PTR_TO_JSON(RegionId, regionId_);
           DARABONBA_PTR_TO_JSON(RelativeDbClusterId, relativeDbClusterId_);
+          DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
           DARABONBA_PTR_TO_JSON(SecurityGroupId, securityGroupId_);
           DARABONBA_PTR_TO_JSON(StorageSpace, storageSpace_);
           DARABONBA_PTR_TO_JSON(StorageType, storageType_);
@@ -105,6 +106,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(PolarFsType, polarFsType_);
           DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
           DARABONBA_PTR_FROM_JSON(RelativeDbClusterId, relativeDbClusterId_);
+          DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
           DARABONBA_PTR_FROM_JSON(SecurityGroupId, securityGroupId_);
           DARABONBA_PTR_FROM_JSON(StorageSpace, storageSpace_);
           DARABONBA_PTR_FROM_JSON(StorageType, storageType_);
@@ -350,8 +352,8 @@ namespace Models
         && this->acceleratedStorageSpace_ == nullptr && this->acceleratingEnable_ == nullptr && this->bandwidth_ == nullptr && this->category_ == nullptr && this->createTime_ == nullptr
         && this->expireTime_ == nullptr && this->expired_ == nullptr && this->mountInfo_ == nullptr && this->mountedAIDBClusters_ == nullptr && this->payType_ == nullptr
         && this->polarFsInstanceDescription_ == nullptr && this->polarFsInstanceId_ == nullptr && this->polarFsPath_ == nullptr && this->polarFsStatus_ == nullptr && this->polarFsType_ == nullptr
-        && this->regionId_ == nullptr && this->relativeDbClusterId_ == nullptr && this->securityGroupId_ == nullptr && this->storageSpace_ == nullptr && this->storageType_ == nullptr
-        && this->tags_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->regionId_ == nullptr && this->relativeDbClusterId_ == nullptr && this->resourceGroupId_ == nullptr && this->securityGroupId_ == nullptr && this->storageSpace_ == nullptr
+        && this->storageType_ == nullptr && this->tags_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
         // accelerateType Field Functions 
         bool hasAccelerateType() const { return this->accelerateType_ != nullptr;};
         void deleteAccelerateType() { this->accelerateType_ = nullptr;};
@@ -482,6 +484,13 @@ namespace Models
         inline PolarFsPaths& setRelativeDbClusterId(string relativeDbClusterId) { DARABONBA_PTR_SET_VALUE(relativeDbClusterId_, relativeDbClusterId) };
 
 
+        // resourceGroupId Field Functions 
+        bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
+        void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
+        inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+        inline PolarFsPaths& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
+
+
         // securityGroupId Field Functions 
         bool hasSecurityGroupId() const { return this->securityGroupId_ != nullptr;};
         void deleteSecurityGroupId() { this->securityGroupId_ = nullptr;};
@@ -552,6 +561,7 @@ namespace Models
         shared_ptr<string> polarFsType_ {};
         shared_ptr<string> regionId_ {};
         shared_ptr<string> relativeDbClusterId_ {};
+        shared_ptr<string> resourceGroupId_ {};
         shared_ptr<string> securityGroupId_ {};
         shared_ptr<int64_t> storageSpace_ {};
         shared_ptr<string> storageType_ {};
@@ -618,11 +628,11 @@ namespace Models
     shared_ptr<DescribePolarFsResponseBody::Items> items_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of records on the current page.
+    // The number of entries on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The total number of records.
+    // The total number of entries.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

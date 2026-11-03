@@ -32,6 +32,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Period, period_);
       DARABONBA_PTR_TO_JSON(PromotionCode, promotionCode_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(StorageSpace, storageSpace_);
       DARABONBA_PTR_TO_JSON(StorageType, storageType_);
       DARABONBA_PTR_TO_JSON(UsedTime, usedTime_);
@@ -58,6 +59,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Period, period_);
       DARABONBA_PTR_FROM_JSON(PromotionCode, promotionCode_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(StorageSpace, storageSpace_);
       DARABONBA_PTR_FROM_JSON(StorageType, storageType_);
       DARABONBA_PTR_FROM_JSON(UsedTime, usedTime_);
@@ -124,8 +126,8 @@ namespace Models
         && this->accelerateSwitch_ == nullptr && this->accelerateType_ == nullptr && this->authorizedUserIds_ == nullptr && this->autoRenew_ == nullptr && this->autoUseCoupon_ == nullptr
         && this->creationCategory_ == nullptr && this->customBucketCount_ == nullptr && this->customBucketPath_ == nullptr && this->customBucketPathList_ == nullptr && this->customOssAk_ == nullptr
         && this->customOssSk_ == nullptr && this->DBClusterId_ == nullptr && this->DBType_ == nullptr && this->payType_ == nullptr && this->period_ == nullptr
-        && this->promotionCode_ == nullptr && this->regionId_ == nullptr && this->storageSpace_ == nullptr && this->storageType_ == nullptr && this->usedTime_ == nullptr
-        && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->promotionCode_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->storageSpace_ == nullptr && this->storageType_ == nullptr
+        && this->usedTime_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
     // accelerateStorageSize Field Functions 
     bool hasAccelerateStorageSize() const { return this->accelerateStorageSize_ != nullptr;};
     void deleteAccelerateStorageSize() { this->accelerateStorageSize_ = nullptr;};
@@ -254,6 +256,13 @@ namespace Models
     inline CreatePolarFsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // resourceGroupId Field Functions 
+    bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
+    void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline CreatePolarFsRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
+
+
     // storageSpace Field Functions 
     bool hasStorageSpace() const { return this->storageSpace_ != nullptr;};
     void deleteStorageSpace() { this->storageSpace_ = nullptr;};
@@ -297,38 +306,38 @@ namespace Models
 
 
   protected:
-    // The acceleration storage space for the Basic Edition with acceleration enabled. Unit: GB.
+    // The acceleration space for the Basic Edition. Unit: GB.
     shared_ptr<int64_t> accelerateStorageSize_ {};
-    // The acceleration mode. Valid values:
+    // Specifies whether to enable acceleration. Valid values:
     // 
     // - **ONLY**: enables acceleration only.
-    // - **ON**: enables cold data storage and acceleration.
+    // - **ON**: enables cold data and acceleration.
     shared_ptr<string> accelerateSwitch_ {};
     // The acceleration type. Valid values: 
     // 
     // - **juice**: file system acceleration.
     // - **alluxio**: transparent acceleration.
     shared_ptr<string> accelerateType_ {};
-    // The list of authorized account IDs for the Cold Storage Edition instance, separated by commas (,).
+    // The list of authorized accounts for the cold storage instance. Separate multiple accounts with commas (`,`).
     shared_ptr<string> authorizedUserIds_ {};
     // Specifies whether to enable auto-renewal. Valid values:
     // 
-    // - **true**: Auto-renewal is enabled.
-    // - **false**: Auto-renewal is disabled.
+    // - **true**: enables auto-renewal.
+    // - **false**: disables auto-renewal.
     // 
     // Default value: **false**.
     // 
     // > This parameter takes effect only when **PayType** is set to **Prepaid**.
     shared_ptr<bool> autoRenew_ {};
     // Specifies whether to automatically use coupons. Valid values:
-    // - **true**: Coupons are automatically used (default).
-    // - **false**: Coupons are not used.
+    // - **true**: uses coupons (default).
+    // - **false**: does not use coupons.
     shared_ptr<bool> autoUseCoupon_ {};
     // The edition. Valid values:
     // 
     // - **basic**: Basic Edition (default).
-    // - **cold**: Cold Storage Edition.
-    // - **high_performance**: High-performance Edition.
+    // - **cold**: cold storage edition.
+    // - **high_performance**: high-performance edition.
     shared_ptr<string> creationCategory_ {};
     // The number of buckets.
     // 
@@ -338,9 +347,9 @@ namespace Models
     // 
     // > This parameter is required only when acceleration (file system acceleration) is enabled.
     shared_ptr<string> customBucketPath_ {};
-    // The bucket and path information.
+    // The bucket and corresponding path information.
     // 
-    // > This parameter is required for the transparent acceleration scenario.
+    // > This parameter is required for transparent acceleration.
     shared_ptr<vector<CreatePolarFsRequest::CustomBucketPathList>> customBucketPathList_ {};
     // The custom AccessKey ID.
     shared_ptr<string> customOssAk_ {};
@@ -348,7 +357,7 @@ namespace Models
     shared_ptr<string> customOssSk_ {};
     // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
-    // The database engine. Valid values:
+    // The database ecosystem. Valid values:
     // - **MySQL**
     // - **PostgreSQL**
     shared_ptr<string> DBType_ {};
@@ -357,36 +366,38 @@ namespace Models
     // - **Postpaid**: pay-as-you-go.
     // - **Prepaid**: subscription.
     shared_ptr<string> payType_ {};
-    // The unit of the subscription duration. This parameter is required if PayType is set to **Prepaid**. Specifies whether the subscription cluster uses a yearly or monthly billing cycle. Valid values: 
+    // If **PayType** is set to **Prepaid**, you must pass parameter. Specifies the upfront cluster as yearly or monthly. Valid values: 
     // 
-    // - **Year**: The subscription duration is measured in years.
-    // - **Month**: The subscription duration is measured in months.
+    // - **Year**: yearly. When you select subscription, the unit is year.
+    // - **Month**: monthly. When you select subscription, the unit is month.
     shared_ptr<string> period_ {};
-    // The coupon code. If this parameter is not specified, the default coupon is used.
+    // The coupon code. If not specified, the default coupon is used.
     shared_ptr<string> promotionCode_ {};
     // The region ID.
-    // >You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query the region ID.
+    // >You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The resource group ID.
+    shared_ptr<string> resourceGroupId_ {};
     // The storage space. Unit: GB.
     shared_ptr<int64_t> storageSpace_ {};
-    // Valid values for the high-performance storage type:
+    // The storage type. Valid values for high-performance clusters:
     // - **ESSDPL0**
     // - **ESSDPL1**
     // 
-    // Valid values for the Basic Edition storage type:
-    // - **city_redundancy (zone-redundant)**
+    // Valid values for Basic Edition clusters:
+    // - **city_redundancy** (zone redundancy)
     // 
-    // Valid values for the Cold Storage Edition storage type:
-    // - **city_redundancy (zone-redundant)**
-    // - **local_redundancy (locally redundant)**
+    // Valid values for cold storage clusters:
+    // - **city_redundancy** (zone redundancy)
+    // - **local_redundancy** (local redundancy)
     shared_ptr<string> storageType_ {};
-    // The subscription duration. This parameter is required when PayType is set to **Prepaid**.
-    // - If **Period** is set to **Month**, valid values of **UsedTime** are integers in the range of `[1-9]`.
-    // - If **Period** is set to **Year**, valid values of **UsedTime** are integers in the range of `[1-3]`.
+    // The subscription duration. This parameter is required when **PayType** is set to **Prepaid**.
+    // - When **Period** is set to **Month**, the value of **UsedTime** is an integer ranging from `1` to `9`.
+    // - When **Period** is set to **Year**, the value of **UsedTime** is an integer ranging from `1` to `3`.
     shared_ptr<string> usedTime_ {};
-    // The virtual private cloud (VPC) ID.
+    // The VPC ID.
     shared_ptr<string> VPCId_ {};
     // The vSwitch ID.
     shared_ptr<string> vSwitchId_ {};

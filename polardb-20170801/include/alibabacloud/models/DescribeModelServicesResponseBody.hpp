@@ -170,37 +170,33 @@ namespace Models
 
 
     protected:
-      // The API key for the model service.
+      // The API key of the model service.
       shared_ptr<string> apiKey_ {};
-      // The base URL of the upstream service.
+      // The upstream service endpoint.
       shared_ptr<string> baseUrl_ {};
-      // The time when the model service was created.
+      // The creation date of the model.
       shared_ptr<string> gmtCreated_ {};
-      // The cost in points per million input tokens.
+      // The input points.
       shared_ptr<string> inputCostPointsPerMillion_ {};
-      // The model category.
+      // The category.
       shared_ptr<string> modelCategory_ {};
-      // The model service ID.
+      // The model service IDs.
       shared_ptr<string> modelServiceId_ {};
       // The model service name.
       shared_ptr<string> name_ {};
-      // The cost in points per million output tokens.
+      // The output points.
       shared_ptr<string> outputCostPointsPerMillion_ {};
-      // The protocol. Valid values:
-      // 
-      // - **OpenAI**
-      // 
-      // - **Anthropic**
-      // 
-      // - **bailian**: Alibaba Cloud Model Studio.
-      // 
-      // - **vLLM**
+      // The protocol type. Valid values:
+      // * **openai**
+      // * **anthropic**
+      // * **bailian**
+      // * **vllm**
       shared_ptr<string> protocol_ {};
-      // The cost in points per request.
+      // The number of requests.
       shared_ptr<string> requestCostPoints_ {};
-      // The status of the model service.
+      // The status.
       shared_ptr<string> status_ {};
-      // The vendor of the model service.
+      // The model service provider.
       shared_ptr<string> vendor_ {};
     };
 
@@ -251,25 +247,22 @@ namespace Models
 
 
   protected:
-    // The details of the model services.
+    // The list of model services.
     shared_ptr<vector<DescribeModelServicesResponseBody::Items>> items_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of records on the current page.
+    // The number of entries on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
-    // The number of records to return on each page. Valid values:
-    // 
-    // - **30**
-    // 
-    // - **50**
-    // 
-    // - **100**
+    // The number of entries per page. Valid values: 
+    // * **30**
+    // * **50**
+    // * **100**
     // 
     // Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The total number of records.
+    // The total number of entries.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

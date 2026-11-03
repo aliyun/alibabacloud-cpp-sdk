@@ -3007,6 +3007,10 @@ CreateAgenticDBTenantApiKeyResponse Client::createAgenticDBTenantApiKeyWithOptio
     query["RegionId"] = request.getRegionId();
   }
 
+  if (!!request.hasTenantId()) {
+    query["TenantId"] = request.getTenantId();
+  }
+
   if (!!request.hasTenantName()) {
     query["TenantName"] = request.getTenantName();
   }
@@ -3615,6 +3619,10 @@ CreateBatchTaskResponse Client::createBatchTaskWithOptions(const CreateBatchTask
 
   if (!!request.hasInstanceIdsShrink()) {
     query["InstanceIds"] = request.getInstanceIdsShrink();
+  }
+
+  if (!!request.hasInstanceParams()) {
+    query["InstanceParams"] = request.getInstanceParams();
   }
 
   if (!!request.hasParam()) {
@@ -6705,6 +6713,10 @@ CreatePolarFsResponse Client::createPolarFsWithOptions(const CreatePolarFsReques
     query["RegionId"] = request.getRegionId();
   }
 
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
   if (!!request.hasStorageSpace()) {
     query["StorageSpace"] = request.getStorageSpace();
   }
@@ -9514,7 +9526,7 @@ DeleteModelApiResponse Client::deleteModelApi(const DeleteModelApiRequest &reque
 }
 
 /**
- * @summary Deletes a specified model service.
+ * @summary Deletes a model service.
  *
  * @param request DeleteModelServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9553,7 +9565,7 @@ DeleteModelServiceResponse Client::deleteModelServiceWithOptions(const DeleteMod
 }
 
 /**
- * @summary Deletes a specified model service.
+ * @summary Deletes a model service.
  *
  * @param request DeleteModelServiceRequest
  * @return DeleteModelServiceResponse
@@ -12038,7 +12050,7 @@ DescribeAgenticDBProjectHistoryRetentionResponse Client::describeAgenticDBProjec
 }
 
 /**
- * @summary Queries a list of AgenticDB projects.
+ * @summary Queries the list of AgenticDB projects.
  *
  * @param request DescribeAgenticDBProjectsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12093,7 +12105,7 @@ DescribeAgenticDBProjectsResponse Client::describeAgenticDBProjectsWithOptions(c
 }
 
 /**
- * @summary Queries a list of AgenticDB projects.
+ * @summary Queries the list of AgenticDB projects.
  *
  * @param request DescribeAgenticDBProjectsRequest
  * @return DescribeAgenticDBProjectsResponse
@@ -13010,7 +13022,7 @@ DescribeAvailableModelsResponse Client::describeAvailableModels(const DescribeAv
 }
 
 /**
- * @summary Queries the download links for redo log backups.
+ * @summary Queries the download URLs of redo log backups.
  *
  * @param request DescribeBackupLogDownloadLinksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13049,7 +13061,7 @@ DescribeBackupLogDownloadLinksResponse Client::describeBackupLogDownloadLinksWit
 }
 
 /**
- * @summary Queries the download links for redo log backups.
+ * @summary Queries the download URLs of redo log backups.
  *
  * @param request DescribeBackupLogDownloadLinksRequest
  * @return DescribeBackupLogDownloadLinksResponse
@@ -18970,7 +18982,7 @@ DescribeModelApisResponse Client::describeModelApis(const DescribeModelApisReque
 }
 
 /**
- * @summary List model services
+ * @summary Queries the model service list.
  *
  * @param request DescribeModelServicesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19033,7 +19045,7 @@ DescribeModelServicesResponse Client::describeModelServicesWithOptions(const Des
 }
 
 /**
- * @summary List model services
+ * @summary Queries the model service list.
  *
  * @param request DescribeModelServicesRequest
  * @return DescribeModelServicesResponse
@@ -20164,7 +20176,7 @@ DescribePolarClawTaskResponse Client::describePolarClawTask(const DescribePolarC
 }
 
 /**
- * @summary Queries PolarFS information.
+ * @summary Queries the PolarFS information.
  *
  * @param request DescribePolarFsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20205,6 +20217,10 @@ DescribePolarFsResponse Client::describePolarFsWithOptions(const DescribePolarFs
     query["RelativeDbClusterId"] = request.getRelativeDbClusterId();
   }
 
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
   if (!!request.hasTag()) {
     query["Tag"] = request.getTag();
   }
@@ -20227,7 +20243,7 @@ DescribePolarFsResponse Client::describePolarFsWithOptions(const DescribePolarFs
 }
 
 /**
- * @summary Queries PolarFS information.
+ * @summary Queries the PolarFS information.
  *
  * @param request DescribePolarFsRequest
  * @return DescribePolarFsResponse
@@ -21570,7 +21586,7 @@ DescribeUserEncryptionKeyListResponse Client::describeUserEncryptionKeyList(cons
 }
 
 /**
- * @summary Retrieves information about vSwitches.
+ * @summary Queries vSwitch information.
  *
  * @param request DescribeVSwitchListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21641,7 +21657,7 @@ DescribeVSwitchListResponse Client::describeVSwitchListWithOptions(const Describ
 }
 
 /**
- * @summary Retrieves information about vSwitches.
+ * @summary Queries vSwitch information.
  *
  * @param request DescribeVSwitchListRequest
  * @return DescribeVSwitchListResponse
@@ -21916,7 +21932,7 @@ DisableDBClusterDynamoDBResponse Client::disableDBClusterDynamoDB(const DisableD
 }
 
 /**
- * @summary Disables the relational algebra of a cluster.
+ * @summary Closes the cluster relationship.
  *
  * @param request DisableDBClusterOrcaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21967,7 +21983,7 @@ DisableDBClusterOrcaResponse Client::disableDBClusterOrcaWithOptions(const Disab
 }
 
 /**
- * @summary Disables the relational algebra of a cluster.
+ * @summary Closes the cluster relationship.
  *
  * @param request DisableDBClusterOrcaRequest
  * @return DisableDBClusterOrcaResponse
@@ -22246,7 +22262,7 @@ EnableDBClusterDynamoDBResponse Client::enableDBClusterDynamoDB(const EnableDBCl
 }
 
 /**
- * @summary Enables the Orca (Redis-compatible) feature for a PolarDB cluster.
+ * @summary Enables the relational feature for a cluster.
  *
  * @param request EnableDBClusterOrcaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22293,7 +22309,7 @@ EnableDBClusterOrcaResponse Client::enableDBClusterOrcaWithOptions(const EnableD
 }
 
 /**
- * @summary Enables the Orca (Redis-compatible) feature for a PolarDB cluster.
+ * @summary Enables the relational feature for a cluster.
  *
  * @param request EnableDBClusterOrcaRequest
  * @return EnableDBClusterOrcaResponse
@@ -23485,7 +23501,7 @@ InstallPolarClawPluginResponse Client::installPolarClawPlugin(const InstallPolar
 }
 
 /**
- * @summary Installs a PolarClaw Skill.
+ * @summary Installs a PolarClaw skill.
  *
  * @param request InstallPolarClawSkillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23494,12 +23510,20 @@ InstallPolarClawPluginResponse Client::installPolarClawPlugin(const InstallPolar
 InstallPolarClawSkillResponse Client::installPolarClawSkillWithOptions(const InstallPolarClawSkillRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAgentId()) {
+    query["AgentId"] = request.getAgentId();
+  }
+
   if (!!request.hasApplicationId()) {
     query["ApplicationId"] = request.getApplicationId();
   }
 
   if (!!request.hasForce()) {
     query["Force"] = request.getForce();
+  }
+
+  if (!!request.hasScope()) {
+    query["Scope"] = request.getScope();
   }
 
   if (!!request.hasSkillVersion()) {
@@ -23536,7 +23560,7 @@ InstallPolarClawSkillResponse Client::installPolarClawSkillWithOptions(const Ins
 }
 
 /**
- * @summary Installs a PolarClaw Skill.
+ * @summary Installs a PolarClaw skill.
  *
  * @param request InstallPolarClawSkillRequest
  * @return InstallPolarClawSkillResponse
@@ -29305,7 +29329,7 @@ ModifyRateLimitPolicyResponse Client::modifyRateLimitPolicy(const ModifyRateLimi
 }
 
 /**
- * @summary Modifies the CPU quota of an existing resource control rule in a specified PolarDB for MySQL cluster. You can modify the current quota value or switch between the maximum CPU quota percentage mode and the maximum CPU core count mode. When modifying the rule, you must specify exactly one of the MaxCpu and CpuCount parameters.
+ * @summary Modifies the CPU quota of an existing resource control rule in a specified PolarDB for MySQL cluster. You can modify the current quota value or switch between the maximum CPU quota percentage mode and the maximum CPU core count mode. When modifying the rule, you must specify either MaxCpu or CpuCount, but not both.
  *
  * @description Resource Control is used to limit the CPU resources available to specified users, databases, queries, or connections in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules, but does not support querying Resource Control CPU utilization.
  * ### Limits
@@ -29360,7 +29384,7 @@ ModifyResourceControlResponse Client::modifyResourceControlWithOptions(const Mod
 }
 
 /**
- * @summary Modifies the CPU quota of an existing resource control rule in a specified PolarDB for MySQL cluster. You can modify the current quota value or switch between the maximum CPU quota percentage mode and the maximum CPU core count mode. When modifying the rule, you must specify exactly one of the MaxCpu and CpuCount parameters.
+ * @summary Modifies the CPU quota of an existing resource control rule in a specified PolarDB for MySQL cluster. You can modify the current quota value or switch between the maximum CPU quota percentage mode and the maximum CPU core count mode. When modifying the rule, you must specify either MaxCpu or CpuCount, but not both.
  *
  * @description Resource Control is used to limit the CPU resources available to specified users, databases, queries, or connections in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules, but does not support querying Resource Control CPU utilization.
  * ### Limits
@@ -31495,7 +31519,7 @@ SearchMemoriesResponse Client::searchMemories(const SearchMemoriesRequest &reque
 }
 
 /**
- * @summary Searches for PolarClaw Skills.
+ * @summary Searches for PolarClaw skills.
  *
  * @param request SearchPolarClawSkillsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -31508,12 +31532,20 @@ SearchPolarClawSkillsResponse Client::searchPolarClawSkillsWithOptions(const Sea
     query["ApplicationId"] = request.getApplicationId();
   }
 
+  if (!!request.hasExact()) {
+    query["Exact"] = request.getExact();
+  }
+
   if (!!request.hasLimit()) {
     query["Limit"] = request.getLimit();
   }
 
   if (!!request.hasQuery()) {
     query["Query"] = request.getQuery();
+  }
+
+  if (!!request.hasSource()) {
+    query["Source"] = request.getSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -31534,7 +31566,7 @@ SearchPolarClawSkillsResponse Client::searchPolarClawSkillsWithOptions(const Sea
 }
 
 /**
- * @summary Searches for PolarClaw Skills.
+ * @summary Searches for PolarClaw skills.
  *
  * @param request SearchPolarClawSkillsRequest
  * @return SearchPolarClawSkillsResponse
@@ -32753,7 +32785,7 @@ UpdatePolarClawAgentResponse Client::updatePolarClawAgent(const UpdatePolarClawA
 }
 
 /**
- * @summary Updates the skills of a PolarClaw Agent.
+ * @summary Updates the skills of a PolarClaw agent.
  *
  * @param tmpReq UpdatePolarClawAgentSkillsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -32798,7 +32830,7 @@ UpdatePolarClawAgentSkillsResponse Client::updatePolarClawAgentSkillsWithOptions
 }
 
 /**
- * @summary Updates the skills of a PolarClaw Agent.
+ * @summary Updates the skills of a PolarClaw agent.
  *
  * @param request UpdatePolarClawAgentSkillsRequest
  * @return UpdatePolarClawAgentSkillsResponse
