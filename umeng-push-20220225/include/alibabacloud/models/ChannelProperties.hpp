@@ -28,6 +28,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(vivoAddBadge, vivoAddBadge_);
       DARABONBA_PTR_TO_JSON(vivoCategory, vivoCategory_);
       DARABONBA_PTR_TO_JSON(vivoPushMode, vivoPushMode_);
+      DARABONBA_PTR_TO_JSON(vivoTemplateId, vivoTemplateId_);
+      DARABONBA_ANY_TO_JSON(vivoTemplateParams, vivoTemplateParams_);
       DARABONBA_PTR_TO_JSON(xiaomiChannelId, xiaomiChannelId_);
     };
     friend void from_json(const Darabonba::Json& j, ChannelProperties& obj) { 
@@ -46,6 +48,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(vivoAddBadge, vivoAddBadge_);
       DARABONBA_PTR_FROM_JSON(vivoCategory, vivoCategory_);
       DARABONBA_PTR_FROM_JSON(vivoPushMode, vivoPushMode_);
+      DARABONBA_PTR_FROM_JSON(vivoTemplateId, vivoTemplateId_);
+      DARABONBA_ANY_FROM_JSON(vivoTemplateParams, vivoTemplateParams_);
       DARABONBA_PTR_FROM_JSON(xiaomiChannelId, xiaomiChannelId_);
     };
     ChannelProperties() = default ;
@@ -62,7 +66,8 @@ namespace Models
     virtual bool empty() const override { return this->channelActivity_ == nullptr
         && this->channelFcm_ == nullptr && this->harmonyChannelCategory_ == nullptr && this->huaweiChannelCategory_ == nullptr && this->huaweiChannelImportance_ == nullptr && this->huaweiMessageUrgency_ == nullptr
         && this->mainActivity_ == nullptr && this->oppoCategory_ == nullptr && this->oppoChannelId_ == nullptr && this->oppoNotifyLevel_ == nullptr && this->useHuaweiMessage_ == nullptr
-        && this->useHuaweiPlainMessage_ == nullptr && this->vivoAddBadge_ == nullptr && this->vivoCategory_ == nullptr && this->vivoPushMode_ == nullptr && this->xiaomiChannelId_ == nullptr; };
+        && this->useHuaweiPlainMessage_ == nullptr && this->vivoAddBadge_ == nullptr && this->vivoCategory_ == nullptr && this->vivoPushMode_ == nullptr && this->vivoTemplateId_ == nullptr
+        && this->vivoTemplateParams_ == nullptr && this->xiaomiChannelId_ == nullptr; };
     // channelActivity Field Functions 
     bool hasChannelActivity() const { return this->channelActivity_ != nullptr;};
     void deleteChannelActivity() { this->channelActivity_ = nullptr;};
@@ -168,6 +173,22 @@ namespace Models
     inline ChannelProperties& setVivoPushMode(string vivoPushMode) { DARABONBA_PTR_SET_VALUE(vivoPushMode_, vivoPushMode) };
 
 
+    // vivoTemplateId Field Functions 
+    bool hasVivoTemplateId() const { return this->vivoTemplateId_ != nullptr;};
+    void deleteVivoTemplateId() { this->vivoTemplateId_ = nullptr;};
+    inline string getVivoTemplateId() const { DARABONBA_PTR_GET_DEFAULT(vivoTemplateId_, "") };
+    inline ChannelProperties& setVivoTemplateId(string vivoTemplateId) { DARABONBA_PTR_SET_VALUE(vivoTemplateId_, vivoTemplateId) };
+
+
+    // vivoTemplateParams Field Functions 
+    bool hasVivoTemplateParams() const { return this->vivoTemplateParams_ != nullptr;};
+    void deleteVivoTemplateParams() { this->vivoTemplateParams_ = nullptr;};
+    inline     const Darabonba::Json & getVivoTemplateParams() const { DARABONBA_GET(vivoTemplateParams_) };
+    Darabonba::Json & getVivoTemplateParams() { DARABONBA_GET(vivoTemplateParams_) };
+    inline ChannelProperties& setVivoTemplateParams(const Darabonba::Json & vivoTemplateParams) { DARABONBA_SET_VALUE(vivoTemplateParams_, vivoTemplateParams) };
+    inline ChannelProperties& setVivoTemplateParams(Darabonba::Json && vivoTemplateParams) { DARABONBA_SET_RVALUE(vivoTemplateParams_, vivoTemplateParams) };
+
+
     // xiaomiChannelId Field Functions 
     bool hasXiaomiChannelId() const { return this->xiaomiChannelId_ != nullptr;};
     void deleteXiaomiChannelId() { this->xiaomiChannelId_ = nullptr;};
@@ -191,6 +212,8 @@ namespace Models
     shared_ptr<string> vivoAddBadge_ {};
     shared_ptr<string> vivoCategory_ {};
     shared_ptr<string> vivoPushMode_ {};
+    shared_ptr<string> vivoTemplateId_ {};
+    Darabonba::Json vivoTemplateParams_ {};
     shared_ptr<string> xiaomiChannelId_ {};
   };
 
