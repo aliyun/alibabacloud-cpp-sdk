@@ -155,9 +155,9 @@ namespace Models
           protected:
             // The bounding box coordinates.
             shared_ptr<vector<float>> bbox2d_ {};
-            // The target category. For valid values, see the table below.
+            // The target category. For enumerations, see the following table.
             shared_ptr<string> label_ {};
-            // The confirmed short name or text of up to 24 characters. This value is an empty string if the text is unreadable.
+            // The confirmed short name or text of up to 24 characters. This is an empty string if the text is unclear.
             shared_ptr<string> text_ {};
           };
 
@@ -180,11 +180,11 @@ namespace Models
 
 
         protected:
-          // The coverage of the localization. Valid values:
-          // - complete: All relevant visible targets are fully covered.
-          // - partial: Only some targets are valid or recognizable.
+          // The coverage. Valid values:
+          // - `complete`: The relevant visible targets are complete.
+          // - `partial`: Only some targets are valid or recognizable.
           shared_ptr<string> coverage_ {};
-          // The array of targets. A maximum of 12 items are returned. This value can be empty if no relevant targets exist.
+          // The target array. It contains up to 12 items and can be empty if no relevant targets are found.
           shared_ptr<vector<Grounding::Regions>> regions_ {};
         };
 
@@ -216,9 +216,9 @@ namespace Models
       protected:
         // The supplementary element localization result.
         shared_ptr<Result::Grounding> grounding_ {};
-        // Indicates whether the image is a recaptured photo.
+        // Indicates whether the image is recaptured.
         shared_ptr<bool> isFake_ {};
-        // The detection type. The value is fixed as general.
+        // The detection type. The value is fixed to general.
         shared_ptr<string> type_ {};
       };
 
@@ -243,9 +243,9 @@ namespace Models
 
 
     protected:
-      // The business result. This value is an empty object if the request fails.
+      // The business result. This is an empty object if the call fails.
       shared_ptr<Data::Result> result_ {};
-      // The usage information. The value is `{"ProcessingCount":1}` on success, or an empty object on failure.
+      // The usage information. The value is `{"ProcessingCount":1}` if the call is successful, or an empty object if the call fails.
       shared_ptr<map<string, int64_t>> usageMap_ {};
     };
 
@@ -293,7 +293,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The recapture detection result.
     shared_ptr<GeneralRephotographyDetectionResponseBody::Data> data_ {};
-    // The response message or failure description.
+    // The return message or failure description.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

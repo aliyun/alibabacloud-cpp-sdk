@@ -111,13 +111,13 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<string> code_ {};
-    // The submit result of the asynchronous task.
+    // The asynchronous task submission result.
     shared_ptr<AssetOptimizeLiteResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

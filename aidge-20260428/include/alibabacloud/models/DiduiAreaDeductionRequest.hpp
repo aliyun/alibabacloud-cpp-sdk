@@ -113,19 +113,19 @@ namespace Models
 
 
       protected:
-        // The bottom boundary of the detection box.
+        // The bottom boundary of the bounding box.
         // 
         // This parameter is required.
         shared_ptr<double> bottom_ {};
-        // The left boundary of the detection box.
+        // The left boundary of the bounding box.
         // 
         // This parameter is required.
         shared_ptr<double> left_ {};
-        // The right boundary of the detection box.
+        // The right boundary of the bounding box.
         // 
         // This parameter is required.
         shared_ptr<double> right_ {};
-        // The top boundary of the detection box.
+        // The top boundary of the bounding box.
         // 
         // This parameter is required.
         shared_ptr<double> top_ {};
@@ -150,7 +150,7 @@ namespace Models
 
 
     protected:
-      // The instance boxes for the current SKU. The coordinate range is 0 to 1000.
+      // The bounding boxes of the current SKU, with coordinate values ranging from 0 to 1000.
       // 
       // This parameter is required.
       shared_ptr<vector<Products::Boxes>> boxes_ {};
@@ -193,13 +193,13 @@ namespace Models
 
 
   protected:
-    // The list of products and their detection boxes.
+    // The list of products and bounding boxes.
     // 
     // This parameter is required.
     shared_ptr<vector<DiduiAreaDeductionRequest::Products>> products_ {};
-    // The ID of the customer-specific SKU vector database that determines which database is used for recall. The database must be created in advance through the database creation process.
+    // The ID of the customer\\"s dedicated SKU vector database, which determines the database used for retrieval. The database must be created through the database creation process in advance.
     shared_ptr<string> ragId_ {};
-    // The optional business request ID used for Tracing Analysis.
+    // The optional business request ID, used for end-to-end Tracing Analysis.
     shared_ptr<string> reqId_ {};
     // The HTTPS URL of the overall floor display image.
     // 

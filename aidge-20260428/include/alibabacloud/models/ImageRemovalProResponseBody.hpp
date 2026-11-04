@@ -87,9 +87,9 @@ namespace Models
 
 
     protected:
-      // The URL of the erasure result image. This parameter is returned in synchronous mode.
+      // The URL of the result image. This parameter is returned in synchronous mode.
       shared_ptr<string> imageUrl_ {};
-      // The asynchronous task ID. This parameter is returned in asynchronous mode and is used to query task results.
+      // The ID of the asynchronous task. This parameter is returned in asynchronous mode and is used to query the task result.
       shared_ptr<string> taskId_ {};
       // The usage details. This parameter is returned in synchronous mode.
       shared_ptr<map<string, int64_t>> usageMap_ {};
@@ -135,17 +135,17 @@ namespace Models
 
 
   protected:
-    // The error code. This parameter is not returned if the call is successful.
+    // The error code. This parameter is not returned when the call is successful.
     shared_ptr<string> code_ {};
-    // The Intelligent Eraser Pro result.
+    // The result of the intelligent object removal Pro operation.
     shared_ptr<ImageRemovalProResponseBody::Data> data_ {};
-    // The error message. This parameter is not returned if the call is successful.
+    // The error message. This parameter is not returned when the call is successful.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
     // Indicates whether the call is successful. Valid values:
     // - true: The call is successful.
-    // - false: The call failed.
+    // - false: The call fails.
     shared_ptr<bool> success_ {};
   };
 

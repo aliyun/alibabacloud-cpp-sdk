@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The HTTPS URL of the original image to recognize. The URL must be accessible and must not contain whitespace or URL-embedded usernames or passwords.
+    // The HTTPS URL of the original image to be recognized. The URL must be accessible and cannot contain spaces or URL usernames and passwords.
     // 
     // This parameter is required.
     shared_ptr<string> imageUrl_ {};

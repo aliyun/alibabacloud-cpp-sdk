@@ -111,7 +111,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> imageUrl_ {};
-    // Specifies whether to include the translation of the product area.
+    // Specifies whether to include translation for the product area.
     shared_ptr<bool> includingProductArea_ {};
     // The source language.
     // 
@@ -121,7 +121,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> targetLanguage_ {};
-    // Specifies whether to translate the brand text in the product area.
+    // Specifies whether to translate brand text in the product area.
     shared_ptr<bool> translatingBrandInTheProduct_ {};
     // Specifies whether to use the image editor protocol.
     shared_ptr<bool> useImageEditor_ {};

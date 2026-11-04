@@ -112,7 +112,7 @@ namespace Models
 
 
   protected:
-    // The custom glossary for term intervention.
+    // The intervention glossary.
     shared_ptr<string> glossary_ {};
     // Specifies whether product area translation is included.
     shared_ptr<bool> includingProductArea_ {};

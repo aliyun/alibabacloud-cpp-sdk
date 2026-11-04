@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // The ID of the asynchronous task, which is used to call QueryAsyncTaskResult to query the task result.
+      // The ID of the asynchronous task used to query the result by calling QueryAsyncTaskResult.
       shared_ptr<string> taskId_ {};
     };
 
@@ -111,13 +111,13 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<string> code_ {};
-    // The submit status of the asynchronous task.
+    // The submission result of the asynchronous task.
     shared_ptr<DiduiAreaDeductionProResponseBody::Data> data_ {};
-    // The response message or failure description.
+    // The returned message or failure description.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful.
+    // Indicates whether the call is successful.
     shared_ptr<bool> success_ {};
   };
 

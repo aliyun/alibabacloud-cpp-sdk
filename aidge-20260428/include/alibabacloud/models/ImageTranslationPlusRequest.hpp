@@ -100,7 +100,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> imageUrl_ {};
-    // Specifies whether to translate text on the product body. This parameter is optional. Default value: false.
+    // Specifies whether to translate the text on the product subject. This parameter is optional. Default value: false.
     shared_ptr<bool> includingProductArea_ {};
     // The source language. This parameter is required.
     // 
@@ -110,7 +110,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> targetLanguage_ {};
-    // Specifies whether to translate brand text on the product. This parameter is optional. Default value: false.
+    // Specifies whether to translate the text on the brand. This parameter is optional. Default value: false.
     shared_ptr<bool> translatingBrandInTheProduct_ {};
     // Specifies whether to use the image translation editor protocol. This parameter is optional.
     shared_ptr<bool> useImageEditor_ {};

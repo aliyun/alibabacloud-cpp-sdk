@@ -117,7 +117,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID, which is used to identify a unique call.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the submission is successful.
+    // Indicates whether the submission was successful.
     shared_ptr<bool> success_ {};
   };
 

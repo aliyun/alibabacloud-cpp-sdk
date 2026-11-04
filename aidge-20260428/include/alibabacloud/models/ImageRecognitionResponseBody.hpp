@@ -191,7 +191,7 @@ namespace Models
 
 
     protected:
-      // The border pixel information, returned as a comma-separated string.
+      // The border pixel information, which is a comma-separated string.
       shared_ptr<string> borderPixel_ {};
       // Indicates whether the non-subject area contains text.
       shared_ptr<bool> noobjCharacter_ {};
@@ -209,13 +209,13 @@ namespace Models
       shared_ptr<bool> objNpx_ {};
       // Indicates whether the subject area contains a watermark.
       shared_ptr<bool> objWatermark_ {};
-      // The number of products.
+      // The product quantity.
       shared_ptr<int32_t> pdNum_ {};
-      // The proportion of the product in the image.
+      // The product proportion.
       shared_ptr<string> pdProp_ {};
       // The list of recognized text.
       shared_ptr<vector<string>> recText_ {};
-      // The proportion of text in the image.
+      // The text proportion.
       shared_ptr<string> textProp_ {};
       // The usage information.
       shared_ptr<map<string, int64_t>> usageMap_ {};
@@ -261,15 +261,15 @@ namespace Models
 
 
   protected:
-    // The error code. This parameter is not returned if the call is successful.
+    // The error code. This parameter is not returned when the call is successful.
     shared_ptr<string> code_ {};
     // The intelligent element recognition result.
     shared_ptr<ImageRecognitionResponseBody::Data> data_ {};
-    // The error message. This parameter is not returned if the call is successful.
+    // The error message. This parameter is not returned when the call is successful.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

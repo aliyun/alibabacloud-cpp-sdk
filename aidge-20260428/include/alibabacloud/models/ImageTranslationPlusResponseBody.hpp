@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // The asynchronous task ID. Use this ID to poll for results through the queryTaskResult operation.
+      // The ID of the asynchronous task. You can use this ID to poll the result by calling the queryTaskResult operation.
       shared_ptr<string> taskId_ {};
     };
 
@@ -109,17 +109,17 @@ namespace Models
 
 
   protected:
-    // The error code. This parameter is not returned if the call is successful.
+    // The error code. This parameter is not returned when the call is successful.
     shared_ptr<string> code_ {};
-    // The asynchronous task submit status.
+    // The submission result of the asynchronous task.
     shared_ptr<ImageTranslationPlusResponseBody::Data> data_ {};
-    // The error message. This parameter is not returned if the call is successful.
+    // The error message. This parameter is not returned when the call is successful.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
     // Indicates whether the call is successful. Valid values:
     // - true: The call is successful.
-    // - false: The call failed.
+    // - false: The call fails.
     shared_ptr<bool> success_ {};
   };
 

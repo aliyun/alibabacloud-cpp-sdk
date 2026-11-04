@@ -160,11 +160,11 @@ namespace Models
 
 
       protected:
-        // The failure error code.
+        // The error code for the failure.
         shared_ptr<string> errorCode_ {};
-        // The failure reason.
+        // The reason for the failure.
         shared_ptr<string> errorMessage_ {};
-        // The index in the original request array.
+        // The index of the record in the original request array.
         shared_ptr<int32_t> index_ {};
         // The record ID.
         shared_ptr<int64_t> recordId_ {};
@@ -172,7 +172,7 @@ namespace Models
         shared_ptr<string> skuId_ {};
         // The record status.
         shared_ptr<string> status_ {};
-        // Indicates whether the record is accepted.
+        // Indicates whether the record was accepted.
         shared_ptr<bool> success_ {};
       };
 
@@ -266,9 +266,9 @@ namespace Models
       shared_ptr<string> knowledgeBaseStatus_ {};
       // The knowledge base ID.
       shared_ptr<string> ragId_ {};
-      // The processing results for each record.
+      // The processing result of each record.
       shared_ptr<vector<Data::Results>> results_ {};
-      // Indicates whether the business processing is successful.
+      // Indicates whether the business processing was successful.
       shared_ptr<bool> success_ {};
       // The asynchronous task ID. This parameter is empty for synchronous API operations.
       shared_ptr<string> taskId_ {};
@@ -324,7 +324,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

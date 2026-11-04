@@ -409,7 +409,7 @@ namespace Models
             shared_ptr<Texts::ImageRect> imageRect_ {};
             // The language.
             shared_ptr<string> language_ {};
-            // The line count.
+            // The number of lines.
             shared_ptr<int32_t> lineCount_ {};
             // The text area.
             shared_ptr<Texts::TextRect> textRect_ {};
@@ -484,7 +484,7 @@ namespace Models
           shared_ptr<int32_t> fontsize_ {};
           // The horizontal layout.
           shared_ptr<string> horizontalLayout_ {};
-          // The line count.
+          // The number of lines.
           shared_ptr<int32_t> lineCount_ {};
           // The list of texts.
           shared_ptr<vector<TextAreas::Texts>> texts_ {};
@@ -709,9 +709,9 @@ namespace Models
     protected:
       // The edit information.
       shared_ptr<Data::EditInfo> editInfo_ {};
-      // The URL of the image generated after image translation.
+      // The URL of the image generated after the image translation.
       shared_ptr<string> imageUrl_ {};
-      // The usage information, including the number of processed images.
+      // The usage information, such as the number of processed images.
       shared_ptr<map<string, int64_t>> usageMap_ {};
     };
 
@@ -757,13 +757,13 @@ namespace Models
   protected:
     // The response code. A value of 200 indicates a successful call. For other response codes, refer to the error code information.
     shared_ptr<string> code_ {};
-    // The translation result data, including the translated image URL and usage information.
+    // The translation result data, including the URL of the translated image and usage information.
     shared_ptr<ImageTranslationStandardResponseBody::Data> data_ {};
-    // The error message. "Success" is returned for a successful call. A specific error message is returned for a failed call.
+    // The error message. This parameter returns Success for successful calls and specific error messages for exceptions.
     shared_ptr<string> message_ {};
-    // The request ID, which uniquely identifies the request.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. A value of true indicates success. A value of false indicates failure.
+    // Indicates whether the call was successful. A value of true indicates success, and a value of false indicates failure.
     shared_ptr<bool> success_ {};
   };
 

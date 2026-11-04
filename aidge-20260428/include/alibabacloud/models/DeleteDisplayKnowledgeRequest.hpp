@@ -55,7 +55,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> ragId_ {};
-    // The IDs of the records to delete. You can specify up to 500 record IDs.
+    // The IDs of the records to be deleted. A maximum of 500 records can be specified.
     // 
     // This parameter is required.
     shared_ptr<vector<int64_t>> recordIds_ {};

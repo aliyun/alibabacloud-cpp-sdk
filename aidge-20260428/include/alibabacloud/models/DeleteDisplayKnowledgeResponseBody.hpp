@@ -164,7 +164,7 @@ namespace Models
       protected:
         // The error code for the failure.
         shared_ptr<string> errorCode_ {};
-        // The cause of the failure.
+        // The reason for the failure.
         shared_ptr<string> errorMessage_ {};
         // The index in the original request array.
         shared_ptr<int32_t> index_ {};
@@ -174,7 +174,7 @@ namespace Models
         shared_ptr<string> skuId_ {};
         // The record status. This field is empty for deletion results.
         shared_ptr<string> status_ {};
-        // Indicates whether the deletion is successful.
+        // Indicates whether the deletion was successful.
         shared_ptr<bool> success_ {};
       };
 
@@ -275,11 +275,11 @@ namespace Models
       shared_ptr<string> knowledgeBaseStatus_ {};
       // The knowledge base ID.
       shared_ptr<string> ragId_ {};
-      // The number of visible records after the deletion.
+      // The number of visible records after deletion.
       shared_ptr<int32_t> remainingCount_ {};
       // The processing results for each record.
       shared_ptr<vector<Data::Results>> results_ {};
-      // Indicates whether the business processing is successful.
+      // Indicates whether the business processing was successful.
       shared_ptr<bool> success_ {};
       // The asynchronous task ID. This field is empty for synchronous API operations.
       shared_ptr<string> taskId_ {};
@@ -329,13 +329,13 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<string> code_ {};
-    // The deletion results for the display knowledge base content.
+    // The result of deleting content from the display knowledge base.
     shared_ptr<DeleteDisplayKnowledgeResponseBody::Data> data_ {};
-    // The response message or failure description.
+    // The returned message or failure description.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

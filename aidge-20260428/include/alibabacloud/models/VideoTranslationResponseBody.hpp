@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // The ID of the asynchronous task, which is used for subsequent queries.
+      // The ID of the asynchronous task. You can use this ID for subsequent queries.
       shared_ptr<string> taskId_ {};
     };
 
@@ -111,13 +111,15 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The submission result of the asynchronous task.
+    // The result of the asynchronous task submission.
     shared_ptr<VideoTranslationResponseBody::Data> data_ {};
-    // The description message.
+    // The message.
     shared_ptr<string> message_ {};
     // The request tracking ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. Valid values: true: The call is successful. false: The call fails.
+    // Indicates whether the call is successful. Valid values:
+    // - true: The call is successful.
+    // - false: The call fails.
     shared_ptr<bool> success_ {};
   };
 

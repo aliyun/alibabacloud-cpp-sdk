@@ -92,9 +92,9 @@ namespace Models
     shared_ptr<string> backGroundType_ {};
     // The BGR color value of the background. Default value: white.
     shared_ptr<string> bgColor_ {};
-    // The business order ID of the caller. It is recorded upon acceptance and returned as is when you query the result of the asynchronous task.
+    // The business order number of the caller. It is recorded upon acceptance and returned as is when querying the asynchronous task result.
     shared_ptr<string> bizId_ {};
-    // The URL of the original image. The image must be in JPG, JPEG, PNG, BMP, or WEBP format. The resolution must be between 100 × 100 and 3000 × 3000 pixels, and the file size must not exceed 10 MB.
+    // The URL of the original image. The image must be in JPG, JPEG, PNG, BMP, or WEBP format. The resolution must be between 100 × 100 and 3000 × 3000 pixels, and the file size cannot exceed 10 MB.
     // 
     // This parameter is required.
     shared_ptr<string> imageUrl_ {};

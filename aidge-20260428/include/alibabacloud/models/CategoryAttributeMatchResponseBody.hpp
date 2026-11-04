@@ -99,7 +99,7 @@ namespace Models
 
 
       protected:
-        // The number of processing times.
+        // The processing count.
         shared_ptr<int32_t> processingCount_ {};
       };
 
@@ -211,21 +211,21 @@ namespace Models
       protected:
         // The attribute ID.
         shared_ptr<int32_t> attrId_ {};
-        // The matching confidence score, ranging from 0 to 100.
+        // The matching confidence level. Valid values: 0 to 100.
         shared_ptr<int32_t> confidence_ {};
         // The attribute input type.
         shared_ptr<string> inputType_ {};
-        // Indicates whether the attribute is successfully matched. Valid values: true and false.
+        // Indicates whether the attribute is matched successfully. Valid values: true and false.
         shared_ptr<bool> matched_ {};
         // The Chinese name of the attribute.
         shared_ptr<string> name_ {};
         // The English name of the attribute.
         shared_ptr<string> nameEn_ {};
-        // The explanation for the matching result.
+        // The description of the matching reason.
         shared_ptr<string> reason_ {};
-        // The list of selected attribute value texts, such as ["iOS","Android"\\].
+        // The list of selected attribute value texts, such as ["iOS","Android"].
         shared_ptr<vector<string>> selectedValues_ {};
-        // The list of selected attribute value IDs, such as [30127,30128\\].
+        // The list of selected attribute value IDs, such as [30127,30128].
         shared_ptr<vector<int32_t>> selectedVids_ {};
       };
 
@@ -299,11 +299,11 @@ namespace Models
       shared_ptr<int32_t> categoryId_ {};
       // The category name.
       shared_ptr<string> categoryName_ {};
-      // The full path of the category, separated by "/".
+      // The full path of the category, separated by forward slashes (/).
       shared_ptr<string> categoryPath_ {};
-      // The number of attributes that are successfully filled.
+      // The number of successfully filled attributes.
       shared_ptr<int32_t> filledCount_ {};
-      // Indicates whether the attribute is successfully matched. Valid values: true and false.
+      // Indicates whether the attribute is matched successfully. Valid values: true and false.
       shared_ptr<bool> matched_ {};
       // The total number of attributes under the category.
       shared_ptr<int32_t> totalAttributes_ {};
@@ -351,11 +351,11 @@ namespace Models
 
 
   protected:
-    // The error code. This parameter is not returned for successful calls.
+    // The error code. This parameter is not returned when the call is successful.
     shared_ptr<string> code_ {};
     // The returned result.
     shared_ptr<CategoryAttributeMatchResponseBody::Data> data_ {};
-    // The error message. This parameter is not returned for successful calls.
+    // The error message. This parameter is not returned when the call is successful.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

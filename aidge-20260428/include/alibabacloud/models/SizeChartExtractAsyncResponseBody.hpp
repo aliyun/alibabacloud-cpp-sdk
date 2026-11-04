@@ -111,13 +111,13 @@ namespace Models
   protected:
     // The error code. This parameter is not returned for normal calls.
     shared_ptr<string> code_ {};
-    // The commit result of the size chart fetch asynchronous task node.
+    // The submission result of the asynchronous task for size chart extraction.
     shared_ptr<SizeChartExtractAsyncResponseBody::Data> data_ {};
     // The error message. This parameter is not returned for normal calls.
     shared_ptr<string> message_ {};
     // The request ID, which is used to identify a unique request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. Valid values: true for success and false for failure.
+    // Indicates whether the call is successful. A value of true indicates success, and a value of false indicates failure.
     shared_ptr<bool> success_ {};
   };
 

@@ -145,9 +145,9 @@ namespace Models
         protected:
           // The floor display area, in square meters.
           shared_ptr<double> areaM2_ {};
-          // The left edge length, in meters.
+          // The length of the left boundary, in meters.
           shared_ptr<double> leftEdgeM_ {};
-          // The right edge length, in meters.
+          // The length of the right boundary, in meters.
           shared_ptr<double> rightEdgeM_ {};
         };
 
@@ -162,7 +162,7 @@ namespace Models
 
 
       protected:
-        // The stage 4 area label.
+        // The Stage 4 area label.
         shared_ptr<Result::Stage4AreaLabel> stage4AreaLabel_ {};
       };
 
@@ -257,7 +257,7 @@ namespace Models
       shared_ptr<string> code_ {};
       // The downstream HTTP status code.
       shared_ptr<int32_t> httpStatus_ {};
-      // The downstream call latency, in milliseconds.
+      // The duration of the downstream call, in milliseconds.
       shared_ptr<int64_t> latencyMs_ {};
       // The workflow description.
       shared_ptr<string> message_ {};
@@ -269,7 +269,7 @@ namespace Models
       shared_ptr<Data::Result> result_ {};
       // The workflow status.
       shared_ptr<string> status_ {};
-      // Indicates whether the workflow execution is successful.
+      // The business status of the workflow.
       shared_ptr<bool> success_ {};
       // The usage information.
       shared_ptr<map<string, int64_t>> usageMap_ {};
@@ -317,7 +317,7 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<string> code_ {};
-    // The floor display area inference result.
+    // The inference result of the floor display area.
     shared_ptr<DiduiAreaDeductionResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};

@@ -44,6 +44,9 @@
 #include <alibabacloud/models/GeneralRephotographyDetectionRequest.hpp>
 #include <alibabacloud/models/GeneralRephotographyDetectionResponseBody.hpp>
 #include <alibabacloud/models/GeneralRephotographyDetectionResponse.hpp>
+#include <alibabacloud/models/GenerateProductContentRequest.hpp>
+#include <alibabacloud/models/GenerateProductContentResponseBody.hpp>
+#include <alibabacloud/models/GenerateProductContentResponse.hpp>
 #include <alibabacloud/models/ImageCroppingRequest.hpp>
 #include <alibabacloud/models/ImageCroppingResponseBody.hpp>
 #include <alibabacloud/models/ImageCroppingResponse.hpp>
@@ -93,6 +96,9 @@
 #include <alibabacloud/models/ImageTranslationStandardAsyncRequest.hpp>
 #include <alibabacloud/models/ImageTranslationStandardAsyncResponseBody.hpp>
 #include <alibabacloud/models/ImageTranslationStandardAsyncResponse.hpp>
+#include <alibabacloud/models/ImageUpscaleRequest.hpp>
+#include <alibabacloud/models/ImageUpscaleResponseBody.hpp>
+#include <alibabacloud/models/ImageUpscaleResponse.hpp>
 #include <alibabacloud/models/LanguageDetectRequest.hpp>
 #include <alibabacloud/models/LanguageDetectResponseBody.hpp>
 #include <alibabacloud/models/LanguageDetectResponse.hpp>

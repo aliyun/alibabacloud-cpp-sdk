@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The URL of the image to process.
+    // The URL of the image to be processed.
     // 
     // This parameter is required.
     shared_ptr<string> imageUrl_ {};

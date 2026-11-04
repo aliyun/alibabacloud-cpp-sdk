@@ -79,9 +79,9 @@ namespace Models
 
 
     protected:
-      // The HTTP(S) URL of the product image.
+      // The HTTP or HTTPS URL of the product image.
       shared_ptr<string> imageUrl_ {};
-      // The SKU ID. If this parameter is left empty, the platform generates the ID.
+      // The SKU ID. If this parameter is left empty, the platform generates an ID.
       shared_ptr<string> skuId_ {};
       // The SKU name.
       shared_ptr<string> skuName_ {};

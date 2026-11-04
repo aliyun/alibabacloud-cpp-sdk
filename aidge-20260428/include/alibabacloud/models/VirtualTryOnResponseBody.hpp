@@ -77,7 +77,7 @@ namespace Models
 
 
     protected:
-      // The asynchronous task ID, which is used to query the task result later.
+      // The ID of the asynchronous task, which is used to query the task result later.
       shared_ptr<string> taskId_ {};
       // The usage details.
       Darabonba::Json usageMap_ {};
@@ -123,15 +123,17 @@ namespace Models
 
 
   protected:
-    // The error code. This parameter is not returned if the call is successful.
+    // The error code. This parameter is not returned when the call is successful.
     shared_ptr<string> code_ {};
     // The returned result struct.
     shared_ptr<VirtualTryOnResponseBody::Data> data_ {};
-    // The error message. This parameter is not returned if the call is successful.
+    // The error message. This parameter is not returned when the call is successful.
     shared_ptr<string> message_ {};
-    // The request ID, which uniquely identifies the request.
+    // The request ID, which is used to identify a unique request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. Valid values: true: The call is successful. false: The call failed.
+    // Indicates whether the call is successful. Valid values:
+    // - true: The call is successful.
+    // - false: The call fails.
     shared_ptr<bool> success_ {};
   };
 

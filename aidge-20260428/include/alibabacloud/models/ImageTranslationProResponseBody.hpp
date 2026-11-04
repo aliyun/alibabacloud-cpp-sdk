@@ -102,7 +102,7 @@ namespace Models
 
 
       protected:
-        // The URL of the translated result image.
+        // The URL of the translated image.
         shared_ptr<string> fileUrl_ {};
         // The target language for image translation.
         shared_ptr<string> language_ {};
@@ -337,7 +337,7 @@ namespace Models
 
 
               protected:
-                // The rotation angle of the text box, in degrees. A value less than 1 indicates a horizontal text box.
+                // The rotation angle of the text box in degrees. A value less than 1 indicates a horizontal text box.
                 shared_ptr<int32_t> degree_ {};
                 // The height.
                 shared_ptr<int32_t> height_ {};
@@ -414,7 +414,7 @@ namespace Models
 
 
               protected:
-                // The rotation angle of the text box, in degrees. A value less than 1 indicates a horizontal text box.
+                // The rotation angle of the text box in degrees. A value less than 1 indicates a horizontal text box.
                 shared_ptr<int32_t> degree_ {};
                 // The height.
                 shared_ptr<int32_t> height_ {};
@@ -504,25 +504,25 @@ namespace Models
 
 
             protected:
-              // The text color after translation.
+              // The color of the translated text.
               shared_ptr<string> color_ {};
               // The font size of the translated text.
               shared_ptr<int32_t> fontsize_ {};
-              // The horizontal layout mode. Valid values: center, left, right.
+              // The horizontal layout method. Valid values: center, left, and right.
               shared_ptr<string> horizontalLayout_ {};
               // The coordinates of the image repair area.
               shared_ptr<Texts::ImageRect> imageRect_ {};
-              // The target language code for translation.
+              // The code of the target language for translation.
               shared_ptr<string> language_ {};
               // The number of lines in the text box.
               shared_ptr<int32_t> lineCount_ {};
               // The coordinates of the text box area.
               shared_ptr<Texts::TextRect> textRect_ {};
-              // Indicates whether the TextItem is valid. The TextItem is invalid if this value does not exist or is set to false.
+              // Indicates whether the text item is valid. If this value is missing or set to false, the text item is invalid.
               shared_ptr<bool> valid_ {};
               // The translated text content.
               shared_ptr<string> value_ {};
-              // The vertical layout mode. Valid values: center, top, and down.
+              // The vertical layout method. Valid values: center, top, and down.
               shared_ptr<string> verticalLayout_ {};
             };
 
@@ -587,13 +587,13 @@ namespace Models
             shared_ptr<string> content_ {};
             // The font size.
             shared_ptr<int32_t> fontsize_ {};
-            // The horizontal layout mode. Valid values: center, left, right.
+            // The horizontal layout method. Valid values: center, left, and right.
             shared_ptr<string> horizontalLayout_ {};
             // The number of lines in the text box.
             shared_ptr<int32_t> lineCount_ {};
-            // The list of translated texts. Each element corresponds to the translation result for a target language.
+            // The list of translated texts, where each element corresponds to the translation result in a target language.
             shared_ptr<vector<TextAreas::Texts>> texts_ {};
-            // The vertical layout mode. Valid values: center, top, and down.
+            // The vertical layout method. Valid values: center, top, and down.
             shared_ptr<string> verticalLayout_ {};
           };
 
@@ -662,7 +662,7 @@ namespace Models
 
 
           protected:
-            // The rotation angle of the text box, in degrees. A value less than 1 indicates a horizontal text box.
+            // The rotation angle of the text box in degrees. A value less than 1 indicates a horizontal text box.
             shared_ptr<int32_t> degree_ {};
             // The height.
             shared_ptr<int32_t> height_ {};
@@ -735,11 +735,11 @@ namespace Models
           shared_ptr<EditInfo::GoodsRects> goodsRects_ {};
           // The list of target languages for translation.
           shared_ptr<vector<string>> languages_ {};
-          // The URL of the image after all text has been inpainted.
+          // The URL of the image with all text erased.
           shared_ptr<string> repairedUrl_ {};
           // The collection of global IDs for the translated images.
           shared_ptr<vector<string>> resultImageIds_ {};
-          // The list of text boxes, which contains information about all recognized text areas.
+          // The list of text boxes, which includes information about all recognized text areas.
           shared_ptr<vector<EditInfo::TextAreas>> textAreas_ {};
         };
 
@@ -771,11 +771,11 @@ namespace Models
 
 
       protected:
-        // The editor information, which contains recognized information such as text areas, product areas, and fonts.
+        // The editor information, which includes recognition information such as text areas, product areas, and fonts.
         shared_ptr<GenFiles::EditInfo> editInfo_ {};
         // The collection of translation results.
         shared_ptr<vector<GenFiles::ResultList>> resultList_ {};
-        // The URL of the original image.
+        // The URL of the source image.
         shared_ptr<string> srcImage_ {};
       };
 
@@ -816,13 +816,13 @@ namespace Models
 
 
     protected:
-      // The editor protocol, which contains translation result files and editing information.
+      // The editor protocol, which includes the translation result files and editing information.
       shared_ptr<vector<Data::GenFiles>> genFiles_ {};
       // The list of image translation results.
       shared_ptr<vector<Data::ResultList>> resultList_ {};
-      // The asynchronous task ID. This parameter is not returned for synchronous calls.
+      // The ID of the asynchronous task. This parameter is not returned for synchronous calls.
       shared_ptr<string> taskId_ {};
-      // The usage information, such as the number of processed images.
+      // The usage information, which includes the number of processed images.
       shared_ptr<map<string, int64_t>> usageMap_ {};
     };
 
@@ -868,15 +868,13 @@ namespace Models
   protected:
     // The response code. A value of 200 indicates a successful call. For other response codes, refer to the error code information.
     shared_ptr<string> code_ {};
-    // The translation result data. ResultList contains the URLs of the translation results. GenFiles contains EditInfo, which includes the recognized text information.
+    // The translation result data. ResultList contains the URLs of the translation results, and EditInfo in GenFiles contains the recognized text information.
     shared_ptr<ImageTranslationProResponseBody::Data> data_ {};
-    // The error message. "Success" is returned if the call is successful. A specific error message is returned if the call fails, such as "The content contains sensitive data. Try other input."
+    // The error message. "Success" is returned for successful calls. Specific error messages are returned for exceptions, such as "The content contains sensitive data. Try another input."
     shared_ptr<string> message_ {};
-    // The request ID, which uniquely identifies the request.
+    // The request ID, which is used to uniquely identify a request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. Valid values:
-    // - true: The call is successful.
-    // - false: The call failed.
+    // Indicates whether the call is successful. A value of true indicates success, and a value of false indicates failure.
     shared_ptr<bool> success_ {};
   };
 

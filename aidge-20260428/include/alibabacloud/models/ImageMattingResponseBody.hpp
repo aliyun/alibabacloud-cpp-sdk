@@ -44,6 +44,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Height, height_);
         DARABONBA_PTR_TO_JSON(ImageUrl, imageUrl_);
         DARABONBA_PTR_TO_JSON(Score, score_);
+        DARABONBA_ANY_TO_JSON(StructData, structData_);
         DARABONBA_PTR_TO_JSON(UsageMap, usageMap_);
         DARABONBA_PTR_TO_JSON(Width, width_);
       };
@@ -51,6 +52,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Height, height_);
         DARABONBA_PTR_FROM_JSON(ImageUrl, imageUrl_);
         DARABONBA_PTR_FROM_JSON(Score, score_);
+        DARABONBA_ANY_FROM_JSON(StructData, structData_);
         DARABONBA_PTR_FROM_JSON(UsageMap, usageMap_);
         DARABONBA_PTR_FROM_JSON(Width, width_);
       };
@@ -66,7 +68,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->height_ == nullptr
-        && this->imageUrl_ == nullptr && this->score_ == nullptr && this->usageMap_ == nullptr && this->width_ == nullptr; };
+        && this->imageUrl_ == nullptr && this->score_ == nullptr && this->structData_ == nullptr && this->usageMap_ == nullptr && this->width_ == nullptr; };
       // height Field Functions 
       bool hasHeight() const { return this->height_ != nullptr;};
       void deleteHeight() { this->height_ = nullptr;};
@@ -88,6 +90,15 @@ namespace Models
       inline Data& setScore(double score) { DARABONBA_PTR_SET_VALUE(score_, score) };
 
 
+      // structData Field Functions 
+      bool hasStructData() const { return this->structData_ != nullptr;};
+      void deleteStructData() { this->structData_ = nullptr;};
+      inline       const Darabonba::Json & getStructData() const { DARABONBA_GET(structData_) };
+      Darabonba::Json & getStructData() { DARABONBA_GET(structData_) };
+      inline Data& setStructData(const Darabonba::Json & structData) { DARABONBA_SET_VALUE(structData_, structData) };
+      inline Data& setStructData(Darabonba::Json && structData) { DARABONBA_SET_RVALUE(structData_, structData) };
+
+
       // usageMap Field Functions 
       bool hasUsageMap() const { return this->usageMap_ != nullptr;};
       void deleteUsageMap() { this->usageMap_ = nullptr;};
@@ -105,15 +116,17 @@ namespace Models
 
 
     protected:
-      // The height of the result image in pixels.
+      // The height of the result image. Unit: pixels.
       shared_ptr<int32_t> height_ {};
-      // The URL of the image matting result.
+      // The URL of the result image.
       shared_ptr<string> imageUrl_ {};
-      // The quality score of the image matting result.
+      // The matting quality score.
       shared_ptr<double> score_ {};
+      // The returned layer information. This includes the URL of the original image, the URL of the matting result, and the matting area information.
+      Darabonba::Json structData_ {};
       // The usage information.
       shared_ptr<map<string, int64_t>> usageMap_ {};
-      // The width of the result image in pixels.
+      // The width of the result image. Unit: pixels.
       shared_ptr<int32_t> width_ {};
     };
 
@@ -159,15 +172,15 @@ namespace Models
   protected:
     // The response code.
     shared_ptr<string> code_ {};
-    // The matting result.
+    // The image matting result.
     shared_ptr<ImageMattingResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
     // Indicates whether the call is successful. Valid values:
-    // - true: Successful.
-    // - false: Failed.
+    // - true: The call is successful.
+    // - false: The call fails.
     shared_ptr<bool> success_ {};
   };
 

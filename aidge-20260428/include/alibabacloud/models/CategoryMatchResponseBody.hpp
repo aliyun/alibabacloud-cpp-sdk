@@ -124,17 +124,17 @@ namespace Models
 
 
     protected:
-      // The ID of the matched category.
+      // The matched category ID.
       shared_ptr<string> categoryId_ {};
-      // The name of the matched category.
+      // The matched category name.
       shared_ptr<string> categoryName_ {};
       // The full path of the category, separated by forward slashes (/).
       shared_ptr<string> categoryPath_ {};
-      // The match confidence score. Valid values: 0 to 100.
+      // The matching confidence score, ranging from 0 to 100.
       shared_ptr<int32_t> confidence_ {};
-      // Indicates whether the category matching is successful.
+      // Indicates whether the match is successful.
       shared_ptr<bool> matchSuccessful_ {};
-      // The reason for the category match.
+      // The matching rationale.
       shared_ptr<string> reason_ {};
       // The usage information.
       shared_ptr<map<string, int32_t>> usageMap_ {};
@@ -180,15 +180,15 @@ namespace Models
 
 
   protected:
-    // The status code. The value "success" is returned for successful calls.
+    // The status code. "success" is returned for successful calls.
     shared_ptr<string> code_ {};
     // The product category matching result.
     shared_ptr<CategoryMatchResponseBody::Data> data_ {};
-    // The error message. The value "Success" is returned for successful calls.
+    // The error message. "Success" is returned for successful calls.
     shared_ptr<string> message_ {};
-    // The request ID, which uniquely identifies the request.
+    // The request ID, which is used to identify a unique request call.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. A value of true indicates success. A value of false indicates failure.
+    // Indicates whether the call is successful. A value of true indicates success, and a value of false indicates failure.
     shared_ptr<bool> success_ {};
   };
 
