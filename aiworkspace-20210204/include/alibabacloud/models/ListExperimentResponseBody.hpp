@@ -72,11 +72,11 @@ namespace Models
   protected:
     // The list of experiments.
     shared_ptr<vector<Experiment>> experiments_ {};
-    // The token for the next page. Save this token and include it in the next request to retrieve the next page of results.
+    // The token for the next page. Record this token and pass it in the next request.
     shared_ptr<int64_t> nextPageToken_ {};
     // The total number of records.
     shared_ptr<int64_t> totalCount_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

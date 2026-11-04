@@ -84,23 +84,25 @@ namespace Models
 
 
   protected:
-    // The display name of the code configuration. Fuzzy match is supported.
+    // The display name of the code configuration. Fuzzy matching is supported.
     shared_ptr<string> displayName_ {};
-    // The sort order for the specified field in a paged query. Valid values:
-    // - ASC (default): ascending order.
+    // The sorting order of the specified field for paging in a paged query. Valid values:
+    // - ASC: ascending order.
     // - DESC: descending order.
+    // Default value: ASC.
     shared_ptr<string> order_ {};
-    // The page number of the code configuration list. Minimum value: 1. Default value: 1.
+    // The page number of the code configuration list. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page in a paged query. Default value: 20.
+    // The number of entries per page set in the paging Settings for a paged query. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
     // The field used for sorting. Valid values:
-    // - GmtModifyTime: the time when the code source was last modified.
-    // - DisplayName: the display name.
-    // - CodeSourceId: the code source ID.
-    // - GmtCreateTime (default): the time when the code source was created.
+    // - GmtModifyTime: the modification time of the code source
+    // - DisplayName: the display name
+    // - CodeSourceId: the ID of the code source
+    // - GmtCreateTime: the creation time of the code source
+    // Default value: GmtCreateTime.
     shared_ptr<string> sortBy_ {};
-    // The workspace ID. This parameter is required. For information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+    // The ID of the workspace. This parameter is required. For information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
     shared_ptr<string> workspaceId_ {};
   };
 

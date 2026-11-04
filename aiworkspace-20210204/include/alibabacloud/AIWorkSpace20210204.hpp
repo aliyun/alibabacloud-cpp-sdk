@@ -459,7 +459,7 @@ namespace AIWorkSpace20210204
       Models::CreatePromptResponse createPrompt(const Models::CreatePromptRequest &request);
 
       /**
-       * @summary Creates a run. A run belongs to an experiment and can be associated with a specific workload or can be a standalone code execution.
+       * @summary Creates a run. A run belongs to an experiment and can be associated with a specific workload or executed as standalone code.
        *
        * @param request CreateRunRequest
        * @param headers map
@@ -469,7 +469,7 @@ namespace AIWorkSpace20210204
       Models::CreateRunResponse createRunWithOptions(const Models::CreateRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a run. A run belongs to an experiment and can be associated with a specific workload or can be a standalone code execution.
+       * @summary Creates a run. A run belongs to an experiment and can be associated with a specific workload or executed as standalone code.
        *
        * @param request CreateRunRequest
        * @return CreateRunResponse
@@ -1299,7 +1299,7 @@ namespace AIWorkSpace20210204
       Models::GetPromptResponse getPrompt(const string &PromptId, const Models::GetPromptRequest &request);
 
       /**
-       * @summary Retrieves run details.
+       * @summary Retrieves the details of a run.
        *
        * @param request GetRunRequest
        * @param headers map
@@ -1309,7 +1309,7 @@ namespace AIWorkSpace20210204
       Models::GetRunResponse getRunWithOptions(const string &RunId, const Models::GetRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves run details.
+       * @summary Retrieves the details of a run.
        *
        * @param request GetRunRequest
        * @return GetRunResponse
@@ -1353,7 +1353,7 @@ namespace AIWorkSpace20210204
       Models::GetWorkspaceRoleResponse getWorkspaceRole(const string &WorkspaceId, const string &RoleId, const Models::GetWorkspaceRoleRequest &request);
 
       /**
-       * @summary Queries a list of code configurations. This operation supports pagination, sorting, and conditional filtering.
+       * @summary Queries a list of code configurations with support for pagination, sorting, and conditional filtering.
        *
        * @param request ListCodeSourcesRequest
        * @param headers map
@@ -1363,7 +1363,7 @@ namespace AIWorkSpace20210204
       Models::ListCodeSourcesResponse listCodeSourcesWithOptions(const Models::ListCodeSourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of code configurations. This operation supports pagination, sorting, and conditional filtering.
+       * @summary Queries a list of code configurations with support for pagination, sorting, and conditional filtering.
        *
        * @param request ListCodeSourcesRequest
        * @return ListCodeSourcesResponse
@@ -1713,7 +1713,7 @@ namespace AIWorkSpace20210204
       Models::ListResourcesResponse listResources(const Models::ListResourcesRequest &request);
 
       /**
-       * @summary Retrieves a list of metric records for a run.
+       * @summary Retrieves the list of metric records for a run.
        *
        * @param request ListRunMetricsRequest
        * @param headers map
@@ -1723,7 +1723,7 @@ namespace AIWorkSpace20210204
       Models::ListRunMetricsResponse listRunMetricsWithOptions(const string &RunId, const Models::ListRunMetricsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of metric records for a run.
+       * @summary Retrieves the list of metric records for a run.
        *
        * @param request ListRunMetricsRequest
        * @return ListRunMetricsResponse
@@ -1731,7 +1731,7 @@ namespace AIWorkSpace20210204
       Models::ListRunMetricsResponse listRunMetrics(const string &RunId, const Models::ListRunMetricsRequest &request);
 
       /**
-       * @summary Retrieves a list of runs.
+       * @summary Queries a list of runs.
        *
        * @param request ListRunsRequest
        * @param headers map
@@ -1741,7 +1741,7 @@ namespace AIWorkSpace20210204
       Models::ListRunsResponse listRunsWithOptions(const Models::ListRunsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of runs.
+       * @summary Queries a list of runs.
        *
        * @param request ListRunsRequest
        * @return ListRunsResponse

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Specifies whether to retrieve the latest run information for the experiment.
+    // Specifies whether to retrieve the latest run information associated with the experiment.
     shared_ptr<bool> verbose_ {};
   };
 

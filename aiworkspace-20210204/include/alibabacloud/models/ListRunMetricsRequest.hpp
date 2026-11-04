@@ -61,9 +61,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> key_ {};
-    // The maximum number of results to return. The default value is 10.
+    // The maximum number of results to return. Default value: 10.
     shared_ptr<int64_t> maxResults_ {};
-    // The paging token. The token starts from 0. The default value is 0.
+    // The pagination token, starting from 0. Default value: 0.
     shared_ptr<int64_t> pageToken_ {};
   };
 

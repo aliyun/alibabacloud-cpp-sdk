@@ -244,49 +244,39 @@ namespace Models
   protected:
     // The list of administrator account names.
     shared_ptr<vector<string>> adminNames_ {};
-    // The ID of the user who created the workspace.
+    // The user ID of the creator.
     shared_ptr<string> creator_ {};
-    // The description of the workspace.
+    // The workspace description.
     shared_ptr<string> description_ {};
     // The display name of the workspace.
     shared_ptr<string> displayName_ {};
-    // The environments that the workspace contains. Valid values:
-    // 
-    // - A workspace in basic mode has only the production environment (prod).
-    // 
-    // - A workspace in standard mode has both the development environment (dev) and the production environment (prod).
+    // The environments included in the workspace.
+    // * Simple mode includes only the production environment (prod).
+    // * Standard mode includes the development environment (dev) and the production environment (prod).
     shared_ptr<vector<string>> envTypes_ {};
-    // Additional information. This parameter currently contains the tenant ID (TenantId).
+    // The extra information, which currently includes TenantId (tenant ID).
     Darabonba::Json extraInfos_ {};
-    // The time when the workspace was created. The time is in UTC and follows the ISO 8601 standard.
+    // The time when the workspace was created. The time is displayed in UTC and formatted in ISO 8601.
     shared_ptr<string> gmtCreateTime_ {};
-    // The time when the workspace was last modified. The time is in UTC and follows the ISO 8601 standard.
+    // The time when the workspace was modified. The time is displayed in UTC and formatted in ISO 8601.
     shared_ptr<string> gmtModifiedTime_ {};
-    // Indicates whether the workspace is the default workspace. Valid values:
-    // 
+    // Specifies whether the workspace is the default workspace. Valid values:
     // - false: The workspace is not the default workspace.
-    // 
     // - true: The workspace is the default workspace.
     shared_ptr<bool> isDefault_ {};
-    // The information about the workspace owner. This parameter is returned only when Verbose is set to true.
+    // The workspace owner information. Displayed when Verbose is set to true.
     shared_ptr<GetWorkspaceResponseBody::Owner> owner_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The status of the workspace. Valid values:
-    // 
-    // - ENABLED: The workspace is running as normal.
-    // 
-    // - INITIALIZING: The workspace is being initialized.
-    // 
-    // - FAILURE: The workspace failed to be created.
-    // 
-    // - DISABLED: The workspace is manually disabled.
-    // 
-    // - FROZEN: The workspace is frozen due to an overdue payment.
-    // 
-    // - UPDATING: The workspace is being updated.
+    // The workspace status. Valid values:
+    // - ENABLED: Normal.
+    // - INITIALIZING: Initializing.
+    // - FAILURE: Failed.
+    // - DISABLED: Manually disabled.
+    // - FROZEN: Frozen due to overdue payment.
+    // - UPDATING: Updating.
     shared_ptr<string> status_ {};
     // The workspace ID.
     shared_ptr<string> workspaceId_ {};

@@ -79,7 +79,7 @@ namespace Models
 
 
     protected:
-      // Specifies whether to perform an exact match for the name. Valid values are "true" and "false".
+      // Specifies whether the name is an exact match. Valid values: true and false.
       shared_ptr<string> matchNameExactly_ {};
     };
 
@@ -174,35 +174,35 @@ namespace Models
 
 
   protected:
-    // The filter conditions for labels. Separate multiple conditions with commas (,). A single filter condition must be in the `Key=Value` format.
+    // The label filter conditions. Separate multiple conditions with commas (,).
+    // The format of a single filter condition is `Key=Value`.
     shared_ptr<string> labels_ {};
-    // The maximum number of results to return. The default is 10.
+    // The maximum number of results to return for the request. Default value: 10.
     shared_ptr<int64_t> maxResults_ {};
     // The name of the experiment.
     shared_ptr<string> name_ {};
-    // Optional parameters.
+    // The optional parameters.
     shared_ptr<ListExperimentRequest::Options> options_ {};
-    // The order in which to sort the results of a paged query. Valid values:
-    // 
+    // The sort order of the specified field in a paged query. Valid values:
     // - ASC: ascending order.
-    // 
-    // - DESC (default): descending order.
+    // - DESC: descending order.
+    // Default value: DESC.
     shared_ptr<string> order_ {};
-    // A list of sorting methods as strings. You can sort by the following fields: GmtCreateTime, Name, GmtModifiedTime, or ExperimentId. The sorting methods are DESC and ASC. The default is ASC.
+    // The list of sort order strings. Supported fields for sorting include GmtCreateTime, Name, GmtModifiedTime, and ExperimentId. The sort order can be DESC or ASC. Default value: ASC.
     shared_ptr<string> orderBy_ {};
     // The page number. Pages start from 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The paging token. It starts from 0. The default is 0.
+    // The pagination token. Pages start from 0. Default value: 0.
     shared_ptr<int64_t> pageToken_ {};
-    // The field to use for sorting in a paged query. Currently, only the GmtCreateTime field is supported for sorting.
+    // The field by which to sort the results of a paged query. Currently, only the GmtCreateTime field is supported for sorting.
     shared_ptr<string> sortBy_ {};
-    // Specifies whether to retrieve the LatestRun information related to the experiment.
+    // Specifies whether to retrieve the LatestRun information associated with the experiment.
     shared_ptr<bool> verbose_ {};
-    // The ID of the workspace where the experiment resides. For more information about how to obtain a workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
-    // 
-    // > If you do not specify a workspace ID, the system returns the list of experiments in the default workspace.
+    // The ID of the workspace to which the experiment belongs. For more information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+    // > If you do not specify the workspace ID, the system returns the list of experiments in the default workspace.
+    // >
     shared_ptr<string> workspaceId_ {};
   };
 

@@ -13,9 +13,11 @@ namespace Models
   class GetWorkspaceRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetWorkspaceRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ExtraVerboseFields, extraVerboseFields_);
       DARABONBA_PTR_TO_JSON(Verbose, verbose_);
     };
     friend void from_json(const Darabonba::Json& j, GetWorkspaceRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ExtraVerboseFields, extraVerboseFields_);
       DARABONBA_PTR_FROM_JSON(Verbose, verbose_);
     };
     GetWorkspaceRequest() = default ;
@@ -29,7 +31,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->verbose_ == nullptr; };
+    virtual bool empty() const override { return this->extraVerboseFields_ == nullptr
+        && this->verbose_ == nullptr; };
+    // extraVerboseFields Field Functions 
+    bool hasExtraVerboseFields() const { return this->extraVerboseFields_ != nullptr;};
+    void deleteExtraVerboseFields() { this->extraVerboseFields_ = nullptr;};
+    inline string getExtraVerboseFields() const { DARABONBA_PTR_GET_DEFAULT(extraVerboseFields_, "") };
+    inline GetWorkspaceRequest& setExtraVerboseFields(string extraVerboseFields) { DARABONBA_PTR_SET_VALUE(extraVerboseFields_, extraVerboseFields) };
+
+
     // verbose Field Functions 
     bool hasVerbose() const { return this->verbose_ != nullptr;};
     void deleteVerbose() { this->verbose_ = nullptr;};
@@ -38,11 +48,12 @@ namespace Models
 
 
   protected:
-    // Specifies whether to return additional information, such as the workspace owner. Valid values:
-    // 
-    // - false (default): Does not return additional information.
-    // 
-    // - true: Returns additional information.
+    // A comma-separated string used to specify additional information to return. This field does not take effect.
+    shared_ptr<string> extraVerboseFields_ {};
+    // Specifies whether to display supplementary information such as the workspace owner. Valid values:
+    // - false: Does not display supplementary information.
+    // - true: Displays supplementary information.
+    // Default value: false.
     shared_ptr<bool> verbose_ {};
   };
 

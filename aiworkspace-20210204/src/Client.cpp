@@ -1655,7 +1655,7 @@ CreatePromptResponse Client::createPrompt(const CreatePromptRequest &request) {
 }
 
 /**
- * @summary Creates a run. A run belongs to an experiment and can be associated with a specific workload or can be a standalone code execution.
+ * @summary Creates a run. A run belongs to an experiment and can be associated with a specific workload or executed as standalone code.
  *
  * @param request CreateRunRequest
  * @param headers map
@@ -1708,7 +1708,7 @@ CreateRunResponse Client::createRunWithOptions(const CreateRunRequest &request, 
 }
 
 /**
- * @summary Creates a run. A run belongs to an experiment and can be associated with a specific workload or can be a standalone code execution.
+ * @summary Creates a run. A run belongs to an experiment and can be associated with a specific workload or executed as standalone code.
  *
  * @param request CreateRunRequest
  * @return CreateRunResponse
@@ -3791,7 +3791,7 @@ GetPromptResponse Client::getPrompt(const string &PromptId, const GetPromptReque
 }
 
 /**
- * @summary Retrieves run details.
+ * @summary Retrieves the details of a run.
  *
  * @param request GetRunRequest
  * @param headers map
@@ -3824,7 +3824,7 @@ GetRunResponse Client::getRunWithOptions(const string &RunId, const GetRunReques
 }
 
 /**
- * @summary Retrieves run details.
+ * @summary Retrieves the details of a run.
  *
  * @param request GetRunRequest
  * @return GetRunResponse
@@ -3846,6 +3846,10 @@ GetRunResponse Client::getRun(const string &RunId, const GetRunRequest &request)
 GetWorkspaceResponse Client::getWorkspaceWithOptions(const string &WorkspaceId, const GetWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasExtraVerboseFields()) {
+    query["ExtraVerboseFields"] = request.getExtraVerboseFields();
+  }
+
   if (!!request.hasVerbose()) {
     query["Verbose"] = request.getVerbose();
   }
@@ -3920,7 +3924,7 @@ GetWorkspaceRoleResponse Client::getWorkspaceRole(const string &WorkspaceId, con
 }
 
 /**
- * @summary Queries a list of code configurations. This operation supports pagination, sorting, and conditional filtering.
+ * @summary Queries a list of code configurations with support for pagination, sorting, and conditional filtering.
  *
  * @param request ListCodeSourcesRequest
  * @param headers map
@@ -3973,7 +3977,7 @@ ListCodeSourcesResponse Client::listCodeSourcesWithOptions(const ListCodeSources
 }
 
 /**
- * @summary Queries a list of code configurations. This operation supports pagination, sorting, and conditional filtering.
+ * @summary Queries a list of code configurations with support for pagination, sorting, and conditional filtering.
  *
  * @param request ListCodeSourcesRequest
  * @return ListCodeSourcesResponse
@@ -5506,7 +5510,7 @@ ListResourcesResponse Client::listResources(const ListResourcesRequest &request)
 }
 
 /**
- * @summary Retrieves a list of metric records for a run.
+ * @summary Retrieves the list of metric records for a run.
  *
  * @param request ListRunMetricsRequest
  * @param headers map
@@ -5547,7 +5551,7 @@ ListRunMetricsResponse Client::listRunMetricsWithOptions(const string &RunId, co
 }
 
 /**
- * @summary Retrieves a list of metric records for a run.
+ * @summary Retrieves the list of metric records for a run.
  *
  * @param request ListRunMetricsRequest
  * @return ListRunMetricsResponse
@@ -5559,7 +5563,7 @@ ListRunMetricsResponse Client::listRunMetrics(const string &RunId, const ListRun
 }
 
 /**
- * @summary Retrieves a list of runs.
+ * @summary Queries a list of runs.
  *
  * @param request ListRunsRequest
  * @param headers map
@@ -5648,7 +5652,7 @@ ListRunsResponse Client::listRunsWithOptions(const ListRunsRequest &request, con
 }
 
 /**
- * @summary Retrieves a list of runs.
+ * @summary Queries a list of runs.
  *
  * @param request ListRunsRequest
  * @return ListRunsResponse
