@@ -64,6 +64,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(InstanceCreateStatus, instanceCreateStatus_);
         DARABONBA_PTR_TO_JSON(IsDeleted, isDeleted_);
         DARABONBA_PTR_TO_JSON(RdsDatabasePassword, rdsDatabasePassword_);
+        DARABONBA_PTR_TO_JSON(SchemaName, schemaName_);
         DARABONBA_PTR_TO_JSON(ServiceKey, serviceKey_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(SupabaseDashboardPassword, supabaseDashboardPassword_);
@@ -75,6 +76,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(SupabasePublicIp, supabasePublicIp_);
         DARABONBA_PTR_TO_JSON(SupabasePublicUrl, supabasePublicUrl_);
         DARABONBA_PTR_TO_JSON(TenantId, tenantId_);
+        DARABONBA_PTR_TO_JSON(TenantMode, tenantMode_);
         DARABONBA_PTR_TO_JSON(UserId, userId_);
       };
       friend void from_json(const Darabonba::Json& j, Module& obj) { 
@@ -89,6 +91,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(InstanceCreateStatus, instanceCreateStatus_);
         DARABONBA_PTR_FROM_JSON(IsDeleted, isDeleted_);
         DARABONBA_PTR_FROM_JSON(RdsDatabasePassword, rdsDatabasePassword_);
+        DARABONBA_PTR_FROM_JSON(SchemaName, schemaName_);
         DARABONBA_PTR_FROM_JSON(ServiceKey, serviceKey_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(SupabaseDashboardPassword, supabaseDashboardPassword_);
@@ -100,6 +103,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(SupabasePublicIp, supabasePublicIp_);
         DARABONBA_PTR_FROM_JSON(SupabasePublicUrl, supabasePublicUrl_);
         DARABONBA_PTR_FROM_JSON(TenantId, tenantId_);
+        DARABONBA_PTR_FROM_JSON(TenantMode, tenantMode_);
         DARABONBA_PTR_FROM_JSON(UserId, userId_);
       };
       Module() = default ;
@@ -116,9 +120,9 @@ namespace Models
       virtual bool empty() const override { return this->anonKey_ == nullptr
         && this->bizId_ == nullptr && this->dbInstanceCreateTime_ == nullptr && this->dbInstanceId_ == nullptr && this->dbPublicUrl_ == nullptr && this->dbType_ == nullptr
         && this->extra_ == nullptr && this->instanceCreateFinishedTime_ == nullptr && this->instanceCreateStatus_ == nullptr && this->isDeleted_ == nullptr && this->rdsDatabasePassword_ == nullptr
-        && this->serviceKey_ == nullptr && this->status_ == nullptr && this->supabaseDashboardPassword_ == nullptr && this->supabaseDashboardUserName_ == nullptr && this->supabaseInstanceCreateTime_ == nullptr
-        && this->supabaseInstanceId_ == nullptr && this->supabaseKongUrl_ == nullptr && this->supabasePrivateIp_ == nullptr && this->supabasePublicIp_ == nullptr && this->supabasePublicUrl_ == nullptr
-        && this->tenantId_ == nullptr && this->userId_ == nullptr; };
+        && this->schemaName_ == nullptr && this->serviceKey_ == nullptr && this->status_ == nullptr && this->supabaseDashboardPassword_ == nullptr && this->supabaseDashboardUserName_ == nullptr
+        && this->supabaseInstanceCreateTime_ == nullptr && this->supabaseInstanceId_ == nullptr && this->supabaseKongUrl_ == nullptr && this->supabasePrivateIp_ == nullptr && this->supabasePublicIp_ == nullptr
+        && this->supabasePublicUrl_ == nullptr && this->tenantId_ == nullptr && this->tenantMode_ == nullptr && this->userId_ == nullptr; };
       // anonKey Field Functions 
       bool hasAnonKey() const { return this->anonKey_ != nullptr;};
       void deleteAnonKey() { this->anonKey_ = nullptr;};
@@ -194,6 +198,13 @@ namespace Models
       void deleteRdsDatabasePassword() { this->rdsDatabasePassword_ = nullptr;};
       inline string getRdsDatabasePassword() const { DARABONBA_PTR_GET_DEFAULT(rdsDatabasePassword_, "") };
       inline Module& setRdsDatabasePassword(string rdsDatabasePassword) { DARABONBA_PTR_SET_VALUE(rdsDatabasePassword_, rdsDatabasePassword) };
+
+
+      // schemaName Field Functions 
+      bool hasSchemaName() const { return this->schemaName_ != nullptr;};
+      void deleteSchemaName() { this->schemaName_ = nullptr;};
+      inline string getSchemaName() const { DARABONBA_PTR_GET_DEFAULT(schemaName_, "") };
+      inline Module& setSchemaName(string schemaName) { DARABONBA_PTR_SET_VALUE(schemaName_, schemaName) };
 
 
       // serviceKey Field Functions 
@@ -273,6 +284,13 @@ namespace Models
       inline Module& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
 
 
+      // tenantMode Field Functions 
+      bool hasTenantMode() const { return this->tenantMode_ != nullptr;};
+      void deleteTenantMode() { this->tenantMode_ = nullptr;};
+      inline string getTenantMode() const { DARABONBA_PTR_GET_DEFAULT(tenantMode_, "") };
+      inline Module& setTenantMode(string tenantMode) { DARABONBA_PTR_SET_VALUE(tenantMode_, tenantMode) };
+
+
       // userId Field Functions 
       bool hasUserId() const { return this->userId_ != nullptr;};
       void deleteUserId() { this->userId_ = nullptr;};
@@ -303,6 +321,7 @@ namespace Models
       shared_ptr<int32_t> isDeleted_ {};
       // The access password of the RDS database.
       shared_ptr<string> rdsDatabasePassword_ {};
+      shared_ptr<string> schemaName_ {};
       // The service key.
       shared_ptr<string> serviceKey_ {};
       // The status of the instance. Valid values:
@@ -327,6 +346,7 @@ namespace Models
       shared_ptr<string> supabasePublicUrl_ {};
       // The ID of the tenant.
       shared_ptr<string> tenantId_ {};
+      shared_ptr<string> tenantMode_ {};
       // The user ID.
       shared_ptr<string> userId_ {};
     };

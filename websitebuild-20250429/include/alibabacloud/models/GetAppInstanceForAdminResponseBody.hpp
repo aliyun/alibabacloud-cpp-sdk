@@ -136,11 +136,11 @@ namespace Models
 
 
   protected:
-    // The details of the permission verification failure.
+    // The details of the permission check failure.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed.
+    // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name. The application with this name is queried.
+    // The name of the application to query.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};

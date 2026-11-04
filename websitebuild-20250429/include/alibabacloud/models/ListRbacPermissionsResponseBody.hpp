@@ -145,7 +145,7 @@ namespace Models
 
 
       protected:
-        // The operation that you want to perform. Set the value to **GetRemind**.
+        // The system-defined parameter. Set the value to **GetRemind**.
         shared_ptr<string> action_ {};
         // The scenario description.
         shared_ptr<string> description_ {};
@@ -155,7 +155,7 @@ namespace Models
         // 
         // **Note**: The metadata is constrained by [ResourceSchema](https://www.alibabacloud.com/help/en/dataworks/developer-reference/resourceschema-template-instructions).resources. A valid resource declaration must include the full-path metadata declaration from level 0 to the validLeaf level.
         // 
-        // Appendix: [ResourceSchema documentation on the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
+        // For more information, see [ResourceSchema documentation for Alibaba Cloud International](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions).
         shared_ptr<string> resource_ {};
       };
 
@@ -215,7 +215,7 @@ namespace Models
 
 
       protected:
-        // The operation that you want to perform. Set the value to **GetDISyncInstanceInfo**.
+        // The system-defined parameter. Set the value to **GetDISyncInstanceInfo**.
         shared_ptr<string> action_ {};
         // The scenario description.
         shared_ptr<string> description_ {};
@@ -298,9 +298,9 @@ namespace Models
     protected:
       // The current page number.
       shared_ptr<int32_t> currentPageNum_ {};
-      // The query results.
+      // The request results.
       shared_ptr<vector<Module::Data>> data_ {};
-      // The next feature ID.
+      // The ID of the next feature.
       shared_ptr<Module::Next> next_ {};
       // Indicates whether a next page exists.
       shared_ptr<bool> nextPage_ {};
@@ -308,7 +308,7 @@ namespace Models
       shared_ptr<int32_t> pageSize_ {};
       // Indicates whether a previous page exists.
       shared_ptr<bool> prePage_ {};
-      // Apart from pagination limits, the server processes up to 1000 recent records for the current query. If the results exceed 1000 entries, **ResultLimit** is **true**. Narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+      // In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
       shared_ptr<bool> resultLimit_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalItemNum_ {};
@@ -416,25 +416,25 @@ namespace Models
 
 
   protected:
-    // The detailed reason why access was denied.
+    // The detailed reason why access is denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed.
+    // Specifies whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name.
+    // The name of the app.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
     // The dynamic message.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters returned.
+    // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // The number of entries per query.
+    // The number of entries to return in each query.
     // 
     // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The response object.
+    // The returned object.
     shared_ptr<ListRbacPermissionsResponseBody::Module> module_ {};
-    // The token for the next query. This parameter is empty if no more results exist.
+    // The token that is used to start the next query. This parameter is empty if no next query exists.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

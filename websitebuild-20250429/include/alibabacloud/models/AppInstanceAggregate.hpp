@@ -141,13 +141,9 @@ namespace Models
 
 
     protected:
-      // The tag key of the instance. Valid values of N: **1** to **20**. If you specify this parameter, it cannot be an empty string.
-      // 
-      // The tag key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // The tag key of the instance. Valid values of N: **1** to **20**. The value cannot be an empty string. The value can be up to 64 characters in length, and cannot start with `aliyun` or `acs:`. The value cannot contain `http://` or `https://`.
       shared_ptr<string> tagKey_ {};
-      // The tag value of the instance. Valid values of N: **1** to **20**. If you specify this parameter, it can be an empty string.
-      // 
-      // The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // The tag value of the instance. Valid values of N: **1** to **20**. The value can be an empty string. The value can be up to 128 characters in length, and cannot start with `aliyun` or `acs:`. The value cannot contain `http://` or `https://`.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -271,7 +267,7 @@ namespace Models
         shared_ptr<string> bizId_ {};
         // The creation time.
         shared_ptr<string> gmtCreate_ {};
-        // The update time.
+        // The modification time.
         shared_ptr<string> gmtModified_ {};
         // The record ID.
         shared_ptr<string> id_ {};
@@ -347,7 +343,7 @@ namespace Models
 
 
     protected:
-      // 0 表示存在空会话。
+      // The number of conversation turns. A value of 0 indicates an empty conversation.
       shared_ptr<int64_t> chatNum_ {};
     };
 
@@ -621,7 +617,7 @@ namespace Models
 
 
   protected:
-    // The list of AI agents associated with the application.
+    // The list of AI staff associated with the application.
     shared_ptr<vector<AppAiStaff>> aiStaffList_ {};
     // The operation address of the application.
     shared_ptr<AppOperationAddress> appOperationAddress_ {};
@@ -635,7 +631,7 @@ namespace Models
     shared_ptr<string> bizId_ {};
     // The build type.
     shared_ptr<string> buildType_ {};
-    // 没有关联会话时为 null。
+    // The associated conversation information. The value is null if no conversation is associated.
     shared_ptr<AppInstanceAggregate::ConversationInfo> conversationInfo_ {};
     // The creation time.
     shared_ptr<string> createTime_ {};
@@ -645,7 +641,7 @@ namespace Models
     shared_ptr<string> description_ {};
     // The business ID of the design specification.
     shared_ptr<string> designSpecBizId_ {};
-    // The design specification ID.
+    // The ID of the design configuration.
     shared_ptr<string> designSpecId_ {};
     // The primary domain name.
     shared_ptr<string> domain_ {};
@@ -655,9 +651,9 @@ namespace Models
     shared_ptr<string> espBizId_ {};
     // The deletion time.
     shared_ptr<string> gmtDelete_ {};
-    // The update time.
+    // The modification time.
     shared_ptr<string> gmtModified_ {};
-    // The publication time.
+    // The publish time.
     shared_ptr<string> gmtPublish_ {};
     // The URL of the application icon.
     shared_ptr<string> iconUrl_ {};

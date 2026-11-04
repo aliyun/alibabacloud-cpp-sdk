@@ -154,9 +154,9 @@ namespace Models
 
 
       protected:
-        // The creation date. The time is in ISO 8601 format in the UTC (Z) time zone.
+        // The creation date. The date is in the ISO 8601 format and the UTC time zone.
         shared_ptr<string> createdAt_ {};
-        // The category level. The root category is 1.
+        // The category level. The root category level is 1.
         shared_ptr<int32_t> depth_ {};
         // The primary key.
         shared_ptr<string> id_ {};
@@ -231,7 +231,7 @@ namespace Models
 
 
       protected:
-        // The creation time. The time is in ISO 8601 format in the UTC (Z) time zone.
+        // The creation time. The time is in the ISO 8601 format and the UTC time zone.
         shared_ptr<string> createdAt_ {};
         // The directory level.
         shared_ptr<int32_t> depth_ {};
@@ -316,9 +316,9 @@ namespace Models
     protected:
       // The current page number.
       shared_ptr<int32_t> currentPageNum_ {};
-      // The query results.
+      // The request result.
       shared_ptr<vector<Module::Data>> data_ {};
-      // The next feature ID.
+      // The ID of the next feature.
       shared_ptr<Module::Next> next_ {};
       // Indicates whether a next page exists.
       shared_ptr<bool> nextPage_ {};
@@ -326,7 +326,7 @@ namespace Models
       shared_ptr<int32_t> pageSize_ {};
       // Indicates whether a previous page exists.
       shared_ptr<bool> prePage_ {};
-      // In addition to pagination limits, the server processes up to 1,000 recent records for the current query. If the results exceed 1,000 records, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+      // In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
       shared_ptr<bool> resultLimit_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalItemNum_ {};
@@ -434,26 +434,26 @@ namespace Models
 
 
   protected:
-    // The details about the access denial.
+    // The detailed cause of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether a retry is allowed.
+    // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name. The application with this name is queried.
+    // The name of the application to query.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace the `%s` variable in the **ErrMessage** return parameter.
-    // > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace `%s` in the error message of the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters.
+    // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // The maximum number of entries per query.
+    // The number of results returned per query.
     // 
     // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
     // The task object.
     shared_ptr<ListRbacOrgTreeResponseBody::Module> module_ {};
-    // The token for the next query. This parameter is empty if no more results exist.
+    // The token used to start the next query. This parameter is empty if no subsequent query is available.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
@@ -461,7 +461,7 @@ namespace Models
     shared_ptr<string> rootErrorCode_ {};
     // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // A reserved parameter.
+    // The reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

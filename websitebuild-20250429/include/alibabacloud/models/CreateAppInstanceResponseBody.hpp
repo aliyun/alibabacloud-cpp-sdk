@@ -110,7 +110,7 @@ namespace Models
       shared_ptr<string> bizId_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The order ID.
+      // The ID of the order.
       shared_ptr<string> orderId_ {};
       // siteId
       shared_ptr<string> siteHost_ {};
@@ -201,18 +201,18 @@ namespace Models
 
 
   protected:
-    // The detailed reason why access was denied.
+    // The detailed reason for the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether a retry is allowed.
+    // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name. The application with this name is queried.
+    // The name of the application to query.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace the `%s` variable in the **ErrMessage** return parameter.
-    // > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace the `%s` in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters returned.
+    // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
     // The response data.
     shared_ptr<CreateAppInstanceResponseBody::Module> module_ {};

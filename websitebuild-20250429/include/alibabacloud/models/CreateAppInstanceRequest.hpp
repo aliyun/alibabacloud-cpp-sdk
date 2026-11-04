@@ -98,9 +98,9 @@ namespace Models
 
 
     protected:
-      // The tag key.
+      // The key of the tag.
       shared_ptr<string> tagKey_ {};
-      // The value of tag 0.
+      // The value of the tag.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -227,26 +227,25 @@ namespace Models
     shared_ptr<string> applicationType_ {};
     // Specifies whether to enable auto-renewal upon expiration.
     shared_ptr<bool> autoRenew_ {};
-    // The client token that is used to ensure the idempotence of the request. Generate a unique value from your client. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length.
+    // Ensures request idempotence. You can generate a parameter value from your client to ensure that the value is unique across different requests. The ClientToken parameter supports only ASCII characters and can be up to 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // The action.
     shared_ptr<string> createAction_ {};
     // The deployment region.
     shared_ptr<string> deployArea_ {};
+    // The description of the website.
     shared_ptr<string> description_ {};
     // Required. The number of subscription periods.
     shared_ptr<int32_t> duration_ {};
     // The extended information.
     shared_ptr<string> extend_ {};
+    // The name of the website.
     shared_ptr<string> name_ {};
-    // The payment type.
+    // The payment method.
     shared_ptr<string> paymentType_ {};
-    // Required. The unit of the subscription period. Valid values:
-    // - Year: year
-    // - Month: month
-    // - Day: day
-    // - Hour: hour.
+    // Required. The unit of the subscription period. Valid values: Year, Month, Day, and Hour.
     shared_ptr<string> pricingCycle_ {};
-    // Required. The number of instances to subscribe to.
+    // Required. The number of instances to purchase.
     shared_ptr<int32_t> quantity_ {};
     // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};

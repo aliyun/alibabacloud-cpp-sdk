@@ -172,28 +172,21 @@ namespace Models
 
 
     protected:
-      // Specifies whether a retry is allowed after the dedicated server fails to start.
+      // Specifies whether retries are allowed after the independent server fails to be enabled.
       shared_ptr<bool> canRetry_ {};
-      // The deployment region code of the dedicated server.
+      // The code of the region where the independent server is deployed.
       shared_ptr<string> deployArea_ {};
-      // The DNS record type used when binding a domain name to the dedicated IP address.
+      // The type of the DNS record used when an independent IP address is bound to a domain name.
       shared_ptr<string> dnsRecordType_ {};
-      // The eligibility status of the dedicated server. Valid values:
-      // - UPGRADE_REQUIRED: A version upgrade is required.
-      // - AVAILABLE: The dedicated server can be started.
-      // - UNAVAILABLE: The dedicated server is currently unavailable.
+      // The eligibility status of the independent server. UPGRADE_REQUIRED indicates that an upgrade is required, AVAILABLE indicates that the feature can be enabled, and UNAVAILABLE indicates that the feature is currently unavailable.
       shared_ptr<string> eligibility_ {};
-      // The status of the dedicated server. Valid values:
-      // - NOT_ENABLED: Not started.
-      // - ENABLING: Starting.
-      // - ACTIVE: Started.
-      // - FAILED: Failed to start.
+      // The status of the independent server. NOT_ENABLED indicates that the feature is not enabled, ENABLING indicates that the feature is being enabled, ACTIVE indicates that the feature is enabled, and FAILED indicates that the feature failed to be enabled.
       shared_ptr<string> enableStatus_ {};
-      // The dedicated IP address assigned after the dedicated server is started.
+      // The independent IP address assigned after the independent server is enabled.
       shared_ptr<string> independentIp_ {};
-      // The display specification of the dedicated server. This does not represent the real-time resource usage of the container.
+      // The unified display specification of the independent server, which does not represent the real-time resource usage of the container.
       shared_ptr<string> serverSpec_ {};
-      // The task ID for starting the dedicated server.
+      // The ID of the task to enable the independent server.
       shared_ptr<int64_t> taskId_ {};
     };
 
@@ -402,42 +395,43 @@ namespace Models
     shared_ptr<string> chatbiTaskId_ {};
     // The status of the ChatBI BuildSchemaIndex task. Valid values: running, finish, and failed.
     shared_ptr<string> chatbiTaskStatus_ {};
-    // The commodity code used when placing the order.
+    // The commodity code of the order.
     shared_ptr<string> commodityCode_ {};
-    // The customer service contact information or description.
+    // The contact information or instructions for customer service.
     shared_ptr<string> customerService_ {};
-    // The deployment region code of the application.
+    // The code of the region where the application is deployed.
     shared_ptr<string> deployArea_ {};
-    // The ICP filing number bound to the custom domain name. Multiple filing numbers are separated by commas (,).
+    // The ICP filing number of the bound custom domain name. Separate multiple ICP filing numbers with commas (,).
     shared_ptr<string> icpbaNo_ {};
-    // The dedicated server information. This field is computed in real time by DescribeAppInstance and is not populated in list API responses.
+    // The independent server information. This information is computed in real time by DescribeAppInstance and is not populated in list operations.
     shared_ptr<AppInstanceProfile::IndependentDeployment> independentDeployment_ {};
     // The ID of the associated Lingxiao instance.
     shared_ptr<string> instanceId_ {};
-    // Indicates whether the current user is included in the ChatBI feature canary release whitelist.
+    // Specifies whether the current user is included in the grayscale whitelist for the ChatBI feature.
     shared_ptr<bool> openChatBi_ {};
-    // The time when the order was placed, in the yyyy-MM-dd HH:mm:ss format.
+    // The time when the order was placed. The format is yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> ordTime_ {};
     // The order ID.
     shared_ptr<string> orderId_ {};
-    // The time when the payment was made, in the yyyy-MM-dd HH:mm:ss format.
+    // The time when the payment was made. The format is yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> payTime_ {};
     // The URL used to access the application preview page.
     shared_ptr<string> previewUrl_ {};
-    // The SEO site configuration identifier.
+    // The configuration identifier of the SEO site.
     shared_ptr<string> seoSite_ {};
-    // The switch for the share rendering watermark. A value of 1 indicates enabled, and a value of 0 indicates disabled. This field is empty if not configured.
+    // Specifies whether to enable the watermark for shared rendering. A value of 1 indicates that the feature is enabled, and a value of 0 indicates that the feature is disabled. If this parameter is not configured, it is left empty.
     shared_ptr<string> shareRenderWatermark_ {};
     // The site version code.
     shared_ptr<string> siteVersion_ {};
-    // The display name of the site version, including the deployment region.
+    // The display name of the site version, which includes the deployment region.
     shared_ptr<string> siteVersionText_ {};
     // The identifier of the creation or synchronization source.
     shared_ptr<string> source_ {};
     // The ETag identifier of the current application template.
     shared_ptr<string> templateEtag_ {};
-    // The template ID used by the current application.
+    // The ID of the template used by the current application.
     shared_ptr<string> templateId_ {};
+    // The upgrade status of the instance. DOING indicates that the upgrade is in progress, SUCC indicates that the upgrade is successful, and FAIL indicates that the upgrade failed.
     shared_ptr<string> upgradeStatus_ {};
   };
 

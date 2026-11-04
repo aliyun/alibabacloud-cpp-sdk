@@ -113,7 +113,7 @@ AllocateSupabaseForAdminResponse Client::allocateSupabaseForAdmin(const Allocate
 /**
  * @summary Grants a role to a user.
  *
- * @description Queries application instance information.
+ * @description Queries the application instance information.
  *
  * @param request AssignRbacUserRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -150,7 +150,7 @@ AssignRbacUserRoleResponse Client::assignRbacUserRoleWithOptions(const AssignRba
 /**
  * @summary Grants a role to a user.
  *
- * @description Queries application instance information.
+ * @description Queries the application instance information.
  *
  * @param request AssignRbacUserRoleRequest
  * @return AssignRbacUserRoleResponse
@@ -1740,9 +1740,9 @@ CreateRbacOrgUnitResponse Client::createRbacOrgUnit(const CreateRbacOrgUnitReque
 }
 
 /**
- * @summary Creates an RBAC permission.
+ * @summary Creates RBAC permissions.
  *
- * @description Creates an AI conversation session through Wanxiaozhi 2.0.
+ * @description The Wanxiaozhi 2.0 API operation for creating an AI session.
  *
  * @param request CreateRbacPermissionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1777,9 +1777,9 @@ CreateRbacPermissionResponse Client::createRbacPermissionWithOptions(const Creat
 }
 
 /**
- * @summary Creates an RBAC permission.
+ * @summary Creates RBAC permissions.
  *
- * @description Creates an AI conversation session through Wanxiaozhi 2.0.
+ * @description The Wanxiaozhi 2.0 API operation for creating an AI session.
  *
  * @param request CreateRbacPermissionRequest
  * @return CreateRbacPermissionResponse
@@ -2376,9 +2376,9 @@ DeleteRbacOrgUnitResponse Client::deleteRbacOrgUnit(const DeleteRbacOrgUnitReque
 }
 
 /**
- * @summary Deletes an RBAC permission.
+ * @summary Deletes RBAC permissions.
  *
- * @description Creates an AI conversation session for WanXiaoZhi 2.0.
+ * @description The API operation for creating an AI session in Wanxiaozhi 2.0.
  *
  * @param request DeleteRbacPermissionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2413,9 +2413,9 @@ DeleteRbacPermissionResponse Client::deleteRbacPermissionWithOptions(const Delet
 }
 
 /**
- * @summary Deletes an RBAC permission.
+ * @summary Deletes RBAC permissions.
  *
- * @description Creates an AI conversation session for WanXiaoZhi 2.0.
+ * @description The API operation for creating an AI session in Wanxiaozhi 2.0.
  *
  * @param request DeleteRbacPermissionRequest
  * @return DeleteRbacPermissionResponse
@@ -2428,7 +2428,7 @@ DeleteRbacPermissionResponse Client::deleteRbacPermission(const DeleteRbacPermis
 /**
  * @summary Deletes an RBAC role.
  *
- * @description Queries application instance information.
+ * @description Queries the application instance information.
  *
  * @param request DeleteRbacRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2465,7 +2465,7 @@ DeleteRbacRoleResponse Client::deleteRbacRoleWithOptions(const DeleteRbacRoleReq
 /**
  * @summary Deletes an RBAC role.
  *
- * @description Queries application instance information.
+ * @description Queries the application instance information.
  *
  * @param request DeleteRbacRoleRequest
  * @return DeleteRbacRoleResponse
@@ -2696,7 +2696,7 @@ ExportMaterialFileResponse Client::exportMaterialFile(const ExportMaterialFileRe
 /**
  * @summary Exports the RBAC configuration.
  *
- * @description Queries the Supabase instance configuration information corresponding to a resource.
+ * @description Queries the Supabase instance configuration for a resource.
  *
  * @param request ExportRbacConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2729,7 +2729,7 @@ ExportRbacConfigResponse Client::exportRbacConfigWithOptions(const ExportRbacCon
 /**
  * @summary Exports the RBAC configuration.
  *
- * @description Queries the Supabase instance configuration information corresponding to a resource.
+ * @description Queries the Supabase instance configuration for a resource.
  *
  * @param request ExportRbacConfigRequest
  * @return ExportRbacConfigResponse
@@ -3124,9 +3124,9 @@ GetAppInstanceEntitlementResponse Client::getAppInstanceEntitlement(const GetApp
 }
 
 /**
- * @summary Queries application instance information.
+ * @summary Queries the details of application instances.
  *
- * @description Queries application instance information.
+ * @description Queries the details of application instances.
  *
  * @param request GetAppInstanceForAdminRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3161,9 +3161,9 @@ GetAppInstanceForAdminResponse Client::getAppInstanceForAdminWithOptions(const G
 }
 
 /**
- * @summary Queries application instance information.
+ * @summary Queries the details of application instances.
  *
- * @description Queries application instance information.
+ * @description Queries the details of application instances.
  *
  * @param request GetAppInstanceForAdminRequest
  * @return GetAppInstanceForAdminResponse
@@ -6306,9 +6306,9 @@ ListRbacOrgTreeResponse Client::listRbacOrgTree(const ListRbacOrgTreeRequest &re
 }
 
 /**
- * @summary Queries the RBAC permission list.
+ * @summary Queries the RBAC permissions.
  *
- * @description Creates an AI conversation session through WanXiaoZhi 2.0.
+ * @description Creates an AI session in Wanxiaozhi 2.0.
  *
  * @param request ListRbacPermissionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6363,9 +6363,9 @@ ListRbacPermissionsResponse Client::listRbacPermissionsWithOptions(const ListRba
 }
 
 /**
- * @summary Queries the RBAC permission list.
+ * @summary Queries the RBAC permissions.
  *
- * @description Creates an AI conversation session through WanXiaoZhi 2.0.
+ * @description Creates an AI session in Wanxiaozhi 2.0.
  *
  * @param request ListRbacPermissionsRequest
  * @return ListRbacPermissionsResponse
@@ -6378,7 +6378,7 @@ ListRbacPermissionsResponse Client::listRbacPermissions(const ListRbacPermission
 /**
  * @summary Queries the RBAC role hierarchy.
  *
- * @description Queries application instance information.
+ * @description Queries the application instance information.
  *
  * @param request ListRbacRoleHierarchyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6435,7 +6435,7 @@ ListRbacRoleHierarchyResponse Client::listRbacRoleHierarchyWithOptions(const Lis
 /**
  * @summary Queries the RBAC role hierarchy.
  *
- * @description Queries application instance information.
+ * @description Queries the application instance information.
  *
  * @param request ListRbacRoleHierarchyRequest
  * @return ListRbacRoleHierarchyResponse
@@ -6446,9 +6446,9 @@ ListRbacRoleHierarchyResponse Client::listRbacRoleHierarchy(const ListRbacRoleHi
 }
 
 /**
- * @summary Queries the list of RBAC roles.
+ * @summary Queries a list of RBAC roles.
  *
- * @description Queries application instance information.
+ * @description Queries the application instance information.
  *
  * @param request ListRbacRolesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6503,9 +6503,9 @@ ListRbacRolesResponse Client::listRbacRolesWithOptions(const ListRbacRolesReques
 }
 
 /**
- * @summary Queries the list of RBAC roles.
+ * @summary Queries a list of RBAC roles.
  *
- * @description Queries application instance information.
+ * @description Queries the application instance information.
  *
  * @param request ListRbacRolesRequest
  * @return ListRbacRolesResponse
@@ -8020,7 +8020,7 @@ QueryMaterialTaskListResponse Client::queryMaterialTaskList(const QueryMaterialT
 /**
  * @summary Queries a single RBAC role.
  *
- * @description Queries application instance information.
+ * @description Queries the information of an application instance.
  *
  * @param request QueryRbacRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8057,7 +8057,7 @@ QueryRbacRoleResponse Client::queryRbacRoleWithOptions(const QueryRbacRoleReques
 /**
  * @summary Queries a single RBAC role.
  *
- * @description Queries application instance information.
+ * @description Queries the information of an application instance.
  *
  * @param request QueryRbacRoleRequest
  * @return QueryRbacRoleResponse
@@ -8068,9 +8068,9 @@ QueryRbacRoleResponse Client::queryRbacRole(const QueryRbacRoleRequest &request)
 }
 
 /**
- * @summary Queries the list of role permissions.
+ * @summary Queries the role permission list.
  *
- * @description Creates an AI conversation session for Wan Xiaozhi 2.0.
+ * @description The API operation to create an AI session for Wanxiaozhi 2.0.
  *
  * @param request QueryRbacRolePermissionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8121,9 +8121,9 @@ QueryRbacRolePermissionsResponse Client::queryRbacRolePermissionsWithOptions(con
 }
 
 /**
- * @summary Queries the list of role permissions.
+ * @summary Queries the role permission list.
  *
- * @description Creates an AI conversation session for Wan Xiaozhi 2.0.
+ * @description The API operation to create an AI session for Wanxiaozhi 2.0.
  *
  * @param request QueryRbacRolePermissionsRequest
  * @return QueryRbacRolePermissionsResponse
@@ -8635,9 +8635,9 @@ RefundAppInstanceForPartnerResponse Client::refundAppInstanceForPartner(const Re
 }
 
 /**
- * @summary Removes an RBAC role hierarchy.
+ * @summary Removes the RBAC role hierarchy.
  *
- * @description Queries application instance information.
+ * @description Queries the application instance information.
  *
  * @param request RemoveRbacRoleHierarchyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8676,9 +8676,9 @@ RemoveRbacRoleHierarchyResponse Client::removeRbacRoleHierarchyWithOptions(const
 }
 
 /**
- * @summary Removes an RBAC role hierarchy.
+ * @summary Removes the RBAC role hierarchy.
  *
- * @description Queries application instance information.
+ * @description Queries the application instance information.
  *
  * @param request RemoveRbacRoleHierarchyRequest
  * @return RemoveRbacRoleHierarchyResponse
@@ -9509,7 +9509,7 @@ SetAppDomainCertificateResponse Client::setAppDomainCertificate(const SetAppDoma
 /**
  * @summary Sets the RBAC role hierarchy.
  *
- * @description Retrieves the configuration information of the code generation plugin.
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request SetRbacRoleHierarchyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9550,7 +9550,7 @@ SetRbacRoleHierarchyResponse Client::setRbacRoleHierarchyWithOptions(const SetRb
 /**
  * @summary Sets the RBAC role hierarchy.
  *
- * @description Retrieves the configuration information of the code generation plugin.
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request SetRbacRoleHierarchyRequest
  * @return SetRbacRoleHierarchyResponse
@@ -10565,9 +10565,9 @@ UpdateRbacOrgUnitResponse Client::updateRbacOrgUnit(const UpdateRbacOrgUnitReque
 }
 
 /**
- * @summary Updates an RBAC role.
+ * @summary Updates the RBAC role.
  *
- * @description Retrieves the configuration information of the code generation plug-in.
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request UpdateRbacRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10606,9 +10606,9 @@ UpdateRbacRoleResponse Client::updateRbacRoleWithOptions(const UpdateRbacRoleReq
 }
 
 /**
- * @summary Updates an RBAC role.
+ * @summary Updates the RBAC role.
  *
- * @description Retrieves the configuration information of the code generation plug-in.
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request UpdateRbacRoleRequest
  * @return UpdateRbacRoleResponse

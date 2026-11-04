@@ -133,27 +133,27 @@ namespace Models
 
 
   protected:
-    // The detailed reason why access is denied.
+    // The detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed.
+    // Specifies whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name. The application with this name is queried.
+    // The name of the application to query.
     shared_ptr<string> appName_ {};
-    // The dynamic code. This parameter is not in use. Ignore this parameter.
+    // The dynamic code. This field is not used and can be ignored.
     shared_ptr<string> dynamicCode_ {};
     // The dynamic message.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters.
+    // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // The response object.
+    // The returned object.
     shared_ptr<string> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
     // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // The error message.
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Indicates whether the request is synchronously processed.
+    // Specifies whether synchronous processing is used.
     shared_ptr<bool> synchro_ {};
   };
 

@@ -163,13 +163,13 @@ namespace Models
 
 
       protected:
-        // The time when the task was created. The value is in the YYYY-MM-DD HH:mm:ss format.
+        // The task creation time. Format: YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> createdAt_ {};
         // The primary key.
         shared_ptr<string> id_ {};
-        // Indicates whether this is the default dedicated gateway.
+        // Specifies whether the private gateway is the default one.
         shared_ptr<bool> isDefault_ {};
-        // Indicates whether the approval template is system-defined. Valid values:
+        // Specifies whether the approval template is system-defined. Valid values:
         // - 1: Yes.
         // - 0: No.
         shared_ptr<bool> isSystem_ {};
@@ -253,15 +253,15 @@ namespace Models
 
 
       protected:
-        // The creation date. The value is in ISO 8601 format with the time zone set to UTC (Z).
+        // The creation date in ISO 8601 format in the UTC time zone.
         shared_ptr<string> createdAt_ {};
         // The primary key.
         shared_ptr<string> id_ {};
-        // Indicates whether this is the default report. Valid values:
+        // Specifies whether the report is the default report. Valid values:
         // - **0**: Not the default report.
-        // - **1**: The default report.
+        // - **1**: Default report.
         shared_ptr<bool> isDefault_ {};
-        // Indicates whether the approval template is system-defined. Valid values:
+        // Specifies whether the approval template is system-defined. Valid values:
         // - 1: Yes.
         // - 0: No.
         shared_ptr<bool> isSystem_ {};
@@ -344,17 +344,17 @@ namespace Models
     protected:
       // The current page number.
       shared_ptr<int32_t> currentPageNum_ {};
-      // The query results.
+      // The request results.
       shared_ptr<vector<Module::Data>> data_ {};
       // The decision weight.
       shared_ptr<Module::Next> next_ {};
-      // Indicates whether a next page exists.
+      // Specifies whether a next page exists.
       shared_ptr<bool> nextPage_ {};
       // The page size.
       shared_ptr<int32_t> pageSize_ {};
-      // Indicates whether a previous page exists.
+      // Specifies whether a previous page exists.
       shared_ptr<bool> prePage_ {};
-      // Indicates whether the server-side result limit is reached. The server processes up to 1,000 recent records beyond pagination limits. If the results exceed 1,000, **ResultLimit** is **true** and you must narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+      // In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is **true**. Narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
       shared_ptr<bool> resultLimit_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalItemNum_ {};
@@ -462,31 +462,29 @@ namespace Models
 
 
   protected:
-    // The details about the access denial.
+    // The detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed.
+    // Specifies whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
     // The application name.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic message. This parameter is not in use. Ignore this parameter.
+    // The dynamic message. This parameter is not used and can be ignored.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters.
+    // The error parameters returned.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // The maximum number of entries to return per query.
-    // 
-    // Valid values: 10 to 100. Default value: 20.
+    // The maximum number of results per query. Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
     // The response data.
     shared_ptr<ListRbacRolesResponseBody::Module> module_ {};
-    // The token for the next query. This parameter is empty if no more results exist.
+    // The token used to start the next query. If there is no next query, this parameter is empty.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
     // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // The error message.
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
     // The reserved parameter.
     shared_ptr<bool> synchro_ {};

@@ -133,7 +133,7 @@ namespace Models
 
 
   protected:
-    // The details of the permission verification failure.
+    // The details of the permission check failure.
     shared_ptr<string> accessDeniedDetail_ {};
     // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
@@ -141,11 +141,11 @@ namespace Models
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic message. This parameter is not in use. Ignore this parameter.
+    // The dynamic message. This parameter is not in use and can be ignored.
     shared_ptr<string> dynamicMessage_ {};
     // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Indicates whether the operation is successful.
+    // Indicates whether the move succeeded.
     shared_ptr<bool> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

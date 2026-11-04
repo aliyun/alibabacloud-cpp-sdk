@@ -50,13 +50,13 @@ namespace Models
   protected:
     // The business ID of the application instance.
     shared_ptr<string> bizId_ {};
-    // The storage management role ID, including preset roles and custom roles.
+    // The storage management role ID, including predefined and custom roles:
     // 
-    // - 25: storage management administrator (preset role)
-    // - 26: developer (preset role)
-    // - 27: analyst (preset role)
-    // - 30: viewer (preset role)
-    // - Custom role: the role ID of the custom role
+    // - 25: Storage management administrator (predefined role)
+    // - 26: Developer (predefined role)
+    // - 27: Analyst (predefined role)
+    // - 30: Viewer (predefined role)
+    // - Custom role: the role ID of the custom role.
     shared_ptr<string> roleId_ {};
   };
 

@@ -58,10 +58,12 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DbInstanceId, dbInstanceId_);
         DARABONBA_PTR_TO_JSON(DbPublicUrl, dbPublicUrl_);
         DARABONBA_PTR_TO_JSON(InstanceCreateStatus, instanceCreateStatus_);
+        DARABONBA_PTR_TO_JSON(SchemaName, schemaName_);
         DARABONBA_PTR_TO_JSON(ServiceKey, serviceKey_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(SupabaseInstanceId, supabaseInstanceId_);
         DARABONBA_PTR_TO_JSON(SupabasePublicUrl, supabasePublicUrl_);
+        DARABONBA_PTR_TO_JSON(TenantMode, tenantMode_);
       };
       friend void from_json(const Darabonba::Json& j, Module& obj) { 
         DARABONBA_PTR_FROM_JSON(AnonKey, anonKey_);
@@ -69,10 +71,12 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DbInstanceId, dbInstanceId_);
         DARABONBA_PTR_FROM_JSON(DbPublicUrl, dbPublicUrl_);
         DARABONBA_PTR_FROM_JSON(InstanceCreateStatus, instanceCreateStatus_);
+        DARABONBA_PTR_FROM_JSON(SchemaName, schemaName_);
         DARABONBA_PTR_FROM_JSON(ServiceKey, serviceKey_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(SupabaseInstanceId, supabaseInstanceId_);
         DARABONBA_PTR_FROM_JSON(SupabasePublicUrl, supabasePublicUrl_);
+        DARABONBA_PTR_FROM_JSON(TenantMode, tenantMode_);
       };
       Module() = default ;
       Module(const Module &) = default ;
@@ -86,8 +90,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->anonKey_ == nullptr
-        && this->bizId_ == nullptr && this->dbInstanceId_ == nullptr && this->dbPublicUrl_ == nullptr && this->instanceCreateStatus_ == nullptr && this->serviceKey_ == nullptr
-        && this->status_ == nullptr && this->supabaseInstanceId_ == nullptr && this->supabasePublicUrl_ == nullptr; };
+        && this->bizId_ == nullptr && this->dbInstanceId_ == nullptr && this->dbPublicUrl_ == nullptr && this->instanceCreateStatus_ == nullptr && this->schemaName_ == nullptr
+        && this->serviceKey_ == nullptr && this->status_ == nullptr && this->supabaseInstanceId_ == nullptr && this->supabasePublicUrl_ == nullptr && this->tenantMode_ == nullptr; };
       // anonKey Field Functions 
       bool hasAnonKey() const { return this->anonKey_ != nullptr;};
       void deleteAnonKey() { this->anonKey_ = nullptr;};
@@ -123,6 +127,13 @@ namespace Models
       inline Module& setInstanceCreateStatus(string instanceCreateStatus) { DARABONBA_PTR_SET_VALUE(instanceCreateStatus_, instanceCreateStatus) };
 
 
+      // schemaName Field Functions 
+      bool hasSchemaName() const { return this->schemaName_ != nullptr;};
+      void deleteSchemaName() { this->schemaName_ = nullptr;};
+      inline string getSchemaName() const { DARABONBA_PTR_GET_DEFAULT(schemaName_, "") };
+      inline Module& setSchemaName(string schemaName) { DARABONBA_PTR_SET_VALUE(schemaName_, schemaName) };
+
+
       // serviceKey Field Functions 
       bool hasServiceKey() const { return this->serviceKey_ != nullptr;};
       void deleteServiceKey() { this->serviceKey_ = nullptr;};
@@ -151,6 +162,13 @@ namespace Models
       inline Module& setSupabasePublicUrl(string supabasePublicUrl) { DARABONBA_PTR_SET_VALUE(supabasePublicUrl_, supabasePublicUrl) };
 
 
+      // tenantMode Field Functions 
+      bool hasTenantMode() const { return this->tenantMode_ != nullptr;};
+      void deleteTenantMode() { this->tenantMode_ = nullptr;};
+      inline string getTenantMode() const { DARABONBA_PTR_GET_DEFAULT(tenantMode_, "") };
+      inline Module& setTenantMode(string tenantMode) { DARABONBA_PTR_SET_VALUE(tenantMode_, tenantMode) };
+
+
     protected:
       // The anonymous key.
       shared_ptr<string> anonKey_ {};
@@ -162,6 +180,7 @@ namespace Models
       shared_ptr<string> dbPublicUrl_ {};
       // The instance creation status.
       shared_ptr<string> instanceCreateStatus_ {};
+      shared_ptr<string> schemaName_ {};
       // The service key.
       shared_ptr<string> serviceKey_ {};
       // trial,draft,live,refunded,expired,released
@@ -170,6 +189,7 @@ namespace Models
       shared_ptr<string> supabaseInstanceId_ {};
       // The public URL of the Supabase instance.
       shared_ptr<string> supabasePublicUrl_ {};
+      shared_ptr<string> tenantMode_ {};
     };
 
     virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr

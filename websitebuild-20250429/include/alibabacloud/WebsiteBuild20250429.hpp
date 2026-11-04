@@ -44,7 +44,7 @@ namespace WebsiteBuild20250429
       /**
        * @summary Grants a role to a user.
        *
-       * @description Queries application instance information.
+       * @description Queries the application instance information.
        *
        * @param request AssignRbacUserRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -55,7 +55,7 @@ namespace WebsiteBuild20250429
       /**
        * @summary Grants a role to a user.
        *
-       * @description Queries application instance information.
+       * @description Queries the application instance information.
        *
        * @param request AssignRbacUserRoleRequest
        * @return AssignRbacUserRoleResponse
@@ -544,9 +544,9 @@ namespace WebsiteBuild20250429
       Models::CreateRbacOrgUnitResponse createRbacOrgUnit(const Models::CreateRbacOrgUnitRequest &request);
 
       /**
-       * @summary Creates an RBAC permission.
+       * @summary Creates RBAC permissions.
        *
-       * @description Creates an AI conversation session through Wanxiaozhi 2.0.
+       * @description The Wanxiaozhi 2.0 API operation for creating an AI session.
        *
        * @param request CreateRbacPermissionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -555,9 +555,9 @@ namespace WebsiteBuild20250429
       Models::CreateRbacPermissionResponse createRbacPermissionWithOptions(const Models::CreateRbacPermissionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an RBAC permission.
+       * @summary Creates RBAC permissions.
        *
-       * @description Creates an AI conversation session through Wanxiaozhi 2.0.
+       * @description The Wanxiaozhi 2.0 API operation for creating an AI session.
        *
        * @param request CreateRbacPermissionRequest
        * @return CreateRbacPermissionResponse
@@ -797,9 +797,9 @@ namespace WebsiteBuild20250429
       Models::DeleteRbacOrgUnitResponse deleteRbacOrgUnit(const Models::DeleteRbacOrgUnitRequest &request);
 
       /**
-       * @summary Deletes an RBAC permission.
+       * @summary Deletes RBAC permissions.
        *
-       * @description Creates an AI conversation session for WanXiaoZhi 2.0.
+       * @description The API operation for creating an AI session in Wanxiaozhi 2.0.
        *
        * @param request DeleteRbacPermissionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -808,9 +808,9 @@ namespace WebsiteBuild20250429
       Models::DeleteRbacPermissionResponse deleteRbacPermissionWithOptions(const Models::DeleteRbacPermissionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an RBAC permission.
+       * @summary Deletes RBAC permissions.
        *
-       * @description Creates an AI conversation session for WanXiaoZhi 2.0.
+       * @description The API operation for creating an AI session in Wanxiaozhi 2.0.
        *
        * @param request DeleteRbacPermissionRequest
        * @return DeleteRbacPermissionResponse
@@ -820,7 +820,7 @@ namespace WebsiteBuild20250429
       /**
        * @summary Deletes an RBAC role.
        *
-       * @description Queries application instance information.
+       * @description Queries the application instance information.
        *
        * @param request DeleteRbacRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -831,7 +831,7 @@ namespace WebsiteBuild20250429
       /**
        * @summary Deletes an RBAC role.
        *
-       * @description Queries application instance information.
+       * @description Queries the application instance information.
        *
        * @param request DeleteRbacRoleRequest
        * @return DeleteRbacRoleResponse
@@ -909,7 +909,7 @@ namespace WebsiteBuild20250429
       /**
        * @summary Exports the RBAC configuration.
        *
-       * @description Queries the Supabase instance configuration information corresponding to a resource.
+       * @description Queries the Supabase instance configuration for a resource.
        *
        * @param request ExportRbacConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -920,7 +920,7 @@ namespace WebsiteBuild20250429
       /**
        * @summary Exports the RBAC configuration.
        *
-       * @description Queries the Supabase instance configuration information corresponding to a resource.
+       * @description Queries the Supabase instance configuration for a resource.
        *
        * @param request ExportRbacConfigRequest
        * @return ExportRbacConfigResponse
@@ -1096,9 +1096,9 @@ namespace WebsiteBuild20250429
       Models::GetAppInstanceEntitlementResponse getAppInstanceEntitlement(const Models::GetAppInstanceEntitlementRequest &request);
 
       /**
-       * @summary Queries application instance information.
+       * @summary Queries the details of application instances.
        *
-       * @description Queries application instance information.
+       * @description Queries the details of application instances.
        *
        * @param request GetAppInstanceForAdminRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1107,9 +1107,9 @@ namespace WebsiteBuild20250429
       Models::GetAppInstanceForAdminResponse getAppInstanceForAdminWithOptions(const Models::GetAppInstanceForAdminRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries application instance information.
+       * @summary Queries the details of application instances.
        *
-       * @description Queries application instance information.
+       * @description Queries the details of application instances.
        *
        * @param request GetAppInstanceForAdminRequest
        * @return GetAppInstanceForAdminResponse
@@ -2249,9 +2249,9 @@ namespace WebsiteBuild20250429
       Models::ListRbacOrgTreeResponse listRbacOrgTree(const Models::ListRbacOrgTreeRequest &request);
 
       /**
-       * @summary Queries the RBAC permission list.
+       * @summary Queries the RBAC permissions.
        *
-       * @description Creates an AI conversation session through WanXiaoZhi 2.0.
+       * @description Creates an AI session in Wanxiaozhi 2.0.
        *
        * @param request ListRbacPermissionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2260,9 +2260,9 @@ namespace WebsiteBuild20250429
       Models::ListRbacPermissionsResponse listRbacPermissionsWithOptions(const Models::ListRbacPermissionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the RBAC permission list.
+       * @summary Queries the RBAC permissions.
        *
-       * @description Creates an AI conversation session through WanXiaoZhi 2.0.
+       * @description Creates an AI session in Wanxiaozhi 2.0.
        *
        * @param request ListRbacPermissionsRequest
        * @return ListRbacPermissionsResponse
@@ -2272,7 +2272,7 @@ namespace WebsiteBuild20250429
       /**
        * @summary Queries the RBAC role hierarchy.
        *
-       * @description Queries application instance information.
+       * @description Queries the application instance information.
        *
        * @param request ListRbacRoleHierarchyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2283,7 +2283,7 @@ namespace WebsiteBuild20250429
       /**
        * @summary Queries the RBAC role hierarchy.
        *
-       * @description Queries application instance information.
+       * @description Queries the application instance information.
        *
        * @param request ListRbacRoleHierarchyRequest
        * @return ListRbacRoleHierarchyResponse
@@ -2291,9 +2291,9 @@ namespace WebsiteBuild20250429
       Models::ListRbacRoleHierarchyResponse listRbacRoleHierarchy(const Models::ListRbacRoleHierarchyRequest &request);
 
       /**
-       * @summary Queries the list of RBAC roles.
+       * @summary Queries a list of RBAC roles.
        *
-       * @description Queries application instance information.
+       * @description Queries the application instance information.
        *
        * @param request ListRbacRolesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2302,9 +2302,9 @@ namespace WebsiteBuild20250429
       Models::ListRbacRolesResponse listRbacRolesWithOptions(const Models::ListRbacRolesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of RBAC roles.
+       * @summary Queries a list of RBAC roles.
        *
-       * @description Queries application instance information.
+       * @description Queries the application instance information.
        *
        * @param request ListRbacRolesRequest
        * @return ListRbacRolesResponse
@@ -2777,7 +2777,7 @@ namespace WebsiteBuild20250429
       /**
        * @summary Queries a single RBAC role.
        *
-       * @description Queries application instance information.
+       * @description Queries the information of an application instance.
        *
        * @param request QueryRbacRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2788,7 +2788,7 @@ namespace WebsiteBuild20250429
       /**
        * @summary Queries a single RBAC role.
        *
-       * @description Queries application instance information.
+       * @description Queries the information of an application instance.
        *
        * @param request QueryRbacRoleRequest
        * @return QueryRbacRoleResponse
@@ -2796,9 +2796,9 @@ namespace WebsiteBuild20250429
       Models::QueryRbacRoleResponse queryRbacRole(const Models::QueryRbacRoleRequest &request);
 
       /**
-       * @summary Queries the list of role permissions.
+       * @summary Queries the role permission list.
        *
-       * @description Creates an AI conversation session for Wan Xiaozhi 2.0.
+       * @description The API operation to create an AI session for Wanxiaozhi 2.0.
        *
        * @param request QueryRbacRolePermissionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2807,9 +2807,9 @@ namespace WebsiteBuild20250429
       Models::QueryRbacRolePermissionsResponse queryRbacRolePermissionsWithOptions(const Models::QueryRbacRolePermissionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of role permissions.
+       * @summary Queries the role permission list.
        *
-       * @description Creates an AI conversation session for Wan Xiaozhi 2.0.
+       * @description The API operation to create an AI session for Wanxiaozhi 2.0.
        *
        * @param request QueryRbacRolePermissionsRequest
        * @return QueryRbacRolePermissionsResponse
@@ -2967,9 +2967,9 @@ namespace WebsiteBuild20250429
       Models::RefundAppInstanceForPartnerResponse refundAppInstanceForPartner(const Models::RefundAppInstanceForPartnerRequest &request);
 
       /**
-       * @summary Removes an RBAC role hierarchy.
+       * @summary Removes the RBAC role hierarchy.
        *
-       * @description Queries application instance information.
+       * @description Queries the application instance information.
        *
        * @param request RemoveRbacRoleHierarchyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2978,9 +2978,9 @@ namespace WebsiteBuild20250429
       Models::RemoveRbacRoleHierarchyResponse removeRbacRoleHierarchyWithOptions(const Models::RemoveRbacRoleHierarchyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes an RBAC role hierarchy.
+       * @summary Removes the RBAC role hierarchy.
        *
-       * @description Queries application instance information.
+       * @description Queries the application instance information.
        *
        * @param request RemoveRbacRoleHierarchyRequest
        * @return RemoveRbacRoleHierarchyResponse
@@ -3272,7 +3272,7 @@ namespace WebsiteBuild20250429
       /**
        * @summary Sets the RBAC role hierarchy.
        *
-       * @description Retrieves the configuration information of the code generation plugin.
+       * @description Retrieves the configuration information of the code generation plug-in.
        *
        * @param request SetRbacRoleHierarchyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3283,7 +3283,7 @@ namespace WebsiteBuild20250429
       /**
        * @summary Sets the RBAC role hierarchy.
        *
-       * @description Retrieves the configuration information of the code generation plugin.
+       * @description Retrieves the configuration information of the code generation plug-in.
        *
        * @param request SetRbacRoleHierarchyRequest
        * @return SetRbacRoleHierarchyResponse
@@ -3636,9 +3636,9 @@ namespace WebsiteBuild20250429
       Models::UpdateRbacOrgUnitResponse updateRbacOrgUnit(const Models::UpdateRbacOrgUnitRequest &request);
 
       /**
-       * @summary Updates an RBAC role.
+       * @summary Updates the RBAC role.
        *
-       * @description Retrieves the configuration information of the code generation plug-in.
+       * @description Retrieves the configuration information of the code generation plugin.
        *
        * @param request UpdateRbacRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3647,9 +3647,9 @@ namespace WebsiteBuild20250429
       Models::UpdateRbacRoleResponse updateRbacRoleWithOptions(const Models::UpdateRbacRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates an RBAC role.
+       * @summary Updates the RBAC role.
        *
-       * @description Retrieves the configuration information of the code generation plug-in.
+       * @description Retrieves the configuration information of the code generation plugin.
        *
        * @param request UpdateRbacRoleRequest
        * @return UpdateRbacRoleResponse
