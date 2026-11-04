@@ -1668,7 +1668,7 @@ GetAgentSpaceResponse Client::getAgentSpace(const string &agentSpace, const GetA
 }
 
 /**
- * @summary Queries a context store.
+ * @summary Queries the context store.
  *
  * @param request GetContextStoreRequest
  * @param headers map
@@ -1695,7 +1695,7 @@ GetContextStoreResponse Client::getContextStoreWithOptions(const string &agentSp
 }
 
 /**
- * @summary Queries a context store.
+ * @summary Queries the context store.
  *
  * @param request GetContextStoreRequest
  * @return GetContextStoreResponse
@@ -3542,6 +3542,14 @@ UpdateContextStoreResponse Client::updateContextStoreWithOptions(const string &a
 
   if (!!request.hasDescription()) {
     body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasExpectedRuntimeRecallRevision()) {
+    body["expectedRuntimeRecallRevision"] = request.getExpectedRuntimeRecallRevision();
+  }
+
+  if (!!request.hasReason()) {
+    body["reason"] = request.getReason();
   }
 
   if (!!request.hasStatus()) {

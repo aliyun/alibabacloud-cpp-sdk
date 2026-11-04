@@ -102,13 +102,13 @@ namespace Models
 
 
     protected:
-      // Agent Id
+      // The ID of the agent.
       shared_ptr<string> agentId_ {};
-      // The application ID.
+      // The ID of the application.
       shared_ptr<string> appId_ {};
-      // The run ID.
+      // The ID of the run.
       shared_ptr<string> runId_ {};
-      // The user ID.
+      // The ID of the user.
       shared_ptr<string> userId_ {};
     };
 
@@ -189,9 +189,9 @@ namespace Models
     Darabonba::Json filter_ {};
     // Specifies whether to apply structured formatting to the returned results.
     shared_ptr<bool> formatted_ {};
-    // Specifies whether to include memories whose sourceState is inactive. Default value: false.
+    // Specifies whether to include memories with sourceState=inactive. Default value: false.
     shared_ptr<bool> includeInactive_ {};
-    // The maximum number of returned results, which corresponds to the top N results by similarity.
+    // The maximum number of returned results based on the top-N similarity.
     shared_ptr<int32_t> limit_ {};
     // The retrieval query text. Natural language is supported.
     // 
@@ -199,9 +199,9 @@ namespace Models
     shared_ptr<string> query_ {};
     // The retrieval options used to control the retrieval strategy.
     shared_ptr<string> retrievalOption_ {};
-    // The recall scope. If a field with the same name conflicts with the filter, a 400 ScopeFilterConflict error is returned.
+    // The recall scope. If a field with the same name exists in the filter, a 400 ScopeFilterConflict error is returned.
     shared_ptr<SearchContextRequest::Scope> scope_ {};
-    // Filters results by extraction strategy ID. Multiple IDs in the list are evaluated with an OR condition. If this parameter is not specified, all strategies are recalled. An empty list returns a 400 error. If the format is valid but no matching IDs are found, an empty result is returned. IDs of historically removed strategies are supported.
+    // Filters results by extraction strategy IDs. Multiple IDs in the list are evaluated with an OR logic. If this parameter is not specified, all strategies are recalled. An empty list returns a 400 error. Valid IDs with no matches return empty results. Historical removed strategy IDs are supported.
     shared_ptr<vector<string>> strategyIds_ {};
     // The similarity threshold. Results with a similarity score below this value are filtered out. Valid values: 0 to 1.
     shared_ptr<double> threshold_ {};

@@ -178,7 +178,7 @@ namespace Models
       shared_ptr<string> contextStoreName_ {};
       // The type of the context store, such as experience or memory.
       shared_ptr<string> contextType_ {};
-      // The time when the context store was created, in ISO 8601 UTC format.
+      // The time when the context store was created. The time is in the ISO 8601 UTC format.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> createTime_ {};
@@ -188,14 +188,15 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The list of service names. This parameter has a value only for the experience type. It is used together with the data source AgentSpace to locate the trace data source.
       shared_ptr<vector<string>> serviceNames_ {};
-      // The memory data source type, such as manual, trajectory, or dataset. This parameter has a value only for the memory type.
+      // The data source type of the memory context store. Valid values: manual, trajectory, and dataset. This parameter has a value only for the memory type.
       shared_ptr<string> sourceType_ {};
       // The status of the context store. Valid values include ACTIVE, INITIALIZING, and FAILED.
       shared_ptr<string> status_ {};
-      // The memory storage mode, such as event or upsert. This parameter has a value only for the memory type.
+      // The storage mode of the memory context store. Valid values: event and upsert. This parameter has a value only for the memory type.
       shared_ptr<string> storageMode_ {};
+      // The actual storage modes of each policy. A hybrid context store includes both event and upsert.
       shared_ptr<vector<string>> storageModes_ {};
-      // The time when the context store was last updated, in ISO 8601 UTC format.
+      // The time when the context store was last updated. The time is in the ISO 8601 UTC format.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> updateTime_ {};
@@ -241,11 +242,11 @@ namespace Models
 
 
   protected:
-    // The maximum number of results per page specified in the request.
+    // The maximum number of entries per page specified in the request.
     shared_ptr<int32_t> maxResults_ {};
     // The token for the next page. An empty string indicates that the last page is reached.
     shared_ptr<string> nextToken_ {};
-    // The request ID, which can be used to locate the request during troubleshooting.
+    // The request ID, which is used to locate the request during troubleshooting.
     shared_ptr<string> requestId_ {};
     // The list of context stores.
     shared_ptr<vector<ListContextStoresResponseBody::Results>> results_ {};

@@ -19,6 +19,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(config, config_);
       DARABONBA_PTR_TO_JSON(contextType, contextType_);
       DARABONBA_PTR_TO_JSON(description, description_);
+      DARABONBA_PTR_TO_JSON(expectedRuntimeRecallRevision, expectedRuntimeRecallRevision_);
+      DARABONBA_PTR_TO_JSON(reason, reason_);
       DARABONBA_PTR_TO_JSON(status, status_);
       DARABONBA_PTR_TO_JSON(clientToken, clientToken_);
     };
@@ -27,6 +29,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(config, config_);
       DARABONBA_PTR_FROM_JSON(contextType, contextType_);
       DARABONBA_PTR_FROM_JSON(description, description_);
+      DARABONBA_PTR_FROM_JSON(expectedRuntimeRecallRevision, expectedRuntimeRecallRevision_);
+      DARABONBA_PTR_FROM_JSON(reason, reason_);
       DARABONBA_PTR_FROM_JSON(status, status_);
       DARABONBA_PTR_FROM_JSON(clientToken, clientToken_);
     };
@@ -48,6 +52,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(extractionPolicies, extractionPolicies_);
         DARABONBA_PTR_TO_JSON(extractionPolicy, extractionPolicy_);
         DARABONBA_PTR_TO_JSON(metadataField, metadataField_);
+        DARABONBA_PTR_TO_JSON(runtimeRecallEnabled, runtimeRecallEnabled_);
         DARABONBA_PTR_TO_JSON(scopePolicy, scopePolicy_);
         DARABONBA_PTR_TO_JSON(source, source_);
         DARABONBA_PTR_TO_JSON(storagePolicy, storagePolicy_);
@@ -57,6 +62,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(extractionPolicies, extractionPolicies_);
         DARABONBA_PTR_FROM_JSON(extractionPolicy, extractionPolicy_);
         DARABONBA_PTR_FROM_JSON(metadataField, metadataField_);
+        DARABONBA_PTR_FROM_JSON(runtimeRecallEnabled, runtimeRecallEnabled_);
         DARABONBA_PTR_FROM_JSON(scopePolicy, scopePolicy_);
         DARABONBA_PTR_FROM_JSON(source, source_);
         DARABONBA_PTR_FROM_JSON(storagePolicy, storagePolicy_);
@@ -160,13 +166,16 @@ namespace Models
       protected:
         // The allowed storage actions. Default value: all actions (ADD, UPDATE, MERGE, and DELETE).
         shared_ptr<vector<string>> allowedActions_ {};
-        // Specifies whether to deduplicate data in event mode. Default value: true.
+        // Specifies whether to enable deduplication in event mode. Default value: true.
         shared_ptr<bool> dedupe_ {};
         // Specifies whether to enable human edit protection. Default value: true. When enabled, automatic extraction does not overwrite manually modified memories.
         shared_ptr<bool> humanEditProtection_ {};
         // The merge key for upsert operations. Valid values: factKey, semantic, and both. Default value: semantic.
         shared_ptr<string> mergeKey_ {};
-        // The storage mode. Valid values: event (event append) and upsert (merge and update). Default value: upsert.
+        // The storage mode. Valid values:
+        // - event: Event append.
+        // - upsert: Merge and update.
+        // Default value: upsert.
         shared_ptr<string> mode_ {};
         // The similarity threshold for semantic merging. Valid values: 0 to 1. Default value: 0.4.
         shared_ptr<double> similarityThreshold_ {};
@@ -280,13 +289,13 @@ namespace Models
 
 
           protected:
-            // The JSONPath for agentId. Default value: $.agent_name.
+            // The JSONPath expression for agentId. Default value: $.agent_name.
             shared_ptr<string> agentId_ {};
-            // The JSONPath for appId. Default value: $.service_names[0].
+            // The JSONPath expression for appId. Default value: $.service_names[0].
             shared_ptr<string> appId_ {};
-            // The JSONPath for runId. Default value: $.trajectory_id.
+            // The JSONPath expression for runId. Default value: $.trajectory_id.
             shared_ptr<string> runId_ {};
-            // The JSONPath for userId. By default, this field is not mapped.
+            // The JSONPath expression for userId. By default, this field is not mapped.
             shared_ptr<string> userId_ {};
           };
 
@@ -361,11 +370,11 @@ namespace Models
           protected:
             // The list of agent names. An explicitly empty list returns a 400 error.
             shared_ptr<vector<string>> agentNames_ {};
-            // Specifies whether to exclude degraded trajectories. Default value: false (includes degraded trajectories).
+            // Specifies whether to exclude degraded trajectories. Default value: false (degraded trajectories are included).
             shared_ptr<bool> excludeDegraded_ {};
             // The minimum number of steps. The value must be greater than or equal to 0.
             shared_ptr<int32_t> minStepCount_ {};
-            // The native Simple Log Service (SLS) query statement. It is combined with the preceding conditions using AND.
+            // The native Simple Log Service (SLS) query statement, which is combined with the preceding conditions using AND.
             shared_ptr<string> query_ {};
             // The list of service names. A single trailing asterisk (*) is supported. An explicitly empty list returns a 400 error.
             shared_ptr<vector<string>> serviceNames_ {};
@@ -406,7 +415,7 @@ namespace Models
 
 
         protected:
-          // The trajectory filter conditions. Conditions are combined with AND, and items within a list are combined with OR.
+          // The trajectory filter conditions. Conditions are combined with AND, while items within a list are combined with OR.
           shared_ptr<Trajectory::Filter> filter_ {};
           // The name of the trajectory Logstore. Default value: agent-trajectory. This parameter cannot be changed after creation.
           shared_ptr<string> logstore_ {};
@@ -467,7 +476,7 @@ namespace Models
 
 
           protected:
-            // The subset of the pipeline where clause, which is pushed down to SQL.
+            // The subset of the Pipeline where clause, which is pushed down to SQL.
             shared_ptr<string> where_ {};
           };
 
@@ -536,13 +545,13 @@ namespace Models
 
 
           protected:
-            // The field description. Required when usage is set to extraction-input.
+            // The description of the field. This parameter is required when usage is set to extraction-input.
             shared_ptr<string> description_ {};
             // Specifies whether the field is sensitive.
             shared_ptr<bool> sensitive_ {};
             // The name of the source field.
             shared_ptr<string> sourceField_ {};
-            // The target path for writing, such as metadata.customerTier.
+            // The target write path, such as metadata.customerTier.
             shared_ptr<string> target_ {};
             // The usage of the field. Valid values: extraction-input (participates in extraction) and ignore (ignored).
             shared_ptr<string> usage_ {};
@@ -576,9 +585,9 @@ namespace Models
 
 
         protected:
-          // The list of custom field declarations. If specified, the entire list is overwritten.
+          // The list of custom field declarations. If provided, the entire list is overwritten.
           shared_ptr<vector<Dataset::CustomFields>> customFields_ {};
-          // The row filter conditions.
+          // The row filter condition.
           shared_ptr<Dataset::Filter> filter_ {};
           // The polling interval in seconds. Valid values: 60 to 3600.
           shared_ptr<int32_t> pollIntervalSeconds_ {};
@@ -619,11 +628,11 @@ namespace Models
 
 
       protected:
-        // The AgentSpace where the trace data source is located. Cross-AgentSpace operations are not supported in the current phase. If specified, the value must be equal to the path AgentSpace. Otherwise, a 400 parameter error is returned. The AgentSpace cannot be changed after creation.
+        // The AgentSpace where the trace data source is located. Cross-AgentSpace operations are not supported in the current version. If specified, the value must be equal to the path AgentSpace. Otherwise, a 400 parameter error is returned. The AgentSpace cannot be changed after creation.
         shared_ptr<string> agentSpace_ {};
         // The updatable items of the Dataset data source. The datasetName cannot be changed after creation.
         shared_ptr<Source::Dataset> dataset_ {};
-        // The start time for data backfill in ISO 8601 UTC format.
+        // The start time for data backfill, in ISO 8601 UTC format.
         shared_ptr<string> startTime_ {};
         // The updatable items of the trajectory data source. The source.type cannot be changed after creation.
         shared_ptr<Source::Trajectory> trajectory_ {};
@@ -659,7 +668,7 @@ namespace Models
 
 
       protected:
-        // Specifies that at least one of the specified scope fields must be non-empty. Valid values for elements: userId, agentId, appId, and runId.
+        // Specifies that at least one of the scope fields must be non-empty. Valid values for the elements: userId, agentId, appId, and runId.
         shared_ptr<vector<string>> requiredAnyOf_ {};
       };
 
@@ -718,7 +727,7 @@ namespace Models
 
 
         protected:
-          // The name of the extraction model. Currently, only qwen3.8-flash is supported. The platform uses internal credentials.
+          // The name of the extraction model. Currently, only qwen3.8-flash is supported, which uses internal platform credentials.
           shared_ptr<string> name_ {};
         };
 
@@ -768,7 +777,7 @@ namespace Models
       protected:
         // The list of memory categories.
         shared_ptr<vector<string>> categories_ {};
-        // The custom extraction instructions. This parameter is required when preset is set to custom. The length must be 1 to 8,000 characters.
+        // The custom extraction instructions. This parameter is required when preset is set to custom. Length: 1 to 8000 characters.
         shared_ptr<string> customInstructions_ {};
         // The list of exclusion rules. Content that matches these rules is not extracted.
         shared_ptr<vector<string>> excludeRules_ {};
@@ -899,12 +908,22 @@ namespace Models
 
 
         protected:
+          // The allowed storage actions. Default value: all actions (ADD, UPDATE, MERGE, and DELETE).
           shared_ptr<vector<string>> allowedActions_ {};
+          // Specifies whether to enable deduplication in event mode. Default value: true.
           shared_ptr<bool> dedupe_ {};
+          // Specifies whether to enable human edit protection. Default value: true. When enabled, automatic extraction does not overwrite manually modified memories.
           shared_ptr<bool> humanEditProtection_ {};
+          // The merge key for upsert operations. Valid values: factKey, semantic, and both. Default value: semantic.
           shared_ptr<string> mergeKey_ {};
+          // The storage mode. Valid values:
+          // - event: Event append.
+          // - upsert: Merge and update.
+          // Default value: upsert.
           shared_ptr<string> mode_ {};
+          // The similarity threshold for semantic merging. Valid values: 0 to 1. Default value: 0.4.
           shared_ptr<double> similarityThreshold_ {};
+          // The number of days before memories expire. A value of 0 indicates that memories do not expire.
           shared_ptr<int32_t> ttlDays_ {};
         };
 
@@ -936,7 +955,7 @@ namespace Models
 
 
         protected:
-          // The name of the extraction model. Currently, only qwen3.8-flash is supported. The platform uses internal credentials.
+          // The name of the extraction model. Currently, only qwen3.8-flash is supported, which uses internal platform credentials.
           shared_ptr<string> name_ {};
         };
 
@@ -1017,9 +1036,9 @@ namespace Models
       protected:
         // The list of memory categories.
         shared_ptr<vector<string>> categories_ {};
-        // The custom extraction instructions. This parameter is required when preset is set to custom. The length must be 1 to 8,000 characters.
+        // The custom extraction instructions. This parameter is required when preset is set to custom. Length: 1 to 8000 characters.
         shared_ptr<string> customInstructions_ {};
-        // Specifies whether to apply this policy to new inputs. Default value: true. Disabling the policy does not delete historical memories.
+        // Specifies whether to execute this policy for new inputs. Default value: true. Disabling the policy does not delete historical memories.
         shared_ptr<bool> enabled_ {};
         // The list of exclusion rules. Content that matches these rules is not extracted.
         shared_ptr<vector<string>> excludeRules_ {};
@@ -1029,8 +1048,9 @@ namespace Models
         shared_ptr<string> name_ {};
         // The preset policy. Valid values: fact, toc-profile, tob-digital-twin, and custom. Default value: fact.
         shared_ptr<string> preset_ {};
+        // The independent storage rule for this policy. If omitted, the original value is retained. New policies use the default value. Repeatedly confirmed memories refresh the validity period by default.
         shared_ptr<ExtractionPolicies::StoragePolicy> storagePolicy_ {};
-        // The ID of the extraction policy. This parameter is optional. If omitted, the default value is default. The ID must start with a letter and can contain only letters, digits, underscores (_), and hyphens (-). It can be up to 64 characters in length. After default value processing, the ID must be unique within the same library. Modifying the name or instructions does not change this ID.
+        // The ID of the extraction policy. This parameter is optional. If omitted, the default value is used. The ID must start with a letter and can contain only letters, digits, underscores, and hyphens. Maximum length: 64 characters. After default processing, the ID must be unique within the same library. Modifying the name or instructions does not change this ID.
         shared_ptr<string> strategyId_ {};
       };
 
@@ -1081,17 +1101,20 @@ namespace Models
 
 
       protected:
-        // Specifies whether to write item events for candidates dropped during recall. Default value: false.
+        // Specifies whether to write item events for dropped recall candidates. Default value: false.
         shared_ptr<bool> droppedCandidates_ {};
-        // The recording mode for recall queries. Valid values: raw (plaintext) and hash (HMAC only). Default value: raw.
+        // The recording method for recall queries. Valid values:
+        // - raw: Plaintext.
+        // - hash: HMAC only.
+        // Default value: raw.
         shared_ptr<string> queryMode_ {};
         // The number of days to retain audit logs. Valid values: 1 to 180. Default value: 30.
         shared_ptr<int32_t> retentionDays_ {};
       };
 
       virtual bool empty() const override { return this->audit_ == nullptr
-        && this->extractionPolicies_ == nullptr && this->extractionPolicy_ == nullptr && this->metadataField_ == nullptr && this->scopePolicy_ == nullptr && this->source_ == nullptr
-        && this->storagePolicy_ == nullptr; };
+        && this->extractionPolicies_ == nullptr && this->extractionPolicy_ == nullptr && this->metadataField_ == nullptr && this->runtimeRecallEnabled_ == nullptr && this->scopePolicy_ == nullptr
+        && this->source_ == nullptr && this->storagePolicy_ == nullptr; };
       // audit Field Functions 
       bool hasAudit() const { return this->audit_ != nullptr;};
       void deleteAudit() { this->audit_ = nullptr;};
@@ -1128,6 +1151,13 @@ namespace Models
       inline Config& setMetadataField(map<string, string> && metadataField) { DARABONBA_PTR_SET_RVALUE(metadataField_, metadataField) };
 
 
+      // runtimeRecallEnabled Field Functions 
+      bool hasRuntimeRecallEnabled() const { return this->runtimeRecallEnabled_ != nullptr;};
+      void deleteRuntimeRecallEnabled() { this->runtimeRecallEnabled_ = nullptr;};
+      inline bool getRuntimeRecallEnabled() const { DARABONBA_PTR_GET_DEFAULT(runtimeRecallEnabled_, false) };
+      inline Config& setRuntimeRecallEnabled(bool runtimeRecallEnabled) { DARABONBA_PTR_SET_VALUE(runtimeRecallEnabled_, runtimeRecallEnabled) };
+
+
       // scopePolicy Field Functions 
       bool hasScopePolicy() const { return this->scopePolicy_ != nullptr;};
       void deleteScopePolicy() { this->scopePolicy_ = nullptr;};
@@ -1158,22 +1188,25 @@ namespace Models
     protected:
       // The audit configuration.
       shared_ptr<Config::Audit> audit_ {};
-      // The extraction policies. You can specify 1 to 10 policies. In a request, you can specify either this field or the compatible extractionPolicy field, but not both. The strategyVersion parameter indicates the snapshot version of the entire library configuration.
+      // The extraction policies. You can specify 1 to 10 policies. Compatible fields returned as-is during updates are ignored. strategyVersion indicates the snapshot version of the entire library configuration.
       shared_ptr<vector<Config::ExtractionPolicies>> extractionPolicies_ {};
       // The extraction policy for the memory type.
       shared_ptr<Config::ExtractionPolicy> extractionPolicy_ {};
-      // The metadata field mapping. The key is the business field and the value is the storage field.
+      // The metadata field mapping, where the key is the business field and the value is the storage field.
       shared_ptr<map<string, string>> metadataField_ {};
+      // Specifies whether runtime recall is allowed for the experience library. When modifying this parameter, you must provide expectedRuntimeRecallRevision and submit only this property in the config.
+      shared_ptr<bool> runtimeRecallEnabled_ {};
       // The scope constraint policy.
       shared_ptr<Config::ScopePolicy> scopePolicy_ {};
-      // The datasource config. This serves only as the root identity for the data source.
+      // The datasource config, which serves only as the root identity for the data source.
       shared_ptr<Config::Source> source_ {};
       // The storage policy for the memory type.
       shared_ptr<Config::StoragePolicy> storagePolicy_ {};
     };
 
     virtual bool empty() const override { return this->changeNote_ == nullptr
-        && this->config_ == nullptr && this->contextType_ == nullptr && this->description_ == nullptr && this->status_ == nullptr && this->clientToken_ == nullptr; };
+        && this->config_ == nullptr && this->contextType_ == nullptr && this->description_ == nullptr && this->expectedRuntimeRecallRevision_ == nullptr && this->reason_ == nullptr
+        && this->status_ == nullptr && this->clientToken_ == nullptr; };
     // changeNote Field Functions 
     bool hasChangeNote() const { return this->changeNote_ != nullptr;};
     void deleteChangeNote() { this->changeNote_ = nullptr;};
@@ -1204,6 +1237,20 @@ namespace Models
     inline UpdateContextStoreRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
+    // expectedRuntimeRecallRevision Field Functions 
+    bool hasExpectedRuntimeRecallRevision() const { return this->expectedRuntimeRecallRevision_ != nullptr;};
+    void deleteExpectedRuntimeRecallRevision() { this->expectedRuntimeRecallRevision_ = nullptr;};
+    inline int64_t getExpectedRuntimeRecallRevision() const { DARABONBA_PTR_GET_DEFAULT(expectedRuntimeRecallRevision_, 0L) };
+    inline UpdateContextStoreRequest& setExpectedRuntimeRecallRevision(int64_t expectedRuntimeRecallRevision) { DARABONBA_PTR_SET_VALUE(expectedRuntimeRecallRevision_, expectedRuntimeRecallRevision) };
+
+
+    // reason Field Functions 
+    bool hasReason() const { return this->reason_ != nullptr;};
+    void deleteReason() { this->reason_ = nullptr;};
+    inline string getReason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
+    inline UpdateContextStoreRequest& setReason(string reason) { DARABONBA_PTR_SET_VALUE(reason_, reason) };
+
+
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
@@ -1219,17 +1266,21 @@ namespace Models
 
 
   protected:
-    // The description of the policy change. A new policy version is created when policy fields in the configuration are changed.
+    // The description of the policy change. A new policy version is generated when policy fields in the configuration change.
     shared_ptr<string> changeNote_ {};
-    // The context library configuration. If specified, the entire configuration is overwritten. If omitted, the original configuration is retained.
+    // The context library configuration. If passed, the entire configuration is overwritten. If not passed, the original configuration is retained.
     shared_ptr<UpdateContextStoreRequest::Config> config_ {};
-    // The context library type. This field generally cannot be modified after creation and is provided only for exception correction.
+    // The context library type. This field cannot be changed after creation and is provided only for exception correction.
     shared_ptr<string> contextType_ {};
     // The description of the context library, which helps business users understand its purpose.
     shared_ptr<string> description_ {};
-    // The running status. Valid values: Active and Paused. For the memory type, pausing stops data source reading and extraction. For the experience dataset follow type, pausing retains submitted and in-flight checkpoints, and resuming continues to process new records without skipping history from the current time. You do not need to pass back the source parameter when only updating the status.
+    // The expected runtime recall revision. This field is required when you modify the runtime recall switch and must be equal to the config.runtimeRecallRevision value returned by GetContextStore. A 409 error is returned if a conflict occurs.
+    shared_ptr<int64_t> expectedRuntimeRecallRevision_ {};
+    // The audit reason for modifying the runtime recall switch. The maximum length is 2,000 characters.
+    shared_ptr<string> reason_ {};
+    // The running status, which can be Active or Paused. For the memory type, pausing stops data source reading and extraction. For the experience dataset follow type, pausing retains submitted and in-flight checkpoints, and resuming continues to process new records without skipping history from the current time. You do not need to pass back the source if you only update the status.
     shared_ptr<string> status_ {};
-    // The idempotency token, which is a unique string generated by the client to ensure the idempotence of the update operation.
+    // The client token. This is a unique string generated by the client to ensure the idempotence of the update operation.
     shared_ptr<string> clientToken_ {};
   };
 

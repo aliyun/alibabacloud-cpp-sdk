@@ -571,7 +571,7 @@ namespace AgentLoop20260520
       Models::GetAgentSpaceResponse getAgentSpace(const string &agentSpace, const Models::GetAgentSpaceRequest &request);
 
       /**
-       * @summary Queries a context store.
+       * @summary Queries the context store.
        *
        * @param request GetContextStoreRequest
        * @param headers map
@@ -581,7 +581,7 @@ namespace AgentLoop20260520
       Models::GetContextStoreResponse getContextStoreWithOptions(const string &agentSpace, const string &contextStoreName, const Models::GetContextStoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a context store.
+       * @summary Queries the context store.
        *
        * @param request GetContextStoreRequest
        * @return GetContextStoreResponse
