@@ -108,7 +108,7 @@ namespace Models
         shared_ptr<string> desktopId_ {};
         // The IDs of the users authorized to use the cloud desktop, which are the usernames.
         shared_ptr<vector<string>> endUserIds_ {};
-        // The assignment result for a single cloud desktop.
+        // The assignment result of a single cloud desktop.
         shared_ptr<string> innerStatus_ {};
       };
 
@@ -165,7 +165,7 @@ namespace Models
 
 
   protected:
-    // The entitlements collection.
+    // The entitlement collection.
     shared_ptr<BatchModifyEntitlementResponseBody::Entitlements> entitlements_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

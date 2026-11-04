@@ -182,9 +182,9 @@ namespace Models
 
 
     protected:
-      // The cloud computer ID.
+      // The cloud desktop ID.
       shared_ptr<string> desktopId_ {};
-      // The cloud computer name.
+      // The cloud desktop name.
       shared_ptr<string> desktopName_ {};
       // The end user ID.
       shared_ptr<string> endUserId_ {};
@@ -192,7 +192,7 @@ namespace Models
       shared_ptr<string> eventId_ {};
       // The printer driver name.
       shared_ptr<string> printerDriver_ {};
-      // The number of copies to print.
+      // The number of printed copies.
       shared_ptr<int32_t> printerJobCopies_ {};
       // The print job name.
       shared_ptr<string> printerJobName_ {};
@@ -200,9 +200,9 @@ namespace Models
       shared_ptr<int32_t> printerJobPages_ {};
       // The number of printed pages.
       shared_ptr<int32_t> printerJobPrintedPages_ {};
-      // The print job size, in bytes.
+      // The print job size in bytes.
       shared_ptr<int64_t> printerJobSize_ {};
-      // The print job time, in millisecond-precision UNIX timestamp.
+      // The print job time in milliseconds.
       shared_ptr<int64_t> printerJobTime_ {};
       // The printer name.
       shared_ptr<string> printerName_ {};
@@ -240,7 +240,7 @@ namespace Models
   protected:
     // The user events.
     shared_ptr<vector<DescribePrinterEventsResponseBody::Events>> events_ {};
-    // The pagination token for the next query. If NextToken is empty, no more results exist.
+    // The token for the next query. If NextToken is empty, no more results are available.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

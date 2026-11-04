@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The configuration group ID.
+    // The ID of the configuration group.
     shared_ptr<string> groupId_ {};
     // The creation result.
     shared_ptr<string> message_ {};

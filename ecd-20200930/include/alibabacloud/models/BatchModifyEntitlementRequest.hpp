@@ -103,7 +103,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<vector<string>> desktopId_ {};
-    // The user IDs, which are the usernames.
+    // The IDs of the users, which are the usernames.
     shared_ptr<vector<string>> endUserId_ {};
     // The number of cloud desktops assigned to each user.
     shared_ptr<int32_t> maxDesktopPerUser_ {};
@@ -111,14 +111,13 @@ namespace Models
     shared_ptr<int32_t> maxUserPerDesktop_ {};
     // Specifies whether to preview the assignment. A preview does not perform the actual assignment.
     shared_ptr<bool> preview_ {};
-    // The region ID. You can call DescribeRegions to query the regions supported by Elastic Desktop Service.
+    // The region ID. You can call the DescribeRegions operation to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The policy used when proportional matching is not possible. Valid values:
-    // 
-    // - AVERAGE: Prioritizes assigning cloud desktops to each user. When the number of selected cloud desktops and users cannot be matched proportionally, cloud desktops are assigned to each user first.
-    // - CENTRAL: Prioritizes assigning a specified number of cloud desktops to users. When the number of selected cloud desktops and users cannot be matched proportionally, the specified number of cloud desktops are assigned to users first.
+    // The matching policy used when proportional matching is not possible. Valid values:
+    // - AVERAGE: Assigns cloud desktops to each user first. When the number of selected cloud desktops and the number of users cannot be matched proportionally, cloud desktops are assigned to each user first.
+    // - CENTRAL: Assigns a specified number of cloud desktops to users first. When the number of selected cloud desktops and the number of users cannot be matched proportionally, the specified number of cloud desktops are assigned to users first.
     shared_ptr<string> strategy_ {};
   };
 

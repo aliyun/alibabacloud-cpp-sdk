@@ -979,7 +979,7 @@ AttachEndUserResponse Client::attachEndUser(const AttachEndUserRequest &request)
  * @summary Assigns users to multiple cloud desktops in batches.
  *
  * @description - The cloud desktop must be in the Running state.
- * - This operation returns a result immediately. To check whether the assignment is successful, call [DescribeDesktops](https://help.aliyun.com/document_detail/436815.html) and check the `ManagementFlags` response parameter to determine whether the assignment is complete. A value of `ASSIGNING` indicates that the assignment is in progress. Any other value indicates that the assignment is complete.
+ * - This operation returns a result immediately. To check whether the assignment is successful, call [DescribeDesktops](https://help.aliyun.com/document_detail/436815.html) and check the ManagementFlags response parameter to determine whether the assignment is complete. A value of ASSIGNING indicates that the assignment is in progress. Any other value indicates that the assignment is complete.
  * - Check the assignment status every 2 to 5 seconds, up to a maximum of 50 seconds. In most cases, the assignment is completed within 1 to 5 seconds.
  *
  * @param request BatchModifyEntitlementRequest
@@ -1038,7 +1038,7 @@ BatchModifyEntitlementResponse Client::batchModifyEntitlementWithOptions(const B
  * @summary Assigns users to multiple cloud desktops in batches.
  *
  * @description - The cloud desktop must be in the Running state.
- * - This operation returns a result immediately. To check whether the assignment is successful, call [DescribeDesktops](https://help.aliyun.com/document_detail/436815.html) and check the `ManagementFlags` response parameter to determine whether the assignment is complete. A value of `ASSIGNING` indicates that the assignment is in progress. Any other value indicates that the assignment is complete.
+ * - This operation returns a result immediately. To check whether the assignment is successful, call [DescribeDesktops](https://help.aliyun.com/document_detail/436815.html) and check the ManagementFlags response parameter to determine whether the assignment is complete. A value of ASSIGNING indicates that the assignment is in progress. Any other value indicates that the assignment is complete.
  * - Check the assignment status every 2 to 5 seconds, up to a maximum of 50 seconds. In most cases, the assignment is completed within 1 to 5 seconds.
  *
  * @param request BatchModifyEntitlementRequest
@@ -1652,7 +1652,7 @@ CopyCdsFileResponse Client::copyCdsFile(const CopyCdsFileRequest &request) {
 }
 
 /**
- * @summary Copies an image to another region. To share an image across regions, call this operation to copy the image to the destination region before sharing it.
+ * @summary Copies an image to another region. To share an image across regions, you can call this operation to copy the image to the destination region before sharing it.
  *
  * @param request CopyImageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1699,7 +1699,7 @@ CopyImageResponse Client::copyImageWithOptions(const CopyImageRequest &request, 
 }
 
 /**
- * @summary Copies an image to another region. To share an image across regions, call this operation to copy the image to the destination region before sharing it.
+ * @summary Copies an image to another region. To share an image across regions, you can call this operation to copy the image to the destination region before sharing it.
  *
  * @param request CopyImageRequest
  * @return CopyImageResponse
@@ -3260,7 +3260,7 @@ CreateCloudDriveUsersResponse Client::createCloudDriveUsers(const CreateCloudDri
 }
 
 /**
- * @summary Creates a configuration group. A configuration group contains the configuration information of scheduled tasks in a Cloud Desktop center.
+ * @summary Creates a configuration group. The configuration group contains the configuration information of scheduled tasks for cloud desktops.
  *
  * @param request CreateConfigGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3311,7 +3311,7 @@ CreateConfigGroupResponse Client::createConfigGroupWithOptions(const CreateConfi
 }
 
 /**
- * @summary Creates a configuration group. A configuration group contains the configuration information of scheduled tasks in a Cloud Desktop center.
+ * @summary Creates a configuration group. The configuration group contains the configuration information of scheduled tasks for cloud desktops.
  *
  * @param request CreateConfigGroupRequest
  * @return CreateConfigGroupResponse
@@ -9140,7 +9140,7 @@ DescribeDesktopTypesResponse Client::describeDesktopTypes(const DescribeDesktopT
 }
 
 /**
- * @summary Queries the details of a cloud computer.
+ * @summary Queries the details of one or more cloud desktops.
  *
  * @param request DescribeDesktopsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9331,7 +9331,7 @@ DescribeDesktopsResponse Client::describeDesktopsWithOptions(const DescribeDeskt
 }
 
 /**
- * @summary Queries the details of a cloud computer.
+ * @summary Queries the details of one or more cloud desktops.
  *
  * @param request DescribeDesktopsRequest
  * @return DescribeDesktopsResponse
@@ -9808,7 +9808,7 @@ DescribeForwardTableEntriesResponse Client::describeForwardTableEntries(const De
 }
 
 /**
- * @summary Retrieves the information about cloud computers that can be upgraded to a specified image version but have not been upgraded.
+ * @summary Retrieves the information about cloud desktops that can be upgraded to the image of a specified version but have not been upgraded.
  *
  * @param request DescribeFotaPendingDesktopsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9863,7 +9863,7 @@ DescribeFotaPendingDesktopsResponse Client::describeFotaPendingDesktopsWithOptio
 }
 
 /**
- * @summary Retrieves the information about cloud computers that can be upgraded to a specified image version but have not been upgraded.
+ * @summary Retrieves the information about cloud desktops that can be upgraded to the image of a specified version but have not been upgraded.
  *
  * @param request DescribeFotaPendingDesktopsRequest
  * @return DescribeFotaPendingDesktopsResponse
@@ -9940,12 +9940,12 @@ DescribeFotaTasksResponse Client::describeFotaTasks(const DescribeFotaTasksReque
 }
 
 /**
- * @summary Queries the basic information about all recent cloud desktops and the corresponding usage duration records.
+ * @summary Queries the basic information of all recent cloud computers and their corresponding usage duration records.
  *
- * @description - China site users must select Shanghai as the site. International site users must select Singapore.
- * - By default, both deleted and non-deleted cloud desktops are queried.
- * - Deleted cloud desktops can only be queried if they were deleted within the last three months.
- * - Sort conditions cannot be used together with other conditions.
+ * @description - Users on the Chinese site select Shanghai, and users on the international site select Singapore.
+ * - By default, you can query all cloud computers, including both deleted and undeleted ones.
+ * - For deleted cloud computers, you can only query those that were deleted within the last three months.
+ * - Sorting conditions cannot be used together with other conditions.
  *
  * @param request DescribeGlobalDesktopRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9992,6 +9992,10 @@ DescribeGlobalDesktopRecordsResponse Client::describeGlobalDesktopRecordsWithOpt
 
   if (!!request.hasOrderBy()) {
     query["OrderBy"] = request.getOrderBy();
+  }
+
+  if (!!request.hasOrgIdList()) {
+    query["OrgIdList"] = request.getOrgIdList();
   }
 
   if (!!request.hasPageNumber()) {
@@ -10048,12 +10052,12 @@ DescribeGlobalDesktopRecordsResponse Client::describeGlobalDesktopRecordsWithOpt
 }
 
 /**
- * @summary Queries the basic information about all recent cloud desktops and the corresponding usage duration records.
+ * @summary Queries the basic information of all recent cloud computers and their corresponding usage duration records.
  *
- * @description - China site users must select Shanghai as the site. International site users must select Singapore.
- * - By default, both deleted and non-deleted cloud desktops are queried.
- * - Deleted cloud desktops can only be queried if they were deleted within the last three months.
- * - Sort conditions cannot be used together with other conditions.
+ * @description - Users on the Chinese site select Shanghai, and users on the international site select Singapore.
+ * - By default, you can query all cloud computers, including both deleted and undeleted ones.
+ * - For deleted cloud computers, you can only query those that were deleted within the last three months.
+ * - Sorting conditions cannot be used together with other conditions.
  *
  * @param request DescribeGlobalDesktopRecordsRequest
  * @return DescribeGlobalDesktopRecordsResponse
@@ -11700,7 +11704,7 @@ DescribePriceForRenewDesktopOversoldGroupResponse Client::describePriceForRenewD
 /**
  * @summary Queries printer event information.
  *
- * @description Security alerts are classified into two dimensions: alerts and anomalies. A security alert contains multiple anomaly events.
+ * @description Security alerts are divided into two dimensions: alerts and exceptions. A single security alert contains multiple exception events.
  *
  * @param request DescribePrinterEventsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11777,7 +11781,7 @@ DescribePrinterEventsResponse Client::describePrinterEventsWithOptions(const Des
 /**
  * @summary Queries printer event information.
  *
- * @description Security alerts are classified into two dimensions: alerts and anomalies. A security alert contains multiple anomaly events.
+ * @description Security alerts are divided into two dimensions: alerts and exceptions. A single security alert contains multiple exception events.
  *
  * @param request DescribePrinterEventsRequest
  * @return DescribePrinterEventsResponse

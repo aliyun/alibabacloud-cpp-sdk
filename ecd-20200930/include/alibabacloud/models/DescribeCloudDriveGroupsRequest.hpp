@@ -143,36 +143,34 @@ namespace Models
 
 
   protected:
-    // The enterprise cloud drive ID.
+    // The ID of the enterprise cloud drive.
     // 
     // This parameter is required.
     shared_ptr<string> cdsId_ {};
-    // The office network ID.
+    // The ID of the office network.
     shared_ptr<string> directoryId_ {};
-    // The office network name.
+    // The name of the office network.
     shared_ptr<string> directoryName_ {};
-    // The team space status.
+    // The status of the team workspace.
     shared_ptr<string> driveStatus_ {};
-    // Specifies whether a space is added. Default value: empty, which indicates that all types are queried.
+    // Specifies whether a workspace is added. By default, this parameter is left empty, which indicates that all workspaces are queried.
     shared_ptr<string> driveType_ {};
-    // The list of team space IDs.
+    // The IDs of the team workspaces.
     shared_ptr<vector<string>> groupId_ {};
-    // The team space name. Fuzzy match is supported.
+    // The name of the team workspace. Fuzzy match is supported.
     shared_ptr<string> groupName_ {};
-    // The team type. Default value: empty, which indicates that all types are queried.
+    // The team type. By default, this parameter is left empty, which indicates that all types are queried.
     shared_ptr<string> groupType_ {};
-    // The number of entries per page for a paged query.
+    // The number of entries to return on each page during paging in a paged query.
     // 
-    // - Maximum value: 100.
-    // - Default value: 20.
+    // - Maximum value: 100
+    // - Default value: 20
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. Set this parameter to the value of `NextToken` that was returned in the previous call. You do not need to set this parameter for the first request.
+    // The pagination token. Set the value to the `NextToken` value returned from the last call. You do not need to specify this parameter for the first call.
     shared_ptr<string> nextToken_ {};
-    // The ID of the parent node of the object to query. To query the root node, set this parameter to `root`.
-    // 
-    // Default value: empty, which indicates that all team spaces are queried.
+    // The ID of the parent node of the object to be queried. To query the root node, set this parameter to `root`. By default, this parameter is left empty, which indicates that all objects are queried.
     shared_ptr<string> parentGroupId_ {};
-    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the list of regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

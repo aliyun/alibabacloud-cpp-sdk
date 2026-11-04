@@ -322,7 +322,7 @@ namespace Ecd20200930
        * @summary Assigns users to multiple cloud desktops in batches.
        *
        * @description - The cloud desktop must be in the Running state.
-       * - This operation returns a result immediately. To check whether the assignment is successful, call [DescribeDesktops](https://help.aliyun.com/document_detail/436815.html) and check the `ManagementFlags` response parameter to determine whether the assignment is complete. A value of `ASSIGNING` indicates that the assignment is in progress. Any other value indicates that the assignment is complete.
+       * - This operation returns a result immediately. To check whether the assignment is successful, call [DescribeDesktops](https://help.aliyun.com/document_detail/436815.html) and check the ManagementFlags response parameter to determine whether the assignment is complete. A value of ASSIGNING indicates that the assignment is in progress. Any other value indicates that the assignment is complete.
        * - Check the assignment status every 2 to 5 seconds, up to a maximum of 50 seconds. In most cases, the assignment is completed within 1 to 5 seconds.
        *
        * @param request BatchModifyEntitlementRequest
@@ -335,7 +335,7 @@ namespace Ecd20200930
        * @summary Assigns users to multiple cloud desktops in batches.
        *
        * @description - The cloud desktop must be in the Running state.
-       * - This operation returns a result immediately. To check whether the assignment is successful, call [DescribeDesktops](https://help.aliyun.com/document_detail/436815.html) and check the `ManagementFlags` response parameter to determine whether the assignment is complete. A value of `ASSIGNING` indicates that the assignment is in progress. Any other value indicates that the assignment is complete.
+       * - This operation returns a result immediately. To check whether the assignment is successful, call [DescribeDesktops](https://help.aliyun.com/document_detail/436815.html) and check the ManagementFlags response parameter to determine whether the assignment is complete. A value of ASSIGNING indicates that the assignment is in progress. Any other value indicates that the assignment is complete.
        * - Check the assignment status every 2 to 5 seconds, up to a maximum of 50 seconds. In most cases, the assignment is completed within 1 to 5 seconds.
        *
        * @param request BatchModifyEntitlementRequest
@@ -531,7 +531,7 @@ namespace Ecd20200930
       Models::CopyCdsFileResponse copyCdsFile(const Models::CopyCdsFileRequest &request);
 
       /**
-       * @summary Copies an image to another region. To share an image across regions, call this operation to copy the image to the destination region before sharing it.
+       * @summary Copies an image to another region. To share an image across regions, you can call this operation to copy the image to the destination region before sharing it.
        *
        * @param request CopyImageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -540,7 +540,7 @@ namespace Ecd20200930
       Models::CopyImageResponse copyImageWithOptions(const Models::CopyImageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Copies an image to another region. To share an image across regions, call this operation to copy the image to the destination region before sharing it.
+       * @summary Copies an image to another region. To share an image across regions, you can call this operation to copy the image to the destination region before sharing it.
        *
        * @param request CopyImageRequest
        * @return CopyImageResponse
@@ -790,7 +790,7 @@ namespace Ecd20200930
       Models::CreateCloudDriveUsersResponse createCloudDriveUsers(const Models::CreateCloudDriveUsersRequest &request);
 
       /**
-       * @summary Creates a configuration group. A configuration group contains the configuration information of scheduled tasks in a Cloud Desktop center.
+       * @summary Creates a configuration group. The configuration group contains the configuration information of scheduled tasks for cloud desktops.
        *
        * @param request CreateConfigGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -799,7 +799,7 @@ namespace Ecd20200930
       Models::CreateConfigGroupResponse createConfigGroupWithOptions(const Models::CreateConfigGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a configuration group. A configuration group contains the configuration information of scheduled tasks in a Cloud Desktop center.
+       * @summary Creates a configuration group. The configuration group contains the configuration information of scheduled tasks for cloud desktops.
        *
        * @param request CreateConfigGroupRequest
        * @return CreateConfigGroupResponse
@@ -2430,7 +2430,7 @@ namespace Ecd20200930
       Models::DescribeDesktopTypesResponse describeDesktopTypes(const Models::DescribeDesktopTypesRequest &request);
 
       /**
-       * @summary Queries the details of a cloud computer.
+       * @summary Queries the details of one or more cloud desktops.
        *
        * @param request DescribeDesktopsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2439,7 +2439,7 @@ namespace Ecd20200930
       Models::DescribeDesktopsResponse describeDesktopsWithOptions(const Models::DescribeDesktopsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a cloud computer.
+       * @summary Queries the details of one or more cloud desktops.
        *
        * @param request DescribeDesktopsRequest
        * @return DescribeDesktopsResponse
@@ -2566,7 +2566,7 @@ namespace Ecd20200930
       Models::DescribeForwardTableEntriesResponse describeForwardTableEntries(const Models::DescribeForwardTableEntriesRequest &request);
 
       /**
-       * @summary Retrieves the information about cloud computers that can be upgraded to a specified image version but have not been upgraded.
+       * @summary Retrieves the information about cloud desktops that can be upgraded to the image of a specified version but have not been upgraded.
        *
        * @param request DescribeFotaPendingDesktopsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2575,7 +2575,7 @@ namespace Ecd20200930
       Models::DescribeFotaPendingDesktopsResponse describeFotaPendingDesktopsWithOptions(const Models::DescribeFotaPendingDesktopsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the information about cloud computers that can be upgraded to a specified image version but have not been upgraded.
+       * @summary Retrieves the information about cloud desktops that can be upgraded to the image of a specified version but have not been upgraded.
        *
        * @param request DescribeFotaPendingDesktopsRequest
        * @return DescribeFotaPendingDesktopsResponse
@@ -2600,12 +2600,12 @@ namespace Ecd20200930
       Models::DescribeFotaTasksResponse describeFotaTasks(const Models::DescribeFotaTasksRequest &request);
 
       /**
-       * @summary Queries the basic information about all recent cloud desktops and the corresponding usage duration records.
+       * @summary Queries the basic information of all recent cloud computers and their corresponding usage duration records.
        *
-       * @description - China site users must select Shanghai as the site. International site users must select Singapore.
-       * - By default, both deleted and non-deleted cloud desktops are queried.
-       * - Deleted cloud desktops can only be queried if they were deleted within the last three months.
-       * - Sort conditions cannot be used together with other conditions.
+       * @description - Users on the Chinese site select Shanghai, and users on the international site select Singapore.
+       * - By default, you can query all cloud computers, including both deleted and undeleted ones.
+       * - For deleted cloud computers, you can only query those that were deleted within the last three months.
+       * - Sorting conditions cannot be used together with other conditions.
        *
        * @param request DescribeGlobalDesktopRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2614,12 +2614,12 @@ namespace Ecd20200930
       Models::DescribeGlobalDesktopRecordsResponse describeGlobalDesktopRecordsWithOptions(const Models::DescribeGlobalDesktopRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the basic information about all recent cloud desktops and the corresponding usage duration records.
+       * @summary Queries the basic information of all recent cloud computers and their corresponding usage duration records.
        *
-       * @description - China site users must select Shanghai as the site. International site users must select Singapore.
-       * - By default, both deleted and non-deleted cloud desktops are queried.
-       * - Deleted cloud desktops can only be queried if they were deleted within the last three months.
-       * - Sort conditions cannot be used together with other conditions.
+       * @description - Users on the Chinese site select Shanghai, and users on the international site select Singapore.
+       * - By default, you can query all cloud computers, including both deleted and undeleted ones.
+       * - For deleted cloud computers, you can only query those that were deleted within the last three months.
+       * - Sorting conditions cannot be used together with other conditions.
        *
        * @param request DescribeGlobalDesktopRecordsRequest
        * @return DescribeGlobalDesktopRecordsResponse
@@ -3165,7 +3165,7 @@ namespace Ecd20200930
       /**
        * @summary Queries printer event information.
        *
-       * @description Security alerts are classified into two dimensions: alerts and anomalies. A security alert contains multiple anomaly events.
+       * @description Security alerts are divided into two dimensions: alerts and exceptions. A single security alert contains multiple exception events.
        *
        * @param request DescribePrinterEventsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3176,7 +3176,7 @@ namespace Ecd20200930
       /**
        * @summary Queries printer event information.
        *
-       * @description Security alerts are classified into two dimensions: alerts and anomalies. A security alert contains multiple anomaly events.
+       * @description Security alerts are divided into two dimensions: alerts and exceptions. A single security alert contains multiple exception events.
        *
        * @param request DescribePrinterEventsRequest
        * @return DescribePrinterEventsResponse

@@ -94,24 +94,24 @@ namespace Models
 
 
   protected:
-    // The ID of the cloud computer.
+    // The cloud desktop ID.
     shared_ptr<string> desktopId_ {};
-    // The name of the cloud computer.
+    // The name of the cloud desktop.
     shared_ptr<string> desktopName_ {};
-    // The maximum number of entries per page for a paged query.
+    // The maximum number of entries to return per page when paging in a paged query.
     // 
     // - Maximum value: 100
     // - Default value: 20
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. Set the value to the `NextToken` value returned from the previous call to this operation. You do not need to specify this parameter for the first call.
+    // The pagination token. Set the value to the `NextToken` value returned from the last call to this operation. You do not need to specify this parameter for the first call.
     shared_ptr<string> nextToken_ {};
-    // The ID of the office network. You can call the [DescribeOfficeSites](https://help.aliyun.com/document_detail/216071.html) operation to obtain this parameter.
+    // The office network ID. You can call the [DescribeOfficeSites](https://help.aliyun.com/document_detail/216071.html) operation to obtain this parameter.
     shared_ptr<string> officeSiteId_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the list of regions supported by cloud computers.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The information about the image upgrade task. You can call the [DescribeFotaTasks](https://help.aliyun.com/document_detail/437001.html) operation to obtain this parameter.
+    // The UID of the image upgrade task. You can call the [DescribeFotaTasks](https://help.aliyun.com/document_detail/437001.html) operation to obtain this parameter.
     shared_ptr<string> taskUid_ {};
   };
 

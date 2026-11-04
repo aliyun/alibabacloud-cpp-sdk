@@ -156,19 +156,19 @@ namespace Models
 
 
     protected:
-      // The current image version of the cloud computer.
+      // The current image version of the cloud desktop.
       shared_ptr<string> currentAppVersion_ {};
-      // The ID of the cloud computer.
+      // The cloud desktop ID.
       shared_ptr<string> desktopId_ {};
-      // The name of the cloud computer.
+      // The name of the cloud desktop.
       shared_ptr<string> desktopName_ {};
       // > This parameter is not publicly available.
       shared_ptr<string> fotaProject_ {};
-      // The ID of the office network.
+      // The office network ID.
       shared_ptr<string> officeSiteId_ {};
       // The list of connected sessions.
       shared_ptr<vector<FotaPendingDesktops::Sessions>> sessions_ {};
-      // The status of the cloud computer.
+      // The status of the cloud desktop.
       shared_ptr<int64_t> status_ {};
     };
 
@@ -214,11 +214,11 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The list of cloud computers that can be upgraded to the image version corresponding to `TaskUid` but have not been upgraded.
+    // The list of cloud desktops that can be upgraded to the image version corresponding to `TaskUid` but have not been upgraded.
     shared_ptr<vector<DescribeFotaPendingDesktopsResponseBody::FotaPendingDesktops>> fotaPendingDesktops_ {};
     // The message.
     shared_ptr<string> message_ {};
-    // The pagination token for the next query. If NextToken is empty, no more results are available.
+    // The pagination token for the next query. An empty `NextToken` indicates that no more results are available.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

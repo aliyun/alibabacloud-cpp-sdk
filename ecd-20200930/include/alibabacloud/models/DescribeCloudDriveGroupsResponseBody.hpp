@@ -165,15 +165,15 @@ namespace Models
       protected:
         // The email address.
         shared_ptr<string> email_ {};
-        // The administrator username. This value may not be readable when imported from a third party.
+        // The username of the administrator. The username may be unreadable if it is imported from a third-party system.
         shared_ptr<string> endUserId_ {};
-        // The employee ID (DingTalk).
+        // The employee ID in DingTalk.
         shared_ptr<string> jobNumber_ {};
-        // The administrator nickname.
+        // The nickname of the administrator.
         shared_ptr<string> nickName_ {};
         // The phone number.
         shared_ptr<string> phone_ {};
-        // The administrator nickname.
+        // The nickname of the administrator.
         shared_ptr<string> realNickName_ {};
         // The remarks.
         shared_ptr<string> remark_ {};
@@ -272,27 +272,27 @@ namespace Models
     protected:
       // The list of team administrators.
       shared_ptr<string> adminUserIds_ {};
-      // The team storage management administrator information.
+      // The information about the administrators of the team storage management.
       shared_ptr<vector<CloudDriveGroups::AdminUserInfos>> adminUserInfos_ {};
-      // The creation time. The time is in the ISO 8601 standard in the UTC format: yyyy-MM-ddTHH:mm:ssZ.
+      // The creation time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> createTime_ {};
-      // The office network ID.
+      // The ID of the office network.
       shared_ptr<string> directoryId_ {};
-      // The space ID.
+      // The ID of the workspace.
       shared_ptr<string> driveId_ {};
-      // The team space ID.
+      // The ID of the team workspace.
       shared_ptr<string> groupId_ {};
-      // The team space name.
+      // The name of the team workspace.
       shared_ptr<string> groupName_ {};
       // The organization ID of the team.
       shared_ptr<string> orgId_ {};
-      // The size of the team space recycle bin. Unit: bytes.
+      // The size of the recycle bin in the team workspace. Unit: bytes.
       shared_ptr<string> recycleBinSize_ {};
-      // The team space status.
+      // The status of the team workspace.
       shared_ptr<string> status_ {};
-      // The total capacity of the cloud drive team space.
+      // The total capacity of the team workspace.
       shared_ptr<int64_t> totalSize_ {};
-      // The used space size. Unit: bytes.
+      // The size of the used space. Unit: bytes.
       shared_ptr<string> usedSize_ {};
     };
 
@@ -336,11 +336,11 @@ namespace Models
 
 
   protected:
-    // The list of cloud drive team spaces.
+    // The list of team workspaces in the cloud drive.
     shared_ptr<vector<DescribeCloudDriveGroupsResponseBody::CloudDriveGroups>> cloudDriveGroups_ {};
     // The total number of entries.
     shared_ptr<int64_t> count_ {};
-    // The token for the next query. If `NextToken` is empty, no more results exist.
+    // The token for the next query. If `NextToken` is empty, no more results are available.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -148,9 +148,9 @@ namespace Models
 
 
     protected:
-      // The tag key. If you specify `Tag`, `Key` is required. The value cannot exceed 128 characters, cannot start with `aliyun` or `acs:`, cannot contain `http://` or `https://`, and cannot consist of spaces only.
+      // The tag key. If you specify `Tag`, `Key` is required. The tag key can be up to 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`, and cannot contain only spaces.
       shared_ptr<string> key_ {};
-      // The tag value. The value cannot exceed 128 characters, cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // The tag value. The tag value can be up to 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -469,90 +469,91 @@ namespace Models
     // Enterprise: Enterprise Edition
     // Business: Business Edition
     shared_ptr<string> businessChannel_ {};
-    // The billing method of the cloud computer.
+    // The billing method of the cloud desktop.
     shared_ptr<string> chargeType_ {};
-    // The cloud computer pool ID. If you specify `DesktopId`, this `DesktopGroupId` parameter is ignored. If `DesktopId` is empty, the system retrieves the `DesktopId` of all cloud computers in the specified cloud computer pool based on `DesktopGroupId`.
+    // The desktop group ID. If you specify `DesktopId`, the `DesktopGroupId` parameter is ignored. If `DesktopId` is empty, the system queries the `DesktopId` of all cloud desktops in the desktop group based on `DesktopGroupId`.
     shared_ptr<string> desktopGroupId_ {};
-    // The cloud computer IDs. You can specify 1 to 100 IDs.
+    // The cloud desktop IDs. You can specify 1 to 100 IDs.
     shared_ptr<vector<string>> desktopId_ {};
-    // The cloud computer name.
+    // The cloud desktop name.
     shared_ptr<string> desktopName_ {};
-    // The cloud computer status.
+    // The cloud desktop status.
     shared_ptr<string> desktopStatus_ {};
-    // The list of cloud computer statuses.
+    // The list of cloud desktop statuses.
     shared_ptr<vector<string>> desktopStatusList_ {};
-    // The cloud computer instance type. Call [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) to query the supported instance type IDs.
+    // The cloud desktop type. You can call the [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) operation to query the supported cloud desktop types.
     shared_ptr<string> desktopType_ {};
-    // The directory ID. This is the same as the office network ID.
+    // The directory ID. This parameter is equivalent to the office network ID.
     shared_ptr<string> directoryId_ {};
-    // The list of authorized users for the cloud computer. You can set 1 to 100 users.
+    // The authorized users of the cloud desktop. You can specify 1 to 100 users.
     // 
-    // > At any given time, only one user can connect to and use the cloud computer.
+    // > Only one user can connect to and use the cloud desktop at a time.
     shared_ptr<vector<string>> endUserId_ {};
-    // The list of authorized users to exclude. You can specify 1 to 100 users.
+    // The authorized users of the cloud desktop to exclude. You can specify 1 to 100 users.
     shared_ptr<vector<string>> excludedEndUserId_ {};
-    // The expiration time of the subscription cloud computer. The time follows the ISO 8601 standard in UTC: yyyy-MM-ddTHH:mm:ssZ.
+    // The expiration time of the subscription cloud desktop.
+    // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> expiredTime_ {};
-    // Specifies whether to include enterprise resource group information in the response.
+    // Specifies whether to query the enterprise resource group information.
     shared_ptr<bool> fillResourceGroup_ {};
-    // Specifies whether to exclude pooled cloud computers (cloud computers in a cloud computer pool).
+    // Specifies whether to exclude pooled cloud desktops (cloud desktops in a desktop group).
     shared_ptr<bool> filterDesktopGroup_ {};
     // The elastic GPU pool ID.
     shared_ptr<string> gpuInstanceGroupId_ {};
-    // The cloud computer pool ID.
+    // The desktop group ID.
     shared_ptr<string> groupId_ {};
     // The list of image IDs.
     shared_ptr<vector<string>> imageId_ {};
-    // Specifies whether to include automatic snapshot policy information in the response.
+    // Specifies whether to include the automatic snapshot policy information in the response.
     shared_ptr<bool> includeAutoSnapshotPolicy_ {};
     // The management flag.
     shared_ptr<string> managementFlag_ {};
-    // The number of entries per page for a paged query.
+    // The number of entries to return per page in a paging query.
     // 
-    // - Maximum value: 100
-    // - Default value: 10
+    // - Maximum value: 100.
+    // - Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
     // Specifies whether there are multiple resources.
     shared_ptr<bool> multiResource_ {};
     // The private IP address.
     shared_ptr<string> networkInterfaceIp_ {};
-    // The token that marks the start of the next query. An empty NextToken value indicates that there are no more results.
+    // The token that is used to start the next query. If NextToken is empty, no more results exist.
     shared_ptr<string> nextToken_ {};
     // The office network ID.
     shared_ptr<string> officeSiteId_ {};
     // The office network name.
     shared_ptr<string> officeSiteName_ {};
-    // Specifies whether to query only pooled cloud computers (cloud computers in a cloud computer pool).
+    // Specifies whether to query only pooled cloud desktops (cloud desktops in a desktop group).
     shared_ptr<bool> onlyDesktopGroup_ {};
     // The operating system type.
     shared_ptr<vector<string>> osTypes_ {};
-    // The page number in a paged query.
+    // The page number of the current page in a paging query.
     shared_ptr<int32_t> pageNumber_ {};
-    // The maximum number of entries per page in a paged query.
+    // The maximum number of entries per page in a paging query.
     shared_ptr<int32_t> pageSize_ {};
-    // The cloud computer policy ID.
+    // The cloud desktop policy ID.
     shared_ptr<string> policyGroupId_ {};
     // The protocol type.
     shared_ptr<string> protocolType_ {};
-    // The public IP address of the instance. Use this parameter to filter instances by public IP address.
+    // The public IP address of the instance.
     shared_ptr<string> publicIp_ {};
     // The public network bandwidth throttling rule ID.
     shared_ptr<string> qosRuleId_ {};
-    // Specifies whether to query the image version information of the cloud computer.
+    // Specifies whether to query the image version information of the cloud desktop.
     shared_ptr<bool> queryFotaUpdate_ {};
-    // The region ID. Call [DescribeRegions](~~DescribeRegions~~) to retrieve the list of regions supported by Alibaba Cloud Workspace.
+    // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by WUYING Workspace.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource reservation pool ID (rp-xxx). Filters cloud computers by reservation pool exactly. If not specified or left empty, no filtering by reservation pool is applied.
+    // The resource reservation pool ID (rp-xxx). This parameter is used to filter cloud desktops precisely by reservation pool. If this parameter is not specified or is empty, cloud desktops are not filtered by reservation pool.
     shared_ptr<string> reservePoolId_ {};
-    // The enterprise resource group ID.
+    // The ID of the enterprise resource group.
     shared_ptr<string> resourceGroupId_ {};
     // The snapshot policy ID.
     shared_ptr<string> snapshotPolicyId_ {};
-    // The purchase method of the cloud computer.
+    // The billing method for the cloud desktop.
     shared_ptr<string> subPayType_ {};
-    // The list of tags. A tag consists of a key-value pair and is used to identify resources. You can use tags to group and manage cloud computers for easier search and batch operations. For more information, see [Use tags to manage cloud computers](https://help.aliyun.com/document_detail/203781.html).
+    // The list of tags. A tag consists of a key-value pair and is used to identify a resource. You can use tags to manage cloud desktops in groups for easy search and batch operations. For more information, see [Use tags to manage cloud desktops](https://help.aliyun.com/document_detail/203781.html).
     shared_ptr<vector<DescribeDesktopsRequest::Tag>> tag_ {};
     // The username.
     shared_ptr<string> userName_ {};

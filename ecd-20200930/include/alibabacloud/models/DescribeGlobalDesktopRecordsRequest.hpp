@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ExcludeDesktopStatusList, excludeDesktopStatusList_);
       DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_TO_JSON(OrderBy, orderBy_);
+      DARABONBA_PTR_TO_JSON(OrgIdList, orgIdList_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -45,6 +46,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ExcludeDesktopStatusList, excludeDesktopStatusList_);
       DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_FROM_JSON(OrderBy, orderBy_);
+      DARABONBA_PTR_FROM_JSON(OrgIdList, orgIdList_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -68,9 +70,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->businessChannel_ == nullptr
         && this->desktopId_ == nullptr && this->desktopName_ == nullptr && this->desktopStatusList_ == nullptr && this->desktopType_ == nullptr && this->endTime_ == nullptr
-        && this->endUserId_ == nullptr && this->excludeDesktopStatusList_ == nullptr && this->officeSiteId_ == nullptr && this->orderBy_ == nullptr && this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->scope_ == nullptr && this->sortType_ == nullptr
-        && this->startTime_ == nullptr && this->subPayType_ == nullptr && this->userNames_ == nullptr; };
+        && this->endUserId_ == nullptr && this->excludeDesktopStatusList_ == nullptr && this->officeSiteId_ == nullptr && this->orderBy_ == nullptr && this->orgIdList_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->scope_ == nullptr
+        && this->sortType_ == nullptr && this->startTime_ == nullptr && this->subPayType_ == nullptr && this->userNames_ == nullptr; };
     // businessChannel Field Functions 
     bool hasBusinessChannel() const { return this->businessChannel_ != nullptr;};
     void deleteBusinessChannel() { this->businessChannel_ = nullptr;};
@@ -147,6 +149,15 @@ namespace Models
     inline DescribeGlobalDesktopRecordsRequest& setOrderBy(string orderBy) { DARABONBA_PTR_SET_VALUE(orderBy_, orderBy) };
 
 
+    // orgIdList Field Functions 
+    bool hasOrgIdList() const { return this->orgIdList_ != nullptr;};
+    void deleteOrgIdList() { this->orgIdList_ = nullptr;};
+    inline const vector<string> & getOrgIdList() const { DARABONBA_PTR_GET_CONST(orgIdList_, vector<string>) };
+    inline vector<string> getOrgIdList() { DARABONBA_PTR_GET(orgIdList_, vector<string>) };
+    inline DescribeGlobalDesktopRecordsRequest& setOrgIdList(const vector<string> & orgIdList) { DARABONBA_PTR_SET_VALUE(orgIdList_, orgIdList) };
+    inline DescribeGlobalDesktopRecordsRequest& setOrgIdList(vector<string> && orgIdList) { DARABONBA_PTR_SET_RVALUE(orgIdList_, orgIdList) };
+
+
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
@@ -214,59 +225,61 @@ namespace Models
 
   protected:
     // The business channel. Valid values:
-    // - Enterprise: Enterprise Edition.
-    // - Business: Business Edition.
+    // - Enterprise: Enterprise Edition
+    // - Business: Business Edition
     shared_ptr<string> businessChannel_ {};
-    // The cloud desktop ID. You can specify 1 to 100 IDs.
+    // The ID of the cloud computer. You can specify 1 to 100 IDs.
     shared_ptr<vector<string>> desktopId_ {};
-    // The cloud desktop name.
+    // The name of the cloud computer.
     shared_ptr<string> desktopName_ {};
-    // The list of cloud desktop statuses to include.
+    // The list of cloud computer statuses to include.
     shared_ptr<vector<string>> desktopStatusList_ {};
-    // The cloud desktop specifications. You can call [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) to query the specification IDs supported by cloud desktops.
+    // The specifications of the cloud computer. You can call the [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) operation to query the IDs of the specifications supported by cloud computers.
     shared_ptr<string> desktopType_ {};
-    // The end time. The interval between the start time and end time cannot exceed 30 days. Supported format:
+    // The end time. The maximum interval between the start time and the end time is 30 days. Supported format:
     // - Format: YYYY-MM-DDThh:mm:ssZ.
     shared_ptr<string> endTime_ {};
-    // The end user ID.
+    // The ID of the end user.
     shared_ptr<string> endUserId_ {};
-    // The list of cloud desktop statuses to exclude.
+    // The list of cloud computer statuses to exclude.
     shared_ptr<vector<string>> excludeDesktopStatusList_ {};
     // The office network ID.
     shared_ptr<string> officeSiteId_ {};
-    // The sort field. If this parameter is not specified, results are sorted by creation time in descending order. Valid values:
+    // The sorting field. If not specified, the results are sorted in descending order of creation time. Valid values:
     // 
-    // - uptime: sorts by cloud desktop uptime.
+    // - uptime: Sorts the results by the uptime of the cloud computer.
     shared_ptr<string> orderBy_ {};
-    // The page number of the current page in a paged query.    
+    // The list of organization IDs.
+    shared_ptr<vector<string>> orgIdList_ {};
+    // The page number of the current page in a paging query.    
     // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID. Valid values:
+    // The region ID.
     // - Shanghai
     // - Singapore
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The query scope. This parameter is empty by default. Valid values:
+    // The query scope. Default value: empty. Valid values:
     // 
-    // - ADVANCED: queries statistical records such as connection duration.
+    // - ADVANCED: Queries statistical records such as connection duration.
     shared_ptr<string> scope_ {};
-    // The sort order. Default value: Asc. Valid values:
-    // - Asc: ascending order.
-    // - Desc: descending order.
+    // The sorting order. Default value: Asc. Valid values:
+    // - Asc: ascending order
+    // - Desc: descending order
     shared_ptr<string> sortType_ {};
     // The start time. Supported format:
     // - Format: YYYY-MM-DDThh:mm:ssZ.
     shared_ptr<string> startTime_ {};
-    // The billing method of the cloud desktop. Valid values:
+    // The billing method of the cloud computer. Valid values:
     // 
-    // - prePaid: monthly subscription with unlimited usage duration.
-    // - postPaid: pay-as-you-go.
-    // - monthPackage: monthly duration package.
+    // - prePaid: monthly subscription with unlimited duration
+    // - postPaid: pay-as-you-go
+    // - monthPackage: monthly time package
     shared_ptr<string> subPayType_ {};
     // The list of usernames.
     shared_ptr<vector<string>> userNames_ {};

@@ -50,6 +50,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(GpuSpec, gpuSpec_);
         DARABONBA_PTR_TO_JSON(LatestConnectionTime, latestConnectionTime_);
         DARABONBA_PTR_TO_JSON(LatestSessionEndTime, latestSessionEndTime_);
+        DARABONBA_PTR_TO_JSON(ManagementFlags, managementFlags_);
         DARABONBA_PTR_TO_JSON(Memory, memory_);
         DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
         DARABONBA_PTR_TO_JSON(OfficeSiteName, officeSiteName_);
@@ -80,6 +81,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(GpuSpec, gpuSpec_);
         DARABONBA_PTR_FROM_JSON(LatestConnectionTime, latestConnectionTime_);
         DARABONBA_PTR_FROM_JSON(LatestSessionEndTime, latestSessionEndTime_);
+        DARABONBA_PTR_FROM_JSON(ManagementFlags, managementFlags_);
         DARABONBA_PTR_FROM_JSON(Memory, memory_);
         DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
         DARABONBA_PTR_FROM_JSON(OfficeSiteName, officeSiteName_);
@@ -145,9 +147,9 @@ namespace Models
 
 
       protected:
-        // The end user ID.
+        // The ID of the end user.
         shared_ptr<string> endUserId_ {};
-        // The time when the session was created. The time is in the ISO 8601 standard (UTC): yyyy-MM-ddTHH:mm:ssZ.
+        // The creation time of the session. The time follows the ISO 8601 standard in UTC: yyyy-MM-ddTHH:mm:ssZ.
         shared_ptr<string> establishmentTime_ {};
       };
 
@@ -189,19 +191,19 @@ namespace Models
 
 
       protected:
-        // The enterprise resource group ID.
+        // The ID of the enterprise resource group.
         shared_ptr<string> resourceGroupId_ {};
-        // The resource group name.
+        // The name of the resource group.
         shared_ptr<string> resourceGroupName_ {};
       };
 
       virtual bool empty() const override { return this->connectionStatus_ == nullptr
         && this->cpu_ == nullptr && this->creationTime_ == nullptr && this->desktopGroupId_ == nullptr && this->desktopGroupName_ == nullptr && this->desktopId_ == nullptr
         && this->desktopName_ == nullptr && this->desktopStatus_ == nullptr && this->endUserId_ == nullptr && this->endUserIds_ == nullptr && this->gpuSpec_ == nullptr
-        && this->latestConnectionTime_ == nullptr && this->latestSessionEndTime_ == nullptr && this->memory_ == nullptr && this->officeSiteId_ == nullptr && this->officeSiteName_ == nullptr
-        && this->officeSiteType_ == nullptr && this->osType_ == nullptr && this->platform_ == nullptr && this->protocolType_ == nullptr && this->regionId_ == nullptr
-        && this->resourceGroups_ == nullptr && this->sessionIdleTime_ == nullptr && this->sessions_ == nullptr && this->statusChangeTime_ == nullptr && this->subPayType_ == nullptr
-        && this->totalConnectionTime_ == nullptr && this->upTime_ == nullptr; };
+        && this->latestConnectionTime_ == nullptr && this->latestSessionEndTime_ == nullptr && this->managementFlags_ == nullptr && this->memory_ == nullptr && this->officeSiteId_ == nullptr
+        && this->officeSiteName_ == nullptr && this->officeSiteType_ == nullptr && this->osType_ == nullptr && this->platform_ == nullptr && this->protocolType_ == nullptr
+        && this->regionId_ == nullptr && this->resourceGroups_ == nullptr && this->sessionIdleTime_ == nullptr && this->sessions_ == nullptr && this->statusChangeTime_ == nullptr
+        && this->subPayType_ == nullptr && this->totalConnectionTime_ == nullptr && this->upTime_ == nullptr; };
       // connectionStatus Field Functions 
       bool hasConnectionStatus() const { return this->connectionStatus_ != nullptr;};
       void deleteConnectionStatus() { this->connectionStatus_ = nullptr;};
@@ -293,6 +295,15 @@ namespace Models
       void deleteLatestSessionEndTime() { this->latestSessionEndTime_ = nullptr;};
       inline string getLatestSessionEndTime() const { DARABONBA_PTR_GET_DEFAULT(latestSessionEndTime_, "") };
       inline Sessions& setLatestSessionEndTime(string latestSessionEndTime) { DARABONBA_PTR_SET_VALUE(latestSessionEndTime_, latestSessionEndTime) };
+
+
+      // managementFlags Field Functions 
+      bool hasManagementFlags() const { return this->managementFlags_ != nullptr;};
+      void deleteManagementFlags() { this->managementFlags_ = nullptr;};
+      inline const vector<string> & getManagementFlags() const { DARABONBA_PTR_GET_CONST(managementFlags_, vector<string>) };
+      inline vector<string> getManagementFlags() { DARABONBA_PTR_GET(managementFlags_, vector<string>) };
+      inline Sessions& setManagementFlags(const vector<string> & managementFlags) { DARABONBA_PTR_SET_VALUE(managementFlags_, managementFlags) };
+      inline Sessions& setManagementFlags(vector<string> && managementFlags) { DARABONBA_PTR_SET_RVALUE(managementFlags_, managementFlags) };
 
 
       // memory Field Functions 
@@ -409,33 +420,35 @@ namespace Models
       shared_ptr<string> connectionStatus_ {};
       // The number of vCPUs.
       shared_ptr<int32_t> cpu_ {};
-      // The time when the cloud desktop was created. The time is in the ISO 8601 standard (UTC).
+      // The creation time of the cloud desktop. The time follows the ISO 8601 standard in UTC.
       shared_ptr<string> creationTime_ {};
-      // The shared cloud desktop ID.
+      // The ID of the shared cloud computer.
       shared_ptr<string> desktopGroupId_ {};
-      // The shared cloud desktop name.
+      // The name of the shared cloud computer.
       shared_ptr<string> desktopGroupName_ {};
-      // The cloud desktop ID.
+      // The ID of the cloud computer.
       shared_ptr<string> desktopId_ {};
-      // The cloud desktop name.
+      // The name of the cloud computer.
       shared_ptr<string> desktopName_ {};
       // The desktop status.
       shared_ptr<string> desktopStatus_ {};
-      // The end user ID.
+      // The ID of the end user.
       shared_ptr<string> endUserId_ {};
       // The list of assigned end user IDs.
       shared_ptr<vector<string>> endUserIds_ {};
       // The GPU memory size.
       shared_ptr<string> gpuSpec_ {};
-      // The duration of the most recent connection to the cloud desktop. Unit: seconds.
+      // The duration of the most recent connection to the cloud computer. Unit: seconds.
       shared_ptr<int64_t> latestConnectionTime_ {};
-      // The latest end time of the current session. The time is in the ISO 8601 standard (UTC): yyyy-MM-ddTHH:mm:ssZ.
+      // The latest end time of the current session. The time follows the ISO 8601 standard in UTC: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> latestSessionEndTime_ {};
-      // The memory of the cloud desktop. Unit: MiB.
+      // The desktop management status.
+      shared_ptr<vector<string>> managementFlags_ {};
+      // The memory of the cloud computer. Unit: MiB.
       shared_ptr<int64_t> memory_ {};
       // The office network ID.
       shared_ptr<string> officeSiteId_ {};
-      // The office network name.
+      // The name of the office network.
       shared_ptr<string> officeSiteName_ {};
       // The office network type.
       shared_ptr<string> officeSiteType_ {};
@@ -444,7 +457,7 @@ namespace Models
       // - Windows
       // - Linux
       shared_ptr<string> osType_ {};
-      // The specific operating system version.
+      // The specific operating system model.
       shared_ptr<string> platform_ {};
       // The protocol type. Valid values:
       // 
@@ -453,23 +466,23 @@ namespace Models
       shared_ptr<string> protocolType_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The enterprise resource group names.
+      // The name of the enterprise resource group.
       shared_ptr<vector<Sessions::ResourceGroups>> resourceGroups_ {};
-      // The session idle duration. Unit: minutes.
+      // The idle duration of the session. Unit: minutes.
       shared_ptr<int64_t> sessionIdleTime_ {};
       // The session details.
       shared_ptr<vector<Sessions::SessionsItem>> sessions_ {};
-      // The UNIX timestamp when the cloud desktop status changed. Unit: milliseconds.
+      // The UNIX timestamp of the time when the cloud computer status changed. Unit: milliseconds.
       shared_ptr<int64_t> statusChangeTime_ {};
-      // The billing method of the cloud desktop. Valid values:
+      // The billing method of the cloud computer. Valid values:
       // 
-      // - prePaid: monthly subscription with unlimited usage duration.
-      // - postPaid: pay-as-you-go.
-      // - monthPackage: monthly duration package.
+      // - prePaid: monthly subscription with unlimited duration
+      // - postPaid: pay-as-you-go
+      // - monthPackage: monthly time package
       shared_ptr<string> subPayType_ {};
       // The total connection duration. Unit: seconds.
       shared_ptr<int64_t> totalConnectionTime_ {};
-      // The cloud desktop uptime. Unit: seconds.
+      // The uptime of the cloud computer. Unit: seconds.
       shared_ptr<int64_t> upTime_ {};
     };
 

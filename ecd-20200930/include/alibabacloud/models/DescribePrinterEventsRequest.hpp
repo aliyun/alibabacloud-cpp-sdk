@@ -143,19 +143,21 @@ namespace Models
 
 
   protected:
-    // The cloud computer ID. If you do not specify this parameter, all cloud computers in the region are queried.
+    // The cloud desktop ID. If you do not specify this parameter, the system queries all cloud desktops in the specified region.
     shared_ptr<string> desktopId_ {};
-    // The cloud computer name.
+    // The cloud desktop name.
     shared_ptr<string> desktopName_ {};
-    // The end time. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC+0. If you do not specify this parameter, the current time is used.
+    // The end time. Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC. If you do not specify this parameter, the current time is used.    
+    // [ISO 8601](https://help.aliyun.com/document_detail/25696.html)
     shared_ptr<string> endTime_ {};
-    // The logon user information, which is a RAM user ID or an Active Directory (AD) username. If you do not specify this parameter, events of all users in the region are queried.
+    // The logon user information, which is the RAM user ID or the Active Directory (AD) username. If you do not specify this parameter, the system queries the events of all users in the specified region.
     shared_ptr<string> endUserId_ {};
     // The list of end user IDs.
     shared_ptr<vector<string>> endUserIds_ {};
-    // The number of entries per page in a paged query. Default value: 100.
+    // The number of entries to return on each page during paging.
+    // Default value: 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. Set this parameter to the value of NextToken that was returned in the previous API call.
+    // The query token. The value is the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
     // The printer driver name.
     shared_ptr<string> printerDriver_ {};
@@ -163,11 +165,12 @@ namespace Models
     shared_ptr<string> printerName_ {};
     // The printer redirection type.
     shared_ptr<int32_t> printerRedirType_ {};
-    // The region ID. You can call DescribeRegions to query the regions supported by Elastic Desktop Service.
+    // The region ID. You can call the DescribeRegions operation to query the list of regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The start time. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC+0. If you do not specify this parameter, the query starts from the time that is calculated backward from the time specified by `EndTime`.
+    // The start time. Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC. If you do not specify this parameter, the system queries events prior to the time specified by `EndTime`.   
+    // [ISO 8601](https://help.aliyun.com/document_detail/25696.html)
     shared_ptr<string> startTime_ {};
   };
 
