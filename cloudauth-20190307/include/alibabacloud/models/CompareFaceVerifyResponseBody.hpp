@@ -84,7 +84,9 @@ namespace Models
     protected:
       // The unique identifier of the ID Verification request.
       shared_ptr<string> certifyId_ {};
-      // Indicates whether the verification passed. A value of T indicates passed. A value of F indicates not passed.
+      // Indicates whether the verification is passed. Valid values:
+      // - T: Passed.
+      // - F: Failed.
       shared_ptr<string> passed_ {};
       // The face comparison score.
       shared_ptr<float> verifyScore_ {};
@@ -123,7 +125,7 @@ namespace Models
 
 
   protected:
-    // The return code. A value of 200 indicates success. Other values indicate failure.
+    // The return code. A value of 200 indicates success, and other values indicate failure.
     shared_ptr<string> code_ {};
     // The error message.
     shared_ptr<string> message_ {};

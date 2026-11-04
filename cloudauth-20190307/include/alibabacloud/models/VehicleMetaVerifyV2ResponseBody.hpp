@@ -74,11 +74,11 @@ namespace Models
 
     protected:
       // The verification result code. Valid values:
-      // - **1**: Consistent.
-      // - **2**: Inconsistent.
-      // - **3**: No record found.
+      // - **1**: The verification is consistent.
+      // - **2**: The verification is inconsistent.
+      // - **3**: No record is found.
       shared_ptr<string> bizCode_ {};
-      // The vehicle details.
+      // The detailed vehicle information.
       shared_ptr<string> vehicleInfo_ {};
     };
 
@@ -115,9 +115,9 @@ namespace Models
 
 
   protected:
-    // The return code. **200** indicates that the request was successful.
+    // The return code. **200** indicates that the API operation is successful.
     shared_ptr<string> code_ {};
-    // The response message.
+    // The returned message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

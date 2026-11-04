@@ -96,17 +96,17 @@ namespace Models
     protected:
       // The additional information in JSON format.
       shared_ptr<string> materialInfo_ {};
-      // Valid values:
-      // - 0: low risk
-      // - 1: high risk
-      // - 2: suspicious.
+      // The risk level. Valid values:
+      // - 0: Low risk.
+      // - 1: High risk.
+      // - 2: Suspicious.
       shared_ptr<string> result_ {};
       // The risk score map.
       shared_ptr<map<string, string>> riskScore_ {};
-      // The risk labels. Multiple labels are separated by commas. Valid values:
-      // - PS: image manipulation
-      // - LOW_QUALITY_PRODUCT: low quality (low clarity)
-      // - SAME_BACKGROUND: similar image.
+      // The risk tags. Multiple tags are separated by commas. Valid values:
+      // - PS: Image manipulation.
+      // - LOW_QUALITY_PRODUCT: Low quality (low clarity).
+      // - SAME_BACKGROUND: Similar image.
       shared_ptr<string> riskTag_ {};
     };
 
@@ -145,7 +145,7 @@ namespace Models
   protected:
     // The return code. A value of 200 indicates success. Other values indicate failure.
     shared_ptr<string> code_ {};
-    // The response message.
+    // The returned message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -87,18 +87,17 @@ namespace Models
       // - 2: Inconsistent.
       // - 3: No record found.
       shared_ptr<string> bizCode_ {};
-      // The name of the telecommunications service provider. Valid values:
-      // 
-      // - CMCC: China Mobile. 
-      // - CUCC: China Unicom. 
+      // The name of the Internet service provider (ISP). Valid values:
+      // - CMCC: China Mobile.
+      // - CUCC: China Unicom.
       // - CTCC: China Telecom.
       shared_ptr<string> ispName_ {};
-      // The network duration code. Valid values:
-      // - 1: [0,3) indicates a network duration of 0 to 3 months.
-      // - 2: [3,6) indicates a network duration of 3 to 6 months.
-      // - 3: [6,12) indicates a network duration of 6 to 12 months.
-      // - 4: [12,24) indicates a network duration of 12 to 24 months.
-      // - 5: [24,+) indicates a network duration of more than 24 months.
+      // The time code. Valid values:
+      // - 1: [0,3), indicating a network tenure of 0 to 3 months.
+      // - 2: [3,6), indicating a network tenure of 3 to 6 months.
+      // - 3: [6,12), indicating a network tenure of 6 to 12 months.
+      // - 4: [12,24), indicating a network tenure of 12 to 24 months.
+      // - 5: [24,+), indicating a network tenure of more than 24 months.
       shared_ptr<string> timeCode_ {};
     };
 
@@ -135,13 +134,13 @@ namespace Models
 
 
   protected:
-    // The return code. A value of 200 indicates success. Other values indicate failure.
+    // The return code. A value of 200 indicates success, and other values indicate failure.
     shared_ptr<string> code_ {};
-    // The response message.
+    // The returned message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The result information.
+    // The returned result.
     shared_ptr<MobileOnlineTimeResponseBody::ResultObject> resultObject_ {};
   };
 

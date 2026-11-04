@@ -96,22 +96,22 @@ namespace Models
 
 
     protected:
-      // The blacklist string. Separate multiple entries with commas (,).
+      // The blacklist string. Multiple entries are separated by commas.
       shared_ptr<string> bizContent_ {};
       // The blacklist type. Valid values:
-      // - **mobile**: mobile number blacklist.
-      // - **ip**: IP blacklist.
-      // - **identifyNum**: ID card blacklist.
-      // - **bankCard**: bank card blacklist.
+      // - **mobile**: Mobile phone number blacklist.
+      // - **ip**: IP address blacklist.
+      // - **identifyNum**: ID IP blacklist.
+      // - **bankCard**: Bank IP blacklist.
       shared_ptr<string> bizKey_ {};
-      // The rule ID. Valid values:
-      // - **Empty**: creates a rule.
-      // - **Not empty**: modifies a rule.
+      // The rule ID:
+      // - **Empty**: Creates a rule.
+      // - **Not empty**: Modifies a rule.
       shared_ptr<int64_t> id_ {};
       // The product name. Valid values:
       // - **id2meta**: ID card two-element verification.
-      // - **mobile3Meta**: mobile number element verification.
-      // - **bankcardMeta**: bank card element verification.
+      // - **mobile3Meta**: Mobile phone number element verification.
+      // - **bankcardMeta**: Bank card element verification.
       shared_ptr<string> productName_ {};
       // The authentication status. Valid values:
       // - **1**: Authentication passed.

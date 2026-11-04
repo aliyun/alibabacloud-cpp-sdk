@@ -63,8 +63,8 @@ namespace Models
 
 
     protected:
-      // The verification request ID, which is the unique identifier of the verification service authentication request.
-      // You must pass in the verification request ID when querying the authentication result.
+      // The verification request ID, which is the unique identifier of the authentication request for the verification service.
+      // This ID is required when you query the authentication result.
       shared_ptr<string> certifyId_ {};
     };
 
@@ -101,9 +101,9 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The return code.
     shared_ptr<string> code_ {};
-    // The response message.
+    // The returned message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

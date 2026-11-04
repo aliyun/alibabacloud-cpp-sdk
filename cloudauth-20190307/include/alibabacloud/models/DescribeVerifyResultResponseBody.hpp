@@ -188,23 +188,23 @@ namespace Models
         shared_ptr<string> address_ {};
         // The issuing authority.
         shared_ptr<string> authority_ {};
-        // The HTTP or HTTPS URL of the national emblem side of the ID card. The URL is valid for 5 minutes. Save the image to avoid access issues.
-        // > If the HTTP or HTTPS URL has expired, call DescribeVerifyResult again to obtain a new URL.
+        // The HTTP or HTTPS URL of the ID card back image with the national emblem. The URL is valid for 5 minutes. Store the image to prevent service interruptions.
+        // > If the HTTP or HTTPS URL of the image expires, you can call DescribeVerifyResult again to obtain the URL.
         shared_ptr<string> backImageUrl_ {};
         // The date of birth.
         shared_ptr<string> birth_ {};
-        // The expiration date of the ID card. Format: yyyymmdd.
+        // The end date of the validity period of the ID card. Format: yyyymmdd.
         shared_ptr<string> endDate_ {};
-        // The HTTP or HTTPS URL of the portrait side of the ID card. The URL is valid for 5 minutes. Save the image to avoid access issues.
-        // > If the HTTP or HTTPS URL has expired, call DescribeVerifyResult again to obtain a new URL.
+        // The HTTP or HTTPS URL of the ID card portrait image. The URL is valid for 5 minutes. Store the image to prevent service interruptions.
+        // > If the HTTP or HTTPS URL of the image expires, you can call DescribeVerifyResult again to obtain the URL.
         shared_ptr<string> frontImageUrl_ {};
-        // The name on the ID card.
+        // The name.
         shared_ptr<string> name_ {};
         // The ethnicity.
         shared_ptr<string> nationality_ {};
         // The ID card number.
         shared_ptr<string> number_ {};
-        // The start date of the ID card validity period. Format: yyyymmdd.
+        // The start date of the validity period of the ID card. Format: yyyymmdd.
         shared_ptr<string> startDate_ {};
       };
 
@@ -272,27 +272,27 @@ namespace Models
 
 
     protected:
-      // The global camera image captured by the ID Verification SDK.
+      // The global image captured by the camera and collected by the ID Verification SDK.
       // 
-      // > This parameter takes effect only after configuration. If you need to use this parameter, [submit a ticket](https://selfservice.console.aliyun.com/ticket/category/cloudauth/today) to contact us.
+      // > This parameter takes effect only after it is configured. If you need to use this parameter, submit a [ticket](https://selfservice.console.aliyun.com/ticket/category/cloudauth/today) to contact us.
       shared_ptr<string> faceGlobalUrl_ {};
-      // The HTTP or HTTPS URL of the face photo. The URL is valid for 5 minutes. Save the image to avoid access issues.
-      // > If the HTTP or HTTPS URL of the face photo has expired, call [DescribeVerifyResult](https://help.aliyun.com/document_detail/154606.html) again to obtain a new URL.
+      // The HTTP or HTTPS URL of the front-facing face photo. The URL is valid for 5 minutes. Store the image to prevent service interruptions.
+      // > If the HTTP or HTTPS URL of the front-facing face photo expires, you can call [DescribeVerifyResult](https://help.aliyun.com/document_detail/154606.html) again to obtain the URL.
       shared_ptr<string> faceImageUrl_ {};
       // Indicates whether the face is wearing a mask. Valid values:
-      // - **true**: A mask is detected.
-      // - **false**: No mask is detected.
+      // - **true**: A mask is worn.
+      // - **false**: No mask is worn.
       shared_ptr<bool> faceMask_ {};
-      // The quality of the face photo. Valid values:
-      // - **UNQUALIFIED**: poor quality.
-      // - **LOW**: low quality.
-      // - **NORMAL**: moderate quality.
-      // - **HIGH**: high quality.
+      // The quality of the front-facing face photo. Valid values:
+      // - **UNQUALIFIED**: Poor photo quality.
+      // - **LOW**: Low.
+      // - **NORMAL**: Normal.
+      // - **HIGH**: High.
       shared_ptr<string> faceQuality_ {};
-      // The OCR result of the ID card information.
-      // > If no front or back image of the ID card is provided during verification, the ID Verification service does not return the OCR result. Even if front and back images are provided, the service does not guarantee that all information on the ID card will be returned. OCR information may be incomplete when the ID card photo is blurry or has lighting issues that prevent character recognition. Do not create a strong dependency on the ID card OCR information in your business logic.
+      // The optical character recognition (OCR) result of the ID card information.
+      // > If the front and back images of the ID card are not provided during the verification process, the ID Verification service does not return the OCR result of the ID card. Even if the front and back images are provided, the service does not guarantee that all information on the ID card is returned. If the OCR fails to recognize certain information due to photo quality issues, the OCR information will be incomplete. Do not strongly rely on the ID card OCR information in your business.
       shared_ptr<Material::IdCardInfo> idCardInfo_ {};
-      // The name on the ID card.
+      // The name.
       shared_ptr<string> idCardName_ {};
       // The ID card number.
       shared_ptr<string> idCardNumber_ {};
@@ -347,7 +347,7 @@ namespace Models
 
 
   protected:
-    // The comparison score between the face photo submitted during verification and the authoritative data. Value range: **0** to **100**.
+    // The comparison score between the face photo submitted during the verification process and the authoritative data. Valid values: **0** to **100**.
     // 
     // Confidence threshold reference:
     // 
@@ -356,10 +356,9 @@ namespace Models
     // - When the false acceptance rate is 0.1%, the corresponding threshold is 80.
     // - When the false acceptance rate is 1%, the corresponding threshold is 60.
     // 
-    // > This field only indicates the comparison result between the face and the authoritative data and is for reference only. Do not use this value alone as the criterion for determining whether the verification is passed. For the comprehensive verification result, refer to the **VerifyStatus** field. The **VerifyStatus** result combines the face-to-authoritative-data comparison with multiple other strategies to improve security.
+    // > This field only indicates the comparison result between the face and the authoritative data and is for your reference only. Do not use this value as the sole criterion for determining whether the verification is passed. For the comprehensive verification result, refer to the **VerifyStatus** field. The **VerifyStatus** result combines the face-to-authoritative-data comparison with various other strategies to improve the security level.
     shared_ptr<float> authorityComparisionScore_ {};
-    // The comparison score between the face photo submitted during verification and the face in the retained face image. Value range: **0** to **100**.
-    // 
+    // The comparison score between the face photo submitted during the verification process and the face in the retained face photo. Valid values: **0** to **100**.
     // 
     // Confidence threshold reference:
     // 
@@ -368,8 +367,7 @@ namespace Models
     // - When the false acceptance rate is 0.1%, the corresponding threshold is 80.
     // - When the false acceptance rate is 1%, the corresponding threshold is 60.
     shared_ptr<float> faceComparisonScore_ {};
-    // The comparison score between the face photo submitted during verification and the face on the ID card photo. Value range: **0** to **100**.
-    // 
+    // The comparison score between the face photo submitted during the verification process and the face in the ID card portrait photo. Valid values: **0** to **100**.
     // 
     // Confidence threshold reference:
     // 
@@ -384,9 +382,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The verification status. Valid values:
     // 
-    // - **-1**: not verified.
-    // - **1**: verification passed.
-    // - **2** to **n**: verification failed due to various reasons. For more information, see the verification status description.
+    // - **-1**: Not verified.
+    // - **1**: Verification passed.
+    // - **2** to **n**: Verification failed due to various reasons. For detailed descriptions, see the verification status description.
     shared_ptr<int32_t> verifyStatus_ {};
   };
 

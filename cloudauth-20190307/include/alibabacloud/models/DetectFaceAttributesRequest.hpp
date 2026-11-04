@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The business scenario identifier for the ID Verification service.
+    // The business scenario identifier for ID Verification.
     shared_ptr<string> bizType_ {};
-    // The photo to be detected. For format details, see the notes on uploading image addresses. A maximum of 5 faces can be detected in a single image.
+    // The photo to be detected. For the format description, see the image URL description. A maximum of five faces in the same image can be detected.
     // 
     // This parameter is required.
     shared_ptr<string> materialValue_ {};

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the ID Verification scenario configuration.
+    // The intent verification configuration ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> sceneConfigId_ {};

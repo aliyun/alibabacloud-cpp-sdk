@@ -48,8 +48,8 @@ namespace Models
 
 
   protected:
-    // The verification ID. A unique ID that identifies a verification task. The value can be up to 64 characters in length. For a single verification task, the system supports unlimited submissions until the verification is passed and the task is completed.
-    // > Use a different BizId for each verification task.
+    // The verification ID. The unique ID that identifies a verification task. The ID can be up to 64 characters in length. For a single verification task, the system supports unlimited submissions until the verification is passed and the task is completed.
+    // > You must use a different BizId when you initiate different verification tasks.
     // 
     // This parameter is required.
     shared_ptr<string> bizId_ {};

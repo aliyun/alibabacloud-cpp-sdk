@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The API name, same as **ProductCode**.
+    // The API name, which is the same as **ProductCode**.
     shared_ptr<string> apiName_ {};
     // The policy ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // The product type. Currently, only **ANT_CLOUD_AUTH** (financial-grade ID Verification) is supported. All other types have been discontinued.
+    // The product type. Currently, only **ANT_CLOUD_AUTH** (financial-grade ID Verification) is supported. All other types are retired.
     shared_ptr<string> productType_ {};
-    // The region ID.
+    // regionId
     shared_ptr<string> regionId_ {};
     // The user ID.
     shared_ptr<int64_t> userId_ {};

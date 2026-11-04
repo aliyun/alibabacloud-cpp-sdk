@@ -120,7 +120,7 @@ namespace Models
       shared_ptr<string> gmtCreate_ {};
       // The modification time.
       shared_ptr<string> gmtModified_ {};
-      // The Alibaba Cloud Marketplace commodity code.
+      // The commodity code in Alibaba Cloud Marketplace.
       shared_ptr<string> productCode_ {};
       // The product name.
       shared_ptr<string> productName_ {};
@@ -128,7 +128,7 @@ namespace Models
       shared_ptr<string> sceneId_ {};
       // The scenario name.
       shared_ptr<string> sceneName_ {};
-      // Specifies whether to deliver files generated during authentication to the customer\\"s OSS. Valid values:
+      // Specifies whether to deliver the files generated during verification to the customer\\"s OSS. Valid values:
       // - **Y**: Enabled.
       // - **N**: Disabled.
       shared_ptr<string> storeImage_ {};

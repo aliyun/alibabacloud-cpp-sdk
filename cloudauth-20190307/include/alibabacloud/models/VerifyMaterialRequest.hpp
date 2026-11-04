@@ -103,23 +103,23 @@ namespace Models
 
 
   protected:
-    // The unique ID that identifies a verification task. The value can be up to 64 characters in length. For a single verification task, the system supports unlimited submissions until the verification is passed and the task is completed.
+    // The unique ID that identifies an authentication task. The ID cannot exceed 64 characters. For a single authentication task, the system supports unlimited submissions until the authentication is passed and the task is completed.
     // 
-    // > Use a different BizId for each new verification task.
+    // > You must use a different BizId when initiating different authentication tasks.
     // 
     // This parameter is required.
     shared_ptr<string> bizId_ {};
-    // The business scenario identifier for the ID Verification service. Create one in the console first. For more information, see [Business settings](https://help.aliyun.com/document_detail/127885.html).
+    // The business scenario identifier for using the ID Verification service. Create it in the console first. For more information, see [Business settings](https://help.aliyun.com/document_detail/127885.html).
     // 
     // This parameter is required.
     shared_ptr<string> bizType_ {};
-    // The HTTP or HTTPS URL of the front-facing facial photo.
+    // The HTTP or HTTPS URL of the front-facing portrait photo.
     // 
     // This parameter is required.
     shared_ptr<string> faceImageUrl_ {};
-    // The HTTP or HTTPS URL of the national emblem side of the ID card.
+    // The HTTP or HTTPS URL of the image for the back side of the ID card.
     shared_ptr<string> idCardBackImageUrl_ {};
-    // The HTTP or HTTPS URL of the portrait side of the ID card.
+    // The HTTP or HTTPS URL of the image for the front side of the ID card.
     shared_ptr<string> idCardFrontImageUrl_ {};
     // The ID card number.
     // 

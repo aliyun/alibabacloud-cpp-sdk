@@ -206,55 +206,51 @@ namespace Models
   protected:
     // The real name.
     shared_ptr<string> certName_ {};
-    // The certificate number.
+    // The ID document number.
     shared_ptr<string> certNo_ {};
-    // The certificate type.
-    // Currently only ID cards are supported. You must set this parameter to IDENTITY_CARD.
+    // The type of the ID document. Only ID cards are supported. Set the value to IDENTITY_CARD.
     shared_ptr<string> certType_ {};
-    // The CertifyId from a previous successful ID Verification. The photo from that verification is used as the comparison photo.
+    // The CertifyId of a previous successful ID Verification. The photo used in the previous verification is used as the comparison photo.
     // 
-    // > Among the four methods of passing in images (FaceContrastPicture, FaceContrastPictureUrl, CertifyId, and OSS), select only one.
+    // > You can use only one of the following methods to upload the image: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, and OSS.
     shared_ptr<string> certifyId_ {};
     // Specifies whether to allow cropping of the face image. Valid values:
-    // 
-    // - T: Allowed.
-    // 
-    // - F (default): Not allowed.
+    // - T: Cropping is allowed.
+    // - F: Cropping is not allowed. This is the default value.
     shared_ptr<string> crop_ {};
     // The device token for risk identification.
     shared_ptr<string> deviceToken_ {};
-    // The encryption type. An empty value indicates no encryption.
+    // The encryption type. An empty value indicates that encryption is not used.
     shared_ptr<string> encryptType_ {};
     // The local video file.
     shared_ptr<string> faceContrastFile_ {};
     // The Base64-encoded photo.
     shared_ptr<string> faceContrastPicture_ {};
-    // The OSS photo URL. Currently only authorized OSS photo URLs are supported.
+    // The URL of the photo in OSS. Only authorized OSS photo URLs are supported.
     // 
-    // > Among the four methods of passing in images (FaceContrastPicture, FaceContrastPictureUrl, CertifyId, and OSS), select only one.
+    // > You can use only one of the following methods to upload the image: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, and OSS.
     shared_ptr<string> faceContrastPictureUrl_ {};
     // The IP address of the user.
     shared_ptr<string> ip_ {};
     // The mobile phone number of the user.
     shared_ptr<string> mobile_ {};
-    // The liveness detection type.
+    // The type of liveness detection.
     shared_ptr<string> model_ {};
-    // The bucket name of the authorized OSS space.
+    // The name of the authorized OSS bucket.
     // 
-    // > Among the four methods of passing in images (FaceContrastPicture, FaceContrastPictureUrl, CertifyId, and OSS), select only one.
+    // > You can use only one of the following methods to upload the image: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, and OSS.
     shared_ptr<string> ossBucketName_ {};
-    // The file name in the authorized OSS space.
+    // The name of the object in the authorized OSS bucket.
     // 
-    // > Among the four methods of passing in images (FaceContrastPicture, FaceContrastPictureUrl, CertifyId, and OSS), select only one.
+    // > You can use only one of the following methods to upload the image: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, and OSS.
     shared_ptr<string> ossObjectName_ {};
-    // The unique identifier of the merchant request.
-    // The value is a 32-character alphanumeric string. The first few characters are a custom abbreviation defined by the merchant, the middle part can be a time segment, and the last part can be a random or incremental sequence.
+    // The unique identifier of the merchant request. The value is a 32-character alphanumeric string. The first few characters are a custom abbreviation of the merchant, the middle part can be a period of time, and the last part can be a random or incremental sequence.
     shared_ptr<string> outerOrderNo_ {};
-    // Fixed value: ID_MIN.
+    // The product code. Set the value to ID_MIN.
     shared_ptr<string> productCode_ {};
-    // The verification scenario ID.
+    // The ID of the authentication scenario.
     shared_ptr<int64_t> sceneId_ {};
-    // The custom user ID defined by the business.
+    // The custom user ID in the customer\\"s business system.
     shared_ptr<string> userId_ {};
   };
 

@@ -51,7 +51,7 @@ namespace Models
     // The list of phone numbers.
     shared_ptr<string> mobiles_ {};
     // The encryption method. Valid values:
-    // - normal: plaintext without encryption
+    // - normal: Plaintext without encryption.
     // - md5: MD5 encryption.
     shared_ptr<string> paramType_ {};
   };

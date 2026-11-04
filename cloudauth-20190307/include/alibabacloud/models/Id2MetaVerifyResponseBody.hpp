@@ -64,9 +64,9 @@ namespace Models
 
     protected:
       // The verification result code. Valid values:
-      // - **1**: Consistent.
-      // - **2**: Inconsistent.
-      // - **3**: No record found.
+      // - **1**: consistent
+      // - **2**: inconsistent
+      // - **3**: no record found
       shared_ptr<string> bizCode_ {};
     };
 
@@ -103,13 +103,13 @@ namespace Models
 
 
   protected:
-    // The response code. **200** indicates that the request was successful.
+    // The return code. **200** indicates that the request is successful.
     shared_ptr<string> code_ {};
     // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The result information.
+    // The response result.
     shared_ptr<Id2MetaVerifyResponseBody::ResultObject> resultObject_ {};
   };
 

@@ -75,11 +75,11 @@ namespace Models
     protected:
       // The verification result. Valid values:
       // 
-      // - 1: Consistent (billable).
-      // - 2: Inconsistent (billable).
-      // - 3: No record found (not billable).
+      // - 1: Consistent (billed).
+      // - 2: Inconsistent (billed).
+      // - 3: No record found (not billed).
       shared_ptr<string> bizCode_ {};
-      // The carrier name. Valid values:
+      // The name of the Internet service provider (ISP). Valid values:
       // 
       // - **CMCC**: China Mobile.
       // - **CUCC**: China Unicom.
@@ -123,11 +123,11 @@ namespace Models
   protected:
     // The return code. A value of 200 indicates success. Other values indicate failure.
     shared_ptr<string> code_ {};
-    // The response message.
+    // The returned message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The result information.
+    // The returned result information.
     shared_ptr<Mobile3MetaSimpleStandardVerifyResponseBody::ResultObject> resultObject_ {};
   };
 

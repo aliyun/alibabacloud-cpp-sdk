@@ -74,14 +74,14 @@ namespace Models
 
     protected:
       // The verification result. Valid values:
-      // - 1: Consistent.
-      // - 2: Inconsistent.
-      // - 3: No record found.
+      // - 1: consistent
+      // - 2: inconsistent
+      // - 3: no record found
       shared_ptr<string> bizCode_ {};
-      // The carrier name. Valid values:
+      // The ISP name. Valid values:
       // - CMCC: China Mobile
       // - CUCC: China Unicom
-      // - CTCC: China Telecom.
+      // - CTCC: China Telecom
       shared_ptr<string> ispName_ {};
     };
 
@@ -118,7 +118,7 @@ namespace Models
 
 
   protected:
-    // The return code. A value of 200 indicates success. Other values indicate failure.
+    // The return code. A value of 200 indicates success, and other values indicate failure.
     shared_ptr<string> code_ {};
     // The response message.
     shared_ptr<string> message_ {};

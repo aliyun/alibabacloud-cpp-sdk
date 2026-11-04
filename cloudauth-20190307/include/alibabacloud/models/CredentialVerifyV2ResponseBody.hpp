@@ -107,9 +107,9 @@ namespace Models
 
 
       protected:
-        // This feature is offline. This parameter no longer takes effect.
+        // This feature has been retired and the parameter no longer takes effect.
         shared_ptr<bool> success_ {};
-        // This feature is offline. This parameter no longer takes effect.
+        // This feature has been retired and the parameter no longer takes effect.
         shared_ptr<string> vlContent_ {};
       };
 
@@ -177,35 +177,35 @@ namespace Models
 
 
     protected:
-      // The additional information in JSON format.
+      // The other information in JSON format.
       shared_ptr<string> materialInfo_ {};
       // The OCR recognition result.
-      // >Danger: Deprecated.
+      // >Danger: **[Deprecated]**</danger>
       shared_ptr<string> ocrInfo_ {};
       // The risk result. Valid values:
       // 
-      // - 0: Low risk.
-      // - 1: High risk.
-      // - 2: Suspicious.
+      // - 0: low risk
+      // - 1: high risk
+      // - 2: suspicious
       shared_ptr<string> result_ {};
       // The risk score map.
       shared_ptr<map<string, string>> riskScore_ {};
-      // The risk tags, separated by commas (,). Valid values:
+      // The risk tags. Multiple tags are separated by commas (,). Valid values:
       // 
-      // - PS: image manipulation.
-      // - SCREEN_PHOTO: screen recapture.
-      // - SCREENSHOT: screenshot.
-      // - WATERMARK: watermark.
-      // - SAME_BACKGROUND: similar background.
-      // - ORIGINAL_PHOTO: non-original image.
+      // - PS: The image is edited by using Photoshop.
+      // - SCREEN_PHOTO: The image is a photo of a screen.
+      // - SCREENSHOT: The image is a screenshot.
+      // - WATERMARK: The image contains a watermark.
+      // - SAME_BACKGROUND: The image has a similar background.
+      // - ORIGINAL_PHOTO: The image is not an original photo.
       shared_ptr<string> riskTag_ {};
       // The authoritative verification details.
-      // >Danger: Deprecated.
+      // >Danger: **[Deprecated]**</danger>
       shared_ptr<string> verifyDetail_ {};
       // The authoritative verification result.
-      // >Danger: Deprecated.
+      // >Danger: **[Deprecated]**</danger>
       shared_ptr<string> verifyResult_ {};
-      // This feature is offline. This parameter no longer takes effect.
+      // This feature has been retired and the parameter no longer takes effect.
       shared_ptr<ResultObject::VlResult> vlResult_ {};
     };
 
@@ -242,13 +242,13 @@ namespace Models
 
 
   protected:
-    // The return code. A value of 200 indicates success. Other values indicate failure.
+    // The return code. A value of 200 indicates success, and other values indicate failure.
     shared_ptr<string> code_ {};
-    // The return message.
+    // The returned message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The result information.
+    // The returned result information.
     shared_ptr<CredentialVerifyV2ResponseBody::ResultObject> resultObject_ {};
   };
 

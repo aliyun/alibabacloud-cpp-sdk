@@ -96,9 +96,9 @@ namespace Models
 
 
     protected:
-      // This feature is offline. This parameter no longer takes effect.
+      // This feature has been retired and the parameter no longer takes effect.
       shared_ptr<string> key_ {};
-      // This feature is offline. This parameter no longer takes effect.
+      // This feature has been retired and the parameter no longer takes effect.
       shared_ptr<string> value_ {};
     };
 
@@ -214,56 +214,56 @@ namespace Models
 
 
   protected:
-    // The certificate number.
+    // The relevant certificate number.
     shared_ptr<string> certNum_ {};
     // The credential name. Valid values:
     // 
-    // - 01: personal card or certificate
+    // - 01: personal cards and certificates
     //   - 0101: ID card
     //   - 0102: bank card
     //   - 0104: teacher qualification certificate
     //   - 0107: student ID card
-    // - 02: business scenario
+    // - 02: business scenarios
     //   - 0201: storefront photo
     //   - 0202: counter photo
-    //   - 0203: scene photo
-    // - 03: enterprise qualification
-    //   - 0301: business license.
+    //   - 0203: scenario photo
+    // - 03: enterprise qualifications
+    //   - 0301: business license
     shared_ptr<string> credName_ {};
     // The credential type. Valid values:
     // 
-    // - 01: personal card or certificate
-    // - 02: business scenario
-    // - 03: enterprise qualification.
+    // - 01: personal cards and certificates
+    // - 02: business scenarios
+    // - 03: enterprise qualifications
     shared_ptr<string> credType_ {};
     // The ID card number.
     shared_ptr<string> identifyNum_ {};
-    // The Base64-encoded image. Specify one of imageUrl, imageFile, or imageContext.
+    // The Base64-encoded image. Specify one of imageUrl, imageFile, and imageContext.
     shared_ptr<string> imageContext_ {};
-    // The input stream of the image. Specify one of imageUrl, imageFile, or imageContext.
+    // The image input stream. Specify one of imageUrl, imageFile, and imageContext.
     shared_ptr<Darabonba::IStream> imageFileObject_ {};
-    // The URL of the image. Specify one of imageUrl, imageFile, or imageContext.
+    // The image URL. Specify one of imageUrl, imageFile, and imageContext.
     shared_ptr<string> imageUrl_ {};
     // Specifies whether to enable authoritative verification. Valid values:
     // 
-    // - **0**: Disabled.
-    // - **1**: Enabled.
-    // >Danger: Deprecated.
+    // - ****0****: no
+    // - **1**: yes
+    // >Danger: **[Deprecated]**</danger>
     shared_ptr<string> isCheck_ {};
-    // Specifies whether to enable OCR.
-    // >Danger: Deprecated.
+    // Specifies whether to perform OCR.
+    // >Danger: **[Deprecated]**</danger>
     shared_ptr<string> isOcr_ {};
-    // This feature is offline. This parameter no longer takes effect.
+    // This feature has been retired and the parameter no longer takes effect.
     shared_ptr<vector<CredentialVerifyV2AdvanceRequest::MerchantDetail>> merchantDetail_ {};
-    // The merchant ID. This parameter is required when CredName is set to 02.
+    // The merchant ID. This field is required when ****CredName**** is set to **02**.
     shared_ptr<string> merchantId_ {};
     // The call mode. Valid values:
     // 
-    // - ANTI_FAKE_CHECK (default): image anti-forgery detection.
+    // - ANTI_FAKE_CHECK (default): image anti-counterfeiting detection
     shared_ptr<string> productCode_ {};
-    // This feature is offline. This parameter no longer takes effect.
+    // This feature has been retired and the parameter no longer takes effect.
     shared_ptr<string> prompt_ {};
-    // This feature is offline. This parameter no longer takes effect.
+    // This feature has been retired and the parameter no longer takes effect.
     shared_ptr<string> promptModel_ {};
     // The name.
     shared_ptr<string> userName_ {};

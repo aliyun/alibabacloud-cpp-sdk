@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The return code. A value of 200 indicates success. Other values indicate failure.
+    // The return code. A value of 200 indicates success, and other values indicate failure.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<int32_t> data_ {};
@@ -92,9 +92,9 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The returned message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the response is successful.
     shared_ptr<bool> success_ {};
   };
 

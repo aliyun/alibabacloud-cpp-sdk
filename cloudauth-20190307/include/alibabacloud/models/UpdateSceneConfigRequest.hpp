@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The scenario configuration in JSON format. For the specific structure definition, refer to the additional information about configurations.
+    // The scenario configuration information in JSON format. For more information about the specific structure, see the configuration documentation.
     // 
     // This parameter is required.
     shared_ptr<string> config_ {};
-    // The ID of the intent configuration.
+    // The ID of the willingness configuration.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // The selected verification scenario.
+    // The selected authentication scenario.
     // 
     // This parameter is required.
     shared_ptr<int64_t> sceneId_ {};

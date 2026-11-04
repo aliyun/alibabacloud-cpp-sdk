@@ -77,16 +77,16 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<string> errorCode_ {};
-    // Indicates whether the download task is complete. Valid values:
-    // - **true**: Complete.
-    // - **false**: Not complete.
+    // Indicates whether the download task is completed. Valid values:
+    // - **true**: Completed.
+    // - **false**: Not completed.
     shared_ptr<bool> finish_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The task status. Valid values:
-    // - **1**: The file is being generated.
-    // - **2**: The file is generated.
-    // - **3**: The file failed to be generated.
+    // The status of the task. Valid values:
+    // - **1**: File generation is in progress.
+    // - **2**: File generation is complete.
+    // - **3**: File generation failed.
     shared_ptr<int32_t> status_ {};
     // The download URL.
     shared_ptr<string> url_ {};

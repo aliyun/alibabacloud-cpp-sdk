@@ -122,18 +122,18 @@ namespace Models
 
 
       protected:
-        // The location to which the phone number belongs. This field is available only for plaintext phone numbers.
+        // The phone number location. This field is available only for plaintext phone numbers.
         shared_ptr<string> area_ {};
         // The verification result. Valid values:
         // 
         // - 1: Active and available. 
-        // - 2: Not in active and available status.
+        // - 2: Inactive or unavailable.
         // - 3: No query results.
         shared_ptr<string> bizCode_ {};
-        // The carrier name. Valid values:
+        // The name of the carrier. Valid values:
         // 
-        // - CMCC: China Mobile 
-        // - CUCC: China Unicom 
+        // - CMCC: China Mobile. 
+        // - CUCC: China Unicom. 
         // - CTCC: China Telecom.
         shared_ptr<string> ispName_ {};
         // The phone number.
@@ -141,10 +141,10 @@ namespace Models
         // The verification details. Valid values:
         // 
         // - 101: Available number.
-        // - 102: Empty number.
-        // - 103: Suspended. 
-        // - 104: Silent number (inactive secondary number in the past six months, new number, or non-smartphone user). 
-        // - 105: Risky number (user with prolonged shutdown, voice service not activated, or prone to complaints).
+        // - 102: Non-existent number.
+        // - 103: Service suspended. 
+        // - 104: Silent number (inactive secondary numbers, new numbers, or non-smartphone users within the last six months). 
+        // - 105: Risky number (powered off for a long time, voice service not activated, or users prone to complaints).
         // - 301: No record found.
         shared_ptr<string> subCode_ {};
       };
@@ -168,7 +168,7 @@ namespace Models
 
 
     protected:
-      // The total number of billing counts in a single request.
+      // The total number of billable calls in a single request.
       shared_ptr<string> chargeCount_ {};
       // The verification result set.
       shared_ptr<vector<ResultObject::Items>> items_ {};
@@ -207,9 +207,9 @@ namespace Models
 
 
   protected:
-    // The return code. A value of 200 indicates success. Other values indicate failure.
+    // The return code. A value of 200 indicates success, and other values indicate failure.
     shared_ptr<string> code_ {};
-    // The response message.
+    // The returned message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

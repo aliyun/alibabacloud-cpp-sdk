@@ -161,58 +161,57 @@ namespace Models
     // The certificate number.
     shared_ptr<string> certNum_ {};
     // The credential name. Valid values:
-    // 
-    // - 01: personal card and certificate
+    // - 01: Personal cards and certificates
     //   - 0101: ID card
-    //   - 0102: bank card
-    //   - 0104: teacher qualification certificate
-    //   - 0107: student ID card
-    // - 02: business scenario
-    //   - 0201: storefront photo
-    //   - 0202: counter photo
-    //   - 0203: scene photo
-    // - 03: enterprise qualification
-    //   - 0301: business license.
+    //   - 0102: Bank card
+    //   - 0104: Teacher qualification certificate
+    //   - 0107: Student ID card
+    // - 02: Business scenarios
+    //   - 0201: Storefront photo
+    //   - 0202: Counter photo
+    //   - 0203: Scene photo
+    // - 03: Enterprise qualifications
+    //   - 0301: Business license
     shared_ptr<string> credName_ {};
     // The credential type. Valid values:
     // 
-    // - 01: personal card and certificate
-    // - 02: business scenario
-    // - 03: enterprise qualification.
+    // - 01: Personal cards and certificates.
+    // - 02: Business scenarios.
+    // - 03: Enterprise qualifications.
     shared_ptr<string> credType_ {};
     // The ID card number.
     shared_ptr<string> identifyNum_ {};
-    // The Base64-encoded image. Specify either imageUrl or imageContext.
+    // The Base64-encoded image content. You must specify either imageUrl or imageContext.
     shared_ptr<string> imageContext_ {};
-    // The image URL. Specify either imageUrl or imageContext.
+    // The image URL. You must specify either imageUrl or imageContext.
     shared_ptr<string> imageUrl_ {};
     // Specifies whether to enable authoritative verification. Valid values:
     // 
-    // - **0**: Disabled.
-    // - **1**: Enabled.
+    // - ****0****: No.
+    // - **1**: Yes.
     shared_ptr<string> isCheck_ {};
     // Specifies whether to enable optical character recognition (OCR). Valid values:
     // 
-    // - **0**: Disabled.
-    // - **1**: Enabled.
+    // - **0**: No.
+    // - **1**: Yes.
     // 
-    // You can set **isOCR** to **1** only when **CredType** is set to **01**.
+    // You can set this parameter to **1** only when **CredType** is set to **01**.
     shared_ptr<string> isOCR_ {};
-    // This parameter is required when PromptModel is set to DEFAULT.
+    // The merchant details. This parameter is required when PromptModel is set to DEFAULT.
     shared_ptr<string> merchantDetailShrink_ {};
-    // The merchant ID. This parameter is required when **CredName** is set to **02**.
+    // The merchant ID. This parameter is required when ****CredName**** is set to **02**.
     shared_ptr<string> merchantId_ {};
     // The call mode. Valid values:
     // 
-    // * ANTI_FAKE_CHECK: image anti-forgery detection.
+    // * ANTI_FAKE_CHECK: Image anti-counterfeiting detection.
     // 
-    // * ANTI_FAKE_VL: image anti-forgery detection and semantic understanding.
+    // * ANTI_FAKE_VL: Image anti-counterfeiting detection and semantic understanding.
     // 
-    // * IMAGE_VL_COG: image semantic understanding.
+    // * IMAGE_VL_COG: Image semantic understanding.
     // 
     // Default value: ANTI_FAKE_CHECK.
     // 
-    // ProductCode can be set to ANTI_FAKE_VL or IMAGE_VL_COG only when CredType is set to 02.
+    // You can set this parameter to ANTI_FAKE_VL or IMAGE_VL_COG only when CredType is set to 02.
     shared_ptr<string> productCode_ {};
     // The custom prompt content for image semantic understanding.
     // 
@@ -220,9 +219,9 @@ namespace Models
     shared_ptr<string> prompt_ {};
     // The method to obtain the prompt for image semantic understanding. Valid values:
     // 
-    // * DEFAULT: system default.
+    // * DEFAULT: System default.
     // 
-    // * CUSTOM: custom.
+    // * CUSTOM: Custom.
     // 
     // Note: This parameter is required when ProductCode is set to ANTI_FAKE_VL or IMAGE_VL_COG.
     shared_ptr<string> promptModel_ {};

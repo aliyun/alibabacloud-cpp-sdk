@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The region ID.
+    // regionId
     shared_ptr<string> regionId_ {};
     // The user ID.
     // 

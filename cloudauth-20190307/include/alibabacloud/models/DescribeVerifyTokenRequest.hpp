@@ -167,13 +167,13 @@ namespace Models
 
 
   protected:
-    // The authentication ID. A unique ID that identifies an authentication task. The value can be up to 64 characters in length. For a single authentication task, the system supports unlimited submissions until the authentication is passed and the task is completed.
+    // The authentication ID. The unique ID that identifies an authentication task. The ID cannot exceed 64 characters in length. For a single authentication task, the system supports unlimited submissions until the authentication is passed and the task is completed.
     // 
-    // > Use a different BizId for each different authentication task.
+    // > You must use a different BizId when initiating different authentication tasks.
     // 
     // This parameter is required.
     shared_ptr<string> bizId_ {};
-    // The business scenario identifier for using the ID Verification service. Create one in the console first. For more information, see [Business settings](https://help.aliyun.com/document_detail/127885.html).
+    // The business scenario identifier for using the ID Verification service. Create the identifier in the console first. For more information, see [Business settings](https://help.aliyun.com/document_detail/127885.html).
     // 
     // This parameter is required.
     shared_ptr<string> bizType_ {};
@@ -183,17 +183,17 @@ namespace Models
     shared_ptr<string> callbackUrl_ {};
     // The HTTP or HTTPS URL of the retained face photo.
     shared_ptr<string> faceRetainedImageUrl_ {};
-    // The redirect URL upon verification failure.
+    // The redirect URL for verification failure.
     shared_ptr<string> failedRedirectUrl_ {};
-    // The HTTP or HTTPS URL of the national emblem side of the ID card image.
+    // The HTTP or HTTPS URL of the image for the back side of the ID card.
     shared_ptr<string> idCardBackImageUrl_ {};
-    // The HTTP or HTTPS URL of the portrait side of the ID card image.
+    // The HTTP or HTTPS URL of the image for the front side of the ID card.
     shared_ptr<string> idCardFrontImageUrl_ {};
     // The ID card number.
     shared_ptr<string> idCardNumber_ {};
     // The name.
     shared_ptr<string> name_ {};
-    // The redirect URL upon successful verification.
+    // The redirect URL for verification success.
     shared_ptr<string> passedRedirectUrl_ {};
     // The ID of the end user, such as the account ID of the end user.
     shared_ptr<string> userId_ {};
@@ -201,7 +201,7 @@ namespace Models
     shared_ptr<string> userIp_ {};
     // The phone number of the user.
     shared_ptr<string> userPhoneNumber_ {};
-    // The registration time of the user. Specify the value in UNIX timestamp format. Unit: milliseconds.
+    // The registration time of the user. The value is a timestamp in milliseconds.
     shared_ptr<int64_t> userRegistTime_ {};
   };
 

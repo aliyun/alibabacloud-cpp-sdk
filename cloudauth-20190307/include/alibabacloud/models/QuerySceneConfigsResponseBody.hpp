@@ -116,7 +116,7 @@ namespace Models
 
 
     protected:
-      // The specific configuration content, in JSON string format.
+      // The specific configuration content, which is a JSON string.
       shared_ptr<string> config_ {};
       // The creation time.
       shared_ptr<string> gmtCreate_ {};
@@ -124,11 +124,11 @@ namespace Models
       shared_ptr<string> gmtModified_ {};
       // The configuration ID.
       shared_ptr<int64_t> id_ {};
-      // The scenario ID.
+      // The scene ID.
       shared_ptr<int64_t> sceneId_ {};
       // The configuration type.
       shared_ptr<string> type_ {};
-      // The version number of the scenario configuration.
+      // The scene configuration version number.
       shared_ptr<int64_t> version_ {};
     };
 
@@ -151,9 +151,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The list of intent verification configurations.
+    // The list of willingness configurations.
     shared_ptr<vector<QuerySceneConfigsResponseBody::SceneConfigs>> sceneConfigs_ {};
   };
 

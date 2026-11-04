@@ -89,32 +89,30 @@ namespace Models
     // This parameter is required when VerifyMetaType is set to VEHICLE_3_META.
     // 
     // > 
-    // > - If ParamType is set to normal, enter the plaintext value.
-    // > - If ParamType is set to md5, enter the first 6 digits of the ID card number in plaintext + the MD5-encrypted date of birth (32-bit lowercase MD5) + the last 4 digits of the ID card number.
+    // > - When paramType is set to normal, enter the plaintext.
+    // > - When paramType is set to md5, enter the first 6 digits of the ID card number in plaintext + the 32-bit lowercase MD5 hash of the birth date + the last 4 digits of the ID card number.
     shared_ptr<string> identifyNum_ {};
     // The parameter type. Valid values:
-    // 
     // - normal: not encrypted.
-    // - md5: MD5-encrypted.
+    // - md5: MD5 encrypted.
     shared_ptr<string> paramType_ {};
     // The name.
     // > 
-    // > - If ParamType is set to normal, enter the plaintext value.
-    // > - If ParamType is set to md5, enter the MD5-encrypted first character of the name (32-bit lowercase MD5) + the remaining characters of the name in plaintext.
+    // > - When paramType is set to normal, enter the plaintext.
+    // > - When paramType is set to md5, enter the 32-bit lowercase MD5 hash of the first character of the name + the rest of the name in plaintext.
     shared_ptr<string> userName_ {};
     // The license plate number.
     // 
     // > 
-    // > - If ParamType is set to normal, enter the plaintext value.
-    // > - If ParamType is set to md5, enter the license plate number excluding the last two characters in plaintext + the MD5-encrypted last two characters (32-bit lowercase MD5).
+    // > - When paramType is set to normal, enter the plaintext.
+    // > - When paramType is set to md5, enter the license plate number except the last two characters in plaintext + the 32-bit lowercase MD5 hash of the last two characters of the license plate.
     shared_ptr<string> vehicleNum_ {};
     // The vehicle type.
     shared_ptr<string> vehicleType_ {};
-    // The verification type.
-    // 
+    // The verification type. Valid values:
     // > 
-    // > - VEHICLE_2_META: two-element verification. Verifies the name and license plate number.
-    // > - VEHICLE_3_META: three-element verification. Verifies the name, license plate number, and ID card number.
+    // > - VEHICLE_2_META: two-element verification, which verifies the name and license plate number.
+    // > - VEHICLE_3_META: three-element verification, which verifies the name, license plate number, and ID card number.
     shared_ptr<string> verifyMetaType_ {};
   };
 

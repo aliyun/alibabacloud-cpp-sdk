@@ -84,17 +84,17 @@ namespace Models
     protected:
       // The query result. Valid values:
       // 
-      // - 1: A query result is found.
-      // - 3: No query result is found.
+      // - 1: A query result is returned.
+      // - 3: No query result is returned.
       shared_ptr<string> bizCode_ {};
-      // The carrier name. China Mobile: CMCC. China Unicom: CUCC. China Telecom: CTCC.
+      // The ISP name. Valid values: China Mobile - CMCC, China Unicom - CUCC, and China Telecom - CTCC.
       shared_ptr<string> ispName_ {};
       // The detailed verification result. Valid values:
       // 
-      // - 101: The registration date is equal to or later than the phone number activation date.
-      // - 102: The registration date is earlier than the phone number activation date.
-      // - 103: The new subscriber has not been synchronized yet.
-      // - 301: Data exception or the subscriber has been deactivated.
+      // - 101: The registration time is later than or equal to the activation time of the mobile phone number.
+      // - 102: The registration time is earlier than the activation time of the mobile phone number.
+      // - 103: The newly activated user is not synchronized.
+      // - 301: Data exception or disconnected user.
       shared_ptr<string> subCode_ {};
     };
 
@@ -131,12 +131,12 @@ namespace Models
 
 
   protected:
-    // The response code. A value of 200 indicates success. Any other value indicates failure.
-    // > **Important**
-    // - This parameter indicates whether the API operation is called correctly. For more information about return codes, see error codes.
-    // - Check the business verification result in the fields of ResultObject.
+    // The return code. A value of 200 indicates success, and other values indicate failure.
+    // Important
+    // - This parameter indicates whether the API operation was called successfully. For detailed return code descriptions, see Error codes.
+    // - To view the business verification result, check the fields in ResultObject.
     shared_ptr<string> code_ {};
-    // The response message.
+    // The returned message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

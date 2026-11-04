@@ -50,7 +50,7 @@ namespace Models
   protected:
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The OSS download link for the file.
+    // The OSS link for downloading the file.
     shared_ptr<string> resultObject_ {};
   };
 

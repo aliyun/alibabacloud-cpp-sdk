@@ -123,11 +123,11 @@ namespace Models
       shared_ptr<string> bucket_ {};
       // The endpoint.
       shared_ptr<string> endPoint_ {};
-      // The expiration time. The value is in UNIX timestamp format. Unit: milliseconds.
+      // The expiration time. The value is a timestamp in milliseconds.
       shared_ptr<int64_t> expired_ {};
       // The key required for file upload.
       shared_ptr<string> key_ {};
-      // The file storage path.
+      // The storage path of the file.
       shared_ptr<string> path_ {};
       // The secret required for file upload.
       shared_ptr<string> secret_ {};
@@ -170,11 +170,11 @@ namespace Models
   protected:
     // The OSS upload token information.
     shared_ptr<DescribeVerifyTokenResponseBody::OssUploadToken> ossUploadToken_ {};
-    // The ID of this request.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The entry URL for the legacy H5 authentication scheme. This scheme has been discontinued and no longer accepts new integrations. If you need H5 authentication, use the [PC or mobile H5 web integration scheme](https://help.aliyun.com/document_detail/173779.html) of financial-grade ID Verification.
+    // The entry URL of the legacy H5 authentication solution. This solution has been retired and no longer supports new integrations. If you need to integrate an H5 authentication solution, we recommend that you use the [PC or mobile H5 web integration solution](https://help.aliyun.com/document_detail/173779.html) of Financial-grade ID Verification.
     shared_ptr<string> verifyPageUrl_ {};
-    // The token for this authentication, which is used to connect the various operations in the authentication request. The token is valid for 30 minutes.
+    // The token for the authentication. The token is used to link all operations in the authentication request and is valid for 30 minutes.
     shared_ptr<string> verifyToken_ {};
   };
 

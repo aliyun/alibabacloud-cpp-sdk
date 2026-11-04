@@ -138,23 +138,23 @@ namespace Models
       shared_ptr<string> accumulateKey_ {};
       // The size of the rate limiting statistical window, in minutes.
       shared_ptr<int64_t> accumulateWindow_ {};
-      // The API name, which is the same as **ProductCode**.
+      // The API name. This parameter is the same as **ProductCode**.
       // 
       // This parameter is required.
       shared_ptr<string> apiName_ {};
       // The flow type. Valid values:
-      // - **ACCUMULATE**: repeated occurrence of an ID card.
-      // - **PASSED_RATE**: pass rate is less than.
-      // - **SUB_CODE_205**: authentication failed and the proportion of liveness attack 205 is greater than.
-      // - **SUB_CODE_206**: authentication failed and the proportion of liveness attack 206 is greater than.
+      // - **ACCUMULATE**: Duplicate ID cards.
+      // - **PASSED_RATE**: The pass rate is less than the specified value.
+      // - **SUB_CODE_205**: Authentication fails and the proportion of liveness attack 205 is greater than the specified value.
+      // - **SUB_CODE_206**: Authentication fails and the proportion of liveness attack 206 is greater than the specified value.
       shared_ptr<string> flowType_ {};
-      // The rule ID.
+      // The ID of the rule.
       shared_ptr<int64_t> id_ {};
       // The operation.
       shared_ptr<string> operation_ {};
       // The status. Valid values:
-      // - **disabled**: disabled.
-      // - **normal**: enabled.
+      // - **disabled**: Disabled.
+      // - **normal**: Enabled.
       // 
       // This parameter is required.
       shared_ptr<string> status_ {};
@@ -162,7 +162,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<int32_t> threshold_ {};
-      // The user ID.
+      // The ID of the user.
       shared_ptr<int64_t> userId_ {};
     };
 
@@ -185,9 +185,9 @@ namespace Models
 
 
   protected:
-    // The product type. Currently, only **ANT_CLOUD_AUTH** (financial-grade ID Verification) is supported. All other types have been discontinued.
+    // The product type. Currently, only **ANT_CLOUD_AUTH** (Financial-grade ID Verification) is supported. All other product types are retired.
     shared_ptr<string> productType_ {};
-    // The policy list.
+    // The list of policies.
     shared_ptr<vector<ModifyCustomizeFlowStrategyListRequest::StrategyObject>> strategyObject_ {};
   };
 

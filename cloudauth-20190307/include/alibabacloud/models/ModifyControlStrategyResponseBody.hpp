@@ -68,7 +68,7 @@ namespace Models
   protected:
     // The return code.
     shared_ptr<string> code_ {};
-    // The response message returned by the operation.
+    // The message returned by the API.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

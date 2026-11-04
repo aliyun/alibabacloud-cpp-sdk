@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The willingness authentication configuration, in JSON string format.
+    // The intent authentication configuration, which is a JSON string.
     // 
     // This parameter is required.
     shared_ptr<string> config_ {};

@@ -48,12 +48,11 @@ namespace Models
 
 
   protected:
-    // The unique identifier for ID Verification.
-    // Obtain this value by calling InitAuthVerify to initiate an OCR request.
+    // The unique identifier for ID Verification. To obtain this value, call the InitAuthVerify operation to initiate an OCR request.
     // 
     // This parameter is required.
     shared_ptr<string> certifyId_ {};
-    // The authentication scenario ID.
+    // The authentication scene ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> sceneId_ {};

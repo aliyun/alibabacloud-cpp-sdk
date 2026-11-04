@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ServiceCode of the ID Verification product. Valid values:
-    // - **antcloudauth**: financial-grade ID Verification.
-    // - **cloudauthst (discontinued)**: enhanced ID Verification.
+    // The ServiceCode of the ID Verification cloud service. Valid values:
+    // - **antcloudauth**: Financial-grade ID Verification.
+    // - **cloudauthst** (retired): ID Verification Enhanced Edition.
     shared_ptr<string> serviceCode_ {};
-    // The source IP address of the visitor.
+    // The source IP address of the requester.
     shared_ptr<string> sourceIp_ {};
   };
 

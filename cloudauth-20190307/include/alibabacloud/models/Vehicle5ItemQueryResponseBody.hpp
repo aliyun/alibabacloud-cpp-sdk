@@ -74,8 +74,9 @@ namespace Models
 
     protected:
       // The verification result code. Valid values:
-      // - **1**: Match found (billable).
-      // - **3**: No record found (not billable).
+      // 
+      // - **1**: found (billed)
+      // - **3**: no record found (not billed)
       shared_ptr<string> bizCode_ {};
       // The vehicle information.
       shared_ptr<string> vehicleInfo_ {};
@@ -116,11 +117,11 @@ namespace Models
   protected:
     // The return code.
     shared_ptr<string> code_ {};
-    // The response message.
+    // The returned message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The result information.
+    // The returned result information.
     shared_ptr<Vehicle5ItemQueryResponseBody::ResultObject> resultObject_ {};
   };
 

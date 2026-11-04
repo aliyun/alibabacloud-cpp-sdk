@@ -13,12 +13,14 @@ namespace Models
   class DeepfakeDetectRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DeepfakeDetectRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(FaceAttributeCheck, faceAttributeCheck_);
       DARABONBA_PTR_TO_JSON(FaceBase64, faceBase64_);
       DARABONBA_PTR_TO_JSON(FaceInputType, faceInputType_);
       DARABONBA_PTR_TO_JSON(FaceUrl, faceUrl_);
       DARABONBA_PTR_TO_JSON(OuterOrderNo, outerOrderNo_);
     };
     friend void from_json(const Darabonba::Json& j, DeepfakeDetectRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(FaceAttributeCheck, faceAttributeCheck_);
       DARABONBA_PTR_FROM_JSON(FaceBase64, faceBase64_);
       DARABONBA_PTR_FROM_JSON(FaceInputType, faceInputType_);
       DARABONBA_PTR_FROM_JSON(FaceUrl, faceUrl_);
@@ -35,8 +37,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->faceBase64_ == nullptr
-        && this->faceInputType_ == nullptr && this->faceUrl_ == nullptr && this->outerOrderNo_ == nullptr; };
+    virtual bool empty() const override { return this->faceAttributeCheck_ == nullptr
+        && this->faceBase64_ == nullptr && this->faceInputType_ == nullptr && this->faceUrl_ == nullptr && this->outerOrderNo_ == nullptr; };
+    // faceAttributeCheck Field Functions 
+    bool hasFaceAttributeCheck() const { return this->faceAttributeCheck_ != nullptr;};
+    void deleteFaceAttributeCheck() { this->faceAttributeCheck_ = nullptr;};
+    inline string getFaceAttributeCheck() const { DARABONBA_PTR_GET_DEFAULT(faceAttributeCheck_, "") };
+    inline DeepfakeDetectRequest& setFaceAttributeCheck(string faceAttributeCheck) { DARABONBA_PTR_SET_VALUE(faceAttributeCheck_, faceAttributeCheck) };
+
+
     // faceBase64 Field Functions 
     bool hasFaceBase64() const { return this->faceBase64_ != nullptr;};
     void deleteFaceBase64() { this->faceBase64_ = nullptr;};
@@ -66,20 +75,22 @@ namespace Models
 
 
   protected:
-    // The Base64-encoded face image.
-    // > Specify either FaceUrl or FaceBase64.
+    // Specifies whether to enable facial attribute detection.
+    shared_ptr<string> faceAttributeCheck_ {};
+    // The Base64-encoded string of the facial image.
+    // > You must specify either FaceUrl or FaceBase64.
     shared_ptr<string> faceBase64_ {};
-    // The input type of the face material. Valid values:
+    // The input type of the facial material. Valid values:
     // 
-    // - IMAGE (default): face image
-    // - VIDEO: face video
+    // - IMAGE (default): facial image.
+    // - VIDEO: facial video.
     // 
-    // > Video processing takes longer. Set the timeout to more than 3 seconds.
+    // > Video processing takes a long time. Set the timeout period to greater than 3 seconds.
     shared_ptr<string> faceInputType_ {};
-    // The URL of the face image.
-    // > Specify either FaceUrl or FaceBase64.
+    // The URL of the facial image.
+    // > You must specify either FaceUrl or FaceBase64.
     shared_ptr<string> faceUrl_ {};
-    // The unique identifier of the merchant request. The value is a 32-character alphanumeric string. The first few characters consist of a custom merchant abbreviation, the middle part can contain a time segment, and the last part can use a random or incremental sequence.
+    // The unique identifier of the merchant request. The value is a 32-character alphanumeric string. The first few characters consist of a custom abbreviation defined by the merchant, the middle part can contain a time period, and the latter part can be a random or incremental sequence.
     shared_ptr<string> outerOrderNo_ {};
   };
 

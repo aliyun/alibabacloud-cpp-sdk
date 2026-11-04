@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The list of security alert rules.
     shared_ptr<string> controlStrategyListShrink_ {};
-    // The product type. Currently, only **ANT_CLOUD_AUTH** (financial-grade ID Verification) is supported. All other types have been discontinued.
+    // The product type. Currently, only **ANT_CLOUD_AUTH** (Financial-grade ID Verification) is supported. All other types are retired.
     shared_ptr<string> productType_ {};
     // The region ID of the Smart Access Gateway instance.
     shared_ptr<string> regionId_ {};

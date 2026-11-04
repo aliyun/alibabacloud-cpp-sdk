@@ -84,11 +84,11 @@ namespace Models
 
 
   protected:
-    // The credential name. Only the following value is supported: 0501 (product image).
+    // The credential name. Valid values: 0501 (product image).
     // 
     // This parameter is required.
     shared_ptr<string> credName_ {};
-    // The credential type. Only the following value is supported: 05 (product image).
+    // The credential type. Valid values: 05 (product image).
     // 
     // This parameter is required.
     shared_ptr<string> credType_ {};
@@ -98,7 +98,7 @@ namespace Models
     shared_ptr<string> imageUrl_ {};
     // The merchant ID.
     shared_ptr<string> merchantId_ {};
-    // The call mode. Only the following value is supported: ANTI_FAKE_CHECK.
+    // The call mode. Valid values: ANTI_FAKE_CHECK.
     // 
     // This parameter is required.
     shared_ptr<string> productCode_ {};

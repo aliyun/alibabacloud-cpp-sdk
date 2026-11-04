@@ -115,19 +115,19 @@ namespace Models
 
 
     protected:
-      // The OSS bucket for file storage.
+      // The OSS bucket.
       shared_ptr<string> bucket_ {};
       // The endpoint.
       shared_ptr<string> endPoint_ {};
       // The expiration time.
       shared_ptr<int64_t> expired_ {};
-      // The key required for file upload.
+      // The key required to upload files.
       shared_ptr<string> key_ {};
       // The file storage path.
       shared_ptr<string> path_ {};
-      // The secret required for file upload.
+      // The secret required to upload files.
       shared_ptr<string> secret_ {};
-      // The token required for file upload.
+      // The token required to upload files.
       shared_ptr<string> token_ {};
     };
 

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The IDs of the whitelists to delete in batch.
+    // The IDs of the whitelists to delete in batches.
     shared_ptr<string> idsShrink_ {};
-    // The ServiceCode of the ID Verification service. Set this parameter to **antcloudauth**.
+    // The service code of the ID Verification service. Valid values: **antcloudauth**.
     shared_ptr<string> serviceCode_ {};
   };
 

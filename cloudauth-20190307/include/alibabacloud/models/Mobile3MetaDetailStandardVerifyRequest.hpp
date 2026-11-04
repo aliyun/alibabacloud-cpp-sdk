@@ -68,23 +68,23 @@ namespace Models
   protected:
     // The ID card number.
     // 
-    // - If ParamType is set to normal, pass in the ID card number in plaintext.
-    // - If ParamType is set to md5, pass in the MD5-encrypted ID card number.
+    // - If paramType is set to normal, specify the plaintext ID card number.
+    // - If paramType is set to md5, specify the ciphertext ID card number.
     shared_ptr<string> identifyNum_ {};
-    // The phone number.
+    // The mobile phone number.
     // 
-    // - If ParamType is set to normal, pass in the phone number in plaintext.
-    // - If ParamType is set to md5, pass in the MD5-encrypted phone number.
+    // - If paramType is set to normal, specify the plaintext mobile phone number.
+    // - If paramType is set to md5, specify the ciphertext mobile phone number.
     shared_ptr<string> mobile_ {};
     // The parameter type. Valid values:
     // 
-    // - normal: not encrypted.
-    // - md5: MD5-encrypted.
+    // - normal: The value is not encrypted.
+    // - md5: The value is encrypted by using MD5.
     shared_ptr<string> paramType_ {};
     // The name.
     // 
-    // - If ParamType is set to normal, pass in the name in plaintext.
-    // - If ParamType is set to md5, pass in the MD5-encrypted name.
+    // - If paramType is set to normal, specify the plaintext name.
+    // - If paramType is set to md5, specify the ciphertext name.
     shared_ptr<string> userName_ {};
   };
 

@@ -120,26 +120,26 @@ namespace Models
 
 
     protected:
-      // The blacklist string. Multiple blacklist entries are separated by **commas**.
+      // The blacklist string. Items in the blacklist are separated by **commas**.
       shared_ptr<string> bizContent_ {};
-      // The blacklist type. Valid values:
-      // - mobile: phone number blacklist
-      // - ip: IP blacklist
-      // - identifyNum: ID card blacklist
-      // - bankCard: bank card blacklist.
+      // The list type. Valid values:
+      // - mobile: The mobile phone number blocklist.
+      // - ip: The IP address blocklist.
+      // - identifyNum: The ID card blocklist.
+      // - bankCard: The bank card blocklist.
       shared_ptr<string> bizKey_ {};
       // The modification time.
       shared_ptr<int64_t> gmtModified_ {};
       // The rule ID.
       shared_ptr<int64_t> id_ {};
       // The product name. Valid values:
-      // - id2meta: ID card two-factor verification.
-      // - mobile3Meta: Phone number factor verification.
-      // - bankcardMeta: Bank card factor verification.
+      // - id2meta: ID card two-element verification
+      // - mobile3Meta: mobile phone number element verification
+      // - bankcardMeta: bank card element verification
       shared_ptr<string> productName_ {};
       // The status. Valid values:
-      // - **disabled**: Disabled.
-      // - **normal**: Enabled.
+      // - **disabled**: disabled
+      // - **normal**: enabled
       shared_ptr<string> status_ {};
       // The user ID.
       shared_ptr<int64_t> userId_ {};
@@ -178,7 +178,7 @@ namespace Models
 
 
   protected:
-    // The return code. **200** indicates that the request was successful.
+    // The return code. **200** indicates that the request is successful.
     shared_ptr<string> code_ {};
     // The error message.
     shared_ptr<string> message_ {};

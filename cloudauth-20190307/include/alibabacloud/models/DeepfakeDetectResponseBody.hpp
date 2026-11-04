@@ -39,11 +39,13 @@ namespace Models
     class ResultObject : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const ResultObject& obj) { 
+        DARABONBA_PTR_TO_JSON(FaceAttributeInfo, faceAttributeInfo_);
         DARABONBA_PTR_TO_JSON(Result, result_);
         DARABONBA_PTR_TO_JSON(RiskScore, riskScore_);
         DARABONBA_PTR_TO_JSON(RiskTag, riskTag_);
       };
       friend void from_json(const Darabonba::Json& j, ResultObject& obj) { 
+        DARABONBA_PTR_FROM_JSON(FaceAttributeInfo, faceAttributeInfo_);
         DARABONBA_PTR_FROM_JSON(Result, result_);
         DARABONBA_PTR_FROM_JSON(RiskScore, riskScore_);
         DARABONBA_PTR_FROM_JSON(RiskTag, riskTag_);
@@ -59,8 +61,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->result_ == nullptr
-        && this->riskScore_ == nullptr && this->riskTag_ == nullptr; };
+      virtual bool empty() const override { return this->faceAttributeInfo_ == nullptr
+        && this->result_ == nullptr && this->riskScore_ == nullptr && this->riskTag_ == nullptr; };
+      // faceAttributeInfo Field Functions 
+      bool hasFaceAttributeInfo() const { return this->faceAttributeInfo_ != nullptr;};
+      void deleteFaceAttributeInfo() { this->faceAttributeInfo_ = nullptr;};
+      inline string getFaceAttributeInfo() const { DARABONBA_PTR_GET_DEFAULT(faceAttributeInfo_, "") };
+      inline ResultObject& setFaceAttributeInfo(string faceAttributeInfo) { DARABONBA_PTR_SET_VALUE(faceAttributeInfo_, faceAttributeInfo) };
+
+
       // result Field Functions 
       bool hasResult() const { return this->result_ != nullptr;};
       void deleteResult() { this->result_ = nullptr;};
@@ -85,19 +94,21 @@ namespace Models
 
 
     protected:
+      // The facial attribute output fields.
+      shared_ptr<string> faceAttributeInfo_ {};
       // The risk result. Valid values:
       // 
-      // - **0**: Low risk.
-      // - **1**: High risk.
-      // - **2**: Suspicious.
+      // - **0**: low risk.
+      // - **1**: high risk.
+      // - **2**: suspicious.
       shared_ptr<string> result_ {};
-      // The risk score map.
+      // The map of risk scores.
       shared_ptr<map<string, string>> riskScore_ {};
-      // The risk labels. Multiple labels are separated by commas (,). Valid values:
+      // The risk tags. Multiple tags are separated by commas (,). Valid values:
       // 
-      // - SuspectDeepForgery: suspected deepfake
-      // - SuspectPSFace: suspected synthetic attack
-      // - SuspectTemple: suspected fraudulent attack
+      // - SuspectDeepForgery: suspected deepfake.
+      // - SuspectPSFace: suspected synthetic attack.
+      // - SuspectTemple: suspected black market attack.
       // - SuspectRemake: suspected recaptured face.
       shared_ptr<string> riskTag_ {};
     };
@@ -135,13 +146,13 @@ namespace Models
 
 
   protected:
-    // The return code. A value of 200 indicates success. Other values indicate failure.
+    // The return code. A value of 200 indicates success, and other values indicate failure.
     shared_ptr<string> code_ {};
-    // The response message.
+    // The returned message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The result information.
+    // The returned result.
     shared_ptr<DeepfakeDetectResponseBody::ResultObject> resultObject_ {};
   };
 

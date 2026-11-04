@@ -101,9 +101,9 @@ namespace Models
 
     protected:
       // The identity verification result. Valid values:
-      // - 1: consistent
-      // - 2: inconsistent
-      // - 3: no record found.
+      // - 1: Consistent.
+      // - 2: Inconsistent.
+      // - 3: No record found.
       shared_ptr<string> bizCode_ {};
       // The ID card information submitted for verification.
       shared_ptr<string> cardInfo_ {};
@@ -111,9 +111,9 @@ namespace Models
       shared_ptr<string> faceDetail_ {};
       // The ID card information read by OCR.
       shared_ptr<string> ocrCardInfo_ {};
-      // The returned photo URLs.
-      // - certUrl: front side
-      // - certNationalUrl: national emblem side.
+      // The URLs of the returned photos.
+      // - certUrl: Front side.
+      // - certNationalUrl: National emblem side.
       shared_ptr<string> pictureInfo_ {};
     };
 
@@ -150,14 +150,14 @@ namespace Models
 
 
   protected:
-    // The response code. 200 indicates success. Other values indicate failure.
-    // > **Important**
-    // > - This parameter indicates whether the operation is called correctly. For more information about return codes, refer to error codes.
-    // > - Check the business verification result by viewing the fields in ResultObject.
+    // The return code. A value of 200 indicates success, and other values indicate failure.
+    // Important
+    // - This parameter indicates whether the operation is called correctly. For more information about return codes, see Error codes.
+    // - To view the business verification result, check the fields in ResultObject.
     shared_ptr<string> code_ {};
-    // The response message of the operation.
-    // > **Important**
-    // > - This parameter only indicates whether the operation is abnormal.
+    // The message returned for the operation call.
+    // Important
+    // - This parameter only indicates whether an exception occurs during the operation call.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

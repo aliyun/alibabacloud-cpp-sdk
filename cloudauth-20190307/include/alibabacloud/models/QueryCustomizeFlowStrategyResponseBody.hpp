@@ -144,15 +144,15 @@ namespace Models
     protected:
       // AccumulateKey
       shared_ptr<string> accumulateKey_ {};
-      // The rate limiting statistical window. Unit: **minutes**.
+      // The throttling statistics window, in **minutes**.
       shared_ptr<string> accumulateWindow_ {};
       // The API name, which is the same as **ProductCode**.
       shared_ptr<string> apiName_ {};
       // The flow type. Valid values:
-      // - **ACCUMULATE**: repeated occurrence of an ID card number.
-      // - **PASSED_RATE**: pass rate less than the threshold.
-      // - **SUB_CODE_205**: authentication failed and the proportion of liveness attack 205 is greater than the threshold.
-      // - **SUB_CODE_206**: authentication failed and the proportion of liveness attack 206 is greater than the threshold.
+      // - **ACCUMULATE**: Repeated occurrence of ID cards.
+      // - **PASSED_RATE**: Pass rate is less than.
+      // - **SUB_CODE_205**: Authentication fails and the proportion of liveness attack 205 is greater than.
+      // - **SUB_CODE_206**: Authentication fails and the proportion of liveness attack 206 is greater than.
       shared_ptr<string> flowType_ {};
       // The rule ID.
       shared_ptr<string> id_ {};
@@ -215,17 +215,17 @@ namespace Models
 
 
   protected:
-    // The return code. A value of 200 indicates success. Other values indicate failure.
+    // The return code. 200 indicates success, and other values indicate failure.
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The processing result.
     shared_ptr<vector<QueryCustomizeFlowStrategyResponseBody::ResultObject>> resultObject_ {};
-    // Indicates whether the response is successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

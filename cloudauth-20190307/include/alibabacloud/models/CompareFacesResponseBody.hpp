@@ -75,20 +75,20 @@ namespace Models
 
 
     protected:
-      // The confidence thresholds for face comparison. The returned content is a JSON object with the structure `"key":"value"`.
+      // The confidence thresholds for face comparison. The response is a JSON object in the `"key":"value"` format.
       // 
-      // - `key` is the false acceptance rate (FAR), which is the probability of incorrectly identifying another person as the specified person.
-      // - `value` is the corresponding threshold.
+      // - `key`: The false acceptance rate (FAR), which is the probability of misidentifying another person as the specified person.
+      // - `value`: The corresponding threshold.
       // 
       // 
-      // > About the confidence thresholds (confidenceThresholds) in the example:
-      // - `"0.0001": "90.07"` indicates that the corresponding threshold is 90.07 when the FAR is 0.01%.
-      // - `"0.001": "80.01"` indicates that the corresponding threshold is 80.01 when the FAR is 0.1%.
-      // - `"0.01": "70.02"` indicates that the corresponding threshold is 70.02 when the FAR is 1%.
+      // > Regarding the confidence thresholds (confidenceThresholds) in the example:
+      // - `"0.0001": "90.07"` indicates that the threshold is 90.07 when the FAR is 0.01%.
+      // - `"0.001": "80.01"` indicates that the threshold is 80.01 when the FAR is 0.1%.
+      // - `"0.01": "70.02"` indicates that the threshold is 70.02 when the FAR is 1%.
       // 
       // The confidence thresholds are dynamically generated based on different images and algorithms. Do not persist the confidence thresholds.
       shared_ptr<string> confidenceThresholds_ {};
-      // The similarity score between the faces in the two images. Valid values: [0, 100]. A higher value indicates a greater similarity.
+      // The similarity score of the faces in the two images. Valid values: [0, 100]. A higher value indicates a higher similarity.
       shared_ptr<float> similarityScore_ {};
     };
 
@@ -138,9 +138,9 @@ namespace Models
     shared_ptr<CompareFacesResponseBody::Data> data_ {};
     // The error code.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the response is successful.
     shared_ptr<bool> success_ {};
   };
 
