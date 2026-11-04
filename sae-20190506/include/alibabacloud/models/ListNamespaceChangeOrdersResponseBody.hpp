@@ -224,49 +224,43 @@ namespace Models
 
 
       protected:
-        // The batch count.
+        // The number of batches.
         shared_ptr<int32_t> batchCount_ {};
         // The batch type.
         shared_ptr<string> batchType_ {};
         // The change order ID.
         shared_ptr<string> changeOrderId_ {};
-        // The type of the change order, which corresponds to the `CoTypeCode`.
+        // The type of the change order, which is the description of **CoTypeCode**.
         shared_ptr<string> coType_ {};
-        // The type code of the change order. Valid values:
+        // The code of the change order type. Valid values:
         // 
         // - **CoBatchStartApplication**: Starts applications in batches.
-        // 
         // - **CoBatchStopApplication**: Stops applications in batches.
         shared_ptr<string> coTypeCode_ {};
-        // The creation time of the change order.
+        // The creation time.
         shared_ptr<string> createTime_ {};
         // The ID of the user who created the change order.
         shared_ptr<string> createUserId_ {};
         // The description of the change order.
         shared_ptr<string> description_ {};
-        // The completion time of the change order.
+        // The end time.
         shared_ptr<string> finishTime_ {};
         // The group ID.
         shared_ptr<string> groupId_ {};
         // The namespace ID.
         shared_ptr<string> namespaceId_ {};
-        // The pipeline.
+        // The change pipelines.
         shared_ptr<string> pipelines_ {};
-        // The initiation source for the change order.
+        // The source from which the change order was initiated.
         shared_ptr<string> source_ {};
         // The status of the change order. Valid values:
         // 
-        // - **0**: Preparing
-        // 
-        // - **1**: In progress
-        // 
-        // - **2**: Succeeded
-        // 
-        // - **3**: Failed
-        // 
-        // - **6**: Terminated
-        // 
-        // - **10**: Failed due to a system exception
+        // - **0**: preparing
+        // - **1**: executing
+        // - **2**: succeeded
+        // - **3**: failed
+        // - **6**: terminated
+        // - **10**: failed due to a system exception
         shared_ptr<int32_t> status_ {};
         // The user ID.
         shared_ptr<string> userId_ {};
@@ -370,35 +364,30 @@ namespace Models
 
 
   protected:
-    // The HTTP status code or POP error code.
+    // The API status code or POP error code. Valid values:
     // 
-    // - **2xx**: The request was successful.
-    // 
-    // - **3xx**: The request was redirected.
-    // 
-    // - **4xx**: A client error occurred.
-    // 
-    // - **5xx**: A server error occurred.
+    // - **2xx**: success
+    // - **3xx**: redirection
+    // - **4xx**: client error
+    // - **5xx**: server error
     shared_ptr<string> code_ {};
-    // The returned results.
+    // The returned result.
     shared_ptr<ListNamespaceChangeOrdersResponseBody::Data> data_ {};
-    // The error code.
+    // The error code. Valid values:
     // 
-    // - This parameter is returned only when a request fails.
-    // 
-    // - For more information, see the **Error codes** section of this topic.
+    // - Request succeeded: The **ErrorCode** parameter is not returned.
+    // - Request failed: The **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The response message.
+    // The additional information about the API call result.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the change order list was successfully retrieved. Valid values:
     // 
-    // - **true**: The request was successful.
-    // 
-    // - **false**: The request failed.
+    // - **true**: The list was successfully retrieved.
+    // - **false**: The retrieval failed.
     shared_ptr<bool> success_ {};
-    // The trace ID, which is used to query the details of the request.
+    // The trace ID used to query the exact call information.
     shared_ptr<string> traceId_ {};
   };
 

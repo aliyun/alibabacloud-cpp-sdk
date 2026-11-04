@@ -171,71 +171,50 @@ namespace Models
 
 
     protected:
-      // The application ID.
+      // The ID of the current application.
       shared_ptr<string> appId_ {};
-      // Indicates whether ARMS Advanced Edition is enabled. Valid values:
-      // 
-      // - **true**: enabled.
-      // 
-      // - **false**: disabled.
+      // Specifies whether Application Real-Time Monitoring Service (ARMS) Pro is activated. Valid values:
+      // - **true**: ARMS Pro is activated.
+      // - **false**: ARMS Pro is not activated.
       shared_ptr<string> armsAdvancedEnabled_ {};
-      // The metadata of the application in ARMS.
+      // The metadata information of the application in ARMS.
       shared_ptr<string> armsApmInfo_ {};
-      // The time when the application was created. This value is a UNIX timestamp.
+      // The time when the application was created.
       shared_ptr<string> createTime_ {};
       // The current status of the application. Valid values:
-      // 
       // - **RUNNING**: The application is running.
-      // 
       // - **STOPPED**: The application is stopped.
-      // 
       // - **UNKNOWN**: The application status is unknown.
       shared_ptr<string> currentStatus_ {};
-      // Indicates whether the SAE agent is enabled. Valid values:
-      // 
-      // - **true**
-      // 
-      // - **false**
+      // Specifies whether the Serverless App Engine (SAE) agent is enabled. Valid values:
+      // - **true**: The agent is enabled.
+      // - **false**: The agent is not enabled.
       shared_ptr<bool> enableAgent_ {};
-      // The file size limit. Unit: KB. Valid values: 0 to 10240.
+      // The file size limit. Valid values: 0 to 10240. Unit: KB.
       shared_ptr<int64_t> fileSizeLimit_ {};
-      // The ID of the most recently executed change order. This parameter is empty if no change order was executed or if the information about the change order has expired.
+      // The ID of the most recently executed change order. If no change order has been executed or the change order information has expired, this field is empty.
       shared_ptr<string> lastChangeOrderId_ {};
-      // Indicates whether the most recent change order is being executed. Valid values:
-      // 
-      // - **true**
-      // 
-      // - **false**
+      // Specifies whether the most recent change order is being executed. Valid values:
+      // - **true**: The most recent change order is being executed.
+      // - **false**: The most recent change order is not being executed.
       shared_ptr<bool> lastChangeOrderRunning_ {};
       // The status of the most recent change order. Valid values:
-      // 
-      // - **READY**: The change order is ready.
-      // 
-      // - **RUNNING**: The change order is being executed.
-      // 
-      // - **SUCCESS**: The change order was successful.
-      // 
-      // - **FAIL**: The change order failed.
-      // 
-      // - **ABORT**: The change order was aborted.
-      // 
-      // - **WAIT_BATCH_CONFIRM**: The change order is waiting for manual confirmation for the next batch.
-      // 
-      // - **AUTO_BATCH_WAIT**: The change order is in a waiting state for an automatic batch.
-      // 
-      // - **SYSTEM_FAIL**: A system error occurred.
-      // 
-      // - **WAIT_APPROVAL**: The change order is pending approval.
-      // 
-      // - **APPROVED**: The change order is approved and is pending execution.
+      // - **READY**: The most recent change order is ready.
+      // - **RUNNING**: The most recent change order is being executed.
+      // - **SUCCESS**: The most recent change order is successful.
+      // - **FAIL**: The most recent change order failed.
+      // - **ABORT**: The most recent change order is aborted.
+      // - **WAIT_BATCH_CONFIRM**: The most recent change order is waiting for manual batch confirmation.
+      // - **AUTO_BATCH_WAIT**: The most recent change order is in the automatic batch waiting state.
+      // - **SYSTEM_FAIL**: A system fault occurred.
+      // - **WAIT_APPROVAL**: The most recent change order is waiting for approval.
+      // - **APPROVED**: The most recent change order is approved and waiting to be executed.
       shared_ptr<string> lastChangeOrderStatus_ {};
-      // The number of running instances of the application.
+      // The number of running instances of the current application.
       shared_ptr<int32_t> runningInstances_ {};
-      // The substatus of the change order. This parameter is used to determine whether an exception occurs during the release process. Valid values:
-      // 
+      // The sub-status of the change order, which is used to determine whether an exception occurred during the release process. Valid values:
       // - **NORMAL**: The release is normal.
-      // 
-      // - **RUNNING_BUT_HAS_ERROR**: The release is abnormal. For example, if an error occurs during a phased release, you must manually roll back the release. In this case, the change order cannot be completed and the status of the change order remains **RUNNING**.
+      // - **RUNNING_BUT_HAS_ERROR**: An exception occurred during the release. For example, an error occurs during a batch release and requires a manual rollback. In this case, the change order is still being executed because it cannot be completed despite the error.
       shared_ptr<string> subStatus_ {};
     };
 
@@ -294,39 +273,29 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values:
-    // 
-    // - **2xx**: The request was successful.
-    // 
-    // - **3xx**: The request was redirected.
-    // 
-    // - **4xx**: The request was invalid.
-    // 
-    // - **5xx**: A server error occurred.
+    // The API status code or POP error code. Valid values:
+    // - **2xx**: Success.
+    // - **3xx**: Redirection.
+    // - **4xx**: Request error.
+    // - **5xx**: Server error.
     shared_ptr<string> code_ {};
-    // The response data.
+    // The returned result.
     shared_ptr<DescribeApplicationStatusResponseBody::Data> data_ {};
-    // The error code.
-    // 
-    // - If the request is successful, this parameter is not returned.
-    // 
-    // - If the request fails, this parameter is returned. For more information, see the **Error codes** section in this topic.
+    // The error code. 
+    // - If the request is successful, the **ErrorCode** parameter is not returned.
+    // - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The response message.
-    // 
-    // - If the call is successful, **success** is returned.
-    // 
-    // - If the call fails, an error message is returned.
+    // The additional information. 
+    // - If the request is successful, **success** is returned.
+    // - If an exception occurs, a specific error code is returned.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the application status was obtained. Valid values:
-    // 
-    // - **true**
-    // 
-    // - **false**
+    // Indicates whether the application status information was successfully retrieved. Valid values:
+    // - **true**: The information was successfully retrieved.
+    // - **false**: The information failed to be retrieved.
     shared_ptr<bool> success_ {};
-    // The trace ID that is used to query the details of a request.
+    // The trace ID used to query invocation information.
     shared_ptr<string> traceId_ {};
   };
 

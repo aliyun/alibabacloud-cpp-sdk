@@ -69,7 +69,7 @@ namespace Models
 
 
     protected:
-      // The ID of the change process.
+      // The change order ID.
       shared_ptr<string> changeOrderId_ {};
     };
 
@@ -128,27 +128,33 @@ namespace Models
 
 
   protected:
-    // The API status or POP error code. Value description:
+    // The API status code or POP error code. Valid values:
     // 
-    // 2xx: The request was successful. 3xx: The request was redirected. 4xx: The request was invalid. 5xx: A server error occurred.
+    // - 2xx: The request is successful.
+    // - 3xx: The request is redirected.
+    // - 4xx: A request error occurred.
+    // - 5xx: A server error occurred.
     shared_ptr<string> code_ {};
-    // The response.
+    // The returned result.
     shared_ptr<BatchRestartApplicationsResponseBody::Data> data_ {};
-    // The error code. Value description:
+    // The error code. Valid values:
     // 
-    // If the request succeeds, this field is not returned. It is returned only if the request fails. For more information, see the "Error codes" section in this topic.
+    // - Successful request: The ErrorCode field is not returned.
+    // - Failed request: The ErrorCode field is returned. For more information, see the error codes section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The additional information. Value description:
+    // The additional information. Valid values:
     // 
-    // If the request succeeds, a success message is returned. If the request fails, an error code is returned.
+    // - success: The request is successful.
+    // - Specific error code: The request is abnormal and a specific error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the applications were started. Valid values:
+    // Indicates whether the applications are successfully restarted in batches. Valid values:
     // 
-    // true and false
+    // - true: The applications are successfully restarted in batches.
+    // - false: The applications fail to be restarted in batches.
     shared_ptr<bool> success_ {};
-    // The ID of the trace, which is used to query the exact call information.
+    // The trace ID used to accurately query call information.
     shared_ptr<string> traceId_ {};
   };
 

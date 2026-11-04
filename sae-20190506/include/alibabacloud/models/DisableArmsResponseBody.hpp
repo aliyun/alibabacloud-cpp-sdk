@@ -69,7 +69,9 @@ namespace Models
 
 
     protected:
-      // Indicates whether ARMS monitoring is enabled. Valid values:
+      // Specifies whether the feature is enabled. Valid values:
+      // - **true**: Enabled.
+      // - **false**: Disabled.
       shared_ptr<bool> enable_ {};
     };
 
@@ -128,31 +130,27 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values:
+    // The API status code or POP error code. Valid values:
     // 
-    // - **2xx**: The request was successful.
-    // 
-    // - **3xx**: The request was redirected.
-    // 
-    // - **4xx**: A client error occurred.
-    // 
-    // - **5xx**: A server error occurred.
+    // - **2xx**: Success.
+    // - **3xx**: Redirection.
+    // - **4xx**: Client error.
+    // - **5xx**: Server error.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The returned result.
     shared_ptr<DisableArmsResponseBody::Data> data_ {};
-    // The error code.
+    // The error code. Valid values:
     // 
     // - If the request is successful, the **ErrorCode** parameter is not returned.
-    // 
     // - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The returned message.
+    // The additional information about the call result.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
-    // The trace ID that is used to query the details of a request.
+    // The trace ID used to precisely query call information.
     shared_ptr<string> traceId_ {};
   };
 

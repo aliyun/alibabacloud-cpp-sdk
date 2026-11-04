@@ -57,8 +57,12 @@ namespace Models
 
 
   protected:
+    // The ID of the vSwitch.
     shared_ptr<string> vSwitchId_ {};
+    // The name of the vSwitch.
     shared_ptr<string> vSwitchName_ {};
+    // The ID of the VPC to which the vSwitch belongs.
+    // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
   };

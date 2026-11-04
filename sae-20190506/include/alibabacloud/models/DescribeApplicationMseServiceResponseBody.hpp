@@ -97,23 +97,18 @@ namespace Models
 
 
     protected:
-      // The application ID.
+      // The MSE microservice governance application ID.
       shared_ptr<string> mseAppId_ {};
-      // The application name.
+      // The MSE microservice governance application name.
       shared_ptr<string> mseAppName_ {};
-      // The namespace.
+      // The MSE microservice governance namespace.
       shared_ptr<string> mseAppNameSpace_ {};
-      // The application status. Valid values:
-      // 
-      // - EXPIRED
-      // 
-      // - REBOOTING
-      // 
-      // - WAITING
-      // 
-      // - FAIL
-      // 
-      // - NULL/SUCCESS
+      // The MSE microservice governance application status. Valid values:
+      // - EXPIRED: The feature has expired or is not activated.
+      // - REBOOTING: The application is restarting.
+      // - WAITING: Waiting for the application to restart.
+      // - FAIL: The activation failed.
+      // - NULL/SUCCESS: The activation succeeded.
       shared_ptr<string> status_ {};
     };
 
@@ -172,31 +167,28 @@ namespace Models
 
 
   protected:
-    // The API status or POP error code. Valid values: 2xx: The request was successful. 3xx: The request was redirected. 4xx: The request was invalid. 5xx: A server error occurred.
+    // The API status code or POP error code. Valid values: 2xx: success. 3xx: redirection. 4xx: request error. 5xx: server error.
     shared_ptr<string> code_ {};
-    // The application information.
+    // The MSE microservice governance application information.
     shared_ptr<DescribeApplicationMseServiceResponseBody::Data> data_ {};
-    // The error code. Value description:
+    // The error code. Details:
     // 
-    // - If the request succeeds, this field is not returned.
-    // 
-    // - For more information, see the **Error codes** section of this topic.
+    // - If the request is successful, the **ErrorCode** parameter is not returned.
+    // - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The additional information. Value description:
+    // The additional information. Details:
     // 
-    // - If the request was successful, **success** is returned.
-    // 
-    // - If the request failed, an error code is returned.
+    // - If the request is normal, **success** is returned.
+    // - If the request is abnormal, a specific error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the application instance groups were obtained successfully. Valid values:
+    // Indicates whether the application instance group was retrieved successfully. Valid values:
     // 
-    // - **true**
-    // 
-    // - **false**
+    // - **true**: The application instance group was retrieved successfully.
+    // - **false**: The application instance group failed to be retrieved.
     shared_ptr<bool> success_ {};
-    // The ID of the trace, which is used to query the exact call information.
+    // The trace ID, which is used to precisely query trace information.
     shared_ptr<string> traceId_ {};
   };
 

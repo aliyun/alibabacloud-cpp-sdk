@@ -79,9 +79,9 @@ namespace Models
 
 
     protected:
-      // The job template ID.
+      // The ID of the job template.
       shared_ptr<string> appId_ {};
-      // The change order ID. You can use this ID to query the execution status of the job.
+      // The ID of the returned change order, which is used to query the job execution status.
       shared_ptr<string> changeOrderId_ {};
     };
 
@@ -140,37 +140,33 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The API status code or POP error code. Valid values:
     // 
-    // - **2xx**: The request is successful.
-    // 
-    // - **3xx**: The request is redirected.
-    // 
-    // - **4xx**: The request is invalid.
-    // 
-    // - **5xx**: A server error occurred.
+    // - **2xx**: success.
+    // - **3xx**: redirection.
+    // - **4xx**: client error.
+    // - **5xx**: server error.
     shared_ptr<string> code_ {};
-    // The data that is returned.
+    // The returned result.
     shared_ptr<UpdateJobResponseBody::Data> data_ {};
-    // - This parameter is not returned if the request is successful.
+    // The error code. Valid values:
     // 
-    // - This parameter is returned if the request fails. For more information, see the **Error codes** section of this topic.
+    // - If the request is successful, the **ErrorCode** parameter is not returned.
+    // - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The response message.
+    // The additional information. Valid values:
     // 
-    // - **success** if the request is successful.
-    // 
-    // - An error code if the request fails.
+    // - If the request is successful, **success** is returned.
+    // - If the request fails, a specific error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the job template was updated. Valid values:
     // 
-    // - **true**
-    // 
-    // - **false**
+    // - **true**: The job template was updated.
+    // - **false**: The job template failed to be updated.
     shared_ptr<bool> success_ {};
-    // The trace ID that you can use to query the details of a request.
+    // The trace ID used to accurately query the call information.
     shared_ptr<string> traceId_ {};
   };
 

@@ -69,7 +69,7 @@ namespace Models
 
 
     protected:
-      // The ID of the change order.
+      // The change order ID.
       shared_ptr<string> changeOrderId_ {};
     };
 
@@ -128,39 +128,33 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Take note of the following rules:
+    // The API status code or POP error code. Valid values:
     // 
-    // - **2xx**: The call was successful.
-    // 
-    // - **3xx**: The call was redirected.
-    // 
-    // - **4xx**: The call failed.
-    // 
-    // - **5xx**: A server error occurred.
+    // - **2xx**: Success.
+    // - **3xx**: Redirection.
+    // - **4xx**: Request error.
+    // - **5xx**: Server error.
     shared_ptr<string> code_ {};
-    // The details of the application.
+    // The application information.
     shared_ptr<RestartInstancesResponseBody::Data> data_ {};
-    // The error code returned if the request failed. Take note of the following rules:
+    // The error code. Valid values:
     // 
-    // - The **ErrorCode** parameter is not returned if the request succeeds.
-    // 
-    // - If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+    // - Not returned: The request is successful.
+    // - Specific error code: The request fails. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The additional information that is returned. Take note of the following rules:
+    // The additional information. Valid values:
     // 
-    // - success: If the call is successful, **success** is returned.
-    // 
-    // - An error code: If the call fails, an error code is returned.
+    // - **success**: The request is successful.
+    // - Specific error code: An exception occurred during the request.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Specifies whether the instances are successfully restarted. Take note of the following rules:
+    // Specifies whether the application instances were restarted successfully. Valid values:
     // 
-    // - **true**
-    // 
-    // - **false**
+    // - **true**: The restart was successful.
+    // - **false**: The restart failed.
     shared_ptr<bool> success_ {};
-    // The trace ID that is used to query the details of the request.
+    // The trace ID used to precisely query call information.
     shared_ptr<string> traceId_ {};
   };
 

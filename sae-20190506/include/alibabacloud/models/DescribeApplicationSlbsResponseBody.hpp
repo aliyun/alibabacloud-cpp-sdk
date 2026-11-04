@@ -225,36 +225,36 @@ namespace Models
 
       protected:
         shared_ptr<int32_t> connectionDrainTimeout_ {};
-        // The cookie that is configured on the server.
+        // The cookie configured on the server.
         // 
-        // The cookie must be 1 to 200 characters in length and can contain only ASCII letters and digits. It cannot contain commas (,), semicolons (;), or spaces. It cannot start with a dollar sign ($).
+        // The cookie must be 1 to 200 characters in length and can contain only ASCII letters and digits. It cannot contain commas (,), semicolons (;), or spaces, and cannot start with a dollar sign ($).
         // 
-        // > This parameter is required when `StickySession` is set to `true` and `StickySessionType` is set to `server`.
+        // > This parameter is required and valid only when **StickySession** is set to **on** and **StickySessionType** is set to **server**.
         shared_ptr<string> cookie_ {};
-        // The cookie timeout period. Unit: seconds. Valid values: `1` to `86400`.
+        // The cookie timeout period. Unit: seconds. Valid values: **1** to **86400**.
         // 
-        // > This parameter is required when `StickySession` is set to `true` and `StickySessionType` is set to `insert`.
+        // > This parameter is required and valid only when **StickySession** is set to **on** and **StickySessionType** is set to **insert**.
         shared_ptr<int32_t> cookieTimeout_ {};
-        // The time when the rule was created. This value is a UNIX timestamp.
+        // The timestamp when the rule was created.
         shared_ptr<int64_t> createTime_ {};
         shared_ptr<bool> enableConnectionDrain_ {};
-        // The ID of the CA certificate for the HTTPS protocol.
+        // The ID of the Alibaba Cloud CA certificate for the HTTPS protocol.
         shared_ptr<string> httpsCaCertId_ {};
-        // The ID of the certificate for the HTTPS protocol.
+        // The ID of the Alibaba Cloud certificate for the HTTPS protocol.
         shared_ptr<string> httpsCertId_ {};
-        // The listening port of the SLB instance.
+        // The SLB listener port.
         shared_ptr<int32_t> port_ {};
         // The supported protocol.
         shared_ptr<string> protocol_ {};
         // Indicates whether session persistence is enabled.
         shared_ptr<bool> stickySession_ {};
-        // The cookie handling method. Valid values:
+        // The cookie processing method. Valid values:
         // 
-        // - `insert`: inserts a cookie. When a client makes the first request, the SLB instance inserts a cookie into the response. The next request from the client contains the cookie, and the SLB instance forwards the request to the same backend server.
+        // - **insert**: Inserts a cookie. When a client accesses the service for the first time, load balancing inserts a cookie into the response. The next time the client accesses the service with this cookie, the load balancing service forwards the request to the previously recorded backend server.
         // 
-        // - `server`: rewrites a cookie. When the SLB instance detects a user-defined cookie, it rewrites the cookie. The next request from the client contains the new cookie, and the SLB instance forwards the request to the same backend server.
+        // - **server**: Rewrites a cookie. When load balancing detects a user-defined cookie, it rewrites the original cookie. The next time the client accesses the service with the new cookie, the load balancing service forwards the request to the previously recorded backend server.
         // 
-        // > This parameter is required when `StickySession` is set to `true`.
+        // > This parameter is required and valid only when **StickySession** is set to **on**.
         shared_ptr<string> stickySessionType_ {};
         // The container port.
         shared_ptr<int32_t> targetPort_ {};
@@ -401,36 +401,36 @@ namespace Models
 
       protected:
         shared_ptr<int32_t> connectionDrainTimeout_ {};
-        // The cookie that is configured on the server.
+        // The cookie configured on the server.
         // 
-        // The cookie must be 1 to 200 characters in length and can contain only ASCII letters and digits. It cannot contain commas (,), semicolons (;), or spaces. It cannot start with a dollar sign ($).
+        // The cookie must be 1 to 200 characters in length and can contain only ASCII letters and digits. It cannot contain commas (,), semicolons (;), or spaces, and cannot start with a dollar sign ($).
         // 
-        // > This parameter is required when `StickySession` is set to `true` and `StickySessionType` is set to `server`.
+        // > This parameter is required and valid only when **StickySession** is set to **on** and **StickySessionType** is set to **server**.
         shared_ptr<string> cookie_ {};
-        // The cookie timeout period. Unit: seconds. Valid values: `1` to `86400`.
+        // The cookie timeout period. Unit: seconds. Valid values: **1** to **86400**.
         // 
-        // > This parameter is required when `StickySession` is set to `true` and `StickySessionType` is set to `insert`.
+        // > This parameter is required and valid only when **StickySession** is set to **on** and **StickySessionType** is set to **insert**.
         shared_ptr<int32_t> cookieTimeout_ {};
-        // The time when the rule was created. This value is a UNIX timestamp.
+        // The timestamp when the rule was created.
         shared_ptr<int64_t> createTime_ {};
         shared_ptr<bool> enableConnectionDrain_ {};
-        // The ID of the CA certificate for the HTTPS protocol.
+        // The ID of the Alibaba Cloud CA certificate for the HTTPS protocol.
         shared_ptr<string> httpsCaCertId_ {};
-        // The ID of the certificate for the HTTPS protocol.
+        // The ID of the Alibaba Cloud certificate for the HTTPS protocol.
         shared_ptr<string> httpsCertId_ {};
-        // The listening port of the SLB instance.
+        // The SLB listener port.
         shared_ptr<int32_t> port_ {};
         // The supported protocol.
         shared_ptr<string> protocol_ {};
         // Indicates whether session persistence is enabled.
         shared_ptr<bool> stickySession_ {};
-        // The cookie handling method. Valid values:
+        // The cookie processing method. Valid values:
         // 
-        // - `insert`: inserts a cookie. When a client makes the first request, the SLB instance inserts a cookie into the response. The next request from the client contains the cookie, and the SLB instance forwards the request to the same backend server.
+        // - **insert**: Inserts a cookie. When a client accesses the service for the first time, load balancing inserts a cookie into the response. The next time the client accesses the service with this cookie, the load balancing service forwards the request to the previously recorded backend server.
         // 
-        // - `server`: rewrites a cookie. When the SLB instance detects a user-defined cookie, it rewrites the cookie. The next request from the client contains the new cookie, and the SLB instance forwards the request to the same backend server.
+        // - **server**: Rewrites a cookie. When load balancing detects a user-defined cookie, it rewrites the original cookie. The next time the client accesses the service with the new cookie, the load balancing service forwards the request to the previously recorded backend server.
         // 
-        // > This parameter is required when `StickySession` is set to `true`.
+        // > This parameter is required and valid only when **StickySession** is set to **on**.
         shared_ptr<string> stickySessionType_ {};
         // The container port.
         shared_ptr<int32_t> targetPort_ {};
@@ -537,31 +537,31 @@ namespace Models
 
 
     protected:
-      // The application ID.
+      // The ID of the application.
       shared_ptr<string> appId_ {};
-      // The application name.
+      // The name of the application.
       shared_ptr<string> appName_ {};
-      // The cluster ID.
+      // The ID of the cluster.
       shared_ptr<string> clusterId_ {};
-      // The configurations of the Internet-facing SLB instance.
+      // The Internet-facing SLB configuration.
       shared_ptr<vector<Data::Internet>> internet_ {};
-      // The public IP address.
+      // The Internet-facing SLB address.
       shared_ptr<string> internetIp_ {};
-      // The billing method of the Internet-facing SLB instance.
+      // The billing method of Internet-facing load balancing.
       shared_ptr<string> internetSlbChargeType_ {};
       // Indicates whether the Internet-facing SLB instance has expired.
       shared_ptr<bool> internetSlbExpired_ {};
       // The ID of the Internet-facing SLB instance.
       shared_ptr<string> internetSlbId_ {};
-      // The configurations of the internal-facing SLB instance.
+      // The internal SLB configuration.
       shared_ptr<vector<Data::Intranet>> intranet_ {};
-      // The private IP address.
+      // The internal IP address of the SLB instance.
       shared_ptr<string> intranetIp_ {};
-      // The billing method of the internal-facing SLB instance.
+      // The billing method of internal load balancing.
       shared_ptr<string> intranetSlbChargeType_ {};
-      // Indicates whether the internal-facing SLB instance has expired.
+      // Indicates whether the internal SLB instance has expired.
       shared_ptr<bool> intranetSlbExpired_ {};
-      // The ID of the internal-facing SLB instance.
+      // The ID of the internal SLB instance.
       shared_ptr<string> intranetSlbId_ {};
     };
 
@@ -620,39 +620,34 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values:
+    // The API status code or POP error code. Valid values:
     // 
-    // - `2xx`: The request is successful.
-    // 
-    // - `3xx`: The request is redirected.
-    // 
-    // - `4xx`: A client error occurs.
-    // 
-    // - `5xx`: A server error occurs.
+    // - **2xx**: Success.
+    // - **3xx**: Redirection.
+    // - **4xx**: Client error.
+    // - **5xx**: Server error.
     shared_ptr<string> code_ {};
     // The returned result.
     shared_ptr<DescribeApplicationSlbsResponseBody::Data> data_ {};
-    // The error code.
+    // The error code. Description:
     // 
-    // - This parameter is not returned if the request is successful.
-    // 
-    // - This parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
+    // - If the request is successful, the **ErrorCode** parameter is not returned.
+    // - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The returned message.
+    // The additional information. Valid values:
     // 
-    // - If the request is successful, `success` is returned.
-    // 
-    // - If the request fails, a specific error code is returned.
+    // - **success**: The request is successful.
+    // - Specific error code: The request failed.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the configuration of the SLB instance was obtained. Valid values:
+    // Indicates whether the SLB configuration of the application was successfully retrieved. Valid values:
     // 
-    // - `true`: The configuration was obtained.
+    // - **true**: The configuration was successfully retrieved.
     // 
-    // - `false`: The configuration failed to be obtained.
+    // - **false**: The configuration failed to be retrieved.
     shared_ptr<bool> success_ {};
-    // The trace ID that is used to query the details of a request.
+    // The trace ID used to precisely query call information.
     shared_ptr<string> traceId_ {};
   };
 

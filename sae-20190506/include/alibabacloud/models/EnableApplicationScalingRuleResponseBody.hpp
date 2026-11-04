@@ -84,37 +84,31 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Take note of the following rules:
+    // The API status code or POP error code. Valid values:
     // 
-    // - **2xx**: The call was successful.
-    // 
-    // - **3xx**: The call was redirected.
-    // 
-    // - **4xx**: The call failed.
-    // 
-    // - **5xx**: A server error occurred.
+    // - **2xx**: Success.
+    // - **3xx**: Redirect.
+    // - **4xx**: Request error.
+    // - **5xx**: Server error.
     shared_ptr<string> code_ {};
-    // The error code returned if the request failed. Take note of the following rules:
+    // The error code. Valid values:
     // 
-    // - The **ErrorCode** parameter is not returned if the request succeeds.
-    // 
-    // - If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+    // - If the request is successful, the **ErrorCode** parameter is not returned.
+    // - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The additional information that is returned. Take note of the following rules:
+    // The additional information. Valid values:
     // 
-    // - success: If the call is successful, **success** is returned.
-    // 
-    // - An error code: If the call fails, an error code is returned.
+    // - **success**: The request is normal.
+    // - A specific error code: The request is abnormal.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Specifies whether the instances are successfully restarted. Take note of the following rules:
+    // Indicates whether the application instance is restarted successfully. Valid values:
     // 
-    // - **true**
-    // 
-    // - **false**: The restart failed.
+    // - **true**: The application instance is restarted successfully.
+    // - **false**: The application instance fails to be restarted.
     shared_ptr<bool> success_ {};
-    // The trace ID that is used to query the details of the request.
+    // The trace ID used to accurately query the call information.
     shared_ptr<string> traceId_ {};
   };
 

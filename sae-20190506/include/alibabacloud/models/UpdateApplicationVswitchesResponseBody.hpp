@@ -84,37 +84,31 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values:
+    // The API status code or POP error code. Valid values:
     // 
-    // - **2xx**: The request is successful.
-    // 
-    // - **3xx**: The request is redirected.
-    // 
-    // - **4xx**: The request is invalid.
-    // 
-    // - **5xx**: A server error occurred.
+    // - **2xx**: success
+    // - **3xx**: redirection
+    // - **4xx**: request error
+    // - **5xx**: server error
     shared_ptr<string> code_ {};
     // The error code.
     // 
-    // - This parameter is not returned for successful requests.
-    // 
-    // - This parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
+    // - If the request is successful, the **ErrorCode** parameter is not returned.
+    // - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The returned message. Valid values:
+    // The additional information.
     // 
     // - If the request is successful, **success** is returned.
-    // 
-    // - If the request fails, an error message is returned.
+    // - If an exception occurs, a specific error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the application list is retrieved. Valid values:
     // 
-    // - **true**
-    // 
-    // - **false**
+    // - **true**: The application list is retrieved.
+    // - **false**: The application list fails to be retrieved.
     shared_ptr<bool> success_ {};
-    // The trace ID. You can use this ID to trace the request.
+    // The trace ID used to precisely query call information.
     shared_ptr<string> traceId_ {};
   };
 

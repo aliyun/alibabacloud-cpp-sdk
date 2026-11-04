@@ -204,43 +204,35 @@ namespace Models
 
 
         protected:
-          // The error code returned when the task could not be executed. If the task is successfully executed, this parameter is not returned.
+          // The error code for the task execution failure. This code is not returned if the task succeeds.
           shared_ptr<string> errorCode_ {};
-          // Indicates whether to execute the subsequent tasks when the task failed. Valid values:
+          // Specifies whether subsequent tasks can be executed after a failure. Valid values:
           // 
-          // - **0**: The subsequent tasks cannot be executed.
-          // 
-          // - **1**: The subsequent tasks can be executed.
+          // - **0**: Not supported.
+          // - **1**: Supported.
           shared_ptr<int32_t> errorIgnore_ {};
-          // The error message returned when the task could not be executed. If the task is successfully executed, this parameter is not returned.
+          // The error message for the task execution. This message is not returned if the task succeeds.
           shared_ptr<string> errorMessage_ {};
-          // The returned message indicating the task execution result.
+          // The task execution information.
           shared_ptr<string> message_ {};
-          // Indicates whether a running task can be manually skipped. Valid values:
-          // 
-          // - **true**: The running task can be skipped.
-          // 
-          // - **false**: The zone does not allow you to change the network type of an ApsaraDB for Redis instance from classic network to VPC.
+          // Specifies whether a running task can be manually skipped. Valid values:
+          // - **true**: Supported.
+          // - **false**: Not supported.
           shared_ptr<bool> showManualIgnore_ {};
-          // The ID of the stage.
+          // The stage ID.
           shared_ptr<string> stageId_ {};
           // The task status. Valid values:
           // 
-          // - **0**: The task is prepared for execution.
-          // 
-          // - **1**: The task is being executed.
-          // 
-          // - **2**: successful
-          // 
-          // - **3**: The task could not be executed.
-          // 
-          // - **5**: The task is pending retry.
-          // 
-          // - **6**: The task was terminated.
+          // - **0**: Ready.
+          // - **1**: Running.
+          // - **2**: Succeeded.
+          // - **3**: Failed.
+          // - **5**: Waiting for retry.
+          // - **6**: Aborted.
           shared_ptr<int32_t> status_ {};
-          // The ID of the task.
+          // The task ID.
           shared_ptr<string> taskId_ {};
-          // The name of the task.
+          // The task name.
           shared_ptr<string> taskName_ {};
         };
 
@@ -284,29 +276,24 @@ namespace Models
 
 
       protected:
-        // The execution type of the stage. Valid values:
+        // The stage type. Valid values:
         // 
-        // - **0**: in sequence.
-        // 
-        // - **1**: in parallel.
+        // - **0**: Serial.
+        // - **1**: Parallel.
         shared_ptr<int32_t> executorType_ {};
-        // The ID of the stage.
+        // The stage ID.
         shared_ptr<string> stageId_ {};
-        // The name of the stage.
+        // The stage name.
         shared_ptr<string> stageName_ {};
-        // The status of the batch processing stage. Valid values:
+        // The stage status. Valid values:
         // 
-        // - **0**: The batch is prepared for this processing stage.
-        // 
-        // - **1**: The task is being executed.
-        // 
-        // - **2**: successful
-        // 
-        // - **3**: The processing failed in this stage.
-        // 
-        // - **6**: The processing stage was terminated.
+        // - **0**: Ready.
+        // - **1**: Running.
+        // - **2**: Succeeded.
+        // - **3**: Failed.
+        // - **6**: Aborted.
         shared_ptr<int32_t> status_ {};
-        // The list of task statuses.
+        // The list of task status information.
         shared_ptr<vector<StageList::TaskList>> taskList_ {};
       };
 
@@ -372,37 +359,31 @@ namespace Models
 
 
     protected:
-      // The status of the change order for the batch.
+      // The status of the change order associated with the batch.
       shared_ptr<string> coStatus_ {};
-      // The ID of the batch processing stage.
+      // The ID of the stage being executed in the batch.
       shared_ptr<string> currentStageId_ {};
       // The ID of the next batch.
       shared_ptr<string> nextPipelineId_ {};
-      // The ID of the batch.
+      // The batch ID.
       shared_ptr<string> pipelineId_ {};
-      // The name of the batch.
+      // The batch name.
       shared_ptr<string> pipelineName_ {};
       // The batch status. Valid values:
       // 
-      // - **0**: The batch is prepared for processing.
-      // 
-      // - **1**: The task is being executed.
-      // 
-      // - **2**: successful
-      // 
-      // - **3**: The processing failed in this stage.
-      // 
-      // - **6**: The batch processing was terminated.
-      // 
-      // - **10**: The batch could not be processed due to a system exception.
+      // - **0**: Ready.
+      // - **1**: Running.
+      // - **2**: Succeeded.
+      // - **3**: Failed.
+      // - **6**: Aborted.
+      // - **10**: Failed due to a system exception.
       shared_ptr<int32_t> pipelineStatus_ {};
-      // Indicates whether to start processing the next batch. Valid values:
+      // Specifies whether the execution of the next batch can start. Valid values:
       // 
-      // - **false**: indicates that the next batch cannot be processed yet.
-      // 
-      // - **true**: indicates that the next batch can be processed now.
+      // - **false**: The execution of the next batch cannot start.
+      // - **true**: The execution of the next batch can start.
       shared_ptr<bool> showBatch_ {};
-      // The list of batch processing stages.
+      // The list of stages in the batch.
       shared_ptr<vector<Data::StageList>> stageList_ {};
     };
 
@@ -461,35 +442,30 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values:
+    // The API status code or POP error code. Valid values:
     // 
-    // - **2xx**: The call was successful.
-    // 
-    // - **3xx**: The call was redirected.
-    // 
-    // - **4xx**: The call failed.
-    // 
-    // - **5xx**: A server error occurred.
+    // - **2xx**: Success.
+    // - **3xx**: Redirect.
+    // - **4xx**: Request error.
+    // - **5xx**: Server error.
     shared_ptr<string> code_ {};
     // The batch information.
     shared_ptr<DescribePipelineResponseBody::Data> data_ {};
-    // The error code returned if the request failed. Take note of the following rules:
+    // The error code. Valid values:
     // 
-    // - The **ErrorCode** parameter is not returned if the request succeeds.
-    // 
-    // - If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+    // - Successful request: The **ErrorCode** field is not returned.
+    // - Failed request: The **ErrorCode** field is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The message returned for the operation.
+    // The additional information about the call result.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the batch information was obtained. Valid values:
+    // Indicates whether the batch information was queried successfully. Valid values:
     // 
-    // - **true**: The information was queried.
-    // 
-    // - **false**: The image failed to be found.
+    // - **true**: The query was successful.
+    // - **false**: The query failed.
     shared_ptr<bool> success_ {};
-    // The trace ID that is used to query the details of the request.
+    // The trace ID used to accurately query call information.
     shared_ptr<string> traceId_ {};
   };
 

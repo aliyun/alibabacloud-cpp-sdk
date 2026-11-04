@@ -202,23 +202,25 @@ namespace Models
 
 
       protected:
-        // The ID of the ConfigMap instance.
+        // The ConfigMap instance ID.
         shared_ptr<int64_t> configMapId_ {};
         // The creation time.
         shared_ptr<int64_t> createTime_ {};
-        // The key-value pairs of the ConfigMap instance.
+        // The key-value pair data of the ConfigMap instance. The format is as follows:
         // 
-        // For more information about the ConfigMap, see [Manage and use configuration items](https://help.aliyun.com/document_detail/171326.html).
+        // {"k1":"v1", "k2":"v2"}
+        // 
+        // k indicates the key, and v indicates the value. For more information about configuration items, see [Manage and use configuration items](https://help.aliyun.com/document_detail/171326.html).
         Darabonba::Json data_ {};
-        // The description of the instance.
+        // The description.
         shared_ptr<string> description_ {};
-        // The name of the instance.
+        // The ConfigMap instance name.
         shared_ptr<string> name_ {};
         // The namespace ID.
         shared_ptr<string> namespaceId_ {};
         // The associated applications.
         shared_ptr<vector<ConfigMaps::RelateApps>> relateApps_ {};
-        // The last update time.
+        // The update time.
         shared_ptr<int64_t> updateTime_ {};
       };
 
@@ -292,39 +294,33 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values:
+    // The API status code or POP error code. Valid values:
     // 
-    // - **2xx**: The request was successful.
-    // 
-    // - **3xx**: The request was redirected.
-    // 
-    // - **4xx**: A client error occurred.
-    // 
-    // - **5xx**: A server error occurred.
+    // - **2xx**: Success.
+    // - **3xx**: Redirection.
+    // - **4xx**: Request error.
+    // - **5xx**: Server error.
     shared_ptr<string> code_ {};
-    // The data returned by the request.
+    // The returned results.
     shared_ptr<ListNamespacedConfigMapsResponseBody::Data> data_ {};
-    // The error code.
+    // The error code. Valid values:
     // 
-    // -
-    // 
-    // - This parameter is returned only if the request fails. For more information, see the **Error codes** section in this topic.
+    // - Successful request: The **ErrorCode** field is not returned.
+    // - Failed request: The **ErrorCode** field is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The response message. Valid values:
+    // The additional information. Valid values:
     // 
-    // - Returns **success** if the request is successful.
-    // 
-    // - Returns an error message if the request fails.
+    // - **success**: The request is successful.
+    // - Specific error code: An exception occurred during the request.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the list of ConfigMap instances is successfully retrieved. Valid values:
     // 
-    // - **true**: The request was successful.
-    // 
-    // - **false**: The request failed.
+    // - **true**: The list is successfully retrieved.
+    // - **false**: The list fails to be retrieved.
     shared_ptr<bool> success_ {};
-    // The trace ID. You can use this ID to trace the request.
+    // The trace ID used to query call details.
     shared_ptr<string> traceId_ {};
   };
 

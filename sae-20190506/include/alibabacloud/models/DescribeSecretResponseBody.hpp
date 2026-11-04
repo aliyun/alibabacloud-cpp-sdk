@@ -184,21 +184,21 @@ namespace Models
 
 
     protected:
-      // The time when the task was created.
+      // The creation time.
       shared_ptr<int64_t> createTime_ {};
-      // The ID of the namespace.
+      // The namespace ID.
       shared_ptr<string> namespaceId_ {};
-      // The associated application.
+      // The associated applications.
       shared_ptr<vector<Data::RelateApps>> relateApps_ {};
-      // Secret key-value pair data.
+      // The key-value pair data of the Secret.
       shared_ptr<map<string, string>> secretData_ {};
-      // The ID of the Secret instance.
+      // The Secret instance ID.
       shared_ptr<int64_t> secretId_ {};
       // The name of the Secret instance.
       shared_ptr<string> secretName_ {};
       // The type of the Secret instance.
       shared_ptr<string> secretType_ {};
-      // The time when the task was updated.
+      // The update time.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -257,39 +257,29 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values:
-    // 
-    // - **2xx**: The call was successful.
-    // 
-    // - **3xx**: The call was redirected.
-    // 
-    // - **4xx**: The call failed.
-    // 
-    // - **5xx**: A server error occurred.
+    // The API status code or POP error code. Valid values:
+    // - **2xx**: Success.
+    // - **3xx**: Redirection.
+    // - **4xx**: Request error.
+    // - **5xx**: Server error.
     shared_ptr<string> code_ {};
-    // The response.
+    // The returned result.
     shared_ptr<DescribeSecretResponseBody::Data> data_ {};
-    // The error code returned. Valid values:
-    // 
-    // - The **ErrorCode** parameter is not returned if the request succeeds.
-    // 
-    // - If the call fails, the **ErrorCode** parameter is returned. For more information, see **Error codes** in this topic.
+    // The error code.
+    // - If the request is successful, the **ErrorCode** field is not returned.
+    // - If the request fails, the **ErrorCode** field is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The additional information that is returned. Valid values:
-    // 
-    // - success: If the call is successful, **success** is returned.
-    // 
-    // - An error code: If the call fails, an error code is returned.
+    // The additional information.
+    // - If the request is successful, **success** is returned.
+    // - If the request fails, a specific error code is returned.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the details of the Secret instance are successfully queried. Valid values:
-    // 
-    // - **true**: The information was queried.
-    // 
-    // - **false**: The image failed to be found.
+    // Indicates whether the details of the Secret instance were queried successfully. Valid values:
+    // - **true**: The query was successful.
+    // - **false**: The query failed.
     shared_ptr<bool> success_ {};
-    // The trace ID that is used to query the details of the request.
+    // The trace ID used to precisely query invocation information.
     shared_ptr<string> traceId_ {};
   };
 

@@ -69,7 +69,7 @@ namespace Models
 
 
     protected:
-      // Routing rule ID.
+      // The ID of the routing rule.
       shared_ptr<int64_t> ingressId_ {};
     };
 
@@ -128,39 +128,33 @@ namespace Models
 
 
   protected:
-    // API status or POP error code. Details are as follows:
+    // The API status code or POP error code. Valid values:
     // 
-    // - **2xx**: Success.
-    // 
-    // - **3xx**: Redirection.
-    // 
-    // - **4xx**: Request error.
-    // 
-    // - **5xx**: Server error.
+    // - **2xx**: success.
+    // - **3xx**: redirection.
+    // - **4xx**: request error.
+    // - **5xx**: server error.
     shared_ptr<string> code_ {};
-    // Returned result.
+    // The returned result.
     shared_ptr<UpdateIngressResponseBody::Data> data_ {};
-    // Error code. Details are as follows:
+    // The error code. Valid values:
     // 
-    // - If the request is successful, the **ErrorCode** field is not returned.
-    // 
-    // - If the request failed, the **ErrorCode** field is returned. For more information, see the **Error Codes** list in this topic.
+    // - If the request is successful, the **ErrorCode** parameter is not returned.
+    // - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // Additional information. Details are as follows:
+    // The additional information. Valid values:
     // 
     // - If the request is normal, **success** is returned.
-    // 
-    // - If the request is abnormal, a specific abnormal error code is returned.
+    // - If the request is abnormal, a specific error code is returned.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the Ingress instance configuration was successfully updated. Details are as follows:
+    // Indicates whether the Ingress instance configuration was updated successfully. Valid values:
     // 
     // - **true**: The update was successful.
-    // 
     // - **false**: The update failed.
     shared_ptr<bool> success_ {};
-    // Call chain ID.
+    // The trace ID.
     shared_ptr<string> traceId_ {};
   };
 

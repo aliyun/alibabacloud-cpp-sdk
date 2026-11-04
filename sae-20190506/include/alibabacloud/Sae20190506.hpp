@@ -39,7 +39,7 @@ namespace Sae20190506
       Models::AbortAndRollbackChangeOrderResponse abortAndRollbackChangeOrder(const Models::AbortAndRollbackChangeOrderRequest &request);
 
       /**
-       * @summary This operation stops a change order.
+       * @summary Aborts a change order.
        *
        * @param request AbortChangeOrderRequest
        * @param headers map
@@ -49,7 +49,7 @@ namespace Sae20190506
       Models::AbortChangeOrderResponse abortChangeOrderWithOptions(const Models::AbortChangeOrderRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This operation stops a change order.
+       * @summary Aborts a change order.
        *
        * @param request AbortChangeOrderRequest
        * @return AbortChangeOrderResponse
@@ -75,7 +75,7 @@ namespace Sae20190506
       Models::BatchRestartApplicationsResponse batchRestartApplications(const Models::BatchRestartApplicationsRequest &request);
 
       /**
-       * @summary Starts multiple applications at a time.
+       * @summary Starts applications in batches.
        *
        * @param request BatchStartApplicationsRequest
        * @param headers map
@@ -85,7 +85,7 @@ namespace Sae20190506
       Models::BatchStartApplicationsResponse batchStartApplicationsWithOptions(const Models::BatchStartApplicationsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Starts multiple applications at a time.
+       * @summary Starts applications in batches.
        *
        * @param request BatchStartApplicationsRequest
        * @return BatchStartApplicationsResponse
@@ -93,7 +93,7 @@ namespace Sae20190506
       Models::BatchStartApplicationsResponse batchStartApplications(const Models::BatchStartApplicationsRequest &request);
 
       /**
-       * @summary Stop applications in batches.
+       * @summary Stops multiple applications.
        *
        * @param request BatchStopApplicationsRequest
        * @param headers map
@@ -103,7 +103,7 @@ namespace Sae20190506
       Models::BatchStopApplicationsResponse batchStopApplicationsWithOptions(const Models::BatchStopApplicationsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stop applications in batches.
+       * @summary Stops multiple applications.
        *
        * @param request BatchStopApplicationsRequest
        * @return BatchStopApplicationsResponse
@@ -111,7 +111,7 @@ namespace Sae20190506
       Models::BatchStopApplicationsResponse batchStopApplications(const Models::BatchStopApplicationsRequest &request);
 
       /**
-       * @summary Binds a Network Load Balancer (NLB) instance to an application.
+       * @summary Binds a Network Load Balancer (NLB) to an application.
        *
        * @param request BindNlbRequest
        * @param headers map
@@ -121,7 +121,7 @@ namespace Sae20190506
       Models::BindNlbResponse bindNlbWithOptions(const Models::BindNlbRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Binds a Network Load Balancer (NLB) instance to an application.
+       * @summary Binds a Network Load Balancer (NLB) to an application.
        *
        * @param request BindNlbRequest
        * @return BindNlbResponse
@@ -183,14 +183,14 @@ namespace Sae20190506
       Models::CreateApplicationResponse createApplication(const Models::CreateApplicationRequest &request);
 
       /**
-       * @summary Create an application auto scaling policy.
+       * @summary Creates an elastic scaling policy for an application.
        *
-       * @description ## Usage notes
-       * - You can create up to five elasticity policies per application.
-       * - For each scheduled elasticity policy, you can create up to 20 trigger points per day.
-       * - While an elasticity policy is enabled, do not manually perform operations on the application, such as scaling, deployment, changing specifications, restarting, or stopping. To perform these operations, disable the policy first.
-       * - You cannot add or enable an elasticity policy for an application that is undergoing a scale-out, scale-in, deployment (single-batch, phased, or canary), specification change, restart, or stop.
-       * - To scale out an application to more than 50 instances, contact SAE technical support to be added to the whitelist. For more information, see [Contact us](https://help.aliyun.com/document_detail/146530.html).
+       * @description ## Before you begin
+       * - You can create up to 5 auto scaling policies for a single application.
+       * - You can create up to 20 trigger time points within a single day for a single scheduled auto elastic policy.
+       * - When an auto elastic policy is enabled, do not manually perform application lifecycle management operations, such as scaling the application, deploying the application, changing specifications, restarting the application, or stopping the application. If you need to perform these operations, disable the auto elastic policy first.
+       * - If the application is currently being scaled, deployed (in a single batch, multiple batches, or canary release), having its specifications changed, restarted, or stopped, you cannot add or start an auto elastic policy for the application.
+       * - If a single application needs to scale out to more than 50 instances, contact Serverless App Engine (SAE) technical support and apply for a whitelist. For more information, see [Contact us](https://help.aliyun.com/document_detail/146530.html).
        *
        * @param request CreateApplicationScalingRuleRequest
        * @param headers map
@@ -200,14 +200,14 @@ namespace Sae20190506
       Models::CreateApplicationScalingRuleResponse createApplicationScalingRuleWithOptions(const Models::CreateApplicationScalingRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create an application auto scaling policy.
+       * @summary Creates an elastic scaling policy for an application.
        *
-       * @description ## Usage notes
-       * - You can create up to five elasticity policies per application.
-       * - For each scheduled elasticity policy, you can create up to 20 trigger points per day.
-       * - While an elasticity policy is enabled, do not manually perform operations on the application, such as scaling, deployment, changing specifications, restarting, or stopping. To perform these operations, disable the policy first.
-       * - You cannot add or enable an elasticity policy for an application that is undergoing a scale-out, scale-in, deployment (single-batch, phased, or canary), specification change, restart, or stop.
-       * - To scale out an application to more than 50 instances, contact SAE technical support to be added to the whitelist. For more information, see [Contact us](https://help.aliyun.com/document_detail/146530.html).
+       * @description ## Before you begin
+       * - You can create up to 5 auto scaling policies for a single application.
+       * - You can create up to 20 trigger time points within a single day for a single scheduled auto elastic policy.
+       * - When an auto elastic policy is enabled, do not manually perform application lifecycle management operations, such as scaling the application, deploying the application, changing specifications, restarting the application, or stopping the application. If you need to perform these operations, disable the auto elastic policy first.
+       * - If the application is currently being scaled, deployed (in a single batch, multiple batches, or canary release), having its specifications changed, restarted, or stopped, you cannot add or start an auto elastic policy for the application.
+       * - If a single application needs to scale out to more than 50 instances, contact Serverless App Engine (SAE) technical support and apply for a whitelist. For more information, see [Contact us](https://help.aliyun.com/document_detail/146530.html).
        *
        * @param request CreateApplicationScalingRuleRequest
        * @return CreateApplicationScalingRuleResponse
@@ -215,7 +215,7 @@ namespace Sae20190506
       Models::CreateApplicationScalingRuleResponse createApplicationScalingRule(const Models::CreateApplicationScalingRuleRequest &request);
 
       /**
-       * @summary Create a ConfigMap in a namespace.
+       * @summary Creates a ConfigMap instance in a namespace.
        *
        * @param request CreateConfigMapRequest
        * @param headers map
@@ -225,7 +225,7 @@ namespace Sae20190506
       Models::CreateConfigMapResponse createConfigMapWithOptions(const Models::CreateConfigMapRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a ConfigMap in a namespace.
+       * @summary Creates a ConfigMap instance in a namespace.
        *
        * @param request CreateConfigMapRequest
        * @return CreateConfigMapResponse
@@ -233,9 +233,9 @@ namespace Sae20190506
       Models::CreateConfigMapResponse createConfigMap(const Models::CreateConfigMapRequest &request);
 
       /**
-       * @summary Create a canary release rule for a Spring Cloud or Dubbo application.
+       * @summary Creates a canary release rule for a Spring Cloud or Dubbo application.
        *
-       * @description > You can currently configure only one canary rule per application.
+       * @description > Currently, you can configure only one canary release rule for an application.
        *
        * @param request CreateGreyTagRouteRequest
        * @param headers map
@@ -245,9 +245,9 @@ namespace Sae20190506
       Models::CreateGreyTagRouteResponse createGreyTagRouteWithOptions(const Models::CreateGreyTagRouteRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a canary release rule for a Spring Cloud or Dubbo application.
+       * @summary Creates a canary release rule for a Spring Cloud or Dubbo application.
        *
-       * @description > You can currently configure only one canary rule per application.
+       * @description > Currently, you can configure only one canary release rule for an application.
        *
        * @param request CreateGreyTagRouteRequest
        * @return CreateGreyTagRouteResponse
@@ -255,7 +255,7 @@ namespace Sae20190506
       Models::CreateGreyTagRouteResponse createGreyTagRoute(const Models::CreateGreyTagRouteRequest &request);
 
       /**
-       * @summary Create a routing rule.
+       * @summary Creates a routing rule.
        *
        * @param request CreateIngressRequest
        * @param headers map
@@ -265,7 +265,7 @@ namespace Sae20190506
       Models::CreateIngressResponse createIngressWithOptions(const Models::CreateIngressRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a routing rule.
+       * @summary Creates a routing rule.
        *
        * @param request CreateIngressRequest
        * @return CreateIngressResponse
@@ -273,7 +273,7 @@ namespace Sae20190506
       Models::CreateIngressResponse createIngress(const Models::CreateIngressRequest &request);
 
       /**
-       * @summary This operation creates a job template.
+       * @summary Creates a job template.
        *
        * @param request CreateJobRequest
        * @param headers map
@@ -283,7 +283,7 @@ namespace Sae20190506
       Models::CreateJobResponse createJobWithOptions(const Models::CreateJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This operation creates a job template.
+       * @summary Creates a job template.
        *
        * @param request CreateJobRequest
        * @return CreateJobResponse
@@ -309,7 +309,7 @@ namespace Sae20190506
       Models::CreateNamespaceResponse createNamespace(const Models::CreateNamespaceRequest &request);
 
       /**
-       * @summary Create or update a swimlane.
+       * @summary Creates or updates a traffic lane.
        *
        * @param tmpReq CreateOrUpdateSwimmingLaneRequest
        * @param headers map
@@ -319,7 +319,7 @@ namespace Sae20190506
       Models::CreateOrUpdateSwimmingLaneResponse createOrUpdateSwimmingLaneWithOptions(const Models::CreateOrUpdateSwimmingLaneRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create or update a swimlane.
+       * @summary Creates or updates a traffic lane.
        *
        * @param request CreateOrUpdateSwimmingLaneRequest
        * @return CreateOrUpdateSwimmingLaneResponse
@@ -327,7 +327,7 @@ namespace Sae20190506
       Models::CreateOrUpdateSwimmingLaneResponse createOrUpdateSwimmingLane(const Models::CreateOrUpdateSwimmingLaneRequest &request);
 
       /**
-       * @summary Creates or updates a swimming lane group.
+       * @summary Creates or updates a traffic lane group.
        *
        * @param tmpReq CreateOrUpdateSwimmingLaneGroupRequest
        * @param headers map
@@ -337,7 +337,7 @@ namespace Sae20190506
       Models::CreateOrUpdateSwimmingLaneGroupResponse createOrUpdateSwimmingLaneGroupWithOptions(const Models::CreateOrUpdateSwimmingLaneGroupRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates or updates a swimming lane group.
+       * @summary Creates or updates a traffic lane group.
        *
        * @param request CreateOrUpdateSwimmingLaneGroupRequest
        * @return CreateOrUpdateSwimmingLaneGroupResponse
@@ -345,7 +345,7 @@ namespace Sae20190506
       Models::CreateOrUpdateSwimmingLaneGroupResponse createOrUpdateSwimmingLaneGroup(const Models::CreateOrUpdateSwimmingLaneGroupRequest &request);
 
       /**
-       * @summary Creates a Secret in a namespace.
+       * @summary Creates a Secret instance in a namespace.
        *
        * @param tmpReq CreateSecretRequest
        * @param headers map
@@ -355,7 +355,7 @@ namespace Sae20190506
       Models::CreateSecretResponse createSecretWithOptions(const Models::CreateSecretRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a Secret in a namespace.
+       * @summary Creates a Secret instance in a namespace.
        *
        * @param request CreateSecretRequest
        * @return CreateSecretResponse
@@ -425,7 +425,7 @@ namespace Sae20190506
       Models::DeleteApplicationResponse deleteApplication(const Models::DeleteApplicationRequest &request);
 
       /**
-       * @summary Deletes an Auto Scaling policy for an application.
+       * @summary Deletes an application auto scaling policy by calling the CreateApplicationScalingRule operation.
        *
        * @param request DeleteApplicationScalingRuleRequest
        * @param headers map
@@ -435,7 +435,7 @@ namespace Sae20190506
       Models::DeleteApplicationScalingRuleResponse deleteApplicationScalingRuleWithOptions(const Models::DeleteApplicationScalingRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an Auto Scaling policy for an application.
+       * @summary Deletes an application auto scaling policy by calling the CreateApplicationScalingRule operation.
        *
        * @param request DeleteApplicationScalingRuleRequest
        * @return DeleteApplicationScalingRuleResponse
@@ -479,7 +479,7 @@ namespace Sae20190506
       Models::DeleteGreyTagRouteResponse deleteGreyTagRoute(const Models::DeleteGreyTagRouteRequest &request);
 
       /**
-       * @summary Delete a job.
+       * @summary Deletes a job.
        *
        * @param request DeleteHistoryJobRequest
        * @param headers map
@@ -489,7 +489,7 @@ namespace Sae20190506
       Models::DeleteHistoryJobResponse deleteHistoryJobWithOptions(const Models::DeleteHistoryJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete a job.
+       * @summary Deletes a job.
        *
        * @param request DeleteHistoryJobRequest
        * @return DeleteHistoryJobResponse
@@ -515,7 +515,7 @@ namespace Sae20190506
       Models::DeleteIngressResponse deleteIngress(const Models::DeleteIngressRequest &request);
 
       /**
-       * @summary Deletes one or more application instances.
+       * @summary Deletes application instances.
        *
        * @param request DeleteInstancesRequest
        * @param headers map
@@ -525,7 +525,7 @@ namespace Sae20190506
       Models::DeleteInstancesResponse deleteInstancesWithOptions(const Models::DeleteInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes one or more application instances.
+       * @summary Deletes application instances.
        *
        * @param request DeleteInstancesRequest
        * @return DeleteInstancesResponse
@@ -533,7 +533,7 @@ namespace Sae20190506
       Models::DeleteInstancesResponse deleteInstances(const Models::DeleteInstancesRequest &request);
 
       /**
-       * @summary Delete a job template.
+       * @summary Deletes a task template.
        *
        * @param request DeleteJobRequest
        * @param headers map
@@ -543,7 +543,7 @@ namespace Sae20190506
       Models::DeleteJobResponse deleteJobWithOptions(const Models::DeleteJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete a job template.
+       * @summary Deletes a task template.
        *
        * @param request DeleteJobRequest
        * @return DeleteJobResponse
@@ -569,7 +569,7 @@ namespace Sae20190506
       Models::DeleteNamespaceResponse deleteNamespace(const Models::DeleteNamespaceRequest &request);
 
       /**
-       * @summary Deletes a secret.
+       * @summary Deletes a secret instance.
        *
        * @param request DeleteSecretRequest
        * @param headers map
@@ -579,7 +579,7 @@ namespace Sae20190506
       Models::DeleteSecretResponse deleteSecretWithOptions(const Models::DeleteSecretRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a secret.
+       * @summary Deletes a secret instance.
        *
        * @param request DeleteSecretRequest
        * @return DeleteSecretResponse
@@ -587,7 +587,7 @@ namespace Sae20190506
       Models::DeleteSecretResponse deleteSecret(const Models::DeleteSecretRequest &request);
 
       /**
-       * @summary Deletes a swimming lane group.
+       * @summary Deletes a lane group.
        *
        * @param request DeleteSwimmingLaneGroupRequest
        * @param headers map
@@ -597,7 +597,7 @@ namespace Sae20190506
       Models::DeleteSwimmingLaneGroupResponse deleteSwimmingLaneGroupWithOptions(const Models::DeleteSwimmingLaneGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a swimming lane group.
+       * @summary Deletes a lane group.
        *
        * @param request DeleteSwimmingLaneGroupRequest
        * @return DeleteSwimmingLaneGroupResponse
@@ -707,7 +707,7 @@ namespace Sae20190506
       Models::DescribeAppServiceDetailResponse describeAppServiceDetail(const Models::DescribeAppServiceDetailRequest &request);
 
       /**
-       * @summary Retrieves the configuration information of an application.
+       * @summary Retrieves the application configuration information.
        *
        * @param request DescribeApplicationConfigRequest
        * @param headers map
@@ -717,7 +717,7 @@ namespace Sae20190506
       Models::DescribeApplicationConfigResponse describeApplicationConfigWithOptions(const Models::DescribeApplicationConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the configuration information of an application.
+       * @summary Retrieves the application configuration information.
        *
        * @param request DescribeApplicationConfigRequest
        * @return DescribeApplicationConfigResponse
@@ -725,7 +725,7 @@ namespace Sae20190506
       Models::DescribeApplicationConfigResponse describeApplicationConfig(const Models::DescribeApplicationConfigRequest &request);
 
       /**
-       * @summary Use `DescribeApplicationGroups` to retrieve application instance groups.
+       * @summary Queries application instance groups.
        *
        * @param request DescribeApplicationGroupsRequest
        * @param headers map
@@ -735,7 +735,7 @@ namespace Sae20190506
       Models::DescribeApplicationGroupsResponse describeApplicationGroupsWithOptions(const Models::DescribeApplicationGroupsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Use `DescribeApplicationGroups` to retrieve application instance groups.
+       * @summary Queries application instance groups.
        *
        * @param request DescribeApplicationGroupsRequest
        * @return DescribeApplicationGroupsResponse
@@ -779,7 +779,7 @@ namespace Sae20190506
       Models::DescribeApplicationInstancesResponse describeApplicationInstances(const Models::DescribeApplicationInstancesRequest &request);
 
       /**
-       * @summary Queries the information of the associated MSE microservice governance application.
+       * @summary Queries the Microservices Engine (MSE) microservice governance application information associated with an application.
        *
        * @param request DescribeApplicationMseServiceRequest
        * @param headers map
@@ -789,7 +789,7 @@ namespace Sae20190506
       Models::DescribeApplicationMseServiceResponse describeApplicationMseServiceWithOptions(const Models::DescribeApplicationMseServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information of the associated MSE microservice governance application.
+       * @summary Queries the Microservices Engine (MSE) microservice governance application information associated with an application.
        *
        * @param request DescribeApplicationMseServiceRequest
        * @return DescribeApplicationMseServiceResponse
@@ -797,7 +797,7 @@ namespace Sae20190506
       Models::DescribeApplicationMseServiceResponse describeApplicationMseService(const Models::DescribeApplicationMseServiceRequest &request);
 
       /**
-       * @summary View the NLB configuration for the application.
+       * @summary Queries the Network Load Balancer (NLB) configurations bound to an application.
        *
        * @param request DescribeApplicationNlbsRequest
        * @param headers map
@@ -807,7 +807,7 @@ namespace Sae20190506
       Models::DescribeApplicationNlbsResponse describeApplicationNlbsWithOptions(const Models::DescribeApplicationNlbsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary View the NLB configuration for the application.
+       * @summary Queries the Network Load Balancer (NLB) configurations bound to an application.
        *
        * @param request DescribeApplicationNlbsRequest
        * @return DescribeApplicationNlbsResponse
@@ -851,7 +851,7 @@ namespace Sae20190506
       Models::DescribeApplicationScalingRulesResponse describeApplicationScalingRules(const Models::DescribeApplicationScalingRulesRequest &request);
 
       /**
-       * @summary Queries the configurations of Server Load Balancer (SLB) instances for an application.
+       * @summary Retrieves the Server Load Balancer (SLB) configuration of an application.
        *
        * @param request DescribeApplicationSlbsRequest
        * @param headers map
@@ -861,7 +861,7 @@ namespace Sae20190506
       Models::DescribeApplicationSlbsResponse describeApplicationSlbsWithOptions(const Models::DescribeApplicationSlbsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the configurations of Server Load Balancer (SLB) instances for an application.
+       * @summary Retrieves the Server Load Balancer (SLB) configuration of an application.
        *
        * @param request DescribeApplicationSlbsRequest
        * @return DescribeApplicationSlbsResponse
@@ -869,7 +869,7 @@ namespace Sae20190506
       Models::DescribeApplicationSlbsResponse describeApplicationSlbs(const Models::DescribeApplicationSlbsRequest &request);
 
       /**
-       * @summary Call the DescribeApplicationStatus API to get an application\\"s status.
+       * @summary Queries the status information of an application.
        *
        * @param request DescribeApplicationStatusRequest
        * @param headers map
@@ -879,7 +879,7 @@ namespace Sae20190506
       Models::DescribeApplicationStatusResponse describeApplicationStatusWithOptions(const Models::DescribeApplicationStatusRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call the DescribeApplicationStatus API to get an application\\"s status.
+       * @summary Queries the status information of an application.
        *
        * @param request DescribeApplicationStatusRequest
        * @return DescribeApplicationStatusResponse
@@ -941,7 +941,7 @@ namespace Sae20190506
       Models::DescribeConfigMapResponse describeConfigMap(const Models::DescribeConfigMapRequest &request);
 
       /**
-       * @summary Queries the price of a configuration.
+       * @summary Queries the configuration pricing.
        *
        * @param request DescribeConfigurationPriceRequest
        * @param headers map
@@ -951,7 +951,7 @@ namespace Sae20190506
       Models::DescribeConfigurationPriceResponse describeConfigurationPriceWithOptions(const Models::DescribeConfigurationPriceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the price of a configuration.
+       * @summary Queries the configuration pricing.
        *
        * @param request DescribeConfigurationPriceRequest
        * @return DescribeConfigurationPriceResponse
@@ -1045,7 +1045,7 @@ namespace Sae20190506
       Models::DescribeInstanceSpecificationsResponse describeInstanceSpecifications();
 
       /**
-       * @summary Calls the `DescribeJob` API to retrieve job template configuration.
+       * @summary Retrieves the configuration information of a job template.
        *
        * @param request DescribeJobRequest
        * @param headers map
@@ -1055,7 +1055,7 @@ namespace Sae20190506
       Models::DescribeJobResponse describeJobWithOptions(const Models::DescribeJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Calls the `DescribeJob` API to retrieve job template configuration.
+       * @summary Retrieves the configuration information of a job template.
        *
        * @param request DescribeJobRequest
        * @return DescribeJobResponse
@@ -1063,7 +1063,7 @@ namespace Sae20190506
       Models::DescribeJobResponse describeJob(const Models::DescribeJobRequest &request);
 
       /**
-       * @summary Query the information about jobs.
+       * @summary Queries job history records.
        *
        * @param request DescribeJobHistoryRequest
        * @param headers map
@@ -1073,7 +1073,7 @@ namespace Sae20190506
       Models::DescribeJobHistoryResponse describeJobHistoryWithOptions(const Models::DescribeJobHistoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the information about jobs.
+       * @summary Queries job history records.
        *
        * @param request DescribeJobHistoryRequest
        * @return DescribeJobHistoryResponse
@@ -1135,7 +1135,7 @@ namespace Sae20190506
       Models::DescribeNamespaceListResponse describeNamespaceList(const Models::DescribeNamespaceListRequest &request);
 
       /**
-       * @summary Queries the resources in a namespace.
+       * @summary Queries the resource information in a namespace.
        *
        * @param request DescribeNamespaceResourcesRequest
        * @param headers map
@@ -1145,7 +1145,7 @@ namespace Sae20190506
       Models::DescribeNamespaceResourcesResponse describeNamespaceResourcesWithOptions(const Models::DescribeNamespaceResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the resources in a namespace.
+       * @summary Queries the resource information in a namespace.
        *
        * @param request DescribeNamespaceResourcesRequest
        * @return DescribeNamespaceResourcesResponse
@@ -1171,7 +1171,7 @@ namespace Sae20190506
       Models::DescribeNamespacesResponse describeNamespaces(const Models::DescribeNamespacesRequest &request);
 
       /**
-       * @summary View batch information
+       * @summary Queries batch information.
        *
        * @param request DescribePipelineRequest
        * @param headers map
@@ -1181,7 +1181,7 @@ namespace Sae20190506
       Models::DescribePipelineResponse describePipelineWithOptions(const Models::DescribePipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary View batch information
+       * @summary Queries batch information.
        *
        * @param request DescribePipelineRequest
        * @return DescribePipelineResponse
@@ -1205,7 +1205,7 @@ namespace Sae20190506
       Models::DescribeRegionsResponse describeRegions();
 
       /**
-       * @summary Queries the details of a Secret.
+       * @summary Queries the details of a Secret instance.
        *
        * @param request DescribeSecretRequest
        * @param headers map
@@ -1215,7 +1215,7 @@ namespace Sae20190506
       Models::DescribeSecretResponse describeSecretWithOptions(const Models::DescribeSecretRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a Secret.
+       * @summary Queries the details of a Secret instance.
        *
        * @param request DescribeSecretRequest
        * @return DescribeSecretResponse
@@ -1223,7 +1223,7 @@ namespace Sae20190506
       Models::DescribeSecretResponse describeSecret(const Models::DescribeSecretRequest &request);
 
       /**
-       * @summary Retrieves the details of a swimlane.
+       * @summary Queries the details of a traffic lane.
        *
        * @param request DescribeSwimmingLaneRequest
        * @param headers map
@@ -1233,7 +1233,7 @@ namespace Sae20190506
       Models::DescribeSwimmingLaneResponse describeSwimmingLaneWithOptions(const Models::DescribeSwimmingLaneRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a swimlane.
+       * @summary Queries the details of a traffic lane.
        *
        * @param request DescribeSwimmingLaneRequest
        * @return DescribeSwimmingLaneResponse
@@ -1241,6 +1241,8 @@ namespace Sae20190506
       Models::DescribeSwimmingLaneResponse describeSwimmingLane(const Models::DescribeSwimmingLaneRequest &request);
 
       /**
+       * @summary Queries vSwitch information.
+       *
        * @param request DescribeVSwitchesRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1249,6 +1251,8 @@ namespace Sae20190506
       Models::DescribeVSwitchesResponse describeVSwitchesWithOptions(const Models::DescribeVSwitchesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries vSwitch information.
+       *
        * @param request DescribeVSwitchesRequest
        * @return DescribeVSwitchesResponse
        */
@@ -1409,7 +1413,7 @@ namespace Sae20190506
       Models::DescribeWebInstanceLogsResponse describeWebInstanceLogs(const string &ApplicationId, const string &InstanceId, const Models::DescribeWebInstanceLogsRequest &request);
 
       /**
-       * @summary Disables an Auto Scaling policy for an application.
+       * @summary Invokes the DisableApplicationScalingRule API operation to disable an application elastic scaling policy.
        *
        * @param request DisableApplicationScalingRuleRequest
        * @param headers map
@@ -1419,7 +1423,7 @@ namespace Sae20190506
       Models::DisableApplicationScalingRuleResponse disableApplicationScalingRuleWithOptions(const Models::DisableApplicationScalingRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables an Auto Scaling policy for an application.
+       * @summary Invokes the DisableApplicationScalingRule API operation to disable an application elastic scaling policy.
        *
        * @param request DisableApplicationScalingRuleRequest
        * @return DisableApplicationScalingRuleResponse
@@ -1445,7 +1449,7 @@ namespace Sae20190506
       Models::DisableArmsResponse disableArms(const Models::DisableArmsRequest &request);
 
       /**
-       * @summary Disable ARMS Advanced Edition monitoring.
+       * @summary Disables ARMS Premium Edition monitoring.
        *
        * @param request DowngradeApplicationApmServiceRequest
        * @param headers map
@@ -1455,7 +1459,7 @@ namespace Sae20190506
       Models::DowngradeApplicationApmServiceResponse downgradeApplicationApmServiceWithOptions(const Models::DowngradeApplicationApmServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disable ARMS Advanced Edition monitoring.
+       * @summary Disables ARMS Premium Edition monitoring.
        *
        * @param request DowngradeApplicationApmServiceRequest
        * @return DowngradeApplicationApmServiceResponse
@@ -1463,7 +1467,7 @@ namespace Sae20190506
       Models::DowngradeApplicationApmServiceResponse downgradeApplicationApmService(const Models::DowngradeApplicationApmServiceRequest &request);
 
       /**
-       * @summary Enables an auto scaling policy for an application.
+       * @summary Enables an elastic scaling policy for an application.
        *
        * @param request EnableApplicationScalingRuleRequest
        * @param headers map
@@ -1473,7 +1477,7 @@ namespace Sae20190506
       Models::EnableApplicationScalingRuleResponse enableApplicationScalingRuleWithOptions(const Models::EnableApplicationScalingRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables an auto scaling policy for an application.
+       * @summary Enables an elastic scaling policy for an application.
        *
        * @param request EnableApplicationScalingRuleRequest
        * @return EnableApplicationScalingRuleResponse
@@ -1481,7 +1485,7 @@ namespace Sae20190506
       Models::EnableApplicationScalingRuleResponse enableApplicationScalingRule(const Models::EnableApplicationScalingRuleRequest &request);
 
       /**
-       * @summary Call ExecJob to run a job.
+       * @summary Executes a job.
        *
        * @param request ExecJobRequest
        * @param headers map
@@ -1491,7 +1495,7 @@ namespace Sae20190506
       Models::ExecJobResponse execJobWithOptions(const Models::ExecJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call ExecJob to run a job.
+       * @summary Executes a job.
        *
        * @param request ExecJobRequest
        * @return ExecJobResponse
@@ -1553,7 +1557,7 @@ namespace Sae20190506
       Models::GetAvailabilityMetricResponse getAvailabilityMetric(const Models::GetAvailabilityMetricRequest &request);
 
       /**
-       * @summary To retrieve the top N applications with abnormal change orders, call the `GetChangeOrderMetric` API.
+       * @summary Retrieves the top N applications with abnormal change orders.
        *
        * @param request GetChangeOrderMetricRequest
        * @param headers map
@@ -1563,7 +1567,7 @@ namespace Sae20190506
       Models::GetChangeOrderMetricResponse getChangeOrderMetricWithOptions(const Models::GetChangeOrderMetricRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary To retrieve the top N applications with abnormal change orders, call the `GetChangeOrderMetric` API.
+       * @summary Retrieves the top N applications with abnormal change orders.
        *
        * @param request GetChangeOrderMetricRequest
        * @return GetChangeOrderMetricResponse
@@ -1643,7 +1647,7 @@ namespace Sae20190506
       Models::ListAllSwimmingLaneGroupsResponse listAllSwimmingLaneGroups(const Models::ListAllSwimmingLaneGroupsRequest &request);
 
       /**
-       * @summary Lists all swimlanes.
+       * @summary Queries all traffic lanes.
        *
        * @param request ListAllSwimmingLanesRequest
        * @param headers map
@@ -1653,7 +1657,7 @@ namespace Sae20190506
       Models::ListAllSwimmingLanesResponse listAllSwimmingLanesWithOptions(const Models::ListAllSwimmingLanesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists all swimlanes.
+       * @summary Queries all traffic lanes.
        *
        * @param request ListAllSwimmingLanesRequest
        * @return ListAllSwimmingLanesResponse
@@ -1733,7 +1737,7 @@ namespace Sae20190506
       Models::ListAppVersionsResponse listAppVersions(const Models::ListAppVersionsRequest &request);
 
       /**
-       * @summary 查询服务实例列表
+       * @summary Queries a list of service instances.
        *
        * @param request ListApplicationCenterServiceInstancesRequest
        * @param headers map
@@ -1743,7 +1747,7 @@ namespace Sae20190506
       Models::ListApplicationCenterServiceInstancesResponse listApplicationCenterServiceInstancesWithOptions(const Models::ListApplicationCenterServiceInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询服务实例列表
+       * @summary Queries a list of service instances.
        *
        * @param request ListApplicationCenterServiceInstancesRequest
        * @return ListApplicationCenterServiceInstancesResponse
@@ -1787,7 +1791,7 @@ namespace Sae20190506
       Models::ListApplicationsForSwimmingLaneResponse listApplicationsForSwimmingLane(const Models::ListApplicationsForSwimmingLaneRequest &request);
 
       /**
-       * @summary Lists change orders.
+       * @summary Queries the list of change orders.
        *
        * @param request ListChangeOrdersRequest
        * @param headers map
@@ -1797,7 +1801,7 @@ namespace Sae20190506
       Models::ListChangeOrdersResponse listChangeOrdersWithOptions(const Models::ListChangeOrdersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists change orders.
+       * @summary Queries the list of change orders.
        *
        * @param request ListChangeOrdersRequest
        * @return ListChangeOrdersResponse
@@ -1823,9 +1827,9 @@ namespace Sae20190506
       Models::ListConsumedServicesResponse listConsumedServices(const Models::ListConsumedServicesRequest &request);
 
       /**
-       * @summary Queries the details of a grayscale rule based on an application ID.
+       * @summary Queries the details of a canary release rule based on the application ID.
        *
-       * @description > You can configure only one grayscale rule for each application.
+       * @description > Currently, you can configure only one canary release rule for each application.
        *
        * @param request ListGreyTagRouteRequest
        * @param headers map
@@ -1835,9 +1839,9 @@ namespace Sae20190506
       Models::ListGreyTagRouteResponse listGreyTagRouteWithOptions(const Models::ListGreyTagRouteRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a grayscale rule based on an application ID.
+       * @summary Queries the details of a canary release rule based on the application ID.
        *
-       * @description > You can configure only one grayscale rule for each application.
+       * @description > Currently, you can configure only one canary release rule for each application.
        *
        * @param request ListGreyTagRouteRequest
        * @return ListGreyTagRouteResponse
@@ -1845,7 +1849,7 @@ namespace Sae20190506
       Models::ListGreyTagRouteResponse listGreyTagRoute(const Models::ListGreyTagRouteRequest &request);
 
       /**
-       * @summary Retrieves a list of Ingresses.
+       * @summary Queries the list of ingresses.
        *
        * @param request ListIngressesRequest
        * @param headers map
@@ -1855,7 +1859,7 @@ namespace Sae20190506
       Models::ListIngressesResponse listIngressesWithOptions(const Models::ListIngressesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of Ingresses.
+       * @summary Queries the list of ingresses.
        *
        * @param request ListIngressesRequest
        * @return ListIngressesResponse
@@ -1863,7 +1867,7 @@ namespace Sae20190506
       Models::ListIngressesResponse listIngresses(const Models::ListIngressesRequest &request);
 
       /**
-       * @summary Retrieves a list of job templates.
+       * @summary Queries a list of job templates.
        *
        * @param request ListJobsRequest
        * @param headers map
@@ -1873,7 +1877,7 @@ namespace Sae20190506
       Models::ListJobsResponse listJobsWithOptions(const Models::ListJobsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of job templates.
+       * @summary Queries a list of job templates.
        *
        * @param request ListJobsRequest
        * @return ListJobsResponse
@@ -1899,7 +1903,7 @@ namespace Sae20190506
       Models::ListLogConfigsResponse listLogConfigs(const Models::ListLogConfigsRequest &request);
 
       /**
-       * @summary Lists deployment orders in a namespace.
+       * @summary Queries the change orders in a namespace.
        *
        * @param request ListNamespaceChangeOrdersRequest
        * @param headers map
@@ -1909,7 +1913,7 @@ namespace Sae20190506
       Models::ListNamespaceChangeOrdersResponse listNamespaceChangeOrdersWithOptions(const Models::ListNamespaceChangeOrdersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists deployment orders in a namespace.
+       * @summary Queries the change orders in a namespace.
        *
        * @param request ListNamespaceChangeOrdersRequest
        * @return ListNamespaceChangeOrdersResponse
@@ -1917,7 +1921,7 @@ namespace Sae20190506
       Models::ListNamespaceChangeOrdersResponse listNamespaceChangeOrders(const Models::ListNamespaceChangeOrdersRequest &request);
 
       /**
-       * @summary Lists ConfigMap instances in a namespace.
+       * @summary Retrieves a list of ConfigMap instances in a namespace.
        *
        * @param request ListNamespacedConfigMapsRequest
        * @param headers map
@@ -1927,7 +1931,7 @@ namespace Sae20190506
       Models::ListNamespacedConfigMapsResponse listNamespacedConfigMapsWithOptions(const Models::ListNamespacedConfigMapsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists ConfigMap instances in a namespace.
+       * @summary Retrieves a list of ConfigMap instances in a namespace.
        *
        * @param request ListNamespacedConfigMapsRequest
        * @return ListNamespacedConfigMapsResponse
@@ -1935,7 +1939,7 @@ namespace Sae20190506
       Models::ListNamespacedConfigMapsResponse listNamespacedConfigMaps(const Models::ListNamespacedConfigMapsRequest &request);
 
       /**
-       * @summary Queries a list of published microservices.
+       * @summary Retrieves the list of published microservices.
        *
        * @param request ListPublishedServicesRequest
        * @param headers map
@@ -1945,7 +1949,7 @@ namespace Sae20190506
       Models::ListPublishedServicesResponse listPublishedServicesWithOptions(const Models::ListPublishedServicesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of published microservices.
+       * @summary Retrieves the list of published microservices.
        *
        * @param request ListPublishedServicesRequest
        * @return ListPublishedServicesResponse
@@ -1953,7 +1957,7 @@ namespace Sae20190506
       Models::ListPublishedServicesResponse listPublishedServices(const Models::ListPublishedServicesRequest &request);
 
       /**
-       * @summary Call ListSecrets to list Secrets in a namespace.
+       * @summary Queries the Secret instances in a namespace.
        *
        * @param request ListSecretsRequest
        * @param headers map
@@ -1963,7 +1967,7 @@ namespace Sae20190506
       Models::ListSecretsResponse listSecretsWithOptions(const Models::ListSecretsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call ListSecrets to list Secrets in a namespace.
+       * @summary Queries the Secret instances in a namespace.
        *
        * @param request ListSecretsRequest
        * @return ListSecretsResponse
@@ -1971,7 +1975,7 @@ namespace Sae20190506
       Models::ListSecretsResponse listSecrets(const Models::ListSecretsRequest &request);
 
       /**
-       * @summary Lists the gateway routes that can be associated with a swimming lane.
+       * @summary Queries the available gateway routes for a traffic lane.
        *
        * @param request ListSwimmingLaneGatewayRoutesRequest
        * @param headers map
@@ -1981,7 +1985,7 @@ namespace Sae20190506
       Models::ListSwimmingLaneGatewayRoutesResponse listSwimmingLaneGatewayRoutesWithOptions(const Models::ListSwimmingLaneGatewayRoutesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the gateway routes that can be associated with a swimming lane.
+       * @summary Queries the available gateway routes for a traffic lane.
        *
        * @param request ListSwimmingLaneGatewayRoutesRequest
        * @return ListSwimmingLaneGatewayRoutesResponse
@@ -1989,7 +1993,7 @@ namespace Sae20190506
       Models::ListSwimmingLaneGatewayRoutesResponse listSwimmingLaneGatewayRoutes(const Models::ListSwimmingLaneGatewayRoutesRequest &request);
 
       /**
-       * @summary Lists all swimming lane tags.
+       * @summary Queries all lane tags.
        *
        * @param request ListSwimmingLaneGroupTagsRequest
        * @param headers map
@@ -1999,7 +2003,7 @@ namespace Sae20190506
       Models::ListSwimmingLaneGroupTagsResponse listSwimmingLaneGroupTagsWithOptions(const Models::ListSwimmingLaneGroupTagsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists all swimming lane tags.
+       * @summary Queries all lane tags.
        *
        * @param request ListSwimmingLaneGroupTagsRequest
        * @return ListSwimmingLaneGroupTagsResponse
@@ -2007,7 +2011,7 @@ namespace Sae20190506
       Models::ListSwimmingLaneGroupTagsResponse listSwimmingLaneGroupTags(const Models::ListSwimmingLaneGroupTagsRequest &request);
 
       /**
-       * @summary Call the `ListTagResources` API to list the tags associated with your applications.
+       * @summary Queries the mapping between applications and tags.
        *
        * @param request ListTagResourcesRequest
        * @param headers map
@@ -2017,7 +2021,7 @@ namespace Sae20190506
       Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call the `ListTagResources` API to list the tags associated with your applications.
+       * @summary Queries the mapping between applications and tags.
        *
        * @param request ListTagResourcesRequest
        * @return ListTagResourcesResponse
@@ -2173,7 +2177,7 @@ namespace Sae20190506
       Models::QueryArmsEnableResponse queryArmsEnable(const Models::QueryArmsEnableRequest &request);
 
       /**
-       * @summary Gets the resource usage for an application.
+       * @summary Retrieves the resource usage of an application.
        *
        * @param request QueryResourceStaticsRequest
        * @param headers map
@@ -2183,7 +2187,7 @@ namespace Sae20190506
       Models::QueryResourceStaticsResponse queryResourceStaticsWithOptions(const Models::QueryResourceStaticsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Gets the resource usage for an application.
+       * @summary Retrieves the resource usage of an application.
        *
        * @param request QueryResourceStaticsRequest
        * @return QueryResourceStaticsResponse
@@ -2227,7 +2231,7 @@ namespace Sae20190506
       Models::RescaleApplicationResponse rescaleApplication(const Models::RescaleApplicationRequest &request);
 
       /**
-       * @summary Changes the instance type of an application.
+       * @summary Modifies the instance specifications of an application.
        *
        * @param request RescaleApplicationVerticallyRequest
        * @param headers map
@@ -2237,7 +2241,7 @@ namespace Sae20190506
       Models::RescaleApplicationVerticallyResponse rescaleApplicationVerticallyWithOptions(const Models::RescaleApplicationVerticallyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the instance type of an application.
+       * @summary Modifies the instance specifications of an application.
        *
        * @param request RescaleApplicationVerticallyRequest
        * @return RescaleApplicationVerticallyResponse
@@ -2263,7 +2267,7 @@ namespace Sae20190506
       Models::RestartApplicationResponse restartApplication(const Models::RestartApplicationRequest &request);
 
       /**
-       * @summary Restarts one or more instances in an application.
+       * @summary Restarts application instances.
        *
        * @param request RestartInstancesRequest
        * @param headers map
@@ -2273,7 +2277,7 @@ namespace Sae20190506
       Models::RestartInstancesResponse restartInstancesWithOptions(const Models::RestartInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Restarts one or more instances in an application.
+       * @summary Restarts application instances.
        *
        * @param request RestartInstancesRequest
        * @return RestartInstancesResponse
@@ -2505,7 +2509,7 @@ namespace Sae20190506
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
-       * @summary Updates the idle mode for an application.
+       * @summary Updates the idle mode of an application.
        *
        * @param request UpdateAppModeRequest
        * @param headers map
@@ -2515,7 +2519,7 @@ namespace Sae20190506
       Models::UpdateAppModeResponse updateAppModeWithOptions(const Models::UpdateAppModeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the idle mode for an application.
+       * @summary Updates the idle mode of an application.
        *
        * @param request UpdateAppModeRequest
        * @return UpdateAppModeResponse
@@ -2523,7 +2527,7 @@ namespace Sae20190506
       Models::UpdateAppModeResponse updateAppMode(const Models::UpdateAppModeRequest &request);
 
       /**
-       * @summary Updates an application security group.
+       * @summary Updates the security group of an application.
        *
        * @param request UpdateAppSecurityGroupRequest
        * @param headers map
@@ -2533,7 +2537,7 @@ namespace Sae20190506
       Models::UpdateAppSecurityGroupResponse updateAppSecurityGroupWithOptions(const Models::UpdateAppSecurityGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates an application security group.
+       * @summary Updates the security group of an application.
        *
        * @param request UpdateAppSecurityGroupRequest
        * @return UpdateAppSecurityGroupResponse
@@ -2583,7 +2587,7 @@ namespace Sae20190506
       Models::UpdateApplicationScalingRuleResponse updateApplicationScalingRule(const Models::UpdateApplicationScalingRuleRequest &request);
 
       /**
-       * @summary Updates the vSwitch configuration for an application.
+       * @summary Updates the vSwitch configuration.
        *
        * @param request UpdateApplicationVswitchesRequest
        * @param headers map
@@ -2593,7 +2597,7 @@ namespace Sae20190506
       Models::UpdateApplicationVswitchesResponse updateApplicationVswitchesWithOptions(const Models::UpdateApplicationVswitchesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the vSwitch configuration for an application.
+       * @summary Updates the vSwitch configuration.
        *
        * @param request UpdateApplicationVswitchesRequest
        * @return UpdateApplicationVswitchesResponse
@@ -2619,7 +2623,7 @@ namespace Sae20190506
       Models::UpdateConfigMapResponse updateConfigMap(const Models::UpdateConfigMapRequest &request);
 
       /**
-       * @summary Updates a grey tag route.
+       * @summary Updates a canary release rule.
        *
        * @param request UpdateGreyTagRouteRequest
        * @param headers map
@@ -2629,7 +2633,7 @@ namespace Sae20190506
       Models::UpdateGreyTagRouteResponse updateGreyTagRouteWithOptions(const Models::UpdateGreyTagRouteRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a grey tag route.
+       * @summary Updates a canary release rule.
        *
        * @param request UpdateGreyTagRouteRequest
        * @return UpdateGreyTagRouteResponse
@@ -2637,7 +2641,7 @@ namespace Sae20190506
       Models::UpdateGreyTagRouteResponse updateGreyTagRoute(const Models::UpdateGreyTagRouteRequest &request);
 
       /**
-       * @summary Update the configuration of an Ingress instance.
+       * @summary Updates the configuration of an Ingress instance.
        *
        * @param request UpdateIngressRequest
        * @param headers map
@@ -2647,7 +2651,7 @@ namespace Sae20190506
       Models::UpdateIngressResponse updateIngressWithOptions(const Models::UpdateIngressRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update the configuration of an Ingress instance.
+       * @summary Updates the configuration of an Ingress instance.
        *
        * @param request UpdateIngressRequest
        * @return UpdateIngressResponse
@@ -2655,7 +2659,7 @@ namespace Sae20190506
       Models::UpdateIngressResponse updateIngress(const Models::UpdateIngressRequest &request);
 
       /**
-       * @summary Call the UpdateJob API to update a job template.
+       * @summary Updates a job template.
        *
        * @param request UpdateJobRequest
        * @param headers map
@@ -2665,7 +2669,7 @@ namespace Sae20190506
       Models::UpdateJobResponse updateJobWithOptions(const Models::UpdateJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call the UpdateJob API to update a job template.
+       * @summary Updates a job template.
        *
        * @param request UpdateJobRequest
        * @return UpdateJobResponse
@@ -2673,7 +2677,7 @@ namespace Sae20190506
       Models::UpdateJobResponse updateJob(const Models::UpdateJobRequest &request);
 
       /**
-       * @summary Update the information about a namespace.
+       * @summary Updates namespace information.
        *
        * @param request UpdateNamespaceRequest
        * @param headers map
@@ -2683,7 +2687,7 @@ namespace Sae20190506
       Models::UpdateNamespaceResponse updateNamespaceWithOptions(const Models::UpdateNamespaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update the information about a namespace.
+       * @summary Updates namespace information.
        *
        * @param request UpdateNamespaceRequest
        * @return UpdateNamespaceResponse
@@ -2691,7 +2695,7 @@ namespace Sae20190506
       Models::UpdateNamespaceResponse updateNamespace(const Models::UpdateNamespaceRequest &request);
 
       /**
-       * @summary Updates the namespace-level SLS configuration.
+       * @summary Updates the Simple Log Service (SLS) configuration at the namespace level.
        *
        * @param request UpdateNamespaceSlsConfigsRequest
        * @param headers map
@@ -2701,7 +2705,7 @@ namespace Sae20190506
       Models::UpdateNamespaceSlsConfigsResponse updateNamespaceSlsConfigsWithOptions(const Models::UpdateNamespaceSlsConfigsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the namespace-level SLS configuration.
+       * @summary Updates the Simple Log Service (SLS) configuration at the namespace level.
        *
        * @param request UpdateNamespaceSlsConfigsRequest
        * @return UpdateNamespaceSlsConfigsResponse
@@ -2745,7 +2749,7 @@ namespace Sae20190506
       Models::UpdateSecretResponse updateSecret(const Models::UpdateSecretRequest &request);
 
       /**
-       * @summary Updates the enabled status of a swimming lane.
+       * @summary Updates the enabled property of a traffic lane.
        *
        * @param request UpdateSwimmingLaneEnableAttributeRequest
        * @param headers map
@@ -2755,7 +2759,7 @@ namespace Sae20190506
       Models::UpdateSwimmingLaneEnableAttributeResponse updateSwimmingLaneEnableAttributeWithOptions(const Models::UpdateSwimmingLaneEnableAttributeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the enabled status of a swimming lane.
+       * @summary Updates the enabled property of a traffic lane.
        *
        * @param request UpdateSwimmingLaneEnableAttributeRequest
        * @return UpdateSwimmingLaneEnableAttributeResponse

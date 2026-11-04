@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The swimming lane group ID.
+    // The lane group ID.
     shared_ptr<int64_t> groupId_ {};
     // The namespace ID.
     shared_ptr<string> namespaceId_ {};

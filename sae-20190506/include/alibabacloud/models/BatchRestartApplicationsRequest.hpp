@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The application IDs. Separate multiple IDs with commas (,).
+    // The list of application IDs. Separate multiple IDs with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> appIds_ {};

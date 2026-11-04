@@ -116,11 +116,19 @@ namespace Models
 
 
     protected:
+      // The number of available IP addresses.
       shared_ptr<string> availableIpAddressCount_ {};
+      // The batch status. Valid values:
+      // 
+      // - Available: Available.
       shared_ptr<string> status_ {};
+      // The ID of the vSwitch.
       shared_ptr<string> vSwitchId_ {};
+      // The name of the vSwitch.
       shared_ptr<string> vSwitchName_ {};
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -179,12 +187,32 @@ namespace Models
 
 
   protected:
+    // The API status code or POP error code. Valid values:
+    // 
+    // - **2xx**: Success.
+    // - **3xx**: Redirection.
+    // - **4xx**: Request error.
+    // - **5xx**: Server error.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<vector<DescribeVSwitchesResponseBody::Data>> data_ {};
+    // The error code. Valid values:
+    // 
+    // - Successful request: The **ErrorCode** field is not returned.
+    // - Failed request: The **ErrorCode** field is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
+    // The additional information. Valid values:
+    // 
+    // - **success**: The request is successful.
+    // - Specific error code: The request is abnormal.
     shared_ptr<string> message_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Specifies whether the creation or update is successful. Valid values:
+    // 
+    // - Successful.
     shared_ptr<bool> success_ {};
+    // The trace ID.
     shared_ptr<string> traceId_ {};
   };
 

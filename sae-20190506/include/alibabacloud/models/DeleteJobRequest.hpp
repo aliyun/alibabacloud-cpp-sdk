@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the job template that you want to delete.
+    // The ID of the task template to delete.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};

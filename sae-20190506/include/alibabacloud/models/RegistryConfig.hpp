@@ -54,7 +54,9 @@ namespace Models
 
 
   protected:
+    // authConfig
     shared_ptr<RegistryAuthConfig> authConfig_ {};
+    // certConfig
     shared_ptr<RegistryCertConfig> certConfig_ {};
   };
 

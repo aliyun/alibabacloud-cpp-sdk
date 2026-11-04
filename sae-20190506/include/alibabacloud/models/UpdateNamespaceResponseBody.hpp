@@ -115,21 +115,19 @@ namespace Models
 
 
     protected:
-      // Indicates whether to enable SAE built-in registry:
-      // 
+      // Indicates whether the built-in registry of SAE is enabled. Valid values:
       // - **true**
-      // 
       // - **false**
       shared_ptr<bool> enableMicroRegistration_ {};
-      // The short ID of the namespace.
+      // The short namespace ID.
       shared_ptr<string> nameSpaceShortId_ {};
-      // The description of the namespace.
+      // The namespace description.
       shared_ptr<string> namespaceDescription_ {};
-      // The ID of the namespace.
+      // The namespace ID.
       shared_ptr<string> namespaceId_ {};
-      // The name of the namespace.
+      // The namespace name.
       shared_ptr<string> namespaceName_ {};
-      // The region where the namespace resides.
+      // The region where the namespace is located.
       shared_ptr<string> regionId_ {};
     };
 
@@ -188,35 +186,30 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values:
+    // The API status code or POP error code. Valid values:
     // 
-    // - **2xx**: The call was successful.
-    // 
-    // - **3xx**: The call was redirected.
-    // 
-    // - **4xx**: The call failed.
-    // 
-    // - **5xx**: A server error occurred.
+    // - **2xx**: Success.
+    // - **3xx**: Redirection.
+    // - **4xx**: Request error.
+    // - **5xx**: Server error.
     shared_ptr<string> code_ {};
-    // The information about a namespace.
+    // The namespace information.
     shared_ptr<UpdateNamespaceResponseBody::Data> data_ {};
-    // The error code returned. Take note of the following rules:
+    // The error code. The following rules apply:
     // 
-    // - The **ErrorCode** parameter is not returned if the request succeeds.
-    // 
-    // - If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+    // - If the request is successful, the **ErrorCode** parameter is not returned.
+    // - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The message returned for the operation.
+    // The additional information about the request result.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the information about the namespace was updated. Valid values:
+    // Indicates whether the namespace information is updated. Valid values:
     // 
-    // - **true**: The instance was updated.
-    // 
-    // - **false**: The instance failed to be updated.
+    // - **true**: The update is successful.
+    // - **false**: The update fails.
     shared_ptr<bool> success_ {};
-    // The trace ID that is used to query the details of the request.
+    // The trace ID. You can use this ID to precisely query invocation information.
     shared_ptr<string> traceId_ {};
   };
 

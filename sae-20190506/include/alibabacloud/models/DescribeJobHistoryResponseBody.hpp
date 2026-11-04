@@ -162,27 +162,23 @@ namespace Models
       protected:
         // The number of running instances.
         shared_ptr<int64_t> active_ {};
-        // The time when the job was executed.
+        // The completion time of the job.
         shared_ptr<int64_t> completionTime_ {};
-        // The number of instances that failed to run.
+        // The number of failed instances.
         shared_ptr<int64_t> failed_ {};
-        // The job ID.
+        // The ID of the job.
         shared_ptr<string> jobId_ {};
-        // The message returned if exceptions occur during job running.
+        // The additional information returned when an exception occurs during job execution.
         shared_ptr<string> message_ {};
-        // The time when the job was created.
+        // The creation time of the job.
         shared_ptr<int64_t> startTime_ {};
-        // The status of the job. Valid values:
-        // 
-        // - **0**: The job was not executed.
-        // 
-        // - **1**: The job was executed.
-        // 
-        // - **2**: The job failed to be executed.
-        // 
-        // - **3**: The job is being executed.
+        // The running status of the job. Valid values:
+        // - **0**: Not run.
+        // - **1**: Succeeded.
+        // - **2**: Failed.
+        // - **3**: Running.
         shared_ptr<string> state_ {};
-        // The number of instances that are successfully run.
+        // The number of successful instances.
         shared_ptr<int64_t> succeeded_ {};
       };
 
@@ -219,11 +215,11 @@ namespace Models
 
 
     protected:
-      // The page number of the returned page.
+      // The current page number.
       shared_ptr<int64_t> currentPage_ {};
-      // The jobs.
+      // The list of jobs.
       shared_ptr<vector<Data::Jobs>> jobs_ {};
-      // The number of entries to return on each page. Valid values: 0 to 10000.
+      // The number of entries per page in the paging Settings for a paged query. Valid values: 0 to 10000.
       shared_ptr<int64_t> pageSize_ {};
       // The total number of jobs.
       shared_ptr<int64_t> totalSize_ {};
@@ -284,39 +280,29 @@ namespace Models
 
 
   protected:
-    // The HTTP status code returned. Valid values:
-    // 
-    // - **2xx**: The call was successful.
-    // 
-    // - **3xx**: The call was redirected.
-    // 
-    // - **4xx**: The call failed.
-    // 
-    // - **5xx**: A server error occurred.
+    // The API status code or POP error code. Valid values:
+    // - **2xx**: Success.
+    // - **3xx**: Redirect.
+    // - **4xx**: Client error.
+    // - **5xx**: Server error.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The response data.
     shared_ptr<DescribeJobHistoryResponseBody::Data> data_ {};
-    // The error code returned. Take note of the following rules:
-    // 
-    // - If the call is successful, the **ErrorCode** parameter is not returned.
-    // 
-    // - If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section in this topic.
+    // The error code.
+    // - If the request is successful, the **ErrorCode** parameter is not returned.
+    // - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The message returned. Take note of the following rules:
-    // 
-    // - If the call is successful, **success** is returned.
-    // 
-    // - If the call fails, an error code is returned.
+    // The additional information.
+    // - If the request is successful, **success** is returned.
+    // - If the request fails, a specific error code is returned.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful. Valid values:
-    // 
-    // - **true**
-    // 
-    // - **false**
+    // Indicates whether the job status was queried successfully. Valid values:
+    // - **true**: The query succeeded.
+    // - **false**: The query failed.
     shared_ptr<bool> success_ {};
-    // The trace ID that is used to query the details of the request.
+    // The trace ID used to query detailed call information.
     shared_ptr<string> traceId_ {};
   };
 

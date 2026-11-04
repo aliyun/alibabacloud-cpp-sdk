@@ -69,7 +69,7 @@ namespace Models
 
 
     protected:
-      // The pipeline ID.
+      // The batch ID.
       shared_ptr<string> pipelineId_ {};
     };
 
@@ -128,35 +128,29 @@ namespace Models
 
 
   protected:
-    // The HTTP status code for the request.
+    // The API status code or POP error code. Valid values:
     // 
-    // - **2xx**: The request was successful.
-    // 
-    // - **3xx**: The request was redirected.
-    // 
-    // - **4xx**: A request error occurred.
-    // 
-    // - **5xx**: A server error occurred.
+    // - **2xx**: Success.
+    // - **3xx**: Redirection.
+    // - **4xx**: Client error.
+    // - **5xx**: Server error.
     shared_ptr<string> code_ {};
-    // The pipeline information.
+    // The batch information.
     shared_ptr<ConfirmPipelineBatchResponseBody::Data> data_ {};
-    // The error code.
-    // 
-    // - The **ErrorCode** field is not returned if the request is successful.
-    // 
-    // - The **ErrorCode** field is returned if the request fails. For more information, see the **Error codes** section in this topic.
+    // The error code. 
+    // - If the request is successful, the **ErrorCode** parameter is not returned.
+    // - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The returned message.
+    // The additional information about the call result.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the batch confirmation was successful.
+    // Indicates whether the confirmation to start the next batch was successful. Valid values:
     // 
     // - **true**: The confirmation was successful.
-    // 
     // - **false**: The confirmation failed.
     shared_ptr<bool> success_ {};
-    // The trace ID. You can use this ID to look up the details of the call.
+    // The trace ID used to accurately query call information.
     shared_ptr<string> traceId_ {};
   };
 

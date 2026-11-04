@@ -61,15 +61,14 @@ namespace Models
 
 
   protected:
-    // The DNS name.
+    // The DNS domain name.
     shared_ptr<string> dnsName_ {};
-    // A collection of listener details.
+    // The listener information.
     shared_ptr<map<string, DataInstancesValueListenersValue>> listeners_ {};
-    // Indicates whether SAE created the instance. Valid values:
+    // Specifies whether the instance is purchased by Serverless App Engine (SAE). Valid values:
     // 
-    // - **true**: SAE created the instance.
-    // 
-    // - **false**: SAE reused an existing instance.
+    // - **true**: The instance is created by SAE on your behalf.
+    // - **false**: An existing instance is reused.
     shared_ptr<bool> createdBySae_ {};
   };
 

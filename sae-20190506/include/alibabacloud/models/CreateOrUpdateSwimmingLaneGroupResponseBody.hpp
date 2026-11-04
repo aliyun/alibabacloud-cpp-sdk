@@ -69,7 +69,7 @@ namespace Models
 
 
     protected:
-      // The ID of the swimming lane group.
+      // The ID of the traffic lane group.
       shared_ptr<int64_t> groupId_ {};
     };
 
@@ -128,39 +128,33 @@ namespace Models
 
 
   protected:
-    // The HTTP status code:
+    // The API status code or POP error code. Valid values:
     // 
-    // - **2xx**: The request was successful.
-    // 
-    // - **3xx**: The request was redirected.
-    // 
-    // - **4xx**: A client error occurred.
-    // 
-    // - **5xx**: A server error occurred.
+    // - **2xx**: Success.
+    // - **3xx**: Redirection.
+    // - **4xx**: Request error.
+    // - **5xx**: Server error.
     shared_ptr<string> code_ {};
-    // The data object returned by the operation.
+    // The application information.
     shared_ptr<CreateOrUpdateSwimmingLaneGroupResponseBody::Data> data_ {};
-    // The error code.
+    // The error code. Valid values:
     // 
-    // - This parameter is not returned if the request is successful.
-    // 
-    // - This parameter is returned if the request fails. For more information, see the **Error codes** section of this topic.
+    // - If the request is successful, the **ErrorCode** parameter is not returned.
+    // - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The response message:
+    // The additional information. Valid values:
     // 
-    // - **success**: The request was successful.
-    // 
-    // - An error code is returned if the request fails.
+    // - If the request is successful, **success** is returned.
+    // - If the request fails, a specific error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful:
+    // Indicates whether the traffic lane group is created. Valid values:
     // 
-    // - **true**: The request was successful.
-    // 
-    // - **false**: The request failed.
+    // - **true**: The traffic lane group is created.
+    // - **false**: The traffic lane group fails to be created.
     shared_ptr<bool> success_ {};
-    // The trace ID, which you can use to query the details of the request.
+    // The trace ID used to query invocation details.
     shared_ptr<string> traceId_ {};
   };
 

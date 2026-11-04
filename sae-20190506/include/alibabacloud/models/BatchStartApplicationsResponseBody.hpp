@@ -69,15 +69,7 @@ namespace Models
 
 
     protected:
-      // The HTTP status code. Valid values:
-      // 
-      // - **2xx**: indicates that the request was successful.
-      // 
-      // - **3xx**: indicates that the request was redirected.
-      // 
-      // - **4xx**: indicates that the request was invalid.
-      // 
-      // - **5xx**: indicates that a server error occurred.
+      // The change order ID.
       shared_ptr<string> changeOrderId_ {};
     };
 
@@ -136,39 +128,33 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Take note of the following rules:
+    // The API status code or POP error code. Valid values:
     // 
-    // - **2xx**: The call was successful.
-    // 
-    // - **3xx**: The call was redirected.
-    // 
-    // - **4xx**: The call failed.
-    // 
-    // - **5xx**: A server error occurred.
+    // - **2xx**: Success.
+    // - **3xx**: Redirect.
+    // - **4xx**: Client error.
+    // - **5xx**: Server error.
     shared_ptr<string> code_ {};
-    // The error code.
-    // 
-    // - If the request is successful, this parameter is not returned.\\*\\*\\*\\*
-    // 
-    // - This parameter is returned only if the request failed.\\*\\*\\*\\* For more information, see **Error codes** in this topic.
+    // The returned result.
     shared_ptr<BatchStartApplicationsResponseBody::Data> data_ {};
-    // The error code returned if the request failed. Take note of the following rules:
+    // The error code. Valid values:
     // 
-    // - The ErrorCode parameter is not returned if the request succeeds.
-    // 
-    // - If the call fails, the ErrorCode parameter is returned. For more information, see the "Error codes" section of this topic.
+    // - If the request is successful, the **ErrorCode** parameter is not returned.
+    // - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The returned data.
+    // The additional information. Valid values:
+    // 
+    // - If the request is successful, **success** is returned.
+    // - If an exception occurs, a specific error code is returned.
     shared_ptr<string> message_ {};
-    // The ID of the trace. It is used to query the details of a request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the application deployment is successful. Take note of the following rules:
+    // Indicates whether the applications were started successfully. Valid values:
     // 
-    // - **true**
-    // 
-    // - **false**
+    // - **true**: The applications were started successfully.
+    // - **false**: The applications failed to start.
     shared_ptr<bool> success_ {};
-    // The ID of the change order.
+    // The trace ID used to query call information.
     shared_ptr<string> traceId_ {};
   };
 

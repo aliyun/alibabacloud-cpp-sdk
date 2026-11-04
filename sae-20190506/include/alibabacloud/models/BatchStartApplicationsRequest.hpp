@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The IDs of the applications that you want to start. Separate multiple IDs with commas (,).
+    // The application IDs. Separate multiple IDs with commas (,).
     shared_ptr<string> appIds_ {};
-    // The ID of the request.
+    // The namespace ID.
     // 
     // This parameter is required.
     shared_ptr<string> namespaceId_ {};

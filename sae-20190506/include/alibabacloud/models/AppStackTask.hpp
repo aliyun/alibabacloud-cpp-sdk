@@ -137,13 +137,21 @@ namespace Models
 
 
     protected:
+      // The error code.
       shared_ptr<string> code_ {};
+      // The step duration.
       shared_ptr<int64_t> duration_ {};
+      // The end time.
       shared_ptr<int64_t> endTime_ {};
+      // The step ID.
       shared_ptr<string> id_ {};
+      // The error message.
       shared_ptr<string> message_ {};
+      // The step name.
       shared_ptr<string> name_ {};
+      // The start time.
       shared_ptr<int64_t> startTime_ {};
+      // The step status.
       shared_ptr<string> status_ {};
     };
 
@@ -209,13 +217,21 @@ namespace Models
 
 
   protected:
+    // The creation time.
     shared_ptr<int64_t> createTime_ {};
+    // The end time.
     shared_ptr<int64_t> endTime_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The template ID.
     shared_ptr<string> stackId_ {};
+    // The start time.
     shared_ptr<int64_t> startTime_ {};
+    // The task status.
     shared_ptr<string> status_ {};
+    // The step list.
     shared_ptr<vector<AppStackTask::Steps>> steps_ {};
+    // The task ID.
     shared_ptr<string> taskId_ {};
   };
 

@@ -130,7 +130,7 @@ namespace Models
 
 
         protected:
-          // The name of the rule.
+          // The rule name.
           shared_ptr<string> name_ {};
           // The rule ID.
           shared_ptr<float> ruleDescId_ {};
@@ -198,7 +198,7 @@ namespace Models
           shared_ptr<float> discountAmount_ {};
           // The original price of the order.
           shared_ptr<float> originalAmount_ {};
-          // The promotion ID.
+          // The campaign ID.
           shared_ptr<vector<string>> ruleIds_ {};
           // The actual transaction price of the order.
           shared_ptr<float> tradeAmount_ {};
@@ -227,7 +227,7 @@ namespace Models
       protected:
         // The pricing information.
         shared_ptr<TrafficPrice::Order> order_ {};
-        // The promotion rules.
+        // The campaign rules.
         shared_ptr<vector<TrafficPrice::Rules>> rules_ {};
       };
 
@@ -269,7 +269,7 @@ namespace Models
 
 
       protected:
-        // The name of the rule.
+        // The rule name.
         shared_ptr<string> name_ {};
         // The rule ID.
         shared_ptr<int64_t> ruleDescId_ {};
@@ -334,7 +334,7 @@ namespace Models
 
 
         protected:
-          // The name of the rule.
+          // The rule name.
           shared_ptr<string> name_ {};
           // The policy ID.
           shared_ptr<int64_t> ruleDescId_ {};
@@ -431,7 +431,7 @@ namespace Models
       protected:
         // The pricing information.
         shared_ptr<RequestPrice::Order> order_ {};
-        // The promotion rules.
+        // The campaign rules.
         shared_ptr<vector<RequestPrice::Rules>> rules_ {};
       };
 
@@ -497,9 +497,9 @@ namespace Models
         shared_ptr<float> discountAmount_ {};
         // The original price of the order.
         shared_ptr<float> originalAmount_ {};
-        // The promotion ID.
+        // The campaign ID.
         shared_ptr<vector<string>> ruleIds_ {};
-        // The final price of the order.
+        // The transaction amount of the order.
         shared_ptr<float> tradeAmount_ {};
       };
 
@@ -562,7 +562,7 @@ namespace Models
 
 
         protected:
-          // The name of the rule.
+          // The rule name.
           shared_ptr<string> name_ {};
           // The rule ID.
           shared_ptr<float> ruleDescId_ {};
@@ -659,7 +659,7 @@ namespace Models
       protected:
         // The pricing information.
         shared_ptr<CpuMemPrice::Order> order_ {};
-        // The promotion rules.
+        // The campaign rules.
         shared_ptr<vector<CpuMemPrice::Rules>> rules_ {};
       };
 
@@ -710,11 +710,11 @@ namespace Models
 
 
       protected:
-        // The remaining CPU quota. Unit: core-hours.
+        // The remaining CPU quota, in core-hours.
         shared_ptr<float> cpu_ {};
-        // The remaining computing units (CUs) of the resource plan.
+        // The remaining CU quota of the resource plan.
         shared_ptr<float> cu_ {};
-        // The remaining memory quota. Unit: GiB-hours.
+        // The remaining memory quota, in GiB-hours.
         shared_ptr<float> mem_ {};
       };
 
@@ -777,15 +777,15 @@ namespace Models
     protected:
       // The remaining quota of the resource plan.
       shared_ptr<Data::BagUsage> bagUsage_ {};
-      // The price of CPU and memory.
+      // The CPU and memory pricing.
       shared_ptr<Data::CpuMemPrice> cpuMemPrice_ {};
       // The pricing information.
       shared_ptr<Data::Order> order_ {};
-      // The price per request.
+      // The pricing based on the number of requests.
       shared_ptr<Data::RequestPrice> requestPrice_ {};
-      // The promotion rules.
+      // The campaign rules.
       shared_ptr<vector<Data::Rules>> rules_ {};
-      // The price of traffic.
+      // The traffic pricing.
       shared_ptr<Data::TrafficPrice> trafficPrice_ {};
     };
 
@@ -844,37 +844,31 @@ namespace Models
 
 
   protected:
-    // The HTTP status code or POP error code. Valid values:
+    // The API status code or POP error code. Valid values:
     // 
-    // - **2xx**: The request was successful.
-    // 
-    // - **3xx**: The request was redirected.
-    // 
-    // - **4xx**: A request error occurred.
-    // 
-    // - **5xx**: A server error occurred.
+    // - **2xx**: Success.
+    // - **3xx**: Redirection.
+    // - **4xx**: Request error.
+    // - **5xx**: Server error.
     shared_ptr<string> code_ {};
     // The pricing information.
     shared_ptr<DescribeConfigurationPriceResponseBody::Data> data_ {};
-    // The error code.
+    // The error code. The value is described as follows:
     // 
-    // - This parameter is not returned if the request is successful.
-    // 
-    // - This parameter is returned if the request fails. For more information, see the **Error codes** section of this topic.
+    // - If the request is successful, the **ErrorCode** field is not returned.
+    // - If the request fails, the **ErrorCode** field is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The returned message.
+    // The additional information. The value is described as follows:
     // 
     // - If the request is successful, **success** is returned.
-    // 
-    // - If the request fails, an error code is returned.
+    // - If the request fails, a specific error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the price of the configuration was obtained.
+    // Indicates whether the configuration pricing information is successfully retrieved. Valid values:
     // 
-    // - **true**: The price was obtained.
-    // 
-    // - **false**: The price failed to be obtained.
+    // - **true**: The pricing information is successfully retrieved.
+    // - **false**: The pricing information fails to be retrieved.
     shared_ptr<bool> success_ {};
     // The trace ID.
     shared_ptr<string> traceId_ {};

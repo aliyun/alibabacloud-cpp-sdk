@@ -181,65 +181,49 @@ namespace Models
 
 
     protected:
-      // The version of the application runtime environment in the High-Speed Service Framework (HSF), such as an Ali-Tomcat container.
+      // The application runtime environment version in the HSF framework, such as the Ali-Tomcat container.
       shared_ptr<string> edasContainerVersion_ {};
-      // The ID of the application group.
+      // The group ID.
       shared_ptr<string> groupId_ {};
-      // The name of the application group.
+      // The group name.
       shared_ptr<string> groupName_ {};
-      // The type of the application group.
+      // The group type.
       shared_ptr<int32_t> groupType_ {};
-      // The image URL. This parameter is required when **package type** is set to **Image**.
+      // The image address. This parameter is required when **Package Type** is set to **Image**.
       shared_ptr<string> imageUrl_ {};
-      // The JDK version required by the deployment package. This parameter is not supported when **package type** is set to **Image**.
+      // The JDK version on which the deployment package depends. This parameter is not supported when **Package Type** is set to **Image**.
       shared_ptr<string> jdk_ {};
-      // The type of the deployment package. Valid values:
+      // The application package type. Valid values:
       // 
-      // - For Java applications, the supported types are **FatJar**, **War**, and **Image**.
-      // 
-      // - For PHP applications, the supported types are:
-      // 
-      //   - **PhpZip**
-      // 
-      //   - **IMAGE_PHP_5_4**
-      // 
-      //   - **IMAGE_PHP_5_4_ALPINE**
-      // 
-      //   - **IMAGE_PHP_5_5**
-      // 
-      //   - **IMAGE_PHP_5_5_ALPINE**
-      // 
-      //   - **IMAGE_PHP_5_6**
-      // 
-      //   - **IMAGE_PHP_5_6_ALPINE**
-      // 
-      //   - **IMAGE_PHP_7_0**
-      // 
-      //   - **IMAGE_PHP_7_0_ALPINE**
-      // 
-      //   - **IMAGE_PHP_7_1**
-      // 
-      //   - **IMAGE_PHP_7_1_ALPINE**
-      // 
-      //   - **IMAGE_PHP_7_2**
-      // 
-      //   - **IMAGE_PHP_7_2_ALPINE**
-      // 
-      //   - **IMAGE_PHP_7_3**
-      // 
-      //   - **IMAGE_PHP_7_3_ALPINE**
+      // - If you deploy the application by using Java, valid values are **FatJar**, **War**, and **Image**.
+      // - If you deploy the application by using PHP, valid values are:
+      //     - **PhpZip**
+      //     - **IMAGE_PHP_5_4**
+      //     - **IMAGE_PHP_5_4_ALPINE**
+      //     - **IMAGE_PHP_5_5**
+      //     - **IMAGE_PHP_5_5_ALPINE**
+      //     - **IMAGE_PHP_5_6**
+      //     - **IMAGE_PHP_5_6_ALPINE**
+      //     - **IMAGE_PHP_7_0**
+      //     - **IMAGE_PHP_7_0_ALPINE**
+      //     - **IMAGE_PHP_7_1**
+      //     - **IMAGE_PHP_7_1_ALPINE**
+      //     - **IMAGE_PHP_7_2**
+      //     - **IMAGE_PHP_7_2_ALPINE**
+      //     - **IMAGE_PHP_7_3**
+      //     - **IMAGE_PHP_7_3_ALPINE**
       shared_ptr<string> packageType_ {};
-      // The URL of the deployment package. This parameter is required when **package type** is set to **FatJar**, **War**, or **PhpZip**.
+      // The deployment package address. This parameter is required when **Package Type** is set to **FatJar**, **War**, or **PhpZip**.
       shared_ptr<string> packageUrl_ {};
-      // The deployment package version. This parameter is required when **package type** is set to **FatJar**, **War**, or **PhpZip**. This parameter is automatically generated if you deploy the application by using an **image**.
+      // The version number of the deployment package. This parameter is required when **Package Type** is set to **FatJar**, **War**, or **PhpZip**. If the application is deployed by using **ImageUrl**, this parameter is automatically generated.
       shared_ptr<string> packageVersion_ {};
-      // The ID of the deployment package version.
+      // The version ID of the deployment package.
       shared_ptr<string> packageVersionId_ {};
       // The total number of instances.
       shared_ptr<int32_t> replicas_ {};
       // The number of running instances.
       shared_ptr<int32_t> runningInstances_ {};
-      // The Tomcat container version required by the deployment package. This parameter is not supported when **package type** is set to **Image**.
+      // The Tomcat version on which the deployment package depends. This parameter is not supported when **Package Type** is set to **Image**.
       shared_ptr<string> webContainer_ {};
     };
 
@@ -298,35 +282,30 @@ namespace Models
 
 
   protected:
-    // The HTTP status code or the POP error code. Valid values:
+    // The API status code or POP error code. Valid values:
     // 
-    // - **2xx**: The request is successful.
-    // 
-    // - **3xx**: The request is redirected.
-    // 
-    // - **4xx**: The request is invalid.
-    // 
-    // - **5xx**: A server error occurs.
+    // - **2xx**: success
+    // - **3xx**: redirection
+    // - **4xx**: request error
+    // - **5xx**: server error
     shared_ptr<string> code_ {};
-    // A list of application groups.
+    // The application group information.
     shared_ptr<vector<DescribeApplicationGroupsResponseBody::Data>> data_ {};
-    // The error code.
+    // The error code. Valid values:
     // 
-    // - This parameter is not returned if the request is successful.
-    // 
-    // - This parameter is returned if the request fails. For more information, see the **error codes** section.
+    // - If the request is successful, the **ErrorCode** parameter is not returned.
+    // - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The returned message.
+    // The additional information about the call result.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the application groups were successfully retrieved. Valid values:
+    // Indicates whether the application instance groups were retrieved successfully. Valid values:
     // 
-    // - **true**: The application groups were retrieved.
-    // 
-    // - **false**: The application groups were not retrieved.
+    // - **true**: The application instance groups were retrieved successfully.
+    // - **false**: The application instance groups failed to be retrieved.
     shared_ptr<bool> success_ {};
-    // The trace ID used to query the details of a request.
+    // The trace ID used to precisely query call information.
     shared_ptr<string> traceId_ {};
   };
 

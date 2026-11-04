@@ -132,17 +132,17 @@ namespace Models
     protected:
       // The application ID.
       shared_ptr<string> appId_ {};
-      // A reserved field.
+      // A reserved field. This field is currently meaningless.
       shared_ptr<string> group2Ip_ {};
-      // The groups to which the service belongs.
+      // The group to which the consumed service belongs.
       shared_ptr<vector<string>> groups_ {};
       // The service subscription addresses.
       shared_ptr<vector<string>> ips_ {};
       // The published service name.
       shared_ptr<string> name_ {};
-      // The published service type.
+      // The type of the published service.
       shared_ptr<string> type_ {};
-      // The published service version.
+      // The version of the published service.
       shared_ptr<string> version_ {};
     };
 
@@ -201,39 +201,33 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values:
+    // The API status code or POP error code. Valid values:
     // 
     // - **2xx**: The request is successful.
-    // 
     // - **3xx**: The request is redirected.
-    // 
-    // - **4xx**: A client error occurs.
-    // 
-    // - **5xx**: A server error occurs.
+    // - **4xx**: A request error occurred.
+    // - **5xx**: A server error occurred.
     shared_ptr<string> code_ {};
-    // The list of published microservices.
+    // The information about the microservice list.
     shared_ptr<vector<ListPublishedServicesResponseBody::Data>> data_ {};
-    // The error code.
+    // The error code. Valid values:
     // 
-    // - This parameter is not returned if the request is successful.
-    // 
-    // - For more information about error codes, see the **Error codes** section.
+    // - If the request is successful, the **ErrorCode** field is not returned.
+    // - If the request fails, the **ErrorCode** field is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The returned message.
+    // The additional information. Valid values:
     // 
-    // - Returns **success** if the request is successful.
-    // 
-    // - Returns an error code if the request fails.
+    // - If the request is successful, **success** is returned.
+    // - If the request is abnormal, a specific error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the list of published microservices is successfully retrieved. Valid values:
     // 
-    // - **true**: The request was successful.
-    // 
-    // - **false**: The request failed.
+    // - **true**: The list is successfully retrieved.
+    // - **false**: The list fails to be retrieved.
     shared_ptr<bool> success_ {};
-    // The trace ID for querying call details.
+    // The trace ID used to accurately query call information.
     shared_ptr<string> traceId_ {};
   };
 

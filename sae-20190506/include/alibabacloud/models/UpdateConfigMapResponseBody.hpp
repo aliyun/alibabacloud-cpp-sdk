@@ -69,7 +69,7 @@ namespace Models
 
 
     protected:
-      // The ID of the ConfigMap instance.
+      // The ConfigMap instance ID.
       shared_ptr<string> configMapId_ {};
     };
 
@@ -128,35 +128,30 @@ namespace Models
 
 
   protected:
-    // The HTTP status code or the POP error code.
+    // The API status code or POP error code. Valid values:
     // 
-    // - **2xx**: The request is successful.
-    // 
-    // - **3xx**: The request is redirected.
-    // 
-    // - **4xx**: A request error occurred.
-    // 
-    // - **5xx**: A server error occurred.
+    // - **2xx**: Success.
+    // - **3xx**: Redirection.
+    // - **4xx**: Client error.
+    // - **5xx**: Server error.
     shared_ptr<string> code_ {};
     // The returned result.
     shared_ptr<UpdateConfigMapResponseBody::Data> data_ {};
-    // The error code.
+    // The error code. Valid values:
     // 
-    // - This parameter is not returned if the request is successful.
-    // 
-    // - This parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
+    // - Successful request: The **ErrorCode** parameter is not returned.
+    // - Failed request: The **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // Additional information about the call.
+    // The additional information about the call result.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the ConfigMap instance was updated.
+    // Indicates whether the ConfigMap instance was updated successfully. Valid values:
     // 
-    // - **true**: The instance was updated.
-    // 
-    // - **false**: The instance failed to be updated.
+    // - **true**: The update succeeded.
+    // - **false**: The update failed.
     shared_ptr<bool> success_ {};
-    // The trace ID that is used to query the details of the call.
+    // The trace ID used to accurately query the call information.
     shared_ptr<string> traceId_ {};
   };
 

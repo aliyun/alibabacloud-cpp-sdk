@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The IDs of the application instances to delete.
+    // The instance IDs to be deleted.
     // 
     // This parameter is required.
     shared_ptr<string> instanceIds_ {};

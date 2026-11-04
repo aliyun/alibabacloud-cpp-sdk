@@ -167,35 +167,35 @@ namespace Models
 
 
   protected:
-    // The instance ID of the ACR Enterprise Edition. This parameter is required if the `ImageUrl` is from an ACR Enterprise Edition repository.
+    // The ID of the Container Registry ACR Enterprise instance. This parameter is required when ImageUrl is a Container Registry Enterprise instance.
     shared_ptr<string> acrInstanceId_ {};
-    // The startup command for the image. This command overrides the `ENTRYPOINT` defined in the image.
+    // The image startup command.
     shared_ptr<string> command_ {};
-    // The arguments for the startup command. This parameter corresponds to `CMD` in the Dockerfile.
+    // The image startup command arguments.
     shared_ptr<string> commandArgs_ {};
-    // The settings for mounting a ConfigMap. Use this to inject configuration data into the container as files.
+    // The ConfigMap mount description.
     shared_ptr<string> configMapMountDesc_ {};
-    // The CPU resources allocated to the container, measured in millicores. For example, a value of 1000 represents 1 vCPU.
+    // Cpu
     shared_ptr<int32_t> cpu_ {};
-    // The configuration for an `emptyDir` volume. This creates a temporary directory that persists for the life of the application instance.
+    // The EmptyDir description.
     shared_ptr<string> emptyDirDesc_ {};
-    // The environment variables to set in the container. Specify the variables as a JSON array of key-value pairs.
+    // The container environment variable parameters.
     shared_ptr<string> envs_ {};
-    // The container image URL.
+    // The image URL.
     shared_ptr<string> imageUrl_ {};
-    // The configuration for the liveness probe. The liveness probe checks if the container is running. If the probe fails, the system restarts the container.
+    // The liveness probe configuration.
     shared_ptr<string> liveness_ {};
-    // The amount of memory allocated to the container, measured in MB.
+    // Memory
     shared_ptr<int32_t> memory_ {};
-    // The name of the container.
+    // The container name.
     shared_ptr<string> name_ {};
-    // The configuration for the postStart hook. This hook runs immediately after the container starts to perform initialization tasks.
+    // The PostStart configuration.
     shared_ptr<string> postStart_ {};
-    // The configuration for the preStop hook. This hook runs immediately before the container is terminated to ensure a graceful shutdown.
+    // The PreStop configuration.
     shared_ptr<string> preStop_ {};
-    // The configuration for the readiness probe. The readiness probe checks if the container is ready to handle requests. The system will not direct traffic to a container until its readiness probe succeeds.
+    // The readiness probe configuration.
     shared_ptr<string> readiness_ {};
-    // Specifies how to mount a Secret. This lets you securely use sensitive data, such as credentials or keys, in your application.
+    // The Secret mount description.
     shared_ptr<string> secretMountDesc_ {};
   };
 

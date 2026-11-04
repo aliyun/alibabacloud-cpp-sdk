@@ -103,13 +103,21 @@ namespace Models
 
 
   protected:
+    // The creation time.
     shared_ptr<int64_t> createTime_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The product.
     shared_ptr<string> productCode_ {};
+    // The resource ID.
     shared_ptr<string> resourceId_ {};
+    // The resource name.
     shared_ptr<string> resourceName_ {};
+    // The resource type.
     shared_ptr<string> resourceType_ {};
+    // The stack ID.
     shared_ptr<string> stackId_ {};
+    // The resource status.
     shared_ptr<string> status_ {};
   };
 

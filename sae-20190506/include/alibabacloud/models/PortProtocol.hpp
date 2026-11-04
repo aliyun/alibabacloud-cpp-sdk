@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The port number.
     shared_ptr<int32_t> port_ {};
+    // The protocol.
     shared_ptr<string> protocol_ {};
+    // The destination port number.
     shared_ptr<int32_t> targetPort_ {};
   };
 

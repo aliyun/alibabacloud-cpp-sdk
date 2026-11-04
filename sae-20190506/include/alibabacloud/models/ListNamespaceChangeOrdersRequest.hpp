@@ -84,35 +84,29 @@ namespace Models
 
 
   protected:
-    // The change order status. Valid values:
+    // The status of the change order. Valid values:
     // 
-    // - **0**: Preparing.
-    // 
-    // - **1**: Executing.
-    // 
-    // - **2**: Succeeded.
-    // 
-    // - **3**: Failed.
-    // 
-    // - **6**: Terminated.
-    // 
-    // - **10**: System Error.
+    // - **0**: preparing
+    // - **1**: executing
+    // - **2**: succeeded
+    // - **3**: failed
+    // - **6**: terminated
+    // - **10**: failed due to a system exception
     shared_ptr<string> coStatus_ {};
-    // The change order type. Valid values:
+    // The type of the change order. Valid values:
     // 
-    // - **CoBatchStartApplication**: Batch Start Application.
-    // 
-    // - **CoBatchStopApplication**: Batch Stop Application.
+    // - **CoBatchStartApplication**: Starts applications in batches.
+    // - **CoBatchStopApplication**: Stops applications in batches.
     shared_ptr<string> coType_ {};
-    // The current page.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // A keyword for a fuzzy search of change order descriptions. Change orders whose descriptions contain this **key** are returned.
+    // The keyword used for fuzzy matching of the change order description. All change orders whose descriptions contain this **key** are returned.
     shared_ptr<string> key_ {};
     // The namespace ID.
     // 
     // This parameter is required.
     shared_ptr<string> namespaceId_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

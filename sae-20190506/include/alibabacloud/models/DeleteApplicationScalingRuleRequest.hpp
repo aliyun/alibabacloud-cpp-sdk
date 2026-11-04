@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The name of the Auto Scaling policy.
+    // The name of the auto scaling policy.
     // 
     // This parameter is required.
     shared_ptr<string> scalingRuleName_ {};

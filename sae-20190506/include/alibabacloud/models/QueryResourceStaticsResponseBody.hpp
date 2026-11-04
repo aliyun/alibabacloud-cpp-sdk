@@ -155,21 +155,21 @@ namespace Models
 
 
       protected:
-        // The active vCPU usage, in Core·min.
+        // The active vCPU usage. Unit: Core·min.
         shared_ptr<float> activeCpu_ {};
-        // The CPU usage, in Core·min.
+        // The CPU usage. Unit: Core*min.
         shared_ptr<float> cpu_ {};
-        // The number of CUs used.
+        // The amount of used compute units (CUs).
         shared_ptr<float> cu_ {};
-        // The ephemeral storage usage, in GiB·min.
+        // The ephemeral storage usage. Unit: GiB·min.
         shared_ptr<float> ephemeralStorage_ {};
-        // The GpuA10 usage.
+        // GpuA10
         shared_ptr<float> gpuA10_ {};
-        // The GpuPpu810e usage.
+        // GpuPpu810e
         shared_ptr<float> gpuPpu810e_ {};
-        // The idle vCPU usage, in Core·min.
+        // The idle vCPU usage. Unit: Core·min.
         shared_ptr<float> idleCpu_ {};
-        // The memory usage, in GiB·min.
+        // The memory usage. Unit: GiB*min.
         shared_ptr<float> memory_ {};
       };
 
@@ -220,11 +220,11 @@ namespace Models
 
 
       protected:
-        // The CPU usage, in Core·min.
+        // The CPU usage. Unit: Core*min.
         shared_ptr<float> cpu_ {};
-        // The ephemeral storage usage, in GiB·min.
+        // The ephemeral storage usage. Unit: GiB·min.
         shared_ptr<float> ephemeralStorage_ {};
-        // The memory usage, in GiB·min.
+        // The memory usage. Unit: GiB*min.
         shared_ptr<float> memory_ {};
       };
 
@@ -251,7 +251,7 @@ namespace Models
     protected:
       // The real-time resource usage.
       shared_ptr<Data::RealTimeRes> realTimeRes_ {};
-      // The resource usage in the current month.
+      // The resource usage information for the current month.
       shared_ptr<Data::Summary> summary_ {};
     };
 
@@ -310,39 +310,33 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values:
+    // The API status code or POP error code. Valid values:
     // 
-    // - **2xx**: The request was successful.
-    // 
-    // - **3xx**: The request was redirected.
-    // 
-    // - **4xx**: A client error occurred.
-    // 
-    // - **5xx**: A server error occurred.
+    // - **2xx**: Success.
+    // - **3xx**: Redirection.
+    // - **4xx**: Request error.
+    // - **5xx**: Server error.
     shared_ptr<string> code_ {};
     // The resource usage information.
     shared_ptr<QueryResourceStaticsResponseBody::Data> data_ {};
-    // The error code.
+    // The error code. Valid values:
     // 
-    // - This parameter is not returned if the request is successful.
-    // 
-    // - This parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
+    // - If the request is successful, the **ErrorCode** parameter is not returned.
+    // - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The response message.
+    // The additional information. Valid values:
     // 
     // - If the request is successful, **success** is returned.
-    // 
-    // - If the request fails, an error message is returned.
+    // - If an exception occurs, a specific error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the application resource usage was retrieved successfully. Valid values:
     // 
-    // - **true**: The request was successful.
-    // 
-    // - **false**: The request failed.
+    // - **true**: The retrieval was successful.
+    // - **false**: The retrieval failed.
     shared_ptr<bool> success_ {};
-    // The trace ID used to query the details of a request.
+    // The trace ID used to query invocation details.
     shared_ptr<string> traceId_ {};
   };
 

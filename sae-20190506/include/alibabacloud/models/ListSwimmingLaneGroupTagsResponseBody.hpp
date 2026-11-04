@@ -82,7 +82,7 @@ namespace Models
     protected:
       // The metadata.
       shared_ptr<string> metadata_ {};
-      // The swimming lane tag.
+      // The lane tag.
       shared_ptr<string> tag_ {};
     };
 
@@ -141,39 +141,33 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values:
+    // The API status code or POP error code. Valid values:
     // 
-    // - **2xx**: The request was successful.
-    // 
-    // - **3xx**: The request was redirected.
-    // 
-    // - **4xx**: A client error occurred.
-    // 
-    // - **5xx**: A server error occurred.
+    // - **2xx**: Success.
+    // - **3xx**: Redirection.
+    // - **4xx**: Request error.
+    // - **5xx**: Server error.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned results.
     shared_ptr<vector<ListSwimmingLaneGroupTagsResponseBody::Data>> data_ {};
-    // The error code.
+    // The error code. Valid values:
     // 
-    // - This parameter is not returned if the request succeeds.
-    // 
-    // - This parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
+    // - Successful request: The **ErrorCode** field is not returned.
+    // - Failed request: The **ErrorCode** field is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The response message.
+    // The additional information. Valid values:
     // 
-    // - If the request is successful, **success** is returned.
-    // 
-    // - If the request fails, an error message is returned.
+    // - **success**: The request is successful.
+    // - Specific error code: The request is abnormal.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // - **true**
-    // 
-    // - **false**
+    // - **true**: Successful.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
-    // The trace ID that is used to query the details of a request.
+    // The trace ID used to precisely query call information.
     shared_ptr<string> traceId_ {};
   };
 

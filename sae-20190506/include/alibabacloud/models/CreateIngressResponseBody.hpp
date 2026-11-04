@@ -128,39 +128,33 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values:
+    // The API status code or POP error code. Valid values:
     // 
-    // - **2xx**: The request is successful.
-    // 
-    // - **3xx**: The request is redirected.
-    // 
-    // - **4xx**: A request error occurs.
-    // 
-    // - **5xx**: A server error occurs.
+    // - **2xx**: successful.
+    // - **3xx**: redirected.
+    // - **4xx**: request error.
+    // - **5xx**: server error.
     shared_ptr<string> code_ {};
-    // The returned results.
+    // The returned result.
     shared_ptr<CreateIngressResponseBody::Data> data_ {};
-    // The error code.
+    // The error code. Valid values:
     // 
-    // - This parameter is not returned if the request is successful.
-    // 
-    // - This parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
+    // - If the request is successful, the **ErrorCode** field is not returned.
+    // - If the request fails, the **ErrorCode** field is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The returned message.
+    // The additional information. Valid values:
     // 
-    // - If the request is successful, **success** is returned.
-    // 
-    // - If the request fails, an error code is returned.
+    // - If the request is normal, **success** is returned.
+    // - If the request is abnormal, a specific error code is returned.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the routing rule was created. Valid values:
+    // Indicates whether the routing rule was created successfully. Valid values:
     // 
-    // - **true**: The routing rule was created.
-    // 
-    // - **false**: The routing rule failed to be created.
+    // - **true**: created successfully.
+    // - **false**: failed to create.
     shared_ptr<bool> success_ {};
-    // The trace ID that is used to query the details of the request.
+    // The trace ID, which is used to accurately query the call information.
     shared_ptr<string> traceId_ {};
   };
 

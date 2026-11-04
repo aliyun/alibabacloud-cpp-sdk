@@ -61,11 +61,11 @@ namespace Models
 
 
     protected:
-      // The key-value pairs of the Secret. This parameter is required. The value must be a JSON object.
+      // The key-value pair data of the Secret. This parameter is required. The format is as follows:
       // 
-      // For more information about configuration items, see [Manage and use secrets](https://help.aliyun.com/document_detail/463383.html).
+      // {"Data":"{\\"k1\\":\\"v1\\", \\"k2\\":\\"v2\\"}"}
       // 
-      // k specifies a key and v specifies a value. For more information about configuration items, see [Manage and use secrets](https://help.aliyun.com/document_detail/463383.html).
+      // k represents the key, and v represents the value. For more information about configuration items, see [Manage and use Secrets](https://help.aliyun.com/document_detail/463383.html).
       // 
       // This parameter is required.
       shared_ptr<string> secretData_ {};
@@ -97,7 +97,7 @@ namespace Models
 
 
   protected:
-    // The ID of the namespace where the Secret instance is located. If the instance is in the default namespace, specify only the region ID, such as `cn-beijing`.
+    // The ID of the namespace where the Secret instance resides. If the Secret instance resides in the default namespace, specify only the RegionId, such as `cn-beijing`.
     // 
     // This parameter is required.
     shared_ptr<string> namespaceId_ {};
@@ -105,7 +105,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<UpdateSecretRequest::SecretData> secretData_ {};
-    // The ID of the Secret instance.
+    // The instance ID of the Secret.
     // 
     // This parameter is required.
     shared_ptr<int64_t> secretId_ {};

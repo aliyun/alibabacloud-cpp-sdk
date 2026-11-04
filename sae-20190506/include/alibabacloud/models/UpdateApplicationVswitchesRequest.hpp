@@ -79,11 +79,10 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // Indicates whether to deploy the application immediately. Valid values:
+    // Specifies whether to deploy the application immediately. Valid values:
     // 
-    // - **true**: Deploys the application immediately. This is the default.
-    // 
-    // - **false**: The application is not deployed.
+    // - **true**: Deploys the application immediately. This is the default value.
+    // - **false**: Deploys the application later.
     shared_ptr<bool> deploy_ {};
     // The minimum percentage of ready instances.
     shared_ptr<int32_t> minReadyInstanceRatio_ {};

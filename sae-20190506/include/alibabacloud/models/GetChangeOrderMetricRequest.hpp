@@ -103,25 +103,22 @@ namespace Models
 
 
   protected:
-    // The ID of the application.
+    // The application ID.
     shared_ptr<string> appId_ {};
-    // The type of the SAE application.
+    // The type of the Serverless App Engine (SAE) application.
     // 
     // - **micro_service**
-    // 
     // - **web**
-    // 
     // - **job**
     shared_ptr<string> appSource_ {};
-    // The type of the change order.
+    // The change order type.
     shared_ptr<string> coType_ {};
-    // The CPU allocation policy.
+    // The CPU allocation strategy. Valid values:
     // 
-    // - **request**: CPU is allocated only when a request is received.
-    // 
-    // - **always**: A fixed amount of CPU is always allocated.
+    // - **request**: Allocates CPU resources only when requests are received.
+    // - **always**: Always allocates a fixed amount of CPU resources.
     shared_ptr<string> cpuStrategy_ {};
-    // The start time when the change order was created.
+    // The start time of change order creation.
     // 
     // This parameter is required.
     shared_ptr<string> createTime_ {};
@@ -129,11 +126,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> limit_ {};
-    // The field by which to sort the query results. The value of this parameter must be a field in the response parameters.
+    // The field used to sort the query results.
     // 
     // This parameter is required.
     shared_ptr<string> orderBy_ {};
-    // The ID of the region.
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

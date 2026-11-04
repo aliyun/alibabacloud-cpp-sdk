@@ -77,7 +77,7 @@ namespace Models
   protected:
     // The application ID.
     shared_ptr<string> appId_ {};
-    // The application IDs.
+    // The application ID.
     shared_ptr<string> appIds_ {};
     // Specifies whether to enable the idle mode.
     shared_ptr<bool> enableIdle_ {};

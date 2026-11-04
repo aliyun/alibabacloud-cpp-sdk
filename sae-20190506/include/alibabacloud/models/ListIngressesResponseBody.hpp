@@ -275,7 +275,7 @@ namespace Models
           shared_ptr<string> domain_ {};
           // The path.
           shared_ptr<string> path_ {};
-          // The rewritten path.
+          // The rewrite path.
           shared_ptr<string> rewritePath_ {};
           // The list of rule actions.
           shared_ptr<vector<Rules::RuleActions>> ruleActions_ {};
@@ -431,7 +431,7 @@ namespace Models
 
 
         protected:
-          // Indicates whether credentials can be carried.
+          // Specifies whether credentials are allowed.
           shared_ptr<string> allowCredentials_ {};
           // The allowed headers.
           shared_ptr<string> allowHeaders_ {};
@@ -439,11 +439,11 @@ namespace Models
           shared_ptr<string> allowMethods_ {};
           // The allowed origins.
           shared_ptr<string> allowOrigin_ {};
-          // Indicates whether cross-domain access is enabled.
+          // Specifies whether the feature is enabled.
           shared_ptr<string> enable_ {};
           // The allowed exposed headers.
           shared_ptr<string> exposeHeaders_ {};
-          // The time-to-live (TTL).
+          // The max age.
           shared_ptr<string> maxAge_ {};
         };
 
@@ -599,47 +599,44 @@ namespace Models
 
 
       protected:
-        // The ID of the Classic Load Balancer (CLB) certificate.
+        // The **CLB** certificate ID.
         shared_ptr<string> certId_ {};
-        // The IDs of the Application Load Balancer (ALB) certificates.
+        // The **ALB** certificate IDs.
         shared_ptr<string> certIds_ {};
-        // The cross-domain configuration.
+        // The CORS configuration.
         shared_ptr<IngressList::CorsConfig> corsConfig_ {};
         // The creation time.
         shared_ptr<int64_t> createTime_ {};
         // The default rule.
         shared_ptr<IngressList::DefaultRule> defaultRule_ {};
-        // The name of the Ingress rule.
+        // The name of the routing rule.
         shared_ptr<string> description_ {};
-        // The ID of the routing rule.
+        // The routing rule ID.
         shared_ptr<int64_t> id_ {};
-        // The connection idle timeout period.
+        // The idle connection timeout period.
         shared_ptr<int64_t> idleTimeout_ {};
-        // The listening port of the SLB instance.
+        // The SLB listener port.
         shared_ptr<string> listenerPort_ {};
-        // The forwarding protocol of the SLB instance. Valid values:
+        // The request forwarding protocol supported by the load balancing SLB. Valid values:
         // 
-        // - **HTTP**: suitable for applications that need to identify data content.
+        // - **HTTP**: Applicable to applications that need to identify data content.
+        // - **HTTPS**: Applicable to applications that require encrypted transmission.
         // 
-        // - **HTTPS**: suitable for applications that require encrypted transmission.
-        // 
-        // This parameter is optional for the **CreateIngress** and **UpdateIngress** operations. If you do not set this parameter when you create or update a gateway routing rule, this parameter is not returned.
+        // This parameter is optional in **CreateIngress** and **UpdateIngress**. If you do not specify this parameter when you create or update a gateway routing rule, this parameter is not returned when you invoke this API.
         shared_ptr<string> listenerProtocol_ {};
-        // The type of the SLB instance. Valid values:
+        // The type of the load balancing SLB. Valid values:
         // 
-        // - **clb**: Classic Load Balancer.
-        // 
-        // - **alb**: Application Load Balancer.
+        // - **clb**: Classic Load Balancer (CLB), formerly known as SLB.
+        // - **alb**: Application Load Balancer (ALB).
         shared_ptr<string> loadBalanceType_ {};
-        // The ID of the MSE cloud-native gateway instance.
+        // The MSE cloud-native gateway instance ID.
         shared_ptr<string> mseGatewayId_ {};
-        // The port that corresponds to the service.
+        // The port corresponding to the service.
         shared_ptr<string> mseGatewayPort_ {};
-        // The forwarding protocol supported by the MSE cloud-native gateway. Valid values:
+        // The request forwarding protocol supported by the MSE cloud-native gateway. Valid values:
         // 
-        // - **HTTP**: suitable for applications that need to identify data content.
-        // 
-        // - **HTTPS**: suitable for applications that require encrypted transmission.
+        // - **HTTP**: Applicable to applications that need to identify data content.
+        // - **HTTPS**: Applicable to applications that require encrypted transmission.
         shared_ptr<string> mseGatewayProtocol_ {};
         // The name of the routing rule.
         shared_ptr<string> name_ {};
@@ -649,13 +646,12 @@ namespace Models
         shared_ptr<int64_t> requestTimeout_ {};
         // The rules.
         shared_ptr<vector<IngressList::Rules>> rules_ {};
-        // The ID of the Server Load Balancer (SLB) instance.
+        // The SLB ID.
         shared_ptr<string> slbId_ {};
-        // The type of the SLB instance. Valid values:
+        // The SLB type. Valid values:
         // 
-        // - **internet**: public network.
-        // 
-        // - **intranet**: private network.
+        // - **internet**: Internet.
+        // - **intranet**: Internal network.
         shared_ptr<string> slbType_ {};
       };
 
@@ -692,13 +688,13 @@ namespace Models
 
 
     protected:
-      // The current page.
+      // The current page number.
       shared_ptr<int32_t> currentPage_ {};
       // The list of routing rules.
       shared_ptr<vector<Data::IngressList>> ingressList_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries found.
+      // The total number of queried entries.
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -757,39 +753,33 @@ namespace Models
 
 
   protected:
-    // The status of the API call or a POP error code. Valid values:
+    // The API status code or POP error code. Valid values:
     // 
-    // - **2xx**: The call was successful.
-    // 
-    // - **3xx**: The call was redirected.
-    // 
-    // - **4xx**: A client error occurred.
-    // 
-    // - **5xx**: A server error occurred.
+    // - **2xx**: Success.
+    // - **3xx**: Redirect.
+    // - **4xx**: Request error.
+    // - **5xx**: Server error.
     shared_ptr<string> code_ {};
-    // The result.
+    // The returned results.
     shared_ptr<ListIngressesResponseBody::Data> data_ {};
-    // The error code.
+    // The error code. Valid values:
     // 
-    // - This parameter is not returned if the request is successful.
-    // 
-    // - This parameter is returned if the request fails. For more information, see the **Error codes** section of this topic.
+    // - If the request is successful, the **ErrorCode** parameter is not returned.
+    // - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The response message.
+    // The additional information. The value is described as follows:
     // 
-    // - **success** is returned if the call is successful.
-    // 
-    // - An error code is returned if the call fails.
+    // - If the request is successful, **success** is returned.
+    // - If the request fails, the specific error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful. Valid values:
+    // Specifies whether the ingress list was successfully retrieved. Valid values:
     // 
-    // - **true**: The call was successful.
-    // 
-    // - **false**: The call failed.
+    // - **true**: The ingress list was successfully retrieved.
+    // - **false**: The ingress list failed to be retrieved.
     shared_ptr<bool> success_ {};
-    // The trace ID. You can use it to query the details of a call.
+    // The trace ID used to query call information.
     shared_ptr<string> traceId_ {};
   };
 

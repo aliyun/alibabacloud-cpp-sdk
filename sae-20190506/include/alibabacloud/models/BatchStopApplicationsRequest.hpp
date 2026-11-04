@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The ID of the application that you want to stop.
-    // 
-    // > If you want to stop multiple applications at the same time, separate the IDs with commas (,).
+    // The IDs of the applications to be stopped.
+    // > 
+    // > To stop multiple applications at the same time, separate the application IDs with commas (,).
     shared_ptr<string> appIds_ {};
-    // ebf491f0-c1a5-45e2-b2c4-710dbe2a\\*\\*\\*\\*,ebf491f0-c1a5-45e2-b2c4-71025e2a\\*\\*\\*\\*
+    // The namespace ID.
     // 
     // This parameter is required.
     shared_ptr<string> namespaceId_ {};
-    // The application version.
+    // The version of the application.
     shared_ptr<string> version_ {};
   };
 

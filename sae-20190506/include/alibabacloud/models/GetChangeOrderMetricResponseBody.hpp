@@ -151,13 +151,13 @@ namespace Models
     protected:
       // The application ID.
       shared_ptr<string> appId_ {};
-      // The average duration of a change order, in milliseconds.
+      // The average time consumed, in milliseconds.
       shared_ptr<float> avgTimeCostMs_ {};
-      // The number of failed change orders.
+      // The number of abnormal change orders.
       shared_ptr<int64_t> error_ {};
       // The percentage of failed change orders.
       shared_ptr<float> errorPercent_ {};
-      // The maximum duration, in milliseconds.
+      // The maximum time consumed, in milliseconds.
       shared_ptr<float> maxTimeCostMs_ {};
       // The application name.
       shared_ptr<string> name_ {};
@@ -165,7 +165,7 @@ namespace Models
       shared_ptr<string> optimizeSuggestions_ {};
       // The namespace ID.
       shared_ptr<string> regionId_ {};
-      // The average task duration, in milliseconds.
+      // The average time consumed by the task, in milliseconds.
       shared_ptr<string> taskTimeCostMsAvg_ {};
       // The total number of change orders.
       shared_ptr<int64_t> total_ {};
@@ -211,31 +211,26 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The API status code or POP error code. Valid values:
     // 
-    // - **2xx**: The request was successful.
-    // 
-    // - **3xx**: The request was redirected.
-    // 
-    // - **4xx**: A client-side error occurred.
-    // 
-    // - **5xx**: A server-side error occurred.
+    // - **2xx**: Success.
+    // - **3xx**: Redirection.
+    // - **4xx**: Client error.
+    // - **5xx**: Server error.
     shared_ptr<string> code_ {};
     // The list of application information.
     shared_ptr<vector<GetChangeOrderMetricResponseBody::Data>> data_ {};
-    // The response message.
+    // The additional information. Valid values:
     // 
-    // - Returns **success** if the request is successful.
-    // 
-    // - Returns an error code if the request fails.
+    // - If the request is successful, **success** is returned.
+    // - If the request fails, a specific error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the service list was retrieved. Valid values:
     // 
-    // - **true**: The request was successful.
-    // 
-    // - **false**: The request failed.
+    // - **true**: The service list was retrieved.
+    // - **false**: The retrieval failed.
     shared_ptr<bool> success_ {};
   };
 

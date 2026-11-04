@@ -69,7 +69,7 @@ namespace Models
 
 
     protected:
-      // The ID of the deleted routing rule.
+      // The ID of the deleted ingress rule.
       shared_ptr<int64_t> ingressId_ {};
     };
 
@@ -128,35 +128,30 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values:
+    // The API status code or POP error code. Valid values:
     // 
-    // - **2xx**: The request is successful.
-    // 
-    // - **3xx**: The request is redirected.
-    // 
-    // - **4xx**: A client-side error occurred.
-    // 
-    // - **5xx**: A server-side error occurred.
+    // - **2xx**: Success.
+    // - **3xx**: Redirection.
+    // - **4xx**: Request error.
+    // - **5xx**: Server error.
     shared_ptr<string> code_ {};
-    // The response data.
+    // The returned result.
     shared_ptr<DeleteIngressResponseBody::Data> data_ {};
-    // The error code that is returned if the request fails.
+    // The error code. Note the following:
     // 
-    // - This parameter is not returned if the request succeeds.
-    // 
-    // - For a list of error codes, see the **Error codes** section.
+    // - If the request is successful, the **ErrorCode** parameter is not returned.
+    // - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The returned message.
+    // The additional information about the call result.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the ingress instance was deleted successfully. Valid values:
+    // Indicates whether the ingress instance was deleted. Valid values:
     // 
-    // - **true**: The deletion was successful.
-    // 
+    // - **true**: The ingress instance was deleted.
     // - **false**: The deletion failed.
     shared_ptr<bool> success_ {};
-    // The trace ID for the request.
+    // The trace ID used to accurately query the call information.
     shared_ptr<string> traceId_ {};
   };
 

@@ -82,7 +82,9 @@ namespace Models
 
 
     protected:
+      // The parameter name.
       shared_ptr<string> name_ {};
+      // The parameter value.
       shared_ptr<string> value_ {};
     };
 
@@ -133,8 +135,11 @@ namespace Models
 
 
     protected:
+      // The address and port.
       shared_ptr<string> address_ {};
+      // The endpoint name.
       shared_ptr<string> name_ {};
+      // The endpoint protocol.
       shared_ptr<string> protocol_ {};
     };
 
@@ -202,13 +207,21 @@ namespace Models
 
 
   protected:
+    // The creation time.
     shared_ptr<int64_t> createTime_ {};
+    // The endpoints.
     shared_ptr<vector<AppStackInstance::Endpoints>> endpoints_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The instance name.
     shared_ptr<string> instanceName_ {};
+    // The instance parameters.
     shared_ptr<vector<AppStackInstance::Parameters>> parameters_ {};
+    // The stack ID.
     shared_ptr<string> stackId_ {};
+    // The instance status.
     shared_ptr<string> status_ {};
+    // The update time.
     shared_ptr<int64_t> updateTime_ {};
   };
 

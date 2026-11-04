@@ -128,33 +128,28 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values:
+    // The API status code or POP error code. Valid values:
     // 
-    // - **2xx**: The request was successful.
-    // 
-    // - **3xx**: The request was redirected.
-    // 
-    // - **4xx**: A client error occurred.
-    // 
-    // - **5xx**: A server error occurred.
+    // - **2xx**: Success.
+    // - **3xx**: Redirection.
+    // - **4xx**: Request error.
+    // - **5xx**: Server error.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The response data.
     shared_ptr<AbortChangeOrderResponseBody::Data> data_ {};
-    // The error code. This parameter is returned only if the request fails. For more information, see the **Error codes** section in this topic.
+    // The error code. Valid values:
     // 
-    // - If the request is successful, this parameter is not returned.
-    // 
-    // - If the request fails, this parameter is returned. For more information, see the **Error codes** section in this topic.
+    // - If the request is successful, the **ErrorCode** parameter is not returned.
+    // - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The message returned.
+    // The additional information about the call result.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the change order is stopped. Valid values:
+    // Indicates whether the change order was aborted successfully. Valid values:
     // 
-    // - **true**: The change order is stopped.
-    // 
-    // - **false**: The change order is not stopped.
+    // - **true**: The change order was aborted successfully.
+    // - **false**: The change order failed to be aborted.
     shared_ptr<bool> success_ {};
     // The trace ID.
     shared_ptr<string> traceId_ {};

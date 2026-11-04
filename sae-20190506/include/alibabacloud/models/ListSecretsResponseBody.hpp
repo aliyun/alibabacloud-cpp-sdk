@@ -191,7 +191,7 @@ namespace Models
 
 
       protected:
-        // The time when the Secret instance was created.
+        // The creation time.
         shared_ptr<int64_t> createTime_ {};
         // The namespace ID.
         shared_ptr<string> namespaceId_ {};
@@ -199,13 +199,13 @@ namespace Models
         shared_ptr<vector<Secrets::RelateApps>> relateApps_ {};
         // The Secret instance ID.
         shared_ptr<int64_t> secretId_ {};
-        // The Secret instance name.
+        // The name of the Secret instance.
         shared_ptr<string> secretName_ {};
-        // The type of the Secret instance. The only valid value is:
+        // The type of the Secret instance. Valid values:
         // 
-        // **kubernetes.io/dockerconfigjson**: a Secret that stores credentials for a container image registry and is used to authenticate image pulls during deployment.
+        // - **kubernetes.io/dockerconfigjson**: A secret that stores the username and password of an image repository. It is used for image pull authentication during deployment.
         shared_ptr<string> secretType_ {};
-        // The time when the Secret instance was last updated.
+        // The update time.
         shared_ptr<int64_t> updateTime_ {};
       };
 
@@ -220,7 +220,7 @@ namespace Models
 
 
     protected:
-      // A list of Secret instances.
+      // The list of Secret instances.
       shared_ptr<vector<Data::Secrets>> secrets_ {};
     };
 
@@ -279,39 +279,33 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values:
+    // The API status code or POP error code. Valid values:
     // 
-    // - **2xx**: The request was successful.
-    // 
-    // - **3xx**: The request was redirected.
-    // 
-    // - **4xx**: A client error occurred.
-    // 
-    // - **5xx**: A server error occurred.
+    // - **2xx**: Success.
+    // - **3xx**: Redirect.
+    // - **4xx**: Client error.
+    // - **5xx**: Server error.
     shared_ptr<string> code_ {};
-    // The response object.
+    // The returned result.
     shared_ptr<ListSecretsResponseBody::Data> data_ {};
-    // The error code.
+    // The error code. Valid values:
     // 
-    // - This parameter is not returned if the request is successful.
-    // 
-    // - This parameter is returned if the request fails. For more information, see the **Error codes** section.
+    // - Success: The **ErrorCode** field is not returned.
+    // - Failure: The **ErrorCode** field is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The returned message.
+    // The additional information. Valid values:
     // 
-    // - If the request is successful, **success** is returned.
-    // 
-    // - If the request fails, an error message is returned.
+    // - **success**: The request is successful.
+    // - Specific error code: The request failed.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the Secret instance list was successfully queried. Valid values:
     // 
-    // - **true**
-    // 
-    // - **false**
+    // - **true**: The query was successful.
+    // - **false**: The query failed.
     shared_ptr<bool> success_ {};
-    // The trace ID. You can use this ID to query the details of a call.
+    // The trace ID used to precisely query call information.
     shared_ptr<string> traceId_ {};
   };
 

@@ -126,10 +126,15 @@ namespace Models
 
 
       protected:
+        // The creation time.
         shared_ptr<string> createTime_ {};
+        // The instance name.
         shared_ptr<string> name_ {};
+        // The service instance ID.
         shared_ptr<string> serviceInstanceId_ {};
+        // The service name.
         shared_ptr<string> serviceName_ {};
+        // The template name.
         shared_ptr<string> templateName_ {};
       };
 
@@ -144,6 +149,7 @@ namespace Models
 
 
     protected:
+      // The list of service instances.
       shared_ptr<vector<Data::ServiceInstances>> serviceInstances_ {};
     };
 
@@ -202,12 +208,19 @@ namespace Models
 
 
   protected:
+    // The API status code or POP error code. Valid values: 2xx: Success. 3xx: Redirection. 4xx: Client error. 5xx: Server error.
     shared_ptr<string> code_ {};
+    // The returned results.
     shared_ptr<ListApplicationCenterServiceInstancesResponseBody::Data> data_ {};
+    // The error code. If the request is successful, the ErrorCode parameter is not returned. If the request fails, the ErrorCode parameter is returned. For more information, see the Error codes section in this topic.
     shared_ptr<string> errorCode_ {};
+    // The additional information. If the request is successful, success is returned. If the request fails, a specific error code is returned.
     shared_ptr<string> message_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
+    // The trace ID.
     shared_ptr<string> traceId_ {};
   };
 

@@ -204,73 +204,67 @@ namespace Models
 
 
   protected:
-    // **CLB** certificate ID. Details are as follows:
+    // The ID of the Classic Load Balancer (CLB) certificate. Valid values:
     // 
-    // - If **LoadBalanceType** is **clb**, use this field to configure the HTTPS listener certificate.
+    // - If **LoadBalanceType** is set to **clb**, use this field to configure the certificate for the HTTPS listener.
     // 
-    // For more information about using SSL certificate IDs with CLB, see [Manage Certificates (CLB)]().
+    // For more information about using SSL certificate IDs in CLB, see [Manage certificates (CLB)](https://help.aliyun.com/document_detail/90792.html).
     shared_ptr<string> certId_ {};
-    // **ALB** multiple certificate IDs. Details are as follows:
+    // The IDs of multiple Application Load Balancer (ALB) certificates. Valid values:
     // 
-    // - If **LoadBalanceType** is **alb**, use this field to configure multiple HTTPS listener certificates. Separate multiple certificate IDs with commas.
+    // - If **LoadBalanceType** is set to **alb**, use this field to configure multiple certificates for the HTTPS listener. Separate multiple certificate IDs with commas (,).
     // 
-    // - Obtain the SSL certificate ID used by ALB from the digital certificate product. For example, configure `756***-cn-hangzhou`, where `756***` is the certificate ID obtained from the product page, and `-cn-hangzhou` is a fixed suffix. For more information, see [Manage Certificates (ALB)]().
+    // - You must obtain the SSL certificate IDs used by ALB from the Certificate Management Service. For example, if you configure `756***-cn-hangzhou`, `756***` is the certificate ID obtained from the product page, and `-cn-hangzhou` is a fixed suffix. For more information, see [Manage certificates (ALB)](https://help.aliyun.com/document_detail/209076.html).
     shared_ptr<string> certIds_ {};
-    // Cross-domain configuration.
+    // The cross-origin resource sharing (CORS) configuration.
     shared_ptr<string> corsConfig_ {};
-    // Default forwarding rule. Forward traffic to the specified application by IP address through the specified port. Parameter description:
+    // The default forwarding rule. Traffic is forwarded to a specified application through a specified port based on the IP address. The parameters are described as follows:
     // 
-    // - **appId**: Application ID.
+    // - **appId**: the ID of the application.
+    // - **containerPort**: the port of the application instance.
     // 
-    // - **containerPort**: Application instance port.
-    // 
-    // > All requests that do not match or satisfy the **Rules** forwarding rule are forwarded to this specified application.
+    // > All requests that do not match or meet the forwarding rules in **Rules** are forwarded to the specified application.
     shared_ptr<string> defaultRule_ {};
-    // Routing rule name.
+    // The name of the routing rule.
     shared_ptr<string> description_ {};
-    // Enable or disable data compression.
+    // Specifies whether to enable data compression.
     shared_ptr<bool> enableGzip_ {};
-    // Enable or disable obtaining the client IP address of the visitor through the X-Forwarded-For header field.
+    // Specifies whether to enable the retrieval of the client IP address through the X-Forwarded-For header field.
     shared_ptr<bool> enableXForwardedFor_ {};
-    // Obtain the listening port of the SLB instance through the X-Forwarded-Port header field.
+    // Specifies whether to retrieve the listening port of the load balancing instance through the X-Forwarded-Port header field.
     shared_ptr<bool> enableXForwardedForClientSrcPort_ {};
-    // Specifies whether to determine the listener protocol of the SLB instance from the X-Forwarded-Proto header field.
+    // Specifies whether to retrieve the listening protocol of the load balancing instance through the X-Forwarded-Proto header field.
     shared_ptr<bool> enableXForwardedForProto_ {};
-    // Obtain the SLB instance ID through the SLB-ID header field.
+    // Specifies whether to retrieve the instance ID of the load balancing instance through the SLB-ID header field.
     shared_ptr<bool> enableXForwardedForSlbId_ {};
-    // Whether to obtain the listening port of the Server Load Balancer instance from the X-Forwarded-Port header field.
+    // Specifies whether to retrieve the listening port of the load balancing instance through the X-Forwarded-Port header field.
     shared_ptr<bool> enableXForwardedForSlbPort_ {};
-    // Idle connection timeout, in seconds (s).
-    // 
-    // > A value of 0 indicates that the default idle timeout is used.
+    // The idle connection timeout period, in seconds.
+    // > A value of 0 indicates that the default idle timeout value is used.
     shared_ptr<int32_t> idleTimeout_ {};
-    // Routing rule ID.
+    // The ID of the routing rule.
     // 
     // This parameter is required.
     shared_ptr<int64_t> ingressId_ {};
-    // SLB listening port. This port must not be occupied.
+    // The listening port of the Server Load Balancer (SLB) instance. The port must not be occupied.
     shared_ptr<string> listenerPort_ {};
-    // Forwarding Protocol. Details are as follows:
+    // The request forwarding protocol. Valid values:
     // 
-    // - **HTTP**: Applies to applications that need to identify data content.
-    // 
-    // - **HTTPS**: Applies to applications that need encrypted transmission.
+    // - **HTTP**: applicable to applications that need to identify data content.
+    // - **HTTPS**: applicable to applications that require encrypted transmission.
     shared_ptr<string> listenerProtocol_ {};
-    // Deprecated parameter. Updates are no longer supported.
+    // **[Deprecated]** This parameter is deprecated and updates are no longer supported.
     shared_ptr<string> loadBalanceType_ {};
-    // Request timeout, in seconds (s).
+    // The request timeout period, in seconds.
     shared_ptr<int32_t> requestTimeout_ {};
-    // Forwarding rules. Forward traffic to the specified application by domain name and URI of the request through the specified port. Parameter description:
+    // The forwarding rules. Traffic is forwarded to a specified application through a specified port based on the domain name and request path. The parameters are described as follows:
     // 
-    // - **appId**: Application ID.
-    // 
-    // - **containerPort**: Application instance port.
-    // 
-    // - **domain**: Domain name.
-    // 
-    // - **path**: URI of the request.
+    // - **appId**: the ID of the application.
+    // - **containerPort**: the port of the application instance.
+    // - **domain**: the domain name.
+    // - **path**: the request path.
     shared_ptr<string> rules_ {};
-    // Security policy instance ID.
+    // The ID of the security policy instance.
     shared_ptr<string> securityPolicyId_ {};
   };
 

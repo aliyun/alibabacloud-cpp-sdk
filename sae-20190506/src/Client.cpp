@@ -19,23 +19,6 @@ namespace Sae20190506
 
 AlibabaCloud::Sae20190506::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"us-west-1" , "sae.us-west-1.aliyuncs.com"},
-    {"us-east-1" , "sae.us-east-1.aliyuncs.com"},
-    {"eu-central-1" , "sae.eu-central-1.aliyuncs.com"},
-    {"cn-zhangjiakou" , "sae.cn-zhangjiakou.aliyuncs.com"},
-    {"cn-wulanchabu" , "sae.cn-wulanchabu.aliyuncs.com"},
-    {"cn-shenzhen" , "sae.cn-shenzhen.aliyuncs.com"},
-    {"cn-shanghai" , "sae.cn-shanghai.aliyuncs.com"},
-    {"cn-hongkong" , "sae.cn-hongkong.aliyuncs.com"},
-    {"cn-heyuan" , "sae.cn-heyuan.aliyuncs.com"},
-    {"cn-hangzhou" , "sae.cn-hangzhou.aliyuncs.com"},
-    {"cn-guangzhou" , "sae.cn-guangzhou.aliyuncs.com"},
-    {"cn-chengdu" , "sae.cn-chengdu.aliyuncs.com"},
-    {"cn-beijing" , "sae.cn-beijing.aliyuncs.com"},
-    {"ap-southeast-1" , "sae.ap-southeast-1.aliyuncs.com"},
-    {"ap-northeast-1" , "sae.ap-northeast-1.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("sae", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -99,7 +82,7 @@ AbortAndRollbackChangeOrderResponse Client::abortAndRollbackChangeOrder(const Ab
 }
 
 /**
- * @summary This operation stops a change order.
+ * @summary Aborts a change order.
  *
  * @param request AbortChangeOrderRequest
  * @param headers map
@@ -136,7 +119,7 @@ AbortChangeOrderResponse Client::abortChangeOrderWithOptions(const AbortChangeOr
 }
 
 /**
- * @summary This operation stops a change order.
+ * @summary Aborts a change order.
  *
  * @param request AbortChangeOrderRequest
  * @return AbortChangeOrderResponse
@@ -197,7 +180,7 @@ BatchRestartApplicationsResponse Client::batchRestartApplications(const BatchRes
 }
 
 /**
- * @summary Starts multiple applications at a time.
+ * @summary Starts applications in batches.
  *
  * @param request BatchStartApplicationsRequest
  * @param headers map
@@ -238,7 +221,7 @@ BatchStartApplicationsResponse Client::batchStartApplicationsWithOptions(const B
 }
 
 /**
- * @summary Starts multiple applications at a time.
+ * @summary Starts applications in batches.
  *
  * @param request BatchStartApplicationsRequest
  * @return BatchStartApplicationsResponse
@@ -250,7 +233,7 @@ BatchStartApplicationsResponse Client::batchStartApplications(const BatchStartAp
 }
 
 /**
- * @summary Stop applications in batches.
+ * @summary Stops multiple applications.
  *
  * @param request BatchStopApplicationsRequest
  * @param headers map
@@ -291,7 +274,7 @@ BatchStopApplicationsResponse Client::batchStopApplicationsWithOptions(const Bat
 }
 
 /**
- * @summary Stop applications in batches.
+ * @summary Stops multiple applications.
  *
  * @param request BatchStopApplicationsRequest
  * @return BatchStopApplicationsResponse
@@ -303,7 +286,7 @@ BatchStopApplicationsResponse Client::batchStopApplications(const BatchStopAppli
 }
 
 /**
- * @summary Binds a Network Load Balancer (NLB) instance to an application.
+ * @summary Binds a Network Load Balancer (NLB) to an application.
  *
  * @param request BindNlbRequest
  * @param headers map
@@ -352,7 +335,7 @@ BindNlbResponse Client::bindNlbWithOptions(const BindNlbRequest &request, const 
 }
 
 /**
- * @summary Binds a Network Load Balancer (NLB) instance to an application.
+ * @summary Binds a Network Load Balancer (NLB) to an application.
  *
  * @param request BindNlbRequest
  * @return BindNlbResponse
@@ -895,14 +878,14 @@ CreateApplicationResponse Client::createApplication(const CreateApplicationReque
 }
 
 /**
- * @summary Create an application auto scaling policy.
+ * @summary Creates an elastic scaling policy for an application.
  *
- * @description ## Usage notes
- * - You can create up to five elasticity policies per application.
- * - For each scheduled elasticity policy, you can create up to 20 trigger points per day.
- * - While an elasticity policy is enabled, do not manually perform operations on the application, such as scaling, deployment, changing specifications, restarting, or stopping. To perform these operations, disable the policy first.
- * - You cannot add or enable an elasticity policy for an application that is undergoing a scale-out, scale-in, deployment (single-batch, phased, or canary), specification change, restart, or stop.
- * - To scale out an application to more than 50 instances, contact SAE technical support to be added to the whitelist. For more information, see [Contact us](https://help.aliyun.com/document_detail/146530.html).
+ * @description ## Before you begin
+ * - You can create up to 5 auto scaling policies for a single application.
+ * - You can create up to 20 trigger time points within a single day for a single scheduled auto elastic policy.
+ * - When an auto elastic policy is enabled, do not manually perform application lifecycle management operations, such as scaling the application, deploying the application, changing specifications, restarting the application, or stopping the application. If you need to perform these operations, disable the auto elastic policy first.
+ * - If the application is currently being scaled, deployed (in a single batch, multiple batches, or canary release), having its specifications changed, restarted, or stopped, you cannot add or start an auto elastic policy for the application.
+ * - If a single application needs to scale out to more than 50 instances, contact Serverless App Engine (SAE) technical support and apply for a whitelist. For more information, see [Contact us](https://help.aliyun.com/document_detail/146530.html).
  *
  * @param request CreateApplicationScalingRuleRequest
  * @param headers map
@@ -967,14 +950,14 @@ CreateApplicationScalingRuleResponse Client::createApplicationScalingRuleWithOpt
 }
 
 /**
- * @summary Create an application auto scaling policy.
+ * @summary Creates an elastic scaling policy for an application.
  *
- * @description ## Usage notes
- * - You can create up to five elasticity policies per application.
- * - For each scheduled elasticity policy, you can create up to 20 trigger points per day.
- * - While an elasticity policy is enabled, do not manually perform operations on the application, such as scaling, deployment, changing specifications, restarting, or stopping. To perform these operations, disable the policy first.
- * - You cannot add or enable an elasticity policy for an application that is undergoing a scale-out, scale-in, deployment (single-batch, phased, or canary), specification change, restart, or stop.
- * - To scale out an application to more than 50 instances, contact SAE technical support to be added to the whitelist. For more information, see [Contact us](https://help.aliyun.com/document_detail/146530.html).
+ * @description ## Before you begin
+ * - You can create up to 5 auto scaling policies for a single application.
+ * - You can create up to 20 trigger time points within a single day for a single scheduled auto elastic policy.
+ * - When an auto elastic policy is enabled, do not manually perform application lifecycle management operations, such as scaling the application, deploying the application, changing specifications, restarting the application, or stopping the application. If you need to perform these operations, disable the auto elastic policy first.
+ * - If the application is currently being scaled, deployed (in a single batch, multiple batches, or canary release), having its specifications changed, restarted, or stopped, you cannot add or start an auto elastic policy for the application.
+ * - If a single application needs to scale out to more than 50 instances, contact Serverless App Engine (SAE) technical support and apply for a whitelist. For more information, see [Contact us](https://help.aliyun.com/document_detail/146530.html).
  *
  * @param request CreateApplicationScalingRuleRequest
  * @return CreateApplicationScalingRuleResponse
@@ -986,7 +969,7 @@ CreateApplicationScalingRuleResponse Client::createApplicationScalingRule(const 
 }
 
 /**
- * @summary Create a ConfigMap in a namespace.
+ * @summary Creates a ConfigMap instance in a namespace.
  *
  * @param request CreateConfigMapRequest
  * @param headers map
@@ -1033,7 +1016,7 @@ CreateConfigMapResponse Client::createConfigMapWithOptions(const CreateConfigMap
 }
 
 /**
- * @summary Create a ConfigMap in a namespace.
+ * @summary Creates a ConfigMap instance in a namespace.
  *
  * @param request CreateConfigMapRequest
  * @return CreateConfigMapResponse
@@ -1045,9 +1028,9 @@ CreateConfigMapResponse Client::createConfigMap(const CreateConfigMapRequest &re
 }
 
 /**
- * @summary Create a canary release rule for a Spring Cloud or Dubbo application.
+ * @summary Creates a canary release rule for a Spring Cloud or Dubbo application.
  *
- * @description > You can currently configure only one canary rule per application.
+ * @description > Currently, you can configure only one canary release rule for an application.
  *
  * @param request CreateGreyTagRouteRequest
  * @param headers map
@@ -1100,9 +1083,9 @@ CreateGreyTagRouteResponse Client::createGreyTagRouteWithOptions(const CreateGre
 }
 
 /**
- * @summary Create a canary release rule for a Spring Cloud or Dubbo application.
+ * @summary Creates a canary release rule for a Spring Cloud or Dubbo application.
  *
- * @description > You can currently configure only one canary rule per application.
+ * @description > Currently, you can configure only one canary release rule for an application.
  *
  * @param request CreateGreyTagRouteRequest
  * @return CreateGreyTagRouteResponse
@@ -1114,7 +1097,7 @@ CreateGreyTagRouteResponse Client::createGreyTagRoute(const CreateGreyTagRouteRe
 }
 
 /**
- * @summary Create a routing rule.
+ * @summary Creates a routing rule.
  *
  * @param request CreateIngressRequest
  * @param headers map
@@ -1237,7 +1220,7 @@ CreateIngressResponse Client::createIngressWithOptions(const CreateIngressReques
 }
 
 /**
- * @summary Create a routing rule.
+ * @summary Creates a routing rule.
  *
  * @param request CreateIngressRequest
  * @return CreateIngressResponse
@@ -1249,7 +1232,7 @@ CreateIngressResponse Client::createIngress(const CreateIngressRequest &request)
 }
 
 /**
- * @summary This operation creates a job template.
+ * @summary Creates a job template.
  *
  * @param request CreateJobRequest
  * @param headers map
@@ -1504,7 +1487,7 @@ CreateJobResponse Client::createJobWithOptions(const CreateJobRequest &request, 
 }
 
 /**
- * @summary This operation creates a job template.
+ * @summary Creates a job template.
  *
  * @param request CreateJobRequest
  * @return CreateJobResponse
@@ -1577,7 +1560,7 @@ CreateNamespaceResponse Client::createNamespace(const CreateNamespaceRequest &re
 }
 
 /**
- * @summary Create or update a swimlane.
+ * @summary Creates or updates a traffic lane.
  *
  * @param tmpReq CreateOrUpdateSwimmingLaneRequest
  * @param headers map
@@ -1652,7 +1635,7 @@ CreateOrUpdateSwimmingLaneResponse Client::createOrUpdateSwimmingLaneWithOptions
 }
 
 /**
- * @summary Create or update a swimlane.
+ * @summary Creates or updates a traffic lane.
  *
  * @param request CreateOrUpdateSwimmingLaneRequest
  * @return CreateOrUpdateSwimmingLaneResponse
@@ -1664,7 +1647,7 @@ CreateOrUpdateSwimmingLaneResponse Client::createOrUpdateSwimmingLane(const Crea
 }
 
 /**
- * @summary Creates or updates a swimming lane group.
+ * @summary Creates or updates a traffic lane group.
  *
  * @param tmpReq CreateOrUpdateSwimmingLaneGroupRequest
  * @param headers map
@@ -1727,7 +1710,7 @@ CreateOrUpdateSwimmingLaneGroupResponse Client::createOrUpdateSwimmingLaneGroupW
 }
 
 /**
- * @summary Creates or updates a swimming lane group.
+ * @summary Creates or updates a traffic lane group.
  *
  * @param request CreateOrUpdateSwimmingLaneGroupRequest
  * @return CreateOrUpdateSwimmingLaneGroupResponse
@@ -1739,7 +1722,7 @@ CreateOrUpdateSwimmingLaneGroupResponse Client::createOrUpdateSwimmingLaneGroup(
 }
 
 /**
- * @summary Creates a Secret in a namespace.
+ * @summary Creates a Secret instance in a namespace.
  *
  * @param tmpReq CreateSecretRequest
  * @param headers map
@@ -1790,7 +1773,7 @@ CreateSecretResponse Client::createSecretWithOptions(const CreateSecretRequest &
 }
 
 /**
- * @summary Creates a Secret in a namespace.
+ * @summary Creates a Secret instance in a namespace.
  *
  * @param request CreateSecretRequest
  * @return CreateSecretResponse
@@ -1947,7 +1930,7 @@ DeleteApplicationResponse Client::deleteApplication(const DeleteApplicationReque
 }
 
 /**
- * @summary Deletes an Auto Scaling policy for an application.
+ * @summary Deletes an application auto scaling policy by calling the CreateApplicationScalingRule operation.
  *
  * @param request DeleteApplicationScalingRuleRequest
  * @param headers map
@@ -1984,7 +1967,7 @@ DeleteApplicationScalingRuleResponse Client::deleteApplicationScalingRuleWithOpt
 }
 
 /**
- * @summary Deletes an Auto Scaling policy for an application.
+ * @summary Deletes an application auto scaling policy by calling the CreateApplicationScalingRule operation.
  *
  * @param request DeleteApplicationScalingRuleRequest
  * @return DeleteApplicationScalingRuleResponse
@@ -2086,7 +2069,7 @@ DeleteGreyTagRouteResponse Client::deleteGreyTagRoute(const DeleteGreyTagRouteRe
 }
 
 /**
- * @summary Delete a job.
+ * @summary Deletes a job.
  *
  * @param request DeleteHistoryJobRequest
  * @param headers map
@@ -2123,7 +2106,7 @@ DeleteHistoryJobResponse Client::deleteHistoryJobWithOptions(const DeleteHistory
 }
 
 /**
- * @summary Delete a job.
+ * @summary Deletes a job.
  *
  * @param request DeleteHistoryJobRequest
  * @return DeleteHistoryJobResponse
@@ -2180,7 +2163,7 @@ DeleteIngressResponse Client::deleteIngress(const DeleteIngressRequest &request)
 }
 
 /**
- * @summary Deletes one or more application instances.
+ * @summary Deletes application instances.
  *
  * @param request DeleteInstancesRequest
  * @param headers map
@@ -2217,7 +2200,7 @@ DeleteInstancesResponse Client::deleteInstancesWithOptions(const DeleteInstances
 }
 
 /**
- * @summary Deletes one or more application instances.
+ * @summary Deletes application instances.
  *
  * @param request DeleteInstancesRequest
  * @return DeleteInstancesResponse
@@ -2229,7 +2212,7 @@ DeleteInstancesResponse Client::deleteInstances(const DeleteInstancesRequest &re
 }
 
 /**
- * @summary Delete a job template.
+ * @summary Deletes a task template.
  *
  * @param request DeleteJobRequest
  * @param headers map
@@ -2262,7 +2245,7 @@ DeleteJobResponse Client::deleteJobWithOptions(const DeleteJobRequest &request, 
 }
 
 /**
- * @summary Delete a job template.
+ * @summary Deletes a task template.
  *
  * @param request DeleteJobRequest
  * @return DeleteJobResponse
@@ -2323,7 +2306,7 @@ DeleteNamespaceResponse Client::deleteNamespace(const DeleteNamespaceRequest &re
 }
 
 /**
- * @summary Deletes a secret.
+ * @summary Deletes a secret instance.
  *
  * @param request DeleteSecretRequest
  * @param headers map
@@ -2360,7 +2343,7 @@ DeleteSecretResponse Client::deleteSecretWithOptions(const DeleteSecretRequest &
 }
 
 /**
- * @summary Deletes a secret.
+ * @summary Deletes a secret instance.
  *
  * @param request DeleteSecretRequest
  * @return DeleteSecretResponse
@@ -2372,7 +2355,7 @@ DeleteSecretResponse Client::deleteSecret(const DeleteSecretRequest &request) {
 }
 
 /**
- * @summary Deletes a swimming lane group.
+ * @summary Deletes a lane group.
  *
  * @param request DeleteSwimmingLaneGroupRequest
  * @param headers map
@@ -2409,7 +2392,7 @@ DeleteSwimmingLaneGroupResponse Client::deleteSwimmingLaneGroupWithOptions(const
 }
 
 /**
- * @summary Deletes a swimming lane group.
+ * @summary Deletes a lane group.
  *
  * @param request DeleteSwimmingLaneGroupRequest
  * @return DeleteSwimmingLaneGroupResponse
@@ -3042,7 +3025,7 @@ DescribeAppServiceDetailResponse Client::describeAppServiceDetail(const Describe
 }
 
 /**
- * @summary Retrieves the configuration information of an application.
+ * @summary Retrieves the application configuration information.
  *
  * @param request DescribeApplicationConfigRequest
  * @param headers map
@@ -3079,7 +3062,7 @@ DescribeApplicationConfigResponse Client::describeApplicationConfigWithOptions(c
 }
 
 /**
- * @summary Retrieves the configuration information of an application.
+ * @summary Retrieves the application configuration information.
  *
  * @param request DescribeApplicationConfigRequest
  * @return DescribeApplicationConfigResponse
@@ -3091,7 +3074,7 @@ DescribeApplicationConfigResponse Client::describeApplicationConfig(const Descri
 }
 
 /**
- * @summary Use `DescribeApplicationGroups` to retrieve application instance groups.
+ * @summary Queries application instance groups.
  *
  * @param request DescribeApplicationGroupsRequest
  * @param headers map
@@ -3132,7 +3115,7 @@ DescribeApplicationGroupsResponse Client::describeApplicationGroupsWithOptions(c
 }
 
 /**
- * @summary Use `DescribeApplicationGroups` to retrieve application instance groups.
+ * @summary Queries application instance groups.
  *
  * @param request DescribeApplicationGroupsRequest
  * @return DescribeApplicationGroupsResponse
@@ -3262,7 +3245,7 @@ DescribeApplicationInstancesResponse Client::describeApplicationInstances(const 
 }
 
 /**
- * @summary Queries the information of the associated MSE microservice governance application.
+ * @summary Queries the Microservices Engine (MSE) microservice governance application information associated with an application.
  *
  * @param request DescribeApplicationMseServiceRequest
  * @param headers map
@@ -3299,7 +3282,7 @@ DescribeApplicationMseServiceResponse Client::describeApplicationMseServiceWithO
 }
 
 /**
- * @summary Queries the information of the associated MSE microservice governance application.
+ * @summary Queries the Microservices Engine (MSE) microservice governance application information associated with an application.
  *
  * @param request DescribeApplicationMseServiceRequest
  * @return DescribeApplicationMseServiceResponse
@@ -3311,7 +3294,7 @@ DescribeApplicationMseServiceResponse Client::describeApplicationMseService(cons
 }
 
 /**
- * @summary View the NLB configuration for the application.
+ * @summary Queries the Network Load Balancer (NLB) configurations bound to an application.
  *
  * @param request DescribeApplicationNlbsRequest
  * @param headers map
@@ -3344,7 +3327,7 @@ DescribeApplicationNlbsResponse Client::describeApplicationNlbsWithOptions(const
 }
 
 /**
- * @summary View the NLB configuration for the application.
+ * @summary Queries the Network Load Balancer (NLB) configurations bound to an application.
  *
  * @param request DescribeApplicationNlbsRequest
  * @return DescribeApplicationNlbsResponse
@@ -3450,7 +3433,7 @@ DescribeApplicationScalingRulesResponse Client::describeApplicationScalingRules(
 }
 
 /**
- * @summary Queries the configurations of Server Load Balancer (SLB) instances for an application.
+ * @summary Retrieves the Server Load Balancer (SLB) configuration of an application.
  *
  * @param request DescribeApplicationSlbsRequest
  * @param headers map
@@ -3483,7 +3466,7 @@ DescribeApplicationSlbsResponse Client::describeApplicationSlbsWithOptions(const
 }
 
 /**
- * @summary Queries the configurations of Server Load Balancer (SLB) instances for an application.
+ * @summary Retrieves the Server Load Balancer (SLB) configuration of an application.
  *
  * @param request DescribeApplicationSlbsRequest
  * @return DescribeApplicationSlbsResponse
@@ -3495,7 +3478,7 @@ DescribeApplicationSlbsResponse Client::describeApplicationSlbs(const DescribeAp
 }
 
 /**
- * @summary Call the DescribeApplicationStatus API to get an application\\"s status.
+ * @summary Queries the status information of an application.
  *
  * @param request DescribeApplicationStatusRequest
  * @param headers map
@@ -3528,7 +3511,7 @@ DescribeApplicationStatusResponse Client::describeApplicationStatusWithOptions(c
 }
 
 /**
- * @summary Call the DescribeApplicationStatus API to get an application\\"s status.
+ * @summary Queries the status information of an application.
  *
  * @param request DescribeApplicationStatusRequest
  * @return DescribeApplicationStatusResponse
@@ -3679,7 +3662,7 @@ DescribeConfigMapResponse Client::describeConfigMap(const DescribeConfigMapReque
 }
 
 /**
- * @summary Queries the price of a configuration.
+ * @summary Queries the configuration pricing.
  *
  * @param request DescribeConfigurationPriceRequest
  * @param headers map
@@ -3740,7 +3723,7 @@ DescribeConfigurationPriceResponse Client::describeConfigurationPriceWithOptions
 }
 
 /**
- * @summary Queries the price of a configuration.
+ * @summary Queries the configuration pricing.
  *
  * @param request DescribeConfigurationPriceRequest
  * @return DescribeConfigurationPriceResponse
@@ -3967,7 +3950,7 @@ DescribeInstanceSpecificationsResponse Client::describeInstanceSpecifications() 
 }
 
 /**
- * @summary Calls the `DescribeJob` API to retrieve job template configuration.
+ * @summary Retrieves the configuration information of a job template.
  *
  * @param request DescribeJobRequest
  * @param headers map
@@ -4004,7 +3987,7 @@ DescribeJobResponse Client::describeJobWithOptions(const DescribeJobRequest &req
 }
 
 /**
- * @summary Calls the `DescribeJob` API to retrieve job template configuration.
+ * @summary Retrieves the configuration information of a job template.
  *
  * @param request DescribeJobRequest
  * @return DescribeJobResponse
@@ -4016,7 +3999,7 @@ DescribeJobResponse Client::describeJob(const DescribeJobRequest &request) {
 }
 
 /**
- * @summary Query the information about jobs.
+ * @summary Queries job history records.
  *
  * @param request DescribeJobHistoryRequest
  * @param headers map
@@ -4061,7 +4044,7 @@ DescribeJobHistoryResponse Client::describeJobHistoryWithOptions(const DescribeJ
 }
 
 /**
- * @summary Query the information about jobs.
+ * @summary Queries job history records.
  *
  * @param request DescribeJobHistoryRequest
  * @return DescribeJobHistoryResponse
@@ -4220,7 +4203,7 @@ DescribeNamespaceListResponse Client::describeNamespaceList(const DescribeNamesp
 }
 
 /**
- * @summary Queries the resources in a namespace.
+ * @summary Queries the resource information in a namespace.
  *
  * @param request DescribeNamespaceResourcesRequest
  * @param headers map
@@ -4257,7 +4240,7 @@ DescribeNamespaceResourcesResponse Client::describeNamespaceResourcesWithOptions
 }
 
 /**
- * @summary Queries the resources in a namespace.
+ * @summary Queries the resource information in a namespace.
  *
  * @param request DescribeNamespaceResourcesRequest
  * @return DescribeNamespaceResourcesResponse
@@ -4318,7 +4301,7 @@ DescribeNamespacesResponse Client::describeNamespaces(const DescribeNamespacesRe
 }
 
 /**
- * @summary View batch information
+ * @summary Queries batch information.
  *
  * @param request DescribePipelineRequest
  * @param headers map
@@ -4351,7 +4334,7 @@ DescribePipelineResponse Client::describePipelineWithOptions(const DescribePipel
 }
 
 /**
- * @summary View batch information
+ * @summary Queries batch information.
  *
  * @param request DescribePipelineRequest
  * @return DescribePipelineResponse
@@ -4399,7 +4382,7 @@ DescribeRegionsResponse Client::describeRegions() {
 }
 
 /**
- * @summary Queries the details of a Secret.
+ * @summary Queries the details of a Secret instance.
  *
  * @param request DescribeSecretRequest
  * @param headers map
@@ -4436,7 +4419,7 @@ DescribeSecretResponse Client::describeSecretWithOptions(const DescribeSecretReq
 }
 
 /**
- * @summary Queries the details of a Secret.
+ * @summary Queries the details of a Secret instance.
  *
  * @param request DescribeSecretRequest
  * @return DescribeSecretResponse
@@ -4448,7 +4431,7 @@ DescribeSecretResponse Client::describeSecret(const DescribeSecretRequest &reque
 }
 
 /**
- * @summary Retrieves the details of a swimlane.
+ * @summary Queries the details of a traffic lane.
  *
  * @param request DescribeSwimmingLaneRequest
  * @param headers map
@@ -4489,7 +4472,7 @@ DescribeSwimmingLaneResponse Client::describeSwimmingLaneWithOptions(const Descr
 }
 
 /**
- * @summary Retrieves the details of a swimlane.
+ * @summary Queries the details of a traffic lane.
  *
  * @param request DescribeSwimmingLaneRequest
  * @return DescribeSwimmingLaneResponse
@@ -4501,6 +4484,8 @@ DescribeSwimmingLaneResponse Client::describeSwimmingLane(const DescribeSwimming
 }
 
 /**
+ * @summary Queries vSwitch information.
+ *
  * @param request DescribeVSwitchesRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4540,6 +4525,8 @@ DescribeVSwitchesResponse Client::describeVSwitchesWithOptions(const DescribeVSw
 }
 
 /**
+ * @summary Queries vSwitch information.
+ *
  * @param request DescribeVSwitchesRequest
  * @return DescribeVSwitchesResponse
  */
@@ -4905,7 +4892,7 @@ DescribeWebInstanceLogsResponse Client::describeWebInstanceLogs(const string &Ap
 }
 
 /**
- * @summary Disables an Auto Scaling policy for an application.
+ * @summary Invokes the DisableApplicationScalingRule API operation to disable an application elastic scaling policy.
  *
  * @param request DisableApplicationScalingRuleRequest
  * @param headers map
@@ -4942,7 +4929,7 @@ DisableApplicationScalingRuleResponse Client::disableApplicationScalingRuleWithO
 }
 
 /**
- * @summary Disables an Auto Scaling policy for an application.
+ * @summary Invokes the DisableApplicationScalingRule API operation to disable an application elastic scaling policy.
  *
  * @param request DisableApplicationScalingRuleRequest
  * @return DisableApplicationScalingRuleResponse
@@ -4999,7 +4986,7 @@ DisableArmsResponse Client::disableArms(const DisableArmsRequest &request) {
 }
 
 /**
- * @summary Disable ARMS Advanced Edition monitoring.
+ * @summary Disables ARMS Premium Edition monitoring.
  *
  * @param request DowngradeApplicationApmServiceRequest
  * @param headers map
@@ -5032,7 +5019,7 @@ DowngradeApplicationApmServiceResponse Client::downgradeApplicationApmServiceWit
 }
 
 /**
- * @summary Disable ARMS Advanced Edition monitoring.
+ * @summary Disables ARMS Premium Edition monitoring.
  *
  * @param request DowngradeApplicationApmServiceRequest
  * @return DowngradeApplicationApmServiceResponse
@@ -5044,7 +5031,7 @@ DowngradeApplicationApmServiceResponse Client::downgradeApplicationApmService(co
 }
 
 /**
- * @summary Enables an auto scaling policy for an application.
+ * @summary Enables an elastic scaling policy for an application.
  *
  * @param request EnableApplicationScalingRuleRequest
  * @param headers map
@@ -5081,7 +5068,7 @@ EnableApplicationScalingRuleResponse Client::enableApplicationScalingRuleWithOpt
 }
 
 /**
- * @summary Enables an auto scaling policy for an application.
+ * @summary Enables an elastic scaling policy for an application.
  *
  * @param request EnableApplicationScalingRuleRequest
  * @return EnableApplicationScalingRuleResponse
@@ -5093,7 +5080,7 @@ EnableApplicationScalingRuleResponse Client::enableApplicationScalingRule(const 
 }
 
 /**
- * @summary Call ExecJob to run a job.
+ * @summary Executes a job.
  *
  * @param request ExecJobRequest
  * @param headers map
@@ -5162,7 +5149,7 @@ ExecJobResponse Client::execJobWithOptions(const ExecJobRequest &request, const 
 }
 
 /**
- * @summary Call ExecJob to run a job.
+ * @summary Executes a job.
  *
  * @param request ExecJobRequest
  * @return ExecJobResponse
@@ -5353,7 +5340,7 @@ GetAvailabilityMetricResponse Client::getAvailabilityMetric(const GetAvailabilit
 }
 
 /**
- * @summary To retrieve the top N applications with abnormal change orders, call the `GetChangeOrderMetric` API.
+ * @summary Retrieves the top N applications with abnormal change orders.
  *
  * @param request GetChangeOrderMetricRequest
  * @param headers map
@@ -5414,7 +5401,7 @@ GetChangeOrderMetricResponse Client::getChangeOrderMetricWithOptions(const GetCh
 }
 
 /**
- * @summary To retrieve the top N applications with abnormal change orders, call the `GetChangeOrderMetric` API.
+ * @summary Retrieves the top N applications with abnormal change orders.
  *
  * @param request GetChangeOrderMetricRequest
  * @return GetChangeOrderMetricResponse
@@ -5646,7 +5633,7 @@ ListAllSwimmingLaneGroupsResponse Client::listAllSwimmingLaneGroups(const ListAl
 }
 
 /**
- * @summary Lists all swimlanes.
+ * @summary Queries all traffic lanes.
  *
  * @param request ListAllSwimmingLanesRequest
  * @param headers map
@@ -5683,7 +5670,7 @@ ListAllSwimmingLanesResponse Client::listAllSwimmingLanesWithOptions(const ListA
 }
 
 /**
- * @summary Lists all swimlanes.
+ * @summary Queries all traffic lanes.
  *
  * @param request ListAllSwimmingLanesRequest
  * @return ListAllSwimmingLanesResponse
@@ -5947,7 +5934,7 @@ ListAppVersionsResponse Client::listAppVersions(const ListAppVersionsRequest &re
 }
 
 /**
- * @summary 查询服务实例列表
+ * @summary Queries a list of service instances.
  *
  * @param request ListApplicationCenterServiceInstancesRequest
  * @param headers map
@@ -5984,7 +5971,7 @@ ListApplicationCenterServiceInstancesResponse Client::listApplicationCenterServi
 }
 
 /**
- * @summary 查询服务实例列表
+ * @summary Queries a list of service instances.
  *
  * @param request ListApplicationCenterServiceInstancesRequest
  * @return ListApplicationCenterServiceInstancesResponse
@@ -6142,7 +6129,7 @@ ListApplicationsForSwimmingLaneResponse Client::listApplicationsForSwimmingLane(
 }
 
 /**
- * @summary Lists change orders.
+ * @summary Queries the list of change orders.
  *
  * @param request ListChangeOrdersRequest
  * @param headers map
@@ -6203,7 +6190,7 @@ ListChangeOrdersResponse Client::listChangeOrdersWithOptions(const ListChangeOrd
 }
 
 /**
- * @summary Lists change orders.
+ * @summary Queries the list of change orders.
  *
  * @param request ListChangeOrdersRequest
  * @return ListChangeOrdersResponse
@@ -6260,9 +6247,9 @@ ListConsumedServicesResponse Client::listConsumedServices(const ListConsumedServ
 }
 
 /**
- * @summary Queries the details of a grayscale rule based on an application ID.
+ * @summary Queries the details of a canary release rule based on the application ID.
  *
- * @description > You can configure only one grayscale rule for each application.
+ * @description > Currently, you can configure only one canary release rule for each application.
  *
  * @param request ListGreyTagRouteRequest
  * @param headers map
@@ -6295,9 +6282,9 @@ ListGreyTagRouteResponse Client::listGreyTagRouteWithOptions(const ListGreyTagRo
 }
 
 /**
- * @summary Queries the details of a grayscale rule based on an application ID.
+ * @summary Queries the details of a canary release rule based on the application ID.
  *
- * @description > You can configure only one grayscale rule for each application.
+ * @description > Currently, you can configure only one canary release rule for each application.
  *
  * @param request ListGreyTagRouteRequest
  * @return ListGreyTagRouteResponse
@@ -6309,7 +6296,7 @@ ListGreyTagRouteResponse Client::listGreyTagRoute(const ListGreyTagRouteRequest 
 }
 
 /**
- * @summary Retrieves a list of Ingresses.
+ * @summary Queries the list of ingresses.
  *
  * @param request ListIngressesRequest
  * @param headers map
@@ -6354,7 +6341,7 @@ ListIngressesResponse Client::listIngressesWithOptions(const ListIngressesReques
 }
 
 /**
- * @summary Retrieves a list of Ingresses.
+ * @summary Queries the list of ingresses.
  *
  * @param request ListIngressesRequest
  * @return ListIngressesResponse
@@ -6366,7 +6353,7 @@ ListIngressesResponse Client::listIngresses(const ListIngressesRequest &request)
 }
 
 /**
- * @summary Retrieves a list of job templates.
+ * @summary Queries a list of job templates.
  *
  * @param request ListJobsRequest
  * @param headers map
@@ -6435,7 +6422,7 @@ ListJobsResponse Client::listJobsWithOptions(const ListJobsRequest &request, con
 }
 
 /**
- * @summary Retrieves a list of job templates.
+ * @summary Queries a list of job templates.
  *
  * @param request ListJobsRequest
  * @return ListJobsResponse
@@ -6500,7 +6487,7 @@ ListLogConfigsResponse Client::listLogConfigs(const ListLogConfigsRequest &reque
 }
 
 /**
- * @summary Lists deployment orders in a namespace.
+ * @summary Queries the change orders in a namespace.
  *
  * @param request ListNamespaceChangeOrdersRequest
  * @param headers map
@@ -6553,7 +6540,7 @@ ListNamespaceChangeOrdersResponse Client::listNamespaceChangeOrdersWithOptions(c
 }
 
 /**
- * @summary Lists deployment orders in a namespace.
+ * @summary Queries the change orders in a namespace.
  *
  * @param request ListNamespaceChangeOrdersRequest
  * @return ListNamespaceChangeOrdersResponse
@@ -6565,7 +6552,7 @@ ListNamespaceChangeOrdersResponse Client::listNamespaceChangeOrders(const ListNa
 }
 
 /**
- * @summary Lists ConfigMap instances in a namespace.
+ * @summary Retrieves a list of ConfigMap instances in a namespace.
  *
  * @param request ListNamespacedConfigMapsRequest
  * @param headers map
@@ -6598,7 +6585,7 @@ ListNamespacedConfigMapsResponse Client::listNamespacedConfigMapsWithOptions(con
 }
 
 /**
- * @summary Lists ConfigMap instances in a namespace.
+ * @summary Retrieves a list of ConfigMap instances in a namespace.
  *
  * @param request ListNamespacedConfigMapsRequest
  * @return ListNamespacedConfigMapsResponse
@@ -6610,7 +6597,7 @@ ListNamespacedConfigMapsResponse Client::listNamespacedConfigMaps(const ListName
 }
 
 /**
- * @summary Queries a list of published microservices.
+ * @summary Retrieves the list of published microservices.
  *
  * @param request ListPublishedServicesRequest
  * @param headers map
@@ -6643,7 +6630,7 @@ ListPublishedServicesResponse Client::listPublishedServicesWithOptions(const Lis
 }
 
 /**
- * @summary Queries a list of published microservices.
+ * @summary Retrieves the list of published microservices.
  *
  * @param request ListPublishedServicesRequest
  * @return ListPublishedServicesResponse
@@ -6655,7 +6642,7 @@ ListPublishedServicesResponse Client::listPublishedServices(const ListPublishedS
 }
 
 /**
- * @summary Call ListSecrets to list Secrets in a namespace.
+ * @summary Queries the Secret instances in a namespace.
  *
  * @param request ListSecretsRequest
  * @param headers map
@@ -6688,7 +6675,7 @@ ListSecretsResponse Client::listSecretsWithOptions(const ListSecretsRequest &req
 }
 
 /**
- * @summary Call ListSecrets to list Secrets in a namespace.
+ * @summary Queries the Secret instances in a namespace.
  *
  * @param request ListSecretsRequest
  * @return ListSecretsResponse
@@ -6700,7 +6687,7 @@ ListSecretsResponse Client::listSecrets(const ListSecretsRequest &request) {
 }
 
 /**
- * @summary Lists the gateway routes that can be associated with a swimming lane.
+ * @summary Queries the available gateway routes for a traffic lane.
  *
  * @param request ListSwimmingLaneGatewayRoutesRequest
  * @param headers map
@@ -6737,7 +6724,7 @@ ListSwimmingLaneGatewayRoutesResponse Client::listSwimmingLaneGatewayRoutesWithO
 }
 
 /**
- * @summary Lists the gateway routes that can be associated with a swimming lane.
+ * @summary Queries the available gateway routes for a traffic lane.
  *
  * @param request ListSwimmingLaneGatewayRoutesRequest
  * @return ListSwimmingLaneGatewayRoutesResponse
@@ -6749,7 +6736,7 @@ ListSwimmingLaneGatewayRoutesResponse Client::listSwimmingLaneGatewayRoutes(cons
 }
 
 /**
- * @summary Lists all swimming lane tags.
+ * @summary Queries all lane tags.
  *
  * @param request ListSwimmingLaneGroupTagsRequest
  * @param headers map
@@ -6786,7 +6773,7 @@ ListSwimmingLaneGroupTagsResponse Client::listSwimmingLaneGroupTagsWithOptions(c
 }
 
 /**
- * @summary Lists all swimming lane tags.
+ * @summary Queries all lane tags.
  *
  * @param request ListSwimmingLaneGroupTagsRequest
  * @return ListSwimmingLaneGroupTagsResponse
@@ -6798,7 +6785,7 @@ ListSwimmingLaneGroupTagsResponse Client::listSwimmingLaneGroupTags(const ListSw
 }
 
 /**
- * @summary Call the `ListTagResources` API to list the tags associated with your applications.
+ * @summary Queries the mapping between applications and tags.
  *
  * @param request ListTagResourcesRequest
  * @param headers map
@@ -6847,7 +6834,7 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary Call the `ListTagResources` API to list the tags associated with your applications.
+ * @summary Queries the mapping between applications and tags.
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -7264,7 +7251,7 @@ QueryArmsEnableResponse Client::queryArmsEnable(const QueryArmsEnableRequest &re
 }
 
 /**
- * @summary Gets the resource usage for an application.
+ * @summary Retrieves the resource usage of an application.
  *
  * @param request QueryResourceStaticsRequest
  * @param headers map
@@ -7297,7 +7284,7 @@ QueryResourceStaticsResponse Client::queryResourceStaticsWithOptions(const Query
 }
 
 /**
- * @summary Gets the resource usage for an application.
+ * @summary Retrieves the resource usage of an application.
  *
  * @param request QueryResourceStaticsRequest
  * @return QueryResourceStaticsResponse
@@ -7419,7 +7406,7 @@ RescaleApplicationResponse Client::rescaleApplication(const RescaleApplicationRe
 }
 
 /**
- * @summary Changes the instance type of an application.
+ * @summary Modifies the instance specifications of an application.
  *
  * @param request RescaleApplicationVerticallyRequest
  * @param headers map
@@ -7488,7 +7475,7 @@ RescaleApplicationVerticallyResponse Client::rescaleApplicationVerticallyWithOpt
 }
 
 /**
- * @summary Changes the instance type of an application.
+ * @summary Modifies the instance specifications of an application.
  *
  * @param request RescaleApplicationVerticallyRequest
  * @return RescaleApplicationVerticallyResponse
@@ -7557,7 +7544,7 @@ RestartApplicationResponse Client::restartApplication(const RestartApplicationRe
 }
 
 /**
- * @summary Restarts one or more instances in an application.
+ * @summary Restarts application instances.
  *
  * @param request RestartInstancesRequest
  * @param headers map
@@ -7594,7 +7581,7 @@ RestartInstancesResponse Client::restartInstancesWithOptions(const RestartInstan
 }
 
 /**
- * @summary Restarts one or more instances in an application.
+ * @summary Restarts application instances.
  *
  * @param request RestartInstancesRequest
  * @return RestartInstancesResponse
@@ -8238,7 +8225,7 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
- * @summary Updates the idle mode for an application.
+ * @summary Updates the idle mode of an application.
  *
  * @param request UpdateAppModeRequest
  * @param headers map
@@ -8287,7 +8274,7 @@ UpdateAppModeResponse Client::updateAppModeWithOptions(const UpdateAppModeReques
 }
 
 /**
- * @summary Updates the idle mode for an application.
+ * @summary Updates the idle mode of an application.
  *
  * @param request UpdateAppModeRequest
  * @return UpdateAppModeResponse
@@ -8299,7 +8286,7 @@ UpdateAppModeResponse Client::updateAppMode(const UpdateAppModeRequest &request)
 }
 
 /**
- * @summary Updates an application security group.
+ * @summary Updates the security group of an application.
  *
  * @param request UpdateAppSecurityGroupRequest
  * @param headers map
@@ -8336,7 +8323,7 @@ UpdateAppSecurityGroupResponse Client::updateAppSecurityGroupWithOptions(const U
 }
 
 /**
- * @summary Updates an application security group.
+ * @summary Updates the security group of an application.
  *
  * @param request UpdateAppSecurityGroupRequest
  * @return UpdateAppSecurityGroupResponse
@@ -8476,7 +8463,7 @@ UpdateApplicationScalingRuleResponse Client::updateApplicationScalingRule(const 
 }
 
 /**
- * @summary Updates the vSwitch configuration for an application.
+ * @summary Updates the vSwitch configuration.
  *
  * @param request UpdateApplicationVswitchesRequest
  * @param headers map
@@ -8525,7 +8512,7 @@ UpdateApplicationVswitchesResponse Client::updateApplicationVswitchesWithOptions
 }
 
 /**
- * @summary Updates the vSwitch configuration for an application.
+ * @summary Updates the vSwitch configuration.
  *
  * @param request UpdateApplicationVswitchesRequest
  * @return UpdateApplicationVswitchesResponse
@@ -8592,7 +8579,7 @@ UpdateConfigMapResponse Client::updateConfigMap(const UpdateConfigMapRequest &re
 }
 
 /**
- * @summary Updates a grey tag route.
+ * @summary Updates a canary release rule.
  *
  * @param request UpdateGreyTagRouteRequest
  * @param headers map
@@ -8641,7 +8628,7 @@ UpdateGreyTagRouteResponse Client::updateGreyTagRouteWithOptions(const UpdateGre
 }
 
 /**
- * @summary Updates a grey tag route.
+ * @summary Updates a canary release rule.
  *
  * @param request UpdateGreyTagRouteRequest
  * @return UpdateGreyTagRouteResponse
@@ -8653,7 +8640,7 @@ UpdateGreyTagRouteResponse Client::updateGreyTagRoute(const UpdateGreyTagRouteRe
 }
 
 /**
- * @summary Update the configuration of an Ingress instance.
+ * @summary Updates the configuration of an Ingress instance.
  *
  * @param request UpdateIngressRequest
  * @param headers map
@@ -8760,7 +8747,7 @@ UpdateIngressResponse Client::updateIngressWithOptions(const UpdateIngressReques
 }
 
 /**
- * @summary Update the configuration of an Ingress instance.
+ * @summary Updates the configuration of an Ingress instance.
  *
  * @param request UpdateIngressRequest
  * @return UpdateIngressResponse
@@ -8772,7 +8759,7 @@ UpdateIngressResponse Client::updateIngress(const UpdateIngressRequest &request)
 }
 
 /**
- * @summary Call the UpdateJob API to update a job template.
+ * @summary Updates a job template.
  *
  * @param request UpdateJobRequest
  * @param headers map
@@ -8991,7 +8978,7 @@ UpdateJobResponse Client::updateJobWithOptions(const UpdateJobRequest &request, 
 }
 
 /**
- * @summary Call the UpdateJob API to update a job template.
+ * @summary Updates a job template.
  *
  * @param request UpdateJobRequest
  * @return UpdateJobResponse
@@ -9003,7 +8990,7 @@ UpdateJobResponse Client::updateJob(const UpdateJobRequest &request) {
 }
 
 /**
- * @summary Update the information about a namespace.
+ * @summary Updates namespace information.
  *
  * @param request UpdateNamespaceRequest
  * @param headers map
@@ -9052,7 +9039,7 @@ UpdateNamespaceResponse Client::updateNamespaceWithOptions(const UpdateNamespace
 }
 
 /**
- * @summary Update the information about a namespace.
+ * @summary Updates namespace information.
  *
  * @param request UpdateNamespaceRequest
  * @return UpdateNamespaceResponse
@@ -9064,7 +9051,7 @@ UpdateNamespaceResponse Client::updateNamespace(const UpdateNamespaceRequest &re
 }
 
 /**
- * @summary Updates the namespace-level SLS configuration.
+ * @summary Updates the Simple Log Service (SLS) configuration at the namespace level.
  *
  * @param request UpdateNamespaceSlsConfigsRequest
  * @param headers map
@@ -9109,7 +9096,7 @@ UpdateNamespaceSlsConfigsResponse Client::updateNamespaceSlsConfigsWithOptions(c
 }
 
 /**
- * @summary Updates the namespace-level SLS configuration.
+ * @summary Updates the Simple Log Service (SLS) configuration at the namespace level.
  *
  * @param request UpdateNamespaceSlsConfigsRequest
  * @return UpdateNamespaceSlsConfigsResponse
@@ -9233,7 +9220,7 @@ UpdateSecretResponse Client::updateSecret(const UpdateSecretRequest &request) {
 }
 
 /**
- * @summary Updates the enabled status of a swimming lane.
+ * @summary Updates the enabled property of a traffic lane.
  *
  * @param request UpdateSwimmingLaneEnableAttributeRequest
  * @param headers map
@@ -9278,7 +9265,7 @@ UpdateSwimmingLaneEnableAttributeResponse Client::updateSwimmingLaneEnableAttrib
 }
 
 /**
- * @summary Updates the enabled status of a swimming lane.
+ * @summary Updates the enabled property of a traffic lane.
  *
  * @param request UpdateSwimmingLaneEnableAttributeRequest
  * @return UpdateSwimmingLaneEnableAttributeResponse

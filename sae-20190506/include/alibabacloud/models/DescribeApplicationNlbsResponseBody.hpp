@@ -73,7 +73,7 @@ namespace Models
 
 
     protected:
-      // A collection of instance details.
+      // The instance information.
       shared_ptr<map<string, DataInstancesValue>> instances_ {};
     };
 
@@ -134,33 +134,28 @@ namespace Models
   protected:
     // The HTTP status code. Valid values:
     // 
-    // - **2xx**: The request is successful.
-    // 
-    // - **3xx**: The request is redirected.
-    // 
-    // - **4xx**: A client error occurred.
-    // 
-    // - **5xx**: A server error occurred.
+    // - **2xx**: Success.
+    // - **3xx**: Redirection.
+    // - **4xx**: Client error.
+    // - **5xx**: Server error.
     shared_ptr<string> code_ {};
-    // The data returned in the response.
+    // The returned data.
     shared_ptr<DescribeApplicationNlbsResponseBody::Data> data_ {};
-    // The error code.
+    // The error code. Valid values:
     // 
-    // - This parameter is returned only if the request fails.
-    // 
-    // - For more information, see the **Error codes** section of this topic.
+    // - If the request is successful, the **ErrorCode** parameter is not returned.
+    // - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The returned message. A value of `success` indicates a successful request; otherwise, an error code is returned.
+    // The additional information. If the request is successful, success is returned. If the request fails, a specific error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Specifies whether the binding is successful. Valid values:
     // 
-    // - **true**: The request was successful.
-    // 
-    // - **false**: The request failed.
+    // - **true**: The binding is successful.
+    // - **false**: The binding failed.
     shared_ptr<string> success_ {};
-    // The trace ID used to query the details of the request.
+    // The trace ID used to query call details.
     shared_ptr<string> traceId_ {};
   };
 

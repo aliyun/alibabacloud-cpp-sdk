@@ -125,20 +125,21 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The CPU specifications, in millicores.
+    // The target CPU specifications, in millicores.
     // 
     // This parameter is required.
     shared_ptr<string> cpu_ {};
     shared_ptr<bool> deploy_ {};
-    // The disk size for each node, in GB.
+    // The disk storage size per node, in GB.
     shared_ptr<string> diskSize_ {};
-    // The memory size, in MB.
+    // The target memory specifications, in MB.
     // 
     // This parameter is required.
     shared_ptr<string> memory_ {};
+    // The type of resource used for vertical scaling of the application.
     shared_ptr<string> resourceType_ {};
     shared_ptr<string> vSwitchId_ {};
-    // Specifies whether to automatically enable the auto scaling rule.
+    // Specifies whether to automatically enable the elastic scaling rule.
     shared_ptr<bool> autoEnableApplicationScalingRule_ {};
     // The minimum percentage of ready instances.
     shared_ptr<int32_t> minReadyInstanceRatio_ {};

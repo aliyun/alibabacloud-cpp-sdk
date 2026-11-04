@@ -84,33 +84,28 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values:
+    // The API status code or POP error code. Valid values:
     // 
-    // - **2xx**: The request was successful.
-    // 
-    // - **3xx**: The request was redirected.
-    // 
-    // - **4xx**: A request error occurred.
-    // 
-    // - **5xx**: A server error occurred.
+    // - **2xx**: Success.
+    // - **3xx**: Redirection.
+    // - **4xx**: Client error.
+    // - **5xx**: Server error.
     shared_ptr<string> code_ {};
-    // The error code.
+    // The error code. Valid values:
     // 
-    // - If the request is successful, this parameter is not returned.
-    // 
-    // - If the request fails, this parameter is returned. For more information, see the **Error codes** section in this topic.
+    // - If the request is successful, the **ErrorCode** parameter is not returned.
+    // - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The additional information that is returned.
+    // The additional information about the call result.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the namespace was deleted. Valid values:
+    // Indicates whether the namespace is deleted. Valid values:
     // 
-    // - **true**: The namespace was deleted.
-    // 
-    // - **false**: The namespace failed to be deleted.
+    // - **true**: The namespace is deleted.
+    // - **false**: The namespace is not deleted.
     shared_ptr<bool> success_ {};
-    // The trace ID. You can use this ID to query the details of a request.
+    // The trace ID used to accurately query call information.
     shared_ptr<string> traceId_ {};
   };
 

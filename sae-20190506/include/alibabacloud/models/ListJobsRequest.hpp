@@ -123,39 +123,35 @@ namespace Models
   protected:
     // The name of the job template.
     shared_ptr<string> appName_ {};
-    // The page number. The value starts from 1.
+    // The current page number. Valid values start from 1.
     shared_ptr<int32_t> currentPage_ {};
-    // The dimension by which to filter job templates. Valid values:
+    // The dimension used to filter job templates. Valid values:
     // 
-    // - **appName**: The name of the job template.
-    // 
-    // - **appIds**: The ID of the job template.
+    // - **appName**: the job template name
+    // - **appIds**: the job template ID
     shared_ptr<string> fieldType_ {};
-    // The name or ID of the target job template. This value corresponds to the dimension specified by **FieldType**.
+    // The value used to filter job templates based on the dimension specified by the **FieldType** parameter. Enter the job template name or job template ID.
     shared_ptr<string> fieldValue_ {};
-    // The namespace ID.
+    // The ID of the namespace.
     shared_ptr<string> namespaceId_ {};
-    // The sorting method for the job templates. Valid values:
+    // The field used to sort job templates. Valid values:
     // 
-    // - **running**: Sorts by the number of running instances.
-    // 
-    // - **instances**: Sorts by the number of destination instances.
+    // - **running**: sort by the current number target instances
+    // - **instances**: sort by the target number target instances
     shared_ptr<string> orderBy_ {};
     // The number of entries per page. Valid values: 0 to 200.
     shared_ptr<int32_t> pageSize_ {};
-    // Specifies whether to sort the results in ascending or descending order based on the field specified by the **OrderBy** parameter. Valid values:
+    // Specifies whether to reverse the sort order based on the field specified by the **OrderBy** parameter. Valid values:
     // 
-    // - **true**: ascending order.
-    // 
-    // - **false**: descending order.
+    // - **true**: sort in ascending order
+    // - **false**: sort in descending order
     shared_ptr<bool> reverse_ {};
-    // A list of tags. This is a JSON string. The value consists of the following parts:
+    // The list of tags. The value is a JSON string that contains the following fields:
     // 
-    // - **key**: The tag key.
-    // 
-    // - **value**: The tag value.
+    // - **key**: the tag key
+    // - **value**: the tag value
     shared_ptr<string> tags_ {};
-    // The workload. Set the value to `job`.
+    // The workload type. Set the value to `job`.
     shared_ptr<string> workload_ {};
   };
 

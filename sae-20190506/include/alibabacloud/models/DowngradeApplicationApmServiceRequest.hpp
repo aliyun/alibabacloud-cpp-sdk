@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the interactive messaging application.
+    // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};

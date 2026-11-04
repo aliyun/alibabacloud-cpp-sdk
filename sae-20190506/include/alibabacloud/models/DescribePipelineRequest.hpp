@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the batch. You can call the [DescribeChangeOrder](https://help.aliyun.com/document_detail/126617.html) operation to obtain the ID.
+    // The batch ID. You can retrieve the ID by calling the [DescribeChangeOrder](https://help.aliyun.com/document_detail/126617.html) operation.
     // 
     // This parameter is required.
     shared_ptr<string> pipelineId_ {};

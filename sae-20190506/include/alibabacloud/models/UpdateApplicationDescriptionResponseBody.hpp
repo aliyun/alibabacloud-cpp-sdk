@@ -84,37 +84,31 @@ namespace Models
 
 
   protected:
-    // The HTTP status code or the error code. Valid values:
+    // The API status code or POP error code. Valid values:
     // 
-    // - **2xx**: The request was successful.
-    // 
-    // - **3xx**: The request was redirected.
-    // 
-    // - **4xx**: The request failed.
-    // 
-    // - **5xx**: A server error occurred.
+    // - **2xx**: Success.
+    // - **3xx**: Redirection.
+    // - **4xx**: Client error.
+    // - **5xx**: Server error.
     shared_ptr<string> code_ {};
-    // The error code returned if the call failed. Value values:
+    // The error code. Valid values:
     // 
-    // - If the request was successful, **ErrorCode** is not returned.
-    // 
-    // - If the request failed, **ErrorCode** is returned. For more information, see **Error codes** in this topic.
+    // - Successful request: The **ErrorCode** parameter is not returned.
+    // - Failed request: The **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The message returned. The following limits are imposed on the ID:
+    // The additional information. Valid values:
     // 
-    // - If the request was successful, **success** is returned.
-    // 
-    // - An error code is returned when a request failed.
+    // - **success**: The request is successful.
+    // - Specific error code: The request is abnormal.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the application was deployed. Valid values:
+    // Indicates whether the application is deployed successfully. Valid values:
     // 
-    // - **true**: The application was deployed.
-    // 
-    // - **false**: The application failed to be deployed.
+    // - **true**: The deployment is successful.
+    // - **false**: The deployment failed.
     shared_ptr<bool> success_ {};
-    // The ID of the trace. The ID is used to query the details of a request.
+    // The trace ID used to query invocation details.
     shared_ptr<string> traceId_ {};
   };
 

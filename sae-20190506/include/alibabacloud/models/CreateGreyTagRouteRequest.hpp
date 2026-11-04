@@ -84,21 +84,21 @@ namespace Models
 
 
   protected:
-    // The canary rules for an application that uses an ALB gateway route.
+    // The canary release rules created for an application that has ALB gateway routing configured.
     shared_ptr<string> albRules_ {};
     // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The description of the canary rule. The description can be up to 64 characters long.
+    // The rule description. It can be up to 64 characters in length.
     shared_ptr<string> description_ {};
-    // The canary rules for a Dubbo application. This parameter is required for Dubbo applications and cannot be used with the **ScRules** parameter.
+    // The canary release rules created for a Dubbo application. This parameter is required when your application uses the Dubbo framework. You do not need to specify the **ScRules** parameter.
     shared_ptr<string> dubboRules_ {};
-    // The name of the canary rule. The name can be up to 64 characters long and can contain only lowercase letters, digits, hyphens (-), and Chinese characters. It must start with a lowercase letter and end with a lowercase letter or a digit.
+    // The rule name. It must start with a lowercase letter, end with a digit or a lowercase letter, and can contain only lowercase letters, Chinese characters, digits, and hyphens (-). It can be up to 64 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The canary rules for a Spring Cloud application. This parameter is required for Spring Cloud applications and cannot be used with the **DubboRules** parameter.
+    // The canary release rules created for a Spring Cloud application. This parameter is required when your application uses the Spring Cloud framework. You do not need to specify the **DubboRules** parameter.
     shared_ptr<string> scRules_ {};
   };
 

@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // password
     shared_ptr<string> password_ {};
+    // role to get c
     shared_ptr<string> role_ {};
+    // userName
     shared_ptr<string> userName_ {};
   };
 

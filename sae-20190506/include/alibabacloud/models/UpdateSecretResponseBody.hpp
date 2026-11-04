@@ -69,7 +69,7 @@ namespace Models
 
 
     protected:
-      // The ID of the Secret instance.
+      // The instance ID of the Secret.
       shared_ptr<int64_t> secretId_ {};
     };
 
@@ -128,35 +128,30 @@ namespace Models
 
 
   protected:
-    // The status of the API call or a POP error code. Valid values:
+    // The API status code or POP error code. Valid values:
     // 
-    // - **2xx**: The request was successful.
-    // 
-    // - **3xx**: The request was redirected.
-    // 
-    // - **4xx**: A request error occurred.
-    // 
-    // - **5xx**: A server error occurred.
+    // - **2xx**: Success.
+    // - **3xx**: Redirection.
+    // - **4xx**: Request error.
+    // - **5xx**: Server error.
     shared_ptr<string> code_ {};
     // The returned result.
     shared_ptr<UpdateSecretResponseBody::Data> data_ {};
-    // The error code. The following list describes the values:
+    // The error code. Take note of the following items:
     // 
-    // - If the request is successful, this parameter is not returned.
-    // 
-    // - If the request fails, this parameter is returned. For more information, see the **Error codes** section of this topic.
+    // - If the request is successful, the **ErrorCode** parameter is not returned.
+    // - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // Additional information about the call result.
+    // The additional information about the call result.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the Secret instance was updated. Valid values:
+    // Indicates whether the Secret instance was updated successfully. Valid values:
     // 
-    // - **true**: The instance was updated.
-    // 
+    // - **true**: The update was successful.
     // - **false**: The update failed.
     shared_ptr<bool> success_ {};
-    // The ID of the call chain. You can use this ID to query the details of a call.
+    // The trace ID used to query the call information.
     shared_ptr<string> traceId_ {};
   };
 

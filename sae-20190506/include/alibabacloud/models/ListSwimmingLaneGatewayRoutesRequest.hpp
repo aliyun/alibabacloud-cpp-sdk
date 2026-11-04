@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The unique ID of the gateway.
     shared_ptr<string> gatewayUniqueId_ {};
-    // The ID of the namespace.
+    // The namespace ID.
     shared_ptr<string> namespaceId_ {};
   };
 

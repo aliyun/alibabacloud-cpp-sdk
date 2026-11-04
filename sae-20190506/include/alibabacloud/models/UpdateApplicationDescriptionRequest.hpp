@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The new description of the application. The description can be up to 1,024 characters in length.
+    // The updated description of the application. The description can be up to 1,024 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> appDescription_ {};
-    // The ID of the application that you want to update.
+    // The ID of the application to update.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};

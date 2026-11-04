@@ -69,7 +69,7 @@ namespace Models
 
 
     protected:
-      // The ID of the deleted secret.
+      // The instance ID of the deleted secret instance.
       shared_ptr<int64_t> secretId_ {};
     };
 
@@ -128,39 +128,33 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values:
+    // The HTTP status code or POP error code. Valid values:
     // 
-    // - **2xx**: The request was successful.
-    // 
-    // - **3xx**: The request was redirected.
-    // 
-    // - **4xx**: A request error.
-    // 
-    // - **5xx**: A server error.
+    // - **2xx**: Success.
+    // - **3xx**: Redirect.
+    // - **4xx**: Client error.
+    // - **5xx**: Server error.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The returned result.
     shared_ptr<DeleteSecretResponseBody::Data> data_ {};
-    // The error code.
+    // The error code. Valid values:
     // 
-    // - The **ErrorCode** parameter is not returned if the request is successful.
-    // 
-    // - The **ErrorCode** parameter is returned if the request fails. For a list of error codes, see the **Error codes** section in this topic.
+    // - If the request is successful, the **ErrorCode** parameter is not returned.
+    // - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The response message.
+    // The additional information. Valid values:
     // 
-    // - **success**: The request was successful.
-    // 
-    // - If the request fails, an error message is returned.
+    // - **success**: The request is successful.
+    // - Specific error code: An exception occurred.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the secret was successfully deleted. Valid values:
+    // Indicates whether the secret instance was deleted. Valid values:
     // 
-    // - **true**: The secret was deleted.
-    // 
-    // - **false**: The secret was not deleted.
+    // - **true**: The instance was deleted.
+    // - **false**: The instance failed to be deleted.
     shared_ptr<bool> success_ {};
-    // The ID used to trace the request.
+    // The trace ID used to query the call information.
     shared_ptr<string> traceId_ {};
   };
 

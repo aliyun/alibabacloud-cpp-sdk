@@ -132,29 +132,25 @@ namespace Models
 
 
       protected:
-        // The matching rule.
+        // The matching rule. Valid values:
         // 
-        // - `==`: Exact match. The attribute\\"s value must be identical to the value specified.
-        // 
-        // - `!=`: Negated exact match. The attribute\\"s value must not be identical to the value specified.
-        // 
-        // - `in`: Inclusion match. The attribute\\"s value must be present in the specified comma-separated list of values.
-        // 
-        // - `percentage`: Percentage-based match. The expression `hash(get(key)) % 100 < value` must be true.
-        // 
-        // - `regex`: Regular expression match. The attribute\\"s value must match the specified regular expression.
+        // - ==: Exact match.
+        // - !=: Exact match.
+        // - in: Inclusion match.
+        // - 百分比: Percentage match.
+        // - 正则匹配: Regular expression match.
         shared_ptr<string> condition_ {};
-        // The name of the header, parameter, or cookie.
+        // The name of the condition parameter.
         shared_ptr<string> name_ {};
-        // The type of the request attribute to match.
+        // The parameter type. Valid values:
         // 
-        // - `header`: A request header.
+        // - header: Header
         // 
-        // - `param`: A request parameter.
+        // - param: Parameter
         // 
-        // - `cookie`: A request cookie.
+        // - cookie: Cookie
         shared_ptr<string> type_ {};
-        // The value to match against the request attribute.
+        // The matching value of the condition.
         shared_ptr<string> value_ {};
       };
 
@@ -209,23 +205,21 @@ namespace Models
 
 
     protected:
-      // The logical operator used to combine conditions.
+      // The logical operator between conditions. Valid values:
       // 
-      // - `AND`: All conditions must be met.
-      // 
-      // - `OR`: At least one of the conditions must be met.
+      // - AND: All conditions must be met.
+      // - OR: Any condition must be met.
       shared_ptr<string> conditionJoiner_ {};
-      // The match conditions.
+      // The routing conditions.
       shared_ptr<vector<MseGatewayEntryRule::Conditions>> conditions_ {};
-      // Specifies whether to enable percentage-based routing.
+      // Specifies whether to enable proportion-based canary release. Valid values:
       // 
-      // - `true`: Enables percentage-based routing. You must also configure the `PercentageByRoute` parameter.
-      // 
-      // - `false`: Disables percentage-based routing.
+      // - true: Enabled. If enabled, you must configure PercentageByPath.
+      // - false: Disabled.
       shared_ptr<bool> independentPercentageEnable_ {};
-      // The traffic mirroring percentage. Valid values: 0 to 100.
+      // The traffic replication proportion (%). Valid values: 0 to 100.
       shared_ptr<int32_t> percentage_ {};
-      // An object that maps route IDs to traffic percentages.
+      // The traffic configuration.
       shared_ptr<map<string, int32_t>> percentageByRoute_ {};
       // The route IDs.
       shared_ptr<vector<int64_t>> routeIds_ {};
@@ -316,29 +310,24 @@ namespace Models
 
 
       protected:
-        // The matching rule.
+        // The matching rule. Valid values:
         // 
-        // - `==`: Exact match. The attribute\\"s value must be identical to the value specified.
-        // 
-        // - `!=`: Negated exact match. The attribute\\"s value must not be identical to the value specified.
-        // 
-        // - `in`: Inclusion match. The attribute\\"s value must be present in the specified comma-separated list of values.
-        // 
-        // - `percentage`: Percentage-based match. The expression `hash(get(key)) % 100 < value` must be true.
-        // 
-        // - `regex`: Regular expression match. The attribute\\"s value must match the specified regular expression.
+        // - ==: Exact match. The traffic value must be exactly equal to the condition value.
+        // - !=: Exact match. The traffic value must be exactly equal to the condition value.
+        // - in: Inclusion match. The condition is met when the traffic value is in the specified list.
+        // - 百分比: Percentage match. The condition is met when `hash(get(key)) % 100 < value` evaluates to true.
+        // - 正则匹配: Regular expression match. The condition is met when the value matches the regular expression.
         shared_ptr<string> condition_ {};
-        // The name of the header, parameter, or cookie.
+        // The parameter name.
         shared_ptr<string> name_ {};
-        // The type of the request attribute to match.
+        // The parameter type. Valid values:
         // 
-        // - `header`: A request header.
+        // - header: Header
+        // - param: Parameter
         // 
-        // - `param`: A request parameter.
-        // 
-        // - `cookie`: A request cookie.
+        // - cookie: Cookie
         shared_ptr<string> type_ {};
-        // The value to match against the request attribute.
+        // The matching value of the condition.
         shared_ptr<string> value_ {};
       };
 
@@ -393,25 +382,23 @@ namespace Models
 
 
     protected:
-      // The logical operator used to combine conditions.
+      // The logical operator between conditions. Valid values:
       // 
-      // - `AND`: All conditions must be met.
-      // 
-      // - `OR`: At least one of the conditions must be met.
+      // - AND: All conditions must be met.
+      // - OR: Any condition must be met.
       shared_ptr<string> conditionJoiner_ {};
-      // The match conditions.
+      // The matching conditions.
       shared_ptr<vector<AppEntryRule::Conditions>> conditions_ {};
-      // Specifies whether to enable percentage-based routing.
+      // Specifies whether to enable proportion-based canary release. Valid values:
       // 
-      // - `true`: Enables percentage-based routing. You must also configure the `PercentageByPath` parameter.
-      // 
-      // - `false`: Disables percentage-based routing.
+      // - true: Enabled. If enabled, you must configure PercentageByPath.
+      // - false: Disabled.
       shared_ptr<bool> independentPercentageEnable_ {};
-      // The request paths to match.
+      // The matched URI of the request paths.
       shared_ptr<vector<string>> paths_ {};
-      // The traffic percentage for percentage-based routing. Valid values: 0 to 100.
+      // The traffic proportion used for proportion-based routing. Valid values: 0 to 100.
       shared_ptr<int32_t> percentage_ {};
-      // An object that maps request paths to traffic percentages.
+      // The traffic configuration.
       shared_ptr<map<string, int32_t>> percentageByPath_ {};
     };
 
@@ -486,33 +473,32 @@ namespace Models
 
 
   protected:
-    // The configuration of the gateway route.
+    // The gateway routing configuration.
     // 
-    // > This parameter is required if the gateway entry application for the swimlane group is a Java application.
+    // > This parameter is required when the gateway entry of the traffic lane group is Java.
     shared_ptr<CreateOrUpdateSwimmingLaneRequest::AppEntryRule> appEntryRule_ {};
-    // The end-to-end canary release mode.
+    // The end-to-end canary release mode. Valid values:
     // 
-    // - `0`: content-based routing
+    // - 0: Routes traffic based on request content.
     // 
-    // - `1`: percentage-based routing
+    // - 1: Routes traffic based on proportion.
     shared_ptr<int32_t> canaryModel_ {};
-    // The status of the swimlane.
+    // Specifies whether the traffic lane is enabled. Valid values:
     // 
-    // - `true`: enabled
-    // 
-    // - `false`: disabled
+    // - true: Enabled.
+    // - false: Disabled.
     shared_ptr<bool> enable_ {};
-    // The ID of the swimlane group.
+    // The ID of the traffic lane group to which the traffic lane belongs.
     shared_ptr<int64_t> groupId_ {};
-    // The ID of the swimlane.
+    // The ID of the traffic lane.
     shared_ptr<int64_t> laneId_ {};
-    // The name of the swimlane.
+    // The name of the traffic lane.
     shared_ptr<string> laneName_ {};
-    // The tag of the swimlane.
+    // The tag of the traffic lane.
     shared_ptr<string> laneTag_ {};
-    // Configuration for the MSE gateway route.
+    // The MSE gateway routing configuration.
     // 
-    // > This parameter is required if the **EntryAppType** parameter is set to **apig** or **mse-gw**.
+    // > This parameter is required when **EntryAppType** is set to **apig** or **mse-gw**.
     shared_ptr<CreateOrUpdateSwimmingLaneRequest::MseGatewayEntryRule> mseGatewayEntryRule_ {};
     // The ID of the namespace.
     shared_ptr<string> namespaceId_ {};

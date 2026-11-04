@@ -69,11 +69,10 @@ namespace Models
 
 
     protected:
-      // Indicates whether ARMS advanced monitoring is disabled. Valid values:
+      // Indicates whether ARMS Premium Edition monitoring is successfully disabled. Valid values:
       // 
-      // - **true**
-      // 
-      // - **false**
+      // - **true**: Disabled successfully.
+      // - **false**: Failed to disable.
       shared_ptr<bool> status_ {};
     };
 
@@ -132,31 +131,27 @@ namespace Models
 
 
   protected:
-    // The HTTP status code or the error code. Valid values:
+    // The API status code or POP error code. Valid values:
     // 
-    // - **2xx**: The request was successful.
-    // 
-    // - **3xx**: The request was redirected.
-    // 
-    // - **4xx**: The request failed.
-    // 
-    // - **5xx**: A server error occurred.
+    // - **2xx**: Success.
+    // - **3xx**: Redirection.
+    // - **4xx**: Request error.
+    // - **5xx**: Server error.
     shared_ptr<string> code_ {};
-    // The returned result.
+    // The returned results.
     shared_ptr<DowngradeApplicationApmServiceResponseBody::Data> data_ {};
-    // The status code.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The message that is returned.
+    // The additional information.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether ARMS advanced monitoring is disabled. Valid values:
+    // Indicates whether ARMS Premium Edition monitoring is successfully disabled. Valid values:
     // 
-    // - **true**
-    // 
-    // - **false**
+    // - **true**: Disabled successfully.
+    // - **false**: Failed to disable.
     shared_ptr<bool> success_ {};
-    // The ID of the trace. The ID is used to query the details of a request.
+    // The trace ID used to precisely query call information.
     shared_ptr<string> traceId_ {};
   };
 

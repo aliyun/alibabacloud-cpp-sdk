@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the job template to which the job that you want to delete belongs.
+    // The ID of the job template to delete.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The ID of the job.
+    // The job ID.
     // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
