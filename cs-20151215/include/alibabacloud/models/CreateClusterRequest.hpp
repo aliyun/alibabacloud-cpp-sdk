@@ -103,6 +103,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(snat_entry, snatEntry_);
       DARABONBA_PTR_TO_JSON(soc_enabled, socEnabled_);
       DARABONBA_PTR_TO_JSON(ssh_flags, sshFlags_);
+      DARABONBA_PTR_TO_JSON(support_policy, supportPolicy_);
       DARABONBA_PTR_TO_JSON(tags, tags_);
       DARABONBA_PTR_TO_JSON(taints, taints_);
       DARABONBA_PTR_TO_JSON(timeout_mins, timeoutMins_);
@@ -209,6 +210,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(snat_entry, snatEntry_);
       DARABONBA_PTR_FROM_JSON(soc_enabled, socEnabled_);
       DARABONBA_PTR_FROM_JSON(ssh_flags, sshFlags_);
+      DARABONBA_PTR_FROM_JSON(support_policy, supportPolicy_);
       DARABONBA_PTR_FROM_JSON(tags, tags_);
       DARABONBA_PTR_FROM_JSON(taints, taints_);
       DARABONBA_PTR_FROM_JSON(timeout_mins, timeoutMins_);
@@ -1046,11 +1048,11 @@ namespace Models
         && this->podVswitchIds_ == nullptr && this->profile_ == nullptr && this->proxyMode_ == nullptr && this->rdsInstances_ == nullptr && this->regionId_ == nullptr
         && this->resourceGroupId_ == nullptr && this->rrsaConfig_ == nullptr && this->runtime_ == nullptr && this->securityGroupId_ == nullptr && this->securityHardeningOs_ == nullptr
         && this->serviceAccountIssuer_ == nullptr && this->serviceCidr_ == nullptr && this->serviceDiscoveryTypes_ == nullptr && this->snatEntry_ == nullptr && this->socEnabled_ == nullptr
-        && this->sshFlags_ == nullptr && this->tags_ == nullptr && this->taints_ == nullptr && this->timeoutMins_ == nullptr && this->timezone_ == nullptr
-        && this->userCa_ == nullptr && this->userData_ == nullptr && this->vpcid_ == nullptr && this->vswitchIds_ == nullptr && this->workerAutoRenew_ == nullptr
-        && this->workerAutoRenewPeriod_ == nullptr && this->workerDataDisks_ == nullptr && this->workerInstanceChargeType_ == nullptr && this->workerInstanceTypes_ == nullptr && this->workerPeriod_ == nullptr
-        && this->workerPeriodUnit_ == nullptr && this->workerSystemDiskCategory_ == nullptr && this->workerSystemDiskPerformanceLevel_ == nullptr && this->workerSystemDiskSize_ == nullptr && this->workerSystemDiskSnapshotPolicyId_ == nullptr
-        && this->workerVswitchIds_ == nullptr && this->zoneId_ == nullptr && this->zoneIds_ == nullptr; };
+        && this->sshFlags_ == nullptr && this->supportPolicy_ == nullptr && this->tags_ == nullptr && this->taints_ == nullptr && this->timeoutMins_ == nullptr
+        && this->timezone_ == nullptr && this->userCa_ == nullptr && this->userData_ == nullptr && this->vpcid_ == nullptr && this->vswitchIds_ == nullptr
+        && this->workerAutoRenew_ == nullptr && this->workerAutoRenewPeriod_ == nullptr && this->workerDataDisks_ == nullptr && this->workerInstanceChargeType_ == nullptr && this->workerInstanceTypes_ == nullptr
+        && this->workerPeriod_ == nullptr && this->workerPeriodUnit_ == nullptr && this->workerSystemDiskCategory_ == nullptr && this->workerSystemDiskPerformanceLevel_ == nullptr && this->workerSystemDiskSize_ == nullptr
+        && this->workerSystemDiskSnapshotPolicyId_ == nullptr && this->workerVswitchIds_ == nullptr && this->zoneId_ == nullptr && this->zoneIds_ == nullptr; };
     // accessControlList Field Functions 
     bool hasAccessControlList() const { return this->accessControlList_ != nullptr;};
     void deleteAccessControlList() { this->accessControlList_ = nullptr;};
@@ -1661,6 +1663,13 @@ namespace Models
     void deleteSshFlags() { this->sshFlags_ = nullptr;};
     inline bool getSshFlags() const { DARABONBA_PTR_GET_DEFAULT(sshFlags_, false) };
     inline CreateClusterRequest& setSshFlags(bool sshFlags) { DARABONBA_PTR_SET_VALUE(sshFlags_, sshFlags) };
+
+
+    // supportPolicy Field Functions 
+    bool hasSupportPolicy() const { return this->supportPolicy_ != nullptr;};
+    void deleteSupportPolicy() { this->supportPolicy_ = nullptr;};
+    inline string getSupportPolicy() const { DARABONBA_PTR_GET_DEFAULT(supportPolicy_, "") };
+    inline CreateClusterRequest& setSupportPolicy(string supportPolicy) { DARABONBA_PTR_SET_VALUE(supportPolicy_, supportPolicy) };
 
 
     // tags Field Functions 
@@ -2322,6 +2331,7 @@ namespace Models
     // 
     // Default value: `false`.
     shared_ptr<bool> sshFlags_ {};
+    shared_ptr<string> supportPolicy_ {};
     // The node tags. Tag definition rules:
     // 
     // - Tags are case-sensitive key-value pairs. You can settings up to 20 tags.

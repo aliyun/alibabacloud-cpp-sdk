@@ -153,7 +153,7 @@ namespace Models
       protected:
         // The configuration of the node component.
         shared_ptr<Component::Config> config_ {};
-        // The custom configuration version number of the component on the node.
+        // The custom configuration revision of the component on the node.
         shared_ptr<string> configRevision_ {};
         // The name of the component on the node.
         shared_ptr<string> name_ {};
@@ -187,7 +187,7 @@ namespace Models
 
 
     protected:
-      // The details of the component on the node.
+      // The detailed information about the component on the node.
       shared_ptr<NodeList::Component> component_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};

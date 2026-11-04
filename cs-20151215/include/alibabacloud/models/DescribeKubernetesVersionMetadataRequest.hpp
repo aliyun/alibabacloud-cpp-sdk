@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Profile, profile_);
       DARABONBA_PTR_TO_JSON(QueryUpgradableVersion, queryUpgradableVersion_);
       DARABONBA_PTR_TO_JSON(Region, region_);
+      DARABONBA_PTR_TO_JSON(SupportPolicy, supportPolicy_);
       DARABONBA_PTR_TO_JSON(runtime, runtime_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeKubernetesVersionMetadataRequest& obj) { 
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Profile, profile_);
       DARABONBA_PTR_FROM_JSON(QueryUpgradableVersion, queryUpgradableVersion_);
       DARABONBA_PTR_FROM_JSON(Region, region_);
+      DARABONBA_PTR_FROM_JSON(SupportPolicy, supportPolicy_);
       DARABONBA_PTR_FROM_JSON(runtime, runtime_);
     };
     DescribeKubernetesVersionMetadataRequest() = default ;
@@ -43,7 +45,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterType_ == nullptr
         && this->kubernetesVersion_ == nullptr && this->mode_ == nullptr && this->profile_ == nullptr && this->queryUpgradableVersion_ == nullptr && this->region_ == nullptr
-        && this->runtime_ == nullptr; };
+        && this->supportPolicy_ == nullptr && this->runtime_ == nullptr; };
     // clusterType Field Functions 
     bool hasClusterType() const { return this->clusterType_ != nullptr;};
     void deleteClusterType() { this->clusterType_ = nullptr;};
@@ -84,6 +86,13 @@ namespace Models
     void deleteRegion() { this->region_ = nullptr;};
     inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline DescribeKubernetesVersionMetadataRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
+
+
+    // supportPolicy Field Functions 
+    bool hasSupportPolicy() const { return this->supportPolicy_ != nullptr;};
+    void deleteSupportPolicy() { this->supportPolicy_ = nullptr;};
+    inline string getSupportPolicy() const { DARABONBA_PTR_GET_DEFAULT(supportPolicy_, "") };
+    inline DescribeKubernetesVersionMetadataRequest& setSupportPolicy(string supportPolicy) { DARABONBA_PTR_SET_VALUE(supportPolicy_, supportPolicy) };
 
 
     // runtime Field Functions 
@@ -131,6 +140,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> region_ {};
+    shared_ptr<string> supportPolicy_ {};
     // The runtime type. You can specify a runtime type to filter system images supported by the runtime. Valid values:
     // 
     // - `docker`: Docker runtime.

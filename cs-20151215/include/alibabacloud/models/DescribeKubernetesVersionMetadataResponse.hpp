@@ -40,25 +40,29 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Body& obj) { 
         DARABONBA_ANY_TO_JSON(capabilities, capabilities_);
+        DARABONBA_PTR_TO_JSON(creatable, creatable_);
+        DARABONBA_PTR_TO_JSON(expiration_date, expirationDate_);
+        DARABONBA_PTR_TO_JSON(extended_expiration_date, extendedExpirationDate_);
         DARABONBA_PTR_TO_JSON(images, images_);
         DARABONBA_ANY_TO_JSON(meta_data, metaData_);
-        DARABONBA_PTR_TO_JSON(runtimes, runtimes_);
-        DARABONBA_PTR_TO_JSON(version, version_);
         DARABONBA_PTR_TO_JSON(release_date, releaseDate_);
-        DARABONBA_PTR_TO_JSON(expiration_date, expirationDate_);
-        DARABONBA_PTR_TO_JSON(creatable, creatable_);
+        DARABONBA_PTR_TO_JSON(runtimes, runtimes_);
+        DARABONBA_PTR_TO_JSON(support_policy, supportPolicy_);
         DARABONBA_PTR_TO_JSON(upgradable_versions, upgradableVersions_);
+        DARABONBA_PTR_TO_JSON(version, version_);
       };
       friend void from_json(const Darabonba::Json& j, Body& obj) { 
         DARABONBA_ANY_FROM_JSON(capabilities, capabilities_);
+        DARABONBA_PTR_FROM_JSON(creatable, creatable_);
+        DARABONBA_PTR_FROM_JSON(expiration_date, expirationDate_);
+        DARABONBA_PTR_FROM_JSON(extended_expiration_date, extendedExpirationDate_);
         DARABONBA_PTR_FROM_JSON(images, images_);
         DARABONBA_ANY_FROM_JSON(meta_data, metaData_);
-        DARABONBA_PTR_FROM_JSON(runtimes, runtimes_);
-        DARABONBA_PTR_FROM_JSON(version, version_);
         DARABONBA_PTR_FROM_JSON(release_date, releaseDate_);
-        DARABONBA_PTR_FROM_JSON(expiration_date, expirationDate_);
-        DARABONBA_PTR_FROM_JSON(creatable, creatable_);
+        DARABONBA_PTR_FROM_JSON(runtimes, runtimes_);
+        DARABONBA_PTR_FROM_JSON(support_policy, supportPolicy_);
         DARABONBA_PTR_FROM_JSON(upgradable_versions, upgradableVersions_);
+        DARABONBA_PTR_FROM_JSON(version, version_);
       };
       Body() = default ;
       Body(const Body &) = default ;
@@ -74,24 +78,24 @@ namespace Models
       class Images : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Images& obj) { 
+          DARABONBA_PTR_TO_JSON(architecture, architecture_);
+          DARABONBA_PTR_TO_JSON(image_category, imageCategory_);
           DARABONBA_PTR_TO_JSON(image_id, imageId_);
           DARABONBA_PTR_TO_JSON(image_name, imageName_);
-          DARABONBA_PTR_TO_JSON(platform, platform_);
-          DARABONBA_PTR_TO_JSON(os_version, osVersion_);
           DARABONBA_PTR_TO_JSON(image_type, imageType_);
           DARABONBA_PTR_TO_JSON(os_type, osType_);
-          DARABONBA_PTR_TO_JSON(image_category, imageCategory_);
-          DARABONBA_PTR_TO_JSON(architecture, architecture_);
+          DARABONBA_PTR_TO_JSON(os_version, osVersion_);
+          DARABONBA_PTR_TO_JSON(platform, platform_);
         };
         friend void from_json(const Darabonba::Json& j, Images& obj) { 
+          DARABONBA_PTR_FROM_JSON(architecture, architecture_);
+          DARABONBA_PTR_FROM_JSON(image_category, imageCategory_);
           DARABONBA_PTR_FROM_JSON(image_id, imageId_);
           DARABONBA_PTR_FROM_JSON(image_name, imageName_);
-          DARABONBA_PTR_FROM_JSON(platform, platform_);
-          DARABONBA_PTR_FROM_JSON(os_version, osVersion_);
           DARABONBA_PTR_FROM_JSON(image_type, imageType_);
           DARABONBA_PTR_FROM_JSON(os_type, osType_);
-          DARABONBA_PTR_FROM_JSON(image_category, imageCategory_);
-          DARABONBA_PTR_FROM_JSON(architecture, architecture_);
+          DARABONBA_PTR_FROM_JSON(os_version, osVersion_);
+          DARABONBA_PTR_FROM_JSON(platform, platform_);
         };
         Images() = default ;
         Images(const Images &) = default ;
@@ -104,9 +108,23 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->imageId_ == nullptr
-        && this->imageName_ == nullptr && this->platform_ == nullptr && this->osVersion_ == nullptr && this->imageType_ == nullptr && this->osType_ == nullptr
-        && this->imageCategory_ == nullptr && this->architecture_ == nullptr; };
+        virtual bool empty() const override { return this->architecture_ == nullptr
+        && this->imageCategory_ == nullptr && this->imageId_ == nullptr && this->imageName_ == nullptr && this->imageType_ == nullptr && this->osType_ == nullptr
+        && this->osVersion_ == nullptr && this->platform_ == nullptr; };
+        // architecture Field Functions 
+        bool hasArchitecture() const { return this->architecture_ != nullptr;};
+        void deleteArchitecture() { this->architecture_ = nullptr;};
+        inline string getArchitecture() const { DARABONBA_PTR_GET_DEFAULT(architecture_, "") };
+        inline Images& setArchitecture(string architecture) { DARABONBA_PTR_SET_VALUE(architecture_, architecture) };
+
+
+        // imageCategory Field Functions 
+        bool hasImageCategory() const { return this->imageCategory_ != nullptr;};
+        void deleteImageCategory() { this->imageCategory_ = nullptr;};
+        inline string getImageCategory() const { DARABONBA_PTR_GET_DEFAULT(imageCategory_, "") };
+        inline Images& setImageCategory(string imageCategory) { DARABONBA_PTR_SET_VALUE(imageCategory_, imageCategory) };
+
+
         // imageId Field Functions 
         bool hasImageId() const { return this->imageId_ != nullptr;};
         void deleteImageId() { this->imageId_ = nullptr;};
@@ -119,20 +137,6 @@ namespace Models
         void deleteImageName() { this->imageName_ = nullptr;};
         inline string getImageName() const { DARABONBA_PTR_GET_DEFAULT(imageName_, "") };
         inline Images& setImageName(string imageName) { DARABONBA_PTR_SET_VALUE(imageName_, imageName) };
-
-
-        // platform Field Functions 
-        bool hasPlatform() const { return this->platform_ != nullptr;};
-        void deletePlatform() { this->platform_ = nullptr;};
-        inline string getPlatform() const { DARABONBA_PTR_GET_DEFAULT(platform_, "") };
-        inline Images& setPlatform(string platform) { DARABONBA_PTR_SET_VALUE(platform_, platform) };
-
-
-        // osVersion Field Functions 
-        bool hasOsVersion() const { return this->osVersion_ != nullptr;};
-        void deleteOsVersion() { this->osVersion_ = nullptr;};
-        inline string getOsVersion() const { DARABONBA_PTR_GET_DEFAULT(osVersion_, "") };
-        inline Images& setOsVersion(string osVersion) { DARABONBA_PTR_SET_VALUE(osVersion_, osVersion) };
 
 
         // imageType Field Functions 
@@ -149,33 +153,34 @@ namespace Models
         inline Images& setOsType(string osType) { DARABONBA_PTR_SET_VALUE(osType_, osType) };
 
 
-        // imageCategory Field Functions 
-        bool hasImageCategory() const { return this->imageCategory_ != nullptr;};
-        void deleteImageCategory() { this->imageCategory_ = nullptr;};
-        inline string getImageCategory() const { DARABONBA_PTR_GET_DEFAULT(imageCategory_, "") };
-        inline Images& setImageCategory(string imageCategory) { DARABONBA_PTR_SET_VALUE(imageCategory_, imageCategory) };
+        // osVersion Field Functions 
+        bool hasOsVersion() const { return this->osVersion_ != nullptr;};
+        void deleteOsVersion() { this->osVersion_ = nullptr;};
+        inline string getOsVersion() const { DARABONBA_PTR_GET_DEFAULT(osVersion_, "") };
+        inline Images& setOsVersion(string osVersion) { DARABONBA_PTR_SET_VALUE(osVersion_, osVersion) };
 
 
-        // architecture Field Functions 
-        bool hasArchitecture() const { return this->architecture_ != nullptr;};
-        void deleteArchitecture() { this->architecture_ = nullptr;};
-        inline string getArchitecture() const { DARABONBA_PTR_GET_DEFAULT(architecture_, "") };
-        inline Images& setArchitecture(string architecture) { DARABONBA_PTR_SET_VALUE(architecture_, architecture) };
+        // platform Field Functions 
+        bool hasPlatform() const { return this->platform_ != nullptr;};
+        void deletePlatform() { this->platform_ = nullptr;};
+        inline string getPlatform() const { DARABONBA_PTR_GET_DEFAULT(platform_, "") };
+        inline Images& setPlatform(string platform) { DARABONBA_PTR_SET_VALUE(platform_, platform) };
 
 
       protected:
+        // The image architecture.
+        shared_ptr<string> architecture_ {};
+        // The image category. Some valid values:
+        // 
+        // - `system`: public images.
+        // - `self`: your custom images.
+        // - `others`: public images from other users.
+        // - `marketplace`: Alibaba Cloud Marketplace images.
+        shared_ptr<string> imageCategory_ {};
         // The image ID.
         shared_ptr<string> imageId_ {};
         // The image name.
         shared_ptr<string> imageName_ {};
-        // The operating system platform. Valid values:
-        // - `AliyunLinux`
-        // - `CentOS`
-        // - `Windows`
-        // - `WindowsCore`
-        shared_ptr<string> platform_ {};
-        // The image version.
-        shared_ptr<string> osVersion_ {};
         // The operating system distribution type. Use this field to specify the operating system for nodes. Valid values:
         // 
         // - `CentOS`
@@ -193,20 +198,19 @@ namespace Models
         // - `Windows`
         // - `Linux`
         shared_ptr<string> osType_ {};
-        // The image category. Some valid values:
-        // 
-        // - `system`: public images.
-        // - `self`: your custom images.
-        // - `others`: public images from other users.
-        // - `marketplace`: Alibaba Cloud Marketplace images.
-        shared_ptr<string> imageCategory_ {};
-        // The image architecture.
-        shared_ptr<string> architecture_ {};
+        // The image version.
+        shared_ptr<string> osVersion_ {};
+        // The operating system platform. Valid values:
+        // - `AliyunLinux`
+        // - `CentOS`
+        // - `Windows`
+        // - `WindowsCore`
+        shared_ptr<string> platform_ {};
       };
 
       virtual bool empty() const override { return this->capabilities_ == nullptr
-        && this->images_ == nullptr && this->metaData_ == nullptr && this->runtimes_ == nullptr && this->version_ == nullptr && this->releaseDate_ == nullptr
-        && this->expirationDate_ == nullptr && this->creatable_ == nullptr && this->upgradableVersions_ == nullptr; };
+        && this->creatable_ == nullptr && this->expirationDate_ == nullptr && this->extendedExpirationDate_ == nullptr && this->images_ == nullptr && this->metaData_ == nullptr
+        && this->releaseDate_ == nullptr && this->runtimes_ == nullptr && this->supportPolicy_ == nullptr && this->upgradableVersions_ == nullptr && this->version_ == nullptr; };
       // capabilities Field Functions 
       bool hasCapabilities() const { return this->capabilities_ != nullptr;};
       void deleteCapabilities() { this->capabilities_ = nullptr;};
@@ -214,6 +218,27 @@ namespace Models
       Darabonba::Json & getCapabilities() { DARABONBA_GET(capabilities_) };
       inline Body& setCapabilities(const Darabonba::Json & capabilities) { DARABONBA_SET_VALUE(capabilities_, capabilities) };
       inline Body& setCapabilities(Darabonba::Json && capabilities) { DARABONBA_SET_RVALUE(capabilities_, capabilities) };
+
+
+      // creatable Field Functions 
+      bool hasCreatable() const { return this->creatable_ != nullptr;};
+      void deleteCreatable() { this->creatable_ = nullptr;};
+      inline bool getCreatable() const { DARABONBA_PTR_GET_DEFAULT(creatable_, false) };
+      inline Body& setCreatable(bool creatable) { DARABONBA_PTR_SET_VALUE(creatable_, creatable) };
+
+
+      // expirationDate Field Functions 
+      bool hasExpirationDate() const { return this->expirationDate_ != nullptr;};
+      void deleteExpirationDate() { this->expirationDate_ = nullptr;};
+      inline string getExpirationDate() const { DARABONBA_PTR_GET_DEFAULT(expirationDate_, "") };
+      inline Body& setExpirationDate(string expirationDate) { DARABONBA_PTR_SET_VALUE(expirationDate_, expirationDate) };
+
+
+      // extendedExpirationDate Field Functions 
+      bool hasExtendedExpirationDate() const { return this->extendedExpirationDate_ != nullptr;};
+      void deleteExtendedExpirationDate() { this->extendedExpirationDate_ = nullptr;};
+      inline string getExtendedExpirationDate() const { DARABONBA_PTR_GET_DEFAULT(extendedExpirationDate_, "") };
+      inline Body& setExtendedExpirationDate(string extendedExpirationDate) { DARABONBA_PTR_SET_VALUE(extendedExpirationDate_, extendedExpirationDate) };
 
 
       // images Field Functions 
@@ -234,6 +259,13 @@ namespace Models
       inline Body& setMetaData(Darabonba::Json && metaData) { DARABONBA_SET_RVALUE(metaData_, metaData) };
 
 
+      // releaseDate Field Functions 
+      bool hasReleaseDate() const { return this->releaseDate_ != nullptr;};
+      void deleteReleaseDate() { this->releaseDate_ = nullptr;};
+      inline string getReleaseDate() const { DARABONBA_PTR_GET_DEFAULT(releaseDate_, "") };
+      inline Body& setReleaseDate(string releaseDate) { DARABONBA_PTR_SET_VALUE(releaseDate_, releaseDate) };
+
+
       // runtimes Field Functions 
       bool hasRuntimes() const { return this->runtimes_ != nullptr;};
       void deleteRuntimes() { this->runtimes_ = nullptr;};
@@ -243,32 +275,11 @@ namespace Models
       inline Body& setRuntimes(vector<Runtime> && runtimes) { DARABONBA_PTR_SET_RVALUE(runtimes_, runtimes) };
 
 
-      // version Field Functions 
-      bool hasVersion() const { return this->version_ != nullptr;};
-      void deleteVersion() { this->version_ = nullptr;};
-      inline string getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
-      inline Body& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
-
-
-      // releaseDate Field Functions 
-      bool hasReleaseDate() const { return this->releaseDate_ != nullptr;};
-      void deleteReleaseDate() { this->releaseDate_ = nullptr;};
-      inline string getReleaseDate() const { DARABONBA_PTR_GET_DEFAULT(releaseDate_, "") };
-      inline Body& setReleaseDate(string releaseDate) { DARABONBA_PTR_SET_VALUE(releaseDate_, releaseDate) };
-
-
-      // expirationDate Field Functions 
-      bool hasExpirationDate() const { return this->expirationDate_ != nullptr;};
-      void deleteExpirationDate() { this->expirationDate_ = nullptr;};
-      inline string getExpirationDate() const { DARABONBA_PTR_GET_DEFAULT(expirationDate_, "") };
-      inline Body& setExpirationDate(string expirationDate) { DARABONBA_PTR_SET_VALUE(expirationDate_, expirationDate) };
-
-
-      // creatable Field Functions 
-      bool hasCreatable() const { return this->creatable_ != nullptr;};
-      void deleteCreatable() { this->creatable_ = nullptr;};
-      inline bool getCreatable() const { DARABONBA_PTR_GET_DEFAULT(creatable_, false) };
-      inline Body& setCreatable(bool creatable) { DARABONBA_PTR_SET_VALUE(creatable_, creatable) };
+      // supportPolicy Field Functions 
+      bool hasSupportPolicy() const { return this->supportPolicy_ != nullptr;};
+      void deleteSupportPolicy() { this->supportPolicy_ = nullptr;};
+      inline string getSupportPolicy() const { DARABONBA_PTR_GET_DEFAULT(supportPolicy_, "") };
+      inline Body& setSupportPolicy(string supportPolicy) { DARABONBA_PTR_SET_VALUE(supportPolicy_, supportPolicy) };
 
 
       // upgradableVersions Field Functions 
@@ -280,25 +291,34 @@ namespace Models
       inline Body& setUpgradableVersions(vector<string> && upgradableVersions) { DARABONBA_PTR_SET_RVALUE(upgradableVersions_, upgradableVersions) };
 
 
+      // version Field Functions 
+      bool hasVersion() const { return this->version_ != nullptr;};
+      void deleteVersion() { this->version_ = nullptr;};
+      inline string getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+      inline Body& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
     protected:
       // The features of the Kubernetes version.
       Darabonba::Json capabilities_ {};
+      // Indicates whether the Kubernetes version can be created.
+      shared_ptr<bool> creatable_ {};
+      // The expiration time of the Kubernetes version. The time is in ISO 8601 format and includes time zone information.
+      shared_ptr<string> expirationDate_ {};
+      shared_ptr<string> extendedExpirationDate_ {};
       // The list of system images.
       shared_ptr<vector<Body::Images>> images_ {};
       // The metadata of the Kubernetes version.
       Darabonba::Json metaData_ {};
-      // The container runtime configurations.
-      shared_ptr<vector<Runtime>> runtimes_ {};
-      // The Kubernetes version released by ACK. For more information about versions, see [Overview of Kubernetes version releases](https://help.aliyun.com/document_detail/185269.html).
-      shared_ptr<string> version_ {};
       // The release time of the Kubernetes version. The time is in ISO 8601 format and includes time zone information.
       shared_ptr<string> releaseDate_ {};
-      // The expiration time of the Kubernetes version. The time is in ISO 8601 format and includes time zone information.
-      shared_ptr<string> expirationDate_ {};
-      // Indicates whether the Kubernetes version can be created.
-      shared_ptr<bool> creatable_ {};
+      // The container runtime configurations.
+      shared_ptr<vector<Runtime>> runtimes_ {};
+      shared_ptr<string> supportPolicy_ {};
       // The list of upgradable versions.
       shared_ptr<vector<string>> upgradableVersions_ {};
+      // The Kubernetes version released by ACK. For more information about versions, see [Overview of Kubernetes version releases](https://help.aliyun.com/document_detail/185269.html).
+      shared_ptr<string> version_ {};
     };
 
     virtual bool empty() const override { return this->headers_ == nullptr

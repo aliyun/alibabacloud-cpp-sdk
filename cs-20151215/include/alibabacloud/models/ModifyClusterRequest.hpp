@@ -33,6 +33,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(operation_policy, operationPolicy_);
       DARABONBA_PTR_TO_JSON(resource_group_id, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(security_group_id, securityGroupId_);
+      DARABONBA_PTR_TO_JSON(support_policy, supportPolicy_);
       DARABONBA_PTR_TO_JSON(system_events_logging, systemEventsLogging_);
       DARABONBA_PTR_TO_JSON(timezone, timezone_);
       DARABONBA_PTR_TO_JSON(vswitch_ids, vswitchIds_);
@@ -56,6 +57,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(operation_policy, operationPolicy_);
       DARABONBA_PTR_FROM_JSON(resource_group_id, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(security_group_id, securityGroupId_);
+      DARABONBA_PTR_FROM_JSON(support_policy, supportPolicy_);
       DARABONBA_PTR_FROM_JSON(system_events_logging, systemEventsLogging_);
       DARABONBA_PTR_FROM_JSON(timezone, timezone_);
       DARABONBA_PTR_FROM_JSON(vswitch_ids, vswitchIds_);
@@ -747,7 +749,8 @@ namespace Models
         && this->apiServerCustomCertSans_ == nullptr && this->apiServerEip_ == nullptr && this->apiServerEipId_ == nullptr && this->clientToken_ == nullptr && this->clusterName_ == nullptr
         && this->clusterSpec_ == nullptr && this->controlPlaneConfig_ == nullptr && this->controlPlaneEndpointsConfig_ == nullptr && this->deletionProtection_ == nullptr && this->enableRrsa_ == nullptr
         && this->ingressDomainRebinding_ == nullptr && this->ingressLoadbalancerId_ == nullptr && this->instanceDeletionProtection_ == nullptr && this->maintenanceWindow_ == nullptr && this->operationPolicy_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->securityGroupId_ == nullptr && this->systemEventsLogging_ == nullptr && this->timezone_ == nullptr && this->vswitchIds_ == nullptr; };
+        && this->resourceGroupId_ == nullptr && this->securityGroupId_ == nullptr && this->supportPolicy_ == nullptr && this->systemEventsLogging_ == nullptr && this->timezone_ == nullptr
+        && this->vswitchIds_ == nullptr; };
     // accessControlList Field Functions 
     bool hasAccessControlList() const { return this->accessControlList_ != nullptr;};
     void deleteAccessControlList() { this->accessControlList_ = nullptr;};
@@ -886,6 +889,13 @@ namespace Models
     inline ModifyClusterRequest& setSecurityGroupId(string securityGroupId) { DARABONBA_PTR_SET_VALUE(securityGroupId_, securityGroupId) };
 
 
+    // supportPolicy Field Functions 
+    bool hasSupportPolicy() const { return this->supportPolicy_ != nullptr;};
+    void deleteSupportPolicy() { this->supportPolicy_ = nullptr;};
+    inline string getSupportPolicy() const { DARABONBA_PTR_GET_DEFAULT(supportPolicy_, "") };
+    inline ModifyClusterRequest& setSupportPolicy(string supportPolicy) { DARABONBA_PTR_SET_VALUE(supportPolicy_, supportPolicy) };
+
+
     // systemEventsLogging Field Functions 
     bool hasSystemEventsLogging() const { return this->systemEventsLogging_ != nullptr;};
     void deleteSystemEventsLogging() { this->systemEventsLogging_ = nullptr;};
@@ -984,6 +994,7 @@ namespace Models
     // - For non-ACK dedicated clusters, the cluster control plane and installed managed components (such as terway-controlplane) will briefly restart during the cluster management procedure. Perform this operation during off-peak hours. After the control plane security group is changed, the elastic network interfaces (ENIs) used by the cluster control plane and installed managed components are automatically added to the new security group.
     // - For ACK dedicated clusters, after the control plane security group is changed, newly scaled-out master nodes automatically apply the new control plane security group. Existing control plane nodes are not affected.
     shared_ptr<string> securityGroupId_ {};
+    shared_ptr<string> supportPolicy_ {};
     // The system event storage configuration.
     shared_ptr<ModifyClusterRequest::SystemEventsLogging> systemEventsLogging_ {};
     // The cluster time zone. See [Supported time zones](https://help.aliyun.com/document_detail/354879.html).

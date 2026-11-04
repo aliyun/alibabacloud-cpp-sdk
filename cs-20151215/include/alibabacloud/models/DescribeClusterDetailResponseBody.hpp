@@ -54,6 +54,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(size, size_);
       DARABONBA_PTR_TO_JSON(state, state_);
       DARABONBA_PTR_TO_JSON(subnet_cidr, subnetCidr_);
+      DARABONBA_PTR_TO_JSON(support_policy, supportPolicy_);
       DARABONBA_PTR_TO_JSON(tags, tags_);
       DARABONBA_PTR_TO_JSON(timezone, timezone_);
       DARABONBA_PTR_TO_JSON(updated, updated_);
@@ -100,6 +101,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(size, size_);
       DARABONBA_PTR_FROM_JSON(state, state_);
       DARABONBA_PTR_FROM_JSON(subnet_cidr, subnetCidr_);
+      DARABONBA_PTR_FROM_JSON(support_policy, supportPolicy_);
       DARABONBA_PTR_FROM_JSON(tags, tags_);
       DARABONBA_PTR_FROM_JSON(timezone, timezone_);
       DARABONBA_PTR_FROM_JSON(updated, updated_);
@@ -796,8 +798,8 @@ namespace Models
         && this->nextVersion_ == nullptr && this->nodeCidrMask_ == nullptr && this->operationPolicy_ == nullptr && this->parameters_ == nullptr && this->privateZone_ == nullptr
         && this->profile_ == nullptr && this->proxyMode_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->rrsaConfig_ == nullptr
         && this->securityGroupId_ == nullptr && this->serviceCidr_ == nullptr && this->size_ == nullptr && this->state_ == nullptr && this->subnetCidr_ == nullptr
-        && this->tags_ == nullptr && this->timezone_ == nullptr && this->updated_ == nullptr && this->vpcId_ == nullptr && this->vswitchId_ == nullptr
-        && this->vswitchIds_ == nullptr && this->workerRamRoleName_ == nullptr && this->zoneId_ == nullptr; };
+        && this->supportPolicy_ == nullptr && this->tags_ == nullptr && this->timezone_ == nullptr && this->updated_ == nullptr && this->vpcId_ == nullptr
+        && this->vswitchId_ == nullptr && this->vswitchIds_ == nullptr && this->workerRamRoleName_ == nullptr && this->zoneId_ == nullptr; };
     // autoMode Field Functions 
     bool hasAutoMode() const { return this->autoMode_ != nullptr;};
     void deleteAutoMode() { this->autoMode_ = nullptr;};
@@ -1066,6 +1068,13 @@ namespace Models
     inline DescribeClusterDetailResponseBody& setSubnetCidr(string subnetCidr) { DARABONBA_PTR_SET_VALUE(subnetCidr_, subnetCidr) };
 
 
+    // supportPolicy Field Functions 
+    bool hasSupportPolicy() const { return this->supportPolicy_ != nullptr;};
+    void deleteSupportPolicy() { this->supportPolicy_ = nullptr;};
+    inline string getSupportPolicy() const { DARABONBA_PTR_GET_DEFAULT(supportPolicy_, "") };
+    inline DescribeClusterDetailResponseBody& setSupportPolicy(string supportPolicy) { DARABONBA_PTR_SET_VALUE(supportPolicy_, supportPolicy) };
+
+
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
@@ -1255,6 +1264,7 @@ namespace Models
     shared_ptr<string> state_ {};
     // The Pod CIDR block.
     shared_ptr<string> subnetCidr_ {};
+    shared_ptr<string> supportPolicy_ {};
     // The cluster resource tags.
     shared_ptr<vector<Tag>> tags_ {};
     // The time zone.

@@ -78,7 +78,6 @@ namespace Models
     // Specifies whether to remove the nodes concurrently. Valid values:
     // 
     // - true: removes the nodes from the scaling group concurrently.
-    // 
     // - false: removes the nodes from the scaling group sequentially.
     // 
     // Default value: false.
@@ -87,17 +86,19 @@ namespace Models
     // - true: drains the nodes.
     // - false: does not drain the nodes.
     shared_ptr<bool> drainNode_ {};
-    // The list of instances to be removed.
+    // The list of instances to remove.
     shared_ptr<string> instanceIdsShrink_ {};
     // **[Deprecated]**
     // 
-    // The list of nodes to be removed.
+    // The list of nodes to remove.
     // 
-    // >Danger: This parameter is deprecated. Use instance_ids instead.</danger>
+    // >Danger: This parameter is deprecated. Use `instance_ids` instead.</danger>
     shared_ptr<string> nodesShrink_ {};
-    // Specifies whether to release the nodes. Valid values:
+    // Specifies whether automatic release the nodes. Valid values:
     // - true: releases the nodes.
     // - false: does not release the nodes.
+    // 
+    // Subscription nodes are not automatically released when you remove them. Automatic release subscription nodes, [change the billing method of the nodes from subscription to pay-as-you-go](https://www.alibabacloud.com/help/en/ecs/change-the-billing-method-of-an-instance-from-subscription-to-pay-as-you-go-1) and then release them in the ECS console.
     shared_ptr<bool> releaseNode_ {};
   };
 

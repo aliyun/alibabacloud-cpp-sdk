@@ -111,6 +111,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(service_cidr, serviceCidr_);
         DARABONBA_PTR_TO_JSON(size, size_);
         DARABONBA_PTR_TO_JSON(state, state_);
+        DARABONBA_PTR_TO_JSON(support_policy, supportPolicy_);
         DARABONBA_PTR_TO_JSON(tags, tags_);
         DARABONBA_PTR_TO_JSON(timezone, timezone_);
         DARABONBA_PTR_TO_JSON(updated, updated_);
@@ -138,6 +139,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(service_cidr, serviceCidr_);
         DARABONBA_PTR_FROM_JSON(size, size_);
         DARABONBA_PTR_FROM_JSON(state, state_);
+        DARABONBA_PTR_FROM_JSON(support_policy, supportPolicy_);
         DARABONBA_PTR_FROM_JSON(tags, tags_);
         DARABONBA_PTR_FROM_JSON(timezone, timezone_);
         DARABONBA_PTR_FROM_JSON(updated, updated_);
@@ -159,8 +161,8 @@ namespace Models
         && this->clusterId_ == nullptr && this->clusterSpec_ == nullptr && this->clusterType_ == nullptr && this->containerCidr_ == nullptr && this->created_ == nullptr
         && this->currentVersion_ == nullptr && this->deletionProtection_ == nullptr && this->initVersion_ == nullptr && this->ipStack_ == nullptr && this->name_ == nullptr
         && this->nextVersion_ == nullptr && this->profile_ == nullptr && this->proxyMode_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->securityGroupId_ == nullptr && this->serviceCidr_ == nullptr && this->size_ == nullptr && this->state_ == nullptr && this->tags_ == nullptr
-        && this->timezone_ == nullptr && this->updated_ == nullptr && this->vpcId_ == nullptr && this->vswitchIds_ == nullptr; };
+        && this->securityGroupId_ == nullptr && this->serviceCidr_ == nullptr && this->size_ == nullptr && this->state_ == nullptr && this->supportPolicy_ == nullptr
+        && this->tags_ == nullptr && this->timezone_ == nullptr && this->updated_ == nullptr && this->vpcId_ == nullptr && this->vswitchIds_ == nullptr; };
       // clusterDomain Field Functions 
       bool hasClusterDomain() const { return this->clusterDomain_ != nullptr;};
       void deleteClusterDomain() { this->clusterDomain_ = nullptr;};
@@ -301,6 +303,13 @@ namespace Models
       inline Clusters& setState(string state) { DARABONBA_PTR_SET_VALUE(state_, state) };
 
 
+      // supportPolicy Field Functions 
+      bool hasSupportPolicy() const { return this->supportPolicy_ != nullptr;};
+      void deleteSupportPolicy() { this->supportPolicy_ = nullptr;};
+      inline string getSupportPolicy() const { DARABONBA_PTR_GET_DEFAULT(supportPolicy_, "") };
+      inline Clusters& setSupportPolicy(string supportPolicy) { DARABONBA_PTR_SET_VALUE(supportPolicy_, supportPolicy) };
+
+
       // tags Field Functions 
       bool hasTags() const { return this->tags_ != nullptr;};
       void deleteTags() { this->tags_ = nullptr;};
@@ -418,6 +427,7 @@ namespace Models
       // - `waiting`: The cluster is waiting to be accessed.
       // - `disconnected`: The cluster is disconnected.
       shared_ptr<string> state_ {};
+      shared_ptr<string> supportPolicy_ {};
       // The list of tags for the cluster.
       shared_ptr<vector<Tag>> tags_ {};
       // The time zone.
