@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The name of the permission policy that you want to delete.
+    // The name of the permission policy to delete.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};

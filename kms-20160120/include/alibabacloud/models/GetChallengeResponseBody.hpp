@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The challenge token.
     shared_ptr<string> challengeToken_ {};
+    // The nonce.
     shared_ptr<string> nonce_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

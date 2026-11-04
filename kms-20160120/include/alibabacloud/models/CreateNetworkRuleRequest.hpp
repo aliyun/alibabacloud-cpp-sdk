@@ -68,15 +68,13 @@ namespace Models
   protected:
     // The description.
     shared_ptr<string> description_ {};
-    // The name of the access control rule.
+    // The name of the network control rule.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The private IP address or private CIDR block. Separate multiple items with commas (,).
+    // The private IP addresses or private CIDR blocks. Separate multiple IP addresses with commas (,).
     shared_ptr<string> sourcePrivateIp_ {};
-    // The network type.
-    // 
-    // Only private IP addresses are supported. Set the value to Private.
+    // The network type. Valid values: Private. This value indicates that only private IP addresses are supported.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

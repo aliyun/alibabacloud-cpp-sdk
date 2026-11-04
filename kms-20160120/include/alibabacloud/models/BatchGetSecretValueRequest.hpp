@@ -88,22 +88,22 @@ namespace Models
     protected:
       // Specifies whether to retrieve the extended configuration of the secret. Valid values:
       // 
-      // - true: Retrieve the extended configuration.
-      // - false (default): Do not retrieve the extended configuration.
+      // - true: Retrieves the extended configuration.
+      // - false: Does not retrieve the extended configuration. This is the default value.
       // 
-      // > Generic secrets do not support extended configurations. This parameter is ignored for generic secrets.
+      // > Generic secrets do not support extended configurations. If you specify this parameter for a generic secret, it is ignored.
       shared_ptr<string> fetchExtendedConfig_ {};
-      // The secret name or secret Alibaba Cloud Resource Name (ARN).
-      // >When accessing a secret in another Alibaba Cloud account, you must specify the secret ARN. The format of a secret ARN is `acs:kms:${region}:${account}:secret/${secret-name}`.
+      // The name or Alibaba Cloud Resource Name (ARN) of the secret.
+      // > To access a secret that belongs to another Alibaba Cloud account, you must specify the ARN of the secret. The ARN is in the `acs:kms:${region}:${account}:secret/${secret-name}` format.
       // 
       // This parameter is required.
       shared_ptr<string> secretName_ {};
-      // The version number.
+      // The version ID of the secret.
       shared_ptr<string> versionId_ {};
-      // The version stage. Default value: ACSCurrent.
+      // The stage of the secret version. Default value: ACSCurrent.
       // 
       // If you specify this parameter, the secret value of the specified version stage is returned. If you do not specify this parameter, the secret value of the ACSCurrent version stage is returned.
-      // > For ApsaraDB RDS secrets, PolarDB secrets, Redis/Tair secrets, RAM secrets, and ECS secrets, you can retrieve only the secret values of the ACSPrevious and ACSCurrent versions.
+      // > For ApsaraDB RDS secrets, PolarDB secrets, Redis/Tair secrets, RAM secrets, and ECS secrets, you can only retrieve the secret values of the versions marked with ACSPrevious and ACSCurrent.
       shared_ptr<string> versionStage_ {};
     };
 

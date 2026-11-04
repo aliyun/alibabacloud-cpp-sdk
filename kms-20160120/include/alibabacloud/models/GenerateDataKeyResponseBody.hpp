@@ -15,6 +15,9 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const GenerateDataKeyResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(CiphertextBlob, ciphertextBlob_);
       DARABONBA_PTR_TO_JSON(CiphertextForRecipient, ciphertextForRecipient_);
+      DARABONBA_PTR_TO_JSON(DataKeyName, dataKeyName_);
+      DARABONBA_PTR_TO_JSON(DataKeyVersionId, dataKeyVersionId_);
+      DARABONBA_PTR_TO_JSON(DataKeyVersionName, dataKeyVersionName_);
       DARABONBA_PTR_TO_JSON(KeyId, keyId_);
       DARABONBA_PTR_TO_JSON(KeyVersionId, keyVersionId_);
       DARABONBA_PTR_TO_JSON(Plaintext, plaintext_);
@@ -23,6 +26,9 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, GenerateDataKeyResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(CiphertextBlob, ciphertextBlob_);
       DARABONBA_PTR_FROM_JSON(CiphertextForRecipient, ciphertextForRecipient_);
+      DARABONBA_PTR_FROM_JSON(DataKeyName, dataKeyName_);
+      DARABONBA_PTR_FROM_JSON(DataKeyVersionId, dataKeyVersionId_);
+      DARABONBA_PTR_FROM_JSON(DataKeyVersionName, dataKeyVersionName_);
       DARABONBA_PTR_FROM_JSON(KeyId, keyId_);
       DARABONBA_PTR_FROM_JSON(KeyVersionId, keyVersionId_);
       DARABONBA_PTR_FROM_JSON(Plaintext, plaintext_);
@@ -40,7 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ciphertextBlob_ == nullptr
-        && this->ciphertextForRecipient_ == nullptr && this->keyId_ == nullptr && this->keyVersionId_ == nullptr && this->plaintext_ == nullptr && this->requestId_ == nullptr; };
+        && this->ciphertextForRecipient_ == nullptr && this->dataKeyName_ == nullptr && this->dataKeyVersionId_ == nullptr && this->dataKeyVersionName_ == nullptr && this->keyId_ == nullptr
+        && this->keyVersionId_ == nullptr && this->plaintext_ == nullptr && this->requestId_ == nullptr; };
     // ciphertextBlob Field Functions 
     bool hasCiphertextBlob() const { return this->ciphertextBlob_ != nullptr;};
     void deleteCiphertextBlob() { this->ciphertextBlob_ = nullptr;};
@@ -53,6 +60,27 @@ namespace Models
     void deleteCiphertextForRecipient() { this->ciphertextForRecipient_ = nullptr;};
     inline string getCiphertextForRecipient() const { DARABONBA_PTR_GET_DEFAULT(ciphertextForRecipient_, "") };
     inline GenerateDataKeyResponseBody& setCiphertextForRecipient(string ciphertextForRecipient) { DARABONBA_PTR_SET_VALUE(ciphertextForRecipient_, ciphertextForRecipient) };
+
+
+    // dataKeyName Field Functions 
+    bool hasDataKeyName() const { return this->dataKeyName_ != nullptr;};
+    void deleteDataKeyName() { this->dataKeyName_ = nullptr;};
+    inline string getDataKeyName() const { DARABONBA_PTR_GET_DEFAULT(dataKeyName_, "") };
+    inline GenerateDataKeyResponseBody& setDataKeyName(string dataKeyName) { DARABONBA_PTR_SET_VALUE(dataKeyName_, dataKeyName) };
+
+
+    // dataKeyVersionId Field Functions 
+    bool hasDataKeyVersionId() const { return this->dataKeyVersionId_ != nullptr;};
+    void deleteDataKeyVersionId() { this->dataKeyVersionId_ = nullptr;};
+    inline string getDataKeyVersionId() const { DARABONBA_PTR_GET_DEFAULT(dataKeyVersionId_, "") };
+    inline GenerateDataKeyResponseBody& setDataKeyVersionId(string dataKeyVersionId) { DARABONBA_PTR_SET_VALUE(dataKeyVersionId_, dataKeyVersionId) };
+
+
+    // dataKeyVersionName Field Functions 
+    bool hasDataKeyVersionName() const { return this->dataKeyVersionName_ != nullptr;};
+    void deleteDataKeyVersionName() { this->dataKeyVersionName_ = nullptr;};
+    inline string getDataKeyVersionName() const { DARABONBA_PTR_GET_DEFAULT(dataKeyVersionName_, "") };
+    inline GenerateDataKeyResponseBody& setDataKeyVersionName(string dataKeyVersionName) { DARABONBA_PTR_SET_VALUE(dataKeyVersionName_, dataKeyVersionName) };
 
 
     // keyId Field Functions 
@@ -86,14 +114,24 @@ namespace Models
   protected:
     // The ciphertext of the data key (DK) encrypted by the primary version of the specified key.
     shared_ptr<string> ciphertextBlob_ {};
+    // When the Recipient parameter is passed, the public key encryption of the plaintext data key (DK) is performed by using the pubkey in the extendUserData field of the Recipient parameter, and Base64 encoding is applied.
+    // The public key is the pubkey field in extendUserData.
+    // This parameter takes effect only when you invoke the API operation through a KMS instance gateway.
+    // >Notice: This parameter takes effect only when you invoke the API operation through a dedicated gateway.</notice>
     shared_ptr<string> ciphertextForRecipient_ {};
-    // The key ID. If the KeyId parameter in the request uses a key alias or key ARN, the key ID is also returned in the response.
+    // If the invoke is used to generate a managed data key (DK), this field is not empty and indicates the name of the generated managed data key (DK).
+    shared_ptr<string> dataKeyName_ {};
+    // If the invoke is used to generate a managed data key (DK), this field is not empty and indicates the latest key version of the generated managed data key (DK).
+    shared_ptr<string> dataKeyVersionId_ {};
+    // If the invoke is used to generate a managed data key (DK), this field is not empty and indicates the name of the credential that stores the key material of the latest version of the generated managed data key (DK).
+    shared_ptr<string> dataKeyVersionName_ {};
+    // The key ID. If the KeyId parameter in the request is set to the alias or ARN of the key, the key ID is also returned in the response.
     shared_ptr<string> keyId_ {};
-    // The key version ID. The globally unique identifier of the CMK version.
+    // The key version ID, which is the globally unique identifier of the primary key version.
     shared_ptr<string> keyVersionId_ {};
-    // The Base64 encoding of the plaintext of the data key (DK).
+    // The value of the plaintext of the data key (DK) after Base64 encoding.
     shared_ptr<string> plaintext_ {};
-    // The request ID. The unique identifier generated by Alibaba Cloud for this request. You can use this ID to troubleshoot and locate issues.
+    // The ID of the request, which is a unique identifier generated by Alibaba Cloud for the request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

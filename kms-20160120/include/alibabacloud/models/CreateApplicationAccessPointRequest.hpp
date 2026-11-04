@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // The authentication method. Currently, only ClientKey is supported.
+    // The authentication method. Only ClientKey is supported.
     shared_ptr<string> authenticationMethod_ {};
-    // The description of the AAP.
+    // The description.
     shared_ptr<string> description_ {};
-    // The name of the AAP.
+    // The name of the application access point (AAP).
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The permission policy.
+    // The attached access policies.
     // 
-    // > You can bind up to three permission policies to each AAP.
+    // > You can attach up to three access policies to each application access point (AAP).
     // 
     // This parameter is required.
     shared_ptr<string> policies_ {};

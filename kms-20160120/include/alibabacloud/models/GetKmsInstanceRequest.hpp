@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the KMS instance to query.
+    // The ID of the KMS instance.
     // 
     // This parameter is required.
     shared_ptr<string> kmsInstanceId_ {};

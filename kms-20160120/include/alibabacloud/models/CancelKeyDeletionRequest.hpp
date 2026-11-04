@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the CMK. The ID must be globally unique.
+    // The globally unique identifier of the master key.
     // 
     // This parameter is required.
     shared_ptr<string> keyId_ {};

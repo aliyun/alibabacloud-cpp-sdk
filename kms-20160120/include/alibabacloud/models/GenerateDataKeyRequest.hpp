@@ -13,18 +13,24 @@ namespace Models
   class GenerateDataKeyRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GenerateDataKeyRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(DataKeyName, dataKeyName_);
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_ANY_TO_JSON(EncryptionContext, encryptionContext_);
       DARABONBA_PTR_TO_JSON(KeyId, keyId_);
+      DARABONBA_PTR_TO_JSON(KeyMaterial, keyMaterial_);
       DARABONBA_PTR_TO_JSON(KeySpec, keySpec_);
+      DARABONBA_PTR_TO_JSON(ManagedByKms, managedByKms_);
       DARABONBA_PTR_TO_JSON(NumberOfBytes, numberOfBytes_);
       DARABONBA_PTR_TO_JSON(Recipient, recipient_);
     };
     friend void from_json(const Darabonba::Json& j, GenerateDataKeyRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(DataKeyName, dataKeyName_);
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_ANY_FROM_JSON(EncryptionContext, encryptionContext_);
       DARABONBA_PTR_FROM_JSON(KeyId, keyId_);
+      DARABONBA_PTR_FROM_JSON(KeyMaterial, keyMaterial_);
       DARABONBA_PTR_FROM_JSON(KeySpec, keySpec_);
+      DARABONBA_PTR_FROM_JSON(ManagedByKms, managedByKms_);
       DARABONBA_PTR_FROM_JSON(NumberOfBytes, numberOfBytes_);
       DARABONBA_PTR_FROM_JSON(Recipient, recipient_);
     };
@@ -39,8 +45,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->dryRun_ == nullptr
-        && this->encryptionContext_ == nullptr && this->keyId_ == nullptr && this->keySpec_ == nullptr && this->numberOfBytes_ == nullptr && this->recipient_ == nullptr; };
+    virtual bool empty() const override { return this->dataKeyName_ == nullptr
+        && this->dryRun_ == nullptr && this->encryptionContext_ == nullptr && this->keyId_ == nullptr && this->keyMaterial_ == nullptr && this->keySpec_ == nullptr
+        && this->managedByKms_ == nullptr && this->numberOfBytes_ == nullptr && this->recipient_ == nullptr; };
+    // dataKeyName Field Functions 
+    bool hasDataKeyName() const { return this->dataKeyName_ != nullptr;};
+    void deleteDataKeyName() { this->dataKeyName_ = nullptr;};
+    inline string getDataKeyName() const { DARABONBA_PTR_GET_DEFAULT(dataKeyName_, "") };
+    inline GenerateDataKeyRequest& setDataKeyName(string dataKeyName) { DARABONBA_PTR_SET_VALUE(dataKeyName_, dataKeyName) };
+
+
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
@@ -64,11 +78,25 @@ namespace Models
     inline GenerateDataKeyRequest& setKeyId(string keyId) { DARABONBA_PTR_SET_VALUE(keyId_, keyId) };
 
 
+    // keyMaterial Field Functions 
+    bool hasKeyMaterial() const { return this->keyMaterial_ != nullptr;};
+    void deleteKeyMaterial() { this->keyMaterial_ = nullptr;};
+    inline string getKeyMaterial() const { DARABONBA_PTR_GET_DEFAULT(keyMaterial_, "") };
+    inline GenerateDataKeyRequest& setKeyMaterial(string keyMaterial) { DARABONBA_PTR_SET_VALUE(keyMaterial_, keyMaterial) };
+
+
     // keySpec Field Functions 
     bool hasKeySpec() const { return this->keySpec_ != nullptr;};
     void deleteKeySpec() { this->keySpec_ = nullptr;};
     inline string getKeySpec() const { DARABONBA_PTR_GET_DEFAULT(keySpec_, "") };
     inline GenerateDataKeyRequest& setKeySpec(string keySpec) { DARABONBA_PTR_SET_VALUE(keySpec_, keySpec) };
+
+
+    // managedByKms Field Functions 
+    bool hasManagedByKms() const { return this->managedByKms_ != nullptr;};
+    void deleteManagedByKms() { this->managedByKms_ = nullptr;};
+    inline bool getManagedByKms() const { DARABONBA_PTR_GET_DEFAULT(managedByKms_, false) };
+    inline GenerateDataKeyRequest& setManagedByKms(bool managedByKms) { DARABONBA_PTR_SET_VALUE(managedByKms_, managedByKms) };
 
 
     // numberOfBytes Field Functions 
@@ -86,42 +114,74 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable DryRun mode.
+    // The name of the managed data key (DK). This parameter is required only when ManagedByKms is set to true.
+    shared_ptr<string> dataKeyName_ {};
+    // Specifies whether to enable the dry run mode. Valid values:
     // 
-    // - true: enabled.
-    // - false (default): disabled.
+    // - true: Enabled.
+    // - false: Disabled.
     // 
-    // DryRun mode is used to test API calls, verify that you have the required permissions on the relevant resources, and check whether request parameters are configured correctly. When DryRun mode is enabled, KMS always returns a failure with a reason. Possible failure reasons include:
+    // Default value: false.
     // 
-    // - DryRunOperationError: The request would succeed if the DryRun parameter were not set.
-    // - ValidationError: A parameter specified in the request is invalid.
-    // - AccessDeniedError: You do not have permission to perform the operation on the KMS resource.
+    // The dry run mode is used to test API calls, verify whether you have the required permissions on the resources, and check whether the request parameters are correctly configured. After the dry run mode is enabled, KMS always returns a failure and provides the cause of the failure. The causes include:
+    // 
+    // - DryRunOperationError: The request would succeed if the DryRun parameter is not configured.
+    // - ValidationError: The specified parameters in the request are invalid.
+    // - AccessDeniedError: You do not have the permissions to perform the operation on the KMS resources.
     shared_ptr<string> dryRun_ {};
-    // A JSON string of key-value pairs.
+    // The JSON string of key-value pairs.
     // 
-    // If you specify this parameter, you must provide the same parameter when you call the [Decrypt](https://help.aliyun.com/document_detail/28950.html) operation. For more information, see [EncryptionContext](https://help.aliyun.com/document_detail/42975.html).
+    // If you specify this parameter, you must provide the same parameter when you call the [Decrypt](https://help.aliyun.com/document_detail/28950.html) API operation. For more information, see [EncryptionContext](https://help.aliyun.com/document_detail/42975.html).
     Darabonba::Json encryptionContext_ {};
-    // The ID of the key. You can also specify a key alias or a key Amazon Resource Name (ARN). For more information about aliases, see [Manage key aliases](https://help.aliyun.com/document_detail/480655.html).
-    // >To access a key in another Alibaba Cloud account, you must specify the key ARN. The key ARN format is `acs:kms:${region}:${account}:key/${keyid}`.
+    // The ID of the key. You can also specify the alias or Alibaba Cloud Resource Name (ARN) of the key. For more information about aliases, see [Manage key aliases](https://help.aliyun.com/document_detail/480655.html).
+    // >When you access a key that belongs to another Alibaba Cloud account, you must enter the ARN of the key. The ARN of a key is in the `acs:kms:${region}:${account}:key/${keyid}` format.
     // 
     // This parameter is required.
     shared_ptr<string> keyId_ {};
-    // The length of the data key (DK) to generate. Valid values:
+    // The key material of the managed data key (DK). Specify this parameter only when ManagedByKms is set to true and Bring Your Own Key (BYOK) is used.
+    shared_ptr<string> keyMaterial_ {};
+    // Specifies the length of the generated data key (DK). Valid values:
     // 
     // - AES_256: a 256-bit symmetric key.
     // 
     // - AES_128: a 128-bit symmetric key.
     // 
-    // > Use KeySpec or NumberOfBytes to specify the DK length. If neither is specified, KMS generates a 256-bit DK. If both are specified, KMS ignores the KeySpec parameter.
+    // >Use KeySpec or NumberOfBytes to specify the length of the data key (DK). If neither parameter is specified, KMS generates a 256-bit data key (DK). If both parameters are specified, KMS ignores the KeySpec parameter.
     shared_ptr<string> keySpec_ {};
-    // The length of the data key (DK) to generate, in bytes.
+    // Specifies whether the data key (DK) is managed and generated by KMS.
+    shared_ptr<bool> managedByKms_ {};
+    // Specifies the length of the generated data key (DK) in bytes.
     // 
     // Valid values: 1 to 1024.
     // 
     // Default value:
-    // - When KeySpec is set to AES_256, the default value of NumberOfBytes is 32.
-    // - When KeySpec is set to AES_128, the default value of NumberOfBytes is 16.
+    // - If KeySpec is set to AES_256, the default value is 32.
+    // - If KeySpec is set to AES_128, the default value is 16.
     shared_ptr<int32_t> numberOfBytes_ {};
+    // The trusted environment authentication information.
+    // 
+    // - AttestationDocument
+    // // The trusted environment attestation document using Base64 encoding, which includes information such as environment measurements, signatures, and certificates.
+    // 
+    // - KeyEncryptionAlgorithm
+    // // The secret key encryption algorithm. Only RSAES_OAEP_SHA_256 is supported.
+    // 
+    // Content structure of AttestationDocument:
+    // - quoted                  
+    //  - extendUserData // The user extension data using Base64 encoding. The decoded structure is as follows:
+    //    - aud // The fixed value "kms". 
+    //    - iat // The issuance time, which is a UNIX timestamp in seconds.
+    //    - exp // The expire time, which is a UNIX timestamp in seconds.
+    //    - pubKey // The RSA2048 public key in SPKI format using Base64 encoding.
+    //    - digestAlg // The summary algorithm. Only "sha256" is supported.
+    //    - ver // The protocol version. Only "v1" is supported.
+    //    - signature // The report signature, which is used to authenticate the integrity of quoted and extendUserData.
+    //  - pcrInfo:
+    //    - pcrValues // The Platform Configuration Register (PCR) measurements.
+    //    - pcrSelectionOut // The PCR selection information.
+    //    - pcrUpdateCounter // The number of PCR updates.
+    //  - cert // The platform attestation certificate, which is used to authenticate the validity of the signature.
+    // >Notice: This parameter takes effect only when you invoke the API operation through a dedicated gateway.</notice>
     shared_ptr<string> recipient_ {};
   };
 

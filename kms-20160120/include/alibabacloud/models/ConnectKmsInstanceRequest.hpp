@@ -75,23 +75,23 @@ namespace Models
 
 
   protected:
-    // The provider of the KMS instance. Set the value to Aliyun.
+    // The provider of the KMS instance. Currently, only Aliyun is supported.
     // 
     // This parameter is required.
     shared_ptr<string> KMProvider_ {};
-    // The ID of the KMS instance that you want to enable.
+    // The ID of the KMS instance to enable.
     // 
     // This parameter is required.
     shared_ptr<string> kmsInstanceId_ {};
-    // The vSwitch in the two zones. The vSwitch must have at least one available IP address.
+    // Sets a vSwitch for the dual-zone deployment. The vSwitch must have at least one available IP address.
     // 
     // This parameter is required.
     shared_ptr<string> vSwitchIds_ {};
-    // The ID of the virtual private cloud (VPC) that is associated with the KMS instance.
+    // The ID of the virtual private cloud (VPC) for the KMS instance.
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
-    // The two zones for the KMS instance. Dual-zone deployment improves service availability and disaster recovery capabilities.
+    // Sets two zones for the KMS instance. Dual-zone load balancing improves service availability and disaster recovery capabilities.
     // 
     // This parameter is required.
     shared_ptr<string> zoneIds_ {};
