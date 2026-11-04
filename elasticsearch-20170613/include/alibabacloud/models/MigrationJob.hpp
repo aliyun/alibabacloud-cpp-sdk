@@ -88,7 +88,9 @@ namespace Models
 
 
     protected:
+      // type
       shared_ptr<string> instanceId_ {};
+      // type
       shared_ptr<string> type_ {};
     };
 
@@ -130,7 +132,9 @@ namespace Models
 
 
     protected:
+      // code
       shared_ptr<string> code_ {};
+      // success
       shared_ptr<bool> success_ {};
     };
 
@@ -172,7 +176,9 @@ namespace Models
 
 
     protected:
+      // instanceId
       shared_ptr<string> instanceId_ {};
+      // type
       shared_ptr<string> type_ {};
     };
 
@@ -263,16 +269,27 @@ namespace Models
 
 
   protected:
+    // currentState
     shared_ptr<string> currentState_ {};
+    // disableSourceClusterAuth
     shared_ptr<bool> disableSourceClusterAuth_ {};
+    // disableTargetClusterAuth
     shared_ptr<bool> disableTargetClusterAuth_ {};
+    // endTime
     shared_ptr<int64_t> endTime_ {};
+    // migrationJobId
     shared_ptr<string> migrationJobId_ {};
+    // phase
     shared_ptr<string> phase_ {};
+    // sourceCluster
     shared_ptr<MigrationJob::SourceCluster> sourceCluster_ {};
+    // startTime
     shared_ptr<int64_t> startTime_ {};
+    // statusResult
     shared_ptr<vector<MigrationJob::StatusResult>> statusResult_ {};
+    // targetCluster
     shared_ptr<MigrationJob::TargetCluster> targetCluster_ {};
+    // updateTime
     shared_ptr<int64_t> updateTime_ {};
   };
 

@@ -153,8 +153,8 @@ namespace Models
         shared_ptr<string> host_ {};
         // The IP address type. Valid values:
         // 
-        // - public: public IP address.
-        // - private: private IP address.
+        // - public: Public IP address.
+        // - private: Private IP address.
         shared_ptr<string> ipType_ {};
       };
 
@@ -222,37 +222,37 @@ namespace Models
 
 
     protected:
-      // The status of each collector on the ECS instance. Valid values:
+      // The status of the collectors on the ECS instance. Valid values:
       // 
       // - heartOk: Normal heartbeat.
       // - heartLost: Abnormal heartbeat.
       // - uninstalled: Not installed.
       // - failed: Installation failed.
       shared_ptr<string> agentStatus_ {};
-      // Indicates whether Cloud Assistant is enabled. Valid values:
+      // Indicates whether Cloud Assistant is activated. Valid values:
       // 
-      // - true: Enabled.
-      // - false: Not enabled.
+      // - true: Activated.
+      // - false: Not activated.
       shared_ptr<string> cloudAssistantStatus_ {};
       // The ECS instance ID.
       shared_ptr<string> ecsInstanceId_ {};
-      // The ECS instance name.
+      // The name of the ECS instance.
       shared_ptr<string> ecsInstanceName_ {};
-      // The list of IP address information for the ECS instance.
+      // The list of IP addresses of the ECS instance.
       shared_ptr<vector<Result::IpAddress>> ipAddress_ {};
       // The operating system type of the ECS instance. Valid values:
       // 
       // - windows: Windows Server.
       // - linux: Linux.
       shared_ptr<string> osType_ {};
-      // The ECS instance status. Valid values:
+      // The instance status of the ECS instance. Valid values:
       // 
       // - running: Running.
       // - starting: Starting.
       // - stopping: Stopping.
       // - stopped: Stopped.
       shared_ptr<string> status_ {};
-      // The tag information of the ECS instance.
+      // The tags of the ECS instance.
       shared_ptr<vector<Result::Tags>> tags_ {};
     };
 

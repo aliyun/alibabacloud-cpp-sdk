@@ -50,10 +50,10 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The result. Valid values:
+    // The returned result. Valid values:
     // 
     // - true: The operation is successful.
-    // - false: The operation failed.
+    // - false: The operation fails.
     shared_ptr<bool> result_ {};
   };
 

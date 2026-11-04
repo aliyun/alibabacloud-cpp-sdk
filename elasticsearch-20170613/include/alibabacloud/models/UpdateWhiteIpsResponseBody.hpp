@@ -121,11 +121,11 @@ namespace Models
 
 
         protected:
-          // The name of the whitelist group. The default group is included by default.
+          // The name of the whitelist group. By default, the default group is included.
           shared_ptr<string> groupName_ {};
           // The IP address information in the whitelist group.
           shared_ptr<vector<string>> ips_ {};
-          // The whitelist type. The value is fixed as PRIVATE_ES, which indicates the private network access whitelist.
+          // The whitelist type. The value is fixed to PRIVATE_ES, which indicates a private network access whitelist.
           shared_ptr<string> whiteIpType_ {};
         };
 
@@ -165,7 +165,7 @@ namespace Models
 
 
     protected:
-      // The private network access whitelist (deprecated).
+      // **[Deprecated]** The private network access whitelist.
       shared_ptr<vector<string>> esIPWhitelist_ {};
       // The network configuration.
       shared_ptr<Result::NetworkConfig> networkConfig_ {};

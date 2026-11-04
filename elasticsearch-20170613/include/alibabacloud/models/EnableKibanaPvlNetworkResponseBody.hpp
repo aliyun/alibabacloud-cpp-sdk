@@ -48,10 +48,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether private network access for Kibana is created.
-    // 
+    // Indicates whether private network access to Kibana is successfully created. Valid values:
     // - true: Succeeded.
     // - false: Failed.
     shared_ptr<bool> result_ {};

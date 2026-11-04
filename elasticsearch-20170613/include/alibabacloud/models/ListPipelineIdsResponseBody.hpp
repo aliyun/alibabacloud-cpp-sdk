@@ -92,13 +92,13 @@ namespace Models
       // 
       // - true: Available.
       // 
-      // - false: Not available.
+      // - false: Unavailable.
       shared_ptr<bool> available_ {};
-      // The error code when the pipeline is unavailable.
+      // The error code returned when the pipeline is unavailable.
       shared_ptr<string> code_ {};
-      // The error message when the pipeline is unavailable.
+      // The error message returned when the pipeline is unavailable.
       shared_ptr<string> message_ {};
-      // The pipeline ID created on Kibana.
+      // The ID of the pipeline created in Kibana.
       shared_ptr<string> pipelineId_ {};
     };
 

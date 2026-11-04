@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the endpoint is deleted. Valid values:
+    // Indicates whether the endpoint was deleted. Valid values:
     // 
     // - true: The endpoint is deleted.
     // 

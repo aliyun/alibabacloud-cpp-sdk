@@ -50,10 +50,10 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result:
+    // The returned result. Valid values:
     // 
     // - true: The reference repository is created.
-    // - false: The reference repository failed to be created.
+    // - false: The reference repository fails to be created.
     shared_ptr<bool> result_ {};
   };
 

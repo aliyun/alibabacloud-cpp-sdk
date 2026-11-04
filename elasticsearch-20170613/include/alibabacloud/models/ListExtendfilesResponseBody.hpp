@@ -88,11 +88,11 @@ namespace Models
 
 
     protected:
-      // The extension file path.
+      // The path of the extension file.
       shared_ptr<string> filePath_ {};
-      // The extension file size.
+      // The size of the extension file.
       shared_ptr<int64_t> fileSize_ {};
-      // The extension file name.
+      // The name of the extension file.
       shared_ptr<string> name_ {};
       // The source type.
       shared_ptr<string> sourceType_ {};
@@ -117,7 +117,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The returned result.
     shared_ptr<vector<ListExtendfilesResponseBody::Result>> result_ {};

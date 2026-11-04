@@ -50,9 +50,9 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The result of the operation. Valid values:
+    // The returned result. Valid values:
     // 
-    // - true: The data stream is deleted.
+    // - true: The data stream was deleted.
     // 
     // - false: The data stream failed to be deleted.
     shared_ptr<bool> result_ {};

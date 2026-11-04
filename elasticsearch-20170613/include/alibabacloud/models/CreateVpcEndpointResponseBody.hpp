@@ -87,13 +87,13 @@ namespace Models
 
 
     protected:
-      // The endpoint domain name, which is used for connection configuration.
+      // The endpoint domain name used for connection configuration.
       shared_ptr<string> endpointDomain_ {};
-      // The ID of the service VPC endpoint.
+      // The ID of the endpoint on the service VPC side.
       shared_ptr<string> endpointId_ {};
-      // The name of the service VPC endpoint.
+      // The name of the endpoint on the service VPC side.
       shared_ptr<string> endpointName_ {};
-      // The ID of the user endpoint service associated with the endpoint.
+      // The ID of the endpoint service associated with the endpoint.
       shared_ptr<string> serviceId_ {};
     };
 
@@ -118,7 +118,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result details.
+    // The result details.
     shared_ptr<CreateVpcEndpointResponseBody::Result> result_ {};
   };
 

@@ -50,11 +50,11 @@ namespace Models
   protected:
     // Specifies whether to display only managed indexes. Valid values:
     // 
-    // - true: Only managed indexes are displayed.
+    // - true: Displays only managed indexes.
     // 
-    // - false (default): All indexes are displayed.
+    // - false: Displays all indexes. This is the default value.
     shared_ptr<bool> isManaged_ {};
-    // The data stream name.
+    // The name of the data stream.
     shared_ptr<string> name_ {};
   };
 

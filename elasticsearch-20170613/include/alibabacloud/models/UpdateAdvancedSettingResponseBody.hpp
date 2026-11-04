@@ -50,10 +50,10 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result. Valid values:
+    // The return result. Valid values:
     // 
-    // - true: The garbage collector configuration was updated.
-    // - false: The garbage collector configuration failed to be updated.
+    // - true: The garbage collector configuration is updated.
+    // - false: The garbage collector configuration fails to be updated.
     shared_ptr<bool> result_ {};
   };
 

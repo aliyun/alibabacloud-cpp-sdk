@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The page number. (Deprecated)
+    // **[Deprecated]** The page number.
     shared_ptr<int32_t> page_ {};
-    // The number of records per page. (Deprecated)
+    // **[Deprecated]** The number of entries per page.
     shared_ptr<int32_t> size_ {};
-    // The ID of the VPC where the ACK cluster resides.
+    // The ID of the VPC where the ACK cluster is deployed.
     shared_ptr<string> vpcId_ {};
   };
 

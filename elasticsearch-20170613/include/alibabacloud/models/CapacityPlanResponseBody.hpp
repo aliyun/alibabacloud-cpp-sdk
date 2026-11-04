@@ -135,34 +135,23 @@ namespace Models
         shared_ptr<int64_t> amount_ {};
         // The number of CPUs.
         shared_ptr<int64_t> cpu_ {};
-        // The disk size, in GiB.
+        // The disk size. Unit: GiB.
         shared_ptr<int64_t> disk_ {};
         // The disk type. Valid values:
-        // 
         // - cloud_essd: ESSD.
-        // 
         // - cloud_ssd: standard SSD.
-        // 
-        // - cloud_efficiency: ultra cloud disk.
-        // 
+        // - cloud_efficiency: ultra disk.
         // - local_ssd: local SSD.
-        // 
         // - local_efficiency: local ultra disk.
         shared_ptr<string> diskType_ {};
-        // The memory size of the specification for the current node role.
+        // The memory size for the current node role.
         shared_ptr<int64_t> memory_ {};
         // The node type. Valid values:
-        // 
         // - WORKER: data node.
-        // 
         // - WORKER_WARM: warm node.
-        // 
         // - MASTER: dedicated master node.
-        // 
         // - KIBANA: Kibana node.
-        // 
         // - COORDINATING: client node.
-        // 
         // - ELASTIC_WORKER: elastic node.
         shared_ptr<string> nodeType_ {};
       };
@@ -215,13 +204,11 @@ namespace Models
 
       protected:
         // The configuration type. The only valid value is sharedDisk.
-        // 
         // > This extendConfigs property may appear when the planned instance type is Advanced Edition (advanced).
         shared_ptr<string> configType_ {};
-        // The disk size, in GiB.
+        // The disk size. Unit: GiB.
         shared_ptr<int64_t> disk_ {};
         // The disk type. The only valid value is CPFS_PREMIUM.
-        // 
         // > This extendConfigs property may appear when the planned instance type is Advanced Edition (advanced).
         shared_ptr<string> diskType_ {};
       };
@@ -264,20 +251,15 @@ namespace Models
       // The extended configuration information.
       shared_ptr<vector<Result::ExtendConfigs>> extendConfigs_ {};
       // The edition type. Valid values:
-      // 
       // - advanced: Advanced Edition.
-      // 
       // - x-pack: Commercial Edition.
-      // 
       // - community: Community Edition.
       shared_ptr<string> instanceCategory_ {};
       // The node information.
       shared_ptr<vector<Result::NodeConfigurations>> nodeConfigurations_ {};
-      // The result calculated based on capacity planning. No default value is available. Valid values:
-      // 
-      // - true: The cluster is oversized. The number of data nodes calculated by capacity planning exceeds the threshold of 50.
-      // 
-      // - false: The number of data nodes calculated by capacity planning is within 50.
+      // The result calculated based on capacity planning. No default value is provided. Valid values:
+      // - true: indicates an oversized cluster, which means the number of data nodes calculated by capacity planning exceeds the threshold of 50.
+      // - false: indicates that the number of data nodes calculated by capacity planning is 50 or less.
       shared_ptr<bool> oversizedCluster_ {};
     };
 

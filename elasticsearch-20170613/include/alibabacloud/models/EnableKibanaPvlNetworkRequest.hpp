@@ -133,14 +133,15 @@ namespace Models
 
 
   protected:
-    // The endpoint name.
+    // The name of the endpoint.
     shared_ptr<string> endpointName_ {};
+    // Specifies whether to use a managed security group. If you use a managed security group, you do not need to specify the securityGroups parameter, and the system automatically creates a managed security group for you.
     shared_ptr<bool> managedSecurityGroup_ {};
     // The security groups.
     shared_ptr<vector<string>> securityGroups_ {};
     // The vSwitch and zone information.
     shared_ptr<vector<EnableKibanaPvlNetworkRequest::VSwitchIdsZone>> vSwitchIdsZone_ {};
-    // The VPC-connected instance ID.
+    // The VPC instance ID.
     shared_ptr<string> vpcId_ {};
     // The client token that is used to ensure the idempotence of the request.
     shared_ptr<string> clientToken_ {};

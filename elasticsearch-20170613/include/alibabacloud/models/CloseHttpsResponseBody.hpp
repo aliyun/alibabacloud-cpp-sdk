@@ -50,10 +50,9 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result. Valid values:
-    // 
+    // The result. Valid values:
     // - true: The HTTPS protocol is disabled.
-    // - false: Failed to disable the HTTPS protocol.
+    // - false: Disabling the HTTPS protocol failed.
     shared_ptr<bool> result_ {};
   };
 

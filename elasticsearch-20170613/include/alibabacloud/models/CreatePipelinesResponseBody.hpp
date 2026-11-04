@@ -48,12 +48,11 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the pipeline is created. Valid values:
-    // 
-    // - true: Created.
-    // - false: Failed to create.
+    // Indicates whether the pipeline was created successfully. Valid values:
+    // - true: The pipeline was created successfully.
+    // - false: The pipeline failed to be created.
     shared_ptr<bool> result_ {};
   };
 

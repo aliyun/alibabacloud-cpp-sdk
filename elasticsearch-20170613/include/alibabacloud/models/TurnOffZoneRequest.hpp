@@ -48,6 +48,9 @@ namespace Models
 
 
   protected:
+    // Specifies whether to drain traffic from the load balancer. Valid values:
+    // - false: Uses the default policy.
+    // - true: Removes traffic from the load balancer.
     shared_ptr<bool> hpAlbZoneDrained_ {};
     // The zone of the instance.
     shared_ptr<string> zone_ {};

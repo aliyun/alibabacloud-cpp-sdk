@@ -50,10 +50,10 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the scenario-specific template configuration is modified.
+    // Indicates whether the scenario-specific template configuration is updated:
     // 
-    // - true: The modification is successful.
-    // - false: The modification failed.
+    // - true: The update succeeded.
+    // - false: The update failed.
     shared_ptr<bool> result_ {};
   };
 

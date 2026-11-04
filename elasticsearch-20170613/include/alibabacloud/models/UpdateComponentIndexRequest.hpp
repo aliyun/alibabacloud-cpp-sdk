@@ -84,11 +84,11 @@ namespace Models
 
 
     protected:
-      // The aliases configuration of the template.
+      // The aliases configuration for the template.
       Darabonba::Json aliases_ {};
-      // The mappings configuration of the template.
+      // The mappings configuration for the template.
       Darabonba::Json mappings_ {};
-      // The settings configuration of the template.
+      // The settings configuration for the template.
       Darabonba::Json settings_ {};
     };
 
@@ -113,9 +113,9 @@ namespace Models
 
 
   protected:
-    // The metadata, which is used to store remarks and other information.
+    // The metadata, which is used to store information such as remarks.
     Darabonba::Json meta_ {};
-    // The composable template information.
+    // The composite template information.
     shared_ptr<UpdateComponentIndexRequest::Template> template_ {};
   };
 

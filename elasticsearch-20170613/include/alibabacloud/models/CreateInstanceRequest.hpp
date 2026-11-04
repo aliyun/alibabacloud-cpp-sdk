@@ -116,9 +116,9 @@ namespace Models
 
 
     protected:
-      // The key of the tag.
+      // The key of the instance tag.
       shared_ptr<string> tagKey_ {};
-      // The value of the tag.
+      // The value of the instance tag.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -290,17 +290,17 @@ namespace Models
 
 
   protected:
-    // The client node configuration.
+    // The configuration of the client node.
     shared_ptr<ClientNodeConfiguration> clientNodeConfiguration_ {};
-    // The instance name.
+    // The name of the instance.
     shared_ptr<string> description_ {};
-    // The elastic node configuration.
+    // The configuration of the elastic node.
     shared_ptr<ElasticDataNodeConfiguration> elasticDataNodeConfiguration_ {};
     // The access password of the instance. The password must be 8 to 32 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include !@#$%^&*()_+-=.
     // 
     // This parameter is required.
     shared_ptr<string> esAdminPassword_ {};
-    // The instance version. Valid values:
+    // The version of the instance. Valid values:
     // - 8.5.1_with_X-Pack
     // - 7.10_with_X-Pack
     // - 6.7_with_X-Pack
@@ -314,17 +314,17 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> esVersion_ {};
-    // The index node configuration. Only instances with the AI engine type support index node configuration.
+    // Only instances that use the AI engine support the configuration of index nodes.
     shared_ptr<IndexNodeConfiguration> indexNodeConfiguration_ {};
     // The edition type. Valid values:
-    // - x-pack: Creates a Commercial Edition instance, or an Advanced Edition instance with Indexing Service and OpenStore disabled.
+    // - x-pack: Creates a Commercial Edition instance or an Advanced Edition instance with Indexing Service and OpenStore disabled.
     // - IS: Creates an Advanced Edition instance with Indexing Service or OpenStore enabled.
     shared_ptr<string> instanceCategory_ {};
-    // The Kibana node configuration.
+    // The configuration of the Kibana node.
     // 
-    // > Enable the Kibana node.
+    // > You are strongly advised to enable the Kibana node.
     shared_ptr<KibanaNodeConfiguration> kibanaConfiguration_ {};
-    // The dedicated master node configuration.
+    // The configuration of the dedicated master node.
     // > In the Beijing, Shanghai, Hangzhou, and Shenzhen regions, when you call the createInstance operation to create an instance with a new-generation cloud disk-based dedicated master node, you must specify the instance family with the `.new` suffix, such as elasticsearch.sn1ne.large.new.
     shared_ptr<MasterNodeConfiguration> masterConfiguration_ {};
     // The network configuration.
@@ -337,11 +337,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> nodeAmount_ {};
-    // The data node configuration.
+    // The configuration of the data node.
     // 
     // > In the Beijing, Shanghai, Hangzhou, and Shenzhen regions, when you call the createInstance operation to create an instance with a new-generation cloud disk-based data node, you must specify the instance family with the `.new` suffix, such as elasticsearch.sn1ne.large.new.
     shared_ptr<NodeSpec> nodeSpec_ {};
-    // The payment details of the subscription instance. This parameter is required when you create a subscription instance.
+    // The billing details of the subscription instance. This parameter is required when you create a subscription instance.
     shared_ptr<PaymentInfo> paymentInfo_ {};
     // The billing method. Valid values:
     // 
@@ -350,11 +350,11 @@ namespace Models
     shared_ptr<string> paymentType_ {};
     // The ID of the resource group to which the instance belongs.
     shared_ptr<string> resourceGroupId_ {};
-    // The query node configuration. Only instances with the AI engine type support query node configuration.
+    // Only instances that use the AI engine support the configuration of query nodes.
     shared_ptr<SearchNodeConfiguration> searchNodeConfiguration_ {};
-    // The instance label group.
+    // The instance tag labels.
     shared_ptr<vector<CreateInstanceRequest::Tags>> tags_ {};
-    // The warm data node configuration.
+    // The configuration of the warm data node.
     shared_ptr<WarmNodeConfiguration> warmNodeConfiguration_ {};
     // The number of zones for the instance. Valid values: 1, 2, and 3. Default value: 1.
     shared_ptr<int32_t> zoneCount_ {};

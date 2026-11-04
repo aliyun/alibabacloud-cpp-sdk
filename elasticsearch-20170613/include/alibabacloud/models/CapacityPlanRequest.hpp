@@ -123,22 +123,20 @@ namespace Models
       // The average QPS.
       shared_ptr<int32_t> averageQps_ {};
       // The search or write metric code. Valid values:
-      // 
-      // - write: write
-      // - search: search
+      // - write: write.
+      // - search: search.
       shared_ptr<string> code_ {};
-      // The number of concurrent connections.
+      // The number of concurrent requests.
       shared_ptr<int64_t> concurrent_ {};
       // The peak QPS.
       shared_ptr<int32_t> peakQps_ {};
-      // The expected average response time, in milliseconds.
+      // The expected average response time. Unit: milliseconds.
       shared_ptr<int32_t> responseTime_ {};
-      // The throughput, in MB/s.
+      // The throughput. Unit: MB/s.
       shared_ptr<int64_t> throughput_ {};
-      // The search or write peak type. Valid values:
-      // 
-      // - common: normal
-      // - peak: peak
+      // The peak type for search or write operations. Valid values:
+      // - common: normal.
+      // - peak: peak.
       shared_ptr<string> type_ {};
     };
 
@@ -208,27 +206,24 @@ namespace Models
 
     protected:
       // The disk data metric code. Valid values:
-      // 
-      // - totalRawData: source data information
-      // - document: data document information, estimated number of documents
-      // - dailyIncrement: daily data growth
-      // - dailyIncrement: daily incremental documents
-      // - retentionTime: data retention period
-      // - replica: replica settings
+      // - totalRawData: source data information.
+      // - document: document information, which indicates the estimated number of documents.
+      // - dailyIncrement: daily data increment.
+      // - dailyIncrement: daily document increment.
+      // - retentionTime: data retention period.
+      // - replica: replica settings.
       shared_ptr<string> code_ {};
-      // The metric value of disk usage.
+      // The metric value for disk usage.
       shared_ptr<int64_t> size_ {};
       // The total number of data entries.
       shared_ptr<int32_t> totalCount_ {};
       // The disk data type. Valid values:
-      // 
-      // - hot: hot data
-      // - warm: warm data
+      // - hot: hot data.
+      // - warm: warm data.
       shared_ptr<string> type_ {};
       // The data unit or time unit. Valid values:
-      // 
-      // - Data units: MiB, GiB, TB, PB
-      // - Time units: DAYS, WEEKS, MONTHS, YEARS
+      // - Data units: MiB, GiB, TB, and PB.
+      // - Time units: DAYS, WEEKS, MONTHS, and YEARS.
       shared_ptr<string> unit_ {};
     };
 
@@ -267,22 +262,21 @@ namespace Models
 
 
   protected:
-    // Specifies whether complex aggregation query is required. Valid values:
-    // 
-    // - true: Required.
-    // - false (default): Not required.
+    // Indicates whether complex aggregation queries are required. Valid values:
+    // - true: Yes.
+    // - false: No.
+    // Default value: false.
     shared_ptr<bool> complexQueryAvailable_ {};
-    // The disk usage information.
+    // The disk usage.
     shared_ptr<vector<CapacityPlanRequest::DataInfo>> dataInfo_ {};
-    // The metric information for disk usage, search and write operations, and aggregation requests.
+    // The metric information such as disk usage, search and write performance, and aggregate requests.
     shared_ptr<vector<CapacityPlanRequest::Metric>> metric_ {};
     // Scenarios. Valid values:
-    // 
-    // - general: general-purpose scenario
-    // - analysisVisualization: data analytics scenario
-    // - dbAcceleration: database acceleration scenario
-    // - search: search scenario
-    // - log: log scenario
+    // - general: general scenarios.
+    // - analysisVisualization: data analytics scenarios.
+    // - dbAcceleration: database acceleration scenarios.
+    // - search: search scenarios.
+    // - log: log scenarios.
     shared_ptr<string> usageScenario_ {};
   };
 

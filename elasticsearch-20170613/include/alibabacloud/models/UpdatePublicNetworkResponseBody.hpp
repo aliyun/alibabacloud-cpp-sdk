@@ -59,7 +59,7 @@ namespace Models
 
 
     protected:
-      // The status of the public endpoint switch.
+      // The status of the public access switch.
       shared_ptr<bool> enablePublic_ {};
     };
 

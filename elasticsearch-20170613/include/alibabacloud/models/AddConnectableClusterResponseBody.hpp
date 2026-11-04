@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The result. Valid values:
+    // The returned result. Valid values:
     // 
     // - true: The configuration succeeded.
     // - false: The configuration failed.

@@ -48,12 +48,12 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The returned result. Valid values:
+    // The return result. Valid values:
     // 
-    // - true: The validation succeeded.
-    // - false: The validation failed.
+    // - true: The verification is successful.
+    // - false: The verification fails.
     shared_ptr<bool> result_ {};
   };
 

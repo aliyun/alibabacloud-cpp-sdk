@@ -110,7 +110,7 @@ namespace Models
 
 
       protected:
-        // The aliases configuration of the template.
+        // The alias configuration of the template.
         shared_ptr<string> aliases_ {};
         // The mappings configuration of the template.
         shared_ptr<string> mappings_ {};
@@ -167,14 +167,14 @@ namespace Models
 
 
     protected:
-      // Indicates whether the template matches a data stream. Valid values:
+      // Indicates whether the data stream is matched. Valid values:
       // 
-      // - true: matched.
-      // - false: not matched.
+      // - true: Matched.
+      // - false: Not matched.
       shared_ptr<bool> dataStream_ {};
       // The index template information.
       shared_ptr<vector<string>> indexPatterns_ {};
-      // The index template name.
+      // The name of the index template.
       shared_ptr<string> indexTemplate_ {};
       // The priority.
       shared_ptr<int64_t> order_ {};
@@ -212,7 +212,7 @@ namespace Models
 
 
     protected:
-      // The total number of entries returned.
+      // The total number of returned entries.
       shared_ptr<int64_t> xTotalCount_ {};
     };
 
@@ -248,7 +248,7 @@ namespace Models
     shared_ptr<ListDeprecatedTemplatesResponseBody::Headers> headers_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned results.
+    // The result details.
     shared_ptr<vector<ListDeprecatedTemplatesResponseBody::Result>> result_ {};
   };
 

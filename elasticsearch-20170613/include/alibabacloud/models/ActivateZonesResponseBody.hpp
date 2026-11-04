@@ -50,10 +50,9 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The result of the operation. Valid values:
-    // 
-    // - true: The zone is resumed.
-    // - false: The zone failed to be resumed.
+    // Indicates whether the zone is restored. Valid values:
+    // - true: The zone is restored.
+    // - false: The zone fails to be restored.
     shared_ptr<bool> result_ {};
   };
 

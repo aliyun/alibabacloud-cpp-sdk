@@ -73,9 +73,9 @@ namespace Models
     shared_ptr<string> endpointName_ {};
     // The list of security groups.
     shared_ptr<vector<string>> securityGroups_ {};
-    // A client token that is used to ensure the idempotence of the request.
+    // The client token that is used to ensure the idempotence of the request.
     shared_ptr<string> clientToken_ {};
-    // The Kibana private network connection ID.
+    // The ID of the Kibana private network connection.
     shared_ptr<string> pvlId_ {};
   };
 

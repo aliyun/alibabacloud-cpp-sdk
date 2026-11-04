@@ -50,11 +50,11 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the cloud-managed feature for the index is disabled. Valid values:
+    // Indicates whether the cloud hosting feature for the index was successfully disabled. Valid values:
     // 
-    // - true: The feature is disabled.
+    // - true: Succeeded.
     // 
-    // - false: The feature failed to be disabled.
+    // - false: Failed.
     shared_ptr<bool> result_ {};
   };
 

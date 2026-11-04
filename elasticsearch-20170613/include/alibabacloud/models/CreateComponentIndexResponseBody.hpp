@@ -52,8 +52,8 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The returned result. Valid values:
     // 
-    // - true: The template was created successfully.
-    // - false: The template failed to be created.
+    // - true: Created.
+    // - false: Creation failed.
     shared_ptr<bool> result_ {};
   };
 

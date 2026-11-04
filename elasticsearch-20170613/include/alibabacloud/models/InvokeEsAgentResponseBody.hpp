@@ -69,11 +69,11 @@ namespace Models
 
 
   protected:
-    // The status code. A value of 200 indicates a successful call. For non-200 values, the message field contains the error description.
+    // The status code. A value of 200 indicates a successful call. If the value is not 200, the message field contains the specific error description.
     shared_ptr<string> code_ {};
-    // The JSON-RPC 2.0 response body. data.result contains the actual return content of the called ACP method. data.id is the id passed in the request. data.jsonrpc is fixed to 2.0. data.timestamp is the UNIX timestamp in milliseconds when the response was generated.
+    // The JSON-RPC 2.0 response body. data.result contains the actual return content of the called ACP method. data.id is the id passed in the request. data.jsonrpc is fixed to 2.0. data.timestamp is the UNIX timestamp in milliseconds when the response is generated.
     shared_ptr<map<string, string>> data_ {};
-    // The error description. The value is null when the call is successful. A specific error message is returned when the call fails.
+    // The error description. The value is null when the call is successful. If the call fails, the specific error message is returned.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

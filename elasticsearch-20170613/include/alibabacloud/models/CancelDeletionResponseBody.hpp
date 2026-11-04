@@ -50,10 +50,10 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the instance is recovered. Valid values:
+    // Indicates whether the instance was successfully restored. Valid values:
     // 
-    // - true: The instance is recovered.
-    // - false: The instance is not recovered.
+    // - true: Yes.
+    // - false: No.
     shared_ptr<bool> result_ {};
   };
 

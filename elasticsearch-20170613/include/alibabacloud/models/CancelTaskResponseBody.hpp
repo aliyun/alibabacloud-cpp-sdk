@@ -50,10 +50,10 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The result. Valid values:
+    // The returned result. Valid values:
     // 
     // - true: The task is canceled.
-    // - false: The task failed to be canceled.
+    // - false: The task fails to be canceled.
     shared_ptr<bool> result_ {};
   };
 

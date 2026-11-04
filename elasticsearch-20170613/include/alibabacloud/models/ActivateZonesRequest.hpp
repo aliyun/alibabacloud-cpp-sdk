@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The request body parameters.
+    // The request body.
     shared_ptr<string> body_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // Specifies the client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain a maximum of 64 ASCII characters.
     shared_ptr<string> clientToken_ {};
   };
 

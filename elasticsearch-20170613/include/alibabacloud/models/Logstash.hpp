@@ -106,9 +106,8 @@ namespace Models
 
     protected:
       // The zone status. Valid values:
-      // 
       // - ISOLATION: offline
-      // - NORMAL: Normal.
+      // - NORMAL: normal
       shared_ptr<string> status_ {};
       // The zone ID.
       shared_ptr<string> zoneId_ {};
@@ -269,11 +268,11 @@ namespace Models
 
 
     protected:
-      // The network type. Currently, only Virtual Private Cloud (VPC) is supported.
+      // The network type. Only VPC is supported.
       shared_ptr<string> type_ {};
       // The VPC ID.
       shared_ptr<string> vpcId_ {};
-      // The zone in which the instance resides.
+      // The zone where the instance is deployed.
       shared_ptr<string> vsArea_ {};
       // The vSwitch ID.
       shared_ptr<string> vswitchId_ {};
@@ -506,27 +505,24 @@ namespace Models
     // The data node configuration.
     shared_ptr<Logstash::NodeSpec> nodeSpec_ {};
     // The billing method of the instance. Valid values:
-    // 
     // - prepaid: subscription
-    // - postpaid: pay-as-you-go.
+    // - postpaid: pay-as-you-go
     shared_ptr<string> paymentType_ {};
     // The access protocol of the instance.
     shared_ptr<string> protocol_ {};
     // The ID of the resource group to which the instance belongs.
     shared_ptr<string> resourceGroupId_ {};
     // The zone status. Valid values:
-    // 
     // - ISOLATION: offline
-    // - NORMAL: Normal.
+    // - NORMAL: normal
     shared_ptr<string> status_ {};
     // The instance tags.
     shared_ptr<vector<Logstash::Tags>> tags_ {};
     // The time when the instance was last updated.
     shared_ptr<string> updatedAt_ {};
     // The instance version. Valid values:
-    // 
     // - 6.7.0_with_X-Pack
-    // - 7.4.0_with_X-Pack.
+    // - 7.4.0_with_X-Pack
     shared_ptr<string> version_ {};
     // The number of zones for the instance.
     shared_ptr<int64_t> zoneCount_ {};

@@ -62,7 +62,7 @@ namespace Models
 
 
   protected:
-    // The response headers of this call.
+    // The response headers returned by this call.
     Darabonba::Json headers_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

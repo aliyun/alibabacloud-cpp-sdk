@@ -66,16 +66,16 @@ namespace Models
 
 
   protected:
-    // The error code. This parameter is displayed only when an exception occurs.
+    // The error code. This parameter is returned only when an error occurs.
     shared_ptr<string> code_ {};
-    // The error message. This parameter is displayed only when an exception occurs.
+    // The error message. This parameter is returned only when an error occurs.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The returned result. Valid values:
     // 
-    // - true: The change is interrupted.
-    // - false: The change failed to be interrupted.
+    // - true: The modification was interrupted successfully.
+    // - false: The modification failed to be interrupted.
     shared_ptr<bool> result_ {};
   };
 

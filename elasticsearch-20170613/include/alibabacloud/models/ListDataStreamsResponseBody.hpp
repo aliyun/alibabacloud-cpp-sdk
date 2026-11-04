@@ -141,24 +141,24 @@ namespace Models
       protected:
         // The time when the data stream list was queried.
         shared_ptr<string> createTime_ {};
-        // The index status. Valid values:
+        // The health status of the index. Valid values:
         // 
         // - Green: Healthy.
         // 
         // - Yellow: Warning.
         // 
-        // - Red: Abnormal.
+        // - Red: Error.
         shared_ptr<string> health_ {};
-        // This field is deprecated and can be ignored.
+        // **[Deprecated]** This field is deprecated and can be ignored.
         shared_ptr<bool> isManaged_ {};
-        // The index managed status. Valid values:
+        // The managed status of the index. Valid values:
         // - following: Managed.
         // 
         // - closing: Being unmanaged.
         // 
         // - closed: Not managed.
         shared_ptr<string> managedStatus_ {};
-        // The data stream name.
+        // The name of the data stream.
         shared_ptr<string> name_ {};
         // The total storage space occupied by the current index. Unit: bytes.
         shared_ptr<int64_t> size_ {};
@@ -219,25 +219,25 @@ namespace Models
 
 
     protected:
-      // The data stream status. Valid values:
+      // The health status of the data stream. Valid values:
       // 
       // - Green: Healthy.
       // 
       // - Yellow: Warning.
       // 
-      // - Red: Abnormal.
+      // - Red: Error.
       shared_ptr<string> health_ {};
-      // The index lifecycle policy name.
+      // The life epoch Policy Name.
       shared_ptr<string> ilmPolicyName_ {};
-      // The index template name.
+      // The name of the index template.
       shared_ptr<string> indexTemplateName_ {};
-      // The index information under the current data stream.
+      // The information about the indexes in the current data stream.
       shared_ptr<vector<Result::Indices>> indices_ {};
-      // The total storage space occupied by managed indexes under the current data stream. Unit: bytes.
+      // The total storage space occupied by managed indexes in the current data stream. Unit: bytes.
       shared_ptr<int64_t> managedStorageSize_ {};
-      // The index name.
+      // The name of the index.
       shared_ptr<string> name_ {};
-      // The total storage space occupied by all indexes under the current data stream. Unit: bytes.
+      // The total storage space occupied by all indexes in the current data stream. Unit: bytes.
       shared_ptr<int64_t> totalStorageSize_ {};
     };
 

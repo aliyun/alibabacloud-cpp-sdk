@@ -59,7 +59,7 @@ namespace Models
 
 
     protected:
-      // The updated instance name.
+      // The updated name of the instance.
       shared_ptr<string> description_ {};
     };
 

@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The index template name.
+    // The name of the index template.
     shared_ptr<string> name_ {};
-    // The page number settings for a paged query. This parameter is used for paging.
+    // The page number for a paged query.
     shared_ptr<int32_t> page_ {};
-    // The number of entries per page settings for a paged query. This parameter is used for paging.
+    // The number of entries per page for a paged query.
     shared_ptr<int32_t> size_ {};
   };
 
