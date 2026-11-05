@@ -40,8 +40,8 @@ namespace Models
   protected:
     // The region of the Security Center instance. Valid values:
     // 
-    // - **cn-hangzhou:** China
-    // - **ap-southeast-1:** Singapore.
+    // - **cn-hangzhou**: Center
+    // - **ap-southeast-1**: Singapore
     shared_ptr<string> regionId_ {};
   };
 

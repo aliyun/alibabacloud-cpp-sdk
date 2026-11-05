@@ -157,9 +157,9 @@ namespace Models
         shared_ptr<string> moduleDisp_ {};
         // The status of the module. Valid values:
         // - **0**: In use
-        // - **1**: Exception
-        // - **2**: Verifying
-        // - **3**: Verification timed out
+        // - **1**: Usage exception
+        // - **2**: Validating
+        // - **3**: Validation timed out
         shared_ptr<int32_t> moduleServiceStatus_ {};
         // The description of the permissions associated with the module.
         shared_ptr<string> moduleStatement_ {};
@@ -241,30 +241,30 @@ namespace Models
 
 
     protected:
-      // The AccessKey type. Valid values:
+      // The AK type. Valid values:
       // 
-      // - **primary**: Primary account
-      // - **sub**: Sub-account
+      // - **primary**: primary account
+      // - **sub**: sub-account
       shared_ptr<string> akType_ {};
-      // The unique ID of the AccessKey.
+      // The unique ID of the AK.
       shared_ptr<int64_t> authId_ {};
-      // The list of modules associated with the AccessKey.
+      // The list of modules associated with the AK.
       shared_ptr<vector<Data::AuthModules>> authModules_ {};
       // The account ID.
       // 
       // > The account ID of the connected cloud vendor.
       shared_ptr<string> ctdrCloudUserId_ {};
-      // The exception information of the AccessKey.
+      // The exception information of the AK.
       shared_ptr<string> message_ {};
-      // The AccessKey ID.
+      // The AK parameter ID.
       shared_ptr<string> secretId_ {};
-      // The usage status of the AccessKey. Valid values:
+      // The usage status of the AK. Valid values:
       // - **0**: In use
-      // - **1**: Exception
-      // - **2**: Verifying
-      // - **3**: Verification timed out
+      // - **1**: Usage exception
+      // - **2**: Validating
+      // - **3**: Validation timed out
       shared_ptr<int32_t> serviceStatus_ {};
-      // The AccessKey status. Valid values:
+      // The status of the AK. Valid values:
       // - **0**: Enabled
       // - **1**: Disabled
       shared_ptr<int32_t> status_ {};
@@ -285,8 +285,8 @@ namespace Models
       // - **OracleCloud**: Oracle Cloud
       // - **StateCloud**: China Telecom Cloud
       shared_ptr<string> vendor_ {};
-      // The name of the AccessKey account.
-      // > This parameter is used to identify the account to which the third-party host assets belong.
+      // The name of the AK account.
+      // >This parameter is used to identify the account to which the third-party host assets belong.
       shared_ptr<string> vendorAuthAlias_ {};
     };
 
@@ -309,7 +309,7 @@ namespace Models
 
 
   protected:
-    // The added AccessKey information.
+    // The added AK information.
     shared_ptr<AddCloudVendorAccountAKResponseBody::Data> data_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

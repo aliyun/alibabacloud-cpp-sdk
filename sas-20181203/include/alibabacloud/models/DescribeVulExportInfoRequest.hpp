@@ -52,6 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> exportId_ {};
+    // The ID of the resource directory account.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
   };
 

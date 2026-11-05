@@ -75,34 +75,32 @@ namespace Models
 
 
   protected:
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
-    // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // Specifies the language of the request and response. Default value: **zh**. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The source IP address of the request.
+    // The source IP address.
     shared_ptr<string> sourceIp_ {};
-    // The configuration of proactive defense for your server. The value includes the following fields:
+    // Specifies the proactive defense parameters for servers. The following parameters are included:
     // 
-    // *   **targetType**: specifies the dimension from which you manage proactive defense. UUIDs are supported. Set the value to **uuid**.
-    // *   **target**: specifies the UUID of the server for which you want to configure proactive defense.
-    // *   **flag**: specifies whether to enable or disable proactive defense for your server. Valid values are **add** and **del**. The value add indicates that proactive defense will be enabled for your server. The value del indicates that proactive defense will be disabled for your server.
+    // - **targetType**: the dimension of the defense configuration. Currently, only the UUID dimension is supported. Fixed value: **uuid**.
+    // - **target**: the UUID of the server for which you want to configure defense settings.
+    // - **flag**: specifies whether to enable or disable proactive defense for the server. Valid values: **add** (enable) and **del** (disable).
     // 
     // This parameter is required.
     shared_ptr<string> targetOperations_ {};
-    // The dimension from which you manage proactive defense. Only the server UUID dimension is supported.
+    // Specifies the dimension for managing proactive defense. Currently, only the server UUID dimension is supported.
     // 
-    // Set the value to **uuid**.
+    // Valid value: **uuid**.
     // 
     // This parameter is required.
     shared_ptr<string> targetType_ {};
-    // The type of proactive defense. Valid Values:
-    // 
-    // *   **auto_breaking**: automatic blocking
-    // *   **webshell_cloud_breaking**: webshell defense
-    // *   **alinet**: malicious behavior defense
-    // *   **ransomware_breaking**: ransomware capture
-    // *   **alisecguard**: client protection
+    // Specifies the type of proactive defense. Valid values:
+    // - **auto_breaking**: automatic interception
+    // - **webshell_cloud_breaking**: web shell connection defense
+    // - **alinet**: malicious network behavior defense
+    // - **ransomware_breaking**: anti-ransomware (bait capture)
+    // - **alisecguard**: client self-protection
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

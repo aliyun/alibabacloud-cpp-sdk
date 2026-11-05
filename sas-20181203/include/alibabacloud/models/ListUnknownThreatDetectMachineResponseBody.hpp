@@ -90,11 +90,11 @@ namespace Models
 
 
     protected:
-      // The number of entries displayed on the current page in a paged query.
+      // The number of entries returned on the current page in a paging query.
       shared_ptr<int32_t> count_ {};
-      // The page number of the current page in a paged query.
+      // The page number of the current page in a paging query.
       shared_ptr<int32_t> currentPage_ {};
-      // The maximum number of entries to display per page in a paged query.
+      // The maximum number of entries to return on each page in a paging query.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
@@ -248,9 +248,9 @@ namespace Models
 
 
     protected:
-      // The number of days the policy has been in effect.
+      // The duration for which the policy has been in effect, in days.
       shared_ptr<int64_t> effectDays_ {};
-      // The instance name.
+      // The name of the instance.
       shared_ptr<string> instanceName_ {};
       // The public IP address.
       shared_ptr<string> internetIp_ {};
@@ -260,26 +260,26 @@ namespace Models
       shared_ptr<int64_t> maliciousProcessCount_ {};
       // The number of normal events.
       shared_ptr<int64_t> normalEventCount_ {};
-      // The plug-in status.
+      // The running status of the intelligent behavior analytics plugin.
       shared_ptr<string> pluginStatus_ {};
       // The number of processes.
       shared_ptr<int32_t> processCount_ {};
-      // The number of recent deviation behaviors.
+      // The number of recent behavioral deviations.
       shared_ptr<int64_t> recentDeviationBehaviorCount_ {};
-      // The machine running status. Valid values:
+      // The running status of the server. Valid values:
       // 
-      // - **monitoring**: warning in progress
-      // - **blocking**: under control
-      // - **studying**: learning in progress
+      // - **monitoring**: alerting
+      // - **blocking**: blocking
+      // - **studying**: learning
       shared_ptr<string> status_ {};
       // The whitelist mode. Valid values:
       // 
-      // - **hash**: process hash
-      // - **path**: process path
+      // - **hash**: the hash of the process
+      // - **path**: the path of the process
       shared_ptr<string> studyMode_ {};
-      // The number of remaining learning days.
+      // The remaining learning time, in days.
       shared_ptr<int64_t> studyRemainDays_ {};
-      // The timestamp when learning started.
+      // The timestamp when the learning started.
       shared_ptr<int64_t> studyStartTime_ {};
       // The UUID of the asset instance.
       shared_ptr<string> uuid_ {};

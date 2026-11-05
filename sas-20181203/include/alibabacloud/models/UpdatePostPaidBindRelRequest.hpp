@@ -101,15 +101,14 @@ namespace Models
 
     protected:
       // Specifies whether to bind all servers. Default value: **false**. Valid values:
-      // 
       // - **true**: Yes.
       // - **false**: No.
       shared_ptr<bool> bindAll_ {};
-      // The type of free quota used for the binding operation.
+      // Specifies the type of free quota used for the binding action.
       shared_ptr<string> freeType_ {};
-      // The UUIDs of the specified servers.
+      // Specifies the list of server UUIDs.
       shared_ptr<vector<string>> uuidList_ {};
-      // The Security Center protection edition to bind. Valid values:  
+      // Specifies the Security Center protection edition to bind. Valid values:  
       // - **1**: Free Edition 
       // - **3**: Enterprise Edition
       // - **5**: Premium Edition
@@ -174,24 +173,23 @@ namespace Models
 
   protected:
     // Specifies whether to enable automatic binding for newly added assets. Valid values:
-    // 
-    // - **0**: Disabled.
-    // - **1**: Enabled.
+    // - **0**: Disable.
+    // - **1**: Enable.
     shared_ptr<int32_t> autoBind_ {};
-    // The edition to automatically bind to newly added assets. Valid values:
+    // Specifies the protection edition to automatically bind to newly added assets. Valid values:
     // - **1**: Free Edition 
     // - **3**: Enterprise Edition
     // - **5**: Premium Edition
     // - **6**: Anti-virus Edition    
     // - **7**: Ultimate Edition
     shared_ptr<int32_t> autoBindVersion_ {};
-    // The action parameters for the binding operation.
+    // Specifies the action parameters for the binding operation.
     shared_ptr<vector<UpdatePostPaidBindRelRequest::BindAction>> bindAction_ {};
     // The client token that is used to ensure the idempotence of the request. Different requests must use different tokens. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to perform a dry run for the request. A value of true indicates that only a dry run is performed and no actual operation is executed. A value of false indicates that the request is normally executed. Default value: false.
+    // Specifies whether to perform a dry run on the request. true: performs a dry run and does not perform the actual operation. false: performs the actual operation. Default value: false.
     shared_ptr<bool> dryRun_ {};
-    // The abbreviation of the cloud service. Valid values:
+    // Specifies the abbreviated name of the cloud service. Valid values:
     // - **sas**: Security Center
     shared_ptr<string> productCode_ {};
     // Specifies whether to forcibly upgrade the edition.

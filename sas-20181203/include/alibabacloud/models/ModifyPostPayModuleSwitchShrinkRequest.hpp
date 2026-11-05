@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(EdrModuleSwitch, edrModuleSwitchShrink_);
+      DARABONBA_PTR_TO_JSON(FreeTrial, freeTrial_);
       DARABONBA_PTR_TO_JSON(PostPaidHostAutoBind, postPaidHostAutoBind_);
       DARABONBA_PTR_TO_JSON(PostPaidHostAutoBindVersion, postPaidHostAutoBindVersion_);
       DARABONBA_PTR_TO_JSON(PostPayInstanceId, postPayInstanceId_);
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(EdrModuleSwitch, edrModuleSwitchShrink_);
+      DARABONBA_PTR_FROM_JSON(FreeTrial, freeTrial_);
       DARABONBA_PTR_FROM_JSON(PostPaidHostAutoBind, postPaidHostAutoBind_);
       DARABONBA_PTR_FROM_JSON(PostPaidHostAutoBindVersion, postPaidHostAutoBindVersion_);
       DARABONBA_PTR_FROM_JSON(PostPayInstanceId, postPayInstanceId_);
@@ -44,8 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && this->dryRun_ == nullptr && this->edrModuleSwitchShrink_ == nullptr && this->postPaidHostAutoBind_ == nullptr && this->postPaidHostAutoBindVersion_ == nullptr && this->postPayInstanceId_ == nullptr
-        && this->postPayModuleSwitch_ == nullptr && this->postPayModuleSwitchObjShrink_ == nullptr; };
+        && this->dryRun_ == nullptr && this->edrModuleSwitchShrink_ == nullptr && this->freeTrial_ == nullptr && this->postPaidHostAutoBind_ == nullptr && this->postPaidHostAutoBindVersion_ == nullptr
+        && this->postPayInstanceId_ == nullptr && this->postPayModuleSwitch_ == nullptr && this->postPayModuleSwitchObjShrink_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -65,6 +67,13 @@ namespace Models
     void deleteEdrModuleSwitchShrink() { this->edrModuleSwitchShrink_ = nullptr;};
     inline string getEdrModuleSwitchShrink() const { DARABONBA_PTR_GET_DEFAULT(edrModuleSwitchShrink_, "") };
     inline ModifyPostPayModuleSwitchShrinkRequest& setEdrModuleSwitchShrink(string edrModuleSwitchShrink) { DARABONBA_PTR_SET_VALUE(edrModuleSwitchShrink_, edrModuleSwitchShrink) };
+
+
+    // freeTrial Field Functions 
+    bool hasFreeTrial() const { return this->freeTrial_ != nullptr;};
+    void deleteFreeTrial() { this->freeTrial_ = nullptr;};
+    inline bool getFreeTrial() const { DARABONBA_PTR_GET_DEFAULT(freeTrial_, false) };
+    inline ModifyPostPayModuleSwitchShrinkRequest& setFreeTrial(bool freeTrial) { DARABONBA_PTR_SET_VALUE(freeTrial_, freeTrial) };
 
 
     // postPaidHostAutoBind Field Functions 
@@ -105,12 +114,14 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request. You can use different tokens for different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to only precheck the request. Valid values:
-    // - true: Only prechecks the request and does not perform the actual operation.
-    // - false: Performs the actual operation.
+    // Specifies whether to perform a dry run on the request. Valid values:
+    // - **true**: Performs a dry run only and does not perform the actual operation.
+    // - **false**: Performs the actual operation.
     shared_ptr<bool> dryRun_ {};
-    // The switch configuration for the EDR module.
+    // The switch configuration of the EDR module.
     shared_ptr<string> edrModuleSwitchShrink_ {};
+    // Specifies whether to enable the free trial. Default value: false. You cannot modify this parameter.
+    shared_ptr<bool> freeTrial_ {};
     // Specifies whether to automatically bind new assets to the host and container protection feature. Valid values:
     // 
     // - **0**: disabled
@@ -127,26 +138,26 @@ namespace Models
     // 
     // > Invoke the [DescribeVersionConfig](~~DescribeVersionConfig~~) operation to obtain this parameter.
     shared_ptr<string> postPayInstanceId_ {};
-    // The switch status of the pay-as-you-go modules. The value is a JSON string. Valid values:
+    // The switch status of pay-as-you-go modules. The value is a JSON string. Valid values:
     // - Key:
-    //   - **VUL**: Vulnerability fixing module
-    //   - **CSPM**: Cloud Security Posture Management module
+    //   - **VUL**: Vulnerability remediation module
+    //   - **CSPM**: Cloud Security Posture Management (CSPM) module
     //   - **AGENTLESS**: Agentless detection module
     //   - **SERVERLESS**: Serverless security module
-    //   - **CTDR**: Cloud Threat Detection and Response module
+    //   - **CTDR**: Cloud Threat Detection and Response (CTDR) module
     //   - **POST_HOST**: Host and container security module
     //   - **SDK**: Malicious file detection SDK module
     //   - **RASP**: Application protection module
     //   - **CTDR_STORAGE**: Log management module
-    //   - **ANTI_RANSOMWARE**: Anti-ransomware management
+    //   - **ANTI_RANSOMWARE**: Anti-ransomware module
     // - Value: 0 indicates disabled, and 1 indicates enabled.
     // 
     // > The values of modules that are not specified remain unchanged.
     // 
-    // <notice>This parameter has the same meaning as the PostPayModuleSwitchObj parameter. If both parameters are specified, the value of PostPayModuleSwitch takes precedence.</notice>
+    // <notice>This parameter has the same meaning as the PostPayModuleSwitchObj parameter. If both parameters are specified, the value of PostPayModuleSwitch takes precedence.
     shared_ptr<string> postPayModuleSwitch_ {};
-    // The switch status of the pay-as-you-go modules.
-    // >Notice: This parameter has the same meaning as the PostPayModuleSwitch parameter. If both parameters are specified, the value of PostPayModuleSwitch takes precedence.</notice>
+    // The switch status of pay-as-you-go modules.
+    // >Notice: This parameter has the same meaning as the PostPayModuleSwitch parameter. If both parameters are specified, the value of PostPayModuleSwitch takes precedence.
     shared_ptr<string> postPayModuleSwitchObjShrink_ {};
   };
 

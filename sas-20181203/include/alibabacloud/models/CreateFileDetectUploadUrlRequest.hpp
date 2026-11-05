@@ -72,9 +72,9 @@ namespace Models
 
 
     protected:
-      // The size of the file. Unit: bytes.
+      // The file size. If the file size exceeds the limit, the upload parameters are not returned. Unit: bytes.
       shared_ptr<int32_t> fileSize_ {};
-      // The hash value of the file.
+      // The file hash value.
       shared_ptr<string> hashKey_ {};
     };
 
@@ -106,22 +106,14 @@ namespace Models
 
 
   protected:
-    // The hash values of files.
-    // 
-    // > You must specify at least one of the **HashKeyList** and **HashKeyContextList** parameters.
+    // The file identifier. Only MD5 is supported. You can specify up to 100 elements in the list.
+    // > **HashKeyList** and **HashKeyContextList** cannot be empty at the same time.
     shared_ptr<vector<CreateFileDetectUploadUrlRequest::HashKeyContextList>> hashKeyContextList_ {};
-    // The identifiers of files. Only MD5 hash values are supported.
-    // 
-    // > You must specify at least one of the **HashKeyList** and **HashKeyContextList** parameters.
+    // The unique identifier of the file. You can specify up to 100 elements in the list.
+    // > **HashKeyList** and **HashKeyContextList** cannot be empty at the same time.
     shared_ptr<vector<string>> hashKeyList_ {};
-    // The type of the file. Valid values:
-    // 
-    // *   **0**: unknown file
-    // *   **1**: binary file
-    // *   **2**: webshell file
-    // *   **4**: script file
-    // 
-    // > If you do not know the type of the file, set this parameter to **0**.
+    // The file type. Valid values:
+    // - **0**: Uncertain file type.
     // 
     // This parameter is required.
     shared_ptr<int32_t> type_ {};

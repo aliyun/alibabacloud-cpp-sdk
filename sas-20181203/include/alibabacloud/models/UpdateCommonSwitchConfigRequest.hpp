@@ -48,15 +48,13 @@ namespace Models
 
 
   protected:
-    // Specifies whether to turn on the switch for newly added servers. Valid values:
+    // Specifies whether the switch takes effect by default. Valid values:
     // 
-    // - **add**: yes
-    // 
-    // - **del**: no
+    // - **add**: Takes effect by default for newly added servers.
+    // - **del**: Does not take effect by default for newly added servers.
     shared_ptr<string> targetDefault_ {};
-    // The type of the switch.
-    // 
-    // > You can call the [ListClientUserDefineRules](~~ListClientUserDefineRules~~) or [ListSystemClientRules](~~ListSystemClientRules~~) operation to obtain the type from the response parameter SwitchId.
+    // The general switch type.
+    // >You can obtain this parameter from the SwitchId response parameter of the [ListClientUserDefineRules](~~ListClientUserDefineRules~~) and [ListSystemClientRules](~~ListSystemClientRules~~) operations.
     shared_ptr<string> type_ {};
   };
 

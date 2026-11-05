@@ -112,28 +112,37 @@ namespace Models
 
 
   protected:
-    // The page number of the current page in a paged query.
+    // The page number of the current page in a paging query.
     shared_ptr<int32_t> currentPage_ {};
+    // The status of the alert event. Valid values:
+    // - **1**: pending
+    // - **2**: ignored
+    // - **4**: confirmed
+    // - **8**: marked as false positive
+    // - **16**: processing
+    // - **32**: handled
+    // - **64**: expired
+    // - **604**: marked as false positive by the system
     shared_ptr<int32_t> eventStatus_ {};
-    // The maximum number of entries to display per page in a paged query.
+    // The maximum number of entries to return on each page in a paging query.
     shared_ptr<int32_t> pageSize_ {};
-    // The server name or IP address.
+    // The name or IP address of the server.
     shared_ptr<string> remark_ {};
-    // The machine running status. Valid values:
+    // The running status of the server. Valid values:
     // 
-    // - **monitoring**: warning in progress
-    // - **blocking**: under control
-    // - **studying**: learning in progress
+    // - **monitoring**: alerting
+    // - **blocking**: blocking
+    // - **studying**: learning
     // - **study_finish**: learning completed
     shared_ptr<string> status_ {};
     // The whitelist mode. Valid values:
     // 
-    // - **hash**: process hash
-    // - **path**: process path
+    // - **hash**: the hash of the process
+    // - **path**: the path of the process
     shared_ptr<string> studyMode_ {};
-    // The end of the model creation time range. The value is a timestamp in milliseconds.
+    // The end time of the time range when the model was created. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> studyTimeEnd_ {};
-    // The start of the model creation time range. The value is a timestamp in milliseconds.
+    // The start time of the time range when the model was created. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> studyTimeStart_ {};
     // The UUID of the server.
     shared_ptr<string> uuid_ {};

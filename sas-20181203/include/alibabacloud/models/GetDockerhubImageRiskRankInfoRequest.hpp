@@ -41,7 +41,9 @@ namespace Models
 
 
   protected:
-    // The image dimension types to query.
+    // The image dimension types to be aggregated.
+    // 
+    // > This parameter is required. You must specify at least one valid value. If no value is specified or all specified values are invalid, the API returns HTTP 400 with the error code -101.
     shared_ptr<vector<string>> types_ {};
   };
 

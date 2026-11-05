@@ -13,11 +13,13 @@ namespace Models
   class SubmitCheckRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SubmitCheckRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ConfigId, configId_);
       DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(ScanRange, scanRange_);
       DARABONBA_PTR_TO_JSON(TaskSource, taskSource_);
     };
     friend void from_json(const Darabonba::Json& j, SubmitCheckRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ConfigId, configId_);
       DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(ScanRange, scanRange_);
       DARABONBA_PTR_FROM_JSON(TaskSource, taskSource_);
@@ -33,8 +35,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->resourceDirectoryAccountId_ == nullptr
-        && this->scanRange_ == nullptr && this->taskSource_ == nullptr; };
+    virtual bool empty() const override { return this->configId_ == nullptr
+        && this->resourceDirectoryAccountId_ == nullptr && this->scanRange_ == nullptr && this->taskSource_ == nullptr; };
+    // configId Field Functions 
+    bool hasConfigId() const { return this->configId_ != nullptr;};
+    void deleteConfigId() { this->configId_ = nullptr;};
+    inline string getConfigId() const { DARABONBA_PTR_GET_DEFAULT(configId_, "") };
+    inline SubmitCheckRequest& setConfigId(string configId) { DARABONBA_PTR_SET_VALUE(configId_, configId) };
+
+
     // resourceDirectoryAccountId Field Functions 
     bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
     void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
@@ -57,16 +66,18 @@ namespace Models
 
 
   protected:
-    // The Alibaba Cloud account ID of the member account in the resource directory.
-    // >You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+    // The policy ID. This parameter takes effect only when ScanRange is set to POLICY. You can obtain the value by calling the ListCheckConfigs operation. If this parameter is not specified or is set to default, the scan is triggered based on the system default policy. If the default policy does not exist, NoDefaultStrategy is returned. If another value is specified, the scan is triggered based on the check items of the specified policy. If the policy does not exist or does not belong to the current account, IllegalParam is returned. This parameter is ignored when ScanRange is set to FULL or FREE.
+    shared_ptr<string> configId_ {};
+    // The ID of the Alibaba Cloud account to which the member accounts of the resource folder belong.
+    // >You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The check scope. Valid values:
-    // - **FULL**: scans all check items
-    // - **POLICY**: scans custom-configured check items
+    // - **FULL**: Scans all check items.
+    // - **POLICY**: Scans check items of custom configurations.
     shared_ptr<string> scanRange_ {};
-    // The task source. Valid values:
+    // The source of the task. Valid values:
     // 
-    // - **YAO_CHI**: Alibaba Cloud ApsaraDB console.
+    // - **YAO_CHI**: ApsaraDB console.
     shared_ptr<string> taskSource_ {};
   };
 

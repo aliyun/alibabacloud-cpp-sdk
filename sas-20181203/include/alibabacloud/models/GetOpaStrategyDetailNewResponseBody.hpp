@@ -149,14 +149,14 @@ namespace Models
 
 
       protected:
-        // The policy instance ID in the cluster.
+        // The instance ID of the policy in the cluster.
         shared_ptr<string> ackPolicyInstanceId_ {};
-        // Specifies whether all namespaces are included. Valid values:
+        // Indicates whether all namespaces are included. Valid values:
         // 
         // - **1**: Yes.
         // - **0**: No.
         shared_ptr<int32_t> allNamespace_ {};
-        // The ID of the cluster.
+        // The cluster ID.
         shared_ptr<string> clusterId_ {};
         // The list of namespaces.
         shared_ptr<vector<string>> namespaceList_ {};
@@ -334,7 +334,7 @@ namespace Models
 
 
         protected:
-          // The information about vulnerability items.
+          // The vulnerability item information.
           shared_ptr<vector<Vul::Item>> item_ {};
           // The list of vulnerability types.
           shared_ptr<vector<Vul::RiskClass>> riskClass_ {};
@@ -495,9 +495,9 @@ namespace Models
 
 
           protected:
-            // The ID of the malicious sample.
+            // The malicious sample ID.
             shared_ptr<string> id_ {};
-            // The name of the malicious sample.
+            // The malicious sample name.
             shared_ptr<string> name_ {};
           };
 
@@ -522,7 +522,7 @@ namespace Models
 
 
         protected:
-          // The information about malicious sample items.
+          // The malicious sample item information.
           shared_ptr<vector<MaliciousFile::Item>> item_ {};
           // The list of risk levels.
           shared_ptr<vector<string>> riskLevel_ {};
@@ -764,11 +764,11 @@ namespace Models
       protected:
         // The baseline configuration information.
         shared_ptr<AlarmDetail::Baseline> baseline_ {};
-        // The information about risky image build commands.
+        // The risky image build command information.
         shared_ptr<AlarmDetail::BuildRisk> buildRisk_ {};
-        // The configuration information for malicious samples.
+        // The malicious sample configuration information.
         shared_ptr<AlarmDetail::MaliciousFile> maliciousFile_ {};
-        // The information about sensitive files.
+        // The sensitive file information.
         shared_ptr<AlarmDetail::SensitiveFile> sensitiveFile_ {};
         // The vulnerability configuration information.
         shared_ptr<AlarmDetail::Vul> vul_ {};
@@ -915,24 +915,24 @@ namespace Models
       shared_ptr<string> clusterId_ {};
       // The cluster name.
       shared_ptr<string> clusterName_ {};
-      // The page number from which to display the query results. Default value: **1**.
+      // The page number of the returned results. Default value: **1**.
       shared_ptr<int32_t> currentPage_ {};
       // The description.
       shared_ptr<string> description_ {};
       // The image name.
       shared_ptr<vector<string>> imageName_ {};
-      // The image label.
+      // The image tag.
       shared_ptr<vector<string>> label_ {};
       // The language of the request and response. Default value: **zh**. Valid values:
       // - **zh**: Chinese.
       // - **en**: English.
       shared_ptr<string> lang_ {};
-      // Specifies whether the policy supports malicious images from the Internet. Valid values:
+      // Indicates whether the policy supports malicious images from the Internet. Valid values:
       // 
       // - **true**: Supported.
       // - **false**: Not supported.
       shared_ptr<bool> maliciousImage_ {};
-      // The maximum number of entries to return per page in a paging query.
+      // The maximum number of entries to return on each page in a paging query.
       shared_ptr<int32_t> pageSize_ {};
       // The action to perform when the policy is matched. Valid values:
       // - **1**: Alert.
@@ -945,9 +945,9 @@ namespace Models
       shared_ptr<int64_t> strategyId_ {};
       // The policy name.
       shared_ptr<string> strategyName_ {};
-      // The ID of the policy template.
+      // The policy template ID.
       shared_ptr<int64_t> strategyTemplateId_ {};
-      // Specifies whether the policy supports unscanned images. Valid values:
+      // Indicates whether the policy supports unscanned images. Valid values:
       // 
       // - **true**: Supported.
       // - **false**: Not supported.
@@ -1003,20 +1003,20 @@ namespace Models
 
 
   protected:
-    // The result code. A value of **200** indicates success, whereas any other value indicates failure. You can use this field to determine the cause of the failure.
+    // The result code. A value of **200** indicates success, whereas other values indicate failure. You can use this field to identify the cause of the failure.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<GetOpaStrategyDetailNewResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message returned by the request.
+    // The message returned by the API request.
     shared_ptr<string> message_ {};
-    // The ID of the request. The ID is a unique identifier generated by Alibaba Cloud for the request and can be used for troubleshooting.
+    // The ID of the request. It is a unique identifier generated by Alibaba Cloud for the request and can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. Valid values:
+    // Indicates whether the API call is successful. Valid values:
     // 
-    // - **true**: The request is successful.
-    // - **false**: The request fails.
+    // - **true**: The API call is successful.
+    // - **false**: The API call fails.
     shared_ptr<bool> success_ {};
   };
 

@@ -38,9 +38,8 @@ namespace Models
 
 
   protected:
-    // The type of the common switch.
-    // 
-    // >  You can call the [ListClientUserDefineRules](~~ListClientUserDefineRules~~) or [ListSystemClientRules](~~ListSystemClientRules~~) operation to obtain the switch type from the response parameter SwitchId.
+    // The general switch type.
+    // >You can obtain this parameter from the SwitchId response parameter of the [ListClientUserDefineRules](~~ListClientUserDefineRules~~) and [ListSystemClientRules](~~ListSystemClientRules~~) operations.
     shared_ptr<string> type_ {};
   };
 

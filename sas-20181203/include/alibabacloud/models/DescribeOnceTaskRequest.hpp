@@ -103,30 +103,31 @@ namespace Models
 
 
   protected:
-    // The page number of the page to return. Default value: **1**, which indicates the first page.
+    // The number of the page to return. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
     // The timestamp when the root task ends. Unit: milliseconds.
     shared_ptr<int64_t> endTimeQuery_ {};
-    // Settings for the number of client tasks on each page in a paged query. Default value: **20**, which indicates that each page contains 20 client tasks.
+    // The number of client tasks per page for paging. Default value: **20**, which indicates that each page contains 20 client tasks.
     shared_ptr<int32_t> pageSize_ {};
     // The root task ID.
-    // > **TaskType** and **RootTaskId** cannot both be empty.
+    // > You can call the [DescribeOnceTask](~~DescribeOnceTask~~) operation and specify TaskType to query the root task list. You can obtain this parameter from TaskManageResponseList[].TaskId in the response.
+    // > **TaskType** and **RootTaskId** cannot be empty at the same time. If neither is provided, the API returns HTTP 400 with the error code -101.
     shared_ptr<string> rootTaskId_ {};
-    // The node source. Valid values include but are not limited to:
+    // The source of the task. Valid values include but are not limited to:
     // - **schedule**: automatic scheduling of vulnerability scanning
-    // - **console**: one-click detection from the vulnerability scanning console
+    // - **console**: one-click detection in the vulnerability scanning console
     shared_ptr<string> source_ {};
     // The timestamp when the root task starts. Unit: milliseconds.
     shared_ptr<int64_t> startTimeQuery_ {};
     // The task ID.
     shared_ptr<string> taskId_ {};
-    // The node type. Valid values:
-    // - **VUL_CHECK_TASK**: vulnerability scanning node
-    // - **CLIENT_PROBLEM_CHECK**: client node
-    // - **CLIENT_DEV_OPS**: cloud O&M node
-    // - **ASSET_SECURITY_CHECK**: asset information collection node
-    // - **ASSET_REFRESH_HOST**: host asset synchronization node
-    // > **TaskType** and **RootTaskId** cannot both be empty.
+    // The task type. Valid values:
+    // - **VUL_CHECK_TASK**: vulnerability scanning task
+    // - **CLIENT_PROBLEM_CHECK**: client task
+    // - **CLIENT_DEV_OPS**: cloud O&M task
+    // - **ASSET_SECURITY_CHECK**: asset collection task
+    // - **ASSET_REFRESH_HOST**: host asset synchronization task
+    // > **TaskType** and **RootTaskId** cannot be empty at the same time. If neither is provided, the API returns HTTP 400 with the error code -101.
     shared_ptr<string> taskType_ {};
   };
 

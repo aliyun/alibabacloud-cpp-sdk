@@ -208,45 +208,48 @@ namespace Models
   protected:
     // Specifies whether to match all prefixes. If this parameter is set to true, the KeyPrefixList parameter does not take effect.
     shared_ptr<bool> allKeyPrefix_ {};
-    // Specifies whether OSS buckets are automatically added to this policy. Valid values:
-    // - **true**: Enabled.
-    // - **false**: Disabled.
+    // Specifies whether to add new OSS buckets to this policy by default. Valid values:
+    // - **true**: yes.
+    // - **false**: no.
     shared_ptr<int32_t> autoAdd_ {};
     // The list of bucket names.
     shared_ptr<vector<string>> bucketNameList_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The maximum number of files to decompress. Minimum value: 1. Maximum value: 1000. When the maximum number of decompressed files is exceeded, the decompression operation stops immediately. The scanning of files that have already been decompressed is not affected.
+    // The maximum number of files to decompress. Minimum value: 1. Maximum value: 1000. If the number of files exceeds this value, decompression stops, but the scan of already decompressed files is not affected.
     shared_ptr<int32_t> decompressMaxFileCount_ {};
-    // The maximum number of decompression layers when nested compressed files exist. Minimum value: 1. Maximum value: 5. When the maximum number of decompression layers is exceeded, the decompression operation stops immediately. The scanning of files that have already been decompressed is not affected.
+    // The maximum number of decompression layers for nested archives. Minimum value: 1. Maximum value: 5. If the nesting depth exceeds this value, decompression stops, but the scan of already decompressed files is not affected.
     shared_ptr<int32_t> decompressMaxLayer_ {};
     // The list of decryption types.
     shared_ptr<vector<string>> decryptionList_ {};
-    // Specifies whether to perform only a dry run, without performing the actual request. Valid values: true: performs only a dry run without performing the actual request. false: performs the actual request. Default value: false.
+    // Specifies whether to perform a dry run. Valid values:
+    // - **true**: performs a dry run without executing the actual operation.
+    // - **false**: executes the actual operation.
+    // Default value: false.
     shared_ptr<bool> dryRun_ {};
     // Specifies whether to enable the policy. Valid values:
-    // - **1**: Enable.
-    // - **0**: Disable.
+    // - **1**: enabled.
+    // - **0**: disabled.
     shared_ptr<int32_t> enable_ {};
-    // The scan stop time, in the HH:mm:ss format.
+    // The end time of the scan, in the HH:mm:ss format.
     shared_ptr<string> endTime_ {};
     // The file prefix list.
     shared_ptr<vector<string>> keyPrefixList_ {};
-    // The list of file suffixes to scan.
+    // The list of file name extensions to scan.
     shared_ptr<vector<string>> keySuffixList_ {};
-    // Scans files whose last modification time is after the specified timestamp. Unit: milliseconds.
+    // The timestamp after which the files to be scanned were last modified. Unit: milliseconds.
     shared_ptr<int64_t> lastModifiedStartTime_ {};
     // The policy name.
     shared_ptr<string> name_ {};
     // Specifies whether to enable real-time incremental scanning. If this parameter is set to true, the ScanDayList, StartTime, and EndTime parameters do not take effect.
     shared_ptr<bool> realTimeIncr_ {};
-    // The scan schedule. The number indicates the day of the week.
+    // The days of the week when the scan is performed, represented by numbers.
     shared_ptr<vector<int32_t>> scanDayList_ {};
-    // The business source. Valid values:
+    // The source service. Valid values:
     // - **OSS**: OSS.
     // - **NAS**: NAS.
     shared_ptr<string> source_ {};
-    // The scan start time, in the HH:mm:ss format.
+    // The start time of the scan, in the HH:mm:ss format.
     shared_ptr<string> startTime_ {};
   };
 

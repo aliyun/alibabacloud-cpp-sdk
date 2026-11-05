@@ -82,8 +82,8 @@ namespace Models
 
 
     protected:
-      // The asset instance ID.
-      // > Call the [ListCheckInstanceResult](~~ListCheckInstanceResult~~) operation to obtain this parameter.
+      // The instance ID of the asset.
+      // > Invoke the [ListCheckInstanceResult](~~ListCheckInstanceResult~~) operation to obtain this parameter.
       shared_ptr<string> instanceId_ {};
       // The region where the asset resides.
       // > Call the [ListCheckInstanceResult](~~ListCheckInstanceResult~~) operation to obtain this parameter.
@@ -159,22 +159,18 @@ namespace Models
     // The ID of the check item.
     // > Call the [ListCheckResult](~~ListCheckResult~~) operation to obtain this parameter.
     shared_ptr<int64_t> checkId_ {};
-    // The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. Different requests must use different tokens. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to perform only a dry run. Valid values:
-    // - true: performs only a dry run without executing the actual operation.
-    // - false: performs the actual operation.
-    // 
-    // Default value: false.
+    // Specifies whether to perform only a dry run. A value of true indicates that only a dry run is performed and the actual operation is not performed. A value of false indicates that the actual operation is performed. Default value: false.
     shared_ptr<bool> dryRun_ {};
-    // The collection of asset instance IDs.
+    // The instance IDs of the assets.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The collection of asset instance information.
+    // The information about the asset instances.
     shared_ptr<vector<AddCheckInstanceResultWhiteListRequest::InstanceList>> instanceList_ {};
-    // The remarks. Maximum length: 65,535 bytes.
+    // The remarks. The value can be up to 65,535 bytes in length.
     shared_ptr<string> remark_ {};
-    // The rule type. Default value: **WHITE**. Valid values:
-    // - WHITE: whitelist
+    // The type of the rule. Default value: **WHITE**. Valid values:
+    // - WHITE: Adds the instances to the whitelist.
     shared_ptr<string> ruleType_ {};
   };
 

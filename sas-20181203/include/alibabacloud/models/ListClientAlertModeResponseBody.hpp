@@ -72,7 +72,7 @@ namespace Models
 
 
     protected:
-      // The total number of returned entries.
+      // The total number of returned items.
       shared_ptr<int32_t> count_ {};
       // The list of asset UUIDs.
       shared_ptr<vector<string>> uuids_ {};
@@ -97,9 +97,9 @@ namespace Models
 
 
   protected:
-    // The data returned by the request.
+    // The data returned in the response.
     shared_ptr<ListClientAlertModeResponseBody::Data> data_ {};
-    // The request ID. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

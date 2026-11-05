@@ -60,18 +60,19 @@ namespace Models
 
 
   protected:
-    // The list of strict mode alerts to operate on. This is a full list. Strict mode alerts not included in this list will have the opposite action applied.
-    // > Call [DescribeStrictEventName](~~DescribeStrictEventName~~) to obtain the list of all strict mode alerts.
-    // > -.
+    // The list of strict mode alerts to be updated. This is a full list. Strict mode alerts not included in this list will be subjected to the opposite operation.
+    // > You can call [DescribeStrictEventName](~~DescribeStrictEventName~~) to obtain the list of all strict mode alerts.
+    // > -
     shared_ptr<vector<string>> eventNameList_ {};
-    // The language of the request and response. Default value: **zh**. Valid values:
+    // Specifies the language of the request and response. Default value: **zh**. Valid values:
     // 
-    // - **zh**: Chinese
+    // - **zh**: Chinese.
     // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The operator for the rule action. Valid values:
-    // - *on*: enables alerting
-    // - *off*: disables alerting.
+    // Specifies the action to perform on the alerts. Valid values:
+    // 
+    // - *on*: enables alerts.
+    // - *off*: disables alerts.
     // 
     // This parameter is required.
     shared_ptr<string> operator_ {};

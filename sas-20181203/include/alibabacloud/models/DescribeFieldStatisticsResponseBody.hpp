@@ -417,7 +417,7 @@ namespace Models
       shared_ptr<int32_t> azureInstanceCount_ {};
       // The number of third-party cloud servers.
       shared_ptr<int32_t> baiduInstanceCount_ {};
-      // The number of CPU cores of exposed assets.
+      // The number of compute cores for exposed assets.
       shared_ptr<int64_t> exposedInstanceCoreCount_ {};
       // The number of exposed assets.
       shared_ptr<int32_t> exposedInstanceCount_ {};
@@ -433,25 +433,25 @@ namespace Models
       shared_ptr<int32_t> idcInstanceCount_ {};
       // The number of important assets.
       shared_ptr<int32_t> importantAssetCount_ {};
-      // The total number of CPU cores of all assets of the specified type. If no asset type is specified, this value is the sum of the CPU cores of all servers and cloud services in your assets.
+      // The total number of compute cores for all assets under the specified asset type. If you do not specify an asset type, this value is the sum of compute cores for all servers and cloud services in your assets.
       shared_ptr<int64_t> instanceCoreCount_ {};
-      // The total number of assets of the specified type. If no asset type is specified, this value is the sum of all servers and cloud services in your assets.
+      // The total number of assets under the specified asset type. If you do not specify an asset type, this value is the sum of all servers and cloud services in your assets.
       shared_ptr<int32_t> instanceCount_ {};
-      // The number of tasks for the specified asset type. If no asset type is specified, this value is the sum of tasks for all servers and cloud services in your assets.
+      // The number of tasks under the specified asset type. If you do not specify an asset type, this value is the sum of all servers and cloud services in your assets.
       shared_ptr<int32_t> instanceSyncTaskCount_ {};
       // The number of third-party cloud servers.
       shared_ptr<int32_t> kingsoftInstanceCount_ {};
-      // The number of CPU cores of newly added servers.
+      // The number of compute cores for new servers.
       shared_ptr<int64_t> newInstanceCoreCount_ {};
-      // The number of newly added servers.
+      // The number of new servers.
       shared_ptr<int32_t> newInstanceCount_ {};
       // The number of assets that are not a risky asset.
       shared_ptr<int32_t> noRiskInstanceCount_ {};
-      // The number of Asset Types that do not attach or have no authorization under the specified asset type.
+      // The number of unauthorized assets under the specified asset type.
       shared_ptr<int32_t> notBindMachineInstanceCount_ {};
-      // The number of CPU cores of stopped servers.
+      // The number of compute cores for servers that are not running or powered on.
       shared_ptr<int64_t> notRunningStatusCoreCount_ {};
-      // The number of stopped servers.
+      // The number of servers that are not running or powered on.
       shared_ptr<int32_t> notRunningStatusCount_ {};
       // The number of offline servers.
       shared_ptr<int32_t> offlineInstanceCount_ {};
@@ -463,7 +463,7 @@ namespace Models
       shared_ptr<int32_t> pauseInstanceCount_ {};
       // The number of regions to which the servers belong.
       shared_ptr<int32_t> regionCount_ {};
-      // The number of CPU cores of assets with risks.
+      // The number of compute cores for assets with risks.
       shared_ptr<int64_t> riskInstanceCoreCount_ {};
       // The number of assets with risks.
       shared_ptr<int32_t> riskInstanceCount_ {};
@@ -479,7 +479,7 @@ namespace Models
       shared_ptr<int32_t> ucloudInstanceCount_ {};
       // The number of assets with an unknown enabling status.
       shared_ptr<int32_t> unKnowStatusInstanceCount_ {};
-      // The number of CPU cores of unprotected assets.
+      // The number of compute cores for unprotected assets.
       shared_ptr<int64_t> unprotectedInstanceCoreCount_ {};
       // The number of unprotected assets.
       shared_ptr<int32_t> unprotectedInstanceCount_ {};

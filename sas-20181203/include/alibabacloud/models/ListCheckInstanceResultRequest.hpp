@@ -128,29 +128,29 @@ namespace Models
 
 
   protected:
-    // The check item ID.
+    // The ID of the check item.
     // 
     // This parameter is required.
     shared_ptr<int64_t> checkId_ {};
-    // The page number of the current page in a paged query. This parameter is used for paging.
+    // The page number of the current page for a paging query.
     shared_ptr<int32_t> currentPage_ {};
-    // The instance ID of the check item.
+    // The instance ID for the check item.
     shared_ptr<string> instanceIdKey_ {};
-    // The collection of cloud service instance IDs to query.
+    // The instance IDs of the cloud services to query.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The instance name of the check item.
+    // The instance name for the check item.
     shared_ptr<string> instanceNameKey_ {};
-    // The language type for the request and response messages. Default value: **zh**. Valid values:
-    // - **zh**: Chinese
-    // - **en**: English
+    // The language of the request and response. Default value: **zh**. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The maximum number of entries per page in a paged query. Maximum value: 100. This parameter is used for paging.
+    // The maximum number of entries to return on each page for a paging query. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID of the instance.
     shared_ptr<string> regionIdKey_ {};
-    // The list of sort types for the check item.
+    // The sort types for the check items.
     shared_ptr<vector<string>> sortTypes_ {};
-    // The collection of check item statuses.
+    // The statuses of the check items.
     shared_ptr<vector<string>> statuses_ {};
   };
 

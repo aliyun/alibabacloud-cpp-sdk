@@ -133,29 +133,29 @@ namespace Models
 
 
     protected:
-      // The remediation suggestion for the baseline check risk item.
+      // The hardening suggestions for the baseline check risk items.
       shared_ptr<string> advice_ {};
-      // The alias of the baseline classification.
+      // The alias of the baseline main item category.
       shared_ptr<string> baselineClassAlias_ {};
       // The alias of the baseline sub-item.
       shared_ptr<string> baselineItemAlias_ {};
       // The key of the baseline sub-item.
       shared_ptr<string> baselineItemKey_ {};
-      // The alias of the baseline name.
+      // The alias of the baseline main item name.
       shared_ptr<string> baselineNameAlias_ {};
       // The description of the baseline risk item.
       shared_ptr<string> description_ {};
       // The risk level of the check item. Valid values:
       // 
-      // - **high**: High risk level.
+      // - **high**: High. Indicates a high risk level.
       // 
-      // - **medium**: Medium risk level.
+      // - **medium**: Medium. Indicates a medium risk level.
       // 
-      // - **low**: Low risk level.
+      // - **low**: Low. Indicates a low risk level.
       shared_ptr<string> level_ {};
-      // The baseline issue prompt.
+      // The prompt for the baseline issue.
       shared_ptr<string> prompt_ {};
-      // The asynchronous request ID.
+      // The ID of the asynchronous request.
       shared_ptr<string> resultId_ {};
     };
 
@@ -178,7 +178,7 @@ namespace Models
 
 
   protected:
-    // The image baseline details.
+    // The list of image baseline details.
     shared_ptr<DescribeImageBaselineDetailResponseBody::BaselineDetail> baselineDetail_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

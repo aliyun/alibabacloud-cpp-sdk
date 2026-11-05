@@ -87,11 +87,11 @@ namespace Models
 
 
     protected:
-      // The cloud asset instance ID.
+      // The instance ID of the cloud asset.
       shared_ptr<string> instanceId_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The asset vendor. Valid values:
+      // The vendor of the asset. Valid values:
       // 
       // - **ALIYUN**: Alibaba Cloud
       shared_ptr<string> vendor_ {};
@@ -144,25 +144,29 @@ namespace Models
 
 
   protected:
-    // The check item ID.
-    // > Call the [ListCheckResult](~~ListCheckResult~~) operation to obtain this parameter.
-    // This parameter is required. If you do not specify this parameter, the API returns a 400 error.
+    // The ID of the check item.
+    // > Call the [ListCheckResult](~~ListCheckResult~~) operation to retrieve this parameter.
+    // This parameter is required. If this parameter is not provided, the operation returns the CspmParamIllegal (invalid parameter) error.
     shared_ptr<int64_t> checkId_ {};
-    // The timestamp of the task end time to query. Unit: milliseconds.
+    // The timestamp of the end time of the queried task. Unit: milliseconds.
     shared_ptr<int64_t> endTime_ {};
     // The language of the request and response. Default value: zh. Valid values:
     // - **zh**: Chinese
     // - **en**: English
     shared_ptr<string> lang_ {};
-    // The information about the instances on which the operation is performed.
+    // The information about the instances to be operated.
+    // 
+    // > The information about each instance must include Vendor, RegionId, and InstanceId. You must provide at least one instance. If no instance is provided or the value is empty, the operation returns the CspmParamIllegal (invalid parameter) error.
     // 
     // This parameter is required.
     shared_ptr<vector<ListOperationCheckRequest::OperationTaskInstances>> operationTaskInstances_ {};
-    // The timestamp of the task start time to query. Unit: milliseconds.
+    // The timestamp of the start time of the queried task. Unit: milliseconds.
     shared_ptr<int64_t> startTime_ {};
-    // The task type. Valid values:
-    // - **REPAIR**: fix task
+    // The type of the task. Valid values:
+    // - **REPAIR**: repair task
     // - **ROLLBACK**: rollback task
+    // 
+    // > If the value is invalid, the default value REPAIR is used.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

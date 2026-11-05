@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(EdrModuleSwitch, edrModuleSwitch_);
+      DARABONBA_PTR_TO_JSON(FreeTrial, freeTrial_);
       DARABONBA_PTR_TO_JSON(PostPaidHostAutoBind, postPaidHostAutoBind_);
       DARABONBA_PTR_TO_JSON(PostPaidHostAutoBindVersion, postPaidHostAutoBindVersion_);
       DARABONBA_PTR_TO_JSON(PostPayInstanceId, postPayInstanceId_);
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(EdrModuleSwitch, edrModuleSwitch_);
+      DARABONBA_PTR_FROM_JSON(FreeTrial, freeTrial_);
       DARABONBA_PTR_FROM_JSON(PostPaidHostAutoBind, postPaidHostAutoBind_);
       DARABONBA_PTR_FROM_JSON(PostPaidHostAutoBindVersion, postPaidHostAutoBindVersion_);
       DARABONBA_PTR_FROM_JSON(PostPayInstanceId, postPayInstanceId_);
@@ -196,13 +198,13 @@ namespace Models
       // - **0**: disabled
       // - **1**: enabled
       // 
-      // >Notice: The switch for the basic service module cannot be manually modified. This module is enabled when any other module is enabled, and disabled when all other modules are disabled.</notice>
+      // >Notice: You cannot manually modify the switch of the basic service module. If any other module is in the enabling status, this module is in the enabling status. If all other modules are in shutdown, this module is in shutdown.
       shared_ptr<int32_t> basicService_ {};
-      // The Cloud Security Posture Management module. Valid values:
+      // The cloud security configuration check module. Valid values:
       // - **0**: disabled
       // - **1**: enabled
       shared_ptr<int32_t> cspm_ {};
-      // The Cloud Threat Detection and Response module. Valid values:
+      // The Cloud Threat Detection and Response (CTDR) module. Valid values:
       // - **0**: disabled
       // - **1**: enabled
       shared_ptr<int32_t> ctdr_ {};
@@ -226,7 +228,7 @@ namespace Models
       // - **0**: disabled
       // - **1**: enabled
       shared_ptr<int32_t> serverless_ {};
-      // The vulnerability fixing module. Valid values:
+      // The vulnerability remediation module. Valid values:
       // - **0**: disabled
       // - **1**: enabled
       shared_ptr<int32_t> vul_ {};
@@ -274,15 +276,17 @@ namespace Models
 
 
     protected:
-      // Specifies whether to enable automatic binding of new assets to the EDR module. Valid values: 0: disabled. 1: enabled.
+      // Specifies whether to enable automatic binding of new assets to EDR. Valid values:
+      // - **0**: disabled
+      // - **1**: enabled
       shared_ptr<int32_t> autoBind_ {};
       // The authorized quota for EDR hosts.
       shared_ptr<int64_t> EDR_HOST_USAGE_ {};
     };
 
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && this->dryRun_ == nullptr && this->edrModuleSwitch_ == nullptr && this->postPaidHostAutoBind_ == nullptr && this->postPaidHostAutoBindVersion_ == nullptr && this->postPayInstanceId_ == nullptr
-        && this->postPayModuleSwitch_ == nullptr && this->postPayModuleSwitchObj_ == nullptr; };
+        && this->dryRun_ == nullptr && this->edrModuleSwitch_ == nullptr && this->freeTrial_ == nullptr && this->postPaidHostAutoBind_ == nullptr && this->postPaidHostAutoBindVersion_ == nullptr
+        && this->postPayInstanceId_ == nullptr && this->postPayModuleSwitch_ == nullptr && this->postPayModuleSwitchObj_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -304,6 +308,13 @@ namespace Models
     inline ModifyPostPayModuleSwitchRequest::EdrModuleSwitch getEdrModuleSwitch() { DARABONBA_PTR_GET(edrModuleSwitch_, ModifyPostPayModuleSwitchRequest::EdrModuleSwitch) };
     inline ModifyPostPayModuleSwitchRequest& setEdrModuleSwitch(const ModifyPostPayModuleSwitchRequest::EdrModuleSwitch & edrModuleSwitch) { DARABONBA_PTR_SET_VALUE(edrModuleSwitch_, edrModuleSwitch) };
     inline ModifyPostPayModuleSwitchRequest& setEdrModuleSwitch(ModifyPostPayModuleSwitchRequest::EdrModuleSwitch && edrModuleSwitch) { DARABONBA_PTR_SET_RVALUE(edrModuleSwitch_, edrModuleSwitch) };
+
+
+    // freeTrial Field Functions 
+    bool hasFreeTrial() const { return this->freeTrial_ != nullptr;};
+    void deleteFreeTrial() { this->freeTrial_ = nullptr;};
+    inline bool getFreeTrial() const { DARABONBA_PTR_GET_DEFAULT(freeTrial_, false) };
+    inline ModifyPostPayModuleSwitchRequest& setFreeTrial(bool freeTrial) { DARABONBA_PTR_SET_VALUE(freeTrial_, freeTrial) };
 
 
     // postPaidHostAutoBind Field Functions 
@@ -346,12 +357,14 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request. You can use different tokens for different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to only precheck the request. Valid values:
-    // - true: Only prechecks the request and does not perform the actual operation.
-    // - false: Performs the actual operation.
+    // Specifies whether to perform a dry run on the request. Valid values:
+    // - **true**: Performs a dry run only and does not perform the actual operation.
+    // - **false**: Performs the actual operation.
     shared_ptr<bool> dryRun_ {};
-    // The switch configuration for the EDR module.
+    // The switch configuration of the EDR module.
     shared_ptr<ModifyPostPayModuleSwitchRequest::EdrModuleSwitch> edrModuleSwitch_ {};
+    // Specifies whether to enable the free trial. Default value: false. You cannot modify this parameter.
+    shared_ptr<bool> freeTrial_ {};
     // Specifies whether to automatically bind new assets to the host and container protection feature. Valid values:
     // 
     // - **0**: disabled
@@ -368,26 +381,26 @@ namespace Models
     // 
     // > Invoke the [DescribeVersionConfig](~~DescribeVersionConfig~~) operation to obtain this parameter.
     shared_ptr<string> postPayInstanceId_ {};
-    // The switch status of the pay-as-you-go modules. The value is a JSON string. Valid values:
+    // The switch status of pay-as-you-go modules. The value is a JSON string. Valid values:
     // - Key:
-    //   - **VUL**: Vulnerability fixing module
-    //   - **CSPM**: Cloud Security Posture Management module
+    //   - **VUL**: Vulnerability remediation module
+    //   - **CSPM**: Cloud Security Posture Management (CSPM) module
     //   - **AGENTLESS**: Agentless detection module
     //   - **SERVERLESS**: Serverless security module
-    //   - **CTDR**: Cloud Threat Detection and Response module
+    //   - **CTDR**: Cloud Threat Detection and Response (CTDR) module
     //   - **POST_HOST**: Host and container security module
     //   - **SDK**: Malicious file detection SDK module
     //   - **RASP**: Application protection module
     //   - **CTDR_STORAGE**: Log management module
-    //   - **ANTI_RANSOMWARE**: Anti-ransomware management
+    //   - **ANTI_RANSOMWARE**: Anti-ransomware module
     // - Value: 0 indicates disabled, and 1 indicates enabled.
     // 
     // > The values of modules that are not specified remain unchanged.
     // 
-    // <notice>This parameter has the same meaning as the PostPayModuleSwitchObj parameter. If both parameters are specified, the value of PostPayModuleSwitch takes precedence.</notice>
+    // <notice>This parameter has the same meaning as the PostPayModuleSwitchObj parameter. If both parameters are specified, the value of PostPayModuleSwitch takes precedence.
     shared_ptr<string> postPayModuleSwitch_ {};
-    // The switch status of the pay-as-you-go modules.
-    // >Notice: This parameter has the same meaning as the PostPayModuleSwitch parameter. If both parameters are specified, the value of PostPayModuleSwitch takes precedence.</notice>
+    // The switch status of pay-as-you-go modules.
+    // >Notice: This parameter has the same meaning as the PostPayModuleSwitch parameter. If both parameters are specified, the value of PostPayModuleSwitch takes precedence.
     shared_ptr<ModifyPostPayModuleSwitchRequest::PostPayModuleSwitchObj> postPayModuleSwitchObj_ {};
   };
 

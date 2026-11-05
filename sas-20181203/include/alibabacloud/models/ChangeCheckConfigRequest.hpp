@@ -16,38 +16,50 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ChangeCheckConfigRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AddedCheck, addedCheck_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_TO_JSON(ConfigId, configId_);
       DARABONBA_PTR_TO_JSON(ConfigRequirementIds, configRequirementIds_);
       DARABONBA_PTR_TO_JSON(ConfigStandardIds, configStandardIds_);
       DARABONBA_PTR_TO_JSON(Configure, configure_);
       DARABONBA_PTR_TO_JSON(CycleDays, cycleDays_);
+      DARABONBA_PTR_TO_JSON(DaysOfMonth, daysOfMonth_);
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(EnableAddCheck, enableAddCheck_);
       DARABONBA_PTR_TO_JSON(EnableAutoCheck, enableAutoCheck_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
+      DARABONBA_PTR_TO_JSON(EndTimeSeconds, endTimeSeconds_);
+      DARABONBA_PTR_TO_JSON(Frequency, frequency_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(RemovedCheck, removedCheck_);
       DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(StandardIds, standardIds_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
+      DARABONBA_PTR_TO_JSON(StartTimeSeconds, startTimeSeconds_);
+      DARABONBA_PTR_TO_JSON(StrategyName, strategyName_);
       DARABONBA_PTR_TO_JSON(SystemConfig, systemConfig_);
       DARABONBA_PTR_TO_JSON(Vendors, vendors_);
     };
     friend void from_json(const Darabonba::Json& j, ChangeCheckConfigRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AddedCheck, addedCheck_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_FROM_JSON(ConfigId, configId_);
       DARABONBA_PTR_FROM_JSON(ConfigRequirementIds, configRequirementIds_);
       DARABONBA_PTR_FROM_JSON(ConfigStandardIds, configStandardIds_);
       DARABONBA_PTR_FROM_JSON(Configure, configure_);
       DARABONBA_PTR_FROM_JSON(CycleDays, cycleDays_);
+      DARABONBA_PTR_FROM_JSON(DaysOfMonth, daysOfMonth_);
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(EnableAddCheck, enableAddCheck_);
       DARABONBA_PTR_FROM_JSON(EnableAutoCheck, enableAutoCheck_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
+      DARABONBA_PTR_FROM_JSON(EndTimeSeconds, endTimeSeconds_);
+      DARABONBA_PTR_FROM_JSON(Frequency, frequency_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(RemovedCheck, removedCheck_);
       DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(StandardIds, standardIds_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
+      DARABONBA_PTR_FROM_JSON(StartTimeSeconds, startTimeSeconds_);
+      DARABONBA_PTR_FROM_JSON(StrategyName, strategyName_);
       DARABONBA_PTR_FROM_JSON(SystemConfig, systemConfig_);
       DARABONBA_PTR_FROM_JSON(Vendors, vendors_);
     };
@@ -102,7 +114,7 @@ namespace Models
     protected:
       // The ID of the check item.
       // 
-      // > Call the [ListCheckResult](~~ListCheckResult~~) operation to obtain check item IDs.
+      // > You can call the [ListCheckResult](~~ListCheckResult~~) operation to obtain the check item ID.
       shared_ptr<int64_t> checkId_ {};
       // The section ID of the check item.
       shared_ptr<int64_t> sectionId_ {};
@@ -150,9 +162,9 @@ namespace Models
 
 
     protected:
-      // The list of standard IDs to add to the policy.
+      // The list of standard IDs to be added to the policy.
       shared_ptr<vector<int64_t>> addIds_ {};
-      // The list of standard IDs to remove from the policy.
+      // The list of standard IDs to be removed from the policy.
       shared_ptr<vector<int64_t>> removeIds_ {};
     };
 
@@ -198,9 +210,9 @@ namespace Models
 
 
     protected:
-      // The list of requirement IDs to add to the policy.
+      // The list of regulation IDs to be added to the policy.
       shared_ptr<vector<int64_t>> addIds_ {};
-      // The list of requirement IDs to remove from the policy.
+      // The list of regulation IDs to be removed from the policy.
       shared_ptr<vector<int64_t>> removeIds_ {};
     };
 
@@ -244,17 +256,18 @@ namespace Models
     protected:
       // The ID of the check item.
       // 
-      // > Call the [ListCheckResult](~~ListCheckResult~~) operation to obtain check item IDs.
+      // > You can call the [ListCheckResult](~~ListCheckResult~~) operation to obtain the check item ID.
       shared_ptr<int64_t> checkId_ {};
       // The section ID of the check item.
       shared_ptr<int64_t> sectionId_ {};
     };
 
     virtual bool empty() const override { return this->addedCheck_ == nullptr
-        && this->clientToken_ == nullptr && this->configRequirementIds_ == nullptr && this->configStandardIds_ == nullptr && this->configure_ == nullptr && this->cycleDays_ == nullptr
-        && this->dryRun_ == nullptr && this->enableAddCheck_ == nullptr && this->enableAutoCheck_ == nullptr && this->endTime_ == nullptr && this->regionId_ == nullptr
-        && this->removedCheck_ == nullptr && this->resourceDirectoryAccountId_ == nullptr && this->standardIds_ == nullptr && this->startTime_ == nullptr && this->systemConfig_ == nullptr
-        && this->vendors_ == nullptr; };
+        && this->clientToken_ == nullptr && this->configId_ == nullptr && this->configRequirementIds_ == nullptr && this->configStandardIds_ == nullptr && this->configure_ == nullptr
+        && this->cycleDays_ == nullptr && this->daysOfMonth_ == nullptr && this->dryRun_ == nullptr && this->enableAddCheck_ == nullptr && this->enableAutoCheck_ == nullptr
+        && this->endTime_ == nullptr && this->endTimeSeconds_ == nullptr && this->frequency_ == nullptr && this->regionId_ == nullptr && this->removedCheck_ == nullptr
+        && this->resourceDirectoryAccountId_ == nullptr && this->standardIds_ == nullptr && this->startTime_ == nullptr && this->startTimeSeconds_ == nullptr && this->strategyName_ == nullptr
+        && this->systemConfig_ == nullptr && this->vendors_ == nullptr; };
     // addedCheck Field Functions 
     bool hasAddedCheck() const { return this->addedCheck_ != nullptr;};
     void deleteAddedCheck() { this->addedCheck_ = nullptr;};
@@ -269,6 +282,13 @@ namespace Models
     void deleteClientToken() { this->clientToken_ = nullptr;};
     inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline ChangeCheckConfigRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
+    // configId Field Functions 
+    bool hasConfigId() const { return this->configId_ != nullptr;};
+    void deleteConfigId() { this->configId_ = nullptr;};
+    inline string getConfigId() const { DARABONBA_PTR_GET_DEFAULT(configId_, "") };
+    inline ChangeCheckConfigRequest& setConfigId(string configId) { DARABONBA_PTR_SET_VALUE(configId_, configId) };
 
 
     // configRequirementIds Field Functions 
@@ -305,6 +325,15 @@ namespace Models
     inline ChangeCheckConfigRequest& setCycleDays(vector<int32_t> && cycleDays) { DARABONBA_PTR_SET_RVALUE(cycleDays_, cycleDays) };
 
 
+    // daysOfMonth Field Functions 
+    bool hasDaysOfMonth() const { return this->daysOfMonth_ != nullptr;};
+    void deleteDaysOfMonth() { this->daysOfMonth_ = nullptr;};
+    inline const vector<int32_t> & getDaysOfMonth() const { DARABONBA_PTR_GET_CONST(daysOfMonth_, vector<int32_t>) };
+    inline vector<int32_t> getDaysOfMonth() { DARABONBA_PTR_GET(daysOfMonth_, vector<int32_t>) };
+    inline ChangeCheckConfigRequest& setDaysOfMonth(const vector<int32_t> & daysOfMonth) { DARABONBA_PTR_SET_VALUE(daysOfMonth_, daysOfMonth) };
+    inline ChangeCheckConfigRequest& setDaysOfMonth(vector<int32_t> && daysOfMonth) { DARABONBA_PTR_SET_RVALUE(daysOfMonth_, daysOfMonth) };
+
+
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
@@ -331,6 +360,20 @@ namespace Models
     void deleteEndTime() { this->endTime_ = nullptr;};
     inline int32_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0) };
     inline ChangeCheckConfigRequest& setEndTime(int32_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
+    // endTimeSeconds Field Functions 
+    bool hasEndTimeSeconds() const { return this->endTimeSeconds_ != nullptr;};
+    void deleteEndTimeSeconds() { this->endTimeSeconds_ = nullptr;};
+    inline int32_t getEndTimeSeconds() const { DARABONBA_PTR_GET_DEFAULT(endTimeSeconds_, 0) };
+    inline ChangeCheckConfigRequest& setEndTimeSeconds(int32_t endTimeSeconds) { DARABONBA_PTR_SET_VALUE(endTimeSeconds_, endTimeSeconds) };
+
+
+    // frequency Field Functions 
+    bool hasFrequency() const { return this->frequency_ != nullptr;};
+    void deleteFrequency() { this->frequency_ = nullptr;};
+    inline string getFrequency() const { DARABONBA_PTR_GET_DEFAULT(frequency_, "") };
+    inline ChangeCheckConfigRequest& setFrequency(string frequency) { DARABONBA_PTR_SET_VALUE(frequency_, frequency) };
 
 
     // regionId Field Functions 
@@ -372,6 +415,20 @@ namespace Models
     inline ChangeCheckConfigRequest& setStartTime(int32_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
+    // startTimeSeconds Field Functions 
+    bool hasStartTimeSeconds() const { return this->startTimeSeconds_ != nullptr;};
+    void deleteStartTimeSeconds() { this->startTimeSeconds_ = nullptr;};
+    inline int32_t getStartTimeSeconds() const { DARABONBA_PTR_GET_DEFAULT(startTimeSeconds_, 0) };
+    inline ChangeCheckConfigRequest& setStartTimeSeconds(int32_t startTimeSeconds) { DARABONBA_PTR_SET_VALUE(startTimeSeconds_, startTimeSeconds) };
+
+
+    // strategyName Field Functions 
+    bool hasStrategyName() const { return this->strategyName_ != nullptr;};
+    void deleteStrategyName() { this->strategyName_ = nullptr;};
+    inline string getStrategyName() const { DARABONBA_PTR_GET_DEFAULT(strategyName_, "") };
+    inline ChangeCheckConfigRequest& setStrategyName(string strategyName) { DARABONBA_PTR_SET_VALUE(strategyName_, strategyName) };
+
+
     // systemConfig Field Functions 
     bool hasSystemConfig() const { return this->systemConfig_ != nullptr;};
     void deleteSystemConfig() { this->systemConfig_ = nullptr;};
@@ -389,69 +446,92 @@ namespace Models
 
 
   protected:
-    // The list of check items to add to the policy.
-    // <notice> If the ConfigStandardIds or ConfigRequirementIds parameter is specified, this parameter does not take effect.
+    // The list of check items to be added to the policy.
+    // <notice> If the ConfigStandardIds or ConfigRequirementIds parameter is configured, this parameter does not take effect. </notice>
     shared_ptr<vector<ChangeCheckConfigRequest::AddedCheck>> addedCheck_ {};
-    // The client token that is used to ensure the idempotence of the request. Use a different token for each request. Only ASCII characters are supported. The token can be up to 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. Different requests must use different tokens. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // Configures the check policy by specifying requirement IDs.
+    // The policy ID.
+    shared_ptr<string> configId_ {};
+    // Configures the check policy by using the IDs of the specified regulations.
     // 
-    // > Call the [ListCheckResult](~~ListCheckResult~~) operation to obtain requirement IDs. If the ConfigStandardIds parameter is specified, this parameter does not take effect.
+    // > You can call the [ListCheckResult](~~ListCheckResult~~) operation to obtain the regulation IDs. If the ConfigStandardIds parameter is configured, this parameter does not take effect.
     shared_ptr<ChangeCheckConfigRequest::ConfigRequirementIds> configRequirementIds_ {};
-    // Configures the check policy by specifying standard IDs.
+    // Configures the check policy by using the IDs of the specified standards.
     // 
-    // > Call the [ListCheckResult](~~ListCheckResult~~) operation to obtain standard IDs.
+    // > You can call the [ListCheckResult](~~ListCheckResult~~) operation to obtain the standard IDs.
     shared_ptr<ChangeCheckConfigRequest::ConfigStandardIds> configStandardIds_ {};
     // The field configuration. Valid values:
     // 
-    // - **all**: adds all check items.
+    // - **all**: Adds all check items.
     shared_ptr<string> configure_ {};
-    // The periodic check schedule.
+    // The periodic check time.
     shared_ptr<vector<int32_t>> cycleDays_ {};
-    // Specifies whether to perform only a dry run, without performing the actual request. Valid values: true: performs only a dry run without performing the actual operation. false: performs the actual request. Default value: false.
-    shared_ptr<bool> dryRun_ {};
-    // Specifies whether to automatically check newly added check items in the selected requirements. Valid values:
+    // The list of days of the month when the policy cycle is monthly.
+    shared_ptr<vector<int32_t>> daysOfMonth_ {};
+    // Specifies whether to only precheck the request. Valid values:
     // 
-    // - **true:** Enabled.
-    // - **false:** Disabled.
+    // - true: Only checks the request without performing the actual operation.
+    // - false: Executes the request normally.
+    // 
+    // Default value: false.
+    shared_ptr<bool> dryRun_ {};
+    // Specifies whether to check new check items by default when new check items are added to the selected regulations. Valid values:
+    // 
+    // - **true**: Enabled.
+    // - **false**: Disabled.
     shared_ptr<bool> enableAddCheck_ {};
     // Specifies whether to enable automatic periodic checks. Valid values:
     // 
-    // - **true:** Enabled.
-    // - **false:** Disabled.
+    // - **true**: Enabled.
+    // - **false**: Disabled.
     shared_ptr<bool> enableAutoCheck_ {};
-    // The end hour of the check time window, indicating the hour of the day. The start time and end time must fall within one of the following time ranges. Valid values: 6, 12, 18, and 24.
+    // The end time of the check time period, which indicates the hour of the day. The start time and end time must be selected from the following time intervals. Valid values: 6, 12, 18, and 24.
     // 
     // - **0~6**: If the start time is 0, the end time must be set to 6 on the same day.
     // - **6~12**: If the start time is 6, the end time must be set to 12 on the same day.
     // - **12~18**: If the start time is 12, the end time must be set to 18 on the same day.
     // - **18~24**: If the start time is 18, the end time must be set to 24 on the same day.
     shared_ptr<int32_t> endTime_ {};
+    // The end time of the check, in seconds from 00:00:00 of the current day. Valid values: 1 to 86400, where 86400 indicates 00:00:00 of the next day. This parameter is optional. If this parameter is not provided, the current value of the policy is retained. This parameter must be paired with StartTimeSeconds. If only one of them is provided, the system returns IllegalParam (paramName=scheduleTime). If both this parameter and StartTime/EndTime are provided, the second-level parameters take precedence, and the hour-level parameters are ignored. The time window span must not be less than 60 seconds. This parameter is not accepted for the system default policy (ConfigId=default) and will be rejected if provided.
+    shared_ptr<int32_t> endTimeSeconds_ {};
+    // The frequency type. Valid values:
+    // 
+    // - DAILY: Daily.
+    // - WEEKLY: Weekly.
+    // - MONTHLY: Monthly.
+    // - 6HOURLY: Every 6 hours.
+    shared_ptr<string> frequency_ {};
     // The region of the Security Center instance. Valid values:
     // 
-    // - **cn-hangzhou:** China
-    // - **ap-southeast-1:** Singapore
+    // - **cn-hangzhou**: Center
+    // - **ap-southeast-1**: Singapore
     shared_ptr<string> regionId_ {};
-    // The list of check items to remove from the policy.
-    // <notice> If the ConfigStandardIds or ConfigRequirementIds parameter is specified, this parameter does not take effect.
+    // The list of check items to be removed from the policy.
+    // <notice> If the ConfigStandardIds or ConfigRequirementIds parameter is configured, this parameter does not take effect. </notice>
     shared_ptr<vector<ChangeCheckConfigRequest::RemovedCheck>> removedCheck_ {};
-    // The ID of the member account in the resource directory (Alibaba Cloud account).
-    // >Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+    // The ID of the member accounts in the resource folder, which is an Alibaba Cloud account ID.
+    // > You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
-    // This parameter is deprecated and does not need to be specified.
+    // This parameter is deprecated and can be ignored.
     shared_ptr<vector<int64_t>> standardIds_ {};
-    // The start hour of the check time window, indicating the hour of the day. The start time and end time must fall within one of the following time ranges. Valid values: 0, 6, 12, and 18.
+    // The start time of the check time period, which indicates the hour of the day. The start time and end time must be selected from the following time intervals. Valid values: 0, 6, 12, and 18.
     // 
     // - **0~6**: If the start time is 0, the end time must be set to 6 on the same day.
     // - **6~12**: If the start time is 6, the end time must be set to 12 on the same day.
     // - **12~18**: If the start time is 12, the end time must be set to 18 on the same day.
     // - **18~24**: If the start time is 18, the end time must be set to 24 on the same day.
     shared_ptr<int32_t> startTime_ {};
-    // Specifies whether to use the system-generated configuration. Valid values:
+    // The start time of the check, in seconds from 00:00:00 of the current day. Valid values: 0 to 86399, which correspond to 00:00:00 to 23:59:59. This parameter is optional. If this parameter is not provided, the current value of the policy is retained. This parameter must be paired with EndTimeSeconds. If only one of them is provided, the system returns IllegalParam (paramName=scheduleTime). If both this parameter and StartTime/EndTime are provided, the second-level parameters take precedence, and the hour-level parameters are ignored. If the two sets of parameters are inconsistent, the server records a WARN log. The time window span must not be less than 60 seconds. The frequency of the system default policy (ConfigId=default) is always 6HOURLY. This parameter is not accepted for the default policy and will be rejected if provided. Under a multi-policy frequency, the actual scan execution time is exactly the second specified by this parameter.
+    shared_ptr<int32_t> startTimeSeconds_ {};
+    // The policy name.
+    shared_ptr<string> strategyName_ {};
+    // Specifies whether to use the automatically generated system configuration. Valid values:
+    // 
     // - **true**: Yes.
     // - **false**: No.
     shared_ptr<bool> systemConfig_ {};
-    // The list of cloud service providers.
+    // The list of cloud providers.
     shared_ptr<vector<string>> vendors_ {};
   };
 

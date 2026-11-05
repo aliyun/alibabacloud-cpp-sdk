@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The Alibaba Cloud account ID that uses the Security Center service.  
+    // The Alibaba Cloud account ID that uses Security Center.  
     // > Invoke the [GetUser](https://help.aliyun.com/document_detail/28681.html) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The source IP address.

@@ -96,30 +96,31 @@ namespace Models
   protected:
     // The query type of the element to query. Valid values:
     // 
+    // - **NODE**: node information.
     // - **EDGE**: connection information.
     // 
-    // This parameter is required. If this parameter is not specified, the service returns error code -101.
+    // > This parameter is required. If this parameter is not provided, the API returns HTTP 400 with the error code -101.
     shared_ptr<string> criteriaType_ {};
-    // The page number of the page to return in a paginated query. Default value: **1**, which indicates the first page.
+    // The number of the page to return. Default value: **1**.
     shared_ptr<int64_t> currentPage_ {};
     // The destination node information, which is used to filter destination nodes.
     // 
-    // This parameter is required. If this parameter is not specified, the service returns error code -101.
+    // > Both **SrcNode** and **DstNode** are required. If either parameter is not provided, the API returns HTTP 400 with the error code -101.
     shared_ptr<string> dstNodeShrink_ {};
-    // The end time of the network connectivity. Specify a UNIX timestamp in milliseconds.
+    // The end time of the network connectivity. The value is a UNIX timestamp in milliseconds.
     // 
-    // This parameter is required. If this parameter is not specified, the service returns error code -101.
+    // > Both **StartTime** and **EndTime** are required, and **StartTime** must be earlier than **EndTime**. The interval between the two cannot exceed 7 days. If either parameter is not provided or the requirements are not met, the API returns HTTP 400 with the error code -101.
     shared_ptr<int64_t> endTime_ {};
-    // The maximum number of entries per page when paging is used. Default value: 20. If this parameter is left empty, 20 entries are returned.
-    // > Do not leave PageSize empty.
+    // The maximum number of entries to return on each page in a paged query. Default value: 20. If this parameter is left empty, 20 entries are returned by default.
+    // > Do not leave this parameter empty.
     shared_ptr<int64_t> pageSize_ {};
     // The source node information, which is used to filter source nodes.
     // 
-    // This parameter is required. If this parameter is not specified, the service returns error code -101.
+    // > Both **SrcNode** and **DstNode** are required. If either parameter is not provided, the API returns HTTP 400 with the error code -101.
     shared_ptr<string> srcNodeShrink_ {};
-    // The start time of the network connectivity. Specify a UNIX timestamp in milliseconds.
+    // The start time of the network connectivity. The value is a UNIX timestamp in milliseconds.
     // 
-    // This parameter is required. If this parameter is not specified, the service returns error code -101.
+    // > Both **StartTime** and **EndTime** are required, and **StartTime** must be earlier than **EndTime**. The interval between the two cannot exceed 7 days. If either parameter is not provided or the requirements are not met, the API returns HTTP 400 with the error code -101.
     shared_ptr<int64_t> startTime_ {};
   };
 

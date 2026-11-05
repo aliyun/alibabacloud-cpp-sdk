@@ -48,16 +48,16 @@ namespace Models
 
 
   protected:
-    // The source IP address of the request.
+    // The source IP address.
     shared_ptr<string> sourceIp_ {};
-    // The type of the feature. Valid values:
+    // The switch type. Valid values:
     // 
-    // *   **auto_breaking**: Anti-Virus
-    // *   **ransomware_breaking**: Anti-ransomware (Bait Capture)
-    // *   **webshell_cloud_breaking**: Webshell Protection
-    // *   **alinet**: Behavior prevention
-    // *   **k8s_log_analysis**: K8s Threat Detection
-    // *   **alisecguard**: Defense mode for Client Protection
+    // - **auto_breaking**: anti-virus
+    // - **ransomware_breaking**: anti-ransomware (decoy capture)
+    // - **webshell_cloud_breaking**: web shell connection defense
+    // - **alinet**: malicious network behavior defense
+    // - **k8s_log_analysis**: container Kubernetes threat detection
+    // - **alisecguard**: client self-protection mode
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

@@ -57,17 +57,17 @@ namespace Models
 
 
   protected:
-    // The ID of the container anti-escape rule. You can call [ListAegisContainerPluginRule](~~ListAegisContainerPluginRule~~) to obtain the ID. This parameter is required. If this parameter is not specified, the API returns HTTP 400 with error code -101.
+    // The ID of the container escape prevention rule. You can call the [ListAegisContainerPluginRule](~~ListAegisContainerPluginRule~~) operation to obtain the ID. This parameter is required. If this parameter is not specified, the API returns HTTP 400 and the error code -101.
     shared_ptr<string> id_ {};
-    // The language type for the request and response messages. Default value: **zh**. Valid values:
+    // Specifies the language of the request and response. Default value: **zh**. Valid values:
     // 
     // 
     // - **zh**: Chinese
     // - **en**: English
     shared_ptr<string> lang_ {};
     // The rule type. Valid values:
-    // - **0**: user-defined
-    // - **1**: system built-in
+    // - **0**: Custom
+    // - **1**: Built-in
     shared_ptr<int32_t> ruleType_ {};
   };
 

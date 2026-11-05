@@ -77,36 +77,39 @@ namespace Models
   protected:
     // The business type of the asset selection. Valid values:
     // 
-    // - **VIRUS_SCAN_CYCLE_CONFIG**: trojan scan configuration.
-    // - **VIRUS_SCAN_ONCE_TASK**: trojan scan one-time scan.
-    // - **AGENTLESS_MALICIOUS_WHITE_LIST_[ID]**: agentless detection alert whitelisting rule.
-    // - **AGENTLESS_VUL_WHITE_LIST_[ID]**: agentless detection vulnerability whitelisting rule.
-    // - **FILE_PROTECT_RULE_SWITCH_TYPE_[ID]**: core file protection.
+    // - **VIRUS_SCAN_CYCLE_CONFIG**: Virus scan configuration.
+    // - **VIRUS_SCAN_ONCE_TASK**: One-time virus scan.
+    // - **AGENTLESS_MALICIOUS_WHITE_LIST_[ID]**: Whitelist rule for agentless detection alerts.
+    // - **AGENTLESS_VUL_WHITE_LIST_[ID]**: Whitelist rule for agentless detection vulnerabilities.
+    // - **FILE_PROTECT_RULE_SWITCH_TYPE_[ID]**: Core file protection.
     // 
     // This parameter is required.
     shared_ptr<string> businessType_ {};
-    // The client token that is used to ensure the idempotence of the request. Use a different token for each request. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. You can use different tokens for different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to perform only a dry run, without performing the actual request. Valid values: true: performs only a dry run without performing the actual operation. false: performs the actual request. Default value: false.
+    // Specifies whether to only precheck the request. Valid values:
+    // - true: Prechecks the request without performing the actual operation.
+    // - false: Performs the request.
+    // Default value: false.
     shared_ptr<bool> dryRun_ {};
     // The operating system of the target asset. Valid values:
     // 
-    // - **all**: all operating systems.
+    // - **all**: All operating systems.
     // - **windows**: Windows operating system.
     // - **linux**: Linux operating system.
-    // > If this parameter is left empty, the default value is determined based on the **BusinessType** value.
-    // >- **VIRUS_SCAN_CYCLE_CONFIG**: the value is **all**.
-    // >- **VIRUS_SCAN_ONCE_TASK**: the value is **all**.
-    // >- **AGENTLESS_MALICIOUS_WHITE_LIST_[ID]**: the value is **all**.
-    // >- **AGENTLESS_VUL_WHITE_LIST_[ID]**: the value is **all**.
-    // >- **FILE_PROTECT_RULE_SWITCH_TYPE_[ID]**: the value is **linux**.
+    // > If this parameter is left empty, the default value is matched based on the **BusinessType** value.
+    // > - **VIRUS_SCAN_CYCLE_CONFIG**: The value is **all**.
+    // > - **VIRUS_SCAN_ONCE_TASK**: The value is **all**.
+    // > - **AGENTLESS_MALICIOUS_WHITE_LIST_[ID]**: The value is **all**.
+    // > - **AGENTLESS_VUL_WHITE_LIST_[ID]**: The value is **all**.
+    // > - **FILE_PROTECT_RULE_SWITCH_TYPE_[ID]**: The value is **linux**.
     shared_ptr<string> platform_ {};
-    // The Asset Type of the target. Valid values:
+    // The target Asset Type. Valid values:
     // 
-    // - **all_instance**: all servers.
-    // - **instance**: selected by server.
-    // - **group**: selected by group.
-    // - **vpc**: selected by VPC.
+    // - **all_instance**: All servers.
+    // - **instance**: By server.
+    // - **group**: By group.
+    // - **vpc**: By VPC.
     // 
     // This parameter is required.
     shared_ptr<string> targetType_ {};

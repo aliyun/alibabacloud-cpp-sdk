@@ -85,38 +85,38 @@ namespace Models
 
   protected:
     // The target type of the image switch. Valid values:
-    // - **repoName**: repository name.
-    // - **repoNamespace**: repository namespace name.
+    // - **repoName**: The name of the repository.
+    // - **repoNamespace**: The namespace of the repository.
     shared_ptr<string> fieldName_ {};
-    // The repository name or repository namespace name.
+    // The name of the repository or the namespace of the repository.
     shared_ptr<string> fieldValue_ {};
     // The IP address of the access source.
     shared_ptr<string> sourceIp_ {};
-    // The parameters for configuring proactive defense on servers. The following parameters are included:
+    // The parameters for configuring proactive defense for servers, including the following parameters:
     // 
-    // - **targetType**: the dimension of the defense configuration. Currently, only the UUID dimension is supported. Fixed value: **uuid**.
-    // - **target**: the UUID of the server for which you want to configure proactive defense.
-    // - **flag**: specifies whether to enable or disable proactive defense for the server. Valid values: **add** (enable) and **del** (disable).
+    // - **targetType**: The dimension of the defense configuration. Currently, only the UUID dimension is supported. Set the value to **uuid**.
+    // - **target**: The UUID of the server for which you want to configure the defense settings.
+    // - **flag**: Specifies whether to enable or disable proactive defense for the server. Valid values: **add** (enable) and **del** (disable).
     // 
     // This parameter is required.
     shared_ptr<string> targetOperations_ {};
-    // The Asset Type of the target. Valid values:
-    // - **uuid**: server UUID.
-    // - **Cluster**: cluster ID.
-    // - **image_repo**: image repository name.
+    // The target Asset Type. Valid values:
+    // - **uuid**: The UUID of the server.
+    // - **Cluster**: The ID of the cluster.
+    // - **image_repo**: The name of the image repository.
     shared_ptr<string> targetType_ {};
     // The switch type. Valid values:
-    // - **alidetect-scan-enable**: local file detection that performs detection only locally.
+    // - **alidetect-scan-enable**: Local file detection is performed only locally.
     // - **ACTION-TRIAL-PERMISSION**: ActionTrail data delivery.
-    // - **alidetect**: local file detection engine.
-    // - **container_prevent_escape**: container escape prevention.
-    // - **image_repo**: repository image scanning.
-    // - **proc_filter_switch**: log filtering.
-    // - **agentless**: agentless detection.
-    // - **rasp**: application protection.
-    // - **sensitiveFile**: sensitive information scanning.
-    // - **aliscriptengine**: deep detection engine.
-    // - **containerNetwork**: container visualization.
+    // - **alidetect**: Local file detection engine.
+    // - **container_prevent_escape**: Container escape prevention.
+    // - **image_repo**: Repository image scanning.
+    // - **proc_filter_switch**: Log filtering.
+    // - **agentless**: Agentless detection.
+    // - **rasp**: Application defense.
+    // - **sensitiveFile**: Sensitive information scanning.
+    // - **aliscriptengine**: Deep detection engine.
+    // - **containerNetwork**: Container visualization.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

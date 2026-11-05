@@ -2,11 +2,13 @@
 #include <alibabacloud/Sas20181203.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using namespace AlibabaCloud::OpenApi::Models;
 using namespace AlibabaCloud::Sas20181203::Models;
@@ -18,6 +20,9 @@ namespace Sas20181203
 {
 
 AlibabaCloud::Sas20181203::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "Sas";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   this->_endpointMap = json({
     {"cn-qingdao" , "tds.cn-shanghai.aliyuncs.com"},
@@ -198,7 +203,7 @@ AddBaselineCheckWhiteRecordResponse Client::addBaselineCheckWhiteRecord(const Ad
 }
 
 /**
- * @summary Adds instances to the whitelist at the instance level for a specific check item in cloud platform configuration checks.
+ * @summary Adds instances to the whitelist for a check item in cloud platform configuration checks.
  *
  * @param request AddCheckInstanceResultWhiteListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -257,7 +262,7 @@ AddCheckInstanceResultWhiteListResponse Client::addCheckInstanceResultWhiteListW
 }
 
 /**
- * @summary Adds instances to the whitelist at the instance level for a specific check item in cloud platform configuration checks.
+ * @summary Adds instances to the whitelist for a check item in cloud platform configuration checks.
  *
  * @param request AddCheckInstanceResultWhiteListRequest
  * @return AddCheckInstanceResultWhiteListResponse
@@ -440,7 +445,7 @@ AddClientUserDefineRuleResponse Client::addClientUserDefineRule(const AddClientU
 }
 
 /**
- * @summary Creates multi-cloud asset configuration information.
+ * @summary Adds multi-cloud asset configuration information.
  *
  * @param request AddCloudVendorAccountAKRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -501,6 +506,10 @@ AddCloudVendorAccountAKResponse Client::addCloudVendorAccountAKWithOptions(const
     query["VendorAuthAlias"] = request.getVendorAuthAlias();
   }
 
+  if (!!request.hasVendorUserName()) {
+    query["VendorUserName"] = request.getVendorUserName();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -519,7 +528,7 @@ AddCloudVendorAccountAKResponse Client::addCloudVendorAccountAKWithOptions(const
 }
 
 /**
- * @summary Creates multi-cloud asset configuration information.
+ * @summary Adds multi-cloud asset configuration information.
  *
  * @param request AddCloudVendorAccountAKRequest
  * @return AddCloudVendorAccountAKResponse
@@ -1998,6 +2007,8 @@ ChangeAssetRefreshTaskConfigResponse Client::changeAssetRefreshTaskConfig(const 
 /**
  * @summary Modifies the configuration items for cloud platform configuration checks.
  *
+ * @description Modifies the configuration of an existing check policy. This operation only modifies policies and does not create new ones. Breaking change: If any multi-policy field (such as StrategyName, Frequency, or DaysOfMonth) is provided, ConfigId is required. If ConfigId is missing, the system returns IllegalParam (paramName=configId). If ConfigId is not provided and no system default policy exists under the account, the system no longer silently creates a policy and returns success. Instead, it returns NoDefaultStrategy. In this case, use CreateCheckConfig to create a policy. If Frequency is not provided, the current value of the policy is retained. If Frequency is provided, time window parameters must also be provided. The time window supports two sets of parameters: hour-level (StartTime and EndTime) and second-level (StartTimeSeconds and EndTimeSeconds). If both sets are provided, the second-level parameters take precedence. If neither set is provided, the current value of the policy is retained. The frequency of the system default policy (ConfigId=default) is always 6HOURLY and cannot be switched. The system only accepts 6HOURLY and four on-the-hour time windows for requests to the default policy, and will deny requests with multi-policy frequencies or second-level parameters. The ConfigId in the response returns the actual ID of the modified policy. Timed scheduling will execute tasks sequentially by second within the same minute, and the concurrency is 1. During periods of high concurrency, the system may skip and not execute some policies in the current run without makeup runs on the same day. Callers that have strong consistency requirements for the time to execute should avoid peak hours.
+ *
  * @param tmpReq ChangeCheckConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ChangeCheckConfigResponse
@@ -2023,6 +2034,10 @@ ChangeCheckConfigResponse Client::changeCheckConfigWithOptions(const ChangeCheck
     query["ClientToken"] = request.getClientToken();
   }
 
+  if (!!request.hasConfigId()) {
+    query["ConfigId"] = request.getConfigId();
+  }
+
   if (!!request.hasConfigRequirementIdsShrink()) {
     query["ConfigRequirementIds"] = request.getConfigRequirementIdsShrink();
   }
@@ -2039,6 +2054,10 @@ ChangeCheckConfigResponse Client::changeCheckConfigWithOptions(const ChangeCheck
     query["CycleDays"] = request.getCycleDays();
   }
 
+  if (!!request.hasDaysOfMonth()) {
+    query["DaysOfMonth"] = request.getDaysOfMonth();
+  }
+
   if (!!request.hasDryRun()) {
     query["DryRun"] = request.getDryRun();
   }
@@ -2053,6 +2072,14 @@ ChangeCheckConfigResponse Client::changeCheckConfigWithOptions(const ChangeCheck
 
   if (!!request.hasEndTime()) {
     query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasEndTimeSeconds()) {
+    query["EndTimeSeconds"] = request.getEndTimeSeconds();
+  }
+
+  if (!!request.hasFrequency()) {
+    query["Frequency"] = request.getFrequency();
   }
 
   if (!!request.hasRegionId()) {
@@ -2073,6 +2100,14 @@ ChangeCheckConfigResponse Client::changeCheckConfigWithOptions(const ChangeCheck
 
   if (!!request.hasStartTime()) {
     query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasStartTimeSeconds()) {
+    query["StartTimeSeconds"] = request.getStartTimeSeconds();
+  }
+
+  if (!!request.hasStrategyName()) {
+    query["StrategyName"] = request.getStrategyName();
   }
 
   if (!!request.hasSystemConfig()) {
@@ -2102,6 +2137,8 @@ ChangeCheckConfigResponse Client::changeCheckConfigWithOptions(const ChangeCheck
 
 /**
  * @summary Modifies the configuration items for cloud platform configuration checks.
+ *
+ * @description Modifies the configuration of an existing check policy. This operation only modifies policies and does not create new ones. Breaking change: If any multi-policy field (such as StrategyName, Frequency, or DaysOfMonth) is provided, ConfigId is required. If ConfigId is missing, the system returns IllegalParam (paramName=configId). If ConfigId is not provided and no system default policy exists under the account, the system no longer silently creates a policy and returns success. Instead, it returns NoDefaultStrategy. In this case, use CreateCheckConfig to create a policy. If Frequency is not provided, the current value of the policy is retained. If Frequency is provided, time window parameters must also be provided. The time window supports two sets of parameters: hour-level (StartTime and EndTime) and second-level (StartTimeSeconds and EndTimeSeconds). If both sets are provided, the second-level parameters take precedence. If neither set is provided, the current value of the policy is retained. The frequency of the system default policy (ConfigId=default) is always 6HOURLY and cannot be switched. The system only accepts 6HOURLY and four on-the-hour time windows for requests to the default policy, and will deny requests with multi-policy frequencies or second-level parameters. The ConfigId in the response returns the actual ID of the modified policy. Timed scheduling will execute tasks sequentially by second within the same minute, and the concurrency is 1. During periods of high concurrency, the system may skip and not execute some policies in the current run without makeup runs on the same day. Callers that have strong consistency requirements for the time to execute should avoid peak hours.
  *
  * @param request ChangeCheckConfigRequest
  * @return ChangeCheckConfigResponse
@@ -2166,7 +2203,7 @@ ChangeCheckCustomConfigResponse Client::changeCheckCustomConfig(const ChangeChec
 }
 
 /**
- * @summary Modifies the check scope configuration instance.
+ * @summary Modifies the instances in a check scope configuration.
  *
  * @param request ChangeCheckScopeConfigInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2209,7 +2246,7 @@ ChangeCheckScopeConfigInstanceResponse Client::changeCheckScopeConfigInstanceWit
 }
 
 /**
- * @summary Modifies the check scope configuration instance.
+ * @summary Modifies the instances in a check scope configuration.
  *
  * @param request ChangeCheckScopeConfigInstanceRequest
  * @return ChangeCheckScopeConfigInstanceResponse
@@ -2320,7 +2357,7 @@ ChangeUserLangResponse Client::changeUserLang(const ChangeUserLangRequest &reque
 }
 
 /**
- * @summary Checks whether one or more alerts are generated on a specified server based on alert IDs.
+ * @summary Verifies whether one or more alert event IDs belong to a specified server.
  *
  * @param request CheckSecurityEventIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2355,7 +2392,7 @@ CheckSecurityEventIdResponse Client::checkSecurityEventIdWithOptions(const Check
 }
 
 /**
- * @summary Checks whether one or more alerts are generated on a specified server based on alert IDs.
+ * @summary Verifies whether one or more alert event IDs belong to a specified server.
  *
  * @param request CheckSecurityEventIdRequest
  * @return CheckSecurityEventIdResponse
@@ -3542,7 +3579,7 @@ CreateCustomizedDictResponse Client::createCustomizedDict(const CreateCustomized
 }
 
 /**
- * @summary Creates an epoch scan task, including image scans, emergency vulnerability scans, and virus scans.
+ * @summary Creates an epoch scan node, including image scans, emergency vulnerability scanning, and virus scans.
  *
  * @param request CreateCycleTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3617,7 +3654,7 @@ CreateCycleTaskResponse Client::createCycleTaskWithOptions(const CreateCycleTask
 }
 
 /**
- * @summary Creates an epoch scan task, including image scans, emergency vulnerability scans, and virus scans.
+ * @summary Creates an epoch scan node, including image scans, emergency vulnerability scanning, and virus scans.
  *
  * @param request CreateCycleTaskRequest
  * @return CreateCycleTaskResponse
@@ -3681,17 +3718,17 @@ CreateDynamicDictResponse Client::createDynamicDict(const CreateDynamicDictReque
  * @summary Initiates deep analysis for a malicious file.
  *
  * @description Initiates deep analysis for a specified file and streams the progress of each analysis phase in real time by using Server-Sent Events (SSE).
- * [Input parameters] You must provide at least one of the Hash and EventId parameters. If EventId is provided, the file hash is preferentially parsed from the details of the corresponding alert. Otherwise, the provided Hash (MD5 or SHA-256) is used. The Source parameter identifies the call source and is used for commercial edition verification based on the source.
- * [Response] The response is of the text/event-stream type. The server pushes events sequentially based on the processing phases. Valid values for the event name (event):
+ * [Input parameters] You must provide at least one of the Hash and EventId parameters. If EventId is provided, the file hash is preferentially parsed from the corresponding alert details. Otherwise, the provided Hash (MD5 or SHA-256) is used. The Source parameter identifies the call source and is used for commercial verification based on the source.
+ * [Response] The response is of the text/event-stream type. The server pushes events sequentially based on the processing phase. Valid values for the event name (event):
  * - accepted: The request is accepted.
  * - authorized: The purchase verification for the source is passed.
  * - alertResolved: The file hash is parsed from the alert or input parameters.
  * - fileReady: The file download link is ready.
  * - dispatched: The file is delivered to the detection engine, including the requestId.
- * - result: The analysis result is matched. This parameter is optional and pushed after the asynchronous result is ready.
- * - done: The current analysis process is completed.
+ * - result: The analysis result is matched. This is optional and pushed after asynchronous processing is complete.
+ * - done: The current analysis process is complete.
  * - error: A processing exception occurs, including the error code and message.
- * The data payload of each event is a JSON object in the data field. The fields vary depending on the event type. For more information, see the response structure description.
+ * The data body of each event is a JSON object in the data field. The fields vary depending on the event type. For more information, see the response structure description.
  *
  * @param request CreateFileDeepAnalyzeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3755,17 +3792,17 @@ return Darabonba::FutureGenerator<json>(__retrun);
  * @summary Initiates deep analysis for a malicious file.
  *
  * @description Initiates deep analysis for a specified file and streams the progress of each analysis phase in real time by using Server-Sent Events (SSE).
- * [Input parameters] You must provide at least one of the Hash and EventId parameters. If EventId is provided, the file hash is preferentially parsed from the details of the corresponding alert. Otherwise, the provided Hash (MD5 or SHA-256) is used. The Source parameter identifies the call source and is used for commercial edition verification based on the source.
- * [Response] The response is of the text/event-stream type. The server pushes events sequentially based on the processing phases. Valid values for the event name (event):
+ * [Input parameters] You must provide at least one of the Hash and EventId parameters. If EventId is provided, the file hash is preferentially parsed from the corresponding alert details. Otherwise, the provided Hash (MD5 or SHA-256) is used. The Source parameter identifies the call source and is used for commercial verification based on the source.
+ * [Response] The response is of the text/event-stream type. The server pushes events sequentially based on the processing phase. Valid values for the event name (event):
  * - accepted: The request is accepted.
  * - authorized: The purchase verification for the source is passed.
  * - alertResolved: The file hash is parsed from the alert or input parameters.
  * - fileReady: The file download link is ready.
  * - dispatched: The file is delivered to the detection engine, including the requestId.
- * - result: The analysis result is matched. This parameter is optional and pushed after the asynchronous result is ready.
- * - done: The current analysis process is completed.
+ * - result: The analysis result is matched. This is optional and pushed after asynchronous processing is complete.
+ * - done: The current analysis process is complete.
  * - error: A processing exception occurs, including the error code and message.
- * The data payload of each event is a JSON object in the data field. The fields vary depending on the event type. For more information, see the response structure description.
+ * The data body of each event is a JSON object in the data field. The fields vary depending on the event type. For more information, see the response structure description.
  *
  * @param request CreateFileDeepAnalyzeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3815,17 +3852,17 @@ CreateFileDeepAnalyzeResponse Client::createFileDeepAnalyzeWithOptions(const Cre
  * @summary Initiates deep analysis for a malicious file.
  *
  * @description Initiates deep analysis for a specified file and streams the progress of each analysis phase in real time by using Server-Sent Events (SSE).
- * [Input parameters] You must provide at least one of the Hash and EventId parameters. If EventId is provided, the file hash is preferentially parsed from the details of the corresponding alert. Otherwise, the provided Hash (MD5 or SHA-256) is used. The Source parameter identifies the call source and is used for commercial edition verification based on the source.
- * [Response] The response is of the text/event-stream type. The server pushes events sequentially based on the processing phases. Valid values for the event name (event):
+ * [Input parameters] You must provide at least one of the Hash and EventId parameters. If EventId is provided, the file hash is preferentially parsed from the corresponding alert details. Otherwise, the provided Hash (MD5 or SHA-256) is used. The Source parameter identifies the call source and is used for commercial verification based on the source.
+ * [Response] The response is of the text/event-stream type. The server pushes events sequentially based on the processing phase. Valid values for the event name (event):
  * - accepted: The request is accepted.
  * - authorized: The purchase verification for the source is passed.
  * - alertResolved: The file hash is parsed from the alert or input parameters.
  * - fileReady: The file download link is ready.
  * - dispatched: The file is delivered to the detection engine, including the requestId.
- * - result: The analysis result is matched. This parameter is optional and pushed after the asynchronous result is ready.
- * - done: The current analysis process is completed.
+ * - result: The analysis result is matched. This is optional and pushed after asynchronous processing is complete.
+ * - done: The current analysis process is complete.
  * - error: A processing exception occurs, including the error code and message.
- * The data payload of each event is a JSON object in the data field. The fields vary depending on the event type. For more information, see the response structure description.
+ * The data body of each event is a JSON object in the data field. The fields vary depending on the event type. For more information, see the response structure description.
  *
  * @param request CreateFileDeepAnalyzeRequest
  * @return CreateFileDeepAnalyzeResponse
@@ -3932,11 +3969,14 @@ CreateFileDetectResponse Client::createFileDetect(const CreateFileDetectRequest 
 }
 
 /**
- * @summary Queries the parameters that are required to upload a file for detection.
+ * @summary Retrieves file upload parameters.
  *
- * @description You can call this operation to query the parameters that are required to upload a file for detection. If the value of the response parameter FileExist is true, the file that you want to upload for detection already exists in the cloud. In this case, you can directly push the file for detection. If the value of the response parameter FileExist is false, you must use the form upload method to upload the file to the specified Object Storage Service (OSS) bucket based on the response parameters of this operation.
- * The form upload method is provided by OSS. For more information, see [Form upload](https://help.aliyun.com/document_detail/84788.html).
- * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only MD5 hash values are supported. Before you call this operation, calculate the MD5 hash value of the file.
+ * @description Retrieves file upload parameters. If the value of FileExist in the response parameters is true, the file to be checked already exists in the cloud and does not need to be uploaded. You can directly push the file for checking. If the value of FileExist is false, you must use the parameters returned by this operation to upload the file to the specified storage location by using form upload.
+ * The form upload service is provided by Object Storage Service (OSS). For more information, see [Form upload](https://help.aliyun.com/document_detail/84788.html).
+ * All file check-related operations include the HashKey parameter, which indicates the unique identifier of the file. Only the MD5 or SHA-256 hash value of the complete file content is supported. Calculate this value before you call the operation. Note that the push and query operations for a single file check must use the same HashKey. Otherwise, the check cannot be pushed and the results cannot be queried correctly.
+ * You can calculate the MD5 or SHA-256 hash value of the file content by performing the following steps:
+ * 1. Use the MD5 or SHA-256 algorithm to encrypt the data and generate a 128-bit or 256-bit hash value. Available tool libraries include the MessageDigest tool in Java and the hashlib library in Python.
+ * 2. Encode the generated hash value into a hexadecimal string. Available tool libraries include the Codec tool in Java and the hex function in Python. Make sure that the final string is a combination of digits and lowercase letters. The MD5 string contains 32 characters, and the SHA-256 string contains 64 characters.
  *
  * @param request CreateFileDetectUploadUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3975,11 +4015,14 @@ CreateFileDetectUploadUrlResponse Client::createFileDetectUploadUrlWithOptions(c
 }
 
 /**
- * @summary Queries the parameters that are required to upload a file for detection.
+ * @summary Retrieves file upload parameters.
  *
- * @description You can call this operation to query the parameters that are required to upload a file for detection. If the value of the response parameter FileExist is true, the file that you want to upload for detection already exists in the cloud. In this case, you can directly push the file for detection. If the value of the response parameter FileExist is false, you must use the form upload method to upload the file to the specified Object Storage Service (OSS) bucket based on the response parameters of this operation.
- * The form upload method is provided by OSS. For more information, see [Form upload](https://help.aliyun.com/document_detail/84788.html).
- * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only MD5 hash values are supported. Before you call this operation, calculate the MD5 hash value of the file.
+ * @description Retrieves file upload parameters. If the value of FileExist in the response parameters is true, the file to be checked already exists in the cloud and does not need to be uploaded. You can directly push the file for checking. If the value of FileExist is false, you must use the parameters returned by this operation to upload the file to the specified storage location by using form upload.
+ * The form upload service is provided by Object Storage Service (OSS). For more information, see [Form upload](https://help.aliyun.com/document_detail/84788.html).
+ * All file check-related operations include the HashKey parameter, which indicates the unique identifier of the file. Only the MD5 or SHA-256 hash value of the complete file content is supported. Calculate this value before you call the operation. Note that the push and query operations for a single file check must use the same HashKey. Otherwise, the check cannot be pushed and the results cannot be queried correctly.
+ * You can calculate the MD5 or SHA-256 hash value of the file content by performing the following steps:
+ * 1. Use the MD5 or SHA-256 algorithm to encrypt the data and generate a 128-bit or 256-bit hash value. Available tool libraries include the MessageDigest tool in Java and the hashlib library in Python.
+ * 2. Encode the generated hash value into a hexadecimal string. Available tool libraries include the Codec tool in Java and the hex function in Python. Make sure that the final string is a combination of digits and lowercase letters. The MD5 string contains 32 characters, and the SHA-256 string contains 64 characters.
  *
  * @param request CreateFileDetectUploadUrlRequest
  * @return CreateFileDetectUploadUrlResponse
@@ -4152,7 +4195,7 @@ CreateFileProtectRuleResponse Client::createFileProtectRule(const CreateFileProt
 }
 
 /**
- * @summary Specifies the queries per second (QPS) limit on the files uploaded from the client.
+ * @summary Sets the maximum QPS for client file uploads.
  *
  * @param request CreateFileUploadLimitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4183,7 +4226,7 @@ CreateFileUploadLimitResponse Client::createFileUploadLimitWithOptions(const Cre
 }
 
 /**
- * @summary Specifies the queries per second (QPS) limit on the files uploaded from the client.
+ * @summary Sets the maximum QPS for client file uploads.
  *
  * @param request CreateFileUploadLimitRequest
  * @return CreateFileUploadLimitResponse
@@ -5504,9 +5547,9 @@ CreateOssBucketScanTaskResponse Client::createOssBucketScanTask(const CreateOssB
 }
 
 /**
- * @summary Creates a scan policy for detecting malicious files in OSS under the malicious file detection feature.
+ * @summary Creates a scan policy for detecting malicious files in Object Storage Service (OSS).
  *
- * @description Before you call this operation, call the [PublicPreCheckImageScanTask](~~PublicPreCheckImageScanTask~~) operation to query the number of container images that the image scan task covers and the number of authorizations consumed. Make sure that sufficient authorizations are available for the image scan task to prevent the image scan task from being overwritten due to insufficient authorizations.
+ * @description Before calling this operation, call the [PublicPreCheckImageScanTask](~~PublicPreCheckImageScanTask~~) operation to query the number of container images covered by the container image security scan and the number of consumed authorizations. Ensure that you have sufficient authorizations to prevent the image scan node from being interrupted due to insufficient authorizations.
  *
  * @param request CreateOssScanConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5605,9 +5648,9 @@ CreateOssScanConfigResponse Client::createOssScanConfigWithOptions(const CreateO
 }
 
 /**
- * @summary Creates a scan policy for detecting malicious files in OSS under the malicious file detection feature.
+ * @summary Creates a scan policy for detecting malicious files in Object Storage Service (OSS).
  *
- * @description Before you call this operation, call the [PublicPreCheckImageScanTask](~~PublicPreCheckImageScanTask~~) operation to query the number of container images that the image scan task covers and the number of authorizations consumed. Make sure that sufficient authorizations are available for the image scan task to prevent the image scan task from being overwritten due to insufficient authorizations.
+ * @description Before calling this operation, call the [PublicPreCheckImageScanTask](~~PublicPreCheckImageScanTask~~) operation to query the number of container images covered by the container image security scan and the number of consumed authorizations. Ensure that you have sufficient authorizations to prevent the image scan node from being interrupted due to insufficient authorizations.
  *
  * @param request CreateOssScanConfigRequest
  * @return CreateOssScanConfigResponse
@@ -5868,10 +5911,10 @@ CreateServiceLinkedRoleResponse Client::createServiceLinkedRole(const CreateServ
 /**
  * @summary Creates a service trail.
  *
- * @description The **ActionTrail data delivery** feature requires Cloud Security Posture Management (CSPM) and security alerting to read ActionTrail data. To use this feature, enable the **ActionTrail data delivery** toggle in the Security Center console and authorize the service-linked role **AliyunServiceRoleForSas** for Security Center. After authorization, ActionTrail data is delivered to the LogStore of Security Center.
- * For more information about the service-linked role **AliyunServiceRoleForSas** for Security Center, see [Service-linked role for Security Center](https://help.aliyun.com/document_detail/460226.html).
+ * @description The **ActionTrail data delivery** feature requires authorization for Cloud Security Posture Management (CSPM) and security alerts to read ActionTrail data. Therefore, you must turn on the **ActionTrail data delivery** switch in the Security Center console and authorize the service-linked role for Security Center (**AliyunServiceRoleForSas**) to deliver ActionTrail data to the Logstore of Security Center.
+ * For more information about the **AliyunServiceRoleForSas** service-linked role for Security Center, see [Service-linked role for Security Center](https://help.aliyun.com/document_detail/460226.html).
  * ### Before you begin ###
- * Before calling this operation, enable the **ActionTrail data delivery** toggle. For more information, see [Access control](https://help.aliyun.com/document_detail/197302.html).
+ * Before you call this operation, make sure that the **ActionTrail data delivery** switch is turned on. For more information, see [Access control](https://help.aliyun.com/document_detail/197302.html).
  *
  * @param request CreateServiceTrailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5904,10 +5947,10 @@ CreateServiceTrailResponse Client::createServiceTrailWithOptions(const CreateSer
 /**
  * @summary Creates a service trail.
  *
- * @description The **ActionTrail data delivery** feature requires Cloud Security Posture Management (CSPM) and security alerting to read ActionTrail data. To use this feature, enable the **ActionTrail data delivery** toggle in the Security Center console and authorize the service-linked role **AliyunServiceRoleForSas** for Security Center. After authorization, ActionTrail data is delivered to the LogStore of Security Center.
- * For more information about the service-linked role **AliyunServiceRoleForSas** for Security Center, see [Service-linked role for Security Center](https://help.aliyun.com/document_detail/460226.html).
+ * @description The **ActionTrail data delivery** feature requires authorization for Cloud Security Posture Management (CSPM) and security alerts to read ActionTrail data. Therefore, you must turn on the **ActionTrail data delivery** switch in the Security Center console and authorize the service-linked role for Security Center (**AliyunServiceRoleForSas**) to deliver ActionTrail data to the Logstore of Security Center.
+ * For more information about the **AliyunServiceRoleForSas** service-linked role for Security Center, see [Service-linked role for Security Center](https://help.aliyun.com/document_detail/460226.html).
  * ### Before you begin ###
- * Before calling this operation, enable the **ActionTrail data delivery** toggle. For more information, see [Access control](https://help.aliyun.com/document_detail/197302.html).
+ * Before you call this operation, make sure that the **ActionTrail data delivery** switch is turned on. For more information, see [Access control](https://help.aliyun.com/document_detail/197302.html).
  *
  * @param request CreateServiceTrailRequest
  * @return CreateServiceTrailResponse
@@ -8682,7 +8725,7 @@ DeleteSecurityEventMarkMissListResponse Client::deleteSecurityEventMarkMissList(
 }
 
 /**
- * @summary Deletes an ActionTrail data delivery configuration.
+ * @summary Deletes ActionTrail data delivery.
  *
  * @param request DeleteServiceTrailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8713,7 +8756,7 @@ DeleteServiceTrailResponse Client::deleteServiceTrailWithOptions(const DeleteSer
 }
 
 /**
- * @summary Deletes an ActionTrail data delivery configuration.
+ * @summary Deletes ActionTrail data delivery.
  *
  * @param request DeleteServiceTrailRequest
  * @return DeleteServiceTrailResponse
@@ -10452,9 +10495,9 @@ DescribeBackUpExportInfoResponse Client::describeBackUpExportInfo(const Describe
 }
 
 /**
- * @summary Queries servers that have the anti-ransomware client installed in a specified region.
+ * @summary Queries the servers on which the anti-ransomware client is installed in a specified region.
  *
- * @description Queries servers that have the anti-ransomware client installed in a specified region.
+ * @description This operation queries the servers on which the anti-ransomware client is installed in a specified region.
  *
  * @param request DescribeBackupClientsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10485,9 +10528,9 @@ DescribeBackupClientsResponse Client::describeBackupClientsWithOptions(const Des
 }
 
 /**
- * @summary Queries servers that have the anti-ransomware client installed in a specified region.
+ * @summary Queries the servers on which the anti-ransomware client is installed in a specified region.
  *
- * @description Queries servers that have the anti-ransomware client installed in a specified region.
+ * @description This operation queries the servers on which the anti-ransomware client is installed in a specified region.
  *
  * @param request DescribeBackupClientsRequest
  * @return DescribeBackupClientsResponse
@@ -11758,7 +11801,7 @@ DescribeCheckWarningsResponse Client::describeCheckWarnings(const DescribeCheckW
 }
 
 /**
- * @summary Queries the resource configuration information of a client.
+ * @summary Queries the resource configuration information of the client.
  *
  * @param request DescribeClientConfSetupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11793,7 +11836,7 @@ DescribeClientConfSetupResponse Client::describeClientConfSetupWithOptions(const
 }
 
 /**
- * @summary Queries the resource configuration information of a client.
+ * @summary Queries the resource configuration information of the client.
  *
  * @param request DescribeClientConfSetupRequest
  * @return DescribeClientConfSetupResponse
@@ -12688,7 +12731,7 @@ DescribeCommonTargetConfigResponse Client::describeCommonTargetConfig(const Desc
 }
 
 /**
- * @summary Queries the configured asset information for a specific switch type.
+ * @summary Queries the servers configured for a specified switch type.
  *
  * @param request DescribeCommonTargetResultListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12723,7 +12766,7 @@ DescribeCommonTargetResultListResponse Client::describeCommonTargetResultListWit
 }
 
 /**
- * @summary Queries the configured asset information for a specific switch type.
+ * @summary Queries the servers configured for a specified switch type.
  *
  * @param request DescribeCommonTargetResultListRequest
  * @return DescribeCommonTargetResultListResponse
@@ -16052,7 +16095,7 @@ DescribeHybridProxyClusterListResponse Client::describeHybridProxyClusterList(co
 }
 
 /**
- * @summary Queries the list of clients connected to a specified hybrid cloud proxy by paging. This operation is part of the hybrid cloud proxy feature.
+ * @summary Queries the list of clients connected to a specified hybrid cloud proxy by using paging. This API operation is part of the hybrid cloud proxy feature.
  *
  * @param request DescribeHybridProxyLinkedClientListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16103,7 +16146,7 @@ DescribeHybridProxyLinkedClientListResponse Client::describeHybridProxyLinkedCli
 }
 
 /**
- * @summary Queries the list of clients connected to a specified hybrid cloud proxy by paging. This operation is part of the hybrid cloud proxy feature.
+ * @summary Queries the list of clients connected to a specified hybrid cloud proxy by using paging. This API operation is part of the hybrid cloud proxy feature.
  *
  * @param request DescribeHybridProxyLinkedClientListRequest
  * @return DescribeHybridProxyLinkedClientListResponse
@@ -16566,7 +16609,7 @@ DescribeImageBaselineCheckSummaryResponse Client::describeImageBaselineCheckSumm
 }
 
 /**
- * @summary Queries the details of baseline check results for image scanning.
+ * @summary Queries the details of image scan baseline check results.
  *
  * @param request DescribeImageBaselineDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16605,7 +16648,7 @@ DescribeImageBaselineDetailResponse Client::describeImageBaselineDetailWithOptio
 }
 
 /**
- * @summary Queries the details of baseline check results for image scanning.
+ * @summary Queries the details of image scan baseline check results.
  *
  * @param request DescribeImageBaselineDetailRequest
  * @return DescribeImageBaselineDetailResponse
@@ -19360,7 +19403,7 @@ DescribeOfflineMachinesResponse Client::describeOfflineMachines(const DescribeOf
 }
 
 /**
- * @summary Queries a list of client tasks.
+ * @summary Queries the list of client tasks.
  *
  * @param request DescribeOnceTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19419,7 +19462,7 @@ DescribeOnceTaskResponse Client::describeOnceTaskWithOptions(const DescribeOnceT
 }
 
 /**
- * @summary Queries a list of client tasks.
+ * @summary Queries the list of client tasks.
  *
  * @param request DescribeOnceTaskRequest
  * @return DescribeOnceTaskResponse
@@ -19504,7 +19547,7 @@ DescribeOnceTaskLeafRecordPageResponse Client::describeOnceTaskLeafRecordPage(co
 }
 
 /**
- * @summary Queries statistics on the client plug-in installation status.
+ * @summary Queries the statistics on the installation status of client plug-ins.
  *
  * @param request DescribePluginSummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19539,7 +19582,7 @@ DescribePluginSummaryResponse Client::describePluginSummaryWithOptions(const Des
 }
 
 /**
- * @summary Queries statistics on the client plug-in installation status.
+ * @summary Queries the statistics on the installation status of client plug-ins.
  *
  * @param request DescribePluginSummaryRequest
  * @return DescribePluginSummaryResponse
@@ -20552,7 +20595,7 @@ DescribePropertyUsageTopResponse Client::describePropertyUsageTop(const Describe
 }
 
 /**
- * @summary Queries the Asset Fingerprints information of account assets on a server.
+ * @summary Queries the asset fingerprint information of server accounts.
  *
  * @param request DescribePropertyUserDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20627,7 +20670,7 @@ DescribePropertyUserDetailResponse Client::describePropertyUserDetailWithOptions
 }
 
 /**
- * @summary Queries the Asset Fingerprints information of account assets on a server.
+ * @summary Queries the asset fingerprint information of server accounts.
  *
  * @param request DescribePropertyUserDetailRequest
  * @return DescribePropertyUserDetailResponse
@@ -23366,7 +23409,7 @@ DescribeSuspEventsResponse Client::describeSuspEvents(const DescribeSuspEventsRe
 }
 
 /**
- * @summary Queries the configuration of a specified feature.
+ * @summary Queries the configuration of proactive defense switches.
  *
  * @param request DescribeSuspiciousOverallConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23401,7 +23444,7 @@ DescribeSuspiciousOverallConfigResponse Client::describeSuspiciousOverallConfigW
 }
 
 /**
- * @summary Queries the configuration of a specified feature.
+ * @summary Queries the configuration of proactive defense switches.
  *
  * @param request DescribeSuspiciousOverallConfigRequest
  * @return DescribeSuspiciousOverallConfigResponse
@@ -23444,7 +23487,7 @@ DescribeSuspiciousSecurityEventyStatisticsResponse Client::describeSuspiciousSec
 }
 
 /**
- * @summary Queries the UUIDs of servers on which proactive defense of a specified type takes effect.
+ * @summary Queries the UUIDs of assets for which proactive defense is enabled based on the defense type.
  *
  * @param request DescribeSuspiciousUUIDConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23475,7 +23518,7 @@ DescribeSuspiciousUUIDConfigResponse Client::describeSuspiciousUUIDConfigWithOpt
 }
 
 /**
- * @summary Queries the UUIDs of servers on which proactive defense of a specified type takes effect.
+ * @summary Queries the UUIDs of assets for which proactive defense is enabled based on the defense type.
  *
  * @param request DescribeSuspiciousUUIDConfigRequest
  * @return DescribeSuspiciousUUIDConfigResponse
@@ -24888,9 +24931,9 @@ DescribeVulDetailsResponse Client::describeVulDetails(const DescribeVulDetailsRe
 }
 
 /**
- * @summary Queries the progress of a vulnerability export task.
+ * @summary Retrieves the progress of a vulnerability export task.
  *
- * @description A download link is returned when the export task status is success.
+ * @description Returns a download link when the export task status is success.
  *
  * @param request DescribeVulExportInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -24925,9 +24968,9 @@ DescribeVulExportInfoResponse Client::describeVulExportInfoWithOptions(const Des
 }
 
 /**
- * @summary Queries the progress of a vulnerability export task.
+ * @summary Retrieves the progress of a vulnerability export task.
  *
- * @description A download link is returned when the export task status is success.
+ * @description Returns a download link when the export task status is success.
  *
  * @param request DescribeVulExportInfoRequest
  * @return DescribeVulExportInfoResponse
@@ -27402,7 +27445,7 @@ ExportWarningResponse Client::exportWarning(const ExportWarningRequest &request)
 }
 
 /**
- * @summary Retrieves information about network connectivity between two nodes.
+ * @summary Retrieves the network connectivity information between two nodes.
  *
  * @param tmpReq FindContainerNetworkConnectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -27467,7 +27510,7 @@ FindContainerNetworkConnectResponse Client::findContainerNetworkConnectWithOptio
 }
 
 /**
- * @summary Retrieves information about network connectivity between two nodes.
+ * @summary Retrieves the network connectivity information between two nodes.
  *
  * @param request FindContainerNetworkConnectRequest
  * @return FindContainerNetworkConnectResponse
@@ -27868,7 +27911,7 @@ GetAccountLabelResponse Client::getAccountLabel(const GetAccountLabelRequest &re
 }
 
 /**
- * @summary Queries the details of a container anti-escape rule.
+ * @summary Queries the details of a container escape prevention rule.
  *
  * @description Only users of the Ultimate edition of Security Center can call this operation.
  *
@@ -27909,7 +27952,7 @@ GetAegisContainerPluginRuleResponse Client::getAegisContainerPluginRuleWithOptio
 }
 
 /**
- * @summary Queries the details of a container anti-escape rule.
+ * @summary Queries the details of a container escape prevention rule.
  *
  * @description Only users of the Ultimate edition of Security Center can call this operation.
  *
@@ -28946,7 +28989,9 @@ GetCanTrySasResponse Client::getCanTrySas(const GetCanTrySasRequest &request) {
 }
 
 /**
- * @summary Retrieves the check item configurations for cloud platform configuration checks.
+ * @summary Retrieves the configuration items for cloud platform configuration checks.
+ *
+ * @description Queries the check configuration of a specified policy. Behavior change: When the policy corresponding to ConfigId does not exist, IllegalParam is no longer returned. Instead, a success response is returned with empty configuration fields and Exists set to false. Callers must determine whether the policy exists based on Exists. API contract: When ConfigId is not passed (or an empty string or default is passed), only the system default policy configuration is returned. When a specific UUID ConfigId is explicitly passed, the specified policy is returned. Time field description: StartTimeSeconds and EndTimeSeconds are authoritative values in seconds and are directly passed through from the database. StartTime and EndTime on multi-policy rows are derived approximate values obtained by rounding the second-level values and are not active for reverse-engineering the exact window. For the system default policy (Frequency=6HOURLY) row, the second-level output parameters are always null (not 0), and callers must perform null checks. Timed scheduling executes sequentially by second within the same minute with a concurrency of 1. During periods of high concurrency, the current execution of some policies may be skipped without makeup runs on the same day. Callers with strong consistency requirements for execution time should avoid concentrated periods such as the top of the hour.
  *
  * @param request GetCheckConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -28955,6 +29000,10 @@ GetCanTrySasResponse Client::getCanTrySas(const GetCanTrySasRequest &request) {
 GetCheckConfigResponse Client::getCheckConfigWithOptions(const GetCheckConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasConfigId()) {
+    query["ConfigId"] = request.getConfigId();
+  }
+
   if (!!request.hasResourceDirectoryAccountId()) {
     query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
   }
@@ -28977,7 +29026,9 @@ GetCheckConfigResponse Client::getCheckConfigWithOptions(const GetCheckConfigReq
 }
 
 /**
- * @summary Retrieves the check item configurations for cloud platform configuration checks.
+ * @summary Retrieves the configuration items for cloud platform configuration checks.
+ *
+ * @description Queries the check configuration of a specified policy. Behavior change: When the policy corresponding to ConfigId does not exist, IllegalParam is no longer returned. Instead, a success response is returned with empty configuration fields and Exists set to false. Callers must determine whether the policy exists based on Exists. API contract: When ConfigId is not passed (or an empty string or default is passed), only the system default policy configuration is returned. When a specific UUID ConfigId is explicitly passed, the specified policy is returned. Time field description: StartTimeSeconds and EndTimeSeconds are authoritative values in seconds and are directly passed through from the database. StartTime and EndTime on multi-policy rows are derived approximate values obtained by rounding the second-level values and are not active for reverse-engineering the exact window. For the system default policy (Frequency=6HOURLY) row, the second-level output parameters are always null (not 0), and callers must perform null checks. Timed scheduling executes sequentially by second within the same minute with a concurrency of 1. During periods of high concurrency, the current execution of some policies may be skipped without makeup runs on the same day. Callers with strong consistency requirements for execution time should avoid concentrated periods such as the top of the hour.
  *
  * @param request GetCheckConfigRequest
  * @return GetCheckConfigResponse
@@ -29396,7 +29447,7 @@ GetCheckSummaryResponse Client::getCheckSummary(const GetCheckSummaryRequest &re
 }
 
 /**
- * @summary Retrieves the time trend pass rate statistics for Cloud Security Posture Management (CSPM) risk items.
+ * @summary Retrieves the time-series pass rate statistics for Cloud Security Posture Management (CSPM) risk items.
  *
  * @param request GetCheckTimeDimensionStatisticRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -29443,7 +29494,7 @@ GetCheckTimeDimensionStatisticResponse Client::getCheckTimeDimensionStatisticWit
 }
 
 /**
- * @summary Retrieves the time trend pass rate statistics for Cloud Security Posture Management (CSPM) risk items.
+ * @summary Retrieves the time-series pass rate statistics for Cloud Security Posture Management (CSPM) risk items.
  *
  * @param request GetCheckTimeDimensionStatisticRequest
  * @return GetCheckTimeDimensionStatisticResponse
@@ -29954,7 +30005,7 @@ GetClusterSuspEventStatisticsResponse Client::getClusterSuspEventStatistics(cons
 }
 
 /**
- * @summary Queries the configuration of a common switch.
+ * @summary Retrieves the general switch configuration.
  *
  * @param request GetCommonSwitchConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -29985,7 +30036,7 @@ GetCommonSwitchConfigResponse Client::getCommonSwitchConfigWithOptions(const Get
 }
 
 /**
- * @summary Queries the configuration of a common switch.
+ * @summary Retrieves the general switch configuration.
  *
  * @param request GetCommonSwitchConfigRequest
  * @return GetCommonSwitchConfigResponse
@@ -30042,7 +30093,7 @@ GetConsoleFuncGrayStatusResponse Client::getConsoleFuncGrayStatus(const GetConso
 }
 
 /**
- * @summary Retrieves the details of a defense rule for non-image programs.
+ * @summary Retrieves the details of a non-image program defense rule.
  *
  * @param request GetContainerDefenseRuleDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -30077,7 +30128,7 @@ GetContainerDefenseRuleDetailResponse Client::getContainerDefenseRuleDetailWithO
 }
 
 /**
- * @summary Retrieves the details of a defense rule for non-image programs.
+ * @summary Retrieves the details of a non-image program defense rule.
  *
  * @param request GetContainerDefenseRuleDetailRequest
  * @return GetContainerDefenseRuleDetailResponse
@@ -30210,7 +30261,7 @@ GetDefenceCountResponse Client::getDefenceCount() {
 }
 
 /**
- * @summary Queries the rankings of images across different dimensions.
+ * @summary Queries the rankings of images across various dimensions.
  *
  * @param request GetDockerhubImageRiskRankInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -30241,7 +30292,7 @@ GetDockerhubImageRiskRankInfoResponse Client::getDockerhubImageRiskRankInfoWithO
 }
 
 /**
- * @summary Queries the rankings of images across different dimensions.
+ * @summary Queries the rankings of images across various dimensions.
  *
  * @param request GetDockerhubImageRiskRankInfoRequest
  * @return GetDockerhubImageRiskRankInfoResponse
@@ -30783,7 +30834,7 @@ GetFileProtectRuleResponse Client::getFileProtectRule(const GetFileProtectRuleRe
 }
 
 /**
- * @summary Queries the queries per second (QPS) limit on the files uploaded from the client.
+ * @summary Retrieves the QPS limit for file uploads configured by the user.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetFileUploadLimitResponse
@@ -30805,7 +30856,7 @@ GetFileUploadLimitResponse Client::getFileUploadLimitWithOptions(const Darabonba
 }
 
 /**
- * @summary Queries the queries per second (QPS) limit on the files uploaded from the client.
+ * @summary Retrieves the QPS limit for file uploads configured by the user.
  *
  * @return GetFileUploadLimitResponse
  */
@@ -30815,7 +30866,7 @@ GetFileUploadLimitResponse Client::getFileUploadLimit() {
 }
 
 /**
- * @summary Retrieves the trial eligibility status of a feature.
+ * @summary Retrieves the status of feature trial eligibility.
  *
  * @param request GetFunctionTrialStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -30846,7 +30897,7 @@ GetFunctionTrialStatusResponse Client::getFunctionTrialStatusWithOptions(const G
 }
 
 /**
- * @summary Retrieves the trial eligibility status of a feature.
+ * @summary Retrieves the status of feature trial eligibility.
  *
  * @param request GetFunctionTrialStatusRequest
  * @return GetFunctionTrialStatusResponse
@@ -32949,7 +33000,7 @@ GetServerlessAuthSummaryResponse Client::getServerlessAuthSummary(const GetServe
 }
 
 /**
- * @summary Retrieves the audit trail delivery configuration.
+ * @summary Retrieves ActionTrail data delivery.
  *
  * @param request GetServiceTrailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -32980,7 +33031,7 @@ GetServiceTrailResponse Client::getServiceTrailWithOptions(const GetServiceTrail
 }
 
 /**
- * @summary Retrieves the audit trail delivery configuration.
+ * @summary Retrieves ActionTrail data delivery.
  *
  * @param request GetServiceTrailRequest
  * @return GetServiceTrailResponse
@@ -34850,7 +34901,7 @@ ListAgentlessRelateMaliciousResponse Client::listAgentlessRelateMalicious(const 
 }
 
 /**
- * @summary Retrieves the list of vulnerable servers detected by agentless detection.
+ * @summary Retrieves a list of vulnerable servers detected by agentless detection.
  *
  * @param request ListAgentlessRiskUuidRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -34921,7 +34972,7 @@ ListAgentlessRiskUuidResponse Client::listAgentlessRiskUuidWithOptions(const Lis
 }
 
 /**
- * @summary Retrieves the list of vulnerable servers detected by agentless detection.
+ * @summary Retrieves a list of vulnerable servers detected by agentless detection.
  *
  * @param request ListAgentlessRiskUuidRequest
  * @return ListAgentlessRiskUuidResponse
@@ -35746,7 +35797,7 @@ ListBaselineCheckWhiteRecordResponse Client::listBaselineCheckWhiteRecord(const 
 }
 
 /**
- * @summary Retrieves instances that failed a cloud platform configuration check item.
+ * @summary Queries the instances that failed the cloud platform configuration check items.
  *
  * @param request ListCheckInstanceResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -35813,7 +35864,7 @@ ListCheckInstanceResultResponse Client::listCheckInstanceResultWithOptions(const
 }
 
 /**
- * @summary Retrieves instances that failed a cloud platform configuration check item.
+ * @summary Queries the instances that failed the cloud platform configuration check items.
  *
  * @param request ListCheckInstanceResultRequest
  * @return ListCheckInstanceResultResponse
@@ -36468,7 +36519,7 @@ ListCheckTypesResponse Client::listCheckTypes(const ListCheckTypesRequest &reque
 }
 
 /**
- * @summary Queries the alert settings of assets. The default alert setting for assets is balance mode. Only strict mode returns a detailed asset list.
+ * @summary Queries the alert settings of assets. The default alert setting is balance mode. A detailed asset list is returned only in strict mode.
  *
  * @param request ListClientAlertModeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -36495,7 +36546,7 @@ ListClientAlertModeResponse Client::listClientAlertModeWithOptions(const ListCli
 }
 
 /**
- * @summary Queries the alert settings of assets. The default alert setting for assets is balance mode. Only strict mode returns a detailed asset list.
+ * @summary Queries the alert settings of assets. The default alert setting is balance mode. A detailed asset list is returned only in strict mode.
  *
  * @param request ListClientAlertModeRequest
  * @return ListClientAlertModeResponse
@@ -39339,9 +39390,9 @@ ListOpaClusterStrategyNewResponse Client::listOpaClusterStrategyNew(const ListOp
 }
 
 /**
- * @summary Queries the details of a one-click fix or rollback task for cloud platform configuration checks.
+ * @summary Queries the details of a one-click repair or rollback task for cloud platform configuration checks.
  *
- * @description Only users who have purchased the cloud platform configuration check quota or enabled pay-as-you-go billing for cloud platform configuration checks can call this operation.
+ * @description Only users who have purchased cloud platform configuration check quotas or enabled the pay-as-you-go billing method for cloud platform configuration checks can call this operation.
  *
  * @param request ListOperationCheckRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -39368,9 +39419,9 @@ ListOperationCheckResponse Client::listOperationCheckWithOptions(const ListOpera
 }
 
 /**
- * @summary Queries the details of a one-click fix or rollback task for cloud platform configuration checks.
+ * @summary Queries the details of a one-click repair or rollback task for cloud platform configuration checks.
  *
- * @description Only users who have purchased the cloud platform configuration check quota or enabled pay-as-you-go billing for cloud platform configuration checks can call this operation.
+ * @description Only users who have purchased cloud platform configuration check quotas or enabled the pay-as-you-go billing method for cloud platform configuration checks can call this operation.
  *
  * @param request ListOperationCheckRequest
  * @return ListOperationCheckResponse
@@ -40507,7 +40558,7 @@ ListUnfinishedOnceTaskResponse Client::listUnfinishedOnceTask(const ListUnfinish
 }
 
 /**
- * @summary List Database Backup Records
+ * @summary Queries the list of database backup records.
  *
  * @param request ListUniBackupRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -40554,7 +40605,7 @@ ListUniBackupRecordResponse Client::listUniBackupRecordWithOptions(const ListUni
 }
 
 /**
- * @summary List Database Backup Records
+ * @summary Queries the list of database backup records.
  *
  * @param request ListUniBackupRecordRequest
  * @return ListUniBackupRecordResponse
@@ -40713,7 +40764,7 @@ ListUnknownThreatDetectEventResponse Client::listUnknownThreatDetectEvent(const 
 }
 
 /**
- * @summary Queries the list of machines for intelligent behavior analytics.
+ * @summary Queries the list of servers for intelligent behavior analytics.
  *
  * @param request ListUnknownThreatDetectMachineRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -40776,7 +40827,7 @@ ListUnknownThreatDetectMachineResponse Client::listUnknownThreatDetectMachineWit
 }
 
 /**
- * @summary Queries the list of machines for intelligent behavior analytics.
+ * @summary Queries the list of servers for intelligent behavior analytics.
  *
  * @param request ListUnknownThreatDetectMachineRequest
  * @return ListUnknownThreatDetectMachineResponse
@@ -42237,7 +42288,7 @@ ModifyClientConfSetupResponse Client::modifyClientConfSetup(const ModifyClientCo
 }
 
 /**
- * @summary Modifies a client configuration policy.
+ * @summary Modifies the client configuration policy.
  *
  * @param request ModifyClientConfStrategyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -42284,7 +42335,7 @@ ModifyClientConfStrategyResponse Client::modifyClientConfStrategyWithOptions(con
 }
 
 /**
- * @summary Modifies a client configuration policy.
+ * @summary Modifies the client configuration policy.
  *
  * @param request ModifyClientConfStrategyRequest
  * @return ModifyClientConfStrategyResponse
@@ -42464,6 +42515,10 @@ ModifyCloudVendorAccountAKResponse Client::modifyCloudVendorAccountAKWithOptions
 
   if (!!request.hasVendorAuthAlias()) {
     query["VendorAuthAlias"] = request.getVendorAuthAlias();
+  }
+
+  if (!!request.hasVendorUserName()) {
+    query["VendorUserName"] = request.getVendorUserName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -44146,6 +44201,10 @@ ModifyPostPayModuleSwitchResponse Client::modifyPostPayModuleSwitchWithOptions(c
 
   if (!!request.hasEdrModuleSwitchShrink()) {
     query["EdrModuleSwitch"] = request.getEdrModuleSwitchShrink();
+  }
+
+  if (!!request.hasFreeTrial()) {
+    query["FreeTrial"] = request.getFreeTrial();
   }
 
   if (!!request.hasPostPaidHostAutoBind()) {
@@ -46237,7 +46296,7 @@ OperateBucketScanTaskResponse Client::operateBucketScanTask(const OperateBucketS
 }
 
 /**
- * @summary Sets the global switch based on the specified type.
+ * @summary Sets a global switch based on the type.
  *
  * @param request OperateCommonOverallConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -46288,7 +46347,7 @@ OperateCommonOverallConfigResponse Client::operateCommonOverallConfigWithOptions
 }
 
 /**
- * @summary Sets the global switch based on the specified type.
+ * @summary Sets a global switch based on the type.
  *
  * @param request OperateCommonOverallConfigRequest
  * @return OperateCommonOverallConfigResponse
@@ -46299,7 +46358,7 @@ OperateCommonOverallConfigResponse Client::operateCommonOverallConfig(const Oper
 }
 
 /**
- * @summary Configures the general switch for a feature module by type, including image scanning, endpoint engine detection, container network visualization, and container escape prevention.
+ * @summary Configures the general switches for feature modules by type, including image scanning, endpoint engine detection, container network visualization, and container escape prevention.
  *
  * @param request OperateCommonTargetConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -46350,7 +46409,7 @@ OperateCommonTargetConfigResponse Client::operateCommonTargetConfigWithOptions(c
 }
 
 /**
- * @summary Configures the general switch for a feature module by type, including image scanning, endpoint engine detection, container network visualization, and container escape prevention.
+ * @summary Configures the general switches for feature modules by type, including image scanning, endpoint engine detection, container network visualization, and container escape prevention.
  *
  * @param request OperateCommonTargetConfigRequest
  * @return OperateCommonTargetConfigResponse
@@ -46469,7 +46528,7 @@ OperateImageVulResponse Client::operateImageVul(const OperateImageVulRequest &re
 }
 
 /**
- * @summary Sets the global configuration for abnormal events.
+ * @summary Configures the global settings for anomaly events.
  *
  * @param request OperateSuspiciousOverallConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -46516,7 +46575,7 @@ OperateSuspiciousOverallConfigResponse Client::operateSuspiciousOverallConfigWit
 }
 
 /**
- * @summary Sets the global configuration for abnormal events.
+ * @summary Configures the global settings for anomaly events.
  *
  * @param request OperateSuspiciousOverallConfigRequest
  * @return OperateSuspiciousOverallConfigResponse
@@ -46527,7 +46586,7 @@ OperateSuspiciousOverallConfigResponse Client::operateSuspiciousOverallConfig(co
 }
 
 /**
- * @summary Configures the scope on which proactive defense takes effect.
+ * @summary Manages the defense scope of proactive defense.
  *
  * @param request OperateSuspiciousTargetConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -46574,7 +46633,7 @@ OperateSuspiciousTargetConfigResponse Client::operateSuspiciousTargetConfigWithO
 }
 
 /**
- * @summary Configures the scope on which proactive defense takes effect.
+ * @summary Manages the defense scope of proactive defense.
  *
  * @param request OperateSuspiciousTargetConfigRequest
  * @return OperateSuspiciousTargetConfigResponse
@@ -49483,6 +49542,8 @@ StopHoneypotResponse Client::stopHoneypot(const StopHoneypotRequest &request) {
 /**
  * @summary Submits a cloud service configuration check.
  *
+ * @description Commits a cloud service configuration check task. When ScanRange is set to POLICY, you can specify ConfigId to trigger a scan based on a specific check policy: If this parameter is not specified or is set to default, the scan is triggered based on the system default policy. If the system default policy does not exist in the account, NoDefaultStrategy is returned and no policy records are added. If another value is specified, the scan is triggered based on the check items of the specified policy. If the policy does not exist or does not belong to the current account, IllegalParam (paramName=configId) is returned. If the hit policy does not have scheduled scanning enabled (EnableAutoCheck=false), requests from timed scheduling (SCHEDULE) return StrategyAutoCheckDisabled, while requests manually triggered from the console (CONSOLE) are processed normally. When ScanRange is set to FULL or FREE, the behavior is independent of ConfigId and remains unchanged. Note: The scan results in the current phase do not include the policy dimension. The check results and task lists are not categorized by policy. ThrottlingTimeSecond indicates that throttling is triggered, and you must retry after the specified number of seconds.
+ *
  * @param request SubmitCheckRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SubmitCheckResponse
@@ -49490,6 +49551,10 @@ StopHoneypotResponse Client::stopHoneypot(const StopHoneypotRequest &request) {
 SubmitCheckResponse Client::submitCheckWithOptions(const SubmitCheckRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasConfigId()) {
+    query["ConfigId"] = request.getConfigId();
+  }
+
   if (!!request.hasResourceDirectoryAccountId()) {
     query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
   }
@@ -49521,6 +49586,8 @@ SubmitCheckResponse Client::submitCheckWithOptions(const SubmitCheckRequest &req
 
 /**
  * @summary Submits a cloud service configuration check.
+ *
+ * @description Commits a cloud service configuration check task. When ScanRange is set to POLICY, you can specify ConfigId to trigger a scan based on a specific check policy: If this parameter is not specified or is set to default, the scan is triggered based on the system default policy. If the system default policy does not exist in the account, NoDefaultStrategy is returned and no policy records are added. If another value is specified, the scan is triggered based on the check items of the specified policy. If the policy does not exist or does not belong to the current account, IllegalParam (paramName=configId) is returned. If the hit policy does not have scheduled scanning enabled (EnableAutoCheck=false), requests from timed scheduling (SCHEDULE) return StrategyAutoCheckDisabled, while requests manually triggered from the console (CONSOLE) are processed normally. When ScanRange is set to FULL or FREE, the behavior is independent of ConfigId and remains unchanged. Note: The scan results in the current phase do not include the policy dimension. The check results and task lists are not categorized by policy. ThrottlingTimeSecond indicates that throttling is triggered, and you must retry after the specified number of seconds.
  *
  * @param request SubmitCheckRequest
  * @return SubmitCheckResponse
@@ -49799,7 +49866,7 @@ UnbindAegisResponse Client::unbindAegis(const UnbindAegisRequest &request) {
 }
 
 /**
- * @summary Uninstalls the anti-ransomware agent.
+ * @summary Uninstalls the anti-ransomware client.
  *
  * @param request UninstallBackupClientRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -49838,7 +49905,7 @@ UninstallBackupClientResponse Client::uninstallBackupClientWithOptions(const Uni
 }
 
 /**
- * @summary Uninstalls the anti-ransomware agent.
+ * @summary Uninstalls the anti-ransomware client.
  *
  * @param request UninstallBackupClientRequest
  * @return UninstallBackupClientResponse
@@ -50345,7 +50412,7 @@ UpdateCheckScopeConfigResponse Client::updateCheckScopeConfig(const UpdateCheckS
 }
 
 /**
- * @summary Modifies the alert settings for servers.
+ * @summary Modifies the alert settings for a server.
  *
  * @param request UpdateClientAlertModeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -50380,7 +50447,7 @@ UpdateClientAlertModeResponse Client::updateClientAlertModeWithOptions(const Upd
 }
 
 /**
- * @summary Modifies the alert settings for servers.
+ * @summary Modifies the alert settings for a server.
  *
  * @param request UpdateClientAlertModeRequest
  * @return UpdateClientAlertModeResponse
@@ -50391,7 +50458,7 @@ UpdateClientAlertModeResponse Client::updateClientAlertMode(const UpdateClientAl
 }
 
 /**
- * @summary Updates the settings of common switches.
+ * @summary Modifies the general switch configuration.
  *
  * @param request UpdateCommonSwitchConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -50426,7 +50493,7 @@ UpdateCommonSwitchConfigResponse Client::updateCommonSwitchConfigWithOptions(con
 }
 
 /**
- * @summary Updates the settings of common switches.
+ * @summary Modifies the general switch configuration.
  *
  * @param request UpdateCommonSwitchConfigRequest
  * @return UpdateCommonSwitchConfigResponse
@@ -52255,7 +52322,7 @@ UpdateSelectionKeyByTypeResponse Client::updateSelectionKeyByType(const UpdateSe
 }
 
 /**
- * @summary Modifies the strict mode configuration, including whether to enable alerting in strict mode. This is a full-update operation.
+ * @summary Modifies the strict mode configuration to specify whether alerts are enabled in strict mode. This API operation performs a full update.
  *
  * @param request UpdateStrictEventNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -52294,7 +52361,7 @@ UpdateStrictEventNameResponse Client::updateStrictEventNameWithOptions(const Upd
 }
 
 /**
- * @summary Modifies the strict mode configuration, including whether to enable alerting in strict mode. This is a full-update operation.
+ * @summary Modifies the strict mode configuration to specify whether alerts are enabled in strict mode. This API operation performs a full update.
  *
  * @param request UpdateStrictEventNameRequest
  * @return UpdateStrictEventNameResponse
@@ -52921,7 +52988,7 @@ VerifyCheckCustomConfigResponse Client::verifyCheckCustomConfig(const VerifyChec
 }
 
 /**
- * @summary Performs instance-level verification for a check item.
+ * @summary Validates the instance dimension under a check item.
  *
  * @param request VerifyCheckInstanceResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -52972,7 +53039,7 @@ VerifyCheckInstanceResultResponse Client::verifyCheckInstanceResultWithOptions(c
 }
 
 /**
- * @summary Performs instance-level verification for a check item.
+ * @summary Validates the instance dimension under a check item.
  *
  * @param request VerifyCheckInstanceResultRequest
  * @return VerifyCheckInstanceResultResponse

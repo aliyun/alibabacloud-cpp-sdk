@@ -27,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SubscriptionIds, subscriptionIds_);
       DARABONBA_PTR_TO_JSON(TenantId, tenantId_);
       DARABONBA_PTR_TO_JSON(VendorAuthAlias, vendorAuthAlias_);
+      DARABONBA_PTR_TO_JSON(VendorUserName, vendorUserName_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyCloudVendorAccountAKRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AuthIds, authIds_);
@@ -42,6 +43,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SubscriptionIds, subscriptionIds_);
       DARABONBA_PTR_FROM_JSON(TenantId, tenantId_);
       DARABONBA_PTR_FROM_JSON(VendorAuthAlias, vendorAuthAlias_);
+      DARABONBA_PTR_FROM_JSON(VendorUserName, vendorUserName_);
     };
     ModifyCloudVendorAccountAKRequest() = default ;
     ModifyCloudVendorAccountAKRequest(const ModifyCloudVendorAccountAKRequest &) = default ;
@@ -57,7 +59,7 @@ namespace Models
     virtual bool empty() const override { return this->authIds_ == nullptr
         && this->authModules_ == nullptr && this->ctdrCloudUserId_ == nullptr && this->domain_ == nullptr && this->extendInfo_ == nullptr && this->lang_ == nullptr
         && this->regions_ == nullptr && this->secretId_ == nullptr && this->secretKey_ == nullptr && this->status_ == nullptr && this->subscriptionIds_ == nullptr
-        && this->tenantId_ == nullptr && this->vendorAuthAlias_ == nullptr; };
+        && this->tenantId_ == nullptr && this->vendorAuthAlias_ == nullptr && this->vendorUserName_ == nullptr; };
     // authIds Field Functions 
     bool hasAuthIds() const { return this->authIds_ != nullptr;};
     void deleteAuthIds() { this->authIds_ = nullptr;};
@@ -155,18 +157,25 @@ namespace Models
     inline ModifyCloudVendorAccountAKRequest& setVendorAuthAlias(string vendorAuthAlias) { DARABONBA_PTR_SET_VALUE(vendorAuthAlias_, vendorAuthAlias) };
 
 
+    // vendorUserName Field Functions 
+    bool hasVendorUserName() const { return this->vendorUserName_ != nullptr;};
+    void deleteVendorUserName() { this->vendorUserName_ = nullptr;};
+    inline string getVendorUserName() const { DARABONBA_PTR_GET_DEFAULT(vendorUserName_, "") };
+    inline ModifyCloudVendorAccountAKRequest& setVendorUserName(string vendorUserName) { DARABONBA_PTR_SET_VALUE(vendorUserName_, vendorUserName) };
+
+
   protected:
-    // The unique ID of the AccessKey (AK).
-    // >You can call the [DescribeCloudVendorAccountAKList](~~DescribeCloudVendorAccountAKList~~) operation to obtain this parameter.
+    // The unique ID of the AK.
+    // >You can call the [DescribeCloudVendorAccountAKList](~~DescribeCloudVendorAccountAKList~~) operation to obtain the value of this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> authIds_ {};
     // The list of codes for the modules associated with the AK. Valid values:
-    // - **HOST**: host
+    // - **HOST**: servers
     // - **CSPM**: cloud product configuration check
     // - **SIEM**: threat analysis and response
     // - **TRIAL**: log audit
-    // >You can call the [GetSupportedModules](~~GetSupportedModules~~) operation to obtain the supported modules.
+    // > You can call the [GetSupportedModules](~~GetSupportedModules~~) operation to query the supported modules.
     shared_ptr<vector<string>> authModules_ {};
     // The account ID.
     // >The account ID of the connected cloud vendor. This parameter is required when the permission description includes threat analysis and response.
@@ -174,22 +183,25 @@ namespace Models
     // The domain to which the connected account belongs. Valid values:
     // - **china**: China
     // - **global**: global
-    // - **europe**: Huawei Cloud Europe site
+    // - **europe**: HUAWEI CLOUD Europe site
     // 
-    // >This parameter is valid and required only when **Vendor** is set to **HUAWEICLOUD**, **Azure**, **AWS**, **VOLCENGINE**, **KingsoftCloud**, **UCloud**, **BaiduCloud**, or **OracleCloud**. For **KingsoftCloud** and **BaiduCloud**, this parameter is fixed to **china**. For **OracleCloud**, this parameter is fixed to **global**.
+    // > This parameter is valid and required only when **Vendor** is set to **HUAWEICLOUD**, **Azure**, **AWS**, **VOLCENGINE**, **KingsoftCloud**, **UCloud**, **BaiduCloud**, or **OracleCloud**. For **KingsoftCloud** and **BaiduCloud**, the value is fixed to **china**. For **OracleCloud**, the value is fixed to **global**.
     shared_ptr<string> domain_ {};
     // The extended information.
-    // >This parameter is used to record the extended information of different vendors.
-    // Google Cloud is accessed through a service account. ExtendInfo stores the JSON-formatted service key file, excluding the private_key_id and zprivate_key fields. The file contains the following fields: type, project_id, client_email, client_id, auth_uri, token_uri, auth_provider_x509_cert_url, client_x509_cert_url, and universe_domain. If the vendor is **OracleCloud**, this parameter contains the **fingerprint** key, which indicates the fingerprint.
+    // 
+    // > This parameter is used to record the extended information of different vendors.
+    // Google Cloud is connected through a service account. ExtendInfo stores the JSON-formatted service key file, excluding the private_key_id and zprivate_key fields. The file contains the following fields: type, project_id, client_email, client_id, auth_uri, token_uri, auth_provider_x509_cert_url, client_x509_cert_url, and universe_domain. If the vendor is **OracleCloud**, this parameter contains the **fingerprint** key, which indicates the fingerprint.
     shared_ptr<string> extendInfo_ {};
-    // The language type of the request and response messages. Default value: **zh**. Valid values:
+    // The language of the request and response. Default value: **zh**. Valid values:
+    // 
     // - **zh**: Chinese
     // - **en**: English
     shared_ptr<string> lang_ {};
     // The list of regions used for AK information verification. This parameter is valid only when **Vendor** is set to **AWS** or **OracleCloud**.
-    // >You can call the [ListCloudVendorRegions](~~ListCloudVendorRegions~~) operation to obtain this parameter.
+    // >You can call the [ListCloudVendorRegions](~~ListCloudVendorRegions~~) operation to obtain the value of this parameter.
     shared_ptr<vector<string>> regions_ {};
     // The ID of the AK parameter. Valid values:
+    // 
     // - If AkType is set to primary:
     // - - **Tencent**: the AccessKey ID of the primary account
     // - - **HUAWEICLOUD**: the AccessKey ID of the primary account
@@ -204,13 +216,14 @@ namespace Models
     // - - **Azure**: the client ID
     // - - **AWS**: the AccessKey ID of the sub-account
     // - - **VOLCENGINE**: the AccessKey ID of the sub-account
-    // - - **google**: the private key ID
-    // - - **OracleCloud**: the Oracle Cloud Identifier (OCID) of the sub-user
+    // - - **google**: the private_key_id
+    // - - **OracleCloud**: the OCID of the sub-user
     // - - **BaiduCloud**: the AccessKey ID of the sub-account
     // - - **KingsoftCloud**: the AccessKey ID of the sub-account
     // - - **UCloud**: the AccessKey ID of the sub-account
     // - - **StateCloud**: the AccessKey ID of the sub-account
-    // >If AkType is set to **primary**, this value is the SecretID of the primary account of the third-party cloud. If AkType is set to **sub**, this value is the AccessKey ID of the sub-account of the third-party cloud. For **Azure**, no distinction is made, and this value is the **appId** of the authentication information. Google Cloud is accessed through a service account. By default, AkType is set to sub, and this value is obtained from the private_key_id property of the JSON-formatted service key file. If the vendor is **OracleCloud**, this value is the OCID of the sub-user.
+    // 
+    // >If AkType is set to **primary**, this value is the SecretID of the primary account in the third-party cloud. If AkType is set to **sub**, this value is the AccessKey ID of the sub-account in the third-party cloud. For **Azure**, this parameter is not differentiated and the value is the **appId** of the authentication information. Google Cloud is connected through a service account, and AkType defaults to sub. The value is obtained from the private_key_id property of the JSON-formatted service key file. If the vendor is **OracleCloud**, this value is the OCID of the sub-user.
     shared_ptr<string> secretId_ {};
     // The secret of the AK parameter. Valid values:
     // - If AkType is set to primary:
@@ -226,13 +239,13 @@ namespace Models
     // - - **HUAWEICLOUD**: the SecretAccessKey of the sub-account
     // - - **Azure**: the client secret
     // - - **AWS**: the SecretAccessKey of the sub-account
-    // - - **google**: the private key
-    // - - **OracleCloud**: the private key of the sub-user
+    // - - **google**: the private_key
+    // - - **OracleCloud**: the private_key of the sub-user
     // - - **BaiduCloud**: the SecretAccessKey of the sub-account
     // - - **KingsoftCloud**: the SecretAccessKey of the sub-account
     // - - **UCloud**: the SecretAccessKey of the sub-account
     // - - **StateCloud**: the SecretAccessKey of the sub-account
-    // >If AkType is set to **primary**, this value is the Secret Access Key of the primary account of the third-party cloud. If AkType is set to **sub**, this value is the Secret Access Key of the sub-account of the third-party cloud. For **Azure**, no distinction is made, and this value is the **password** of the authentication information. Google Cloud is accessed through a service account. By default, AkType is set to sub, and this value is obtained from the private_key property of the JSON-formatted service key file. For **OracleCloud**, this value is obtained from the content of the corresponding private key file.
+    // >If AkType is set to **primary**, this value is the Secret Access Key of the primary account in the third-party cloud. If AkType is set to **sub**, this value is the Secret Access Key of the sub-account in the third-party cloud. For **Azure**, this parameter is not differentiated and the value is the **password** of the authentication information. Google Cloud is connected through a service account, and AkType defaults to sub. The value is obtained from the private_key property of the JSON-formatted service key file. For **OracleCloud**, the value is obtained from the content of the corresponding private key file.
     shared_ptr<string> secretKey_ {};
     // The usage status of the AK. Valid values:
     // - **0**: enabled
@@ -245,8 +258,11 @@ namespace Models
     // >This parameter is valid only when Vendor is set to **Azure** or **OracleCloud**.
     shared_ptr<string> tenantId_ {};
     // The name of the AK account.
-    // >This parameter is used to identify the account information to which the third-party host assets belong.
+    // >This parameter is used to identify the account to which the third-party server assets belong.
     shared_ptr<string> vendorAuthAlias_ {};
+    // The account name corresponding to the SecretId.
+    // > This parameter is required when the **Vendor** to which the **SecretId** belongs is **UCloud**.
+    shared_ptr<string> vendorUserName_ {};
   };
 
   } // namespace Models

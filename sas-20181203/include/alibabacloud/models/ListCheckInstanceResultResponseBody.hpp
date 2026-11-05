@@ -96,9 +96,9 @@ namespace Models
     protected:
       // The number of entries returned on the current page.
       shared_ptr<string> count_ {};
-      // The page number of the current page in a paged query. This parameter is used for paging.
+      // The page number of the current page for a paging query.
       shared_ptr<int32_t> currentPage_ {};
-      // The maximum number of entries per page in a paged query. This parameter is used for paging.
+      // The maximum number of entries returned per page for a paging query.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
@@ -182,12 +182,12 @@ namespace Models
       protected:
         // The search value.
         shared_ptr<string> key_ {};
-        // The search display name.
+        // The display name for search.
         shared_ptr<string> showName_ {};
-        // The type of the check instance result. Valid values:
+        // The type of the check result for the instance. Valid values:
         // 
-        // - **text**: text
-        // - **link**: link
+        // - **text**: Text.
+        // - **link**: Link.
         shared_ptr<string> type_ {};
       };
 
@@ -238,11 +238,11 @@ namespace Models
 
 
     protected:
-      // The list of list-type metadata.
+      // The metadata list for the list type.
       shared_ptr<vector<Columns::Grids>> grids_ {};
       // The key of the list property.
       shared_ptr<string> key_ {};
-      // Indicates whether search is supported. Valid values:
+      // Specifies whether search is supported. Valid values:
       // - **true**: Supported.
       // - **false**: Not supported.
       shared_ptr<bool> search_ {};
@@ -250,10 +250,10 @@ namespace Models
       shared_ptr<string> searchKey_ {};
       // The display name.
       shared_ptr<string> showName_ {};
-      // The property type of the check instance result. Valid values:
+      // The property type of the check result for the instance. Valid values:
       // 
-      // - **text**: text
-      // - **link**: link
+      // - **text**: Text.
+      // - **link**: Link.
       shared_ptr<string> type_ {};
     };
 
@@ -360,11 +360,11 @@ namespace Models
 
 
         protected:
-          // The unique name of the corresponding configuration.
+          // The unique name of the configuration.
           shared_ptr<string> name_ {};
-          // The internationalized name of the corresponding configuration item.
+          // The localized name of the configuration item.
           shared_ptr<string> showName_ {};
-          // The value of the corresponding configuration for the current asset.
+          // The value of the configuration for the current asset.
           shared_ptr<string> value_ {};
         };
 
@@ -394,11 +394,11 @@ namespace Models
 
 
       protected:
-        // The current instance information displayed for the corresponding remediation configuration.
+        // The current instance information displayed for the remediation configuration.
         shared_ptr<vector<InstanceInfo::Config>> config_ {};
-        // The time of the first check. The value is a UNIX timestamp. Unit: milliseconds.
+        // The time of the first check. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> firstUpdateTime_ {};
-        // The time of the latest check. The value is a UNIX timestamp. Unit: milliseconds.
+        // The time of the latest check. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> lastUpdateTime_ {};
       };
 
@@ -464,26 +464,26 @@ namespace Models
 
 
     protected:
-      // The check result ID of the instance.
+      // The ID of the check result for the instance.
       shared_ptr<int64_t> id_ {};
       // The instance ID of the server.
       shared_ptr<string> instanceId_ {};
-      // The instance information displayed for the corresponding check item.
+      // The instance information displayed for the check item.
       shared_ptr<BasicData::InstanceInfo> instanceInfo_ {};
       // The name of the server instance.
       shared_ptr<string> instanceName_ {};
       // The region ID of the instance.
       shared_ptr<string> regionId_ {};
-      // The status list of the check item. Multiple statuses are separated by commas (,). Valid values:
+      // The statuses of the check item. Multiple statuses are separated by commas (,). Valid values:
       // 
       // - **PASS**: Passed.
-      // - **NOT_PASS**: Failed.
-      // - **CHECKING**: Being checked.
+      // - **NOT_PASS**: Not passed.
+      // - **CHECKING**: Checking.
       // - **NOT_CHECK**: Not checked.
       // - **WHITELIST**: Whitelisted.
       // - **FAILED**: Failed.
       shared_ptr<string> status_ {};
-      // The exception status message of the check item.
+      // The status exception message for the check item.
       shared_ptr<string> statusMessage_ {};
       // The multi-cloud vendor account name.
       shared_ptr<string> vendorUserName_ {};
@@ -535,15 +535,15 @@ namespace Models
 
 
   protected:
-    // The list of basic information about affected instances.
+    // The list of basic information about the affected instances.
     shared_ptr<vector<ListCheckInstanceResultResponseBody::BasicData>> basicData_ {};
-    // The list of extended information about affected instances.
+    // The list of extended information about the affected instances.
     shared_ptr<vector<Darabonba::Json>> checks_ {};
-    // The metadata of the affected instance information display list.
+    // The metadata for the affected instances display list.
     shared_ptr<vector<ListCheckInstanceResultResponseBody::Columns>> columns_ {};
-    // The paging information displayed on the page in a paged query.
+    // The paging information displayed for a paging query.
     shared_ptr<ListCheckInstanceResultResponseBody::PageInfo> pageInfo_ {};
-    // The request ID, which is a unique identifier generated by Alibaba Cloud for this request. You can use it to troubleshoot issues.
+    // The ID of the request. The ID is a unique identifier generated by Alibaba Cloud for the request and can be used for troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

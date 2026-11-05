@@ -51,9 +51,8 @@ namespace Models
 
 
   protected:
-    // The protection mode. Valid values:
-    // 
-    // - **strict**: Strict mode. Defense mode has a risk of false positives. Use Defense mode during critical event protection periods.
+    // Specifies the protection mode. Valid values:
+    // - **strict**: Strict mode. Defense mode has a certain risk of false positives and is recommended during critical event protection.
     // - **balance**: Balanced mode. Defense mode detects more suspicious risks while reducing false positives.
     shared_ptr<string> mode_ {};
     // The list of server UUIDs.

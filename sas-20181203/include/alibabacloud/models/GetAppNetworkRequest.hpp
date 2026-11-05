@@ -59,14 +59,15 @@ namespace Models
   protected:
     // The ID of the container cluster to query.
     // > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain this parameter.
+    // This parameter is required. If it is not provided, the API returns HTTP 400 with the error code -101.
     shared_ptr<string> clusterId_ {};
     // The timestamp of the end time. Unit: milliseconds.
     // 
-    // > The interval between the start timestamp and the end timestamp cannot exceed **7** days.
+    // > Both **StartTime** and **EndTime** are required. **StartTime** must be earlier than **EndTime**, and the interval between them cannot exceed 7 days. If either parameter is not provided or the requirements are not met, the API returns HTTP 400 with the error code -101.
     shared_ptr<int64_t> endTime_ {};
     // The timestamp of the start time. Unit: milliseconds.
     // 
-    // > The interval between the start timestamp and the end timestamp cannot exceed **7** days.
+    // > Both **StartTime** and **EndTime** are required. **StartTime** must be earlier than **EndTime**, and the interval between them cannot exceed 7 days. If either parameter is not provided or the requirements are not met, the API returns HTTP 400 with the error code -101.
     shared_ptr<int64_t> startTime_ {};
   };
 

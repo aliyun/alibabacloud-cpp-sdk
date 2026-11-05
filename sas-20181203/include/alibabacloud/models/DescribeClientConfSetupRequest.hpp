@@ -48,14 +48,14 @@ namespace Models
 
 
   protected:
-    // The resource tag of the client to query.
+    // Specifies the client resource tag to query.
     // 
     // This parameter is required.
     shared_ptr<string> strategyTag_ {};
     // The policy value. Valid values:
     // - major
     // - advanced
-    // - basic.
+    // - basic
     // 
     // This parameter is required.
     shared_ptr<string> strategyTagValue_ {};

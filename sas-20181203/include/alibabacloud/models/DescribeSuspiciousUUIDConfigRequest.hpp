@@ -38,13 +38,13 @@ namespace Models
 
 
   protected:
-    // The type of proactive defense. Valid values:
+    // The defense type of the proactive defense to query. Valid values:
     // 
-    // *   **auto_breaking**: virus defense
-    // *   **ransomware_breaking**: ransomware capture
-    // *   **webshell_cloud_breaking**: webshell defense
-    // *   **alinet**: malicious behavior defense
-    // *   **alisecguard**: client protection
+    // - **auto_breaking**: Anti-virus.
+    // - **ransomware_breaking**: Anti-ransomware (bait capture).
+    // - **webshell_cloud_breaking**: Web shell connection defense.
+    // - **alinet**: Malicious network behavior defense.
+    // - **alisecguard**: Client self-protection.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

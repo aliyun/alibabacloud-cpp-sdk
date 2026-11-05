@@ -172,53 +172,53 @@ namespace Models
     shared_ptr<int32_t> authVersion_ {};
     // Specifies whether to enable automatic binding. Valid values:
     // 
-    // - **0**: Disabled.
-    // - **1**: Enabled.
+    // - **0**: Disabled
+    // - **1**: Enabled
     shared_ptr<int32_t> autoBind_ {};
-    // The collection of UUIDs to bind.
+    // The set of UUIDs to be bound.
     // 
-    // > **Bind** and **UnBind** cannot both be empty.
+    // > **Bind** and **UnBind** cannot be empty at the same time.
     shared_ptr<vector<string>> bind_ {};
     // Specifies whether to bind all assets. Default value: **false**. Valid values:
     // 
-    // - **true**: Bind all assets.
-    // - **false**: Do not bind all assets.
+    // - **true**: Yes
+    // - **false**: No
     shared_ptr<bool> bindAll_ {};
-    // The client token that is used to ensure the idempotence of the request. Use a different token for each request. The token supports only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. You must use different tokens for different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The conditions for searching for assets. This parameter is in JSON format. Pay attention to letter case when you specify this parameter.
-    // > You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. Call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported search conditions.
+    // Sets the conditions for searching assets. This parameter is in JSON format. Pay attention to the case sensitivity when you specify this parameter.
+    // > You can search for assets by using conditions such as the instance ID, instance name, VPC ID, region, and public IP address of the asset. You can call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported search conditions.
     shared_ptr<string> criteria_ {};
-    // Specifies whether to perform a dry run. Valid values: true: performs a dry run without executing the actual operation. false: performs the actual operation. Default value: false.
+    // Specifies whether to only precheck the request. true: only prechecks the request and does not perform the actual operation. false: performs the request normally. Default value: false.
     shared_ptr<bool> dryRun_ {};
-    // Specifies whether this is a pre-binding operation. Valid values:
+    // Specifies whether the operation is a pre-binding operation. Valid values:
     // 
-    // - **0**: No.
-    // - **1**: Yes.
+    // - **0**: No
+    // - **1**: Yes
     // 
     // 
-    // > After pre-binding is enabled, the corresponding authorization quota is automatically bound to the specified servers after the purchase is completed.
+    // > After pre-binding is enabled, the system automatically binds the corresponding number of licenses of the specified version to the specified servers after the purchase is completed.
     shared_ptr<int32_t> isPreBind_ {};
-    // The logical relationship among multiple search conditions. Default value: **OR**. Valid values:
-    // - **OR**: The search conditions are evaluated with a logical OR.
-    // - **AND**: The search conditions are evaluated with a logical AND.
+    // Specifies the logical relationship among multiple search conditions. Default value: **OR**. Valid values:
+    // - **OR**: Specifies the **OR** logical relationship among multiple conditions.
+    // - **AND**: Specifies the **AND** logical relationship among multiple conditions.
     shared_ptr<string> logicalExp_ {};
-    // The order version associated with the pre-binding. Valid values:
+    // The version of the order associated with the pre-binding operation. Valid values:
     // 
     // - **level7**: Anti-virus Edition
     // - **level3**: Advanced Edition
     // - **level2**: Enterprise Edition
     // - **level8**: Ultimate Edition
-    // - **level10**: Value-added service only
+    // - **level10**: Value-added services only
     shared_ptr<string> ntmVersion_ {};
-    // The order ID associated with the pre-binding.
+    // The ID of the order associated with the pre-binding operation.
     shared_ptr<int64_t> preBindOrderId_ {};
     shared_ptr<string> productCode_ {};
-    // The ID of the member account in the resource folder (Alibaba Cloud account).
-    // > Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+    // The ID of the member accounts in the resource folder. The ID is an Alibaba Cloud account ID.
+    // > You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
-    // The collection of UUIDs to unbind.
-    // > **Bind** and **UnBind** cannot both be empty.
+    // The set of UUIDs to be unbound.
+    // > **Bind** and **UnBind** cannot be empty at the same time.
     shared_ptr<vector<string>> unBind_ {};
   };
 

@@ -75,20 +75,20 @@ namespace Models
 
 
   protected:
-    // The region where the anti-ransomware backup service is located.
+    // The region where the anti-ransomware backup service is deployed.
     // 
     // This parameter is required.
     shared_ptr<string> backupRegionId_ {};
-    // When performing a paginated query, set the page number for the current page. The default value is **1**.
+    // The Settings of the paging page number for the paged query. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
-    // The identification information of the server protected by the anti-ransomware policy. You can enter the IP address or instance ID of the server.
+    // The identification information of the server protected by the anti-ransomware policy that you want to query. You can enter the IP address or instance ID of the server.
     shared_ptr<string> machineRemark_ {};
-    // The maximum number of data entries to display per page in a paginated query.
+    // The maximum number of entries to return on each page for the paged query. This paging parameter defines the page size.
     shared_ptr<int32_t> pageSize_ {};
-    // Backup status. Values:
-    // - **completed**: Success
-    // - **error**: Failure
-    // - **canceled**: Closed
+    // The backup status. Valid values:
+    // - **completed**: Successful.
+    // - **error**: Failed.
+    // - **canceled**: Canceled.
     shared_ptr<string> state_ {};
   };
 

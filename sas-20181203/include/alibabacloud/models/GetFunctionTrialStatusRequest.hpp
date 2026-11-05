@@ -38,7 +38,13 @@ namespace Models
 
 
   protected:
-    // The name of the feature module.
+    // The name of the feature module. Valid values:
+    // 
+    // - trail_file_detect_api_reward: File detection API trial.
+    // 
+    // - trail_honeypot_reward: Honeypot trial.
+    // 
+    // > This parameter is required. If it is not provided, the API returns an HTTP 400 error with the error code -101.
     shared_ptr<string> functionName_ {};
   };
 

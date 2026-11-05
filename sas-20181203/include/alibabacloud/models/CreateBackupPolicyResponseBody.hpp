@@ -72,8 +72,8 @@ namespace Models
       // The ID of the anti-ransomware policy.
       shared_ptr<string> id_ {};
       // The status of the policy. Valid values:
-      // - **enabled**: Protection is enabled.
-      // - **disabled**: Protection is disabled.    
+      // - **enabled**: The protection is enabled.
+      // - **disabled**: The protection is disabled.    
       // 
       // > By default, the protection is enabled after the policy is created.
       shared_ptr<string> status_ {};

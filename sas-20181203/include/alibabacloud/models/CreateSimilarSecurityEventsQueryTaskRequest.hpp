@@ -94,13 +94,11 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. You can use different tokens for different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to perform only a dry run of the request. Valid values:
-    // 
-    // - true: performs only a dry run without executing the actual operation.
+    // Specifies whether to perform a dry run of the request. Valid values:
+    // - true: performs a dry run without performing the actual operation.
     // - false: performs the actual operation.
-    // 
     // Default value: false.
     shared_ptr<bool> dryRun_ {};
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
@@ -109,9 +107,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> securityEventId_ {};
-    // The code of the alerting event that has the same type or rule hits.
+    // The code value of alerting events of the same type or rule hits.
     shared_ptr<string> similarEventScenarioCode_ {};
-    // The IP address of the access source.
+    // The source IP address.
     shared_ptr<string> sourceIp_ {};
   };
 

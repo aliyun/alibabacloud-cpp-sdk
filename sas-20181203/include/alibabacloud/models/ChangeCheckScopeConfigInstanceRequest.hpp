@@ -71,16 +71,15 @@ namespace Models
 
 
   protected:
-    // The list of unique IDs of cloud assets to add.
+    // The UUIDs of the cloud assets to add.
     shared_ptr<vector<string>> addAssetUuids_ {};
-    // The ID of the scan scope configuration.
-    // >Call the [GetCheckScopeConfig](~~GetCheckScopeConfig~~) operation to obtain this parameter.
+    // The ID of the scan scope configuration. You can call the [GetCheckScopeConfig](~~GetCheckScopeConfig~~) operation to obtain the ID.
     // 
     // This parameter is required.
     shared_ptr<string> configId_ {};
-    // The list of unique IDs of cloud assets to delete.
+    // The UUIDs of the cloud assets to delete.
     shared_ptr<vector<string>> deleteAssetUuids_ {};
-    // The key for cross-page select-all.
+    // The cross-page select-all key.
     shared_ptr<string> selectionKey_ {};
   };
 

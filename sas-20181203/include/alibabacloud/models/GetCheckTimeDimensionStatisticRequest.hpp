@@ -78,16 +78,18 @@ namespace Models
 
 
   protected:
-    // The end time in timestamp format.
+    // The end time in UNIX timestamp format.
     shared_ptr<int64_t> endTimeStamp_ {};
+    // The ID of the Alibaba Cloud account to which the member accounts in the resource folder belong.
+    // > You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
-    // The start time in timestamp format.
+    // The start time in UNIX timestamp format.
     shared_ptr<int64_t> startTimeStamp_ {};
-    // The type of data statistics. Valid values:
-    // - **CheckPassRate**: Check item pass rate.
-    // - **AssetPassRate**: Asset pass rate.
+    // The data statistics type. Valid values:
+    // - **CheckPassRate**: The pass rate of check items.
+    // - **AssetPassRate**: The pass rate of assets.
     shared_ptr<string> statisticType_ {};
-    // The list of cloud service providers.
+    // The list of cloud providers.
     shared_ptr<vector<string>> vendors_ {};
   };
 

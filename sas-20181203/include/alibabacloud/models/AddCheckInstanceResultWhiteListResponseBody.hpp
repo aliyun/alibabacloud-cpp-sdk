@@ -59,11 +59,11 @@ namespace Models
 
 
   protected:
-    // **[Deprecated]** The result of adding instances to the whitelist. This field is deprecated and can be ignored.
+    // **[Deprecated]** The result of adding the instances to the whitelist. This field is deprecated and can be ignored.
     Darabonba::Json data_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The rule ID of the whitelist.
+    // The ID of the whitelist rule.
     shared_ptr<string> ruleId_ {};
   };
 

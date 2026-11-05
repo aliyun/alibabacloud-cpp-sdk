@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The policy ID.
+    // The ID of the policy.
     shared_ptr<int64_t> id_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

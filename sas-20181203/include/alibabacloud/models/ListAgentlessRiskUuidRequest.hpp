@@ -130,7 +130,7 @@ namespace Models
 
 
   protected:
-    // The page number of the current page when using paging.
+    // The page number of the current page for paging in a paged query.
     shared_ptr<int32_t> currentPage_ {};
     // The ID of the asset instance.
     shared_ptr<string> instanceId_ {};
@@ -140,25 +140,30 @@ namespace Models
     shared_ptr<string> internetIp_ {};
     // The private IP address of the asset to query.
     shared_ptr<string> intranetIp_ {};
-    // 报告语言。取值：zh（中文）、en（英文）。不传或为空时使用 zh。
+    // The language of the report. Valid values:
+    // 
+    // - `zh`: Chinese.
+    // - `en`: English.
+    // 
+    // If this parameter is not specified or is left empty, a Chinese report is returned by default.
     shared_ptr<string> lang_ {};
-    // The instance name.
+    // The name of the instance.
     shared_ptr<string> machineName_ {};
-    // The maximum number of entries to return per page when using paging.
+    // The maximum number of entries to return on each page for paging in a paged query.
     shared_ptr<int32_t> pageSize_ {};
-    // Specifies whether risks exist. Valid values:
+    // Specifies whether a risk exists. Valid values:
     // 
-    // - **true**: Risks exist.
-    // - **false**: Risks do not exist.
+    // - **true**: A risk exists.
+    // - **false**: No risk exists.
     shared_ptr<bool> risk_ {};
-    // The name of the detection target.
+    // The name of the scan target.
     shared_ptr<string> targetName_ {};
-    // The object type of the detection target. Valid values:
+    // The object type of the scan target. Valid values:
     // 
-    // - **1**: host snapshot
-    // - **2**: host image
+    // - **1**: server snapshot
+    // - **2**: server image
     // - **3**: user snapshot
-    // - **4**: user custom image
+    // - **4**: custom image
     shared_ptr<int32_t> targetType_ {};
   };
 

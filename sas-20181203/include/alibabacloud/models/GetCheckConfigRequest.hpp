@@ -13,9 +13,11 @@ namespace Models
   class GetCheckConfigRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetCheckConfigRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ConfigId, configId_);
       DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
     };
     friend void from_json(const Darabonba::Json& j, GetCheckConfigRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ConfigId, configId_);
       DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
     };
     GetCheckConfigRequest() = default ;
@@ -29,7 +31,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->resourceDirectoryAccountId_ == nullptr; };
+    virtual bool empty() const override { return this->configId_ == nullptr
+        && this->resourceDirectoryAccountId_ == nullptr; };
+    // configId Field Functions 
+    bool hasConfigId() const { return this->configId_ != nullptr;};
+    void deleteConfigId() { this->configId_ = nullptr;};
+    inline string getConfigId() const { DARABONBA_PTR_GET_DEFAULT(configId_, "") };
+    inline GetCheckConfigRequest& setConfigId(string configId) { DARABONBA_PTR_SET_VALUE(configId_, configId) };
+
+
     // resourceDirectoryAccountId Field Functions 
     bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
     void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
@@ -38,8 +48,10 @@ namespace Models
 
 
   protected:
-    // The ID of the China account in the resource folder for member accounts.
-    // >Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+    // The policy ID.
+    shared_ptr<string> configId_ {};
+    // The ID of the Alibaba Cloud account to which the resource directory member account belongs.
+    // > You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
   };
 

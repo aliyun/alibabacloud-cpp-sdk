@@ -75,28 +75,32 @@ namespace Models
 
 
   protected:
-    // The type of security data to query. Valid values:
-    // - **HC_NEW**: number of new baseline risks
-    // - **HC_OPERATE**: number of handled baseline risks
-    // - **VUL_NEW**: number of new vulnerability risks
-    // - **VUL_OPERATE**: number of handled vulnerability risks
-    // - **SUSP_NEW**: number of new alert risks
-    // - **SUSP_OPERATE**: number of handled alert risks
+    // The security data type. Valid values:
+    // - **HC_NEW**: the number of new baseline risks
+    // - **HC_OPERATE**: the number of handled baseline risks
+    // - **VUL_NEW**: the number of new vulnerability risks
+    // - **VUL_OPERATE**: the number of handled vulnerability risks
+    // - **SUSP_NEW**: the number of new alerts
+    // - **SUSP_OPERATE**: the number of handled alerts
+    // 
+    // > You can specify multiple values separated by commas (,). Example: HC_NEW,VUL_NEW.
     // 
     // This parameter is required.
     shared_ptr<string> bizTypes_ {};
     // The end timestamp of the query. Unit: milliseconds.
     // 
+    // > The value of StartTimestamp must be earlier than the value of EndTimestamp. Otherwise, the API returns HTTP 400 and the error code -101.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> endTimestamp_ {};
     // The interval for querying data. Unit: milliseconds.
     // 
-    // > Minimum value: 1000.
+    // > The minimum value is 1000. A maximum of 100 data points are returned. Excess data points are not returned.
     // 
     // This parameter is required.
     shared_ptr<int32_t> interval_ {};
-    // The Alibaba Cloud account ID of the member accounts in the resource directory.
-    // > Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+    // The Alibaba Cloud account ID of member accounts in the resource folder.
+    // > You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The start timestamp of the query. Unit: milliseconds.
     // 

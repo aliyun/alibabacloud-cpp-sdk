@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The status code returned by the request.
+    // The status code returned by the operation.
     shared_ptr<string> code_ {};
     // The message returned for the request.
     shared_ptr<string> message_ {};

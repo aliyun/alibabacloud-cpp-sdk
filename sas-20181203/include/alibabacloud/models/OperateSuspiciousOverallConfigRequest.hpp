@@ -77,30 +77,30 @@ namespace Models
   protected:
     // The switch status. Valid values:
     // 
-    // - **on**: Enable
-    // - **off**: Disable
+    // - **on**: Enabled
+    // - **off**: Disabled
     // 
     // This parameter is required.
     shared_ptr<string> config_ {};
-    // The language type for the request and response messages. Default value: **zh**. Valid values:
+    // Specifies the language type for requests and response messages. Default value: **zh**. Valid values:
     // 
     // - **zh**: Chinese
     // - **en**: English
     shared_ptr<string> lang_ {};
-    // Specifies whether asset configuration is required. Default value: **false**. Valid values:
-    // - **true**: Required
-    // - **false**: Not required
-    // > This value takes effect only when **config** is set to **on**.
+    // Specifies whether to configure assets. Default value: **false**. Valid values:
+    // - **true**: Yes
+    // - **false**: No
+    // > This value is valid only when **config** is set to **on**.
     shared_ptr<bool> noTargetAsOn_ {};
-    // The IP address of the access source.
+    // The source IP address.
     shared_ptr<string> sourceIp_ {};
     // The switch type. Valid values:
     // 
     // - **auto_breaking**: Anti-virus
     // - **ransomware_breaking**: Anti-ransomware (bait capture)
-    // - **webshell_cloud_breaking**: Website backdoor connection defense
+    // - **webshell_cloud_breaking**: Web shell connection defense
     // - **alinet**: Malicious network behavior defense
-    // - **k8s_log_analysis**: Container K8s threat detection
+    // - **k8s_log_analysis**: Container Kubernetes threat detection
     // - **alisecguard**: Client self-protection defense mode
     // 
     // This parameter is required.
