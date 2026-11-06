@@ -147,6 +147,31 @@ namespace DataworksPublic20240518
       Models::ApproveProcessInstanceResponse approveProcessInstance(const Models::ApproveProcessInstanceRequest &request);
 
       /**
+       * @summary Sets the archive status of a specified agent session to archived or unarchived. This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the canary release feature is enabled for the current account and the destination region.
+       *
+       * @description This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the canary release feature is enabled for the current account and the destination region.
+       * Archiving only modifies the archive flag of the session and does not stop or delete the session. If Archived is set to true, the session is archived. If Archived is set to false, the session is unarchived. If this parameter is omitted, the default value true is used. You can use the Archived parameter of ListAgentSessions to query archived and unarchived sessions separately.
+       * The caller must have access permissions on the current session and the corresponding OpenAPI action permissions. An HTTP 200 status code does not indicate that the business operation is successful. You must check JsonRpcResponse.Error. The successful result is located in JsonRpcResponse.Result.
+       *
+       * @param tmpReq ArchiveAgentSessionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ArchiveAgentSessionResponse
+       */
+      Models::ArchiveAgentSessionResponse archiveAgentSessionWithOptions(const Models::ArchiveAgentSessionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Sets the archive status of a specified agent session to archived or unarchived. This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the canary release feature is enabled for the current account and the destination region.
+       *
+       * @description This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the canary release feature is enabled for the current account and the destination region.
+       * Archiving only modifies the archive flag of the session and does not stop or delete the session. If Archived is set to true, the session is archived. If Archived is set to false, the session is unarchived. If this parameter is omitted, the default value true is used. You can use the Archived parameter of ListAgentSessions to query archived and unarchived sessions separately.
+       * The caller must have access permissions on the current session and the corresponding OpenAPI action permissions. An HTTP 200 status code does not indicate that the business operation is successful. You must check JsonRpcResponse.Error. The successful result is located in JsonRpcResponse.Result.
+       *
+       * @param request ArchiveAgentSessionRequest
+       * @return ArchiveAgentSessionResponse
+       */
+      Models::ArchiveAgentSessionResponse archiveAgentSession(const Models::ArchiveAgentSessionRequest &request);
+
+      /**
        * @summary Associates an image with a workspace.
        *
        * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
@@ -381,12 +406,12 @@ namespace DataworksPublic20240518
       /**
        * @summary Creates an agent.
        *
-       * @description ## Request instructions
+       * @description ## Request description
        * - **Agent name**: Must be unique within the current account.
-       * - **Model configuration**: Optional parameter used to specify the model used by the agent and its related settings.
-       * - **Visibility level**: Defines who can access the agent. Supports visibility within the account, project, or specific users.
-       * - **Visibility scope**: When `PROJECT` or `USER` is selected as the visibility level, you must further specify the specific project IDs or user ID lists.
-       * - **Other parameters**: Display name and description are optional and can be filled in as needed.
+       * - **Model configuration**: Optional. Specifies the model used by the agent and its related settings.
+       * - **Visibility level**: Defines who can access the agent. Supports account-wide, project-specific, or user-specific visibility.
+       * - **Visibility scope**: When `PROJECT` or `USER` is selected as the visibility level, you must specify the specific project IDs or user IDs.
+       * - **Other parameters**: Parameters such as the display name and description are optional. Specify them as needed.
        *
        * @param tmpReq CreateAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -397,12 +422,12 @@ namespace DataworksPublic20240518
       /**
        * @summary Creates an agent.
        *
-       * @description ## Request instructions
+       * @description ## Request description
        * - **Agent name**: Must be unique within the current account.
-       * - **Model configuration**: Optional parameter used to specify the model used by the agent and its related settings.
-       * - **Visibility level**: Defines who can access the agent. Supports visibility within the account, project, or specific users.
-       * - **Visibility scope**: When `PROJECT` or `USER` is selected as the visibility level, you must further specify the specific project IDs or user ID lists.
-       * - **Other parameters**: Display name and description are optional and can be filled in as needed.
+       * - **Model configuration**: Optional. Specifies the model used by the agent and its related settings.
+       * - **Visibility level**: Defines who can access the agent. Supports account-wide, project-specific, or user-specific visibility.
+       * - **Visibility scope**: When `PROJECT` or `USER` is selected as the visibility level, you must specify the specific project IDs or user IDs.
+       * - **Other parameters**: Parameters such as the display name and description are optional. Specify them as needed.
        *
        * @param request CreateAgentRequest
        * @return CreateAgentResponse
@@ -410,16 +435,17 @@ namespace DataworksPublic20240518
       Models::CreateAgentResponse createAgent(const Models::CreateAgentRequest &request);
 
       /**
-       * @summary Creates an agent session and returns the session ID.
+       * @summary Creates a new agent session and returns the session ID.
        *
        * @description ## Request description
-       * - This operation creates an agent session.
-       * - You must specify the name of the bound agent by using `_meta.agent.agentName`. This parameter is required.
+       * - This operation creates a new agent session.
+       * - Specify the name of the bound agent by using `Params.Meta.Agent.AgentName`. This parameter is required.
        *   - dataworks_data_agent: DataWorks built-in agent - Data Agent. It provides AI capabilities for the entire data development lifecycle, including data integration, development, O&M, governance, and analysis.
        *   - dataworks_chatbi_agent: DataWorks built-in agent - ChatBI. Based on natural language processing and intelligent analysis technologies, it automates the entire analysis process from requirement parsing, data extraction, and automatic code generation to visual report output through conversational interaction.
        *   - dataworks_ai_assistant_agent: DataWorks built-in agent - AI Assistant. An enterprise-grade AI assistant for DataWorks built on open-source frameworks such as OpenClaw and Hermes Agent.
-       * - You can pass through the session source identifier by using `_meta.config.sessionSource` to facilitate subsequent retrieval by source.
-       * - You can pass session tags by using `_meta.config.sessionTags[].sessionTagCode`.
+       * - You can specify the session source by using `Params.Meta.Config.SessionSource` to facilitate subsequent retrieval by source.
+       * - You can pass session tags by using `Params.Meta.Config.SessionTags[].SessionTagCode`.
+       * - Set optional initial session configurations by using `Params.Meta.InitialConfigOptions`. Use `Model`, `Mode`, and `ReasoningEffort` for the model, authorization mode, and reasoning configuration, respectively. After the session is created, save the session ID from the response to send prompts or subscribe to session events later.
        *
        * @param tmpReq CreateAgentSessionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -428,16 +454,17 @@ namespace DataworksPublic20240518
       Models::CreateAgentSessionResponse createAgentSessionWithOptions(const Models::CreateAgentSessionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an agent session and returns the session ID.
+       * @summary Creates a new agent session and returns the session ID.
        *
        * @description ## Request description
-       * - This operation creates an agent session.
-       * - You must specify the name of the bound agent by using `_meta.agent.agentName`. This parameter is required.
+       * - This operation creates a new agent session.
+       * - Specify the name of the bound agent by using `Params.Meta.Agent.AgentName`. This parameter is required.
        *   - dataworks_data_agent: DataWorks built-in agent - Data Agent. It provides AI capabilities for the entire data development lifecycle, including data integration, development, O&M, governance, and analysis.
        *   - dataworks_chatbi_agent: DataWorks built-in agent - ChatBI. Based on natural language processing and intelligent analysis technologies, it automates the entire analysis process from requirement parsing, data extraction, and automatic code generation to visual report output through conversational interaction.
        *   - dataworks_ai_assistant_agent: DataWorks built-in agent - AI Assistant. An enterprise-grade AI assistant for DataWorks built on open-source frameworks such as OpenClaw and Hermes Agent.
-       * - You can pass through the session source identifier by using `_meta.config.sessionSource` to facilitate subsequent retrieval by source.
-       * - You can pass session tags by using `_meta.config.sessionTags[].sessionTagCode`.
+       * - You can specify the session source by using `Params.Meta.Config.SessionSource` to facilitate subsequent retrieval by source.
+       * - You can pass session tags by using `Params.Meta.Config.SessionTags[].SessionTagCode`.
+       * - Set optional initial session configurations by using `Params.Meta.InitialConfigOptions`. Use `Model`, `Mode`, and `ReasoningEffort` for the model, authorization mode, and reasoning configuration, respectively. After the session is created, save the session ID from the response to send prompts or subscribe to session events later.
        *
        * @param request CreateAgentSessionRequest
        * @return CreateAgentSessionResponse
@@ -498,6 +525,23 @@ namespace DataworksPublic20240518
        * @return CreateCalendarResponse
        */
       Models::CreateCalendarResponse createCalendar(const Models::CreateCalendarRequest &request);
+
+      /**
+       * @summary Creates a code review.
+       *
+       * @param request CreateCodeReviewRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateCodeReviewResponse
+       */
+      Models::CreateCodeReviewResponse createCodeReviewWithOptions(const Models::CreateCodeReviewRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a code review.
+       *
+       * @param request CreateCodeReviewRequest
+       * @return CreateCodeReviewResponse
+       */
+      Models::CreateCodeReviewResponse createCodeReview(const Models::CreateCodeReviewRequest &request);
 
       /**
        * @summary Creates a component.
@@ -585,9 +629,9 @@ namespace DataworksPublic20240518
       Models::CreateCrawlerResponse createCrawler(const Models::CreateCrawlerRequest &request);
 
       /**
-       * @summary Creates a cross-workspace deployment flow.
+       * @summary Creates a cross-workspace deployment pipeline.
        *
-       * @description Creates and persists a cross-workspace deployment flow. The ObjectIds parameter must contain exactly one top-level object ID from the source project. Child objects of composite objects such as workflows are automatically included by the system. Passing multiple objects causes parameter validation to fail. You can call ListCrossProjectDeploymentCandidates to query candidate objects, call ExecCrossProjectPipelineRun to execute the deployment after creation, and call GetCrossProjectPipelineRun to query the deployment status.
+       * @description Creates and solidifies a cross-project deployment pipeline. The ObjectIds parameter must contain exactly one top-level object ID from the source project. Sub-objects of composite objects such as workflows are automatically included by the system. Passing multiple objects causes parameter validation to fail. You can call the ListCrossProjectDeploymentCandidates operation to query candidate objects. After the pipeline is created, call the ExecCrossProjectPipelineRun operation to execute the deployment, and call the GetCrossProjectPipelineRun operation to query the status.
        *
        * @param tmpReq CreateCrossProjectPipelineRunRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -596,9 +640,9 @@ namespace DataworksPublic20240518
       Models::CreateCrossProjectPipelineRunResponse createCrossProjectPipelineRunWithOptions(const Models::CreateCrossProjectPipelineRunRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a cross-workspace deployment flow.
+       * @summary Creates a cross-workspace deployment pipeline.
        *
-       * @description Creates and persists a cross-workspace deployment flow. The ObjectIds parameter must contain exactly one top-level object ID from the source project. Child objects of composite objects such as workflows are automatically included by the system. Passing multiple objects causes parameter validation to fail. You can call ListCrossProjectDeploymentCandidates to query candidate objects, call ExecCrossProjectPipelineRun to execute the deployment after creation, and call GetCrossProjectPipelineRun to query the deployment status.
+       * @description Creates and solidifies a cross-project deployment pipeline. The ObjectIds parameter must contain exactly one top-level object ID from the source project. Sub-objects of composite objects such as workflows are automatically included by the system. Passing multiple objects causes parameter validation to fail. You can call the ListCrossProjectDeploymentCandidates operation to query candidate objects. After the pipeline is created, call the ExecCrossProjectPipelineRun operation to execute the deployment, and call the GetCrossProjectPipelineRun operation to query the status.
        *
        * @param request CreateCrossProjectPipelineRunRequest
        * @return CreateCrossProjectPipelineRunResponse
@@ -1369,9 +1413,9 @@ namespace DataworksPublic20240518
       /**
        * @summary Creates a resource group.
        *
-       * @description 1. DataWorks Basic Edition or later is required.
-       * 2. **Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/2680173.html) of DataWorks general-purpose resource groups.**
-       * 3. **Before you call this operation, make sure that you have created the service-linked role AliyunServiceRoleForDataWorks.**
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this API operation.
+       * 2. **Before you call this API operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/2680173.html) of DataWorks general-purpose resource groups.**
+       * 3. **Before you call this API operation, make sure that you have created the service-linked role AliyunServiceRoleForDataWorks.**
        *
        * @param tmpReq CreateResourceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1382,9 +1426,9 @@ namespace DataworksPublic20240518
       /**
        * @summary Creates a resource group.
        *
-       * @description 1. DataWorks Basic Edition or later is required.
-       * 2. **Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/2680173.html) of DataWorks general-purpose resource groups.**
-       * 3. **Before you call this operation, make sure that you have created the service-linked role AliyunServiceRoleForDataWorks.**
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this API operation.
+       * 2. **Before you call this API operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/2680173.html) of DataWorks general-purpose resource groups.**
+       * 3. **Before you call this API operation, make sure that you have created the service-linked role AliyunServiceRoleForDataWorks.**
        *
        * @param request CreateResourceGroupRequest
        * @return CreateResourceGroupResponse
@@ -1611,6 +1655,31 @@ namespace DataworksPublic20240518
        * @return DeleteAgentResponse
        */
       Models::DeleteAgentResponse deleteAgent(const Models::DeleteAgentRequest &request);
+
+      /**
+       * @summary Deletes a specified agent session. This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the canary release feature is enabled for the current account and the target region.
+       *
+       * @description This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the canary release feature is enabled for the current account and the target region.
+       * Verify the target session before proceeding. A deleted session cannot be recovered by unarchiving it through ArchiveAgentSession. To temporarily hide a session, use ArchiveAgentSession. To stop the current execution, use CancelAgentSession.
+       * The caller must have access permissions for the current session and the corresponding OpenAPI action permissions. An HTTP 200 status code does not indicate a successful business operation. You must check JsonRpcResponse.Error for errors. Successful results are located in JsonRpcResponse.Result.
+       *
+       * @param tmpReq DeleteAgentSessionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAgentSessionResponse
+       */
+      Models::DeleteAgentSessionResponse deleteAgentSessionWithOptions(const Models::DeleteAgentSessionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a specified agent session. This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the canary release feature is enabled for the current account and the target region.
+       *
+       * @description This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the canary release feature is enabled for the current account and the target region.
+       * Verify the target session before proceeding. A deleted session cannot be recovered by unarchiving it through ArchiveAgentSession. To temporarily hide a session, use ArchiveAgentSession. To stop the current execution, use CancelAgentSession.
+       * The caller must have access permissions for the current session and the corresponding OpenAPI action permissions. An HTTP 200 status code does not indicate a successful business operation. You must check JsonRpcResponse.Error for errors. Successful results are located in JsonRpcResponse.Result.
+       *
+       * @param request DeleteAgentSessionRequest
+       * @return DeleteAgentSessionResponse
+       */
+      Models::DeleteAgentSessionResponse deleteAgentSession(const Models::DeleteAgentSessionRequest &request);
 
       /**
        * @summary Deletes a custom monitoring alert rule.
@@ -2584,7 +2653,7 @@ namespace DataworksPublic20240518
       /**
        * @summary Deletes a specified task.
        *
-       * @description You must purchase DataWorks Basic Edition or later to use this feature.
+       * @description You must purchase DataWorks Basic Edition or a higher edition to use this feature.
        *
        * @param request DeleteTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2595,7 +2664,7 @@ namespace DataworksPublic20240518
       /**
        * @summary Deletes a specified task.
        *
-       * @description You must purchase DataWorks Basic Edition or later to use this feature.
+       * @description You must purchase DataWorks Basic Edition or a higher edition to use this feature.
        *
        * @param request DeleteTaskRequest
        * @return DeleteTaskResponse
@@ -2971,8 +3040,8 @@ namespace DataworksPublic20240518
       /**
        * @summary Retrieves the details of an agent.
        *
-       * @description ## Operation description
-       * This operation retrieves the detailed configuration information of an agent by its name, including but not limited to model configurations, system prompts, and tool lists. You must provide the exact agent name as a parameter in the request.
+       * @description ## Request description
+       * This API operation retrieves the detailed configuration information of an agent by its name, including but not limited to model configurations, system prompts, and tool lists. You must provide the exact agent name as a parameter in the request.
        *
        * @param request GetAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2983,8 +3052,8 @@ namespace DataworksPublic20240518
       /**
        * @summary Retrieves the details of an agent.
        *
-       * @description ## Operation description
-       * This operation retrieves the detailed configuration information of an agent by its name, including but not limited to model configurations, system prompts, and tool lists. You must provide the exact agent name as a parameter in the request.
+       * @description ## Request description
+       * This API operation retrieves the detailed configuration information of an agent by its name, including but not limited to model configurations, system prompts, and tool lists. You must provide the exact agent name as a parameter in the request.
        *
        * @param request GetAgentRequest
        * @return GetAgentResponse
@@ -3015,6 +3084,53 @@ namespace DataworksPublic20240518
        * @return GetAgentSessionArtifactMetaResponse
        */
       Models::GetAgentSessionArtifactMetaResponse getAgentSessionArtifactMeta(const Models::GetAgentSessionArtifactMetaRequest &request);
+
+      /**
+       * @summary Subscribes to real-time Server-Sent Events (SSE) for a specified agent session independently, with support for resumption using a remote cursor. This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the corresponding canary release is enabled for your account and the target region.
+       *
+       * @description This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the corresponding canary release is enabled for your account and the target region.
+       * This API operation provides a read-only SSE subscription and does not submit questions. Use a GET request and maintain streaming reads. Do not read the response as a standard JSON object at once. For long-running tasks that may exceed the timeout of a single request, establish an independent event subscription before calling PromptAgentSession. After creating a session, set SessionCode to the SessionId and read both streams in parallel. The Events stream displays real-time progress, while the built-in SSE of the Prompt stream is used to read the final state and business errors of the current turn.
+       * Events display messages, tool invoke, and execution progress. The establishment of a subscription connection, heartbeats, or an HTTP 200 status code does not indicate task completion. Determine task completion based on the actual final state events and the Prompt invoke results.
+       * When resuming after a disconnection, pass the ID of the last consumed remote event as Last-Event-Id. Also, save and pass back the EventEpoch of the same event stream if the server has returned it. When subscribing for the first time without a cursor, omit these two parameters to receive only real-time events after the subscription is established. Explicitly setting Last-Event-Id to 0 attempts to replay from the starting point still in the cache, which does not mean the complete history can be retrieved. Retrieve the complete history by calling LoadAgentSession. Do not generate cursors or epochs yourself, or use local message sequence numbers as replacements.
+       * The event cache is bounded. If you receive a resynchronization prompt such as state_resync_required or the cursor is no longer available, restore the history by calling LoadAgentSession and then re-establish the subscription. LoadAgentSession is used for refreshing and exception recovery, and should not be called repeatedly to replace real-time event subscriptions. If the Prompt stream times out or disconnects before receiving the business final state, the result of the current turn is unknown, and you can continue to observe the progress through the Events stream. Avoid automatically resending the Prompt. Closing the Events subscription does not trigger CancelAgentSession.
+       * Servers that support epoch information return eventEpoch in the data of the stream_open control frame and provide a mapping between the business sessionId and nativeSessionId. Save the identifiers returned by the server. Do not assume that the business session ID is the same as the native session ID. The cursor and eventEpoch must come from the same event stream epoch of the same native session, and cannot be reused across native sessions or epochs. Do not advance the cursor when the control frame does not have an ID.
+       *
+       * @param request GetAgentSessionEventsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAgentSessionEventsResponse
+       */
+      FutureGenerator<Models::GetAgentSessionEventsResponse> getAgentSessionEventsWithSSE(const Models::GetAgentSessionEventsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Subscribes to real-time Server-Sent Events (SSE) for a specified agent session independently, with support for resumption using a remote cursor. This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the corresponding canary release is enabled for your account and the target region.
+       *
+       * @description This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the corresponding canary release is enabled for your account and the target region.
+       * This API operation provides a read-only SSE subscription and does not submit questions. Use a GET request and maintain streaming reads. Do not read the response as a standard JSON object at once. For long-running tasks that may exceed the timeout of a single request, establish an independent event subscription before calling PromptAgentSession. After creating a session, set SessionCode to the SessionId and read both streams in parallel. The Events stream displays real-time progress, while the built-in SSE of the Prompt stream is used to read the final state and business errors of the current turn.
+       * Events display messages, tool invoke, and execution progress. The establishment of a subscription connection, heartbeats, or an HTTP 200 status code does not indicate task completion. Determine task completion based on the actual final state events and the Prompt invoke results.
+       * When resuming after a disconnection, pass the ID of the last consumed remote event as Last-Event-Id. Also, save and pass back the EventEpoch of the same event stream if the server has returned it. When subscribing for the first time without a cursor, omit these two parameters to receive only real-time events after the subscription is established. Explicitly setting Last-Event-Id to 0 attempts to replay from the starting point still in the cache, which does not mean the complete history can be retrieved. Retrieve the complete history by calling LoadAgentSession. Do not generate cursors or epochs yourself, or use local message sequence numbers as replacements.
+       * The event cache is bounded. If you receive a resynchronization prompt such as state_resync_required or the cursor is no longer available, restore the history by calling LoadAgentSession and then re-establish the subscription. LoadAgentSession is used for refreshing and exception recovery, and should not be called repeatedly to replace real-time event subscriptions. If the Prompt stream times out or disconnects before receiving the business final state, the result of the current turn is unknown, and you can continue to observe the progress through the Events stream. Avoid automatically resending the Prompt. Closing the Events subscription does not trigger CancelAgentSession.
+       * Servers that support epoch information return eventEpoch in the data of the stream_open control frame and provide a mapping between the business sessionId and nativeSessionId. Save the identifiers returned by the server. Do not assume that the business session ID is the same as the native session ID. The cursor and eventEpoch must come from the same event stream epoch of the same native session, and cannot be reused across native sessions or epochs. Do not advance the cursor when the control frame does not have an ID.
+       *
+       * @param request GetAgentSessionEventsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAgentSessionEventsResponse
+       */
+      Models::GetAgentSessionEventsResponse getAgentSessionEventsWithOptions(const Models::GetAgentSessionEventsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Subscribes to real-time Server-Sent Events (SSE) for a specified agent session independently, with support for resumption using a remote cursor. This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the corresponding canary release is enabled for your account and the target region.
+       *
+       * @description This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the corresponding canary release is enabled for your account and the target region.
+       * This API operation provides a read-only SSE subscription and does not submit questions. Use a GET request and maintain streaming reads. Do not read the response as a standard JSON object at once. For long-running tasks that may exceed the timeout of a single request, establish an independent event subscription before calling PromptAgentSession. After creating a session, set SessionCode to the SessionId and read both streams in parallel. The Events stream displays real-time progress, while the built-in SSE of the Prompt stream is used to read the final state and business errors of the current turn.
+       * Events display messages, tool invoke, and execution progress. The establishment of a subscription connection, heartbeats, or an HTTP 200 status code does not indicate task completion. Determine task completion based on the actual final state events and the Prompt invoke results.
+       * When resuming after a disconnection, pass the ID of the last consumed remote event as Last-Event-Id. Also, save and pass back the EventEpoch of the same event stream if the server has returned it. When subscribing for the first time without a cursor, omit these two parameters to receive only real-time events after the subscription is established. Explicitly setting Last-Event-Id to 0 attempts to replay from the starting point still in the cache, which does not mean the complete history can be retrieved. Retrieve the complete history by calling LoadAgentSession. Do not generate cursors or epochs yourself, or use local message sequence numbers as replacements.
+       * The event cache is bounded. If you receive a resynchronization prompt such as state_resync_required or the cursor is no longer available, restore the history by calling LoadAgentSession and then re-establish the subscription. LoadAgentSession is used for refreshing and exception recovery, and should not be called repeatedly to replace real-time event subscriptions. If the Prompt stream times out or disconnects before receiving the business final state, the result of the current turn is unknown, and you can continue to observe the progress through the Events stream. Avoid automatically resending the Prompt. Closing the Events subscription does not trigger CancelAgentSession.
+       * Servers that support epoch information return eventEpoch in the data of the stream_open control frame and provide a mapping between the business sessionId and nativeSessionId. Save the identifiers returned by the server. Do not assume that the business session ID is the same as the native session ID. The cursor and eventEpoch must come from the same event stream epoch of the same native session, and cannot be reused across native sessions or epochs. Do not advance the cursor when the control frame does not have an ID.
+       *
+       * @param request GetAgentSessionEventsRequest
+       * @return GetAgentSessionEventsResponse
+       */
+      Models::GetAgentSessionEventsResponse getAgentSessionEvents(const Models::GetAgentSessionEventsRequest &request);
 
       /**
        * @summary Retrieves the cumulative AI token usage for a specified session.
@@ -3183,6 +3299,23 @@ namespace DataworksPublic20240518
        * @return GetCertificateResponse
        */
       Models::GetCertificateResponse getCertificate(const Models::GetCertificateRequest &request);
+
+      /**
+       * @summary Retrieves the metadata of a code review.
+       *
+       * @param request GetCodeReviewRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetCodeReviewResponse
+       */
+      Models::GetCodeReviewResponse getCodeReviewWithOptions(const Models::GetCodeReviewRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the metadata of a code review.
+       *
+       * @param request GetCodeReviewRequest
+       * @return GetCodeReviewResponse
+       */
+      Models::GetCodeReviewResponse getCodeReview(const Models::GetCodeReviewRequest &request);
 
       /**
        * @summary Retrieves the details of a specified column in a Data Map table.
@@ -4593,7 +4726,7 @@ namespace DataworksPublic20240518
       /**
        * @summary Retrieves the details of a specified workflow.
        *
-       * @description This feature requires DataWorks Basic Edition or later.
+       * @description This feature requires DataWorks Basic Edition or a higher edition.
        *
        * @param request GetWorkflowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4604,7 +4737,7 @@ namespace DataworksPublic20240518
       /**
        * @summary Retrieves the details of a specified workflow.
        *
-       * @description This feature requires DataWorks Basic Edition or later.
+       * @description This feature requires DataWorks Basic Edition or a higher edition.
        *
        * @param request GetWorkflowRequest
        * @return GetWorkflowResponse
@@ -4785,12 +4918,11 @@ namespace DataworksPublic20240518
       /**
        * @summary Retrieves the conversation history list of agent sessions.
        *
-       * @description ## Request description
-       * - You must specify at least one of agentName and sessionSourceList.
-       * - You can combine tagList, sessionId, and sessionTitle for filtering.
-       * - The response follows the Alibaba Cloud OpenAPI paging specification, including totalCount, maxResults, nextToken, and sessionList.
-       * - If nextToken is an invalid string, it is processed as 1 by default.
-       * - By default, 50 records are returned per page. You can adjust this by using the maxResults parameter.
+       * @description ## Request instructions
+       * - You must specify at least one of `Params.AgentName` and `Params.SessionSourceList`. You can also filter sessions by `Params.TagList`, `Params.SessionId`, and `Params.SessionTitle`.
+       * - If `Params.Archived` is set to `true`, only archived sessions are queried. If it is set to `false` or omitted, only unarchived sessions are queried. To query both types of sessions, send separate requests and handle the pagination for each.
+       * - The session list is located in `JsonRpcResponse.Result.AgentSessions`. The pagination information is located in `TotalCount`, `MaxResults`, and `NextToken` under the same `Result`.
+       * - The default value of `Params.MaxResults` is 50. For the first page, you can pass `Params.NextToken=1`. For subsequent pages, pass the `NextToken` value from the response as is.
        *
        * @param tmpReq ListAgentSessionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4801,12 +4933,11 @@ namespace DataworksPublic20240518
       /**
        * @summary Retrieves the conversation history list of agent sessions.
        *
-       * @description ## Request description
-       * - You must specify at least one of agentName and sessionSourceList.
-       * - You can combine tagList, sessionId, and sessionTitle for filtering.
-       * - The response follows the Alibaba Cloud OpenAPI paging specification, including totalCount, maxResults, nextToken, and sessionList.
-       * - If nextToken is an invalid string, it is processed as 1 by default.
-       * - By default, 50 records are returned per page. You can adjust this by using the maxResults parameter.
+       * @description ## Request instructions
+       * - You must specify at least one of `Params.AgentName` and `Params.SessionSourceList`. You can also filter sessions by `Params.TagList`, `Params.SessionId`, and `Params.SessionTitle`.
+       * - If `Params.Archived` is set to `true`, only archived sessions are queried. If it is set to `false` or omitted, only unarchived sessions are queried. To query both types of sessions, send separate requests and handle the pagination for each.
+       * - The session list is located in `JsonRpcResponse.Result.AgentSessions`. The pagination information is located in `TotalCount`, `MaxResults`, and `NextToken` under the same `Result`.
+       * - The default value of `Params.MaxResults` is 50. For the first page, you can pass `Params.NextToken=1`. For subsequent pages, pass the `NextToken` value from the response as is.
        *
        * @param request ListAgentSessionsRequest
        * @return ListAgentSessionsResponse
@@ -4957,6 +5088,23 @@ namespace DataworksPublic20240518
        * @return ListCertificatesResponse
        */
       Models::ListCertificatesResponse listCertificates(const Models::ListCertificatesRequest &request);
+
+      /**
+       * @summary Performs a paging query of code reviews.
+       *
+       * @param request ListCodeReviewsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCodeReviewsResponse
+       */
+      Models::ListCodeReviewsResponse listCodeReviewsWithOptions(const Models::ListCodeReviewsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Performs a paging query of code reviews.
+       *
+       * @param request ListCodeReviewsRequest
+       * @return ListCodeReviewsResponse
+       */
+      Models::ListCodeReviewsResponse listCodeReviews(const Models::ListCodeReviewsRequest &request);
 
       /**
        * @summary Queries the columns of a specified table in DataWorks Data Map.
@@ -5119,7 +5267,7 @@ namespace DataworksPublic20240518
       Models::ListCrawlersResponse listCrawlers(const Models::ListCrawlersRequest &request);
 
       /**
-       * @summary Queries cross-workspace deployment candidate objects.
+       * @summary Queries cross-workspace deployment candidates.
        *
        * @param request ListCrossProjectDeploymentCandidatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5128,7 +5276,7 @@ namespace DataworksPublic20240518
       Models::ListCrossProjectDeploymentCandidatesResponse listCrossProjectDeploymentCandidatesWithOptions(const Models::ListCrossProjectDeploymentCandidatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries cross-workspace deployment candidate objects.
+       * @summary Queries cross-workspace deployment candidates.
        *
        * @param request ListCrossProjectDeploymentCandidatesRequest
        * @return ListCrossProjectDeploymentCandidatesResponse
@@ -5153,7 +5301,7 @@ namespace DataworksPublic20240518
       Models::ListCrossProjectDeploymentEnvironmentsResponse listCrossProjectDeploymentEnvironments(const Models::ListCrossProjectDeploymentEnvironmentsRequest &request);
 
       /**
-       * @summary Queries the publish items of a cross-workspace publish pipeline.
+       * @summary Queries the deployment items of a cross-workspace deployment pipeline.
        *
        * @param request ListCrossProjectPipelineRunItemsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5162,7 +5310,7 @@ namespace DataworksPublic20240518
       Models::ListCrossProjectPipelineRunItemsResponse listCrossProjectPipelineRunItemsWithOptions(const Models::ListCrossProjectPipelineRunItemsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the publish items of a cross-workspace publish pipeline.
+       * @summary Queries the deployment items of a cross-workspace deployment pipeline.
        *
        * @param request ListCrossProjectPipelineRunItemsRequest
        * @return ListCrossProjectPipelineRunItemsResponse
@@ -5338,7 +5486,7 @@ namespace DataworksPublic20240518
       /**
        * @summary Queries a list of tags.
        *
-       * @description DataWorks Enterprise Edition or a higher edition is required.
+       * @description You must purchase DataWorks Enterprise Edition or higher to use this operation.
        *
        * @param request ListDataAssetTagsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5349,7 +5497,7 @@ namespace DataworksPublic20240518
       /**
        * @summary Queries a list of tags.
        *
-       * @description DataWorks Enterprise Edition or a higher edition is required.
+       * @description You must purchase DataWorks Enterprise Edition or higher to use this operation.
        *
        * @param request ListDataAssetTagsRequest
        * @return ListDataAssetTagsResponse
@@ -5426,9 +5574,9 @@ namespace DataworksPublic20240518
       /**
        * @deprecated OpenAPI ListDataQualityEvaluationTasks is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScans instead.
        *
-       * @summary Performs a paging query on the data quality monitoring task list.
+       * @summary Queries the data quality monitoring task list by page.
        *
-       * @description You must purchase DataWorks Basic Edition or later to use this feature.
+       * @description You must purchase DataWorks Basic Edition or a higher edition to use this API operation.
        *
        * @param request ListDataQualityEvaluationTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5439,9 +5587,9 @@ namespace DataworksPublic20240518
       /**
        * @deprecated OpenAPI ListDataQualityEvaluationTasks is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScans instead.
        *
-       * @summary Performs a paging query on the data quality monitoring task list.
+       * @summary Queries the data quality monitoring task list by page.
        *
-       * @description You must purchase DataWorks Basic Edition or later to use this feature.
+       * @description You must purchase DataWorks Basic Edition or a higher edition to use this API operation.
        *
        * @param request ListDataQualityEvaluationTasksRequest
        * @return ListDataQualityEvaluationTasksResponse
@@ -5749,9 +5897,9 @@ namespace DataworksPublic20240518
       Models::ListDownstreamTaskInstancesResponse listDownstreamTaskInstances(const Models::ListDownstreamTaskInstancesRequest &request);
 
       /**
-       * @summary Retrieves a paginated list of downstream nodes for a specified node.
+       * @summary Retrieves a paginated list of downstream tasks for a specified task.
        *
-       * @description DataWorks Basic Edition or later is required.
+       * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
        *
        * @param request ListDownstreamTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5760,9 +5908,9 @@ namespace DataworksPublic20240518
       Models::ListDownstreamTasksResponse listDownstreamTasksWithOptions(const Models::ListDownstreamTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a paginated list of downstream nodes for a specified node.
+       * @summary Retrieves a paginated list of downstream tasks for a specified task.
        *
-       * @description DataWorks Basic Edition or later is required.
+       * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
        *
        * @param request ListDownstreamTasksRequest
        * @return ListDownstreamTasksResponse
@@ -6242,11 +6390,11 @@ namespace DataworksPublic20240518
       Models::ListParametersResponse listParameters(const Models::ListParametersRequest &request);
 
       /**
-       * @summary Queries the partition list of a specified table in DataWorks Data Map. Currently supports MaxCompute and HMS (EMR cluster) types.
+       * @summary Queries the partitions of a specified table in DataWorks Data Map. MaxCompute and HMS (EMR cluster) tables are supported.
        *
-       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
-       * 2. Only MaxCompute and HMS (EMR cluster) table types are supported.
-       * 3. Before calling this API, call ListCrawlers to obtain the MetaEntityId of the metadata crawler, then call ListDatabases to obtain the database ID. For MaxCompute projects with Schema enabled, call ListSchemas to obtain the schema ID. Then call ListTables to obtain the TableId, and pass the returned table ID to this API.
+       * @description 1. DataWorks Basic Edition or a higher edition is required.
+       * 2. Currently, only MaxCompute and HMS (EMR cluster) tables are supported.
+       * 3. Before you call this API operation, call ListCrawlers to obtain the MetaEntityId of the metadata crawler, and then call ListDatabases to obtain the database ID. For MaxCompute projects with the schema feature enabled, call ListSchemas to obtain the schema ID. Then, call ListTables to obtain the TableId, and pass the returned table ID to this API operation.
        *
        * @param request ListPartitionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6255,11 +6403,11 @@ namespace DataworksPublic20240518
       Models::ListPartitionsResponse listPartitionsWithOptions(const Models::ListPartitionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the partition list of a specified table in DataWorks Data Map. Currently supports MaxCompute and HMS (EMR cluster) types.
+       * @summary Queries the partitions of a specified table in DataWorks Data Map. MaxCompute and HMS (EMR cluster) tables are supported.
        *
-       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
-       * 2. Only MaxCompute and HMS (EMR cluster) table types are supported.
-       * 3. Before calling this API, call ListCrawlers to obtain the MetaEntityId of the metadata crawler, then call ListDatabases to obtain the database ID. For MaxCompute projects with Schema enabled, call ListSchemas to obtain the schema ID. Then call ListTables to obtain the TableId, and pass the returned table ID to this API.
+       * @description 1. DataWorks Basic Edition or a higher edition is required.
+       * 2. Currently, only MaxCompute and HMS (EMR cluster) tables are supported.
+       * 3. Before you call this API operation, call ListCrawlers to obtain the MetaEntityId of the metadata crawler, and then call ListDatabases to obtain the database ID. For MaxCompute projects with the schema feature enabled, call ListSchemas to obtain the schema ID. Then, call ListTables to obtain the TableId, and pass the returned table ID to this API operation.
        *
        * @param request ListPartitionsRequest
        * @return ListPartitionsResponse
@@ -6819,9 +6967,9 @@ namespace DataworksPublic20240518
       Models::ListTablesResponse listTables(const Models::ListTablesRequest &request);
 
       /**
-       * @summary Retrieves a paginated list of operation logs for a specified node instance.
+       * @summary Retrieves a paginated list of operation logs for a specified task instance.
        *
-       * @description You must purchase DataWorks Basic Edition or later to use this API.
+       * @description You must purchase DataWorks Basic Edition or a higher edition to use this API.
        * You can only query operation logs generated within the past 31 days.
        *
        * @param request ListTaskInstanceOperationLogsRequest
@@ -6831,9 +6979,9 @@ namespace DataworksPublic20240518
       Models::ListTaskInstanceOperationLogsResponse listTaskInstanceOperationLogsWithOptions(const Models::ListTaskInstanceOperationLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a paginated list of operation logs for a specified node instance.
+       * @summary Retrieves a paginated list of operation logs for a specified task instance.
        *
-       * @description You must purchase DataWorks Basic Edition or later to use this API.
+       * @description You must purchase DataWorks Basic Edition or a higher edition to use this API.
        * You can only query operation logs generated within the past 31 days.
        *
        * @param request ListTaskInstanceOperationLogsRequest
@@ -7008,14 +7156,14 @@ namespace DataworksPublic20240518
       Models::ListWorkflowsResponse listWorkflows(const Models::ListWorkflowsRequest &request);
 
       /**
-       * @summary Loads the historical messages of an existing session and returns them in a Server-Sent Events (SSE) stream. If the session does not exist, a JSONRPCResponse.error with a code of 400 is output through SSE. The Content-Type is text/event-stream. This operation applies to session context restoration scenarios.
+       * @summary Loads the historical messages of an existing agent session and returns them by using Server-Sent Events (SSE) for page refreshes and history recovery after exceptions.
        *
        * @description ## Request description
-       * - This operation is used to recover the details of a specified session and return the agent response in a Server-Sent Events (SSE) stream.
-       * - If the target session does not exist, an error frame with an error code of 400 is returned.
-       * - The response contains process information about how the agent handles the request, such as message chunks, reasoning steps, and tool call status updates.
-       * - The stopReason field indicates the reason why the agent stops the current conversation turn. Valid values include but are not limited to reaching the maximum turn limit and being canceled.
-       * - The returned content complies with the open-source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com.
+       * - This operation recovers the details of a specified session and returns the agent response in a streaming manner by using Server-Sent Events (SSE).
+       * - If the target session does not exist, an error frame with the error code 400 is returned.
+       * - The response includes processing information about how the agent handles the request, such as message chunks, thinking process, and tool invocation status updates.
+       * - The `stopReason` field indicates the reason why the agent stops the current conversation turn. Valid values include but are not limited to reaching the maximum number of turns and being canceled.
+       * - The returned content complies with the open source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com.
        *
        * @param tmpReq LoadAgentSessionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7024,14 +7172,14 @@ namespace DataworksPublic20240518
       FutureGenerator<Models::LoadAgentSessionResponse> loadAgentSessionWithSSE(const Models::LoadAgentSessionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Loads the historical messages of an existing session and returns them in a Server-Sent Events (SSE) stream. If the session does not exist, a JSONRPCResponse.error with a code of 400 is output through SSE. The Content-Type is text/event-stream. This operation applies to session context restoration scenarios.
+       * @summary Loads the historical messages of an existing agent session and returns them by using Server-Sent Events (SSE) for page refreshes and history recovery after exceptions.
        *
        * @description ## Request description
-       * - This operation is used to recover the details of a specified session and return the agent response in a Server-Sent Events (SSE) stream.
-       * - If the target session does not exist, an error frame with an error code of 400 is returned.
-       * - The response contains process information about how the agent handles the request, such as message chunks, reasoning steps, and tool call status updates.
-       * - The stopReason field indicates the reason why the agent stops the current conversation turn. Valid values include but are not limited to reaching the maximum turn limit and being canceled.
-       * - The returned content complies with the open-source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com.
+       * - This operation recovers the details of a specified session and returns the agent response in a streaming manner by using Server-Sent Events (SSE).
+       * - If the target session does not exist, an error frame with the error code 400 is returned.
+       * - The response includes processing information about how the agent handles the request, such as message chunks, thinking process, and tool invocation status updates.
+       * - The `stopReason` field indicates the reason why the agent stops the current conversation turn. Valid values include but are not limited to reaching the maximum number of turns and being canceled.
+       * - The returned content complies with the open source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com.
        *
        * @param tmpReq LoadAgentSessionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7040,14 +7188,14 @@ namespace DataworksPublic20240518
       Models::LoadAgentSessionResponse loadAgentSessionWithOptions(const Models::LoadAgentSessionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Loads the historical messages of an existing session and returns them in a Server-Sent Events (SSE) stream. If the session does not exist, a JSONRPCResponse.error with a code of 400 is output through SSE. The Content-Type is text/event-stream. This operation applies to session context restoration scenarios.
+       * @summary Loads the historical messages of an existing agent session and returns them by using Server-Sent Events (SSE) for page refreshes and history recovery after exceptions.
        *
        * @description ## Request description
-       * - This operation is used to recover the details of a specified session and return the agent response in a Server-Sent Events (SSE) stream.
-       * - If the target session does not exist, an error frame with an error code of 400 is returned.
-       * - The response contains process information about how the agent handles the request, such as message chunks, reasoning steps, and tool call status updates.
-       * - The stopReason field indicates the reason why the agent stops the current conversation turn. Valid values include but are not limited to reaching the maximum turn limit and being canceled.
-       * - The returned content complies with the open-source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com.
+       * - This operation recovers the details of a specified session and returns the agent response in a streaming manner by using Server-Sent Events (SSE).
+       * - If the target session does not exist, an error frame with the error code 400 is returned.
+       * - The response includes processing information about how the agent handles the request, such as message chunks, thinking process, and tool invocation status updates.
+       * - The `stopReason` field indicates the reason why the agent stops the current conversation turn. Valid values include but are not limited to reaching the maximum number of turns and being canceled.
+       * - The returned content complies with the open source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com.
        *
        * @param request LoadAgentSessionRequest
        * @return LoadAgentSessionResponse
@@ -7144,17 +7292,49 @@ namespace DataworksPublic20240518
       Models::PreviewDatasetVersionResponse previewDatasetVersion(const Models::PreviewDatasetVersionRequest &request);
 
       /**
+       * @summary Previews scheduling parameters without creating actual nodes or running instances.
+       *
+       * @description Previews the parameter parsing results for each cycle based on the provided script parameters, business date, and scheduling configuration. A task ID is not required.
+       * - This operation only performs a simulated preview and does not create or run actual tasks. The simulated cycles returned for weekly and monthly schedules cannot be used as the basis for determining actual trigger dates.
+       * - `Bizdate` is the starting business date, normalized to 00:00:00 on that date in the time zone of the service region. `TriggerTime` is the scheduled trigger time for the corresponding simulated cycle.
+       * - System identifiers such as `$nodeid` use a simulated context. The preview value of `$nodeid` is `0`, which does not represent an actual task.
+       * - The parsing result for each cycle is indicated by `Success`. If the parsing is successful, `Parameters` is returned. If the parsing fails, `ErrorMessage` is returned, and partial parsing results for the cycle are not returned.
+       *
+       * @param request PreviewTaskParametersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PreviewTaskParametersResponse
+       */
+      Models::PreviewTaskParametersResponse previewTaskParametersWithOptions(const Models::PreviewTaskParametersRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Previews scheduling parameters without creating actual nodes or running instances.
+       *
+       * @description Previews the parameter parsing results for each cycle based on the provided script parameters, business date, and scheduling configuration. A task ID is not required.
+       * - This operation only performs a simulated preview and does not create or run actual tasks. The simulated cycles returned for weekly and monthly schedules cannot be used as the basis for determining actual trigger dates.
+       * - `Bizdate` is the starting business date, normalized to 00:00:00 on that date in the time zone of the service region. `TriggerTime` is the scheduled trigger time for the corresponding simulated cycle.
+       * - System identifiers such as `$nodeid` use a simulated context. The preview value of `$nodeid` is `0`, which does not represent an actual task.
+       * - The parsing result for each cycle is indicated by `Success`. If the parsing is successful, `Parameters` is returned. If the parsing fails, `ErrorMessage` is returned, and partial parsing results for the cycle are not returned.
+       *
+       * @param request PreviewTaskParametersRequest
+       * @return PreviewTaskParametersResponse
+       */
+      Models::PreviewTaskParametersResponse previewTaskParameters(const Models::PreviewTaskParametersRequest &request);
+
+      /**
        * @summary Sends a user prompt to an existing session and streams the agent response.
        *
        * @description ## Request description
-       * - This API operation sends a user prompt to a specified session ID and accepts the response from the agent in a streaming manner by using Server-Sent Events (SSE).
-       * - The response may include information such as message chunks, thinking procedures, and tool calling status updates.
-       * - If the specified session does not exist, a 400 fault is returned in an SSE fault frame.
-       * - The stopReason field indicates the reason why the agent stopped the current conversation.
-       * - Multiple types of content blocks are supported as prompt inputs, such as text and OSS file download links.
-       * - You can optionally provide additional metadata in the Meta field to pass more context to the server.
+       * - This API operation sends a user prompt to a specified session ID and accepts the agent response as Server-Sent Events (SSE) streams.
+       * - The response may include message chunks, thinking procedures, and tool invocation status updates.
+       * - If the specified session does not exist, a 400 error is returned in an SSE error frame.
+       * - The `stopReason` field indicates the reason why the agent stopped the current conversation turn.
+       * - This operation supports multiple types of content blocks as prompt input, such as text and OSS file download links.
+       * - You can optionally provide additional metadata in `Meta` to pass more context to the server.
        * - The returned content complies with the open-source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com.
-       * - **Before you invoke this operation, make sure that you fully understand the billing methods and pricing of the Data Agent product**: https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing
+       * - **Before you use this API operation, make sure that you fully understand the billing methods and pricing of Data Agent**: https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing
+       * ## Long-running tasks and timeout recovery
+       * For long-running tasks that may exceed the single-request timeout, after the GetAgentSessionEvents canary release is enabled for the current account and target region, first establish an Events subscription and then call PromptAgentSession to read both streams in parallel. Use Events to display real-time progress, and use the Prompt stream to read the final state and business errors of the current turn. Each message is displayed only once.
+       * If the Prompt stream times out or disconnects before the final business state is received, the result of the current turn is unknown. Continue to observe Events, and call LoadAgentSession when you need to verify the session history. Do not automatically resend the prompt.
        *
        * @param tmpReq PromptAgentSessionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7166,14 +7346,17 @@ namespace DataworksPublic20240518
        * @summary Sends a user prompt to an existing session and streams the agent response.
        *
        * @description ## Request description
-       * - This API operation sends a user prompt to a specified session ID and accepts the response from the agent in a streaming manner by using Server-Sent Events (SSE).
-       * - The response may include information such as message chunks, thinking procedures, and tool calling status updates.
-       * - If the specified session does not exist, a 400 fault is returned in an SSE fault frame.
-       * - The stopReason field indicates the reason why the agent stopped the current conversation.
-       * - Multiple types of content blocks are supported as prompt inputs, such as text and OSS file download links.
-       * - You can optionally provide additional metadata in the Meta field to pass more context to the server.
+       * - This API operation sends a user prompt to a specified session ID and accepts the agent response as Server-Sent Events (SSE) streams.
+       * - The response may include message chunks, thinking procedures, and tool invocation status updates.
+       * - If the specified session does not exist, a 400 error is returned in an SSE error frame.
+       * - The `stopReason` field indicates the reason why the agent stopped the current conversation turn.
+       * - This operation supports multiple types of content blocks as prompt input, such as text and OSS file download links.
+       * - You can optionally provide additional metadata in `Meta` to pass more context to the server.
        * - The returned content complies with the open-source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com.
-       * - **Before you invoke this operation, make sure that you fully understand the billing methods and pricing of the Data Agent product**: https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing
+       * - **Before you use this API operation, make sure that you fully understand the billing methods and pricing of Data Agent**: https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing
+       * ## Long-running tasks and timeout recovery
+       * For long-running tasks that may exceed the single-request timeout, after the GetAgentSessionEvents canary release is enabled for the current account and target region, first establish an Events subscription and then call PromptAgentSession to read both streams in parallel. Use Events to display real-time progress, and use the Prompt stream to read the final state and business errors of the current turn. Each message is displayed only once.
+       * If the Prompt stream times out or disconnects before the final business state is received, the result of the current turn is unknown. Continue to observe Events, and call LoadAgentSession when you need to verify the session history. Do not automatically resend the prompt.
        *
        * @param tmpReq PromptAgentSessionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7185,14 +7368,17 @@ namespace DataworksPublic20240518
        * @summary Sends a user prompt to an existing session and streams the agent response.
        *
        * @description ## Request description
-       * - This API operation sends a user prompt to a specified session ID and accepts the response from the agent in a streaming manner by using Server-Sent Events (SSE).
-       * - The response may include information such as message chunks, thinking procedures, and tool calling status updates.
-       * - If the specified session does not exist, a 400 fault is returned in an SSE fault frame.
-       * - The stopReason field indicates the reason why the agent stopped the current conversation.
-       * - Multiple types of content blocks are supported as prompt inputs, such as text and OSS file download links.
-       * - You can optionally provide additional metadata in the Meta field to pass more context to the server.
+       * - This API operation sends a user prompt to a specified session ID and accepts the agent response as Server-Sent Events (SSE) streams.
+       * - The response may include message chunks, thinking procedures, and tool invocation status updates.
+       * - If the specified session does not exist, a 400 error is returned in an SSE error frame.
+       * - The `stopReason` field indicates the reason why the agent stopped the current conversation turn.
+       * - This operation supports multiple types of content blocks as prompt input, such as text and OSS file download links.
+       * - You can optionally provide additional metadata in `Meta` to pass more context to the server.
        * - The returned content complies with the open-source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com.
-       * - **Before you invoke this operation, make sure that you fully understand the billing methods and pricing of the Data Agent product**: https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing
+       * - **Before you use this API operation, make sure that you fully understand the billing methods and pricing of Data Agent**: https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing
+       * ## Long-running tasks and timeout recovery
+       * For long-running tasks that may exceed the single-request timeout, after the GetAgentSessionEvents canary release is enabled for the current account and target region, first establish an Events subscription and then call PromptAgentSession to read both streams in parallel. Use Events to display real-time progress, and use the Prompt stream to read the final state and business errors of the current turn. Each message is displayed only once.
+       * If the Prompt stream times out or disconnects before the final business state is received, the result of the current turn is unknown. Continue to observe Events, and call LoadAgentSession when you need to verify the session history. Do not automatically resend the prompt.
        *
        * @param request PromptAgentSessionRequest
        * @return PromptAgentSessionResponse
@@ -7882,7 +8068,7 @@ namespace DataworksPublic20240518
       /**
        * @summary Attaches tags to data assets.
        *
-       * @description This operation requires DataWorks Enterprise Edition or later.
+       * @description You must purchase DataWorks Enterprise Edition or higher to use this operation.
        *
        * @param tmpReq TagDataAssetsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7893,7 +8079,7 @@ namespace DataworksPublic20240518
       /**
        * @summary Attaches tags to data assets.
        *
-       * @description This operation requires DataWorks Enterprise Edition or later.
+       * @description You must purchase DataWorks Enterprise Edition or higher to use this operation.
        *
        * @param request TagDataAssetsRequest
        * @return TagDataAssetsResponse
@@ -7966,6 +8152,35 @@ namespace DataworksPublic20240518
        * @return UnTagDataAssetsResponse
        */
       Models::UnTagDataAssetsResponse unTagDataAssets(const Models::UnTagDataAssetsRequest &request);
+
+      /**
+       * @summary Updates the definition of a specified agent, increments the definition version, and optionally publishes the agent immediately. This operation is available only when the canary release feature is enabled. Before calling this operation, make sure that the canary release feature is enabled for the current account and the target region.
+       *
+       * @description This operation is available only when the canary release feature is enabled. Before calling this operation, make sure that the canary release feature is enabled for the current account and the target region.
+       * Updates a custom agent that the current identity has administrative permissions for. The Name parameter is used to locate the target agent and cannot be used to rename the agent. Call the GetAgent operation first to read the current AgentVersion, and then explicitly pass the ExpectedVersion parameter during the update. If a conflict occurs, read the version again and verify the differences instead of blindly overwriting the agent.
+       * Omit reference lists that do not need to be modified. The current new backend retains existing references for empty arrays of Tools, Skills, and CallableAgents, but clears references for an empty array of ExpertSuites. A unified empty array clearing rule cannot be used. The Tools parameter already includes Kind and the corresponding tool configurations, and uses the same structure as CreateAgent. Specifying only Name does not constitute a valid tool configuration.
+       * For official skills, specify only Source=OFFICIAL and SkillId. For official suites, specify only Source=OFFICIAL and SuiteId. Do not mix in name, version, or artifact fields. The integer Version and VersionSelector parameters for custom resources are mutually exclusive. The version selection capability depends on the deployment of the target server.
+       * If PublishImmediately is omitted or set to false, only the definition is saved. If it is set to true, a new draft version is saved first and then a publish request is initiated. Saving and publishing are not atomic operations. If publishing fails, the draft version may have already been incremented. In this case, call GetAgent to read the current version back before deciding whether to retry, to avoid generating duplicate versions.
+       *
+       * @param tmpReq UpdateAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAgentResponse
+       */
+      Models::UpdateAgentResponse updateAgentWithOptions(const Models::UpdateAgentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the definition of a specified agent, increments the definition version, and optionally publishes the agent immediately. This operation is available only when the canary release feature is enabled. Before calling this operation, make sure that the canary release feature is enabled for the current account and the target region.
+       *
+       * @description This operation is available only when the canary release feature is enabled. Before calling this operation, make sure that the canary release feature is enabled for the current account and the target region.
+       * Updates a custom agent that the current identity has administrative permissions for. The Name parameter is used to locate the target agent and cannot be used to rename the agent. Call the GetAgent operation first to read the current AgentVersion, and then explicitly pass the ExpectedVersion parameter during the update. If a conflict occurs, read the version again and verify the differences instead of blindly overwriting the agent.
+       * Omit reference lists that do not need to be modified. The current new backend retains existing references for empty arrays of Tools, Skills, and CallableAgents, but clears references for an empty array of ExpertSuites. A unified empty array clearing rule cannot be used. The Tools parameter already includes Kind and the corresponding tool configurations, and uses the same structure as CreateAgent. Specifying only Name does not constitute a valid tool configuration.
+       * For official skills, specify only Source=OFFICIAL and SkillId. For official suites, specify only Source=OFFICIAL and SuiteId. Do not mix in name, version, or artifact fields. The integer Version and VersionSelector parameters for custom resources are mutually exclusive. The version selection capability depends on the deployment of the target server.
+       * If PublishImmediately is omitted or set to false, only the definition is saved. If it is set to true, a new draft version is saved first and then a publish request is initiated. Saving and publishing are not atomic operations. If publishing fails, the draft version may have already been incremented. In this case, call GetAgent to read the current version back before deciding whether to retry, to avoid generating duplicate versions.
+       *
+       * @param request UpdateAgentRequest
+       * @return UpdateAgentResponse
+       */
+      Models::UpdateAgentResponse updateAgent(const Models::UpdateAgentRequest &request);
 
       /**
        * @summary Modifies the title of an agent session accessible by the current identity without changing the task execution status.
@@ -8044,6 +8259,23 @@ namespace DataworksPublic20240518
        * @return UpdateCalendarResponse
        */
       Models::UpdateCalendarResponse updateCalendar(const Models::UpdateCalendarRequest &request);
+
+      /**
+       * @summary Approves or rejects a code review.
+       *
+       * @param request UpdateCodeReviewRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateCodeReviewResponse
+       */
+      Models::UpdateCodeReviewResponse updateCodeReviewWithOptions(const Models::UpdateCodeReviewRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Approves or rejects a code review.
+       *
+       * @param request UpdateCodeReviewRequest
+       * @return UpdateCodeReviewResponse
+       */
+      Models::UpdateCodeReviewResponse updateCodeReview(const Models::UpdateCodeReviewRequest &request);
 
       /**
        * @summary Updates the business metadata for a column in a data map. This operation can only update the business description and custom attributes.

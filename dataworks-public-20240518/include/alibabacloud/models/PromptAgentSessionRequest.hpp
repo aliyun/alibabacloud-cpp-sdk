@@ -120,7 +120,7 @@ namespace Models
 
 
         protected:
-          // Specifies whether to hide the prompt from the user. For example, if a user asks a question in the chat dialog box, such as "Sales amount in the last 7 days", and the calling system retrieves some business domain knowledge through RAG before calling the API operation, the knowledge needs to be added to the agent context but not displayed to the user. In this case, you can set this parameter to true.
+          // Specifies whether to hide the prompt from the user. For example, if a user asks a question in the chat dialog box, such as "Sales amount in the last 7 days", and the calling system retrieves business domain knowledge through RAG before calling the API operation to supplement the agent context without displaying it to the user, set this parameter to true.
           shared_ptr<bool> hide_ {};
         };
 
@@ -201,9 +201,9 @@ namespace Models
         shared_ptr<string> mimeType_ {};
         // The file name.
         shared_ptr<string> name_ {};
-        // The size of the file. Unit: bytes.
+        // The size of the file, in bytes.
         // 
-        // Valid only when Type is set to resource_link.
+        // Valid only when Type is set to `resource_link`.
         shared_ptr<int64_t> size_ {};
         // **Text content**
         shared_ptr<string> text_ {};
@@ -245,7 +245,7 @@ namespace Models
 
 
       protected:
-        // The map-type context. In custom agent scenarios, you can use this value to replace specific placeholder parameters.
+        // A map. In custom agent scenarios, you can use this value to replace specific placeholder parameters.
         Darabonba::Json context_ {};
       };
 
@@ -278,7 +278,7 @@ namespace Models
 
     protected:
       // The extended metadata.
-      // >Notice: If the name of the agent bound to the specified session is dataworks_ai_assistant_agent (AI Assistant), you must provide the instance ID of the AI Assistant in the Context.agent.instanceId field of the extended metadata.</notice>
+      // >Notice: If the agent name bound to the specified session is dataworks_ai_assistant_agent (AI Assistant Service), you must provide the instance ID of the AI Assistant Service in the Context.agent.instanceId field of the extended metadata.</notice>
       shared_ptr<Params::Meta> meta_ {};
       // The array of user message content blocks. For more information, see https://agentclientprotocol.com/protocol/content.
       shared_ptr<vector<Params::Prompt>> prompt_ {};
@@ -312,9 +312,9 @@ namespace Models
 
 
   protected:
-    // The ID passed by the requester. The value is returned as is.
+    // The ID passed by the requester, which is echoed back as is.
     shared_ptr<string> id_ {};
-    // The JSON-RPC version. Set the value to 2.0.
+    // The JSON-RPC version. Fixed to 2.0.
     shared_ptr<string> jsonrpc_ {};
     // The business parameters.
     shared_ptr<PromptAgentSessionRequest::Params> params_ {};

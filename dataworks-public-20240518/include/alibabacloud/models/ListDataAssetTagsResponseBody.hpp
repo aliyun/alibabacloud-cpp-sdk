@@ -172,15 +172,15 @@ namespace Models
 
 
       protected:
-        // The tag type.
+        // The tag category. Valid values:
         // - Normal
         // - System
         shared_ptr<string> category_ {};
-        // The creation time of the tag.
+        // The time when the tag was created.
         // 
         // The value is a 13-digit number, such as `1735890003000`.
         shared_ptr<int64_t> createTime_ {};
-        // The creator of the tag.
+        // The user who created the tag.
         shared_ptr<string> createUser_ {};
         // The description.
         shared_ptr<string> description_ {};
@@ -188,7 +188,7 @@ namespace Models
         shared_ptr<string> key_ {};
         // The list of tag administrators.
         shared_ptr<vector<string>> managers_ {};
-        // The last modification time of the tag.
+        // The time when the tag was last modified.
         // 
         // The value is a 13-digit number, such as `1735890003000`.
         shared_ptr<int64_t> modifyTime_ {};
@@ -262,7 +262,7 @@ namespace Models
 
 
   protected:
-    // The paginated query results for the tag list.
+    // The paginated query results of the tag list.
     shared_ptr<ListDataAssetTagsResponseBody::PagingInfo> pagingInfo_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

@@ -82,9 +82,9 @@ namespace Models
     protected:
       // The unique identifier of the general-purpose resource group.
       shared_ptr<string> id_ {};
-      // The ID of the order.
+      // The ID of the order for the general-purpose resource group.
       shared_ptr<int64_t> orderId_ {};
-      // The instance ID of the order.
+      // The instance ID of the order for the general-purpose resource group.
       shared_ptr<string> orderInstanceId_ {};
     };
 

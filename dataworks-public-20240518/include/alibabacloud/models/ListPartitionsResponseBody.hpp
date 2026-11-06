@@ -97,7 +97,7 @@ namespace Models
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The partition list of the table.
+      // The list of partitions in the table.
       shared_ptr<vector<Partition>> partitionList_ {};
       // The total number of records.
       shared_ptr<int64_t> totalCount_ {};
@@ -133,7 +133,7 @@ namespace Models
     shared_ptr<ListPartitionsResponseBody::PagingInfo> pagingInfo_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

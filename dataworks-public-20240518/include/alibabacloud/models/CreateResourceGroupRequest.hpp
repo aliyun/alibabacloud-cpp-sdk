@@ -197,27 +197,27 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
-    // The name of the general-purpose resource group. It must start with a letter and can contain letters, digits, and underscores (_). It can be up to 128 characters in length.
+    // The name of the general-purpose resource group. The name must start with a letter and can contain letters, digits, and underscores (_). It can be up to 128 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The billing duration.
+    // The subscription duration.
     shared_ptr<int32_t> paymentDuration_ {};
-    // The unit of the billing duration. Month indicates months, and Year indicates years.
+    // The unit of the subscription duration. Valid values: Month (monthly subscription) and Year (annual subscription).
     shared_ptr<string> paymentDurationUnit_ {};
-    // The billing method of the resource group. PrePaid indicates subscription, and PostPaid indicates pay-as-you-go.
+    // The billing method of the resource group. Valid values: PrePaid: subscription. PostPaid: pay-as-you-go.
     // 
     // This parameter is required.
     shared_ptr<string> paymentType_ {};
-    // The remark of the general-purpose resource group. It can contain letters, Chinese characters, digits, and underscores (_). It can be up to 128 characters in length.
+    // The remark of the general-purpose resource group. The remark can contain letters, Chinese characters, digits, and underscores (_). It can be up to 128 characters in length.
     shared_ptr<string> remark_ {};
-    // The specifications of the resource group. Unit: CU. This parameter is required when the billing method of the resource group is PrePaid.
+    // The specifications of the resource group. Unit: CU. This parameter is required when the billing method is set to PrePaid.
     shared_ptr<int32_t> spec_ {};
-    // The ID of the default VPC.
+    // The ID of the VPC to which the resource group is bound by default.
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
-    // The ID of the default vSwitch.
+    // The ID of the vSwitch to which the resource group is bound by default.
     // 
     // This parameter is required.
     shared_ptr<string> vswitchId_ {};

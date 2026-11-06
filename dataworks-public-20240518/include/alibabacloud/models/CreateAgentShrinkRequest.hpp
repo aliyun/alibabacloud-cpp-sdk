@@ -155,20 +155,17 @@ namespace Models
     shared_ptr<string> description_ {};
     // The display name of the agent.
     shared_ptr<string> displayName_ {};
-    // The released expert suites bound to the agent. For personal or enterprise suites, use SuiteId and optionally specify a fixed Version or VersionSelector. For official suites, you must explicitly set Source to OFFICIAL and specify the SuiteId from the official catalog. Do not specify Version or VersionSelector. If this parameter is not specified, an empty list is created, and official suites are not loaded by default.
+    // The published expert suites bound to the agent. For personal or enterprise suites, use SuiteId, and optionally specify a fixed Version or VersionSelector. For official suites, you must explicitly specify Source=OFFICIAL and the SuiteId from the official catalog, and do not specify Version or VersionSelector. If not specified, an empty list is created, and all official suites are not loaded by default.
     shared_ptr<string> expertSuitesShrink_ {};
-    // The extended metadata as key-value pairs.
+    // The extended metadata in key-value pairs.
     shared_ptr<string> metadataShrink_ {};
     // The model configuration.
     shared_ptr<string> modelShrink_ {};
-    // The name of the agent. It must be unique within the current account.
+    // The name of the agent. The name must be unique within the current account.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // Specifies whether to publish the agent immediately after creation. Valid values:
-    // - true: Publishes the created version.
-    // - false or omitted: Retains the original behavior of creating a draft only.
-    // Saving and publishing are not atomic operations. If publishing fails, the draft may already exist. Query the agent before retrying to avoid duplicate creation.
+    // Specifies whether to publish the agent immediately after creation. A value of true publishes the created version. A value of false or omitting this parameter maintains the original behavior of creating a draft only. Saving and publishing are not atomic operations. If publishing fails, the draft may already exist. Before retrying, query the agent first to avoid duplicate creation.
     shared_ptr<bool> publishImmediately_ {};
     // The list of skills.
     shared_ptr<string> skillsShrink_ {};
@@ -181,7 +178,7 @@ namespace Models
     // `PROJECT`: Visible to specified projects.<br>
     // `USER`: Visible to specified users.
     shared_ptr<string> visibility_ {};
-    // The visibility scope. The corresponding fields are used based on the Visibility parameter.
+    // The visibility scope. Specify the corresponding fields based on the Visibility value.
     shared_ptr<string> visibilityScopeShrink_ {};
   };
 

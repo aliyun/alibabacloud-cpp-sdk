@@ -164,7 +164,7 @@ namespace Models
 
 
             protected:
-              // The session tag. You can filter sessions based on session tags. For example, if you use a fixed RAM user to call OpenAPI operations but the calling system has its own account system, you need to filter the session list based on the account ID. In this case, you can pass the account ID of the calling system as this tag.
+              // The session tag. You can filter sessions based on session tags. For example, if you use a fixed RAM user when calling OpenAPI but the calling system has its own account system, you need to filter the session list based on the account ID. In this case, you can pass the account ID of the calling system as this tag.
               shared_ptr<string> sessionTagCode_ {};
             };
 
@@ -258,7 +258,7 @@ namespace Models
 
 
         protected:
-          // The session information extended by DataWorks, which is not part of the standard ACP protocol.
+          // The DataWorks extended session information, which is not part of the standard ACP protocol.
           shared_ptr<AgentSessions::Meta> meta_ {};
           // The session creation time.
           shared_ptr<int64_t> sessionCreatedAt_ {};
@@ -418,13 +418,13 @@ namespace Models
 
 
     protected:
-      // The JSON-RPC error message. This parameter is returned when the call fails and is not returned when the call succeeds.
+      // The JSON-RPC error information. This field is returned when the call fails and is not returned when the call succeeds.
       shared_ptr<JsonRpcResponse::Error> error_ {};
-      // The ID passed by the requester, which is returned as is.
+      // The request ID provided by the caller. This ID is returned as is in the response.
       shared_ptr<string> id_ {};
-      // The JSON-RPC version. Fixed to 2.0.
+      // The JSON-RPC version, which is fixed to 2.0.
       shared_ptr<string> jsonrpc_ {};
-      // The paginated result set of the session query.
+      // The paginated result set for the session query.
       shared_ptr<JsonRpcResponse::Result> result_ {};
     };
 
@@ -447,9 +447,9 @@ namespace Models
 
 
   protected:
-    // The JSON-RPC response.
+    // The JSON-RPC response result.
     shared_ptr<ListAgentSessionsResponseBody::JsonRpcResponse> jsonRpcResponse_ {};
-    // Id of the request
+    // The request ID for this OpenAPI request, which can be used to troubleshoot call failures. This is not a session ID or event cursor.
     shared_ptr<string> requestId_ {};
   };
 

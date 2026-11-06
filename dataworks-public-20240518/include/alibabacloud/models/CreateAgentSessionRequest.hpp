@@ -79,6 +79,7 @@ namespace Models
         class InitialConfigOptions : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const InitialConfigOptions& obj) { 
+            DARABONBA_PTR_TO_JSON(Cu, cu_);
             DARABONBA_PTR_TO_JSON(ExecutionLane, executionLane_);
             DARABONBA_PTR_TO_JSON(Mode, mode_);
             DARABONBA_PTR_TO_JSON(Model, model_);
@@ -88,6 +89,7 @@ namespace Models
             DARABONBA_PTR_TO_JSON(Skills, skills_);
           };
           friend void from_json(const Darabonba::Json& j, InitialConfigOptions& obj) { 
+            DARABONBA_PTR_FROM_JSON(Cu, cu_);
             DARABONBA_PTR_FROM_JSON(ExecutionLane, executionLane_);
             DARABONBA_PTR_FROM_JSON(Mode, mode_);
             DARABONBA_PTR_FROM_JSON(Model, model_);
@@ -107,9 +109,16 @@ namespace Models
           };
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-          virtual bool empty() const override { return this->executionLane_ == nullptr
-        && this->mode_ == nullptr && this->model_ == nullptr && this->projectId_ == nullptr && this->reasoningEffort_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->skills_ == nullptr; };
+          virtual bool empty() const override { return this->cu_ == nullptr
+        && this->executionLane_ == nullptr && this->mode_ == nullptr && this->model_ == nullptr && this->projectId_ == nullptr && this->reasoningEffort_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->skills_ == nullptr; };
+          // cu Field Functions 
+          bool hasCu() const { return this->cu_ != nullptr;};
+          void deleteCu() { this->cu_ = nullptr;};
+          inline string getCu() const { DARABONBA_PTR_GET_DEFAULT(cu_, "") };
+          inline InitialConfigOptions& setCu(string cu) { DARABONBA_PTR_SET_VALUE(cu_, cu) };
+
+
           // executionLane Field Functions 
           bool hasExecutionLane() const { return this->executionLane_ != nullptr;};
           void deleteExecutionLane() { this->executionLane_ = nullptr;};
@@ -160,22 +169,24 @@ namespace Models
 
 
         protected:
-          // The execution mode. Valid values:
-          // * chat: conversation mode only. This mode is suitable for simple scenarios such as data querying and Q&A. It is fast and consumes fewer tokens, but cannot handle complex problems.
-          // * cli: sandbox mode. This mode is suitable for complex scenarios such as data analytics, data processing, and code writing. It can handle complex problems and allows the model to independently analyze and process problems. However, it is slower and consumes more tokens than conversation mode.
+          // The compute unit (CU) specifications of the session instance. Only 2, 4, 8, and 12 are supported. If this parameter is omitted, the instance CU is not specified, and reuse in shared mode is not constrained by the CU. If this parameter is specified, shared mode reuses only instances with the same CU. If the CU does not match, a new instance is created.
+          shared_ptr<string> cu_ {};
+          // Execution mode:
+          // * chat: conversation-only mode, suitable for simple data querying and Q&A scenarios. The advantage is that it is fast and consumes fewer tokens, but the disadvantage is that it cannot handle complex problems.
+          // * cli: sandbox mode, suitable for complex data analytics, data processing, and code writing scenarios. The advantage is that it can handle complex problems, and the model independently analyzes and handles problems. The disadvantage is that the processing speed is slower and token consumption is higher compared to the chat mode.
           shared_ptr<string> executionLane_ {};
           // The authorization mode for script execution. OpenAPI currently supports only the yolo mode. Valid values:
-          // * yolo: automatic authorization. No manual intervention is required, and the model can process tasks automatically.
+          // * yolo: automatic authorization. No manual intervention is required, and the model can process automatically.
           shared_ptr<string> mode_ {};
-          // The model ID. Use the full model identifier supported by the target environment. If this parameter is omitted, the default model is used. If this parameter is specified, the server verifies its availability and applies it before the session is created.
+          // The model ID. Use the full model identifier supported by the target environment. If this parameter is omitted, the default model is used. If this parameter is passed, the server verifies its availability and applies it before the session is created.
           shared_ptr<string> model_ {};
-          // The DataWorks workspace ID. This parameter is used to initialize the project context of the session. If this parameter is omitted, the session is processed without a project context. You can subsequently correct or switch the project context by using PromptAgentSession.
+          // The DataWorks workspace ID. It is used to initialize the session project context. If this parameter is omitted, it is processed as having no project. The project context can be corrected or switched later by the project context of PromptAgentSession.
           shared_ptr<string> projectId_ {};
-          // The reasoning effort configuration. The value must be supported by the target model. A value of none disables reasoning, and a value of default uses the default configuration of the model. If an unsupported value is specified or the configuration application has failed, the session creation is marked as failed. If this parameter is omitted, the existing reasoning effort configuration is not modified. A successful configuration updates the default value of the daemon workspace and affects not only the current request.
+          // The reasoning configuration. The value must be supported by the target model. A value of none disables reasoning, and default uses the model\\"s default configuration. If an unsupported value is used or the configuration fails to apply, session creation fails. If this parameter is omitted, the existing reasoning configuration is not modified. A successful configuration updates the default value of the daemon workspace, which affects not only the current request.
           shared_ptr<string> reasoningEffort_ {};
           // The ID of the resource group used for initialization.
           shared_ptr<string> resourceGroupId_ {};
-          // The names of the custom skills to be loaded. Separate multiple names with commas (,).
+          // The names of the loaded custom skills. Separate multiple names with commas (,).
           shared_ptr<string> skills_ {};
         };
 
@@ -228,7 +239,7 @@ namespace Models
 
 
           protected:
-            // The session tag. You can filter sessions based on session tags. For example, if a fixed RAM user is used to call an API operation but the calling system has its own account system, you need to filter the session list based on the account ID. In this case, you can pass the account ID of the calling system as the session tag. The value can be up to 128 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+            // The session tag. You can filter sessions based on session tags. For example, if you use a fixed RAM user to call an API operation but the calling system has its own account system, and you need to filter the session list based on the account ID, you can pass the account ID of the calling system as this tag. The value can be up to 128 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
             shared_ptr<string> sessionTagCode_ {};
           };
 
@@ -251,9 +262,9 @@ namespace Models
 
 
         protected:
-          // The session source identifier, which facilitates retrieval by source. For example, if an agent is used on both Page A and Page B, and you want to display only sessions created on Page A, you can filter sessions based on this parameter. The value can be up to 128 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+          // The session source identifier, which facilitates retrieval by source. For example, if an agent is used on both Page A and Page B, and you want to display only sessions created on Page A when you are on Page A, you can filter sessions based on this parameter. The value can be up to 128 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
           shared_ptr<string> sessionSource_ {};
-          // The list of session tags. You can search and filter sessions based on session tags.
+          // The list of session tags. You can search and filter sessions based on session tags later.
           shared_ptr<vector<Config::SessionTags>> sessionTags_ {};
         };
 
@@ -373,7 +384,7 @@ namespace Models
   protected:
     // The ID passed by the requester. The value is returned as is.
     shared_ptr<string> id_ {};
-    // The JSON-RPC version. This value is always 2.0.
+    // The JSON-RPC version. Fixed to 2.0.
     shared_ptr<string> jsonrpc_ {};
     // The business parameters.
     shared_ptr<CreateAgentSessionRequest::Params> params_ {};

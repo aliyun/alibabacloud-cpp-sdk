@@ -109,19 +109,19 @@ namespace Models
 
 
   protected:
-    // The error message in the SSE frame information. The returned content complies with the open-source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com/protocol/prompt-turn.
+    // The error message in the SSE frame information. The returned content complies with the open source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com/protocol/prompt-turn.
     Darabonba::Json error_ {};
-    // The ID provided by the requester. This ID is echoed back as is.
+    // The ID passed by the requester. The value is returned as is.
     shared_ptr<string> id_ {};
-    // The JSON-RPC version. Fixed to 2.0.
+    // The JSON-RPC version. The value is fixed to 2.0.
     shared_ptr<string> jsonrpc_ {};
-    // The method of the SSE. The returned content complies with the open-source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com/protocol/prompt-turn.
+    // The method of the SSE. The returned content complies with the open source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com/protocol/prompt-turn.
     shared_ptr<string> method_ {};
-    // The parameters of the SSE. The returned content complies with the open-source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com/protocol/prompt-turn.
+    // The parameters of the SSE. The returned content complies with the open source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com/protocol/prompt-turn.
     Darabonba::Json params_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The result set of the SSE frame. The returned content complies with the open-source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com/protocol/prompt-turn.
+    // The result set of the SSE frame. The returned content complies with the open source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com/protocol/prompt-turn.
     Darabonba::Json result_ {};
     // The timestamp.
     shared_ptr<int64_t> timestamp_ {};

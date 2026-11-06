@@ -105,9 +105,17 @@ namespace Models
     class Tools : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Tools& obj) { 
+        DARABONBA_PTR_TO_JSON(BuiltinName, builtinName_);
+        DARABONBA_PTR_TO_JSON(Kind, kind_);
+        DARABONBA_PTR_TO_JSON(McpItems, mcpItems_);
+        DARABONBA_PTR_TO_JSON(McpServerName, mcpServerName_);
         DARABONBA_PTR_TO_JSON(Name, name_);
       };
       friend void from_json(const Darabonba::Json& j, Tools& obj) { 
+        DARABONBA_PTR_FROM_JSON(BuiltinName, builtinName_);
+        DARABONBA_PTR_FROM_JSON(Kind, kind_);
+        DARABONBA_PTR_FROM_JSON(McpItems, mcpItems_);
+        DARABONBA_PTR_FROM_JSON(McpServerName, mcpServerName_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
       };
       Tools() = default ;
@@ -121,7 +129,38 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->name_ == nullptr; };
+      virtual bool empty() const override { return this->builtinName_ == nullptr
+        && this->kind_ == nullptr && this->mcpItems_ == nullptr && this->mcpServerName_ == nullptr && this->name_ == nullptr; };
+      // builtinName Field Functions 
+      bool hasBuiltinName() const { return this->builtinName_ != nullptr;};
+      void deleteBuiltinName() { this->builtinName_ = nullptr;};
+      inline string getBuiltinName() const { DARABONBA_PTR_GET_DEFAULT(builtinName_, "") };
+      inline Tools& setBuiltinName(string builtinName) { DARABONBA_PTR_SET_VALUE(builtinName_, builtinName) };
+
+
+      // kind Field Functions 
+      bool hasKind() const { return this->kind_ != nullptr;};
+      void deleteKind() { this->kind_ = nullptr;};
+      inline string getKind() const { DARABONBA_PTR_GET_DEFAULT(kind_, "") };
+      inline Tools& setKind(string kind) { DARABONBA_PTR_SET_VALUE(kind_, kind) };
+
+
+      // mcpItems Field Functions 
+      bool hasMcpItems() const { return this->mcpItems_ != nullptr;};
+      void deleteMcpItems() { this->mcpItems_ = nullptr;};
+      inline const vector<string> & getMcpItems() const { DARABONBA_PTR_GET_CONST(mcpItems_, vector<string>) };
+      inline vector<string> getMcpItems() { DARABONBA_PTR_GET(mcpItems_, vector<string>) };
+      inline Tools& setMcpItems(const vector<string> & mcpItems) { DARABONBA_PTR_SET_VALUE(mcpItems_, mcpItems) };
+      inline Tools& setMcpItems(vector<string> && mcpItems) { DARABONBA_PTR_SET_RVALUE(mcpItems_, mcpItems) };
+
+
+      // mcpServerName Field Functions 
+      bool hasMcpServerName() const { return this->mcpServerName_ != nullptr;};
+      void deleteMcpServerName() { this->mcpServerName_ = nullptr;};
+      inline string getMcpServerName() const { DARABONBA_PTR_GET_DEFAULT(mcpServerName_, "") };
+      inline Tools& setMcpServerName(string mcpServerName) { DARABONBA_PTR_SET_VALUE(mcpServerName_, mcpServerName) };
+
+
       // name Field Functions 
       bool hasName() const { return this->name_ != nullptr;};
       void deleteName() { this->name_ = nullptr;};
@@ -130,6 +169,14 @@ namespace Models
 
 
     protected:
+      // Required when Kind is BUILTIN_TOOLSET. Specifies the name of the built-in toolset supported by the target server. Omit this parameter when Kind is MCP_TOOLSET.
+      shared_ptr<string> builtinName_ {};
+      // Required for valid tool references. BUILTIN_TOOLSET indicates a built-in toolset, and BuiltinName must be specified. MCP_TOOLSET indicates an MCP toolset, and McpServerName must be specified. The target server validates the parameter based on the tool type.
+      shared_ptr<string> kind_ {};
+      // Optional when Kind is MCP_TOOLSET. If specified, only the listed tools are used. If omitted or left as an empty array, tools are not filtered by name. Each item must be the name of an actual tool in the target MCP service.
+      shared_ptr<vector<string>> mcpItems_ {};
+      // Required when Kind is MCP_TOOLSET. Specifies the MCP service name that the current caller has permission to reference and that has an active published version.
+      shared_ptr<string> mcpServerName_ {};
       // The name of the MCP server.
       shared_ptr<string> name_ {};
     };
@@ -201,13 +248,13 @@ namespace Models
     protected:
       // The name of the skill.
       shared_ptr<string> name_ {};
-      // The official catalog ID. Specify this parameter when Source is set to OFFICIAL. Do not specify Name, Version, or VersionSelector. Do not specify this parameter for personal or enterprise skills.
+      // When Source is OFFICIAL, specify the official catalog ID. Do not specify Name, Version, or VersionSelector. Do not specify this field for personal or enterprise skills.
       shared_ptr<string> skillId_ {};
-      // The source of the skill. Valid values: OFFICIAL: official catalog resources. DB: personal or enterprise resources. If this parameter is omitted, the original query-by-name semantics are retained.
+      // OFFICIAL indicates an official catalog resource. DB indicates a personal or enterprise resource. If omitted, the original query-by-name semantics are maintained.
       shared_ptr<string> source_ {};
-      // The fixed integer revision number of a released snapshot. This parameter applies only to personal or enterprise skills and is mutually exclusive with VersionSelector. Releasing a new version does not change the fixed reference. If both parameters are omitted, the latest version is used for each new session. Do not specify this parameter when Source is set to OFFICIAL.
+      // Used only for personal or enterprise skills. Specifies the fixed integer revision number of a published snapshot. This parameter is mutually exclusive with VersionSelector. Publishing a new version does not change the fixed reference. If both are omitted, the latest version is used for each new session. Do not specify this parameter when Source is OFFICIAL.
       shared_ptr<int32_t> version_ {};
-      // The version selection expression. This parameter applies only to personal or enterprise resources and is mutually exclusive with Version. It supports exact semantic versions, latest, and the full npm/node-semver range syntax, such as 1.2.*, ^1.2.3, ~1.2.3, >=1.0.0 <2.0.0, and 1.x || 2.x. If both parameters are omitted, latest is used, and the highest matching released version is selected for each new session. Existing fixed integer references remain unchanged. Do not specify this parameter when Source is set to OFFICIAL.
+      // Used only for personal or enterprise resources. This parameter is mutually exclusive with Version. Supports exact semantic versions, latest, and full npm/node-semver range syntax, such as 1.2.*, ^1.2.3, ~1.2.3, >=1.0.0 <2.0.0, and 1.x || 2.x. If both are omitted, the latest version is used, and the highest matching published version is selected for each new session. Existing fixed integer references remain unchanged. Do not specify this parameter when Source is OFFICIAL.
       shared_ptr<string> versionSelector_ {};
     };
 
@@ -267,13 +314,13 @@ namespace Models
 
 
     protected:
-      // The source of the expert suite. Valid values: OFFICIAL: official catalog resources. DB: personal or enterprise resources. If this parameter is omitted, the original database resource query semantics are retained. For official resources, the artifact version is fixed when the agent is released.
+      // OFFICIAL indicates an official catalog resource. DB indicates a personal or enterprise resource. If omitted, the original database resource query semantics are maintained. For official resources, the artifact version is fixed when the agent is published.
       shared_ptr<string> source_ {};
-      // The ID of the expert suite. When you specify expert suite references, each item must include a SuiteId, which is verified by the server. When Source is set to OFFICIAL, this is the official catalog ID. Otherwise, this is the ID returned by expert suite management. The referenced resource must be visible to the caller.
+      // When passing expert suite references, each item must provide a SuiteId, which is validated by the server. When Source is OFFICIAL, this is the official catalog ID. Otherwise, this is the ID returned by expert suite management. The referenced resource must be visible to the caller.
       shared_ptr<string> suiteId_ {};
-      // The fixed integer revision number of a released snapshot. This parameter applies only to personal or enterprise suites and is mutually exclusive with VersionSelector. Releasing a new version does not change the fixed reference. If both parameters are omitted, the latest version is used for each new session. Do not specify this parameter when Source is set to OFFICIAL.
+      // Used only for personal or enterprise suites. Specifies the fixed integer revision number of a published snapshot. This parameter is mutually exclusive with VersionSelector. Publishing a new version does not change the fixed reference. If both are omitted, the latest version is used for each new session. Do not specify this parameter when Source is OFFICIAL.
       shared_ptr<int32_t> version_ {};
-      // The version selection expression. This parameter applies only to personal or enterprise resources and is mutually exclusive with Version. It supports exact semantic versions, latest, and the full npm/node-semver range syntax, such as 1.2.*, ^1.2.3, ~1.2.3, >=1.0.0 <2.0.0, and 1.x || 2.x. If both parameters are omitted, latest is used, and the highest matching released version is selected for each new session. Existing fixed integer references remain unchanged. Do not specify this parameter when Source is set to OFFICIAL.
+      // Used only for personal or enterprise resources. This parameter is mutually exclusive with Version. Supports exact semantic versions, latest, and full npm/node-semver range syntax, such as 1.2.*, ^1.2.3, ~1.2.3, >=1.0.0 <2.0.0, and 1.x || 2.x. If both are omitted, the latest version is used, and the highest matching published version is selected for each new session. Existing fixed integer references remain unchanged. Do not specify this parameter when Source is OFFICIAL.
       shared_ptr<string> versionSelector_ {};
     };
 
@@ -425,20 +472,17 @@ namespace Models
     shared_ptr<string> description_ {};
     // The display name of the agent.
     shared_ptr<string> displayName_ {};
-    // The released expert suites bound to the agent. For personal or enterprise suites, use SuiteId and optionally specify a fixed Version or VersionSelector. For official suites, you must explicitly set Source to OFFICIAL and specify the SuiteId from the official catalog. Do not specify Version or VersionSelector. If this parameter is not specified, an empty list is created, and official suites are not loaded by default.
+    // The published expert suites bound to the agent. For personal or enterprise suites, use SuiteId, and optionally specify a fixed Version or VersionSelector. For official suites, you must explicitly specify Source=OFFICIAL and the SuiteId from the official catalog, and do not specify Version or VersionSelector. If not specified, an empty list is created, and all official suites are not loaded by default.
     shared_ptr<vector<CreateAgentRequest::ExpertSuites>> expertSuites_ {};
-    // The extended metadata as key-value pairs.
+    // The extended metadata in key-value pairs.
     Darabonba::Json metadata_ {};
     // The model configuration.
     Darabonba::Json model_ {};
-    // The name of the agent. It must be unique within the current account.
+    // The name of the agent. The name must be unique within the current account.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // Specifies whether to publish the agent immediately after creation. Valid values:
-    // - true: Publishes the created version.
-    // - false or omitted: Retains the original behavior of creating a draft only.
-    // Saving and publishing are not atomic operations. If publishing fails, the draft may already exist. Query the agent before retrying to avoid duplicate creation.
+    // Specifies whether to publish the agent immediately after creation. A value of true publishes the created version. A value of false or omitting this parameter maintains the original behavior of creating a draft only. Saving and publishing are not atomic operations. If publishing fails, the draft may already exist. Before retrying, query the agent first to avoid duplicate creation.
     shared_ptr<bool> publishImmediately_ {};
     // The list of skills.
     shared_ptr<vector<CreateAgentRequest::Skills>> skills_ {};
@@ -451,7 +495,7 @@ namespace Models
     // `PROJECT`: Visible to specified projects.<br>
     // `USER`: Visible to specified users.
     shared_ptr<string> visibility_ {};
-    // The visibility scope. The corresponding fields are used based on the Visibility parameter.
+    // The visibility scope. Specify the corresponding fields based on the Visibility value.
     shared_ptr<CreateAgentRequest::VisibilityScope> visibilityScope_ {};
   };
 

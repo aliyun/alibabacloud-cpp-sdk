@@ -68,9 +68,9 @@ namespace Models
   protected:
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of items per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the cross-workspace publish pipeline.
+    // The cross-workspace deployment pipeline ID.
     // 
     // This parameter is required.
     shared_ptr<string> pipelineRunId_ {};

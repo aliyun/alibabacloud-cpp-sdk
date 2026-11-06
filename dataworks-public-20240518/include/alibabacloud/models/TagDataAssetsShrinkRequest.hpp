@@ -91,18 +91,18 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> dataAssetIdsShrink_ {};
     // The data asset type. Valid values:
-    // - DataWorks table (ACS::DataWorks::Table)
-    // - DataWorks scheduled task (ACS::DataWorks::Task)
+    // - Data table (ACS::DataWorks::Table)
+    // - Scheduling task (ACS::DataWorks::Task)
     // 
     // This parameter is required.
     shared_ptr<string> dataAssetType_ {};
     // The workspace environment to which the data asset belongs. Valid values:
-    // - Dev (development environment)
-    // - Prod (production environment)
+    // - Dev: development environment
+    // - Prod: production environment
     shared_ptr<string> envType_ {};
     // The ID of the workspace.
     shared_ptr<int64_t> projectId_ {};
-    // The list of data asset tags to attach.
+    // The list of tags to attach to the data assets.
     // 
     // This parameter is required.
     shared_ptr<string> tagsShrink_ {};

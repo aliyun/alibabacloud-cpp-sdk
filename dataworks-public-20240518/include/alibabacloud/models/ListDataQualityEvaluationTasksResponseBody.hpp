@@ -136,7 +136,8 @@ namespace Models
         protected:
           // The IDs of the scheduled nodes. This parameter takes effect only when Type is set to ByScheduledTaskInstance. It specifies the scheduled nodes whose successful instance execution triggers the task.
           shared_ptr<vector<int64_t>> taskIds_ {};
-          // The event that triggers the execution of the data quality evaluation task. Valid values:
+          // The event that triggers the execution of the data quality check task.
+          // 
           // - ByScheduledTaskInstance: The scheduled instance runs successfully.
           shared_ptr<string> type_ {};
         };
@@ -197,7 +198,7 @@ namespace Models
 
 
         protected:
-          // The database type of the table dataset. Valid values:
+          // The database type of the table for table-type datasets. Valid values:
           // - maxcompute
           // - emr
           // - cdh
@@ -210,7 +211,8 @@ namespace Models
           shared_ptr<string> partitionSpec_ {};
           // The unique ID of the table in Data Map.
           shared_ptr<string> tableGuid_ {};
-          // The monitored object type. Valid values:
+          // The type of the monitored object.
+          // 
           // - Table
           shared_ptr<string> type_ {};
         };
@@ -308,14 +310,14 @@ namespace Models
             protected:
               // The extended information in JSON format. For example, DingTalk chatbots support mentioning all members.
               shared_ptr<string> extension_ {};
-              // The type of the notification recipient. Valid values:
-              // - AliUid: the UID of the Alibaba Cloud account
-              // - WebhookUrl: the custom webhook URL
-              // - DingdingUrl: the DingTalk chatbot URL
-              // - FeishuUrl: the Lark chatbot URL
-              // - WeixinUrl: the WeCom chatbot URL
+              // The type of the alert recipient.
+              // - AliUid: Alibaba Cloud account UID
+              // - WebhookUrl: Custom webhook URL
+              // - DingdingUrl: DingTalk chatbot webhook URL
+              // - FeishuUrl: Lark chatbot webhook URL
+              // - WeixinUrl: WeCom chatbot webhook URL
               shared_ptr<string> receiverType_ {};
-              // The specific value of the notification recipient.
+              // The specific value of the alert recipient.
               shared_ptr<vector<string>> receiverValues_ {};
             };
 
@@ -376,7 +378,7 @@ namespace Models
           protected:
             // The notification channel configuration.
             shared_ptr<vector<NotificationsItem::NotificationChannels>> notificationChannels_ {};
-            // The notification recipient configuration.
+            // The alert recipient configuration.
             shared_ptr<vector<NotificationsItem::NotificationReceivers>> notificationReceivers_ {};
           };
 
@@ -445,7 +447,7 @@ namespace Models
         protected:
           // The trigger condition of the hook.
           shared_ptr<string> condition_ {};
-          // The type of the subsequent action. Valid values:
+          // The type of the subsequent action.
           // - BlockTaskInstance: Blocks the execution of the DataWorks task instance.
           shared_ptr<string> type_ {};
         };
@@ -532,24 +534,25 @@ namespace Models
 
 
       protected:
+        // The ID of the data source used by the data quality monitoring task.
         shared_ptr<int64_t> dataSourceId_ {};
-        // The description of the data quality evaluation task. The description can be up to 65,535 characters in length.
+        // The description of the data quality check task. The description can be up to 65,535 characters in length.
         shared_ptr<string> description_ {};
-        // The callback settings in the instance lifecycle epoch of the data quality evaluation task. Currently, only one hook that blocks scheduling tasks is supported.
+        // The callback settings in the lifecycle of the data quality check task instance. Currently, only one hook that blocks the scheduled task is supported.
         shared_ptr<vector<DataQualityEvaluationTasks::Hooks>> hooks_ {};
-        // The ID of the data quality evaluation task.
+        // The ID of the data quality check task.
         shared_ptr<int64_t> id_ {};
-        // The name of the data quality evaluation task. The name can contain digits, letters, Chinese characters, and half-width or full-width punctuation marks, and can be up to 255 characters in length.
+        // The name of the data quality check task. The name can contain digits, letters, Chinese characters, and half-width or full-width punctuation marks, and can be up to 255 characters in length.
         shared_ptr<string> name_ {};
         // The alert configuration.
         shared_ptr<DataQualityEvaluationTasks::Notifications> notifications_ {};
         // The ID of the DataWorks workspace.
         shared_ptr<int64_t> projectId_ {};
-        // The settings for using the data source. Currently, you can only specify the YARN queue for EMR and set the SQL engine to SPARK_SQL, KYUUBI, PRESTO_SQL, or HIVE_SQL when collecting EMR tables.
+        // The settings used when accessing the data source. Currently, you can only specify the YARN queue for EMR and set the SQL engine to SPARK_SQL, KYUUBI, PRESTO_SQL, or HIVE_SQL when collecting EMR tables.
         shared_ptr<string> runtimeConf_ {};
-        // The monitored object of the data quality evaluation task.
+        // The monitored object of the data quality check task.
         shared_ptr<DataQualityEvaluationTasks::Target> target_ {};
-        // The trigger configuration of the data quality evaluation task.
+        // The trigger configuration of the data quality check task.
         shared_ptr<DataQualityEvaluationTasks::Trigger> trigger_ {};
       };
 
@@ -586,7 +589,7 @@ namespace Models
 
 
     protected:
-      // The data quality evaluation tasks.
+      // The data quality check tasks.
       shared_ptr<vector<PagingInfo::DataQualityEvaluationTasks>> dataQualityEvaluationTasks_ {};
       // The page number.
       shared_ptr<string> pageNumber_ {};
@@ -615,7 +618,7 @@ namespace Models
 
 
   protected:
-    // The paging query results of the data quality evaluation tasks.
+    // The paged query results of the data quality check tasks.
     shared_ptr<ListDataQualityEvaluationTasksResponseBody::PagingInfo> pagingInfo_ {};
     // The ID of the API request.
     shared_ptr<string> requestId_ {};

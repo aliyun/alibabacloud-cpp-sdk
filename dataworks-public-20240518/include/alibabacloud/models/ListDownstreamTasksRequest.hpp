@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The node ID.
+    // The task ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};

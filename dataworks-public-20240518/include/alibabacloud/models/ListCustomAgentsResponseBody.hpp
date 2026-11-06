@@ -117,15 +117,15 @@ namespace Models
         // gmtCreateTime Field Functions 
         bool hasGmtCreateTime() const { return this->gmtCreateTime_ != nullptr;};
         void deleteGmtCreateTime() { this->gmtCreateTime_ = nullptr;};
-        inline string getGmtCreateTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreateTime_, "") };
-        inline Agents& setGmtCreateTime(string gmtCreateTime) { DARABONBA_PTR_SET_VALUE(gmtCreateTime_, gmtCreateTime) };
+        inline int64_t getGmtCreateTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreateTime_, 0L) };
+        inline Agents& setGmtCreateTime(int64_t gmtCreateTime) { DARABONBA_PTR_SET_VALUE(gmtCreateTime_, gmtCreateTime) };
 
 
         // gmtModifiedTime Field Functions 
         bool hasGmtModifiedTime() const { return this->gmtModifiedTime_ != nullptr;};
         void deleteGmtModifiedTime() { this->gmtModifiedTime_ = nullptr;};
-        inline string getGmtModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(gmtModifiedTime_, "") };
-        inline Agents& setGmtModifiedTime(string gmtModifiedTime) { DARABONBA_PTR_SET_VALUE(gmtModifiedTime_, gmtModifiedTime) };
+        inline int64_t getGmtModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(gmtModifiedTime_, 0L) };
+        inline Agents& setGmtModifiedTime(int64_t gmtModifiedTime) { DARABONBA_PTR_SET_VALUE(gmtModifiedTime_, gmtModifiedTime) };
 
 
         // modifierId Field Functions 
@@ -157,13 +157,9 @@ namespace Models
         // **The display name.**
         shared_ptr<string> displayName_ {};
         // **The creation time (UNIX timestamp in milliseconds).**
-        // 
-        // Use the UTC time format: yyyy-MM-ddTHH:mmZ
-        shared_ptr<string> gmtCreateTime_ {};
+        shared_ptr<int64_t> gmtCreateTime_ {};
         // **The last modification time (UNIX timestamp in milliseconds).**
-        // 
-        // Use the UTC time format: yyyy-MM-ddTHH:mmZ
-        shared_ptr<string> gmtModifiedTime_ {};
+        shared_ptr<int64_t> gmtModifiedTime_ {};
         // **The last modifier ID.**
         shared_ptr<string> modifierId_ {};
         // **The agent name.**

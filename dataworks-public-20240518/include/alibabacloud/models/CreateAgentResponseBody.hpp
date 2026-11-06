@@ -135,7 +135,7 @@ namespace Models
       protected:
         // The name of the custom skill.
         shared_ptr<string> name_ {};
-        // This parameter is not returned upon creation. Call GetAgent to explicitly query the published version to obtain the fixed official artifact version.
+        // This field is not returned during creation. Use GetAgent to explicitly query the published version to obtain the fixed official artifact version.
         shared_ptr<string> packageVersion_ {};
         // The ID of the official skill.
         shared_ptr<string> skillId_ {};
@@ -143,7 +143,7 @@ namespace Models
         shared_ptr<string> source_ {};
         // The release version number of the custom skill.
         shared_ptr<int32_t> version_ {};
-        // The saved version selection strategy is returned only for personal or enterprise resources and is mutually exclusive with the fixed integer Version. It does not represent the specific revision actually loaded in the session. This parameter is not returned for official resources.
+        // The saved version selection strategy is returned only for personal or enterprise resources and is mutually exclusive with the fixed integer Version. It does not represent the specific revision actually loaded in the session. This field is not returned for official resources.
         shared_ptr<string> versionSelector_ {};
       };
 
@@ -212,7 +212,7 @@ namespace Models
 
 
       protected:
-        // This parameter is not returned upon creation. Call GetAgent to explicitly query the published version to obtain the fixed official suite artifact version.
+        // This field is not returned during creation. Use GetAgent to explicitly query the published version to obtain the fixed official suite artifact version.
         shared_ptr<string> packageVersion_ {};
         // The source of the expert suite.
         shared_ptr<string> source_ {};
@@ -220,7 +220,7 @@ namespace Models
         shared_ptr<string> suiteId_ {};
         // The release version number of the custom suite.
         shared_ptr<int32_t> version_ {};
-        // The saved version selection strategy is returned only for personal or enterprise resources and is mutually exclusive with the fixed integer Version. It does not represent the specific revision actually loaded in the session. This parameter is not returned for official resources.
+        // The saved version selection strategy is returned only for personal or enterprise resources and is mutually exclusive with the fixed integer Version. It does not represent the specific revision actually loaded in the session. This field is not returned for official resources.
         shared_ptr<string> versionSelector_ {};
       };
 
@@ -238,15 +238,15 @@ namespace Models
       // gmtCreateTime Field Functions 
       bool hasGmtCreateTime() const { return this->gmtCreateTime_ != nullptr;};
       void deleteGmtCreateTime() { this->gmtCreateTime_ = nullptr;};
-      inline string getGmtCreateTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreateTime_, "") };
-      inline Agent& setGmtCreateTime(string gmtCreateTime) { DARABONBA_PTR_SET_VALUE(gmtCreateTime_, gmtCreateTime) };
+      inline int64_t getGmtCreateTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreateTime_, 0L) };
+      inline Agent& setGmtCreateTime(int64_t gmtCreateTime) { DARABONBA_PTR_SET_VALUE(gmtCreateTime_, gmtCreateTime) };
 
 
       // gmtModifiedTime Field Functions 
       bool hasGmtModifiedTime() const { return this->gmtModifiedTime_ != nullptr;};
       void deleteGmtModifiedTime() { this->gmtModifiedTime_ = nullptr;};
-      inline string getGmtModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(gmtModifiedTime_, "") };
-      inline Agent& setGmtModifiedTime(string gmtModifiedTime) { DARABONBA_PTR_SET_VALUE(gmtModifiedTime_, gmtModifiedTime) };
+      inline int64_t getGmtModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(gmtModifiedTime_, 0L) };
+      inline Agent& setGmtModifiedTime(int64_t gmtModifiedTime) { DARABONBA_PTR_SET_VALUE(gmtModifiedTime_, gmtModifiedTime) };
 
 
       // name Field Functions 
@@ -268,17 +268,13 @@ namespace Models
     protected:
       // The saved suite references. Official resources return the source and directory ID. The published artifact version is represented by PackageVersion.
       shared_ptr<vector<Agent::ExpertSuites>> expertSuites_ {};
-      // The creation time, in milliseconds.
-      // 
-      // Use the UTC time format: yyyy-MM-ddTHH:mmZ
-      shared_ptr<string> gmtCreateTime_ {};
-      // The last modification time, in milliseconds.
-      // 
-      // Use the UTC time format: yyyy-MM-ddTHH:mmZ
-      shared_ptr<string> gmtModifiedTime_ {};
+      // The creation time, expressed as a timestamp in milliseconds.
+      shared_ptr<int64_t> gmtCreateTime_ {};
+      // The last modification time, expressed as a timestamp in milliseconds.
+      shared_ptr<int64_t> gmtModifiedTime_ {};
       // The name of the agent.
       shared_ptr<string> name_ {};
-      // The saved skill references. For official skills, a fixed PackageVersion is returned after the agent is published.
+      // The saved skill references. Official skills return a fixed PackageVersion after the agent is published.
       shared_ptr<vector<Agent::Skills>> skills_ {};
     };
 

@@ -131,23 +131,21 @@ namespace Models
 
 
     protected:
-      // The exact filter for the **agent name**. You must specify at least one of this parameter and SessionSourceList.
+      // The **agent name** for exact match filtering. You must specify at least one of this parameter and `SessionSourceList`.
       shared_ptr<string> agentName_ {};
-      // Specifies whether to return only archived sessions. Valid values:
-      // - true: Only archived sessions are returned.
-      // - false or not specified: Only unarchived sessions are returned.
+      // Specifies whether to query archived sessions. If you set this parameter to true, only archived sessions are returned. If you set this parameter to false or omit it, only unarchived sessions are returned. A value of false does not mean all sessions. To query both types of sessions, send separate requests and handle the pagination for each.
       shared_ptr<bool> archived_ {};
       // The number of entries per page. Default value: 50.
       shared_ptr<int32_t> maxResults_ {};
       // The token for the next page. Set this parameter to 1 for the first page.
       shared_ptr<string> nextToken_ {};
-      // The exact match for the session ID.
+      // The session ID for exact matching.
       shared_ptr<string> sessionId_ {};
-      // The filter for the **session source list**. You must specify at least one of this parameter and AgentName.
+      // The **session source list** for filtering. You must specify at least one of this parameter and `AgentName`.
       shared_ptr<vector<string>> sessionSourceList_ {};
-      // The fuzzy filter for the session title.
+      // The session title for fuzzy match filtering.
       shared_ptr<string> sessionTitle_ {};
-      // The filter for the session tag code list.
+      // The session tag code list for filtering.
       shared_ptr<vector<string>> tagList_ {};
     };
 
@@ -177,9 +175,9 @@ namespace Models
 
 
   protected:
-    // The ID passed by the requester, which is returned as is.
+    // The request ID provided by the caller. This ID is returned as is in the response.
     shared_ptr<string> id_ {};
-    // The JSON-RPC version. Fixed to 2.0.
+    // The JSON-RPC version, which is fixed to 2.0.
     shared_ptr<string> jsonrpc_ {};
     // The business parameters.
     shared_ptr<ListAgentSessionsRequest::Params> params_ {};

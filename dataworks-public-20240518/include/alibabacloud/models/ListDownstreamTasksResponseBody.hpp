@@ -204,11 +204,11 @@ namespace Models
           // 
           // The format is `yyyy-MM-dd HH:mm:ss`, such as `9999-01-01 00:00:00`. The example does not include a time zone identifier.
           shared_ptr<string> endTime_ {};
-          // The running mode upon triggering. This parameter takes effect only when Type is set to Scheduler.
+          // The running mode when the task is triggered. This parameter takes effect only when Type is set to Scheduler.
           shared_ptr<string> recurrence_ {};
-          // The effective period of epoch triggering. This parameter takes effect only when Type is set to Scheduler.
+          // The effective time of periodic triggering. This parameter takes effect only when Type is set to Scheduler.
           // 
-          // The format is `yyyy-MM-dd HH:mm:ss`, such as `1970-01-01 00:00:00`. The example does not include a time zone identity.
+          // The format is `yyyy-MM-dd HH:mm:ss`, such as `1970-01-01 00:00:00`. The example does not include a time zone identifier.
           shared_ptr<string> startTime_ {};
           // The time zone.
           shared_ptr<string> timezone_ {};
@@ -263,11 +263,11 @@ namespace Models
 
 
         protected:
-          // The compute unit (CU) consumption configured for node execution.
+          // The number of compute units (CUs) consumed during task execution.
           shared_ptr<string> cu_ {};
-          // The ID of the image configured for node execution.
+          // The ID of the image configured for task execution.
           shared_ptr<string> image_ {};
-          // The identifier of the schedule resource group configured for node execution.
+          // The identifier of the scheduling resource group configured for task execution.
           shared_ptr<string> resourceGroupId_ {};
         };
 
@@ -490,43 +490,43 @@ namespace Models
         // 
         // The value is a 13-digit number, such as `1710239005403`.
         shared_ptr<int64_t> createTime_ {};
-        // The account ID of the user who created the node.
+        // The account ID of the user who created the task.
         shared_ptr<string> createUser_ {};
         // The associated data source information.
         shared_ptr<Tasks::DataSource> dataSource_ {};
         // The description.
         shared_ptr<string> description_ {};
         // The project environment. Valid values:
-        // - Prod: Production environment.
-        // - Dev: Development environment.
+        // - Prod: Production.
+        // - Dev: Development.
         shared_ptr<string> envType_ {};
-        // The unique identifier of the node.
+        // The unique identifier of the task.
         shared_ptr<int64_t> id_ {};
         // The instance generation mode. Valid values:
         // - T+1: Generated on the next day.
         // - Immediately: Generated immediately.
         shared_ptr<string> instanceMode_ {};
-        // The modification time.
+        // The update time.
         // 
         // The value is a 13-digit number, such as `1710239005403`.
         shared_ptr<int64_t> modifyTime_ {};
-        // The account ID of the user who modified the node.
+        // The account ID of the user who updated the task.
         shared_ptr<string> modifyUser_ {};
         // The name.
         shared_ptr<string> name_ {};
-        // The account ID of the node owner.
+        // The account ID of the task owner.
         shared_ptr<string> owner_ {};
-        // The node priority. Valid values: 1 to 8. A larger value indicates a higher priority. Default value: 1.
+        // The task priority. Valid values: 1 to 8. A larger value indicates a higher priority. Default value: 1.
         shared_ptr<int32_t> priority_ {};
         // **[Deprecated]** The project environment. Use EnvType instead.
         shared_ptr<string> projectEnv_ {};
         // The project ID.
         shared_ptr<int64_t> projectId_ {};
-        // The retry time interval, in seconds.
+        // The retry interval, in seconds.
         shared_ptr<int32_t> rerunInterval_ {};
-        // The rerun configuration of the node.
+        // The rerun configuration of the task.
         shared_ptr<string> rerunMode_ {};
-        // The number of retries. This parameter takes effect only when the node is configured to allow reruns.
+        // The number of retries. This parameter takes effect only when the task is configured to be rerunnable.
         shared_ptr<int32_t> rerunTimes_ {};
         // The runtime environment configuration, such as the resource group information.
         shared_ptr<Tasks::RuntimeResource> runtimeResource_ {};
@@ -534,13 +534,13 @@ namespace Models
         // - Normal: Same-cycle dependency.
         // - CrossCycle: Cross-cycle dependency.
         shared_ptr<string> stepType_ {};
-        // The node execution timeout period, in seconds.
+        // The task execution timeout period, in seconds.
         shared_ptr<int32_t> timeout_ {};
-        // The trigger method of the node.
+        // The trigger method of the task.
         shared_ptr<Tasks::Trigger> trigger_ {};
-        // The node type.
+        // The task type.
         shared_ptr<string> type_ {};
-        // The ID of the workflow to which the node belongs.
+        // The ID of the workflow to which the task belongs.
         shared_ptr<int64_t> workflowId_ {};
       };
 
@@ -706,20 +706,20 @@ namespace Models
             // 
             // The format is `yyyy-MM-dd HH:mm:ss`, such as `9999-01-01 00:00:00`. The example does not include a time zone identifier.
             shared_ptr<string> endTime_ {};
-            // The execution mode when triggered. This parameter takes effect only when Type is set to Scheduler.
+            // The execution mode when the task is triggered. This parameter takes effect only when Type is set to Scheduler. Valid values:
             // - Pause: Paused.
             // - Skip: Dry run.
             // - Normal: Normal execution.
             shared_ptr<string> recurrence_ {};
-            // The effective period for epoch triggers. This parameter takes effect only when Type is set to Scheduler.
+            // The effective time of periodic triggering. This parameter takes effect only when Type is set to Scheduler.
             // 
-            // The format is `yyyy-MM-dd HH:mm:ss`, such as `1970-01-01 00:00:00`. This example does not include a time zone identity.
+            // The format is `yyyy-MM-dd HH:mm:ss`, such as `1970-01-01 00:00:00`. The example does not include a time zone identifier.
             shared_ptr<string> startTime_ {};
             // The time zone.
             shared_ptr<string> timezone_ {};
-            // The trigger type.
+            // The trigger type. Valid values:
             // - Scheduler: Triggered by a scheduling cycle.
-            // - Manual: Triggered manually.
+            // - Manual: Manually triggered.
             shared_ptr<string> type_ {};
           };
 
@@ -770,11 +770,11 @@ namespace Models
 
 
           protected:
-            // The compute unit (CU) consumption configured for node execution.
+            // The number of compute units (CUs) consumed during task execution.
             shared_ptr<string> cu_ {};
-            // The ID of the image configured for node execution.
+            // The ID of the image configured for task execution.
             shared_ptr<string> image_ {};
-            // The identifier of the schedule resource group configured for node execution.
+            // The identifier of the scheduling resource group configured for task execution.
             shared_ptr<string> resourceGroupId_ {};
           };
 
@@ -983,54 +983,54 @@ namespace Models
           // 
           // The value is a 13-digit number, such as `1710239005403`.
           shared_ptr<int64_t> createTime_ {};
-          // The account ID of the user who created the node.
+          // The account ID of the user who created the task.
           shared_ptr<string> createUser_ {};
           // The associated data source information.
           shared_ptr<Task::DataSource> dataSource_ {};
           // The description.
           shared_ptr<string> description_ {};
           // The project environment. Valid values:
-          // - Prod: Production environment.
-          // - Dev: Development environment.
+          // - Prod: Production.
+          // - Dev: Development.
           shared_ptr<string> envType_ {};
-          // The unique identifier of the node.
+          // The unique identifier of the task.
           shared_ptr<int64_t> id_ {};
           // The instance generation mode. Valid values:
           // - T+1: Generated on the next day.
           // - Immediately: Generated immediately.
           shared_ptr<string> instanceMode_ {};
-          // The modification time.
+          // The update time.
           // 
           // The value is a 13-digit number, such as `1710239005403`.
           shared_ptr<int64_t> modifyTime_ {};
-          // The account ID of the user who modified the node.
+          // The account ID of the user who updated the task.
           shared_ptr<string> modifyUser_ {};
           // The name.
           shared_ptr<string> name_ {};
-          // The account ID of the node owner.
+          // The account ID of the task owner.
           shared_ptr<string> owner_ {};
-          // The node priority. Valid values: 1 to 8.
+          // The task priority. Valid values: 1 to 8.
           shared_ptr<int32_t> priority_ {};
           // The project ID.
           shared_ptr<int64_t> projectId_ {};
-          // The retry time interval, in seconds.
+          // The retry interval, in seconds.
           shared_ptr<int32_t> rerunInterval_ {};
-          // The rerun configuration of the node. Valid values:
-          // - AllDenied: The node cannot be rerun regardless of success or failure.
-          // - FailureAllowed: The node can be rerun only when it fails.
-          // - AllAllowed: The node can be rerun regardless of whether it succeeds or fails.
+          // The rerun configuration of the task. Valid values:
+          // - AllDenied: The task cannot be rerun regardless of whether it succeeds or fails.
+          // - FailureAllowed: The task can be rerun only when it fails.
+          // - AllAllowed: The task can be rerun regardless of whether it succeeds or fails.
           shared_ptr<string> rerunMode_ {};
-          // The number of retries. This parameter takes effect only when the node is configured to allow reruns.
+          // The number of retries. This parameter takes effect only when the task is configured to be rerunnable.
           shared_ptr<int32_t> rerunTimes_ {};
           // The runtime environment configuration, such as the resource group information.
           shared_ptr<Task::RuntimeResource> runtimeResource_ {};
-          // The node execution timeout period, in seconds.
+          // The task execution timeout period, in seconds.
           shared_ptr<int32_t> timeout_ {};
-          // The trigger method of the node.
+          // The trigger method of the task.
           shared_ptr<Task::Trigger> trigger_ {};
-          // The node type.
+          // The task type.
           shared_ptr<string> type_ {};
-          // The ID of the workflow to which the node belongs.
+          // The ID of the workflow to which the task belongs.
           shared_ptr<int64_t> workflowId_ {};
         };
 
@@ -1057,7 +1057,7 @@ namespace Models
         // - Normal: Same-cycle dependency.
         // - CrossCycle: Cross-cycle dependency.
         shared_ptr<string> dependencyType_ {};
-        // The detailed information of the node.
+        // The details of the task.
         shared_ptr<DownstreamTasks::Task> task_ {};
       };
 
@@ -1103,13 +1103,13 @@ namespace Models
 
 
     protected:
-      // The list of downstream nodes.
+      // The list of downstream tasks.
       shared_ptr<vector<PagingInfo::DownstreamTasks>> downstreamTasks_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // **[Deprecated]** The list of nodes. Use DownstreamTasks instead.
+      // **[Deprecated]** The list of tasks. Use DownstreamTasks instead.
       shared_ptr<vector<PagingInfo::Tasks>> tasks_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
@@ -1136,7 +1136,7 @@ namespace Models
   protected:
     // The pagination information.
     shared_ptr<ListDownstreamTasksResponseBody::PagingInfo> pagingInfo_ {};
-    // The request ID, which is used to locate logs and troubleshoot issues.
+    // The request ID. You can use this ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

@@ -200,15 +200,15 @@ namespace Models
 
 
     protected:
-      // The JSON-RPC error message. This field is not returned if the request is successful.
+      // The JSON-RPC error message. This field is not returned when the request is successful.
       shared_ptr<JsonRpcResponse::Error> error_ {};
       // The ID passed by the requester. The value is returned as is.
       shared_ptr<string> id_ {};
-      // The JSON-RPC version. This value is always 2.0.
+      // The JSON-RPC version. Fixed to 2.0.
       shared_ptr<string> jsonrpc_ {};
-      // The business data. The value is null if an error occurs.
+      // The business data. The value is null when an error occurs.
       shared_ptr<JsonRpcResponse::Result> result_ {};
-      // The response time. The value is a UNIX timestamp in milliseconds.
+      // The response time. It is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> timestamp_ {};
     };
 
@@ -231,9 +231,9 @@ namespace Models
 
 
   protected:
-    // The JSON-RPC response.
+    // The JSON-RPC response result.
     shared_ptr<CreateAgentSessionResponseBody::JsonRpcResponse> jsonRpcResponse_ {};
-    // Id of the request
+    // The request ID for this OpenAPI call. You can use it to troubleshoot issues with the call.
     shared_ptr<string> requestId_ {};
   };
 

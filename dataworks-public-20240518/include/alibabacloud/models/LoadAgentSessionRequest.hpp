@@ -92,9 +92,9 @@ namespace Models
 
 
       protected:
-        // The offset from which to pull subsequent SSE outputs in a resumable transmission scenario.
+        // Pulls the subsequent SSE output from the specified position in a resumable transfer scenario.
         shared_ptr<int64_t> beginLogOffset_ {};
-        // Specifies whether this is a resumable transmission scenario. If the SSE stream is interrupted due to network instability, you can set this flag to repull the SSE response data from the breakpoint.
+        // Specifies whether this is a resumable transfer scenario. In scenarios where the SSE stream is unstable, such as network instability that causes the SSE connection to drop midway, you can use this flag to pull the SSE response data again from the breakpoint.
         shared_ptr<bool> isReload_ {};
       };
 
@@ -117,7 +117,7 @@ namespace Models
 
 
     protected:
-      // The ACP extension parameters for DataWorks.
+      // The ACP extension parameters of DataWorks.
       shared_ptr<Params::Meta> meta_ {};
       // The ID of the target session. If the session does not exist, an SSE error frame is returned.
       shared_ptr<string> sessionId_ {};
@@ -149,9 +149,9 @@ namespace Models
 
 
   protected:
-    // The ID provided by the requester. This ID is echoed back as is.
+    // The ID passed by the requester. The value is returned as is.
     shared_ptr<string> id_ {};
-    // The JSON-RPC version. Fixed to 2.0.
+    // The JSON-RPC version. The value is fixed to 2.0.
     shared_ptr<string> jsonrpc_ {};
     // The business parameters.
     shared_ptr<LoadAgentSessionRequest::Params> params_ {};

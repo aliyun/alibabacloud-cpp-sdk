@@ -180,17 +180,17 @@ namespace Models
         shared_ptr<string> errorMessage_ {};
         // Indicates whether the object is a root object.
         shared_ptr<bool> isRoot_ {};
-        // The ID of the publish object.
+        // The ID of the deployment object.
         shared_ptr<string> objectId_ {};
-        // The name of the publish object.
+        // The name of the deployment object.
         shared_ptr<string> objectName_ {};
-        // The object type of the publish object.
+        // The deployment object type.
         shared_ptr<string> objectType_ {};
-        // The version of the publish object.
+        // The version of the deployment object.
         shared_ptr<string> objectVersion_ {};
         // The ID of the parent object.
         shared_ptr<string> parentObjectId_ {};
-        // The status of the publish item.
+        // The status of the deployment item.
         shared_ptr<string> status_ {};
       };
 
@@ -236,9 +236,9 @@ namespace Models
     protected:
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries per page.
+      // The number of items per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The list of publish items for the root objects and their child objects that are fixed in the cross-workspace publish pipeline.
+      // The list of publish items for the root object and its child objects in the cross-workspace publish pipeline.
       shared_ptr<vector<Data::PipelineRunItems>> pipelineRunItems_ {};
       // The request ID.
       shared_ptr<string> requestId_ {};
@@ -272,11 +272,11 @@ namespace Models
 
 
   protected:
-    // The business response.
+    // The response data.
     shared_ptr<ListCrossProjectPipelineRunItemsResponseBody::Data> data_ {};
-    // The request ID, which is used to locate and troubleshoot this API call.
+    // The request ID used to locate and troubleshoot the API call.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -43,6 +43,10 @@
 #include <alibabacloud/models/ApproveProcessInstanceRequest.hpp>
 #include <alibabacloud/models/ApproveProcessInstanceResponseBody.hpp>
 #include <alibabacloud/models/ApproveProcessInstanceResponse.hpp>
+#include <alibabacloud/models/ArchiveAgentSessionRequest.hpp>
+#include <alibabacloud/models/ArchiveAgentSessionShrinkRequest.hpp>
+#include <alibabacloud/models/ArchiveAgentSessionResponseBody.hpp>
+#include <alibabacloud/models/ArchiveAgentSessionResponse.hpp>
 #include <alibabacloud/models/AssociateProjectToImageRequest.hpp>
 #include <alibabacloud/models/AssociateProjectToImageResponseBody.hpp>
 #include <alibabacloud/models/AssociateProjectToImageResponse.hpp>
@@ -97,6 +101,9 @@
 #include <alibabacloud/models/CreateCalendarShrinkRequest.hpp>
 #include <alibabacloud/models/CreateCalendarResponseBody.hpp>
 #include <alibabacloud/models/CreateCalendarResponse.hpp>
+#include <alibabacloud/models/CreateCodeReviewRequest.hpp>
+#include <alibabacloud/models/CreateCodeReviewResponseBody.hpp>
+#include <alibabacloud/models/CreateCodeReviewResponse.hpp>
 #include <alibabacloud/models/CreateComponentRequest.hpp>
 #include <alibabacloud/models/CreateComponentResponseBody.hpp>
 #include <alibabacloud/models/CreateComponentResponse.hpp>
@@ -278,6 +285,10 @@
 #include <alibabacloud/models/DeleteAgentRequest.hpp>
 #include <alibabacloud/models/DeleteAgentResponseBody.hpp>
 #include <alibabacloud/models/DeleteAgentResponse.hpp>
+#include <alibabacloud/models/DeleteAgentSessionRequest.hpp>
+#include <alibabacloud/models/DeleteAgentSessionShrinkRequest.hpp>
+#include <alibabacloud/models/DeleteAgentSessionResponseBody.hpp>
+#include <alibabacloud/models/DeleteAgentSessionResponse.hpp>
 #include <alibabacloud/models/DeleteAlertRuleRequest.hpp>
 #include <alibabacloud/models/DeleteAlertRuleResponseBody.hpp>
 #include <alibabacloud/models/DeleteAlertRuleResponse.hpp>
@@ -468,6 +479,9 @@
 #include <alibabacloud/models/GetAgentSessionArtifactMetaShrinkRequest.hpp>
 #include <alibabacloud/models/GetAgentSessionArtifactMetaResponseBody.hpp>
 #include <alibabacloud/models/GetAgentSessionArtifactMetaResponse.hpp>
+#include <alibabacloud/models/GetAgentSessionEventsRequest.hpp>
+#include <alibabacloud/models/GetAgentSessionEventsResponseBody.hpp>
+#include <alibabacloud/models/GetAgentSessionEventsResponse.hpp>
 #include <alibabacloud/models/GetAgentSessionTokenUsageRequest.hpp>
 #include <alibabacloud/models/GetAgentSessionTokenUsageShrinkRequest.hpp>
 #include <alibabacloud/models/GetAgentSessionTokenUsageResponseBody.hpp>
@@ -493,6 +507,9 @@
 #include <alibabacloud/models/GetCertificateRequest.hpp>
 #include <alibabacloud/models/GetCertificateResponseBody.hpp>
 #include <alibabacloud/models/GetCertificateResponse.hpp>
+#include <alibabacloud/models/GetCodeReviewRequest.hpp>
+#include <alibabacloud/models/GetCodeReviewResponseBody.hpp>
+#include <alibabacloud/models/GetCodeReviewResponse.hpp>
 #include <alibabacloud/models/GetColumnRequest.hpp>
 #include <alibabacloud/models/GetColumnResponseBody.hpp>
 #include <alibabacloud/models/GetColumnResponse.hpp>
@@ -740,6 +757,9 @@
 #include <alibabacloud/models/ListCertificatesRequest.hpp>
 #include <alibabacloud/models/ListCertificatesResponseBody.hpp>
 #include <alibabacloud/models/ListCertificatesResponse.hpp>
+#include <alibabacloud/models/ListCodeReviewsRequest.hpp>
+#include <alibabacloud/models/ListCodeReviewsResponseBody.hpp>
+#include <alibabacloud/models/ListCodeReviewsResponse.hpp>
 #include <alibabacloud/models/ListColumnsRequest.hpp>
 #include <alibabacloud/models/ListColumnsResponseBody.hpp>
 #include <alibabacloud/models/ListColumnsResponse.hpp>
@@ -1058,6 +1078,9 @@
 #include <alibabacloud/models/PreviewDatasetVersionRequest.hpp>
 #include <alibabacloud/models/PreviewDatasetVersionResponseBody.hpp>
 #include <alibabacloud/models/PreviewDatasetVersionResponse.hpp>
+#include <alibabacloud/models/PreviewTaskParametersRequest.hpp>
+#include <alibabacloud/models/PreviewTaskParametersResponseBody.hpp>
+#include <alibabacloud/models/PreviewTaskParametersResponse.hpp>
 #include <alibabacloud/models/PromptAgentSessionRequest.hpp>
 #include <alibabacloud/models/PromptAgentSessionShrinkRequest.hpp>
 #include <alibabacloud/models/PromptAgentSessionResponseBody.hpp>
@@ -1179,6 +1202,10 @@
 #include <alibabacloud/models/UnTagDataAssetsShrinkRequest.hpp>
 #include <alibabacloud/models/UnTagDataAssetsResponseBody.hpp>
 #include <alibabacloud/models/UnTagDataAssetsResponse.hpp>
+#include <alibabacloud/models/UpdateAgentRequest.hpp>
+#include <alibabacloud/models/UpdateAgentShrinkRequest.hpp>
+#include <alibabacloud/models/UpdateAgentResponseBody.hpp>
+#include <alibabacloud/models/UpdateAgentResponse.hpp>
 #include <alibabacloud/models/UpdateAgentSessionTitleRequest.hpp>
 #include <alibabacloud/models/UpdateAgentSessionTitleShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateAgentSessionTitleResponseBody.hpp>
@@ -1194,6 +1221,9 @@
 #include <alibabacloud/models/UpdateCalendarShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateCalendarResponseBody.hpp>
 #include <alibabacloud/models/UpdateCalendarResponse.hpp>
+#include <alibabacloud/models/UpdateCodeReviewRequest.hpp>
+#include <alibabacloud/models/UpdateCodeReviewResponseBody.hpp>
+#include <alibabacloud/models/UpdateCodeReviewResponse.hpp>
 #include <alibabacloud/models/UpdateColumnBusinessMetadataRequest.hpp>
 #include <alibabacloud/models/UpdateColumnBusinessMetadataShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateColumnBusinessMetadataResponseBody.hpp>

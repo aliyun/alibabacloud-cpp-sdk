@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The tag type.
+    // The tag category. Valid values:
     // - Normal
     // - System
     shared_ptr<string> category_ {};

@@ -191,13 +191,13 @@ namespace Models
 
 
       protected:
-        // **The built-in tool name. Valid when Kind is `builtin`.**
+        // **The name of the built-in tool. Valid when Kind is builtin.**
         shared_ptr<string> builtinName_ {};
         // **The tool type.**
         shared_ptr<string> kind_ {};
-        // **The selected MCP tool items. Valid when Kind is `mcp`.**
+        // **The selected MCP tool items. Valid when Kind is mcp.**
         shared_ptr<vector<string>> mcpItems_ {};
-        // **The associated MCP server name. Valid when Kind is `mcp`.**
+        // **The name of the associated MCP server. Valid when Kind is mcp.**
         shared_ptr<string> mcpServerName_ {};
       };
 
@@ -275,17 +275,17 @@ namespace Models
 
 
       protected:
-        // The skill name.
+        // The name of the skill.
         shared_ptr<string> name_ {};
-        // The fixed official artifact version returned when querying a released snapshot with a specified AgentVersion. This is not returned when querying a draft or a custom skill.
+        // Returns the fixed official artifact version when querying a published snapshot with a specified AgentVersion. Not returned when querying a draft or a custom skill.
         shared_ptr<string> packageVersion_ {};
-        // The official skill ID.
+        // The ID of the official skill.
         shared_ptr<string> skillId_ {};
         // OFFICIAL indicates an official catalog resource. Omitted or DB indicates an original personal or enterprise resource.
         shared_ptr<string> source_ {};
-        // The skill version number.
+        // The version number of the skill.
         shared_ptr<int32_t> version_ {};
-        // Returned only for personal or enterprise resources to indicate the saved version selection strategy, which is mutually exclusive with the fixed integer Version. It does not represent the specific revision actually loaded in the session. This is not returned for official resources.
+        // Returned only for personal or enterprise resources to indicate the saved version selection policy, which is mutually exclusive with the fixed integer Version. It does not represent the specific revision actually loaded in the session. Not returned for official resources.
         shared_ptr<string> versionSelector_ {};
       };
 
@@ -367,15 +367,15 @@ namespace Models
       protected:
         // The additional configuration of the model.
         Darabonba::Json config_ {};
-        // The maximum number of output tokens per generation.
+        // The maximum number of output tokens per request.
         shared_ptr<int32_t> maxTokens_ {};
-        // The model name.
+        // The name of the model.
         shared_ptr<string> modelName_ {};
-        // Specifies whether streaming output is enabled.
+        // Specifies whether to use streaming output.
         shared_ptr<bool> stream_ {};
         // The sampling temperature.
         shared_ptr<double> temperature_ {};
-        // The nucleus sampling Top-P value.
+        // The top-P value for nucleus sampling.
         shared_ptr<double> topP_ {};
       };
 
@@ -481,23 +481,23 @@ namespace Models
 
 
       protected:
-        // If the suite is deleted, the release snapshot is missing, or the caller does not have permission to view it, the suite summary is not returned, and only the ID and version number are retained.
+        // If the suite is deleted, the published snapshot is missing, or the caller does not have permission to view it, the suite summary is not returned, and only the ID and version number are retained.
         shared_ptr<string> description_ {};
         // The display name of the bound version.
         shared_ptr<string> displayName_ {};
         // The suite name of the bound version.
         shared_ptr<string> name_ {};
-        // The fixed official artifact version returned when explicitly querying a released version of the agent. This is not returned when querying a draft or a custom suite.
+        // Returns the fixed official artifact version when explicitly querying a published version of the agent. Not returned when querying a draft or a custom suite.
         shared_ptr<string> packageVersion_ {};
-        // An optional suite summary field that is not returned by current new DataAgent applications. A default value does not indicate version 0. This cannot be used as the Version for UpdateAgent and must be omitted when writing back references. For the fixed version of official artifacts, read PackageVersion.
+        // An optional suite summary field that is not returned by current new DataAgent applications. A missing value does not indicate version 0. This field cannot be used as the Version for UpdateAgent and must be omitted when writing back references. For the fixed version of official artifacts, read PackageVersion.
         shared_ptr<string> semanticVersion_ {};
         // OFFICIAL indicates an official catalog resource. Omitted or DB indicates a personal or enterprise resource.
         shared_ptr<string> source_ {};
-        // The expert suite ID.
+        // The ID of the expert suite.
         shared_ptr<string> suiteId_ {};
-        // Returned only when a personal or enterprise suite explicitly specifies a fixed integer version in the reference. This is not returned for official suites. An unreturned value is not 0. If the SDK initializes the default integer to 0, it must be omitted when writing back. For official items, only Source and SuiteId are written back, and Version, VersionSelector, SemanticVersion, or PackageVersion are not passed.
+        // Returned only when a personal or enterprise suite explicitly specifies a fixed integer version in the reference. Not returned for official suites. A missing value is not 0. If the SDK initializes a missing integer to 0, it must be omitted when writing back. For official items, only Source and SuiteId are written back, and Version, VersionSelector, SemanticVersion, or PackageVersion are not passed.
         shared_ptr<int32_t> version_ {};
-        // Returned only for personal or enterprise resources to indicate the saved version selection strategy, which is mutually exclusive with the fixed integer Version. It does not represent the specific revision actually loaded in the session. This is not returned for official resources.
+        // Returned only for personal or enterprise resources to indicate the saved version selection policy, which is mutually exclusive with the fixed integer Version. It does not represent the specific revision actually loaded in the session. Not returned for official resources.
         shared_ptr<string> versionSelector_ {};
       };
 
@@ -621,15 +621,15 @@ namespace Models
       // gmtCreateTime Field Functions 
       bool hasGmtCreateTime() const { return this->gmtCreateTime_ != nullptr;};
       void deleteGmtCreateTime() { this->gmtCreateTime_ = nullptr;};
-      inline string getGmtCreateTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreateTime_, "") };
-      inline Agent& setGmtCreateTime(string gmtCreateTime) { DARABONBA_PTR_SET_VALUE(gmtCreateTime_, gmtCreateTime) };
+      inline int64_t getGmtCreateTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreateTime_, 0L) };
+      inline Agent& setGmtCreateTime(int64_t gmtCreateTime) { DARABONBA_PTR_SET_VALUE(gmtCreateTime_, gmtCreateTime) };
 
 
       // gmtModifiedTime Field Functions 
       bool hasGmtModifiedTime() const { return this->gmtModifiedTime_ != nullptr;};
       void deleteGmtModifiedTime() { this->gmtModifiedTime_ = nullptr;};
-      inline string getGmtModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(gmtModifiedTime_, "") };
-      inline Agent& setGmtModifiedTime(string gmtModifiedTime) { DARABONBA_PTR_SET_VALUE(gmtModifiedTime_, gmtModifiedTime) };
+      inline int64_t getGmtModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(gmtModifiedTime_, 0L) };
+      inline Agent& setGmtModifiedTime(int64_t gmtModifiedTime) { DARABONBA_PTR_SET_VALUE(gmtModifiedTime_, gmtModifiedTime) };
 
 
       // metadata Field Functions 
@@ -725,16 +725,12 @@ namespace Models
       shared_ptr<string> description_ {};
       // **The display name.**
       shared_ptr<string> displayName_ {};
-      // The expert suites associated with the agent definition, including a fixed integer revision number or a version selection strategy. Official resources continue to use PackageVersion to indicate the artifact version.
+      // The expert suites bound to the agent definition, including a fixed integer revision number or a version selection policy. Official resources continue to use PackageVersion to indicate the artifact version.
       shared_ptr<vector<Agent::ExpertSuites>> expertSuites_ {};
-      // The creation time (millisecond timestamp).
-      // 
-      // Use the UTC time format: yyyy-MM-ddTHH:mmZ
-      shared_ptr<string> gmtCreateTime_ {};
-      // The last modification time (millisecond timestamp).
-      // 
-      // Use the UTC time format: yyyy-MM-ddTHH:mmZ
-      shared_ptr<string> gmtModifiedTime_ {};
+      // The creation time, expressed as a timestamp in milliseconds.
+      shared_ptr<int64_t> gmtCreateTime_ {};
+      // The last modified time, expressed as a timestamp in milliseconds.
+      shared_ptr<int64_t> gmtModifiedTime_ {};
       // **The extended metadata.**
       Darabonba::Json metadata_ {};
       // **The model configuration.**
@@ -743,7 +739,7 @@ namespace Models
       shared_ptr<string> modifierId_ {};
       // **The agent name.**
       shared_ptr<string> name_ {};
-      // The environment dependencies required for execution.
+      // The environment dependencies required for runtime.
       shared_ptr<vector<string>> requiredRuntime_ {};
       // The list of skills.
       shared_ptr<vector<Agent::Skills>> skills_ {};

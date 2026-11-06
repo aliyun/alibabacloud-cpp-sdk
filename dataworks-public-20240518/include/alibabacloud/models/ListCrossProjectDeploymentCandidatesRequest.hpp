@@ -132,11 +132,11 @@ namespace Models
   protected:
     // The change type.
     shared_ptr<string> changeType_ {};
-    // The start of the commit time range. This value is a UNIX timestamp in milliseconds.
+    // The start of the commit time range. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> commitTimeFrom_ {};
-    // The end of the commit time range. This value is a UNIX timestamp in milliseconds.
+    // The end of the commit time range. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> commitTimeTo_ {};
-    // The committer.
+    // The submitter.
     shared_ptr<string> commitUser_ {};
     // The cross-workspace deployment environment ID.
     // 

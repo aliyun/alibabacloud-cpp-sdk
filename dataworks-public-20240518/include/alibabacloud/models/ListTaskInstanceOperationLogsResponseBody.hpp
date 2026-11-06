@@ -122,15 +122,15 @@ namespace Models
 
 
       protected:
-        // The generation time of Operation logs.
+        // The time when the operation log was generated.
         // 
-        // The format is a 13-digit number, such as `1710239005403`.
+        // The value is a 13-digit number, such as `1710239005403`.
         shared_ptr<int64_t> createTime_ {};
         // The content of the operation.
         shared_ptr<string> operationContent_ {};
         // The sequence number of the operation.
         shared_ptr<int64_t> operationSeq_ {};
-        // The ID of the node instance on which the operation was performed.
+        // The ID of the task instance on which the operation was performed.
         shared_ptr<int64_t> taskInstanceId_ {};
         // The account ID of the user who performed the operation.
         shared_ptr<string> user_ {};

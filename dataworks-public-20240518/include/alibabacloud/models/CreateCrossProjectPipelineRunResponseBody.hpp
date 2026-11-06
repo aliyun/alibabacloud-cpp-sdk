@@ -71,7 +71,7 @@ namespace Models
 
 
     protected:
-      // The cross-workspace deployment flow ID.
+      // The ID of the cross-workspace deployment pipeline.
       shared_ptr<string> pipelineRunId_ {};
       // The request ID.
       shared_ptr<string> requestId_ {};
@@ -105,9 +105,9 @@ namespace Models
   protected:
     // The business response.
     shared_ptr<CreateCrossProjectPipelineRunResponseBody::Data> data_ {};
-    // The request ID, which is used to locate and troubleshoot this API call.
+    // The request ID, which is used to locate and troubleshoot the API call.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

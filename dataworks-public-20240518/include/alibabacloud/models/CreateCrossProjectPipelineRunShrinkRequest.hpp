@@ -75,13 +75,13 @@ namespace Models
 
 
   protected:
-    // The cross-workspace deployment environment ID.
+    // The ID of the cross-workspace deployment environment.
     // 
     // This parameter is required.
     shared_ptr<int64_t> deploymentEnvironmentId_ {};
     // The deployment description.
     shared_ptr<string> description_ {};
-    // The list of top-level object IDs from the source project to deploy. The list must contain exactly one object. Child objects of composite objects such as workflows are automatically included by the system.
+    // The list of top-level object IDs from the source project to be deployed. The list must contain exactly one object. Sub-objects of composite objects such as workflows are automatically included by the system.
     // 
     // This parameter is required.
     shared_ptr<string> objectIdsShrink_ {};
@@ -89,13 +89,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
-    // The deployment type. Valid values:
-    // 
-    // 
-    // 
-    // 
-    // - Offline: Deployment to take the object offline.
-    // - Online: Deployment to bring the object online.
+    // The deployment type.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};
